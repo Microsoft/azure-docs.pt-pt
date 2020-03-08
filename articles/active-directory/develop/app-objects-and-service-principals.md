@@ -15,17 +15,17 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.openlocfilehash: 19085346fb5797245c9f71911f8178df0a1b742a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698429"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370300"
 ---
-# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
+# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos principais de aplicação e serviço no Diretório Ativo azure
 
 Por vezes, o significado do termo "aplicação" pode ser mal compreendido quando usado no contexto do Azure Ative Directory (Azure AD). Este artigo clarifica os aspetos conceptuais e concretos da integração de aplicações da AD Azure, com uma ilustração de registo e consentimento para uma [aplicação multi-arrendatária.](developer-glossary.md#multi-tenant-application)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Uma aplicação que foi integrada com a Azure AD tem implicações que vão além do aspeto do software. A "aplicação" é frequentemente utilizada como termo conceptual, referindo-se não só ao software de aplicação, mas também ao seu registo de AD Azure e ao seu papel na autenticação/autorização de "conversas" em tempo de execução.
 
@@ -46,11 +46,11 @@ Ao registar uma aplicação Azure AD no [portal Azure,][AZURE-Portal]são criado
 - Um objeto de aplicação, e
 - Um objeto principal de serviço
 
-### <a name="application-object"></a>Objeto Application
+### <a name="application-object"></a>Objeto de aplicação
 
 Um pedido da AD Azure é definido pelo seu único objeto de candidatura, que reside no inquilino da AD Azure onde o pedido foi registado, conhecido como o inquilino "casa" do pedido. A entidade microsoft graph [application][MS-Graph-App-Entity] define o esquema para as propriedades de um objeto de aplicação.
 
-### <a name="service-principal-object"></a>objeto de entidade de serviço
+### <a name="service-principal-object"></a>Objeto principal de serviço
 
 Para aceder a recursos garantidos por um inquilino da AD Azure, a entidade que exige acesso deve ser representada por um diretor de segurança. Isto é verdade tanto para utilizadores (diretor de utilizador) como para aplicações (diretor de serviço).
 
@@ -58,13 +58,13 @@ O responsável pela segurança define a política de acesso e as permissões par
 
 Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. A entidade Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto principal de serviço.
 
-### <a name="application-and-service-principal-relationship"></a>Relação do principal de serviço e aplicação
+### <a name="application-and-service-principal-relationship"></a>Relação principal de aplicação e serviço
 
 Considere o objeto de candidatura como a representação *global* do seu pedido de utilização em todos os inquilinos, e o diretor de serviço como a representação *local* para uso em um inquilino específico.
 
-O objeto da aplicação serve como o modelo a partir do qual as propriedades comuns e predefinidas são *derivadas* para utilização na criação de objetos correspondentes do principal de serviço. Um objeto de aplicação tem, portanto, uma relação 1:1 com a aplicação de software, e uma relação de 1:muitas relações com o seu principal objeto de serviço correspondente.
+O objeto de aplicação serve como modelo a partir do qual são *derivadas* propriedades comuns e predefinidas para utilização na criação de objetos principais de serviço correspondentes. Um objeto de aplicação tem, portanto, uma relação 1:1 com a aplicação de software, e uma relação de 1:muitas relações com o seu principal objeto de serviço correspondente.
 
-Deve ser criado um diretor de serviço em cada inquilino onde o pedido seja utilizado, permitindo-lhe estabelecer uma identidade para o acesso e/ou acesso aos recursos garantidos pelo arrendatário. Uma aplicação de inquilino único tem apenas um principal de serviço (no inquilino principal), criado e com permissão para utilização durante o registo da aplicação. Uma aplicação Web/API multi-inquilino também tem um diretor de serviço criado em cada inquilino onde um utilizador desse inquilino consentiu a sua utilização.
+Deve ser criado um diretor de serviço em cada inquilino onde o pedido seja utilizado, permitindo-lhe estabelecer uma identidade para o acesso e/ou acesso aos recursos garantidos pelo arrendatário. Um pedido de inquilino único tem apenas um diretor de serviço (no seu inquilino de casa), criado e consentido para uso durante o registo de candidatura. Uma aplicação Web/API multi-inquilino também tem um diretor de serviço criado em cada inquilino onde um utilizador desse inquilino consentiu a sua utilização.
 
 > [!NOTE]
 > Quaisquer alterações que efaça ao seu objeto de candidatura, também se refletem no seu principal objeto de serviço apenas no inquilino da casa da aplicação (o inquilino onde foi registado). Para aplicações multi-arrendatárias, as alterações ao objeto de pedido não se refletem em quaisquer objetos principais de serviço dos inquilinos de consumo, até que o acesso seja removido através do Painel de Acesso à [Aplicação](https://myapps.microsoft.com) e concedido novamente.

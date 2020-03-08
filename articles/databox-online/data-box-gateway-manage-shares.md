@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60755837"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384592"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir as partilhas do Azure Data Box Gateway 
 
@@ -85,7 +85,7 @@ A lista de partilhas é atualizada para refletir a eliminação.
 O recurso de atualização permite atualizar o conteúdo de uma partilha no local. Quando atualiza uma partilha, é iniciada uma pesquisa para localizar todos os objetos do Azure, incluindo os blobs e ficheiros que foram adicionados à cloud desde a última atualização. Estes ficheiros adicionais são então utilizados para atualizar os conteúdos da partilha no local no dispositivo. 
 
 > [!NOTE]
-> Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização. 
+> As permissões e as listas de controlo de acesso (ACLs) não são preservadas através de uma operação de atualização. 
 
 Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 
@@ -110,7 +110,7 @@ Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 Se houver uma falha, é gerado um alerta. O alerta fornece detalhes sobre a causa e a recomendação para corrigir o problema. O alerta também contém ligações para um ficheiro com o resumo completo das falhas, incluindo os ficheiros que não foi possível atualizar ou eliminar.
 
 >[!IMPORTANT]
-> Nesta versão, não atualize mais do que uma única partilha ao mesmo tempo.
+> Neste lançamento, não refresque mais do que uma única parte de cada vez.
 
 ## <a name="sync-storage-keys"></a>Sincronizar chaves de armazenamento
 
@@ -119,7 +119,7 @@ Se as chaves da conta de armazenamento tiverem sido rodadas, terá de sincroniza
 Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso ao armazenamento.
 
 1. Aceda a **Descrição Geral** no seu recurso. 
-2. Na lista de partilhas, escolha e clique numa partilha associada à conta de armazenamento que precisa de sincronizar. Clique em **Sincronizar chave de armazenamento**. 
+2. A partir da lista de ações, escolha e clique numa partilha associada à conta de armazenamento que precisa de sincronizar. Clique na **chave de armazenamento Sync**. 
 
      ![Sincronizar chave de armazenamento 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
@@ -131,6 +131,6 @@ Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso
 > Apenas terá de efetuar este procedimento uma vez para uma conta de armazenamento fornecida. Não precisa de repetir esta ação para todas as partilhas associadas à mesma conta de armazenamento.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir utilizadores através do portal do Azure](data-box-gateway-manage-users.md).

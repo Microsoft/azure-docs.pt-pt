@@ -1,6 +1,6 @@
 ---
-title: Serviço de provisionamento de dispositivos no Hub IoT do Azure-atestado de chave simétrica
-description: Este artigo fornece uma visão geral conceitual do atestado de chave simétrica usando o DPS (serviço de provisionamento de dispositivos IoT).
+title: Serviço de Provisionamento de Dispositivos Hub Azure IoT - Atestação de chaves simétricas
+description: Este artigo fornece uma visão geral conceptual do atestado de chave simétrica utilizando o Serviço de Provisionamento de Dispositivos IoT (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -9,71 +9,71 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975300"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393932"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
-Este artigo descreve o processo de atestado de identidade ao usar chaves simétricas com o serviço de provisionamento de dispositivos. 
+Este artigo descreve o processo de atestade de identidade ao utilizar chaves simétricas com o Serviço de Provisionamento de Dispositivos. 
 
-O atestado de chave simétrica é uma abordagem simples para autenticar um dispositivo com uma instância do serviço de provisionamento de dispositivos. Esse método de atestado representa uma experiência de "Olá, mundo" para desenvolvedores que são novos no provisionamento de dispositivos ou que não têm requisitos de segurança rígidos. O atestado de dispositivo usando um [TPM](concepts-tpm-attestation.md) ou um [certificado X. 509](concepts-security.md#x509-certificates) é mais seguro e deve ser usado para requisitos de segurança mais rígidos.
+O atestado de chaves simétricas é uma abordagem simples para autenticar um dispositivo com uma instância do Serviço de Provisionamento de Dispositivos. Este método de atestado representa uma experiência "Hello world" para desenvolvedores que são novos no fornecimento de dispositivos, ou não têm requisitos de segurança rigorosos. O atestado do dispositivo utilizando um [TPM](concepts-tpm-attestation.md) ou um [certificado X.509](concepts-security.md#x509-certificates) é mais seguro e deve ser utilizado para requisitos de segurança mais rigorosos.
 
-Os registros de chave simétrica também fornecem uma ótima maneira de dispositivos herdados, com funcionalidade de segurança limitada, para inicializar a nuvem por meio do Azure IoT. Para obter mais informações sobre o atestado de chave simétrica com dispositivos herdados, consulte [como usar chaves simétricas com dispositivos herdados](how-to-legacy-device-symm-key.md).
-
-
-## <a name="symmetric-key-creation"></a>Criação de chave simétrica
-
-Por padrão, o serviço de provisionamento de dispositivos cria novas chaves simétricas com um comprimento padrão de 32 bytes quando novos registros são salvos com a opção **gerar chaves automaticamente** habilitada.
-
-![Gerar automaticamente chaves simétricas](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
-
-Você também pode fornecer suas próprias chaves simétricas para registros desabilitando essa opção. Ao especificar suas próprias chaves simétricas, suas chaves devem ter um comprimento de chave entre 16 bytes e 64 bytes. Além disso, as chaves simétricas devem ser fornecidas no formato Base64 válido.
+As principais inscrições simétricas também fornecem uma ótima maneira de dispositivos legados, com funcionalidade de segurança limitada, para botas para a nuvem via Azure IoT. Para obter mais informações sobre a atestação de chaves simétricas com dispositivos legados, consulte [Como utilizar chaves simétricas com dispositivos legados](how-to-legacy-device-symm-key.md).
 
 
+## <a name="symmetric-key-creation"></a>Criação simétrica chave
 
-## <a name="detailed-attestation-process"></a>Processo de atestado detalhado
+Por predefinição, o Serviço de Provisionamento de Dispositivos cria novas teclas simétricas com um comprimento predefinido de 32 bytes quando novas matrículas são guardadas com a opção de **teclas de geração automática** ativada.
 
-O atestado de chave simétrica com o serviço de provisionamento de dispositivos é executado usando os mesmos [tokens de segurança](../iot-hub/iot-hub-devguide-security.md#security-token-structure) com suporte dos hubs IOT para identificar dispositivos. Esses tokens de segurança são [tokens de assinatura de acesso compartilhado (SAS)](../service-bus-messaging/service-bus-sas.md). 
+![Auto Generate chaves simétricas](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 
-Tokens SAS têm uma *assinatura* com hash que é criada usando a chave simétrica. A assinatura é recriada pelo serviço de provisionamento de dispositivos para verificar se um token de segurança apresentado durante o atestado é autêntico ou não.
+Também pode fornecer as suas próprias chaves simétricas para as matrículas, desativando esta opção. Ao especificar as suas próprias teclas simétricas, as suas chaves devem ter um comprimento de chave entre 16 bytes e 64 bytes. Além disso, as chaves simétricas devem ser fornecidas em formato Base64 válido.
 
-Os tokens SAS têm o seguinte formato:
+
+
+## <a name="detailed-attestation-process"></a>Processo de atestação detalhado
+
+O atestado da chave simétrica com o Serviço de Provisionamento de Dispositivos é realizado utilizando as mesmas [fichas](../iot-hub/iot-hub-devguide-security.md#security-token-structure) de Segurança suportadas por hubs IoT para identificar dispositivos. Estas fichas de segurança são fichas de assinatura de [acesso partilhado (SAS).](../service-bus-messaging/service-bus-sas.md) 
+
+As fichas SAS têm uma *assinatura* hashed que é criada usando a chave simétrica. A assinatura é recriada pelo Serviço de Fornecimento de Dispositivos para verificar se um token de segurança apresentado durante o atestado é autêntico ou não.
+
+As fichas SAS têm o seguinte formulário:
 
 `SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
 
-Estes são os componentes de cada token:
+Aqui estão os componentes de cada símbolo:
 
 | Valor | Descrição |
 | --- | --- |
-| {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256. Para registros individuais, essa assinatura é produzida usando a chave simétrica (primária ou secundária) para executar o hash. Para grupos de registro, uma chave derivada da chave do grupo de registro é usada para executar o hash. O hash é executado em uma mensagem do formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: a chave deve ser decodificada a partir de Base64 antes de ser usada para executar a computação HMAC-SHA256. Além disso, o resultado da assinatura deve ser codificado por URL. |
-| {resourceURI} |URI do ponto de extremidade de registro que pode ser acessado com esse token, começando com a ID de escopo para a instância do serviço de provisionamento de dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |
-| expiração |Cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
-| {URL-encoded-resourceURI} |Codificação de URL em minúsculas do URI de recurso em letras minúsculas |
-| {policyName} |O nome da política de acesso compartilhado à qual esse token se refere. O nome da política usado ao provisionar com o atestado de chave simétrica é o **registro**. |
+| {signature} |Uma corda de assinatura HMAC-SHA256. Para as matrículas individuais, esta assinatura é produzida utilizando a chave simétrica (primária ou secundária) para executar o hash. Para os grupos de inscrição, uma chave derivada da chave do grupo de inscrição é usada para executar o hash. O hash é realizado numa mensagem do formulário: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: A chave deve ser descodificada a partir do base64 antes de ser utilizada para realizar o cálculo HMAC-SHA256. Além disso, o resultado da assinatura deve ser codificado por URL. |
+| {resourceURI} |URI do ponto final de registo que pode ser acedido com este símbolo, começando com o ID de âmbito para a instância do Serviço de Provisionamento de Dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |
+| {expiração} |UTF8 cordas para o número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
+| {URL-encoded-resourceURI} |Codificação de URL em maiúscula do recurso minúsculo URI |
+| {policyName} |O nome da política de acesso partilhado a que se refere este símbolo. O nome de política utilizado no fornecimento com atestado de chave simétrica é **o registo**. |
 
-Quando um dispositivo está atestando com um registro individual, o dispositivo usa a chave simétrica definida na entrada de registro individual para criar a assinatura com hash para o token SAS.
+Quando um dispositivo está a atestar com uma matrícula individual, o dispositivo utiliza a chave simétrica definida na entrada de matrícula individual para criar a assinatura hashed para o token SAS.
 
-Para obter exemplos de código que criam um token SAS, consulte [tokens de segurança](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+Para exemplos de código que criam uma ficha SAS, consulte [Fichas](../iot-hub/iot-hub-devguide-security.md#security-token-structure)de Segurança .
 
-A criação de tokens de segurança para atestado de chave simétrica é suportada pelo SDK do Azure IoT C. Para obter um exemplo usando o SDK do Azure IoT C para atestar com um registro individual, consulte [provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md).
+A criação de fichas de segurança para atestado de chave simétrica é apoiada pelo Azure IoT C SDK. Por exemplo, utilizando o SDK Azure IoT C para atestar com uma matrícula individual, consulte [a Provision um dispositivo simulado com teclas simétricas](quick-create-simulated-device-symm-key.md).
 
 
-## <a name="group-enrollments"></a>Registros de grupo
+## <a name="group-enrollments"></a>Inscrições em Grupo
 
-As chaves simétricas para registros de grupo não são usadas diretamente por dispositivos durante o provisionamento. Em vez disso, os dispositivos que pertencem a um grupo de registro provisionam usando uma chave de dispositivo derivada. 
+As chaves simétricas para as matrículas em grupo não são utilizadas diretamente pelos dispositivos durante o fornecimento. Em vez disso, dispositivos que pertencem a uma disposição de grupo de inscrição utilizando uma chave de dispositivo derivada. 
 
-Primeiro, uma ID de registro exclusiva é definida para cada atestado de dispositivo com um grupo de registro. Os caracteres válidos para a ID de registro são alfanuméricos minúsculos e Dash ('-'). Essa ID de registro deve ser algo exclusivo que identifica o dispositivo. Por exemplo, um dispositivo herdado pode não oferecer suporte a muitos recursos de segurança. O dispositivo herdado pode ter apenas um endereço MAC ou número de série disponível para identificar exclusivamente esse dispositivo. Nesse caso, uma ID de registro pode ser composta pelo endereço MAC e pelo número de série semelhante ao seguinte:
+Em primeiro lugar, é definido um ID de registo único para cada dispositivo que atesta com um grupo de inscrições. Os caracteres válidos para o ID de registo são alfanuméricos minúsculos e traços ('-'). Esta identificação de registo deve ser algo único que identifique o dispositivo. Por exemplo, um dispositivo legado pode não suportar muitas funcionalidades de segurança. O dispositivo legado só pode ter um endereço MAC ou um número de série disponível para identificar exclusivamente esse dispositivo. Nesse caso, pode ser composto um ID de registo do endereço MAC e do número de série semelhante ao seguinte:
 
 ```
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Esse exemplo exato é usado no artigo [como provisionar dispositivos herdados usando chaves simétricas](how-to-legacy-device-symm-key.md) .
+Este exemplo exato é usado no Como fornecer dispositivos legados usando o artigo [de teclas simétricas.](how-to-legacy-device-symm-key.md)
 
-Depois que uma ID de registro tiver sido definida para o dispositivo, a chave simétrica para o grupo de registro será usada para computar um hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro para produzir uma chave de dispositivo derivada. O hash da ID de registro pode ser executado com o seguinte C# código:
+Uma vez definido um ID de registo para o dispositivo, a chave simétrica para o grupo de inscrição é usada para calcular um hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registo para produzir uma chave de dispositivo derivada. O hashing do ID de registo C# pode ser realizado com o seguinte código:
 
 ```csharp
 using System; 
@@ -96,24 +96,24 @@ public static class Utils
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 
-A chave de dispositivo resultante é usada para gerar um token SAS a ser usado para atestado. Cada dispositivo em um grupo de registro é necessário para atestar usando um token de segurança gerado por meio de uma chave derivada exclusiva. A chave simétrica do grupo de registro não pode ser usada diretamente para atestado.
+A chave do dispositivo resultante é então utilizada para gerar um token SAS para ser utilizado para a atestado. Cada dispositivo de um grupo de inscrição é obrigado a atestar usando um símbolo de segurança gerado a partir de uma chave derivada única. A chave simétrica do grupo de matrícula não pode ser utilizada diretamente para o atestado.
 
 #### <a name="installation-of-the-derived-device-key"></a>Instalação da chave do dispositivo derivado
 
-O ideal é que as chaves do dispositivo sejam derivadas e instaladas na fábrica. Esse método garante que a chave do grupo nunca seja incluída em nenhum software implantado no dispositivo. Quando o dispositivo recebe um endereço MAC ou um número de série, a chave pode ser derivada e injetada no dispositivo, no entanto, o fabricante opta por armazená-lo.
+Idealmente, as chaves do dispositivo são derivadas e instaladas na fábrica. Este método garante que a chave do grupo nunca está incluída em qualquer software implantado no dispositivo. Quando o dispositivo é atribuído a um endereço MAC ou número de série, a chave pode ser derivada e injetada no dispositivo, no entanto o fabricante opta por armazená-lo.
 
-Considere o diagrama a seguir que mostra uma tabela de chaves de dispositivo geradas em uma fábrica com o hash de cada ID de registro de dispositivo com a chave de registro de grupo (**K**). 
+Considere o diagrama seguinte que mostra uma tabela de teclas do dispositivo geradas numa fábrica, apresentando cada id de registo de dispositivo com a chave de inscrição do grupo **(K).** 
 
-![Chaves de dispositivo atribuídas de uma fábrica](./media/concepts-symmetric-key-attestation/key-diversification.png)
+![Chaves de dispositivo atribuídas a partir de uma fábrica](./media/concepts-symmetric-key-attestation/key-diversification.png)
 
-A identidade de cada dispositivo é representada pela ID de registro e pela chave de dispositivo derivada instalada na fábrica. A chave do dispositivo nunca é copiada para outro local e a chave do grupo nunca é armazenada em um dispositivo.
+A identidade de cada dispositivo é representada pela identificação de registo e chave do dispositivo derivado que está instalada na fábrica. A chave do dispositivo nunca é copiada para outro local e a chave do grupo nunca é armazenada num dispositivo.
 
-Se as chaves de dispositivo não estiverem instaladas na fábrica, um [HSM de módulo de segurança de hardware](concepts-security.md#hardware-security-module) deverá ser usado para armazenar com segurança a identidade do dispositivo.
+Se as chaves do dispositivo não forem instaladas na fábrica, deve ser utilizado um módulo de segurança de [hardware HSM](concepts-security.md#hardware-security-module) para armazenar de forma segura a identidade do dispositivo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você tem uma compreensão do atestado de chave simétrica, confira os seguintes artigos para saber mais:
+Agora que tem uma compreensão da atesta da Chave Simétrica, confira os seguintes artigos para saber mais:
 
-* [Início rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
-* [Saiba mais sobre os conceitos no provisionamento automático](./concepts-auto-provisioning.md)
-* [Começar a usar o provisionamento automático](./quick-setup-auto-provision.md) 
+* [Quickstart: Fornecer um dispositivo simulado com teclas simétricas](quick-create-simulated-device-symm-key.md)
+* [Conheça os conceitos de fornecimento automático](./concepts-auto-provisioning.md)
+* [Começar a usar auto-provisionamento](./quick-setup-auto-provision.md) 

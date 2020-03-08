@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668779"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393579"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados do agente no Monitor Azure
 Os dados que o Azure Monitor recolhe dos agentes são definidos pelas fontes de dados que configura.  Os dados dos agentes são armazenados como dados de [registo](data-platform-logs.md) com um conjunto de registos.  Cada fonte de dados cria registos de um tipo específico com cada tipo com o seu próprio conjunto de propriedades.

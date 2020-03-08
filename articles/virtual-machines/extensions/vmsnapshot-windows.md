@@ -1,6 +1,6 @@
 ---
-title: Extensão do Windows de instantâneo da VM para o backup do Azure
-description: Fazer backup consistente com o aplicativo da máquina virtual do backup do Azure usando a extensão de instantâneo de VM
+title: Extensão vM Snapshot Windows para backup azure
+description: Tome a aplicação de backup consistente da máquina virtual a partir de Backup Azure utilizando extensão de instantâneo VM
 services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhkotturu
@@ -10,24 +10,24 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: c4f5650e333c209d3b5f342c1f1c61ec1ca5cf47
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264293"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383199"
 ---
-# <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão do Windows de instantâneo da VM para o backup do Azure
+# <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão vM Snapshot Windows para backup azure
 
-O backup do Azure fornece suporte para o backup de cargas de trabalho do local para a nuvem e o backup de recursos de nuvem para o cofre dos serviços de recuperação. O backup do Azure usa a extensão de instantâneo de VM para obter um backup consistente com o aplicativo da máquina virtual do Azure sem a necessidade de desligar a VM. A extensão de instantâneo de VM é publicada e tem suporte da Microsoft como parte do serviço de backup do Azure. O backup do Azure instalará a extensão como parte do primeiro backup programado iniciado após a habilitação do backup. Este documento detalha as plataformas com suporte, as configurações e as opções de implantação para a extensão de instantâneo da VM.
+A Azure Backup fornece suporte para o backup de cargas de trabalho desde as instalações até à nuvem e apoio aos recursos da nuvem até ao cofre dos Serviços de Recuperação. O Azure Backup utiliza uma extensão de instantâneo VM para obter uma cópia de segurança consistente da máquina virtual Azure sem a necessidade de desligar o VM. A extensão VM Snapshot é publicada e suportada pela Microsoft como parte do serviço de backup Do Azure. O Azure Backup instalará a extensão como parte do primeiro poste de backup acionado programado que permite a cópia de segurança. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão VM Snapshot.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
-Para obter uma lista de sistemas operacionais com suporte, consulte [sistemas operacionais com suporte do backup do Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
+Para obter uma lista de sistemas operativos suportados, consulte os [Sistemas Operativos suportados pela Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão de instantâneo da VM. A extensão requer a ID da tarefa – identifica o trabalho de backup que disparou o instantâneo na VM, status URI de blob-onde o status da operação de instantâneo é gravado, hora de início agendada do instantâneo, log URI de blob-onde os logs correspondentes à tarefa de instantâneo são gravados, objstr de discos de VM e metadados.  Como essas configurações devem ser tratadas como dados confidenciais, elas devem ser armazenadas em uma configuração protegida. Dados de definição de protegidos de extensão VM do Azure são encriptados e desencriptados apenas na máquina de virtual de destino. Observe que essas configurações são recomendadas para serem passadas do serviço de backup do Azure somente como parte do trabalho de backup.
+O JSON seguinte mostra o esquema para a extensão instantânea VM. A extensão requer o ID de tarefa - isto identifica o trabalho de backup que desencadeou instantâneo no VM, status blob uri - onde o estado da operação instantânea é escrito, hora de início programada do instantâneo, logs blob uri - onde troncos correspondentes à tarefa instantânea são escritas, objstr-representação de discos VM e meta dados.  Uma vez que estas definições devem ser tratadas como dados sensíveis, devem ser armazenadas numa configuração de definição protegida. Dados de definição de protegidos de extensão VM do Azure são encriptados e desencriptados apenas na máquina de virtual de destino. Note que estas definições são recomendadas para serem transmitidas do serviço de backup Azure apenas como parte do trabalho de backup.
 
 ```json
 {
@@ -61,9 +61,9 @@ O JSON a seguir mostra o esquema para a extensão de instantâneo da VM. A exten
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
-| commandStartTimeUTCTicks | 6.36458 e + 17 | string |
-| região | pt-pt | string |
-| objectStr | Codificação da matriz de URI de SAS-"blobSASUri": ["https:\/\/\/VHDs\/vmwin1404ltsc201652903941. vhd? VA = 2014-02-14 & Sr = b & SIG = TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW", "https:\/\/sopattna8461.blob.core.windows.net\/VHDs\/vmwin1404ltsc-20160629-122418. vhd? VA = 2014-02-14 & Sr = b & SIG = 5S0A6YDWvVwqPAkzWXVy% 2BS% 2FqMwzFMbamT5upwx05v8Q% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna8461.blob.core.windows.net\/bootdiagnostics-vmwintu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541. vhd? VA = 2014-02-14 & Sr = b & SIG = X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna5365.blob.core.windows.net\/VHDs\/vmwin1404ltsc-20160701-163922. vhd? VA = 2014-02-14 & Sr = b & SIG = oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r% 2BC% 2BNIAork% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "," https:\/\/sopattna5365.blob.core.windows.net\/VHDs\/vmwin1404ltsc-20170705-124311. vhd? VA = 2014-02-14 & Sr = b & SIG = ZUM9d28Mvvm% 2FfrhJ71TFZh0Ni90m38bBs3zMl% 2FQ9rs0% 3D & St = 2017-11-09T14% 3A23% 3A28Z & se = 2017-11-09T17% 3A38% 3A28Z & SP = RW "] | string |
+| commandStartTimeUTCTicks | 6.36458E+17 | string |
+| local | pt-pt | string |
+| objetoStr | Codificação de sas uri array- "blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/sopattna5365.blob.core.windows.net vhds\/vmwin1404ltsc201652903941.vhd?sv=2014-02-14&sr=b&sig=TywkROXL1zhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna8461.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160629-122418.vhd?sv=2014-02-14&sr=b&sig= 5S0A6YDWvVwqPAkzWVy%2BS%2FqMwzFMbamT5upwx05v8Q%3D&st=2017-11-09T14%3A23%3A28Z&se=2 0017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna8461.blob.core.windows.net\/bootdiagnostics-vmwintu1-deb58392-ed5e-48be-9228-ff681b0cd3 ee\/vmubuntu1404ltsc-20160629-122541.vhd?sv=2014-02-14&sr=b&sig=X0Me2djByksBBMXMGIUrcycvhQS ffjYvqKLeRA7nBD4%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z& sp=rw", "https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160701-163922.vhd?sv=2014-02-14&sénior=b&sig=oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r%2BC%2BNIAork%3D&st=2017-11-09 T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw", "https:\/\/sopattna5365.blob.core.windows.net sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc-20170705-124311.vhd?sv=2014-02-14&sr=b&sig=ZUM9d28Mvvm% 2FfrhJ71TFZh0Ni90m38bBs3zMl%2FQ9rs0%3D&st=2017-11-09T14%3A23%3A28Z&se=2017-11-09T17%3A38%3A28Z&sp=rw"] | string |
 | logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
 | statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
 
@@ -71,12 +71,12 @@ O JSON a seguir mostra o esquema para a extensão de instantâneo da VM. A exten
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. No entanto, a maneira recomendada de adicionar uma extensão de instantâneo de VM a uma máquina virtual é habilitar o backup na máquina virtual. Isso pode ser obtido por meio de um modelo do Resource Manager.  Um modelo do Resource Manager de exemplo que permite o backup em uma máquina virtual pode ser encontrado na [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. No entanto, a forma recomendada de adicionar uma extensão de instantâneo VM a uma máquina virtual é permitindo a cópia de segurança na máquina virtual. Isto pode ser conseguido através de um modelo de Gestor de Recursos.  Um modelo de Gestor de Recursos de amostra que permite a cópia de segurança numa máquina virtual pode ser encontrado na [Galeria De Arranque Rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
 
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-O CLI do Azure pode ser usado para habilitar o backup em uma máquina virtual. Pós-habilitar backup, o primeiro trabalho de backup agendado instalará a extensão de instantâneo da VM na VM.
+O Azure CLI pode ser utilizado para ativar a cópia de segurança numa máquina virtual. O post ativar a cópia de segurança, o primeiro trabalho de backup programado instalará a extensão de instantâneo Vm no VM.
 
 ```azurecli
 az backup protection enable-for-vm \
@@ -104,8 +104,8 @@ C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-As informações de solução de problemas podem ser encontradas no [Guia de solução de problemas de backup da VM do Azure](../../backup/backup-azure-vms-troubleshoot.md).
+Informações de resolução de problemas podem ser encontradas no guia de resolução de problemas de [backup Azure VM](../../backup/backup-azure-vms-troubleshoot.md).
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

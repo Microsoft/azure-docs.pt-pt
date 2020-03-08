@@ -10,11 +10,11 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
 ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252081"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355751"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é um exemplo de computação de aprendizagem automática Azure?
 
@@ -82,17 +82,17 @@ Os casos de computação são normalmente usados como ambientes de desenvolvimen
 
 ### <a name="installing-packages"></a>Instalação de pacotes
 
-Você pode instalar pacotes diretamente em um Jupyter notebook ou RStudio:
+Pode instalar pacotes diretamente num caderno Jupyter ou Rstudio:
 
 * RStudio Utilize o separador **Pacotes** na parte inferior direita ou o separador **Consola** na parte superior esquerda.  
-* Python: Adicione o código de instalação e execute em uma célula do Jupyter notebook.
+* Python: Adicione o código de instalação e execute numa célula de caderno Jupyter.
 
-Ou você pode acessar uma janela de terminal de qualquer uma das seguintes maneiras:
+Ou pode aceder a uma janela terminal de qualquer uma destas formas:
 
 * RStudio: Selecione o separador **Terminal** em cima à esquerda.
 * Jupyter Lab: Selecione o azulejo **terminal** sob a **outra** rubrica no separador Launcher.
 * Jupyter: Selecione **New>Terminal** em cima direito no separador Ficheiros.
-* SSH para o computador.  Em seguida, instale pacotes Python no ambiente **Python 3.6 - AzureML.**  Instale pacotes R no ambiente **R.**
+* SSH para a máquina.  Em seguida, instale pacotes Python no ambiente **Python 3.6 - AzureML.**  Instale pacotes R no ambiente **R.**
 
 ## <a name="accessing-files"></a>Aceder a ficheiros
 

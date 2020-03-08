@@ -5,11 +5,11 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659305"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373411"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Amostras de arranque rápido do Monitor Azure PowerShell
 Este artigo mostra que experimenta comandos PowerShell para ajudá-lo a aceder às funcionalidades do Monitor Azure.
@@ -153,7 +153,7 @@ A tabela seguinte descreve os parâmetros e valores utilizados para criar um ale
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | Nome métrico do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/seg. Veja o `Get-MetricDefinitions` cmdlet sobre como recuperar os nomes métricos exatos |
-| operador |GreaterThan |
+| operator |GreaterThan |
 | Valor limiar (contagem/sec para esta métrica) |1 |
 | Tamanho do janela (hh:mm:ss formato) |00:05:00 |
 | agregador (estatística da métrica, que utiliza a contagem média, neste caso) |Média |

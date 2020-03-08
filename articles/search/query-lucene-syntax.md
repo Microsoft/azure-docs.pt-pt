@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149886"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379612"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe lucene consulta em Pesquisa Cognitiva Azure
 
@@ -172,7 +172,7 @@ O exemplo que se segue ajuda a ilustrar as diferenças. Suponha que há um perfi
 >  Não pode usar um ou? símbolo como o primeiro personagem de uma pesquisa.  
 >  Não é feita nenhuma análise de texto em consultas de pesquisa de wildcard. No momento da consulta, os termos de consulta wildcard são comparados com os termos analisados no índice de pesquisa e expandidos.
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 + [Documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintaxe de expressão OData para filtros e triagem](query-odata-filter-orderby-syntax.md)   

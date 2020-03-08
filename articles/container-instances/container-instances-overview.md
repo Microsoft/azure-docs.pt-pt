@@ -1,15 +1,15 @@
 ---
-title: Contêineres sem servidor no Azure
-description: O serviço de instâncias de contêiner do Azure oferece a maneira mais rápida e simples de executar contêineres isolados no Azure, sem precisar gerenciar máquinas virtuais e sem precisar adotar um orquestrador de nível superior.
+title: Recipientes sem servidor em Azure
+description: O serviço De casos de contentores Azure oferece a forma mais rápida e simples de executar contentores isolados em Azure, sem ter de gerir máquinas virtuais e sem ter de adotar um orquestrador de nível superior.
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888038"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365032"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
@@ -21,14 +21,14 @@ O Azure Container Instances é uma ótima solução para qualquer cenário que p
 
 Os contentores oferecem benefícios de arranque significativos em relação às máquinas virtuais (VMs). Com o Azure Container Instances, pode iniciar contentores no Azure em segundos, sem ter de aprovisionar e gerir VMs.
 
-## <a name="container-access"></a>Acesso ao contêiner
+## <a name="container-access"></a>Acesso a contentores
 
-As instâncias de contêiner do Azure permitem expor os grupos de contêineres diretamente à Internet com um endereço IP e um FQDN (nome de domínio totalmente qualificado). Quando cria uma instância de contentor, pode especificar uma etiqueta de nome DNS personalizada para que a aplicação esteja acessível em *customlabel*.*azureregion*.azurecontainer.io.
+As instâncias de contentores Azure permitem expor os seus grupos de contentores diretamente à internet com um endereço IP e um nome de domínio totalmente qualificado (FQDN). Quando cria uma instância de contentor, pode especificar uma etiqueta de nome DNS personalizada para que a aplicação esteja acessível em *customlabel*.*azureregion*.azurecontainer.io.
 
-As instâncias de contêiner do Azure também dão suporte à execução de um comando em um contêiner em execução, fornecendo um shell interativo para ajudar no desenvolvimento e solução de problemas de aplicativos. O acesso assume locais via HTTPS, usando TLS para proteger conexões de cliente.
+A Azure Container Instances também suporta a execução de um comando num contentor de corrida, fornecendo uma concha interativa para ajudar no desenvolvimento de aplicações e na resolução de problemas. O acesso ocupa lugares sobre HTTPS, usando TLS para garantir ligações ao cliente.
 
 > [!IMPORTANT]
-> A partir de 13 de janeiro de 2020, as instâncias de contêiner do Azure exigirão todas as conexões seguras de servidores e aplicativos para usar o TLS 1,2. O suporte para TLS 1,0 e 1,1 será desativado.
+> A partir de 13 de janeiro de 2020, as Instâncias de Contentores Azure exigirão todas as ligações seguras dos servidores e aplicações para utilizar o TLS 1.2. O suporte para TLS 1.0 e 1.1 será retirado.
 
 ## <a name="hypervisor-level-security"></a>Segurança ao nível do hipervisor
 
@@ -39,28 +39,28 @@ Historicamente, os contentores têm vindo a oferecer isolamento de dependências
 
 Normalmente, os contentores são otimizados para executarem apenas uma única aplicação, mas as necessidades exatas de cada uma dessas aplicações podem ser bastante diferentes. O Azure Container Instances proporciona uma utilização ideal ao permitir especificações exatas de núcleos de CPU e memória. A faturação é ao segundo e consoante o que precisar, para que possa ajustar os gastos com base nas suas necessidades reais.
 
-Para trabalhos de computação intensiva, como o Machine Learning, as instâncias de contêiner do Azure podem agendar contêineres do Linux para usar os recursos NVIDIA Tesla [GPU](container-instances-gpu.md) (versão prévia).
+Para trabalhos intensivos de computação, como machine learning, o Azure Container Instances pode agendar contentores Linux para usar [recursos GPU](container-instances-gpu.md) NVIDIA Tesla (pré-visualização).
 
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
-Para recuperar e persistir o estado com as instâncias de contêiner do Azure, oferecemos a [montagem direta de compartilhamentos de arquivos do Azure](container-instances-mounting-azure-files-volume.md) apoiados pelo armazenamento do Azure.
+Para recuperar e persistir o estado com as Instâncias de Contentores Azure, oferecemos a montagem direta [de ações da Azure Files](container-instances-mounting-azure-files-volume.md) apoiadas pelo Armazenamento Azure.
 
 ## <a name="linux-and-windows-containers"></a>Contentores de Linux e Windows
 
 O Azure Container Instances permite agendar contentores do Windows e do Linux com a mesma API. Basta especificar o tipo de SO quando cria os [grupos de contentor](container-instances-container-groups.md).
 
-Alguns recursos estão atualmente restritos a contêineres do Linux:
+Algumas funcionalidades estão atualmente restritas aos contentores Linux:
 
 * Vários contentores por grupo de contentores
-* Montagem de volume ([arquivos do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
-* [Métricas de uso de recursos](container-instances-monitor.md) com Azure monitor
+* Montagem de volume[(Ficheiros Azure,](container-instances-volume-azure-files.md) [EmptyDir,](container-instances-volume-emptydir.md) [GitRepo,](container-instances-volume-gitrepo.md) [segredo)](container-instances-volume-secret.md)
+* [Métricas de utilização](container-instances-monitor.md) de recursos com monitor Azure
 * [Implantação de rede virtual](container-instances-vnet.md)
-* [Recursos de GPU](container-instances-gpu.md) (visualização)
+* [Recursos gpu](container-instances-gpu.md) (pré-visualização)
 
-Para implantações de contêiner do Windows, use imagens baseadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows.
+Para implementações de contentores Windows, utilize imagens baseadas em [imagens comuns](container-instances-faq.md#what-windows-base-os-images-are-supported)da base do Windows .
 
 > [!NOTE]
-> O uso de imagens baseadas no Windows Server 2019 em instâncias de contêiner do Azure está em versão prévia.
+> A utilização de imagens baseadas no Windows Server 2019 em Instâncias de Contentores Azure está em pré-visualização.
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 
@@ -68,7 +68,7 @@ O Azure Container Instances suporta o agendamento de [grupos de vários contento
 
 ## <a name="virtual-network-deployment"></a>Implantação de rede virtual
 
-Atualmente disponível para cargas de trabalho de produção em um subconjunto de regiões do Azure, esse recurso de instâncias de contêiner do Azure permite a [implantação de instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md). Ao implementar instâncias de contentor numa sub-rede da sua rede virtual, estes podem comunicar em segurança com outros recursos na rede virtual, incluindo os que estão no local (através da [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+Atualmente disponível para cargas horárias de produção num subconjunto de regiões azure, esta característica de Instâncias de Contentores Azure permite [a colocação de instâncias de contentores numa rede virtual Azure.](container-instances-vnet.md) Ao implementar instâncias de contentor numa sub-rede da sua rede virtual, estes podem comunicar em segurança com outros recursos na rede virtual, incluindo os que estão no local (através da [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Passos seguintes
 

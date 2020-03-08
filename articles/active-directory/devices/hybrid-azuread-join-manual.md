@@ -1,6 +1,6 @@
 ---
 title: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente | Microsoft Docs
-description: Saiba como configurar manualmente os dispositivos ingressados no Azure Active Directory híbrido.
+description: Saiba como configurar manualmente os dispositivos híbridos Azure Ative Diretório.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,70 +11,70 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed28b4bb8ec61455168f50058c8cdcaf9f50717d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882856"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672230"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
-Com o gerenciamento de dispositivos no Azure Active Directory (Azure AD), você pode garantir que os usuários acessem seus recursos de dispositivos que atendam aos seus padrões de segurança e conformidade. Para obter mais informações, consulte [introdução ao gerenciamento de dispositivos no Azure Active Directory](overview.md).
+Com a gestão de dispositivos no Azure Ative Directory (Azure AD), pode garantir que os utilizadores estão a aceder aos seus recursos a partir de dispositivos que cumprem os seus padrões de segurança e conformidade. Para mais informações, consulte Introdução à gestão de [dispositivos no Diretório Ativo do Azure](overview.md).
 
 > [!TIP]
-> Se estiver usando Azure AD Connect for uma opção para você, consulte os tutoriais relacionados para domínios [gerenciados](hybrid-azuread-join-managed-domains.md) ou [federados](hybrid-azuread-join-federated-domains.md) . Usando Azure AD Connect, você pode simplificar significativamente a configuração da junção híbrida do Azure AD.
+> Se utilizar o Azure AD Connect é uma opção para si, consulte os tutoriais relacionados para domínios [geridos](hybrid-azuread-join-managed-domains.md) ou [federados.](hybrid-azuread-join-federated-domains.md) Ao utilizar o Azure AD Connect, pode simplificar significativamente a configuração da adesão híbrida azure.
 
 Se tiver um ambiente do Active Directory no local e quiser associar os seus dispositivos associados ao domínio ao Azure AD, pode fazê-lo ao configurar os dispositivos híbridos associados ao Azure AD. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configurar manualmente a junção híbrida do Azure AD
-> * Configurar um ponto de conexão de serviço
-> * Configurar emissão de declarações
+> * Configure manualmente a ad azure híbrida
+> * Configure um ponto de ligação de serviço
+> * Criação de reclamações
 > * Permitir dispositivos de nível inferior do Windows
 > * Verificar dispositivos associados
 > * Resolver problemas relacionados com a implementação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial pressupõe que você esteja familiarizado com:
+Este tutorial assume que está familiarizado com:
 
 * [Introduction to device management in Azure Active Directory](../device-management-introduction.md) (Introdução à gestão de dispositivos no Azure Active Directory)
-* [Planejar sua implementação de junção de Azure Active Directory híbrida](hybrid-azuread-join-plan.md)
+* [Planeie o seu Diretório Ativo Azure híbrido aderir à implementação](hybrid-azuread-join-plan.md)
 * [Controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
 
-Antes de começar a habilitar dispositivos ingressados no Azure AD híbrido em sua organização, verifique se:
+Antes de começar a ativar dispositivos híbridos Azure AD na sua organização, certifique-se de que:
 
-* Você está executando uma versão atualizada do Azure AD Connect.
-* Azure AD Connect sincronizou os objetos de computador dos dispositivos que você deseja que sejam ingressados no Azure AD híbrido no Azure AD. Se os objetos de computador pertencerem a UOs (unidades organizacionais) específicas, essas UOs precisarão ser configuradas para sincronização em Azure AD Connect também.
+* Estás a executar uma versão atualizada do Azure AD Connect.
+* O Azure AD Connect sincronizou os objetos informáticos dos dispositivos que pretende ser híbrido Azure AD juntou-se ao Azure AD. Se os objetos informáticos pertencerem a unidades organizacionais específicas (OUs), estas OUs também precisam de ser configuradas para sincronização no Azure AD Connect.
 
 Azure AD Connect:
 
-* Mantém a associação entre a conta de computador em sua instância de Active Directory local e o objeto de dispositivo no Azure AD.
-* Habilita outros recursos relacionados ao dispositivo, como o Windows Hello para empresas.
+* Mantém a associação entre a conta de computador no seu diretório ativo no local e o objeto do dispositivo em Azure AD.
+* Permite outras funcionalidades relacionadas com dispositivos, como o Windows Hello for Business.
 
-Verifique se as URLs a seguir estão acessíveis de computadores na rede da sua organização para o registro de computadores para o Azure AD:
+Certifique-se de que os seguintes URLs estão acessíveis a partir de computadores dentro da rede da sua organização para registo de computadores para AD Azure:
 
 * `https://enterpriseregistration.windows.net`
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
-* O STS da sua organização (para domínios federados), que deve ser incluído nas configurações de intranet local do usuário
+* STS da sua organização (para domínios federados), que deve ser incluído nas definições de intranet locais do utilizador
 
-Se sua organização planeja usar o SSO contínuo, a URL a seguir precisará ser acessada dos computadores dentro da sua organização. Ele também deve ser adicionado à zona da intranet local do usuário.
+Se a sua organização planeia utilizar O SSO SSO sem emenda, o url seguinte tem de ser acessível a partir dos computadores dentro da sua organização. Deve também ser adicionado à zona intranet local do utilizador.
 
 * `https://autologon.microsoftazuread-sso.com`
 
 Além disso, a definição seguinte deve ser ativada na zona de intranet do utilizador: “Permitir atualizações da barra de estado através de script”.
 
-Se sua organização usa a configuração gerenciada (não federada) com o Active Directory local e não usa Serviços de Federação do Active Directory (AD FS) (AD FS) para federar com o Azure AD, a junção híbrida do Azure AD no Windows 10 depende dos objetos de computador no Active Diretório a ser sincronizado com o Azure AD. Verifique se as UOs que contêm os objetos de computador que precisam ser ingressados no Azure AD híbrido estão habilitadas para sincronização na configuração de sincronização de Azure AD Connect.
+Se a sua organização utilizar a configuração gerida (não federada) com o Diretório Ativo no local e não utilizar os Serviços da Federação de Diretório Ativo (AD FS) para federar com a Azure AD, então a adesão híbrida do Azure AD ao Windows 10 baseia-se nos objetos informáticos do Ative Diretório a ser sincronizado com a AD Azure. Certifique-se de que quaisquer OUs que contenham os objetos informáticos que precisam de ser híbridos Azure AD estão ativados para sincronização na configuração de sincronização Azure AD Connect.
 
-Para dispositivos Windows 10 na versão 1703 ou anterior, se sua organização exigir acesso à Internet por meio de um proxy de saída, você deverá implementar a descoberta automática de proxy da Web (WPAD) para permitir que os computadores com Windows 10 se registrem no Azure AD.
+Para dispositivos Windows 10 na versão 1703 ou mais cedo, se a sua organização necessitar de acesso à internet através de um proxy de saída, tem de implementar o Web Proxy Auto-Discovery (WPAD) para permitir que os computadores do Windows 10 se registem no Azure AD.
 
-A partir do Windows 10 1803, mesmo se uma tentativa de junção híbrida do Azure AD por um dispositivo em um domínio federado por meio de AD FS falhar e, se Azure AD Connect estiver configurada para sincronizar os objetos de computador/dispositivo com o Azure AD, o dispositivo tentará concluir a junção híbrida do Azure AD usando o computador/dispositivo sincronizado.
+Começando pelo Windows 10 1803, mesmo que um Azure AD híbrido se junte a uma tentativa de adesão de um dispositivo num domínio federado através de falhas aAFS, e se o Azure AD Connect estiver configurado para sincronizar os objetos do computador/dispositivo para o Azure AD, o dispositivo tentará completar a adesão híbrida do Azure AD utilizando o computador/dispositivo sincronizado.
 
-Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft acima na conta do sistema, você pode usar o script de [conectividade de registro de dispositivo de teste](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
+Para verificar se o dispositivo é capaz de aceder aos recursos da Microsoft acima na conta do sistema, pode utilizar o script de conectividade de registo de [dispositivos de teste.](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0)
 
-## <a name="verify-configuration-steps"></a>Verificar as etapas de configuração
+## <a name="verify-configuration-steps"></a>Verificar passos de configuração
 
 Pode configurar os dispositivos híbridos associados ao Azure AD para vários tipos de plataformas de dispositivos Windows. Este tópico inclui os passos necessários para todos os cenários de configuração comuns.  
 
@@ -83,13 +83,13 @@ Utilize a tabela abaixo para obter uma descrição geral dos passos necessários
 | Passos | Dispositivos Windows atuais e sincronização de hash de palavra-passe | Dispositivos Windows atuais e federação | Dispositivos Windows de nível inferior |
 | :--- | :---: | :---: | :---: |
 | Configurar o ponto de ligação do serviço | ![Marcar][1] | ![Marcar][1] | ![Marcar][1] |
-| Configurar emissão de declarações |     | ![Marcar][1] | ![Marcar][1] |
+| Criação de reclamações |     | ![Marcar][1] | ![Marcar][1] |
 | Permitir dispositivos não Windows 10 |       |        | ![Marcar][1] |
-| Verificar dispositivos associados | ![Marcar][1] | ![Marcar][1] | [Verificação][1] |
+| Verificar dispositivos associados | ![Marcar][1] | ![Marcar][1] | [Verifique][1] |
 
-## <a name="configure-a-service-connection-point"></a>Configurar um ponto de conexão de serviço
+## <a name="configure-a-service-connection-point"></a>Configure um ponto de ligação de serviço
 
-Seus dispositivos usam um objeto de ponto de conexão de serviço (SCP) durante o registro para descobrir informações de locatário do Azure AD. Em sua instância de Active Directory local, o objeto SCP para os dispositivos ingressados no Azure AD híbrido deve existir na partição de contexto de nomenclatura de configuração da floresta do computador. Só existe um contexto de nomenclatura de configuração por floresta. Em uma configuração de Active Directory de várias florestas, o ponto de conexão de serviço deve existir em todas as florestas que contêm computadores ingressados no domínio.
+Os seus dispositivos utilizam um objeto de ponto de ligação de serviço (SCP) durante o registo para descobrir informações do inquilino DaD Azure. No seu caso de Diretório Ativo no local, o objeto SCP para os dispositivos híbridos azure ad deve existir na configuração do contexto de divisão da floresta do computador. Só existe um contexto de nomenclatura de configuração por floresta. Numa configuração multi-florestal do Diretório Ativo, o ponto de ligação de serviço deve existir em todas as florestas que contenham computadores unidos pelo domínio.
 
 Pode utilizar o cmdlet [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) para obter o contexto de nomenclatura da configuração da sua floresta.  
 
@@ -101,8 +101,8 @@ Na sua floresta, o objeto SCP do registo automático dos dispositivos associados
 
 `CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
 
-Dependendo de como você implantou o Azure AD Connect, o objeto SCP pode já ter sido configurado.
-Você pode verificar a existência do objeto e recuperar os valores de descoberta usando o seguinte script do Windows PowerShell:
+Dependendo da forma como implementou o Azure AD Connect, o objeto SCP pode já ter sido configurado.
+Pode verificar a existência do objeto e recuperar os valores de descoberta utilizando o seguinte script Windows PowerShell:
 
    ```PowerShell
    $scp = New-Object System.DirectoryServices.DirectoryEntry;
@@ -112,19 +112,19 @@ Você pode verificar a existência do objeto e recuperar os valores de descobert
    $scp.Keywords;
    ```
 
-O **$SCP. A saída de palavras-chave** mostra as informações de locatário do Azure AD. Segue-se um exemplo:
+O **$scp. A saída de palavras-chave** mostra a informação do inquilino da AD Azure. Segue-se um exemplo:
 
    ```
    azureADName:microsoft.com
    azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
    ```
 
-Se o ponto de ligação do serviço não existir, pode executar o cmdlet `Initialize-ADSyncDomainJoinedComputerSync` no servidor do Azure AD Connect para criá-lo. As credenciais de administrador corporativo são necessárias para executar este cmdlet.  
+Se o ponto de ligação do serviço não existir, pode executar o cmdlet `Initialize-ADSyncDomainJoinedComputerSync` no servidor do Azure AD Connect para criá-lo. As credenciais de administração da empresa são necessárias para executar este cmdlet.  
 
 O cmdlet:
 
-* Cria o ponto de conexão de serviço na floresta Active Directory à qual Azure AD Connect está conectado.
-* Requer que seja especificado o parâmetro `AdConnectorAccount`. Essa conta é configurada como a conta do conector de Active Directory no Azure AD Connect.
+* Cria o ponto de ligação de serviço na floresta de Diretório Ativo a que o Azure AD Connect está ligado.
+* Requer que seja especificado o parâmetro `AdConnectorAccount`. Esta conta está configurada como a conta de conector de Diretório Ativo no Azure AD Connect.
 
 
 O script abaixo mostra um exemplo da utilização do cmdlet. Neste script, `$aadAdminCred = Get-Credential` requer que indique um nome de utilizador. Tem de indicar o nome de utilizador no formato de nome principal de utilizador (UPN) (`user@example.com`).
@@ -139,11 +139,11 @@ O script abaixo mostra um exemplo da utilização do cmdlet. Neste script, `$aad
 
 O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
-* Usa o módulo Active Directory do PowerShell e as ferramentas do Azure Active Directory Domain Services (AD DS do Azure). Essas ferramentas dependem de Active Directory Web Services em execução em um controlador de domínio. Os Serviços Web do Active Directory são suportados em controladores de domínio em execução no Windows Server 2008 R2 e posterior.
-* Só é suportado pelo módulo MSOnline do PowerShell versão 1.1.166.0. Para baixar este módulo, use [este link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Se as ferramentas de AD DS não estiverem instaladas, `Initialize-ADSyncDomainJoinedComputerSync` falhará. Você pode instalar as ferramentas de AD DS por meio de Gerenciador do Servidor em **recursos** > **ferramentas de administração de servidor remoto** **ferramentas de administração de funções**do > .
+* Utiliza o módulo PowerShell de Diretório Ativo e as ferramentas Azure Ative Directory Domain Services (Azure AD DS). Estas ferramentas dependem de Serviços Web de Diretório Ativo que executam um controlador de domínio. Os Serviços Web do Active Directory são suportados em controladores de domínio em execução no Windows Server 2008 R2 e posterior.
+* É suportado apenas pela versão 1.1.166.0 do módulo MSOnline PowerShell. Para descarregar este módulo, utilize [este link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
+* Se as ferramentas AD DS não forem instaladas, `Initialize-ADSyncDomainJoinedComputerSync` falhará. Pode instalar as ferramentas AD DS através do Gestor de **Servidores** em funcionalidades > ferramentas de administração de **servidores remotos** > ferramentas de administração de **funções**.
 
-Para controladores de domínio que executam o Windows Server 2008 ou versões anteriores, use o script a seguir para criar o ponto de conexão de serviço. Em uma configuração de várias florestas, use o script a seguir para criar o ponto de conexão de serviço em cada floresta em que os computadores existem.
+Para controladores de domínio que executem o Windows Server 2008 ou versões anteriores, utilize o seguinte script para criar o ponto de ligação ao serviço. Numa configuração multiflorestal, utilize o seguinte script para criar o ponto de ligação de serviço em cada floresta onde existem computadores.
 
    ```PowerShell
    $verifiedDomain = "contoso.com" # Replace this with any of your verified domain names in Azure AD
@@ -162,21 +162,21 @@ Para controladores de domínio que executam o Windows Server 2008 ou versões an
    $deSCP.CommitChanges()
    ```
 
-No script anterior, `$verifiedDomain = "contoso.com"` é um espaço reservado. Substitua-o por um dos nomes de domínio verificados no Azure AD. Você precisa ter o domínio antes de poder usá-lo.
+No guião anterior, `$verifiedDomain = "contoso.com"` é um espaço reservado. Substitua-o por um dos seus nomes de domínio verificados em Azure AD. Tens de ser dono do domínio antes de o poderes usar.
 
-Para obter mais informações sobre nomes de domínio verificados, consulte [Adicionar um nome de domínio personalizado a Azure Active Directory](../active-directory-domains-add-azure-portal.md).
+Para mais informações sobre nomes de domínio verificados, consulte Adicionar um nome de [domínio personalizado ao Diretório Ativo Azure](../active-directory-domains-add-azure-portal.md).
 
 Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
 
 ![Lista de domínios da empresa](./media/hybrid-azuread-join-manual/01.png)
 
-## <a name="set-up-issuance-of-claims"></a>Configurar emissão de declarações
+## <a name="set-up-issuance-of-claims"></a>Criação de reclamações
 
-Em uma configuração federada do Azure AD, os dispositivos contam com AD FS ou um serviço de federação local de um parceiro da Microsoft para se autenticar no Azure AD. Os dispositivos autenticam-se para obterem um token de acesso para se registarem no Registo de Dispositivos do Azure Active Directory (Azure DRS).
+Numa configuração de AD Azure federada, os dispositivos contam com AD FS ou um serviço da federação no local de um parceiro da Microsoft para autenticar a AD Azure. Os dispositivos autenticam-se para obterem um token de acesso para se registarem no Registo de Dispositivos do Azure Active Directory (Azure DRS).
 
-Os dispositivos atuais do Windows são autenticados usando a autenticação integrada do Windows para um ponto de extremidade WS-Trust ativo (versões 1,3 ou 2005) hospedados pelo serviço de federação local.
+Os dispositivos atuais do Windows autenticam utilizando a Autenticação Integrada do Windows num ponto final ativo do WS-Trust (versões 1.3 ou 2005) hospedados pelo serviço da federação no local.
 
-Quando você estiver usando AD FS, será necessário habilitar os seguintes pontos de extremidade do WS-Trust
+Quando estiver a usar AD FS, precisa de ativar os seguintes pontos finais wS-Trust
 - `/adfs/services/trust/2005/windowstransport`
 - `/adfs/services/trust/13/windowstransport`
 - `/adfs/services/trust/2005/usernamemixed`
@@ -185,12 +185,12 @@ Quando você estiver usando AD FS, será necessário habilitar os seguintes pont
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> O **ADFS/Services/Trust/2005/windowstransport** ou **ADFS/Services/Trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e não devem ser expostos como pontos de extremidade voltados para a extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [desabilitar pontos de extremidade do Windows do WS-Trust no proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Você pode ver quais pontos de extremidade são habilitados por meio do console de gerenciamento de AD FS em **pontos de extremidade**do **serviço** > .
+> Tanto as **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** devem ser ativadas apenas como pontos finais intranet e NÃO devem ser expostas como pontos finais virados para a extranet através do Proxy de Aplicação Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais ativados através da consola de gestão AD FS no âmbito do **Serviço** > **Endpoints**.
 
 > [!NOTE]
->Se você não tiver AD FS como seu serviço de federação local, siga as instruções do seu fornecedor para certificar-se de que eles dão suporte aos pontos de extremidade WS-Trust 1,3 ou 2005 e que eles são publicados por meio do arquivo de troca de metadados (MEX).
+>Se não tiver AD FS como serviço da federação no local, siga as instruções do seu fornecedor para se certificar de que suporta pontos finais WS-Trust 1.3 ou 2005 e que estes sejam publicados através do ficheiro Demetadata Exchange (MEX).
 
-Para que o registro do dispositivo seja concluído, as declarações a seguir devem existir no token que o Azure DRS recebe. O DRS do Azure criará um objeto de dispositivo no Azure AD com algumas dessas informações. Azure AD Connect, em seguida, usa essas informações para associar o objeto de dispositivo recém-criado à conta de computador local.
+Para que o registo do dispositivo termine, devem existir as seguintes reclamações no símbolo que o Azure DRS recebe. O Azure DRS criará um objeto de dispositivo em Azure AD com algumas destas informações. O Azure AD Connect utiliza então esta informação para associar o objeto do dispositivo recém-criado à conta de computador no local.
 
 * `http://schemas.microsoft.com/ws/2012/01/accounttype`
 * `http://schemas.microsoft.com/identity/claims/onpremobjectguid`
@@ -200,14 +200,14 @@ Se tiver vários nomes de domínio verificados, tem de indicar a seguinte afirma
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Se você já estiver emitindo uma declaração imutávelid (por exemplo, ID de logon alternativa), precisará fornecer uma declaração correspondente para computadores:
+Se já está a emitir uma reclamação imutável (por exemplo, id de login alternativo), precisa de fornecer uma reclamação correspondente para computadores:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
 Nas secções abaixo, vai encontrar informações sobre:
 
-* Os valores que cada declaração deve ter.
-* Como seria a aparência de uma definição em AD FS.
+* Os valores que cada reivindicação deve ter.
+* Como seria uma definição em AD FS.
 
 A definição ajuda-o a verificar se os valores estão presentes ou se precisa de os criar.
 
@@ -216,7 +216,7 @@ A definição ajuda-o a verificar se os valores estão presentes ou se precisa d
 
 ### <a name="issue-account-type-claim"></a>Emitir afirmação de tipo de conta
 
-A declaração de `http://schemas.microsoft.com/ws/2012/01/accounttype` deve conter um valor de **DJ**, que identifica o dispositivo como um computador ingressado no domínio. No AD FS, pode adicionar uma regra de transformação de emissão semelhante à seguinte:
+A reivindicação `http://schemas.microsoft.com/ws/2012/01/accounttype` deve conter um valor de **DJ**, que identifica o dispositivo como um computador unido ao domínio. No AD FS, pode adicionar uma regra de transformação de emissão semelhante à seguinte:
 
    ```
    @RuleName = "Issue account type for domain-joined computers"
@@ -233,7 +233,7 @@ A declaração de `http://schemas.microsoft.com/ws/2012/01/accounttype` deve con
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Emitir o objectGUID da conta de computador no local
 
-A declaração de `http://schemas.microsoft.com/identity/claims/onpremobjectguid` deve conter o valor de **objectGUID** da conta de computador local. No AD FS, pode adicionar uma regra de transformação de emissão semelhante à seguinte:
+A `http://schemas.microsoft.com/identity/claims/onpremobjectguid` alegação deve conter o valor **objectuguida** da conta de computador no local. No AD FS, pode adicionar uma regra de transformação de emissão semelhante à seguinte:
 
    ```
    @RuleName = "Issue object GUID for domain-joined computers"
@@ -257,7 +257,7 @@ A declaração de `http://schemas.microsoft.com/identity/claims/onpremobjectguid
 
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Emitir o objectSID da conta de computador no local
 
-A declaração de `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` deve conter o valor de **objectSid** da conta de computador local. No AD FS, pode adicionar uma regra de transformação de emissão semelhante à seguinte:
+A alegação `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` deve conter o **valor do objectoSid** da conta de computador no local. No AD FS, pode adicionar uma regra de transformação de emissão semelhante à seguinte:
 
    ```
    @RuleName = "Issue objectSID for domain-joined computers"
@@ -274,9 +274,9 @@ A declaração de `http://schemas.microsoft.com/ws/2008/06/identity/claims/prima
    => issue(claim = c2);
    ```
 
-### <a name="issue-issuerid-for-the-computer-when-multiple-verified-domain-names-are-in-azure-ad"></a>Emitir issuerID para o computador quando vários nomes de domínio verificados estiverem no Azure AD
+### <a name="issue-issuerid-for-the-computer-when-multiple-verified-domain-names-are-in-azure-ad"></a>Emitir emite emidóide para o computador quando vários nomes de domínio verificados estão em Azure AD
 
-A declaração de `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` deve conter o Uniform Resource Identifier (URI) de qualquer um dos nomes de domínio verificados que se conectam ao serviço de federação local (AD FS ou parceiro) que emite o token. No AD FS, você pode adicionar regras de transformação de emissão que se parecem com as seguintes nessa ordem específica, após as anteriores. Observe que uma regra para emitir explicitamente a regra para os usuários é necessária. Nas regras a seguir, uma primeira regra que identifica o usuário versus a autenticação do computador é adicionada.
+A `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` alegação deve conter o Identificador uniforme de recursos (URI) de qualquer um dos nomes de domínio verificados que se conectem com o serviço da federação no local (AD FS ou parceiro) que emite o símbolo. Em AD FS, pode adicionar emissão transformar regras que se parecem com as seguintes nessa ordem específica, após as anteriores. Note que uma regra para emitir explicitamente a regra para os utilizadores é necessária. Nas seguintes regras, é adicionada uma primeira regra que identifica o utilizador contra a autenticação do computador.
 
    ```
    @RuleName = "Issue account type with the value User when its not a computer"
@@ -321,17 +321,17 @@ A declaração de `http://schemas.microsoft.com/ws/2008/06/identity/claims/issue
    );
    ```
 
-Na declaração anterior, `<verified-domain-name>` é um espaço reservado. Substitua-o por um dos nomes de domínio verificados no Azure AD. Por exemplo, use `Value = "http://contoso.com/adfs/services/trust/"`.
+Na reivindicação anterior, `<verified-domain-name>` é um espaço reservado. Substitua-o por um dos seus nomes de domínio verificados em Azure AD. Por exemplo, use `Value = "http://contoso.com/adfs/services/trust/"`.
 
-Para obter mais informações sobre nomes de domínio verificados, consulte [Adicionar um nome de domínio personalizado a Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
+Para mais informações sobre nomes de domínio verificados, consulte Adicionar um nome de [domínio personalizado ao Diretório Ativo Azure](../active-directory-domains-add-azure-portal.md).  
 
 Para obter uma lista dos domínios verificados da sua empresa, pode utilizar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
 
 ![Lista de domínios da empresa](./media/hybrid-azuread-join-manual/01.png)
 
-### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>Emitir imutável para o computador quando houver um para os usuários (por exemplo, uma ID de logon alternativa é definida)
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>Emita ID imutável para o computador quando existe um para utilizadores (por exemplo, é definido um ID de login alternativo)
 
-A declaração de `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` deve conter um valor válido para computadores. No AD FS, pode criar uma regra de transformação de emissão da seguinte forma:
+A reclamação `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` deve conter um valor válido para os computadores. No AD FS, pode criar uma regra de transformação de emissão da seguinte forma:
 
    ```
    @RuleName = "Issue ImmutableID for computers"
@@ -355,7 +355,7 @@ A declaração de `http://schemas.microsoft.com/LiveID/Federation/2008/05/Immuta
 
 ### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>Script de programa auxiliar para criar as regras de transformação de emissão do AD FS
 
-O script a seguir o ajuda com a criação das regras de transformação de emissão descritas anteriormente.
+O seguinte guião ajuda-o na criação da emissão de regras de transformação descritas anteriormente.
 
    ```
    $multipleVerifiedDomainNames = $false
@@ -480,8 +480,8 @@ O script a seguir o ajuda com a criação das regras de transformação de emiss
 
 #### <a name="remarks"></a>Observações
 
-* Este script anexa as regras às já existentes. Não execute o script duas vezes, porque o conjunto de regras seria adicionado duas vezes. Antes de voltar a executar o script, confirme que não existem regras correspondentes para estas afirmações (com as condições correspondentes).
-* Se você tiver vários nomes de domínio verificados (conforme mostrado no portal do Azure AD ou por meio do cmdlet **Get-MsolDomain** ), defina o valor de **$multipleVerifiedDomainNames** no script como **$true**. Além disso, certifique-se de remover qualquer declaração **issuerid** existente que possa ter sido criada por Azure ad Connect ou por outros meios. Aqui está um exemplo para esta regra:
+* Este script anexa as regras às já existentes. Não faça o guião duas vezes, porque o conjunto de regras seria adicionado duas vezes. Antes de voltar a executar o script, confirme que não existem regras correspondentes para estas afirmações (com as condições correspondentes).
+* Se tiver vários nomes de domínio verificados (como mostrado no portal Azure AD ou através do cmdlet **Get-MsolDomain),** detete o valor da **$multipleVerifiedDomainNames** no script para **$true**. Certifique-se também de que remove qualquer reclamação **emitida** existente que possa ter sido criada pelo Azure AD Connect ou por outros meios. Aqui está um exemplo para esta regra:
 
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
@@ -495,21 +495,21 @@ Se já tiver emitido uma afirmação **ImmutableID** para as contas de utilizado
 Se alguns dos seus dispositivos associados a um domínio são dispositivos de nível inferior do Windows, terá de:
 
 * Definir uma política no Azure AD para permitir que os utilizadores registem dispositivos.
-* Configure seu serviço de federação local para emitir declarações para dar suporte à autenticação integrada do Windows (IWA) para o registro de dispositivos.
-* Adicione o ponto de extremidade de autenticação de dispositivo do Azure AD às zonas da intranet local para evitar prompts de certificado ao autenticar o dispositivo.
-* Controlar dispositivos de nível inferior do Windows.
+* Configure o seu serviço da federação no local para emitir reclamações para apoiar a Autenticação Integrada do Windows (IWA) para o registo do dispositivo.
+* Adicione o ponto final de autenticação do dispositivo Azure AD às zonas intranet locais para evitar solicitações de certificado ao autenticar o dispositivo.
+* Controle os dispositivos de nível inferior do Windows.
 
-### <a name="set-a-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Definir uma política no Azure AD para permitir que os usuários registrem dispositivos
+### <a name="set-a-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Definir uma política em AD Azure para permitir aos utilizadores registar em dispositivos
 
-Para registrar dispositivos de nível inferior do Windows, certifique-se de que a configuração para permitir que os usuários registrem dispositivos no Azure AD esteja habilitada. Na portal do Azure, você pode encontrar essa configuração em **Azure Active Directory** > **usuários e grupos** > **configurações do dispositivo**.
+Para registar dispositivos de nível inferior do Windows, certifique-se de que a definição para permitir que os utilizadores registem dispositivos em AD Azure está ativada. No portal Azure, pode encontrar esta definição no **diretório Ativo do Azure** > **utilizadores e grupos** > **configurações**do Dispositivo .
 
-A política a seguir deve ser definida como **todos**: **os usuários podem registrar seus dispositivos com o Azure ad**.
+A seguinte política deve ser definida para **Todos:** **Os utilizadores podem registar os seus dispositivos com a AD Azure**.
 
-![O botão tudo que permite aos usuários registrar dispositivos](./media/hybrid-azuread-join-manual/23.png)
+![O botão All que permite aos utilizadores registar em dispositivos](./media/hybrid-azuread-join-manual/23.png)
 
-### <a name="configure-the-on-premises-federation-service"></a>Configurar o serviço de federação local
+### <a name="configure-the-on-premises-federation-service"></a>Configure o serviço da federação no local
 
-Seu serviço de federação local deve dar suporte à emissão de declarações **AuthenticationMethod** e **wiaormultiauthn** quando receber uma solicitação de autenticação para a parte confiável do Azure AD que contém um parâmetro resource_params com o seguinte valor codificado:
+O seu serviço de federação no local deve apoiar a emissão do método de **autenticação** e das reclamações **wiaormultiauthn** quando receber um pedido de autenticação à parte da AD Azure que detenha um parâmetro resource_params com o seguinte valor codificado:
 
    ```
    eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
@@ -517,45 +517,45 @@ Seu serviço de federação local deve dar suporte à emissão de declarações 
    which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
    ```
 
-Quando essa solicitação chega, o serviço de federação local deve autenticar o usuário usando a autenticação integrada do Windows. Quando a autenticação for bem-sucedida, o serviço de Federação deverá emitir as duas declarações a seguir:
+Quando esse pedido vier, o serviço da federação no local deve autenticar o utilizador utilizando a Autenticação Integrada do Windows. Quando a autenticação for bem sucedida, o serviço da federação deve emitir as seguintes duas reclamações:
 
    `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows` `http://schemas.microsoft.com/claims/wiaormultiauthn`
 
-No AD FS, você deve adicionar uma regra de transformação de emissão que passe pelo método de autenticação. Para adicionar esta regra:
+Em AD FS, deve adicionar uma regra de transformação de emissão que passa pelo método de autenticação. Para adicionar esta regra:
 
-1. No console de gerenciamento do AD FS, acesse **AD FS** > **relações de confiança** > confianças de terceira **parte confiável**.
+1. Na consola de gestão AD FS, vá ao **AD FS** > **Trust Relationships** > **Trusts Trusts Trusts Trusts Trusts Trusts Trusts Trusts.**
 1. Clique com o botão direito do rato no objeto de confiança da entidade confiadora da Plataforma de Identidade do Microsoft Office 365 e selecione **Edit Claim Rules** (Editar Regras de Emissão).
 1. No separador **Issuance Transform Rules** (Regras de Transformação de Emissão), selecione **Add Rule** (Adicionar Regra).
 1. Na lista de modelos **Claim rule** (Regra de afirmação), selecione **Send Claims Using a Custom Rule** (Enviar Afirmações com uma Regra Personalizada).
 1. Selecione **Seguinte**.
-1. Na caixa **nome da regra de declaração** , digite **regra de declaração do método de autenticação**.
-1. Na caixa **regra de declaração** , insira a seguinte regra:
+1. Na caixa de **nome sinuoso** pedido, introduza a Regra de Reivindicação do **Método Auth**.
+1. Na caixa de **regras de reclamação,** introduza a seguinte regra:
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. No servidor de Federação, insira o comando do PowerShell a seguir. Substitua **\<RPObjectName\>** pelo nome do objeto de terceira parte confiável para o objeto de confiança de terceira parte confiável do Azure AD. Normalmente, este objeto é denominado **Plataforma de Identidade do Microsoft Objeto 365**.
+1. No servidor da federação, introduza o seguinte comando PowerShell. Substitua **\<RPObjectName\>** com o nome do objeto de festa que depende para o seu objeto fiduciário de confiança da parte azure AD. Normalmente, este objeto é denominado **Plataforma de Identidade do Microsoft Objeto 365**.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-### <a name="add-the-azure-ad-device-authentication-endpoint-to-the-local-intranet-zones"></a>Adicionar o ponto de extremidade de autenticação de dispositivo do Azure AD às zonas da intranet local
+### <a name="add-the-azure-ad-device-authentication-endpoint-to-the-local-intranet-zones"></a>Adicione o ponto final de autenticação do dispositivo Azure AD às zonas intranet locais
 
-Para evitar prompts de certificado quando os usuários de dispositivos registrados são autenticados no Azure AD, você pode enviar uma política para seus dispositivos ingressados no domínio para adicionar a seguinte URL à zona de intranet local no Internet Explorer:
+Para evitar solicitações de certificadoquando os utilizadores de dispositivos registados autenticarem a AD Azure, pode empurrar uma política para os seus dispositivos unidos pelo domínio para adicionar o seguinte URL à zona intranet local no Internet Explorer:
 
 `https://device.login.microsoftonline.com`
 
 ### <a name="control-windows-down-level-devices"></a>Controlar dispositivos de nível inferior do Windows
 
-Para registar dispositivos de nível inferior do Windows, tem de transferir e instalar um pacote do Windows Installer (.msi) do Centro de Transferências. Para obter mais informações, consulte a seção [validação controlada do ingresso do Azure ad híbrido em dispositivos de nível inferior do Windows](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
+Para registar dispositivos de nível inferior do Windows, tem de transferir e instalar um pacote do Windows Installer (.msi) do Centro de Transferências. Para mais informações, consulte a secção [Validação controlada de AD híbrido Azure em dispositivos de nível inferior windows](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
 
 ## <a name="verify-joined-devices"></a>Verificar dispositivos associados
 
-Você pode verificar se há dispositivos ingressados com êxito na sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Pode verificar se há dispositivos unidos com sucesso na sua organização utilizando o cmdlet [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) no módulo PowerShell do [Diretório Ativo Azure](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
-A saída deste cmdlet mostra os dispositivos que estão registados e associados ao Azure AD. Para obter todos os dispositivos, use o parâmetro **-All** e filtre-os usando a propriedade **deviceTrustType** . Os dispositivos ingressados no domínio têm um valor de **ingressado no domínio**.
+A saída deste cmdlet mostra os dispositivos que estão registados e associados ao Azure AD. Para obter todos os dispositivos, utilize o **parâmetro -All** e, em seguida, filtre-os utilizando a propriedade **do dispositivoTrustType.** Os dispositivos unidos pelo domínio têm um valor de **Domínio Unido .**
 
 ## <a name="troubleshoot-your-implementation"></a>Resolver problemas relacionados com a implementação
 
-Se você estiver tendo problemas com a conclusão da junção híbrida do Azure AD para dispositivos Windows ingressados no domínio, consulte:
+Se estiver a ter problemas com a conclusão do Anúncio Híbrido Azure, junte-se a dispositivos Windows ligados ao domínio, consulte:
 
 * [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows atuais)
 * [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows de nível inferior)

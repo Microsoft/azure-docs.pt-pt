@@ -1,121 +1,121 @@
 ---
-title: Configurar Gerenciador de Dados Blockchain usando portal do Azure-serviço Blockchain do Azure
-description: Criar e gerenciar Blockchain Gerenciador de Dados para o serviço Blockchain do Azure usando o portal do Azure.
+title: Configure Blockchain Data Manager usando portal Azure - Serviço Azure Blockchain
+description: Crie e gerencie o Gestor de Dados blockchain para o Serviço Azure Blockchain utilizando o portal Azure.
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977029"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387027"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Blockchain Data Manager com o portal do Azure
 
-Configure o Blockchain Gerenciador de Dados para o serviço Blockchain do Azure para capturar dados do Blockchain e enviá-los para um tópico da grade de eventos do Azure.
+Configure o Gestor de Dados blockchain para o Serviço Azure Blockchain para capturar dados blockchain e enviá-los para um Tópico de Grelha de Eventos Azure.
 
-Para configurar uma instância de Gerenciador de Dados do Blockchain, você:
+Para configurar uma instância do Gestor de Dados blockchain, você:
 
-* Criar uma instância de Gerenciador de Dados do Blockchain para um nó de transação do serviço Blockchain do Azure
-* Adicionar seus aplicativos blockchain
+* Criar um Gestor de Dados blockchain por exemplo para um nó de transação do Serviço Blockchain Azure
+* Adicione as suas aplicações blockchain
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua [o início rápido: criar um membro do blockchain usando o portal do Azure](create-member.md) ou [início rápido: criar um membro Blockchain do serviço blockchain do Azure usando o CLI do Azure](create-member-cli.md)
-* Criar um [tópico de grade de eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
-* Saiba mais sobre [manipuladores de eventos na grade de eventos do Azure](../../event-grid/event-handlers.md)
+* Complete [Quickstart: Criar um membro blockchain usando o portal Azure](create-member.md) ou [Quickstart: Criar um membro blockchain Azure Blockchain Service usando o Azure CLI](create-member-cli.md)
+* Criar um tópico de grelha de [eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Saiba mais sobre [os manipuladores de eventos na Grelha de Eventos Azure](../../event-grid/event-handlers.md)
 
 ## <a name="create-instance"></a>Criar instância
 
-Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó de transação do serviço Blockchain do Azure. Somente os usuários com acesso ao nó de transação podem criar uma conexão. Uma instância captura todos os dados brutos de bloqueio e de transação do nó de transação.
+Uma instância do Gestor de Dados blockchain conecta e monitoriza um nó de transações do Serviço Azure Blockchain. Apenas os utilizadores com acesso ao nó de transações podem criar uma ligação. Um caso captura todos os dados de transações brutas e blocos brutos do nó de transações.
 
-Uma conexão de saída envia dados blockchain para a grade de eventos do Azure. Você configura uma conexão de saída única quando cria a instância. Blockchain Gerenciador de Dados dá suporte a várias conexões de saída de tópico de grade de eventos para qualquer instância de Gerenciador de Dados de Blockchain especificada. Você pode enviar dados do blockchain para um único destino ou enviar dados do blockchain para vários destinos. Para adicionar outro destino, basta adicionar outras conexões de saída à instância.
+Uma ligação de saída envia dados blockchain para a Rede de Eventos Azure. Configura uma única ligação de saída quando cria a instância. O Blockchain Data Manager suporta várias ligações de saída do Tópico de Evento para qualquer instância do Gestor de Dados blockchain. Pode enviar dados blockchain para um único destino ou enviar dados blockchain para vários destinos. Para adicionar outro destino, adicione apenas ligações adicionais de saída à instância.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Vá para o membro do serviço Blockchain do Azure que você deseja conectar ao Blockchain Gerenciador de Dados. Selecione **Blockchain Gerenciador de dados**.
+1. Vá ao membro do Serviço Azure Blockchain que pretende ligar ao Blockchain Data Manager. Selecione **Blockchain Data Manager**.
 1. Selecione **Adicionar**.
 
-    ![Adicionar Gerenciador de Dados Blockchain](./media/data-manager-portal/add-instance.png)
+    ![Adicionar Gestor de Dados blockchain](./media/data-manager-portal/add-instance.png)
 
     Introduza os seguintes detalhes:
 
     Definição | Descrição
     --------|------------
-    Nome | Insira um nome exclusivo para um Gerenciador de Dados Blockchain conectado. O nome de Gerenciador de Dados Blockchain pode conter letras minúsculas e números e tem um comprimento máximo de 20 caracteres.
-    Nó de transação | Escolha um nó de transação. Somente os nós de transação aos quais você tem acesso de leitura são listados.
-    Nome da ligação | Insira um nome exclusivo da conexão de saída onde os dados da transação blockchain são enviados.
-    Ponto de extremidade da grade de eventos | Escolha um tópico de grade de eventos na mesma assinatura que a instância de Gerenciador de Dados do Blockchain.
+    Nome | Introduza um nome único para um Gestor de Dados blockchain conectado. O nome Blockchain Data Manager pode conter letras e números minúsculos e tem um comprimento máximo de 20 caracteres.
+    Nó de transação | Escolha um nó de transação. Apenas os nódosos de transação que leu acesso estão listados.
+    Nome da ligação | Introduza um nome único da ligação de saída onde os dados de transação blockchain são enviados.
+    Ponto final da grelha do evento | Escolha um tópico de grelha de eventos na mesma subscrição que a instância do Blockchain Data Manager.
 
 1. Selecione **OK**.
 
-    Leva menos de um minuto para criar uma instância de Gerenciador de Dados Blockchain. Depois que a instância for implantada, ela será iniciada automaticamente. Uma instância de Gerenciador de Dados em execução Blockchain captura eventos de Blockchain do nó de transação e envia dados para as conexões de saída.
+    Demora menos de um minuto a criar uma instância do Gestor de Dados blockchain. Após a ocorrência ser implantada, é automaticamente iniciada. Uma instância de Blockchain Data Manager captura eventos blockchain a partir do nó de transações e envia dados para as ligações de saída.
 
-    A nova instância aparece na lista de instâncias de Gerenciador de Dados Blockchain para o membro do serviço Blockchain do Azure.
+    A nova instância aparece na lista de instâncias do Blockchain Data Manager para o membro do Serviço Blockchain Azure.
 
-    ![Lista de instâncias de membro de dados Blockchain](./media/data-manager-portal/instance-list.png)
+    ![Lista de casos de Membro saquede-dados blockchain](./media/data-manager-portal/instance-list.png)
 
-## <a name="add-blockchain-application"></a>Adicionar aplicativo blockchain
+## <a name="add-blockchain-application"></a>Adicionar aplicação blockchain
 
-Se você adicionar um aplicativo blockchain, Blockchain Gerenciador de Dados decodificará o evento e o estado da propriedade para o aplicativo. Caso contrário, somente os dados brutos de bloco e de transação bruto serão enviados. Blockchain Gerenciador de Dados também descobre os endereços de contrato quando o contrato é implantado. Você pode adicionar vários aplicativos blockchain a uma instância de Gerenciador de Dados do Blockchain.
+Se adicionar uma aplicação blockchain, o Blockchain Data Manager descodifica o estado de eventos e propriedades para a aplicação. Caso contrário, apenas são enviados dados relativos a blocos brutos e transações brutas. O Blockchain Data Manager também descobre endereços de contrato quando o contrato é implementado. Pode adicionar várias aplicações blockchain a uma instância do Blockchain Data Manager.
 
 > [!IMPORTANT]
-> Atualmente, os aplicativos blockchain que declaram [tipos de matriz](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) de solidez ou [tipos de mapeamento](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) não têm suporte total. As propriedades declaradas como tipos de matriz ou de mapeamento não serão decodificadas em mensagens *ContractPropertiesMsg* ou *DecodedContractEventsMsg* .
+> Atualmente, as aplicações blockchain que declaram tipos de [matriz](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) solidez ou tipos de [mapeamento](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) não são totalmente suportadas. As propriedades declaradas como tipos de matriz ou mapeamento não serão descodificadas em mensagens *ContractPropertiesMsg* ou *DecodedContractEventsMsg.*
 
-O Blockchain Gerenciador de Dados requer uma ABI de contrato inteligente e um arquivo de código de bytes implantado para adicionar o aplicativo.
+O Blockchain Data Manager requer um contrato inteligente ABI e ficheiro de código de envio implementado para adicionar a aplicação.
 
-### <a name="get-contract-abi-and-bytecode"></a>Obter ABI do contrato e código de bytes
+### <a name="get-contract-abi-and-bytecode"></a>Obter contrato ABI e bytecode
 
-A ABI do contrato define as interfaces do contrato inteligente. Ele descreve como interagir com o contrato inteligente. Você pode usar a [extensão do kit de desenvolvimento do Azure Blockchain para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) para copiar a Abi do contrato para a área de transferência.
+O contrato ABI define as interfaces inteligentes do contrato. Descreve como interagir com o contrato inteligente. Pode utilizar o Kit de [Desenvolvimento azure blockchain para extensão Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) para copiar o contrato ABI para a área de receita.
 
-1. No painel Visual Studio Code Explorer, expanda a pasta **Build/Contracts** do projeto de sólidaidade.
-1. Clique com o botão direito do mouse no arquivo JSON de metadados do contrato. O nome do arquivo é o nome do contrato inteligente seguido pela extensão **. JSON** .
-1. Selecione **copiar o Abi do contrato**.
+1. No painel de explorador esguia do Código do Estúdio Visual, expanda a pasta **build/contracts** do seu projeto Solidity.
+1. Clique no ficheiro JSON dos metadados do contrato. O nome do ficheiro é o nome do contrato inteligente seguido da extensão **.json.**
+1. Selecione **Copy Contract ABI**.
 
-    ![Painel de Visual Studio Code com a seleção de ABI do contrato de cópia](./media/data-manager-portal/abi-devkit.png)
+    ![Painel de Código de Estúdio Visual com a seleção ABI do contrato de cópia](./media/data-manager-portal/abi-devkit.png)
 
-    A ABI do contrato é copiada para a área de transferência.
+    O contrato ABI é copiado para a prancheta.
 
-1. Salve a matriz **Abi** como um arquivo JSON. Por exemplo, *Abi. JSON*. Você usará o arquivo em uma etapa posterior.
+1. Guarde a matriz **de abi** como um ficheiro JSON. Por exemplo, *abi.json*. Usa o ficheiro num passo posterior.
 
-Blockchain Gerenciador de Dados requer o código de bytes implantado para o contrato inteligente. O código de bytes implantado é diferente do código de bytes do contrato inteligente. Use a extensão do kit de desenvolvimento do Azure blockchain para copiar o código de bytes para a área de transferência.
+O Blockchain Data Manager requer o código de envio implementado para o contrato inteligente. O código de envio é diferente do código de contrato inteligente. Utilize a extensão do kit de desenvolvimento da blockchain Azure para copiar o código de acesso à pasta.
 
-1. No painel Visual Studio Code Explorer, expanda a pasta **Build/Contracts** do projeto de sólidaidade.
-1. Clique com o botão direito do mouse no arquivo JSON de metadados do contrato. O nome do arquivo é o nome do contrato inteligente seguido pela extensão **. JSON** .
-1. Selecione **copiar código de bytes da transação**.
+1. No painel de explorador esguia do Código do Estúdio Visual, expanda a pasta **build/contracts** do seu projeto Solidity.
+1. Clique no ficheiro JSON dos metadados do contrato. O nome do ficheiro é o nome do contrato inteligente seguido da extensão **.json.**
+1. Selecione **Copy Transaction Bytecode**.
 
-    ![Painel de Visual Studio Code com a seleção de bytes de transação de cópia](./media/data-manager-portal/bytecode-devkit.png)
+    ![Painel de código de estúdio visual com a seleção de Bytecode de Transação de Cópia](./media/data-manager-portal/bytecode-devkit.png)
 
-    O código de bytes é copiado para a área de transferência.
+    O código de acesso é copiado para a pasta.
 
-1. Salve o valor do **código de bytes** como um arquivo JSON. Por exemplo, *código de bytes. JSON*. Você usará o arquivo em uma etapa posterior.
+1. Guarde o valor do **código de byte** como ficheiro JSON. Por exemplo, *bytecode.json*. Usa o ficheiro num passo posterior.
 
-O exemplo a seguir mostra o *Abi. JSON* e os arquivos de *código de bytes. JSON* abertos no editor de vs Code. Os arquivos devem ser semelhantes.
+O exemplo que se segue mostra *ficheiros abi.json* e *bytecode.json abertos* no editor do Código VS. Os seus ficheiros devem parecer semelhantes.
 
-![Exemplo de arquivos Abi. JSON e código de bytes. JSON](./media/data-manager-portal/contract-files.png)
+![Exemplo de ficheiros abi.json e bytecode.json](./media/data-manager-portal/contract-files.png)
 
-### <a name="create-contract-abi-and-bytecode-url"></a>Criar o contrato ABI e URL do código de bytes
+### <a name="create-contract-abi-and-bytecode-url"></a>Criar contrato ABI e bytecode URL
 
-Blockchain Gerenciador de Dados requer que os arquivos de código de bytes ABI e do contrato sejam acessíveis por uma URL ao adicionar um aplicativo. Você pode usar uma conta de armazenamento do Azure para fornecer uma URL acessível de forma privada.
+O Blockchain Data Manager exige que os ficheiros ABI e bytecode sejam acessíveis por um URL ao adicionar uma aplicação. Pode utilizar uma conta de Armazenamento Azure para fornecer um URL acessível a privados.
 
 #### <a name="create-storage-account"></a>Criar conta de armazenamento
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-#### <a name="upload-contract-files"></a>Carregar arquivos de contrato
+#### <a name="upload-contract-files"></a>Carregar ficheiros de contratos
 
-1. Crie um novo contêiner para a conta de armazenamento. Selecione **contêineres > contêiner**.
+1. Crie um novo recipiente para a conta de armazenamento. Selecione **Recipientes > Recipiente**.
 
-    ![Criar um contêiner de conta de armazenamento](./media/data-manager-portal/create-container.png)
+    ![Criar um recipiente de conta de armazenamento](./media/data-manager-portal/create-container.png)
 
     | Campo | Descrição |
     |-------|-------------|
-    | Nome  | Nomeie o contêiner. Por exemplo, *smartcontract* |
-    | Nível de acesso público | Escolha *privado (sem acesso anônimo)* |
+    | Nome  | Dê um nome ao contentor. Por exemplo, *contrato inteligente* |
+    | Nível de acesso público | Escolha *O Privado (sem acesso anónimo)* |
 
 1. Selecione **OK** para criar o contentor.
-1. Selecione o contêiner e, em seguida, selecione **carregar**.
-1. Escolha os arquivos JSON que você criou na seção [obter o Abi do contrato e o código de bytes](#get-contract-abi-and-bytecode) .
+1. Selecione o recipiente e selecione **Upload**.
+1. Escolha os dois ficheiros JSON que criou na secção [Get Contract ABI e bytecode.](#get-contract-abi-and-bytecode)
 
     ![Carregar blob](./media/data-manager-portal/upload-blobs.png)
 
@@ -123,52 +123,52 @@ Blockchain Gerenciador de Dados requer que os arquivos de código de bytes ABI e
 
 #### <a name="generate-url"></a>Gerar URL
 
-Para cada blob, gere uma assinatura de acesso compartilhado.
+Para cada bolha, gere uma assinatura de acesso partilhado.
 
-1. Selecione o blob do ABI JSON.
-1. Selecione **gerar SAS**
-1. Defina expiração de assinatura de acesso desejado e, em seguida, selecione **gerar token SAS de BLOB e URL**.
+1. Selecione a bolha ABI JSON.
+1. Selecione **Generate SAS**
+1. Detete a expiração da assinatura de acesso desejada e, em seguida, **selecione Generate blob SAS token e URL**.
 
-    ![Gerar token SAS](./media/data-manager-portal/generate-sas.png)
+    ![Gerar ficha SAS](./media/data-manager-portal/generate-sas.png)
 
-1. Copie a **URL de SAS do blob** e salve-a para a próxima seção.
-1. Repita as etapas de [geração de URL](#generate-url) para o blob JSON de código de bytes.
+1. Copie o **URL Blob SAS** e guarde-o para a próxima secção.
+1. Repita os passos [de URL de geração](#generate-url) para a bolha JSON bytecode.
 
-### <a name="add-application-to-instance"></a>Adicionar aplicativo à instância
+### <a name="add-application-to-instance"></a>Adicionar aplicação à instância
 
-1. Selecione sua instância de Gerenciador de Dados do Blockchain na lista de instâncias.
-1. Selecione **aplicativos Blockchain**.
+1. Selecione a sua instância de Gestor de Dados blockchain na lista de instâncias.
+1. Selecione **aplicações Blockchain**.
 1. Selecione **Adicionar**.
 
-    ![Adicionar um aplicativo blockchain](./media/data-manager-portal/add-application.png)
+    ![Adicione uma aplicação blockchain](./media/data-manager-portal/add-application.png)
 
-    Insira o nome do aplicativo blockchain e as URLs ABI do Smart Contract e código de bytes.
+    Introduza o nome da aplicação blockchain e do contrato inteligente ABI e bytecode URLs.
 
     Definição | Descrição
     --------|------------
-    Nome | Insira um nome exclusivo para o aplicativo blockchain rastrear.
-    ABI do contrato | Caminho da URL para o arquivo da ABI do contrato. Para obter mais informações, consulte [criar contrato Abi e URL de código de bytes](#create-contract-abi-and-bytecode-url).
-    Código de bytes do contrato | Caminho da URL para o arquivo de código de bytes. Para obter mais informações, consulte [criar contrato Abi e URL de código de bytes](#create-contract-abi-and-bytecode-url).
+    Nome | Introduza um nome único para a aplicação blockchain rastrear.
+    Contrato ABI | URL caminho para o ficheiro CONTRACT ABI. Para mais informações, consulte [Criar contrato ABI e bytecode URL](#create-contract-abi-and-bytecode-url).
+    Código de contrato | URL caminho para ficheiro bytecode. Para mais informações, consulte [Criar contrato ABI e bytecode URL](#create-contract-abi-and-bytecode-url).
 
 1. Selecione **OK**.
 
-    Depois que o aplicativo é criado, o aplicativo aparece na lista de aplicativos blockchain.
+    Uma vez criada a aplicação, a aplicação aparece na lista de aplicações blockchain.
 
-    ![Lista de aplicativos do Blockchain](./media/data-manager-portal/artifact-list.png)
+    ![Lista de aplicações blockchain](./media/data-manager-portal/artifact-list.png)
 
-Você pode excluir a conta de armazenamento do Azure ou usá-la para configurar aplicativos mais blockchain. Se você quiser excluir a conta de armazenamento do Azure, poderá excluir o grupo de recursos. Ao eliminar o grupo de recursos também elimina a conta de armazenamento associada e quaisquer outros recursos associados ao grupo de recursos.
+Pode eliminar a conta De armazenamento do Azure ou usá-la para configurar mais aplicações blockchain. Se pretender eliminar a conta De armazenamento Azure, pode eliminar o grupo de recursos. Ao eliminar o grupo de recursos também elimina a conta de armazenamento associada e quaisquer outros recursos associados ao grupo de recursos.
 
 ## <a name="stop-instance"></a>Parar instância
 
-Pare a instância do Gerenciador de Blockchain quando desejar parar de capturar eventos de Blockchain e enviar dados para as conexões de saída. Quando a instância é interrompida, nenhum encargo é incorrido para Blockchain Gerenciador de Dados. Para obter mais informações, veja os [preços](https://azure.microsoft.com/pricing/details/blockchain-service).
+Pare a instância do Blockchain Manager quando pretender parar de capturar eventos blockchain e enviar dados para as ligações de saída. Quando a instância é interrompida, não são incorridos encargos para o Gestor de Dados blockchain. Para obter mais informações, veja os [preços](https://azure.microsoft.com/pricing/details/blockchain-service).
 
-1. Acesse **visão geral** e selecione **parar**.
+1. Vá ao **Overview e** selecione **Stop**.
 
     ![Parar instância](./media/data-manager-portal/stop-instance.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Experimente o próximo tutorial Criando um Gerenciador de mensagens de transação blockchain usando o Blockchain Gerenciador de Dados e o Azure Cosmos DB.
+Experimente o próximo tutorial criando um explorador de mensagens de transação blockchain usando blockchain Data Manager e Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Usar o Blockchain Gerenciador de Dados para enviar dados para Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Use o Gestor de Dados blockchain para enviar dados para o Azure Cosmos DB](data-manager-cosmosdb.md)

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Teradata privilegiando usando Azure Data Factory
-description: O conector Teradata do serviço de Data Factory permite copiar dados de um privilegiando Teradata para armazenamentos de dados com suporte do Data Factory como coletores.
+title: Copiar dados da Teradata Vantage utilizando a Azure Data Factory
+description: O Conector Teradata do serviço Data Factory permite copiar dados de um Teradata Vantage para lojas de dados suportadas pela Data Factory como pias.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,71 +12,71 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 5a41d5653de0d8a9f674009904756892ac343609
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930924"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358476"
 ---
-# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados do Teradata privilegiando usando Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+# <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage utilizando a Azure Data Factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 >
 > * [Versão 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Versão atual](connector-teradata.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados do Teradata privilegiando. Ele se baseia na [visão geral da atividade de cópia](copy-activity-overview.md).
+Este artigo descreve como usar a atividade de cópia na Azure Data Factory para copiar dados da Teradata Vantage. Baseia-se na visão geral da atividade da [cópia.](copy-activity-overview.md)
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector do Teradata tem suporte para as seguintes atividades:
+Este conector Teradata é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados do Teradata privilegiando para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da Teradata Vantage para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, esse conector do Teradata dá suporte a:
+Especificamente, este conector Teradata suporta:
 
-- Teradata **versão 14,10, 15,0, 15,10, 16,0, 16,10 e 16,20**.
-- Copiar dados usando a autenticação **básica** ou do **Windows** .
-- Cópia paralela de uma fonte Teradata. Consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) para obter detalhes.
+- Vereção Teradata **14.10, 15.0, 15.10, 16.0, 16.10 e 16.20**.
+- Copiar dados utilizando a autenticação **Básica** ou **Windows.**
+- Cópia paralela de uma fonte teradata. Consulte a cópia paralela da secção [Teradata](#parallel-copy-from-teradata) para obter mais detalhes.
 
 > [!NOTE]
 >
-> Após o lançamento do tempo de execução de integração auto-hospedado v 3.18, Azure Data Factory atualizado o conector do Teradata. Qualquer carga de trabalho existente que usa o conector do Teradata anterior ainda tem suporte. No entanto, para novas cargas de trabalho, é uma boa ideia usar a nova. Observe que o novo caminho requer um conjunto diferente de serviço vinculado, conjunto de código e fonte de cópia. Para obter detalhes de configuração, consulte as respectivas seções a seguir.
+> Após o lançamento do tempo de execução de integração auto-hospedado v3.18, a Azure Data Factory atualizou o conector Teradata. Qualquer carga de trabalho existente que utilize o conector Teradata anterior ainda é suportada. Para novas cargas de trabalho, no entanto, é uma boa ideia usar a nova. Note que o novo caminho requer um conjunto diferente de serviço ligado, conjunto de dados e fonte de cópia. Para mais detalhes de configuração, consulte as respetivas secções que se seguem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-O Integration Runtime fornece um driver Teradata interno, começando da versão 3,18. Você não precisa instalar nenhum driver manualmente. O driver requer "Visual C++ redistribuível 2012 atualização 4" no computador do Integration Runtime de hospedagem interna. Se você ainda não o tiver instalado, baixe-o [aqui](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
+O tempo de integração proporciona um controlador Teradata incorporado, a partir da versão 3.18. Não precisa instalar manualmente nenhum controlador. O condutor requer C++ "Visual Redistribuable Update 4" na máquina de tempo de execução de integração auto-hospedada. Se ainda não o tiver instalado, descarregue-o a partir [daqui.](https://www.microsoft.com/en-sg/download/details.aspx?id=30679)
 
-Para qualquer versão de tempo de execução de integração autohospedada anterior a 3,18, instale o [.net provedor de dados para Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), versão 14 ou posterior, no computador do Integration Runtime. 
+Para qualquer versão de tempo de execução de integração auto-hospedada antes de 3.18, instale o Fornecedor de [Dados .NET para teradata](https://go.microsoft.com/fwlink/?LinkId=278886), versão 14 ou posterior, na máquina de tempo de execução de integração. 
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas para o conector Teradata.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector Teradata.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-O serviço vinculado do Teradata dá suporte às seguintes propriedades:
+O serviço ligado à Teradata suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como **Teradata**. | Sim |
-| connectionString | Especifica as informações necessárias para se conectar à instância Teradata. Consulte os exemplos a seguir.<br/>Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| o nome de utilizador | Especifique um nome de usuário para se conectar ao Teradata. Aplica-se quando você está usando a autenticação do Windows. | Não |
-| palavra-passe | Especifique uma senha para a conta de usuário que você especificou para o nome de usuário. Você também pode optar por [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). <br>Aplica-se quando você estiver usando a autenticação do Windows ou fazendo referência a uma senha em Key Vault para autenticação básica. | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Sim |
+| tipo | A propriedade tipo deve ser definida para **Teradata**. | Sim |
+| connectionString | Especifica as informações necessárias para se ligar à instância Teradata. Consulte as seguintes amostras.<br/>Também pode colocar uma palavra-passe no Cofre de Chaves Azure e retirar a configuração `password` da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
+| o nome de utilizador | Especifique um nome de utilizador para ligar à Teradata. Aplica-se quando está a utilizar a autenticação do Windows. | Não |
+| palavra-passe | Especifique uma palavra-passe para a conta de utilizador especificada para o nome de utilizador. Também pode optar por fazer referência a [um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). <br>Aplica-se quando está a utilizar a autenticação do Windows ou a fazer referência a uma palavra-passe no Cofre chave para autenticação básica. | Não |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Sim |
 
-Mais propriedades de conexão que você pode definir na cadeia de conexão por seu caso:
+Mais propriedades de ligação que pode definir na cadeia de ligação por seu caso:
 
 | Propriedade | Descrição | Valor predefinido |
 |:--- |:--- |:--- |
-| CharacterSet | O conjunto de caracteres a ser usado para a sessão. Por exemplo, `CharacterSet=UTF16`.<br><br/>Esse valor pode ser um conjunto de caracteres definido pelo usuário ou um dos seguintes conjuntos de caracteres predefinidos: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatível com DOS, KANJISJIS_0S)<br/>-EUC (compatível com UNIX, KANJIEC_0U)<br/>-IBM Mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | O valor padrão é `ASCII`. |
-| MaxRespSize |O tamanho máximo do buffer de resposta para solicitações SQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬`.<br/><br/>Para o banco de dados Teradata versão 16, 0 ou posterior, o valor máximo é 7361536. Para conexões que usam versões anteriores, o valor máximo é 1048576. | O valor padrão é `65536`. |
+| Conjunto de caracteres | O personagem está pronto para usar para a sessão. Por exemplo, `CharacterSet=UTF16`.<br><br/>Este valor pode ser um conjunto de caracteres definido pelo utilizador, ou um dos seguintes conjuntos de caracteres pré-definidos: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>LATIN1252_0A<br/>LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS compatível, KANJISJIS_0S)<br/>- EUC (Unix compatível, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>HANGUL949_7R0<br/>ARABIC1256_6A0<br/>CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | O valor predefinido é `ASCII`. |
+| MaxRespSize |O tamanho máximo do tampão de resposta para pedidos DeQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬`.<br/><br/>Para a Base de Dados Teradata versão 16.00 ou posterior, o valor máximo é 7361536. Para ligações que utilizam versões anteriores, o valor máximo é 1048576. | O valor predefinido é `65536`. |
 
 **Exemplo usando a autenticação básica**
 
@@ -118,9 +118,9 @@ Mais propriedades de conexão que você pode definir na cadeia de conexão por s
 
 > [!NOTE]
 >
-> A carga a seguir ainda tem suporte. No entanto, no futuro, você deve usar o novo.
+> A seguinte carga ainda é suportada. No entanto, para a frente, deve usar o novo.
 
-**Carga anterior:**
+**Carga útil anterior:**
 
 ```json
 {
@@ -146,14 +146,14 @@ Mais propriedades de conexão que você pode definir na cadeia de conexão por s
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista das propriedades com suporte pelo conjunto de e do Teradata. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md).
+Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Teradata. Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets](concepts-datasets-linked-services.md).
 
-Para copiar dados do Teradata, há suporte para as seguintes propriedades:
+Para copiar dados da Teradata, são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como `TeradataTable`. | Sim |
-| base de dados | O nome da instância Teradata. | Não (se for especificada "query" na origem de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para `TeradataTable`. | Sim |
+| database | O nome da instância Teradata. | Não (se for especificada "query" na origem de atividade) |
 | table | O nome da tabela na instância Teradata. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo:**
@@ -175,9 +175,9 @@ Para copiar dados do Teradata, há suporte para as seguintes propriedades:
 
 > [!NOTE]
 >
-> Ainda há suporte para o conjunto de `RelationalTable` do tipo DataSet. No entanto, recomendamos que você use o novo conjunto de um.
+> `RelationalTable` conjunto de dados do tipo ainda é suportado. No entanto, recomendamos que utilize o novo conjunto de dados.
 
-**Carga anterior:**
+**Carga útil anterior:**
 
 ```json
 {
@@ -195,30 +195,30 @@ Para copiar dados do Teradata, há suporte para as seguintes propriedades:
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Esta seção fornece uma lista das propriedades com suporte pela fonte Teradata. Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte [pipelines](concepts-pipelines-activities.md). 
+Esta secção fornece uma lista de propriedades suportadas por fonte da Teradata. Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="teradata-as-source"></a>Teradata como fonte
 
 >[!TIP]
->Para carregar dados do Teradata com eficiência usando o particionamento de dados, saiba mais na seção [cópia paralela da Teradata](#parallel-copy-from-teradata) .
+>Para carregar os dados da Teradata de forma eficiente utilizando a partilha de dados, saiba mais com cópia paralela da secção [Teradata.](#parallel-copy-from-teradata)
 
-Para copiar dados do Teradata, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados da Teradata, as seguintes propriedades são suportadas na secção **de origem** de atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como `TeradataSource`. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Ao habilitar a carga particionada, você precisa vincular quaisquer parâmetros de partição internos correspondentes em sua consulta. Para obter exemplos, consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) . | Não (se a tabela no DataSet for especificada) |
-| partitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Teradata. <br>Permitir valores são: **nenhum** (padrão), **hash** e **DynamicRange**.<br>Quando uma opção de partição é habilitada (ou seja, não `None`), o grau de paralelismo para carregar dados simultaneamente do Teradata é controlado pela configuração de [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia. | Não |
-| partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de partição não estiver `None`. | Não |
-| partitionColumnName | Especifique o nome da coluna de origem que será usada pela partição de intervalo ou pela partição de hash para cópia paralela. Se não for especificado, o índice principal da tabela será detectado automaticamente e usado como a coluna de partição. <br>Aplicar quando a opção de partição for `Hash` ou `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, `?AdfHashPartitionCondition` de gancho ou `?AdfRangePartitionColumnName` na cláusula WHERE. Consulte o exemplo em [cópia paralela da seção Teradata](#parallel-copy-from-teradata) . | Não |
-| partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se você usar a consulta para recuperar dados de origem, conecte `?AdfRangePartitionUpbound` na cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) . | Não |
-| partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, conecte `?AdfRangePartitionLowbound` na cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) . | Não |
+| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para `TeradataSource`. | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativa a carga divisória, tem de ligar os parâmetros correspondentes de partição incorporados na sua consulta. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não (se for especificado o quadro no conjunto de dados) |
+| partitionOptions | Especifica as opções de partilha de dados utilizadas para carregar dados da Teradata. <br>Os valores de aditar são: **Nenhum** (padrão), **Hash** e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, não `None`), o grau de paralelismo para carregar simultaneamente dados da Teradata é controlado pela [definição`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade da cópia. | Não |
+| partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não é `None`. | Não |
+| partitionColumnName | Especifique o nome da coluna de origem que será utilizada por divisória de alcance ou partição de Hash para cópia paralela. Se não especificado, o índice primário da tabela é detetado automaticamente e utilizado como coluna de partição. <br>Aplicar quando a opção de partição for `Hash` ou `DynamicRange`. Se utilizar uma consulta para recuperar os dados de origem, prenda `?AdfHashPartitionCondition` ou `?AdfRangePartitionColumnName` na cláusula WHERE. Consulte o exemplo na cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
+| partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se utilizar a consulta para recuperar dados de origem, prenda `?AdfRangePartitionUpbound` na cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
+| partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange`. Se utilizar uma consulta para recuperar os dados de origem, prenda `?AdfRangePartitionLowbound` na cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
 
 > [!NOTE]
 >
-> o tipo de `RelationalSource` fonte de cópia ainda tem suporte, mas não dá suporte à nova carga paralela interna do Teradata (opções de partição). No entanto, recomendamos que você use o novo conjunto de um.
+> `RelationalSource` fonte de cópia do tipo ainda é suportada, mas não suporta a nova carga paralela incorporada da Teradata (opções de partição). No entanto, recomendamos que utilize o novo conjunto de dados.
 
-**Exemplo: copiar dados usando uma consulta básica sem partição**
+**Exemplo: copiar dados utilizando uma consulta básica sem partição**
 
 ```json
 "activities":[
@@ -250,21 +250,21 @@ Para copiar dados do Teradata, as propriedades a seguir têm suporte na seção 
 ]
 ```
 
-## <a name="parallel-copy-from-teradata"></a>Cópia paralela do Teradata
+## <a name="parallel-copy-from-teradata"></a>Cópia paralela da Teradata
 
-O conector do Data Factory Teradata fornece particionamento de dados interno para copiar dados do Teradata em paralelo. Você pode encontrar opções de particionamento de dados na tabela de **origem** da atividade de cópia.
+O conector Data Factory Teradata fornece a partilha de dados incorporados para copiar dados da Teradata em paralelo. Pode encontrar opções de partilha de dados na tabela **Fonte** da atividade da cópia.
 
-![Captura de tela das opções de partição](./media/connector-teradata/connector-teradata-partition-options.png)
+![Screenshot das opções de partição](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Quando você habilita a cópia particionada, o Data Factory executa consultas paralelas em sua fonte Teradata para carregar dados por partições. O grau paralelo é controlado pela configuração de [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia. Por exemplo, se você definir `parallelCopies` como quatro, Data Factory gerar e executar simultaneamente quatro consultas com base na opção de partição e nas configurações especificadas, e cada consulta recuperará uma parte dos dados do Teradata.
+Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Teradata para carregar dados por divisórias. O grau paralelo é controlado pela [definição`parallelCopies`](copy-activity-performance.md#parallel-copy) da atividade da cópia. Por exemplo, se definir `parallelCopies` para quatro, data Factory gera e executa simultaneamente quatro consultas com base na sua opção e configurações especificadas de partição, e cada consulta recupera uma parte dos dados do seu Teradata.
 
-É recomendável habilitar a cópia paralela com o particionamento de dados, especialmente quando você carrega grandes quantidades de dados de seu Teradata. Veja a seguir as configurações sugeridas para cenários diferentes. Ao copiar dados para o armazenamento de dados baseado em arquivo, ele é redirecionado para gravar em uma pasta como vários arquivos (apenas especifique o nome da pasta). nesse caso, o desempenho é melhor do que gravar em um único arquivo.
+É sugerido que permita cópias paralelas com partilha de dados especialmente quando carrega uma grande quantidade de dados a partir do seu Teradata. As seguintes são configurações sugeridas para diferentes cenários. Ao copiar dados para uma loja de dados baseada em ficheiros, é re-ordenado para escrever para uma pasta como múltiplos ficheiros (apenas especificar o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
-| Cenário                                                     | Definições sugeridas                                           |
+| Cenário                                                     | Configurações sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa de uma tabela grande.                                   | **Opção de partição**: hash. <br><br/>Durante a execução, Data Factory detecta automaticamente a coluna CP, aplica um hash a ela e copia os dados por partições. |
-| Carregar uma grande quantidade de dados usando uma consulta personalizada.                 | **Opção de partição**: hash.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna usada para aplicar a partição hash. Se não for especificado, Data Factory detectará automaticamente a coluna CP da tabela que você especificou no conjunto de tabelas Teradata.<br><br>Durante a execução, Data Factory substitui `?AdfHashPartitionCondition` pela lógica de partição de hash e envia para o Teradata. |
-| Carregue uma grande quantidade de dados usando uma consulta personalizada, tendo uma coluna de inteiros com valor distribuído uniformemente para o particionamento de intervalo. | **Opções de partição**: partição de intervalo dinâmico.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna usada para particionar dados. Você pode particionar em relação à coluna com tipo de dados Integer.<br>Limite **superior** da partição e limite **inferior da partição**: especifique se deseja filtrar a coluna de partição para recuperar dados somente entre o intervalo inferior e superior.<br><br>Durante a execução, Data Factory substitui `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`e `?AdfRangePartitionLowbound` pelo nome real da coluna e os intervalos de valores para cada partição e envia para o Teradata. <br>Por exemplo, se a sua coluna de partição "ID" estiver definida com o limite inferior como 1 e o limite superior como 80, com conjunto de cópia paralela como 4, Data Factory recuperará dados por 4 partições. Suas IDs estão entre [1, 20], [21, 40], [41, 60] e [61, 80], respectivamente. |
+| Carga completa de mesa grande.                                   | **Opção de partição**: Hash. <br><br/>Durante a execução, a Data Factory deteta automaticamente a coluna PK, aplica um hash contra ela e copia dados por divisórias. |
+| Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Hash.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna utilizada para a aplicação da partição de hash. Se não especificado, a Data Factory deteta automaticamente a coluna PK da tabela especificada no conjunto de dados teradata.<br><br>Durante a execução, a Data Factory substitui `?AdfHashPartitionCondition` pela lógica da partilha de haxixe, e envia para a Teradata. |
+| Carregue uma grande quantidade de dados utilizando uma consulta personalizada, tendo uma coluna inteiro com valor uniformemente distribuído para a partilha de alcance. | **Opções de partição**: Partição dinâmica.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna de partição**: Especifique a coluna utilizada para os dados da partilha. Pode dividir-se contra a coluna com o tipo de dados inteiros.<br>**Divisória superior ligada** e **divisória inferior:** Especifique se pretende filtrar contra a coluna de divisórias para recuperar dados apenas entre a gama inferior e superior.<br><br>Durante a execução, a Data Factory substitui `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, e `?AdfRangePartitionLowbound` com o nome e os intervalos de valor reais para cada partição, e envia para a Teradata. <br>Por exemplo, se a sua coluna de partição "ID" definida com o limite inferior como 1 e o limite superior como 80, com cópia paralela definida como 4, data Factory recupera dados por 4 divisórias. As suas identificações estão entre [1,20], [21, 40], [41, 60], e [61, 80], respectivamente. |
 
 **Exemplo: consulta com partição de hash**
 
@@ -279,7 +279,7 @@ Quando você habilita a cópia particionada, o Data Factory executa consultas pa
 }
 ```
 
-**Exemplo: consulta com partição de intervalo dinâmico**
+**Exemplo: consulta com partição dinâmica de gama**
 
 ```json
 "source": {
@@ -296,55 +296,55 @@ Quando você habilita a cópia particionada, o Data Factory executa consultas pa
 
 ## <a name="data-type-mapping-for-teradata"></a>Mapeamento de tipo de dados para Teradata
 
-Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para saber mais sobre como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber como a atividade da cópia mapeia o esquema de origem e o tipo de dados para a pia, consulte [schema e mapeamentos de tipo](copy-activity-schema-and-type-mapping.md)de dados .
 
-| Tipo de dados Teradata | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de dados teradata | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |Byte[] |
-| bytes |Byte[] |
+| Blobs |Byte[] |
+| Byte |Byte[] |
 | ByteInt |Int16 |
 | char |String |
 | Clob |String |
-| Date |DateTime |
-| Decimal |Decimal |
-| Double |Double |
-| Graphic |Não suportado. Aplicar conversão explícita na consulta de origem. |
+| Data |DateTime |
+| decimal |decimal |
+| Valor de duplo |Valor de duplo |
+| Graphic |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Número inteiro |Int32 |
-| Interval Day |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Day To Hour |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Day To Minute |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Day To Second |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Hour |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Hour To Minute |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Hour To Second |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Minute |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Minute To Second |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Month |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Second |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Year |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Interval Year To Month |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Number |Double |
-| Período (Data) |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Período (hora) |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Período (hora com fuso horário) |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Período (carimbo de data/hora) |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Período (carimbo de data/hora com fuso horário) |Não suportado. Aplicar conversão explícita na consulta de origem. |
+| Interval Day |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Day To Hour |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Day To Minute |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Day To Second |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Hour |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Hour To Minute |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Hour To Second |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Minute |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Minute To Second |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Month |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Second |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Year |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Interval Year To Month |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Number |Valor de duplo |
+| Período (Data) |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Período (Hora) |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Período (Hora com Fuso Horário) |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Período (carimbo de tempo) |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Período (carimbo de tempo com fuso horário) |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | SmallInt |Int16 |
-| Tempo |TimeSpan |
+| Hora |TimeSpan |
 | Time With Time Zone |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
 | VarChar |String |
-| VarGraphic |Não suportado. Aplicar conversão explícita na consulta de origem. |
-| Xml |Não suportado. Aplicar conversão explícita na consulta de origem. |
+| Vargraphic |Não suportado. Aplicar elenco explícito na consulta de origem. |
+| Xml |Não suportado. Aplicar elenco explícito na consulta de origem. |
 
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

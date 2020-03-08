@@ -1,54 +1,54 @@
 ---
-title: Associações de hubs de notificação para Azure Functions
-description: Entenda como usar a associação do hub de notificação do Azure no Azure Functions.
+title: Ligações de Centros de Notificação para Funções Azure
+description: Entenda como utilizar a ligação do Hub de Notificação Azure em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926315"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371081"
 ---
-# <a name="notification-hubs-output-binding-for-azure-functions"></a>Associação de saída dos hubs de notificação para Azure Functions
+# <a name="notification-hubs-output-binding-for-azure-functions"></a>Ligação de saída de Hubs de notificação para funções Azure
 
-Este artigo explica como enviar notificações por push usando associações de [hubs de notificação do Azure](../notification-hubs/notification-hubs-push-notification-overview.md) no Azure functions. Azure Functions dá suporte a associações de saída para hubs de notificação.
+Este artigo explica como enviar notificações push utilizando ligações de Hubs de [Notificação Azure](../notification-hubs/notification-hubs-push-notification-overview.md) em Funções Azure. A Azure Functions suporta encadernações de saída para centros de notificação.
 
-Os hubs de notificação do Azure devem ser configurados para o PNS (serviço de notificações de plataforma) que você deseja usar. Para saber como obter notificações por push em seu aplicativo cliente nos hubs de notificação, consulte [introdução aos hubs de notificação](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) e selecione a plataforma do cliente de destino na lista suspensa, próximo à parte superior da página.
+Os Hubs de Notificação Azure devem ser configurados para o Serviço de Notificações da Plataforma (PNS) que pretende utilizar. Para saber como obter notificações push na sua aplicação de cliente a partir de Centros de Notificação, consulte [Iniciar-se com Centros](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) de Notificação e selecionar a sua plataforma de cliente-alvo a partir da lista de drop-down perto do topo da página.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> O Google [preteriu Google Cloud Messaging (GCM) em favor do firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Esta associação de saída não dá suporte a FCM. Para enviar notificações usando o FCM, use a [API do firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) diretamente em sua função ou use notificações de [modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> A Google [deprecou o Google Cloud Messaging (GCM) a favor da Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Esta ligação de saída não suporta a FCM. Para enviar notificações utilizando a FCM, utilize diretamente a [API firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) na sua função ou utilize notificações de [modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-As associações de hubs de notificação são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) , versão 1. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) .
+As ligações dos Centros de Notificação são fornecidas no pacote [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet, versão 1.x. O código fonte para o pacote está no repositório [GitHub-extensões azure-webjobs-sdk.](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs)
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
+## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superiores
 
-Essa associação não está disponível no functions 2. x e superior.
+Esta ligação não está disponível nas Funções 2.x e superiores.
 
-## <a name="example---template"></a>Exemplo-modelo
+## <a name="example---template"></a>Exemplo - modelo
 
-As notificações que você envia podem ser notificações nativas ou [notificações de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). As notificações nativas visam uma plataforma de cliente específica, conforme configurado na propriedade `platform` da Associação de saída. Uma notificação de modelo pode ser usada para direcionar várias plataformas.   
+As notificações que envia podem ser notificações nativas ou [notificações de modelos.](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) As notificações nativas visam uma plataforma específica do cliente, tal como configurada na propriedade `platform` da encadernação de saída. Uma notificação de modelo pode ser usada para direcionar várias plataformas.   
 
 Veja o exemplo de idioma específico:
 
-* [C#parâmetro de saída de script](#c-script-template-example---out-parameter)
-* [C#script-assíncrono](#c-script-template-example---asynchronous)
-* [C#script-JSON](#c-script-template-example---json)
-* [C#tipos de biblioteca de scripts](#c-script-template-example---library-types)
+* [C#script - fora parâmetro](#c-script-template-example---out-parameter)
+* [C#script - assíncrono](#c-script-template-example---asynchronous)
+* [C#script - JSON](#c-script-template-example---json)
+* [C#script - tipos de biblioteca](#c-script-template-example---library-types)
 * [F#](#f-template-example)
 * [JavaScript](#javascript-template-example)
 
-### <a name="c-script-template-example---out-parameter"></a>C#exemplo de modelo de script-parâmetro out
+### <a name="c-script-template-example---out-parameter"></a>C#exemplo de modelo de script - fora parâmetro
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém um espaço reservado `message` no modelo.
+Este exemplo envia uma notificação para um registo de [modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém um `message` espaço reservado no modelo.
 
 ```cs
 using System;
@@ -69,9 +69,9 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-### <a name="c-script-template-example---asynchronous"></a>C#exemplo de modelo de script – assíncrono
+### <a name="c-script-template-example---asynchronous"></a>C#Exemplo de modelo de script - assíncrono
 
-Se você estiver usando código assíncrono, os parâmetros de saída não serão permitidos. Nesse caso, use `IAsyncCollector` para retornar a notificação de modelo. O código a seguir é um exemplo assíncrono do código acima. 
+Se estiver a usar código assíncrono, não são permitidos parâmetros. Neste caso, utilize `IAsyncCollector` para devolver a notificação do modelo. O código que se segue é um exemplo assíncrono do código acima. 
 
 ```cs
 using System;
@@ -94,9 +94,9 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 }
 ```
 
-### <a name="c-script-template-example---json"></a>C#exemplo de modelo de script – JSON
+### <a name="c-script-template-example---json"></a>C#Exemplo de modelo de script - JSON
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém um espaço reservado `message` no modelo usando uma cadeia de caracteres JSON válida.
+Este exemplo envia uma notificação para um registo de [modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém um espaço reservado `message` no modelo usando uma corda JSON válida.
 
 ```cs
 using System;
@@ -108,9 +108,9 @@ public static void Run(string myQueueItem,  out string notification, TraceWriter
 }
 ```
 
-### <a name="c-script-template-example---library-types"></a>C#exemplo de modelo de script – tipos de biblioteca
+### <a name="c-script-template-example---library-types"></a>C#Exemplo de modelo de script - tipos de biblioteca
 
-Este exemplo mostra como usar tipos definidos na biblioteca de [hubs de notificações do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
+Este exemplo mostra como utilizar tipos definidos na Biblioteca hubs de notificação do [Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -135,16 +135,16 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>F#exemplo de modelo
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
+Este exemplo envia uma notificação para um registo de [modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
     notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 ```
 
-### <a name="javascript-template-example"></a>Exemplo de modelo de JavaScript
+### <a name="javascript-template-example"></a>Exemplo de modelo JavaScript
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
+Este exemplo envia uma notificação para um registo de [modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -163,9 +163,9 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="example---apns-native"></a>Exemplo – APNS nativo
+## <a name="example---apns-native"></a>Exemplo - ApNS nativo
 
-Este C# exemplo de script mostra como enviar uma notificação nativa de APNS. 
+Este C# exemplo de guião mostra como enviar uma notificação nativa da APNS. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -194,9 +194,9 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="example---wns-native"></a>Exemplo – WNS nativo
+## <a name="example---wns-native"></a>Exemplo - NATIVO WNS
 
-Este C# exemplo de script mostra como usar tipos definidos na [biblioteca de hubs de notificações do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) para enviar uma notificação de sistema WNS nativa. 
+Este C# exemplo de script mostra como usar tipos definidos na Biblioteca microsoft [Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) para enviar uma notificação de torradas WNS nativa. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -239,29 +239,29 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="attributes"></a>Atributos
 
-Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) .
+Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize o atributo [NotificationHub.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs)
 
-Os parâmetros e as propriedades do construtor do atributo são descritos na seção [configuração](#configuration) .
+Os parâmetros e propriedades do construtor do atributo são descritos na secção de [configuração.](#configuration)
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `NotificationHub`:
+A tabela que se segue explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no atributo `NotificationHub`:
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** |n/d| Tem de ser definido como `notificationHub`. |
-|**direção** |n/d| Tem de ser definido como `out`. | 
-|**name** |n/d| Nome da variável usada no código de função para a mensagem do hub de notificação. |
-|**tagExpression** |**TagExpression** | As expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos que se registraram para receber notificações que correspondam à expressão de marca.  Para obter mais informações, consulte [expressões de marca e de roteamento](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
-|**hubName** | **HubName** | Nome do recurso do hub de notificação no portal do Azure. |
-|**ligação** | **ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de hubs de notificação.  A cadeia de conexão deve ser definida como o valor *DefaultFullSharedAccessSignature* para o Hub de notificação. Consulte [configuração da cadeia de conexão](#connection-string-setup) mais adiante neste artigo.|
-|**platform** | **Plataforma** | A propriedade Platform indica a plataforma de cliente à qual sua notificação se destina. Por padrão, se a propriedade de plataforma for omitida da Associação de saída, as notificações de modelo poderão ser usadas para direcionar qualquer plataforma configurada no Hub de notificação do Azure. Para obter mais informações sobre como usar modelos em geral para enviar notificações entre plataformas com um hub de notificação do Azure, consulte [modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Quando definido, a **plataforma** deve ser um dos seguintes valores: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Para obter mais informações sobre como configurar o Hub de notificação para APNS e receber a notificação em um aplicativo cliente, consulte como [enviar notificações por push para o Ios com os hubs de notificação do Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para obter mais informações sobre como configurar o Hub de notificação para ADM e receber a notificação em um aplicativo Kindle, consulte [introdução com hubs de notificação para aplicativos Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;[Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) direcionamento a plataformas Windows. O Windows Phone 8,1 e posterior também tem suporte pelo WNS. Para obter mais informações, consulte [introdução aos hubs de notificação para aplicativos da plataforma universal do Windows](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[serviço de notificação por push da Microsoft](/previous-versions/windows/apps/ff402558(v=vs.105)). Esta plataforma dá suporte às plataformas Windows Phone 8 e versões anteriores Windows Phone. Para obter mais informações, consulte [enviando notificações por push com os hubs de notificação do Azure em Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**tipo** |n/d| Deve ser definido para `notificationHub`. |
+|**direção** |n/d| Deve ser definido para `out`. | 
+|**nome** |n/d| Nome variável utilizado no código de função para a mensagem do centro de notificação. |
+|**tagExpressão** |**TagExpression** | As expressões de etiqueta permitem especificar que as notificações são entregues a um conjunto de dispositivos que se registaram para receber notificações que correspondam à expressão da etiqueta.  Para mais informações, consulte [as expressões de Encaminhamento e etiqueta.](../notification-hubs/notification-hubs-tags-segment-push-message.md) |
+|**hubName** | **HubName** | Nome do recurso hub de notificação no portal Azure. |
+|**conexão** | **Definição de cordas de ligação** | O nome de uma definição de aplicação que contém uma cadeia de ligação De Notificação Hubs.  A cadeia de ligação deve ser definida para o valor *DefaultFullSharedAccessSignature* para o seu centro de notificação. Consulte a configuração da [corda de ligação](#connection-string-setup) mais tarde neste artigo.|
+|**plataforma** | **Plataforma** | A propriedade da plataforma indica à plataforma do cliente os seus alvos de notificação. Por padrão, se a propriedade da plataforma for omitida da encadernação de saída, as notificações do modelo podem ser usadas para direcionar qualquer plataforma configurada no Hub de Notificação Azure. Para obter mais informações sobre a utilização de modelos em geral para enviar notificações de plataformas cruzadas com um Hub de Notificação Azure, consulte [Os Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Quando definida, a **plataforma** deve ser um dos seguintes valores: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Para obter mais informações sobre a configuração do centro de notificação para APNS e receber a notificação numa aplicação de cliente, consulte [enviar notificações push para iOS com Hubs de Notificação Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Mensagens de Dispositivos Amazon](https://developer.amazon.com/device-messaging). Para obter mais informações sobre a configuração do centro de notificação para ADM e receber a notificação numa aplicação Kindle, consulte [Getting Started with Notification Hubs para aplicações Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;Serviços de [Notificação push do Windows](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) direcionados para as plataformas windows. O Windows Phone 8.1 e mais tarde também é suportado pela WNS. Para mais informações, consulte [Iniciar-se com Centros de Notificação para Aplicações da Plataforma Universal do Windows](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;Serviço de [Notificação push](/previous-versions/windows/apps/ff402558(v=vs.105))da Microsoft . Esta plataforma suporta plataformas Windows Phone 8 e Windows Phone anteriores. Para mais informações, consulte [Enviar notificações push com Hubs de Notificação Azure no Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-### <a name="functionjson-file-example"></a>exemplo de arquivo function. JSON
+### <a name="functionjson-file-example"></a>exemplo de ficheiro fun.json
 
-Aqui está um exemplo de uma associação de hubs de notificação em um arquivo *Function. JSON* .
+Aqui está um exemplo de um comunicado de ligação dos Centros de Notificação num ficheiro *function.json.*
 
 ```json
 {
@@ -280,17 +280,17 @@ Aqui está um exemplo de uma associação de hubs de notificação em um arquivo
 }
 ```
 
-### <a name="connection-string-setup"></a>Configuração da cadeia de conexão
+### <a name="connection-string-setup"></a>Configuração de cordas de ligação
 
-Para usar uma associação de saída do hub de notificação, você deve configurar a cadeia de conexão para o Hub. Você pode selecionar um hub de notificação existente ou criar um novo direito na guia *integrar* na portal do Azure. Você também pode configurar a cadeia de conexão manualmente. 
+Para utilizar uma ligação de saída do hub de notificação, deve configurar a cadeia de ligação para o centro. Pode selecionar um centro de notificação existente ou criar um novo direito a partir do separador *Integração* no portal Azure. Também pode configurar manualmente a corda de ligação. 
 
-Para configurar a cadeia de conexão para um hub de notificação existente:
+Para configurar a cadeia de ligação a um centro de notificação existente:
 
-1. Navegue até o Hub de notificação no [portal do Azure](https://portal.azure.com), escolha **políticas de acesso**e selecione o botão copiar ao lado da política **DefaultFullSharedAccessSignature** . Isso copia a cadeia de conexão da política *DefaultFullSharedAccessSignature* para o Hub de notificação. Essa cadeia de conexão permite que sua função envie mensagens de notificação para o Hub.
-    ![copiar a cadeia de conexão do hub de notificação](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Navegue até seu aplicativo de funções no portal do Azure, escolha **configurações de aplicativo**, adicione uma chave como **MyHubConnectionString**, Cole o *DefaultFullSharedAccessSignature* copiado para o Hub de notificação como o valor e, em seguida, clique em **salvar**.
+1. Navegue para o seu centro de notificação no [portal Azure,](https://portal.azure.com)escolha **as políticas**de Acesso e selecione o botão de cópia ao lado da política **DefaultFullSharedAccessSignature.** Isto copia o fio de ligação para a política *DefaultFullSharedAccessSignature* para o seu centro de notificação. Esta cadeia de ligação permite que a sua função envie mensagens de notificação para o centro.
+    ![Copie a cadeia de conexão do hub de notificação](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
+1. Navegue para a sua aplicação de função no portal Azure, escolha as definições de **Aplicação,** adicione uma chave como **MyHubConnectionString,** passe a assinatura de *Acesso Partilhado Predevido* copiado para o seu centro de notificação como valor e, em seguida, clique em **Guardar**.
 
-O nome dessa configuração de aplicativo é o que acontece na configuração de conexão de associação de saída em *Function. JSON* ou no atributo .net. Consulte a [seção configuração](#configuration) anteriormente neste artigo.
+O nome desta definição de aplicação é o que vai na definição de ligação de ligação de saída em *função.json* ou no atributo .NET. Consulte a [secção de Configuração](#configuration) mais cedo neste artigo.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -298,10 +298,10 @@ O nome dessa configuração de aplicativo é o que acontece na configuração de
 
 | Vínculo | Referência |
 |---|---|
-| Hub de Notificação | [Guia de operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
+| Centro de Notificação | [Guia de Operações](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções azure gatilhos e encadernações](functions-triggers-bindings.md)
 

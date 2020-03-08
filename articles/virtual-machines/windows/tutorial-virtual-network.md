@@ -1,5 +1,5 @@
 ---
-title: Tutorial – criar e gerenciar redes virtuais do Azure para VMs do Windows
+title: Tutorial - Criar e gerir redes virtuais Azure para VMs windows
 description: Neste tutorial, irá aprender a utilizar o Azure PowerShell para criar e gerir redes virtuais do Azure para máquinas virtuais do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,15 +16,15 @@ ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 67cfb04f67e3454bde25969b634116f2871cbeb5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064748"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393204"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
 
-As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial pressupõem que as VMs estão hospedando um aplicativo Web com um back-end de banco de dados, no entanto, um aplicativo não é implantado no tutorial. Neste tutorial, ficará a saber como:
+As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos deste tutorial assumem que os VMs estão a hospedar uma aplicação web com uma base de dados de back-end, no entanto uma aplicação não é implementada no tutorial. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma rede virtual e uma sub-rede
@@ -64,7 +64,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 Neste tutorial, é criada uma rede virtual individual com duas sub-redes. Uma sub-rede de front-end para alojar uma aplicação Web e uma sub-rede de back-end para alojar um servidor de bases de dados.
 
-Para poder criar uma rede virtual, crie um grupo de recursos usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myRGNetwork* na localização *EastUS*:
+Antes de criar uma rede virtual, crie um grupo de recursos utilizando [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myRGNetwork* na localização *EastUS*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
@@ -88,7 +88,7 @@ $backendSubnet = New-AzVirtualNetworkSubnetConfig `
 
 ## <a name="create-virtual-network"></a>Criar a rede virtual
 
-Crie uma VNET chamada *myVNet* usando *myFrontendSubnet* e *myBackendSubnet* usando [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork):
+Crie um VNET chamado *myVNet* usando *myFrontendSubnet* e *myBackendSubnet* usando [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
 $vnet = New-AzVirtualNetwork `
@@ -105,9 +105,9 @@ Nesta fase, já está criada uma rede e segmentada em duas sub-redes, uma para o
 
 Os endereços IP públicos permitem que os recursos do Azure estejam acessíveis na Internet. O método de atribuição do endereço IP público pode ser configurado como dinâmico ou estático. Por predefinição, o endereço IP público é atribuído dinamicamente. Os endereços IP dinâmicos são libertados quando uma VM é desalocada. Este comportamento faz com que o endereço IP mude durante qualquer operação que inclua desalocar uma VM.
 
-O método de alocação pode ser definido como estático, o que garante que o endereço IP permaneça atribuído a uma VM, mesmo durante um estado desalocado. Se você estiver usando um endereço IP estático, o próprio endereço IP não poderá ser especificado. Em vez disso, ele é alocado de um pool de endereços disponíveis.
+O método de atribuição pode ser definido para a estática, que assegura que o endereço IP permaneça atribuído a um VM, mesmo durante um estado de negociação. Se estiver a utilizar um endereço IP estático, o endereço IP em si não pode ser especificado. Em vez disso, é atribuído a partir de um conjunto de endereços disponíveis.
 
-Crie um endereço IP público denominado *myPublicIPAddress* usando [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress):
+Crie um endereço IP público chamado *myPublicIPAddress* utilizando [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress):
 
 ```azurepowershell-interactive
 $pip = New-AzPublicIpAddress `
@@ -121,7 +121,7 @@ Pode alterar o parâmetro -AllocationMethod para `Static` para atribuir um ender
 
 ## <a name="create-a-front-end-vm"></a>Criar uma VM de front-end
 
-Para uma VM comunicar numa rede virtual, necessita de uma interface de rede virtual (NIC). Crie uma NIC usando [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface):
+Para uma VM comunicar numa rede virtual, necessita de uma interface de rede virtual (NIC). Criar um NIC utilizando [o New-AzNetworkInterface:](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)
 
 ```azurepowershell-interactive
 $frontendNic = New-AzNetworkInterface `
@@ -138,7 +138,7 @@ Defina o nome de utilizador e a palavra-passe necessários para a conta de admin
 $cred = Get-Credential
 ```
 
-Crie as VMs usando [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Crie os VMs utilizando [o New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -154,13 +154,13 @@ New-AzVM `
 
 ## <a name="secure-network-traffic"></a>Proteger o tráfego de rede
 
-Os grupos de segurança de rede (NSG) contêm uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a Redes Virtuais do Azure (VNet). Os NSGs podem ser associados a sub-redes ou a interfaces de rede individuais. Um NSG está associado a uma interface de rede somente se aplica à VM associada. Quando um NSG é associado a uma sub-rede, as regras são aplicadas a todos os recursos ligados à mesma.
+Os grupos de segurança de rede (NSG) contêm uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a Redes Virtuais do Azure (VNet). Os NSGs podem ser associados a sub-redes ou a interfaces de rede individuais. Um NSG está associado a uma interface de rede apenas se aplica ao VM associado. Quando um NSG é associado a uma sub-rede, as regras são aplicadas a todos os recursos ligados à mesma.
 
 ### <a name="network-security-group-rules"></a>Regras do grupo de segurança de rede
 
 As regras do NSG definem as portas de rede através das quais o tráfego é permitido ou recusado. As regras podem incluir intervalos de endereços IP de origem e de destino, para que o tráfego seja controlado entre sistemas ou sub-redes específicos. As regras do NSG também incluem uma prioridade (entre 1 e 4096). As regras são avaliadas por ordem de prioridade. Uma regra com uma prioridade de 100 é avaliada antes de uma regra com prioridade de 200.
 
-Todos os NSGs contêm um conjunto de regras predefinidas. As regras padrão não podem ser excluídas, mas como são atribuídas à prioridade mais baixa, elas podem ser substituídas pelas regras que você criar.
+Todos os NSGs contêm um conjunto de regras predefinidas. As regras padrão não podem ser eliminadas, mas como lhes é atribuída a menor prioridade, podem ser ultrapassadas pelas regras que cria.
 
 - **Rede virtual** - o tráfego que tem origem e termina numa rede virtual é permitido nas direções de entrada e de saída.
 - **Internet** - o tráfego de saída é permitido, mas o tráfego de entrada é bloqueado.
@@ -168,7 +168,7 @@ Todos os NSGs contêm um conjunto de regras predefinidas. As regras padrão não
 
 ### <a name="create-network-security-groups"></a>Criar grupos de segurança de rede
 
-Crie uma regra de entrada chamada *myFrontendNSGRule* para permitir o tráfego da Web de entrada em *myFrontendVM* usando [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig):
+Crie uma regra de entrada chamada *myFrontendNSGRule* para permitir a entrada de tráfego web no *myFrontendVM* usando [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
 ```azurepowershell-interactive
 $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
@@ -198,7 +198,7 @@ $nsgBackendRule = New-AzNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Adicione um grupo de segurança de rede chamado *myFrontendNSG* usando [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup):
+Adicione um grupo de segurança de rede chamado *myFrontendNSG* usando [new-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup):
 
 ```azurepowershell-interactive
 $nsgFrontend = New-AzNetworkSecurityGroup `
@@ -208,7 +208,7 @@ $nsgFrontend = New-AzNetworkSecurityGroup `
   -SecurityRules $nsgFrontendRule
 ```
 
-Agora, adicione um grupo de segurança de rede chamado *myBackendNSG* usando New-AzNetworkSecurityGroup:
+Agora, adicione um grupo de segurança de rede chamado *myBackendNSG* usando new-AzNetworkSecurityGroup:
 
 ```azurepowershell-interactive
 $nsgBackend = New-AzNetworkSecurityGroup `
@@ -272,7 +272,7 @@ New-AzVM `
    -VirtualNetworkName myVNet
 ```
 
-A imagem neste exemplo tem SQL Server instalado, mas não é usada neste tutorial. Ele está incluído para mostrar como você pode configurar uma VM para manipular o tráfego da Web e uma VM para lidar com o gerenciamento de banco de dados.
+A imagem neste exemplo tem o SQL Server instalado, mas não é usado neste tutorial. Está incluído para lhe mostrar como pode configurar um VM para lidar com o tráfego web e um VM para lidar com a gestão da base de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

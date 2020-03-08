@@ -7,11 +7,11 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672060"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367663"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -49,7 +49,7 @@ Nos resultados, note que todos os artigos de telemetria partilham a raiz `operat
 |------------|---------------------------|--------------|--------------------|--------------|
 | páginaVer   | Página de stock                |              | Rio STYz               | Rio STYz         |
 | dependência | GET /Casa/Stock           | qJSXU        | Rio STYz               | Rio STYz         |
-| pedido    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | Rio STYz         |
+| request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | Rio STYz         |
 | dependência | GET /api/stock/valor      | bBrf2L7mm2g= | KqKwlrSt9PA=       | Rio STYz         |
 
 Quando a chamada `GET /api/stock/value` é feita para um serviço externo, você precisa saber a identidade desse servidor para que possa definir o campo `dependency.target` adequadamente. Quando o serviço externo não suporta a monitorização, `target` é definido para o nome de anfitrião do serviço (por exemplo, `stock-prices-api.com`). Mas se o serviço se identificar devolvendo um cabeçalho HTTP predefinido, `target` contém a identidade de serviço que permite que a Application Insights construa um traço distribuído consultando a telemetria desse serviço.

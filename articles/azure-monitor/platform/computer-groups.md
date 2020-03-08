@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655343"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373303"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos informáticos em consultas de registo do Monitor Azure
 Os grupos informáticos no Monitor Azure permitem-lhe examinar consultas de [registo](../log-query/log-query-overview.md) a um determinado conjunto de computadores.  Cada grupo é preenchido com computadores por meio de uma consulta por si ou ao importar grupos de diferentes origens.  Quando o grupo está incluído numa consulta de registo, os resultados limitam-se a registos que correspondam aos computadores do grupo.

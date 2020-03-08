@@ -1,7 +1,7 @@
 ---
-title: Suporte de idiomas - API de pesquisa de notícias do Bing
+title: Suporte de idiomas - Bing News Search API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas, países e regiões que são suportados pela API de pesquisa de notícias do Bing.
+description: Uma lista de línguas naturais, países e regiões que são apoiados pela API bing news search.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384973"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385074"
 ---
-# <a name="language-and-region-support-for-the-bing-news-search-api"></a>Suporte de idioma e região para a API de pesquisa de notícias do Bing
+# <a name="language-and-region-support-for-the-bing-news-search-api"></a>Apoio à língua e à região para a API de Pesquisa de Notícias bing
 
-A API de pesquisa de notícias do Bing suporta vários países/regiões, muitos com mais de um idioma. Especificação de um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base nos interesses desse país/região. Além disso, os resultados podem conter hiperligações para do Bing e estas ligações podem localizar a experiência do usuário do Bing, de acordo com o idioma ou país/região especificado.
+A API bing news search apoia numerosos países/regiões, muitos com mais de uma língua. Especificar um país/região com uma consulta serve principalmente para refinar resultados de pesquisa baseados em interesses nesse país/região. Além disso, os resultados podem conter ligações ao Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou língua especificado.
 
-Pode especificar um país/região a utilizar o `cc` parâmetro de consulta. Se especificar um país/região, também tem de especificar um ou mais códigos de idioma a utilizar o `Accept-Language` cabeçalho de HTTP. Os idiomas com suporte variam consoante o countr/região. são fornecidos para cada país/região na tabela de mercados.
+Pode especificar um país/região utilizando o parâmetro de consulta `cc`. Se especificar um país/região, também deve especificar um ou mais códigos linguísticos utilizando o cabeçalho `Accept-Language` HTTP. As línguas apoiadas variam consoante o conde/região; são dadas para cada país/região na tabela Mercados.
 
-Em alternativa, pode especificar o mercado utilizando o `mkt` consultar o parâmetro e um código do **mercados** tabela. Especificar um mercado em simultâneo Especifica um país/região e um idioma preferencial. O `setLang` parâmetro de consulta pode ser definido como um código de idioma neste caso; normalmente, este é o mesmo idioma especificado pelo `mkt` , a menos que o utilizador prefere ver do Bing em outro idioma.
+Em alternativa, pode especificar o mercado utilizando o parâmetro de consulta `mkt` e um código da tabela **Mercados.** Especificar um mercado simultaneamente especifica um país/região e uma língua preferida. Neste caso, o parâmetro de consulta `setLang` pode ser definido para um código linguístico; geralmente esta é a mesma língua especificada por `mkt` a menos que o utilizador prefira ver Bing em outro idioma.
 
-## <a name="supported-markets-for-news-search-endpoint"></a>Suportado mercados para o ponto final de pesquisa de notícias
+## <a name="supported-markets-for-news-search-endpoint"></a>Mercados apoiados para ponto final de pesquisa de notícias
 
-Para o `/news/search` ponto final, a tabela seguinte lista os valores de código do mercado que pode ser usado para especificar o `mkt` parâmetro de consulta. O Bing devolve o conteúdo para apenas esses mercados. A lista está sujeita a alterações.  
+Para o `/news/search` ponto final, a tabela que se segue lista os valores de código de mercado que pode utilizar para especificar o parâmetro de consulta `mkt`. Bing devolve conteúdo apenas para estes mercados. A lista está sujeita a alterações.  
 
-Para obter uma lista de país/região códigos que especifique no `cc` parâmetro de consulta, consulte [códigos de país](#countrycodes).  
+Para obter uma lista de códigos de país/região que possa especificar no parâmetro de consulta `cc`, consulte [Os Códigos do País](#countrycodes).  
 
-|País/região|Idioma|Código do mercado|  
+|País/região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Áustria|Alemão|Alemanha-AT|
@@ -47,16 +47,16 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Nova Zelândia|Português|EN-NZ|
 |República das Filipinas|Português|en-PH|
 |Singapura|Português|en-SG|
-|Estados Unidos|Português|en-US|
-|Português|Geral|en-WW|
-|Português|Geral|en-XA|
+|Estados Unidos|Português|pt-PT|
+|Português|geral|en-WW|
+|Português|geral|en-XA|
 |África do Sul|Português|en-ZA|
 |Argentina|Espanhol|es-AR|
 |Chile|Espanhol|es-CL|
 |Espanha|Espanhol|es-ES|
 |México|Espanhol|es-MX|
-|Estados Unidos|Espanhol|es-US|
-|Espanhol|Geral|es-XL|
+|Estados Unidos|Espanhol|es-EUA|
+|Espanhol|geral|es-XL|
 |Finlândia|Finlandês|fi-FI|  
 |França|Francês|fr-BE|
 |Canadá|Francês|fr-CA|
@@ -75,22 +75,22 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Suécia|Sueco|SV-SE|  
 |Turquia|Turco|tr-TR|  
 
-## <a name="supported-markets-for-news-endpoint"></a>Mercados suportados para o ponto final de notícias
-Para o `/news` ponto final, a tabela seguinte lista os valores de código do mercado que pode ser usado para especificar o `mkt` parâmetro de consulta. O Bing devolve o conteúdo para apenas esses mercados. A lista está sujeita a alterações.  
+## <a name="supported-markets-for-news-endpoint"></a>Mercados apoiados para o ponto final das notícias
+Para o `/news` ponto final, a tabela que se segue lista os valores de código de mercado que pode utilizar para especificar o parâmetro de consulta `mkt`. Bing devolve conteúdo apenas para estes mercados. A lista está sujeita a alterações.  
 
-Para obter uma lista de país/região códigos que especifique no `cc` parâmetro de consulta, consulte [códigos de país](#countrycodes).  
+Para obter uma lista de códigos de país/região que possa especificar no parâmetro de consulta `cc`, consulte [Os Códigos do País](#countrycodes).  
 
-|País/região|Idioma|Código do mercado|  
+|País/região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Alemanha|Alemão|de-DE|
 |Austrália|Português|EN-AU|
 |Reino Unido|Português|en-GB|
-|Estados Unidos|Português|en-US|
-|Português|Geral|en-WW|
+|Estados Unidos|Português|pt-PT|
+|Português|geral|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
-|Estados Unidos|Espanhol|es-US|
+|Estados Unidos|Espanhol|es-EUA|
 |Finlândia|Finlandês|fi-FI|  
 |Canadá|Francês|fr-CA|
 |França|Francês|FR-FR|  
@@ -98,17 +98,17 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Brasil|Português|pt-BR|
 |República Popular da China|Chinês|zh-CN|
 
-## <a name="supported-markets-for-news-trending-endpoint"></a>Suportado mercados para o ponto final mais populares de notícias
-Para o `/news/trendingtopics` ponto final, a tabela seguinte lista os valores de código do mercado que pode ser usado para especificar o `mkt` parâmetro de consulta. O Bing devolve o conteúdo para apenas esses mercados. A lista está sujeita a alterações.  
+## <a name="supported-markets-for-news-trending-endpoint"></a>Mercados suportados para notícias em tendência final
+Para o `/news/trendingtopics` ponto final, a tabela que se segue lista os valores de código de mercado que pode utilizar para especificar o parâmetro de consulta `mkt`. Bing devolve conteúdo apenas para estes mercados. A lista está sujeita a alterações.  
 
-Para obter uma lista de país/região códigos que especifique no `cc` parâmetro de consulta, consulte [códigos de país](#countrycodes).  
+Para obter uma lista de códigos de país/região que possa especificar no parâmetro de consulta `cc`, consulte [Os Códigos do País](#countrycodes).  
 
-|País/região|Idioma|Código do mercado|  
+|País/região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemanha|Alemão|de-DE|
 |Austrália|Português|EN-AU|
 |Reino Unido|Português|en-GB|
-|Estados Unidos|Português|en-US|
+|Estados Unidos|Português|pt-PT|
 |Canadá|Português|en-CA|
 |Índia|Português|EN-IN|
 |França|Francês|FR-FR|
@@ -118,11 +118,11 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 
 
 <a name="countrycodes"></a>   
-### <a name="country-codes"></a>Códigos de país  
+### <a name="country-codes"></a>Códigos do país  
 
-Seguem-se os códigos de país/região que pode especificar o `cc` parâmetro de consulta. A lista está sujeita a alterações.  
+Seguem-se os códigos país/região que pode especificar no parâmetro de consulta `cc`. A lista está sujeita a alterações.  
 
-|País/região|Indicativo do país|  
+|País/região|Indicativo de país|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Austrália|AU|  
@@ -161,5 +161,5 @@ Seguem-se os códigos de país/região que pode especificar o `cc` parâmetro de
 |Reino Unido|GB|  
 |Estados Unidos|EUA|
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre os pontos de extremidade de pesquisa do Bing notícias, consulte [referência da API de pesquisa de notícias v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+## <a name="next-steps"></a>Passos seguintes
+Para mais informações sobre os pontos finais da Pesquisa de Notícias bing, consulte [a referência da API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)de Pesquisa de Notícias .

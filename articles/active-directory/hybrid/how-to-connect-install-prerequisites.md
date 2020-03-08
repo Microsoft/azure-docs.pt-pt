@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc76f8edc8520ca50cd4c9527b037d99d24ce63c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190505"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376082"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para azure AD Connect
 Este tópico descreve os requisitos pré-requisitos e os requisitos de hardware para o Azure AD Connect.

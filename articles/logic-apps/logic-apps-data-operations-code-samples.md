@@ -1,29 +1,29 @@
 ---
-title: Exemplos de código para usar operações de dados
-description: Experimente estes exemplos de código que mostram como você pode usar operações de dados em fluxos de trabalho automatizados criados com aplicativos lógicos do Azure
+title: Amostras de código para utilização de operações de dados
+description: Experimente estas amostras de código que mostram como pode usar operações de dados em fluxos de trabalho automatizados criados com Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428696"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358825"
 ---
-# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplos de código de operação de dados para aplicativos lógicos do Azure
+# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Amostras de código de operação de dados para aplicações lógicas do Azure
 
-Aqui estão os exemplos de código para as definições de ação de operação de dados no artigo [executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md). Você pode usar esses exemplos para quando desejar experimentar os exemplos com sua própria definição de fluxo de trabalho subjacente do aplicativo lógico, assinatura do Azure e conexões de API. Basta copiar e colar essas definições de ação no editor de exibição de código da definição de fluxo de trabalho do aplicativo lógico e, em seguida, modificar as definições para o fluxo de trabalho específico. 
+Aqui estão as amostras de código para as definições de ação de operação de dados no artigo, [Executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md). Pode utilizar estas amostras para quando quiser experimentar os exemplos com a definição subjacente de fluxo de trabalho da sua própria aplicação lógica, subscrição Azure e ligações API. Basta copiar e colar estas definições de ação no editor de visão de código para a definição de fluxo de trabalho da sua aplicação lógica e, em seguida, modificar as definições para o seu fluxo de trabalho específico. 
 
-Com base em padrões de JavaScript Object Notation (JSON), essas definições de ação aparecem em ordem alfabética. No entanto, no designer do aplicativo lógico, cada definição aparece na sequência correta no fluxo de trabalho, pois a propriedade de `runAfter` de cada definição de ação especifica a ordem de execução.
+Com base nos padrões de Notação de Objetos JavaScript (JSON), estas definições de ação aparecem por ordem alfabética. No entanto, no Logic App Designer, cada definição aparece na sequência correta dentro do seu fluxo de trabalho porque cada definição de ação `runAfter` propriedade especifica a ordem de execução.
 
 <a name="compose-action-example"></a>
 
 ## <a name="compose"></a>Compor
 
-Para experimentar o [exemplo de ação **compor** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action), aqui estão as definições de ação que você pode usar:
+Para experimentar o exemplo de ação [ **compor,** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action)aqui estão as definições de ação que pode usar:
 
 ```json
 "actions": {
@@ -93,7 +93,7 @@ Para experimentar o [exemplo de ação **compor** ](../logic-apps/logic-apps-per
 
 ## <a name="create-csv-table"></a>Criar tabela CSV
 
-Para testar o [exemplo de ação **criar tabela CSV** ](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), aqui estão as definições de ação que você pode usar:
+Para experimentar o exemplo de ação da [ **tabela Create CSV,** ](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action)aqui estão as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -138,7 +138,7 @@ Para testar o [exemplo de ação **criar tabela CSV** ](../logic-apps/logic-apps
 
 ## <a name="create-html-table"></a>Criar tabela HTML
 
-Para experimentar o [exemplo de ação **criar tabela HTML** ](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), aqui estão as definições de ação que você pode usar:
+Para experimentar o exemplo de ação da [ **tabela Create HTML,** ](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action)aqui estão as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -181,9 +181,9 @@ Para experimentar o [exemplo de ação **criar tabela HTML** ](../logic-apps/log
 
 <a name="filter-array-action-example"></a>
 
-## <a name="filter-array"></a>Filtrar matriz
+## <a name="filter-array"></a>Matriz de filtro
 
-Para experimentar o [exemplo de ação **Filtrar matriz** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), aqui estão as definições de ação que você pode usar:
+Para experimentar o exemplo de ação da [ **matriz de filtro,** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action)aqui estão as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -224,7 +224,7 @@ Para experimentar o [exemplo de ação **Filtrar matriz** ](../logic-apps/logic-
 
 ## <a name="join"></a>Associar
 
-Para experimentar o [exemplo de ação de **junção** ](../logic-apps/logic-apps-perform-data-operations.md#join-action), aqui estão as definições de ação que você pode usar:
+Para experimentar o exemplo de ação [ **Join,** ](../logic-apps/logic-apps-perform-data-operations.md#join-action)aqui estão as definições de ação que pode usar:
 
 ```json
 "actions": {
@@ -263,9 +263,9 @@ Para experimentar o [exemplo de ação de **junção** ](../logic-apps/logic-app
 
 <a name="parse-json-action-example"></a>
 
-## <a name="parse-json"></a>Analisar JSON
+## <a name="parse-json"></a>Parse JSON
 
-Para experimentar o [exemplo de ação **analisar JSON** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), aqui estão as definições de ação que você pode usar:
+Para experimentar o exemplo de ação [ **da Parse JSON,** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action)aqui estão as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -324,7 +324,7 @@ Para experimentar o [exemplo de ação **analisar JSON** ](../logic-apps/logic-a
 
 ## <a name="select"></a>Selecione
 
-Para experimentar o [exemplo de ação **Select** ](../logic-apps/logic-apps-perform-data-operations.md#select-action), aqui estão as definições de ação que você pode usar:
+Para experimentar o exemplo de ação [ **Select,** ](../logic-apps/logic-apps-perform-data-operations.md#select-action)aqui estão as definições de ação que pode utilizar:
 
 ```json
 "actions": {
@@ -365,4 +365,4 @@ Para experimentar o [exemplo de ação **Select** ](../logic-apps/logic-apps-per
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md)
+* [Realizar operações de dados](../logic-apps/logic-apps-perform-data-operations.md)

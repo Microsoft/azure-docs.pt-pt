@@ -12,11 +12,11 @@ ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 02/10/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462586"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360054"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Instância gerida Diferenças, limitações e questões conhecidas
 
@@ -273,7 +273,7 @@ As seguintes opções não podem ser modificadas:
 
 Para mais informações, consulte [alter DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>SQL Server Agent
+### <a name="sql-server-agent"></a>Agente do SQL Server
 
 - Ativar e desativar o Agente de Servidor SQL não é suportado em instância gerida. O Agente SQL está sempre a correr.
 - As definições do Agente do Servidor SQL são lidas apenas. O procedimento `sp_set_agent_properties` não é suportado em instância gerida. 

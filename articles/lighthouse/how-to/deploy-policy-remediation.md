@@ -1,28 +1,28 @@
 ---
 title: Implementar uma política que pode ser corrigida
-description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
+description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
 ms.date: 10/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394042"
 ---
-# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implantar uma política que pode ser corrigida em uma assinatura delegada
+# <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementar uma política que pode ser remediada dentro de uma subscrição delegada
 
-O [Azure Lighthouse](../overview.md) permite que os provedores de serviços criem e editem definições de política em uma assinatura delegada. No entanto, para implantar políticas que usam uma [tarefa de correção](../../governance/policy/how-to/remediate-resources.md) (ou seja, políticas com o efeito [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) ou [Modificar](../../governance/policy/concepts/effects.md#modify) ), você precisará criar uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) no locatário do cliente. Essa identidade gerenciada pode ser usada pelo Azure Policy para implantar o modelo na política. Há etapas necessárias para habilitar esse cenário, quando você carrega o cliente para o gerenciamento de recursos delegado do Azure e quando implanta a política em si.
+[O Azure Lighthouse](../overview.md) permite que os prestadores de serviços criem e editem definições de políticas dentro de uma subscrição delegada. No entanto, para implementar políticas que utilizem uma tarefa de [reparação](../../governance/policy/how-to/remediate-resources.md) (isto é, políticas com o [efeito implementaçãoIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) ou [modificar),](../../governance/policy/concepts/effects.md#modify) terá de criar uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) no inquilino do cliente. Esta identidade gerida pode ser usada pela Política Azure para implementar o modelo dentro da política. Existem passos necessários para permitir este cenário, tanto quando se está a bordo do cliente para a gestão de recursos delegados do Azure, como quando implementa a própria política.
 
-## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Criar um usuário que pode atribuir funções a uma identidade gerenciada no locatário do cliente
+## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Criar um utilizador que possa atribuir funções a uma identidade gerida no inquilino do cliente
 
-Ao integrar um cliente para o gerenciamento de recursos delegado do Azure, você usa um [modelo de Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) junto com um arquivo de parâmetros que define os usuários, grupos de usuários e entidades de serviço no seu locatário de gerenciamento que poderá acessar os recursos delegados no locatário do cliente. No arquivo de parâmetros, cada um desses usuários (**PrincipalId**) é atribuído a uma [função interna](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) que define o nível de acesso.
+Quando a bordo de um cliente para a gestão de recursos delegados do Azure, utiliza um modelo de Gestor de [Recursos Azure](onboard-customer.md#create-an-azure-resource-manager-template) juntamente com um ficheiro de parâmetros que define os utilizadores, grupos de utilizadores e diretores de serviço no seu inquilino gestor que poderá aceder aos recursos delegados no inquilino do cliente. No seu ficheiro de parâmetros, cada um destes utilizadores **(principalid)** é atribuído a uma [função incorporada](../../role-based-access-control/built-in-roles.md) **(roleDefinitionId)** que define o nível de acesso.
 
-Para permitir que uma **entidade de segurança** crie uma identidade gerenciada no locatário do cliente, você deve definir seu **roleDefinitionId** como administrador de **acesso do usuário**. Embora essa função não tenha suporte em geral, ela pode ser usada nesse cenário específico, permitindo que os usuários com essa permissão atribuam uma ou mais funções internas específicas a identidades gerenciadas. Essas funções são definidas na propriedade **delegatedRoleDefinitionIds** . Você pode incluir qualquer função interna aqui, exceto o administrador de acesso do usuário ou o proprietário.
+Para permitir que um **principadoId** crie uma identidade gerida no inquilino do cliente, deve definir a sua **funçãoDefinitionId** para **o Administrador**de Acesso ao Utilizador . Embora esta função não seja geralmente suportada, pode ser usada neste cenário específico, permitindo aos utilizadores com esta permissão atribuir uma ou mais funções específicas incorporadas a identidades geridas. Estas funções são definidas na propriedade **deRoleDefinitionIds delegada.** Pode incluir qualquer função incorporada aqui, exceto administrador de acesso ao utilizador ou proprietário.
 
-Depois que o cliente estiver integrado, o **PrincipalId** criado nessa autorização poderá atribuir essas funções internas a identidades gerenciadas no locatário do cliente. No entanto, eles não terão nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário.
+Depois de o cliente estar a bordo, o **principalid** criado nesta autorização poderá atribuir estas funções incorporadas a identidades geridas no inquilino do cliente. No entanto, não terão quaisquer outras permissões normalmente associadas à função de Administrador de Acesso ao Utilizador.
 
-O exemplo a seguir mostra um **PrincipalId** que terá a função de administrador de acesso do usuário. Esse usuário poderá atribuir duas funções internas a identidades gerenciadas no locatário do cliente: colaborador e colaborador de Log Analytics.
+O exemplo abaixo mostra um **principalid** que terá a função de Administrador de Acesso ao Utilizador. Este utilizador poderá atribuir duas funções incorporadas a identidades geridas no inquilino do cliente: Colaborador e Colaborador de Log Analytics.
 
 ```json
 {
@@ -36,15 +36,15 @@ O exemplo a seguir mostra um **PrincipalId** que terá a função de administrad
 }
 ```
 
-## <a name="deploy-policies-that-can-be-remediated"></a>Implantar políticas que podem ser corrigidas
+## <a name="deploy-policies-that-can-be-remediated"></a>Implementar políticas que possam ser remediadas
 
-Depois de criar o usuário com as permissões necessárias, conforme descrito acima, esse usuário pode implantar políticas no locatário do cliente que usam tarefas de correção.
+Uma vez criado o utilizador com as permissões necessárias, conforme descrito acima, esse utilizador pode implementar políticas no inquilino do cliente que utilizam tarefas de reparação.
 
-Por exemplo, digamos que você queria habilitar o diagnóstico em Azure Key Vault recursos no locatário do cliente, conforme ilustrado neste [exemplo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring). Um usuário no locatário de gerenciamento com as permissões apropriadas (conforme descrito acima) implantaria um [modelo de Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para habilitar esse cenário.
+Por exemplo, digamos que queria permitir diagnósticos nos recursos do Cofre chave Azure no inquilino do cliente, como ilustrado nesta [amostra.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring) Um utilizador no inquilino gestor com as permissões apropriadas (como descrito acima) implantaria um modelo de Gestor de [Recursos Azure](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para permitir este cenário.
 
-Observe que a criação da atribuição de política a ser usada com uma assinatura delegada deve ser feita atualmente por meio de APIs, não na portal do Azure. Ao fazer isso, o **apiVersion** deve ser definido como **2019-04-01-Preview**, que inclui a nova propriedade **delegatedManagedIdentityResourceId** . Essa propriedade permite incluir uma identidade gerenciada que reside no locatário do cliente (em uma assinatura ou grupo de recursos que foi integrado ao gerenciamento de recursos delegado do Azure).
+Note que a criação da atribuição de políticas a utilizar com uma subscrição delegada deve ser feita atualmente através de APIs, e não no portal Azure. Ao fazê-lo, a **apiVersão** deve ser definida para **a pré-visualização 2019-04-01**, que inclui a nova propriedade **delegada ManagedIdentityResourceId.** Este imóvel permite-lhe incluir uma identidade gerida que reside no inquilino do cliente (num grupo de subscrição ou recursos que foi a bordo da gestão de recursos delegados do Azure).
 
-O exemplo a seguir mostra uma atribuição de função com um **delegatedManagedIdentityResourceId**.
+O exemplo seguinte mostra uma atribuição de funções com um **delegadoManagedIdentityResourceId**.
 
 ```json
 "type": "Microsoft.Authorization/roleAssignments",
@@ -62,9 +62,9 @@ O exemplo a seguir mostra uma atribuição de função com um **delegatedManaged
 ```
 
 > [!TIP]
-> Um [exemplo semelhante](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) está disponível para demonstrar como implantar uma política que adiciona ou remove uma marca (usando o efeito modificar) para uma assinatura delegada.
+> Uma [amostra semelhante](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) está disponível para demonstrar como implementar uma política que adiciona ou remove uma etiqueta (utilizando o efeito modificado) a uma subscrição delegada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [Azure Policy](../../governance/policy/index.yml).
-- Saiba mais sobre [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+- Conheça a [Política Azure.](../../governance/policy/index.yml)
+- Saiba mais sobre [identidades geridas para os recursos Azure.](../../active-directory/managed-identities-azure-resources/overview.md)

@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844943"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359608"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Único
 A Base de Dados Azure para PostgreSQL permite-lhe configurar e aceder aos registos padrão do Postgres. Os registos podem ser utilizados para identificar, resolução de problemas e erros de configuração de reparação e desempenho sub-ideal. O registo de informações que pode configurar e aceder inclui erros, informações de consulta, registos de autovácuo, ligações e pontos de verificação. (O acesso aos registos de transações não está disponível).
@@ -19,7 +19,7 @@ A Base de Dados Azure para PostgreSQL permite-lhe configurar e aceder aos regist
 A exploração madeireira de auditoria é disponibilizada através de uma extensão de Postgres, pgaudit. Para saber mais, visite o artigo [conceitos de auditoria.](concepts-audit.md)
 
 
-## <a name="configure-logging"></a>Configurar registro em log 
+## <a name="configure-logging"></a>Configurar a exploração madeireira 
 Pode configurar o registo padrão do Postgres no seu servidor utilizando os parâmetros do servidor de registo. Em cada base de dados Azure para servidor PostgreSQL, `log_checkpoints` e `log_connections` estão ligados por padrão. Existem parâmetros adicionais que pode ajustar de acordo com as suas necessidades de exploração madeireira: 
 
 ![Base de Dados Azure para PostgreSQL - Parâmetros de exploração](./media/concepts-server-logs/log-parameters.png)
@@ -40,7 +40,7 @@ O formato de registo predefinido na Base de Dados Azure para PostgreSQL é .log.
 
 A Base de Dados Azure para PostgreSQL fornece um local de armazenamento de curto prazo para os ficheiros .log. Um novo ficheiro começa a cada 1 hora ou 100 MB, o que vier primeiro. Os registos são anexados ao ficheiro atual, uma vez que são emitidos a partir de Postgres.  
 
-Pode definir o período de retenção para este armazenamento de registo de curto prazo utilizando o parâmetro `log_retention_period`. O valor predefinido é de 3 dias; o valor máximo é de 7 dias. O local de armazenamento a curto prazo pode conter até 1 GB de ficheiros de registo. Após 1 GB, os ficheiros mais antigos, independentemente do período de retenção, serão eliminados para dar espaço a novos registos. 
+Pode definir o período de retenção para este armazenamento de registo de curto prazo utilizando o parâmetro `log_retention_period`. O valor predefinido é de três dias; o valor máximo é de sete dias. O local de armazenamento a curto prazo pode conter até 1 GB de ficheiros de registo. Após 1 GB, os ficheiros mais antigos, independentemente do período de retenção, serão eliminados para dar espaço a novos registos. 
 
 Para a retenção a mais longo prazo de registos e análise de registo, pode descarregar os ficheiros .log e movê-los para um serviço de terceiros. Pode descarregar os ficheiros através do [portal Azure,](howto-configure-server-logs-in-portal.md) [Azure CLI](howto-configure-server-logs-using-cli.md). Em alternativa, pode configurar as definições de diagnóstico do Monitor Azure que emitem automaticamente os seus registos (em formato JSON) para locais de longo prazo. Saiba mais sobre esta opção na secção abaixo. 
 
@@ -50,10 +50,10 @@ Pode parar de gerar ficheiros .log, definindo o parâmetro `logging_collector` d
 A Base de Dados Azure para PostgreSQL está integrada com as definições de diagnóstico do Monitor Azure. As definições de diagnóstico permitem-lhe enviar os seus registos Postgres em formato JSON para registos de monitorização azure para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento. 
 
 > [!IMPORTANT]
-> Esse recurso de diagnóstico para logs de servidor só está disponível nos [tipos de preço](concepts-pricing-tiers.md)uso geral e com otimização de memória.
+> Esta função de diagnóstico para registos de servidores só está disponível nos níveis de preços otimizados para fins [gerais](concepts-pricing-tiers.md)e memória .
 
 
-### <a name="configure-diagnostic-settings"></a>Definir configurações de diagnóstico
+### <a name="configure-diagnostic-settings"></a>Configurar as definições de diagnóstico
 Pode ativar as definições de diagnóstico do seu servidor Postgres utilizando o portal Azure, CLI, REST API e Powershell. A categoria de registo a selecionar é **PostgreSQLLogs**. (Existem outros registos que pode configurar se estiver a utilizar a [Consulta Store](concepts-query-store.md).)
 
 Para ativar registos de diagnóstico utilizando o portal Azure:
@@ -63,7 +63,7 @@ Para ativar registos de diagnóstico utilizando o portal Azure:
    3. Diga este cenário. 
    4. Selecione o seu ponto final preferido (conta de armazenamento, centro de eventos, análise de registo). 
    5. Selecione o tipo de log **PostgreSQLLogs**.
-   7. Salve sua configuração.
+   7. Guarde a sua configuração.
 
 Para ativar os registos de diagnóstico utilizando a Powershell, CLI ou REST API, visite o artigo de definições de [diagnóstico.](../azure-monitor/platform/diagnostic-settings.md)
 
@@ -96,15 +96,15 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 
 |**Campo** | **Descrição** |
 |---|---|
-| TenantId | Sua ID de locatário |
+| TenantId | Sua identificação do inquilino |
 | SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado em UTC |
-| Tipo | Tipo do log. Sempre `AzureDiagnostics` |
-| SubscriptionId | GUID da assinatura à qual o servidor pertence |
-| ResourceGroup | Nome do grupo de recursos ao qual o servidor pertence |
-| ResourceProvider | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
+| TimeGenerated [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
+| Tipo | Tipo de tronco. Sempre `AzureDiagnostics` |
+| SubscriptionId | GUID para a subscrição a que o servidor pertence |
+| ResourceGroup | Nome do grupo de recursos a que o servidor pertence |
+| ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
-| ResourceId | URI de recurso |
+| ResourceId | Recurso URI |
 | Recurso | Nome do servidor |
 | Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
@@ -116,8 +116,8 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | SchemaName | Nome do esquema (se aplicável) |
 | DatatypeName | Nome do tipo de dados (se aplicável) |
 | LogicalServerName | Nome do servidor | 
-| _ResourceId | URI de recurso |
-| Prefixo | Prefixo da linha de log |
+| _ResourceId | Recurso URI |
+| Prefix | Prefixo da linha de log |
 
 
 ## <a name="next-steps"></a>Passos seguintes

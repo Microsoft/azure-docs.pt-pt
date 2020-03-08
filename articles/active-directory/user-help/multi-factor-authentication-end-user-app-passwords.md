@@ -14,22 +14,22 @@ ms.date: 08/13/2019
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 5f81181ac3107307a352cdbcd0b5cc4a555deacb
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062630"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375340"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir senhas de aplicação para verificação em duas etapas
 
 >[!Important]
 >O seu administrador pode não permitir que utilize senhas de aplicação. Se não vir as **palavras-passe** da App como uma opção, não estão disponíveis na sua organização.
 
-Ao usar senhas de aplicativo, é importante lembrar:
+Ao utilizar palavras-passe de aplicativos, é importante lembrar:
 
 - As palavras-passe da aplicação são geradas automaticamente e devem ser criadas e introduzidas uma vez por app.
 
-- Há um limite de 40 senhas por usuário. Se você tentar criar uma após esse limite, será solicitado que você exclua uma senha existente antes de ter permissão para criar a nova.
+- Há um limite de 40 senhas por utilizador. Se tentar criar uma após esse limite, será-lhe solicitado que apague uma palavra-passe existente antes de ser autorizada a criar a nova.
 
     >[!Note]
     >Os clientes do Office 2013 (incluindo o Outlook) suportam novos protocolos de autenticação e podem ser utilizados com verificação em duas etapas. Este suporte significa que, após a verificação em duas etapas, deixará de precisar de senhas de aplicação para clientes do Office 2013. Para mais informações, consulte o artigo de como a autenticação moderna funciona para o Office 2013 e artigo de [aplicações de clientes do Office 2016.](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517)

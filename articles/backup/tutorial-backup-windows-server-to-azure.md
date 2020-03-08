@@ -1,17 +1,17 @@
 ---
-title: Tutorial – fazer backup do Windows Server no Azure
+title: Tutorial - Back-up Windows Server para Azure
 description: Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação.
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226484"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381414"
 ---
-# <a name="back-up-windows-server-to-azure"></a>Faça uma Cópia de Segurança do Windows Server para o Azure
+# <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
 Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e desastres. O Azure Backup fornece uma ferramenta simples conhecida como o agente de Serviços de Recuperação do Microsoft Azure (MARS). O agente MARS está instalado no Windows Server para proteger ficheiros e pastas e informações de configuração do servidor através do Estado do Sistema do Windows Server. Este tutorial explica como pode utilizar o Agente MARS para efetuar cópias de segurança do Windows Server para o Azure. Neste tutorial, ficará a saber como:
 
@@ -19,7 +19,7 @@ Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e 
 >
 > * Transferir e configurar o Agente MARS
 > * Configurar horas de cópia de segurança e agenda de retenção para as cópias de segurança do servidor
-> * Executar um backup sob demanda
+> * Faça um back-up a pedido
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -29,7 +29,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Antes de fazer uma cópia de segurança do Windows Server, tem de criar um local para as cópias de segurança ou restaurar pontos, para serem armazenadas. O [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contentor do Azure que armazena as cópias de segurança do Windows Server. Siga os passos abaixo para criar um cofre dos Serviços de Recuperação no portal do Azure.
 
-1. No menu da esquerda, selecione **All services** (Todos os serviços) e, na lista de serviços, escreva **Recovery Services** (Serviços de Recuperação). Clique em **Cofres dos Serviços de Recuperação**.
+1. No menu da esquerda, selecione **Todos os serviços** e, na lista de serviços, escreva **Serviços de Recuperação**. Clique em **Cofres dos Serviços de Recuperação**.
 
    ![abrir o cofre dos Serviços de Recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
@@ -40,10 +40,10 @@ Antes de fazer uma cópia de segurança do Windows Server, tem de criar um local
 3. No menu do **cofre dos Serviços de Recuperação**,
 
     * escreva *myRecoveryServicesVault* em **Name** (Nome).
-    * O ID da subscrição atual aparece em **Subscription** (Subscrição).
+    * O ID da subscrição atual aparece em **Subscrição**.
     * Em **Resource group** (Grupo de recursos), selecione **Use existing** (Utilizar existente) *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Create New** (Criar novo) e escreva *myResourceGroup*.
-    * No menu pendente **Location** (Localização), escolha *West Europe* (Europa Ocidental).
-    * Clique em **Create** (Criar) para criar o cofre dos Serviços de Recuperação.
+    * No menu pendente **Localização**, escolha *Europa Ocidental*.
+    * Clique em **Criar** para criar o cofre dos Serviços de Recuperação.
 
 Quando o cofre for criado, aparecerá na lista de cofres dos Serviços de Recuperação.
 
@@ -59,7 +59,7 @@ O agente dos Serviços de Recuperação do Microsoft Azure (MARS) cria uma assoc
 
 3. No menu **Objetivo de Cópia de Segurança**:
 
-   * para **onde sua carga de trabalho está em execução?** , selecione **local**
+   * para **Onde está a sua carga de trabalho?**
    * para **Pretende efetuar uma cópia de segurança?** , selecione **Ficheiros e pastas** e clique em **Estado do Sistema**
 
    ![fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)

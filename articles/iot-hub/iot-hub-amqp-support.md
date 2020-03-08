@@ -1,6 +1,6 @@
 ---
-title: Entender o suporte do AMQP do Hub IoT do Azure | Microsoft Docs
-description: Guia do desenvolvedor – suporte para dispositivos que se conectam a pontos de extremidade voltados para o dispositivo do Hub IoT usando o protocolo AMQP. Inclui informações sobre o suporte interno do AMQP nos SDKs do dispositivo IoT do Azure.
+title: Compreender o suporte amqp do Hub Azure IoT  Microsoft Docs
+description: Guia de desenvolvimento - suporte para dispositivos que liguem a pontos finais virados para dispositivos IoT Hub e virados para o serviço utilizando o Protocolo AMQP. Inclui informações sobre suporte AMQP incorporado nos SDKs do dispositivo Azure IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286649"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359556"
 ---
-# <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicar-se com o Hub IoT usando o protocolo AMQP
+# <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunique com o seu hub IoT utilizando o Protocolo AMQP
 
-O Hub IoT do Azure dá suporte ao [OASIS Advanced Message Queuing Protocol (AMQP) versão 1,0](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) para fornecer uma variedade de funcionalidades por meio de pontos de extremidade voltados para o dispositivo e para o serviço. Este documento descreve o uso de clientes do AMQP para se conectar a um hub IoT para usar a funcionalidade do Hub IoT.
+O Azure IoT Hub suporta o Protocolo avançado de Fila de [Mensagens (AMQP) da versão 1.0](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) para fornecer uma variedade de funcionalidades através de pontos finais virados para dispositivos e para o serviço. Este documento descreve o uso de clientes AMQP para se conectar a um hub IoT para usar a funcionalidade IoT Hub.
 
 ## <a name="service-client"></a>Cliente de serviço
 
-### <a name="connect-and-authenticate-to-an-iot-hub-service-client"></a>Conectar e autenticar para um hub IoT (cliente de serviço)
+### <a name="connect-and-authenticate-to-an-iot-hub-service-client"></a>Conecte e autenticar um hub IoT (cliente de serviço)
 
-Para se conectar a um hub IoT usando o AMQP, um cliente pode usar a autenticação do [CBS (segurança baseada em declarações)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) ou do [Simple Authentication and Security Layer (SASL)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
+Para se ligar a um hub IoT utilizando amqp, um cliente pode usar a [autenticação de segurança baseada em sinistros (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) ou simples autenticação e camada de [segurança (SASL).](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer)
 
-As informações a seguir são necessárias para o cliente de serviço:
+As seguintes informações são necessárias para o cliente de serviço:
 
-| Proteção das | Valor |
+| Informações | Valor |
 |-------------|--------------|
-| Nome de host do Hub IoT | `<iot-hub-name>.azure-devices.net` |
+| Nome de anfitrião do hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Nome da chave | `service` |
-| Chave de acesso | Uma chave primária ou secundária associada ao serviço |
-| Assinatura de acesso compartilhado | Uma assinatura de acesso compartilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar essa assinatura, consulte [controlar o acesso ao Hub IOT](./iot-hub-devguide-security.md#security-token-structure).
+| Chave de acesso | Uma chave primária ou secundária que está associada ao serviço |
+| Assinatura de acesso partilhado | Uma assinatura de acesso partilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar esta assinatura, consulte [controle de acesso ao IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
-O trecho de código a seguir usa a [biblioteca uAMQP no Python](https://github.com/Azure/azure-uamqp-python) para se conectar a um hub IOT por meio de um link de remetente.
+O seguinte código snippet usa a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python) para ligar a um hub IoT através de uma ligação de remetente.
 
 ```python
 import uamqp
@@ -61,16 +61,16 @@ send_client = uamqp.SendClient(uri, debug=True)
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 ```
 
-### <a name="invoke-cloud-to-device-messages-service-client"></a>Invocar mensagens da nuvem para o dispositivo (cliente de serviço)
+### <a name="invoke-cloud-to-device-messages-service-client"></a>Invocar mensagens cloud-to-device (cliente de serviço)
 
-Para saber mais sobre a troca de mensagens da nuvem para o dispositivo entre o serviço e o Hub IoT e entre o dispositivo e o Hub IoT, consulte [enviar mensagens da nuvem para o dispositivo do Hub IOT](iot-hub-devguide-messages-c2d.md). O cliente de serviço usa dois links para enviar mensagens e receber comentários para mensagens enviadas anteriormente de dispositivos, conforme descrito na tabela a seguir:
+Para saber sobre a troca de mensagens cloud-to-device entre o serviço e o hub IoT e entre o dispositivo e o hub IoT, consulte [Enviar mensagens cloud-to-device do seu hub IoT](iot-hub-devguide-messages-c2d.md). O cliente de serviço utiliza dois links para enviar mensagens e receber feedback para mensagens enviadas anteriormente a partir de dispositivos, conforme descrito na tabela seguinte:
 
-| Criado por | Tipo de link | Caminho do link | Descrição |
+| Criado por | Tipo de ligação | Caminho de ligação | Descrição |
 |------------|-----------|-----------|-------------|
-| Serviço | Link do remetente | `/messages/devicebound` | As mensagens da nuvem para o dispositivo que são destinadas a dispositivos são enviadas para esse link pelo serviço. As mensagens enviadas por esse link têm sua propriedade `To` definida como o caminho do link do receptor do dispositivo de destino, `/devices/<deviceID>/messages/devicebound`. |
-| Serviço | Link do destinatário | `/messages/serviceBound/feedback` | As mensagens de comentários de conclusão, rejeição e abandono provenientes de dispositivos recebidos neste link pelo serviço. Para obter mais informações sobre mensagens de comentários, consulte [enviar mensagens da nuvem para o dispositivo de um hub IOT](./iot-hub-devguide-messages-c2d.md#message-feedback). |
+| Serviço | Ligação do remetente | `/messages/devicebound` | As mensagens cloud-to-device destinadas aos dispositivos são enviadas para este link pelo serviço. As mensagens enviadas através deste link têm a sua propriedade `To` definida para o caminho de ligação do recetor do dispositivo alvo, `/devices/<deviceID>/messages/devicebound`. |
+| Serviço | Ligação do recetor | `/messages/serviceBound/feedback` | Mensagens de conclusão, rejeição e abandono que provêm de dispositivos recebidos neste link por serviço. Para obter mais informações sobre mensagens de feedback, consulte [Enviar mensagens cloud-to-device a partir de um hub IoT](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
-O trecho de código a seguir demonstra como criar uma mensagem da nuvem para o dispositivo e enviá-la para um dispositivo usando a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python).
+O seguinte código de snippet demonstra como criar uma mensagem cloud-to-device e enviá-la para um dispositivo utilizando a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python).
 
 ```python
 import uuid
@@ -93,7 +93,7 @@ results = send_client.send_all_messages()
 send_client.close()
 ```
 
-Para receber comentários, o cliente de serviço cria um link de destinatário. O trecho de código a seguir demonstra como criar um link usando a [biblioteca uAMQP no Python](https://github.com/Azure/azure-uamqp-python):
+Para receber feedback, o cliente de serviço cria uma ligação de recetor. O seguinte código de snippet demonstra como criar uma ligação utilizando a [biblioteca uAMQP em Python:](https://github.com/Azure/azure-uamqp-python)
 
 ```python
 import json
@@ -126,29 +126,29 @@ for msg in batch:
         print('unknown message:', msg.properties.content_type)
 ```
 
-Conforme mostrado no código anterior, uma mensagem de comentários da nuvem para o dispositivo tem um tipo de conteúdo de *application/vnd. Microsoft. iothub. feedback. JSON*. Você pode usar as propriedades no corpo JSON da mensagem para inferir o status de entrega da mensagem original:
+Como mostrado no código anterior, uma mensagem de feedback cloud-to-device tem um tipo de conteúdo de *aplicação/vnd.microsoft.iothub.feedback.json*. Pode utilizar as propriedades do corpo JSON da mensagem para inferir o estado de entrega da mensagem original:
 
-* A chave `statusCode` no corpo de comentários tem um dos seguintes valores: *êxito*, *expirado*, *DeliveryCountExceeded*, *rejeitado*ou *limpo*.
+* A chave `statusCode` no corpo de feedback tem um dos seguintes valores: *Sucesso,* *Expirado,* *DeliveryCountExceeded,* *Rejeitado*ou *Purgado*.
 
-* A chave `deviceId` no corpo de comentários tem a ID do dispositivo de destino.
+* As principais `deviceId` no corpo de feedback têm a identificação do dispositivo-alvo.
 
-* A chave `originalMessageId` no corpo de comentários tem a ID da mensagem original da nuvem para o dispositivo enviada pelo serviço. Você pode usar esse status de entrega para correlacionar os comentários às mensagens da nuvem para o dispositivo.
+* A `originalMessageId` chave no corpo de feedback tem a identificação da mensagem original cloud-to-device que foi enviada pelo serviço. Pode utilizar este estado de entrega para correlacionar o feedback com as mensagens cloud-to-device.
 
-### <a name="receive-telemetry-messages-service-client"></a>Receber mensagens de telemetria (cliente de serviço)
+### <a name="receive-telemetry-messages-service-client"></a>Receba mensagens de telemetria (cliente de serviço)
 
-Por padrão, o Hub IoT armazena mensagens de telemetria de dispositivo ingeridas em um hub de eventos interno. O cliente de serviço pode usar o protocolo AMQP para receber os eventos armazenados.
+Por padrão, o seu hub IoT armazena mensagens de telemetria de dispositivos ingeridos num centro de eventos incorporado. O seu cliente de serviço pode utilizar o Protocolo AMQP para receber os eventos armazenados.
 
-Para essa finalidade, o cliente de serviço primeiro precisa se conectar ao ponto de extremidade do Hub IoT e receber um endereço de redirecionamento para os hubs de eventos internos. Em seguida, o cliente de serviço usa o endereço fornecido para se conectar ao Hub de eventos interno.
+Para o efeito, o cliente de serviço precisa primeiro de se ligar ao ponto final do hub IoT e receber um endereço de reorientação para os centros de eventos incorporados. O cliente de serviço usa então o endereço fornecido para se ligar ao centro de eventos incorporado.
 
-Em cada etapa, o cliente precisa apresentar as seguintes informações:
+Em cada passo, o cliente precisa apresentar as seguintes informações:
 
-* Credenciais de serviço válidas (token de assinatura de acesso compartilhado do serviço).
+* Credenciais de serviço válidas (ficha de assinatura de acesso partilhado de serviço).
 
-* Um caminho bem formatado para a partição do grupo de consumidores da qual ele pretende recuperar mensagens. Para um determinado grupo de consumidores e ID de partição, o caminho tem o seguinte formato: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (o grupo de consumidores padrão é `$Default`).
+* Um caminho bem formatado para a partilha do grupo de consumidores de que pretende recuperar mensagens. Para um determinado grupo de consumidores e id de partição, o caminho tem o seguinte formato: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (o grupo de consumidores padrão é `$Default`).
 
-* Um predicado de filtragem opcional para designar um ponto de partida na partição. Esse predicado pode estar na forma de um número de sequência, deslocamento ou carimbo de data/hora enfileirado.
+* Um predicado de filtragem opcional para designar um ponto de partida na divisória. Este predicado pode ser sob a forma de um número de sequência, offset ou carimbo de tempo enqueuado.
 
-O trecho de código a seguir usa a [biblioteca uAMQP no Python](https://github.com/Azure/azure-uamqp-python) para demonstrar as etapas anteriores:
+O seguinte código de corte utiliza a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python) para demonstrar os passos anteriores:
 
 ```python
 import json
@@ -212,23 +212,23 @@ for msg in batch:
     print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
 ```
 
-Para uma determinada ID de dispositivo, o Hub IoT usa um hash da ID do dispositivo para determinar em qual partição armazenar suas mensagens. O trecho de código anterior demonstra como os eventos são recebidos de uma única partição desse tipo. No entanto, observe que um aplicativo típico geralmente precisa recuperar eventos que são armazenados em todas as partições do hub de eventos.
+Para um determinado ID do dispositivo, o hub IoT utiliza um hash do ID do dispositivo para determinar em que divisória armazenar as suas mensagens. O código anterior demonstra como os eventos são recebidos de uma única partição. No entanto, note que uma aplicação típica muitas vezes precisa de recuperar eventos que são armazenados em todas as divisórias do centro de eventos.
 
 ## <a name="device-client"></a>Cliente do dispositivo
 
-### <a name="connect-and-authenticate-to-an-iot-hub-device-client"></a>Conectar e autenticar em um hub IoT (cliente do dispositivo)
+### <a name="connect-and-authenticate-to-an-iot-hub-device-client"></a>Conecte e autenticar um hub IoT (cliente do dispositivo)
 
-Para se conectar a um hub IoT usando o AMQP, um dispositivo pode usar a autenticação [CBS (segurança baseada em declarações)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) ou a [Simple Authentication and Security Layer (SASL)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer) .
+Para se ligar a um hub IoT utilizando AMQP, um dispositivo pode utilizar a autenticação [baseada em reclamações (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) ou a autenticação simples e a [autenticação simples (SASL).](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer)
 
-As informações a seguir são necessárias para o cliente do dispositivo:
+São necessárias as seguintes informações para o cliente do dispositivo:
 
-| Proteção das | Valor |
+| Informações | Valor |
 |-------------|--------------|
-| Nome de host do Hub IoT | `<iot-hub-name>.azure-devices.net` |
-| Chave de acesso | Uma chave primária ou secundária associada ao dispositivo |
-| Assinatura de acesso compartilhado | Uma assinatura de acesso compartilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar essa assinatura, consulte [controlar o acesso ao Hub IOT](./iot-hub-devguide-security.md#security-token-structure).
+| Nome de anfitrião do hub IoT | `<iot-hub-name>.azure-devices.net` |
+| Chave de acesso | Uma chave primária ou secundária que está associada ao dispositivo |
+| Assinatura de acesso partilhado | Uma assinatura de acesso partilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar esta assinatura, consulte [controle de acesso ao IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
-O trecho de código a seguir usa a [biblioteca uAMQP no Python](https://github.com/Azure/azure-uamqp-python) para se conectar a um hub IOT por meio de um link de remetente.
+O seguinte código snippet usa a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python) para ligar a um hub IoT através de uma ligação de remetente.
 
 ```python
 import uamqp
@@ -257,19 +257,19 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 send_client = uamqp.SendClient(uri, debug=True)
 ```
 
-Os caminhos de link a seguir têm suporte como operações de dispositivo:
+Os seguintes caminhos de ligação são suportados como operações do dispositivo:
 
-| Criado por | Tipo de link | Caminho do link | Descrição |
+| Criado por | Tipo de ligação | Caminho de ligação | Descrição |
 |------------|-----------|-----------|-------------|
-| Dispositivos | Link do destinatário | `/devices/<deviceID>/messages/devicebound` | As mensagens da nuvem para o dispositivo que são destinadas a dispositivos são recebidas neste link por cada dispositivo de destino. |
-| Dispositivos | Link do remetente | `/devices/<deviceID>/messages/events` | As mensagens do dispositivo para a nuvem enviadas de um dispositivo são enviadas por esse link. |
-| Dispositivos | Link do remetente | `/messages/serviceBound/feedback` | Comentários de mensagem da nuvem para o dispositivo enviados ao serviço por meio desse link pelos dispositivos. |
+| Dispositivos | Ligação do recetor | `/devices/<deviceID>/messages/devicebound` | As mensagens cloud-to-device destinadas a dispositivos são recebidas neste link por cada dispositivo de destino. |
+| Dispositivos | Ligação do remetente | `/devices/<deviceID>/messages/events` | As mensagens dispositivo-nuvem enviadas a partir de um dispositivo são enviadas para este link. |
+| Dispositivos | Ligação do remetente | `/messages/serviceBound/feedback` | Feedback de mensagem cloud-to-device enviado para o serviço através deste link por dispositivos. |
 
-### <a name="receive-cloud-to-device-commands-device-client"></a>Receber comandos da nuvem para o dispositivo (cliente do dispositivo)
+### <a name="receive-cloud-to-device-commands-device-client"></a>Receba comandos cloud-to-device (cliente do dispositivo)
 
-Os comandos da nuvem para o dispositivo enviados aos dispositivos chegam em um link `/devices/<deviceID>/messages/devicebound`. Os dispositivos podem receber essas mensagens em lotes e usar a carga de dados da mensagem, as propriedades da mensagem, as anotações ou as propriedades do aplicativo na mensagem, conforme necessário.
+Os comandos cloud-to-device que são enviados para dispositivos chegam numa ligação `/devices/<deviceID>/messages/devicebound`. Os dispositivos podem receber estas mensagens em lotes e usar a carga útil dos dados da mensagem, propriedades de mensagens, anotações ou propriedades de aplicação na mensagem, conforme necessário.
 
-O trecho de código a seguir usa a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python)) para receber mensagens da nuvem para o dispositivo por um dispositivo.
+O seguinte código de snippet utiliza a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python)para receber mensagens cloud-to-device por um dispositivo.
 
 ```python
 # ...
@@ -317,9 +317,9 @@ while True:
 
 ### <a name="send-telemetry-messages-device-client"></a>Enviar mensagens de telemetria (cliente do dispositivo)
 
-Você também pode enviar mensagens de telemetria de um dispositivo usando o AMQP. O dispositivo pode, opcionalmente, fornecer um dicionário de propriedades do aplicativo ou várias propriedades de mensagem, como a ID da mensagem.
+Também pode enviar mensagens de telemetria a partir de um dispositivo utilizando AMQP. O dispositivo pode opcionalmente fornecer um dicionário de propriedades de aplicação, ou várias propriedades de mensagem, tais como ID de mensagem.
 
-O trecho de código a seguir usa a [biblioteca uAMQP no Python](https://github.com/Azure/azure-uamqp-python) para enviar mensagens do dispositivo para a nuvem de um dispositivo.
+O seguinte código de snippet utiliza a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python) para enviar mensagens dispositivo-nuvem a partir de um dispositivo.
 
 ```python
 # ...
@@ -362,16 +362,16 @@ for result in results:
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* As conexões AMQP podem ser interrompidas devido a uma falha de rede ou à expiração do token de autenticação (gerado no código). O cliente de serviço deve lidar com essas circunstâncias e restabelecer a conexão e os links, se necessário. Se um token de autenticação expirar, o cliente poderá evitar uma queda de conexão proativamente renovando o token antes da expiração.
+* As ligações AMQP podem ser interrompidas devido a uma falha de rede ou à expiração do símbolo de autenticação (gerado no código). O cliente de serviço deve lidar com estas circunstâncias e restabelecer a ligação e ligações, se necessário. Se expirar um token de autenticação, o cliente pode evitar uma queda de ligação renovando proactivamente o símbolo antes da sua expiração.
 
-* O cliente deve, ocasionalmente, ser capaz de lidar com redirecionamentos de link corretamente. Para entender essa operação, consulte a documentação do cliente do AMQP.
+* O seu cliente deve ocasionalmente ser capaz de lidar corretamente com as direções de ligação. Para compreender tal operação, consulte a documentação do seu cliente AMQP.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o protocolo AMQP, consulte a [especificação AMQP v 1.0](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
+Para saber mais sobre o Protocolo AMQP, consulte a [especificação AMQP v1.0](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 
-Para saber mais sobre as mensagens do Hub IoT, consulte:
+Para saber mais sobre as mensagens IoT Hub, consulte:
 
-* [Mensagens da nuvem para o dispositivo](./iot-hub-devguide-messages-c2d.md)
-* [Suporte para protocolos adicionais](iot-hub-protocol-gateway.md)
-* [Suporte para o protocolo MQTT (transporte de telemetria de enfileiramento de mensagens)](./iot-hub-mqtt-support.md)
+* [Mensagens cloud-to-device](./iot-hub-devguide-messages-c2d.md)
+* [Apoio a protocolos adicionais](iot-hub-protocol-gateway.md)
+* [Apoio ao Protocolo de Transporte de Telemetria de Fila de Mensagens (MQTT)](./iot-hub-mqtt-support.md)

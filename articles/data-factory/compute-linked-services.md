@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 4545a75cc2082c21dcb87986eba819ebe39adf7b
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208765"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388377"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computacionais suportados pela Azure Data Factory
 Este artigo explica diferentes ambientes de cálculo que pode usar para processar ou transformar dados. Também fornece detalhes sobre diferentes configurações (on-demand vs. bring your own) suportadas pela Data Factory ao configurar serviços ligados que ligam estes ambientes computacionais a uma fábrica de dados Azure.
@@ -105,7 +105,7 @@ O seguinte JSON define um serviço ligado hDInsight baseado em Linux. O serviço
 | clusterResourceGroup         | O cluster HDInsight é criado neste grupo de recursos. | Sim      |
 | timetolive                   | O tempo de inatividade permitido para o cluster HDInsight a pedido. Especifica quanto tempo o cluster HDInsight a pedido permanece vivo após a conclusão de uma atividade executada se não houver outros empregos ativos no cluster. O valor mínimo permitido é de 5 minutos (00:05:00).<br/><br/>Por exemplo, se uma execução de atividade demorar 6 minutos e o tempo de vida for programado para 5 minutos, o cluster permanece vivo durante 5 minutos após os 6 minutos de processamento da atividade. Se outra execução de atividade for executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo), por isso use esta definição conforme necessário para melhorar o desempenho de uma fábrica de dados, reutilizando um cluster HDInsight a pedido.<br/><br/>Se definir o valor de tempo para viver para 0, o cluster é eliminado assim que a atividade estiver concluída. Enquanto que, se definir um valor elevado, o cluster pode permanecer inativo para que você possa iniciar sessão para algum propósito de resolução de problemas, mas pode resultar em custos elevados. Por isso, é importante que detetete o valor adequado com base nas suas necessidades.<br/><br/>Se o valor da propriedade timetolive for devidamente definido, vários oleodutos podem partilhar a instância do cluster HDInsight a pedido. | Sim      |
 | clusterType                  | O tipo de cluster HDInsight a ser criado. Os valores permitidos são "hadoop" e "faísca". Se não especificado, o valor predefinido é hadoop. O cluster ativado pelo Enterprise Security Package não pode ser criado a pedido, em vez disso, utilize um [cluster existente/ traga o seu próprio cálculo](#azure-hdinsight-linked-service). | Não       |
-| versão                      | Versão do cluster HDInsight. Se não especificado, está a utilizar a versão padrão definida pelo HDInsight. | Não       |
+| version                      | Versão do cluster HDInsight. Se não especificado, está a utilizar a versão padrão definida pelo HDInsight. | Não       |
 | hostSubscriptionId           | O ID de subscrição Azure usado para criar o cluster HDInsight. Se não especificado, utiliza o ID de subscrição do seu contexto de login Azure. | Não       |
 | clusterNamePrefix           | O prefixo do nome do cluster HDI, uma marca de tempo será automaticamente anexado no final do nome do cluster| Não       |
 | sparkVersion                 | A versão da faísca se o tipo de cluster for "Faísca" | Não       |
@@ -392,7 +392,7 @@ Cria um serviço ligado ao Azure Machine Learning Studio para registar um lote d
 | tenant                 | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Necessário se atualizar RecursoEndpoint é especificado |
 | connectVia             | O Tempo de Integração a utilizar para enviar as atividades para este serviço ligado. Pode utilizar o Tempo de Execução de Integração Azure ou o Tempo de Execução de Integração Auto-hospedado. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não                                       |
 
-## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning serviço vinculado
+## <a name="azure-machine-learning-linked-service"></a>Serviço ligado à Aprendizagem automática Azure
 Cria um serviço ligado à Aprendizagem automática Azure para ligar um espaço de trabalho azure machine learning a uma fábrica de dados.
 
 > [!NOTE]

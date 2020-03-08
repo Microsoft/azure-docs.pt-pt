@@ -1,6 +1,6 @@
 ---
-title: Capturar uma imagem de uma VM do Linux no Azure usando CLI do Azure
-description: Capture uma imagem de uma VM do Azure para usar em implantações em massa usando o CLI do Azure.
+title: Capture uma imagem de um Linux VM em Azure usando o Azure CLI
+description: Capture uma imagem de um VM Azure para usar para implantações em massa utilizando o Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,52 +16,52 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036911"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675696"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou VHD
 
 <!-- generalize, image - extended version of the tutorial-->
 
-Para criar várias cópias de uma VM (máquina virtual) para uso no Azure, Capture uma imagem da VM ou do VHD do sistema operacional. Para criar uma imagem para implantação, você precisará remover informações pessoais da conta. Nas etapas a seguir, você desprovisiona uma VM existente, a desaloca e cria uma imagem. Você pode usar essa imagem para criar VMs em qualquer grupo de recursos dentro de sua assinatura.
+Para criar várias cópias de uma máquina virtual (VM) para utilização em Azure, capture uma imagem do VM ou do VHD osS. Para criar uma imagem para implementação, terá de remover informações pessoais da conta. Nos seguintes passos, você desprovisiona um VM existente, desaloca-lo e criar uma imagem. Pode utilizar esta imagem para criar VMs em qualquer grupo de recursos dentro da sua subscrição.
 
-Para criar uma cópia de sua VM do Linux existente para backup ou depuração, ou para carregar um VHD do Linux especializado de uma VM local, consulte [carregar e criar uma VM do Linux de uma imagem de disco personalizada](upload-vhd.md).  
+Para criar uma cópia do seu VM Linux existente para cópia de segurança ou depuração, ou para carregar um VHD Linux especializado a partir de um VM no local, consulte [o Upload e crie um VM Linux](upload-vhd.md)a partir de uma imagem personalizada do disco .  
 
-Você pode usar o serviço do **Construtor de imagem de VM do Azure (visualização pública)** para criar sua imagem personalizada, sem necessidade de aprender sobre as ferramentas ou instalar pipelines de compilação, simplesmente fornecendo uma configuração de imagem, e o construtor de imagem criará a imagem. Para obter mais informações, consulte [introdução com o construtor de imagem de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+Pode utilizar o serviço **Azure VM Image Builder (Public Preview)** para construir a sua imagem personalizada, não precisa de aprender quaisquer ferramentas, ou configurar oleodutos, simplesmente fornecendo uma configuração de imagem, e o Image Builder criará a Imagem. Para mais informações, consulte [Getting Started with Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 Você precisará dos seguintes itens antes de criar uma imagem:
 
-* Uma VM do Azure criada no modelo de implantação do Gerenciador de recursos que usa discos gerenciados. Se você ainda não criou uma VM do Linux, poderá usar o [portal](quick-create-portal.md), o [CLI do Azure](quick-create-cli.md)ou os [modelos do Resource Manager](create-ssh-secured-vm-from-template.md). Configure a VM conforme necessário. Por exemplo, [adicione discos de dados](add-disk.md), aplique atualizações e instale aplicativos. 
+* Um VM Azure criado no modelo de implementação do Gestor de Recursos que utiliza discos geridos. Se ainda não criou um VM Linux, pode utilizar o [portal](quick-create-portal.md), o [Azure CLI](quick-create-cli.md)ou os [modelos De Gestor de Recursos](create-ssh-secured-vm-from-template.md). Configure o VM conforme necessário. Por exemplo, adicione discos de [dados,](add-disk.md)aplique atualizações e instale aplicações. 
 
-* As [CLI do Azure](/cli/azure/install-az-cli2) mais recentes instaladas e conectadas a uma conta do Azure com [AZ login](/cli/azure/reference-index#az-login).
+* O mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e ser registado numa conta Azure com [login az](/cli/azure/reference-index#az-login).
 
-## <a name="prefer-a-tutorial-instead"></a>Prefere um tutorial?
+## <a name="prefer-a-tutorial-instead"></a>Prefere um tutorial em vez disso?
 
-Para obter uma versão simplificada deste artigo e para testar, avaliar ou aprender sobre VMs no Azure, consulte [criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).  Caso contrário, continue lendo aqui para obter o panorama completo.
+Para uma versão simplificada deste artigo, e para testar, avaliar ou aprender sobre VMs em Azure, consulte [Criar uma imagem personalizada de um VM Azure utilizando o CLI](tutorial-custom-images.md).  Caso contrário, continue a ler aqui para obter o quadro completo.
 
 
-## <a name="step-1-deprovision-the-vm"></a>Etapa 1: desprovisionar a VM
-Primeiro, você desprovisionará a VM usando o agente de VM do Azure para excluir dados e arquivos específicos do computador. Use o comando `waagent` com o parâmetro `-deprovision+user` na VM Linux de origem. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
+## <a name="step-1-deprovision-the-vm"></a>Passo 1: Desprovisionamento do VM
+Primeiro irá desfornecer o VM utilizando o agente Azure VM para eliminar ficheiros e dados específicos da máquina. Utilize o comando `waagent` com o parâmetro `-deprovision+user` na sua fonte Linux VM. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
 
-1. Conecte-se à sua VM do Linux com um cliente SSH.
-2. Na janela SSH, digite o seguinte comando:
+1. Ligue-se ao seu VM Linux com um cliente SSH.
+2. Na janela SSH, insira o seguinte comando:
    
     ```bash
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Só execute esse comando em uma VM que você capturará como uma imagem. Esse comando não garante que a imagem esteja desmarcada de todas as informações confidenciais ou seja adequada para redistribuição. O parâmetro `+user` também remove a última conta de usuário provisionada. Para manter as credenciais da conta de usuário na VM, use somente `-deprovision`.
+   > Só executa este comando num VM que vai capturar como imagem. Este comando não garante que a imagem seja desmarcada de todas as informações sensíveis ou seja adequada para redistribuição. O parâmetro `+user` também remove a última conta de utilizador provisionada. Para manter as credenciais de conta de utilizador no VM, utilize apenas `-deprovision`.
  
-3. Digite **y** para continuar. Você pode adicionar o parâmetro `-force` para evitar essa etapa de confirmação.
-4. Após a conclusão do comando, digite **Exit** para fechar o cliente SSH.  A VM ainda estará em execução neste ponto.
+3. Insira **y** para continuar. Pode adicionar o parâmetro `-force` para evitar este passo de confirmação.
+4. Depois de o comando estar concluído, introduza a **saída** para fechar o cliente SSH.  O VM ainda estará a funcionar neste momento.
 
-## <a name="step-2-create-vm-image"></a>Etapa 2: criar a imagem de VM
-Use o CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem *MyResource*, *myVnet*e *myVM*.
+## <a name="step-2-create-vm-image"></a>Passo 2: Criar imagem VM
+Utilize o AZURE CLI para marcar o VM como generalizado e capturar a imagem. Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Exemplo nomes de parâmetros incluem *myResourceGroup,* *myVnet,* e *myVM*.
 
-1. Desaloque a VM desprovisionada com [AZ VM DEALLOCATE](/cli/azure/vm). O exemplo a seguir Desaloca a VM denominada *myVM* no grupo de recursos chamado *MyResource*Group.  
+1. Deslocar o VM que desaloou com [az vm desalocado](/cli/azure/vm). O exemplo seguinte desafeta o VM nomeado *myVM* no grupo de recursos chamado *myResourceGroup*.  
    
     ```azurecli
     az vm deallocate \
@@ -69,9 +69,9 @@ Use o CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos e
       --name myVM
     ```
     
-    Aguarde até que a VM seja completamente desalocada antes de prosseguir. Isso pode levar alguns minutos para ser concluído.  A VM é desligada durante a desalocação.
+    Aguarde que o VM desloque completamente antes de seguir em frente. Isto pode levar alguns minutos para ser concluído.  O VM é desligado durante a deatribuição.
 
-2. Marque a VM como generalizada com [AZ VM generalize](/cli/azure/vm). O exemplo a seguir marca a VM chamada *myVM* no grupo de recursos chamado *MyResource* Group como generalizado.
+2. Marque o VM como generalizado com [az vm generalizar](/cli/azure/vm). O exemplo que se segue marca o nome de *VM myVM* no grupo de recursos chamado *myResourceGroup* como generalizado.
    
     ```azurecli
     az vm generalize \
@@ -79,9 +79,9 @@ Use o CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos e
       --name myVM
     ```
 
-    Uma VM que foi generalizada não pode mais ser reiniciada.
+    Um VM que foi generalizado já não pode ser reiniciado.
 
-3. Crie uma imagem do recurso da VM com [AZ Image Create](/cli/azure/image#az-image-create). O exemplo a seguir cria uma imagem chamada *MyImage* no grupo de recursos chamado *MyResource* Group usando o recurso de VM chamado *myVM*.
+3. Criar uma imagem do recurso VM com a criação de [imagem az](/cli/azure/image#az-image-create). O exemplo seguinte cria uma imagem chamada *myImage* no grupo de recursos chamado *myResourceGroup* usando o recurso VM chamado *myVM*.
    
     ```azurecli
     az image create \
@@ -90,14 +90,14 @@ Use o CLI do Azure para marcar a VM como generalizada e capturar a imagem. Nos e
     ```
    
    > [!NOTE]
-   > A imagem é criada no mesmo grupo de recursos que a VM de origem. Você pode criar VMs em qualquer grupo de recursos dentro de sua assinatura a partir desta imagem. De uma perspectiva de gerenciamento, talvez você queira criar um grupo de recursos específico para seus recursos e imagens de VM.
+   > A imagem é criada no mesmo grupo de recursos que a sua fonte VM. Pode criar VMs em qualquer grupo de recursos dentro da sua subscrição a partir desta imagem. Do ponto de vista da gestão, poderá querer criar um grupo de recursos específico sintetizada para os seus recursos e imagens VM.
    >
-   > Se você quiser armazenar a imagem em um armazenamento resistente a zona, precisará criá-la em uma região que dê suporte a [zonas de disponibilidade](../../availability-zones/az-overview.md) e inclua o parâmetro `--zone-resilient true`.
+   > Se você gostaria de armazenar sua imagem em armazenamento resiliente de zona, você precisa criá-la em uma região que suporta zonas de [disponibilidade](../../availability-zones/az-overview.md) e incluir o parâmetro `--zone-resilient true`.
    
-Esse comando retorna JSON que descreve a imagem da VM. Salve essa saída para referência posterior.
+Este comando devolve a JSON que descreve a imagem VM. Guarde esta saída para referência posterior.
 
-## <a name="step-3-create-a-vm-from-the-captured-image"></a>Etapa 3: criar uma VM a partir da imagem capturada
-Crie uma VM usando a imagem que você criou com [AZ VM Create](/cli/azure/vm). O exemplo a seguir cria uma VM chamada *myVMDeployed* a partir da imagem chamada *MyImage*.
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>Passo 3: Criar um VM a partir da imagem capturada
+Crie um VM utilizando a imagem que criou com a criação de [az vm](/cli/azure/vm). O exemplo seguinte cria um VM chamado *myVMDeployed* a partir da imagem chamada *myImage*.
 
 ```azurecli
 az vm create \
@@ -108,9 +108,9 @@ az vm create \
    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-### <a name="creating-the-vm-in-another-resource-group"></a>Criando a VM em outro grupo de recursos 
+### <a name="creating-the-vm-in-another-resource-group"></a>Criação do VM em outro grupo de recursos 
 
-Você pode criar VMs de uma imagem em qualquer grupo de recursos dentro de sua assinatura. Para criar uma VM em um grupo de recursos diferente da imagem, especifique a ID de recurso completo para a imagem. Use a [lista de imagens AZ](/cli/azure/image#az-image-list) para exibir uma lista de imagens. O resultado será semelhante ao seguinte exemplo.
+Pode criar VMs a partir de uma imagem em qualquer grupo de recursos dentro da sua subscrição. Para criar um VM num grupo de recursos diferente da imagem, especifique o ID completo do recurso para a sua imagem. Use a [lista de imagens az](/cli/azure/image#az-image-list) para ver uma lista de imagens. O resultado será semelhante ao seguinte exemplo.
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -118,7 +118,7 @@ Você pode criar VMs de uma imagem em qualquer grupo de recursos dentro de sua a
    "name": "myImage",
 ```
 
-O exemplo a seguir usa [AZ VM Create](/cli/azure/vm#az-vm-create) para criar uma VM em um grupo de recursos diferente da imagem de origem, ESPECIFICANDO a ID de recurso de imagem.
+O exemplo seguinte usa [a z vm criar](/cli/azure/vm#az-vm-create) para criar um VM num grupo de recursos que não seja a imagem de origem, especificando o ID do recurso de imagem.
 
 ```azurecli
 az vm create \
@@ -130,9 +130,9 @@ az vm create \
 ```
 
 
-## <a name="step-4-verify-the-deployment"></a>Etapa 4: verificar a implantação
+## <a name="step-4-verify-the-deployment"></a>Passo 4: Verificar a implantação
 
-SSH na máquina virtual que você criou para verificar a implantação e começar a usar a nova VM. Para se conectar via SSH, localize o endereço IP ou o FQDN de sua VM com [AZ VM show](/cli/azure/vm#az-vm-show).
+SSH na máquina virtual que criou para verificar a implementação e começar a utilizar o novo VM. Para ligar via SSH, encontre o endereço IP ou FQDN do seu VM com [o show az vm](/cli/azure/vm#az-vm-show).
 
 ```azurecli
 az vm show \
@@ -142,11 +142,11 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Você pode criar várias VMs a partir de sua imagem de VM de origem. Para fazer alterações na imagem: 
+Pode criar vários VMs a partir da sua imagem VM fonte. Para fazer alterações na sua imagem: 
 
-- Crie uma VM com base em sua imagem.
-- Faça atualizações ou alterações de configuração.
-- Siga as etapas novamente para desprovisionar, desalocar, generalizar e criar uma imagem.
-- Use essa nova imagem para implantações futuras. Você pode excluir a imagem original.
+- Crie um VM a partir da sua imagem.
+- Faça quaisquer atualizações ou alterações de configuração.
+- Siga novamente os passos para desprovisionar, desalocar, generalizar e criar uma imagem.
+- Utilize esta nova imagem para futuras implementações. Pode apagar a imagem original.
 
-Para obter mais informações sobre como gerenciar suas VMs com a CLI, consulte [CLI do Azure](/cli/azure).
+Para obter mais informações sobre a gestão dos seus VMs com o CLI, consulte [O ClI Azure](/cli/azure).

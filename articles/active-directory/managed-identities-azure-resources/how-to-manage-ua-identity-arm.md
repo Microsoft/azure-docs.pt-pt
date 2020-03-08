@@ -1,6 +1,6 @@
 ---
-title: Criar & excluir uma identidade gerenciada atribuída pelo usuário usando Azure Resource Manager
-description: Instruções passo a passo sobre como criar e excluir identidades gerenciadas atribuídas pelo usuário usando o Azure Resource Manager.
+title: Criar e eliminar uma identidade gerida atribuída pelo utilizador utilizando o Gestor de Recursos Azure
+description: Instruções passo a passo sobre como criar e eliminar identidades geridas atribuídas pelo utilizador utilizando o Gestor de Recursos Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,42 +16,42 @@ ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430023"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375503"
 ---
-# <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e excluir uma identidade gerenciada atribuída pelo usuário usando Azure Resource Manager
+# <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade gerida atribuída pelo utilizador utilizando o Gestor de Recursos Azure
 
 
-Identidades gerenciadas para recursos do Azure fornecem serviços do Azure com uma identidade gerenciada no Azure Active Directory. Você pode usar essa identidade para autenticar em serviços que dão suporte à autenticação do Azure AD, sem precisar de credenciais em seu código. 
+Identidades geridas para recursos Azure fornecem serviços Azure com uma identidade gerida no Diretório Ativo Azure. Pode utilizar esta identidade para autenticar serviços que suportam a autenticação Azure AD, sem precisar de credenciais no seu código. 
 
-Neste artigo, você cria uma identidade gerenciada atribuída pelo usuário usando um Azure Resource Manager.
+Neste artigo, cria-se uma identidade gerida atribuída ao utilizador através de um Gestor de Recursos Azure.
 
-Não é possível listar e excluir uma identidade gerenciada atribuída pelo usuário usando um modelo de Azure Resource Manager.  Consulte os seguintes artigos para criar e listar uma identidade gerenciada atribuída pelo usuário:
+Não é possível listar e eliminar uma identidade gerida atribuída pelo utilizador usando um modelo de Gestor de Recursos Azure.  Consulte os seguintes artigos para criar e listar uma identidade gerida atribuída pelo utilizador:
 
-- [Listar identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
-- [Excluir identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
+- [Lista identidade gerida atribuída pelo utilizador](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
+- [Eliminar identidade gerida atribuída ao utilizador](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
   ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se não está familiarizado com as identidades geridas para os recursos do Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de que revê a [diferença entre uma identidade gerida atribuída](overview.md#how-does-the-managed-identities-for-azure-resources-work)** ao sistema e atribuída ao utilizador.
 - Se ainda não tem uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-## <a name="template-creation-and-editing"></a>Criação e edição de modelo
+## <a name="template-creation-and-editing"></a>Criação e edição de modelos
 
-Assim como ocorre com o portal do Azure e o script, os modelos de Azure Resource Manager fornecem a capacidade de implantar recursos novos ou modificados definidos por um grupo de recursos do Azure. Várias opções estão disponíveis para edição e implantação de modelos, tanto locais quanto baseadas em portal, incluindo:
+Tal como acontece com o portal Azure e a escrita, os modelos do Gestor de Recursos Azure fornecem a capacidade de implantar recursos novos ou modificados definidos por um grupo de recursos Azure. Várias opções estão disponíveis para edição e implementação de modelos, tanto locais como baseados em portal, incluindo:
 
-- Usando um [modelo personalizado do Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), que permite que você crie um modelo a partir do zero ou baseie-o em um modelo comum ou de [início rápido](https://azure.microsoft.com/documentation/templates/)existente.
-- Derivando de um grupo de recursos existente, exportando um modelo da [implantação original](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)ou do [estado atual da implantação](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Usando um [Editor de JSON local (como vs Code)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, carregando e implantando usando o PowerShell ou a CLI.
-- Usando o projeto do [grupo de recursos do Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) do Visual Studio para criar e implantar um modelo. 
+- Utilizando um [modelo personalizado do Azure Marketplace,](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)que lhe permite criar um modelo de raiz, ou baseá-lo num modelo comum ou [quickStart](https://azure.microsoft.com/documentation/templates/)existente.
+- Derivado de um grupo de recursos existente, exportando um modelo da [implantação original,](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)ou do [estado atual da implantação.](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+- Utilizando um [editor local da JSON (como o Código VS)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, carregar e implementar utilizando powerShell ou CLI.
+- Utilizando o projeto Visual Studio [Azure Resource Group](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) para criar e implementar um modelo. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador 
 
-Para criar uma identidade gerenciada atribuída pelo usuário, sua conta precisa da atribuição de função de [colaborador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
+Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita da atribuição de função de [Colaborador de Identidade Gerida.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
 
-Para criar uma identidade gerenciada atribuída pelo usuário, use o modelo a seguir. Substitua o valor `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
+Para criar uma identidade gerida atribuída ao utilizador, utilize o seguinte modelo. Substitua o valor `<USER ASSIGNED IDENTITY NAME>` por valores próprios:
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -85,7 +85,7 @@ Para criar uma identidade gerenciada atribuída pelo usuário, use o modelo a se
 ```
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre como atribuir uma identidade gerenciada atribuída pelo usuário a uma VM do Azure usando um modelo de Azure Resource Manager, confira [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando modelos](qs-configure-template-windows-vm.md).
+Para obter informações sobre como atribuir uma identidade gerida atribuída ao utilizador a um VM Azure utilizando um modelo de Gestor de Recursos Azure, [configurar identidades geridas para recursos Azure num VM Azure utilizando um modelo](qs-configure-template-windows-vm.md).
 
 
  

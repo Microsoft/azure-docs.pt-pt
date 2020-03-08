@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 01d188e0e39888297ff8d6a57129a3a17e1654fe
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654924"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385579"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorização de recursos Azure com o Monitor Azure
 Quando se tem aplicações críticas e processos de negócio baseados nos recursos do Azure, pretende monitorizar esses recursos para a sua disponibilidade, desempenho e operação. Este artigo descreve os dados de monitorização gerados pelos recursos do Azure e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.

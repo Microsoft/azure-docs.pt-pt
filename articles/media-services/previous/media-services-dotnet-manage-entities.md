@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de ativos e entidades relacionadas com os serviços de multimédia .NET SDK
-description: Saiba como gerir recursos e entidades relacionadas com o SDK de Media Services para .NET.
+title: Gestão de Ativos e Entidades Conexas com Serviços de Media .NET SDK
+description: Saiba como gerir ativos e entidades relacionadas com o SDK de Serviços de Media para .NET.
 author: juliako
 manager: femila
 editor: ''
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61235430"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366864"
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento de ativos e entidades relacionadas com os serviços de multimédia .NET SDK
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestão de Ativos e Entidades Conexas com Serviços de Media .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
@@ -29,18 +29,18 @@ ms.locfileid: "61235430"
 > 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
-Este tópico mostra como gerir entidades de serviços de multimédia do Azure com .NET.
+Este tema mostra como gerir as entidades da Azure Media Services com .NET.
 
-A partir de 1 de abril de 2017, qualquer Registo de tarefa na sua conta com mais de 90 dias será eliminado automaticamente, juntamente com os seus registos de Tarefas associados, mesmo se o número total de registos for inferior à quota máxima. Por exemplo, 1 de Abril de 2017, qualquer registo de tarefa na sua conta com mais de 31 de Dezembro de 2016, serão automaticamente eliminado. Se precisar de arquivar as informações de tarefas, pode usar o código descrito neste tópico.
+A partir de 1 de abril de 2017, qualquer Registo de tarefa na sua conta com mais de 90 dias será eliminado automaticamente, juntamente com os seus registos de Tarefas associados, mesmo se o número total de registos for inferior à quota máxima. Por exemplo, no dia 1 de abril de 2017, qualquer registo de Emprego na sua conta com mais de 31 de dezembro de 2016 será automaticamente eliminado. Se precisar de arquivar as informações de trabalho/tarefa, pode utilizar o código descrito neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 
-## <a name="get-an-asset-reference"></a>Obter uma referência de recurso
-É uma tarefa frequente obter uma referência a um recurso existente nos serviços de multimédia. O exemplo de código seguinte mostra como pode obter uma referência de elemento da coleção de recursos no servidor do objeto de contexto, com base num elemento de ID. O exemplo de código seguinte utiliza uma consulta Linq para obter uma referência a um objeto de IAsset existente.
+## <a name="get-an-asset-reference"></a>Obtenha uma Referência de Ativo
+Uma tarefa frequente é obter uma referência a um ativo existente nos Serviços de Media. O exemplo de código que se segue mostra como pode obter uma referência de ativo a partir da coleção de Ativos no objeto de contexto do servidor, com base num id de ativo. O exemplo de código que se segue usa uma consulta de Linq para obter uma referência a um objeto IAsset existente.
 
 ```csharp
     static IAsset GetAsset(string assetId)
@@ -57,8 +57,8 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
     }
 ```
 
-## <a name="list-all-assets"></a>Lista de todos os recursos
-À medida que cresce o número de ativos que tem no armazenamento, é útil listar os seus ativos. O exemplo de código seguinte mostra como iterar na coleção de recursos no objeto de contexto do servidor. Com cada elemento, o exemplo de código também escreve alguns dos seus valores de propriedade para a consola. Por exemplo, cada elemento pode conter muitos arquivos de suporte de dados. O exemplo de código escreve todos os ficheiros associados a cada ativo.
+## <a name="list-all-assets"></a>Lista rétodos dos Ativos
+À medida que o número de ativos que tem no armazenamento aumenta, é útil listar os seus ativos. O exemplo de código que se segue mostra como iterar através da coleção De Ativos no objeto de contexto do servidor. A cada ativo, o exemplo de código também escreve alguns dos seus valores de propriedade para a consola. Por exemplo, cada ativo pode conter muitos ficheiros de mídia. O exemplo de código escreve todos os ficheiros associados a cada ativo.
 
 ```csharp
     static void ListAssets()
@@ -98,11 +98,11 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
     }
 ```
 
-## <a name="get-a-job-reference"></a>Obter uma referência de tarefa
+## <a name="get-a-job-reference"></a>Obter uma referência de emprego
 
-Ao trabalhar com tarefas no código de serviços de multimédia de processamento, muitas vezes precisa obter uma referência a uma tarefa existente com base num ID. O exemplo de código seguinte mostra como obter uma referência a um objeto de IJob da coleção de tarefas.
+Quando trabalha com tarefas de processamento no código dos Serviços de Media, muitas vezes precisa de obter uma referência a um trabalho existente baseado num Id. O exemplo de código que se segue mostra como obter uma referência a um objeto IJob da coleção Jobs.
 
-Poderá ter de obter uma referência de tarefa quando iniciar uma tarefa de codificação de longa execução e tem de verificar o estado da tarefa num thread. Em casos como esse, quando o método retorna a partir de um thread, terá de obter uma referência atualizada para uma tarefa.
+Você pode precisar de obter uma referência de trabalho quando iniciar um trabalho de codificação de longa duração, e precisa verificar o estado do trabalho em um fio. Em casos como este, quando o método regressa de um fio, é necessário recuperar uma referência renovada a um trabalho.
 
 ```csharp
     static IJob GetJob(string jobId)
@@ -120,10 +120,10 @@ Poderá ter de obter uma referência de tarefa quando iniciar uma tarefa de codi
     }
 ```
 
-## <a name="list-jobs-and-assets"></a>Lista de tarefas e ativos
-É uma importante tarefa relacionada a recursos de lista com o seu trabalho associado nos serviços de multimédia. O exemplo de código seguinte mostra como listar cada objeto IJob e, em seguida, para cada tarefa, apresenta as propriedades da tarefa, todas as tarefas relacionadas com, todas as entradas de recursos e todos os recursos de saída. O código neste exemplo pode ser útil para várias outras tarefas. Por exemplo, se desejar listar os recursos de saída de um ou mais tarefas de codificação que executou anteriormente, este código mostra como acessar os recursos de saída. Quando tem uma referência para um elemento de saída, em seguida, pode distribuir os conteúdos para outros utilizadores ou aplicações por baixá-lo ou fornecer URLs. 
+## <a name="list-jobs-and-assets"></a>Lista Empregos e Ativos
+Uma tarefa importante é listar os ativos com o seu trabalho associado nos Serviços de Media. O exemplo de código que se segue mostra como listar cada objeto IJob, e depois para cada trabalho, exibe propriedades sobre o trabalho, todas as tarefas relacionadas, todos os ativos de entrada e todos os ativos de saída. O código neste exemplo pode ser útil para inúmeras outras tarefas. Por exemplo, se quiser listar os ativos de produção de um ou mais trabalhos de codificação que executou anteriormente, este código mostra como aceder aos ativos de produção. Quando tem uma referência a um ativo de saída, pode então entregar o conteúdo a outros utilizadores ou aplicações, baixando-o ou fornecendo URLs. 
 
-Para obter mais informações sobre as opções para o fornecimento de recursos, consulte [entregar recursos com o SDK de serviços de multimédia para .NET](media-services-deliver-streaming-content.md).
+Para obter mais informações sobre as opções de entrega de ativos, consulte [A Entrega de Ativos com o SDK de Serviços de Media para .NET](media-services-deliver-streaming-content.md).
 
 ```csharp
     // List all jobs on the server, and for each job, also list 
@@ -202,10 +202,10 @@ Para obter mais informações sobre as opções para o fornecimento de recursos,
     }
 ```
 
-## <a name="list-all-access-policies"></a>Listar todas as políticas de acesso
-Nos Media Services, pode definir uma política de acesso num recurso ou os respetivos ficheiros. Uma política de acesso define as permissões para um ficheiro ou um ativo (que tipo de acesso e a duração). Em seu código de serviços de multimédia, normalmente define uma política de acesso ao criar um objeto de IAccessPolicy e, em seguida, associar a um recurso existente. Em seguida, cria um objeto de ILocator, que permite fornecer acesso direto a recursos nos serviços de multimédia. O projeto do Visual Studio que acompanha esta série de documentação contém vários exemplos de código que mostram como criar e atribuir políticas de acesso e localizadores de ativos.
+## <a name="list-all-access-policies"></a>Listar todas as Políticas de Acesso
+Nos Serviços de Media, pode definir uma política de acesso a um ativo ou aos seus ficheiros. Uma política de acesso define as permissões para um ficheiro ou um ativo (que tipo de acesso e duração). No seu código de Serviços de Media, normalmente define uma política de acesso criando um objeto IAccessPolicy e, em seguida, associando-o a um ativo existente. Em seguida, cria um objeto ILocator, que permite fornecer acesso direto aos ativos em Serviços de Media. O projeto Visual Studio que acompanha esta série de documentação contém vários exemplos de código que mostram como criar e atribuir políticas de acesso e localizadores a ativos.
 
-O exemplo de código seguinte mostra como listar todas as políticas de acesso no servidor e mostra o tipo de permissões associadas a cada um. Outra forma útil para ver as políticas de acesso é listar todos os objetos de ILocator no servidor e, em seguida, para cada localizador, pode listar a sua política de acesso associados usando sua propriedade AccessPolicy.
+O exemplo de código que se segue mostra como listar todas as políticas de acesso no servidor, e mostra o tipo de permissões associadas a cada um. Outra forma útil de ver as políticas de acesso é listar todos os objetos ILocator no servidor e, em seguida, para cada localizador, pode listar a sua política de acesso associada utilizando a sua propriedade AccessPolicy.
 
 ```csharp
     static void ListAllPolicies()
@@ -222,12 +222,12 @@ O exemplo de código seguinte mostra como listar todas as políticas de acesso n
     }
 ```
     
-## <a name="limit-access-policies"></a>Políticas de acesso de limite 
+## <a name="limit-access-policies"></a>Limitar políticas de acesso 
 
 >[!NOTE]
 > Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). 
 
-Por exemplo, pode criar um conjunto genérico de políticas com o seguinte código que seria executada somente uma vez na sua aplicação. Pode iniciar sessão IDs de um ficheiro de registo para utilizar mais tarde:
+Por exemplo, pode criar um conjunto genérico de políticas com o seguinte código que só funcionaria uma vez na sua aplicação. Pode registar iDs num ficheiro de registo para posterior utilização:
 
 ```csharp
     double year = 365.25;
@@ -241,7 +241,7 @@ Por exemplo, pode criar um conjunto genérico de políticas com o seguinte códi
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
 ```
 
-Em seguida, pode utilizar os IDs existentes no seu código como este:
+Depois, pode usar as iDs existentes no seu código como este:
 
 ```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
@@ -265,12 +265,12 @@ Em seguida, pode utilizar os IDs existentes no seu código como este:
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 ```
 
-## <a name="list-all-locators"></a>Lista de todos os localizadores
-Um localizador é um URL que fornece um caminho direto para aceder a um recurso, juntamente com permissões para o elemento, conforme definido pela política de acesso associados o localizador. Cada elemento pode ter uma coleção de objetos de ILocator associados a ele em sua propriedade de localizadores. O contexto de servidor também tem uma coleção de localizadores que contém todos os localizadores.
+## <a name="list-all-locators"></a>Lista rumita todos os localizadores
+Um localizador é um URL que fornece um caminho direto para aceder a um ativo, juntamente com permissões ao ativo como definido pela política de acesso associada do localizador. Cada ativo pode ter uma coleção de objetos ILocator associados a ele na sua propriedade Delocalizadores. O contexto do servidor também tem uma coleção de Localizadores que contém todos os localizadores.
 
-O exemplo de código seguinte apresenta uma lista de todos os localizadores no servidor. Para cada localizador, ela mostra o Id para a política de acesso e de ativos relacionado. Também apresenta o tipo de permissões, a data de expiração e o caminho completo para o elemento.
+O exemplo de código que se segue lista todos os localizadores no servidor. Para cada localizador, mostra o ID para o ativo e a política de acesso relacionados. Também exibe o tipo de permissões, a data de validade e o caminho completo para o ativo.
 
-Tenha em atenção que um caminho de localizador para um recurso é apenas um URL de base para o elemento. Para criar um caminho direto para ficheiros individuais que um utilizador ou aplicação também poderia navegar em, seu código tem de adicionar o caminho de ficheiro específico para o caminho de localizador. Para obter mais informações sobre como fazer isso, consulte o tópico [entregar recursos com o SDK de serviços de multimédia para .NET](media-services-deliver-streaming-content.md).
+Note que um caminho localizador para um ativo é apenas um URL base para o ativo. Para criar um caminho direto para ficheiros individuais aos quais um utilizador ou aplicação possa navegar, o seu código deve adicionar o caminho de ficheiro específico ao caminho do localizador. Para obter mais informações sobre como fazê-lo, consulte o tópico [Entregar Ativos com o SDK de Serviços de Media para .NET](media-services-deliver-streaming-content.md).
 
 ```csharp
     static void ListAllLocators()
@@ -292,10 +292,10 @@ Tenha em atenção que um caminho de localizador para um recurso é apenas um UR
     }
 ```
 
-## <a name="enumerating-through-large-collections-of-entities"></a>Enumerando pelas grandes coleções de entidades
-Ao consultar entidades, existe um limite de 1000 entidades retornadas, ao mesmo tempo, porque a v2 REST pública limita os resultados da consulta para resultados de 1000. Tem de utilizar Skip e Take ao enumerar por meio de grandes coleções de entidades. 
+## <a name="enumerating-through-large-collections-of-entities"></a>Enumerando através de grandes coleções de entidades
+Quando consultam entidades, há um limite de 1000 entidades devolvidas ao mesmo tempo porque o REST v2 público limita os resultados da consulta a 1000 resultados. Você precisa usar Skip and Take ao enumerar através de grandes coleções de entidades. 
 
-A seguinte função executa loops em todas as tarefas na conta de serviços de multimédia fornecido. Serviços de multimédia devolve 1000 tarefas na coleção de tarefas. A função usa Skip e Take para se certificar de que todas as tarefas são enumerados (no caso de ter mais de 1000 tarefas na sua conta).
+A função seguinte passa por todos os trabalhos na Conta de Serviços de Media fornecidas. A Media Services devolve 1000 postos de trabalho na Jobs Collection. A função faz uso de Skip and Take para garantir que todos os empregos são enumerados (caso tenha mais de 1000 postos de trabalho na sua conta).
 
 ```csharp
     static void ProcessJobs()
@@ -335,8 +335,8 @@ A seguinte função executa loops em todas as tarefas na conta de serviços de m
     }
 ```
 
-## <a name="delete-an-asset"></a>Eliminar um recurso
-O exemplo seguinte elimina um recurso.
+## <a name="delete-an-asset"></a>Eliminar um Ativo
+O exemplo que se segue elimina um ativo.
 
 ```csharp
     static void DeleteAsset( IAsset asset)
@@ -351,10 +351,10 @@ O exemplo seguinte elimina um recurso.
     }
 ```
 
-## <a name="delete-a-job"></a>Eliminar uma tarefa
-Para eliminar uma tarefa, tem de verificar o estado da tarefa conforme indicado na propriedade de estado. Podem ser eliminadas a tarefas que são finalizadas ou foi canceladas, enquanto as tarefas que estão em determinados Estados, como em fila, agendada ou processamento, devem ser canceladas primeiro e, em seguida, pode ser eliminados.
+## <a name="delete-a-job"></a>Eliminar um Trabalho
+Para eliminar um trabalho, deve verificar o estado do trabalho, conforme indicado na propriedade do Estado. Os postos de trabalho que estejam acabados ou cancelados podem ser suprimidos, enquanto os postos de trabalho que se encontram em determinados outros Estados, como a fila, o programa ou o processamento, devem ser cancelados primeiro e, em seguida, podem ser eliminados.
 
-O exemplo de código seguinte mostra um método para eliminar uma tarefa de verificação de Estados de tarefa e, em seguida, eliminando quando o estado é concluído ou foi cancelado. Esse código depende da secção anterior deste tópico para obter uma referência a uma tarefa: Obter uma referência de tarefa.
+O exemplo de código que se segue mostra um método para apagar um emprego verificando os estados de trabalho e, em seguida, apagando quando o estado está terminado ou cancelado. Este código depende da secção anterior neste tópico para obter uma referência a um trabalho: Obter uma referência de emprego.
 
 ```csharp
     static void DeleteJob(string jobId)
@@ -404,8 +404,8 @@ O exemplo de código seguinte mostra um método para eliminar uma tarefa de veri
 ```
 
 
-## <a name="delete-an-access-policy"></a>Eliminar uma política de acesso
-O exemplo de código seguinte mostra como obter uma referência a uma política de acesso com base numa política Id e, em seguida, para eliminar a política.
+## <a name="delete-an-access-policy"></a>Eliminar uma Política de Acesso
+O exemplo de código que se segue mostra como obter uma referência a uma política de acesso baseada num ID de política e, em seguida, apagar a política.
 
 ```csharp
     static void DeleteAccessPolicy(string existingPolicyId)

@@ -1,26 +1,26 @@
 ---
-title: Especificando Service Fabric pontos de extremidade de serviço
-description: Como descrever os recursos do ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidades HTTPS
+title: Especificar pontos finais de serviço de tecido de serviço
+description: Como descrever os recursos de ponto final num manifesto de serviço, incluindo como configurar pontos finais HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464179"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382825"
 ---
-# <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto do serviço
-## <a name="overview"></a>Visão geral
-O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados/alterados sem alterar o código compilado. O Azure Service Fabric dá suporte à configuração de recursos de ponto de extremidade para o serviço. O acesso aos recursos especificados no manifesto do serviço pode ser controlado por meio do The de segurança no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa introduzir um novo mecanismo de configuração. A definição de esquema para o arquivo de manifesto. xml é instalada com o SDK do Service Fabric e ferramentas para *c:\Arquivos de Programas\microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+# <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
+## <a name="overview"></a>Descrição geral
+O manifesto de serviço permite que os recursos utilizados pelo serviço sejam declarados/alterados sem alterar o código compilado. O Tecido de Serviço Azure suporta a configuração de recursos de ponto final para o serviço. O acesso aos recursos especificados no manifesto de serviço pode ser controlado através do SecurityGroup no manifesto de aplicação. A declaração de recursos permite que estes recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa de introduzir um novo mecanismo de configuração. A definição de esquema para o ficheiro ServiceManifest.xml está instalada com o SDK de Tecido de Serviço e ferramentas para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Pontos Finais
-Quando um recurso de ponto de extremidade é definido no manifesto do serviço, Service Fabric atribui portas do intervalo de portas do aplicativo reservado quando uma porta não é especificada explicitamente. Por exemplo, examine o ponto de extremidade *ServiceEndpoint1* especificado no trecho de manifesto fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas de serviço em execução em nós de cluster diferentes podem receber números de porta diferentes, enquanto as réplicas de um serviço em execução no mesmo nó compartilham a porta. As réplicas de serviço podem usar essas portas conforme necessário para replicação e escuta de solicitações de cliente.
+Quando um recurso de ponto final é definido no manifesto de serviço, o Tecido de Serviço atribui portas da gama de porta de aplicação reservada quando uma porta não é especificada explicitamente. Por exemplo, veja o ponto final *do serviçoEndpoint1* especificado no manifesto corte fornecido após este parágrafo. Além disso, os serviços também podem solicitar um porto específico num recurso. As réplicas de serviço que correm em diferentes nós de cluster podem ser atribuídas diferentes números de porta, enquanto réplicas de um serviço em funcionamento no mesmo nó partilham a porta. As réplicas de serviço podem então utilizar estas portas conforme necessário para a replicação e audição para pedidos de clientes.
 
 > [!WARNING] 
-> As portas estáticas de design não devem se sobrepor ao intervalo de portas de aplicativo especificado em ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo de portas do aplicativo, caso contrário, isso resultará em conflitos de porta. Com a versão 6.5 CU2, emitiremos um **aviso de integridade** quando detectarmos esse conflito, mas permitirá que a implantação continue em sincronia com o comportamento 6,5 enviado. No entanto, poderemos impedir a implantação do aplicativo nas próximas versões principais.
+> Por desenho, as portas estáticas não devem sobrepor-se à gama de portas de aplicação especificada no ClusterManifest. Se especificar uma porta estática, atribuí-la fora do alcance da porta de aplicação, caso contrário, resultará em conflitos portuários. Com a libertação 6.5CU2 emitiremos um Aviso de **Saúde** quando detetarmos tal conflito, mas deixaremos que a implantação continue em sintonia com o comportamento 6.5 enviado. No entanto, podemos impedir a implementação da aplicação a partir das próximas grandes lançamentos.
 >
-> Com a versão 7,0, emiteremos um **aviso de integridade** quando detectamos que o uso do intervalo de portas do aplicativo vai além de HostingConfig:: ApplicationPortExhaustThresholdPercentage (padrão 80%).
+> Com o lançamento 7.0 emitiremos um Aviso de **Saúde** quando detetarmos que o uso da gama de portas de aplicação vai além do HostingConfig::ApplicationPortExhaustThresholdPercentage (padrão 80%).
 >
 
 ```xml
@@ -33,7 +33,7 @@ Quando um recurso de ponto de extremidade é definido no manifesto do serviço, 
 </Resources>
 ```
 
-Se houver vários pacotes de código em um único pacote de serviço, o pacote de códigos também precisará ser referenciado na seção **pontos de extremidade** .  Por exemplo, se **ServiceEndpoint2a** e **ServiceEndpoint2b** forem pontos de extremidade do mesmo pacote de serviço referenciando diferentes pacotes de código, o pacote de código correspondente a cada ponto de extremidade será esclarecido da seguinte maneira:
+Se houver vários pacotes de código num único pacote de serviço, então o pacote de código também precisa de ser referenciado na secção **Endpoints.**  Por exemplo, se o **ServiceEndpoint2a** e o **ServiceEndpoint2b** forem pontos finais do mesmo pacote de serviço sintetizando diferentes pacotes de código, o pacote de código correspondente a cada ponto final é clarificado da seguinte forma:
 
 ```xml
 <Resources>
@@ -44,12 +44,12 @@ Se houver vários pacotes de código em um único pacote de serviço, o pacote d
 </Resources>
 ```
 
-Consulte [Configurando Reliable Services com estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como referenciar pontos de extremidade do arquivo de configurações do pacote de configuração (Settings. xml).
+Consulte a [Configuração de Serviços Fiáveis e abastados](service-fabric-reliable-services-configuration.md) para ler mais sobre pontos finais de referência do ficheiro de definições do pacote de config (definições.xml).
 
-## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemplo: especificando um ponto de extremidade HTTP para seu serviço
-O manifesto de serviço a seguir define um recurso de ponto de extremidade TCP e dois recursos de ponto de extremidade HTTP no elemento &lt;Resources&gt;.
+## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemplo: especificar um ponto final http para o seu serviço
+O seguinte manifesto de serviço define um recurso de ponto final do TCP e dois recursos de ponto final HTTP no elemento&gt; recursos &lt;.
 
-Os pontos de extremidade HTTP são automaticamente ACL por Service Fabric.
+Os pontos finais http são automaticamente ACL'd by Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -95,18 +95,18 @@ Os pontos de extremidade HTTP são automaticamente ACL por Service Fabric.
 </ServiceManifest>
 ```
 
-## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Exemplo: especificando um ponto de extremidade HTTPS para seu serviço
-O protocolo HTTPS fornece autenticação de servidor e também é usado para criptografar a comunicação cliente-servidor. Para habilitar o HTTPS em seu serviço de Service Fabric, especifique o protocolo na seção *recursos-> pontos de extremidade do > ponto de extremidades* do manifesto do serviço, conforme mostrado anteriormente para o ponto de extremidade *ServiceEndpoint3*.
+## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Exemplo: especificar um ponto final HTTPS para o seu serviço
+O protocolo HTTPS fornece a autenticação do servidor e também é utilizado para encriptar a comunicação cliente-servidor. Para ativar https no seu serviço De Serviço Fabric, especifique o protocolo nos *Recursos -> Endpoints -> Secção de Ponto final* do manifesto de serviço, como mostrado anteriormente para o ponto final *ServiceEndpoint3*.
 
 > [!NOTE]
-> O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo. Se ele for alterado durante a atualização, será uma alteração significativa.
+> O protocolo de um serviço não pode ser alterado durante a atualização da aplicação. Se for alterada durante a atualização, é uma mudança de rutura.
 > 
 
 > [!WARNING] 
-> Ao usar HTTPS, não use a mesma porta e o mesmo certificado para diferentes instâncias de serviço (independente do aplicativo) implantadas no mesmo nó. A atualização de dois serviços diferentes usando a mesma porta em diferentes instâncias de aplicativo resultará em uma falha de atualização. Para obter mais informações, consulte [Atualizando vários aplicativos com pontos de extremidade https ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+> Quando utilizar https, não utilize a mesma porta e certificado para diferentes instâncias de serviço (independentes da aplicação) implantadas no mesmo nó. A atualização de dois serviços diferentes utilizando a mesma porta em diferentes instâncias de aplicação resultará numa falha de atualização. Para mais informações, consulte [Atualizar várias aplicações com pontos finais HTTPS ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Aqui está um exemplo de ApplicationManifest que você precisa definir para HTTPS. A impressão digital do certificado deve ser fornecida. O EndpointRef é uma referência a EndpointResource no inmanifest, para o qual você define o protocolo HTTPS. Você pode adicionar mais de um EndpointCertificate.  
+Aqui está um exemplo ApplicationManifest que precisa definir para HTTPS. A impressão digital do seu certificado deve ser fornecida. O EndpointRef é uma referência ao EndpointResource no ServiceManifest, para o qual definiu o protocolo HTTPS. Pode adicionar mais do que um EndpointCertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -148,16 +148,16 @@ Aqui está um exemplo de ApplicationManifest que você precisa definir para HTTP
 </ApplicationManifest>
 ```
 
-Para clusters do Linux, o **meu** repositório usa como padrão a pasta **/var/lib/sfcerts**.
+Para os clusters Linux, a loja **MY** predefinido para a pasta **/var/lib/sfcerts**.
 
 
-## <a name="overriding-endpoints-in-servicemanifestxml"></a>Substituindo pontos de extremidade no manifest. xml
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Pontos finais overover em ServiceManifest.xml
 
-No ApplicationManifest, adicione uma seção ResourceOverrides, que será um irmão à seção ConfigOverrides. Nesta seção, você pode especificar a substituição para a seção pontos de extremidade na seção recursos especificada no manifesto do serviço. Há suporte para a substituição de pontos de extremidade em tempo de execução 5.7.217/SDK 2.7.217 e superior.
+Na AplicaçãoManifesto adicione uma secção ResourceOverrides, que será um irmão da secção ConfigOverrides. Nesta secção, pode especificar a sobreposição para a secção Pontos Finais na secção de recursos especificada no manifesto de Serviço. Os pontos finais dominantes são suportados no tempo de execução 5.7.217/SDK 2.7.217 e superior.
 
-Para substituir o ponto de extremidade no inmanifest usando Applicationparameters, altere o ApplicationManifest da seguinte maneira:
+Para anular o EndPoint no ServiceManifest utilizando applicationParameters, altere o ApplicationManifest como seguinte:
 
-Na seção ServiceManifestImport, adicione uma nova seção "ResourceOverrides".
+Na secção ServiceManifestImport, adicione uma nova secção "ResourceOverrides".
 
 ```xml
 <ServiceManifestImport>
@@ -175,7 +175,7 @@ Na seção ServiceManifestImport, adicione uma nova seção "ResourceOverrides".
   </ServiceManifestImport>
 ```
 
-Nos parâmetros, adicione abaixo:
+Nos parâmetros adicionam abaixo:
 
 ```xml
   <Parameters>
@@ -187,17 +187,17 @@ Nos parâmetros, adicione abaixo:
   </Parameters>
 ```
 
-Ao implantar o aplicativo, você pode passar esses valores como Applicationparameters.  Por exemplo:
+Ao implementar a aplicação pode passar nestes valores como ApplicationParameters.  Por exemplo:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Observação: se os valores fornecidos para o Applicationparameters estiverem vazios, voltaremos ao valor padrão fornecido no manifesto para o EndpointName correspondente.
+Nota: Se os valores fornecidos para os ApplicationParâmetros estiverem vazios, voltamos ao valor predefinido fornecido no ServiceManifest para o nome final correspondente.
 
 Por exemplo:
 
-Se estiver no próprio manifesto especificado
+Se no ServiceManifest especificou
 
 ```xml
   <Resources>
@@ -207,6 +207,6 @@ Se estiver no próprio manifesto especificado
   </Resources>
 ```
 
-E o valor de Port1 e Protocol1 para parâmetros de aplicativo é nulo ou vazio. A porta ainda é decidida pelo ServicePortal. E o protocolo será TCP.
+E o valor Port1 e Protocol1 para os parâmetros de aplicação é nulo ou vazio. A porta ainda é decidida pela ServiceFabric. E o Protocolo vai tcp.
 
-Suponha que você especifique um valor errado. Assim como para a porta, você especificou um valor de cadeia de caracteres "foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: o parâmetro de substituição com o nome ' ServiceEndpoint1 ', atributo ' Port1 ' na seção ' ResourceOverrides ' é inválido. O valor especificado é ' foo ' e obrigatório é ' int '.
+Suponha que especifique um valor errado. Como no Porto especificou um valor de cadeia "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro : O parâmetro de sobreposição com o nome 'ServiceEndpoint1' atribui 'Port1' na secção 'ResourceOverrides' é inválido. O valor especificado é 'Foo' e é exigido 'int'.

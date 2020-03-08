@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908858"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378131"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integre a sua infraestrutura de NPS existente com autenticação de vários fatores Azure
 
-A extensão do NPS (servidor de políticas de rede) para o Azure MFA adiciona recursos de MFA baseados em nuvem à sua infraestrutura de autenticação usando seus servidores existentes. Com a extensão NPS, pode adicionar a verificação de chamadas telefónicas, mensagens de texto ou aplicações telefónicas ao fluxo de autenticação existente sem ter de instalar, configurar e manter novos servidores. 
+A extensão do Servidor de Política de Rede (NPS) para O MFA Azure adiciona capacidades de MFA baseadas na nuvem à sua infraestrutura de autenticação utilizando os seus servidores existentes. Com a extensão NPS, pode adicionar a verificação de chamadas telefónicas, mensagens de texto ou aplicações telefónicas ao fluxo de autenticação existente sem ter de instalar, configurar e manter novos servidores. 
 
 Esta extensão foi criada para organizações que querem proteger as ligações VPN sem implementar o Servidor Azure MFA. A extensão NPS funciona como um adaptador entre o RADIUS e o Azure MFA baseado na nuvem para fornecer um segundo fator de autenticação para utilizadores federados ou sincronizados.
 
@@ -35,7 +35,7 @@ O diagrama que se segue ilustra este fluxo de pedido de autenticação de alto n
 
 ![Diagrama de fluxo de autenticação](./media/howto-mfa-nps-extension/auth-flow.png)
 
-## <a name="plan-your-deployment"></a>Planeie a sua implementação
+## <a name="plan-your-deployment"></a>Planear a sua implementação
 
 A extensão NPS lida automaticamente com a redundância, para que não seja necessária uma configuração especial.
 
@@ -49,7 +49,7 @@ A extensão de NPS destina-se a funcionar com a sua infraestrutura existente. Ce
 
 ### <a name="licenses"></a>Licenças
 
-A extensão NPS para O MFA Azure está disponível para clientes com [licenças para autenticação multi-factor Azure](multi-factor-authentication.md) (incluída com Azure AD Premium, EMS ou uma licença autónoma do MFA). As licenças baseadas em consumo para o Azure MFA, como licenças por usuário ou por autenticação, não são compatíveis com a extensão do NPS. 
+A extensão NPS para O MFA Azure está disponível para clientes com [licenças para autenticação multi-factor Azure](multi-factor-authentication.md) (incluída com Azure AD Premium, EMS ou uma licença autónoma do MFA). As licenças baseadas no consumo para o Azure MFA, tais como por utilizador ou por licença de autenticação, não são compatíveis com a extensão NPS. 
 
 ### <a name="software"></a>Software
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 ou superior.
 
 Estas bibliotecas são instaladas automaticamente com a extensão.
 
-- [Pacotes C++ redistribuíveis do Visual para Visual Studio 2013 (x64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Módulo Microsoft Azure Active Directory para Windows PowerShell versão 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Pacotes C++ Visuais Redistribuíveis para Estúdio Visual 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Módulo de Diretório Ativo microsoft Azure para windows PowerShell versão 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 O Módulo de Diretório Ativo Microsoft Azure para windows PowerShell está instalado, caso ainda não esteja presente, através de um script de configuração que executa como parte do processo de configuração. Não há necessidade de instalar este módulo com antecedência se ainda não estiver instalado.
 
@@ -68,11 +68,11 @@ O Módulo de Diretório Ativo Microsoft Azure para windows PowerShell está inst
 
 Todos os que utilizem a extensão NPS devem ser sincronizados com o Diretório Ativo Azure utilizando o Azure AD Connect e devem estar registados para mFA.
 
-Ao instalar a extensão, precisa da identificação do diretório e credenciais de administração para o seu inquilino Azure AD. Pode encontrar o seu ID de diretório no [portal do Azure](https://portal.azure.com). Inscreva-se como administrador. Procure e selecione o **Diretório Ativo Azure,** em seguida, selecione **Propriedades**. Copie o GUID na caixa de ID do **Diretório** e guarde-o. Você usa este GUID como id do inquilino quando você instala a extensão NPS.
+Ao instalar a extensão, precisa da identificação do diretório e credenciais de administração para o seu inquilino Azure AD. Pode encontrar a sua identificação de diretório no [portal Azure.](https://portal.azure.com) Inscreva-se como administrador. Procure e selecione o **Diretório Ativo Azure,** em seguida, selecione **Propriedades**. Copie o GUID na caixa de ID do **Diretório** e guarde-o. Você usa este GUID como id do inquilino quando você instala a extensão NPS.
 
 ![Encontre o seu ID de Diretório em propriedades de Diretório Ativo Azure](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
-### <a name="network-requirements"></a>Requisitos de rede
+### <a name="network-requirements"></a>Requisitos da rede
 
 O servidor NPS precisa de ser capaz de comunicar com os seguintes URLs sobre as portas 80 e 443.
 
@@ -85,7 +85,7 @@ Além disso, a conectividade com os seguintes URLs é necessária para completar
 - https:\//provisioningapi.microsoftonline.com
 - https:\//aadcdn.msauth.net
 
-## <a name="prepare-your-environment"></a>Prepare o seu ambiente
+## <a name="prepare-your-environment"></a>Preparar o ambiente
 
 Antes de instalar a extensão NPS, pretende preparar o ambiente para lidar com o tráfego de autenticação.
 
@@ -120,7 +120,7 @@ Existem dois fatores que afetam os métodos de autenticação disponíveis com u
 
 1. O algoritmo de encriptação de palavra-passe utilizado entre o cliente RADIUS (VPN, servidor Netscaler ou outro) e os servidores NPS.
    - **O PAP** suporta todos os métodos de autenticação do Azure MFA na nuvem: chamada telefónica, mensagem de texto de sentido único, notificação de aplicações móveis, fichas de hardware DO JURAMENTO e código de verificação de aplicações móveis.
-   - **CHAPv2** e **EAP** dão suporte a chamada telefônica e notificação de aplicativo móvel.
+   - **CHAPV2** e **EAP** suportam notificação de chamada telefónica e aplicação móvel.
 
       > [!NOTE]
       > Quando implementar a extensão NPS, utilize estes fatores para avaliar quais os métodos disponíveis para os seus utilizadores. Se o seu cliente RADIUS suporta PAP, mas o cliente UX não tem campos de entrada para um código de verificação, então a notificação de chamadas telefónicas e aplicações móveis são as duas opções suportadas.
@@ -165,7 +165,7 @@ Ao atualizar uma instalação de extensão NPS existente, para evitar um reiníc
 
 O instalador cria um script PowerShell neste local: `C:\Program Files\Microsoft\AzureMfa\Config` (onde C:\ é a sua unidade de instalação). Este script PowerShell executa as seguintes ações cada vez que é executado:
 
-- Crie um certificado auto-assinado.
+- Crie um certificado autoassinado.
 - Associar a chave pública do certificado ao diretor de serviço em Azure AD.
 - Guarde o certificado na loja local de máquinas cert.
 - Conceder acesso à chave privada do certificado ao Utilizador da Rede.
@@ -173,7 +173,7 @@ O instalador cria um script PowerShell neste local: `C:\Program Files\Microsoft\
 
 A menos que pretenda utilizar os seus próprios certificados (em vez dos certificados auto-assinados que o script PowerShell gera), execute o Script PowerShell para completar a instalação. Se instalar a extensão em vários servidores, cada um deve ter o seu próprio certificado.
 
-1. Execute o Windows PowerShell como administrador.
+1. Executar o Windows PowerShell como administrador.
 2. Mudar de diretórios.
 
    `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
@@ -210,7 +210,7 @@ Para os clientes que utilizam a nuvem do Governo Azure, são necessários os seg
 
     Para obter um impacto mínimo, retire cada servidor NPS da rotação NLB um de cada vez e aguarde que todas as ligações escorram.
 
-### <a name="certificate-rollover"></a>Substituição de certificado
+### <a name="certificate-rollover"></a>Capotamento de certificado
 
 Com a libertação 1.0.1.32 da extensão NPS, a leitura de vários certificados é agora suportada. Esta capacidade ajudará a facilitar as atualizações de certificados de rolamento antes da sua expiração. Se a sua organização estiver a executar uma versão anterior da extensão NPS, deverá atualizar para a versão 1.0.1.32 ou superior.
 
@@ -242,7 +242,7 @@ Se tiver utilizadores que não estejam matriculados para mfa, pode determinar o 
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERDADE/FALSO | Não definido (equivalente a TRUE) |
 
-A finalidade dessa configuração é determinar o que fazer quando um usuário não está registrado para MFA. Quando a chave não existe, não está definida, ou está definida para TRUE, e o utilizador não está matriculado, então a extensão falha o desafio MFA. Quando a chave é definida para FALSE e o utilizador não está matriculado, a autenticação prossegue sem executar MFA. Se um utilizador estiver matriculado no MFA, deve autenticar com MFA mesmo que REQUIRE_USER_MATCH esteja definido para FALSO.
+O objetivo desta definição é determinar o que fazer quando um utilizador não está inscrito para mfa. Quando a chave não existe, não está definida, ou está definida para TRUE, e o utilizador não está matriculado, então a extensão falha o desafio MFA. Quando a chave é definida para FALSE e o utilizador não está matriculado, a autenticação prossegue sem executar MFA. Se um utilizador estiver matriculado no MFA, deve autenticar com MFA mesmo que REQUIRE_USER_MATCH esteja definido para FALSO.
 
 Pode optar por criar esta chave e defini-la como FALSE enquanto os seus utilizadores estão a embarcar, e pode ainda não estar todos matriculados para o Azure MFA. No entanto, uma vez que a definição das principais autoriza os utilizadores que não estão inscritos para o MFA para iniciar o seu início, deve remover esta chave antes de ir à produção.
 
