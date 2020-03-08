@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394256"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -27,9 +27,9 @@ Geração de armazenamento 1 do Azure Data Lake implementa um modelo de controle
 
 Existem dois tipos de listas de controlo de acesso (ACLs) – **ACLs de Acesso** e **ACLs Predefinidas**.
 
-* **ACLs de acesso**: Eles controlam o acesso a um objeto. Os ficheiros e as pastas têm ACLs de Acesso.
+* **ACLs de Acesso**: controlam o acesso a um objeto. Os ficheiros e as pastas têm ACLs de Acesso.
 
-* **ACLs padrão**: Um "modelo" de ACLs associadas a uma pasta que determinam as ACLs de acesso para qualquer item filho criado nessa pasta. Os ficheiros não possuem ACLs Predefinidas.
+* **ACLs Predefinidas**: um "modelo" de ACLs associado a uma pasta que determinam as ACLs de Acesso para todos os itens subordinados que são criados nessa pasta. Os ficheiros não possuem ACLs Predefinidas.
 
 
 Tanto as ACLs de Acesso como as ACLs Predefinidas têm a mesma estrutura.
@@ -108,7 +108,7 @@ Um Superutilizador tem mais direitos entre todos os utilizadores na conta de ger
 * Pode alterar as permissões em qualquer ficheiro ou pasta.
 * Pode alterar o utilizador proprietário ou grupo proprietário de qualquer ficheiro ou pasta.
 
-Todos os utilizadores que fazem parte do **proprietários** função para uma conta de geração 1 de armazenamento do Data Lake são automaticamente um Superutilizador.
+Todos os utilizadores que fazem parte da função **Owners** para uma conta Gen1 de Armazenamento de Data Lake são automaticamente um super-utilizador.
 
 ### <a name="the-owning-user"></a>O utilizador proprietário
 
@@ -124,18 +124,18 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 
 ### <a name="the-owning-group"></a>O grupo proprietário
 
-**em segundo plano**
+**Fundo**
 
 Nas ACLs POSIX, cada utilizador está associado um "grupo principal". Por exemplo, o utilizador "alice" poderá pertencer ao grupo "finanças". A Alice poderá, também, pertencer a vários grupos, mas um dos grupos será sempre o grupo principal dela. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
 
 Como não há nenhum "grupo principal" associado a utilizadores na geração 1 de armazenamento do Data Lake, o grupo proprietário é atribuído como abaixo.
 
-**Atribuir o grupo proprietário para um novo ficheiro ou pasta**
+**Atribuir o grupo próprio para um novo ficheiro ou pasta**
 
-* **Caso 1**: A pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido para um GUID de todos os de zero.  Este valor não permite que qualquer acesso.  É um marcador de posição até a hora num que grupo é atribuído.
-* **Caso 2** (A cada outro caso): Quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
+* **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido para um GUID de todos os de zero.  Este valor não permite que qualquer acesso.  É um marcador de posição até a hora num que grupo é atribuído.
+* **Caso 2** (todos os outros casos): quando é criado um item novo, o grupo proprietário é copiado da pasta principal.
 
-**Alterar o grupo proprietário**
+**Mudar o grupo próprio**
 
 O grupo proprietário pode ser alterado por:
 * Qualquer superutilizador.
@@ -144,7 +144,7 @@ O grupo proprietário pode ser alterado por:
 > [!NOTE]
 > O grupo proprietário *não pode* alterar as ACLs de um ficheiro ou pasta.
 >
-> Para as contas criadas antes de Setembro de 2018, o grupo proprietário foi definido para o utilizador que criou a conta no caso da pasta de raiz para **caso 1**, acima.  Uma única conta de utilizador não é válida para fornecer permissões através do grupo proprietário, portanto, não existem permissões são concedidas por esta predefinição. Pode atribuir esta permissão a um grupo de utilizador válido.
+> Para contas criadas em ou antes de setembro de 2018, o grupo próprio foi definido para o utilizador que criou a conta no caso da pasta raiz para o **Caso 1**, acima.  Uma única conta de utilizador não é válida para fornecer permissões através do grupo proprietário, portanto, não existem permissões são concedidas por esta predefinição. Pode atribuir esta permissão a um grupo de utilizador válido.
 
 
 ## <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
@@ -194,7 +194,7 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="the-mask"></a>A máscara
 
-Conforme ilustrado no algoritmo de verificação de acesso, a máscara limita o acesso para **utilizadores nomeados**, o **grupo proprietário**, e **grupos nomeados**.  
+Como ilustrado no Algoritmo de Verificação de Acesso, a máscara limita o acesso aos **utilizadores nomeados**, o **grupo próprio**, e **grupos nomeados.**  
 
 > [!NOTE]
 > Para uma nova conta de geração 1 de armazenamento do Data Lake, a máscara da ACL de acesso da pasta raiz ("/") está predefinida como RWX.
@@ -216,9 +216,9 @@ Quando um novo ficheiro ou pasta são criados numa pasta existente, a ACL Predef
 
 ### <a name="umask"></a>umask
 
-Ao criar um ficheiro ou pasta, a umask é utilizada para modificar a forma como as ACLs padrão são definidas no item subordinado. umask é um valor de 9 bits em pastas pai que contém um valor de RWX para **usuário proprietário**, **grupo proprietário**e **outros**.
+Ao criar um ficheiro ou pasta, a umask é utilizada para modificar a forma como as ACLs padrão são definidas no item subordinado. umask é um valor de 9 bits nas pastas-mãe que contém um valor RWX para **o utilizador próprio,** **o grupo de possuir,** e **outros**.
 
-O umask para Azure Data Lake Storage Gen1 é um valor constante definido como 007. Este valor se traduz em
+O umask para Azure Data Lake Storage Gen1 é um valor constante definido para 007. Este valor se traduz em
 
 | componente de umask     | Formato numérico | Formato curto | Significado |
 |---------------------|--------------|------------|---------|
@@ -299,4 +299,4 @@ Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para fiche
 
 ## <a name="see-also"></a>Consulte também
 
-* [Descrição geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Visão geral do Armazenamento de Lagos De Dados Azure Gen1](data-lake-store-overview.md)

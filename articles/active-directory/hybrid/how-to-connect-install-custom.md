@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c99a6e018edd0806daac7cd429135e522f217f23
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159833"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376072"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -275,7 +275,7 @@ Introduza os servidores em que pretende instalar o AD FS. Pode adicionar um ou m
 ![Servidores do AD FS](./media/how-to-connect-install-custom/adfs2.png)
 
 ### <a name="specify-the-web-application-proxy-servers"></a>Especificar os servidores Proxy de Web Apps
-Introduza os servidores que pretende ter como servidores proxy de Web Apps. O servidor proxy de Web Apps está implementado na rede de perímetro (com acesso à extranet) e suporta pedidos de autenticação da extranet. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
+Introduza os servidores que pretende ter como servidores proxy de Web Apps. O servidor proxy da aplicação Web está implementado na rede de perímetro (com acesso à extranet) e suporta pedidos de autenticação da extranet. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
 
 > [!NOTE]
 > <li> Se a conta utilizada não for um administrador local nos servidores WAP, ser-lhe-ão pedidas as credenciais de administrador.</li>
@@ -382,7 +382,7 @@ O Azure AD Connect verifica as definições de DNS quando clica no botão Verifi
 
 * Resolver FQDN de federação: o Azure AD Connect verifica se o FQDN de federação pode ser resolvido pelo DNS para garantir a conectividade.
 
-![Concluída](./media/how-to-connect-install-custom/completed.png)
+![Concluir](./media/how-to-connect-install-custom/completed.png)
 
 ![Verificar](./media/how-to-connect-install-custom/adfs7.png)
 

@@ -1,92 +1,92 @@
 ---
-title: Crie contêineres e bancos de dados do Azure Cosmos no modo de piloto automático.
-description: Saiba mais sobre os benefícios, casos de uso e como provisionar bancos de dados e contêineres do Azure Cosmos no modo de piloto automático.
+title: Crie recipientes e bases de dados Azure Cosmos em modo piloto automático.
+description: Conheça os benefícios, use casos e como fornecer bases de dados e contentores da Azure Cosmos em modo piloto automático.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 89af30788fe5129cddc6a3607b8c722549b610d1
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264055"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365564"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Criar contêineres e bancos de dados do Azure Cosmos no modo de piloto automático (versão prévia)
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Crie recipientes e bases de dados Azure Cosmos em modo piloto automático (Pré-visualização)
 
 O Azure Cosmos DB permite-lhe aprovisionar o débito nos contentores no modo manual ou Autopilot. Este artigo descreve os benefícios e casos de utilização do modo Autopilot.
 
 > [!NOTE]
-> O modo AutoPilot está disponível atualmente na visualização pública. Você pode [habilitar o AutoPilot somente para novos bancos de dados e contêineres](#create-a-database-or-a-container-with-autopilot-mode) . Ele não está disponível para contêineres e bancos de dados existentes.
+> O modo piloto automático está atualmente disponível em pré-visualização pública. Só pode [ativar o piloto automático para novas bases de dados e contentores.](#create-a-database-or-a-container-with-autopilot-mode) Não está disponível para contentores e bases de dados existentes.
 
-Além do provisionamento manual da taxa de transferência, agora você pode configurar contêineres do cosmos do Azure no modo AutoPilot. Os contêineres e os bancos de dados configurados no modo de piloto automático irão **dimensionar automaticamente e de forma instantânea a taxa de transferência provisionada com base nas necessidades do aplicativo sem afetar a disponibilidade, a latência, a taxa de transferência ou o desempenho da carga de trabalho globalmente.**
+Além do fornecimento manual de entrada, pode agora configurar os contentores Azure Cosmos em modo piloto automático. Os contentores e bases de dados configurados no modo piloto automático **irão automaticamente e instantaneamente escalar a produção aprovisionada com base nas necessidades da sua aplicação sem afetar a disponibilidade, latência, produção ou desempenho da carga de trabalho a nível global.**
 
-Ao configurar contêineres e bancos de dados no modo de piloto automático, você precisa especificar que a taxa de transferência máxima não `Tmax` ser excedida. Os contêineres podem dimensionar sua taxa de transferência para que `0.1*Tmax < T < Tmax`. Em outras palavras, os contêineres e os bancos de dados são dimensionados instantaneamente com base nas necessidades de carga de trabalho, de até 10% do valor máximo de taxa de transferência que você configurou até o valor máximo de taxa de transferência configurado. Você pode alterar a configuração de taxa de transferência máxima (`Tmax`) em um banco de dados ou contêiner do AutoPilot em qualquer momento. Com a opção AutoPilot, a taxa de transferência mínima de 400 RU/s por contêiner ou banco de dados não é mais aplicável.
+Ao configurar recipientes e bases de dados no modo piloto automático, é necessário especificar a entrada máxima `Tmax` não deve ser ultrapassada. Os recipientes podem então escalar a sua entrada de modo a que `0.1*Tmax < T < Tmax`. Por outras palavras, os contentores e bases de dados escalam instantaneamente com base nas necessidades de carga de trabalho, desde 10% do valor máximo de entrada que configuraste até ao valor máximo de entrada configurado. Pode alterar a regulação máxima de entrada (`Tmax`) numa base de dados ou recipiente de piloto automático em qualquer momento. Com a opção de piloto automático, o 400 RU/s de entrada mínima por recipiente ou base de dados já não é aplicável.
 
-Durante a versão prévia do piloto automático, para a taxa de transferência máxima especificada no contêiner ou no banco de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for excedido, a taxa de transferência máxima será ajustada automaticamente para um valor mais alto. Ao usar a taxa de transferência no nível do banco de dados com o modo AutoPilot, o número de contêineres permitidos em um banco de dados é calculado como: `0.001*TMax`. Por exemplo, se você provisionar 20.000 AutoPilot RU/s, o banco de dados poderá ter 20 contêineres.
+Durante a pré-visualização do piloto automático, para a potência máxima especificada no recipiente ou na base de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for ultrapassado, a entrada máxima é automaticamente ajustada para um valor mais elevado. Ao utilizar a entrada de nível de base de dados com o modo piloto automático, o número de contentores permitidos dentro de uma base de dados é calculado como: `0.001*TMax`. Por exemplo, se fornecer 20.000 RU/s piloto automático, então a base de dados pode ter 20 contentores.
 
-## <a name="benefits-of-autopilot-mode"></a>Benefícios do modo AutoPilot
+## <a name="benefits-of-autopilot-mode"></a>Benefícios do modo piloto automático
 
-Os contêineres do cosmos do Azure que são configurados no modo AutoPilot têm os seguintes benefícios:
+Os recipientes Azure Cosmos que estão configurados em modo piloto automático têm os seguintes benefícios:
 
-* **Simples:** Os contêineres no modo AutoPilot removem a complexidade para gerenciar a taxa de transferência provisionada (RUs) e a capacidade manualmente para vários contêineres.
+* **Simples:** Os recipientes em modo piloto automático removem manualmente a complexidade de gerir a entrada aprovisionada (RUs) e a capacidade manualmente para vários contentores.
 
-* **Escalonável:** Os contêineres no modo AutoPilot dimensionam diretamente a capacidade de taxa de transferência provisionada conforme necessário. Não há interrupção nas conexões de cliente, aplicativos e elas não afetam nenhum SLA existente.
+* **Escalável:** Os recipientes em modo piloto automático escalam perfeitamente a capacidade de entrada prevista conforme necessário. Não há nenhuma perturbação nas ligações com clientes, aplicações e não afetam quaisquer SLAs existentes.
 
-* Econômico **:** Quando você usa contêineres configurados no modo de piloto automático, você paga apenas pelos recursos de que suas cargas de trabalho precisam por hora.
+* **Rentável:** Quando utiliza recipientes configurados em modo piloto automático, paga apenas os recursos de que as suas cargas de trabalho precisam numa base de hora.
 
-* **Altamente disponível:** Os contêineres no modo de AutoPilot usam o mesmo back-end de alta disponibilidade, tolerante a falhas e distribuída globalmente para garantir a durabilidade dos dados e a alta disponibilidade.
+* **Altamente disponível:** Os contentores em modo piloto automático utilizam o mesmo backend distribuído globalmente, tolerante a falhas, altamente disponível para garantir a durabilidade dos dados e a elevada disponibilidade.
 
-## <a name="use-cases-of-autopilot-mode"></a>Casos de uso do modo AutoPilot
+## <a name="use-cases-of-autopilot-mode"></a>Utilize caixas de modo piloto automático
 
-Os casos de uso dos contêineres Cosmos do Azure configurados no modo AutoPilot incluem:
+Os casos de utilização dos contentores Azure Cosmos configurados em modo piloto automático incluem:
 
-* **Cargas de trabalho variáveis:** Quando você estiver executando um aplicativo levemente usado com pico de uso de 1 hora a várias horas algumas vezes por dia ou várias vezes por ano. Os exemplos incluem aplicativos para recursos humanos, orçamento e relatórios operacionais. Para esses cenários, os contêineres configurados no modo de piloto automático podem ser usados e você não precisa mais provisionar manualmente para a capacidade de pico ou média.
+* **Cargas de trabalho variáveis:** Quando estiver a executar uma aplicação levemente utilizada com o uso máximo de 1 hora a várias horas algumas vezes por dia ou várias vezes por ano. Exemplos incluem aplicações de recursos humanos, orçamentação e relatórios operacionais. Para tais cenários, os recipientes configurados no modo piloto automático podem ser utilizados e já não é necessário fornecer manualmente para atingir o pico ou a capacidade média.
 
-* **Cargas de trabalho imprevisíveis:** Quando você estiver executando cargas de trabalho em que há uso de banco de dados ao longo do dia, mas também aos picos de atividade que são difíceis de prever. Um exemplo inclui um site de tráfego que vê um surto de atividade quando a previsão do tempo muda. Os contêineres configurados no modo de piloto automático ajustam a capacidade para atender às necessidades da carga de pico do aplicativo e de reduzir verticalmente quando o surto da atividade terminar.
+* **Cargas de trabalho imprevisíveis:** Quando se está a executar cargas de trabalho onde há uso de base de dados ao longo do dia, mas também picos de atividade que são difíceis de prever. Um exemplo inclui um site de tráfego que vê um aumento de atividade quando a previsão meteorológica muda. Os recipientes configurados no modo piloto automático ajustam a capacidade de atender às necessidades da carga máxima da aplicação e voltam a reduzir a escala quando o aumento de atividade terminar.
 
-* **Novos aplicativos:** Se você estiver implantando um novo aplicativo e não tiver certeza quanto à quantidade de produtividade provisionada (ou seja, quantos RUs) você precisa. Com os contêineres configurados no modo AutoPilot, você pode dimensionar automaticamente para as necessidades de capacidade e os requisitos de seu aplicativo.
+* **Novas aplicações:** Se estiver a implementar uma nova aplicação e não tiver a certeza de quanto é que o produto forprovisionado (isto é, quantas RUs) precisa. Com os recipientes configurados no modo piloto automático, pode automaticamente escalar as necessidades e requisitos de capacidade da sua aplicação.
 
-* **Aplicativos usados com pouca frequência:** Se você tiver um aplicativo que só é usado por algumas horas várias vezes por dia ou semana ou mês, como um aplicativo de baixo volume/Web/site de blog.
+* **Aplicações pouco utilizadas:** Se tiver uma aplicação que só seja utilizada por algumas horas várias vezes por dia ou semana ou mês, como uma aplicação de baixo volume/web/blog site.
 
-* **Bancos de dados de desenvolvimento e teste:** Se você tiver desenvolvedores que usam contêineres durante horas de trabalho, mas não precisarem deles em noites ou fins de semana. Com contêineres configurados no modo AutoPilot, eles são reduzidos verticalmente para um mínimo quando não estão em uso.
+* Bases de dados de **desenvolvimento e de ensaio:** Se tiver desenvolvedores que usam contentores durante o horário de trabalho, mas não precisa deles em noites ou fins de semana. Com os recipientes configurados no modo piloto automático, reduzem-se ao mínimo quando não estão a ser utilizados.
 
-* **Cargas de trabalho/consultas de produção agendadas:** Quando você tem uma série de solicitações/operações/consultas agendadas em um único contêiner e, se houver períodos ociosos em que você deseja executar com uma taxa de transferência baixa absoluta, agora você pode fazer isso facilmente. Quando uma consulta/solicitação agendada for enviada para um contêiner configurado no modo de piloto automático, ela aumentará automaticamente o máximo possível e executará a operação.
+* **Cargas de trabalho/consultas de produção programadas:** Quando você tem uma série de pedidos/operações/consultas programadas em um único recipiente, e se houver períodos ociosos em que você quer correr a uma entrada absolutamente baixa, você pode agora fazê-lo facilmente. Quando uma consulta/pedido programado é submetido a um recipiente configurado no modo piloto automático, ele automaticamente escalará o quanto necessário e executará a operação.
 
-As soluções para os problemas anteriores não só exigem uma enorme quantidade de tempo na implementação, mas também introduzem complexidade na configuração ou no código, e muitas vezes exigem intervenção manual para solucioná-los. O modo AutoPilot habilita os cenários acima prontos para uso, para que você não precise mais se preocupar com esses problemas.
+As soluções para os problemas anteriores não só requerem uma enorme quantidade de tempo de implementação, como também introduzem complexidade na configuração ou no seu código, e exigem frequentemente uma intervenção manual para os abordar. O modo autopiloto permite que os cenários acima indicados saem da caixa, para que não precise mais de se preocupar com estes problemas.
 
-## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Comparação – contêineres configurados no modo manual vs. modo AutoPilot
+## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Comparação – Recipientes configurados no modo manual vs. modo piloto automático
 
-|  | Contêineres configurados no modo manual  | Contêineres configurados no modo AutoPilot |
+|  | Recipientes configurados em modo manual  | Recipientes configurados em modo piloto automático |
 |---------|---------|---------|
-| **Taxa de transferência provisionada** | Provisionado manualmente. | Escalado de imediato e instantâneo com base nos padrões de uso da carga de trabalho. |
-| **Taxa-limitação de solicitações/operações (429)**  | Pode acontecer se o consumo exceder a capacidade provisionada. | Não ocorrerá se a taxa de transferência consumida estiver dentro da taxa de transferência máxima escolhida com o modo AutoPilot.   |
-| **Planeamento de capacidade** |  Você precisa fazer um planejamento de capacidade inicial e provisionar a taxa de transferência de que precisa. |    Você não precisa se preocupar com o planejamento de capacidade. O sistema cuida automaticamente do planejamento de capacidade e do gerenciamento de capacidade. |
-| **Preços** | O provisionamento manual de RU/s por hora. | Para contas de região de gravação única, você paga pela taxa de transferência usada por hora, usando o AutoPilot RU/s por hora. <br/><br/>Para contas com várias regiões de gravação, não há nenhum custo adicional para o piloto automático. Você paga pela taxa de transferência usada por hora usando a mesma tarifa de RU/s de vários mestres por hora. |
+| **Entrada aprovisionada** | Provisões manualmente. | Escalado automaticamente e instantaneamente com base nos padrões de utilização da carga de trabalho. |
+| **Limitação da taxa dos pedidos/operações (429)**  | Pode acontecer, se o consumo exceder a capacidade prevista. | Não acontecerá se a entrada consumida estiver dentro da potência máxima que escolher com o modo piloto automático.   |
+| **Planeamento de capacidade** |  Tem de fazer um planeamento inicial de capacidade e fornecimento da entrada de que necessita. |    Não tens de te preocupar com o planeamento de capacidades. O sistema cuida automaticamente do planeamento de capacidades e da gestão da capacidade. |
+| **Preços** | RS/s manualmente aprovisionado por hora. | Para contas de região de escrita única, você paga a entrada usada de hora em hora, utilizando a taxa de piloto automático RU/s por hora. <br/><br/>Para contas com várias regiões de escrita, não há custo extra para o piloto automático. Paga-se a entrada utilizada de hora em hora utilizando a mesma taxa de RU/s multi-master por hora. |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
-## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Criar um banco de dados ou um contêiner com o modo de piloto automático
+## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Criar uma base de dados ou um recipiente com modo piloto automático
 
-Você pode configurar o AutoPilot para novos bancos de dados ou contêineres ao criá-los por meio do portal do Azure. Use as etapas a seguir para criar um novo banco de dados ou contêiner, habilitar o AutoPilot e especificar a taxa de transferência máxima (RU/s).
+Pode configurar o piloto automático para novas bases de dados ou contentores ao criá-los através do portal Azure. Utilize os seguintes passos para criar uma nova base de dados ou recipiente, ativar o piloto automático e especificar a potência máxima (RU/s).
 
-1. Entre no [portal do Azure](https://portal.azure.com) ou no [Azure Cosmos DB Explorer.](https://cosmos.azure.com/)
+1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [explorador de DB Azure Cosmos.](https://cosmos.azure.com/)
 
-1. Navegue até sua conta do Azure Cosmos DB e abra a guia **Data Explorer** .
+1. Navegue para a sua conta Azure Cosmos DB e abra o separador **Data Explorer.**
 
-1. Selecione **novo contêiner.** Insira um nome para seu banco de dados, contêiner e uma chave de partição. Em **taxa de transferência**, selecione a opção **AutoPilot** e escolha a taxa de transferência máxima (ru/s) que o banco de dados ou o contêiner não pode exceder ao usar a opção AutoPilot.
+1. Selecione **Novo Recipiente.** Introduza um nome para a sua base de dados, recipiente e uma chave de partição. Em **termos de entrada,** selecione a opção **Autopilot** e escolha a potência máxima (RU/s) que a base de dados ou o recipiente não podem exceder ao utilizar a opção de piloto automático.
 
-   ![Criando um contêiner e configurando a taxa de transferência do AutoPilot](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
+   ![Criação de um recipiente e configuração da entrada do Piloto Automático](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. Selecione **OK**.
 
-Você pode criar um banco de dados de produtividade compartilhado com o modo AutoPilot selecionando a opção **provisionar taxa de transferência de banco de dados** .
+Pode criar uma base de dados de entrada partilhada com modo piloto automático selecionando a opção de entrada de base de **dados Provision.**
 
-## <a id="autopilot-limits"></a>Taxa de transferência e limites de armazenamento para o piloto automático
+## <a id="autopilot-limits"></a>Limites de entrada e armazenamento para piloto automático
 
-A tabela a seguir mostra o máximo em todo e os limites de armazenamento para diferentes opções no modo de piloto automático:
+A tabela que se segue mostra os limites máximos de armazenamento e de armazenamento para diferentes opções no modo piloto automático:
 
-|Limite máximo de taxa de transferência  |Limite máximo de armazenamento  |
+|Limite máximo de entrada  |Limite máximo de armazenamento  |
 |---------|---------|
 |4000 RU/s  |   50 GB    |
 |20.000 RU/s  |  200 GB  |
@@ -95,7 +95,7 @@ A tabela a seguir mostra o máximo em todo e os limites de armazenamento para di
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Examine as [perguntas frequentes do AutoPilot](autopilot-faq.md).
-* Saiba mais sobre [partições lógicas](partition-data.md).
-* Saiba como [provisionar a taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
-* Saiba como [provisionar a taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
+* Reveja o [faq piloto automático](autopilot-faq.md).
+* Saiba mais sobre [divisórias lógicas.](partition-data.md)
+* Aprenda a [fornecer a entrada num recipiente Azure Cosmos.](how-to-provision-container-throughput.md)
+* Aprenda a fornecer a entrada numa base de [dados Azure Cosmos.](how-to-provision-database-throughput.md)

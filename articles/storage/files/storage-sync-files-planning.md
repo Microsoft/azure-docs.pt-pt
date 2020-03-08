@@ -8,11 +8,11 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598260"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362417"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas formas principais: montando diretamente as ações de ficheiros Azure sem servidor ou por cache ingequedem ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera as coisas que precisa de considerar como planeia para a sua implantação. 

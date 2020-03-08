@@ -1,6 +1,6 @@
 ---
-title: Gerir modelos de largura de banda para a série StorSimple 8000 | Documentos da Microsoft
-description: Descreve como gerir modelos de largura de banda do StorSimple, que permitem-lhe controlar o consumo de largura de banda.
+title: Gerir modelos de largura de banda para série StorSimple 8000  Microsoft Docs
+description: Descreve como gerir os modelos de largura de banda StorSimple, que lhe permitem controlar o consumo de largura de banda.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,71 +15,71 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699476"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366779"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Utilizar o serviço StorSimple Device Manager para gerir modelos de largura de banda do StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Utilize o serviço StorSimple Device Manager para gerir modelos de largura de banda StorSimple
 
 ## <a name="overview"></a>Descrição geral
 
-Modelos de largura de banda permitem-lhe configurar a utilização de largura de banda de rede em várias agendas de hora do dia a uma camada de dados do dispositivo StorSimple para a cloud.
+Os modelos de largura de banda permitem configurar o uso da largura de banda da rede através de vários horários do dia para nificar os dados do dispositivo StorSimple para a nuvem.
 
-Com agendas de limitação de largura de banda, pode:
+Com horários de estrangulamento da largura de banda pode:
 
-* Especifica agendamentos personalizados de largura de banda, consoante as utilizações de rede de carga de trabalho.
-* Centralize o gerenciamento e reutilizar as agendas em vários dispositivos de uma maneira fácil e direta.
+* Especifique os horários personalizados de largura de banda dependendo das utilizações da rede de carga de trabalho.
+* Centralize a gestão e reutilize os horários em vários dispositivos de forma fácil e perfeita.
 
 > [!NOTE]
-> Esta funcionalidade está disponível apenas para dispositivos físicos do StorSimple (modelos 8100 e 8600) e não para a StorSimple Cloud Appliances (modelos 8010 e 8020).
+> Esta funcionalidade está disponível apenas para dispositivos físicos StorSimple (modelos 8100 e 8600) e não para os Eletrodomésticos StorSimple Cloud (modelos 8010 e 8020).
 
 
-## <a name="the-bandwidth-templates-blade"></a>O painel de modelos de largura de banda
+## <a name="the-bandwidth-templates-blade"></a>A lâmina de modelos de largura de banda
 
-O **modelos de largura de banda** painel tem todos os modelos de largura de banda para o seu serviço num formato tabular e contém as seguintes informações:
+A lâmina de **modelos de largura de banda** tem todos os modelos de largura de banda para o seu serviço num formato tabular, e contém as seguintes informações:
 
-* **Nome** – um nome exclusivo atribuído ao modelo da largura de banda quando foram criada.
-* **Agenda** – o número de agendas contidas num modelo de largura de banda especificada.
-* **Utilizado por** – o número de volumes com os modelos de largura de banda.
+* **Nome** – Um nome único atribuído ao modelo de largura de banda quando foi criado.
+* **Horário** – O número de horários contidos num determinado modelo de largura de banda.
+* **Utilizado por** – O número de volumes utilizando os modelos de largura de banda.
 
-Também pode encontrar informações adicionais para ajudar a configurar modelos de largura de banda no:
+Também pode encontrar informações adicionais para ajudar a configurar modelos de largura de banda em:
 
-* [Perguntas e respostas sobre os modelos de largura de banda](#questions-and-answers-about-bandwidth-templates)
-* [Melhores práticas de modelos de largura de banda](#best-practices-for-bandwidth-templates)
+* [Perguntas e respostas sobre modelos de largura de banda](#questions-and-answers-about-bandwidth-templates)
+* [Boas práticas para modelos de largura de banda](#best-practices-for-bandwidth-templates)
 
-## <a name="add-a-bandwidth-template"></a>Adicionar um modelo de largura de banda
+## <a name="add-a-bandwidth-template"></a>Adicione um modelo de largura de banda
 
 Execute os seguintes passos para criar um novo modelo de largura de banda.
 
 #### <a name="to-add-a-bandwidth-template"></a>Para adicionar um modelo de largura de banda
 
-1. Aceda ao seu serviço StorSimple Device Manager, clique em **modelos de largura de banda** e, em seguida, clique em **+ modelo de largura de banda de adicionar**.
+1. Vá ao seu serviço StorSimple Device Manager, clique em **modelos** de largura de banda e, em seguida, clique **em + Adicionar modelo de largura de banda**.
 
-    ![Clique em + adicionar o modelo de largura de banda](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
+    ![Clique + Adicionar modelo de largura de banda](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp1.png)
 
-2. Na **modelo de largura de banda de adicionar** painel, siga os passos abaixo:
+2. Na lâmina de modelo adicionar largura de **banda,** faça os seguintes passos:
    
-    1. Especifique um nome exclusivo para o modelo de largura de banda.
-    2. Defina um agendamento de largura de banda. Para criar um agendamento:
+    1. Especifique um nome único para o seu modelo de largura de banda.
+    2. Defina um horário de largura de banda. Para criar um horário:
    
-        1. Na lista pendente, escolha o **dias** da semana a agenda está configurada para. Pode selecionar vários dias.        
+        1. A partir da lista de lançamentos, escolha os **Dias** da semana para o qual o horário está configurado. Pode selecionar vários dias.        
         
-        2. Introduza um **Start Time** na _hh: mm_ formato. Isso é quando a agenda será iniciada.
+        2. Introduza um Tempo de **Início** em formato _hh:mm._ É aqui que a programação vai começar.
 
-        3. Introduza um **hora de fim** na _hh: mm_ formato. Isso é quando o agendamento irá parar.
+        3. Introduza um **Tempo Final** em formato _hh:mm._ É aqui que o horário vai parar.
       
            > [!NOTE]
-           > Agendas de sobreposição não são permitidas. Se as horas de início e de fim irão resultar numa programação de sobreposição, verá uma mensagem de erro para o efeito.
+           > Não são permitidos horários sobrepostos. Se os tempos de início e de fim resultarem num calendário sobreposto, verá uma mensagem de erro nesse sentido.
 
-        4. Especifique a **taxa de largura de banda**. Esta é a largura de banda em Megabits por segundo (Mbps) utilizado pelo seu dispositivo StorSimple em operações que envolvem a nuvem (carregamentos e transferências). Forneça um número entre 1 e 1000 para este campo.
+        4. Especifique a **taxa de largura de banda**. Esta é a largura de banda em Megabits por segundo (Mbps) utilizada pelo seu dispositivo StorSimple em operações que envolvem a nuvem (tanto uploads como downloads). Forneça um número entre 1 e 1000 para este campo.
 
-            ![Definir a agenda de largura de banda](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
+            ![Definir o horário da largura de banda](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          
-            Repita os passos acima para definir várias agendas para o modelo até que termine.
+            Repita os passos acima para definir vários horários para o seu modelo até que esteja feito.
 
-        5. Clique em **adicionar** para começar a criar um modelo de largura de banda. O modelo criado é adicionado à lista de modelos de largura de banda.
+        5. Clique em **Adicionar** para começar a criar um modelo de largura de banda. O modelo criado é adicionado à lista de modelos de largura de banda.
       
 
 ## <a name="edit-a-bandwidth-template"></a>Editar um modelo de largura de banda
@@ -88,88 +88,88 @@ Execute os seguintes passos para editar um modelo de largura de banda.
 
 ### <a name="to-edit-a-bandwidth-template"></a>Para editar um modelo de largura de banda
 
-1. Vá para o StorSimple Device Manager service e clique em **modelos de largura de banda**.
-2. Na lista de modelos de largura de banda, selecione o modelo que pretende eliminar. Com o botão direito e no menu de contexto, selecione **eliminar**.
-3. Quando lhe for pedida confirmação, clique em **OK**. Isso deve eliminar o modelo de largura de banda. 
-4. A lista de atualizações de modelos de largura de banda para refletir a eliminação.
+1. Vá ao seu serviço StorSimple Device Manager e clique em **modelos**de largura de banda .
+2. Na lista de modelos de largura de banda, selecione o modelo que pretende eliminar. Clique à direita e a partir do menu de contexto, **selecione Eliminar**.
+3. Quando solicitado para confirmação, clique em **OK**. Isto deve eliminar o modelo de largura de banda. 
+4. A lista de modelos de largura de banda atualiza para refletir a eliminação.
 
 > [!NOTE]
-> Não é possível guardar as alterações se o agendamento editado sobrepõe-se com uma agenda existente no modelo de largura de banda que está a modificar.
+> Não é possível guardar as suas alterações se o calendário editado se sobrepor a um horário existente no modelo de largura de banda que está a modificar.
 
 ## <a name="delete-a-bandwidth-template"></a>Eliminar um modelo de largura de banda
 
-Execute os passos seguintes para eliminar um modelo de largura de banda.
+Execute os seguintes passos para eliminar um modelo de largura de banda.
 
 #### <a name="to-delete-a-bandwidth-template"></a>Para eliminar um modelo de largura de banda
 
-1. Vá para o StorSimple Device Manager service e clique em **modelos de largura de banda**.
-2. Na lista de modelos de largura de banda, selecione o modelo que pretende eliminar. Com o botão direito e no menu de contexto, selecione eliminar.
-3. Quando lhe for pedida confirmação, clique em **OK**. Isso deve eliminar o modelo de largura de banda.
-4. A lista de atualizações de modelos de largura de banda para refletir a eliminação.
+1. Vá ao seu serviço StorSimple Device Manager e clique em **modelos**de largura de banda .
+2. Na lista de modelos de largura de banda, selecione o modelo que pretende eliminar. Clique à direita e a partir do menu de contexto, selecione Eliminar.
+3. Quando solicitado para confirmação, clique em **OK**. Isto deve eliminar o modelo de largura de banda.
+4. A lista de modelos de largura de banda atualiza para refletir a eliminação.
 
-Se o modelo está a ser utilizada por quaisquer volumes, não terá permissão para eliminá-lo. Verá uma mensagem de erro indicando que o modelo está em uso. Uma caixa de diálogo de mensagem de erro será apresentada a aconselhá-lo de que todas as referências para o modelo devem ser removidas.
+Se o modelo estiver a ser utilizado por qualquer volume, não poderá eliminá-lo. Verá uma mensagem de erro indicando que o modelo está a ser utilizado. Aparecerá uma caixa de diálogo de mensagem de erro a conselhá-lo para que todas as referências ao modelo sejam removidas.
 
-Pode eliminar todas as referências para o modelo ao aceder a **contentores de volumes** página e modificar os contentores de volumes que utilizam este modelo para que utilize outro modelo ou utilizar uma definição de largura de banda personalizados ou ilimitado. Quando tiverem sido removidas todas as referências, é possível eliminar o modelo.
+Pode eliminar todas as referências ao modelo acedendo à página dos **Contentores** de Volume e modificando os recipientes de volume que utilizam este modelo para que utilizem outro modelo ou utilizem uma definição de largura de banda personalizada ou ilimitada. Quando todas as referências tiverem sido removidas, pode eliminar o modelo.
 
-## <a name="use-a-default-bandwidth-template"></a>Utilizar um modelo de largura de banda predefinido
+## <a name="use-a-default-bandwidth-template"></a>Use um modelo de largura de banda padrão
 
-Um modelo de largura de banda de padrão é fornecido e é utilizado pelos contentores de volumes por predefinição para impor controlos de largura de banda ao aceder a cloud. O modelo padrão também serve como uma referência pronta para os utilizadores que criar seus próprios modelos. Os detalhes deste modelo padrão são:
+Um modelo de largura de banda predefinido é fornecido e é utilizado por recipientes de volume por padrão para impor controlos de largura de banda ao aceder à nuvem. O modelo padrão também serve como uma referência pronta para os utilizadores que criam os seus próprios modelos. Os detalhes deste modelo padrão são:
 
-* **Nome** – ilimitados noites e fins de semana
-* **Agenda** – um agendamento único de segunda-feira a sexta-feira, que se aplica uma taxa de largura de banda de 1 Mbps entre 8 AM e PM de 5 a hora do dispositivo. A largura de banda é definida como ilimitado para o resto da semana.
+* **Nome** – Noites e fins de semana ilimitados
+* **Horário** – Um único horário de segunda a sexta-feira que aplica uma taxa de largura de banda de 1 Mbps entre as 8:00 e as 17:00 horas do dispositivo. A largura de banda está definida para Ilimitado para o resto da semana.
 
-O modelo padrão pode ser editado. A utilização deste modelo (incluindo versões editadas) é rastreada.
+O modelo predefinido pode ser editado. O uso deste modelo (incluindo versões editadas) é rastreado.
 
-## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Criar um modelo de largura de banda de dia inteiro que começa num tempo especificado
+## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Crie um modelo de largura de banda durante todo o dia que começa num momento especificado
 
-Siga este procedimento para criar uma agenda que inicia a uma hora especificada e executa todo o dia. No exemplo, a agenda começa às 9h da manhã e é executado até 9h na manhã seguinte. É importante observar que as horas de início e de fim para uma determinada agenda têm ambos de estar contidos na mesma agenda de 24 horas e não pode abranger vários dias. Se precisar de configurar modelos de largura de banda que duram vários dias, terá de utilizar várias agendas (conforme mostrado no exemplo).
+Siga este procedimento para criar um horário que comece a uma hora especificada e que se prolonge o dia todo. No exemplo, o horário começa às 9 da manhã e decorre até às 9 h da manhã seguinte. É importante notar que os tempos de início e fim de um determinado horário devem ser contidos no mesmo horário de 24 horas e não podem durar vários dias. Se precisar de configurar modelos de largura de banda que se estendem por vários dias, terá de utilizar vários horários (como mostra o exemplo).
 
-#### <a name="to-create-an-all-day-bandwidth-template"></a>Para criar um modelo de largura de banda de dia inteiro
+#### <a name="to-create-an-all-day-bandwidth-template"></a>Para criar um modelo de largura de banda durante todo o dia
 
-1. Crie uma agenda que inicia às 9h da manhã e é executada à meia-noite.
-2. Adicione outro agendamento. Configure a agenda de segundo para executar a partir da meia-noite até 9h da manhã.
+1. Crie um horário que comece às 9 da manhã e que se prolonge até à meia-noite.
+2. Adicione outro horário. Configure o segundo horário a decorrer entre a meia-noite e as 9 da manhã.
 3. Guarde o modelo de largura de banda.
 
-A agenda composta, em seguida, irá iniciar num momento à sua escolha e executar o dia inteiro.
+O horário composto começará então numa hora à sua escolha e correrá o dia todo.
 
-## <a name="questions-and-answers-about-bandwidth-templates"></a>Perguntas e respostas sobre os modelos de largura de banda
+## <a name="questions-and-answers-about-bandwidth-templates"></a>Perguntas e respostas sobre modelos de largura de banda
 
-**Q**. O que acontece aos controles de largura de banda quando estiver entre as agendas? (Um agendamento terminou e outro ainda não começou.)
+**Q**. O que acontece aos controlos de largura de banda quando se está entre os horários? (Um horário terminou e outro ainda não começou.)
 
-**A**. Nesses casos, irão ser utilizados sem controlos de largura de banda. Isso significa que o dispositivo pode utilizar a largura de banda ilimitada quando a criação de camadas de dados para a cloud.
+**A.** Nesses casos, não serão utilizados controlos de largura de banda. Isto significa que o dispositivo pode utilizar largura de banda ilimitada ao diferenciar os dados para a nuvem.
 
 **Q**. Pode modificar os modelos de largura de banda num dispositivo offline?
 
-**A**. Não será capaz de modificar os modelos de largura de banda em contentores de volumes, se o dispositivo correspondente estiver offline.
+**A.** Não poderá modificar os modelos de largura de banda em contentores de volumes se o dispositivo correspondente estiver offline.
 
-**Q**. Pode editar um modelo de largura de banda associado um contentor de volume quando os volumes associados offline?
+**Q**. Pode editar um modelo de largura de banda associado a um recipiente de volume quando os volumes associados estão offline?
 
-**A**. É possível modificar um modelo de largura de banda associado um contentor de volume cujos volumes estão offline. Tenha em atenção que quando volumes estiverem offline, não existem dados serão colocado em camadas do dispositivo para a cloud.
+**A.** Pode modificar um modelo de largura de banda associado a um recipiente de volume cujos volumes estão offline. Note que quando os volumes estiverem offline, nenhum dado será nivida do dispositivo para a nuvem.
 
-**Q**. Pode eliminar um modelo padrão?
+**Q**. Pode apagar um modelo predefinido?
 
-**A**. Apesar de poder eliminar um modelo padrão, não é uma boa idéia fazer isso. A utilização de um modelo padrão, incluindo versões editadas, é rastreada. Os dados de controle são analisados e ao longo do tempo, são utilizados para melhorar o modelo predefinido.
+**A.** Embora possa eliminar um modelo predefinido, não é uma boa ideia fazê-lo. O uso de um modelo padrão, incluindo versões editadas, é rastreado. Os dados de rastreio são analisados e, ao longo do tempo, é usado para melhorar o modelo padrão.
 
-**Q**. Como determina que seus modelos de largura de banda tem de ser modificado?
+**Q**. Como determinar que os seus modelos de largura de banda precisam de ser modificados?
 
-**A**. Um dos sinais que terá de modificar os modelos de largura de banda é quando começa a ver a rede lentos ou são propositalmente várias vezes num dia. Se isto acontecer, monitorize a rede de armazenamento e de utilização ao examinar os gráficos de desempenho de e/s e débito de rede.
+**A.** Um dos sinais de que precisa de modificar os modelos de largura de banda é quando começa a ver a rede abrandar ou sufocar várias vezes num dia. Se isso acontecer, monitorize a rede de armazenamento e utilização olhando para as tabelas de Desempenho e Despôs de Rede.
 
-A partir de dados de débito de rede, identifique a hora do dia e os contentores de volumes em que ocorre o afunilamento de rede. Se isto acontece quando dados estão a ser camadas para a cloud (obter essas informações do desempenho de e/s para todos os contentores de volume para o dispositivo para a cloud), então, terá de modificar os modelos de largura de banda associados com os contentores de volume.
+A partir dos dados de entrada da rede, identifique a hora do dia e os recipientes de volume em que ocorre o estrangulamento da rede. Se isso acontecer quando os dados estiverem a ser nividados para a nuvem (obtenha esta informação do desempenho de I/S para todos os recipientes de volume para o dispositivo para a nuvem), então terá de modificar os modelos de largura de banda associados aos seus recipientes de volume.
 
-Depois dos modelos modificados em utilização, terá de monitorizar a rede novamente para latências significativas. Se estes ainda existirem, terá de rever os modelos de largura de banda.
+Depois de os modelos modificados estarem a ser utilizados, terá de monitorizar novamente a rede para obter atrasos significativos. Se estes ainda existirem, terá de revisitar os seus modelos de largura de banda.
 
-**Q**. O que acontece se tem vários contentores de volumes no meu dispositivo agenda essa sobreposição mas limites diferentes se aplicam a cada?
+**Q**. O que acontece se vários contentores de volume no meu dispositivo tiverem horários que se sobrepõem, mas limites diferentes se aplicam a cada um?
 
-**A**. Vamos supor que tem um dispositivo com 3 contentores de volumes. Os agendamentos associados a estes contentores totalmente se podem sobrepor. Para cada um desses contêineres, os limites de largura de banda utilizados são 5, 10 e 15 Mbps, respetivamente. Quando ocorrem em todos estes contentores e/s ao mesmo tempo, o mínimo de 3 limites de largura de banda pode ser aplicado: neste caso, 5 Mbps como estes pedidos de e/s de saída partilhar a mesma fila.
+**A.** Vamos supor que tem um dispositivo com recipientes de 3 volumes. Os horários associados a estes contentores sobrepõem-se completamente. Para cada um destes recipientes, os limites de largura de banda utilizados são 5, 10 e 15 Mbps, respectivamente. Quando o I/S estiver a ocorrer em todos estes recipientes ao mesmo tempo, pode aplicar-se o mínimo dos 3 limites de largura de banda: neste caso, 5 Mbps à medida que estes pedidos de I/S de saída partilham a mesma fila.
 
-## <a name="best-practices-for-bandwidth-templates"></a>Melhores práticas de modelos de largura de banda
+## <a name="best-practices-for-bandwidth-templates"></a>Boas práticas para modelos de largura de banda
 
-Siga estas práticas recomendadas para o dispositivo StorSimple:
+Siga estas melhores práticas para o seu dispositivo StorSimple:
 
-* Configure modelos de largura de banda no seu dispositivo para ativar a variável limitação da taxa de transferência de rede por parte do dispositivo em alturas diferentes do dia. Estes modelos de largura de banda quando utilizado com agendas de cópia de segurança com eficiência podem tirar partido da largura de banda de rede adicional das operações na cloud horas de ponta.
-* Calcule a largura de banda real necessária para uma implementação específica, com base no tamanho da implantação e o objetivo de tempo necessária de recuperação (RTO).
+* Configure os modelos de largura de banda no seu dispositivo para permitir o estrangulamento variável da entrada de rede pelo dispositivo em diferentes horas do dia. Estes modelos de largura de banda quando utilizados com horários de backup podem efetivamente aproveitar a largura de banda adicional da rede para operações na nuvem durante as horas fora do pico.
+* Calcular a largura de banda real necessária para uma determinada implantação com base no tamanho da implantação e no objetivo de tempo de recuperação necessário (RTO).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+Saiba mais sobre [a utilização do serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

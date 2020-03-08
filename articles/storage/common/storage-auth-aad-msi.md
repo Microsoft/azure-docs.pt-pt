@@ -1,7 +1,7 @@
 ---
-title: Autorizar o acesso a dados com uma identidade gerenciada
+title: Autorizar acesso a dados com identidade gerida
 titleSuffix: Azure Storage
-description: Saiba como usar identidades gerenciadas para recursos do Azure para autorizar o acesso a dados de BLOB e de fila de aplicativos em execução em máquinas virtuais do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros.
+description: Saiba como usar identidades geridas para os recursos do Azure para autorizar o acesso a dados blob e fila de aplicações em execução em máquinas virtuais Azure, aplicações de função, conjuntos de escala de máquinas virtuais, entre outros.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,61 +11,61 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f3bac0d47a53da1ec4d1fa08b5f0933f5f65dc56
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965768"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393244"
 ---
-# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de BLOB e de fila com identidades gerenciadas para recursos do Azure
+# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar acesso a dados blob e fila com identidades geridas para recursos Azure
 
-O armazenamento de BLOBs e filas do Azure dão suporte à autenticação Azure Active Directory (Azure AD) com [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autorizar o acesso a dados de BLOB e de fila usando as credenciais do Azure AD de aplicativos em execução em VMs (máquinas virtuais) do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.  
+A autenticação azure Blob e de armazenamento de fila Azure Ative Directory (Azure AD) com [identidades geridas para os recursos Azure.](../../active-directory/managed-identities-azure-resources/overview.md) As identidades geridas para os recursos do Azure podem autorizar o acesso a dados de blob e fila utilizando credenciais Azure AD de aplicações em execução em máquinas virtuais Azure (VMs), aplicações de função, conjuntos de escala de máquinas virtuais e outros serviços. Ao utilizar identidades geridas para recursos Azure juntamente com a autenticação da AD Azure, pode evitar armazenar credenciais com as suas aplicações que funcionam na nuvem.  
 
-Este artigo mostra como autorizar o acesso a dados de BLOB ou de fila de uma VM do Azure usando identidades gerenciadas para recursos do Azure. Ele também descreve como testar seu código no ambiente de desenvolvimento.
+Este artigo mostra como autorizar o acesso a dados blob ou fila de um VM Azure usando identidades geridas para os Recursos Azure. Também descreve como testar o seu código no ambiente de desenvolvimento.
 
-## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
+## <a name="enable-managed-identities-on-a-vm"></a>Ativar identidades geridas num VM
 
-Antes de poder usar identidades gerenciadas para recursos do Azure para autorizar o acesso a BLOBs e filas de sua VM, você deve primeiro habilitar identidades gerenciadas para recursos do Azure na VM. Para saber como habilitar identidades gerenciadas para recursos do Azure, consulte um destes artigos:
+Antes de poder utilizar identidades geridas para a Azure Resources para autorizar o acesso a bolhas e filas a partir do seu VM, tem primeiro de ativar identidades geridas para os Recursos Azure no VM. Para aprender a ativar identidades geridas para os Recursos Azure, consulte um destes artigos:
 
 - [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [O Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Bibliotecas de cliente Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Bibliotecas de clientes do Gestor de Recursos Azure](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-Para obter mais informações sobre identidades gerenciadas, consulte [identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Para obter mais informações sobre identidades geridas, consulte [identidades geridas para os recursos Do Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="authenticate-with-the-azure-identity-library"></a>Autenticar com a biblioteca de identidades do Azure
+## <a name="authenticate-with-the-azure-identity-library"></a>Autenticar com a biblioteca Azure Identity
 
-A biblioteca de cliente de identidade do Azure fornece suporte à autenticação de token do Azure AD para o [SDK do Azure](https://github.com/Azure/azure-sdk). As versões mais recentes das bibliotecas de cliente de armazenamento do Azure para .NET, Java, Python e JavaScript se integram com a biblioteca de identidade do Azure para fornecer um meio simples e seguro de adquirir um token 2,0 do OAuth para autorização de solicitações de armazenamento do Azure.
+A biblioteca de clientes Azure Identity fornece suporte de autenticação token Azure Azure Azure Para o [Azure SDK.](https://github.com/Azure/azure-sdk) As versões mais recentes das bibliotecas de clientes do Azure Storage para .NET, Java, Python e JavaScript integram-se com a biblioteca Azure Identity para fornecer um meio simples e seguro para adquirir um símbolo OAuth 2.0 para autorização de pedidos de armazenamento Azure.
 
-Uma vantagem da biblioteca de cliente de identidade do Azure é que ela permite que você use o mesmo código para autenticar se seu aplicativo está em execução no ambiente de desenvolvimento ou no Azure. A biblioteca de cliente de identidade do Azure para .NET autentica uma entidade de segurança. Quando seu código está em execução no Azure, a entidade de segurança é uma identidade gerenciada para recursos do Azure. No ambiente de desenvolvimento, a identidade gerenciada não existe, portanto, a biblioteca de cliente autentica o usuário ou uma entidade de serviço para fins de teste.
+Uma vantagem da biblioteca de clientes Da Identidade Azure é que lhe permite usar o mesmo código para autenticar se a sua aplicação está em execução no ambiente de desenvolvimento ou no Azure. A biblioteca de clientes Azure Identity para .NET autentica um diretor de segurança. Quando o seu código está em funcionamento em Azure, o diretor de segurança é uma identidade gerida para os recursos azure. No ambiente de desenvolvimento, a identidade gerida não existe, pelo que a biblioteca do cliente autentica o utilizador ou um diretor de serviço para fins de teste.
 
-Após a autenticação, a biblioteca de cliente de identidade do Azure Obtém uma credencial de token. Essa credencial de token é encapsulada no objeto de cliente de serviço que você cria para executar operações no armazenamento do Azure. A biblioteca lida com isso para você com perfeição obtendo a credencial de token apropriada.
+Depois de autenticar, a biblioteca de clientes Da Identidade Azure recebe uma credencial simbólica. Esta credencial simbólica é então encapsulada no objeto cliente de serviço que cria para realizar operações contra o Armazenamento Azure. A biblioteca lida com isto sem problemas, obtendo a credencial simbólica apropriada.
 
-Para obter mais informações sobre a biblioteca de cliente de identidade do Azure para .NET, consulte [biblioteca de cliente de identidade do Azure para .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Para obter a documentação de referência para a biblioteca de cliente de identidade do Azure, consulte [namespace do Azure. Identity](/dotnet/api/azure.identity).
+Para obter mais informações sobre a biblioteca de clientes Azure Identity para .NET, consulte a [biblioteca de clientes Azure Identity para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Para documentação de referência para a biblioteca de clientes Da Identidade Azure, consulte [O Espaço de Nome sinuoso de Identidade Azure.Identidade](/dotnet/api/azure.identity).
 
-### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Atribuir funções RBAC (controle de acesso baseado em função) para acesso aos dados
+### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Atribuir funções de controlo de acesso baseado em funções (RBAC) para o acesso aos dados
 
-Quando uma entidade de segurança do Azure AD tenta acessar dados de BLOB ou fila, essa entidade de segurança deve ter permissões para o recurso. Se a entidade de segurança é uma identidade gerenciada no Azure ou uma conta de usuário do Azure AD executando código no ambiente de desenvolvimento, a entidade de segurança deve ser atribuída a uma função de RBAC que concede acesso a dados de BLOB ou de fila no armazenamento do Azure. Para obter informações sobre a atribuição de permissões via RBAC, consulte a seção intitulada **atribuir funções RBAC para direitos de acesso** em [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Quando um diretor de segurança da AD Azure tenta aceder a dados de blob ou fila, esse diretor de segurança deve ter permissões para o recurso. Quer o diretor de segurança seja uma identidade gerida no Azure ou um código de execução de conta de utilizador Azure AD no ambiente de desenvolvimento, o diretor de segurança deve ser atribuído a uma função RBAC que conceda acesso a dados blob ou fila no Armazenamento Azure. Para obter informações sobre a atribuição de permissões via RBAC, consulte a secção intitulada **Assign RBAC para direitos** de acesso em [Autorizao acesso a blobs e filas Azure utilizando o Diretório Ativo Azure](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
-### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticar o usuário no ambiente de desenvolvimento
+### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticar o utilizador no ambiente de desenvolvimento
 
-Quando seu código está em execução no ambiente de desenvolvimento, a autenticação pode ser manipulada automaticamente ou pode exigir um logon do navegador, dependendo de quais ferramentas você está usando. Por exemplo, Microsoft Visual Studio dá suporte ao SSO (logon único), para que a conta de usuário ativa do Azure AD seja usada automaticamente para autenticação. Para obter mais informações sobre o SSO, consulte [logon único para aplicativos](../../active-directory/manage-apps/what-is-single-sign-on.md).
+Quando o seu código estiver em funcionamento no ambiente de desenvolvimento, a autenticação pode ser manuseada automaticamente, ou pode necessitar de um login de navegador, dependendo das ferramentas que estiver a utilizar. Por exemplo, o Microsoft Visual Studio suporta um único sinal (SSO), de modo a que a conta de utilizador aD Azure ativa seja automaticamente utilizada para autenticação. Para obter mais informações sobre o SSO, consulte [o único sinal de inscrição para as aplicações](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
-Outras ferramentas de desenvolvimento podem solicitar que você faça logon por meio de um navegador da Web.
+Outras ferramentas de desenvolvimento podem levar-lhe a fazer login através de um navegador web.
 
-### <a name="authenticate-a-service-principal-in-the-development-environment"></a>Autenticar uma entidade de serviço no ambiente de desenvolvimento
+### <a name="authenticate-a-service-principal-in-the-development-environment"></a>Autenticar um principal de serviço no ambiente de desenvolvimento
 
-Se seu ambiente de desenvolvimento não oferecer suporte a logon único ou logon por meio de um navegador da Web, você poderá usar uma entidade de serviço para autenticar a partir do ambiente de desenvolvimento.
+Se o seu ambiente de desenvolvimento não suportar um único login ou login através de um navegador web, então pode usar um diretor de serviço para autenticar a partir do ambiente de desenvolvimento.
 
 #### <a name="create-the-service-principal"></a>Criar o principal de serviço
 
-Para criar uma entidade de serviço com CLI do Azure e atribuir uma função de RBAC, chame o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Forneça uma função de acesso de dados do armazenamento do Azure para atribuir à nova entidade de serviço. Além disso, forneça o escopo para a atribuição de função. Para obter mais informações sobre as funções internas fornecidas para o armazenamento do Azure, consulte [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Para criar um diretor de serviço com o Azure CLI e atribuir uma função RBAC, ligue para o comando [az ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Fornecer uma função de acesso a dados de Armazenamento Azure para atribuir ao novo diretor de serviço. Além disso, fornecer o âmbito para a atribuição do papel. Para obter mais informações sobre as funções incorporadas previstas para o Armazenamento Azure, consulte [as funções incorporadas para os recursos Azure.](../../role-based-access-control/built-in-roles.md)
 
-Se você não tiver permissões suficientes para atribuir uma função à entidade de serviço, talvez seja necessário solicitar ao proprietário da conta ou ao administrador para executar a atribuição de função.
+Se não tiver permissões suficientes para atribuir uma função ao diretor de serviço, poderá ter de pedir ao proprietário ou administrador da conta que execute a atribuição da função.
 
-O exemplo a seguir usa o CLI do Azure para criar uma nova entidade de serviço e atribuir a função de **leitor de dados de blob de armazenamento** a ela com o escopo da conta
+O exemplo seguinte utiliza o Azure CLI para criar um novo diretor de serviço e atribuir-lhe o papel de Leitor de **Dados blob** de armazenamento com âmbito de conta
 
 ```azurecli-interactive
 az ad sp create-for-rbac \
@@ -74,7 +74,7 @@ az ad sp create-for-rbac \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-O comando `az ad sp create-for-rbac` retorna uma lista de propriedades da entidade de serviço no formato JSON. Copie esses valores para que você possa usá-los para criar as variáveis de ambiente necessárias na próxima etapa.
+O comando `az ad sp create-for-rbac` devolve uma lista de propriedades principais de serviço em formato JSON. Copie estes valores para que possa usá-los para criar as variáveis ambientais necessárias no próximo passo.
 
 ```json
 {
@@ -87,28 +87,28 @@ O comando `az ad sp create-for-rbac` retorna uma lista de propriedades da entida
 ```
 
 > [!IMPORTANT]
-> As atribuições de função do RBAC podem levar alguns minutos para serem propagadas.
+> As atribuições de funções RBAC podem demorar alguns minutos a propagar-se.
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-A biblioteca de cliente de identidade do Azure lê valores de três variáveis de ambiente em tempo de execução para autenticar a entidade de serviço. A tabela a seguir descreve o valor a ser definido para cada variável de ambiente.
+A biblioteca de clientes Azure Identity lê valores de três variáveis ambientais em tempo de execução para autenticar o diretor de serviço. O quadro seguinte descreve o valor a definir para cada variável ambiental.
 
 |Variável de ambiente|Valor
 |-|-
-|`AZURE_CLIENT_ID`|A ID do aplicativo para a entidade de serviço
-|`AZURE_TENANT_ID`|A ID de locatário do Azure AD da entidade de serviço
-|`AZURE_CLIENT_SECRET`|A senha gerada para a entidade de serviço
+|`AZURE_CLIENT_ID`|O ID da aplicação para o diretor de serviço
+|`AZURE_TENANT_ID`|A identidade do inquilino Azure AD do diretor de serviço
+|`AZURE_CLIENT_SECRET`|A palavra-passe gerada para o diretor de serviço
 
 > [!IMPORTANT]
-> Depois de definir as variáveis de ambiente, feche e abra novamente a janela do console. Se você estiver usando o Visual Studio ou outro ambiente de desenvolvimento, talvez seja necessário reiniciar o ambiente de desenvolvimento para que ele registre as novas variáveis de ambiente.
+> Depois de definir as variáveis ambientais, feche e reabra a janela da consola. Se estiver a utilizar o Visual Studio ou outro ambiente de desenvolvimento, poderá ter de reiniciar o ambiente de desenvolvimento para que registe as novas variáveis ambientais.
 
-Para obter mais informações, consulte [criar identidade para o aplicativo do Azure no portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+Para mais informações, consulte [Criar identidade para app Azure no portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
 
-Adicione as seguintes diretivas `using` ao seu código para usar as bibliotecas de cliente de armazenamento do Azure e identidade do Azure.
+Adicione as seguintes `using` diretivas ao seu código para utilizar as bibliotecas de clientes Azure Identity e Azure Storage.
 
 ```csharp
 using Azure;
@@ -120,7 +120,7 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-Para obter uma credencial de token que seu código pode usar para autorizar solicitações para o armazenamento do Azure, crie uma instância da classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . O exemplo de código a seguir mostra como obter a credencial de token autenticado e usá-la para criar um objeto de cliente de serviço e, em seguida, usar o cliente de serviço para carregar um novo blob:
+Para obter uma credencial simbólica que o seu código pode usar para autorizar pedidos de Armazenamento Azure, crie uma instância da classe [DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential) O seguinte exemplo de código mostra como obter a credencial simbólica autenticada e usá-la para criar um objeto cliente de serviço, em seguida, usar o cliente de serviço para carregar uma nova bolha:
 
 ```csharp
 async static Task CreateBlockBlobAsync(string accountName, string containerName, string blobName)
@@ -158,10 +158,10 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 ```
 
 > [!NOTE]
-> Para autorizar solicitações em dados de BLOB ou de fila com o Azure AD, você deve usar HTTPS para essas solicitações.
+> Para autorizar pedidos contra dados de blob ou fila com a Azure AD, deve utilizar HTTPS para esses pedidos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Gerenciar direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
-- [Use o Azure AD com aplicativos de armazenamento](storage-auth-aad-app.md).
-- [Execute comandos do CLI do Azure ou do PowerShell com as credenciais do Azure ad para acessar dados de BLOB ou fila](authorize-active-directory-powershell.md).
+- [Gerir os direitos de acesso aos dados](storage-auth-aad-rbac.md)de armazenamento com rBAC .
+- [Utilize o Azure AD com aplicações](storage-auth-aad-app.md)de armazenamento.
+- [Executar comandos Azure CLI ou PowerShell com credenciais Azure AD para aceder a dados de blob ou fila](authorize-active-directory-powershell.md).

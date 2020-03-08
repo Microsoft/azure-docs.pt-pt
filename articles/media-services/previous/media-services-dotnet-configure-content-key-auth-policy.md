@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705705"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366893"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurar uma política de autorização de chave de conteúdo
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
  Pode utilizar os Serviços De Mídia Azure para fornecer streams MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidos com o Advanced Encryption Standard (AES) utilizando chaves de encriptação de 128 bits ou gestão de [direitos digitais PlayReady (DRM)](https://www.microsoft.com/playready/overview/). Com os Serviços de Media, também pode entregar streams DASH encriptados com DrM Widevine. Tanto o PlayReady, como o Widevine, são encriptados de acordo com a especificação de encriptação comum (ISO/IEC 23001 7 CENC).
 
 A Media Services também fornece um serviço de entrega de chaves/licenças a partir do qual os clientes podem obter chaves AES ou licenças PlayReady/Widevine para reproduzir o conteúdo encriptado.
@@ -149,7 +149,7 @@ Para configurar a opção de restrição simbólica, é necessário utilizar um 
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 ```
-Ao configurar a política restrita por token, você deve especificar os parâmetros de chave de verificação primária, emissor e público. A chave de verificação primária contém a chave de que o token foi assinado com. O emissor é o STS que emite o token. O público (às vezes chamado de âmbito) descreve a intenção do símbolo ou o recurso a que o símbolo autoriza o acesso. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
+Quando configurar a política restrita de fichas, deve especificar a chave de verificação primária, o emitente e os parâmetros do público. A chave de verificação primária contém a chave de que o token foi assinado com. O emitente é o STS que emite o símbolo. O público (às vezes chamado de âmbito) descreve a intenção do símbolo ou o recurso a que o símbolo autoriza o acesso. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
 
 Quando utilizar o SDK dos Serviços de Media para .NET, pode utilizar a classe TokenRestrictionTemplate para gerar o símbolo de restrição.
 O exemplo seguinte cria uma política de autorização com uma restrição simbólica. Neste exemplo, o cliente deve apresentar um símbolo que contenha uma chave de assinatura (VerificationKey), um emitente simbólico e reclamações necessárias.
@@ -393,7 +393,7 @@ Para configurar a opção de restrição simbólica, é necessário utilizar um 
 Para obter um símbolo de teste baseado na restrição simbólica que foi usada para a política de autorização chave, consulte a secção "[Test token](#test-token)". 
 
 ## <a id="types"></a>Tipos utilizados quando define contentKeyAuthorizationPolicy
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+### <a id="ContentKeyRestrictionType"></a>Tipo de restrição de chaves de conteúdo
 
 ```csharp
     public enum ContentKeyRestrictionType
@@ -404,7 +404,7 @@ Para obter um símbolo de teste baseado na restrição simbólica que foi usada 
     }
 ```
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>Tipo de entrega de chaves de conteúdo
 
 ```csharp 
     public enum ContentKeyDeliveryType
@@ -429,7 +429,7 @@ Para obter um símbolo de teste baseado na restrição simbólica que foi usada 
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

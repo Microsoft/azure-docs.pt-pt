@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Resolver problemas do Azure AD problemas de conectividade | Documentos da Microsoft'
+title: 'Azure AD Connect: Problemas de conectividade Azure AD Microsoft Docs'
 description: Explica como resolver problemas de conectividade com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,99 +17,99 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572792"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376030"
 ---
-# <a name="troubleshoot-azure-ad-connectivity"></a>Resolver problemas de conectividade do Azure AD
-Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD e como resolver problemas de conectividade. Estes problemas são mais probabilidades de ser vistos num ambiente com um servidor proxy.
+# <a name="troubleshoot-azure-ad-connectivity"></a>Conectividade AD de Troubleshoot Azure
+Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD E como resolver problemas de conectividade. Estes problemas são mais prováveis de serem vistos num ambiente com um servidor proxy.
 
-## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Resolver problemas de conectividade no Assistente de instalação
-O Azure AD Connect está a utilizar autenticação moderna (usando a biblioteca ADAL) para autenticação. O Assistente de instalação e o motor de sincronização adequado exigem Machine. config para ser corretamente configurados, uma vez que estes dois são aplicativos .NET.
+## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Problemas de conectividade no assistente de instalação
+O Azure AD Connect está a utilizar a Autenticação Moderna (utilizando a biblioteca ADAL) para autenticação. O assistente de instalação e o motor de sincronização propriamente dito requerem que a máquina.config esteja corretamente configurada, uma vez que estas duas são aplicações .NET.
 
-Neste artigo, vamos mostrar como a Fabrikam liga-se para o Azure AD através do seu proxy. O servidor proxy com o nome fabrikamproxy e estiver a utilizar a porta 8080.
+Neste artigo, mostramos como fabrikam se conecta ao Azure AD através do seu proxy. O servidor proxy é nomeado fabrikamproxy e está usando a porta 8080.
 
-Primeiro, precisamos garantir [ **Machine. config** ](how-to-connect-install-prerequisites.md#connectivity) está configurado corretamente.  
-![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
+Primeiro, temos de ter a certeza de que [**a máquina.config**](how-to-connect-install-prerequisites.md#connectivity) está corretamente configurada.  
+![](./media/tshoot-connect-connectivity/machineconfig.png) de meconfig
 
 > [!NOTE]
-> Em alguns blogs de não-Microsoft, ele está documentado que as alterações devem ser feitas miiserver.exe.config em vez disso. No entanto, esse arquivo é substituído em cada atualização assim, mesmo que se ele funciona durante a instalação inicial, o sistema deixa de funcionar na primeira atualização. Por esse motivo, a recomendação é atualizar o Machine. config em vez disso.
+> Em alguns blogs não Microsoft, está documentado que devem ser feitas alterações para miiserver.exe.config. No entanto, este ficheiro é substituído em todas as atualizações, pelo que mesmo que funcione durante a instalação inicial, o sistema deixa de funcionar na primeira atualização. Por essa razão, a recomendação é atualizar machine.config.
 >
 >
 
-O servidor proxy tem de ter também os URLs necessários abertos. A lista oficial está documentada no [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+O servidor proxy também deve ter os URLs necessários abertos. A lista oficial está documentada nos intervalos de [endereços do Office 365 URLs e IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-URLs, a tabela seguinte é o mínimo absoluto, para conseguir ligar ao Azure AD de todo. Esta lista não inclui quaisquer funcionalidades opcionais, como a repetição de escrita de palavra-passe ou o Azure AD Connect Health. Foi documentado aqui para ajudar na resolução de problemas para a configuração inicial.
+Destes URLs, a tabela a seguir é o mínimo absoluto para poder ligar-se ao Azure AD. Esta lista não inclui quaisquer funcionalidades opcionais, tais como a reescrita de palavra-passe, ou Azure AD Connect Health. Está documentado aqui para ajudar na resolução de problemas para a configuração inicial.
 
-| do IdP | Port | Descrição |
+| do IdP | Porta | Descrição |
 | --- | --- | --- |
-| mscrl.microsoft.com |HTTP/80 |Utilizado para transferir as listas CRL. |
-| \*.verisign.com |HTTP/80 |Utilizado para transferir as listas CRL. |
-| \*.entrust.net |HTTP/80 |Utilizado para transferir as listas CRL para a MFA. |
-| \*.windows.net |HTTPS/443 |Utilizado para iniciar sessão Azure AD. |
-| secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilizado para a MFA. |
-| \*.microsoftonline.com |HTTPS/443 |Utilizado para configurar o diretório do Azure AD e importar/exportar dados. |
+| mscrl.microsoft.com |HTTP/80 |Usado para baixar listas de CRL. |
+| \*.verisign.com |HTTP/80 |Usado para baixar listas de CRL. |
+| \*.entrust.net |HTTP/80 |Usado para baixar listas de CRL para MFA. |
+| \*.windows.net |HTTPS/443 |Costumava inscrever-se no Azure AD. |
+| secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Usado para MFA. |
+| \*.microsoftonline.com |HTTPS/443 |Usado para configurar o seu diretório De AD Azure e dados de importação/exportação. |
 
-## <a name="errors-in-the-wizard"></a>Erros no Assistente
-O Assistente de instalação está a utilizar dois contextos de segurança diferentes. Na página **ligar para o Azure AD**, está a utilizar o utilizador atualmente com sessão iniciada. Na página **configurar**, ele está mudando para o [conta que executa o serviço para o motor de sincronização](reference-connect-accounts-permissions.md#adsync-service-account). Se houver um problema, parece muito provavelmente já os **ligar para o Azure AD** página do assistente, uma vez que a configuração de proxy é global.
+## <a name="errors-in-the-wizard"></a>Erros no assistente
+O assistente de instalação está a utilizar dois contextos de segurança diferentes. Na página **Connect to Azure AD,** está a utilizar o atualmente assinado no utilizador. Na página **Configure,** está a mudar para a conta que [executa o serviço para o motor de sincronização](reference-connect-accounts-permissions.md#adsync-service-account). Se houver algum problema, parece muito provável que já esteja na página **AD Connect to Azure** no assistente, uma vez que a configuração proxy é global.
 
-Os seguintes problemas são os erros mais comuns que encontrar no Assistente de instalação.
+Os seguintes problemas são os erros mais comuns que se encontram no assistente de instalação.
 
-### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>O Assistente de instalação não foi corretamente configurado
-Este erro ocorre quando o assistente em si não é possível alcançar o proxy.  
+### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>O assistente de instalação não foi corretamente configurado
+Este erro aparece quando o próprio assistente não consegue alcançar o proxy.  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
-* Se vir este erro, verifique se o [Machine. config](how-to-connect-install-prerequisites.md#connectivity) foi configurado corretamente.
-* Se parecer que o correto, siga os passos em [verificar a conectividade de proxy](#verify-proxy-connectivity) para ver se o problema está presente fora também o assistente.
+* Se vir este erro, verifique se a [máquina.config](how-to-connect-install-prerequisites.md#connectivity) foi corretamente configurada.
+* Se isso parecer correto, siga os passos em Verificar a [conectividade proxy](#verify-proxy-connectivity) para ver se o problema também está presente fora do assistente.
 
-### <a name="a-microsoft-account-is-used"></a>É utilizada uma conta Microsoft
-Se utilizar um **conta Microsoft** em vez de um **escola ou organização** conta, verá um erro genérico.  
-![É utilizada uma Account Microsoft](./media/tshoot-connect-connectivity/unknownerror.png)
+### <a name="a-microsoft-account-is-used"></a>Uma conta Microsoft é usada
+Se utilizar uma **conta Microsoft** em vez de uma conta de escola **ou organização,** verá um erro genérico.  
+![Uma Conta Microsoft é usada](./media/tshoot-connect-connectivity/unknownerror.png)
 
-### <a name="the-mfa-endpoint-cannot-be-reached"></a>Não é possível alcançar o ponto de extremidade do MFA
-Este erro ocorre se o ponto final **https://secure.aadcdn.microsoftonline-p.com** não é possível alcançar e o administrador global tiver a MFA ativada.  
-![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
+### <a name="the-mfa-endpoint-cannot-be-reached"></a>O ponto final do MFA não pode ser alcançado
+Este erro aparece se o ponto final **https://secure.aadcdn.microsoftonline-p.com** não puder ser atingido e a sua administração global tiver MFA ativada.  
+![](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png) de nomachineconfig
 
-* Se vir este erro, certifique-se de que o ponto final **secure.aadcdn.microsoftonline p.com** foi adicionado ao proxy.
+* Se vir este erro, verifique se o ponto final **secure.aadcdn.microsoftonline-p.com** foi adicionado ao representante.
 
-### <a name="the-password-cannot-be-verified"></a>Não é possível verificar a palavra-passe
-Se o Assistente de instalação for concluída com êxito na conexão com o Azure AD, mas a palavra-passe em si não é possível verificar que se este erro ocorrer:  
-![Palavra-passe incorreta.](./media/tshoot-connect-connectivity/badpassword.png)
+### <a name="the-password-cannot-be-verified"></a>A palavra-passe não pode ser verificada
+Se o assistente de instalação tiver sucesso na ligação ao Azure AD, mas a senha em si não pode ser verificada, verá este erro:  
+![Má senha.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* É a palavra-passe uma palavra-passe temporária e tem de ser alterada? É, na verdade, a palavra-passe correta? Tente iniciar sessão para https://login.microsoftonline.com (em outro computador do servidor do Azure AD Connect) e certifique-se de que a conta pode ser utilizada.
+* A palavra-passe é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente iniciar sessão em https://login.microsoftonline.com (noutro computador que não o servidor Azure AD Connect) e verifique se a conta é utilizável.
 
-### <a name="verify-proxy-connectivity"></a>Verificar a conectividade de proxy
-Para verificar se o servidor do Azure AD Connect tem conectividade real com o Proxy e a Internet, utilize o PowerShell para ver se o proxy está a permitir solicitações da web ou não. Na linha de comandos do PowerShell, execute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tecnicamente a primeira chamada é https://login.microsoftonline.com e este URI também funciona, mas outro URI é mais rápido responder.)
+### <a name="verify-proxy-connectivity"></a>Verificar a conectividade proxy
+Para verificar se o servidor Azure AD Connect tem conectividade real com o Proxy e a Internet, utilize algum PowerShell para ver se o proxy está a permitir pedidos web ou não. Num pedido powerShell, corra `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tecnicamente, a primeira chamada é para https://login.microsoftonline.com e este URI também funciona, mas o outro URI é mais rápido a responder.)
 
-PowerShell utiliza a configuração no Machine. config em contato com o proxy. As definições no winhttp/netsh não devem afetar estes cmdlets.
+O PowerShell utiliza a configuração em machine.config para contactar o proxy. As definições em winhttp/netsh não devem ter impacto nestas cmdlets.
 
-Se o proxy está configurado corretamente, deve obter um Estado de êxito: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Se o proxy estiver corretamente configurado, deverá obter um estatuto de sucesso: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Se receber **não é possível ligar ao servidor remoto**, em seguida, PowerShell está a tentar fazer uma chamada direta sem utilizar o proxy ou DNS não está configurado corretamente. Certifique-se de que o **Machine. config** arquivo está configurado corretamente.
-![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
+Se receber **Não conseguir ligar-se ao servidor remoto,** então o PowerShell está a tentar fazer uma chamada direta sem utilizar o proxy ou o DNS não está corretamente configurado. Certifique-se de que o ficheiro **machine.config** está corretamente configurado.
+![incapaz de ligar](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
-Se o proxy não está configurado corretamente, obtém um erro: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
+Se o proxy não estiver corretamente configurado, obtém um erro: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Erro | Texto do erro | Comentário |
+| Erro | Texto de erro | Comentário |
 | --- | --- | --- |
-| 403 |Proibido |O proxy não tiver sido aberto para o URL pedido. Reveja a configuração de proxy e certifique-se de que o [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas. |
-| 407 |Autenticação do proxy necessária |O servidor proxy necessário um início de sessão e não foi fornecido nenhum. Se o servidor proxy requer autenticação, lembre-se de que tem esta definição configurada no Config. Certifique-se também que estiver a utilizar contas de domínio para o utilizador que executa o assistente e para a conta de serviço. |
+| 403 |Proibido |O representante não foi aberto para o URL solicitado. Reveja a configuração de procuração e certifique-se de que os [URLs foram abertos.](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) |
+| 407 |Autenticação por procuração necessária |O servidor proxy exigiu um sinal de inscrição e nenhum foi fornecido. Se o seu servidor proxy necessitar de autenticação, certifique-se de que esta definição está configurada na máquina.config. Certifique-se também de que está a utilizar contas de domínio para o utilizador que executa o assistente e para a conta de serviço. |
 
-### <a name="proxy-idle-timeout-setting"></a>Definição de tempo limite de inatividade de proxy
-Quando o Azure AD Connect envia um pedido de exportação para o Azure AD, o Azure AD pode demorar até 5 minutos para processar o pedido antes de gerar uma resposta. Isto pode acontecer, especialmente se existirem vários objetos de grupo com associações a grupos grandes incluídos no mesmo pedido de exportação. Certifique-se de que o tempo de limite de inatividade de Proxy está configurado para ser superior a 5 minutos. Caso contrário, o problema de conectividade intermitente com o Azure AD pode ser observado no servidor do Azure AD Connect.
+### <a name="proxy-idle-timeout-setting"></a>Configuração de tempo limite de procuração
+Quando a Azure AD Connect enviar um pedido de exportação para a Azure AD, a Azure AD pode demorar até 5 minutos a processar o pedido antes de gerar uma resposta. Isto pode acontecer especialmente se houver uma série de objetos de grupo com grandes membros do grupo incluídos no mesmo pedido de exportação. Certifique-se de que o tempo limite de ocioso proxy está configurado para ser superior a 5 minutos. Caso contrário, o problema de conectividade intermitente com a AD Azure pode ser observado no servidor Azure AD Connect.
 
-## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>O padrão de comunicação entre o Azure AD Connect e o Azure AD
-Se tiver seguido todos estes passos anteriores e ainda não é possível ligar, poderá neste momento de começar a ver registos de rede. Esta secção é documentar um padrão de conectividade normal e com êxito. Ele também é listagem herrings red comuns que podem ser ignoradas quando estiver lendo os registos de rede.
+## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>O padrão de comunicação entre azure AD Connect e Azure AD
+Se seguiu todos estes passos anteriores e ainda não consegue ligar-se, pode, neste momento, começar a olhar para os registos de rede. Esta secção está a documentar um padrão de conectividade normal e bem-sucedido. Também está a listar arenques vermelhos comuns que podem ser ignorados quando está a ler os registos da rede.
 
-* Existem chamadas para https://dc.services.visualstudio.com. Não é necessário ter esta aberto de URL no proxy para a instalação com êxito e essas chamadas podem ser ignoradas.
-* Verá que a resolução de dns lista os anfitriões reais em nsatc.net de espaço de nome DNS e outros espaços de nomes não está sob o microsoftonline.com. No entanto, não existem quaisquer pedidos de serviço web nos nomes dos servidores reais e não é necessário adicionar esses URLs para o proxy.
-* Os pontos de extremidade adminwebservice e provisioningapi são pontos finais de deteção e utilizado para localizar o ponto final real para utilizar. Estes pontos finais são diferentes consoante a sua região.
+* Há chamadas para https://dc.services.visualstudio.com. Não é necessário ter este URL aberto no proxy para que a instalação tenha sucesso e estas chamadas podem ser ignoradas.
+* Você vê que a resolução do DNS lista os anfitriões reais para estar no espaço de nome DNS nsatc.net e outros espaços de nome não sob microsoftonline.com. No entanto, não existem pedidos de serviço web nos nomes reais do servidor e não tem de adicionar estes URLs ao proxy.
+* Os pontos finais adminwebservice e provisioningapi são pontos finais de descoberta e usados para encontrar o ponto final real para usar. Estes pontos finais são diferentes dependendo da sua região.
 
-### <a name="reference-proxy-logs"></a>Registos de proxy de referência
-Aqui está um despejo de um registo de proxy real e a página do Assistente de instalação de onde foi efetuada (entradas duplicadas para o mesmo ponto final tem sido removidas). Esta seção pode ser usada como uma referência para os seus próprios registos de proxy e de rede. Os pontos de extremidade reais poderão ser diferentes no seu ambiente (em particular essas URLs *itálico*).
+### <a name="reference-proxy-logs"></a>Registos de procuração de referência
+Aqui está uma lixeira de um registo de procuração real e a página do assistente de instalação de onde foi tirada (foram removidas as entradas duplicadas para o mesmo ponto final). Esta secção pode ser usada como referência para os seus próprios registos de procuração e rede. Os pontos finais reais podem ser diferentes no seu ambiente (em particular os URLs em *itálico).*
 
 **Ligar ao Azure AD**
 
@@ -117,7 +117,7 @@ Aqui está um despejo de um registo de proxy real e a página do Assistente de i
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*âncora bba800*.microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
@@ -127,46 +127,46 @@ Aqui está um despejo de um registo de proxy real e a página do Assistente de i
 | Hora | do IdP |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*âncora bba800*.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*âncora bba900*.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*âncora bba800*.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Sincronização inicial**
+**Sincronização Inicial**
 
 | Hora | do IdP |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*âncora bba900*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*âncora bba800*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Erros de autenticação
-Esta secção abrange os erros que podem ser devolvidos da ADAL (a biblioteca de autenticação utilizada pelo Azure AD Connect) e o PowerShell. O erro explicado deve ajudá-lo a em compreender os passos seguintes.
+Esta secção cobre erros que podem ser devolvidos da ADAL (a biblioteca de autenticação utilizada pelo Azure AD Connect) e da PowerShell. O erro explicado deve ajudá-lo a entender os seus próximos passos.
 
-### <a name="invalid-grant"></a>Concessão inválido
-Nome de utilizador inválido ou a palavra-passe. Para obter mais informações, consulte [não é possível verificar a palavra-passe](#the-password-cannot-be-verified).
+### <a name="invalid-grant"></a>Subvenção inválida
+Nome de utilizador ou palavra-passe inválido. Para mais informações, consulte [A palavra-passe não pode ser verificada](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Tipo de utilizador desconhecido
-Diretório do Azure AD não pode ser encontrado ou resolvido. Talvez tentar iniciar sessão com um nome de utilizador num domínio não verificado?
+O seu diretório Azure AD não pode ser encontrado ou resolvido. Talvez tente iniciar sessão com um nome de utilizador num domínio não verificado?
 
-### <a name="user-realm-discovery-failed"></a>Falha na deteção de Realm de utilizador
-Problemas de configuração do proxy ou de rede. Não é possível aceder à rede. Ver [resolver problemas de conectividade no Assistente de instalação](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+### <a name="user-realm-discovery-failed"></a>Descoberta do Reino do Utilizador falhou
+Problemas de configuração de rede ou procuração. A rede não pode ser contactada. Consulte problemas de [conectividade Troubleshoot no assistente de instalação](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
-### <a name="user-password-expired"></a>Palavra-passe do utilizador expirou
-As suas credenciais tem expirado. Altere a palavra-passe.
+### <a name="user-password-expired"></a>Palavra-passe do utilizador expirada
+As suas credenciais expiraram. Mude a sua senha.
 
-### <a name="authorization-failure"></a>Falha de autorização
-Falha ao autorizar o utilizador para efetuar a ação no Azure AD.
+### <a name="authorization-failure"></a>Falha de Autorização
+Não autorizou o utilizador a realizar a ação em Azure AD.
 
-### <a name="authentication-canceled"></a>Autenticação foi cancelada
-O desafio de autenticação multifator (MFA) foi cancelado.
+### <a name="authentication-canceled"></a>Autenticação Cancelada
+O desafio de autenticação multifactor (MFA) foi cancelado.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -175,8 +175,8 @@ O desafio de autenticação multifator (MFA) foi cancelado.
 -->
 </div>
 
-### <a name="connect-to-ms-online-failed"></a>Ligar a MS Online falhou
-A autenticação foi efetuada com êxito, mas o Azure AD PowerShell tem um problema de autenticação.
+### <a name="connect-to-ms-online-failed"></a>Ligar-se a MS Online Falhado
+A autenticação foi bem sucedida, mas a Azure AD PowerShell tem um problema de autenticação.
 
 <div id="get-msoluserrole-failed">
 <!--
@@ -185,8 +185,8 @@ A autenticação foi efetuada com êxito, mas o Azure AD PowerShell tem um probl
 -->
 </div>
 
-### <a name="azure-ad-global-admin-role-needed"></a>Função de Administrador Global do Azure AD necessária
-Utilizador foi autenticado com êxito. No entanto, utilizador não está atribuído a função de administrador global. Isto é [como pode atribuir a função de administrador global](../users-groups-roles/directory-assign-admin-roles.md) ao usuário. 
+### <a name="azure-ad-global-admin-role-needed"></a>Papel de administrador global da Azure AD necessário
+O utilizador foi autenticado com sucesso. No entanto, o utilizador não tem o papel de administrador global atribuído. É [assim que pode atribuir](../users-groups-roles/directory-assign-admin-roles.md) ao utilizador o papel de administrador global. 
 
 <div id="privileged-identity-management">
 <!--
@@ -195,8 +195,8 @@ Utilizador foi autenticado com êxito. No entanto, utilizador não está atribu�
 -->
 </div>
 
-### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management ativada
-A autenticação foi efetuada com êxito. Tiver sido ativada a gestão de identidades privilegiadas e atualmente não é um administrador global. Para obter mais informações, consulte [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+### <a name="privileged-identity-management-enabled"></a>Gestão privilegiada de identidade habilitada
+A autenticação foi um sucesso. A gestão privilegiada da identidade foi ativada e você não é atualmente um administrador global. Para mais informações, consulte [A Gestão de Identidade Privilegiada.](../privileged-identity-management/pim-getting-started.md)
 
 <div id="get-msolcompanyinformation-failed">
 <!--
@@ -205,8 +205,8 @@ A autenticação foi efetuada com êxito. Tiver sido ativada a gestão de identi
 -->
 </div>
 
-### <a name="company-information-unavailable"></a>Informações da empresa indisponíveis
-A autenticação foi efetuada com êxito. Não foi possível obter as informações da empresa a partir do Azure AD.
+### <a name="company-information-unavailable"></a>Informações da Empresa Indisponíveis
+A autenticação foi um sucesso. Não conseguiu obter informações da empresa da Azure AD.
 
 <div id="get-msoldomain-failed">
 <!--
@@ -215,25 +215,25 @@ A autenticação foi efetuada com êxito. Não foi possível obter as informaç�
 -->
 </div>
 
-### <a name="domain-information-unavailable"></a>Informações de domínio não disponíveis
-A autenticação foi efetuada com êxito. Não foi possível obter as informações de domínio do Azure AD.
+### <a name="domain-information-unavailable"></a>Informações de domínio indisponíveis
+A autenticação foi um sucesso. Não conseguiu obter informações de domínio da Azure AD.
 
-### <a name="unspecified-authentication-failure"></a>Falha de autenticação não especificado
-Mostrado como erro inesperado no Assistente de instalação. Pode acontecer se tentar usar um **Microsoft Account** em vez de um **conta escolar ou da organização**.
+### <a name="unspecified-authentication-failure"></a>Falha de autenticação não especificada
+Mostrado como erro inesperado no assistente de instalação. Pode acontecer se tentar usar uma **Conta Microsoft** em vez de uma conta de escola **ou organização.**
 
-## <a name="troubleshooting-steps-for-previous-releases"></a>Passos de resolução de problemas para versões anteriores.
-Com as versões a partir do número de compilação 1.1.105.0 (lançado em Fevereiro de 2016), o Assistente de início de sessão foi extinguida. Esta secção e a configuração deixou de ser necessários, mas é mantido como referência.
+## <a name="troubleshooting-steps-for-previous-releases"></a>Passos de resolução de problemas para lançamentos anteriores.
+Com lançamentos a começar com a construção número 1.1.105.0 (lançado em fevereiro de 2016), o assistente de inscrição foi reformado. Esta secção e a configuração já não devem ser necessárias, mas são mantidas como referência.
 
-Para o início de sessão único no Assistente para funcionar, tem de configurar o winhttp. Esta configuração pode ser feita com [ **netsh**](how-to-connect-install-prerequisites.md#connectivity).  
-![netsh](./media/tshoot-connect-connectivity/netsh.png)
+Para que o único sinal em assistente funcione, winhttp deve ser configurado. Esta configuração pode ser feita com [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+![](./media/tshoot-connect-connectivity/netsh.png) netsh
 
-### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>O Assistente de início de sessão não foi corretamente configurado
-Este erro ocorre quando o Assistente de início de sessão não é possível alcançar o proxy ou o proxy não está a permitir que o pedido.
-![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
+### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>O assistente de inscrição não foi corretamente configurado
+Este erro aparece quando o assistente de inscrição não consegue contactar o representante ou o representante não está a permitir o pedido.
+![](./media/tshoot-connect-connectivity/nonetsh.png) de nonetsh
 
-* Se vir este erro, observe a configuração de proxy no [netsh](how-to-connect-install-prerequisites.md#connectivity) e certifique-se de que está correto.
-  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
-* Se parecer que o correto, siga os passos em [verificar a conectividade de proxy](#verify-proxy-connectivity) para ver se o problema está presente fora também o assistente.
+* Se vir este erro, olhe para a configuração de procuração em [netsh](how-to-connect-install-prerequisites.md#connectivity) e verifique se está correto.
+  ![](./media/tshoot-connect-connectivity/netshshow.png) de netshshow
+* Se isso parecer correto, siga os passos em Verificar a [conectividade proxy](#verify-proxy-connectivity) para ver se o problema também está presente fora do assistente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

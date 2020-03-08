@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/02/2017
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f365a8325fc027d8770287208f91d164166fcbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 611937a709152823ddc1b88b1a0befe4161217cd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024335"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376049"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Necessários para a Identidade Híbrida
 O seguinte documento é uma referência técnica sobre as portas e protocolos necessários para a implementação de uma solução de identidade híbrida. Utilize a seguinte ilustração e consulte a tabela correspondente.
@@ -51,7 +51,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | HTTP |80 (TCP) |Usado para descarregar CRLs (Listas de Revogação de Certificados) para verificar certificados SSL. |
 | HTTPS |443 (TCP) |Usado para sincronizar com Azure D.D. |
 
-Para obter uma lista de URLs e endereços IP, você precisa abrir na sua firewall, consulte os [intervalos de endereços Office 365 URLs e IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Para obter uma lista de URLs e endereços IP, você precisa abrir na sua firewall, consulte os [intervalos de endereços do Office 365 urLs e IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) e [a conectividade Troubleshooting Azure AD Connect](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Quadro 3 - Azure AD Connect e AD FS Federation Servers/WAP
 Esta tabela descreve as portas e protocolos necessários para a comunicação entre o servidor Azure AD Connect e os servidores AD FS Federation/WAP.  
@@ -105,7 +105,7 @@ Esta tabela descreve as seguintes portas e protocolos de saída que são necess�
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
 | HTTPS |443 (TCP) |Saída |
-| Azure Service Bus |5671 (TCP) |Saída |
+| Service Bus do Azure |5671 (TCP) |Saída |
 
 A porta 5671 do ônibus de serviço Azure já não é necessária para a versão mais recente do agente. A mais recente versão do agente Azure AD Connect Health apenas exigia a porta 443.
 

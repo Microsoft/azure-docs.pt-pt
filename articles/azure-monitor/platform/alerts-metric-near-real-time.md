@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 3/5/2020
 ms.subservice: alerts
-ms.openlocfilehash: 9585e74170d21ad899224462b6e41e7e9bb75727
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e4dfc33756a287b6d2f6e41edded3332ca85241d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664819"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363442"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos suportados para alertas métricos no Monitor Do Azure
 
@@ -60,6 +60,8 @@ Aqui está a lista completa de fontes métricas de monitor estoque azure suporta
 |Microsoft.KeyVault/vaults| Não |Não |[Cofres](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows |N/D | Não |[Aplicações Lógicas](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/workspaces|Sim| Não | [Machine Learning](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.NetApp/netAppAccounts/capacityPools |Sim| Não | [Piscinas de Capacidade Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
+|Microsoft.NetApp/netAppAccounts/capacityPools/volumes |Sim| Não | [Azure NetApp Volumes](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft.Network/applicationGateways|N/D| Não |  |
 |Microsoft.Network/dnsZones | N/D| Não | [Zonas DNS](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
 |Microsoft.Network/expressRouteCircuits | N/D | Não |[Circuitos de Rota Expresso](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
@@ -81,6 +83,8 @@ Aqui está a lista completa de fontes métricas de monitor estoque azure suporta
 |Microsoft.Storage/storageAccounts/services | Sim| Não | [Serviços Blob,](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices) [Serviços de Arquivo,](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices) [Serviços de Fila](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de Mesa](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs |N/D| Não | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.Microsoft.VMWareCloudSimple/virtualMachines |Sim|Não |[CloudSimple Virtual Machines](../../azure-monitor/platform/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines)|
+|Microsoft.Web/hostingEnvironments/multiRolePools | Sim | Não | [App Service Ambiente Piscinas multi-funções](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
+|Microsoft.Web/hostingEnvironments/workerPools | Sim | Não | [Piscinas de trabalhadores do ambiente do serviço de aplicativos](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Sim | Não | [Planos de Serviço de Aplicações](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
 |Microsoft.Web/sites | Sim | Não | [Serviços](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions) de Aplicações|
 |Microsoft.Web/sites/slots | Sim | Não | [Slots de serviço de aplicativos](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|

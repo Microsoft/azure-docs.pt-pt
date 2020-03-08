@@ -1,6 +1,6 @@
 ---
-title: Controles de página de gerenciamento de API do Azure | Microsoft Docs
-description: Saiba mais sobre os controles de página disponíveis para uso em modelos de portal do desenvolvedor no gerenciamento de API do Azure.
+title: Controlos da página azure API Management / Microsoft Docs
+description: Conheça os controlos de página disponíveis para utilização em modelos de portal de desenvolvimento na Gestão aPI Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,44 +13,44 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176613"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374354"
 ---
-# <a name="azure-api-management-page-controls"></a>Controles de página de gerenciamento de API do Azure
-O gerenciamento de API do Azure fornece os seguintes controles para uso nos modelos de portal do desenvolvedor.  
+# <a name="azure-api-management-page-controls"></a>Controlos da página azure API Management
+A Azure API Management fornece os seguintes controlos para utilização nos modelos do portal do desenvolvedor.  
   
-Para usar um controle, coloque-o no local desejado no modelo do portal do desenvolvedor. Alguns controles, como o controle de [ações de aplicativo](#app-actions) , têm parâmetros, conforme mostrado no exemplo a seguir:  
+Para utilizar um controlo, coloque-o no local desejado no modelo do portal do desenvolvedor. Alguns controlos, como o controlo [de aplicações,](#app-actions) têm parâmetros, como mostra o seguinte exemplo:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
-Os valores para os parâmetros são passados como parte do modelo de dados para o modelo. Na maioria dos casos, você pode simplesmente colar o exemplo fornecido para cada controle para que ele funcione corretamente. Para obter mais informações sobre os valores de parâmetro, você pode ver a seção de modelo de dados para cada modelo no qual um controle pode ser usado.  
+Os valores dos parâmetros são passados como parte do modelo de dados para o modelo. Na maioria dos casos, pode simplesmente colar o exemplo fornecido para cada controlo para que funcione corretamente. Para obter mais informações sobre os valores do parâmetro, pode ver a secção do modelo de dados para cada modelo em que um controlo pode ser utilizado.  
 
-Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="developer-portal-template-page-controls"></a>Controles de página de modelo do portal do desenvolvedor  
+## <a name="developer-portal-template-page-controls"></a>Controlos de página de modelo de portal do desenvolvedor  
   
--   [ações de aplicativo](#app-actions)  
--   [entrada básica](#basic-signin)  
--   [controle de paginação](#paging-control)  
--   [fornecedor](#providers)  
--   [controle de pesquisa](#search-control)  
--   [inscrever-se](#sign-up)  
--   [assinar-botão](#subscribe-button)  
--   [assinatura-cancelar](#subscription-cancel)  
+-   [app-actions](#app-actions)  
+-   [signina básica](#basic-signin)  
+-   [paging-control](#paging-control)  
+-   [fornecedores](#providers)  
+-   [controlo de pesquisa](#search-control)  
+-   [inscrição](#sign-up)  
+-   [botão de assinatura](#subscribe-button)  
+-   [cancelamento de assinatura](#subscription-cancel)  
   
-##  <a name="app-actions"></a>ações de aplicativo  
- O controle de `app-actions` fornece uma interface do usuário para interagir com aplicativos na página de perfil do usuário no portal do desenvolvedor.  
+##  <a name="app-actions"></a>app-actions  
+ O controlo `app-actions` fornece uma interface de utilizador para interagir com aplicações na página de perfil do utilizador no portal do desenvolvedor.  
   
- ![controle&#45;de ações do aplicativo](./media/api-management-page-controls/APIM-app-actions-control.png "Aplicativo APIM – controle de ações")  
+ ![controlo&#45;de ações de apps](./media/api-management-page-controls/APIM-app-actions-control.png "Controlo de ações de aplicações da APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -62,17 +62,17 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
   
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
-|appId|A ID do aplicativo.|  
+|appId|A identificação do pedido.|  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `app-actions` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `app-actions` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
 -   [Aplicações](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a>entrada básica  
- O controle `basic-signin` fornece um controle para coletar informações de entrada do usuário na página de entrada no portal do desenvolvedor.  
+##  <a name="basic-signin"></a>signina básica  
+ O controlo `basic-signin` fornece um controlo para recolher informações de acesso ao utilizador na página de sessão no portal do desenvolvedor.  
   
- ![controle&#45;de entrada básico](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM básico – controle de entrada")  
+ ![controlo&#45;básico de sinalização](./media/api-management-page-controls/APIM-basic-signin-control.png "Controlo de sinalização básica APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -83,15 +83,15 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
 ### <a name="parameters"></a>Parâmetros  
  Nenhum.  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `basic-signin` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `basic-signin` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
--   [Entrar](api-management-page-templates.md#SignIn)  
+-   [Iniciar sessão](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a>controle de paginação  
- O `paging-control` fornece a funcionalidade de paginação nas páginas do portal do desenvolvedor que exibem uma lista de itens.  
+##  <a name="paging-control"></a>paging-control  
+ O `paging-control` fornece funcionalidade de paging nas páginas do portal do programador que exibem uma lista de itens.  
   
- ![controle de paginação](./media/api-management-page-controls/APIM-paging-control.png "Controle de paginação APIM")  
+ ![controlo de paging](./media/api-management-page-controls/APIM-paging-control.png "Controlo de paging APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -102,19 +102,19 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
 ### <a name="parameters"></a>Parâmetros  
  Nenhum.  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `paging-control` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `paging-control` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
--   [Lista de APIs](api-management-api-templates.md#APIList)  
+-   [Lista API](api-management-api-templates.md#APIList)  
   
--   [Lista de problemas](api-management-issue-templates.md#IssueList)  
+-   [Lista de emissão](api-management-issue-templates.md#IssueList)  
   
 -   [Lista de produtos](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a>fornecedor  
- O controle `providers` fornece um controle para a seleção de provedores de autenticação na página de entrada no portal do desenvolvedor.  
+##  <a name="providers"></a>fornecedores  
+ O controlo `providers` fornece um controlo para a seleção de fornecedores de autenticação na página de inscrição no portal do desenvolvedor.  
   
- ![controle de provedores](./media/api-management-page-controls/APIM-providers-control.png "Controle de provedores de APIM")  
+ ![controlo de fornecedores](./media/api-management-page-controls/APIM-providers-control.png "Controlo de fornecedores APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -125,15 +125,15 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
 ### <a name="parameters"></a>Parâmetros  
  Nenhum.  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `providers` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `providers` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
--   [Entrar](api-management-page-templates.md#SignIn)  
+-   [Iniciar sessão](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a>controle de pesquisa  
- O `search-control` fornece a funcionalidade de pesquisa nas páginas do portal do desenvolvedor que exibem uma lista de itens.  
+##  <a name="search-control"></a>controlo de pesquisa  
+ O `search-control` fornece funcionalidade de pesquisa nas páginas do portal do programador que exibem uma lista de itens.  
   
- ![controle de pesquisa](./media/api-management-page-controls/APIM-search-control.png "Controle de pesquisa do APIM")  
+ ![controlo de pesquisa](./media/api-management-page-controls/APIM-search-control.png "Controlo de pesquisa da APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -144,17 +144,17 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
 ### <a name="parameters"></a>Parâmetros  
  Nenhum.  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `search-control` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `search-control` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
--   [Lista de APIs](api-management-api-templates.md#APIList)  
+-   [Lista API](api-management-api-templates.md#APIList)  
   
 -   [Lista de produtos](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a>inscrever-se  
- O controle de `sign-up` fornece um controle para coletar informações de perfil de usuário na página de inscrição no portal do desenvolvedor.  
+##  <a name="sign-up"></a>inscrição  
+ O controlo `sign-up` fornece um controlo para recolher informações sobre o perfil do utilizador na página de inscrição no portal do desenvolvedor.  
   
- ![controle&#45;de inscrição](./media/api-management-page-controls/APIM-sign-up-control.png "Controle de inscrição APIM")  
+ ![inscrever-se&#45;controlo](./media/api-management-page-controls/APIM-sign-up-control.png "Controlo de inscrição apim apim")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -165,15 +165,15 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
 ### <a name="parameters"></a>Parâmetros  
  Nenhum.  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `sign-up` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `sign-up` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
 -   [Inscreva-se](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a>assinar-botão  
- O `subscribe-button` fornece um controle para inscrever um usuário em um produto.  
+##  <a name="subscribe-button"></a>botão de assinatura  
+ O `subscribe-button` fornece um controlo para subscrever um utilizador a um produto.  
   
- ![controle&#45;do botão assinar](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controle de botão de assinatura APIM")  
+ ![subscrever&#45;controlo de botões](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controlo de botões de subscrição APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -184,15 +184,15 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
 ### <a name="parameters"></a>Parâmetros  
  Nenhum.  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `subscribe-button` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `subscribe-button` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
--   [Remessa](api-management-product-templates.md#Product)  
+-   [Produto](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a>assinatura-cancelar  
- O controle `subscription-cancel` fornece um controle para cancelar uma assinatura de um produto na página de perfil do usuário no portal do desenvolvedor.  
+##  <a name="subscription-cancel"></a>cancelamento de assinatura  
+ O controlo `subscription-cancel` fornece um controlo para cancelar uma subscrição de um produto na página de perfil do utilizador no portal do desenvolvedor.  
   
- ![controle&#45;de cancelamento de assinatura](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Assinatura do APIM – cancelar controle")  
+ ![cancelamento&#45;de assinatura controlo](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controlo de cancelamento de subscrição apim apim")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -206,13 +206,13 @@ Para obter mais informações sobre como trabalhar com modelos, consulte [como p
   
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
-|subscriptionId|A ID da assinatura a ser cancelada.|  
-|cancelUrl|A assinatura cancela a URL.|  
+|subscriptionId|A identificação da assinatura para cancelar.|  
+|cancelUrl|A subscrição cancela URL.|  
   
-### <a name="developer-portal-templates"></a>Modelos do portal do desenvolvedor  
- O controle de `subscription-cancel` pode ser usado nos seguintes modelos de portal do desenvolvedor:  
+### <a name="developer-portal-templates"></a>Modelos de portal de desenvolvimento  
+ O controlo `subscription-cancel` pode ser utilizado nos seguintes modelos de portal de desenvolvimento:  
   
--   [Remessa](api-management-product-templates.md#Product)
+-   [Produto](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](api-management-developer-portal-templates.md).

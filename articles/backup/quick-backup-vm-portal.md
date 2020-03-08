@@ -7,11 +7,11 @@ ms.topic: quickstart
 ms.date: 02/06/2020
 ms.custom: mvc
 ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057180"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394361"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 

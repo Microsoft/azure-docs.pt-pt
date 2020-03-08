@@ -1,6 +1,6 @@
 ---
-title: Implantar serviço de Device Manager do StorSimple | Microsoft Docs
-description: Explica como criar e excluir o serviço StorSimple Device Manager no portal do Azure e descreve como gerenciar a chave de registro do serviço.
+title: Implementar o serviço StorSimple Device Manager [ StorSimple Device Manager ] Microsoft Docs
+description: Explica como criar e eliminar o serviço StorSimple Device Manager no portal Azure, e descreve como gerir a chave de registo de serviço.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,114 +15,114 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516683"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365589"
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implantar o serviço StorSimple Device Manager para o StorSimple virtual array
+# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implemente o serviço StorSimple Device Manager para StorSimple Virtual Array
 
 ## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-O serviço StorSimple Device Manager é executado em Microsoft Azure e se conecta a vários dispositivos StorSimple. Depois de criar o serviço, você pode usá-lo para gerenciar os dispositivos do portal do Microsoft Azure em execução em um navegador. Isso permite que você monitore todos os dispositivos que estão conectados ao serviço StorSimple Device Manager de um único local central, minimizando assim a carga administrativa.
+O serviço StorSimple Device Manager funciona no Microsoft Azure e conecta-se a vários dispositivos StorSimple. Depois de criar o serviço, pode usá-lo para gerir os dispositivos a partir do portal Microsoft Azure que funciona num browser. Isto permite-lhe monitorizar todos os dispositivos que estão ligados ao serviço StorSimple Device Manager a partir de uma localização única e central, minimizando assim os encargos administrativos.
 
-As tarefas comuns relacionadas a um serviço de Device Manager do StorSimple são:
+As tarefas comuns relacionadas com um serviço StorSimple Device Manager são:
 
 * Criar um serviço
-* Excluir um serviço
+* Apagar um serviço
 * Obter a chave de registo do serviço
-* Regenerar a chave de registro do serviço
+* Regenerar a chave de registo de serviço
 
-Este tutorial descreve como executar cada uma das tarefas anteriores. As informações contidas neste artigo são aplicáveis somente a matrizes virtuais StorSimple. Para obter mais informações sobre a série StorSimple 8000, vá para [implantar um serviço de StorSimple Manager](storsimple-manage-service.md).
+Este tutorial descreve como executar cada uma das tarefas anteriores. As informações contidas neste artigo aplicam-se apenas às Matrizes Virtuais StorSimple. Para mais informações sobre a série StorSimple 8000, vá implementar [um serviço StorSimple Manager](storsimple-manage-service.md).
 
 ## <a name="create-a-service"></a>Criar um serviço
 
-Para criar um serviço, você precisa ter:
+Para criar um serviço, precisa de ter:
 
-* Uma assinatura com um Enterprise Agreement
-* Uma conta de armazenamento do Microsoft Azure ativa
-* As informações de cobrança usadas para gerenciamento de acesso
+* Uma subscrição com um Acordo de Empresa
+* Uma conta de armazenamento ativa do Microsoft Azure
+* A informação de faturação que é usada para a gestão de acesso
 
-Você também pode optar por gerar uma conta de armazenamento ao criar o serviço.
+Também pode optar por gerar uma conta de armazenamento quando criar o serviço.
 
-Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias de serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação.
+Um único serviço pode gerir vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter múltiplas instâncias de serviço para trabalhar com diferentes subscrições, organizações ou mesmo localizações de implementação.
 
 > [!NOTE]
-> Você precisa de instâncias separadas do serviço de Device Manager do StorSimple para gerenciar dispositivos da série StorSimple 8000 e matrizes virtuais StorSimple.
+> Precisa de instâncias separadas do serviço StorSimple Device Manager para gerir dispositivos da série StorSimple 8000 e Matrizes Virtuais StorSimple.
 
 
-Execute as etapas a seguir para criar um serviço.
+Execute os seguintes passos para criar um serviço.
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
-## <a name="delete-a-service"></a>Excluir um serviço
+## <a name="delete-a-service"></a>Apagar um serviço
 
-Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando-o. Se o serviço estiver em uso, desative os dispositivos conectados. A operação de desativação irá romper a conexão entre o dispositivo e o serviço, mas preservar os dados do dispositivo na nuvem.
+Antes de apagar um serviço, certifique-se de que nenhum dispositivo ligado está a utilizá-lo. Se o serviço estiver a ser utilizado, desative os dispositivos ligados. A operação de desativação cortará a ligação entre o dispositivo e o serviço, mas preservará os dados do dispositivo na nuvem.
 
 > [!IMPORTANT]
-> Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinido de fábrica para poder ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
+> Após a eliminação de um serviço, a operação não pode ser invertida. Qualquer dispositivo que estivesse a utilizar o serviço terá de ser reiniciado antes de poder ser utilizado com outro serviço. Neste cenário, os dados locais sobre o dispositivo, bem como a configuração, serão perdidos.
  
 
-Execute as etapas a seguir para excluir um serviço.
+Efetue os seguintes passos para eliminar um serviço.
 
-#### <a name="to-delete-a-service"></a>Para excluir um serviço
+#### <a name="to-delete-a-service"></a>Para apagar um serviço
 
-1. Vá para **Todos os recursos**. Pesquise seu serviço StorSimple Device Manager. Selecione o serviço que você deseja excluir.
+1. Vá para **Todos os recursos**. Procure o seu serviço StorSimple Device Manager. Selecione o serviço que pretende eliminar.
    
-    ![Selecionar o serviço a ser excluído](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Vá para o painel de serviço para garantir que não haja nenhum dispositivo conectado ao serviço. Se não houver dispositivos registrados com esse serviço, você também verá uma mensagem de cabeçalho para o efeito. Clique em **Eliminar**.
+    ![Selecione o serviço para eliminar](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
+2. Vá ao seu painel de assistência para garantir que não há dispositivos ligados ao serviço. Se não houver dispositivos registados neste serviço, também verá uma mensagem de banner no sentido. Clique em **Eliminar**.
    
-    ![Eliminar serviço](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
+    ![Eliminar o serviço](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
-3. Quando a confirmação for solicitada, clique em **Sim** na notificação de confirmação. 
+3. Quando solicitado para confirmação, **clique** sim na notificação de confirmação. 
    
-    ![Confirmar exclusão de serviço](./media/storsimple-virtual-array-manage-service/deleteservice4.png)
-4. Pode levar alguns minutos para que o serviço seja excluído. Depois que o serviço for excluído com êxito, você será notificado.
+    ![Confirmar a supressão do serviço](./media/storsimple-virtual-array-manage-service/deleteservice4.png)
+4. Pode levar alguns minutos para que o serviço seja apagado. Após a eliminação do serviço com sucesso, será notificado.
    
-    ![Exclusão de serviço bem-sucedida](./media/storsimple-virtual-array-manage-service/deleteservice6.png)
+    ![Eliminação de serviço bem sucedida](./media/storsimple-virtual-array-manage-service/deleteservice6.png)
 
-A lista de serviços será atualizada.
+A lista de serviços será refrescada.
 
  ![Lista atualizada de serviços](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Obter a chave de registo do serviço
-Depois de criar um serviço com êxito, você precisará registrar seu dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, você precisará da chave de registro do serviço. Para registrar dispositivos adicionais com um serviço StorSimple existente, você precisará da chave de registro e da chave de criptografia de dados de serviço (que é gerada no primeiro dispositivo durante o registro). Para obter mais informações sobre a chave de criptografia de dados de serviço, consulte [segurança do StorSimple](storsimple-security.md). Você pode obter a chave de registro acessando a folha **chaves** para seu serviço.
+Depois de ter criado com sucesso um serviço, terá de registar o seu dispositivo StorSimple com o serviço. Para registar o seu primeiro dispositivo StorSimple, necessitará da chave de registo de serviço. Para registar dispositivos adicionais com um serviço StorSimple existente, necessitará tanto da chave de registo como da chave de encriptação de dados de serviço (que é gerada no primeiro dispositivo durante o registo). Para obter mais informações sobre a chave de encriptação de dados do serviço, consulte a [segurança StorSimple](storsimple-security.md). Pode obter a chave de registo acedendo à lâmina **Keys** para o seu serviço.
 
-Execute as etapas a seguir para obter a chave de registro do serviço.
+Execute os seguintes passos para obter a chave de registo de serviço.
 
-#### <a name="to-get-the-service-registration-key"></a>Para obter a chave de registro do serviço
-1. Na folha **Device Manager do StorSimple** , vá para **chaves**de **gerenciamento &gt;**  .
+#### <a name="to-get-the-service-registration-key"></a>Para obter a chave de registo de serviço
+1. Na lâmina **StorSimple Device Manager,** vá à **Management &gt;** **Keys**.
    
    ![Painel de chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. Na folha **chaves** , uma chave de registro de serviço é exibida. Copie a chave de registro usando o ícone de cópia. 
+2. Na lâmina **Keys,** aparece uma chave de registo de serviço. Copie a chave de registo utilizando o ícone da cópia. 
 
-Mantenha a chave de registro do serviço em um local seguro. Você precisará dessa chave, bem como da chave de criptografia de dados de serviço, para registrar dispositivos adicionais nesse serviço. Depois de obter a chave de registro do serviço, você precisará configurar o dispositivo por meio da interface Windows PowerShell para StorSimple.
+Mantenha a chave de registo de serviço num local seguro. Necessitará desta chave, bem como da chave de encriptação de dados de serviço, para registar dispositivos adicionais com este serviço. Depois de obter a chave de registo de serviço, terá de configurar o seu dispositivo através da interface StorSimple do Windows PowerShell.
 
-## <a name="regenerate-the-service-registration-key"></a>Regenerar a chave de registro do serviço
-Você precisará regenerar uma chave de registro de serviço se for necessário executar a rotação de chaves ou se a lista de administradores de serviço tiver mudado. Quando você regenera a chave, a nova chave é usada somente para registrar os dispositivos subsequentes. Os dispositivos que já foram registrados não são afetados por esse processo.
+## <a name="regenerate-the-service-registration-key"></a>Regenerar a chave de registo de serviço
+Terá de regenerar uma chave de registo de serviço se for obrigado a realizar a rotação da chave ou se a lista de administradores de serviços tiver mudado. Quando regenera a tecla, a nova chave é utilizada apenas para registar dispositivos subsequentes. Os dispositivos que já estavam registados não são afetados por este processo.
 
-Execute as etapas a seguir para regenerar uma chave de registro de serviço.
+Execute os seguintes passos para regenerar uma chave de registo de serviço.
 
-#### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro do serviço
-1. Na folha **Device Manager do StorSimple** , vá para **chaves**de **gerenciamento &gt;**  .
+#### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registo de serviço
+1. Na lâmina **StorSimple Device Manager,** vá à **Management &gt;** **Keys**.
    
    ![Painel de chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. Na folha **chaves** , clique em **regenerar**.
+2. Na lâmina **keys,** clique em **Regenerar**.
    
    ![Clique em regenerar](./media/storsimple-virtual-array-manage-service/getregkey5.png)
-3. Na folha **regenerar chave de registro de serviço** , examine a ação necessária quando as chaves são regeneradas. Todos os dispositivos subsequentes registrados com esse serviço usarão a nova chave de registro. Clique em regenerar para confirmar. Você será notificado após a conclusão do registro.
+3. Na lâmina de registo de **serviço Regenerar,** reveja a ação necessária quando as teclas forem regeneradas. Todos os dispositivos subsequentes que estejam registados neste serviço utilizarão a nova chave de registo. Clique em **Regenerar** para confirmar. Será notificado após a inscrição estar completa.
    
-   ![Confirmar regeneração de chave](./media/storsimple-virtual-array-manage-service/getregkey3.png)
-4. Uma nova chave de registro de serviço será exibida.
+   ![Confirmar a chave regenerada](./media/storsimple-virtual-array-manage-service/getregkey3.png)
+4. Aparecerá uma nova chave de registo de serviço.
    
-    ![Confirmar regeneração de chave](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Confirmar a chave regenerada](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
-   Copie essa chave e salve-a para registrar novos dispositivos com esse serviço.
+   Copie esta tecla e guarde-a para registar quaisquer novos dispositivos com este serviço.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba como começar [com uma](storsimple-virtual-array-deploy1-portal-prep.md) matriz virtual StorSimple.
-* Saiba como [administrar seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
+* Aprenda a [começar](storsimple-virtual-array-deploy1-portal-prep.md) com um StorSimple Virtual Array.
+* Aprenda a [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Cassandra API com .NET - Azure Cosmos DB'
+title: 'Início Rápido: API para Cassandra com .NET – Azure Cosmos DB'
 description: Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o portal do Azure e o .NET
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -9,19 +9,19 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861313"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360700"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação do Cassandra com o SDK do .NET e o Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com .NET SDK e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
 > * [Node.js](create-cassandra-nodejs.md)
-> * [Python](create-cassandra-python.md)
+> * [python](create-cassandra-python.md)
 >  
 
 Este guia de introdução mostra como utilizar o .NET e a [Cassandra API](cassandra-introduction.md) do Azure Cosmos DB para criar um perfil de aplicação através da clonagem de um exemplo do GitHub. Este início rápido também mostra como pode utilizar o portal do Azure baseado na Web para criar uma conta do Azure Cosmos DB.
@@ -33,7 +33,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Em alternativa, pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos.
 
 Além disso, necessita: 
-* Se ainda não tiver o Visual Studio 2019, instalado, pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+* Se ainda não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito.** Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 * Instalar [Git](https://www.git-scm.com/) para clonar o exemplo.
 
 <a id="create-account"></a>
@@ -122,7 +122,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     ![Ver e copiar uma chave de acesso no portal do Azure, página Cadeia de ligação](./media/create-cassandra-dotnet/keys.png)
 
-2. No Visual Studio, abra o ficheiro Program.cs. 
+2. No Estúdio Visual, abra o ficheiro Program.cs. 
 
 3. Cole o valor do NOME DE UTILIZADOR do portal em `<FILLME>` na linha 13.
 
@@ -155,7 +155,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     ```
 3. Prima CTRL + F5 para executar a aplicação. A aplicação é apresentada na janela da consola. 
 
-    ![Ver e verificar a saída](./media/create-cassandra-dotnet/output.png)
+    ![Verificar a saída](./media/create-cassandra-dotnet/output.png)
 
     Prima CTRL + C para interromper a execução do programa e feche a janela da consola. 
     
@@ -171,7 +171,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação Web. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 

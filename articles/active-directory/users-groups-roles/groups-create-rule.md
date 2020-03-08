@@ -1,6 +1,6 @@
 ---
-title: Criar ou editar um grupo dinâmico e obter o status-Azure AD | Microsoft Docs
-description: Como criar ou atualizar uma regra de associação de grupo no portal do Azure e verificar seu status de processamento.
+title: Criar ou editar um grupo dinâmico e obter estatuto - Azure AD / Microsoft Docs
+description: Como criar ou atualizar uma regra de adesão ao grupo no portal Azure, e verificar o seu estado de processamento.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,98 +15,98 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768775"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374746"
 ---
-# <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Active Directory
+# <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Diretório Ativo do Azure
 
-No Azure Active Directory (AD do Azure), você pode usar regras para determinar a associação de grupo com base nas propriedades do usuário ou do dispositivo. Este artigo informa como configurar uma regra para um grupo dinâmico no portal do Azure.
-A associação dinâmica tem suporte para grupos de segurança ou grupos do Office 365. Quando uma regra de associação de grupo é aplicada, os atributos de usuário e de dispositivo são avaliados para correspondências com a regra de associação. Quando um atributo é alterado para um usuário ou dispositivo, todas as regras de grupo dinâmico na organização são processadas para alterações de associação. Os usuários e dispositivos serão adicionados ou removidos se atenderem às condições de um grupo. Os grupos de segurança podem ser usados para dispositivos ou usuários, mas os grupos do Office 365 podem ser apenas grupos de usuários.
+No Azure Ative Directory (Azure AD), pode utilizar regras para determinar a adesão ao grupo com base nas propriedades do utilizador ou do dispositivo. Este artigo diz como criar uma regra para um grupo dinâmico no portal Azure.
+A adesão dinâmica é apoiada para grupos de segurança ou grupos do Office 365. Quando uma regra de membro do grupo é aplicada, os atributos do utilizador e do dispositivo são avaliados para os jogos com a regra de adesão. Quando um atributo muda para um utilizador ou dispositivo, todas as regras dinâmicas do grupo na organização são processadas para alterações de adesão. Os utilizadores e dispositivos são adicionados ou removidos se cumprirem as condições para um grupo. Os grupos de segurança podem ser utilizados para dispositivos ou utilizadores, mas os grupos do Office 365 podem ser apenas grupos de utilizadores.
 
-## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal do Azure
+## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal Azure
 
-O Azure AD fornece um construtor de regras para criar e atualizar suas regras importantes mais rapidamente. O construtor de regras dá suporte à construção de até cinco expressões. O construtor de regras torna mais fácil formar uma regra com algumas expressões simples, no entanto, ela não pode ser usada para reproduzir todas as regras. Se o construtor de regras não oferecer suporte à regra que você deseja criar, você poderá usar a caixa de texto.
+A Azure AD fornece um construtor de regras para criar e atualizar as suas regras importantes mais rapidamente. O construtor de regras apoia a construção até cinco expressões. O construtor de regras torna mais fácil formar uma regra com algumas expressões simples, no entanto, não pode ser usado para reproduzir todas as regras. Se o construtor de regras não apoiar a regra que pretende criar, pode utilizar a caixa de texto.
 
-Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recomendamos que você construa usando a caixa de texto:
+Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recomendamos que construa usando a caixa de texto:
 
-- Regra com mais de cinco expressões
-- A regra de relatórios diretos
-- Definindo a [precedência de operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
+- Governar com mais de cinco expressões
+- A regra dos relatórios diretos
+- Definição da [precedência do operador](groups-dynamic-membership.md#operator-precedence)
+- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) por exemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
+> O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Pode ver uma mensagem quando o construtor de regras não é capaz de exibir a regra. O construtor de regras não altera de forma alguma a sintaxe suportada, validação ou processamento de regras dinâmicas do grupo.
 
-![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Adicionar regra de adesão para um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
 
-Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores para uma regra de associação, consulte [regras de associação dinâmica para grupos no Azure Active Directory](groups-dynamic-membership.md).
+Por exemplo, sintaxe, propriedades suportadas, operadores e valores para uma regra de adesão, ver regras de [adesão dinâmicas para grupos no Diretório Ativo Azure](groups-dynamic-membership.md).
 
 ## <a name="to-create-a-group-membership-rule"></a>Para criar uma regra de associação de grupo
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador do Intune ou administrador de usuários no locatário.
-1. Procure e selecione **grupos**.
-1. Selecione **todos os grupos**e selecione **novo grupo**.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que se encontra no administrador global, administrador intune ou papel de administrador de utilizador no inquilino.
+1. Procure e selecione **Grupos**.
+1. **Selecione Todos os grupos**e selecione **Novo grupo**.
 
-   ![Selecione o comando para adicionar um novo grupo](./media/groups-create-rule/create-new-group-azure-active-directory.png)
+   ![Selecione o comando para adicionar novo grupo](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
-1. Na página **grupo** , insira um nome e uma descrição para o novo grupo. Selecione um **tipo de associação** para usuários ou dispositivos e, em seguida, selecione **Adicionar consulta dinâmica**. O construtor de regras dá suporte a até cinco expressões. Para adicionar mais de cinco expressões, você deve usar a caixa de texto.
+1. Na página do **Grupo,** insira um nome e descrição para o novo grupo. Selecione um **tipo de Membro** para utilizadores ou dispositivos e, em seguida, selecione Adicionar consulta **dinâmica**. O construtor de regras suporta até cinco expressões. Para adicionar mais de cinco expressões, deve utilizar a caixa de texto.
 
-   ![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Adicionar regra de adesão para um grupo dinâmico](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-1. Para ver as propriedades de extensão personalizadas disponíveis para sua consulta de associação:
-   1. Selecionar **obter propriedades de extensão personalizadas**
-   1. Insira a ID do aplicativo e, em seguida, selecione **Atualizar Propriedades**.
-1. Depois de criar a regra, selecione **salvar**.
-1. Selecione **criar** na página **novo grupo** para criar o grupo.
+1. Para ver as propriedades de extensão personalizadas disponíveis para a sua consulta de adesão:
+   1. Selecione **Obter propriedades de extensão personalizadas**
+   1. Introduza o ID da aplicação e, em seguida, selecione **propriedades Refresh**.
+1. Depois de criar a regra, selecione **Guardar**.
+1. Selecione **Criar** na página do **novo grupo** para criar o grupo.
 
-Se a regra que você inseriu não for válida, uma explicação do motivo pelo qual a regra não pôde ser processada será exibida em uma notificação do Azure no Portal. Leia com atenção para entender como corrigir a regra.
+Se a regra que inseriu não for válida, uma explicação do porquê da regra não poder ser processada é exibida numa notificação do Azure no portal. Leia-o atentamente para entender como corrigir a regra.
 
 ## <a name="to-update-an-existing-rule"></a>Para atualizar uma regra existente
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador de grupo, administrador do Intune ou administrador de usuário no locatário.
-1. Selecione **grupos** > **todos os grupos**.
-1. Selecione um grupo para abrir seu perfil.
-1. Na página perfil do grupo, selecione regras de **associação dinâmica**. O construtor de regras dá suporte a até cinco expressões. Para adicionar mais de cinco expressões, você deve usar a caixa de texto.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que está no administrador global, administrador do Grupo, administrador intune ou papel de administrador de utilizador no inquilino.
+1. Selecione **Grupos** > **Todos os grupos**.
+1. Selecione um grupo para abrir o seu perfil.
+1. Na página de perfil do grupo, selecione regras de **adesão dinâmicas.** O construtor de regras suporta até cinco expressões. Para adicionar mais de cinco expressões, deve utilizar a caixa de texto.
 
-   ![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
+   ![Adicionar regra de adesão para um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
 
-1. Para ver as propriedades de extensão personalizadas disponíveis para sua regra de associação:
-   1. Selecionar **obter propriedades de extensão personalizadas**
-   1. Insira a ID do aplicativo e, em seguida, selecione **Atualizar Propriedades**.
-1. Depois de atualizar a regra, selecione **salvar**.
+1. Para ver as propriedades de extensão personalizadas disponíveis para a sua regra de adesão:
+   1. Selecione **Obter propriedades de extensão personalizadas**
+   1. Introduza o ID da aplicação e, em seguida, selecione **propriedades Refresh**.
+1. Depois de atualizar a regra, selecione **Guardar**.
 
-## <a name="turn-on-or-off-welcome-email"></a>Ativar ou desativar o email de boas-vindas
+## <a name="turn-on-or-off-welcome-email"></a>Ligue ou desligue e-mail de boas-vindas
 
-Quando um novo grupo do Office 365 é criado, uma notificação por email de boas-vindas é enviada aos usuários que são adicionados ao grupo. Posteriormente, se qualquer atributo de um usuário ou dispositivo for alterado, todas as regras dinâmicas do grupo na organização serão processadas para alterações de associação. Os usuários que foram adicionados também recebem a notificação de boas-vindas. Você pode desativar esse comportamento no [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Quando um novo grupo do Office 365 é criado, é enviada uma notificação de e-mail de boas-vindas aos utilizadores que são adicionados ao grupo. Mais tarde, se algum atributo de um utilizador ou dispositivo mudar, todas as regras dinâmicas do grupo na organização são processadas para alterações de adesão. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento na [Exchange PowerShell.](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps)
 
-## <a name="check-processing-status-for-a-rule"></a>Verificar o status de processamento de uma regra
+## <a name="check-processing-status-for-a-rule"></a>Verifique o estado de processamento por uma regra
 
-Você pode ver o status de processamento de associação e a data da última atualização na página **visão geral** do grupo.
+Pode ver o estado de processamento de membros e a última data atualizada na página **de visão geral** do grupo.
   
-  ![exibição do status do grupo dinâmico](./media/groups-create-rule/group-status.png)
+  ![exibição de estado dinâmico do grupo](./media/groups-create-rule/group-status.png)
 
-As seguintes mensagens de status podem ser mostradas para o status de **processamento da Associação** :
+As seguintes mensagens de estado podem ser mostradas para o estado de **processamento da Adesão:**
 
-- **Avaliando**: a alteração do grupo foi recebida e as atualizações estão sendo avaliadas.
-- **Processamento**: as atualizações estão sendo processadas.
-- **Atualização concluída**: o processamento foi concluído e todas as atualizações aplicáveis foram feitas.
-- **Erro de processamento**: não foi possível concluir o processamento devido a um erro ao avaliar a regra de associação.
-- **Atualização pausada**: atualizações de regra de associação dinâmica foram pausadas pelo administrador. MembershipRuleProcessingState é definido como "Paused".
+- **Avaliação**: A alteração do grupo foi recebida e as atualizações estão a ser avaliadas.
+- **Processamento**: As atualizações estão a ser processadas.
+- **Atualização completa**: O processamento foi concluído e todas as atualizações aplicáveis foram feitas.
+- **Erro de processamento**: O processamento não pôde ser concluído devido a um erro de avaliação da regra de adesão.
+- **Atualização pausada**: As atualizações dinâmicas da regra de adesão foram interrompidas pelo administrador. MembershipRuleProcessingState está definido para "Paused".
 
-As seguintes mensagens de status podem ser mostradas para o status da **última atualização de associação** :
+As seguintes mensagens de estado podem ser mostradas para **a Adesão última** situação atualizada:
 
-- &lt;**data e hora**&gt;: a última vez em que a associação foi atualizada.
-- **Em andamento**: as atualizações estão em andamento no momento.
-- **Desconhecido**: a hora da última atualização não pode ser recuperada. O grupo pode ser novo.
+- &lt;**Data e hora**&gt;: A última vez que a adesão foi atualizada.
+- **Em curso**: As atualizações estão atualmente em curso.
+- **Desconhecido**: O último tempo de atualização não pode ser recuperado. O grupo pode ser novo.
 
-Se ocorrer um erro durante o processamento da regra de associação para um grupo específico, um alerta será mostrado na parte superior da **página Visão geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada para todos os grupos dentro do locatário por mais de 24 horas, um alerta será mostrado na parte superior de **todos os grupos**.
+Se ocorrer um erro durante o processamento da regra de adesão para um grupo específico, é apresentado um alerta no topo da **página de visão geral** do grupo. Se não forem processadas atualizações dinâmicas de adesão para todos os grupos dentro do arrendatário por mais de 24 horas, é apresentado um alerta no topo de **Todos os grupos**.
 
-![Processando alertas de mensagens de erro](./media/groups-create-rule/processing-error.png)
+![processamento alertas de mensagem de erro](./media/groups-create-rule/processing-error.png)
 
-Esses artigos fornecem informações adicionais sobre grupos no Azure Active Directory.
+Estes artigos fornecem informações adicionais sobre grupos no Diretório Ativo Azure.
 
 - [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Criar um novo grupo e adicionar membros](../fundamentals/active-directory-groups-create-azure-portal.md)

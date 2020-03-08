@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0050112dc7d9d2fa20da612691f1ff0927df93fb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662353"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385326"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Monitor Azure
 
@@ -156,13 +156,17 @@ Não há necessidade de pré-definir uma métrica personalizada no Monitor Azure
 
 ## <a name="using-custom-metrics"></a>Usando métricas personalizadas
 Depois de submetidas métricas personalizadas ao Monitor Azure, pode navegá-las através do portal Azure e consulta-las através das APIs REST do Monitor Azure. Também pode criar alertas sobre eles para notificá-lo quando determinadas condições forem satisfeitas.
+
+> [!NOTE]
+> Tem de ser um leitor ou um papel de contribuinte para ver métricas personalizadas.
+
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Navegue nas suas métricas personalizadas através do portal Azure
-1.  Aceda ao [Portal do Azure](https://portal.azure.com).
-2.  Selecione o painel **monitor.**
-3.  Selecione **Métricas**.
-4.  Selecione um recurso contra o qual emitiste métricas personalizadas.
-5.  Selecione o espaço de nome das métricas para a sua métrica personalizada.
-6.  Selecione a métrica personalizada.
+1.    Aceda ao [Portal do Azure](https://portal.azure.com).
+2.    Selecione o painel **monitor.**
+3.    Selecione **Métricas**.
+4.    Selecione um recurso contra o qual emitiste métricas personalizadas.
+5.    Selecione o espaço de nome das métricas para a sua métrica personalizada.
+6.    Selecione a métrica personalizada.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 Durante a pré-visualização pública, a capacidade de publicar métricas personalizadas está disponível apenas num subconjunto de regiões azure. Esta restrição significa que as métricas só podem ser publicadas para recursos numa das regiões apoiadas. A tabela seguinte lista o conjunto de regiões azure suportadas para métricas personalizadas. Enumera igualmente os pontos finais correspondentes para os quais as métricas dos recursos nessas regiões devem ser publicadas:

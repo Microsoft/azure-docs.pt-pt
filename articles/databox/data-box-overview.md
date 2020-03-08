@@ -10,17 +10,17 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067009"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380319"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
 A solução cloud Microsoft Azure Data Box permite enviar terabytes de dados para o Azure de forma rápida, económica e fiável. A transferência segura de dados é acelerada pelo envio de um dispositivo de armazenamento Data Box proprietário. Cada dispositivo de armazenamento tem uma capacidade máxima de armazenamento utilizável de 80 TB e é transportado para o seu datacenter através de uma operadora regional. O dispositivo é fornecido numa caixa robusta para proteger os dados durante o transporte.
 
-Pode encomendar o dispositivo Data Box através do portal do Azure. Quando receber o dispositivo, pode configurá-lo rapidamente com a IU da Web local. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No datacenter do Azure, os seus dados são carregados automaticamente do dispositivo para o Azure. O serviço Data Box faz o acompanhamento de todo o processo ponto a ponto no portal do Azure.
+Pode encomendar o dispositivo Data Box através do portal do Azure. Quando receber o dispositivo, pode configurá-lo rapidamente com a IU da Web local. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No datacenter do Azure, os seus dados são carregados automaticamente do dispositivo para o Azure. O serviço Data Box faz o acompanhamento do processo do início ao fim no portal do Azure.
 
 
 ## <a name="use-cases"></a>Casos de utilização
@@ -59,11 +59,11 @@ O dispositivo Data Box tem as seguintes funcionalidades nesta versão.
 | Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | < 23 kg                |
-| Dimensões                                              | Largura do dispositivo: Altura de 309,0 mm: Profundidade de 430,4 mm: 502,0 mm |            
+| Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
 | Espaço em rack                                              | 7 U quando colocado no rack ao seu lado (não pode ser montado em rack)|
 | Cabos necessários                                         | 1 x cabo de alimentação (incluído) <br> 2 cabos RJ45 <br> 2 X cabos de cobre SFP + Twinax|
 | Capacidade de armazenamento                                        | O dispositivo de 100 TB tem a capacidade utilizável de 80 TB depois da proteção de RAID 5|
-| Classificação de energia                                            | A unidade de fonte de alimentação é classificada para 700 W. <br> Normalmente, a unidade desenha 375 W.|
+| Classificação de potência                                            | A unidade de alimentação está classificada para 700 W. <br> Tipicamente, a unidade desenha 375 W.|
 | Interfaces de rede                                      | 2 x interfaces de 1 GbE – MGMT, DATA 3. <br> MGMT – para gestão, não configurável pelo utilizador, utilizada para a configuração inicial <br> DATA3 – para dados, configurável pelo utilizador, dinâmica por predefinição <br> As interfaces MGMT e DATA 3 também podem funcionar como 10 GbE <br> 2 X interfaces de 10 GbE – DATA 1, DATA 2 <br> Ambas são para dados, podem ser configuradas como dinâmicas (predefinição) ou estáticas |
 | Suporte de transferência de dados                                     | RJ45, SFP + Ethernet 10 GbE de cobre  |
 | Segurança                                                | Caixa robusta do dispositivo com parafusos personalizados à prova de adulteração <br> Autocolantes invioláveis colocados na parte inferior do dispositivo|
@@ -109,9 +109,9 @@ Ao longo deste processo, será notificado por e-mail sobre todas as alterações
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Data Box pode transferir dados com base na região em que o serviço é implantado, país/região no qual o dispositivo é enviado e a conta de armazenamento do Azure de destino onde você transfere os dados. 
+A Data Box pode transferir dados com base na região em que o serviço é implantado, país/região para o qual o dispositivo é enviado, e na conta de armazenamento-alvo do Azure onde transfere os dados. 
 
-- **Disponibilidade do serviço** -para obter informações sobre a disponibilidade de região, acesse [produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box também pode ser implantado na nuvem do Azure governamental. Para obter mais informações, consulte [o que é o Azure governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilidade de serviço** - Para informações sobre a disponibilidade da região, vá aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) A Caixa de Dados também pode ser implantada na Nuvem do Governo Azure. Para mais informações, veja o que é o [Governo de Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure onde o serviço estiver disponível.  
 

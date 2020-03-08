@@ -1,6 +1,6 @@
 ---
-title: Gerir políticas de laboratório no Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como definir políticas de laboratório, como tamanhos de VM, VMs máximos por utilizador e automatização de encerramento.
+title: Gerir as políticas de laboratório em Azure DevTest Labs [ Laboratórios DevTest] Microsoft Docs
+description: Aprenda a definir políticas de laboratório como tamanhos vm, VMs máximos por utilizador e automação de encerramento.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,129 +14,129 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636524"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385605"
 ---
-# <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório no Azure DevTest Labs
+# <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório em Azure DevTest Labs
 
-Azure DevTest Labs permite-lhe controla o custo e minimiza o lixo nos laboratórios, gestão de políticas (definições) para cada um deles. Este artigo explica em detalhes passo a passo como definir cada política.  
+A Azure DevTest Labs permite controlar os custos e minimiza o desperdício nos seus laboratórios gerindo políticas (configurações) para cada laboratório. Este artigo explica em pormenor como definir cada política.  
 
-## <a name="set-allowed-virtual-machine-sizes"></a>Conjunto de tamanhos de máquina virtual permitido
-A política para definir os tamanhos VM permitidos ajuda a minimizar o desperdício de laboratório, permitindo-lhe especificar os tamanhos de VM são permitidos no laboratório. Se esta política estiver ativada, apenas os tamanhos de VM desta lista podem ser utilizados para criar VMs.
+## <a name="set-allowed-virtual-machine-sizes"></a>Conjunto permitido tamanhos de máquina virtual
+A política de definição dos tamanhos de VM permitidos ajuda a minimizar os resíduos de laboratório, permitindo-lhe especificar quais os tamanhos de VM permitidos no laboratório. Se esta política for ativada, apenas os tamanhos vm desta lista podem ser usados para criar VMs.
 
-1. Na [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório e, em seguida, selecione **Konfigurace a zásady**.
+1. No [portal Azure,](https://go.microsoft.com/fwlink/p/?LinkID=525040)selecione um laboratório e, em seguida, selecione **Configuração e políticas**.
 
-    ![O laboratório configuração e políticas de acesso](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![Aceda à configuração e políticas do laboratório](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. O laboratório **Konfigurace a zásady** painel, selecione **tamanhos de máquinas virtuais permitidos**.
+1. No painel de **configuração e políticas** do laboratório, selecione **tamanhos permitidos**de máquinas virtuais .
    
-    ![Tamanhos de máquinas de virtuais permitidas](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
+    ![Tamanhos permitidos de máquinas virtuais](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
-1. Selecione **nos** para ativar esta política, e **desativar** desabilitá-lo.
+1. Selecione **On** para ativar esta política e **Desligue** para desativá-la.
 
-1. Se ativar esta política, selecione um ou mais tamanhos de VM que podem ser criados no seu laboratório.
+1. Se ativar esta política, selecione um ou mais tamanhos vm que podem ser criados no seu laboratório.
 
 1. Selecione **Guardar**.
 
-## <a name="set-virtual-machines-per-user"></a>Máquinas virtuais do conjunto por utilizador
-A política para **máquinas virtuais por utilizador** permite-lhe especificar o número de VMs que podem ser criadas por um utilizador individual. Se um utilizador tenta criar ou uma VM de afirmação quando o limite de utilizador tiver sido cumprido, uma mensagem de erro indica que a VM não pode ser criado/solicitadas. 
+## <a name="set-virtual-machines-per-user"></a>Definir máquinas virtuais por utilizador
+A política para **máquinas Virtuais por utilizador** permite especificar o número de VMs que podem ser criados por um utilizador individual. Se um utilizador tentar criar ou reclamar um VM quando o limite de utilizador tiver sido cumprido, uma mensagem de erro indica que o VM não pode ser criado/reclamado. 
 
-1. O laboratório **Konfigurace a zásady** painel, selecione **máquinas virtuais por utilizador**.
+1. No painel de **configuração e políticas** do laboratório, selecione **máquinas virtuais por utilizador**.
    
     ![Máquinas virtuais por utilizador](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Selecione **Sim** para limitar o número de VMs por utilizador. Se não pretender limitar o número de VMs por utilizador, selecione **não**. Se selecionou **Sim**, introduza um valor numérico que indica o número de VMs que podem ser criadas ou solicitadas por um utilizador. 
+1. Selecione **Sim** para limitar o número de VMs por utilizador. Se não quiser limitar o número de VMs por utilizador, selecione **No**. Se selecionar **Sim,** introduza um valor numérico indicando o número de VMs que podem ser criados ou reclamados por um utilizador. 
 
-1. Selecione **Sim** para limitar o número de VMs que pode utilizar o SSD (disco de estado sólido). Se não pretender limitar o número de VMs que pode utilizar o SSD, selecione **não**. Se selecionou **Sim**, introduza um valor que indica o número de VMs que podem ser criadas usando SSD. 
+1. Selecione **Sim** para limitar o número de VMs que podem usar SSD (disco de estado sólido). Se não quiser limitar o número de VMs que podem utilizar SSD, selecione **No**. Se selecionar **Sim,** introduza um valor indicando o número de VMs que podem ser criados usando SSD. 
 
 1. Selecione **Guardar**.
 
-## <a name="set-virtual-machines-per-lab"></a>Máquinas virtuais do conjunto por laboratório
-A política para **máquinas virtuais por laboratório** permite-lhe especificar o número de VMs que podem ser criadas para o laboratório atual. Se um usuário tentar criar uma VM, quando foi alcançado o limite de laboratório, uma mensagem de erro indica que não é possível criar a VM. 
+## <a name="set-virtual-machines-per-lab"></a>Definir máquinas virtuais por laboratório
+A política para **máquinas virtuais por laboratório** permite especificar o número de VMs que podem ser criados para o laboratório atual. Se um utilizador tentar criar um VM quando o limite do laboratório tiver sido cumprido, uma mensagem de erro indica que o VM não pode ser criado. 
 
-1. O laboratório **Konfigurace a zásady** painel, selecione **máquinas virtuais por laboratório**.
+1. No painel de **configuração e políticas** do laboratório, selecione **máquinas virtuais por laboratório**.
    
     ![Máquinas virtuais por laboratório](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Selecione **Sim** para limitar o número de VMs por laboratório. Se não pretender limitar o número de VMs por laboratório, selecione **não**. Se selecionou **Sim**, introduza um valor numérico que indica o número de VMs que podem ser criadas ou solicitadas por um utilizador. 
+1. Selecione **Sim** para limitar o número de VMs por laboratório. Se não quiser limitar o número de VMs por laboratório, selecione **No**. Se selecionar **Sim,** introduza um valor numérico indicando o número de VMs que podem ser criados ou reclamados por um utilizador. 
 
-1. Selecione **Sim** para limitar o número de VMs que pode utilizar o SSD (disco de estado sólido). Se não pretender limitar o número de VMs que pode utilizar o SSD, selecione **não**. Se selecionou **Sim**, introduza um valor que indica o número de VMs que podem ser criadas usando SSD. 
+1. Selecione **Sim** para limitar o número de VMs que podem usar SSD (disco de estado sólido). Se não quiser limitar o número de VMs que podem utilizar SSD, selecione **No**. Se selecionar **Sim,** introduza um valor indicando o número de VMs que podem ser criados usando SSD. 
 
 1. Selecione **Guardar**.
 
-## <a name="set-auto-shutdown"></a>Encerramento do conjunto automático
-A política de encerramento automático ajuda a minimizar o desperdício de laboratório, permitindo que especifique o tempo que VMs este laboratório são encerradas.
+## <a name="set-auto-shutdown"></a>Definir a paragem automática
+A política de paragem automática ajuda a minimizar os resíduos de laboratório, deixando-o especificar a hora em que os VMs deste laboratório desligam.
 
-1. O laboratório **Konfigurace a zásady** painel, selecione **encerramento automático**.
+1. No painel de **configuração e políticas** do laboratório, selecione a paragem **automática**.
    
-    ![Encerramento automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
+    ![Paragem automática](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Selecione **nos** para ativar esta política, e **desativar** desabilitá-lo.
+1. Selecione **On** para ativar esta política e **Desligue** para desativá-la.
 
-1. Se ativar esta política, especifique o tempo (e o fuso horário) para encerrar a todas as VMs do laboratório atual.
+1. Se ativar esta política, especifique a hora (e o fuso horário) para desligar todos os VMs do laboratório atual.
 
-1. Especifique **Sim** ou **não** para a opção Enviar uma notificação a 15 minutos antes da hora de encerramento automático especificado. Se escolher **Sim**, introduza um ponto de final do URL do webhook ou um endereço de e-mail que especificar onde pretende que a notificação para ser publicado ou enviados. O utilizador recebe a notificação e é dada a opção para adiar o encerramento.
+1. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 15 minutos antes do tempo de paragem automática especificado. Se escolher **Sim**, introduza um ponto final de URL de webhook ou um endereço de e-mail especificando onde pretende que a notificação seja publicada ou enviada. O utilizador recebe a notificação e tem a opção de adiar a paralisação.
 
-   Para obter mais informações sobre os webhooks, consulte [criar um webhook ou uma função de Azure API](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   Para mais informações sobre webhooks, consulte [Criar um webhook ou função API Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Selecione **Guardar**.
 
-Por predefinição, uma vez ativada, esta política aplica-se a todas as VMs do laboratório atual. Para remover esta definição de uma VM específica, abra o painel de gestão da VM e altere seu **encerramento automático** definição.
+Por predefinição, uma vez ativada, esta política aplica-se a todos os VMs do laboratório atual. Para remover esta definição de um VM específico, abra o painel de gestão da VM e altere a sua definição de **paragem automática.**
 
 ## <a name="set-auto-shutdown-policy"></a>Definir a política de encerramento automático
-Como proprietário de um laboratório, pode configurar um agendamento de encerramento para todas as VMs no seu laboratório. Ao fazer isso, pode salvar os custos de máquinas que não estão a ser utilizadas em execução (inativo). Pode impor uma política de encerramento em todas as suas VMs do laboratório centralmente, mas também guardar os seus utilizadores de laboratório o esforço de configurar um agendamento para as respetivas máquinas individuais. Esta funcionalidade permite-lhe definir a política no seu Cronograma do laboratório a partir de não oferta nenhum controle para controle total, aos seus utilizadores de laboratório. Como proprietário de um laboratório, pode configurar esta política, efetuando os seguintes passos:
+Como dono de laboratório, pode configurar um horário de encerramento para todos os VMs do seu laboratório. Ao fazê-lo, pode poupar custos de máquinas de funcionamento que não estão a ser usadas (ociosa). Você pode impor uma política de encerramento em todos os seus VMs de laboratório centralmente, mas também poupar os seus utilizadores de laboratório o esforço de configurar um horário para as suas máquinas individuais. Esta funcionalidade permite definir a política na sua programação de laboratório a partir de não oferecer controlo total aos utilizadores do laboratório. Como dono de laboratório, pode configurar esta política tomando os seguintes passos:
 
-1. Na home page para seu laboratório, selecione **Konfigurace a zásady**.
-2. Selecione **automaticamente a política de encerramento** no **agendas** secção do menu à esquerda.
-3. Selecione uma das opções. As secções seguintes fornecem mais detalhes sobre estas opções: Definir a política aplica-se apenas às novas VMs criadas no laboratório e não às VMs já existentes. 
+1. Na página inicial do seu laboratório, selecione **Configuração e políticas**.
+2. Selecione a política de **paragem automática** na secção **Horários** do menu esquerdo.
+3. Selecione uma das opções. As seguintes secções dão-lhe mais detalhes sobre estas opções: A política definida aplica-se apenas aos novos VMs criados em laboratório e não aos VMs já existentes. 
 
     ![Opções de política de encerramento automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-### <a name="user-sets-a-schedule-and-can-opt-out"></a>Define uma agenda e pode optar por sair do utilizador
-Se definir o seu laboratório para esta política, os utilizadores de laboratório podem substituir ou recusar o cronograma do laboratório. Esta opção concede aos utilizadores de laboratório controlo total sobre o agendamento de encerramento automático das suas VMs. Os utilizadores de laboratório não vejam nenhuma alteração na página de agendamento de encerramento da VM automática.
+### <a name="user-sets-a-schedule-and-can-opt-out"></a>O utilizador define um horário e pode optar por não o fazer
+Se definir o seu laboratório para esta política, os utilizadores do laboratório podem anular ou optar por não participar do horário do laboratório. Esta opção confere aos utilizadores de laboratório o controlo total sobre o calendário de paragem automática dos seus VMs. Os utilizadores do laboratório não vêem nenhuma alteração na sua página de horário de paragem automática VM.
 
 ![Opção de política de encerramento automático - 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
 
-### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>Define uma agenda e não é possível optar por sair do utilizador
-Se definir o seu laboratório para esta política, os utilizadores de laboratório podem substituir o cronograma do laboratório. No entanto, eles não podem desativar política de encerramento automático. Esta opção certifica-se de que todas as máquinas no seu laboratório está sob um cronograma de encerramento automático. Os utilizadores de laboratório podem atualizar o agendamento de encerramento automático das suas VMs e configurar notificações de encerrado para baixo.
+### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>O utilizador define um horário e não pode optar por não optar
+Se definir o seu laboratório para esta política, os utilizadores do laboratório podem anular o horário do laboratório. No entanto, não podem optar por não aceitar a política de encerramento automático. Esta opção garante que todas as máquinas do seu laboratório estão sob um horário de paragem automática. Os utilizadores do laboratório podem atualizar o horário de paragem automática dos seus VMs e configurar notificações de encerramento.
 
 ![Opção de política de encerramento automático - 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
 
-### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>Utilizador não tem nenhum controle sobre o agendamento definido pelo administrador de laboratório
-Se definir o seu laboratório para esta política, os utilizadores de laboratório não é possível substituir ou recusar o cronograma do laboratório. Essa opção oferece administração de laboratório, o controle completo sobre a agenda para cada computador no laboratório. Os utilizadores de laboratório só podem configurar notificações de encerramento automático para as suas VMs.
+### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>O utilizador não tem controlo sobre o horário definido pela administração do laboratório
+Se definir o seu laboratório para esta política, os utilizadores do laboratório não podem anular ou optar por não cumprir o horário do laboratório. Esta opção oferece ao laboratório o controlo completo do horário de todas as máquinas do laboratório. Os utilizadores de laboratório só podem configurar notificações de paragem automática para os seus VMs.
 
 ![Opção de política de encerramento automático - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## <a name="set-autostart"></a>Início do conjunto automático
-A política de início automático permite-lhe especificar quando as VMs do laboratório atual devem ser iniciadas.  
+## <a name="set-autostart"></a>Definir arranque automático
+A política de arranque automático permite especificar quando os VMs no laboratório atual devem ser iniciados.  
 
-1. O laboratório **Konfigurace a zásady** painel, selecione **início automático**.
+1. No painel de **configuração e políticas** do laboratório, selecione **Autostart**.
    
-    ![Início automático](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![Arranque automático](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-2. Selecione **nos** para ativar esta política, e **desativar** desabilitá-lo.
+2. Selecione **On** para ativar esta política e **Desligue** para desativá-la.
 
-3. Se ativar esta política, especifique a hora de início agendada, fuso horário e os dias da semana para os quais se aplica a hora. 
+3. Se ativar esta política, especifique a hora de início programada, o fuso horário e os dias da semana para os quais o tempo se aplica. 
 
 4. Selecione **Guardar**.
 
-Uma vez ativada, esta política não é automaticamente aplicada a todas as VMs do laboratório atual. Para aplicar esta definição para uma VM específica, abra o painel de gestão da VM e altere seu **início automático** definição.
+Uma vez ativada, esta política não é aplicada automaticamente a quaisquer VMs no laboratório atual. Para aplicar esta definição a um VM específico, abra o painel de gestão da VM e altere a sua definição **de Arranque Automático.**
 
-## <a name="set-expiration-date"></a>Definir data de expiração
-Pode definir uma expiração data quando [criar a VM](devtest-lab-add-vm.md). Na **definições avançadas**, escolha o ícone de calendário para especificar uma data em que a VM é eliminada automaticamente. Por predefinição, a VM nunca expira ao fim.
+## <a name="set-expiration-date"></a>Definir data de validade
+Pode definir uma data de validade quando [criar o VM](devtest-lab-add-vm.md). Em **definições avançadas,** escolha o ícone do calendário para especificar uma data em que o VM é automaticamente eliminado. Por defeito, o VM nunca expira.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
-Depois de definidos e aplicados as várias configurações de diretiva VM para o laboratório, seguem-se algumas coisas a experimentar a seguir:
+## <a name="next-steps"></a>Passos seguintes
+Depois de definir e aplicar as várias definições políticas de VM para o seu laboratório, aqui estão algumas coisas para tentar a seguir:
 
-* [Compreender endereços IP partilhados](devtest-lab-shared-ip.md) -explica como partilhada IP endereços são utilizados no DevTest Labs para minimizar o número de endereços IP públicos, necessárias para ligar ao seu laboratório VMs.
-* [Configurar gestão de custos](devtest-lab-configure-cost-management.md) -ilustra como usar o **tendência de custo estimado mensal** gráfico  
-  Para ver o mês atual do estimado custo até à data e o custo previsto do mês final.
-* [Criar uma imagem personalizada](devtest-lab-create-template.md) - quando cria uma VM, especifique uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um ficheiro VHD.
-* [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs suporta a criação de VMs com base nas imagens do Azure Marketplace. Este artigo ilustra como especificar que, se houver, imagens do Azure Marketplace podem ser utilizadas durante a criação de VMs num laboratório.
-* [Criar uma VM num laboratório](devtest-lab-add-vm.md) -ilustra como criar uma VM a partir de uma imagem base (qualquer um dos personalizado ou Marketplace) e como trabalhar com artefactos em sua VM.
+* [Compreender endereços IP partilhados](devtest-lab-shared-ip.md) - Explica como os endereços IP partilhados são usados em Laboratórios DevTest para minimizar o número de endereços IP públicos necessários para se conectarem aos seus VMs de laboratório.
+* [Configure gestão](devtest-lab-configure-cost-management.md) de custos - Ilustra como usar o gráfico mensal de tendência de **custos estimado**  
+  para ver o custo estimado do mês em curso e o custo previsto para o final do mês.
+* [Criar imagem personalizada](devtest-lab-create-template.md) - Quando criar um VM, especifice uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada a partir de um ficheiro VHD.
+* [Configure Imagens do Marketplace](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs suporta a criação de VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais, se houver, imagens do Azure Marketplace podem ser usadas na criação de VMs num laboratório.
+* [Crie um VM num laboratório](devtest-lab-add-vm.md) - Ilustra como criar um VM a partir de uma imagem base (personalizada ou marketplace), e como trabalhar com artefactos no seu VM.
 

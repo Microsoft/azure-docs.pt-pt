@@ -9,11 +9,11 @@ ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 51b7b37466ae8a6988ee4bfa85a054fb42d23124
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920761"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362433"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de lançamento para o agente Dessincronização de Ficheiros Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.

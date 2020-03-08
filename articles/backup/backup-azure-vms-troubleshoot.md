@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver erros encontrados com backup e res
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1b82d43a58a25dc1c475180a4780106220e1ceeb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 8e29061becd9eb82dd04f3ed0db787542b29cbc7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597325"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363863"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup em máquinas virtuais Azure
 
@@ -125,7 +125,7 @@ Se vir permissões no diretório **MachineKeys** diferentes das predefinições,
    * Ler permissões
 2. Elimine todos os certificados sempre que **emitido seja** o modelo de implantação clássico ou gerador de **certificados CRP Windows Azure:**
 
-   * [Abram certificados numa consola de computador local.](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)
+   * [Abram certificados numa consola de computador local.](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)
    * Nos Certificados de > **Pessoais,** elimine todos os certificados sempre que **emitido** seja o modelo clássico de implementação ou gerador de **certificados CRP Windows Azure**.
 3. Desencadeie um trabalho de apoio vm.
 

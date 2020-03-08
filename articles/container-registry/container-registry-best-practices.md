@@ -3,18 +3,18 @@ title: Registar melhores práticas
 description: Saiba como utilizar o registo de contentor do Azure de forma eficiente, ao seguir estas melhores práticas.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445794"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668803"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry
 
 Ao seguir estas melhores práticas, pode ajudar a maximizar o desempenho e a utilização rentável do seu registo privado do Docker no Azure.
 
-Consulte também [recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md) para estratégias para marcas e imagens de versão no registro. 
+Consulte também [recomendações para marcar e versonar imagens](container-registry-image-tag-version.md) de contentores para estratégias para etiquetar e verver imagens no seu registo. 
 
 ## <a name="network-close-deployment"></a>Implementação sem rede
 
@@ -33,18 +33,16 @@ Para saber como utilizar a georreplicação, veja o tutorial de três partes [Ge
 
 Ao tirar partido dos espaços de nomes do repositório, pode permitir a partilha de um único registo em vários grupos na sua organização. Os registos podem ser partilhados em implementações e equipas. O Azure Container Registry suporta espaços de nomes aninhados, ao ativar o isolamento de grupo.
 
-Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens usadas em toda a empresa, como `aspnetcore`, são colocadas no namespace raiz, enquanto as imagens de contêiner de propriedade dos produtos e grupos de marketing usam seus próprios namespaces.
+Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens que são usadas em toda a empresa, como `aspnetcore`, são colocadas no espaço de nome raiz, enquanto imagens de contentores pertencentes aos grupos de Produtos e Marketing usam cada um os seus próprios espaços de nome.
 
-```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
-```
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## <a name="dedicated-resource-group"></a>Grupo de recursos dedicado
 
-Como os registros de contêiner são recursos que são usados em vários hosts de contêiner, um registro deve residir em seu próprio grupo de recursos.
+Como os registos de contentores são recursos que são usados em vários hospedeiros de contentores, um registo deve residir no seu próprio grupo de recursos.
 
 Embora possa experimentar um tipo de anfitrião específico, como o Azure Container Instances, irá provavelmente eliminar a instância do contentor quando tiver terminado. No entanto, também pode manter a coleção de imagens enviadas para o Azure Container Registry. Ao colocar o seu registo no seu próprio grupo de recursos, está a minimizar o risco de eliminar acidentalmente a coleção de imagens no registo, ao eliminar o grupo de recursos de instância do contentor.
 
@@ -61,27 +59,30 @@ Para obter informações aprofundadas sobre a autenticação do Azure Container 
 
 ## <a name="manage-registry-size"></a>Gerir o tamanho do registo
 
-As restrições de armazenamento de [cada SKU de registro de contêiner][container-registry-skus] devem se alinhar com um cenário típico: **básico** para introdução, **padrão** para a maioria dos aplicativos de produção e **Premium** para desempenho de hiperescala e [replicação geográfica][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
+Os constrangimentos de armazenamento de cada registo de [contentores SKU][container-registry-skus] destinam-se a alinhar-se com um cenário típico: **Básico** para começar, **Standard** para a maioria das aplicações de produção, e **Premium** para desempenho em hiperescala e [geo-replicação.][container-registry-geo-replication] Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
 
-Use o comando CLI do Azure [AZ ACR show-Usage][az-acr-show-usage] para exibir o tamanho atual do registro:
+Utilize o comando Azure CLI [az acr show-usage][az-acr-show-usage] para mostrar o tamanho atual do seu registo:
 
-```console
-$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```azurecli
+az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```
+
+```output
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-Você também pode encontrar o armazenamento atual usado na **visão geral** do registro no portal do Azure:
+Também pode encontrar o armazenamento atual utilizado na **visão geral** do seu registo no portal Azure:
 
 ![Informações de utilização do registo no portal do Azure][registry-overview-quotas]
 
-### <a name="delete-image-data"></a>Excluir dados de imagem
+### <a name="delete-image-data"></a>Eliminar dados de imagem
 
-O registro de contêiner do Azure dá suporte a vários métodos para excluir dados de imagem do registro de contêiner. Você pode excluir imagens por marca ou resumo do manifesto ou excluir um repositório inteiro.
+O Registo de Contentores Azure suporta vários métodos para apagar dados de imagem do seu registo de contentores. Pode eliminar imagens por tag ou manifestar digestão ou apagar um repositório inteiro.
 
-Para obter detalhes sobre como excluir dados de imagem do registro, incluindo imagens não marcadas (às vezes chamadas de "pendente" ou "órfãos"), consulte [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
+Para mais detalhes sobre a eliminação de dados de imagem do seu registo, incluindo imagens não marcadas (por vezes chamadas de "penduradas" ou "órfãs"),, consulte Apagar imagens de contentores no Registo de [Contentores de Azure](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

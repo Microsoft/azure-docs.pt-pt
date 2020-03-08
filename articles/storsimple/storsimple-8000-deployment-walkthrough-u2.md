@@ -1,5 +1,5 @@
 ---
-title: Implantar seu dispositivo StorSimple 8000 Series no portal do Azure
+title: Implemente o seu dispositivo da série StorSimple 8000 no portal Azure
 description: Descreve os passos e as melhores práticas para implementar o dispositivo da série StorSimple 8000 que executa a Atualização 3 e posterior, e o serviço Gestor de Dispositivos do StorSimple.
 author: alkohli
 ms.service: storsimple
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273951"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366816"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementar o dispositivo StorSimple no local (Atualização 3 e posterior)
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Bem-vindo à implementação do dispositivo Microsoft Azure StorSimple. Estes tutoriais de implementação aplicam-se à Atualização 3 ou posterior da Série StorSimple 8000. Esta série de tutoriais inclui uma lista de verificação das configurações, pré-requisitos de configuração e passos de configuração detalhados para o dispositivo StorSimple.
 
 As informações nestes tutoriais pressupõem que leu as precauções de segurança e descompactou, montou em bastidor e instalou os cabos do dispositivo StorSimple. Se ainda precisar de efetuar essas tarefas, comece por ler as [precauções de segurança](storsimple-8000-safety.md). Siga as instruções específicas do dispositivo para descompactar, montar em bastidor e instalar os cabos do dispositivo.
@@ -62,7 +62,7 @@ Antes de implementar o dispositivo, tem de recolher informações para configura
 
 * [Transferir a lista de verificação das configurações da implementação do StorSimple](https://www.microsoft.com/download/details.aspx?id=49159)
 
-## <a name="deployment-prerequisites"></a>Pré-requisitos de implementação
+## <a name="deployment-prerequisites"></a>Pré-requisitos da implementação
 As secções seguintes explicam os pré-requisitos de configuração do serviço Gestor de Dispositivos do StorSimple e do dispositivo StorSimple.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Para o serviço Gestor de Dispositivos do StorSimple

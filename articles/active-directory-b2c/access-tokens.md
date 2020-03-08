@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365181"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicite um sinal de acesso no Diretório Ativo Azure B2C
 

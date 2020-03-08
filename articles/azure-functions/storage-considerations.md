@@ -4,11 +4,11 @@ description: Conheça os requisitos de armazenamento das Funções Azure e sobre
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190307"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355707"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções azure
 

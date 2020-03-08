@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
 ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76771996"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392035"
 ---
 # <a name="azure-best-practices-for-network-security"></a>As melhores práticas do Azure para a segurança da rede
 Este artigo discute uma coleção de boas práticas azure para melhorar a segurança da sua rede. Estas boas práticas derivam da nossa experiência com o networking Azure e as experiências de clientes como você.
@@ -104,7 +104,7 @@ Os aparelhos de segurança da rede Azure podem oferecer uma melhor segurança do
 
 * Firewalling
 * Deteção/prevenção de intrusão
-* Gerenciamento de vulnerabilidades
+* Gestão de vulnerabilidades
 * Controlo de aplicações
 * Deteção de anomalias baseada em rede
 * Filtragem da web
@@ -210,4 +210,4 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 Para saber mais sobre os pontos finais de serviço e sobre os serviços e regiões azure para os quais estão disponíveis pontos finais de serviço, consulte [os pontos finais](../../virtual-network/virtual-network-service-endpoints-overview.md)do serviço de rede Virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
-Veja [padrões e práticas recomendadas de segurança do Azure](best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar suas soluções de nuvem usando o Azure.
+Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança azure para obter mais práticas de segurança para usar quando está a projetar, implementar e gerir as suas soluções em nuvem utilizando o Azure.

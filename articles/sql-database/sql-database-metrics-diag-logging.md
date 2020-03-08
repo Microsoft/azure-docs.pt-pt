@@ -12,11 +12,11 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/24/2020
 ms.openlocfilehash: dead8b95446009880c36f97a095aee4aaae0579d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587367"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365452"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Extração de métricas de base de dados Azure SQL e diagnósticos
 

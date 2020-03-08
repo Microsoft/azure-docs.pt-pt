@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
 ms.openlocfilehash: 8c919326607100d48db1f681fd587776d2b88483
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368884"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383657"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar uma piscina de anfitriões usando o Azure Marketplace
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Executar o Azure Marketplace oferecendo para fornecer um novo pool de anfitriões
 

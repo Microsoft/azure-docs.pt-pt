@@ -12,11 +12,11 @@ ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5952f17c83b778e8713488b5c53c9f210c84a146
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200481"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390498"
 ---
 # <a name="quickstart-scale-compute-in-in-azure-synapse-analytics-sql-pool-using-azure-powershell"></a>Quickstart: Scale compute in in Azure Synapse Analytics SQL pool usando Azure PowerShell
 

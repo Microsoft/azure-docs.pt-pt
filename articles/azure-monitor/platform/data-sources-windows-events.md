@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670513"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394385"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows registra fontes de dados no Monitor De Eventos do Windows no Monitor Azure
 Os registos do Windows Event são uma das fontes de dados mais [comuns](agent-data-sources.md) para a recolha de dados utilizando agentes do Windows, uma vez que muitas aplicações escrevem para o registo de eventos do Windows.  Pode recolher eventos a partir de registos padrão, como Sistema e Aplicação, além de especificar quaisquer registos personalizados criados por aplicações que precisa de monitorizar.

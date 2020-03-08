@@ -1,6 +1,6 @@
 ---
-title: Executar um failover de teste (análise de recuperação de desastre) no Azure no Azure Site Recovery
-description: Saiba mais sobre como executar um failover de teste do local para o Azure, usando o serviço de Azure Site Recovery.
+title: Faça um teste de failover (broca de recuperação de desastres) para Azure em Recuperação do Local azure
+description: Saiba mais sobre a execução de um teste de failover de in-instalações para Azure, utilizando o serviço de recuperação do site Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,72 +8,72 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091746"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362769"
 ---
-# <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Executar um failover de teste (análise de recuperação de desastre) no Azure 
+# <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Faça um teste failover (broca de recuperação de desastres) para Azure 
 
 
-Este artigo descreve como executar uma análise de recuperação de desastre no Azure, usando um failover de teste Site Recovery.  
+Este artigo descreve como executar um exercício de recuperação de desastres para Azure, usando um teste de recuperação do site failover.  
 
-Você executa um failover de teste para validar sua estratégia de replicação e recuperação de desastre, sem nenhuma perda de dados ou tempo de inatividade. Um failover de teste não afeta a replicação em andamento ou o ambiente de produção. Você pode executar um failover de teste em uma VM (máquina virtual) específica ou em um [plano de recuperação](site-recovery-create-recovery-plans.md) que contém várias VMS.
+Executa um teste falhado para validar a sua estratégia de replicação e recuperação de desastres, sem qualquer perda de dados ou tempo de inatividade. Uma falha no teste não afeta a replicação em curso, nem o seu ambiente de produção. Pode executar uma falha de teste numa máquina virtual específica (VM), ou num plano de [recuperação](site-recovery-create-recovery-plans.md) contendo vários VMs.
 
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
-Este procedimento descreve como executar um failover de teste para um plano de recuperação. Se você quiser executar um failover de teste para uma única VM, siga as etapas descritas [aqui](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
+Este procedimento descreve como executar um teste falhado para um plano de recuperação. Se quiser fazer um teste falhado para um único VM, siga os passos descritos [aqui](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
 ![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. Em Site Recovery no portal do Azure, clique em **planos de recuperação** > recoveryplan_name **failover de teste**do > .
-2. Selecione um **ponto de recuperação** para o qual fazer failover. Pode utilizar uma das opções seguintes:
-    - **Mais recente processado**: essa opção faz failover de todas as VMs no plano para o último ponto de recuperação processado pelo site Recovery. Para ver o ponto de recuperação mais recente de uma VM específica, verifique os **pontos de recuperação mais recentes** nas configurações da VM. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
-    - **Consistente com o aplicativo mais recente**: essa opção faz failover de todas as VMs no plano para o ponto de recuperação consistente com o aplicativo mais recente processado pelo site Recovery. Para ver o ponto de recuperação mais recente de uma VM específica, verifique os **pontos de recuperação mais recentes** nas configurações da VM.
-    - **Mais recente**: essa opção primeiro processa todos os dados que foram enviados para site Recovery serviço, para criar um ponto de recuperação para cada VM antes de fazer failover para ela. Essa opção fornece o RPO mais baixo (objetivo de ponto de recuperação), pois a VM criada após o failover terá todos os dados replicados para Site Recovery quando o failover foi disparado.
-    - **Várias VMs processadas mais recentemente**: essa opção está disponível para planos de recuperação com uma ou mais VMs com consistência de várias VMs habilitada. As VMs com a configuração habilitada fazem failover para o ponto de recuperação consistente de várias VMs comum mais recente. Outras VMs fazem failover para o último ponto de recuperação processado.  
-    - **Várias VMs mais recentes consistentes**com o aplicativo: essa opção está disponível para planos de recuperação com uma ou mais VMs com consistência de várias VMs habilitada. As VMs que fazem parte de um grupo de replicação fazem failover para o ponto de recuperação mais recente consistente com o aplicativo de várias VMs comum. Outras VMs fazem failover para o ponto de recuperação consistente com o aplicativo mais recente.
-    - **Personalizado**: Use essa opção para fazer failover de uma VM específica para um ponto de recuperação específico.
-3. Selecione uma rede virtual do Azure na qual as VMs de teste serão criadas.
+1. Na recuperação do site no portal Azure, clique em Planos de **Recuperação** > recoveryplan_name falha *de* **teste** > .
+2. Selecione um **Ponto de Recuperação** para o qual falhar. Pode utilizar uma das opções seguintes:
+    - **Mais recente processado**: Esta opção falha em todos os VMs no plano para o mais recente ponto de recuperação processado pela Recuperação do Site. Para ver o mais recente ponto de recuperação de um VM específico, verifique os **últimos pontos** de recuperação nas definições vM. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
+    - **Mais recente aplicação consistente**: Esta opção falha em todos os VMs no plano para o mais recente ponto de recuperação consistente de aplicações processado pela Recovery do Site. Para ver o mais recente ponto de recuperação de um VM específico, verifique os **últimos pontos** de recuperação nas definições vM.
+    - **Mais recente**: Esta opção processa primeiro todos os dados que foram enviados para o serviço de Recuperação do Site, para criar um ponto de recuperação para cada VM antes de falhar. Esta opção fornece o RPO mais baixo (Objetivo do Ponto de Recuperação), porque o VM criado após a falha terá todos os dados replicados para a Recuperação do Local quando a falha foi desencadeada.
+    - **Mais recente processo multi-VM**: Esta opção está disponível para planos de recuperação com um ou mais VMs que têm consistência multi-VM ativada. Os VMs com a definição ativada falham até ao último ponto de recuperação consistente multi-VM comum. Outros VMs falham até ao último ponto de recuperação processado.  
+    - **Mais recente aplicação multi-VM consistente**: Esta opção está disponível para planos de recuperação com um ou mais VMs que têm consistência multi-VM ativada. VMs que fazem parte de um grupo de replicação falham até ao mais recente ponto de recuperação consistente com aplicação multi-VM comum. Outros VMs falham no seu mais recente ponto de recuperação consistente com aplicações.
+    - **Personalizado**: Utilize esta opção para falhar sobre um VM específico para um determinado ponto de recuperação.
+3. Selecione uma rede virtual Azure na qual serão criados VMs de teste.
 
-    - Site Recovery tenta criar VMs de teste em uma sub-rede com o mesmo nome e o mesmo endereço IP que o fornecido nas configurações de **computação e rede** da VM.
-    - Se uma sub-rede com o mesmo nome não estiver disponível na rede virtual do Azure usada para failover de teste, a VM de teste será criada na primeira sub-rede em ordem alfabética.
-    - Se o mesmo endereço IP não estiver disponível na sub-rede, a VM receberá outro endereço IP disponível na sub-rede. [Saiba mais](#create-a-network-for-test-failover).
-4. Se você estiver fazendo failover no Azure e a criptografia de dados estiver habilitada, em **chave de criptografia**, selecione o certificado que foi emitido quando você habilitou a criptografia durante a instalação do provedor. Você poderá ignorar essa etapa se a criptografia não estiver habilitada.
-5. Acompanhe o progresso do failover na guia **trabalhos** . Você deve ser capaz de ver o computador de réplica de teste no portal do Azure.
-6. Para iniciar uma conexão RDP com a VM do Azure, você precisa [Adicionar um endereço IP público](https://aka.ms/addpublicip) na interface de rede da VM com failover.
-7. Quando tudo estiver funcionando conforme o esperado, clique em **limpar failover de teste**. Isso exclui as VMs que foram criadas durante o failover de teste.
+    - A Recuperação do Site tenta criar VMs de teste numa subnet com o mesmo nome e mesmo endereço IP que o fornecido nas definições de **Compute e Rede** do VM.
+    - Se uma sub-rede com o mesmo nome não estiver disponível na rede virtual Azure utilizada para o teste failover, então o VM de teste é criado na primeira sub-rede alfabéticamente.
+    - Se o mesmo endereço IP não estiver disponível na sub-rede, então o VM recebe outro endereço IP disponível na sub-rede. [Saiba mais](#create-a-network-for-test-failover).
+4. Se estiver a falhar com o Azure e a encriptação de dados estiver ativada, na **Chave de Encriptação,** selecione o certificado que foi emitido quando ativou a encriptação durante a instalação do Fornecedor. Pode ignorar este passo se a encriptação não estiver ativada.
+5. Falha no progresso no separador **Jobs.** Deve poder ver a máquina de réplica de teste no portal Azure.
+6. Para iniciar uma ligação RDP ao VM Azure, é necessário [adicionar um endereço IP público](https://aka.ms/addpublicip) na interface de rede do VM falhado.
+7. Quando tudo estiver a funcionar como esperado, clique em **failover**do teste de limpeza . Isto elimina os VMs que foram criados durante a falha do teste.
 8. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
 
 
 ![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
-Quando um failover de teste é disparado, ocorre o seguinte:
+Quando um teste é acionado, ocorre o seguinte:
 
-1. **Pré-requisitos**: uma verificação de pré-requisitos é executada para garantir que todas as condições necessárias para o failover sejam atendidas.
-2. **Failover**: os processos de failover e preparados os dados para que uma VM do Azure possa ser criada a partir dele.
-3. **Mais recente**: se você tiver escolhido o último ponto de recuperação, um ponto de recuperação será criado a partir dos dados que foram enviados para o serviço.
-4. **Início**: esta etapa cria uma máquina virtual do Azure usando os dados processados na etapa anterior.
+1. **Pré-requisitos**: Uma verificação prévia corre para garantir que todas as condições necessárias para a falha são satisfeitas.
+2. **Failover**: Os processos de failover e preparados os dados, para que um VM Azure possa ser criado a partir dele.
+3. **Mais recente**: Se escolheu o último ponto de recuperação, é criado um ponto de recuperação a partir dos dados enviados para o serviço.
+4. **Início**: Este passo cria uma máquina virtual Azure utilizando os dados tratados no passo anterior.
 
 ### <a name="failover-timing"></a>Tempo de failover
 
-Nos cenários a seguir, o failover requer uma etapa intermediária extra que geralmente leva cerca de 8 a 10 minutos para ser concluído:
+Nos seguintes cenários, a failover requer um passo intermédio extra que normalmente demora cerca de 8 a 10 minutos para completar:
 
-* VMs VMware executando uma versão do serviço de mobilidade com mais de 9,8
+* VMware VMs executando uma versão do serviço mobility com mais de 9.8
 * Servidores físicos
-* VMs VMware Linux
-* VM Hyper-V protegida como servidores físicos
-* VM do VMware em que os drivers a seguir não são drivers de inicialização:
+* VMware Linux VMs
+* VM hiper-V protegido como servidores físicos
+* VMware VM onde os seguintes condutores não são condutores de botas:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * intelide
     * atapi
-* VM do VMware que não tem o DHCP habilitado, independentemente de estar usando endereços IP estáticos ou DHCP.
+* VMware VM que não tem DHCP ativado , independentemente de estarem a usar endereços IP DHCP ou estáticos.
 
-Em todos os outros casos, nenhuma etapa intermediária não é necessária e o failover leva significativamente menos tempo.
+Em todos os outros casos, não é necessário um passo intermédio e a falha demora significativamente menos tempo.
 
 
 ## <a name="create-a-network-for-test-failover"></a>Criar uma rede para ativação pós-falha de teste
@@ -85,32 +85,32 @@ Recomendamos que, para a ativação pós-falha de teste, escolha uma rede isolad
 - Atualize o DNS da rede de teste com o endereço IP especificado para a VM de DNS nas definições **Computação e Rede**. Leia as [considerações sobre a ativação pós-falha do Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obter mais detalhes.
 
 
-## <a name="test-failover-to-a-production-network-in-the-recovery-site"></a>Failover de teste para uma rede de produção no local de recuperação
+## <a name="test-failover-to-a-production-network-in-the-recovery-site"></a>Falha de teste numa rede de produção no local de recuperação
 
-Embora seja recomendável usar uma rede de teste separada da sua rede de produção, se você quiser testar uma análise de recuperação de desastre em sua rede de produção, observe o seguinte:
+Embora tenhamos recomendado que utilize uma rede de teste separada da sua rede de produção, se pretender testar um exercício de recuperação de desastres na sua rede de produção, note o seguinte:
 
-- Certifique-se de que a VM primária seja desligada quando você executar o failover de teste. Caso contrário, haverá duas VMs com a mesma identidade, em execução na mesma rede ao mesmo tempo. Isso pode levar a consequências inesperadas.
-- As alterações nas VMs criadas para o failover de teste são perdidas quando você limpa o failover. Essas alterações não são replicadas de volta para a VM primária.
-- O teste em seu ambiente de produção leva a um tempo de inatividade do seu aplicativo de produção. Os usuários não devem usar aplicativos em execução em VMs quando o failover de teste estiver em andamento.  
+- Certifique-se de que o VM primário é desligado quando executar o teste falhar. Caso contrário, haverá dois VMs com a mesma identidade, funcionando na mesma rede ao mesmo tempo. Isto pode levar a consequências inesperadas.
+- Quaisquer alterações aos VMs criadas para falhas no teste perdem-se quando se limpa a falha. Estas alterações não são replicadas de volta ao VM primário.
+- Os testes no seu ambiente de produção conduzem a um tempo de inatividade da sua aplicação de produção. Os utilizadores não devem utilizar aplicações em VMs quando o teste está em curso.  
 
 
 
-## <a name="prepare-active-directory-and-dns"></a>Preparar Active Directory e DNS
+## <a name="prepare-active-directory-and-dns"></a>Preparar Diretório Ativo e DNS
 
-Para executar um failover de teste para testes de aplicativos, você precisa de uma cópia do ambiente de Active Directory de produção em seu ambiente de teste. Leia [considerações de failover de teste para Active Directory](site-recovery-active-directory.md#test-failover-considerations) para saber mais.
+Para executar uma falha no teste de teste de aplicação, precisa de uma cópia do seu ambiente de diretório ativo de produção no seu ambiente de teste. Leia as considerações de [failover do teste para o Diretório Ativo](site-recovery-active-directory.md#test-failover-considerations) para saber mais.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
 
-Se você quiser se conectar a VMs do Azure usando RDP/SSH após o failover, siga os requisitos resumidos na tabela.
+Se pretender ligar-se aos VMs Azure utilizando RDP/SSH após a falha, siga os requisitos resumidos na tabela.
 
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
-**VM do Azure executando o Windows** | Computador local antes do failover | Para acessar a VM do Azure pela Internet, habilite o RDP e verifique se as regras de TCP e UDP foram adicionadas para o **público**e se o RDP é permitido para todos os perfis no **Firewall do Windows** > **aplicativos permitidos**.<br/><br/> Para acessar a VM do Azure em uma conexão site a site, habilite o RDP no computador e verifique se o RDP é permitido no **Firewall do Windows** -> **aplicativos e recursos permitidos**, para redes de **domínio e privadas** .<br/><br/>  Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não haja nenhuma atualização do Windows pendente na VM quando você disparar um failover. O Windows Update pode ser iniciado durante o failover e você não poderá fazer logon na VM até que a atualização seja concluída.
-**VM do Azure executando o Windows** | VM do Azure após o failover |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança de rede na VM com failover (e a sub-rede do Azure à qual ela está conectada) precisam permitir conexões de entrada para a porta RDP.<br/><br/> Verifique o **diagnóstico de inicialização** para verificar uma captura de tela da VM.<br/><br/> Se você não conseguir se conectar, verifique se a VM está em execução e examine essas [dicas de solução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-**VM do Azure executando Linux** | Computador local antes do failover | Verifique se o serviço de Secure Shell na VM está definido para iniciar automaticamente na inicialização do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
-**VM do Azure executando Linux** | VM do Azure após o failover | As regras do grupo de segurança de rede na VM com failover (e a sub-rede do Azure à qual ela está conectada) precisam permitir conexões de entrada para a porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique o **diagnóstico de inicialização** para obter uma captura de tela da VM.<br/><br/>
+**Vitrina Azure VM executando janelas** | Máquina no local antes da falha | Para aceder ao Azure VM através da internet, ativar o RDP e certificar-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis no **Windows Firewall** > **Permitidas Apps**.<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative rdP na máquina e certifique-se de que o RDP é permitido no **Windows Firewall** -> **permitidas aplicações e funcionalidades**, para redes **De domínio e privadas.**<br/><br/>  Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. A atualização do Windows poderá começar quando falhar novamente e não poderá entrar no VM até que a atualização esteja concluída.
+**Vitrina Azure VM executando janelas** | VM Azure após falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) precisam de permitir a entrada de ligações à porta RDP.<br/><br/> Verifique os **diagnósticos da Boot** para verificar uma imagem do VM.<br/><br/> Se não conseguir ligar, verifique se o VM está em execução e reveja estas dicas de resolução de [problemas.](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+**Azure VM executando Linux** | Máquina no local antes da falha | Certifique-se de que o serviço Secure Shell no VM está programado para começar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
+**Azure VM executando Linux** | VM Azure após falha | As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique os **diagnósticos** da Boot para obter uma imagem do VM.<br/><br/>
 
 Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de concluir uma análise de recuperação de desastres, saiba mais sobre outros tipos de [failover](site-recovery-failover.md).
+Depois de completar um exercício de recuperação de desastres, saiba mais sobre outros tipos de [falhas.](site-recovery-failover.md)

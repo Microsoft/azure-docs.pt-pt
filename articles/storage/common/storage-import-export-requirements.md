@@ -9,11 +9,11 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978479"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360938"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
 
@@ -21,13 +21,13 @@ Este artigo descreve os requisitos importantes para o seu serviço importar/expo
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-Para preparar as unidades de disco rígido usando a ferramenta de WAImportExport, o seguinte procedimento **SO de 64 bits que suportam encriptação de unidade BitLocker** são suportados.
+Para preparar os discos rígidos utilizando a ferramenta WAImportExport, são suportados os seguintes **64 bits OS que suportam a encriptação bitLocker Drive.**
 
 
 |Plataforma |Versão |
 |---------|---------|
-|Windows     | O Windows 7 Enterprise, Windows 7 Ultimate <br> O Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
-|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
+|Windows     | O Windows 7 Enterprise, Windows 7 Ultimate <br> O Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Outro software necessário para o cliente do Windows
 
@@ -41,23 +41,23 @@ Para preparar as unidades de disco rígido usando a ferramenta de WAImportExport
 
 O serviço importar/exportar do Azure suporta os seguintes tipos de contas de armazenamento:
 
-- Contas de armazenamento Standard Uso Geral v2 (recomendado para a maioria dos cenários)
-- Contas de Armazenamento de Blobs
-- Uso Geral contas de armazenamento V1 (implantações clássicas ou Azure Resource Manager),
+- Contas de armazenamento Padrão General Purpose v2 (recomendadas para a maioria dos cenários)
+- Contas de Armazenamento de blobs
+- Contas de armazenamento V1 de Propósito Geral (ambas implantações de Classic ou Azure Resource Manager),
 
-Para obter mais informações sobre contas de armazenamento, consulte [descrição geral de contas de armazenamento do Azure](storage-account-overview.md).
+Para obter mais informações sobre contas de armazenamento, consulte a visão geral das contas de [armazenamento do Azure.](storage-account-overview.md)
 
-Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-account-create.md).
+Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre a criação de uma nova conta de armazenamento, consulte [Como Criar uma Conta de Armazenamento](storage-account-create.md).
 
 > [!IMPORTANT]
-> O serviço de exportação de importação do Azure não suporta contas de armazenamento onde o [pontos finais de serviço de rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) funcionalidade foi ativada. 
+> O serviço de exportação de importações azure não suporta contas de armazenamento onde o [serviço de rede virtual Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) funcionalidade foi ativado. 
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento suportadas
 
 A seguinte lista de tipos de armazenamento é suportada com o serviço importar/exportar do Azure.
 
 
-|Tarefa  |Serviço de armazenamento |Suportadas  |Não suportado  |
+|Tarefa  |Serviço de armazenamento |Suportado  |Não suportado  |
 |---------|---------|---------|---------|
 |Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de ficheiros do Azure       | Blobs de página e Blobs de blocos suportados <br><br> Ficheiros suportados          |
 |Exportar     |   Armazenamento de Blobs do Azure       | Os blobs de blocos, blobs de páginas e blobs de acréscimo suportados         | Ficheiros do Azure não suportados
@@ -72,15 +72,15 @@ Para o serviço importar/exportar do Azure, terá de discos suportados para copi
 A seguinte lista de discos é suportada para utilização com o serviço de importação/exportação.
 
 
-|Tipo de disco  |Tamanho  |Suportadas |
+|Tipo de disco  |Tamanho  |Suportado |
 |---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3.5"       |SATA II, SATA III         |
 
-Não há suporte para os seguintes tipos de disco:
+Os seguintes tipos de disco não são suportados:
 - USBs.
-- HDD externo com adaptador USB interno.
-- Discos que estão dentro dos compartimentos de uma HDD externa.
+- HDD externo com adaptador USB incorporado.
+- Discos que estão dentro do invólucro de um HDD externo.
 
 Uma tarefa de importação/exportação única pode ter:
 - Um máximo de 10 HDD/SSDs.
@@ -93,6 +93,6 @@ Quando preparar unidades de disco rígido e copiar os dados usando a ferramenta 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurar a ferramenta de WAImportExport](storage-import-export-tool-how-to.md)
+* [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comandos AzCopy](storage-use-azcopy.md)
-* [Exemplo de importar exportar a API de REST do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
+* [Amostra de API de exportação de importação de azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

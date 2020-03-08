@@ -1,7 +1,7 @@
 ---
-title: Como usar as chaves de criação e tempo de execução-LUIS
+title: Como utilizar as chaves de autoria e tempo de funcionamento - LUIS
 titleSuffix: Azure Cognitive Services
-description: Ao usar o Reconhecimento vocal (LUIS) pela primeira vez, você não precisa criar uma chave de criação. Quando você pretende publicar o aplicativo, use o ponto de extremidade do tempo de execução, você precisa criar e atribuir a chave de tempo de execução ao aplicativo.
+description: Quando utiliza pela primeira vez a Compreensão da Linguagem (LUIS), não precisa de criar uma chave de autor. Quando pretende publicar a aplicação, em seguida, use o seu ponto final de prazo de execução, você precisa criar e atribuir a chave de tempo de execução para a app.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,144 +11,144 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225563"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668451"
 ---
-# <a name="using-authoring-and-runtime-resource-keys"></a>Usando chaves de recurso de criação e tempo de execução
+# <a name="using-authoring-and-runtime-resource-keys"></a>Utilização de chaves de recursos de autoria e tempo de execução
 
-Os recursos de criação e tempo de execução fornecem autenticação para seu aplicativo LUIS e ponto de extremidade de previsão.
+Os recursos de autoria e tempo de execução fornecem autenticação à sua app LUIS e ponto final de previsão.
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
-Ao entrar no portal do LUIS, você pode optar por continuar com:
+Quando iniciar sessão no portal LUIS, pode optar por continuar com:
 
-* uma [chave de avaliação](#trial-key) gratuita-fornecendo criação e algumas consultas de ponto de extremidade de previsão.
-* um recurso de [criação de Luis](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) do Azure. 
+* uma [chave de teste](#trial-key) gratuita - fornecendo autoria e algumas consultas finais de previsão.
+* um recurso de autoria Azure [LUIS.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) 
 
 
 <a name="starter-key"></a>
 
-## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Entre no portal do LUIS e comece a criar
+## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Inscreva-se no portal LUIS e comece a autoria
 
-1. Entre no [portal do Luis](https://www.luis.ai) e concorde com os termos de uso.
-1. Inicie seu aplicativo LUIS escolhendo o tipo de chave de criação do LUIS que você gostaria de usar: chave de avaliação gratuita ou nova chave de criação do Azure LUIS. 
+1. Inscreva-se no [portal LUIS](https://www.luis.ai) e concorde com os termos de utilização.
+1. Inicie a sua aplicação LUIS escolhendo o tipo de chave de autor LUIS que gostaria de usar: chave de teste gratuito, ou nova chave de autor do Azure LUIS. 
 
-    ![Escolha um tipo de Reconhecimento vocal recurso de criação](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+    ![Escolha um tipo de recurso de autor de compreensão linguística](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-1. Quando você terminar com o processo de seleção de recursos, [crie um novo aplicativo](luis-how-to-start-new-app.md#create-new-app-in-luis). 
+1. Quando terminar o seu processo de seleção de recursos, [crie uma nova app.](luis-how-to-start-new-app.md#create-new-app-in-luis) 
 
-## <a name="trial-key"></a>Chave de avaliação
+## <a name="trial-key"></a>Chave do julgamento
 
-A chave de avaliação (inicial) é fornecida para você. Ele é usado como sua chave de autenticação para consultar o tempo de execução de ponto de extremidade de previsão, até 1000 consultas por mês. 
+A chave do ensaio (arranque) está prevista para si. É usado como chave de autenticação para consulta do prazo de execução do ponto final da previsão, até 1000 consultas por mês. 
 
-Ele é visível na página de **configurações do usuário** e nas páginas de **recursos do Azure manage->** no portal do Luis. 
+É visível tanto na página de **Definições** do Utilizador como nas páginas **de recursos Do Manage &> Azure** no portal LUIS. 
 
-Quando você estiver pronto para publicar seu ponto de extremidade de previsão, crie e atribua chaves de criação e de tempo de execução de previsão para substituir a funcionalidade de chave inicial. 
+Quando estiver pronto para publicar o seu ponto final de previsão, crie e atribua chaves de execução de autoria e previsão, para substituir a funcionalidade da chave de arranque. 
 
-## <a name="create-resources-in-the-azure-portal"></a>Criar recursos no portal do Azure
+## <a name="create-resources-in-the-azure-portal"></a>Criar recursos no portal Azure
 
-1. Use [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) para abrir o portal do Azure em para a criação de recursos.
-1. Selecione **ambos** para criar uma chave de tempo de execução de criação de ponto de extremidade de previsão. 
-1. Insira as informações necessárias para criar o recurso e, em seguida, selecione **criar** para concluir o processo.
+1. Utilize [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) para abrir o portal Azure para a criação de recursos.
+1. Selecione **Ambos** para criar uma chave de execução de ponto final de previsão. 
+1. Introduza as informações necessárias para criar o recurso e, em seguida, selecione **Criar** para terminar o processo.
 
-    ![Criar o recurso de reconhecimento de idioma](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
+    ![Criar o recurso de compreensão da linguagem](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
     |Nome|Objetivo|
     |--|--|
-    |Nome do recurso| Um nome personalizado que você escolhe, usado como parte da URL para suas consultas de ponto de extremidade de criação e previsão.|
-    |Nome da assinatura| a assinatura que será cobrada para o recurso.|
-    |Grupo de recursos| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem que você agrupe recursos do Azure para acesso e gerenciamento na mesma região.|
-    |Local de criação|A região associada ao seu modelo.|
-    |Tipo de preço de criação|O tipo de preço determina a transação máxima por segundo e mês.|
-    |Local do tempo de execução|A região associada ao tempo de execução do ponto de extremidade de previsão publicado.|
-    |Tipo de preço de tempo de execução|O tipo de preço determina a transação máxima por segundo e mês.|
+    |Nome do recurso| Um nome personalizado que escolher, usado como parte do URL para as suas consultas de autor e ponto final de previsão.|
+    |Nome da subscrição| a subscrição que será faturada para o recurso.|
+    |Grupo de recursos| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem-lhe agrupar os recursos do Azure para acesso e gestão na mesma região.|
+    |Localização de autoria|A região associada ao seu modelo.|
+    |Nível de preços de autoria|O nível de preços determina a transação máxima por segundo e mês.|
+    |Localização do tempo de execução|A região associada ao seu tempo de execução de previsão publicada.|
+    |Nível de preços de tempo de execução|O nível de preços determina a transação máxima por segundo e mês.|
 
-    Depois que ambos os recursos forem criados, atribua os recursos no portal do LUIS.
+    Uma vez criados os dois recursos, atribua os recursos no portal LUIS.
 
-## <a name="create-resources-in-azure-cli"></a>Criar recursos no CLI do Azure
+## <a name="create-resources-in-azure-cli"></a>Criar recursos no Azure CLI
 
-Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente. 
+Utilize o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente. 
 
 `kind`de recursos:
 
-* Criação: `LUIS.Authoring`
+* Autoria: `LUIS.Authoring`
 * Previsão: `LUIS` 
 
-1. Entre no CLI do Azure:
+1. Inscreva-se no Azure CLI:
 
-    ```console
+    ```azurecli
     az login
     ```
 
-    Isso abre um navegador para permitir que você selecione a conta correta e forneça a autenticação.
+    Isto abre um navegador para permitir selecionar a conta correta e fornecer autenticação.
 
-1. Crie um **recurso de criação de Luis**, do tipo `LUIS.Authoring`, chamado `my-luis-authoring-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região de `westus`. 
+1. Criar um **recurso de autoria LUIS**, tipo `LUIS.Authoring`, denominado `my-luis-authoring-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região `westus`. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Crie um **recurso de ponto de extremidade de previsão Luis**, do tipo `LUIS`, chamado `my-luis-prediction-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região de `westus`. Se você quiser uma taxa de transferência mais alta do que a camada gratuita, altere `F0` para `S0`. Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-boundaries.md#key-limits).
+1. Criar um recurso de ponto final de **previsão LUIS**, de tipo `LUIS`, nomeado `my-luis-prediction-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região `westus`. Se quiser uma entrada superior à do nível livre, mude `F0` para `S0`. Saiba mais sobre os níveis de [preços e a entrada.](luis-boundaries.md#key-limits)
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
     > [!Note] 
-    > Essas chaves **não** são usadas pelo portal do Luis até que sejam atribuídas no portal do Luis nos **recursos do Azure gerenciar->** .
+    > Estas chaves **não** são utilizadas pelo portal LUIS até serem atribuídas no portal LUIS sobre os **recursos Manage &> Azure**.
 
-## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Atribuir um recurso de criação no portal do LUIS para todos os aplicativos
+## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Atribuir um recurso de autoria no portal LUIS para todas as aplicações
 
-Você pode atribuir um recurso de criação para um único aplicativo ou para todos os aplicativos no LUIS. O procedimento a seguir atribui todos os aplicativos a um único recurso de criação.
+Pode atribuir um recurso de autoria para uma única aplicação ou para todas as aplicações em LUIS. O procedimento seguinte atribui todas as aplicações a um único recurso de autoria.
 
-1. Entre no portal do [Luis](https://www.luis.ai).
-1. Na barra de navegação superior, à extrema direita, selecione sua conta de usuário e, em seguida, selecione **configurações**.
-1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Selecione **Guardar**. 
+1. Inscreva-se no [portal LUIS.](https://www.luis.ai)
+1. Na barra de navegação superior, à extrema-direita, selecione a sua conta de utilizador e, em seguida, selecione **Definições**.
+1. Na página **Definições** do Utilizador, selecione **Adicionar recurso de autor** e, em seguida, selecione um recurso de autor existente. Selecione **Guardar**. 
 
-## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
+## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a uma aplicação
 
-Você pode atribuir um único recurso, criação ou tempo de execução de ponto de extremidade de previsão a um aplicativo com o procedimento a seguir.
+Pode atribuir um único recurso, autoria ou previsão de prazo final, a uma aplicação com o seguinte procedimento.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione um aplicativo na lista **meus aplicativos** .
-1. Navegue até a página **gerenciar > recursos do Azure** .
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e, em seguida, selecione uma aplicação da lista **de aplicações My.**
+1. Navegue para a página **de recursos Manage &> Azure.**
 
-    ![Selecione Gerenciar-> recursos do Azure no portal do LUIS para atribuir um recurso ao aplicativo.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+    ![Selecione os recursos Manage -> Azure no portal LUIS para atribuir um recurso à app.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
-1. Selecione a guia Previsão ou recurso de criação e, em seguida, selecione o botão **Adicionar recurso de previsão** ou **Adicionar recurso de criação** . 
-1. Selecione os campos no formulário para localizar o recurso correto e, em seguida, selecione **salvar**.  
+1. Selecione o separador de recursos de previsão ou autor e, em seguida, selecione o **recurso de previsão Adicionar** ou adicionar o botão de recurso **autor.** 
+1. Selecione os campos no formulário para encontrar o recurso correto e, em seguida, **selecione Guardar**.  
 
-### <a name="assign-runtime-resource-without-using-luis-portal"></a>Atribuir recurso de tempo de execução sem usar o portal do LUIS
+### <a name="assign-runtime-resource-without-using-luis-portal"></a>Atribuir recurso de tempo de execução sem usar o portal LUIS
 
-Para fins de automação, como um pipeline de CI/CD, talvez você queira automatizar a atribuição de um recurso de tempo de execução LUIS para um aplicativo LUIS. Para fazer isso, você precisa executar as seguintes etapas:
+Para fins de automação, como um pipeline CI/CD, pode querer automatizar a atribuição de um recurso de tempo de execução LUIS a uma aplicação LUIS. Para isso, é necessário realizar os seguintes passos:
 
-1. Obtenha um Azure Resource Manager token deste [site](https://resources.azure.com/api/token?plaintext=true). Este token expirar então, utilizá-lo imediatamente. O pedido devolve um token do Azure Resource Manager.
+1. Obtenha um token Do Gestor de Recursos Azure deste [site](https://resources.azure.com/api/token?plaintext=true). Este token expirar então, utilizá-lo imediatamente. O pedido devolve um token do Azure Resource Manager.
 
-    ![Solicitar token Azure Resource Manager e receber token de Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
+    ![Solicite ficha do Gestor de Recursos Azure e receba ficha do Gestor de Recursos Azure](./media/luis-manage-keys/get-arm-token.png)
 
-1. Use o token para solicitar os recursos de tempo de execução LUIS entre assinaturas, da [API Get Luis Azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), à qual sua conta de usuário tem acesso. 
+1. Utilize o símbolo para solicitar os recursos de tempo de execução da LUIS através de subscrições, a partir das [contas Get LUIS azure API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a que a sua conta de utilizador tem acesso. 
 
     Esta API de publicação requer as seguintes definições:
 
     |Cabeçalho|Valor|
     |--|--|
-    |`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e por um espaço.| 
-    |`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
+    |`Authorization`|O valor do `Authorization` é `Bearer {token}`. Note que o valor simbólico deve ser precedido pela palavra `Bearer` e um espaço.| 
+    |`Ocp-Apim-Subscription-Key`|A sua chave de autoria.|
 
     Esta API devolve uma matriz de objetos JSON das suas subscrições de LUIS, incluindo o ID de subscrição, o grupo de recursos e o nome de recurso, retornado como o nome da conta. Encontre um item na matriz que é o recurso de LUIS para atribuir à aplicação LUIS. 
 
-1. Atribua o token ao recurso LUIS com [atribuir uma Luis contas do Azure a uma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API de aplicativo. 
+1. Atribuir o símbolo ao recurso LUIS com as contas do API da Atribuição de um API de [aplicação.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) 
 
     Esta API de publicação requer as seguintes definições:
 
     |Tipo|Definição|Valor|
     |--|--|--|
-    |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e por um espaço.|
-    |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
+    |Cabeçalho|`Authorization`|O valor do `Authorization` é `Bearer {token}`. Note que o valor simbólico deve ser precedido pela palavra `Bearer` e um espaço.|
+    |Cabeçalho|`Ocp-Apim-Subscription-Key`|A sua chave de autoria.|
     |Cabeçalho|`Content-type`|`application/json`|
     |Cadeia de consulta|`appid`|Pelo ID de aplicação do LUIS. 
     |Corpo||{"AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup 2",<br>"AccountName": "luis-uswest-S0-2"}|
@@ -157,46 +157,46 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
 ## <a name="unassign-resource"></a>Anular a atribuição de recursos
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione um aplicativo na lista **meus aplicativos** .
-1. Navegue até a página **gerenciar > recursos do Azure** .
-1. Selecione a guia recurso de previsão ou criação e, em seguida, selecione o botão **desatribuir recurso** para o recurso. 
+1. Inscreva-se no [portal LUIS](https://www.luis.ai)e, em seguida, selecione uma aplicação da lista **de aplicações My.**
+1. Navegue para a página **de recursos Manage &> Azure.**
+1. Selecione o separador de recursos de Previsão ou Autor e, em seguida, selecione o botão **de recurso Unassign** para o recurso. 
 
-Quando você cancelar a atribuição de um recurso, ele não será excluído do Azure. Só é desassociado do LUIS. 
+Quando não atribua um recurso, não é eliminado do Azure. Só é desassociado do LUIS. 
 
 ## <a name="reset-authoring-key"></a>Repor a chave de criação
 
-**Para a criação de aplicativos [migrados](luis-migration-authoring.md)** : se a sua chave de criação estiver comprometida, redefina a chave no portal do Azure na página **chaves** desse recurso de criação. 
+**Para a autoria de aplicações [migradas](luis-migration-authoring.md)** por recursos : se a sua chave de autor estiver comprometida, reponha a chave no portal Azure na página **Keys** para esse recurso de autoria. 
 
-**Para aplicativos que ainda não foram migrados**: a chave é redefinida em todos os seus aplicativos no portal do Luis. Se você criar seus aplicativos por meio de APIs de criação, precisará alterar o valor de OCP-APIM-Subscription-Key para a nova chave.
+**Para aplicações que ainda não migraram**: a chave é redefinida em todas as suas aplicações no portal LUIS. Se possuir as suas aplicações através das APIs de autoria, terá de alterar o valor da Chave de Assinatura Ocp-Apim para a nova chave.
 
-## <a name="regenerate-azure-key"></a>Regenerar chave do Azure
+## <a name="regenerate-azure-key"></a>Chave De regeneração de Azure
 
-Gere novamente as chaves do Azure no portal do Azure, na página **chaves** .
+Regenerar as teclas Azure do portal Azure, na página **Keys.**
 
 ## <a name="delete-account"></a>Eliminar conta
 
-Consulte [armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta.
+Consulte o [armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais os dados eliminados quando eliminar a sua conta.
 
 ## <a name="change-pricing-tier"></a>Alterar escalão de preço
 
-1.  No [Azure](https://portal.azure.com), encontre sua assinatura do Luis. Selecione a assinatura LUIS.
-    ![encontrar sua assinatura do LUIS](./media/luis-usage-tiers/find.png)
-1.  Selecione **tipo de preço** para ver os tipos de preço disponíveis. 
-    ![exibir tipos de preço](./media/luis-usage-tiers/subscription.png)
-1.  Selecione o tipo de preço e selecione **selecionar** para salvar a alteração. 
-    ![alterar sua camada de pagamento do LUIS](./media/luis-usage-tiers/plans.png)
+1.  Em [Azure,](https://portal.azure.com)encontre a sua assinatura LUIS. Selecione a subscrição LUIS.
+    ![Encontre o seu](./media/luis-usage-tiers/find.png) de subscrição LUIS
+1.  Selecione **o nível** de preços para ver os níveis de preços disponíveis. 
+    ![Ver os níveis de preços](./media/luis-usage-tiers/subscription.png)
+1.  Selecione o nível de preços e selecione **Selecione** para guardar a sua alteração. 
+    ![Alterar o seu](./media/luis-usage-tiers/plans.png) de nível de pagamento LUIS
 1.  Quando a alteração de preços estiver concluída, uma janela de pop-up verifica se o novo escalão de preços. 
-    ![verificar sua camada de pagamento do LUIS](./media/luis-usage-tiers/updated.png)
-1. Lembre-se de [atribuir essa chave de ponto de extremidade](#assign-a-resource-to-an-app) na página de **publicação** e usá-la em todas as consultas de ponto de extremidade. 
+    ![Verifique o seu](./media/luis-usage-tiers/updated.png) de nível de pagamento LUIS
+1. Lembre-se de [atribuir esta chave de ponto final](#assign-a-resource-to-an-app) na página **Publicar** e usá-la em todas as consultas de ponto final. 
 
-## <a name="viewing-azure-resource-metrics"></a>Exibindo métricas de recursos do Azure
+## <a name="viewing-azure-resource-metrics"></a>Visualização das métricas de recursos do Azure
 
-### <a name="viewing-azure-resource-summary-usage"></a>Exibindo o uso do Resumo de recursos do Azure
-Pode ver informações de utilização do LUIS no Azure. A página **visão geral** mostra informações de resumo recentes, incluindo chamadas e erros. Se você fizer uma solicitação de ponto de extremidade LUIS, observe imediatamente a **página Visão geral**, aguarde até cinco minutos para que o uso apareça.
+### <a name="viewing-azure-resource-summary-usage"></a>Visualização do uso do resumo do recurso Azure
+Pode ver informações de utilização do LUIS no Azure. A página **de visão geral** mostra informações sumárias recentes, incluindo chamadas e erros. Se fizer um pedido de ponto final luis, consulte imediatamente a **página 'Overview',** deixe até cinco minutos para que a utilização apareça.
 
 ![Ver utilização de resumo](./media/luis-usage-tiers/overview.png)
 
-### <a name="customizing-azure-resource-usage-charts"></a>Personalizando gráficos de uso de recursos do Azure
+### <a name="customizing-azure-resource-usage-charts"></a>Personalização de gráficos de utilização de recursos Azure
 Metrics fornece uma visão mais detalhada sobre os dados.
 
 ![Métricas predefinidas](./media/luis-usage-tiers/metrics-default.png)
@@ -210,11 +210,11 @@ Se quiser saber quando atingiu um certo limite da transação, por exemplo 10 00
 
 ![Alertas de predefinição](./media/luis-usage-tiers/alert-default.png)
 
-Adicione um alerta de métrica para a métrica **total de chamadas** para um determinado período de tempo. Adicione endereços de e-mail de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Também pode executar uma aplicação lógica quando o alerta é acionado. 
+Adicione um alerta métrico para a métrica total das **chamadas** durante um determinado período de tempo. Adicione endereços de e-mail de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Também pode executar uma aplicação lógica quando o alerta é acionado. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba [como usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida do aplicativo.
-* Entenda os conceitos, incluindo o [recurso de criação](luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
-* Saiba [como criar](luis-how-to-azure-subscription.md) recursos de criação e tempo de execução
-* Migrar para o novo [recurso de criação](luis-migration-authoring.md) 
+* Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o seu ciclo de vida da aplicação.
+* Compreenda os conceitos, incluindo o [recurso de autoria](luis-concept-keys.md#authoring-key) e os [contribuintes](luis-concept-keys.md#contributions-from-other-authors) desse recurso.
+* Aprenda [a criar](luis-how-to-azure-subscription.md) recursos de autoria e tempo de funcionamento
+* Migrar para o novo [recurso de autoria](luis-migration-authoring.md) 

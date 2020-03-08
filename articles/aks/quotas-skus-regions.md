@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 03e7396932f0813ef4bd00d644dcdaddfe229e6a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594554"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375179"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, restrições ao tamanho da máquina virtual e disponibilidade da região no Serviço Azure Kubernetes (AKS)
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
 ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390782"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (Pré-visualização)
 
@@ -73,25 +73,25 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 O quadro seguinte descreve a alocação mínima e recomendada de recursos para cada recipiente da Fala.
 
-# <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de voz em texto | 2 núcleo, 2-GB memória | 4 núcleos, 4-GB de memória |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Discurso personalizado a texto](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Discurso personalizado a texto](#tab/cstt)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Discurso personalizado a texto | 2 núcleo, 2-GB memória | 4 núcleos, 4-GB de memória |
 
-# <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de texto em voz | 1 núcleo, 2-GB de memória | 2 núcleo, 3-GB de memória |
 
-# <a name="custom-text-to-speechtabctts"></a>[Texto-a-fala personalizado](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Texto-a-fala personalizado](#tab/ctts)
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
@@ -110,25 +110,25 @@ O núcleo e a memória correspondem às definições `--cpus` e `--memory`, que 
 
 As imagens do contentor para a Fala estão disponíveis no seguinte Registo de Contentores.
 
-# <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 | Contentor | Repositório |
 |-----------|------------|
 | Conversão de voz em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Discurso personalizado a texto](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Discurso personalizado a texto](#tab/cstt)
 
 | Contentor | Repositório |
 |-----------|------------|
 | Discurso personalizado a texto | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
 
 | Contentor | Repositório |
 |-----------|------------|
 | Conversão de texto em voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[Texto-a-fala personalizado](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Texto-a-fala personalizado](#tab/ctts)
 
 | Contentor | Repositório |
 |-----------|------------|
@@ -140,7 +140,7 @@ As imagens do contentor para a Fala estão disponíveis no seguinte Registo de C
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker puxar para os contentores da fala
 
-# <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker puxar para o recipiente discurso-a-texto
 
@@ -169,7 +169,7 @@ A seguinte etiqueta é um exemplo do formato:
 
 Para todos os locais apoiados do recipiente **de discurso a texto,** consulte [as etiquetas](../containers/container-image-tags.md#speech-to-text)de imagem do Discurso ao Texto .
 
-# <a name="custom-speech-to-texttabcstt"></a>[Discurso personalizado a texto](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Discurso personalizado a texto](#tab/cstt)
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker puxar para o recipiente discurso-a-texto personalizado
 
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > A `locale` e `voice` para recipientes de discurso personalizados é determinada pelo modelo personalizado ingerido pelo recipiente.
 
-# <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker puxar para o recipiente texto-a-discurso
 
@@ -214,7 +214,7 @@ Para todos os locais apoiados e vozes correspondentes do recipiente **texto-a-fa
 > [!IMPORTANT]
 > Ao construir um *código de texto-a-fala* HTTP POST, a mensagem de marcação da síntese da [fala (SSML)](speech-synthesis-markup.md) requer um elemento `voice` com um atributo `name`. O valor é o local e a voz correspondentes do contentor, também conhecido como ["nome curto".](language-support.md#standard-voices) Por exemplo, a etiqueta `latest` teria um nome de voz de `en-US-JessaRUS`.
 
-# <a name="custom-text-to-speechtabctts"></a>[Texto-a-fala personalizado](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Texto-a-fala personalizado](#tab/ctts)
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker puxar para o recipiente de texto-a-fala personalizado
 
@@ -240,7 +240,7 @@ Uma vez que o recipiente esteja no [computador de acolhimento,](#the-host-comput
 
 Use o comando de execução de [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o recipiente. Consulte a recolha de [parâmetros necessários](#gathering-required-parameters) para obter os valores `{Endpoint_URI}` e `{API_Key}`. [Exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do comando `docker run` também estão disponíveis.
 
-# <a name="speech-to-texttabstt"></a>[Conversão de voz em texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 Para executar o recipiente *Discurso-a-texto,* execute o seguinte comando `docker run`.
 
@@ -259,7 +259,7 @@ Este comando:
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Discurso personalizado a texto](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Discurso personalizado a texto](#tab/cstt)
 
 O recipiente *discurso-texto personalizado baseia-se* num modelo de fala personalizado. O modelo personalizado tem de ter sido [treinado](how-to-custom-speech-train-model.md) usando o portal de [discurso personalizado.](https://speech.microsoft.com/customspeech)
 
@@ -311,7 +311,7 @@ Este comando:
 * Se o modelo personalizado foi previamente descarregado, o `ModelId` é ignorado.
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
 
-# <a name="text-to-speechtabtts"></a>[Conversão de texto em voz](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
 
 Para executar o recipiente *Texto-a-fala,* execute o seguinte comando `docker run`.
 
@@ -330,7 +330,7 @@ Este comando:
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente após a sua saída. A imagem do recipiente ainda está disponível no computador hospedeiro.
 
-# <a name="custom-text-to-speechtabctts"></a>[Texto-a-fala personalizado](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Texto-a-fala personalizado](#tab/ctts)
 
 O recipiente *de texto-a-fala personalizado baseia-se* num modelo de voz personalizado. O modelo personalizado tem de ter sido [treinado](how-to-custom-voice-create-voice.md) utilizando o [portal de voz personalizado.](https://aka.ms/custom-voice-portal) O **ID** modelo de voz personalizado é necessário para executar o recipiente. Pode ser encontrado na página de **Treino** do portal de voz personalizado. A partir do portal de voz personalizado, navegue até à página **de Formação** e selecione o modelo.
 <br>

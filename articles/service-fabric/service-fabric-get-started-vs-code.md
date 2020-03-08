@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251639"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361244"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Tecido de serviço para código de estúdio visual
 
@@ -50,7 +50,7 @@ Devem ser instalados os seguintes pré-requisitos para o .NET Core/desenvolvimen
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (versão 2.0.0 ou posterior)
 * [para Código de Estúdio Visual (alimentado por OmniSharp) extensão do código VS C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Precisava de C# depurar serviços. Pode instalar-se clicando no ícone das Extensões na Barra de **Atividade** sem Código VS e procurando a extensão, ou a partir do Mercado de Código VS.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Configurar
 
 1. Código VS aberto.
 2. Clique no ícone de Extensões na Barra de **Atividade** no lado esquerdo do Código VS. Pesquisa por "Tecido de Serviço". Clique em **instalar** para a extensão de serviço de serviço de serviço fiável serviços.

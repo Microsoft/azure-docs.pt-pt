@@ -1,6 +1,6 @@
 ---
-title: Senhas banidas dinamicamente-Azure Active Directory
-description: Proíba senhas fracas do seu ambiente com senhas banidas dinamicamente do Azure AD
+title: Senhas dinamicamente proibidas - Diretório Ativo Azure
+description: Proíba palavras-passe fracas do seu ambiente com palavras-passe do Azure AD dinamicamente proibidas
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,169 +12,169 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848617"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377895"
 ---
-# <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas inadequadas em sua organização
+# <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine as más palavras-passe na sua organização
 
-Líderes do setor informam que você não usa a mesma senha em vários lugares, para torná-lo complexo e para não torná-lo simples como "Password123". Como as organizações podem garantir que seus usuários estejam seguindo as diretrizes de práticas recomendadas? Como eles podem garantir que os usuários não estejam usando senhas fracas ou até mesmo variações de senhas fracas?
+Os líderes do setor dizem-lhe para não usar a mesma senha em vários lugares, para torná-la complexa, e para não torná-la simples como "Password123". Como podem as organizações garantir que os seus utilizadores estão a seguir orientações de boas práticas? Como podem certificar-se de que os utilizadores não estão a usar senhas fracas ou mesmo variações em palavras-passe fracas?
 
-A etapa inicial de ter senhas mais fortes é fornecer orientação aos seus usuários. As diretrizes atuais da Microsoft sobre este tópico podem ser encontradas no seguinte link:
+O passo inicial para ter senhas mais fortes é fornecer orientação aos seus utilizadores. A orientação atual da Microsoft sobre este tópico pode ser encontrada no seguinte link:
 
-[Diretrizes de senha da Microsoft](https://www.microsoft.com/research/publication/password-guidance)
+[Orientação da palavra-passe da Microsoft](https://www.microsoft.com/research/publication/password-guidance)
 
-Ter uma boa orientação é importante, mas mesmo com isso, sabemos que muitos usuários ainda acabarão escolhendo senhas fracas. A proteção de senha do Azure AD protege sua organização detectando e bloqueando senhas fracas conhecidas e suas variantes, bem como, opcionalmente, bloqueando termos fracos adicionais que são específicos para sua organização.
+Ter uma boa orientação é importante, mas mesmo com isso sabemos que muitos utilizadores ainda vão acabar por escolher senhas fracas. A Proteção de Passwords Azure AD protege a sua organização detetando e bloqueando senhas fracas conhecidas e suas variantes, bem como bloqueando opcionalmente termos fracos adicionais específicos da sua organização.
 
-Para obter mais informações sobre os esforços de segurança atuais, consulte o [relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report).
+Para obter mais informações sobre os esforços de segurança atuais, consulte o Relatório de Inteligência de Segurança da [Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="global-banned-password-list"></a>Lista de senhas banidas globais
+## <a name="global-banned-password-list"></a>Lista global de senhas proibidas
 
-A equipe de Azure AD Identity Protection analisa constantemente os dados de telemetria de segurança do Azure AD procurando senhas fracas ou comprometidas comumente usadas, ou mais especificamente, os termos de base fracos que geralmente são usados como base para senhas fracas. Quando esses termos fracos são encontrados, eles são adicionados à lista de senhas globais banidas. O conteúdo da lista de senhas excluídas global não se baseia em nenhuma fonte de dados externa. A lista de senhas globais banidas baseia-se inteiramente nos resultados contínuos da telemetria e análise de segurança do Azure AD.
+A equipa de Proteção de Identidade da Azure AD analisa constantemente os dados de telemetria de segurança da Azure AD à procura de senhas fracas ou comprometidas comumente usadas, ou mais especificamente, os fracos termos de base que muitas vezes são usados como base para senhas fracas. Quando estes termos fracos são encontrados, são adicionados à lista global de senhas proibidas. O conteúdo da lista global de senhas proibidas não se baseia em nenhuma fonte de dados externo. A lista global de senhas proibidas baseia-se inteiramente nos resultados em curso da telemetria e análise de segurança da AD Azure.
 
-Sempre que uma nova senha for alterada ou redefinida para qualquer usuário em qualquer locatário no Azure AD, a versão atual da lista de senhas excluídas global será usada como a entrada de chave ao validar a força da senha. Essa validação resulta em senhas muito mais fortes para todos os clientes do Azure AD.
+Sempre que uma nova palavra-passe é alterada ou reposta para qualquer utilizador em qualquer inquilino em Azure AD, a versão atual da lista global de passwords proibida é usada como a entrada chave ao validar a força da palavra-passe. Esta validação resulta em senhas muito mais fortes para todos os clientes da AD Azure.
 
 > [!NOTE]
-> Os criminosos virtuais também usam estratégias semelhantes em seus ataques. Portanto, a Microsoft não publica o conteúdo dessa lista publicamente.
+> Os cibercriminosos também usam estratégias semelhantes nos seus ataques. Por isso, a Microsoft não publica publica publica publicamente o conteúdo desta lista.
 
-## <a name="custom-banned-password-list"></a>Lista personalizada de senhas banidas
+## <a name="custom-banned-password-list"></a>Lista de senha selada personalizada
 
-Algumas organizações talvez queiram melhorar ainda mais a segurança adicionando suas próprias personalizações sobre a lista de senhas globais banidas, em que a Microsoft chama a lista personalizada de senhas banidas. A Microsoft recomenda que os termos adicionados a essa lista se concentram principalmente em termos específicos da organização, como:
+Algumas organizações podem querer melhorar ainda mais a segurança adicionando as suas próprias personalizações para além da lista global de senhas proibidas no que a Microsoft chama de lista de senhas proibidas personalizadas. A Microsoft recomenda que os termos adicionados a esta lista estejam principalmente focados em termos específicos da organização, tais como:
 
-- Nomes de marca
-- Nomes de produtos
-- Locais (por exemplo, como sede da empresa)
+- Nomes de marcas
+- Nomes do produto
+- Localizações (por exemplo, como sede da empresa)
 - Termos internos específicos da empresa
-- Abreviações que têm significado específico da empresa.
+- Abreviaturas que têm significado específico da empresa.
 
-Depois que os termos forem adicionados à lista de senhas excluídas personalizada, eles serão combinados com os termos na lista de senhas globais banidas ao validar senhas.
+Uma vez adicionados termos à lista de senhas proibidas personalizadas, serão combinados com os termos na lista global de senhas proibidas ao validar palavras-passe.
 
 > [!NOTE]
-> A lista de senhas excluídas personalizada é limitada a ter no máximo 1000 termos. Ele não foi projetado para bloquear listas de senhas extremamente grandes. Para aproveitar totalmente os benefícios da lista personalizada de senhas banidas, a Microsoft recomenda que você primeiro revise e entenda o algoritmo de avaliação de senha (consulte [como as senhas são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated)) antes de adicionar novos termos à lista de proibidos personalizada. Entender como o algoritmo funciona permitirá que sua empresa detecte e bloqueie com eficiência grandes números de senhas fracas e suas variantes.
+> A lista de senhas proibida sércida por costume limita-se a ter um máximo de 1000 termos. Não foi concebido para bloquear listas extremamente grandes de senhas. De forma a alavancar totalmente os benefícios da lista de senhas proibidas personalizadas, a Microsoft recomenda que reveja e compreenda primeiro o algoritmo de avaliação de passwords (ver [como são avaliadas as palavras-passe)](concept-password-ban-bad.md#how-are-passwords-evaluated)antes de adicionar novos termos à lista proibida personalizada. Compreender como funciona o algoritmo permitirá à sua empresa detetar e bloquear eficientemente um grande número de palavras-passe fracas e suas variantes.
 
-Por exemplo: Considere um cliente chamado "contoso", que se baseia em Londres e que torna um produto chamado "widget". Para esse cliente, seria um desperdício, bem como menos seguro, tentar bloquear variações específicas desses termos, como:
+Por exemplo: considere um cliente chamado "Contoso", que tem sede em Londres, e que faz um produto chamado "Widget". Para tal cliente, seria um desperdício e menos seguro tentar bloquear variações específicas destes termos tais como:
 
-- "Contoso! 1"
+- "Contoso!1"
 - "Contoso@London"
 - "ContosoWidget"
-- "! Funcionam
+- "! Contoso"
 - "LondonHQ"
 - ...etcetera
 
-Em vez disso, é muito mais eficiente e seguro Bloquear apenas os termos básicos da chave:
+Em vez disso, é muito mais eficiente e seguro bloquear apenas os termos-chave da base:
 
 - "Contoso"
-- Londres
-- Widget
+- "Londres"
+- "Widget"
 
-O algoritmo de validação de senha bloqueará automaticamente as variantes e as combinações fracas das anteriores.
+O algoritmo de validação de palavra-passe bloqueará automaticamente variantes e combinações fracas das acima referidas.
 
-A lista de senhas excluídas personalizada e a capacidade de habilitar a integração de Active Directory local é gerenciada usando o portal do Azure.
+A lista de senhas proibida saldada personalizada e a capacidade de ativar a integração do Ative Directory no local é gerida através do portal Azure.
 
-![Modificar a lista personalizada de senhas banidas em métodos de autenticação](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modificar a lista de senhas proibidas personalizadas ao abrigo dos Métodos de Autenticação](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
-## <a name="password-spray-attacks-and-third-party-compromised-password-lists"></a>Ataques de irrigação de senha e listas de senhas comprometidas de terceiros
+## <a name="password-spray-attacks-and-third-party-compromised-password-lists"></a>Ataques de spray de senha e listas de senhas comprometidas de terceiros
 
-Um dos principais benefícios da proteção de senha do Azure AD é ajudá-lo a se defender contra ataques de irrigação de senha. A maioria dos ataques de irrigação de senha não tenta atacar uma determinada conta individual mais do que algumas vezes, pois esse comportamento aumenta muito a probabilidade de detecção, seja por meio de bloqueio de conta ou outros meios. A maioria dos ataques de irrigação de senha, portanto, depende do envio apenas de um pequeno número de senhas mais fracas conhecidas em relação a cada uma das contas de uma empresa. Essa técnica permite que o invasor pesquise rapidamente uma conta facilmente comprometida e, ao mesmo tempo, evite limites de detecção potenciais.
+Um dos principais benefícios de proteção de senhas Azure AD é ajudá-lo a defender-se contra ataques de spray de senha. A maioria dos ataques de spray de senha não tenta atacar qualquer conta individual mais do que algumas vezes, uma vez que tal comportamento aumenta consideravelmente a probabilidade de deteção, seja através do bloqueio de conta ou de outros meios. A maioria dos ataques de spray de senha depende, portanto, de submeter apenas um pequeno número das palavras-passe mais fracas conhecidas contra cada uma das contas de uma empresa. Esta técnica permite ao intruso procurar rapidamente uma conta facilmente comprometida, evitando ao mesmo tempo potenciais limiares de deteção.
 
-A proteção de senha do Azure AD é projetada para bloquear com eficiência todas as senhas fracas conhecidas que provavelmente serão usadas em ataques de irrigação de senha, com base em dados de telemetria de segurança do mundo real, como visto pelo Azure AD.  A Microsoft está ciente de sites de terceiros que enumeram milhões de senhas que foram comprometidas em violações de segurança publicamente conhecidas anteriores. É comum que produtos de validação de senha de terceiros sejam baseados em comparação de força bruta contra essas milhões de senhas. A Microsoft acredita que essas técnicas não são a melhor maneira de melhorar a intensidade geral da senha, considerando as estratégias típicas usadas pelos invasores de irrigação de senha.
+A proteção de senhas Azure AD foi concebida para bloquear eficientemente todas as palavras-passe fracas conhecidas que são suscetíveis de serem usadas em ataques com spray de senha, com base em dados de telemetria de segurança no mundo real, como visto pela Azure AD.  A Microsoft está ciente de sites de terceiros que enumeram milhões de senhas que foram comprometidas em anteriores falhas de segurança conhecidas publicamente. É comum que os produtos de validação de palavras-passe de terceiros se baseiem numa comparação de força bruta com esses milhões de palavras-passe. A Microsoft considera que estas técnicas não são a melhor forma de melhorar a força geral da palavra-passe, dadas as estratégias típicas utilizadas pelos atacantes de spray de palavra-passe.
 
 > [!NOTE]
-> A lista de senhas globais banidas da Microsoft não se baseia em nenhuma fonte de dados de terceiros, incluindo listas de senhas comprometidas.
+> A lista global de passwords proibida sem acordo da Microsoft não se baseia em quaisquer fontes de dados de terceiros, incluindo listas de senhas comprometidas.
 
-Embora a lista global de proibidos da Microsoft seja pequena em comparação a algumas listas em massa de terceiros, seus efeitos de segurança são amplificados pelo fato de que ele é originado da telemetria de segurança do mundo real em ataques de irrigação de senha reais, além do fato de que a Microsoft o algoritmo de validação de senha usa técnicas de correspondência de fuzzing inteligente. O resultado final é que ele detectará com eficiência e bloqueará a utilização de milhões de senhas fracas mais comuns em sua empresa. Os clientes que optarem por adicionar termos específicos da organização à lista de senhas excluídas personalizada também se beneficiarão do mesmo algoritmo.
+Embora a lista global proibida da Microsoft seja pequena em comparação com algumas listas a granel de terceiros, os seus efeitos de segurança são amplificados pelo facto de ser proveniente de telemetria de segurança real em ataques de spray de senha real, além do facto de a Microsoft ser obtida. o algoritmo de validação de palavra-passe utiliza técnicas inteligentes de correspondência de difusão. O resultado final é que irá detetar e bloquear eficientemente milhões das senhas fracas mais comuns de serem usadas na sua empresa. Os clientes que optam por adicionar termos específicos da organização à lista de senhas proibidas personalizadas também beneficiam do mesmo algoritmo.
 
-Informações adicionais sobre problemas de segurança baseados em senha podem ser examinadas em [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Informações adicionais sobre questões de segurança baseadas em palavras-passe podem ser revistas no [Seu Pa$$word não importa.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984)
 
-## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos locais
+## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos no local
 
-A proteção de contas somente em nuvem é útil, mas muitas organizações mantêm cenários híbridos, incluindo o Windows Server Active Directory local. Os benefícios de segurança da proteção de senha do Azure AD também podem ser estendidos para o ambiente de Active Directory do Windows Server por meio da instalação de agentes locais. Agora, os usuários e administradores que alteram ou redefinem senhas no Active Directory precisam estar em conformidade com a mesma política de senha que os usuários somente de nuvem.
+Proteger contas apenas na nuvem é útil, mas muitas organizações mantêm cenários híbridos, incluindo no local o Windows Server Ative Directory. Os benefícios de segurança da proteção de passwords Azure AD também podem ser estendidos ao seu ambiente de Diretório Ativo do Windows Server através da instalação de agentes no local. Agora, os utilizadores e administradores que alteram ou reporem palavras-passe no Diretório Ativo são obrigados a cumprir a mesma política de palavra-passe que os utilizadores apenas na nuvem.
 
-## <a name="how-are-passwords-evaluated"></a>Como as senhas são avaliadas
+## <a name="how-are-passwords-evaluated"></a>Como são avaliadas as palavras-passe
 
-Sempre que um usuário altera ou redefine sua senha, a nova senha é verificada quanto à força e à complexidade, validando-a em relação à lista combinada de termos das listas de senhas excluídas globais e personalizadas (se o último estiver configurado).
+Sempre que um utilizador muda ou repõe a sua palavra-passe, a nova palavra-passe é verificada para obter força e complexidade, validando-a contra a lista combinada de termos das listas de palavras-passe proibidas globais e personalizadas (se esta estiver configurada).
 
-Mesmo se a senha de um usuário contiver uma senha banida, a senha ainda poderá ser aceita se a senha geral for forte o suficiente de outra forma. Uma senha recentemente configurada passará pelas etapas a seguir para avaliar sua força geral para determinar se ela deve ser aceita ou rejeitada.
+Mesmo que a palavra-passe de um utilizador contenha uma palavra-passe proibida, a palavra-passe pode ainda ser aceite se a palavra-passe geral for suficientemente forte de outra forma. Uma senha recentemente configurada passará pelos seguintes passos para avaliar a sua força global para determinar se deve ser aceite ou rejeitada.
 
-### <a name="step-1-normalization"></a>Etapa 1: normalização
+### <a name="step-1-normalization"></a>Passo 1: Normalização
 
-Uma nova senha passa pela primeira vez por um processo de normalização. Essa técnica permite que um pequeno conjunto de senhas banidas seja mapeado para um conjunto muito maior de senhas potencialmente fracas.
+Uma nova senha passa primeiro por um processo de normalização. Esta técnica permite que um pequeno conjunto de senhas proibidas seja mapeada para um conjunto muito maior de senhas potencialmente fracas.
 
-A normalização tem duas partes.  Primeiro, todas as letras maiúsculas são alteradas para minúsculas.  Em segundo lugar, são executadas substituições de caracteres comuns, por exemplo:  
+A normalização tem duas partes.  Primeiro, todas as letras maiúsculas são alteradas para minúsculas.  Em segundo lugar, são realizadas substituições comuns de caracteres, por exemplo:  
 
-| Letra original  | Letra substituída |
+| Carta original  | Carta substituída |
 | --- | --- |
-| '0'  | minúscula |
-| '1'  | debug |
-| '$'  | do |
-| "\@"  | um |
+| '0'  | 'o' |
+| '1'  | 'l' |
+| '$'  | 's' |
+| "\@"  | 'A' |
 
-Exemplo: Suponha que a senha "blank" seja banida e um usuário tente alterar sua senha para "Bl@nK". Embora "Bl@nk" não seja especificamente banido, o processo de normalização Converte essa senha em "blank", que é uma senha banida.
+Exemplo: suponha que a palavra-passe "em branco" é proibida e que um utilizador tente alterar a sua palavra-passe para "Bl@nK". Embora "Bl@nk" não seja especificamente proibido, o processo de normalização converte esta palavra-passe em "blank", que é uma senha proibida.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>Etapa 2: verificar se a senha é considerada banida
+### <a name="step-2-check-if-password-is-considered-banned"></a>Passo 2: Verifique se a palavra-passe é considerada proibida
 
-#### <a name="fuzzy-matching-behavior"></a>Comportamento de correspondência difusa
+#### <a name="fuzzy-matching-behavior"></a>Comportamento de correspondência fuzzy
 
-A correspondência difusa é usada na senha normalizada para identificar se ela contém uma senha encontrada nas listas global ou de senhas banidas personalizadas. O processo de correspondência é baseado em uma distância de edição de uma (1) comparação.  
+A correspondência fuzzy é usada na senha normalizada para identificar se contém uma senha encontrada nas listas de senhas proibidas no global ou nas listas de senhas proibidas personalizadas. O processo de correspondência baseia-se numa distância de edição de uma (1) comparação.  
 
-Exemplo: Suponha que a senha "abcdef" seja banida e um usuário tente alterar sua senha para uma das seguintes opções:
+Exemplo: assuma que a palavra-passe "abcdef" é proibida e que um utilizador tente alterar a sua palavra-passe para uma das seguintes palavras::
 
-' abcdeg ' *(último caractere alterado de ' f ' para ' g ')* ' abcdefg ' *' (g ' acrescentado ao final)* ' abcde ' *(' f ' à direita foi excluído do final)*
+'abcdeg' *(última personagem passou de 'f' para 'g')* 'abcdefg' *'(g' anexado ao fim)* 'abcde' *(o trailing 'f' foi apagado do fim)*
 
-Cada uma das senhas acima não corresponde especificamente à senha banida "abcdef". No entanto, como cada exemplo está dentro de uma distância de edição de 1 do termo banido ' abcdef ', eles são considerados como uma correspondência para "abcdef".
+Cada uma das palavras-passe acima não corresponde especificamente à senha proibida "abcdef". No entanto, uma vez que cada exemplo está a uma distância de edição de 1 do termo proibido 'abcdef', todos eles são considerados como um jogo com "abcdef".
 
-#### <a name="substring-matching-on-specific-terms"></a>Correspondência de subcadeia de caracteres (em termos específicos)
+#### <a name="substring-matching-on-specific-terms"></a>Correspondência de substring (em termos específicos)
 
-A correspondência de subcadeia de caracteres é usada na senha normalizada para verificar o nome e o sobrenome do usuário, bem como o nome do locatário (Observe que a correspondência do nome do locatário não é feita ao validar as senhas em um controlador de domínio Active Directory).
+A correspondência de substring é usada na palavra-passe normalizada para verificar o primeiro e último nome do utilizador, bem como o nome do inquilino (note que a correspondência do nome do inquilino não é feita quando valida palavras-passe num controlador de domínio ative directory).
 
-Exemplo: Suponha que tenhamos um User, pol, que deseja redefinir sua senha para "P0l123fb". Após a normalização, essa senha se tornaria "pol123fb". A correspondência de subcadeia de caracteres descobre que a senha contém o nome "pol" do usuário. Embora "P0l123fb" não tenha sido especificamente em uma lista de senhas banidas, a correspondência de subcadeia de caracteres encontrou "pol" na senha. Portanto, essa senha seria rejeitada.
+Exemplo: assuma que temos um utilizador, Pol, que quer redefinir a sua palavra-passe para "P0l123fb". Após a normalização, esta senha tornar-se-ia "pol123fb". A correspondência de subcordas conclui que a palavra-passe contém o primeiro nome do utilizador "Pol". Apesar de "P0l123fb" não estar especificamente na lista de senhas proibida, a correspondência de subcordas encontrou "Pol" na palavra-passe. Portanto, esta palavra-passe seria rejeitada.
 
-#### <a name="score-calculation"></a>Cálculo de Pontuação
+#### <a name="score-calculation"></a>Cálculo da pontuação
 
-A próxima etapa é identificar todas as instâncias de senhas banidas na nova senha normalizada do usuário. Em seguida:
+O próximo passo é identificar todos os casos de senhas proibidas na nova senha normalizada do utilizador. Em seguida:
 
-1. Cada senha banida encontrada na senha de um usuário recebe um ponto.
-2. Cada caractere exclusivo restante recebe um ponto.
-3. Uma senha deve ter pelo menos cinco (5) pontos para ser aceita.
+1. Cada palavra-passe proibida que é encontrada na palavra-passe de um utilizador é dada um ponto.
+2. Cada personagem único restante é dado um ponto.
+3. Uma palavra-passe deve ser de pelo menos cinco (5) pontos para que seja aceite.
 
-Para os próximos dois exemplos, vamos supor que a Contoso está usando a proteção de senha do Azure AD e tem "contoso" em sua lista personalizada. Vamos supor também que "blank" está na lista global.
+Para os próximos dois exemplos, vamos supor que Contoso está a usar a Proteção de Passwords Azure AD e tem "contoso" na sua lista personalizada. Vamos também assumir que "em branco" está na lista global.
 
-Exemplo: um usuário altera sua senha para "C0ntos0Blank12"
+Exemplo: um utilizador altera a sua palavra-passe para "C0ntos0Blank12"
 
-Após a normalização, essa senha se torna "contosoblank12". O processo de correspondência descobre que essa senha contém duas senhas banidas: contoso e Blank. Em seguida, essa senha recebe uma Pontuação:
+Após a normalização, esta palavra-passe torna-se "contosoblank12". O processo de correspondência conclui que esta palavra-passe contém duas senhas proibidas: contoso e em branco. Esta palavra-passe é então dada uma pontuação:
 
-[contoso] + [blank] + [1] + [2] = 4 pontos já que essa senha está abaixo de cinco (5) pontos, ele será rejeitado.
+[contoso] + [blank] + [1] + [2] = 4 pontos Uma vez que esta senha está abaixo de cinco (5) pontos, será rejeitada.
 
-Exemplo: um usuário altera sua senha para "ContoS0Bl@nkf9!".
+Exemplo: um utilizador muda a sua palavra-passe para "ContoS0Bl@nkf9!".
 
-Após a normalização, essa senha se torna "contosoblankf9!". O processo de correspondência descobre que essa senha contém duas senhas banidas: contoso e Blank. Em seguida, essa senha recebe uma Pontuação:
+Após a normalização, esta palavra-passe torna-se "contosoblankf9!". O processo de correspondência conclui que esta palavra-passe contém duas senhas proibidas: contoso e em branco. Esta palavra-passe é então dada uma pontuação:
 
-[contoso] + [blank] + [f] + [9] + [!] = 5 pontos, pois essa senha tem pelo menos cinco (5) pontos, é aceita.
+[contoso] + [em branco] + [f] + [9] + [!] = 5 pontos Uma vez que esta senha é de pelo menos cinco (5) pontos, é aceite.
 
    > [!IMPORTANT]
-   > Observe que o algoritmo de senha banido, junto com a lista global, pode e faz alterações a qualquer momento no Azure com base na análise e pesquisa de segurança contínuas. Para o serviço de agente DC local, os algoritmos atualizados só terão efeito depois que o software do agente DC for reinstalado.
+   > Por favor, note que o algoritmo de senha banido juntamente com a lista global pode e pode mudar a qualquer momento em Azure com base na análise e pesquisa de segurança em curso. Para o serviço de agente DC no local, os algoritmos atualizados só entrarão em vigor após a reinstalação do software do agente DC.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
-|   | Proteção de senha do Azure AD com a lista de senhas banida global | Proteção de senha do Azure AD com a lista de senhas banidas personalizada|
+|   | Proteção de senha da AD Azure com lista global de senhas proibidas | Proteção de senha da AD Azure com lista de senha proibida personalizada|
 | --- | --- | --- |
-| Usuários somente de nuvem | Azure AD Gratuito | Azure AD Premium P1 ou P2 |
-| Usuários sincronizados do Windows Server Active Directory local | Azure AD Premium P1 ou P2 | Azure AD Premium P1 ou P2 |
+| Utilizadores apenas em nuvem | Azure AD Gratuito | Azure AD Premium P1 ou P2 |
+| Utilizadores sincronizados a partir do Diretório Ativo do Servidor do Windows no local | Azure AD Premium P1 ou P2 | Azure AD Premium P1 ou P2 |
 
 > [!NOTE]
-> Os usuários locais do Windows Server Active Directory que não estão sincronizados com o Azure Active Directory também se beneficiam da proteção de senha do Azure AD com base no licenciamento existente para usuários sincronizados.
+> No local, os utilizadores do Windows Server Ative Directory que não estejam sincronizados com o Diretório Ativo do Azure também beneficiam da proteção de passwords Azure AD com base no licenciamento existente para utilizadores sincronizados.
 
-Informações adicionais de licenciamento, incluindo custos, podem ser encontradas no [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Informações adicionais de licenciamento, incluindo custos, podem ser encontradas no site de [preços do Diretório Ativo Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 
-Quando um usuário tenta redefinir uma senha para algo que seria banido, ele vê a seguinte mensagem de erro:
+Quando um utilizador tenta redefinir uma palavra-passe para algo que seria proibido, vê a seguinte mensagem de erro:
 
-Infelizmente, sua senha contém uma palavra, frase ou padrão que torna sua senha facilmente adivinhada. Tente novamente com uma senha diferente.
+Infelizmente, a sua palavra-passe contém uma palavra, frase ou padrão que torna a sua palavra-passe facilmente adiável. Por favor, tente de novo com uma senha diferente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar a lista personalizada de senhas banidas](howto-password-ban-bad.md)
-- [Habilitar agentes de proteção de senha do Azure AD no local](howto-password-ban-bad-on-premises-deploy.md)
+- [Configure a lista de senhas proibidas personalizadas](howto-password-ban-bad.md)
+- [Ativar agentes de proteção de senhas da AD Azure no local](howto-password-ban-bad-on-premises-deploy.md)

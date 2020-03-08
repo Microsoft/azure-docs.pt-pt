@@ -1,6 +1,6 @@
 ---
-title: Usar o portal do Azure para criar um hub IoT | Microsoft Docs
-description: Como criar, gerenciar e excluir os hubs IoT do Azure por meio do portal do Azure. Inclui informações sobre tipos de preço, escala, segurança e configuração de mensagens.
+title: Utilize o portal Azure para criar um Hub IoT [ Hub] Microsoft Docs
+description: Como criar, gerir e eliminar os hubs Azure IoT através do portal Azure. Inclui informações sobre níveis de preços, escalação, segurança e configuração de mensagens.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,120 +8,120 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169612"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396609"
 ---
-# <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um hub IoT usando o portal do Azure
+# <a name="create-an-iot-hub-using-the-azure-portal"></a>Crie um hub IoT usando o portal Azure
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Este artigo descreve como criar e gerenciar hubs IoT usando o [portal do Azure](https://portal.azure.com).
+Este artigo descreve como criar e gerir centros IoT usando o [portal Azure](https://portal.azure.com).
 
-Para usar as etapas deste tutorial, você precisa de uma assinatura do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para utilizar os passos deste tutorial, precisa de uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="change-the-settings-of-the-iot-hub"></a>Alterar as configurações do Hub IoT
+## <a name="change-the-settings-of-the-iot-hub"></a>Alterar as definições do hub IoT
 
-Você pode alterar as configurações de um hub IoT existente após sua criação no painel do Hub IoT.
+Pode alterar as definições de um hub IoT existente depois de ser criado a partir do painel IoT Hub.
 
-![Captura de tela mostrando as configurações do Hub IoT](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
+![Screenshot mostrando as definições para o hub IoT](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
 
 Aqui estão algumas das propriedades que você pode definir para um hub IoT:
 
-**Preço e escala**: você pode usar essa propriedade para migrar para uma camada diferente ou definir o número de unidades do Hub IOT. 
+**Preços e escala**: Pode utilizar esta propriedade para migrar para um nível diferente ou definir o número de unidades IoT Hub. 
 
-**Monitoramento de operações**: ativar ou desativar diferentes categorias de monitoramento, como registro em log de eventos relacionados a mensagens do dispositivo para a nuvem ou a mensagens da nuvem para o dispositivo.
+**Monitorização de operações**: Ligue ou desligue as diferentes categorias de monitorização, tais como o registo de eventos relacionados com mensagens dispositivo-nuvem ou mensagens cloud-to-device.
 
-**Filtro IP**: especifique um intervalo de endereços IP que serão aceitos ou rejeitados pelo Hub IOT.
+**Filtro IP**: Especifique uma gama de endereços IP que serão aceites ou rejeitados pelo hub IoT.
 
-**Propriedades**: fornece a lista de propriedades que você pode copiar e usar em outro lugar, como a ID do recurso, o grupo de recursos, o local e assim por diante.
+**Propriedades**: Fornece a lista de propriedades que pode copiar e utilizar em outros lugares, tais como o ID de recursos, grupo de recursos, localização, e assim por diante.
 
 ### <a name="shared-access-policies"></a>Políticas de acesso partilhado
 
-Você também pode exibir ou modificar a lista de políticas de acesso compartilhado clicando em **políticas de acesso compartilhado** na seção **configurações** . Essas políticas definem as permissões para que dispositivos e serviços se conectem ao Hub IoT. 
+Também pode visualizar ou modificar a lista de políticas de acesso partilhado clicando em políticas de **acesso partilhado** na secção **Definições.** Estas políticas definem as permissões para que dispositivos e serviços se conectem ao IoT Hub. 
 
-Clique em **Adicionar** para abrir a folha **Adicionar uma política de acesso compartilhado** .  Você pode inserir o nome da nova política e as permissões que deseja associar a essa política, conforme mostrado na figura a seguir:
+Clique em **Adicionar** para abrir a lâmina de política de **acesso partilhado.**  Pode introduzir o novo nome de política e as permissões que pretende associar a esta política, como mostra a seguinte figura:
 
-![Captura de tela mostrando a adição de uma política de acesso compartilhado](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
+![Screenshot mostrando adicionar uma política de acesso compartilhado](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* As políticas de **leitura** e **gravação** do registro concedem direitos de acesso de leitura e gravação ao registro de identidade. Essas permissões são usadas pelos serviços de nuvem de back-end para gerenciar identidades de dispositivo. A escolha da opção de gravação escolhe automaticamente a opção de leitura.
+* As políticas de leitura e **escrita** do **Registo** concedem direitos de leitura e de acesso ao registo de identidade. Estas permissões são usadas por serviços de nuvem de back-end para gerir identidades do dispositivo. Escolher a opção de escrita escolhe automaticamente a opção de leitura.
 
-* A política de **conexão de serviço** concede permissão para acessar pontos de extremidade de serviço. Essa permissão é usada pelos serviços de nuvem de back-end para enviar e receber mensagens de dispositivos, bem como para atualizar e ler dados de dispositivo e do módulo.
+* A política **de ligação** do Serviço concede permissão para aceder a pontos finais do serviço. Esta permissão é utilizada pelos serviços de nuvem de back-end para enviar e receber mensagens de dispositivos, bem como para atualizar e ler dados gémeos e de dois módulos do dispositivo.
 
-* A política de **conexão de dispositivo** concede permissões para enviar e receber mensagens usando os pontos de extremidade do lado do dispositivo do Hub IOT. Essa permissão é usada pelos dispositivos para enviar e receber mensagens de um hub IoT, atualizar e ler os dados do dispositivo e do módulo e executar carregamentos de arquivos.
+* A política de **ligação do Dispositivo** concede permissões para o envio e receção de mensagens utilizando os pontos finais do dispositivo IoT Hub. Esta permissão é utilizada por dispositivos para enviar e receber mensagens de um hub IoT, atualizar e ler dados gémeos e módulos do dispositivo e executar uploads de ficheiros.
 
-Clique em **criar** para adicionar essa política recém-criada à lista existente.
+Clique em **Criar** para adicionar esta política recém-criada à lista existente.
 
-Para obter informações mais detalhadas sobre o acesso concedido por permissões específicas, consulte [permissões do Hub IOT](./iot-hub-devguide-security.md#iot-hub-permissions).
+Para obter informações mais detalhadas sobre o acesso concedido por permissões específicas, consulte [as permissões do IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no Hub IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registe um novo dispositivo no hub IoT
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="message-routing-for-an-iot-hub"></a>Roteamento de mensagens para um hub IoT
+## <a name="message-routing-for-an-iot-hub"></a>Message Routing para um hub IoT
 
-Clique em **Roteamento de mensagens** em **mensagens** para ver o painel roteamento de mensagens, onde você define rotas e pontos de extremidade personalizados para o Hub. O [Roteamento de mensagens](iot-hub-devguide-messages-d2c.md) permite que você gerencie como os dados são enviados de seus dispositivos para seus pontos de extremidade. A primeira etapa é adicionar uma nova rota. Em seguida, você pode adicionar um ponto de extremidade existente à rota ou criar um novo dos tipos com suporte, como o armazenamento de BLOBs. 
+Clique em **Message Routing** em **Mensagens** para ver o painel de encaminhamento de mensagens, onde define rotas e pontos finais personalizados para o hub. [O encaminhamento de mensagens](iot-hub-devguide-messages-d2c.md) permite-lhe gerir a forma como os dados são enviados dos seus dispositivos para os seus pontos finais. O primeiro passo é adicionar uma nova rota. Em seguida, você pode adicionar um ponto final existente à rota, ou criar um novo dos tipos suportados, como o armazenamento de bolhas. 
 
-![Painel de roteamento de mensagens](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
+![Painel de encaminhamento de mensagens](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
 ### <a name="routes"></a>Rotas
 
-Rotas é a primeira guia no painel roteamento de mensagens. Para adicionar uma nova rota, clique em +**Adicionar**. Você verá a tela a seguir. 
+As rotas são o primeiro separador no painel de encaminhamento de mensagens. Para adicionar uma nova rota, clique +**Adicionar**. Vê o seguinte ecrã. 
 
-![Captura de tela mostrando a adição de uma nova rota](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
+![Screenshot mostrando adicionar uma nova rota](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Nomeie o Hub. O nome deve ser exclusivo na lista de rotas para esse Hub. 
+Diga o nome do seu centro. O nome deve ser único dentro da lista de rotas para aquele centro. 
 
-Para **ponto de extremidade**, você pode selecionar um na lista suspensa ou adicionar um novo. Neste exemplo, uma conta de armazenamento e um contêiner já estão disponíveis. Para adicioná-los como um ponto de extremidade, clique em +**Adicionar** ao lado da lista suspensa ponto de extremidade e selecione **armazenamento de BLOBs**. A tela a seguir mostra onde a conta de armazenamento e o contêiner são especificados.
+Para **Endpoint,** pode selecionar um da lista de dropdown, ou adicionar um novo. Neste exemplo, já está disponível uma conta de armazenamento e um contentor. Para adicioná-las como ponto final, clique +**Adicione** ao lado do dropdown endpoint e selecione **Blob Storage**. O ecrã seguinte mostra onde a conta de armazenamento e o recipiente são especificados.
 
-![Captura de tela mostrando a adição de um ponto de extremidade de armazenamento para a regra de roteamento](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
+![Screenshot mostrando adicionar um ponto final de armazenamento para a regra de encaminhamento](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
-Clique em **escolher um contêiner** para selecionar a conta de armazenamento e o contêiner. Quando você seleciona esses campos, ele retorna para o painel ponto de extremidade. Use os padrões para o restante dos campos e **crie** para criar o ponto de extremidade para a conta de armazenamento e adicioná-lo às regras de roteamento.
+Clique **em escolher um recipiente** para selecionar a conta de armazenamento e o recipiente. Quando selecionou esses campos, regressa ao painel Endpoint. Utilize os predefinições para o resto dos campos e **crie** para criar o ponto final para a conta de armazenamento e adicioná-lo às regras de encaminhamento.
 
-Para **fonte de dados**, selecione mensagens de telemetria do dispositivo. 
+Para **obter dados,** selecione Mensagens de Telemetria do Dispositivo. 
 
-Em seguida, adicione uma consulta de roteamento. Neste exemplo, as mensagens que têm uma propriedade de aplicativo chamada `level` com um valor igual a `critical` são roteadas para a conta de armazenamento.
+Em seguida, adicione uma consulta de encaminhamento. Neste exemplo, as mensagens que têm um imóvel de aplicação chamado `level` com um valor igual ao `critical` são encaminhados para a conta de armazenamento.
 
-![Captura de tela mostrando salvar uma nova regra de roteamento](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
+![Screenshot mostrando salvar uma nova regra de encaminhamento](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
 
-Clique em **salvar** para salvar a regra de roteamento. Você retorna ao painel roteamento de mensagens e a nova regra de roteamento é exibida.
+Clique em **Guardar** para salvar a regra de encaminhamento. Volta sê-lo ao painel de encaminhamento de mensagens e é apresentada a sua nova regra de encaminhamento.
 
 ### <a name="custom-endpoints"></a>Pontos finais personalizados
 
-Clique na guia **pontos de extremidade personalizados** . Você verá todos os pontos de extremidade personalizados já criados. A partir daqui, você pode adicionar novos pontos de extremidade ou excluir pontos de extremidade existentes. 
+Clique no separador **de pontos finais Personalizado.** Você vê quaisquer pontos finais personalizados já criados. A partir daqui, pode adicionar novos pontos finais ou eliminar os pontos finais existentes. 
 
 > [!NOTE]
-> Se você excluir uma rota, ela não excluirá os pontos de extremidade atribuídos a essa rota. Para excluir um ponto de extremidade, clique na guia pontos de extremidade personalizados, selecione o ponto de extremidades que você deseja excluir e clique em excluir.
+> Se apagar uma rota, não apaga os pontos finais atribuídos a essa rota. Para eliminar um ponto final, clique no separador 'pontos finais' personalizado, selecione o ponto final que pretende eliminar e clique em Eliminar.
 >
 
-Você pode ler mais sobre pontos de extremidade personalizados em [referência – pontos de extremidade do Hub IOT](iot-hub-devguide-endpoints.md).
+Pode ler mais sobre pontos finais personalizados em [Referência - Pontos finais do hub IoT](iot-hub-devguide-endpoints.md).
 
-Você pode definir até 10 pontos de extremidade personalizados para um hub IoT. 
+Pode definir até 10 pontos finais personalizados para um hub IoT. 
 
-Para ver um exemplo completo de como usar pontos de extremidade personalizados com o roteamento, consulte [Roteamento de mensagens com o Hub IOT](tutorial-routing.md).
+Para ver um exemplo completo de como usar pontos finais personalizados com encaminhamento, consulte [o encaminhamento de mensagens com o Hub IoT](tutorial-routing.md).
 
-## <a name="find-a-specific-iot-hub"></a>Localizar um hub IoT específico
+## <a name="find-a-specific-iot-hub"></a>Encontre um hub ioT específico
 
-Aqui estão duas maneiras de encontrar um hub IoT específico em sua assinatura:
+Aqui estão duas maneiras de encontrar um hub ioT específico na sua subscrição:
 
-1. Se você souber o grupo de recursos ao qual o Hub IoT pertence, clique em **grupos de recursos**e selecione o grupo de recursos na lista. A tela grupo de recursos mostra todos os recursos nesse grupo, incluindo os hubs IoT. Clique no Hub para o qual você está olhando.
+1. Se conhecer o grupo de recursos a que pertence o hub IoT, clique em **grupos de Recursos**e, em seguida, selecione o grupo de recursos da lista. O ecrã do grupo de recursos mostra todos os recursos desse grupo, incluindo os hubs IoT. Clique no centro para o qual está procurando.
 
-2. Clique em **Todos os recursos**. No painel **todos os recursos** , há uma lista suspensa que usa como padrão `All types`. Clique na lista suspensa, desmarque `Select all`. Localize `IoT Hub` e marque-o. Clique na caixa de listagem suspensa para fechá-la e as entradas serão filtradas, mostrando apenas os hubs IoT.
+2. Clique em **todos os recursos.** No painel **De Todos os Recursos,** há uma lista de abandono que não se `All types`. Clique na lista de dropdown, desfaça `Select all`. Encontre `IoT Hub` e verifique. Clique na caixa da lista de dropdown para fechá-la e as entradas serão filtradas, mostrando apenas os seus hubs IoT.
 
-## <a name="delete-the-iot-hub"></a>Excluir o Hub IoT
+## <a name="delete-the-iot-hub"></a>Eliminar o hub IoT
 
-Para excluir um hub IOT, localize o Hub IoT que você deseja excluir e, em seguida, clique no botão **excluir** abaixo do nome do Hub IOT.
+Para eliminar um hub de iot, encontre o hub IoT que pretende eliminar e, em seguida, clique no botão **Eliminar** abaixo do nome do hub IoT.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Siga estes links para saber mais sobre como gerenciar o Hub IoT do Azure:
+Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 
-* [Roteamento de mensagens com o Hub IoT](tutorial-routing.md)
+* [Encaminhamento de mensagem com Hub IoT](tutorial-routing.md)
 * [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitorização de operações](iot-hub-operations-monitoring.md)

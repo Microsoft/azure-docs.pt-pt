@@ -1,7 +1,7 @@
 ---
 title: Enviar dados de tinta digital para a API do Reconhecedor de Tinta Digital
 titleSuffix: Azure Cognitive Services
-description: Saiba como chamar a API do analisador de tinta para aplicativos diferentes
+description: Saiba ligar para a API do Analisador de Tinta para diferentes aplicações
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393106"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta digital para a API do Reconhecedor de Tinta Digital 
 
-Tinta digital refere-se às tecnologias que permitem representações digitais de entrada, como escrita manual e desenhos. Normalmente, isso é obtido usando um digitalizador que captura os movimentos dos dispositivos de entrada, como uma caneta. À medida que os dispositivos continuam a permitir experiências avançadas de tinta digital, a inteligência artificial e a aprendizagem automática permitem o reconhecimento de texto e formas escritas em qualquer contexto. A API do reconhecedor de tinta permite que você envie traços de tinta e obtenha informações detalhadas sobre eles. 
+Tinta digital refere-se às tecnologias que permitem representações digitais de entrada, como escrita manual e desenhos. Isto é tipicamente conseguido usando um digitalizador que captura os movimentos de dispositivos de entrada, como um estiluição. À medida que os dispositivos continuam a permitir experiências avançadas de tinta digital, a inteligência artificial e a aprendizagem automática permitem o reconhecimento de texto e formas escritas em qualquer contexto. A API do Reconhecimento de Tinta permite-lhe enviar tacadas de tinta e obter informações detalhadas sobre eles. 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>A API do reconhecedor de tinta vs. Serviços de OCR
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Os serviços de Reconhecimento de Tinta API vs. OCR
 
-A API do reconhecedor de tinta não usa o OCR (reconhecimento óptico de caracteres). Os serviços de OCR processam os dados de pixel de imagens para fornecer manuscrito e reconhecimento de texto. Isso às vezes é chamado de reconhecimento offline. Em vez disso, a API do reconhecedor de tinta requer dados de traço de tinta digital que são capturados conforme o dispositivo de entrada é usado. O processamento de dados de tinta digital dessa maneira pode produzir resultados de reconhecimento mais precisos em comparação com os serviços de OCR. 
+A API do reconhecimento de tinta não utiliza reconhecimento ótico de caracteres (OCR). Os serviços oCR processam os dados de pixel a partir de imagens para fornecer caligrafia e reconhecimento de texto. Isto às vezes é chamado reconhecimento offline. Em vez disso, a API do Reconhecimento de Tinta requer dados digitais de traçado de tinta que são capturados à medida que o dispositivo de entrada é usado. O processamento de dados de tinta digital desta forma pode produzir resultados de reconhecimento mais precisos em comparação com os serviços OCR. 
 
-## <a name="sending-ink-data"></a>Enviando dados de tinta
+## <a name="sending-ink-data"></a>Envio de dados de tinta
 
-A API do reconhecedor de tinta requer as coordenadas X e Y que representam os traços de tinta criados por um dispositivo de entrada, desde o momento em que ela toca a superfície de detecção quando ela é levantada. Os pontos de cada traço devem ser uma cadeia de caracteres de valores separados por vírgula e ser formatados em JSON, como o exemplo a seguir. Além disso, cada traço de tinta deve ter uma ID exclusiva em cada solicitação. Se a ID for repetida dentro da mesma solicitação, a API retornará um erro. Para obter os resultados de reconhecimento mais precisos, tenha pelo menos oito dígitos após o ponto decimal. Pressupõe-se que a origem (0,0) da tela seja o canto superior esquerdo da tela de escrita à tinta.
+A API do Reconhecimento de Tinta requer as coordenadas X e Y que representam os traços de tinta criados por um dispositivo de entrada, desde o momento em que toca na superfície de deteção até ao momento em que é levantada. Os pontos de cada traçado devem ser uma série de valores separados de vírem, e ser formatados em JSON como o exemplo abaixo. Além disso, cada tacada de tinta deve ter uma identificação única em cada pedido. Se o ID for repetido dentro do mesmo pedido, a API devolverá um erro. Para obter os resultados de reconhecimento mais precisos, tenha pelo menos oito dígitos após o ponto decimal. A origem (0,0) da tela é assumida como o canto superior esquerdo da tela de tinta.
 
 > [!NOTE]
-> O exemplo a seguir não é um JSON válido. Você pode encontrar uma solicitação JSON de reconhecedor de tinta completa no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089909).
+> O exemplo que se segue não é válido jSON. Você pode encontrar um pedido json reconhecível de tinta completo no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089909).
  
 ```json
 {
@@ -56,40 +56,40 @@ A API do reconhecedor de tinta requer as coordenadas X e Y que representam os tr
 }
 ```
 
-## <a name="ink-recognizer-response"></a>Resposta do reconhecedor de tinta
+## <a name="ink-recognizer-response"></a>Resposta do reconhecimento de tinta
 
-A API do reconhecedor de tinta retorna uma resposta de análise sobre os objetos reconhecidos do conteúdo de tinta. A resposta contém unidades de reconhecimento que descrevem as relações entre diferentes traços de tinta. Por exemplo, os traços que criam formas distintas separadas serão contidas em unidades diferentes. Cada unidade contém informações detalhadas sobre seus traços de tinta, incluindo o objeto reconhecido, suas coordenadas e outros atributos de desenho.
+A API do Reconhecimento de Tinta devolve uma resposta de análise sobre os objetos que reconheceu a partir do conteúdo da tinta. A resposta contém unidades de reconhecimento que descrevem as relações entre diferentes tacadas de tinta. Por exemplo, os derrames que criam formas distintas e separadas serão contidos em diferentes unidades. Cada unidade contém informações detalhadas sobre os seus traços de tinta, incluindo o objeto reconhecido, as suas coordenadas e outros atributos de desenho.
 
-## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Formas reconhecidas pela API do reconhecedor de tinta
+## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Formas reconhecidas pela API do Reconhecimento de Tinta
 
-A API do reconhecedor de tinta pode identificar as formas usadas com mais frequência no note. A imagem abaixo mostra alguns exemplos básicos. Para obter uma lista completa de formas e outros conteúdos de tinta reconhecidos pela API, consulte o [artigo de referência de API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+A API do Reconhecimento de Tinta pode identificar as formas mais usadas na tomada de nota. A imagem abaixo mostra alguns exemplos básicos. Para obter uma lista completa de formas e outros conteúdos de tinta reconhecidos pela [API,](https://go.microsoft.com/fwlink/?linkid=2089907)consulte o artigo de referência da API . 
 
-![A lista de formas reconhecidas pela API do reconhecedor de tinta](../media/shapes.png)
+![A lista de formas reconhecidas pela API do Reconhecimento de Tinta](../media/shapes.png)
 
 ## <a name="recommended-calling-patterns"></a>Padrões de chamada recomendados
 
-Você pode chamar a API REST do reconhecedor de tinta em padrões diferentes de acordo com seu aplicativo. 
+Pode chamar a API REST Reconheço-tinta em diferentes padrões de acordo com a sua aplicação. 
 
-### <a name="user-initiated-api-calls"></a>Chamadas à API iniciadas pelo usuário
+### <a name="user-initiated-api-calls"></a>User iniciou chamadas API
 
-Se você estiver criando um aplicativo que usa a entrada do usuário (por exemplo, um aplicativo de anotação ou anotação), talvez queira dar a eles o controle de quando e qual tinta é enviada para a API do reconhecedor de tinta. Essa funcionalidade é especialmente útil quando o texto e as formas estão presentes na tela e os usuários desejam executar ações diferentes para cada um. Considere adicionar recursos de seleção (como um laço ou outra ferramenta de seleção geométrica) que permitem aos usuários escolher o que é enviado para a API.  
+Se estiver a construir uma aplicação que leve a entrada do utilizador (por exemplo, uma aplicação de tomada de nota ou de anotação), poderá querer dar-lhes o controlo de quando e qual a tinta enviada para a API do Reconhecimento de Tinta. Esta funcionalidade é especialmente útil quando texto e formas estão ambos presentes na tela, e os utilizadores querem realizar diferentes ações para cada um. Considere adicionar funcionalidades de seleção (como uma ferramenta de seleção de lasso ou outra geométrica) que permitem aos utilizadores escolher o que é enviado para a API.  
 
-### <a name="app-initiated-api-calls"></a>Chamadas à API iniciadas pelo aplicativo
+### <a name="app-initiated-api-calls"></a>App iniciou chamadas API
 
-Você também pode fazer com que seu aplicativo chame a API do reconhecedor de tinta após um tempo limite. Ao enviar os traços de tinta atuais para a API rotineiramente, você pode armazenar os resultados de reconhecimento à medida que eles são criados ao melhorar o tempo de resposta da API. Por exemplo, você pode enviar uma linha de texto manuscrito para a API depois de detectar que o usuário a concluiu. 
+Também pode ter a sua aplicação chamada API do Reconhecimento de Tinta após um intervalo. Ao enviar os atuais traços de tinta para a API rotineiramente, pode armazenar os resultados do reconhecimento à medida que são criados, melhorando o tempo de resposta da API. Por exemplo, pode enviar uma linha de texto manuscrito para a API depois de detetar que o seu utilizador o completou. 
 
-Ter os resultados do reconhecimento antecipadamente fornece informações sobre as características dos traços de tinta conforme eles se relacionam entre si. Por exemplo, quais traços são agrupados para formar a mesma palavra, linha, lista, parágrafo ou forma. Essas informações podem aprimorar os recursos de seleção de tinta do seu aplicativo, sendo capazes de selecionar grupos de traços de uma só vez, por exemplo.
+Ter o reconhecimento resulta antecipadamente dá-lhe informações sobre as características dos traços de tinta à medida que se relacionam uns com os outros. Por exemplo, quais os traçados que são agrupados para formar a mesma palavra, linha, lista, parágrafo ou forma. Estas informações podem melhorar as funcionalidades de seleção de tinta da sua aplicação, podendo selecionar grupos de traçados de uma só vez, por exemplo.
 
-## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrar a API do reconhecedor de tinta com o Windows Ink
+## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrar a API do Reconhecimento de Tinta com tinta windows
 
-O [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornece ferramentas e tecnologias para habilitar experiências de tinta digital em uma variedade diversificada de dispositivos. Você pode combinar a plataforma de tinta do Windows com a API do reconhecedor de tinta para criar aplicativos que exibem e interpretam traços de tinta digital.
+[O Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornece ferramentas e tecnologias para permitir experiências de tinta digital numa gama diversificada de dispositivos. Pode combinar a plataforma Windows Ink com a API do Reconhecimento de Tinta para criar aplicações que apresentem e interpretem traços de tinta digital.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [O que é a API do reconhecedor de tinta?](../overview.md)
-* [Referência da API REST do reconhecedor de tinta](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [O que é a API do Reconhecimento de Tinta?](../overview.md)
+* [Referência da API do Reconhecimento de Tinta](https://go.microsoft.com/fwlink/?linkid=2089907)
 
-* Comece a enviar dados de traços de tinta digital usando:
+* Comece a enviar dados digitais de traçado de tinta usando:
     * [C#](../quickstarts/csharp.md)
     * [Java](../quickstarts/java.md)
     * [JavaScript](../quickstarts/javascript.md)

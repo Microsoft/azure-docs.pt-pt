@@ -1,190 +1,190 @@
 ---
-title: Configurar o armazenamento avere vFXT-Azure
-description: Como adicionar um sistema de armazenamento de back-end ao avere vFXT para Azure
+title: Configure Armazenamento VFXT - Azure
+description: Como adicionar um sistema de armazenamento back-end ao seu Avere vFXT para Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153994"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372204"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
-Esta etapa configura um sistema de armazenamento de back-end para o cluster vFXT.
+Este passo configura um sistema de armazenamento traseiro para o seu cluster vFXT.
 
 > [!TIP]
-> Se você criou um novo contêiner de blob do Azure junto com o cluster avere vFXT, esse contêiner já está configurado e pronto para uso.
+> Se criou um novo recipiente Azure Blob juntamente com o cluster Avere vFXT, esse recipiente já está configurado e pronto a ser utilizado.
 
-Siga estas instruções se você não criou um novo contêiner de blob com o cluster ou se deseja adicionar um hardware adicional ou sistema de armazenamento baseado em nuvem.
+Siga estas instruções se não criou um novo recipiente Blob com o seu cluster, ou se quiser adicionar um sistema adicional de armazenamento baseado em hardware ou nuvem.
 
 Há duas tarefas principais:
 
-1. [Crie um Filer principal](#create-a-core-filer), que conecta o cluster vFXT a um sistema de armazenamento existente ou a um contêiner de conta de armazenamento do Azure.
+1. [Crie um filer core](#create-a-core-filer), que liga o seu cluster vFXT a um sistema de armazenamento existente ou a um recipiente de conta Azure Storage.
 
-1. [Crie uma junção de namespace](#create-a-junction), que define o caminho que os clientes montarão.
+1. [Crie uma junção espaço-nome,](#create-a-junction)que define o caminho que os clientes irão montar.
 
-Essas etapas usam o painel de controle avere. Leia [acessar o cluster vFXT](avere-vfxt-cluster-gui.md) para saber como usá-lo.
+Estes passos utilizam o Painel de Controlo Avere. Leia [Aceda ao cluster vFXT](avere-vfxt-cluster-gui.md) para aprender a usá-lo.
 
-## <a name="create-a-core-filer"></a>Criar um Filer principal
+## <a name="create-a-core-filer"></a>Criar um filer central
 
-O "principal Filer" é um termo vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um dispositivo NAS de hardware como NetApp ou Isilon, ou pode ser um armazenamento de objeto de nuvem. Mais informações sobre os Filers principais podem ser encontradas no [Guia de configurações do cluster avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Core filer" é um termo vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um aparelho NAS de hardware como netApp ou Isilon, ou pode ser uma loja de objetos em nuvem. Mais informações sobre os ficheiros centrais podem ser encontradas no guia de definições do [cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
-Para adicionar um Filer principal, escolha um dos dois tipos principais de filers principais:
+Para adicionar um filer core, escolha um dos dois principais tipos de ficheiros principais:
 
-* [Filer Core do nas](#nas-core-filer) -descreve como adicionar um Filer do nas core
-* [Filer Core de nuvem de armazenamento do Azure](#azure-blob-storage-cloud-core-filer) -descreve como adicionar um contêiner de armazenamento de BLOBs do Azure como um Filer do Cloud Core
+* [Ficheiro principal da NAS](#nas-core-filer) - descreve como adicionar um ficheiro principal nas
+* Ficheiro de núcleo de [nuvem de armazenamento Azure](#azure-blob-storage-cloud-core-filer) - descreve como adicionar um recipiente de armazenamento Azure Blob como um filedor de núcleo de nuvem
 
-### <a name="nas-core-filer"></a>Filer do núcleo do NAS
+### <a name="nas-core-filer"></a>Arquivo principal da NAS
 
-Um Filer do NAS core pode ser um dispositivo NetApp ou Isilon local ou um ponto de extremidade NAS na nuvem. O sistema de armazenamento deve ter uma conexão confiável de alta velocidade com o cluster avere vFXT, por exemplo, uma conexão de ExpressRoute 1 Gbps (não uma VPN), e deve fornecer ao cluster acesso de raiz para as exportações de NAS usadas.
+Um filete de núcleo NAS pode ser um netapp ou um aparelho Isilon no local, ou um ponto final nas na nuvem. O sistema de armazenamento deve ter uma ligação fiável de alta velocidade ao cluster Avere vFXT - por exemplo, uma ligação 1GBps ExpressRoute (não uma VPN) - e deve dar ao cluster root acesso às exportações nas que estão a ser utilizadas.
 
-Siga estas etapas para adicionar um Filer do NAS Core:
+Siga estes passos para adicionar um ficheiro principal da NAS:
 
-1. No painel de controle avere, clique na guia **configurações** na parte superior.
+1. A partir do Painel de Controlo Avere, clique no separador **Definições** na parte superior.
 
-1. Clique em **principal filer** > **gerenciar os principais Filers** à esquerda.
+1. Clique no **Ficheiro Core** > **gerir ficheiros core** à esquerda.
 
 1. Clique em **Criar**.
 
-   ![Captura de tela da página Adicionar novo Filer principal com um cursor sobre o botão criar](media/avere-vfxt-add-core-filer-start.png)
+   ![Screenshot da nova página de ficheiros core Adicionar com um cursor sobre o botão Criar](media/avere-vfxt-add-core-filer-start.png)
 
 1. Preencha as informações necessárias no assistente:
 
-   * Nomeie o seu Filer principal.
-   * Forneça um nome de domínio totalmente qualificado (FQDN), se disponível. Caso contrário, forneça um endereço IP ou nome de host que seja resolvido para o seu Filer principal.
-   * Escolha a classe de filer na lista. Se não tiver certeza, escolha **outros**.
+   * Diga o nome do seu arquivo principal.
+   * Forneça um nome de domínio totalmente qualificado (FQDN) se disponível. Caso contrário, forneça um endereço IP ou nome de anfitrião que se resolva ao seu ficheiro principal.
+   * Escolha a sua classe de arquivo da lista. Se não tiver a certeza, escolha **Outros.**
 
-     ![Captura de tela da página Adicionar novo Filer principal com o nome do arquivo principal e seu nome de domínio totalmente qualificado](media/avere-vfxt-add-core-filer.png)
+     ![Screenshot da nova página de ficheiros core Add com o nome central do filer e o seu nome de domínio totalmente qualificado](media/avere-vfxt-add-core-filer.png)
   
-   * Clique em **Avançar** e escolha uma política de cache.
+   * Clique em **Seguir** e escolha uma política de cache.
    * Clique em **Adicionar Filer**.
-   * Para obter informações mais detalhadas, consulte [adicionando um novo Filer do nas core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) no guia de configurações do cluster avere.
+   * Para obter informações mais detalhadas, consulte a [adição de um novo ficheiro central nasno](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) no guia de definições do cluster Avere.
 
-Em seguida, vá para [criar uma junção](#create-a-junction).  
+Em seguida, proceda à [Criação de uma junção.](#create-a-junction)  
 
-### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob Storage Cloud principal Filer
+### <a name="azure-blob-storage-cloud-core-filer"></a>Ficheiro de núcleo de nuvem de armazenamento Azure Blob
 
-Para usar o armazenamento de BLOBs do Azure como o armazenamento de back-end do cluster vFXT, você precisa de um contêiner vazio para adicionar como um Filer principal.
+Para utilizar o armazenamento Azure Blob como armazenamento traseiro do seu cluster vFXT, precisa de um recipiente vazio para adicionar como um filer principal.
 
-A adição do armazenamento de BLOBs ao cluster requer estas tarefas:
+Adicionar o armazenamento blob ao seu cluster requer estas tarefas:
 
-* Criar uma conta de armazenamento (etapa 1, abaixo)
-* Criar um contêiner de blob Vazio (etapas 2-3)
-* Adicione a chave de acesso de armazenamento como uma credencial de nuvem para o cluster vFXT (etapas 4-6)
-* Adicione o contêiner de blob como um Filer principal para o cluster vFXT (etapas 7-9)
-* Criar uma junção de namespace que os clientes usam para montar o filer principal ([criar uma junção](#create-a-junction), mesmo para armazenamento de hardware e de nuvem)
+* Criar uma conta de armazenamento (passo 1, abaixo)
+* Criar um recipiente blob vazio (passos 2-3)
+* Adicione a chave de acesso ao armazenamento como uma credencial em nuvem para o cluster vFXT (passos 4-6)
+* Adicione o recipiente Blob como um filer de núcleo para o cluster vFXT (passos 7-9)
+* Crie uma junção espaço-nome que os clientes usam para montar o filer central ([Criar uma junção](#create-a-junction), o mesmo para hardware e armazenamento em nuvem)
 
 > [!TIP]
-> Se você criar um novo contêiner de blob ao criar um avere vFXT para o cluster do Azure, o modelo de implantação configurará automaticamente o contêiner como um Filer central. (Isso também será verdadeiro se você usar o script de criação, que está disponível na solicitação.) Você não precisa configurar o filer principal posteriormente.
+> Se criar um novo recipiente Blob quando criar um Avere vFXT para o cluster Azure, o modelo de implantação configura automaticamente o recipiente como um filer de núcleo. (Isto também é verdade se utilizar o script de criação, que está disponível a pedido.) Não precisa de configurar o ficheiro principal depois.
 >
-> A ferramenta de criação de cluster executa essas tarefas de configuração para você:
+> A ferramenta de criação de cluster saem destas tarefas de configuração para si:
 >
-> * Cria um novo contêiner de blob na conta de armazenamento fornecida
-> * Define o contêiner como um Filer principal
-> * Cria uma junção de namespace para o contêiner
-> * Cria um ponto de extremidade de serviço de armazenamento dentro da rede virtual do cluster
+> * Cria um novo recipiente Blob na conta de armazenamento fornecida
+> * Define o recipiente como um filer de núcleo
+> * Cria uma junção espaço-nome para o recipiente
+> * Cria um ponto final de serviço de armazenamento dentro da rede virtual do cluster
 
-Para adicionar o armazenamento de blob depois de criar o cluster, siga estas etapas.
+Para adicionar o armazenamento Blob depois de criar o cluster, siga estes passos.
 
-1. Crie uma conta de armazenamento de uso geral V2 com estas configurações:
+1. Crie uma conta de armazenamento V2 de uso geral com estas definições:
 
-   * **Assinatura** -o mesmo que o cluster vFXT
-   * **Grupo de recursos** -o mesmo que o grupo de clusters vFXT (opcional)
-   * **Local** -o mesmo que o cluster vFXT
-   * **Desempenho** -padrão (não há suporte para o armazenamento Premium)
-   * **Tipo de conta** -uso geral v2 (StorageV2)
-   * **Replicação** – armazenamento com redundância local (LRS)
-   * **Camada de acesso** -quente
-   * **Transferência segura necessária** -desabilitar esta opção (valor não padrão)
-   * **Redes virtuais** – não é necessário
+   * **Subscrição** - o mesmo que o cluster vFXT
+   * **Grupo de recursos** - o mesmo que o grupo de cluster vFXT (opcional)
+   * **Localização** - o mesmo que o cluster vFXT
+   * **Desempenho** - Standard (O armazenamento premium não suportado)
+   * **Tipo de conta** - V2 de uso geral (StorageV2)
+   * **Replicação** - Armazenamento localmente redundante (LRS)
+   * **Nível de acesso** - Quente
+   * **Transferência segura necessária** - desative esta opção (valor não predefinido)
+   * **Redes virtuais** - não necessárias
 
-   Você pode usar o portal do Azure ou clicar no botão "implantar no Azure" abaixo.
+   Pode utilizar o portal Azure ou clicar no botão "Implementar para Azure" abaixo.
 
-   [botão ![para criar uma conta de armazenamento](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
+   [![botão para criar conta de armazenamento](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
 
-1. Depois que a conta for criada, navegue até a página da conta de armazenamento.
+1. Depois de criada a conta, navegue na página da conta de armazenamento.
 
-   ![Nova conta de armazenamento no portal do Azure](media/avere-vfxt-new-storage-acct.png)
+   ![Nova conta de armazenamento no portal Azure](media/avere-vfxt-new-storage-acct.png)
 
-1. Criar um novo contêiner de BLOBs: clique em **contêineres** na página Visão geral e, em seguida, clique em **+ contêiner**. Use qualquer nome de contêiner e verifique se o acesso está definido como **particular**.
+1. Criar um novo recipiente Blob: Clique em **Recipientes** na página de visão geral e, em seguida, clique em **+Container**. Utilize qualquer nome de contentor e certifique-se de que o acesso está definido para **Privado**.
 
-   ![Página blobs de armazenamento com o botão + contêiner circulado e um novo contêiner sendo criado em uma página pop-up](media/avere-vfxt-new-blob.png)
+   ![Página de blobs de armazenamento com o botão +contentor circulado e um novo recipiente sendo criado em uma página pop-up](media/avere-vfxt-new-blob.png)
 
-1. Obtenha a chave de conta de armazenamento do Azure clicando em **chaves de acesso** em **configurações**. Copie uma das chaves fornecidas.
+1. Obtenha a chave da conta De armazenamento Azure clicando em **teclas** de acesso em **Definições**. Copie uma das chaves fornecidas.
 
-   ![portal do Azure GUI para copiar a chave](media/avere-vfxt-copy-storage-key.png)
+   ![Portal Azure GUI para copiar a chave](media/avere-vfxt-copy-storage-key.png)
 
-1. Abra o painel de controle do avere para o cluster. Clique em **configurações**e abra o **cluster** > **credenciais de nuvem** no painel de navegação esquerdo. Na página credenciais de nuvem, clique em **Adicionar credencial**.
+1. Abra o Painel de Controlo de Avere para o seu cluster. Clique em **Definições**, em seguida, abra **o Cluster** > **Credenciais** cloud no painel de navegação esquerdo. Na página Cloud Credentials, clique em **Adicionar Credencial**.
 
-   ![Clique no botão Adicionar credencial na página de configuração de credenciais de nuvem](media/avere-vfxt-new-credential-button.png)
+   ![Clique no botão Adicionar Credencial na página de configuração de Credenciais cloud](media/avere-vfxt-new-credential-button.png)
 
-1. Preencha as seguintes informações para criar uma credencial para o filer do Cloud Core:
+1. Preencha as seguintes informações para criar uma credencial para o filedor de núcleo de nuvem:
 
    | Campo | Valor |
    | --- | --- |
    | Nome da credencial | qualquer nome descritivo |
-   | Tipo de serviço | (selecione a chave de acesso de armazenamento do Azure) |
+   | Tipo de serviço | (selecione chave de acesso ao armazenamento Azure) |
    | Inquilino | Nome da conta de armazenamento |
    | Subscrição | ID da subscrição |
-   | Chave de acesso de armazenamento | Chave de conta de armazenamento do Azure (copiada na etapa anterior) |
+   | Chave de acesso ao armazenamento | Chave da conta de armazenamento azure (copiada no passo anterior) |
 
-   Clique em **Submit** (Submeter).
+   Clique em **Submeter**.
 
-   ![Formulário de credencial de nuvem concluído no painel de controle do avere](media/avere-vfxt-new-credential-submit.png)
+   ![Forma credencial de nuvem completa em Painel de Controlo de Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Em seguida, crie o filer principal. No lado esquerdo do painel de controle do avere, clique em **principal filer** >  **gerenciar os principais Filers**.
+1. Em seguida, crie o ficheiro principal. No lado esquerdo do Painel de Controlo Avere, clique em **Core Filer** >  **Gerir Ficheiros Core**.
 
-1. Clique no botão **criar** na página de configurações **gerenciar arquivos principais** .
+1. Clique no botão **Criar** na página de definições de **'Gerir ficheiros Core'.**
 
 1. Preencha o assistente:
 
-   * Selecione Filer tipo **Cloud**.
-   * Nomeie o novo Filer principal e clique em **Avançar**.
-   * Aceite a política de cache padrão e continue na terceira página.
-   * Em **tipo de serviço**, escolha **armazenamento do Azure**.
+   * Selecione o tipo de ficheiro **Cloud**.
+   * Nomeie o novo ficheiro principal e clique **em Seguinte**.
+   * Aceite a política de cache padrão e continue para a terceira página.
+   * No **tipo de serviço,** escolha **o armazenamento Azure.**
    * Escolha a credencial criada anteriormente.
-   * Definir **conteúdo do Bucket** como **vazio**
-   * Alterar **verificação de certificado** para **desabilitado**
-   * Alterar o **modo de compactação** para **nenhum**
+   * Definir **o conteúdo do balde** para **esvaziar**
+   * Alterar **a verificação** do certificado para **deficientes**
+   * Alterar **o modo de compressão** para **nenhum**
    * Clique em **Seguinte**.
-   * Na quarta página, insira o nome do contêiner no nome do **Bucket** como *storage_account_name*/*container_name*.
-   * Opcionalmente, defina o **tipo de criptografia** como **nenhum**.  O armazenamento do Azure é criptografado por padrão.
+   * Na quarta página, introduza o nome do recipiente em **nome balde** como *storage_account_name*/*container_name*.
+   * Opcionalmente, definir **o tipo de encriptação** para **Nenhum**.  O Armazenamento Azure é encriptado por padrão.
    * Clique em **Adicionar Filer**.
 
-   Para obter informações mais detalhadas, leia [adicionando um novo Filer do Cloud Core](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) no guia de configuração do cluster avere.
+   Para obter informações mais detalhadas, leia [Adicionar um novo ficheiro de núcleo](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) de nuvem no guia de configuração do cluster Avere.
 
-A página será atualizada ou você poderá atualizar a página para exibir o novo Filer principal.
+A página irá refrescar-se ou pode refrescar a página para exibir o seu novo ficheiro principal.
 
-Em seguida, você precisa [criar uma junção](#create-a-junction).
+Em seguida, tens de [criar uma junção.](#create-a-junction)
 
 ## <a name="create-a-junction"></a>Criar uma junção
 
-Uma junção é um caminho que você cria para clientes. Os clientes montam o caminho e chegam ao destino escolhido.
+Uma junção é um caminho que se cria para os clientes. Os clientes montam o caminho e chegam ao destino que escolher.
 
-Por exemplo, você pode criar `/vfxt/files` para mapear para o seu Filer do NetApp Core `/vol0/data` exportar e o subdiretório `/project/resources`.
+Por exemplo, pode criar `/vfxt/files` para mapear o seu arquivo central NetApp `/vol0/data` exportar e o subdiretório `/project/resources`.
 
-Mais informações sobre junções podem ser encontradas na [seção namespace do guia de configuração do cluster avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
+Mais informações sobre junções podem ser encontradas na [secção espaço de nome do guia de configuração do cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
-Siga estas etapas na interface do painel de controle do avere:
+Siga estes passos na interface do Painel de Controlo de Avere:
 
-* Clique em **VServer** > **namespace** no canto superior esquerdo.
-* Forneça um caminho de namespace que comece com/(barra "/"), como ``/vfxt/data``.
-* Escolha o seu arquivador principal.
-* Escolha a exportação do Filer principal.
+* Clique no **VServer** > **Espaço de Nome** na parte superior esquerda.
+* Forneça um caminho espaço de nome a partir de /(barra para a frente), como ``/vfxt/data``.
+* Escolha o seu ficheiro principal.
+* Escolha a exportação de filer principal.
 * Clique em **Seguinte**.
 
-  ![Captura de tela da página "Adicionar nova junção" com os campos concluídos para junção, principal filer e exportar](media/avere-vfxt-add-junction.png)
+  ![Screenshot da página "Adicionar nova junção" com os campos concluídos para junção, filer de núcleo e exportação](media/avere-vfxt-add-junction.png)
 
-A junção será exibida após alguns segundos. Crie junções adicionais conforme necessário.
+A junção aparecerá após alguns segundos. Crie junções adicionais, se necessário.
 
-Depois que a junção tiver sido criada, os clientes usarão o caminho do namespace para acessar os arquivos do sistema de armazenamento.
+Após a criação da junção, os clientes usam o caminho do espaço de nome para aceder aos ficheiros do sistema de armazenamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Montar o cluster Avere vFXT](avere-vfxt-mount-clients.md)
-* Aprenda maneiras eficientes de [mover dados para um novo contêiner de BLOBs](avere-vfxt-data-ingest.md)
+* Aprenda formas eficientes [de mover dados para um novo recipiente Blob](avere-vfxt-data-ingest.md)

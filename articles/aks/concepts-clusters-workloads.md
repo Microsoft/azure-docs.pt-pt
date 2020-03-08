@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374530"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)
 

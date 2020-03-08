@@ -1,6 +1,6 @@
 ---
-title: Conceitos de serviço no serviço de provisionamento de dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Descreve os conceitos de provisionamento de serviço específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
+title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos Hub Azure IoT  Microsoft Docs
+description: Descreve conceitos de provisionamento de serviços específicos de dispositivos com o Serviço de Provisionamento de Dispositivos (DPS) e IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -9,70 +9,70 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975606"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378915"
 ---
-# <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do serviço de provisionamento de dispositivos no Hub IoT
+# <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos de serviço de provisionamento de dispositivos IoT Hub
 
-O serviço de provisionamento de dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que você usa para configurar o provisionamento de dispositivos sem toque para um hub IoT especificado. Com o serviço de provisionamento de dispositivos, você pode [provisionar automaticamente](concepts-auto-provisioning.md) milhões de dispositivos de maneira segura e escalonável.
+O Serviço de Provisionamento de Dispositivos IoT Hub é um serviço de ajuda para o IoT Hub que utiliza para configurar o fornecimento de dispositivos de toque zero a um hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, pode [fornecer](concepts-auto-provisioning.md) automaticamente milhões de dispositivos de forma segura e escalável.
 
-O provisionamento de dispositivos é um processo de duas partes. A primeira parte é estabelecer a conexão inicial entre o dispositivo e a solução de IoT *registrando* o dispositivo. A segunda parte é aplicar a *configuração* adequada ao dispositivo com base nos requisitos específicos da solução. Depois que ambas as etapas forem concluídas, o dispositivo foi totalmente *provisionado*. O Serviço de Aprovisionamento de Dispositivos automatiza os dois passos para fornecer uma experiência totalmente integrada de aprovisionamento do dispositivo.
+O fornecimento de dispositivos é um processo em duas partes. A primeira parte é estabelecer a ligação inicial entre o dispositivo e a solução IoT, *registando* o dispositivo. A segunda parte é aplicar a *configuração* adequada ao dispositivo com base nos requisitos específicos da solução. Uma vez concluídos os dois passos, o dispositivo foi totalmente *provisionado*. O Serviço de Aprovisionamento de Dispositivos automatiza os dois passos para fornecer uma experiência totalmente integrada de aprovisionamento do dispositivo.
 
-Este artigo fornece uma visão geral dos conceitos de provisionamento mais aplicáveis ao gerenciamento do *serviço*. Este artigo é mais relevante para as pessoas envolvidas na [etapa de configuração de nuvem](about-iot-dps.md#cloud-setup-step) de preparar um dispositivo para a implantação.
+Este artigo dá uma visão geral dos conceitos de provisionamento mais aplicáveis à gestão do *serviço.* Este artigo é mais relevante para as pessoas envolvidas na etapa de [configuração](about-iot-dps.md#cloud-setup-step) da nuvem de obter um dispositivo pronto para a implementação.
 
-## <a name="service-operations-endpoint"></a>Ponto de extremidade de operações de serviço
+## <a name="service-operations-endpoint"></a>Ponto final de operações de serviço
 
-O ponto de extremidade de operações de serviço é o ponto de extremidade para gerenciar as configurações de serviço e manter a lista de registro. Esse ponto de extremidade é usado somente pelo administrador de serviços; Ele não é usado por dispositivos.
+O ponto final das operações de serviço é o ponto final para gerir as definições de serviço e manter a lista de inscrições. Este ponto final é utilizado apenas pelo administrador de serviço; não é utilizado por dispositivos.
 
-## <a name="device-provisioning-endpoint"></a>Ponto de extremidade de provisionamento do dispositivo
+## <a name="device-provisioning-endpoint"></a>Ponto final de fornecimento de dispositivos
 
-O ponto de extremidade de provisionamento do dispositivo é o único ponto de extremidade que todos os dispositivos usam para provisionamento automático. A URL é a mesma para todas as instâncias de serviço de provisionamento, para eliminar a necessidade de reflashar dispositivos com novas informações de conexão em cenários de cadeia de suprimentos. O escopo da ID garante o isolamento do locatário.
+O ponto final de fornecimento do dispositivo é o ponto final único que todos os dispositivos utilizam para o fornecimento automático. O URL é o mesmo para todas as instâncias de serviço de provisionamento, para eliminar a necessidade de repiscar os dispositivos com novas informações de ligação em cenários da cadeia de fornecimento. O âmbito de identificação garante o isolamento dos inquilinos.
 
-## <a name="linked-iot-hubs"></a>Hubs IoT Ligados
+## <a name="linked-iot-hubs"></a>Centros ioT ligados
 
-O serviço de provisionamento de dispositivos só pode provisionar dispositivos para hubs IoT que foram vinculados a ele. Vincular um hub IoT a uma instância do serviço de provisionamento de dispositivos dá ao serviço permissões de leitura/gravação para o registro do dispositivo do Hub IoT; com o link, um serviço de provisionamento de dispositivos pode registrar uma ID de dispositivo e definir a configuração inicial no dispositivo. Os hubs IoT vinculados podem estar em qualquer região do Azure. Você pode vincular hubs em outras assinaturas ao serviço de provisionamento.
+O Serviço de Provisionamento de Dispositivos só pode fornecer dispositivos a centros IoT que tenham sido ligados ao mesmo. Ligar um hub IoT a uma instância do serviço de provisionamento de dispositivos dá ao serviço permissões de leitura/escrita para o registo do dispositivo do hub IoT; com o link, um serviço de fornecimento de dispositivos pode registar um ID do dispositivo e definir a configuração inicial no dispositivo twin. Os centros ioT ligados podem estar em qualquer região de Azure. Pode ligar os hubs a outras subscrições ao seu serviço de provisionamento.
 
-## <a name="allocation-policy"></a>Política de alocação
+## <a name="allocation-policy"></a>Política de atribuição
 
-A configuração de nível de serviço que determina como o serviço de provisionamento de dispositivos atribui dispositivos a um hub IoT. Existem três políticas de alocação suportadas:
+A definição de nível de serviço que determina como o Serviço de Fornecimento de Dispositivos atribui dispositivos a um hub IoT. Existem três políticas de alocação suportadas:
 
-* **Distribuição uniformemente ponderada**: os hubs IOT vinculados são igualmente prováveis de ter dispositivos provisionados para eles. A configuração padrão. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição.
+* **Distribuição uniformemente ponderada**: os centros IoT ligados são igualmente suscetíveis de ter dispositivos aprovisionados. A definição padrão. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição.
 
-* **Menor latência**: os dispositivos são provisionados para um hub IOT com a menor latência para o dispositivo. Se vários hubs IoT vinculados fornecerem a mesma menor latência, o serviço de provisionamento conterá os dispositivos em hash nesses hubs
+* **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com a latência mais baixa do dispositivo. Se vários centros ioT ligados forneceriam a mesma latência mais baixa, o serviço de fornecimento hashes dispositivos através desses hubs
 
-* **Configuração estática por meio da lista de registro**: a especificação do Hub IOT desejado na lista de registro tem prioridade sobre a política de alocação de nível de serviço.
+* **Configuração estática através da lista**de inscrições : a especificação do centro ioT desejado na lista de inscrições tem prioridade sobre a política de atribuição ao nível do serviço.
 
 ## <a name="enrollment"></a>Inscrição
 
-Um registro é o registro de dispositivos ou grupos de dispositivos que podem ser registrados por meio do provisionamento automático. O registro de registro contém informações sobre o dispositivo ou grupo de dispositivos, incluindo:
-- o [mecanismo de atestado](concepts-security.md#attestation-mechanism) usado pelo dispositivo
-- a configuração opcional inicial desejada
-- Hub IoT desejado
-- a ID de dispositivo desejada
+Uma inscrição é o registo de dispositivos ou grupos de dispositivos que podem registar-se através do fornecimento automático. O registo de inscrições contém informações sobre o dispositivo ou grupo de dispositivos, incluindo:
+- o mecanismo de [atestado](concepts-security.md#attestation-mechanism) utilizado pelo dispositivo
+- a configuração inicial opcional desejada
+- centro ioT desejado
+- o ID do dispositivo desejado
 
-Há dois tipos de registros com suporte pelo serviço de provisionamento de dispositivos:
+Existem dois tipos de inscrições suportadas pelo Serviço de Provisionamento de Dispositivos:
 
-### <a name="enrollment-group"></a>Grupo de registros
+### <a name="enrollment-group"></a>Grupo de inscrições
 
-Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Os grupos de registro dão suporte a X. 509, bem como ao Symmetric. Todos os dispositivos no grupo de registro X. 509 apresentam certificados X. 509 que foram assinados pela mesma raiz ou AC (autoridade de certificação) intermediária. Cada dispositivo no grupo de registro de chave simétrica apresenta tokens SAS derivados da chave simétrica do grupo. O nome do grupo de registro e o nome do certificado devem ser alfanuméricos, minúsculos e podem conter hifens.
-
-> [!TIP]
-> É recomendável usar um grupo de registro para um grande número de dispositivos que compartilham uma configuração inicial desejada ou para dispositivos que todos vão para o mesmo locatário.
-
-### <a name="individual-enrollment"></a>Registro individual
-
-Um registro individual é uma entrada para um único dispositivo que pode ser registrado. Registros individuais podem usar certificados de folha X. 509 ou tokens SAS (de um TPM físico ou virtual) como mecanismos de atestado. A ID de registro em um registro individual é alfanumérica, em letras minúsculas e pode conter hifens. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.
+Um grupo de inscrições é um grupo de dispositivos que partilham um mecanismo específico de atestado. Os grupos de inscrição apoiam tanto o X.509 como o simétrico. Todos os dispositivos do grupo de matrículaX.509 apresentam certificados X.509 assinados pela mesma root ou autoridade de certificados intermédios (CA). Cada dispositivo do grupo de matrículas simétrica apresenta tokens SAS derivados da chave simétrica do grupo. O nome do grupo de matrícula e o nome do certificado devem ser alfanuméricos, minúsculos e podem conter hífenes.
 
 > [!TIP]
-> É recomendável usar registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem ser autenticados usando tokens SAS via atestado de TPM.
+> Recomendamos a utilização de um grupo de inscrições para um grande número de dispositivos que partilhem uma configuração inicial desejada, ou para dispositivos que vão todos para o mesmo inquilino.
+
+### <a name="individual-enrollment"></a>Inscrição individual
+
+Uma inscrição individual é uma entrada para um único dispositivo que pode registar-se. As matrículas individuais podem utilizar certificados de folhax.509 ou tokens SAS (de um TPM físico ou virtual) como mecanismos de atestado. O ID de registo numa matrícula individual é alfanumérico, minúsculo e pode conter hífenes. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.
+
+> [!TIP]
+> Recomendamos a utilização de inscrições individuais para dispositivos que requeiram configurações iniciais únicas, ou para dispositivos que só podem autenticar utilizando tokens SAS através de atestado TPM.
 
 ## <a name="registration"></a>Registo
 
-Um registro é o registro de um dispositivo que está se registrando/Provisionando com êxito em um hub IoT por meio do serviço de provisionamento de dispositivos. Os registros de registro são criados automaticamente; Eles podem ser excluídos, mas não podem ser atualizados.
+Um registo é o registo de um dispositivo que regista/disponibiliza com sucesso um Hub IoT através do Serviço de Provisionamento de Dispositivos. Os registos de registo são criados automaticamente; podem ser eliminados, mas não podem ser atualizados.
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Operações
 
-As operações são a unidade de cobrança do serviço de provisionamento de dispositivos. Uma operação é a conclusão bem-sucedida de uma instrução para o serviço. As operações incluem o registo de dispositivos - e novos registos -, bem como alterações do lado do serviço, como adicionar e atualizar entradas de listas de inscrição.
+As operações são a unidade de faturação do Serviço de Provisionamento de Dispositivos. Uma operação é a conclusão bem sucedida de uma instrução ao serviço. As operações incluem registos e reinscrições de dispositivos; as operações também incluem alterações do lado do serviço, tais como a adição de entradas na lista de inscrições e a atualização das inscrições na lista de inscrições.

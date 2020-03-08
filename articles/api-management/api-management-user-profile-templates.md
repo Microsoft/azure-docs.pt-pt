@@ -1,6 +1,6 @@
 ---
-title: Modelos de perfil de usuário no gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como personalizar o conteúdo das páginas de perfil do usuário no portal do desenvolvedor no gerenciamento de API do Azure.
+title: Modelos de perfil de utilizador na Gestão API azure / Microsoft Docs
+description: Saiba como personalizar o conteúdo das páginas do Perfil de Utilizador no portal de desenvolvimento em Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176756"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374423"
 ---
-# <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de usuário no gerenciamento de API do Azure
-O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de [glifos](api-management-template-resources.md#glyphs)e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
+# <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil do utilizador na Gestão API azure
+A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das páginas do portal do programador utilizando um conjunto de modelos que configuram o seu conteúdo. Utilizando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor à sua escolha, como [o DotLiquid para Designers,](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)e um conjunto fornecido de recursos de [cordas](api-management-template-resources.md#strings)localizados, recursos [de Gliph](api-management-template-resources.md#glyphs)e [controlos](api-management-page-controls.md)de página, tem uma grande flexibilidade para configurar o conteúdo das páginas como entender que se ajuste usando estes modelos.  
   
- Os modelos nesta seção permitem que você personalize o conteúdo das páginas de perfil do usuário no portal do desenvolvedor.  
+ Os modelos desta secção permitem personalizar o conteúdo das páginas de perfil do Utilizador no portal do desenvolvedor.  
   
 -   [Perfil](#Profile)  
   
@@ -31,19 +31,19 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 -   [Aplicações](#Applications)  
   
--   [Atualizar informações da conta](#UpdateAccountInfo)  
+-   [Atualizar informações sobre contas](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Os modelos padrão de exemplo estão incluídos na documentação a seguir, mas estão sujeitos a alterações devido a melhorias contínuas. Você pode exibir os modelos padrão ao vivo no portal do desenvolvedor navegando até os modelos individuais desejados. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Os modelos de padrão da amostra estão incluídos na seguinte documentação, mas estão sujeitos a alterações devido a melhorias contínuas. Pode ver os modelos de predefinição ao vivo no portal do desenvolvedor navegando para os modelos individuais desejados. Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="Profile"></a>Criar  
- O modelo de **perfil** permite que você personalize a seção de perfil do usuário da página de perfil do usuário no portal do desenvolvedor.  
+##  <a name="Profile"></a>Perfil  
+ O modelo de **perfil** permite-lhe personalizar a secção de perfil do utilizador da página de perfil do utilizador no portal do desenvolvedor.  
   
- ![Página perfil do usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil de usuário do APIM")  
+ ![Página do perfil do utilizador](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil do utilizador da APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -98,28 +98,28 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo não pode usar nenhum [controle de página](api-management-page-controls.md).  
+ Este modelo pode não utilizar quaisquer [controlos](api-management-page-controls.md)de página .  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  Os modelos de [perfil](#Profile), [aplicativos](#Applications)e [assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
+>  Os modelos [de Perfil,](#Profile) [Aplicações](#Applications)e [Assinaturas](#Subscriptions) partilham o mesmo modelo de dados e recebem os mesmos dados do modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`firstName`|string|Nome do usuário atual.|  
-|`lastName`|string|Sobrenome do usuário atual.|  
-|`companyName`|string|O nome da empresa do usuário atual.|  
-|`addresserEmail`|string|Endereço de email do usuário atual.|  
-|`developersUsageStatisticsLink`|string|URL relativa para exibir a análise do usuário atual.|  
-|`subscriptions`|Coleção de entidades de [assinatura](api-management-template-data-model-reference.md#Subscription) .|As assinaturas do usuário atual.|  
-|`applications`|Coleção de entidades de [aplicativo](api-management-template-data-model-reference.md#Application) .|Os aplicativos do usuário atual.|  
-|`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
-|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email do usuário atual.|  
-|`canChangePassword`|boolean|Se o usuário atual pode alterar sua senha.|  
-|`isSystemUser`|boolean|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups)internos.|  
+|`firstName`|string|Primeiro nome do utilizador atual.|  
+|`lastName`|string|Apelido do utilizador atual.|  
+|`companyName`|string|O nome da empresa do utilizador atual.|  
+|`addresserEmail`|string|Endereço de e-mail do utilizador atual.|  
+|`developersUsageStatisticsLink`|string|URL relativo para visualizar a análise para o utilizador atual.|  
+|`subscriptions`|Recolha de entidades de [subscrição.](api-management-template-data-model-reference.md#Subscription)|As subscrições para o utilizador atual.|  
+|`applications`|Recolha de entidades de [aplicação.](api-management-template-data-model-reference.md#Application)|As aplicações do utilizador atual.|  
+|`changePasswordUrl`|string|O URL relativo para alterar a palavra-passe do utilizador atual.|  
+|`changeNameOrEmailUrl`|string|O URL relativo para alterar o nome e o e-mail para o utilizador atual.|  
+|`canChangePassword`|boolean|Se o utilizador atual pode alterar a sua palavra-passe.|  
+|`isSystemUser`|boolean|Se o utilizador atual é membro de um dos [grupos incorporados.](api-management-key-concepts.md#groups)|  
   
-### <a name="sample-template-data"></a>Dados de modelo de exemplo  
+### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
 ```json  
 {  
@@ -186,9 +186,9 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ##  <a name="Subscriptions"></a>Assinaturas  
- O modelo de **assinaturas** permite que você personalize a seção assinaturas da página de perfil do usuário no portal do desenvolvedor.  
+ O modelo **de Subscrições** permite personalizar a secção de subscrições da página de perfil do utilizador no portal do desenvolvedor.  
   
- ![Página de assinatura do usuário](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de assinatura de usuário do APIM")  
+ ![Página de subscrição do utilizador](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de subscrição do utilizador DaPiM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -317,30 +317,30 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Este modelo pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
   
--   [assinatura-cancelar](api-management-page-controls.md#subscription-cancel)  
+-   [cancelamento de assinatura](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  Os modelos de [perfil](#Profile), [aplicativos](#Applications)e [assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
+>  Os modelos [de Perfil,](#Profile) [Aplicações](#Applications)e [Assinaturas](#Subscriptions) partilham o mesmo modelo de dados e recebem os mesmos dados do modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`firstName`|string|Nome do usuário atual.|  
-|`lastName`|string|Sobrenome do usuário atual.|  
-|`companyName`|string|O nome da empresa do usuário atual.|  
-|`addresserEmail`|string|Endereço de email do usuário atual.|  
-|`developersUsageStatisticsLink`|string|URL relativa para exibir a análise do usuário atual.|  
-|`subscriptions`|Coleção de entidades de [assinatura](api-management-template-data-model-reference.md#Subscription) .|As assinaturas do usuário atual.|  
-|`applications`|Coleção de entidades de [aplicativo](api-management-template-data-model-reference.md#Application) .|Os aplicativos do usuário atual.|  
-|`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
-|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email do usuário atual.|  
-|`canChangePassword`|boolean|Se o usuário atual pode alterar sua senha.|  
-|`isSystemUser`|boolean|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups)internos.|  
+|`firstName`|string|Primeiro nome do utilizador atual.|  
+|`lastName`|string|Apelido do utilizador atual.|  
+|`companyName`|string|O nome da empresa do utilizador atual.|  
+|`addresserEmail`|string|Endereço de e-mail do utilizador atual.|  
+|`developersUsageStatisticsLink`|string|URL relativo para visualizar a análise para o utilizador atual.|  
+|`subscriptions`|Recolha de entidades de [subscrição.](api-management-template-data-model-reference.md#Subscription)|As subscrições para o utilizador atual.|  
+|`applications`|Recolha de entidades de [aplicação.](api-management-template-data-model-reference.md#Application)|As aplicações do utilizador atual.|  
+|`changePasswordUrl`|string|O URL relativo para alterar a palavra-passe do utilizador atual.|  
+|`changeNameOrEmailUrl`|string|O URL relativo para alterar o nome e o e-mail para o utilizador atual.|  
+|`canChangePassword`|boolean|Se o utilizador atual pode alterar a sua palavra-passe.|  
+|`isSystemUser`|boolean|Se o utilizador atual é membro de um dos [grupos incorporados.](api-management-key-concepts.md#groups)|  
   
-### <a name="sample-template-data"></a>Dados de modelo de exemplo  
+### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
 ```json  
 {  
@@ -406,10 +406,10 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="Applications"></a>Aplicativos  
- O modelo de **aplicativos** permite que você personalize a seção assinaturas da página de perfil do usuário no portal do desenvolvedor.  
+##  <a name="Applications"></a>Candidaturas  
+ O modelo **de Aplicações** permite-lhe personalizar a secção de subscrições da página de perfil do utilizador no portal do desenvolvedor.  
   
- ![Página aplicativos de conta de usuário](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de aplicativos da conta de usuário do APIM")  
+ ![Página de Aplicações da Conta do Utilizador](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de Aplicações de Conta de Utilizador APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -480,30 +480,30 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Este modelo pode utilizar os [seguintes controlos](api-management-page-controls.md)de página .  
   
--   [ações de aplicativo](api-management-page-controls.md#app-actions)  
+-   [app-actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  Os modelos de [perfil](#Profile), [aplicativos](#Applications)e [assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
+>  Os modelos [de Perfil,](#Profile) [Aplicações](#Applications)e [Assinaturas](#Subscriptions) partilham o mesmo modelo de dados e recebem os mesmos dados do modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`firstName`|string|Nome do usuário atual.|  
-|`lastName`|string|Sobrenome do usuário atual.|  
-|`companyName`|string|O nome da empresa do usuário atual.|  
-|`addresserEmail`|string|Endereço de email do usuário atual.|  
-|`developersUsageStatisticsLink`|string|URL relativa para exibir a análise do usuário atual.|  
-|`subscriptions`|Coleção de entidades de [assinatura](api-management-template-data-model-reference.md#Subscription) .|As assinaturas do usuário atual.|  
-|`applications`|Coleção de entidades de [aplicativo](api-management-template-data-model-reference.md#Application) .|Os aplicativos do usuário atual.|  
-|`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
-|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email do usuário atual.|  
-|`canChangePassword`|boolean|Se o usuário atual pode alterar sua senha.|  
-|`isSystemUser`|boolean|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups)internos.|  
+|`firstName`|string|Primeiro nome do utilizador atual.|  
+|`lastName`|string|Apelido do utilizador atual.|  
+|`companyName`|string|O nome da empresa do utilizador atual.|  
+|`addresserEmail`|string|Endereço de e-mail do utilizador atual.|  
+|`developersUsageStatisticsLink`|string|URL relativo para visualizar a análise para o utilizador atual.|  
+|`subscriptions`|Recolha de entidades de [subscrição.](api-management-template-data-model-reference.md#Subscription)|As subscrições para o utilizador atual.|  
+|`applications`|Recolha de entidades de [aplicação.](api-management-template-data-model-reference.md#Application)|As aplicações do utilizador atual.|  
+|`changePasswordUrl`|string|O URL relativo para alterar a palavra-passe do utilizador atual.|  
+|`changeNameOrEmailUrl`|string|O URL relativo para alterar o nome e o e-mail para o utilizador atual.|  
+|`canChangePassword`|boolean|Se o utilizador atual pode alterar a sua palavra-passe.|  
+|`isSystemUser`|boolean|Se o utilizador atual é membro de um dos [grupos incorporados.](api-management-key-concepts.md#groups)|  
   
-### <a name="sample-template-data"></a>Dados de modelo de exemplo  
+### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
 ```json  
 {  
@@ -569,10 +569,10 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="UpdateAccountInfo"></a>Atualizar informações da conta  
- O modelo atualizar informações da **conta** permite que você personalize a página **Atualizar informações da conta** no portal do desenvolvedor.  
+##  <a name="UpdateAccountInfo"></a>Atualizar informações sobre contas  
+ O modelo de **informação da conta Update** permite-lhe personalizar a página de **informação** da conta Update no portal do desenvolvedor.  
   
- ![Página de informações da conta de usuário modelos do portal do desenvolvedor](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Página de informações da conta de usuário do APIM modelos do portal do desenvolvedor")  
+ ![Modelos de portal de página de informação de conta de utilizador](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modelos de portal de página de página de página de conta de utilizador APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -607,12 +607,12 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controlos  
- Este modelo não pode usar nenhum [controle de página](api-management-page-controls.md).  
+ Este modelo pode não utilizar quaisquer [controlos](api-management-page-controls.md)de página .  
   
 ### <a name="data-model"></a>Modelo de dados  
- Entidade de [informações de conta de usuário](api-management-template-data-model-reference.md#UserAccountInfo) .  
+ Entidade de [informação de conta de utilizador.](api-management-template-data-model-reference.md#UserAccountInfo)  
   
-### <a name="sample-template-data"></a>Dados de modelo de exemplo  
+### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
 ```json  
 {  
@@ -627,4 +627,4 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](api-management-developer-portal-templates.md).

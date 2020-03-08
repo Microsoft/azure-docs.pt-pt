@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768178"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376257"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Azure Ative Directory (Azure AD) a partir do seu diretório no local. A configuração predefinida leva todos os objetos em todos os domínios das florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que usam as cargas de trabalho do Office 365, como o Exchange Online e o Skype para negócios, beneficiam de uma Lista de Endereços Globais completa para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
@@ -289,7 +289,7 @@ Se alterou a configuração utilizando a filtragem de **domínio** ou **unidade 
 
 Se alterou a configuração utilizando a filtragem do **atributo,** então tem de fazer uma **sincronização completa**.
 
-Execute as seguintes etapas:
+Faça os seguintes passos:
 
 1. Inicie o Serviço de **Sincronização** a partir do menu **Iniciar.**
 2. Selecione **Conectores**. Na lista de **Conectores,** selecione o Conector onde fez uma alteração de configuração mais cedo. Em **Ações,** selecione **Executar**.  
@@ -319,7 +319,7 @@ Agora é hora de ativar o agendador novamente.
 ## <a name="group-based-filtering"></a>Filtragem baseada em grupo
 Pode configurar a filtragem baseada em grupo na primeira vez que instala o Azure AD Connect utilizando [uma instalação personalizada](how-to-connect-install-custom.md#sync-filtering-based-on-groups). Destina-se a uma implantação piloto onde se deseja apenas um pequeno conjunto de objetos para ser sincronizado. Quando desativa a filtragem baseada em grupo, não pode ser ativada novamente. Não é *suportado* para usar filtragem baseada em grupo numa configuração personalizada. É suportado apenas para configurar esta funcionalidade utilizando o assistente de instalação. Quando tiver terminado o seu piloto, use uma das outras opções de filtragem neste tópico. Ao utilizar a filtragem baseada em OU em conjunto com a filtragem baseada em grupo, os OU(s) onde o grupo e os seus membros estão localizados devem ser incluídos.
 
-Ao sincronizar várias florestas ad,pode configurar a filtragem baseada em grupo especificando um grupo diferente para cada conector aD. Se pretender sincronizar um utilizador numa floresta ad.C. e o mesmo utilizador tiver um ou mais objetos correspondentes noutras florestas adc, deve certificar-se de que o objeto do utilizador e todos os seus objetos correspondentes estão dentro do âmbito de filtragem baseado em grupo. Para obter exemplos:
+Ao sincronizar várias florestas ad,pode configurar a filtragem baseada em grupo especificando um grupo diferente para cada conector aD. Se pretender sincronizar um utilizador numa floresta ad.C. e o mesmo utilizador tiver um ou mais objetos correspondentes noutras florestas adc, deve certificar-se de que o objeto do utilizador e todos os seus objetos correspondentes estão dentro do âmbito de filtragem baseado em grupo. Por exemplo:
 
 * Você tem um utilizador em uma floresta que tem um objeto FSP correspondente (Diretor de Segurança Estrangeira) em outra floresta. Ambos os objetos devem estar dentro do âmbito de filtragem baseado em grupo. Caso contrário, o utilizador não será sincronizado com a AD Azure.
 

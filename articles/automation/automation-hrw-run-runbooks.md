@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: c67fff32770446cac3adef8af50c9e5733077bc7
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226285"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372505"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Running runbooks em um trabalhador de runbook híbrido
 

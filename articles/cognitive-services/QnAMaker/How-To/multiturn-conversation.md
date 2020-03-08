@@ -4,11 +4,11 @@ description: Utilize instruções e contexto para gerir as múltiplas voltas, co
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210419"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389240"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 

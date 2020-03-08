@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: mjbrown
 ms.openlocfilehash: 325840f8961fac49e599f1aa567ad8d4137820b4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705807"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364506"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerir os recursos da Azure Cosmos utilizando o Azure CLI
 
-O seguinte guia descreve comandos comuns para automatizar a gestão das suas contas, bases de dados e contentores Azure Cosmos utilizando o Azure CLI. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb). Também pode encontrar mais exemplos em [amostras azure CLI para O Azure Cosmos DB,](cli-samples.md)incluindo como criar e gerir contas Cosmos DB, bases de dados e recipientes para MongoDB, Gremlin, Cassandra e Table API.
+O guia a seguir descreve os comandos comuns para automatizar a gestão das contas, das bases de dados e dos contentores do Azure Cosmos DB com a CLI do Azure. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb). Também pode encontrar mais exemplos em [amostras azure CLI para O Azure Cosmos DB,](cli-samples.md)incluindo como criar e gerir contas Cosmos DB, bases de dados e recipientes para MongoDB, Gremlin, Cassandra e Table API.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

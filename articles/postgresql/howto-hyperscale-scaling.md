@@ -1,47 +1,47 @@
 ---
-title: Dimensionar grupo de servidores-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
-description: Ajuste os recursos de memória do grupo de servidores, disco e CPU para lidar com o aumento de carga
+title: Grupo de servidores de escala - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+description: Ajuste os recursos de memória de grupo de servidores, disco e CPU para lidar com o aumento da carga
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453059"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363439"
 ---
-# <a name="scale-a-hyperscale-citus-server-group"></a>Dimensionar um grupo de servidores de hiperescala (Citus)
+# <a name="scale-a-hyperscale-citus-server-group"></a>Escala de um grupo de servidores de hiperescala (Citus)
 
-Banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece dimensionamento de autoatendimento para lidar com o aumento da carga. A portal do Azure facilita a adição de novos nós de trabalho e o aumento da vCores dos nós existentes.
+A Base de Dados Azure para PostgreSQL - Hyperscale (Citus) fornece escala de autosserviço para lidar com o aumento da carga. O portal Azure facilita a adição de novos nós operários e o aumento dos vCores dos nós existentes.
 
-## <a name="add-worker-nodes"></a>Adicionar nós de trabalho
+## <a name="add-worker-nodes"></a>Adicione os nódosos dos trabalhadores
 
-Para adicionar nós, vá para a guia **Configurar** em seu grupo de servidores de hiperescala (Citus).  Arrastar o controle deslizante para **contagem de nós de trabalho** altera o valor.
+Para adicionar nós, vá ao **separador Configure** no seu grupo de servidores Hyperscale (Citus).  Arrastar o slider para a contagem do **nó do Trabalhador** altera o valor.
 
-![Controles deslizantes de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+![Sliders de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
-Clique no botão **salvar** para fazer o valor alterado entrar em vigor.
+Clique no botão **Guardar** para que o valor alterado faça efeito.
 
 > [!NOTE]
-> Depois de aumentado e salvo, o número de nós de trabalho não pode ser reduzido usando o controle deslizante.
+> Uma vez aumentado e guardado, o número de nós dos trabalhadores não pode ser diminuído utilizando o slider.
 
 ### <a name="rebalance-shards"></a>Reequilibrar fragmentos
 
-Para aproveitar os nós recém-adicionados, você deve reequilibrar os [fragmentos](concepts-hyperscale-distributed-data.md#shards)de tabela distribuída, o que significa mover alguns fragmentos de nós existentes para os novos. Primeiro, verifique se os novos trabalhadores concluíram com êxito o provisionamento. Em seguida, inicie o rebalanceador de fragmento, conectando-se ao nó de coordenador de cluster com psql e executando:
+Para tirar partido dos nós recém-adicionados, é preciso reequilibrar os fragmentos de mesa [distribuídos,](concepts-hyperscale-distributed-data.md#shards)o que significa mover alguns fragmentos dos nós existentes para os novos. Primeiro, verifique se os novos trabalhadores terminaram com êxito o fornecimento. Em seguida, inicie o reequilíbrio do fragmento, ligando-se ao nó coordenador do cluster com psql e funcionando:
 
 ```sql
 SELECT rebalance_table_shards('distributed_table_name');
 ```
 
-A função `rebalance_table_shards` reequilibra todas as tabelas no grupo de [colocalização](concepts-hyperscale-colocation.md) da tabela nomeada em seu argumento. Portanto, você não precisa chamar a função para cada tabela distribuída, basta chamá-la em uma tabela representativa de cada grupo de colocalização.
+A função `rebalance_table_shards` reequilibra todas as tabelas do grupo de [co-localização](concepts-hyperscale-colocation.md) da tabela nomeada no seu argumento. Assim, não é necessário ligar para a função de cada mesa distribuída, basta chamá-la numa tabela representativa de cada grupo de co-localização.
 
 ## <a name="increase-vcores"></a>Aumentar vCores
 
-Além de adicionar novos nós, você pode aumentar os recursos dos nós existentes. Este recurso está atualmente em visualização — para solicitar um aumento de vCores para nós no seu grupo de servidores, [entre em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Além de adicionar novos nós, pode aumentar as capacidades dos nós existentes. Esta funcionalidade encontra-se atualmente em pré-visualização — para solicitar vCores aumentados para nós no seu grupo de servidores, contacte o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [as opções de desempenho](concepts-hyperscale-configuration-options.md)do grupo de servidores.
+Saiba mais sobre [as opções](concepts-hyperscale-configuration-options.md)de desempenho do grupo de servidores.
