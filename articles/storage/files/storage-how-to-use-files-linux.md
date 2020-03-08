@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: b2469a2b5819b3011f919a2b483933bb030eed70
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394336"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925584"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros Azure: a pedido com o comando `mount` e no arranque, criando uma entrada no `/etc/fstab`.
@@ -276,7 +276,7 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="feedback"></a>Comentários
 Utilizadores do Linux, queremos ouvir-vos!
 
-O grupo de utilizadores Do Linux fornece um fórum para que partilhe feedback à medida que avalia e adote o armazenamento de ficheiros no Linux. Envie um e-mail aos [Utilizadores do Linux](mailto:azurefileslinuxusers@microsoft.com) para se juntarem ao grupo dos utilizadores.
+O grupo de utilizadores Do Linux fornece um fórum para que partilhe feedback à medida que avalia e adote o armazenamento de ficheiros no Linux. Envie um e-mail aos [Utilizadores do Linux](mailto:azurefiles@microsoft.com) para se juntarem ao grupo dos utilizadores.
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: dapine
-ms.openlocfilehash: 7bac943a4550103a941fbd812381e34ab2de2454
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 8c980d4aac5c864e83cddfad00fe6030840d1370
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446522"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925679"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -22,8 +22,7 @@ Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
 > * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=vs)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5911f7235f1469fed460f173b808fbfdf9c853e8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 90ac6f35cafbe63e8c6cdb77450089d00c0e3099
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183878"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925748"
 ---
 # <a name="relyingparty"></a>RelyingParty
 

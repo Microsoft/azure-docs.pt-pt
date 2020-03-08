@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: configuração de C# plataforma do SDK de fala para plataforma universal do Windows (UWP)-serviço de fala'
+title: 'Quickstart: Speech SDK for C# Universal Windows Platform (UWP) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para C# o em plataforma universal do Windows (UWP) com o SDK do serviço de fala.
+description: Utilize este guia para configurar a sua plataforma para C# o âmbito da Universal Windows Platform (UWP) com o serviço de Fala SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 83ae1c83e536e1fdf87fe17c9254e5bef0fdc120
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f95fd8aa66e83e6be8f4b0eef9635750d83ce55e
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466630"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925282"
 ---
-Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para C# plataforma universal do Windows (UWP).
+Este guia mostra como instalar o C# [SDK de Discurso](~/articles/cognitive-services/speech-service/speech-sdk.md) para a Plataforma Universal do Windows (UWP). Se você só quer que o nome do pacote seja iniciado por conta própria, faça `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
 
 > [!NOTE]
 > A Plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -28,13 +28,13 @@ Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/spe
 
 Este início rápido requer:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (qualquer edição)
+* [Estúdio Visual 2019](https://visualstudio.microsoft.com/downloads/) (qualquer edição)
 
-## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Criar um projeto do Visual Studio e instalar o SDK de fala
+## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Crie um projeto de Estúdio Visual e instale o Speech SDK
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-Agora você pode passar para [as próximas etapas](#next-steps) abaixo.
+Agora pode passar para [os próximos passos](#next-steps) abaixo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

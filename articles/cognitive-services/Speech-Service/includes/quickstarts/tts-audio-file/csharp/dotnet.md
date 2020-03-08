@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: e8ab3cd262876548b8cbfab55dce0cff0cb3132b
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 4ccc68b38d98c332435e252877d258c8591aab8a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445425"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924744"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,8 +23,7 @@ Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Estúdio Visual
 
@@ -199,7 +198,7 @@ Agora está pronto para construir a sua app e testar a nossa síntese de discurs
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Gravar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

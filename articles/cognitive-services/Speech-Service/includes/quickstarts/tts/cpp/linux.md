@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: sintetizar fala C++ , (Linux)-serviço de fala'
+title: 'Quickstart: Discurso sintetizador, C++ (Linux) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como resumir a fala C++ no Linux usando o SDK de fala
+description: Aprenda a sintetizar o discurso C++ em Linux usando o SDK do Discurso
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,21 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: fc5d0e0a7f693df87e754383a123dc1cebfdd94c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 40befc98c2280418a443ff80e4d246b6e2957e56
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818252"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925828"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=linux)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=linux)
+> * [Criar um recurso de fala azure](../../../../get-started.md)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=linux)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -34,7 +33,7 @@ Antes de começar, certifique-se de:
 
 1. Neste novo ficheiro, substitua a cadeia `YourSubscriptionKey` pela sua chave de subscrição do serviço de Voz.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 ## <a name="build-the-app"></a>Criar a aplicação
 
@@ -53,7 +52,7 @@ Antes de começar, certifique-se de:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
-* Em um sistema **ARM64** (64 bits), execute o comando a seguir para compilar o aplicativo.
+* Num sistema **ARM64** (64-bit), execute o seguinte comando para construir a aplicação.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
@@ -75,7 +74,7 @@ Antes de começar, certifique-se de:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-   * Em um sistema **ARM64** (64 bits), digite o comando a seguir.
+   * Num sistema **ARM64** (64 bits), introduza o seguinte comando.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
@@ -87,7 +86,7 @@ Antes de começar, certifique-se de:
    ./helloworld
    ```
 
-1. Na janela do console, um prompt é exibido, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para o serviço de fala e sintetizado para fala, que é reproduzido no seu palestrante.
+1. Na janela da consola, aparece uma solicitação, levando-o a escrever algum texto. Escreva algumas palavras ou uma frase. O texto que escreveu é transmitido ao serviço da Fala e sintetizado para a fala, que reproduz no seu altifalante.
 
    ```text
    Type some text that you want to speak...
@@ -100,7 +99,7 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Gravar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

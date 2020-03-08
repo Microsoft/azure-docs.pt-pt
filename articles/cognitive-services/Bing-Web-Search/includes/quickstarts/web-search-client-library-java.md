@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 38557b31521943147227f7e54617e4730203a5f3
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402586"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925486"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
@@ -27,7 +27,7 @@ Aqui estão algumas coisas de que precisará antes de executar este início ráp
 * O [Apache Maven](https://maven.apache.org/download.cgi) ou a sua ferramenta de automatização de compilação favorita
 * Uma chave de subscrição
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-set-up-your-pom-file"></a>Crie um projeto e crie o seu ficheiro POM
 

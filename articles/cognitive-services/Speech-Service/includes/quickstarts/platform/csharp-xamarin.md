@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: instalação da C# plataforma do SDK de fala para (Xamarin)-serviço de fala'
+title: 'Quickstart: Speech SDK for C# (Xamarin) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para C# o Xamarin com o SDK do serviço de fala.
+description: Utilize este guia para configurar a sua plataforma para C# Xamarin com o serviço de fala SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 664dbd01ae3e9db7b765eec85e874267c32691e1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8ba4ef590b3becd9259230246555d6c74b0078b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468433"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924708"
 ---
-Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), uma plataforma de software livre para criar aplicativos modernos e de alto desempenho para IOS, Android e Windows com .net. 
+Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), uma plataforma de código aberto para a construção de aplicações modernas e performantes para iOS, Android e Windows com .NET. Se você só quer que o nome do pacote seja iniciado por conta própria, faça `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -25,15 +25,15 @@ Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/spe
 
 Este início rápido requer:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* [Estúdio Visual 2019](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Criar um projeto do Visual Studio e instalar o SDK de fala
+## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Crie um projeto de Estúdio Visual e instale o Speech SDK
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-xamarin-create-proj.md)]
 
-O SDK de fala agora está instalado. Agora você pode excluir ou usar novamente o projeto "HelloWorld" criado nas etapas anteriores.
+O SDK do Discurso está agora instalado. Pode agora apagar ou reutilizar o projeto "Helloworld" que criou nos passos anteriores.
 
-Agora você pode passar para [as próximas etapas](#next-steps) abaixo.
+Agora pode passar para [os próximos passos](#next-steps) abaixo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

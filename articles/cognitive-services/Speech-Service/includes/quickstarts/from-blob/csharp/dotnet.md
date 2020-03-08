@@ -4,98 +4,97 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1022a744564ed61a90973f7bba3eb32e9a632b46
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 959e035dc632e84595bdb54c7202f19991697fdb
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942845"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925716"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?pivots=programmming-language-csharp)
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Carregar um arquivo de origem em um blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
+> * [Criar um recurso azure speech](../../../../get-started.md)
+> * [Faça upload de um ficheiro fonte para uma bolha Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
-## <a name="open-your-project-in-visual-studio"></a>Abra seu projeto no Visual Studio
+## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Estúdio Visual
 
-A primeira etapa é certificar-se de que seu projeto esteja aberto no Visual Studio.
+O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
 
-1. Inicie o Visual Studio 2019.
-2. Carregue seu projeto e abra `Program.cs`.
+1. Lançar O Estúdio Visual 2019.
+2. Carregue o seu projeto e abra `Program.cs`.
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Adicionar uma referência a Newtonsoft. JSON
+## <a name="add-a-reference-to-newtonsoftjson"></a>Adicione uma referência a Newtonsoft.Json
 
-1. Na Gerenciador de Soluções, clique com o botão direito do mouse no projeto **HelloWorld** e selecione **gerenciar pacotes NuGet** para mostrar o Gerenciador de pacotes NuGet.
+1. No Solution Explorer, clique no projeto **Helloworld** e, em seguida, selecione **Gerir pacotes NuGet** para mostrar o NuGet Package Manager.
 
-1. No canto superior direito, localize a caixa suspensa **origem do pacote** e verifique se **`nuget.org`** está selecionada.
+1. No canto superior direito, encontre a caixa de entrega da Fonte de **Embalagem** e certifique-se de que **`nuget.org`** é selecionada.
 
-1. No canto superior esquerdo, selecione **procurar**.
+1. No canto superior esquerdo, **selecione Browse**.
 
-1. Na caixa de pesquisa, digite *newtonsoft. JSON* e selecione **Enter**.
+1. Na caixa de pesquisa, digite *newtonsoft.json* e selecione **Enter**.
 
-1. Nos resultados da pesquisa, selecione o pacote [**Newtonsoft. JSON**](https://www.nuget.org/packages/Newtonsoft.Json) e, em seguida, selecione **instalar** para instalar a versão estável mais recente.
+1. A partir dos resultados da pesquisa, selecione o pacote [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json) e, em seguida, selecione **Instalar** para instalar a versão mais recente estável.
 
-1. Aceite todos os contratos e licenças para iniciar a instalação.
+1. Aceite todos os acordos e licenças para iniciar a instalação.
 
-   Depois que o pacote é instalado, uma confirmação é exibida na janela do **console do Gerenciador de pacotes** .
+   Após a instalação da embalagem, aparece uma confirmação na janela da Consola do Gestor de **Pacotes.**
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com algum código clichê
+## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para nosso projeto.
+Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
-## <a name="json-wrappers"></a>Wrappers JSON
+## <a name="json-wrappers"></a>Invólucros JSON
 
-Como as solicitações de API REST no formato JSON e também retornam resultados em JSON, poderíamos interagir com elas usando apenas cadeias de caracteres, mas isso não é recomendado.
-Para facilitar o gerenciamento das solicitações e das respostas, vamos declarar algumas classes a serem usadas para serializar/desserializar o JSON.
+À medida que os pedidos da API rest's tomam em formato JSON e também devolvem resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
+Para facilitar a gestão dos pedidos e respostas, declararemos algumas classes para serializar/desserializar o JSON.
 
-Vá em frente e coloque suas declarações depois de `TranscribeAsync`.
+Vá em frente e coloque as suas declarações depois de `TranscribeAsync`.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=140-276)]
 
-## <a name="create-and-configure-an-http-client"></a>Criar e configurar um cliente http
-A primeira coisa que precisaremos é de um cliente http que tenha uma URL base correta e um conjunto de autenticação.
-Insira este código em `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
+## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
+A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
+Insira este código na [!code-csharp`TranscribeAsync` [](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
 
-## <a name="generate-a-transcription-request"></a>Gerar uma solicitação de transcrição
-Em seguida, geraremos a solicitação de transcrição. Adicione este código a `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
+## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
+Em seguida, vamos gerar o pedido de transcrição. Adicione este código a `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
 
-## <a name="send-the-request-and-check-its-status"></a>Enviar a solicitação e verificar seu status
-Agora, lançamos a solicitação para o serviço de fala e verificamos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma URL nos cabeçalhos de resposta que é o local onde ele armazenará o status de transcrição.
+## <a name="send-the-request-and-check-its-status"></a>Envie o pedido e verifique o seu estado
+Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=59-70)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a conclusão da transcrição
-Como o serviço processa a transcrição de forma assíncrona, precisamos Pesquisar seu status a cada frequência. Verificaremos a cada 5 segundos.
+## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a transcrição para completar
+Uma vez que o serviço processa a transcrição assincronicamente, precisamos de fazer sondagens para o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
 
-Podemos verificar o status recuperando o conteúdo na URL que recebemos quando o postou a solicitação. Quando obtemos o conteúdo de volta, desserializamos-o em uma de nossas classes auxiliares para facilitar a interação com o.
+Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido publicou. Quando recuperarmos o conteúdo, desserializámo-lo numa das nossas aulas de ajuda para facilitar a interação.
 
-Aqui está o código de sondagem com o status exibição para tudo, exceto uma conclusão bem-sucedida, faremos isso em seguida.
+Aqui está o código de votação com o status display para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=72-106,121-137)]
 
-## <a name="display-the-transcription-results"></a>Exibir os resultados da transcrição
-Depois que o serviço tiver concluído com êxito a transcrição, os resultados serão armazenados em outra URL que pode ser obtida da resposta de status.
+## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
+Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado.
 
-Aqui, fazemos uma solicitação para baixar esses resultados em um arquivo temporário antes de ler e desserializá-los.
-Depois que os resultados são carregados, podemos imprimi-los no console.
+Aqui fazemos um pedido para baixar esses resultados em um arquivo temporário antes de lê-los e desserializá-los.
+Uma vez carregados os resultados, podemos imprimi-los à consola.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=107-120)]
 
-## <a name="check-your-code"></a>Verifique seu código
-Neste ponto, seu código deve ter esta aparência: (adicionamos alguns comentários a esta versão) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
+## <a name="check-your-code"></a>Verifique o seu código
+Neste ponto, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
 
-## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
+## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora você está pronto para criar seu aplicativo e testar nosso reconhecimento de fala usando o serviço de fala.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
 
-1. **Compilar o código** -na barra de menus do Visual Studio, escolha **Compilar** > **Compilar solução**.
-2. **Inicie seu aplicativo** -na barra de menus, escolha **depurar** > **Iniciar Depuração** ou pressione **F5**.
-3. **Iniciar reconhecimento** -ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao serviço de fala, transcrita como texto e renderizada no console do.
+1. **Compile o código** - A partir da barra de menu sécpor do Estúdio Visual, escolha **Build** > **Build Solution**.
+2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Começar dedepuração** ou prima **F5**.
+3. **Comece a reconhecer** - Vai instá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço da Fala, transcrito como texto, e renderizado na consola.
 
 ## <a name="next-steps"></a>Passos seguintes
 

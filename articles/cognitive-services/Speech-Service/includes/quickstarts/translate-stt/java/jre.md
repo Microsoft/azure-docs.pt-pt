@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: ba63324cff793edb935b6e0982989baa8befdc9d
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: b181c810d15695f72e73ef8a3359396686e77a1b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446066"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924894"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,8 +23,7 @@ Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: sintetizar fala C# , (.NET Core)-serviço de fala'
+title: 'Quickstart: Sinthesize C# speech, (.NET Core) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como sintetizar a fala em C# no .NET Core no Windows usando o SDK de fala
+description: Aprenda a sintetizar o discurso em C# baixo do Núcleo .NET no Windows usando o SDK de Fala
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 6e732237b22bec6e2a66d44f12ac25e5f9adca3f
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ba6a373f678f8d34b34a669b3fbb3b570c90ed0d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818280"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925688"
 ---
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -25,9 +25,9 @@ ms.locfileid: "74818280"
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=dotnetcore)
+> * [Criar um recurso de fala azure](../../../../get-started.md)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
+
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
 1. Abra `Program.cs` e substitua todo o código no mesmo pelo seguinte.
@@ -44,21 +44,21 @@ Antes de começar, certifique-se de:
 
 1. Compile a aplicação. Na barra de menus, escolha **Compilar** > **Compilar solução**. O código deve ser compilado sem erros.
 
-    ![Captura de tela do aplicativo do Visual Studio, com a opção de solução de compilação realçada](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Compilação bem-sucedida")
+    ![Screenshot da aplicação Visual Studio, com a opção Build Solution em destaque](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Construção bem sucedida")
 
 1. Inicie a aplicação. Na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou prima **F5**.
 
-    ![Captura de tela do aplicativo do Visual Studio, com a opção Iniciar Depuração realçada](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Iniciar o aplicativo na depuração")
+    ![Screenshot da aplicação Visual Studio, com a opção Start Debugging em destaque](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Inicie a aplicação em depuração")
 
-1. Uma janela de console é exibida, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para o serviço de fala e sintetizado para fala, que é reproduzido no seu palestrante.
+1. Aparece uma janela de consola, levando-o a escrever algum texto. Escreva algumas palavras ou uma frase. O texto que escreveu é transmitido ao serviço da Fala e sintetizado para a fala, que reproduz no seu altifalante.
 
-    ![Captura de tela da saída do console após a síntese bem-sucedida](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Saída do console após síntese bem-sucedida")
+    ![Screenshot da saída da consola após síntese bem sucedida](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Saída de consola após síntese bem sucedida")
 
 ## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Gravar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

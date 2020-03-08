@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: sintetizar fala, Java (Windows, Linux, macOS)-serviço de fala'
+title: 'Quickstart: Discurso sintetizador, Java (Windows, Linux, macOS) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você aprenderá a criar um aplicativo Java simples que captura e sintetiza a fala de texto e o executa com o alto-falante padrão.
+description: Neste arranque rápido, aprenderá a criar uma aplicação java simples que captura e sintetiza o discurso a partir do texto e tocá-lo com o altifalante padrão.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -10,21 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: d7ca86092b973d369d37cbeac1bc9f8cfcf9b462
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a49fadee598d1fa87c6dddbbf6ad388243ea6fb8
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818184"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925536"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Criar um recurso de fala azure](../../../../get-started.md)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -40,20 +39,20 @@ Antes de começar, certifique-se de:
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 1. Guarde as alterações ao projeto.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 Prima F11 ou selecione **Executar** > **Depurar**.
-Insira um texto quando solicitado e você ouvirá o áudio sintetizado reproduzido do alto-falante padrão.
+Insera um texto quando solicitado e ouvirá o áudio sintetizado reproduzido a partir de um altifalante predefinido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Registrar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Gravar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

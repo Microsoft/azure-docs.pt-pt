@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 4cfea801523fbc67766920ffd2777908be5ed40b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402623"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924873"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Node.js. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
@@ -25,7 +25,7 @@ Aqui estão algumas coisas de que precisará antes de executar este início ráp
 * [Node.js 6](https://nodejs.org/en/download/) ou posterior
 * Uma chave de subscrição  
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 
 ## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento

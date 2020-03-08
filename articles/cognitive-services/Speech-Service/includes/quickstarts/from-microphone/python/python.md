@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 333ed8fa886e351e8a67035ed830f5ad8f24bafd
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: a2d5614aeeedb88cd9b2c41baed317761443d17c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384074"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925832"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,8 +23,7 @@ Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
 ## <a name="support-and-updates"></a>Suporte e atualizações

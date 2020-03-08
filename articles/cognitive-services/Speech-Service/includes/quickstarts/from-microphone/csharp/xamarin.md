@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: ed37e4f5b84431355b63b3d59b0e49b78eaeed86
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 2ed41f424dfe985cc078314da5b138c7d7bcdf37
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445925"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924799"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,8 +23,7 @@ Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=xamarin)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
 Se já fez isto, ótimo. Vamos continuar.

@@ -6,19 +6,18 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: af7c7d992db9afa0fb7affa0053bd89257a5a30e
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
-ms.translationtype: HT
+ms.openlocfilehash: 724f52317ce2afda023ae0514a330da0032e8710
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668466"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925242"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* Se este é o seu primeiro projeto Python, use este guia para <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">criar um projeto <span class="docon docon-navigate-external x-hidden-focus"> </span>de amostra vazia. </a>
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Instale o SDK de <span class="docon docon-navigate-external x-hidden-focus"> </span>Discurso para o seu ambiente </a>de desenvolvimento.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Instale o SDK de Discurso para o<span class="docon docon-navigate-external x-hidden-focus"></span>seu ambiente de desenvolvimento e crie um projeto de amostra vazia.</a>
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar uma app LUIS para reconhecimento de intenções
 

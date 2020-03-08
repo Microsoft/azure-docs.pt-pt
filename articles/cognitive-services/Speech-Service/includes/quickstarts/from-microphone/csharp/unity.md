@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 531e9dbec55c5a6a305b321df7a11067c0ade92a
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: be8497cb07bd3c761c59bfc55e773b5dcc937c50
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446861"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925313"
 ---
 > [!NOTE]
 > O Speech SDK for Unitity suporta windows desktop (x86 e x64) ou Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulador x64, ARM32 e ARM64)
@@ -25,8 +25,7 @@ Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=unity)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=unity)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
 Se já fez isto, ótimo. Vamos continuar.

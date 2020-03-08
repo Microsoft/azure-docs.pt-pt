@@ -4,19 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: erhopf
-ms.openlocfilehash: e154eae5e57988c77d9af46c7d236b6c7f52dc46
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 478b1e6fa141d1f31db2c9d4113186869cd77646
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445904"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78926017"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

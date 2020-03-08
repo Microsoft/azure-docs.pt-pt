@@ -4,19 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 2de8ddbe260fbc68ecddaf00330880116edaf82d
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c8de61d88417a19680b606be5e06583c36c94fbc
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445767"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925664"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
@@ -124,7 +123,7 @@ O seu texto é convertido em fala e guardado nos dados áudio especificados.
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Criar uma voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Gravar amostras de voz personalizadas](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 03/06/2020
 ms.author: b-juche
-ms.openlocfilehash: ebf275f927801f3c2fbb171a24eb357b1e2f30f8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b76edb2d0db806d8ff4935d2b093fee3c2bb34d7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383478"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925376"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS FREQUENTES Sobre ficheiros Azure NetApp
 
@@ -148,10 +148,11 @@ O Azure NetApp Files suporta as versões Windows Server 2008r2SP1-2019 dos Servi
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Porque é que o espaço disponível no meu cliente SMB não mostra o tamanho previsto?
 
 O volume reportado pelo cliente SMB é o tamanho máximo que o volume de Ficheiros Azure NetApp pode crescer. O tamanho do volume de Ficheiros Azure NetApp, tal como mostrado no cliente SMB, não reflete a quota ou o tamanho do volume. Pode obter o volume de volume ou quota dos Ficheiros Azure NetApp através do portal Azure ou da API.
+<!--
+### Does Azure NetApp Files support LDAP signing? 
 
-### <a name="does-azure-netapp-files-support-ldap-signing"></a>Os Ficheiros Azure NetApp suportam a assinatura do LDAP? 
-
-Sim, o Azure NetApp Files suporta a assinatura lDAP por padrão. Esta funcionalidade permite a existência de pesquisas LDAP seguras entre o serviço Azure NetApp Files e os controladores de domínio de domínio de domínio do [Diretório Ativo](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services)especificados pelo utilizador. Para mais informações, consulte [ADV190023 / Orientação da Microsoft para permitir a ligação do Canal LDAP e a assinatura lDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
+Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
+--> 
 
 ## <a name="capacity-management-faqs"></a>FaQs de gestão de capacidade
 

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: eb2032ce9fd6efed4a45aa30b469cb67926f17c9
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 96836c494cdf8f3df1621ee0e2eea6c6f64a039c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446398"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925452"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -22,8 +22,7 @@ Antes de começar:
 
 > [!div class="checklist"]
 > * [Criar um recurso de fala azure](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=macos)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=macos)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo

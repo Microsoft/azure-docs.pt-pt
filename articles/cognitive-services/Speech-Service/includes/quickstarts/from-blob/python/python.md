@@ -4,97 +4,96 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: bfecfa1918d2e9199971b2f9738530dc1b4e3c4c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 646cce25efcbebab6229389f63912346e3712cdd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942735"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924757"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md)
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Carregar um arquivo de origem em um blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md)
+> * [Criar um recurso azure speech](../../../../get-started.md)
+> * [Faça upload de um ficheiro fonte para uma bolha Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
-## <a name="download-and-install-the-api-client-library"></a>Baixar e instalar a biblioteca de cliente de API
+## <a name="download-and-install-the-api-client-library"></a>Descarregue e instale a biblioteca de clientes da API
 
-Para executar o exemplo, você precisa gerar a biblioteca do Python para a API REST que é gerada por meio do [Swagger](https://swagger.io).
+Para executar a amostra, você precisa gerar a biblioteca Python para a API REST que é gerada através de [Swagger](https://swagger.io).
 
-Siga estas etapas para a instalação:
+Siga estes passos para a instalação:
 
 1. Aceda a https://editor.swagger.io.
-1. Clique em **arquivo**e em **importar URL**.
-1. Insira a URL do Swagger incluindo a região para sua assinatura do serviço de fala: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
-1. Clique em **gerar cliente** e selecione **Python**.
-1. Salve a biblioteca de cliente.
-1. Extraia o Python-Client-generated. zip baixado em algum lugar no sistema de arquivos.
-1. Instale o módulo de cliente Python extraído em seu ambiente Python usando Pip: `pip install path/to/package/python-client`.
-1. O pacote instalado tem o nome `swagger_client`. Você pode verificar se a instalação funcionou usando o comando `python -c "import swagger_client"`.
+1. Clique em **File**e, em seguida, clique em **URL de importação**.
+1. Introduza o URL Swagger, incluindo a região para a sua subscrição de serviço de Discurso: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Clique em **Gerar Cliente** e selecione **Python**.
+1. Salve a biblioteca de clientes.
+1. Extraia o python-cliente gerado pelo cliente.zip em algum lugar do seu sistema de ficheiros.
+1. Instale o módulo de python-cliente extraído no seu ambiente Python utilizando pip: `pip install path/to/package/python-client`.
+1. A embalagem instalada tem o nome `swagger_client`. Pode verificar se a instalação funcionou utilizando o comando `python -c "import swagger_client"`.
 
 > [!NOTE]
-> Devido a um [bug conhecido na geração automática do Swagger](https://github.com/swagger-api/swagger-codegen/issues/7541), você pode encontrar erros ao importar o pacote de `swagger_client`.
-> Eles podem ser corrigidos com a exclusão da linha com o conteúdo
+> Devido a um [bug conhecido na autogeração Swagger,](https://github.com/swagger-api/swagger-codegen/issues/7541)poderá encontrar erros na importação do pacote `swagger_client`.
+> Estes podem ser corrigidos apagando a linha com o conteúdo
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
 > ```
-> do arquivo `swagger_client/models/model.py` e a linha com o conteúdo
+> a partir do arquivo `swagger_client/models/model.py` e da linha com o conteúdo
 > ```py
 > from swagger_client.models.inner_error import InnerError  # noqa: F401,E501
 > ```
-> do arquivo `swagger_client/models/inner_error.py` dentro do pacote instalado. A mensagem de erro informará onde esses arquivos estão localizados para a instalação.
+> a partir do ficheiro `swagger_client/models/inner_error.py` dentro da embalagem instalada. A mensagem de erro dir-lhe-á onde estes ficheiros estão localizados para a sua instalação.
 
 ## <a name="install-other-dependencies"></a>Instalar outras dependências
 
-O exemplo usa a biblioteca `requests`. Você pode instalá-lo com o comando
+A amostra usa a biblioteca `requests`. Pode instalá-lo com o comando
 
 ```bash
 pip install requests
 ```
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com algum código clichê
+## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para nosso projeto.
+Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
-## <a name="create-and-configure-an-http-client"></a>Criar e configurar um cliente http
-A primeira coisa que precisaremos é de um cliente http que tenha uma URL base correta e um conjunto de autenticação.
-Insira este código em `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
+## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
+A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
+Insira este código na [!code-python`transcribe` [](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
-## <a name="generate-a-transcription-request"></a>Gerar uma solicitação de transcrição
-Em seguida, geraremos a solicitação de transcrição. Adicione este código a `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
+## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
+Em seguida, vamos gerar o pedido de transcrição. Adicione este código a `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
-## <a name="send-the-request-and-check-its-status"></a>Enviar a solicitação e verificar seu status
-Agora, lançamos a solicitação para o serviço de fala e verificamos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma URL nos cabeçalhos de resposta que é o local onde ele armazenará o status de transcrição.
+## <a name="send-the-request-and-check-its-status"></a>Envie o pedido e verifique o seu estado
+Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a conclusão da transcrição
-Como o serviço processa a transcrição de forma assíncrona, precisamos Pesquisar seu status a cada frequência. Verificaremos a cada 5 segundos.
+## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a transcrição para completar
+Uma vez que o serviço processa a transcrição assincronicamente, precisamos de fazer sondagens para o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
 
-Vamos enumerar todas as transcrições que esse recurso do serviço de fala está processando e procurar o que criamos.
+Vamos enumerar todas as transcrições que este recurso do serviço speech está a processar e procurar a que criámos.
 
-Aqui está o código de sondagem com o status exibição para tudo, exceto uma conclusão bem-sucedida, faremos isso em seguida.
+Aqui está o código de votação com o status display para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=75-94,99-112)]
 
-## <a name="display-the-transcription-results"></a>Exibir os resultados da transcrição
-Depois que o serviço tiver concluído com êxito a transcrição, os resultados serão armazenados em outra URL que pode ser obtida da resposta de status.
+## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
+Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado.
 
-Aqui, obtemos o resultado JSON e o exibimos.
+Aqui temos o resultado JSON e exibimo-lo.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=95-98)]
 
-## <a name="check-your-code"></a>Verifique seu código
-Neste ponto, seu código deve ter esta aparência: (adicionamos alguns comentários a esta versão) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
+## <a name="check-your-code"></a>Verifique o seu código
+Neste ponto, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
 
-## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
+## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora você está pronto para criar seu aplicativo e testar nosso reconhecimento de fala usando o serviço de fala.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

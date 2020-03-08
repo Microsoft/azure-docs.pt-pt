@@ -7,12 +7,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
-ms.openlocfilehash: 878d43bad514daa6711b0037d39521e12bc0fdbe
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c6291a714083df8954d5162ad38d31b2e3caee76
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445982"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925481"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,8 +20,7 @@ Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
 > * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
