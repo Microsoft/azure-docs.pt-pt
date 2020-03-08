@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4dbe5a62e69f4c30d55fa1318ca79c06640a10f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78186748"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668867"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -101,7 +101,7 @@ O **Perfil Técnico** contém os seguintes elementos:
 | SubjectNamingInfo | 0:1 | Controla a produção do nome do objeto em fichas em que o nome do assunto é especificado separadamente dos sinistros. Por exemplo, OAuth ou SAML.  |
 | Incluir InSso | 0:1 |  Se a utilização deste perfil técnico deve aplicar um comportamento de inscrição única (SSO) para a sessão, ou, em vez disso, exigir interação explícita. Este elemento é válido apenas em perfis Autoafirmado utilizados dentro de um perfil técnico de Validação. Valores possíveis: `true` (predefinido) ou `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Um identificador de um perfil técnico a partir do qual pretende que todas as alegações de entrada e saída sejam adicionadas a este perfil técnico. O perfil técnico referenciado deve ser definido no mesmo ficheiro político. |
-| Incluir Perfil Técnico |0:1 | Um identificador de um perfil técnico a partir do qual pretende adicionar todos os dados a este perfil técnico. O perfil técnico referenciado deve conserirar no mesmo ficheiro político. |
+| Incluir Perfil Técnico |0:1 | Um identificador de um perfil técnico a partir do qual pretende adicionar todos os dados a este perfil técnico. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Um perfil técnico diferente a ser usado para a gestão de sessões. |
 |EnabledForUserJourneys| 0:1 |Controle se o perfil técnico for executado numa viagem de utilizador.  |
 
@@ -286,7 +286,7 @@ O elemento **IncluirPerfil Técnico** contém o seguinte atributo:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro da política dos pais. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política, ou ficheiro de política dos pais. |
 
 ## <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 

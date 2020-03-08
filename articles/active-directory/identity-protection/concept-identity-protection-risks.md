@@ -1,6 +1,6 @@
 ---
-title: O que é risco? Azure AD Identity Protection
-description: Explicando o risco no Azure AD Identity Protection
+title: O que é o risco? Azure AD Identity Protection
+description: Explicar o risco na Proteção de Identidade da AD Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,61 +11,61 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c169c1eb6511cb05a7b46320b74ae293834cca86
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c9815ff08296b38c39e732c08619042659504462
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609150"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892920"
 ---
-# <a name="what-is-risk"></a>O que é risco?
+# <a name="what-is-risk"></a>O que é o risco?
 
-As detecções de risco no Azure AD Identity Protection incluem quaisquer ações suspeitas identificadas relacionadas a contas de usuário no diretório.
+As deteções de risco na Proteção de Identidade Azure AD incluem quaisquer ações suspeitas identificadas relacionadas com contas de utilizador no diretório.
 
-A proteção de identidade fornece às organizações acesso a recursos avançados para ver e responder rapidamente a essas ações suspeitas. 
+A Proteção de Identidade proporciona às organizações o acesso a recursos poderosos para ver e responder rapidamente a estas ações suspeitas. 
 
-![Visão geral de segurança mostrando usuários e entradas arriscadas](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+![Visão geral de segurança mostrando utilizadores arriscados e inscrições](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
-## <a name="risk-types-and-detection"></a>Tipos de risco e detecção
+## <a name="risk-types-and-detection"></a>Tipos de risco e deteção
 
-Há dois tipos de **usuário** de risco e **entrada** e dois tipos de detecção ou cálculo em **tempo real** e **offline**.
+Existem dois tipos de risco **User** e **Sign-in** e dois tipos de deteção ou cálculo em **tempo real** e **offline**.
 
-### <a name="user-risk"></a>Risco do usuário
+### <a name="user-risk"></a>Risco do utilizador»
 
-Um risco de usuário representa a probabilidade de que uma determinada identidade ou conta seja comprometida. 
+Um risco de utilizador representa a probabilidade de uma determinada identidade ou conta estar comprometida. 
 
-Esses riscos são calculados offline usando fontes de inteligência contra ameaças internas e externas da Microsoft, incluindo pesquisadores de segurança, profissionais de imposição de leis, equipes de segurança da Microsoft e outras fontes confiáveis.
-
-| Detecção de riscos | Descrição |
+Estes riscos são calculados offline usando fontes de inteligência de ameaças internas e externas da Microsoft, incluindo investigadores de segurança, profissionais da aplicação da lei, equipas de segurança na Microsoft e outras fontes fidedignas.
+''
+| Deteção de riscos | Descrição'on |
 | --- | --- |
-| Credenciais vazadas | Esse tipo de detecção de risco indica que as credenciais válidas do usuário foram vazadas. Quando o cibercriminosos compromete senhas válidas de usuários legítimos, eles geralmente compartilham essas credenciais. Normalmente, esse compartilhamento é feito postando-se publicamente na Web escura, colando sites ou negociando e vendendo as credenciais no mercado preto. Quando o serviço de credenciais vazadas da Microsoft adquire credenciais de usuário da Web escura, colar sites ou outras fontes, eles são verificados em relação às credenciais válidas atuais dos usuários do Azure AD para encontrar correspondências válidas. |
-| Inteligência contra ameaças do Azure AD | Esse tipo de detecção de risco indica a atividade do usuário que é incomum para o usuário determinado ou é consistente com padrões de ataque conhecidos com base nas fontes de inteligência contra ameaças internas e externas da Microsoft. |
+| Credenciais vazadas | Este tipo de deteção de risco indica que as credenciais válidas do utilizador foram vazadas. Quando os cibercriminosos comprometem senhas válidas de utilizadores legítimos, muitas vezes partilham essas credenciais. Esta partilha é normalmente feita publicando publicamente na dark web, sites de pastas, ou negociando e vendendo as credenciais no mercado negro. Quando o serviço de credenciais da Microsoft vaza do serviço adquire credenciais de utilizador a partir da dark web, sites de pasta ou outras fontes, são verificados contra as credenciais válidas dos utilizadores da AD Azure para encontrar correspondências válidas. |
+| Inteligência de ameaça da AD Azure | Este tipo de deteção de risco indica a atividade do utilizador que é incomum para o utilizador dado ou é consistente com padrões de ataque conhecidos baseados nas fontes internas e externas de inteligência de ameaça da Microsoft. |
 
-### <a name="sign-in-risk"></a>Início de sessão de risco
+### <a name="sign-in-risk"></a>Risco de inscrição»
 
-Um risco de entrada representa a probabilidade de que uma determinada solicitação de autenticação não seja autorizada pelo proprietário da identidade. 
+Um risco de entrada representa a probabilidade de um determinado pedido de autenticação não ser autorizado pelo proprietário da identidade. 
 
-Esses riscos podem ser calculados em tempo real ou calculados offline usando fontes de inteligência contra ameaças internas e externas da Microsoft, incluindo pesquisadores de segurança, profissionais de imposição de leis, equipes de segurança da Microsoft e outras fontes confiáveis.
+Estes riscos podem ser calculados em tempo real ou calculados offline usando fontes de inteligência de ameaças internas e externas da Microsoft, incluindo investigadores de segurança, profissionais de aplicação da lei, equipas de segurança da Microsoft e outras fontes fidedignas.
 
-| Detecção de riscos | Tipo de detecção | Descrição |
+| Deteção de riscos | Tipo de deteção | Descrição |
 | --- | --- | --- |
-| Endereço IP anônimo | Tempo real | Esse tipo de detecção de risco indica entradas de um endereço IP anônimo (por exemplo, navegador Tor ou VPN anônima). Esses endereços IP normalmente são usados por atores que desejam ocultar sua telemetria de logon (endereço IP, local, dispositivo, etc.) para uma intenção potencialmente mal-intencionada. |
-| Viagem de atípicos | Offline | Esse tipo de detecção de risco identifica duas entradas provenientes de locais geograficamente distantes, em que pelo menos um dos locais também pode ser atípicos para o usuário, dado o comportamento passado. Entre vários outros fatores, esse algoritmo de aprendizado de máquina leva em conta o tempo entre as duas entradas e o tempo que seria levado para o usuário viajar do primeiro local para o segundo, indicando que um usuário diferente está usando o mesmo fornecidas. <br><br> O algoritmo ignora os "falsos positivos" óbvios que contribuem para as condições de viagem impossíveis, como VPNs e locais usados regularmente por outros usuários na organização. O sistema tem um período de aprendizado inicial do anterior de 14 dias ou 10 logons, durante o qual ele aprende o comportamento de entrada de um novo usuário. |
-| Endereço IP vinculado a malware | Offline | Esse tipo de detecção de risco indica entradas de endereços IP infectados com malware que é conhecido por se comunicar ativamente com um servidor de bot. Essa detecção é determinada pela correlação de endereços IP do dispositivo do usuário em endereços IP que estavam em contato com um servidor de bot enquanto o servidor de bot estava ativo. |
-| Propriedades de entrada desconhecidas | Tempo real | Esse tipo de detecção de risco considera o histórico de entrada anterior (IP, latitude/longitude e ASN) para procurar por entradas anormais. O sistema armazena informações sobre os locais anteriores usados por um usuário e considera esses locais "familiares". A detecção de risco é disparada quando a entrada ocorre de um local que ainda não está na lista de locais familiares. Os usuários recém-criados estarão no "modo de aprendizado" por um período em que as propriedades de entrada desconhecidas as detecções de risco serão desativadas enquanto nossos algoritmos aprendem o comportamento do usuário. A duração do modo de aprendizado é dinâmica e depende de quanto tempo leva o algoritmo para reunir informações suficientes sobre os padrões de entrada do usuário. A duração mínima é de cinco dias. Um usuário pode voltar para o modo de aprendizado após um longo período de inatividade. O sistema também ignora entradas de dispositivos familiares e locais que estão geograficamente próximos a um local familiar. <br><br> Também executamos essa detecção para autenticação básica (ou protocolos herdados). Como esses protocolos não têm propriedades modernas, como ID do cliente, há telemetria limitada para reduzir falsos positivos. Recomendamos que nossos clientes migrem para a autenticação moderna. |
-| Usuário confirmado pelo administrador comprometido | Offline | Essa detecção indica que um administrador selecionou ' confirmar o usuário comprometido ' na interface do usuário de usuários arriscados ou usando a API riskyUsers. Para ver qual administrador confirmou que esse usuário está comprometido, verifique o histórico de risco do usuário (por meio da interface de usuário ou API). |
-| Endereço IP mal-intencionado | Offline | Essa detecção indica a entrada de um endereço IP mal-intencionado. Um endereço IP é considerado mal-intencionado com base em taxas de falha altas devido a credenciais inválidas recebidas do endereço IP ou outras fontes de reputação de IP. |
-| Regras de manipulação de caixa de entrada suspeitas | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](https://docs.microsoft.com/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Esta deteção os perfis de seu ambiente e aciona alertas quando as regras de suspeitas que eliminam ou movidos de pastas ou mensagens são definidas na caixa de entrada de um utilizador. Isto pode indicar que a conta de utilizador for comprometido, as mensagens estão a ser o intencionalmente ocultos e que a caixa de correio está a ser utilizada para distribuir o spam ou de software maligno na sua organização. |
-| Deslocação impossível | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](https://docs.microsoft.com/cloud-app-security/anomaly-detection-policy#impossible-travel). Esta deteção identifica duas atividades de utilizador (é uma única ou múltiplas sessões) provenientes de localizações distantes num período de tempo mais curto do que o tempo demoraria viajam de primeira localização para o segundo, que indica que o utilizador que um utilizador diferente está a utilizar as mesmas credenciais. |
+| Endereço IP anónimo | Tempo real | Este tipo de deteção de risco indica inscrições a partir de um endereço IP anónimo (por exemplo, navegador Tor ou VPN anónimo). Estes endereços IP são normalmente utilizados por atores que querem esconder a sua telemetria de login (endereço IP, localização, dispositivo, etc.) para intenções potencialmente maliciosas. |
+| Viagem atípica | Offline | Este tipo de deteção de risco identifica dois sign-ins originários de locais geograficamente distantes, onde pelo menos um dos locais também pode ser atípico para o utilizador, dado o comportamento passado. Entre vários outros fatores, este algoritmo de aprendizagem automática tem em conta o tempo entre os dois sign-ins e o tempo que o utilizador teria demorado a viajar do primeiro local para o segundo, indicando que um utilizador diferente está a usar o mesmo credenciais. <br><br> O algoritmo ignora "falsos positivos" óbvios que contribuem para as condições de viagem impossíveis, como VPNs e locais regularmente utilizados por outros utilizadores da organização. O sistema tem um período de aprendizagem inicial de 14 dias ou 10 logins, durante o qual aprende o comportamento de entrada de um novo utilizador. |
+| Endereço IP ligado a malware | Offline | Este tipo de deteção de risco indica inscrições a partir de endereços IP infetados com malware que é conhecido por comunicar ativamente com um servidor de bot. Esta deteção é determinada por correlacionar endereços IP do dispositivo do utilizador contra endereços IP que estavam em contacto com um servidor de bot enquanto o servidor bot estava ativo. |
+| Propriedades de inscrição desconhecidas | Tempo real | Este tipo de deteção de risco considera a história do sign-in passado (IP, Latitude / Longitude e ASN) para procurar entradas anómalas. O sistema armazena informações sobre locais anteriores utilizados por um utilizador, e considera estas localizações "familiares". A deteção de risco é desencadeada quando o sinal de sessão ocorre a partir de um local que ainda não está na lista de locais familiares. Os utilizadores recém-criados estarão em "modo de aprendizagem" durante um período de tempo em que as deteções de risco de propriedades de entrada desconhecidas serão desligadas enquanto os nossos algoritmos aprendem o comportamento do utilizador. A duração do modo de aprendizagem é dinâmica e depende do tempo que o algoritmo leva para recolher informações suficientes sobre os padrões de inscrição do utilizador. A duração mínima é de cinco dias. Um utilizador pode voltar ao modo de aprendizagem após um longo período de inatividade. O sistema também ignora os sign-ins de dispositivos familiares, e locais que estão geograficamente perto de um local familiar. <br><br> Também executamos esta deteção para autenticação básica (ou protocolos legados). Como estes protocolos não têm propriedades modernas, como o ID do cliente, há telemetria limitada para reduzir falsos positivos. Recomendamos que os nossos clientes se mudem para a autenticação moderna. |
+| Administrador confirmado utilizador comprometido | Offline | Esta deteção indica que um administrador selecionou 'Confirmar o utilizador comprometido' no UI dos utilizadores de risco ou utilizando API utilizadores arriscados. Para ver qual a administração que confirmou que este utilizador está comprometido, verifique o histórico de riscos do utilizador (via UI ou API). |
+| Endereço IP malicioso | Offline | Esta deteção indica o início de um endereço IP malicioso. Um endereço IP é considerado malicioso com base em altas taxas de falha devido a credenciais inválidas recebidas do endereço IP ou de outras fontes de reputação IP. |
+| Regras suspeitas de manipulação de caixas de entrada | Offline | Esta deteção é descoberta pelo [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Esta deteção os perfis de seu ambiente e aciona alertas quando as regras de suspeitas que eliminam ou movidos de pastas ou mensagens são definidas na caixa de entrada de um utilizador. Isto pode indicar que a conta do utilizador está comprometida, que as mensagens estão a ser ocultadas intencionalmente e que a caixa de correio está a ser usada para distribuir spam ou malware na sua organização. |
+| Deslocação impossível | Offline | Esta deteção é descoberta pelo [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Esta deteção identifica duas atividades de utilizador (é uma única ou múltiplas sessões) provenientes de localizações distantes num período de tempo mais curto do que o tempo demoraria viajam de primeira localização para o segundo, que indica que o utilizador que um utilizador diferente está a utilizar as mesmas credenciais. |
 
-### <a name="other-risk-detections"></a>Outras detecções de risco
+### <a name="other-risk-detections"></a>Outras deteções de risco
 
-| Detecção de riscos | Tipo de detecção | Descrição |
+| Deteção de riscos | Tipo de deteção | Descrição |
 | --- | --- | --- |
-| Risco adicional detectado | Em tempo real ou offline | Essa detecção indica que uma das detecções Premium acima foi detectada. Como as detecções Premium são visíveis apenas para clientes Azure AD Premium P2, elas são intituladas "risco adicional detectado" para clientes sem licenças Azure AD Premium P2. |
+| Risco adicional detetado | Em tempo real ou offline | Esta deteção indica que foi detetada uma das deteções premium acima referidas. Uma vez que as deteções premium são visíveis apenas para os clientes Azure AD Premium P2, são intitulados "risco adicional detetado" para clientes sem licençaS Azure AD Premium P2. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 
-- [Descrição geral da segurança](concept-identity-protection-security-overview.md)
+- [Visão geral da segurança](concept-identity-protection-security-overview.md) ""'
