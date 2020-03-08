@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/26/2020
-ms.openlocfilehash: 9c801f5c039996ac36c4f4479318d64cccdd204d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 2321918e9eae63a71d136753657bd7259862c2d1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649998"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669355"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões Apache Hadoop disponíveis com o HDInsight?
 
@@ -33,7 +33,7 @@ As versões componentes associadas às versões de cluster HDInsight estão list
 | Apache Hadoop e ARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
 | Porco Apache             | 0.16.0        | 0.16.0                      |
-| Colmeia Apache            | 3.1.0         | 2.1.0, 1.2.1                |
+| Colmeia Apache            | 3.1.0         | 2.1.0 (clusters não ESP), 1.2.1 (clusters DEP)                |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
 | Apache HBase           | 2.0.2         | 1.1.2                       |
