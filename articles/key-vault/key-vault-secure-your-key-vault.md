@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
 ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197441"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373807"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre chave
 

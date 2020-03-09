@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 4bf6d777662ad1ba4843d6e650dfd3a6a357822f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159765"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365534"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade microsoft e o fluxo de credenciais de clientes OAuth 2.0
 
@@ -184,7 +184,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `client_id` | Necessário | O ID da aplicação que é atribuído à sua aplicação. Pode encontrar esta informação no portal onde registou a sua aplicação. |
 | `scope` | Necessário | O valor passado para o parâmetro `scope` neste pedido deve ser o identificador de recursos (id uri de aplicação) do recurso que pretende, afixado com o `.default` sufixo. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Este valor diz à plataforma de identidade da Microsoft que de todas as permissões de aplicação direta que configuraste para a sua aplicação, o ponto final deve emitir um símbolo para os associados ao recurso que pretende utilizar. Para saber mais sobre o âmbito `/.default`, consulte a documentação de [consentimento.](v2-permissions-and-consent.md#the-default-scope) |
 | `client_secret` | Necessário | O segredo do cliente que gerou para a sua aplicação no portal de registo de aplicações. O segredo do cliente deve ser codificado antes de ser enviado. |
-| `grant_type` | Necessário | deve ser definido para `client_credentials`. |
+| `grant_type` | Necessário | Deve ser definido para `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Pedido de acesso aceso com certificado
 
@@ -207,7 +207,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `scope` | Necessário | O valor passado para o parâmetro `scope` neste pedido deve ser o identificador de recursos (id uri de aplicação) do recurso que pretende, afixado com o `.default` sufixo. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Este valor informa o ponto final da plataforma de identidade da Microsoft que de todas as permissões de aplicação direta que configurapara a sua aplicação, deve emitir um símbolo para os associados ao recurso que pretende utilizar. Para saber mais sobre o âmbito `/.default`, consulte a documentação de [consentimento.](v2-permissions-and-consent.md#the-default-scope) |
 | `client_assertion_type` | Necessário | O valor deve ser fixado para `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Necessário | Uma afirmação (um símbolo web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Leia sobre [credenciais](active-directory-certificate-credentials.md) de certificado para saber como registar o seu certificado e o formato da afirmação.|
-| `grant_type` | Necessário | deve ser definido para `client_credentials`. |
+| `grant_type` | Necessário | Deve ser definido para `client_credentials`. |
 
 Note-se que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado, exceto que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 

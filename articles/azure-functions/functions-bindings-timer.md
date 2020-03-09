@@ -8,11 +8,11 @@ ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
 ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189822"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373698"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho do temporizador para funções azure 
 
@@ -34,7 +34,7 @@ O gatilho do temporizador é fornecido no pacote [Microsoft.Azure.WebJobs.Extens
 
 ## <a name="example"></a>Exemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que é executada cada vez que as atas têm um valor divisível por cinco (por exemplo, se a função começar às 18:57:00, a próxima apresentação será às 19:00:00). O objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função.
 
@@ -50,7 +50,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 O exemplo seguinte mostra uma ligação do gatilho do temporizador num ficheiro *function.json* e uma [ C# função de script](functions-reference-csharp.md) que utiliza a ligação. A função escreve um registo indicando se esta invocação de função se deve a uma ocorrência de horário perdido. O objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função.
 
@@ -78,7 +78,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo seguinte mostra uma ligação do gatilho do temporizador num ficheiro *function.json* e uma [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve um registo indicando se esta invocação de função se deve a uma ocorrência de horário perdido. Um [objeto temporizador](#usage) é passado para a função.
 
@@ -109,7 +109,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 O exemplo seguinte utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no ficheiro *fun.json.* A [função Python](functions-reference-python.md) real que utiliza a ligação é descrita no ficheiro  *__init__.py.* O objeto passado para a função é de tipo [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). A lógica da função escreve para os registos indicando se a invocação atual se deve a uma ocorrência de horário perdido. 
 
@@ -143,7 +143,7 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 A função de exemplo seguinte dispara e executa a cada cinco minutos. A anotação `@TimerTrigger` sobre a função define o calendário utilizando o mesmo formato de corda que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
@@ -162,7 +162,7 @@ public void keepAlive(
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
@@ -182,19 +182,19 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Os atributos C# não são suportados pelo Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 A anotação `@TimerTrigger` sobre a função define o calendário utilizando o mesmo formato de corda que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 

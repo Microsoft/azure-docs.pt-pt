@@ -1,6 +1,6 @@
 ---
-title: Formatos e codecs de Media Encoder Premium Workflow | Microsoft Docs
-description: Este tópico fornece uma visão geral dos codecs e formatos de formatos de Media Encoder Premium Workflow
+title: Media Encoder Premium Workflow formatos e codecs / Microsoft Docs
+description: Este tópico dá uma visão geral dos formatos e códigos de fluxo de trabalho do Media Encoder Premium
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,67 +15,67 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792593"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392931"
 ---
-# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Formatos e codecs de Media Encoder Premium Workflow
+# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formatos e codecs
 
 > [!NOTE]
-> Media Encoder Premium Workflow processador de mídia discutido neste tópico não está disponível na China. 
+> O processador de mídia Media Encoder Premium Workflow, discutido neste tópico, não está disponível na China. 
 
-Este documento contém uma lista de formatos de arquivo de entrada e saída e codecs que são suportados pela versão de visualização pública do codificador de **Media Encoder Premium Workflow** .
+Este documento contém uma lista de formatos e códigos de ficheirode entrada e saída que são suportados pela versão de pré-visualização pública do **codificador de trabalho Media Encoder Premium Workflow.**
 
-[Media Encoder Premium Workflow formatos de entrada e codecs](#input_formats)
+[Media Encoder Premium Workflow Input Formatos e Codecs](#input_formats)
 
-Formatos e codecs de saída Media Encoder Premium Workflow
+Media Encoder Premium Workflow Output Formatos e Codecs
 
-[O](#closed_captioning) **Media Encoder Premium Workflow** dá suporte à legenda codificada descrita nesta seção. 
+**Media Encoder Premium Workflow** suporta legendagem fechada descrita [nesta](#closed_captioning) secção. 
 
-## <a id="input_formats"></a>Media Encoder Premium Workflow formatos de entrada e codecs
+## <a id="input_formats"></a>Media Encoder Premium Workflow Input Formatos e Codecs
 
-A seção a seguir lista os codecs e formatos de arquivo aos quais esse processador de mídia dá suporte como entrada.
+A secção seguinte lista os códigos e formatos de ficheiros que este processador de mídia suporta como entrada.
 
-### <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
+### <a name="input-containerfile-formats"></a>Formatos de recipiente de entrada/ficheiro
 
 * Adobe® Flash® F4V
-* 377M MXF/SMPTE
+* MXF/SMPTE 377m
 * GXF
 * Fluxos de transporte MPEG-2
-* Fluxos de programa MPEG-2
+* Fluxos de programas MPEG-2
 * MPEG-4/MP4
 * Windows Media/ASF
-* AVI (8 bits/descompactado não compactados)
+* AVI (Não comprimido 8bit/10bit)
 
-### <a name="input-video-codecs"></a>Codecs de vídeo de entrada
+### <a name="input-video-codecs"></a>Input Video Codecs
 
-* AVC de 8 bits/10 bits, até 4:2:2, incluindo AVCIntra
-* Ávido DNxHD (em MXF)
+* AVC 8-bit/10-bit, até 4:2:2, incluindo AVCIntra
+* DNxHD ávido (em MXF)
 * DVCPro/DVCProHD (em MXF)
-* Perfil de HEVC/H. 265, Main e Main 10
+* Hevc/H.265, Perfil Principal e Principal 10
 * JPEG2000
-* MPEG-2 (até 422 de perfil e alto nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
+* MPEG-2 (até 422 Perfil e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
 * Windows Media Video/VC-1
 
-### <a name="input-audio-codecs"></a>Codecs de áudio de entrada
+### <a name="input-audio-codecs"></a>Codificadores de áudio de entrada
 
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
-* AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5,1)
-* Camada 2 MPEG
-* MP3 (MPEG-1 áudio camada 3)
-* Áudio do Windows Media
+* AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1)
+* Camada MPEG 2
+* MP3 (Camada áudio MPEG-1 3)
+* Windows Media Audio
 * WAV/PCM
 
-## <a id="output_format"></a>Formatos e codecs de saída Media Encoder Premium Workflow
+## <a id="output_format"></a>Media Encoder Premium Workflow Output Formatos e Codecs
 
-A seção a seguir lista os codecs e formatos de arquivo que têm suporte como saída desse processador de mídia.
+A secção seguinte lista os códigos e formatos de ficheiros que são suportados como saída deste processador de mídia.
 
-### <a name="output-containerfile-formats"></a>Formatos de contêiner/arquivo de saída
+### <a name="output-containerfile-formats"></a>Recipiente de saída/formatos de ficheiro
 
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM e AS02)
@@ -83,63 +83,63 @@ A seção a seguir lista os codecs e formatos de arquivo que têm suporte como s
 * GXF
 * MPEG-4/MP4
 * Windows Media/ASF
-* AVI (8 bits/descompactado não compactados)
-* Formato de arquivo de Smooth Streaming (PIFF 1,3)
+* AVI (Não comprimido 8bit/10bit)
+* Formato de ficheiro de streaming suave (PIFF 1.3)
 * MPEG-TS 
 
-### <a name="output-video-codecs"></a>Codecs de vídeo de saída
+### <a name="output-video-codecs"></a>Códigos de vídeo de saída
 
-* AVC (H. 264; 8 bits; até o alto perfil, nível 5,2; 4K ultra HD; AVC intra)
-* Ávido DNxHD (em MXF)
+* AVC (H.264; 8 bits; até High Profile, Nível 5.2; 4K Ultra HD; AVC Intra)
+* DNxHD ávido (em MXF)
 * DVCPro/DVCProHD (em MXF)
-* MPEG-2 (até 422 de perfil e alto nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
+* MPEG-2 (até 422 Perfil e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10)
 * MPEG-1
 * Windows Media Video/VC-1
-* Criação de miniatura JPEG
-* HEVC (H. 265; perfil de 8 bits e 10 bits, principal e principal)
+* Criação de miniaturas JPEG
+* HEVC (H.265; 8 bits e 10 bits, Main and Main 10 Profile)
 
 
-### <a name="output-audio-codecs"></a>Codecs de áudio de saída
+### <a name="output-audio-codecs"></a>Códigos áudio de saída
 
 * AES (SMPTE 331M e 302M, AES3-2003)
 * Dolby® Digital (AC3)
-* Dolby® Digital Plus (E-AC3) até 7,1
-* AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5,1)
-* Camada 2 MPEG
-* MP3 (MPEG-1 áudio camada 3)
-* Áudio do Windows Media
+* Dolby® Digital Plus (E-AC3) até 7.1
+* AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1)
+* Camada MPEG 2
+* MP3 (Camada áudio MPEG-1 3)
+* Windows Media Audio
 
 >[!NOTE]
->Se você codificar para Dolby® Digital (AC3), a saída só poderá ser gravada em um arquivo. MP4 ISO.
+>Se codificar o Dolby® Digital (AC3), a saída só pode ser escrita num ficheiro ISO MP4.
 
-## <a id="closed_captioning"></a>Suporte para Legendagem oculta
+## <a id="closed_captioning"></a>Suporte para Legendagem Fechada
 
-Ao ingerir, **Media Encoder Premium Workflow** dá suporte a:
+Na ingestão, suportes de trabalho premium media **encoder:**
 
-1. Arquivos SCC
-2. Arquivos SMPTE-TT
-3. CEA-608/CEA-708 – transportados como dados do usuário (mensagens SEI de fluxos elementares de H. 264, ATSC/53, SCTE20) ou transportados como dados complementares em arquivos MXF/GXF
-4. Arquivos de subtítulo da STL
+1. Ficheiros SCC
+2. Ficheiros SMPTE-TT
+3. CEA-608/CEA-708 – transportados como dados de utilizador (mensagens SEI de streams elementares H.264, ATSC/53, SCTE20) ou transportados como dados auxiliares nos ficheiros MXF/GXF
+4. Ficheiros de legendas STL
 
-Na saída, as seguintes opções estão disponíveis:
+Na saída, estão disponíveis as seguintes opções:
 
-1. Conversão de CEA-608 para CEA-708
-2. O CEA-608/CEA-708 passa (inserido em mensagens de SEI de fluxos elementares de H. 264, ou são transportados como dados complementares em arquivos MXF)
+1. CEA-608 para tradução CEA-708
+2. CeA-608/CEA-708 passa (incorporado em mensagens SEI de correntes elementares H.264, ou transportados como dados auxiliares em ficheiros MXF)
 3. SCC
-4. Texto com tempo de SMPTE (da origem CEA-608 por SMPTE RP2052; incluindo a criação de arquivo DFXP)
-5. Arquivo de subtítulo do SRT
-6. Fluxos de subtítulo DVB
+4. Texto Cronometrado SMPTE (a partir da fonte CEA-608 por SMPTE RP2052; incluindo a criação de ficheiros DFXP)
+5. Ficheiro de subtítulo SRT
+6. Fluxos de legendas DVB
 
 > [!NOTE]
-> Nem todos os formatos de saída acima têm suporte para entrega por meio de streaming nos serviços de mídia do Azure.
+> Nem todos os formatos de saída acima são suportados para entrega através do streaming nos Serviços De Mídia Azure.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Se o vídeo de entrada não contiver legendas codificadas, o ativo de saída ainda conterá um arquivo TTML vazio. 
+Se o seu vídeo de entrada não contiver legendas fechadas, o Ativo de saída ainda conterá um ficheiro TTML vazio. 
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Você pode abrir um bilhete de apoio navegando para [novo pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) de apoio
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
