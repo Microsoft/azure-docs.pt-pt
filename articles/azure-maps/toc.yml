@@ -165,6 +165,22 @@
               href: map-get-information-from-coordinate.md
             - name: Mostrar as direções de A para B
               href: map-route.md
+        - name: Módulo IO espacial
+          items:
+            - name: Utilizar o módulo IO espacial
+              href: how-to-use-spatial-io-module.md
+            - name: Adicionar uma camada de dados simples
+              href: spatial-io-add-simple-data-layer.md
+            - name: Ler e escrever dados espaciais
+              href: spatial-io-read-write-spatial-data.md
+            - name: Adicionar uma camada de mapa OGC
+              href: spatial-io-add-ogc-map-layer.md
+            - name: Ligar a um serviço WFS
+              href: spatial-io-connect-wfs-service.md
+            - name: Tirar partido de operações principais
+              href: spatial-io-core-operations.md
+            - name: Detalhes do formato de dados suportado
+              href: spatial-io-supported-data-format-details.md
         - name: Browsers suportados por SDK web
           href: supported-browsers.md
     - name: Desenvolver com o SDK do Android

@@ -81,8 +81,12 @@
           href: batch-aad-auth-management.md
         - name: Acesso seguro ao Key Vault com o Batch
           href: credential-access-key-vault.md
-    - name: Utilizar pacotes de aplicações
-      href: batch-application-packages.md
+    - name: Copiar ficheiros e aplicações para nós de conjunto
+      items:
+        - name: Utilizar pacotes de aplicações
+          href: batch-application-packages.md
+        - name: Criar ficheiros de recursos
+          href: resource-files.md
     - name: Criar e gerir agrupamentos
       items:
         - name: Nós de computação com dimensionamento automático
@@ -123,12 +127,12 @@
           href: batch-user-accounts.md
         - name: Submeter um grande número de tarefas
           href: large-number-tasks.md
+        - name: Agendar trabalhos para eficiência
+          href: batch-job-schedule.md
         - name: Verificar a existência de erros nos trabalhos e tarefas
           href: batch-job-task-error-checking.md
         - name: Detetar e processar erros de serviço do Batch
           href: batch-retry-after-errors.md
-    - name: Criar ficheiros de recursos
-      href: resource-files.md
     - name: Manter saída de trabalhos e tarefas
       href: batch-task-output.md
       items:

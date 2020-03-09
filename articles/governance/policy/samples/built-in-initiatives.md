@@ -4,11 +4,11 @@ description: Enumeraas iniciativas políticas integradas para a Política Azure.
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: f98a5d611e807875390102d67efd1b0f0f262628
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172983"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387234"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definições de iniciativa integradas da Política Azure
 
@@ -20,6 +20,6 @@ O nome em cada ligação incorporada à fonte de definição de iniciativa no re
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja os incorporados no repo da [Política Azure GitHub.](https://github.com/Azure/azure-policy)
+- Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).

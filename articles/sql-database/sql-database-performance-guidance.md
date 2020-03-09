@@ -1,6 +1,6 @@
 ---
 title: Guia de otimização do desempenho
-description: Saiba mais sobre como usar as recomendações para ajustar manualmente o desempenho da consulta do banco de dados SQL do Azure.
+description: Aprenda a usar recomendações para sintonizar manualmente o seu desempenho de consulta de base de dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,54 +12,54 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009091"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382368"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual de desempenho de consulta no banco de dados SQL do Azure
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Desempenho de consulta de melodia manual na Base de Dados Azure SQL
 
-Depois de identificar um problema de desempenho que você está enfrentando com o banco de dados SQL, este artigo foi criado para ajudá-lo a:
+Depois de ter identificado um problema de desempenho que está a enfrentar com a Base de Dados SQL, este artigo foi concebido para o ajudar:
 
-- Ajuste seu aplicativo e aplique algumas práticas recomendadas que podem melhorar o desempenho.
-- Ajuste o banco de dados alterando índices e consultas para trabalhar com mais eficiência com os dados.
+- Sintonize a sua aplicação e aplique algumas boas práticas que podem melhorar o desempenho.
+- Sintonize a base de dados alterando índices e consultas para trabalhar de forma mais eficiente com os dados.
 
-Este artigo pressupõe que você já tenha trabalhado por meio das recomendações do [supervisor](sql-database-advisor.md) de banco de dados SQL do Azure e das [recomendações de ajuste automático](sql-database-automatic-tuning.md)do banco de dados SQL do Azure. Ele também pressupõe que você tenha revisado [uma visão geral do monitoramento e do ajuste](sql-database-monitor-tune-overview.md) e de seus artigos relacionados relacionados à solução de problemas de desempenho. Além disso, este artigo pressupõe que você não tem recursos de CPU, problema de desempenho relacionado à execução que pode ser resolvido aumentando o tamanho da computação ou a camada de serviço para fornecer mais recursos ao seu banco de dados.
+Este artigo pressupõe que já trabalhou através das [recomendações](sql-database-advisor.md) de consultores de dados de base de dados Azure SQL e das recomendações de [afinação automática](sql-database-automatic-tuning.md)da Base de Dados Azure SQL. Também assume que reviu [uma visão geral da monitorização e afinação](sql-database-monitor-tune-overview.md) e seus artigos relacionados relacionados relacionados com problemas de desempenho. Além disso, este artigo assume que não tem recursos cpu, problema de desempenho relacionado com o funcionamento que pode ser resolvido aumentando o tamanho da computação ou o nível de serviço para fornecer mais recursos à sua base de dados.
 
-## <a name="tune-your-application"></a>Ajustar seu aplicativo
+## <a name="tune-your-application"></a>Sintonize a sua aplicação
 
-No SQL Server local tradicional, o processo de planejamento de capacidade inicial geralmente é separado do processo de execução de um aplicativo em produção. As licenças de hardware e produto são compradas primeiro e o ajuste de desempenho é feito posteriormente. Quando você usa o banco de dados SQL do Azure, é uma boa ideia interajustar o processo de executar um aplicativo e ajustá-lo. Com o modelo de pagamento por capacidade sob demanda, você pode ajustar seu aplicativo para usar os recursos mínimos necessários agora, em vez de obter excesso de provisionamento em hardware com base em palpites de planos de crescimento futuros para um aplicativo, que geralmente estão incorretos. Alguns clientes podem optar por não ajustar um aplicativo e, em vez disso, optar por provisionar excessivamente os recursos de hardware. Essa abordagem pode ser uma boa ideia se você não quiser alterar um aplicativo de chave durante um período ocupado. Porém, o ajuste de um aplicativo pode minimizar os requisitos de recursos e reduzir as contas mensais ao usar as camadas de serviço no banco de dados SQL do Azure.
+No tradicional SQL Server, o processo de planeamento inicial da capacidade é frequentemente separado do processo de execução de uma aplicação em produção. As licenças de hardware e produto são compradas primeiro, e a afinação de desempenho é feita depois. Quando utiliza a Base de Dados Azure SQL, é uma boa ideia interceder o processo de execução de uma aplicação e ajustá-la. Com o modelo de pagamento da capacidade a pedido, pode sintonizar a sua aplicação para utilizar os recursos mínimos necessários agora, em vez de sobre-fornecer hardware com base em palpites de planos de crescimento futuros para uma aplicação, que muitas vezes são incorretas. Alguns clientes podem optar por não afinar uma aplicação e, em vez disso, optar por fornecer recursos de hardware em excesso. Esta abordagem pode ser uma boa ideia se não quiser alterar uma aplicação chave durante um período agitado. Mas, sintonizar uma aplicação pode minimizar os requisitos de recursos e baixar as faturas mensais quando utiliza os níveis de serviço na Base de Dados Azure SQL.
 
-### <a name="application-characteristics"></a>Características do aplicativo
+### <a name="application-characteristics"></a>Características de aplicação
 
-Embora as camadas de serviço do banco de dados SQL do Azure sejam projetadas para melhorar a estabilidade e a previsibilidade do desempenho de um aplicativo, algumas práticas recomendadas podem ajudá-lo a ajustar seu aplicativo para aproveitar melhor os recursos em um tamanho de computação. Embora muitos aplicativos tenham ganhos de desempenho significativos simplesmente alternando para um tamanho de computação ou camada de serviço mais alto, alguns aplicativos precisam de ajuste adicional para se beneficiarem de um nível mais alto de serviço. Para aumentar o desempenho, considere o ajuste adicional do aplicativo para aplicativos com estas características:
+Embora os níveis de serviço de base de dados Azure SQL sejam projetados para melhorar a estabilidade de desempenho e a previsibilidade de uma aplicação, algumas boas práticas podem ajudá-lo a afinar a sua aplicação para melhor tirar partido dos recursos em tamanho de computação. Embora muitas aplicações tenham ganhos significativos de desempenho simplesmente mudando para um tamanho de computação mais elevado ou nível de serviço, algumas aplicações precisam de afinação adicional para beneficiar de um nível de serviço mais elevado. Para um maior desempenho, considere a sintonização adicional de aplicações que tenham estas características:
 
-- **Aplicativos com desempenho lento devido ao comportamento "informativo"**
+- **Aplicações que têm desempenho lento devido ao comportamento "tagarela"**
 
-  Os aplicativos informais fazem operações de acesso a dados excessivas que são sensíveis à latência de rede. Talvez seja necessário modificar esses tipos de aplicativos para reduzir o número de operações de acesso a dados para o banco de dado SQL. Por exemplo, você pode melhorar o desempenho do aplicativo usando técnicas como o envio em lote de consultas ad hoc ou a movimentação das consultas para procedimentos armazenados. Para obter mais informações, consulte [consultas em lote](#batch-queries).
+  As aplicações tagarela fazem operações excessivas de acesso a dados que são sensíveis à latência da rede. Pode ser necessário modificar este tipo de aplicações para reduzir o número de operações de acesso a dados na base de dados SQL. Por exemplo, pode melhorar o desempenho da aplicação utilizando técnicas como o lote de consultas ad hoc ou a deslocação das consultas para procedimentos armazenados. Para mais informações, consulte [consultas de lote](#batch-queries).
 
-- **Bancos de dados com uma carga de trabalho intensiva que não tem suporte em um único computador inteiro**
+- **Bases de dados com uma carga de trabalho intensiva que não pode ser suportada por uma única máquina**
 
-   Os bancos de dados que excedem os recursos do maior tamanho de computação Premium podem se beneficiar do dimensionamento da carga de trabalho. Para obter mais informações, consulte [fragmentação entre bancos de dados](#cross-database-sharding) e [particionamento funcional](#functional-partitioning).
+   Bases de dados que excedam os recursos do maior tamanho de cálculo Premium podem beneficiar da redução da carga de trabalho. Para mais informações, consulte a base [de dados cruzada](#cross-database-sharding) e a partilha [funcional](#functional-partitioning).
 
-- **Aplicativos que têm consultas abaixo do ideal**
+- **Aplicações que têm consultas sub-óptimas**
 
-  Os aplicativos, especialmente aqueles na camada de acesso a dados, que têm consultas mal ajustadas podem não se beneficiar de um tamanho de computação mais alto. Isso inclui consultas que não têm uma cláusula WHERE, têm índices ausentes ou têm Estatísticas desatualizadas. Esses aplicativos se beneficiam das técnicas de ajuste de desempenho de consulta padrão. Para obter mais informações, consulte [índices ausentes](#identifying-and-adding-missing-indexes) e [ajuste e dicas de consulta](#query-tuning-and-hinting).
+  As aplicações, especialmente as da camada de acesso a dados, que tenham dúvidas mal afinadas podem não beneficiar de um tamanho de computação mais elevado. Isto inclui consultas que carecem de uma cláusula DE ONDE, têm índices em falta ou têm estatísticas desatualizadas. Estas aplicações beneficiam de técnicas padrão de afinação de desempenho. Para mais informações, consulte [índices em falta](#identifying-and-adding-missing-indexes) e [afinação e insinuação](#query-tuning-and-hinting)de consultas.
 
-- **Aplicativos com design de acesso a dados abaixo do ideal**
+- **Aplicações que têm design de acesso a dados sub-ideal**
 
-   Os aplicativos que têm problemas de simultaneidade de acesso a dados inerentes, por exemplo, deadlocks, podem não se beneficiar de um tamanho de computação mais alto. Considere a redução de viagens de ida e volta no banco de dados SQL do Azure, armazenando em cache no lado do cliente o serviço de cache do Azure ou outra tecnologia de cache. Consulte [cache da camada de aplicativo](#application-tier-caching).
+   As aplicações que têm problemas inerentes ao acesso a dados, por exemplo, o impasse, podem não beneficiar de uma maior dimensão do cálculo. Considere reduzir as viagens de ida e volta contra a Base de Dados Azure SQL, apertando dados do lado do cliente com o serviço Azure Caching ou outra tecnologia de cache. Ver [Caching nível](#application-tier-caching)de aplicação .
 
-## <a name="tune-your-database"></a>Ajustar seu banco de dados
+## <a name="tune-your-database"></a>Sintonize a sua base de dados
 
-Nesta seção, vamos examinar algumas técnicas que você pode usar para ajustar o banco de dados SQL do Azure para obter o melhor desempenho para seu aplicativo e executá-lo com o menor tamanho de computação possível. Algumas dessas técnicas correspondem às práticas recomendadas de ajuste de SQL Server tradicionais, mas outras são específicas do banco de dados SQL do Azure. Em alguns casos, você pode examinar os recursos consumidos de um banco de dados para encontrar áreas para ajustar ainda mais e estender técnicas tradicionais de SQL Server para trabalhar no banco de dados SQL do Azure.
+Nesta secção, olhamos para algumas técnicas que pode usar para sintonizar a Base de Dados Azure SQL para obter o melhor desempenho para a sua aplicação e executá-la no tamanho mais baixo possível da computação. Algumas destas técnicas combinam com as tradicionais práticas de afinação do Servidor SQL, mas outras são específicas da Base de Dados Azure SQL. Em alguns casos, pode examinar os recursos consumidos para uma base de dados para encontrar áreas para sintonizar e alargar as técnicas tradicionais do SQL Server para trabalhar na Base de Dados Azure SQL.
 
-### <a name="identifying-and-adding-missing-indexes"></a>Identificando e adicionando índices ausentes
+### <a name="identifying-and-adding-missing-indexes"></a>Identificar e adicionar índices em falta
 
-Um problema comum no desempenho do banco de dados OLTP está relacionado ao design do banco de dados físico. Geralmente, os esquemas de banco de dados são projetados e enviados sem testes em escala (seja na carga ou no volume de dados). Infelizmente, o desempenho de um plano de consulta pode ser aceitável em uma pequena escala, mas degradando substancialmente em volumes de dados de nível de produção. A origem mais comum desse problema é a falta de índices apropriados para satisfazer filtros ou outras restrições em uma consulta. Geralmente, os índices ausentes são manifestados como uma verificação de tabela quando uma busca de índice pode ser suficiente.
+Um problema comum no desempenho da base de dados OLTP diz respeito ao desenho da base de dados física. Muitas vezes, os esquemas de base de dados são concebidos e enviados sem testes à escala (em carga ou em volume de dados). Infelizmente, o desempenho de um plano de consulta pode ser aceitável em pequena escala, mas degrada-se substancialmente em volumes de dados ao nível da produção. A fonte mais comum desta questão é a falta de índices adequados para satisfazer filtros ou outras restrições numa consulta. Muitas vezes, os índices em falta manifestam-se como uma digitalização de tabela quando uma procura de índice pode ser suficiente.
 
-Neste exemplo, o plano de consulta selecionado usa uma verificação quando uma busca seria suficiente:
+Neste exemplo, o plano de consulta selecionado usa uma varredura quando uma procura seria suficiente:
 
 ```sql
 DROP TABLE dbo.missingindex;
@@ -79,11 +79,11 @@ SELECT m1.col1
     WHERE m1.col2 = 4;
 ```
 
-![Um plano de consulta com índices ausentes](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
+![Um plano de consulta com índices em falta](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
-O banco de dados SQL do Azure pode ajudá-lo a encontrar e corrigir condições de índice ausentes comuns. As DMVs criadas no banco de dados SQL do Azure examinam as compilações de consulta nas quais um índice reduziria significativamente o custo estimado para executar uma consulta. Durante a execução da consulta, o banco de dados SQL controla com que frequência cada plano de consulta é executado e controla a lacuna estimada entre o plano de consulta em execução e o imaginado em que o índice existia. Você pode usar essas DMVs para adivinhar rapidamente quais alterações em seu design de banco de dados físico podem melhorar o custo geral da carga de trabalho para um banco de dados e sua carga de trabalho real.
+A Base de Dados Azure SQL pode ajudá-lo a encontrar e corrigir condições comuns de índice em falta. Os DMVs incorporados na Base de Dados Azure SQL analisam as compilações de consultas em que um índice reduziria significativamente o custo estimado para executar uma consulta. Durante a execução da consulta, a Base de Dados SQL rastreia a frequência com que cada plano de consulta é executado, e rastreia o fosso estimado entre o plano de execução e o imaginado onde esse índice existiu. Pode utilizar estes DMVs para adivinhar rapidamente quais as alterações ao design da sua base de dados física que podem melhorar o custo global de carga de trabalho para uma base de dados e a sua carga de trabalho real.
 
-Você pode usar essa consulta para avaliar possíveis índices ausentes:
+Pode utilizar esta consulta para avaliar potenciais índices em falta:
 
 ```sql
 SELECT
@@ -116,19 +116,19 @@ Neste exemplo, a consulta resultou nesta sugestão:
 CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 ```
 
-Depois de criada, essa mesma instrução SELECT escolhe um plano diferente, que usa uma busca em vez de uma verificação e, em seguida, executa o plano com mais eficiência:
+Depois de criada, essa mesma declaração SELECT escolhe um plano diferente, que usa uma procura em vez de uma varredura, e depois executa o plano de forma mais eficiente:
 
 ![Um plano de consulta com índices corrigidos](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-A principal percepção é que a capacidade de e/s de um sistema de mercadoria compartilhado é mais limitada do que a de um computador servidor dedicado. Há um prêmio de minimizar a e/s desnecessária para tirar o máximo proveito do sistema na DTU de cada tamanho de computação das camadas de serviço do banco de dados SQL do Azure. As opções apropriadas de design de banco de dados físico podem melhorar significativamente a latência para consultas individuais, melhorar a taxa de transferência de solicitações simultâneas manipuladas por unidade de escala e minimizar os custos necessários para atender à consulta. Para obter mais informações sobre as DMVs de índice ausentes, consulte [Sys. dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+A principal visão é que a capacidade de IO de um sistema de mercadorias partilhado é mais limitada do que a de uma máquina de servidor dedicada. Há um prémio em minimizar o IO desnecessário para tirar o máximo partido do sistema no DTU de cada tamanho computacional dos níveis de serviço de base de dados Azure SQL. As escolhas de conceção de bases de dados físicas adequadas podem melhorar significativamente a latência para consultas individuais, melhorar a entrada de pedidos simultâneos tratados por unidade de escala e minimizar os custos necessários para satisfazer a consulta. Para obter mais informações sobre os DMVs do índice em falta, consulte [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
-### <a name="query-tuning-and-hinting"></a>Ajuste e dicas de consulta
+### <a name="query-tuning-and-hinting"></a>Afinação e insinuação de consultas
 
-O otimizador de consulta no banco de dados SQL do Azure é semelhante ao otimizador de consulta tradicional SQL Server. A maioria das práticas recomendadas para ajustar consultas e entender as limitações do modelo de raciocínio para o otimizador de consulta também se aplica ao banco de dados SQL do Azure. Se você ajustar as consultas no banco de dados SQL do Azure, poderá obter o benefício adicional de reduzir as demandas de recursos agregados. Seu aplicativo pode ser capaz de executar com um custo menor do que um equivalente não ajustado, pois ele pode ser executado em um tamanho de computação inferior.
+O optimizador de consultas na Base de Dados Azure SQL é semelhante ao tradicional optimizador de consulta sQL Server. A maioria das melhores práticas para afinar consultas e compreender as limitações do modelo de raciocínio para o optimizador de consultas também se aplicam à Base de Dados Azure SQL. Se sintonizar consultas na Base de Dados Azure SQL, poderá obter o benefício adicional de reduzir as exigências de recursos agregados. A sua aplicação pode ser capaz de funcionar a um custo mais baixo do que um equivalente não afinado porque pode funcionar a um tamanho de computação mais baixo.
 
-Um exemplo comum em SQL Server e que também se aplica ao banco de dados SQL do Azure é como os parâmetros de "farejações" do otimizador de consulta. Durante a compilação, o otimizador de consulta avalia o valor atual de um parâmetro para determinar se ele pode gerar um plano de consulta mais adequado. Embora essa estratégia geralmente possa levar a um plano de consulta significativamente mais rápido do que um plano compilado sem valores de parâmetro conhecidos, atualmente ele funciona de forma inperfeita tanto no SQL Server quanto no banco de dados SQL do Azure. Às vezes, o parâmetro não é farejado e, às vezes, o parâmetro é farejado, mas o plano gerado é abaixo do ideal para o conjunto completo de valores de parâmetro em uma carga de trabalho. A Microsoft inclui dicas de consulta (diretivas) para que você possa especificar a intenção mais deliberadamente e substituir o comportamento padrão da detecção de parâmetros. Geralmente, se você usar dicas, poderá corrigir casos em que o SQL Server padrão ou o comportamento do banco de dados SQL do Azure é inperfeito para uma carga de trabalho específica do cliente.
+Um exemplo que é comum no SQL Server e que também se aplica à Base de Dados Azure SQL é como os parâmetros do optimizador de consultas "farejam". Durante a compilação, o optimizador de consultas avalia o valor atual de um parâmetro para determinar se pode gerar um plano de consulta mais ideal. Embora esta estratégia possa muitas vezes levar a um plano de consulta que é significativamente mais rápido do que um plano compilado sem valores de parâmetros conhecidos, atualmente funciona imperfeitamente tanto no SQL Server como na Base de Dados Azure SQL. Às vezes o parâmetro não é farejado, e às vezes o parâmetro é farejado, mas o plano gerado é sub-ideal para o conjunto completo de valores de parâmetros em uma carga de trabalho. A Microsoft inclui dicas de consulta (diretivas) para que possa especificar a intenção de forma mais deliberada e anular o comportamento padrão do cheiro de parâmetros. Muitas vezes, se utilizar sugestões, pode corrigir casos em que o comportamento padrão do SQL Server ou do Azure SQL Database é imperfeito para uma carga de trabalho específica do cliente.
 
-O exemplo a seguir demonstra como o processador de consultas pode gerar um plano que é abaixo do ideal para requisitos de desempenho e de recursos. Este exemplo também mostra que, se você usar uma dica de consulta, poderá reduzir o tempo de execução de consulta e os requisitos de recursos para o banco de dados SQL:
+O exemplo seguinte demonstra como o processador de consulta pode gerar um plano que é sub-ideal tanto para os requisitos de desempenho como para recursos. Este exemplo também mostra que se utilizar uma sugestão de consulta, pode reduzir os requisitos de tempo de execução de consulta e recursos para a sua base de dados SQL:
 
 ```sql
 DROP TABLE psptest1;
@@ -168,7 +168,7 @@ CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
 GO
 ```
 
-O código de instalação cria uma tabela com distribuição de dados distorcida. O plano de consulta ideal difere com base em qual parâmetro está selecionado. Infelizmente, o comportamento de cache de plano nem sempre recompila a consulta com base no valor de parâmetro mais comum. Portanto, é possível que um plano abaixo do ideal seja armazenado em cache e usado para muitos valores, mesmo quando um plano diferente pode ser uma opção de plano melhor em média. Em seguida, o plano de consulta cria dois procedimentos armazenados que são idênticos, exceto pelo fato de que um tem uma dica de consulta especial.
+O código de configuração cria uma tabela que tem distorcido a distribuição de dados. O plano de consulta ideal difere com base no parâmetro selecionado. Infelizmente, o comportamento do plano nem sempre recompila a consulta com base no valor mais comum do parâmetro. Assim, é possível que um plano sub-ideal seja cached e usado para muitos valores, mesmo quando um plano diferente pode ser uma escolha de plano melhor, em média. Em seguida, o plano de consulta cria dois procedimentos armazenados que são idênticos, exceto que um tem uma dica especial de consulta.
 
 ```sql
 -- Prime Procedure Cache with scan plan
@@ -185,7 +185,7 @@ WHILE @i < 1000
     END
 ```
 
-Recomendamos que você aguarde pelo menos 10 minutos antes de começar a parte 2 do exemplo, para que os resultados sejam distintos nos dados de telemetria resultantes.
+Recomendamos que espere pelo menos 10 minutos antes de iniciar a parte 2 do exemplo, de modo a que os resultados sejam distintos nos dados de telemetria resultantes.
 
 ```sql
 EXEC psp2 @param2=1;
@@ -200,21 +200,21 @@ DECLARE @i int = 0;
     END
 ```
 
-Cada parte deste exemplo tenta executar uma instrução INSERT parametrizada 1.000 vezes (para gerar uma carga suficiente para usar como um conjunto de dados de teste). Quando ele executa procedimentos armazenados, o processador de consultas examina o valor do parâmetro que é passado para o procedimento durante sua primeira compilação ("detecção" de parâmetro). O processador armazena em cache o plano resultante e o utiliza para invocações posteriores, mesmo que o valor do parâmetro seja diferente. O plano ideal pode não ser usado em todos os casos. Às vezes, você precisa guiar o otimizador para escolher um plano que seja melhor para o caso médio em vez do caso específico de quando a consulta foi compilada pela primeira vez. Neste exemplo, o plano inicial gera um plano de "verificação" que lê todas as linhas para localizar cada valor que corresponde ao parâmetro:
+Cada parte deste exemplo tenta executar uma declaração de inserção parametrizada 1.000 vezes (para gerar uma carga suficiente para usar como conjunto de dados de teste). Quando executa os procedimentos armazenados, o processador de consulta examina o valor do parâmetro que é passado ao procedimento durante a sua primeira compilação (parâmetro "sniffing"). O processador caches o plano resultante e usa-o para invocações posteriores, mesmo que o valor do parâmetro seja diferente. O plano ideal pode não ser usado em todos os casos. Às vezes é preciso guiar o optimizador para escolher um plano que seja melhor para o caso médio e não para o caso específico a partir do momento em que a consulta foi compilada pela primeira vez. Neste exemplo, o plano inicial gera um plano de "digitalização" que lê todas as linhas para encontrar cada valor que corresponda ao parâmetro:
 
-![Ajuste de consulta usando um plano de verificação](./media/sql-database-performance-guidance/query_tuning_1.png)
+![Afinação de consultas usando um plano de digitalização](./media/sql-database-performance-guidance/query_tuning_1.png)
 
-Como executamos o procedimento usando o valor 1, o plano resultante era ideal para o valor 1, mas estava abaixo do ideal para todos os outros valores na tabela. O resultado provavelmente não é o que você desejaria se fosse escolher cada plano aleatoriamente, pois o plano é executado mais lentamente e usa mais recursos.
+Como executámos o procedimento utilizando o valor 1, o plano resultante foi ideal para o valor 1, mas foi sub-ideal para todos os outros valores da tabela. O resultado provavelmente não é o que você gostaria se escolhesse cada plano aleatoriamente, porque o plano funciona mais lentamente e usa mais recursos.
 
-Se você executar o teste com `SET STATISTICS IO` definido como `ON`, o trabalho de verificação lógica neste exemplo será feito nos bastidores. Você pode ver que há 1.148 leituras feitas pelo plano (o que é ineficiente, se o caso médio for retornar apenas uma linha):
+Se fizer o teste com `SET STATISTICS IO` definido para `ON`, o trabalho de digitalização lógica neste exemplo é feito nos bastidores. Pode ver que existem 1.148 leituras feitas pelo plano (o que é ineficiente, se o caso médio é para voltar apenas uma linha):
 
-![Ajuste de consulta usando uma verificação lógica](./media/sql-database-performance-guidance/query_tuning_2.png)
+![Afinação de consultas usando uma varredura lógica](./media/sql-database-performance-guidance/query_tuning_2.png)
 
-A segunda parte do exemplo usa uma dica de consulta para instruir o otimizador a usar um valor específico durante o processo de compilação. Nesse caso, ele força o processador de consulta a ignorar o valor que é passado como o parâmetro e, em vez disso, assumir `UNKNOWN`. Isso se refere a um valor que tem a frequência média na tabela (ignorando a distorção). O plano resultante é um plano baseado em busca que é mais rápido e usa menos recursos, em média, do que o plano na parte 1 deste exemplo:
+A segunda parte do exemplo usa uma sugestão de consulta para dizer ao optimizador para usar um valor específico durante o processo de compilação. Neste caso, obriga o processador de consulta a ignorar o valor que é passado como parâmetro, e em vez de assumir `UNKNOWN`. Isto refere-se a um valor que tem a frequência média na tabela (ignorando o enviesamento). O plano resultante é um plano baseado em procura que é mais rápido e utiliza menos recursos, em média, do que o plano na parte 1 deste exemplo:
 
-![Ajuste de consulta usando uma dica de consulta](./media/sql-database-performance-guidance/query_tuning_3.png)
+![Afinação de consulta usando uma dica de consulta](./media/sql-database-performance-guidance/query_tuning_3.png)
 
-Você pode ver o efeito na tabela **Sys. resource_stats** (há um atraso desde o momento em que você executa o teste e quando os dados populam a tabela). Para este exemplo, a parte 1 foi executada durante a janela de tempo 22:25:00 e a parte 2 foi executada às 22:35:00. A janela de tempo anterior usou mais recursos na janela de tempo do que o mais recente (devido a melhorias de eficiência do plano).
+Pode ver o efeito na tabela **sys.resource_stats** (há um atraso a partir do momento em que executa o teste e quando os dados povoam a tabela). Para este exemplo, a parte 1 executada durante a janela de tempo 22:25:00, e a parte 2 executada às 22:35:00. A janela de tempo anterior utilizou mais recursos naquela janela do tempo do que a anterior (devido a melhorias de eficiência do plano).
 
 ```sql
 SELECT TOP 1000 *
@@ -223,45 +223,45 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![Resultados de exemplo de ajuste de consulta](./media/sql-database-performance-guidance/query_tuning_4.png)
+![Resultados do exemplo de afinação de consultas](./media/sql-database-performance-guidance/query_tuning_4.png)
 
 > [!NOTE]
-> Embora o volume neste exemplo seja intencionalmente pequeno, o efeito dos parâmetros abaixo do ideal pode ser substancial, especialmente em bancos de dados maiores. A diferença, em casos extremos, pode estar entre segundos para casos rápidos e horas para casos lentos.
+> Embora o volume neste exemplo seja intencionalmente pequeno, o efeito dos parâmetros sub-ideais pode ser substancial, especialmente em bases de dados maiores. A diferença, em casos extremos, pode ser entre segundos para casos rápidos e horas para casos lentos.
 
-Você pode examinar **Sys. resource_stats** para determinar se o recurso de um teste usa mais ou menos recursos do que outro teste. Ao comparar dados, separe o tempo dos testes para que eles não estejam na mesma janela de 5 minutos na exibição **Sys. resource_stats** . O objetivo do exercício é minimizar a quantidade total de recursos usados e não minimizar os recursos de pico. Em geral, a otimização de um trecho de código para latência também reduz o consumo de recursos. Verifique se as alterações feitas em um aplicativo são necessárias e se as alterações não afetam negativamente a experiência do cliente para alguém que possa estar usando dicas de consulta no aplicativo.
+Pode examinar **sys.resource_stats** para determinar se o recurso para um teste utiliza mais ou menos recursos do que outro teste. Quando comparar dados, separe o tempo dos testes para que não estejam na mesma janela de 5 minutos na vista **sys.resource_stats.** O objetivo do exercício é minimizar a quantidade total de recursos utilizados, e não minimizar os recursos máximos. Geralmente, a otimização de um código para a latência também reduz o consumo de recursos. Certifique-se de que as alterações que faz a uma aplicação são necessárias e que as alterações não afetam negativamente a experiência do cliente para alguém que possa estar a usar sugestões de consulta na aplicação.
 
-Se uma carga de trabalho tiver um conjunto de consultas repetitivas, muitas vezes faz sentido capturar e validar a melhoridade das suas opções de plano, pois ela orienta a unidade mínima de tamanho de recurso necessária para hospedar o banco de dados. Depois de validá-lo, reexamine ocasionalmente os planos para ajudá-lo a garantir que eles não foram degradados. Você pode saber mais sobre [dicas de consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
+Se uma carga de trabalho tiver um conjunto de consultas repetidas, muitas vezes faz sentido capturar e validar a otimização das escolhas do seu plano porque conduz a unidade de tamanho mínimo de recursos necessária para alojar a base de dados. Depois de validá-lo, ocasionalmente reexamine os planos para ajudá-lo a certificar-se de que eles não se degradaram. Você pode aprender mais sobre dicas de [consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
-### <a name="cross-database-sharding"></a>Fragmentação entre bancos de dados
+### <a name="cross-database-sharding"></a>Sharding de base de dados cruzada
 
-Como o banco de dados SQL do Azure é executado em hardware de mercadoria, os limites de capacidade para um banco de dados individual são menores do que para uma instalação de SQL Server local tradicional. Alguns clientes usam técnicas de fragmentação para espalhar operações de banco de dados em vários bancos de dados quando as operações não se ajustam dentro dos limites de um banco de dados individual no banco de dados SQL do Azure. A maior parte dos clientes que usam técnicas de fragmentação no banco de dados SQL do Azure dividem seus dados em uma única dimensão entre vários bancos de dados. Para essa abordagem, você precisa entender que os aplicativos OLTP geralmente executam transações que se aplicam a apenas uma linha ou a um pequeno grupo de linhas no esquema.
+Uma vez que a Base de Dados Azure SQL funciona em hardware de mercadoria, os limites de capacidade para uma base de dados individual são inferiores às de uma instalação tradicional no local Do Servidor SQL. Alguns clientes usam técnicas de sharding para difundir operações de base de dados em várias bases de dados quando as operações não se enquadram dentro dos limites de uma base de dados individual na Base de Dados Azure SQL. A maioria dos clientes que usam técnicas de sharding na Base de Dados Azure SQL dividem os seus dados numa única dimensão em várias bases de dados. Para esta abordagem, é necessário compreender que as aplicações OLTP realizam frequentemente transações que se aplicam a apenas uma linha ou a um pequeno grupo de linhas no esquema.
 
 > [!NOTE]
-> O banco de dados SQL agora fornece uma biblioteca para auxiliar na fragmentação. Para obter mais informações, consulte [visão geral da biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md).
+> A Base de Dados SQL fornece agora uma biblioteca para ajudar com o sharding. Para mais informações, consulte a visão geral da biblioteca do [cliente da Elástico.](sql-database-elastic-database-client-library.md)
 
-Por exemplo, se um banco de dados tiver o nome do cliente, o pedido e os detalhes do pedido (como o banco de dados de exemplo Northwind tradicional que acompanha o SQL Server), você poderá dividir esses dados em vários bancos de dado agrupando um cliente com o pedido relacionado e detalhes do pedido divulgação. Você pode garantir que os dados do cliente permaneçam em um banco de dado individual. O aplicativo dividiria clientes diferentes em bancos de dados, distribuindo efetivamente a carga entre vários bancos de dados. Com a fragmentação, os clientes não só podem evitar o limite máximo de tamanho do banco de dados, mas o banco de dados SQL do Azure também pode processar cargas de trabalho significativamente maiores do que os limites dos diferentes tamanhos de computação, desde que cada banco de dados individual caiba em seu DTU.
+Por exemplo, se uma base de dados tiver nome, encomenda e detalhes de encomenda (como a base de dados tradicional do Northwind que envia com O Servidor SQL), pode dividir estes dados em várias bases de dados agrupando um cliente com o detalhe de encomendas e encomendas relacionados informação. Pode garantir que os dados do cliente se mantenham numa base de dados individual. A aplicação dividiria diferentes clientes através de bases de dados, efetivamente espalhando a carga através de várias bases de dados. Com o sharding, os clientes não só podem evitar o limite máximo de tamanho da base de dados, como também a Base de Dados Azure SQL também pode processar cargas de trabalho significativamente maiores do que os limites dos diferentes tamanhos de computação, desde que cada base de dados individual se encaixe no seu DTU.
 
-Embora a fragmentação do banco de dados não reduza a capacidade de recursos agregados para uma solução, é altamente eficaz oferecer suporte a soluções muito grandes que se espalham por vários bancos de dados. Cada banco de dados pode ser executado em um tamanho de computação diferente para dar suporte a bancos de dados "efetivos" muito grandes com requisitos de recursos altos.
+Embora a base de dados não reduza a capacidade de recursos agregados para uma solução, é altamente eficaz em suportar soluções muito grandes que estão espalhadas por várias bases de dados. Cada base de dados pode funcionar com um tamanho de computação diferente para suportar bases de dados muito grandes e "eficazes" com elevados requisitos de recursos.
 
 ### <a name="functional-partitioning"></a>Criação de partições funcionais
 
-SQL Server os usuários geralmente combinam muitas funções em um banco de dados individual. Por exemplo, se um aplicativo tiver lógica para gerenciar o inventário de uma loja, esse banco de dados poderá ter uma lógica associada ao inventário, controlar ordens de compra, procedimentos armazenados e exibições indexadas ou materializadas que gerenciam relatórios de fim de mês. Essa técnica facilita a administração do banco de dados para operações como backup, mas também requer que você dimensione o hardware para lidar com a carga de pico em todas as funções de um aplicativo.
+Os utilizadores do SQL Server combinam frequentemente muitas funções numa base de dados individual. Por exemplo, se uma aplicação tem lógica para gerir o inventário de uma loja, essa base de dados pode ter lógica associada ao inventário, rastreamento de ordens de compra, procedimentos armazenados e vistas indexadas ou materializadas que gerem relatórios de fim de mês. Esta técnica facilita a administração da base de dados para operações como backup, mas também requer que você dimensione o hardware para lidar com a carga máxima em todas as funções de uma aplicação.
 
-Se você usar uma arquitetura de expansão no banco de dados SQL do Azure, é uma boa ideia dividir as diferentes funções de um aplicativo em bancos diferentes de dados. Usando essa técnica, cada aplicativo é dimensionado de forma independente. Como um aplicativo se torna mais ocupado (e a carga no banco de dados aumenta), o administrador pode escolher tamanhos de computação independentes para cada função no aplicativo. No limite, com essa arquitetura, um aplicativo pode ser maior do que um único computador de mercadoria pode lidar, pois a carga é distribuída entre vários computadores.
+Se utilizar uma arquitetura de escala na Base de Dados Azure SQL, é uma boa ideia dividir diferentes funções de uma aplicação em diferentes bases de dados. Utilizando esta técnica, cada aplicação escala de forma independente. À medida que uma aplicação se torna mais movimentada (e a carga na base de dados aumenta), o administrador pode escolher tamanhos de computação independentes para cada função na aplicação. No limite, com esta arquitetura, uma aplicação pode ser maior do que uma única máquina de mercadoria pode manusear porque a carga é espalhada por várias máquinas.
 
-### <a name="batch-queries"></a>Consultas em lote
+### <a name="batch-queries"></a>Consultas de lote
 
-Para aplicativos que acessam dados usando consultas ad hoc de alto volume, frequentes, uma quantidade significativa de tempo de resposta é gasto na comunicação de rede entre a camada de aplicativo e a camada de banco de dados SQL do Azure. Mesmo quando o aplicativo e o banco de dados SQL do Azure estão no mesmo data center, a latência de rede entre os dois pode ser ampliada por um grande número de operações de acesso a dados. Para reduzir as viagens de ida e volta da rede para as operações de acesso a dados, considere usar a opção para fazer o lote das consultas ad hoc ou compilá-las como procedimentos armazenados. Se você enviar em lote as consultas ad hoc, poderá enviá-las com várias consultas como um lote grande em uma única viagem para o banco de dados SQL do Azure. Se você compilar consultas ad hoc em um procedimento armazenado, poderá obter o mesmo resultado que o lote. O uso de um procedimento armazenado também oferece o benefício de aumentar as chances de armazenar em cache os planos de consulta no banco de dados SQL do Azure para que você possa usar o procedimento armazenado novamente.
+Para aplicações que acedem a dados utilizando consultas ad hoc de alto volume, frequentes e ad hoc, uma quantidade substancial de tempo de resposta é gasto na comunicação de rede entre o nível de aplicação e o nível de base de dados Azure SQL. Mesmo quando tanto a aplicação como a Base de Dados Azure SQL estão no mesmo centro de dados, a latência da rede entre os dois pode ser ampliada por um grande número de operações de acesso a dados. Para reduzir as viagens de ida e volta da rede para as operações de acesso a dados, considere utilizar a opção de remar as consultas ad hoc ou compilar como procedimentos armazenados. Se você emite as consultas ad hoc, você pode enviar múltiplas consultas como um grande lote em uma única viagem à Base de Dados Azure SQL. Se compilar consultas ad hoc num procedimento armazenado, poderá obter o mesmo resultado que se as emita em lotação. A utilização de um procedimento armazenado também lhe dá o benefício de aumentar as chances de gravar os planos de consulta na Base de Dados Azure SQL para que possa voltar a utilizar o procedimento armazenado.
 
-Alguns aplicativos são de gravação intensiva. Às vezes, você pode reduzir a carga de e/s total em um banco de dados considerando como as gravações em lote são juntas. Geralmente, isso é tão simples quanto usar transações explícitas em vez de transações de confirmação automática em procedimentos armazenados e lotes ad hoc. Para obter uma avaliação das diferentes técnicas que você pode usar, consulte [técnicas de envio em lote para aplicativos de banco de dados SQL no Azure](sql-database-use-batching-to-improve-performance.md). Experimente sua própria carga de trabalho para localizar o modelo certo para envio em lote. Lembre-se de entender que um modelo pode ter garantias de consistência transacionais ligeiramente diferentes. Encontrar a carga de trabalho certa que minimiza o uso de recursos exige a localização da combinação certa de compensações de consistência e desempenho.
+Algumas aplicações são intensivas. Por vezes, pode reduzir a carga total de IO numa base de dados, considerando como escrever em conjunto. Muitas vezes, isto é tão simples como usar transações explícitas em vez de transações automáticas em procedimentos armazenados e lotes ad hoc. Para uma avaliação de diferentes técnicas pode utilizar, consulte [técnicas de loteamento para aplicações de Base de Dados SQL em Azure](sql-database-use-batching-to-improve-performance.md). Experimente com a sua própria carga de trabalho para encontrar o modelo certo para o loteamento. Certifique-se de que um modelo pode ter garantias de consistência transacional ligeiramente diferentes. Encontrar a carga de trabalho certa que minimize o uso de recursos requer encontrar a combinação certa de consistência e trocas de desempenho.
 
-### <a name="application-tier-caching"></a>Cache da camada de aplicativo
+### <a name="application-tier-caching"></a>Cache de nível de aplicação
 
-Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. As camadas de cache podem reduzir a carga no banco de dados e podem reduzir potencialmente o tamanho de computação necessário para dar suporte a um banco de dados usando o banco de dados SQL do Azure. Com o [cache do Azure para Redis](https://azure.microsoft.com/services/cache/), se você tiver uma carga de trabalho com muita leitura, poderá ler os dados uma vez (ou talvez uma vez por computador da camada de aplicativo, dependendo de como ele está configurado) e, em seguida, armazenar esses dados fora do banco de dado SQL. Essa é uma maneira de reduzir a carga do banco de dados (CPU e e/s de leitura), mas há um efeito na consistência transacional, pois os dados que estão sendo lidos do cache podem estar fora de sincronia com os dados no banco de dado. Embora, em muitos aplicativos, algum nível de inconsistência seja aceitável, isso não é verdade para todas as cargas de trabalho. Você deve compreender totalmente os requisitos do aplicativo antes de implementar uma estratégia de cache da camada de aplicativo.
+Algumas aplicações de base de dados têm cargas de trabalho pesadas. As camadas de cache podem reduzir a carga na base de dados e podem potencialmente reduzir o tamanho da computação necessária para suportar uma base de dados utilizando a Base de Dados Azure SQL. Com [o Azure Cache for Redis](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho pesada, pode ler os dados uma vez (ou talvez uma vez por máquina de nível de aplicação, dependendo da configuração), e depois armazenar esses dados fora da sua base de dados SQL. Esta é uma forma de reduzir a carga de base de dados (CPU e ler IO), mas há um efeito na consistência transacional porque os dados que estão a ser lidos a partir da cache podem estar dessincronizados com os dados na base de dados. Embora em muitas aplicações algum nível de inconsistência seja aceitável, isso não é verdade para todas as cargas de trabalho. Deve compreender completamente quaisquer requisitos de aplicação antes de implementar uma estratégia de cache de nível de aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre camadas de serviço baseadas em DTU, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
-- Para obter mais informações sobre as camadas de serviço baseadas em vCore, consulte [modelo de compra baseado em VCORE](sql-database-service-tiers-vcore.md).
-- Para obter mais informações sobre pools elásticos, consulte [o que é um pool elástico do Azure?](sql-database-elastic-pool.md)
-- Para obter informações sobre o desempenho e pools elásticos, consulte [quando considerar um pool elástico](sql-database-elastic-pool-guidance.md)
+- Para obter mais informações sobre os níveis de serviço baseados em DTU, consulte [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
+- Para obter mais informações sobre os níveis de serviço baseados em vCore, consulte o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+- Para mais informações sobre piscinas elásticas, veja [o que é uma piscina elástica Azure?](sql-database-elastic-pool.md)
+- Para obter informações sobre desempenho e piscinas elásticas, consulte [Quando considerar uma piscina elástica](sql-database-elastic-pool-guidance.md)

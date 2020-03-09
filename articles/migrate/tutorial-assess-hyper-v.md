@@ -1,78 +1,78 @@
 ---
-title: Avaliar as VMs do Hyper-V para migração para o Azure com migrações para Azure | Microsoft Docs
-description: Descreve como avaliar VMs do Hyper-V locais para migração para o Azure usando as migrações para Azure.
+title: Avaliar Os VMs Hiper-V para migração para Azure com o Azure Migrate Microsoft Docs
+description: Descreve como avaliar no local os VMs hiper-V para migração para Azure usando o Azure Migrate.
 ms.topic: tutorial
 ms.date: 01/23/2020
 ms.custom: mvc
 ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845511"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388919"
 ---
-# <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar as VMs do Hyper-V com a avaliação do servidor de migrações para Azure
+# <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs hiper-V com avaliação do servidor migratório Azure
 
-Este artigo mostra como avaliar as VMs do Hyper-V locais, usando a ferramenta migrações para Azure: Server Assessment.
+Este artigo mostra-lhe como avaliar no local Os VMs Hiper-V, utilizando a ferramenta Azure Migrate: Server Assessment.
 
-As [migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros.
+[A Azure Migrate](migrate-services-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar apps, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV).
 
 
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMs do Hyper-V para o Azure. Neste tutorial, ficará a saber como:
+Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMs Hiper-V para Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure um projeto de migrações para Azure.
-> * Configurar e registrar um dispositivo de migrações para Azure.
-> * Inicie a descoberta contínua de VMs locais.
-> * Agrupe as VMs descobertas e avalie o grupo.
-> * Examine a avaliação.
+> * Criar um projeto Azure Migrate.
+> * Instale e registe um aparelho Azure Migrate.
+> * Inicie a descoberta contínua de VMs no local.
+> * O grupo descobriu vMs e avaliou o grupo.
+> * Reveja a avaliação.
 
 > [!NOTE]
-> Os tutoriais mostram o caminho de implantação mais simples para um cenário, para que você possa configurar rapidamente uma prova de conceito. Os tutoriais usam as opções padrão sempre que possível e não mostram todas as configurações e caminhos possíveis. Para obter instruções detalhadas, revise os artigos de instruções.
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa rapidamente configurar uma prova de conceito. Os tutoriais usam opções padrão sempre que possível, e não mostram todas as configurações e caminhos possíveis. Para obter instruções detalhadas, reveja os artigos como fazer.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Conclua](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Caso contrário, as instruções neste tutorial não funcionarão.
-- Veja o que você deve ter feito no primeiro tutorial:
-    - [Configure as permissões do Azure](tutorial-prepare-hyper-v.md#prepare-azure) para migrações para Azure.
-    - Prepare clusters, hosts e VMs do [Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) para avaliação.
-    - [Prepare-se para a implantação](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) do dispositivo de migrações para Azure, usado para avaliação e descoberta de VM do Hyper-V.
+- [Complete](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Se não o fizeres, as instruções neste tutorial não funcionarão.
+- Eis o que deviater feito no primeiro tutorial:
+    - [Instale permissões Azure](tutorial-prepare-hyper-v.md#prepare-azure) para a Migração Azure.
+    - Prepare clusters, anfitriões e VMs [hiper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) para avaliação.
+    - [Prepare-se para a colocação](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) do aparelho Azure Migrate, utilizado para a descoberta e avaliação de VM Hiper-V.
 
-## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto de migrações para Azure
+## <a name="set-up-an-azure-migrate-project"></a>Criar um projeto Azure Migrate
 
 1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
-2. Nos resultados da pesquisa, selecione **migrações para Azure**.
+2. Nos resultados da pesquisa, selecione **Azure Migrate**.
 3. Na **Descrição geral**, em **Descobrir, avaliar e migrar servidores**, clique em **Avaliar e migrar servidores**.
 
-    ![Descobrir e avaliar servidores](./media/tutorial-assess-hyper-v/assess-migrate.png)
+    ![Descubra e avalie servidores](./media/tutorial-assess-hyper-v/assess-migrate.png)
 
 4. Em **Introdução**, clique em **Adicionar ferramentas**.
-5. Na guia **migrar projeto** , selecione sua assinatura do Azure e crie um grupo de recursos, se você não tiver um.
-6. Em **detalhes do projeto**, especifique o nome do projeto e a região na qual você deseja criar o projeto.
+5. No **separador de projeto Migrate,** selecione a sua subscrição Azure e crie um grupo de recursos se não tiver um.
+6. Em Detalhes do **Projeto,** especifique o nome do projeto e a região em que pretende criar o projeto.
 
 
-    ![Criar um projeto de migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
+    ![Criar um projeto Azure Migrate](./media/tutorial-assess-hyper-v/migrate-project.png)
 
-    Você pode criar um projeto de migrações para Azure nessas regiões.
+    Pode criar um projeto Azure Migrate nestas regiões.
 
     **Geografia** | **Região**
     --- | ---
     Ásia  | Ásia Sudeste
-    Europa | Europa Setentrional ou Europa Ocidental
-    Reino Unido |  Sul do Reino Unido ou Oeste do Reino Unido
-    Estados Unidos | Leste dos EUA, oeste dos EUA 2 ou Oeste EUA Central
+    Europa | Norte da Europa ou Europa Ocidental
+    Reino Unido |  Reino Unido Sul ou Reino Unido Oeste
+    Estados Unidos | Leste dos EUA, Oeste DOS EUA 2 ou Oeste Dos EUA
 
-    - A região do projeto é usada somente para armazenar os metadados coletados de VMs locais.
-    - Você pode selecionar uma região de destino do Azure diferente ao migrar as VMs. Todas as regiões do Azure têm suporte para o destino de migração.
+    - A região do projeto é usada apenas para armazenar os metadados recolhidos a partir de VMs no local.
+    - Pode selecionar uma região-alvo azure diferente quando migrar os VMs. Todas as regiões de Azure são apoiadas para o objetivo de migração.
 
 7. Clique em **Seguinte**.
-8. Em **selecionar ferramenta de avaliação**, selecione **migrações para Azure: avaliação do servidor** > **Avançar**.
+8. Na **ferramenta de avaliação Select**, selecione **Azure Migrate: Avaliação do servidor** > **Seguinte**.
 
-    ![Criar um projeto de migrações para Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
+    ![Criar um projeto Azure Migrate](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
 9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por agora** > **Seguinte**.
 10. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**.
@@ -81,114 +81,114 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 
 
-## <a name="set-up-the-appliance-vm"></a>Configurar a VM do dispositivo
+## <a name="set-up-the-appliance-vm"></a>Configurar o vm do aparelho
 
-A avaliação do servidor de migrações para Azure executa um dispositivo de VM leve do Hyper-V.
+A Avaliação do Servidor Migratório Azure executa um aparelho VM Hyper-V leve.
 
-- Este dispositivo executa a descoberta de VM e envia metadados de VM e dados de desempenho para migrações para Azure: avaliação de servidor.
-- Para configurar o dispositivo, você:
-    - Baixe um VHD do Hyper-V compactado da portal do Azure.
-    - Crie o dispositivo e verifique se ele pode se conectar à avaliação do servidor de migrações para Azure.
-    - Configure o dispositivo pela primeira vez e registre-o com o projeto de migrações para Azure.
+- Este aparelho realiza a descoberta de VM e envia metadados VM e dados de desempenho para o Azure Migrate: Server Assessment.
+- Para configurar o aparelho:
+    - Baixe um VHD Hiper-V comprimido a partir do portal Azure.
+    - Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Migratório Azure.
+    - Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate.
 
-### <a name="download-the-vhd"></a>Baixar o VHD
+### <a name="download-the-vhd"></a>Descarregue o VHD
 
-Baixe o modelo de VHD compactado para o dispositivo.
+Descarregue o modelo VHD com fecho para o aparelho.
 
-1. Em **metas de migração** > **servidores** > **migrações para Azure: avaliação do servidor**, clique em **descobrir**.
-2. Em **descobrir computadores** > **são seus computadores virtualizados?** , clique em **Sim, com o Hyper-V**.
-3. Clique em **baixar** para baixar o arquivo VHD.
+1. Em **Objetivos de Migração** > **servidores** > **Azure Migrate: Avaliação do servidor,** clique **em Descobrir**.
+2. Em **Discover machines** > **As suas máquinas estão virtualizadas?**
+3. Clique em **Baixar** para descarregar o ficheiro VHD.
 
     ![Baixar VM](./media/tutorial-assess-hyper-v/download-appliance-hyperv.png)
 
 
-### <a name="verify-security"></a>Verificar segurança
+### <a name="verify-security"></a>Verificar a segurança
 
-Verifique se o arquivo compactado é seguro, antes de implantá-lo.
+Verifique se o ficheiro com fecho está seguro, antes de o implantar.
 
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 
-2. Execute o seguinte comando do PowerShell para gerar o hash para o arquivo ZIP
+2. Executar o seguinte comando PowerShell para gerar o haxixe para o ficheiro ZIP
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Para a versão do dispositivo 2.19.07.30, o hash gerado deve corresponder a essas configurações.
+3.  Para a versão do aparelho 2.19.07.30, o hash gerado deve coincidir com estas definições.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+  MD5 | 29a7531f32bcf69f32d964fa5ae950 a.C.
+  SHA256 | 37b3f27bc44475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 
-### <a name="create-the-appliance-vm"></a>Criar a VM do dispositivo
+### <a name="create-the-appliance-vm"></a>Crie o vm do aparelho
 
-Importe o arquivo baixado e crie a VM.
+Importe o ficheiro descarregado e crie o VM.
 
-1. Depois de baixar o arquivo VHD compactado para o host Hyper-V no qual a VM do dispositivo será colocada, extraia o arquivo compactado.
+1. Depois de descarregar o ficheiro VHD com fecho para o hospedeiro Hyper-V no qual o vM do aparelho será colocado, extrai o ficheiro zipped.
     - No local extraído, o ficheiro desliga-se numa pasta chamada **AzureMigrateAppliance_VersionNumber**.
     - Esta pasta contém uma subpasta, também chamada **AzureMigrateAppliance_VersionNumber**.
-    - Essa subpasta contém três subpastas adicionais – **instantâneos**, **discos rígidos virtuais**e **máquinas virtuais**.
+    - Esta subpasta contém mais três subpastas - **Snapshots,** **Discos Rígidos Virtuais**e **Máquinas Virtuais**.
 
-2. Open Hyper-V Manager. Em **ações**, clique em **importar máquina virtual**.
+2. Open Hyper-V Manager. Em **Ações,** clique **em Importar Máquina Virtual**.
 
-    ![Implantar VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
+    ![Implementar VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
-2. No assistente de importação de máquina virtual > **antes de começar**, clique em **Avançar**.
-3. Em **Localizar pasta**, selecione a pasta **máquinas virtuais** . Clique depois em **Seguinte**.
-1. Em **selecionar máquina virtual**, clique em **Avançar**.
-2. Em **escolher tipo de importação**, clique em **copiar a máquina virtual (criar uma nova ID exclusiva)** . Clique depois em **Seguinte**.
-3. Em **escolher destino**, deixe a configuração padrão. Clique em **Seguinte**.
-4. Em **pastas de armazenamento**, deixe a configuração padrão. Clique em **Seguinte**.
-5. Em **escolher rede**, especifique o comutador virtual que será usado pela VM. A opção precisa de conectividade com a Internet para enviar dados para o Azure. [Aprenda](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) a criar um interruptor virtual.
-6. Em **Resumo**, examine as configurações. Em seguida, clique em **Terminar**.
-7. No Gerenciador do Hyper-V > **máquinas virtuais**, inicie a VM.
+2. No Importador Virtual Machine Wizard > Antes de **começar,** clique **em Seguinte**.
+3. Na **pasta Localizar,** selecione a pasta **Máquinas Virtuais.** Clique depois em **Seguinte**.
+1. Na **selecione Máquina Virtual,** clique em **Seguinte**.
+2. Em **Escolher o Tipo de Importação,** clique em copiar a máquina virtual **(criar um novo ID único)** . Clique depois em **Seguinte**.
+3. No **Destino Escolha,** deixe a definição predefinida. Clique em **Seguinte**.
+4. Nas **pastas de armazenamento,** deixe a definição predefinida. Clique em **Seguinte**.
+5. Na **Rede Escolha,** especifique o interruptor virtual que o VM utilizará. O interruptor precisa de conectividade de internet para enviar dados para o Azure. [Aprenda](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) a criar um interruptor virtual.
+6. Em **resumo,** reveja as definições. Em seguida, clique em **Terminar**.
+7. Em Hyper-V Manager > **Virtual Machines,** inicie o VM.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
+### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
+Certifique-se de que o VM do aparelho pode ligar-se a [URLs Azure](migrate-appliance.md#url-access).
 
-### <a name="configure-the-appliance"></a>Configurar o dispositivo
+### <a name="configure-the-appliance"></a>Configure o aparelho
 
-Configure o dispositivo pela primeira vez.
+Instale o aparelho pela primeira vez.
 
-1. No Gerenciador do Hyper-V > **máquinas virtuais**, clique com o botão direito do mouse na VM > **conectar**.
-2. Forneça o idioma, o fuso horário e a senha para o dispositivo.
-3. Abra um navegador em qualquer computador que possa se conectar à VM e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
+1. Em Hyper-V Manager > **Virtual Machines,** clique à direita no VM > **Connect**.
+2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
+3. Abra um navegador em qualquer máquina que possa ligar-se ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
 
-   Como alternativa, você pode abrir o aplicativo na área de trabalho do dispositivo clicando no atalho do aplicativo.
-1. No aplicativo Web > **configurar os pré-requisitos**, faça o seguinte:
-    - **Licença**: aceite os termos de licença e leia as informações de terceiros.
-    - **Conectividade**: o aplicativo verifica se a VM tem acesso à Internet. Se a VM usar um proxy:
-      - Clique em **configurações de proxy**e especifique o endereço de proxy e a porta de escuta, no formato http://ProxyIPAddress ou http://ProxyFQDN.
+   Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho clicando no atalho da aplicação.
+1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
+    - **Licença**: Aceite os termos da licença e leia as informações de terceiros.
+    - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um proxy:
+      - Clique em **definições proxy**, e especifique o endereço proxy e a porta de escuta, sob a forma http://ProxyIPAddress ou http://ProxyFQDN.
       - Especifique as credenciais se o proxy precisar de autenticação.
       - Apenas é suportado o proxy HTTP.
-    - **Sincronização de horário**: o tempo é verificado. O tempo no dispositivo deve ser sincronizado com o horário da Internet para que a descoberta da VM funcione corretamente.
-    - **Instalar atualizações**: avaliação do servidor de migrações para Azure verifica se o dispositivo tem as atualizações mais recentes instaladas.
+    - **Sincronização de tempo**: O tempo é verificado. O tempo no aparelho deve estar sincronizado com o tempo de internet para que a descoberta de VM funcione corretamente.
+    - **Instalar atualizações**: A Avaliação do Servidor Migratório Azure verifica se o aparelho tem as últimas atualizações instaladas.
 
-### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo com as migrações para Azure
+### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
-1. Clique em **fazer logon**. Se não aparecer, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-2. Na nova guia, entre usando suas credenciais do Azure.
-    - Entre com seu nome de usuário e senha.
-    - Não há suporte para a entrada com um PIN.
-3. Depois de entrar com êxito, volte para o aplicativo Web.
-4. Selecione a assinatura na qual o projeto de migração do Azure foi criado. Em seguida, selecione o projeto.
-5. Especifique um nome para o dispositivo. O nome deve ser alfanumérico com 14 caracteres ou menos.
-6. Clique em **registrar**.
+1. Clique **em iniciar sessão**. Se não aparecer, certifique-se de que desativou o bloqueador pop-up no navegador.
+2. No novo separador, inscreva-se utilizando as suas credenciais Azure.
+    - Inscreva-se com o seu nome de utilizador e senha.
+    - O sessão com um PIN não é suportado.
+3. Depois de iniciar sessão com sucesso, volte para a aplicação web.
+4. Selecione a subscrição em que foi criado o projeto Azure Migrate. Em seguida, selecione o projeto.
+5. Especifique um nome para o aparelho. O nome deve ser alfanumérico com 14 caracteres ou menos.
+6. Clique no **Registo**.
 
 
-### <a name="delegate-credentials-for-smb-vhds"></a>Delegar credenciais para VHDs SMB
+### <a name="delegate-credentials-for-smb-vhds"></a>Credenciais de delegado para VHDs SMB
 
-Se você estiver executando VHDs em SMBs, deverá habilitar a delegação de credenciais do dispositivo para os hosts do Hyper-V. Isso requer o seguinte:
+Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do aparelho para os anfitriões Hyper-V. Isto requer o seguinte:
 
-- Você permite que cada host atue como um delegado para o dispositivo. Se você seguiu os tutoriais em ordem, fez isso no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado o CredSSP para os hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)ou [executando um script](tutorial-prepare-hyper-v.md#prepare-with-a-script) que faça isso.
-- Habilite a delegação de CredSSP para que o dispositivo de migrações para Azure possa atuar como o cliente, delegando credenciais a um host.
+- Permite que cada hospedeiro aja como delegado do aparelho. Se seguiu os tutoriais em ordem, fê-lo no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado CredSSP para os anfitriões [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), ou [executando um script](tutorial-prepare-hyper-v.md#prepare-with-a-script) que faz isso.
+- Habilitar a delegação da CredSSP para que o aparelho Azure Migrate possa funcionar como cliente, delegando credenciais a um hospedeiro.
 
-Habilite no dispositivo da seguinte maneira:
+Ativar o aparelho da seguinte forma:
 
-#### <a name="option-1"></a>Opção 1
+#### <a name="option-1"></a>opção 1
 
-Na VM do dispositivo, execute este comando. HyperVHost1/HyperVHost2 são nomes de host de exemplo.
+No vM do aparelho, execute este comando. HyperVHost1/HyperVHost2 são nomes de anfitriões exemplo.
 
 ```
 Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
@@ -198,125 +198,125 @@ Exemplo: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contos
 
 #### <a name="option-2"></a>Opção 2
 
-Como alternativa, faça isso na Editor de Política de Grupo Local no dispositivo:
+Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
 
-1. Em **política do computador Local** > **configuração do computador**, clique em **modelos administrativos** > **sistema** > **delegação de credenciais**.
-2. Clique duas vezes em **Permitir Delegação de novas credenciais**e selecione **habilitado**.
-3. Em **Opções**, clique em **Mostrar**e adicione cada host Hyper-V que você deseja descobrir à lista, com **WSMan/** como um prefixo.
-4. Em seguida, em **delegação de credenciais**, clique duas vezes em **Permitir Delegação de novas credenciais com autenticação de servidor somente NTML**. Novamente, adicione cada host Hyper-V que você deseja descobrir à lista, com **WSMan/** como um prefixo.
+1. Na **política informática local** > **configuração do computador,** clique em **modelos administrativos** > **sistema** > delegação de **credenciais.**
+2. Clique duplo **Para permitir a delegação**de novas credenciais e selecionar **Ativado**.
+3. Em **Opções,** clique em **Mostrar**, e adicione cada anfitrião Hyper-V que deseja descobrir na lista, com **wsman/** como prefixo.
+4. Em seguida, na **Delegação de Credenciais,** clique duplo **Permitir delegar novas credenciais com autenticação de servidor apenas NTLM**. Mais uma vez, adicione cada anfitrião Hyper-V que deseja descobrir na lista, com **wsman/** como prefixo.
 
-## <a name="start-continuous-discovery"></a>Iniciar descoberta contínua
+## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
-Conecte-se do dispositivo a clusters ou hosts do Hyper-V e inicie a descoberta de VM.
+Ligue-se do aparelho aos anfitriões ou aglomerados hyper-V e inicie a descoberta vm.
 
-1. Em **nome de usuário** e **senha**, especifique as credenciais de conta que o dispositivo usará para descobrir as VMs. Especifique um nome amigável para as credenciais e clique em **salvar detalhes**.
-2. Clique em **Adicionar host**e especifique os detalhes de host/cluster do Hyper-V.
-3. Clique em **validar**. Após a validação, o número de VMs que podem ser descobertas em cada host/cluster é mostrado.
-    - Se a validação falhar para um host, examine o erro passando o mouse sobre o ícone na coluna **status** . Corrija os problemas e valide novamente.
-    - Para remover hosts ou clusters, selecione > **excluir**.
-    - Não é possível remover um host específico de um cluster. Você só pode remover o cluster inteiro.
-    - Você pode adicionar um cluster, mesmo se houver problemas com hosts específicos no cluster.
-4. Após a validação, clique em **salvar e inicie a descoberta** para iniciar o processo de descoberta.
+1. No **nome do utilizador** e na **palavra-passe,** especifique as credenciais de conta que o aparelho utilizará para descobrir VMs. Especifique um nome amigável para as credenciais e clique em **Guardar detalhes**.
+2. Clique em **Adicionar anfitrião**e especificar detalhes do hospedeiro/cluster hyper-V.
+3. Clique em **Validar**. Após validação, é mostrado o número de VMs que podem ser descobertos em cada hospedeiro/cluster.
+    - Se a validação falhar para um hospedeiro, reveja o erro pairando sobre o ícone na coluna **'Estado'.** Corrija os problemas e valide novamente.
+    - Para remover hospedeiros ou clusters, selecione > **Delete**.
+    - Não se pode remover um hospedeiro específico de um aglomerado. Só se pode remover todo o aglomerado.
+    - Pode adicionar um cluster, mesmo que existam problemas com anfitriões específicos no cluster.
+4. Após validação, clique em **Guardar e iniciar** a descoberta para iniciar o processo de descoberta.
 
-Isso inicia a descoberta. Leva cerca de 1,5 minutos por host para que os metadados de servidores descobertos apareçam na portal do Azure.
+Isto começa a ser descoberto. Leva cerca de 1,5 minutos por hospedeiro para que os metadados de servidores descobertos apareçam no portal Azure.
 
 ### <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
 
-Após a conclusão da descoberta, você pode verificar se as VMs aparecem no Portal.
+Após a descoberta, pode verificar se os VMs aparecem no portal.
 
-1. Abra o painel migrações para Azure.
-2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**.
+1. Abra o painel de migração Azure.
+2. Em **Azure Migrate - Servidores** > **Azure Migrar:** Página de Avaliação do Servidor, clique no ícone que apresenta a contagem para **servidores descobertos**.
 
 ## <a name="set-up-an-assessment"></a>Configurar uma avaliação
 
-Há dois tipos de avaliações que você pode executar usando a avaliação de servidor de migrações para Azure.
+Existem dois tipos de avaliações que pode executar usando a Avaliação do Servidor Migratório Azure.
 
 **Avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado em desempenho** | Avaliações com base nos dados de desempenho coletados | **Tamanho de VM recomendado**: com base nos dados de utilização de CPU e memória.<br/><br/> **Tipo de disco recomendado (disco gerenciado Standard ou Premium)** : com base na IOPS e na taxa de transferência dos discos locais.
-**Como local** | Avaliações com base no dimensionamento local. | **Tamanho de VM recomendado**: com base no tamanho da VM local<br/><br> **Tipo de disco recomendado**: com base na configuração de tipo de armazenamento que você selecionar para a avaliação.
+**Baseado no desempenho** | Avaliações baseadas em dados de desempenho recolhidos | **Tamanho VM recomendado**: Baseado em CPU e dados de utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido padrão ou premium)** : Baseado no IOPS e na entrada dos discos no local.
+**Como no local** | Avaliações baseadas no dimensionamento no local. | **Tamanho VM recomendado**: Baseado no tamanho vm no local<br/><br> **Tipo**de disco recomendado : Com base na definição do tipo de armazenamento selecionada para a avaliação.
 
 
 
 ### <a name="run-an-assessment"></a>Executar uma avaliação
 
-Execute uma avaliação da seguinte maneira:
+Eexecutar uma avaliação da seguinte forma:
 
-1. Examine as [práticas recomendadas](best-practices-assessment.md) para a criação de avaliações.
-2. Em **servidores** > **migrações para Azure: avaliação do servidor**, clique em **avaliar**.
+1. Reveja as [melhores práticas](best-practices-assessment.md) para a criação de avaliações.
+2. Nos **servidores** > **Azure Migrate: Avaliação do servidor,** clique em **Avaliar**.
 
     ![Avaliar](./media/tutorial-assess-hyper-v/assess.png)
 
-3. Em **avaliar servidores**, especifique um nome para a avaliação.
+3. Em **'Avaliar Servidores',** especifique um nome para a avaliação.
 4. Clique em **Ver tudo** para rever as propriedades de avaliação.
 
-    ![Propriedades da avaliação](./media/tutorial-assess-hyper-v/assessment-properties.png)
+    ![Propriedades de avaliação](./media/tutorial-assess-hyper-v/assessment-properties.png)
 
-3. Em **selecionar ou criar um grupo**, selecione **criar novo** e especifique um nome de grupo. Um grupo reúne uma ou mais VMs juntas para avaliação.
-4. Em **Adicionar computadores ao grupo**, selecione VMs para adicionar ao grupo.
-5. Clique em **criar avaliação** para criar o grupo e executar a avaliação.
+3. Em **Selecionar ou criar um grupo,** selecione Criar **Novo** e especificar um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
+4. Em **Adicionar máquinas ao grupo,** selecione VMs para adicionar ao grupo.
+5. Clique em **Criar Avaliação** para criar o grupo e executar a avaliação.
 
     ![Criar uma avaliação](./media/tutorial-assess-hyper-v/assessment-create.png)
 
-6. Após a criação da avaliação, exiba-a em **servidores** > **migrações para Azure: avaliação do servidor**.
+6. Após a criação da avaliação, veja-a em **Servidores** > **Azure Migrate: Server Assessment**.
 7. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
 
 
-## <a name="review-an-assessment"></a>Examinar uma avaliação
+## <a name="review-an-assessment"></a>Rever uma avaliação
 
 Uma avaliação descreve:
 
-- **Preparação do Azure**: se as VMs são adequadas para a migração para o Azure.
-- **Estimativa de custo mensal**: a computação mensal estimada e os custos de armazenamento para executar as VMs no Azure.
-- **Estimativa de custo de armazenamento mensal**: custos estimados para armazenamento em disco após a migração.
+- **Prontidão azure**: Se os VMs são adequados para migração para Azure.
+- **Estimativa mensal de custos**: Os custos estimados mensais de cálculo e armazenamento para a execução dos VMs em Azure.
+- **Estimativa mensal**do custo do armazenamento : Custos estimados para armazenamento de disco após migração.
 
 
-### <a name="view-an-assessment"></a>Exibir uma avaliação
+### <a name="view-an-assessment"></a>Ver uma avaliação
 
-1. Em **metas de migração** >  **servidores** > **migrações para Azure: avaliação de servidor**, clique em **avaliações**.
-2. Em **avaliações**, clique em uma avaliação para abri-la.
+1. Nos **objetivos de migração** >  **Servidores** > **Azure Migrate: Avaliação do Servidor**, clique em **Avaliações**.
+2. Em **Avaliações,** clique numa avaliação para abri-la.
 
     ![Resumo da avaliação](./media/tutorial-assess-hyper-v/assessment-summary.png)
 
 
-### <a name="review-azure-readiness"></a>Examinar a preparação do Azure
+### <a name="review-azure-readiness"></a>Rever a prontidão do Azure
 
-1. Em **preparação do Azure**, verifique se as VMs estão prontas para migração para o Azure.
-2. Examine o status da VM:
-    - **Pronto para o Azure**: as migrações para Azure recomendam um tamanho de VM e estimativas de custo para VMs na avaliação.
-    - **Pronto com condições**: mostra problemas e correção sugerida.
-    - **Não está pronto para o Azure**: mostra problemas e correção sugerida.
-    - **Preparação desconhecida**: usada quando as migrações para Azure não podem avaliar a preparação, devido a problemas de disponibilidade de dados.
+1. Na **prontidão de Azure,** verifique se os VMs estão prontos para a migração para Azure.
+2. Reveja o estado vm:
+    - **Pronto para Azure**: A Azure Migrate recomenda uma estimativa de tamanho VM e custos para os VMs na avaliação.
+    - **Pronto com condições**: Mostra problemas e sugeriu reparação.
+    - **Não está pronto para o Azure**: Mostra questões e sugeriu reparação.
+    - **Prontidão desconhecida**: Usado quando o Azure Migrate não consegue avaliar a prontidão, devido a problemas de disponibilidade de dados.
 
-2. Clique em um status de **preparação do Azure** . Você pode exibir os detalhes de preparação da VM e fazer uma busca detalhada para ver os detalhes da VM, incluindo as configurações de computação, armazenamento e rede.
+2. Clique num estado de **prontidão Azure.** Pode ver detalhes de prontidão vM e perfurar para ver detalhes vm, incluindo definições de computação, armazenamento e rede.
 
-### <a name="review-cost-details"></a>Examinar detalhes de custo
+### <a name="review-cost-details"></a>Analisar detalhes de custos
 
-Essa exibição mostra o custo estimado de computação e armazenamento de VMs em execução no Azure.
+Esta visão mostra o cálculo estimado e o custo de armazenamento de vMs de funcionamento em Azure.
 
-1. Examine os custos mensais de computação e armazenamento. Os custos são agregados para todas as VMs no grupo avaliado.
+1. Reveja os custos mensais de cálculo e armazenamento. Os custos são agregados para todos os VMs do grupo avaliado.
 
-    - As estimativas de custo são baseadas nas recomendações de tamanho para um computador e seus discos e propriedades.
-    - Os custos mensais estimados para computação e armazenamento são mostrados.
-    - A estimativa de custo é para executar as VMs locais como VMs de IaaS. A avaliação do servidor de migrações para Azure não considera os custos de PaaS ou SaaS.
+    - As estimativas de custos baseiam-se nas recomendações de tamanho para uma máquina, e nos seus discos e propriedades.
+    - Os custos mensais estimados para a computação e armazenamento são apresentados.
+    - A estimativa de custos é para executar os VMs no local como VMs IaaS. A Avaliação do Servidor Migratório Azure não considera os custos do PaaS ou do SaaS.
 
-2. Você pode examinar as estimativas de custo de armazenamento mensal. Essa exibição mostra os custos de armazenamento agregados para o grupo avaliado, divididos em diferentes tipos de discos de armazenamento.
-3. Você pode fazer uma busca detalhada para ver os detalhes de VMs específicas.
+2. Pode rever as estimativas mensais de custos de armazenamento. Esta vista mostra os custos de armazenamento agregados para o grupo avaliado, divididos sobre diferentes tipos de discos de armazenamento.
+3. Você pode perfurar para ver detalhes para VMs específicos.
 
 
 ### <a name="review-confidence-rating"></a>Rever a classificação de confiança
 
-Quando você executa avaliações baseadas em desempenho, uma classificação de confiança é atribuída à avaliação.
+Quando executa avaliações baseadas no desempenho, uma classificação de confiança é atribuída à avaliação.
 
 ![Classificação de confiança](./media/tutorial-assess-hyper-v/confidence-rating.png)
 
-- Uma classificação de 1 estrela (mais baixa) a 5 estrelas (mais alta) é concedida.
-- A classificação de confiança ajuda a estimar a confiabilidade das recomendações de tamanho fornecidas pela avaliação.
-- A classificação de confiança baseia-se na disponibilidade dos pontos de dados necessários para calcular a avaliação.
+- É atribuída uma classificação de 1 estrela (mais baixa) a 5 estrelas (mais alta).
+- A classificação de confiança ajuda-o a estimar a fiabilidade das recomendações de tamanho fornecidas pela avaliação.
+- A classificação de confiança baseia-se na disponibilidade de pontos de dados necessários para calcular a avaliação.
 
 As classificações de confiança para uma avaliação são as seguintes.
 
-**Disponibilidade do ponto de dados** | **Classificação de confiança**
+**Disponibilidade de pontos de dados** | **Classificação de confiança**
 --- | ---
 0%-20% | 1 Estrela
 21%-40% | 2 Estrelas
@@ -324,7 +324,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 61%-80% | 4 Estrelas
 81%-100% | 5 Estrelas
 
-[Saiba mais](best-practices-assessment.md#best-practices-for-confidence-ratings) sobre as práticas recomendadas para classificações de confiança.
+[Saiba mais](best-practices-assessment.md#best-practices-for-confidence-ratings) sobre as melhores práticas para avaliações de confiança.
 
 
 
@@ -335,10 +335,10 @@ As classificações de confiança para uma avaliação são as seguintes.
 Neste tutorial:
 
 > [!div class="checklist"]
-> * Configurar um dispositivo de migrações para Azure
-> * Criado e revisado uma avaliação
+> * Instale um aparelho Azure Migrate
+> * Criou e reviu uma avaliação
 
-Continue no terceiro tutorial da série para saber como migrar VMs do Hyper-V para o Azure com a migração de servidor de migrações para Azure.
+Continue até ao terceiro tutorial da série, para aprender a migrar VMs Hiper-V para Azure com migração de servidores migratórios Azure.
 
 > [!div class="nextstepaction"]
-> [Migrar VMs do Hyper-V](./tutorial-migrate-hyper-v.md)
+> [VMs hiper-V migratórios](./tutorial-migrate-hyper-v.md)

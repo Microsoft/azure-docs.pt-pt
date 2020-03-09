@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934894"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357677"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilize o Azure DNS para fornecer configurações de domínio personalizadas para um serviço Azure
 
@@ -99,7 +99,7 @@ Navegue para a sua Zona DNS e clique **em + conjunto de registos**. Preencha as 
 |Alias     | webserver.azurewebsites.net        | O nome DNS para o que está a criar, neste exemplo, é o nome dNS webserver.azurewebsites.net fornecido por padrão para a aplicação web.        |
 
 
-![Criar um registro CNAME](./media/dns-custom-domain/createcnamerecord.png)
+![criar um registo CNAME](./media/dns-custom-domain/createcnamerecord.png)
 
 Navegue de volta para o serviço de aplicações que está configurado para o nome de domínio personalizado. Clique em **domínios personalizados**e, em seguida, clique em **Nomes de Anfitriões**. Para adicionar o disco CNAME que criou, clique em **+ Adicione o nome de anfitrião**.
 

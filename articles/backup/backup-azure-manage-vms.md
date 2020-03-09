@@ -5,11 +5,11 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989693"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363806"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
@@ -30,7 +30,7 @@ Pode gerir backups utilizando o painel de instrumentos e perfurando para VMs ind
 
 Para ver VMs no painel do cofre:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, **selecione Browse**. Na lista de recursos, escreva **Serviços de Recuperação**. À medida que escreve, a lista é filtrada com base na sua entrada. Selecione **cofres de Serviços**de Recuperação .
 
     ![Criar um cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -56,7 +56,7 @@ Para ver VMs no painel do cofre:
 
 Para gerir uma política de backup:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
 2. No azulejo **de backup itens,** selecione **Máquinas Virtuais Azure**.
 
     ![Abra o azulejo de backup itens](./media/backup-azure-manage-vms/contoso-vault-1606.png)
@@ -71,7 +71,7 @@ Para gerir uma política de backup:
 
      ![Escolha uma política de backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
+## <a name="run-an-on-demand-backup"></a>Faça um backup a pedido
 
 Pode fazer um backup a pedido de um VM depois de configurar a sua proteção. Tenha em mente estes detalhes:
 
@@ -99,14 +99,14 @@ Para acompanhar o progresso do trabalho, no painel do cofre, selecione o azulejo
 
 Há duas maneiras de parar de proteger um VM:
 
-* **Interromper a proteção e manter os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM; no entanto, o serviço de backup Azure manterá os pontos de recuperação que foram apoiados.  Terá de pagar para manter os pontos de recuperação no cofre (ver preços de [backup azure](https://azure.microsoft.com/pricing/details/backup/) para mais detalhes). Será capaz de restaurar o VM, se necessário. Se decidir retomar a proteção VM, pode utilizar a opção *de backup Do Currículo.*
-* **Interrompa a proteção e exclua os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM e apaguem todos os pontos de recuperação. Não poderá restaurar o VM nem utilizar a opção *de reserva Resume.*
+* **Pare a proteção e guarde os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM; no entanto, o serviço de backup Azure manterá os pontos de recuperação que foram apoiados.  Terá de pagar para manter os pontos de recuperação no cofre (ver preços de [backup azure](https://azure.microsoft.com/pricing/details/backup/) para mais detalhes). Será capaz de restaurar o VM, se necessário. Se decidir retomar a proteção VM, pode utilizar a opção *de backup Do Currículo.*
+* **Pare a proteção e elimine os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM e apaguem todos os pontos de recuperação. Não poderá restaurar o VM nem utilizar a opção *de reserva Resume.*
 
 >[!NOTE]
->Se você excluir uma fonte de dados sem interromper os backups, novos backups falharão. Os antigos pontos de recuperação expirarão de acordo com a apólice, mas um último ponto de recuperação será mantido sempre até parar as cópias de segurança e apagar os dados.
+>Se eliminar uma fonte de dados sem parar cópias de segurança, novas cópias de segurança falharão. Os antigos pontos de recuperação expirarão de acordo com a apólice, mas um último ponto de recuperação será mantido sempre até parar as cópias de segurança e apagar os dados.
 >
 
-### <a name="stop-protection-and-retain-backup-data"></a>Interromper a proteção e manter os dados de backup
+### <a name="stop-protection-and-retain-backup-data"></a>Parar a proteção e reter dados de backup
 
 Para parar a proteção e reter dados de um VM:
 
@@ -117,7 +117,7 @@ Para parar a proteção e reter dados de um VM:
 
 Uma notificação permite-lhe saber que os trabalhos de reserva foram interrompidos.
 
-### <a name="stop-protection-and-delete-backup-data"></a>Interromper a proteção e excluir dados de backup
+### <a name="stop-protection-and-delete-backup-data"></a>Parar a proteção e eliminar dados de backup
 
 Para parar a proteção e eliminar dados de um VM:
 
@@ -145,18 +145,18 @@ Existem duas formas de eliminar os dados de backup de um VM:
 
 * A partir do painel de instrumentos de objeto do cofre, selecione parar a cópia de segurança e siga as instruções para [a proteção stop e elimine](#stop-protection-and-delete-backup-data) a opção de dados de backup.
 
-  ![Selecione parar backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
+  ![Selecione parar a cópia de segurança](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
 * A partir do painel de instrumentos de objeto do cofre, selecione Eliminar dados de backup. Esta opção está ativada se tiver optado por parar a [proteção e reter](#stop-protection-and-retain-backup-data) a opção de dados de backup durante a proteção stop VM
 
   ![Selecione eliminar a cópia de segurança](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
   * No painel de instrumentos de [objeto do cofre,](#view-vms-on-the-dashboard)selecione **Eliminar dados**de backup .
-  * Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
+  * Digite o nome do item de reserva para confirmar que pretende eliminar os pontos de recuperação.
 
     ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-  * Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
+  * Para eliminar os dados de cópia de segurança do artigo, **selecione Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de backup foram eliminados.
 
 Para proteger os seus dados, o Azure Backup inclui a funcionalidade de eliminação suave. Com a eliminação suave, mesmo após a cópia de segurança (todos os pontos de recuperação) de um VM ser eliminada, os dados de backup são conservados por 14 dias adicionais. Para mais informações, consulte [a documentação de eliminação suave](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 

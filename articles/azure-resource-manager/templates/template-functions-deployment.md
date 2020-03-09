@@ -4,11 +4,11 @@ description: Descreve as funções a utilizar num modelo do Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207286"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355058"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos de Gestor de Recursos Azure 
 
@@ -328,11 +328,11 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia | opção 1 |
+| stringOutput | String | opção 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"um": "a", "dois": "b"} |
-| arrayOutput | Matriz | [1, 2, 3] |
-| crossOutput | Cadeia | opção 1 |
+| arrayOutput | Array | [1, 2, 3] |
+| crossOutput | String | opção 1 |
 
 Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros no modelo do Gestor](template-parameters.md)de Recursos Azure .
 
@@ -346,7 +346,7 @@ Devolve o valor da variável. O nome variável especificado deve ser definido na
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| variableName |Sim |Cadeia |O nome da variável para voltar. |
+| variableName |Sim |String |O nome da variável para voltar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -420,9 +420,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | Cadeia | myVariável |
-| exampleOutput2 | Matriz | [1, 2, 3, 4] |
-| exampleOutput3 | Cadeia | myVariável |
+| exampleOutput1 | String | myVariável |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput3 | String | myVariável |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Para obter mais informações sobre a utilização de variáveis, consulte [variáveis no modelo de Gestor](template-variables.md)de Recursos Azure .

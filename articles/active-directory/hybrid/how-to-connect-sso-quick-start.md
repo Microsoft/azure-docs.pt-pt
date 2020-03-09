@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: logon único contínuo-início rápido | Microsoft Docs'
-description: Este artigo descreve como começar a usar Azure Active Directory logon único contínuo
+title: 'Azure AD Connect: Single Sign-On sem emenda - início rápido / início rápido Microsoft Docs'
+description: Este artigo descreve como começar com o Azure Ative Directory Seamless Single Sign-On
 services: active-directory
-keywords: o que é Azure AD Connect, instalar Active Directory, componentes necessários para o Azure AD, SSO, logon único
+keywords: o que é Azure AD Connect, instalar Diretório Ativo, componentes necessários para Azure AD, SSO, Sign-on Único
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,226 +17,226 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888673"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376143"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory logon único contínuo: início rápido
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Ative Directory Seamless Single Sign-On: Quick start
 
-## <a name="deploy-seamless-single-sign-on"></a>Implantar o logon único contínuo
+## <a name="deploy-seamless-single-sign-on"></a>Implementar um único sign-on sem emenda
 
-O logon único contínuo (SSO contínuo) do Azure Active Directory (Azure AD) conecta automaticamente os usuários quando eles estão em seus desktops corporativos conectados à sua rede corporativa. O SSO contínuo fornece aos usuários acesso fácil aos seus aplicativos baseados em nuvem sem a necessidade de componentes locais adicionais.
+O Azure Ative Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) assina automaticamente nos utilizadores quando estão nos seus desktops corporativos ligados à sua rede corporativa. O SSO sem emenda proporciona aos seus utilizadores um fácil acesso às suas aplicações baseadas na nuvem sem precisar de componentes adicionais no local.
 
-Para implantar o SSO contínuo, siga estas etapas.
+Para implementar O SSO SSO sem emenda, siga estes passos.
 
-## <a name="step-1-check-the-prerequisites"></a>Etapa 1: verificar os pré-requisitos
+## <a name="step-1-check-the-prerequisites"></a>Passo 1: Verificar os pré-requisitos
 
-Verifique se os seguintes pré-requisitos estão em vigor:
+Certifique-se de que estão em vigor os seguintes pré-requisitos:
 
-* **Configurar seu servidor de Azure ad Connect**: se você usar a [autenticação de passagem](how-to-connect-pta.md) como seu método de entrada, nenhuma verificação de pré-requisito adicional será necessária. Se você usar a [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) como seu método de entrada e se houver um firewall entre Azure ad Connect e o Azure AD, verifique se:
-   - Você usa a versão 1.1.644.0 ou posterior de Azure AD Connect. 
-   - Se o firewall ou o proxy permitir a lista de permissões de DNS, adicione as conexões à lista de permissões do **\*. msappproxy.net** pela porta 443. Caso contrário, permita o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Ele não é necessário para entradas reais do usuário.
-
-    >[!NOTE]
-    >Azure AD Connect versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a autenticação de passagem, leia as [notas de versão Azure ad Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
-
-* **Usar uma topologia de Azure ad Connect com suporte**: Verifique se você está usando uma das topologias com suporte do Azure ad Connect descritas [aqui](plan-connect-topologies.md).
+* **Configurar o servidor Azure AD Connect**: Se utilizar a [Autenticação Pass-through](how-to-connect-pta.md) como método de entrada, não é necessária uma verificação prévia adicional. Se utilizar a sincronização de hash de [palavra-passe](how-to-connect-password-hash-synchronization.md) como método de entrada e se houver uma firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
+   - Utiliza a versão 1.1.644.0 ou mais tarde do Azure AD Connect. 
+   - Se a sua firewall ou proxy permitir a listagem de dNS, whitelist as ligações à **\*.msappproxy.net** URLs sobre a porta 443. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente. Este pré-requisito só é aplicável quando ativa a funcionalidade. Não é necessário para os insinsos reais do utilizador.
 
     >[!NOTE]
-    >O SSO contínuo dá suporte a várias florestas do AD, independentemente de as relações de confiança do AD entre elas ou não.
+    >As versões Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização de hash password. Se _não_ pretender utilizar a sincronização de hash de palavra-passe em conjunto com a Autenticação Pass-through, leia as notas de lançamento do [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
 
-* **Configurar credenciais de administrador de domínio**: você precisa ter credenciais de administrador de domínio para cada floresta Active Directory que:
-    * Você sincroniza com o Azure AD por meio do Azure AD Connect.
-    * Contém os usuários que você deseja habilitar para o SSO contínuo.
+* **Utilize uma topologia de ligação Azure AD connect suportada**: Certifique-se de que está a utilizar uma das topoologias suportadas pelo Azure AD Connect [descritas aqui](plan-connect-topologies.md).
+
+    >[!NOTE]
+    >O SSO sem emenda suporta várias florestas de AD, quer existam confianças de AD entre elas ou não.
+
+* **Configurar credenciais de administrador de domínio:** Você precisa de ter credenciais de administrador de domínio para cada floresta de Diretório Ativo que:
+    * Sincroniza-se com o Azure AD através do Azure AD Connect.
+    * Contém utilizadores que pretende ativar para SSO sem emenda.
     
-* **Habilitar autenticação moderna**: você precisa habilitar a [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) em seu locatário para que esse recurso funcione.
+* Ativar a **autenticação moderna**: Você precisa permitir a [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) no seu inquilino para que esta funcionalidade funcione.
 
-* **Use as versões mais recentes dos clientes do office 365**: para obter uma experiência de logon silenciosa com clientes do Office 365 (Outlook, Word, Excel e outros), os usuários precisam usar as versões 16.0.8730. xxxx ou superior.
+* **Utilize as versões mais recentes dos clientes do Office 365**: Para obter uma experiência de inscrição silenciosa com clientes do Office 365 (Outlook, Word, Excel, entre outros), os seus utilizadores precisam de utilizar versões 16.0.8730.xxxx ou superiores.
 
-## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
+## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 
-Habilite o SSO contínuo por meio de [Azure ad Connect](whatis-hybrid-identity.md).
-
->[!NOTE]
-> Você também pode [habilitar o SSO contínuo usando o PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) se Azure ad Connect não atender às suas necessidades. Use essa opção se você tiver mais de um domínio por Active Directory floresta e desejar ser mais direcionado ao domínio para o qual deseja habilitar o SSO contínuo.
-
-Se você estiver fazendo uma nova instalação do Azure AD Connect, escolha o [caminho de instalação personalizada](how-to-connect-install-custom.md). Na página de **entrada do usuário** , selecione a opção **habilitar logon único** .
+Ativar O SSO sem emenda através da [ligação ad azure](whatis-hybrid-identity.md).
 
 >[!NOTE]
-> A opção estará disponível para seleção somente se o método de logon for **sincronização de hash de senha** ou **autenticação de passagem**.
+> Também pode [ativar o SSO sem emenda utilizando o PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) se o Azure AD Connect não satisfazer os seus requisitos. Utilize esta opção se tiver mais de um domínio por floresta de Diretório Ativo, e pretende ser mais direcionado sobre o domínio para o qual pretende ativar o SSO sem emenda.
 
-![Azure AD Connect: entrada do usuário](./media/how-to-connect-sso-quick-start/sso8.png)
-
-Se você já tiver uma instalação do Azure AD Connect, selecione a página **alterar entrada do usuário** em Azure ad Connect e, em seguida, selecione **Avançar**. Se você estiver usando Azure AD Connect versões 1.1.880.0 ou superior, a opção **habilitar logon único** será selecionada por padrão. Se você estiver usando versões mais antigas do Azure AD Connect, selecione a opção **habilitar logon único** .
-
-![Azure AD Connect: alterar a entrada do usuário](./media/how-to-connect-sso-quick-start/changeusersignin.png)
-
-Continue no assistente até chegar à página **habilitar logon único** . Forneça credenciais de administrador de domínio para cada floresta Active Directory que:
-
-* Você sincroniza com o Azure AD por meio do Azure AD Connect.
-* Contém os usuários que você deseja habilitar para o SSO contínuo.
-
-Após a conclusão do assistente, o SSO contínuo é habilitado em seu locatário.
+Se estiver a fazer uma nova instalação do Azure AD Connect, escolha o caminho de [instalação personalizado](how-to-connect-install-custom.md). Na página **de início de sessão** do Utilizador, selecione o sinal único **ativar a** opção.
 
 >[!NOTE]
-> As credenciais de administrador de domínio não são armazenadas no Azure AD Connect ou no Azure AD. Eles são usados apenas para habilitar o recurso.
+> A opção só estará disponível para seleção se o método Sign On for **Password Hash Synchronization** ou **Pass-through Authentication**.
 
-Siga estas instruções para verificar se você habilitou o SSO contínuo corretamente:
+![Ligação Azure AD: entrada no utilizador](./media/how-to-connect-sso-quick-start/sso8.png)
 
-1. Entre no [centro administrativo Azure Active Directory](https://aad.portal.azure.com) com as credenciais de administrador global para seu locatário.
-2. Selecione **Azure Active Directory** no painel esquerdo.
-3. Selecione **Azure ad Connect**.
-4. Verifique se o recurso **logon único contínuo** aparece como **habilitado**.
+Se já tiver uma instalação de Azure AD Connect, selecione a página **de entrada do utilizador Change** no Azure AD Connect e, em seguida, selecione **Next**. Se estiver a utilizar as versões Azure AD Connect 1.1.880.0 ou superior, o **único sinal de ativação na** opção será selecionado por defeito. Se estiver a utilizar versões mais antigas do Azure AD Connect, selecione o **sinal único Enable na** opção.
 
-![Portal do Azure: painel de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
+![Azure AD Connect: Alterar o início de sessão do utilizador](./media/how-to-connect-sso-quick-start/changeusersignin.png)
+
+Continue através do assistente até chegar ao **sinal único enable na** página. Fornecer credenciais de administrador de domínio para cada floresta de Diretório Ativo que:
+
+* Sincroniza-se com o Azure AD através do Azure AD Connect.
+* Contém utilizadores que pretende ativar para SSO sem emenda.
+
+Após a conclusão do assistente, o SSO SSO sem emenda está ativado no seu inquilino.
+
+>[!NOTE]
+> As credenciais de administrador de domínio não são armazenadas no Azure AD Connect ou no Azure AD. São usados apenas para ativar a funcionalidade.
+
+Siga estas instruções para verificar se ativou corretamente o SSO sem emenda:
+
+1. Inscreva-se no [Centro Administrativo Azure Ative Diretório](https://aad.portal.azure.com) com as credenciais de administrador global para o seu inquilino.
+2. Selecione **Azure Ative Directory** no painel esquerdo.
+3. Selecione **Azure AD Connect**.
+4. Verifique se a função de **inscrição única sem emenda** aparece como **Ativada**.
+
+![Portal Azure: Painel azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> O SSO contínuo cria uma conta de computador chamada `AZUREADSSOACC` no seu Active Directory (AD) local em cada floresta do AD. A conta de computador `AZUREADSSOACC` precisa estar fortemente protegida por motivos de segurança. Somente administradores de domínio devem ser capazes de gerenciar a conta de computador. Verifique se a delegação de Kerberos na conta do computador está desabilitada e se nenhuma outra conta no Active Directory tem permissões de delegação na conta de computador `AZUREADSSOACC`. Armazene a conta de computador em uma UO (unidade organizacional) em que elas estão protegidas contra exclusões acidentais e em que somente administradores de domínio têm acesso.
+> O SSO SSO sem emenda cria uma conta de computador chamada `AZUREADSSOACC` no seu Diretório Ativo (AD) no local em cada floresta ad. A conta informática `AZUREADSSOACC` precisa de ser fortemente protegida por razões de segurança. Apenas os Administradores de Domínio devem ser capazes de gerir a conta do computador. Certifique-se de que a delegação kerberos na conta informática está desativada e que nenhuma outra conta no Diretório Ativo tem permissões de delegação na conta `AZUREADSSOACC` computador. Guarde a conta do computador numa Unidade de Organização (OU) onde estejam a salvo de supressões acidentais e onde apenas os Administradores de Domínio tenham acesso.
 
 >[!NOTE]
-> Se você estiver usando as arquiteturas de mitigação de roubo de credencial e de passagem de hash no seu ambiente local, faça as alterações apropriadas para garantir que a conta de computador `AZUREADSSOACC` não termine no contêiner de quarentena. 
+> Se estiver a utilizar arquiteturas pass-the-Hash e Credential De mitigação de roubos no seu ambiente no local, eduça as alterações adequadas para garantir que a conta de computador `AZUREADSSOACC` não acabe no recipiente de Quarentena. 
 
-## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
+## <a name="step-3-roll-out-the-feature"></a>Passo 3: Desenrolar a funcionalidade
 
-Você pode distribuir gradualmente o SSO contínuo para seus usuários usando as instruções fornecidas abaixo. Você começa adicionando a seguinte URL do Azure AD a todas ou a configurações de zona de intranet dos usuários selecionados usando Política de Grupo no Active Directory:
+Pode lançar gradualmente SSO sem emenda aos seus utilizadores utilizando as instruções fornecidas abaixo. Começa por adicionar o seguinte URL Azure AD a todas ou selecionadas definições de zona intranet dos utilizadores utilizando a Política de Grupo no Diretório Ativo:
 
 - `https://autologon.microsoftazuread-sso.com`
 
-Além disso, você precisa habilitar uma configuração de política de zona de intranet chamada **permitir atualizações na barra de status por** meio de script por meio de política de grupo. 
+Além disso, você precisa ativar uma definição de política de zona Intranet chamada **Permitir atualizações para barra** de estado através de script através de Política de Grupo. 
 
 >[!NOTE]
-> As instruções a seguir funcionam apenas para o Internet Explorer e Google Chrome no Windows (se ele compartilhar um conjunto de URLs de sites confiáveis com o Internet Explorer). Leia a próxima seção para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no macOS.
+> As seguintes instruções funcionam apenas para o Internet Explorer e o Google Chrome no Windows (se partilhar um conjunto de URLs de sites fidedignos com o Internet Explorer). Leia a secção seguinte para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no macOS.
 
-### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que você precisa modificar as configurações de zona da intranet dos usuários?
+### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que precisa modificar as definições da zona intranet dos utilizadores?
 
-Por padrão, o navegador calcula automaticamente a zona correta, a Internet ou a intranet, de uma URL específica. Por exemplo, `http://contoso/` mapeia para a zona da intranet, enquanto `http://intranet.contoso.com/` mapeia para a zona da Internet (porque a URL contém um ponto). Os navegadores não enviarão tíquetes Kerberos para um ponto de extremidade de nuvem, como a URL do Azure AD, a menos que você adicione explicitamente a URL à zona da intranet do navegador.
+Por padrão, o navegador calcula automaticamente a zona correta, seja na Internet ou na Intranet, a partir de um URL específico. Por exemplo, `http://contoso/` mapas para a zona intranet, enquanto `http://intranet.contoso.com/` mapas para a zona da Internet (porque o URL contém um período). Os navegadores não enviarão bilhetes Kerberos para um ponto final na nuvem, como o URL DaD Azure, a menos que adicione explicitamente o URL à zona intranet do navegador.
 
-Há duas maneiras de modificar as configurações de zona da intranet dos usuários:
+Existem duas formas de modificar as definições da zona intranet dos utilizadores:
 
-| Opção | Consideração do administrador | Experiência de utilizador |
+| Opção | Consideração de administrador | Experiência do utilizador |
 | --- | --- | --- |
-| Política de grupo | O administrador bloqueia a edição das configurações de zona da intranet | Os usuários não podem modificar suas próprias configurações |
-| Preferência de política de grupo |  O administrador permite a edição nas configurações de zona da intranet | Os usuários podem modificar suas próprias configurações |
+| Política de grupo | Administração bloqueia edição de definições de zona intranet | Os utilizadores não podem modificar as suas próprias definições |
+| Preferência política do grupo |  Administrador permite edição em definições de zona Intranet | Os utilizadores podem modificar as suas próprias definições |
 
-### <a name="group-policy-option---detailed-steps"></a>Opção "política de grupo"-etapas detalhadas
+### <a name="group-policy-option---detailed-steps"></a>Opção "Política de grupo" - Passos detalhados
 
-1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
-2. Edite a política de grupo que é aplicada a alguns ou a todos os seus usuários. Este exemplo usa a **política de domínio padrão**.
-3. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** > **página segurança**. Em seguida, selecione **lista de atribuição de site a zona**.
+1. Abra a ferramenta Editor de Gestão de Políticas do Grupo.
+2. Editar a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza a Política de **Domínio Predefinido**.
+3. Navegue na **política** de **configuração** do utilizador >  > **modelos administrativos** > **componentes do Windows** > Internet **Explorer** > Internet Control **Panel** > Security **Page**. Em seguida, selecione **Site para Lista**de Atribuição de Zonas .
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso6.png)
-4. Habilite a política e, em seguida, insira os seguintes valores na caixa de diálogo:
-   - **Nome do valor**: a URL do Azure AD em que os tíquetes Kerberos são encaminhados.
-   - **Valor** (dados): **1** indica a zona da intranet.
+4. Ativar a apólice e, em seguida, introduzir os seguintes valores na caixa de diálogo:
+   - **Nome de valor**: O URL Da AD Azure onde os bilhetes kerberos são encaminhados.
+   - **Valor** (Dados): **1** indica a zona intranet.
 
-     O resultado é semelhante a este:
+     O resultado é o seguinte:
 
-     Nome do valor: `https://autologon.microsoftazuread-sso.com`
+     Nome de valor: `https://autologon.microsoftazuread-sso.com`
   
-     Valor (dados): 1
+     Valor (Dados): 1
 
    >[!NOTE]
-   > Se você quiser impedir que alguns usuários usem o SSO contínuo (por exemplo, se esses usuários entrarem em quiosques compartilhados), defina os valores anteriores como **4**. Essa ação adiciona a URL do Azure AD à zona restrita e falha no SSO contínuo o tempo todo.
+   > Se pretender proibir alguns utilizadores de utilizarem SSO Sso sem emenda (por exemplo, se estes utilizadores iniciarem sessão em quiosques partilhados), detetete os valores anteriores para **4**. Esta ação adiciona o URL Azure AD à zona restrita, e falha o SSO sem emenda a toda a hora.
    >
 
-5. Selecione **OK** e, em seguida, selecione **OK** novamente.
+5. Selecione **OK**e, em seguida, selecione **OK** novamente.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** > **página segurança** > **zona da intranet**. Em seguida, selecione **permitir atualizações na barra de status por meio de script**.
+6. Navegue na **configuração** do **utilizador** > Política > **Modelos Administrativos** > **componentes do Windows** > Internet **Explorer** > Internet Control **Panel** > Security **Page** > **Intranet Zone**. Em seguida, **selecione Permitir atualizações para barra de estado através do script**.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso11.png)
 
-7. Habilite a configuração de política e, em seguida, selecione **OK**.
+7. Ative a definição de política e, em seguida, selecione **OK**.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso12.png)
 
-### <a name="group-policy-preference-option---detailed-steps"></a>Opção "preferência de política de grupo"-etapas detalhadas
+### <a name="group-policy-preference-option---detailed-steps"></a>Opção "Preferência política do grupo" - Passos detalhados
 
-1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
-2. Edite a política de grupo que é aplicada a alguns ou a todos os seus usuários. Este exemplo usa a **política de domínio padrão**.
-3. Navegue até **configuração do usuário** > **preferências** > **configurações do Windows** > **registro** > **novo** **item do registro** > .
+1. Abra a ferramenta Editor de Gestão de Políticas do Grupo.
+2. Editar a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza a Política de **Domínio Predefinido**.
+3. Navegue nas **preferências** de **configuração** do utilizador >  > **definições do Windows** > **registo** > **novo** **item**de registo de > .
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso15.png)
 
-4. Insira os seguintes valores nos campos apropriados e clique em **OK**.
-   - **Caminho da chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon***
-   - **Nome do valor**: ***https***.
-   - **Tipo de valor**: ***REG_DWORD***.
-   - **Dados do valor**: ***00000001***.
+4. Introduza os seguintes valores em campos apropriados e **clique**OK .
+   - **Caminho-chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Nome de valor**: ***https***.
+   - **Tipo de valor:** ***REG_DWORD***.
+   - **Dados**de valor : ***000000001***.
  
      ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso17.png)
 
-### <a name="browser-considerations"></a>Considerações do navegador
+### <a name="browser-considerations"></a>Considerações de navegador
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (todas as plataformas)
 
-O Mozilla Firefox não usa automaticamente a autenticação Kerberos. Cada usuário deve adicionar manualmente a URL do Azure AD às configurações do Firefox usando as seguintes etapas:
-1. Execute o Firefox e insira `about:config` na barra de endereços. Ignore todas as notificações que você vir.
-2. Procure a preferência **Network. Negotiate. Trusted-URIs** . Essa preferência lista os sites confiáveis do Firefox para autenticação Kerberos.
-3. Clique com o botão direito do mouse e selecione **Modificar**.
-4. Insira `https://autologon.microsoftazuread-sso.com` no campo.
-5. Selecione **OK** e reabra o navegador.
+Mozilla Firefox não usa automaticamente a autenticação Kerberos. Cada utilizador deve adicionar manualmente o URL Azure AD às suas definições firefox utilizando os seguintes passos:
+1. Executar Firefox e insira `about:config` na barra de endereços. Rejeite qualquer notificação que veja.
+2. Procure a preferência da **rede.negotiate-auth.trusted-uris.** Esta preferência lista os sites fidedignos do Firefox para a autenticação Kerberos.
+3. Clique à direita e selecione **Modificar**.
+4. Entra `https://autologon.microsoftazuread-sso.com` no campo.
+5. Selecione **OK** e, em seguida, reabra o navegador.
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-Verifique se o computador que executa o macOS está unido ao AD. As instruções para o AD-unindo seu dispositivo macOS estão fora do escopo deste artigo.
+Certifique-se de que a máquina que funciona o macOS está unida à AD. As instruções para a adesão de AD ao seu dispositivo macOS estão fora do âmbito deste artigo.
 
-#### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge com base em Chromium (todas as plataformas)
+#### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge com base no Crómio (todas as plataformas)
 
-Se você tiver substituído as configurações de política [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de adicionar a URL do Azure AD (`https://autologon.microsoftazuread-sso.com`) também a elas.
+Se tiver ultrapassado as definições da [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) ou da política [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) no seu ambiente, certifique-se de que adiciona também o URL (`https://autologon.microsoftazuread-sso.com`) do Azure AD.
 
-#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge com base em Chromium (macOS e outras plataformas que não sejam Windows)
+#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge baseado em Crómio (macOS e outras plataformas não Windows)
 
-Para o Microsoft Edge com base em Chromium em Mac OS e outras plataformas que não sejam Windows, consulte [o Microsoft Edge com base na lista de políticas do Chromium](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar a URL do Azure ad para autenticação integrada à sua lista de permissões.
+Para o Microsoft Edge com base no Chromium no Mac OS e noutras plataformas não Windows, consulte o Microsoft Edge com base na Lista de Política de [Crómio](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) para obter informações sobre como adicionar o URL de AD Azure para autenticação integrada à sua lista de autorizações.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
-Se você tiver substituído as configurações de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, certifique-se de adicionar a URL do Azure AD (`https://autologon.microsoftazuread-sso.com`) também a elas.
+Se tiver ultrapassado as definições de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, certifique-se de que adiciona também o URL da AD Azure (`https://autologon.microsoftazuread-sso.com`) a eles.
 
-#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS e outras plataformas que não são Windows)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS e outras plataformas não Windows)
 
-Para o Google Chrome em Mac OS e outras plataformas não Windows, consulte [lista de políticas de projeto do The Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como a lista aprovada o URL do Azure AD para autenticação integrada.
+Para o Google Chrome no Mac OS e outras plataformas não Windows, consulte a [Lista de Políticas do Projeto Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como whitelist o URL DaD Azure para autenticação integrada.
 
-O uso de extensões de Política de Grupo de Active Directory de terceiros para distribuir a URL do Azure AD para o Firefox e o Google Chrome em usuários do Mac está fora do escopo deste artigo.
+A utilização de extensões de política de grupo de diretórios ativos de terceiros para lançar o URL Da AD Azure para o Firefox e o Google Chrome nos utilizadores de Mac está fora do âmbito deste artigo.
 
-#### <a name="known-browser-limitations"></a>Limitações de navegador conhecidas
+#### <a name="known-browser-limitations"></a>Limitações conhecidas do navegador
 
-O SSO contínuo não funciona no modo de navegação particular nos navegadores Firefox e Microsoft Edge. Ele também não funcionará no Internet Explorer se o navegador estiver sendo executado no modo protegido avançado. Para a próxima versão do Microsoft Edge com base no Chromium, ele não funcionará no modo InPrivate e convidado por design.
+O SSO sem emenda não funciona em modo de navegação privada nos navegadores Firefox e Microsoft Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo Protected Melhorado. Para a próxima versão do Microsoft Edge com base no Chromium, não funcionará no modo InPrivate e Guest por design.
 
-## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
+## <a name="step-4-test-the-feature"></a>Passo 4: Testar a funcionalidade
 
-Para testar o recurso para um usuário específico, verifique se todas as condições a seguir estão em vigor:
-  - O usuário entra em um dispositivo corporativo.
-  - O dispositivo está ingressado em seu domínio de Active Directory. O dispositivo _não_ precisa ser [ingressado no Azure ad](../active-directory-azureadjoin-overview.md).
-  - O dispositivo tem uma conexão direta com seu DC (controlador de domínio), seja na rede corporativa com ou sem fio ou por meio de uma conexão de acesso remoto, como uma conexão VPN.
-  - Você [distribuiu o recurso](#step-3-roll-out-the-feature) para esse usuário por meio de política de grupo.
+Para testar a funcionalidade para um utilizador específico, certifique-se de que estão em vigor todas as seguintes condições:
+  - O utilizador assina um dispositivo corporativo.
+  - O dispositivo é unido ao seu domínio de Diretório Ativo. O dispositivo _não_ precisa de ser [Azure AD Joined](../active-directory-azureadjoin-overview.md).
+  - O dispositivo tem uma ligação direta ao seu controlador de domínio (DC), seja na rede corporativa com fios ou sem fios ou através de uma ligação de acesso remoto, como uma ligação VPN.
+  - Lançou [a funcionalidade](#step-3-roll-out-the-feature) para este utilizador através da Política de Grupo.
 
-Para testar o cenário em que o usuário insere somente o nome de usuário, mas não a senha:
-   - Entre no `https://myapps.microsoft.com/` em uma nova sessão privada do navegador.
+Para testar o cenário em que o utilizador introduz apenas o nome de utilizador, mas não a palavra-passe:
+   - Inscreva-se na `https://myapps.microsoft.com/` numa nova sessão de navegador privado.
 
-Para testar o cenário em que o usuário não precisa inserir o nome de usuário ou a senha, use uma destas etapas: 
-   - Entre no `https://myapps.microsoft.com/contoso.onmicrosoft.com` em uma nova sessão privada do navegador. Substitua *contoso* pelo nome do locatário.
-   - Entre no `https://myapps.microsoft.com/contoso.com` em uma nova sessão privada do navegador. Substitua *contoso.com* por um domínio verificado (não um domínio federado) em seu locatário.
+Para testar o cenário em que o utilizador não tenha de introduzir o nome de utilizador ou a palavra-passe, utilize um destes passos: 
+   - Inscreva-se na `https://myapps.microsoft.com/contoso.onmicrosoft.com` numa nova sessão de navegador privado. Substitua *contoso* pelo nome do seu inquilino.
+   - Inscreva-se na `https://myapps.microsoft.com/contoso.com` numa nova sessão de navegador privado. Substitua *contoso.com* por um domínio verificado (não um domínio federado) no seu inquilino.
 
-## <a name="step-5-roll-over-keys"></a>Etapa 5: sobrepor as chaves
+## <a name="step-5-roll-over-keys"></a>Passo 5: Rolar sobre as teclas
 
-Na etapa 2, Azure AD Connect cria contas de computador (representando o Azure AD) em todas as Active Directory florestas nas quais você habilitou o SSO contínuo. Para saber mais, confira [Azure Active Directory logon único contínuo: aprofundamento técnico](how-to-connect-sso-how-it-works.md).
-
->[!IMPORTANT]
->A chave de descriptografia Kerberos em uma conta de computador, se vazada, pode ser usada para gerar tíquetes Kerberos para qualquer usuário em sua floresta do AD. Os atores mal-intencionados podem representar as entradas do Azure AD para usuários comprometidos. É altamente recomendável que você reverta periodicamente essas chaves de descriptografia Kerberos: pelo menos uma vez a cada 30 dias.
-
-Para obter instruções sobre como sobrepor chaves, consulte [Azure Active Directory logon único contínuo: perguntas](how-to-connect-sso-faq.md)frequentes. Estamos trabalhando em uma capacidade de introduzir a substituição automatizada de chaves.
+No Passo 2, o Azure AD Connect cria contas de computador (representando a AD Azure) em todas as florestas de Diretório Ativo em que permitiu o SSO sem emenda. Para saber mais, consulte [Azure Ative Directory Seamless Single Sign-On: Technical deep dive](how-to-connect-sso-how-it-works.md).
 
 >[!IMPORTANT]
->Você não precisa fazer essa etapa _imediatamente_ depois de habilitar o recurso. Passe as chaves de descriptografia Kerberos pelo menos uma vez a cada 30 dias.
+>A chave de desencriptação Kerberos numa conta de computador, se vazada, pode ser usada para gerar bilhetes Kerberos para qualquer utilizador na sua floresta ad. Atores maliciosos podem então personificar os sign-ins Da AD azure para utilizadores comprometidos. Recomendamos vivamente que revire periodicamente estas chaves de desencriptação Kerberos - pelo menos uma vez a cada 30 dias.
+
+Para obter instruções sobre como rebolar as teclas, consulte [o Azure Ative Directory SeamlessY Single Sign-On: Perguntas frequentes](how-to-connect-sso-faq.md). Estamos a trabalhar numa capacidade de introduzir o capotamento automatizado das teclas.
+
+>[!IMPORTANT]
+>Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Rever as chaves de desencriptação kerberos pelo menos uma vez a cada 30 dias.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprofundamento [técnico](how-to-connect-sso-how-it-works.md): entenda como funciona o recurso de logon único contínuo.
-- [Perguntas](how-to-connect-sso-faq.md)frequentes: Obtenha respostas para perguntas frequentes sobre o logon único contínuo.
-- [Solução de problemas](tshoot-connect-sso.md): saiba como resolver problemas comuns com o recurso de logon único contínuo.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use o fórum de Azure Active Directory para arquivar novas solicitações de recurso.
+- [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a função de inscrição única sem emenda.
+- [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Single Sign-On sem emenda.
+- [Resolução de problemas](tshoot-connect-sso.md): Aprenda a resolver problemas comuns com a funcionalidade Single Sign-On Sem Emenda.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum de Diretório Ativo Azure para apresentar novos pedidos de funcionalidades.

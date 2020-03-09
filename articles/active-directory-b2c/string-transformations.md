@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4a5d0908842c20e15fdf7b336b9e244c4bafb345
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183708"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397787"
 ---
 # <a name="string-claims-transformations"></a>Transformações de sinistros de cordas
 
@@ -158,7 +158,7 @@ Determine se uma reivindicação de corda é igual a outra. O resultado é um no
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | Primeiro tipo de reclamação, que deve ser comparado. |
 | inputClaim | inputClaim2 | string | Segundo tipo de reclamação, que deve ser comparado. |
-| EntradaParametro | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| EntradaParametro | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | EntradaParametro | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
@@ -198,7 +198,7 @@ Determina se um valor de reclamação é igual ao valor do parâmetro de entrada
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | O tipo de reclamação, que deve ser comparado. |
-| EntradaParametro | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| EntradaParametro | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | EntradaParametro | compareTo | string | comparação de cordas, um dos valores: Ordinal, OrdinalIgnoreCase. |
 | EntradaParametro | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
@@ -374,7 +374,7 @@ Cópias localizadas cordas em reivindicações.
 Para utilizar a transformação de sinistros GetLocalizedStringsTransformation:
 
 1. Defina uma cadeia de [localização](localization.md) e associe-a a um [perfil auto-afirmou-técnico.](self-asserted-technical-profile.md)
-1. O `ElementType` do elemento `LocalizedString` deve `GetLocalizedStringsTransformationClaimType`.
+1. A `ElementType` do elemento `LocalizedString` deve ser definida para `GetLocalizedStringsTransformationClaimType`.
 1. O `StringId` é um identificador único que define, e usa-o mais tarde na transformação das suas reivindicações.
 1. Na transformação de sinistros, especifique a lista de reclamações a definir com a cadeia localizada. O `ClaimTypeReferenceId` é uma referência a um ClaimType já definido na secção ClaimsSchema na política. O `TransformationClaimType` é o nome da cadeia localizada, tal como definido no `StringId` do elemento `LocalizedString`.
 1. Num [perfil técnico autoafirmado](self-asserted-technical-profile.md), ou numa entrada de controlo de [visualização](display-controls.md) ou transformação de sinistros de saída, faça uma referência à transformação das suas reclamações.

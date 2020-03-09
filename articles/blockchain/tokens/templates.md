@@ -1,91 +1,91 @@
 ---
-title: Modelos de tokens do Azure Blockchain
-description: Os modelos de tokens do Azure Blockchain são modelos padronizados e reutilizáveis que simplificam a criação e a implantação de tokens baseados em razão.
+title: Modelos de tokens Azure Blockchain
+description: Os modelos de tokens Azure Blockchain são modelos padronizados e reutilizáveis que simplificam a criação e implementação de fichas baseadas em livros.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 9600a6a251552acd319cc68d2bd281584d65546d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74324974"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360746"
 ---
-# <a name="azure-blockchain-tokens-templates"></a>Modelos de tokens do Azure Blockchain
+# <a name="azure-blockchain-tokens-templates"></a>Modelos de tokens Azure Blockchain
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-Um modelo de tokens Blockchain do Azure é um modelo padronizado e reutilizável que simplifica a criação e a implantação de tokens baseados em razão. Um modelo consiste em uma fórmula, que se baseia na gramática de [ttf (estrutura de taxonomia de token)](overview.md#token-taxonomy-framework) . A gramática abrange o tipo de token base e o conjunto de comportamentos para o token.  
+Um modelo de Tokens Azure Blockchain é um modelo padronizado e reutilizável que simplifica a criação e implantação de fichas baseadas em livros. Um modelo consiste numa fórmula, que se baseia na gramática [token Taxonomy Framework (TTF).](overview.md#token-taxonomy-framework) A gramática engloba o tipo de símbolo base e o conjunto de comportamentos para o símbolo.  
 
-Por exemplo, o modelo de token **τϜ {d, m, b, r}** descreve um token de base fungível que é dividable, mentable, gravável e tem suporte de função.
+Por exemplo, o modelo de ficha sid **{d,m,b,r}** descreve um símbolo de base fungível que é subdividável, mantéu, queimou e tem suporte para papéis.
   
-## <a name="base-token-types"></a>Tipos de token base
+## <a name="base-token-types"></a>Tipos de fichas de base
 
-Ao definir e criar o token baseado em razão para seu ativo específico, é importante considerar qual token base usar.
+Ao definir e criar o símbolo baseado em livros para o seu ativo particular, é importante considerar qual o símbolo base a usar.
 
-### <a name="fungible"></a>Fungível
+### <a name="fungible"></a>Fungible
 
-Os tokens fungível (τF) têm um valor intercambiável entre si, desde que estejam na mesma classe ou série. Um token tem o mesmo valor de outro token ou uma determinada quantidade de tokens tem o mesmo valor de outra quantidade igual. Por exemplo, um dólar é um token fungível. Se duas pessoas estiverem mantendo uma fatura de dólar, elas poderão trocar as faturas de dólar sem conseqüência. As notas de dólar têm valor igual. 
+As fichas fungíveis (τF) têm valor permutável entre si, desde que estejam na mesma classe ou série. Um token tem o mesmo valor que outro símbolo ou uma determinada quantidade de fichas tem o mesmo valor que outra quantidade igual. Por exemplo, um dólar é um símbolo fungível. Se duas pessoas tiverem uma nota de dólar, podem trocar estas notas de dólar sem consequências. As notas de dólar têm o mesmo valor. 
 
 ### <a name="non-fungible"></a>Não fungível
 
-Os tokens não fungível (τN) não são intercambiáveis com outros tokens do mesmo tipo, pois normalmente têm valores diferentes. Por exemplo, um título de propriedade é um token não fungível. Os títulos de propriedade para dois Apartments diferentes em um apartamento complexo não são necessariamente de valor igual, devido ao local da unidade ou do chão da unidade. O valor percebido dos dois tokens de título de propriedade não é igual.
+Tokens não fungíveis (τN) não são permutáveis com outras fichas do mesmo tipo que normalmente têm valores diferentes. Por exemplo, um título de propriedade é um símbolo não fungível. Os títulos de propriedade para dois apartamentos diferentes em um complexo de apartamentos não são necessariamente de igual valor, devido à localização da unidade ou em que piso a unidade está. O valor percebido das duas fichas do título de propriedade não é igual.
 
 ### <a name="hybrid"></a>Híbrido
 
-Tokens híbridos são tokens que têm componentes de tokens fungível e tokens não fungível. Um token híbrido é um tipo de token base que possui uma classe do outro tipo de token.
+Fichas híbridas são fichas que têm componentes de tokens fungíveis e tokens não fungíveis. Um símbolo híbrido é um tipo de símbolo de base que possui uma classe do outro tipo de símbolo.
 
-#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Base não fungível híbrida com segmentos fungível
+#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Base híbrida não fungível com segmentos fungíveis
 
-Uma base não fungível híbrida com token de segmentos fungível tem uma base diferente de fungível com segmentos de token fungível.
-Por exemplo, um tíquete de concerto é um token híbrido em que a data e a hora do concerto são o token de base não fungível. Os tíquetes em várias seções de assentos para o conjunto fornecido são os segmentos com tokens fungível. Os tíquetes são intercambiáveis em suas seções individuais de assentos, mas não em seções.
+Uma base híbrida não fungível com segmentos fungíveis token tem uma base não fungível com segmentos de token fungíveis.
+Por exemplo, um bilhete de concerto é um símbolo híbrido onde a data e a hora do concerto são o símbolo base não fungível. Os bilhetes em várias secções de assentos para o concerto dado são os segmentos com fichas fungíveis. Os bilhetes são permutáveis nas suas secções individuais de assentos, mas não em todas as secções.
 
-#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Base fungível híbrida com segmentos não fungível
+#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Base fungível híbrida com segmentos não fungíveis
 
-Uma base de fungível híbrida com um token de segmentos não fungível tem uma base fungível com segmentos de token não fungível. Por exemplo, uma segurança com suporte de hipoteca é um token híbrido em que vários proprietários são a base fungível que é dividida em vários proprietários. A segurança é intercambiável. As hipotecas individuais são os segmentos não fungível que representam a segurança específica da hipoteca com suporte.
+Uma base fungível híbrida com um token de segmentos não fungíveis tem uma base fungível com segmentos token não fungíveis. Por exemplo, uma garantia apoiada por hipotecas é um símbolo híbrido onde vários proprietários são a base fungível que é dividida entre muitos proprietários. A segurança é permutável. As hipotecas individuais são os segmentos não fungíveis que representam a garantia específica apoiada pela hipoteca.
 
-## <a name="token-behaviors"></a>Comportamentos de token
+## <a name="token-behaviors"></a>Comportamentos simbólicos
 
-Um comportamento de token define os recursos ou as restrições do token. O comportamento inclui propriedades de suporte que fazem parte da definição do token. Os comportamentos podem ser aplicados em todos os tipos de token ou apenas um. Os comportamentos podem ser internos ou externos, dependendo de quais são os efeitos do comportamento. Um comportamento interno habilita ou restringe as propriedades no próprio token. Um comportamento externo habilita ou restringe a invocação do comportamento de um ator externo.
+Um comportamento simbólico define capacidades ou restrições do símbolo. O comportamento inclui propriedades de suporte que fazem parte da definição simbólica. Os comportamentos podem ser aplicados em todos os tipos de token ou apenas um. Os comportamentos podem ser internos ou externos dependendo dos efeitos do comportamento. Um comportamento interno permite ou restringe propriedades no próprio símbolo. Um comportamento externo permite ou restringe a invocação do comportamento de um ator externo.
 
-Para obter mais informações sobre os comportamentos de token de geração de tokens (TTF) dos tokens de Blockchain do Azure com suporte, consulte [composição de token](composability.md).
+Para obter mais informações sobre os tokens da Azure Blockchain, apoiou comportamentos simbólicos token Taxonomy Framework (TTF), consulte a [composição simbólica](composability.md).
 
-## <a name="pre-built-token-templates"></a>Modelos de token pré-criados
+## <a name="pre-built-token-templates"></a>Modelos de fichapré-construídos
 
-Os tokens Blockchain do Azure fornecem quatro modelos de token pré-criados que podem ser usados sem modificação. Você pode chamar esses modelos predefinidos para a maioria dos casos de uso para começar a criar, implantar e gerenciar seus tokens rapidamente.
+O Azure Blockchain Tokens fornece quatro modelos de fichapré-construídos que podem ser usados sem modificação. Você pode chamar estes modelos pré-construídos para a maioria dos casos de uso para começar a criar, implementar e gerir os seus tokens rapidamente.
 
-### <a name="commodity-tokens"></a>Tokens de mercadoria
+### <a name="commodity-tokens"></a>Fichas de mercadoria
 
-Os tokens de mercadoria têm um valor consistente e são transferíveis. Por exemplo, um cilindro de óleo ou uma unidade de energia.
+As fichas de mercadoria têm um valor consistente e são transferíveis. Por exemplo, um barril de petróleo ou uma unidade de energia.
 
-**τF {~ d, t, m, b, r}** -fungível, completo, transferível, mentable, gravável e tem suporte de função
+**τF{~d,t,m,b,r}** - fungible, inteiro, transferível, mintável, queime, e tem suporte a papéis
 
-Muitos cenários de blockchain exigem transparência e visibilidade na cadeia de suprimentos ou em várias organizações. Os tokens de mercadoria são baseados nesses casos de uso comuns. Os tokens são intercambiáveis e consistentes. O modelo de token de mercadoria é flexível e personalizável com metadados.
+Muitos cenários blockchain requerem transparência e visibilidade em toda a cadeia de fornecimento ou em várias organizações. As fichas de mercadoria baseiam-se nestes casos de uso comum. As fichas são permutáveis e consistentes. O modelo de ficha de mercadoria é flexível e personalizável com metadados.
 
-### <a name="qualified-tokens"></a>Tokens qualificados
+### <a name="qualified-tokens"></a>Fichas qualificadas
 
-Os tokens qualificados representam algo obtido e geralmente são associados a uma entidade e não podem ser transferidos. Por exemplo, um diploma ou uma violação de estacionamento.
+Fichas qualificadas representam algo ganho e geralmente estão associados a uma entidade e não podem ser transferidos. Por exemplo, um diploma ou uma violação do estacionamento.
 
-**τN {s, ~ t}** -não fungível, singleton e não transferível
+**τN{s,~t}** - não fungível, singleton e não transferível
 
-Vários cenários de auditoria e atestado exigem que a propriedade do token não possa ser alterada. Há um conjunto de casos de uso, que têm a necessidade de fornecer um token qualificado se a associação for boa ou ruim.
+Vários cenários de auditoria e atestação exigem que a propriedade do símbolo não possa ser alterada. Há um conjunto de casos de uso, que têm a necessidade de fornecer um símbolo qualificado se a associação é boa ou má.
 
-### <a name="asset-tokens"></a>Tokens de ativo
+### <a name="asset-tokens"></a>Fichas de ativos
 
-Os tokens de ativo têm um valor exclusivo dependente do item e não são mercadoria. Por exemplo, um artefato de museu ou um título de propriedade.
+As fichas de ativos têm um valor único dependente do item e não são commoditizadas. Por exemplo, um artefacto de museu ou um título de propriedade.
 
-**τN {s, t}** -não fungível, singleton e transferível
+**τN{s,t}** - não fungível, singleton e transferível
 
-Tokens de ativo podem ser confundidos com tokens de mercadoria. A principal diferença entre os dois tokens é que os tokens de ativo são inerentemente exclusivos e o valor é independente do tipo de token. Por exemplo, um pedaço de arte como uma pintura de óleo por um artista estabelecido é um token de ativo. No entanto, uma impressão de arte do Mona Lisa é considerada um token de mercadoria. Da mesma forma, um título de propriedade é um token de ativo desde que o valor exista nas qualidades subjetivas da propriedade.
+Fichas de ativos podem ser confundidas com fichas de mercadoria. A grande diferença entre os dois tokens é que os tokens de ativos são inerentemente únicos, e o valor é independente do tipo de símbolo que é. Por exemplo, uma peça de arte como uma pintura a óleo de um artista estabelecido é um símbolo de mais-valia. No entanto, uma impressão artística da Mona Lisa é considerada um símbolo de mercadoria. Da mesma forma, um título de propriedade é um símbolo de ativo uma vez que o valor existe nas qualidades subjetivas da propriedade.
 
-### <a name="ticket-tokens"></a>Tokens de tíquete
+### <a name="ticket-tokens"></a>Fichas de bilhete
 
-Tokens de tíquete têm valor consistente, mas normalmente expiram. Por exemplo, um tíquete de plano.
+As fichas dos bilhetes têm um valor consistente, mas normalmente expiram. Por exemplo, um bilhete de avião.
 
-**τN {m, b, r}** -não fungível, mentable, gravável e tem suporte de função.
+**τN{m,b,r}** - não fungível, hortelã, queimável e ter suporte de papéis.
 
-Tokens de tíquete normalmente têm uma data de expiração que os torna diferentes de um token de mercadoria regular. Por exemplo, um bilhete de avião, um bilhete de concerto ou um bilhete esportivo têm opções de assentos atribuídos com datas específicas de uso. Você não pode trocar tíquetes entre datas ou áreas de assentos facilmente.
+As fichas de bilhete normalmente têm uma data de validade que os torna diferentes de um símbolo de mercadoria regular. Por exemplo, um bilhete de avião, bilhete de concerto ou bilhete desportivo todos têm opções de lugares atribuídos com datas de utilização específicas. Não é possível trocar facilmente bilhetes entre datas ou áreas de estar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se você precisar de mais flexibilidade para seu cenário, saiba como criar seus próprios modelos de token usando a [composição de tokens](composability.md).
+Se necessitar de mais flexibilidade para o seu cenário, aprenda a criar os seus próprios modelos simbólicos usando [a composição simbólica](composability.md).

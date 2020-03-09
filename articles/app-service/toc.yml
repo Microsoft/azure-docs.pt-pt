@@ -87,6 +87,8 @@
           href: networking-features.md
         - name: Gateway de Aplicação com pontos finais de serviço
           href: networking/app-gateway-with-service-endpoints.md
+        - name: Pontos finais privados
+          href: networking/private-endpoint.md
     - name: IPs de entrada e de saída
       href: overview-inbound-outbound-ips.md
     - name: Integração da Rede Virtual
