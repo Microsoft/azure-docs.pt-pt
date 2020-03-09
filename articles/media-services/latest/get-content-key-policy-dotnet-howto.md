@@ -1,6 +1,6 @@
 ---
-title: Obter uma chave de assinatura de uma política usando os serviços de mídia do Azure v3 .NET
-description: Este tópico mostra como obter uma chave de assinatura da política existente usando o SDK do .NET dos serviços de mídia v3.
+title: Obtenha uma chave de assinatura de uma política utilizando o Azure Media Services v3 .NET
+description: Este tópico mostra como obter uma chave de assinatura da política existente usando Media Services v3 .NET SDK.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,34 +13,34 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515076"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391312"
 ---
-# <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
+# <a name="get-a-signing-key-from-the-existing-policy"></a>Obtenha uma chave de assinatura da política existente
 
-Um dos principais princípios de design da API v3 é tornar a API mais segura. as APIs v3 não retornam segredos ou credenciais em operações de **obtenção** ou de **lista** . Consulte a explicação detalhada aqui: para obter mais informações, consulte [RBAC e contas de serviços de mídia](rbac-overview.md)
+Um dos principais princípios de design da API v3 é tornar a API mais segura. v3 APIs não devolvem segredos ou credenciais nas operações **de Get** ou **List.** Consulte a explicação detalhada aqui: Para mais informações, consulte [as contas rBAC e Media Services](rbac-overview.md)
 
-O exemplo neste artigo mostra como usar o .NET para obter uma chave de assinatura da política existente. 
+O exemplo deste artigo mostra como usar .NET para obter uma chave de assinatura da política existente. 
  
-## <a name="download"></a>Transferir 
+## <a name="download"></a>Transferência 
 
-Clone um repositório GitHub que contém o exemplo completo do .NET para seu computador usando o seguinte comando:  
+Clone um repositório GitHub que contenha a amostra completa .NET à sua máquina utilizando o seguinte comando:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
  
-O exemplo de ContentKeyPolicy com segredos está localizado na pasta [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) .
+O exemplo de ContentKeyPolicy com segredos está localizado na pasta [EncryptWithDRM.](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM)
 
-## <a name="get-contentkeypolicy-with-secrets"></a>Obter ContentKeyPolicy com segredos 
+## <a name="get-contentkeypolicy-with-secrets"></a>Obtenha ContentKeyPolicy com segredos 
 
-Para obter a chave, use **GetPolicyPropertiesWithSecretsAsync**, conforme mostrado no exemplo abaixo.
+Para chegar à chave, utilize o **GetPolicyPropertiesWithSecretsAsync,** como mostra o exemplo abaixo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md) 
+[Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) (Design de um sistema de proteção de conteúdo multi-DRM com controlo de acesso) 

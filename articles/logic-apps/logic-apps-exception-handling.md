@@ -1,6 +1,6 @@
 ---
-title: Tratar erros e exceções em fluxos de trabalho
-description: Saiba como lidar com erros e exceções que ocorrem em tarefas automatizadas e fluxos de trabalho criados com o uso de aplicativos lógicos do Azure
+title: Lidar com erros e exceções nos fluxos de trabalho
+description: Saiba como lidar com erros e exceções que ocorrem em tarefas automatizadas e fluxos de trabalho criados através de Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 author: dereklee
@@ -9,45 +9,45 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906690"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358784"
 ---
-# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções nos aplicativos lógicos do Azure
+# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Lidar com erros e exceções em Aplicações Lógicas Azure
 
-A maneira como qualquer arquitetura de integração controla adequadamente o tempo de inatividade ou os problemas causados por sistemas dependentes pode representar um desafio. Para ajudá-lo a criar integrações robustas e resilientes que lidam normalmente com problemas e falhas, os aplicativos lógicos fornecem uma experiência de primeira classe para lidar com erros e exceções.
+A forma como qualquer arquitetura de integração lida adequadamente com o tempo de inatividade ou problemas causados por sistemas dependentes pode representar um desafio. Para ajudá-lo a criar integrações robustas e resilientes que lidam graciosamente com problemas e falhas, a Logic Apps proporciona uma experiência de primeira classe para lidar com erros e exceções.
 
 <a name="retry-policies"></a>
 
-## <a name="retry-policies"></a>Repetir políticas
+## <a name="retry-policies"></a>Políticas de retry
 
-Para obter a exceção mais básica e o tratamento de erros, você pode usar uma *política de repetição* em qualquer ação ou gatilho quando houver suporte, por exemplo, consulte [ação http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger). Uma política de repetição especifica se e como a ação ou o gatilho tenta novamente uma solicitação quando a solicitação original atinge o tempo limite ou falha, o que é qualquer solicitação que resulte em uma resposta 408, 429 ou 5xx. Se nenhuma outra política de repetição for usada, a política padrão será usada.
+Para a exceção mais básica e manipulação de erros, pode utilizar uma política de *retry* em qualquer ação ou gatilho onde suporte, por exemplo, ver [ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger). Uma política de retry especifica se e como a ação ou o gatilho retenta um pedido quando o pedido original é para fora ou falha, o que é qualquer pedido que resulte numa resposta 408, 429 ou 5xx. Se não for utilizada outra política de retry, a política de incumprimento é utilizada.
 
-Estes são os tipos de política de repetição:
+Aqui estão os tipos de política de retry:
 
 | Tipo | Descrição |
 |------|-------------|
-| **Predefinição** | Essa política envia até quatro repetições em intervalos *exponencialmente crescentes* , que são dimensionados por 7,5 segundos, mas são limitados entre 5 e 45 segundos. |
-| **Intervalo exponencial**  | Essa política aguarda um intervalo aleatório selecionado de um intervalo exponencialmente crescente antes de enviar a próxima solicitação. |
-| **Intervalo fixo**  | Essa política aguarda o intervalo especificado antes de enviar a próxima solicitação. |
-| **Nenhum**  | Não reenvie a solicitação. |
+| **Predefinição** | Esta política envia até quatro repetições em intervalos *exponencialmente crescentes,* que escalam em 7,5 segundos, mas estão limitadas entre 5 e 45 segundos. |
+| **Intervalo exponencial**  | Esta política aguarda um intervalo aleatório selecionado a partir de uma gama exponencialmente crescente antes de enviar o próximo pedido. |
+| **Intervalo fixo**  | Esta política aguarda o intervalo especificado antes de enviar o próximo pedido. |
+| **Nenhuma.**  | Não reenvie o pedido. |
 |||
 
-Para obter informações sobre limites de política de repetição, consulte [limites e configuração de aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+Para obter informações sobre os limites da política de retry, consulte [os limites e configuração das Aplicações Lógicas.](../logic-apps/logic-apps-limits-and-config.md#request-limits)
 
-### <a name="change-retry-policy"></a>Alterar política de repetição
+### <a name="change-retry-policy"></a>Mudar a política de retry
 
-Para selecionar uma política de repetição diferente, siga estas etapas:
+Para selecionar uma política de retry diferente, siga estes passos:
 
-1. Abra seu aplicativo lógico no designer de aplicativo lógico.
+1. Abra a sua aplicação lógica no Logic App Designer.
 
-1. Abra as **configurações** de uma ação ou gatilho.
+1. Abra as **Definições** para uma ação ou gatilho.
 
-1. Se a ação ou o gatilho der suporte a políticas de repetição, em **política de repetição**, selecione o tipo desejado.
+1. Se a ação ou o gatilho apoiarem as políticas de retry, no âmbito da **Política de Retry,** selecione o tipo que pretende.
 
-Ou, você pode especificar manualmente a política de repetição na seção `inputs` para uma ação ou um gatilho que ofereça suporte a políticas de repetição. Se você não especificar uma política de repetição, a ação usará a política padrão.
+Ou, pode especificar manualmente a política de retry na secção `inputs` para uma ação ou gatilho que apoie políticas de retry. Se não especificar uma política de retry, a ação utiliza a política de incumprimento.
 
 ```json
 "<action-name>": {
@@ -71,28 +71,28 @@ Ou, você pode especificar manualmente a política de repetição na seção `in
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*retry-policy-type*> | Cadeia | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`ou `exponential` |
-| <*retry-interval*> | Cadeia | O intervalo de repetição em que o valor deve usar o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimo e máximo diferentes. |
-| <*retry-attempts*> | Número inteiro | O número de tentativas de repetição, que devem estar entre 1 e 90 |
+| < *> de política de retry-tipo* | String | O tipo de política de retry que pretende utilizar: `default`, `none`, `fixed`ou `exponential` |
+| < *> de intervalo de repetição* | String | O intervalo de repetição em que o valor deve utilizar o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo por defeito é `PT5S` e o intervalo máximo é `PT1D`. Quando utilizar a política de intervalo seletor exponencial, pode especificar diferentes valores mínimos e máximos. |
+| <*tentativas de retry->* | Número inteiro | O número de tentativas de retry, que deve ser entre 1 e 90 |
 ||||
 
 *Opcional*
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*de intervalo mínimo*> | Cadeia | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
-| <*de intervalo máximo*> | Cadeia | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <> *de intervalo mínimo* | String | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
+| <> *de intervalo máximo* | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 ||||
 
-Aqui estão mais informações sobre os diferentes tipos de política.
+Aqui está mais informações sobre os diferentes tipos de políticas.
 
 <a name="default-retry"></a>
 
 ### <a name="default"></a>Predefinição
 
-Se você não especificar uma política de repetição, a ação usará a política padrão, que é, na verdade, uma [política de intervalo exponencial](#exponential-interval) que envia até quatro repetições em intervalos de aumento exponencial que são dimensionados por 7,5 segundos. O intervalo é limitado entre 5 e 45 segundos.
+Se não especificar uma política de repetição, a ação utiliza a política de incumprimento, que na verdade é uma [política de intervalo exponencial](#exponential-interval) que envia até quatro repetições em intervalos exponencialmente crescentes que são escalados em 7,5 segundos. O intervalo está limitado entre 5 e 45 segundos.
 
-Embora não seja definido explicitamente em sua ação ou gatilho, aqui está como a política padrão se comporta em uma ação HTTP de exemplo:
+Embora não explicitamente definida na sua ação ou gatilho, eis como a política padrão se comporta num exemplo de ação HTTP:
 
 ```json
 "HTTP": {
@@ -112,17 +112,17 @@ Embora não seja definido explicitamente em sua ação ou gatilho, aqui está co
 }
 ```
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
-Para especificar que a ação ou o gatilho não tente novamente as solicitações com falha, defina o < > de*tipo de política de repetição*como `none`.
+Para especificar que a ação ou o gatilho não retry pedidos falhados, detete o <*retry-policy-type*> para `none`.
 
 ### <a name="fixed-interval"></a>Intervalo fixo
 
-Para especificar que a ação ou o gatilho aguarde o intervalo especificado antes de enviar a próxima solicitação, defina o < > de*tentativa-Policy-Type*como `fixed`.
+Para especificar que a ação ou o gatilho aguardam o intervalo especificado antes de enviar o próximo pedido, detetete o tipo de política de*repetição*> para `fixed`.
 
 *Exemplo*
 
-Essa política de repetição tenta obter as últimas notícias mais duas vezes após a primeira solicitação com falha com um atraso de 30 segundos entre cada tentativa:
+Esta política de retry tenta obter as últimas notícias mais duas vezes após o primeiro pedido falhado com um atraso de 30 segundos entre cada tentativa:
 
 ```json
 "Get_latest_news": {
@@ -143,56 +143,56 @@ Essa política de repetição tenta obter as últimas notícias mais duas vezes 
 
 ### <a name="exponential-interval"></a>Intervalo exponencial
 
-Para especificar que a ação ou o gatilho aguarda um intervalo aleatório antes de enviar a próxima solicitação, defina o < > de*tentativa-Policy-Type*como `exponential`. O intervalo aleatório é selecionado de um intervalo de aumento exponencial. Opcionalmente, você também pode substituir os intervalos mínimo e máximo padrão especificando seus próprios intervalos mínimo e máximo.
+Para especificar que a ação ou o gatilho aguarda um intervalo aleatório antes de enviar o próximo pedido, detete o tipo de política de*repetição*> para `exponential`. O intervalo aleatório é selecionado a partir de uma gama exponencialmente crescente. Opcionalmente, também pode anular os intervalos mínimos e máximos predefinidos especificando os seus próprios intervalos mínimos e máximos.
 
-**Intervalos de variáveis aleatórias**
+**Gamas variáveis aleatórias**
 
-Esta tabela mostra como os aplicativos lógicos geram uma variável aleatória uniforme no intervalo especificado para cada repetição até e incluindo o número de repetições:
+Esta tabela mostra como as Aplicações Lógicas geram uma variável aleatória uniforme na gama especificada para cada retry até e incluindo o número de repetições:
 
-| Número de repetições | Intervalo mínimo | Intervalo máximo |
+| Número de retry | Intervalo mínimo | Intervalo máximo |
 |--------------|------------------|------------------|
-| 1 | Max (0, <*intervalo mínimo*>) | min (intervalo, <*intervalo máximo*>) |
-| 2 | Max (intervalo, <*intervalo mínimo*>) | mín. (2 * intervalo, <*intervalo máximo*>) |
-| 3 | Max (2 * Interval, <*intervalo mínimo*>) | mín. (4 * intervalo, <*intervalo máximo*>) |
-| 4 | Max (4 * intervalo, <*intervalo mínimo*>) | min (8 * intervalo, <*intervalo máximo*>) |
+| 1 | máx(0, <*intervalo mínimo*>) | min (intervalo, <*intervalo máximo*>) |
+| 2 | máx (intervalo, <*intervalo mínimo*>) | min(2 * intervalo, <*intervalo máximo*>) |
+| 3 | máx(2 * intervalo, <*intervalo mínimo*>) | min(intervalo 4* e <*intervalo máximo*>) |
+| 4 | máx(4 * intervalo, <*intervalo mínimo*>) | min(8 * intervalo, <*intervalo máximo*>) |
 | .... | .... | .... |
 ||||
 
 <a name="control-run-after-behavior"></a>
 
-## <a name="catch-and-handle-failures-by-changing-run-after-behavior"></a>Detectar e lidar com falhas alterando o comportamento de "executar após"
+## <a name="catch-and-handle-failures-by-changing-run-after-behavior"></a>Catch and handle falhas alterando o comportamento "correr atrás"
 
-Ao adicionar ações no designer do aplicativo lógico, você declara implicitamente o pedido a ser usado para executar essas ações. Após a conclusão da execução de uma ação, essa ação é marcada com um status como `Succeeded`, `Failed`, `Skipped`ou `TimedOut`. Em cada definição de ação, a propriedade `runAfter` especifica a ação predecessora que deve primeiro ser concluída e os status permitidos para essa predecessora antes que a ação da sucessora possa ser executada. Por padrão, uma ação que você adiciona no designer é executada somente após a conclusão da predecessora com `Succeeded` status.
+Ao adicionar ações no Logic App Designer, declara implicitamente a ordem a utilizar para executar essas ações. Depois de uma ação terminar a decorrer, essa ação é marcada com um estatuto como `Succeeded`, `Failed`, `Skipped`ou `TimedOut`. Em cada definição de ação, o `runAfter` propriedade especifica a ação antecessora que deve terminar primeiro e os estatutos permitidos para esse antecessor antes que a ação sucessora possa ser executada. Por padrão, uma ação que adiciona no designer só funciona depois de o antecessor completar com `Succeeded` estatuto.
 
-Quando uma ação gera um erro ou exceção sem tratamento, a ação é marcada `Failed`e qualquer ação de sucessor é marcada `Skipped`. Se esse comportamento ocorrer para uma ação que tenha ramificações paralelas, o mecanismo de aplicativos lógicos seguirá as outras ramificações para determinar seus status de conclusão. Por exemplo, se uma ramificação terminar com uma `Skipped` ação, o status de conclusão da ramificação será baseado no status predecessor da ação ignorada. Após a conclusão da execução do aplicativo lógico, o mecanismo determina o status da execução inteira avaliando todos os status da ramificação. Se qualquer ramificação for encerrada em falha, toda a execução do aplicativo lógico será marcada `Failed`.
+Quando uma ação lança um erro ou uma exceção não manuseados, a ação é marcada `Failed`, e qualquer ação sucessora é marcada `Skipped`. Se este comportamento acontecer para uma ação que tem ramos paralelos, o motor Logic Apps segue os outros ramos para determinar os seus estados de conclusão. Por exemplo, se um ramo terminar com uma ação `Skipped`, o estado de conclusão dessa sucursal baseia-se no estatuto de antecessor da ação. Após o execução da aplicação lógica, o motor determina todo o estado da execução avaliando todos os estados da sucursal. Se algum ramo terminar em falha, toda a execução da aplicação lógica está marcada `Failed`.
 
-![Exemplos que mostram como os status de execução são avaliados](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
+![Exemplos que mostram como os estados de execução são avaliados](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
 
-Para garantir que uma ação ainda possa ser executada apesar do status da sua predecessora, [Personalize o comportamento de "executar após" de uma ação](#customize-run-after) para lidar com os status malsucedidos da predecessora.
+Para garantir que uma ação ainda pode decorrer apesar do estatuto do seu antecessor, [personalize o comportamento "correr atrás" de uma ação](#customize-run-after) para lidar com os estatutos mal sucedidos do antecessor.
 
 <a name="customize-run-after"></a>
 
-### <a name="customize-run-after-behavior"></a>Personalizar o comportamento "executar após"
+### <a name="customize-run-after-behavior"></a>Personalize o comportamento "correr depois"
 
-Você pode personalizar o comportamento "executar após" de uma ação para que a ação seja executada quando o status da predecessora for `Succeeded`, `Failed`, `Skipped`, `TimedOut`ou qualquer um desses status. Por exemplo, enviar um e-mail após a ação do antecessor `Add_a_row_into_a_table` Excel Online é marcada `Failed`, em vez de `Succeeded`, alterar o comportamento "correr atrás" seguindo qualquer passo:
+Pode personalizar o comportamento "correr atrás" de uma ação para que a ação decorra quando o estatuto do antecessor for `Succeeded`, `Failed`, `Skipped`, `TimedOut`, ou qualquer um destes estatutos. Por exemplo, enviar um e-mail após a ação do antecessor `Add_a_row_into_a_table` Excel Online é marcada `Failed`, em vez de `Succeeded`, alterar o comportamento "correr atrás" seguindo qualquer passo:
 
-* Na exibição Design, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurar execução após**.
+* Na vista de design, selecione o botão elipses ( **...** ) e, em seguida, selecione **Configurar executar depois**de .
 
-  ![Configurar o comportamento "executar após" para uma ação](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
+  ![Configure o comportamento "correr atrás" para uma ação](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
 
-  A forma de ação mostra o status padrão necessário para a ação predecessora, que é **Adicionar uma linha a uma tabela** neste exemplo:
+  A forma de ação mostra o estado padrão necessário para a ação antecessora, que é **adicionar uma linha a uma tabela** neste exemplo:
 
-  ![Comportamento padrão "executar após" para uma ação](./media/logic-apps-exception-handling/change-run-after-property-status.png)
+  ![Comportamento padrão "correr atrás" para uma ação](./media/logic-apps-exception-handling/change-run-after-property-status.png)
 
-  Altere o comportamento de "executar após" para o status desejado, que **tem falha** neste exemplo:
+  Mude o comportamento "correr atrás" para o estado que deseja, o que **falhou** neste exemplo:
 
-  ![Alterar o comportamento "executar após" para "falha"](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
+  ![Mudar comportamento "correr atrás" para "falhou"](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
 
-  Para especificar que a ação seja executada se a ação predecessora estiver marcada como `Failed`, `Skipped` ou `TimedOut`, selecione os outros status:
+  Para especificar que a ação decorre se a ação antecessora está marcada como `Failed`, `Skipped` ou `TimedOut`, selecione os outros estatutos:
 
-  ![Alterar o comportamento "executar após" para ter qualquer outro status](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
+  ![Alterar comportamento "correr atrás" para ter qualquer outro estatuto](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
 
-* Na exibição de código, na definição de JSON da ação, edite a propriedade `runAfter`, que segue essa sintaxe:
+* Em vista de código, na definição JSON da ação, edite o `runAfter` propriedade, que segue esta sintaxe:
 
   ```json
   "<action-name>": {
@@ -208,7 +208,7 @@ Você pode personalizar o comportamento "executar após" de uma ação para que 
   }
   ```
 
-  Para este exemplo, altere a propriedade `runAfter` de `Succeeded` para `Failed`:
+  Para este exemplo, mude o `runAfter` imóvel de `Succeeded` para `Failed`:
 
   ```json
   "Send_an_email_(V2)": {
@@ -235,7 +235,7 @@ Você pode personalizar o comportamento "executar após" de uma ação para que 
   }
   ```
 
-  Para especificar que a ação seja executada se a ação predecessora estiver marcada como `Failed`, `Skipped` ou `TimedOut`, adicione os outros status:
+  Para especificar que a ação decorre se a ação antecessora está marcada como `Failed`, `Skipped` ou `TimedOut`, adicione os outros estatutos:
 
   ```json
   "runAfter": {
@@ -247,27 +247,27 @@ Você pode personalizar o comportamento "executar após" de uma ação para que 
 
 <a name="scopes"></a>
 
-## <a name="evaluate-actions-with-scopes-and-their-results"></a>Avaliar ações com escopos e seus resultados
+## <a name="evaluate-actions-with-scopes-and-their-results"></a>Avaliar ações com âmbitos e resultados
 
-Semelhante à execução de etapas após ações individuais com a propriedade `runAfter`, você pode agrupar ações em um [escopo](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Você pode usar escopos quando quiser agrupar ações logicamente, avaliar o status agregado do escopo e executar ações com base nesse status. Depois que todas as ações em um escopo terminarem de ser executadas, o próprio escopo obterá seu próprio status.
+Semelhante a passos de execução após ações individuais com a propriedade `runAfter`, você pode agrupar ações dentro de um [âmbito](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Pode utilizar os âmbitos quando quiser, logicamente, agrupar as ações, avaliar o estatuto agregado do âmbito e realizar ações com base nesse estado. Depois de todas as ações num final de âmbito, o âmbito em si obtém o seu próprio estatuto.
 
-Para verificar o status de um escopo, você pode usar os mesmos critérios usados para verificar o status de execução de um aplicativo lógico, como `Succeeded`, `Failed`e assim por diante.
+Para verificar o estado de um âmbito, pode utilizar os mesmos critérios que utiliza para verificar o estado de execução de uma aplicação lógica, como `Succeeded`, `Failed`, e assim por diante.
 
-Por padrão, quando todas as ações do escopo forem realizadas com sucesso, o status do escopo será marcado `Succeeded`. Se a ação final em um escopo resultar como `Failed` ou `Aborted`, o status do escopo será marcado como `Failed`.
+Por predefinição, quando todas as ações do âmbito forem bem sucedidas, o estatuto do âmbito é marcado `Succeeded`. Se a ação final num âmbito de aplicação resultar como `Failed` ou `Aborted`, o estatuto do âmbito de aplicação é marcado `Failed`.
 
-Para capturar exceções em um escopo de `Failed` e executar ações que manipulam esses erros, você pode usar a propriedade `runAfter` para esse escopo de `Failed`. Dessa forma, se *alguma* ação no escopo falhar e você usar a propriedade `runAfter` para esse escopo, você poderá criar uma única ação para detectar falhas.
+Para capturar exceções num âmbito `Failed` e executar ações que lidam com esses erros, pode utilizar a propriedade `runAfter` para esse âmbito `Failed`. Dessa forma, se *alguma* ação no âmbito falhar, e usar a propriedade `runAfter` para esse âmbito, pode criar uma única ação para apanhar falhas.
 
-Para limites em escopos, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md).
+Para limites de alcances, consulte [Limites e config](../logic-apps/logic-apps-limits-and-config.md).
 
 <a name="get-results-from-failures"></a>
 
 ### <a name="get-context-and-results-for-failures"></a>Obter contexto e resultados para falhas
 
-Embora a captura de falhas de um escopo seja útil, você também pode querer o contexto para ajudá-lo a entender exatamente quais ações falharam, além de erros ou códigos de status que foram retornados.
+Embora capturar falhas de um âmbito seja útil, você também pode querer contexto para ajudá-lo a entender exatamente quais as ações falhadas mais quaisos erros ou códigos de estado que foram devolvidos.
 
-A função [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) fornece contexto sobre os resultados de todas as ações em um escopo. A função `result()` aceita um único parâmetro, que é o nome do escopo, e retorna uma matriz que contém todos os resultados da ação de dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que o objeto `actions()`, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. Para enviar o contexto para todas as ações que falharam em um escopo, você pode facilmente emparelhar uma expressão de `@result()` com a propriedade `runAfter`.
+A função [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) fornece contexto sobre os resultados de todas as ações de âmbito. A função `result()` aceita um único parâmetro, que é o nome do âmbito, e devolve uma matriz que contém todos os resultados de ação a partir desse âmbito. Estes objetos de ação incluem os mesmos atributos que o `actions()` objeto, tais como o tempo de início da ação, o tempo final, o estado, as inputs, as iDs de correlação e as saídas. Para enviar contexto para quaisquer ações que falhassem dentro de um âmbito, você pode facilmente emparelhar uma expressão `@result()` com a propriedade `runAfter`.
 
-Para executar uma ação para cada ação em um escopo que tenha um resultado de `Failed` e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma expressão `@result()` com uma ação [**Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Pode pegar na matriz filtrada do resultado e realizar uma ação para cada falha utilizando o laço `For_each`.
+Para executar uma ação para cada ação num âmbito que tenha um resultado `Failed`, e filtrar a matriz de resultados até às ações falhadas, pode emparelhar uma expressão `@result()` com uma ação [**Filter Array**](logic-apps-perform-data-operations.md#filter-array-action) e um [**Para cada**](../logic-apps/logic-apps-control-flow-loops.md) loop. Pode pegar na matriz filtrada do resultado e realizar uma ação para cada falha utilizando o laço `For_each`.
 
 Aqui está um exemplo, seguido de uma explicação detalhada, que envia um pedido http post com o órgão de resposta para quaisquer ações que falharam dentro do âmbito "My_Scope":
 
@@ -310,23 +310,23 @@ Aqui está um exemplo, seguido de uma explicação detalhada, que envia um pedid
 }
 ```
 
-Aqui está uma explicação detalhada que descreve o que acontece neste exemplo:
+Aqui está um passe detalhado que descreve o que acontece neste exemplo:
 
 1. Para obter o resultado de todas as ações dentro de "My_Scope", a ação **Filter Array** utiliza esta expressão de filtro: `@result('My_Scope')`
 
-1. A condição da **matriz de filtro** é qualquer `@result()` item que tenha um status igual a `Failed`. Esta condição filtra a matriz que tem todos os resultados de ação de "My_Scope" até uma matriz com apenas os resultados de ação falhados.
+1. A condição para **o Filter Array** é qualquer item `@result()` que tenha um estatuto igual a `Failed`. Esta condição filtra a matriz que tem todos os resultados de ação de "My_Scope" até uma matriz com apenas os resultados de ação falhados.
 
-1. Execute uma ação de loop `For_each` nas saídas filtradas da *matriz.* Esta etapa executa uma ação para cada resultado de ação com falha que foi anteriormente filtrado.
+1. Execute uma ação de loop `For_each` nas saídas filtradas da *matriz.* Este passo executa uma ação para cada resultado de ação falhado que foi previamente filtrado.
 
-   Se uma única ação no âmbito falhar, as ações no ciclo `For_each` só funcionam uma vez. Várias ações com falha causam uma ação por falha.
+   Se uma única ação no âmbito falhar, as ações no ciclo `For_each` só funcionam uma vez. Múltiplas ações falhadas causam uma ação por falha.
 
 1. Envie um POST HTTP sobre o organismo de resposta do artigo `For_each`, que é a expressão `@item()['outputs']['body']`.
 
-   A forma `@result()` item é igual à forma `@actions()` e pode ser analisada da mesma maneira.
+   A forma do item `@result()` é a mesma que a forma `@actions()` e pode ser analisada da mesma forma.
 
 1. Inclua dois cabeçalhos personalizados com o nome de ação falhado (`@item()['name']`) e o ID de rastreio do cliente falhado (`@item()['clientTrackingId']`).
 
-Para referência, aqui está um exemplo de um único item de `@result()`, mostrando as propriedades `name`, `body`e `clientTrackingId` que são analisadas no exemplo anterior. Fora de uma ação `For_each`, `@result()` devolve uma série destes objetos.
+Para referência, aqui está um exemplo de um único item `@result()`, mostrando as propriedades `name`, `body`e `clientTrackingId` que são analisadas no exemplo anterior. Fora de uma ação `For_each`, `@result()` devolve uma série destes objetos.
 
 ```json
 {
@@ -358,15 +358,15 @@ Para referência, aqui está um exemplo de um único item de `@result()`, mostra
 }
 ```
 
-Para executar diferentes padrões de manipulação de exceção, você pode usar as expressões descritas anteriormente neste artigo. Pode optar por executar uma única ação de manipulação de exceção fora do âmbito que aceita toda a gama filtrada de falhas e remover a ação `For_each`. Você também pode incluir outras propriedades úteis da resposta `\@result()` conforme descrito anteriormente.
+Para executar diferentes padrões de manipulação de exceções, pode utilizar as expressões anteriormente descritas neste artigo. Pode optar por executar uma única ação de manipulação de exceção fora do âmbito que aceita toda a gama filtrada de falhas e remover a ação `For_each`. Também pode incluir outras propriedades úteis a partir da resposta `\@result()`, conforme descrito anteriormente.
 
-## <a name="set-up-azure-monitor-logs"></a>Configurar logs de Azure Monitor
+## <a name="set-up-azure-monitor-logs"></a>Configurar registos do Monitor Azure
 
-Os padrões anteriores são uma ótima maneira de lidar com erros e exceções dentro de uma execução, mas você também pode identificar e responder a erros independentes da própria execução. [O Azure Monitor](../azure-monitor/overview.md) fornece uma forma simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os estados de execução e ação, para um espaço de [trabalho log Analytics,](../azure-monitor/platform/data-platform-logs.md)conta de armazenamento [Azure,](../storage/blobs/storage-blobs-overview.md)ou Hubs de [Eventos Azure.](../event-hubs/event-hubs-about.md)
+Os padrões anteriores são uma ótima maneira de lidar com erros e exceções dentro de uma corrida, mas também pode identificar e responder a erros independentes da própria execução. [O Azure Monitor](../azure-monitor/overview.md) fornece uma forma simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os estados de execução e ação, para um espaço de [trabalho log Analytics,](../azure-monitor/platform/data-platform-logs.md)conta de armazenamento [Azure,](../storage/blobs/storage-blobs-overview.md)ou Hubs de [Eventos Azure.](../event-hubs/event-hubs-about.md)
 
-Para avaliar os status de execução, você pode monitorar os logs e as métricas ou publicá-los em qualquer ferramenta de monitoramento que preferir. Uma opção potencial é transmitir todos os eventos por meio de hubs de eventos para [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). No Stream Analytics, você pode escrever consultas dinâmicas com base em quaisquer anomalias, médias ou falhas dos logs de diagnóstico. Você pode usar Stream Analytics para enviar informações para outras fontes de dados, como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
+Para avaliar os estados de execução, pode monitorizar os registos e métricas ou publicá-los em qualquer ferramenta de monitorização que prefira. Uma opção potencial é transmitir todos os eventos através de Hubs de Eventos para [O Analytics De Fluxo.](https://azure.microsoft.com/services/stream-analytics/) No Stream Analytics, pode escrever consultas ao vivo com base em quaisquer anomalias, médias ou falhas dos registos de diagnóstico. Pode utilizar o Stream Analytics para enviar informações para outras fontes de dados, tais como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Veja como um cliente cria o tratamento de erros com os aplicativos lógicos do Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-* [Encontre mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Veja como um cliente constrói manipulação de erros com aplicações da Azure Logic](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Encontre mais exemplos e cenários de Apps Lógicas](../logic-apps/logic-apps-examples-and-scenarios.md)

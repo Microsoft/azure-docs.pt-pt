@@ -5,11 +5,11 @@ ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 05ad6c4eab61ccf5bc0884da63ebda7ba76ac583
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597563"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363885"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados da VM Azure no portal Azure
 
