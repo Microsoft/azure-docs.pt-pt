@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Funcionalidades em pré-visualização | Documentos da Microsoft'
-description: Este tópico descreve com mais funcionalidades de detalhe que estão em pré-visualização no Azure AD Connect.
+title: 'Azure AD Connect: Funcionalidades na pré-visualização Microsoft Docs'
+description: Este tópico descreve em mais detalhes as funcionalidades que estão em pré-visualização no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,41 +17,41 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347809"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375986"
 ---
-# <a name="more-details-about-features-in-preview"></a>Obter mais detalhes sobre as funcionalidades em pré-visualização
-Este tópico descreve como utilizar as funcionalidades atualmente em pré-visualização.
+# <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre funcionalidades na pré-visualização
+Este tópico descreve como usar funcionalidades atualmente em pré-visualização.
 
-## <a name="group-writeback"></a>Repetição de escrita do grupo
-A opção para a repetição de escrita do grupo de recursos opcionais permite-lhe a repetição de escrita **grupos do Office 365** para uma floresta com o Exchange instalado. Este é um grupo que sempre é controlado na cloud. Se tiver o Exchange no local, em seguida, pode efetuar um write back estes grupos para o local para que os utilizadores com uma caixa de correio do Exchange no local podem enviar e receber e-mails destes grupos de.
+## <a name="group-writeback"></a>Redação em grupo
+A opção de reescrita em grupo em funcionalidades opcionais permite-lhe reescrever o **Office 365 Groups** para uma floresta com Exchange instalado. Este é um grupo que é sempre dominado na nuvem. Se tiver exchange on-local, então pode reescrever estes grupos para as instalações para que os utilizadores com uma caixa de correio de troca no local possam enviar e receber e-mails destes grupos.
 
-Podem encontrar mais informações sobre os grupos do Office 365 e como utilizá-los [aqui](https://aka.ms/O365g).
+Mais informações sobre os Grupos 365 do Office e como utilizá-los podem ser consultados [aqui](https://aka.ms/O365g).
 
-Um grupo do Office 365 é representado como um grupo de distribuição no local AD DS. Seu servidor do Exchange no local tem de ser no Exchange 2013 atualização cumulativa 8 (lançado em Março de 2015) ou o Exchange 2016 para reconhecer este novo tipo de grupo.
+Um grupo do Office 365 está representado como um grupo de distribuição no ad DS no local. O seu servidor de intercâmbio no local deve estar na Exchange 2013 atualização cumulativa 8 (lançada em março de 2015) ou Exchange 2016 para reconhecer este novo tipo de grupo.
 
 **Notas durante a pré-visualização**
 
-* O atributo de livro de endereços não for preenchido atualmente na pré-visualização. Sem esse atributo, o grupo não é visível na GAL. A maneira mais fácil para preencher este atributo é usar o cmdlet do PowerShell do Exchange `update-recipient`.
-* Apenas a florestas com o esquema do Exchange são alvos válidos para grupos. Se nenhum Exchange foi detetado, repetição de escrita do grupo não é possível ativar.
-* Apenas floresta única organização implantações do Exchange são atualmente suportadas. Se tiver mais de um Exchange organização no local, terá uma solução de GALSync no local para estes grupos a aparecer na sua noutras florestas.
-* A funcionalidade de repetição de escrita do grupo não manipula os grupos de segurança ou grupos de distribuição.
+* O atributo do livro de endereços não está atualmente povoado na pré-visualização. Sem este atributo, o grupo não é visível na GAL. A maneira mais fácil de povoar este atributo é utilizar o cmdlet Exchange PowerShell `update-recipient`.
+* Apenas as florestas com o esquema de troca são alvos válidos para grupos. Se não foi detetada nenhuma Troca, então a redação em grupo não é possível de ativar.
+* Apenas os destacamentos de organização de intercâmbio uniflorestal são atualmente apoiados. Se você tem mais do que uma organização exchange no local, então você precisa de uma solução GALSync no local para que estes grupos apareçam nas suas outras florestas.
+* A funcionalidade de redação do Grupo não trata de grupos de segurança ou de grupos de distribuição.
 
 > [!NOTE]
-> Uma subscrição do Azure AD Premium é necessária para repetição de escrita do grupo.
+> É necessária uma subscrição do Azure AD Premium para reprodução em grupo.
 > 
 >
 
-## <a name="user-writeback"></a>Repetição de escrita do utilizador
+## <a name="user-writeback"></a>Redação do utilizador
 > [!IMPORTANT]
-> A funcionalidade de pré-visualização de repetição de escrita do utilizador foi removida na atualização de Agosto de 2015 para o Azure AD Connect. Se está ativado, deve desativar esta funcionalidade.
+> A funcionalidade de pré-visualização de reprodução do utilizador foi removida na atualização de agosto de 2015 para o Azure AD Connect. Se o ativou, deverá desativar esta funcionalidade.
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
-Continuar sua [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
+## <a name="next-steps"></a>Próximos passos
+Continue a [instalação personalizada de Azure AD Connect](how-to-connect-install-custom.md).
 
-Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre integrar as suas identidades no local com o [Diretório Ativo Azure.](whatis-hybrid-identity.md)

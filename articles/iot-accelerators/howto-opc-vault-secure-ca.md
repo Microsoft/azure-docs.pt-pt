@@ -1,6 +1,6 @@
 ---
-title: Como executar o serviço de gerenciamento de certificados do cofre OPC com segurança – Azure | Microsoft Docs
-description: Descreve como executar o serviço de gerenciamento de certificados do cofre OPC com segurança no Azure e revisa outras diretrizes de segurança a serem consideradas.
+title: Como executar o serviço de gestão de certificados OPC Vault de forma segura - Azure [ Azure ] Microsoft Docs
+description: Descreve como executar o serviço de gestão de certificados OPC Vault de forma segura em Azure, e revê outras diretrizes de segurança a considerar.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2019
@@ -9,237 +9,237 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200077"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381127"
 ---
-# <a name="run-the-opc-vault-certificate-management-service-securely"></a>Execute o serviço de gerenciamento de certificados do cofre OPC com segurança
+# <a name="run-the-opc-vault-certificate-management-service-securely"></a>Executar o serviço de gestão de certificados OPC Vault de forma segura
 
-Este artigo explica como executar o serviço de gerenciamento de certificados do cofre do OPC com segurança no Azure e revisa outras diretrizes de segurança a serem consideradas.
+Este artigo explica como executar o serviço de gestão de certificados OPC Vault de forma segura em Azure, e revê outras diretrizes de segurança a considerar.
 
-## <a name="roles"></a>Funções
+## <a name="roles"></a>Papéis
 
 ### <a name="trusted-and-authorized-roles"></a>Funções confiáveis e autorizadas
 
-O microserviço do cofre OPC permite que funções distintas acessem várias partes do serviço.
+O microserviço OPC Vault permite funções distintas para aceder a várias partes do serviço.
 
 > [!IMPORTANT]
-> Durante a implantação, o script adiciona apenas o usuário que executa o script de implantação como um usuário para todas as funções. Para uma implantação de produção, você deve examinar essa atribuição de função e reconfigurar adequadamente seguindo as diretrizes abaixo. Essa tarefa requer atribuição manual de funções e serviços no portal de aplicativos empresariais do Azure Active Directory (Azure AD).
+> Durante a implementação, o script apenas adiciona o utilizador que executa o script de implementação como utilizador para todas as funções. Para uma implantação de produção, deve rever esta atribuição de funções e reconfigurar adequadamente seguindo as orientações abaixo. Esta tarefa requer a atribuição manual de funções e serviços no portal de aplicações empresariais Azure Ative Directory (Azure AD).
 
-### <a name="certificate-management-service-roles"></a>Funções do serviço de gerenciamento de certificados
+### <a name="certificate-management-service-roles"></a>Funções de serviço de gestão de certificados
 
-O microserviço do compartimento OPC define as seguintes funções:
+O microserviço OPC Vault define as seguintes funções:
 
-- **Leitor**: Por padrão, qualquer usuário autenticado no locatário tem acesso de leitura. 
-  - Acesso de leitura a aplicativos e solicitações de certificado. Pode listar e consultar aplicativos e solicitações de certificado. Além disso, as informações de descoberta de dispositivo e os certificados públicos estão acessíveis com acesso de leitura.
-- **Gravador**: A função de gravador é atribuída a um usuário para adicionar permissões de gravação para determinadas tarefas. 
-  - Acesso de leitura/gravação a aplicativos e solicitações de certificado. Pode registrar, atualizar e cancelar o registro de aplicativos. Pode criar solicitações de certificado e obter certificados e chaves privadas aprovadas. Também pode excluir chaves privadas.
-- **Aprovador**: A função de aprovador é atribuída a um usuário para aprovar ou rejeitar solicitações de certificado. A função não inclui nenhuma outra função.
-  - Além da função de aprovador para acessar a API de microserviço do compartimento OPC, o usuário também deve ter a permissão de assinatura de chave no Azure Key Vault para poder assinar os certificados.
-  - A função de gravador e aprovador deve ser atribuída a usuários diferentes.
-  - A função principal do aprovador é a aprovação da geração e rejeição de solicitações de certificado.
-- **Administrador**: A função de administrador é atribuída a um usuário para gerenciar os grupos de certificados. A função não dá suporte à função de aprovador, mas inclui a função de gravador.
-  - O administrador pode gerenciar os grupos de certificados, alterar a configuração e revogar certificados de aplicativos emitindo uma nova CRL (lista de certificados revogados).
-  - Idealmente, as funções de gravador, Aprovador e administrador são atribuídas a diferentes usuários. Para segurança adicional, um usuário com a função de aprovador ou de administrador também precisa de permissão de assinatura de chave no Key Vault, para emitir certificados ou para renovar um certificado de autoridade de certificação do emissor.
-  - Além da função de administração de microserviço, a função inclui, mas não está limitada a:
-    - Responsabilidade pela administração da implementação das práticas de segurança da autoridade de certificação.
-    - Gerenciamento da geração, revogação e suspensão de certificados. 
-    - Gerenciamento do ciclo de vida da chave de criptografia (por exemplo, a renovação das chaves da AC do emissor).
-    - Instalação, configuração e manutenção de serviços que operam a autoridade de certificação.
-    - A operação diária dos serviços. 
-    - Backup e recuperação de CA e banco de dados.
+- **Leitor**: Por defeito, qualquer utilizador autenticado no inquilino leu o acesso. 
+  - Leia o acesso a pedidos e pedidos de certificado. Pode listar e consultar pedidos de pedidos e pedidos de certificado. Também as informações sobre a descoberta do dispositivo e os certificados públicos são acessíveis com acesso à leitura.
+- **Escritor**: O papel do Escritor é atribuído a um utilizador para adicionar permissões de escrita para determinadas tarefas. 
+  - Ler/Escrever acesso a pedidos e pedidos de certificado. Pode registar, atualizar e desregistar as candidaturas. Pode criar pedidos de certificado e obter chaves e certificados privados aprovados. Também pode eliminar chaves privadas.
+- **Aprovador**: A função de Aprovador é atribuída a um utilizador para aprovar ou rejeitar pedidos de certificado. O papel não inclui outro papel.
+  - Além da função de Aprovador para aceder à API microserviço do Cofre OPC, o utilizador deve também ter a autorização de assinatura chave no Cofre de Chaves Azure para poder assinar os certificados.
+  - O papel de Escritor e Aprovador deve ser atribuído a diferentes utilizadores.
+  - O papel principal do Aprovador é a aprovação da geração e rejeição dos pedidos de certificados.
+- **Administrador**: A função de Administrador é atribuída a um utilizador para gerir os grupos de certificados. O papel não apoia o papel de Aprovador, mas inclui o papel de Escritor.
+  - O administrador pode gerir os grupos de certificados, alterar a configuração e revogar os certificados de candidatura através da emissão de uma nova Lista de Revogação de Certificados (CRL).
+  - Idealmente, as funções de Escritor, Aprovador e Administrador são atribuídas a diferentes utilizadores. Para uma segurança adicional, um utilizador com a função de Aprovador ou Administrador também precisa de autorização de assinatura de chaves no Cofre chave, para emitir certificados ou renovar um certificado CA emitor.
+  - Além do papel da administração de microserviços, o papel inclui, mas não se limita a:
+    - Responsabilidade pela gestão da implementação das práticas de segurança da AC.
+    - Gestão da geração, revogação e suspensão de certificados. 
+    - Gestão criptográfica do ciclo de vida (por exemplo, a renovação das teclas CA emitentes).
+    - Instalação, configuração e manutenção de serviços que operam a AC.
+    - Operação diária dos serviços. 
+    - Apoio e recuperação de bases de dados e ca e base de dados.
 
-### <a name="other-role-assignments"></a>Outras atribuições de função
+### <a name="other-role-assignments"></a>Outras atribuições de funções
 
-Considere também as seguintes funções quando você estiver executando o serviço:
+Considere também as seguintes funções quando estiver a executar o serviço:
 
-- Proprietário de negócios do contrato de aquisição de certificado com a autoridade de certificação raiz externa (por exemplo, quando o proprietário adquire certificados de uma CA externa ou opera uma autoridade de certificação subordinada a uma AC externa).
-- Desenvolvimento e validação da autoridade de certificação.
-- Revisão de registros de auditoria.
-- Funcionários que ajudam a dar suporte à autoridade de certificação ou a gerenciar os recursos físicos e de nuvem, mas não são diretamente confiáveis para executar operações de CA, estão na função *autorizada* . O conjunto de tarefas que as pessoas na função autorizada tem permissão para executar também devem ser documentados.
+- Empresário do contrato de aquisição de certificados com a autoridade externa de certificação de raiz (por exemplo, quando o proprietário adquire certificados de uma CA externa ou opera uma AC subordinada a uma AC externa).
+- Desenvolvimento e validação da Autoridade de Certificados.
+- Revisão dos registos de auditoria.
+- O pessoal que ajuda a apoiar a AC ou gerir as instalações físicas e em nuvem, mas não são diretamente confiáveis para realizar operações de AC, está no papel *autorizado.* O conjunto de tarefas que as pessoas no papel autorizado podem desempenhar também deve ser documentado.
 
-### <a name="review-memberships-of-trusted-and-authorized-roles-quarterly"></a>Examine as associações de funções confiáveis e autorizadas trimestral
+### <a name="review-memberships-of-trusted-and-authorized-roles-quarterly"></a>Rever os membros de funções fidedignas e autorizadas trimestralmente
 
-Examine a associação de funções confiáveis e autorizadas pelo menos trimestral. Verifique se o conjunto de pessoas (para processos manuais) ou identidades de serviço (para processos automatizados) em cada função é mantido em um mínimo.
+Reveja a adesão a funções fidedignas e autorizadas pelo menos trimestralmente. Certifique-se de que o conjunto de pessoas (para processos manuais) ou identidades de serviço (para processos automatizados) em cada função é reduzido ao mínimo.
 
-### <a name="role-separation-between-certificate-requester-and-approver"></a>Separação de funções entre o solicitante de certificado e o aprovador
+### <a name="role-separation-between-certificate-requester-and-approver"></a>Separação de funções entre o solicitor de certificado e o aprovador
 
-O processo de emissão de certificado deve impor a separação de funções entre o solicitante de certificado e as funções de aprovador de certificado (pessoas ou sistemas automatizados). A emissão de certificado deve ser autorizada por uma função de aprovador de certificado que verifica se o solicitante de certificado está autorizado a obter certificados. As pessoas que mantêm a função de aprovador de certificados devem ser uma pessoa autorizada formalmente.
+O processo de emissão de certificadodeve impor a separação de funções entre o solicitor de certificado e as funções de aprovador de certificados (pessoas ou sistemas automatizados). A emissão de certificados deve ser autorizada por uma função de aprovador de certificado que verifique se o solicitor de certificado está autorizado a obter certificados. As pessoas que detêm o papel de aprovador de certificado devem ser uma pessoa formalmente autorizada.
 
-### <a name="restrict-assignment-of-privileged-roles"></a>Restringir a atribuição de funções com privilégios
+### <a name="restrict-assignment-of-privileged-roles"></a>Restringir a atribuição de funções privilegiadas
 
-Você deve restringir a atribuição de funções com privilégios, como autorizar a associação do grupo Administradores e aprovadores, a um conjunto limitado de funcionários autorizados. Qualquer alteração de função privilegiada deve ter acesso revogado dentro de 24 horas. Por fim, revise as atribuições de função com privilégios trimestralmente e remova as atribuições desnecessárias ou expiradas.
+Deve restringir a atribuição de funções privilegiadas, tais como autorizar a adesão ao grupo administradores e aprovadores, a um conjunto limitado de pessoal autorizado. Quaisquer alterações de papéis privilegiadas devem ter acesso revogado dentro de 24 horas. Por último, reveja as atribuições de funções privilegiadas trimestralmente e remova quaisquer atribuições desnecessárias ou vencidas.
 
-### <a name="privileged-roles-should-use-two-factor-authentication"></a>As funções com privilégios devem usar a autenticação de dois fatores
+### <a name="privileged-roles-should-use-two-factor-authentication"></a>Funções privilegiadas devem utilizar a autenticação de dois fatores
 
-Use a autenticação multifator (também chamada de autenticação de dois fatores) para entradas interativas de aprovadores e administradores para o serviço.
+Utilize a autenticação de vários fatores (também chamada de autenticação de dois fatores) para inscrições interativas de Aprovadores e Administradores para o serviço.
 
-## <a name="certificate-service-operation-guidelines"></a>Diretrizes de operação do serviço de certificado
+## <a name="certificate-service-operation-guidelines"></a>Diretrizes de funcionamento do serviço de certificados
 
-### <a name="operational-contacts"></a>Contatos operacionais
+### <a name="operational-contacts"></a>Contactos operacionais
 
-O serviço de certificado deve ter um plano de resposta de segurança atualizado no arquivo, que contém contatos de resposta a incidentes operacionais detalhados.
+O serviço de certificados deve ter um plano de resposta de segurança atualizado no ficheiro, que contém contactos de resposta a incidentes operacionais detalhados.
 
 ### <a name="security-updates"></a>Atualizações de segurança
 
-Todos os sistemas devem ser continuamente monitorados e atualizados com as últimas atualizações de segurança.
+Todos os sistemas devem ser monitorizados e atualizados com as mais recentes atualizações de segurança.
 
 > [!IMPORTANT]
-> O repositório GitHub do serviço de cofre do OPC é atualizado continuamente com patches de segurança. Monitore essas atualizações e aplique-as ao serviço em intervalos regulares.
+> O repositório GitHub do serviço OPC Vault é continuamente atualizado com patches de segurança. Monitorize estas atualizações e aplique-as ao serviço em intervalos regulares.
 
 ### <a name="security-monitoring"></a>Monitorização de segurança
 
-Assine ou implemente o monitoramento de segurança apropriado. Por exemplo, assine uma solução de monitoramento central (como a central de segurança do Azure ou a solução de monitoramento do Office 365) e configure-a adequadamente para garantir que os eventos de segurança sejam transmitidos para a solução de monitoramento.
+Subscreva ou implemente uma monitorização de segurança adequada. Por exemplo, subscreva uma solução central de monitorização (como o Azure Security Center ou a solução de monitorização do Office 365) e configure-a adequadamente para garantir que os eventos de segurança sejam transmitidos à solução de monitorização.
 
 > [!IMPORTANT]
-> Por padrão, o serviço de cofre do OPC é implantado com o [aplicativo Azure insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) como uma solução de monitoramento. É altamente recomendável adicionar uma solução de segurança como a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/) .
+> Por predefinição, o serviço OPC Vault é implantado com [o Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) como uma solução de monitorização. A adição de uma solução de segurança como o [Azure Security Center](https://azure.microsoft.com/services/security-center/) é altamente recomendada.
 
-### <a name="assess-the-security-of-open-source-software-components"></a>Avaliar a segurança de componentes de software livre
+### <a name="assess-the-security-of-open-source-software-components"></a>Avaliar a segurança dos componentes de software de código aberto
 
-Todos os componentes de software livre usados em um produto ou serviço devem ser livres de vulnerabilidades de segurança moderadas ou mais.
+Todos os componentes de código aberto utilizados dentro de um produto ou serviço devem estar isentos de vulnerabilidades de segurança moderadas ou maiores.
 
 > [!IMPORTANT]
-> Durante as compilações de integração contínua, o repositório GitHub do serviço de cofre do OPC examina todos os componentes em busca de vulnerabilidades. Monitore essas atualizações no GitHub e aplique-as ao serviço em intervalos regulares.
+> Durante as construções contínuas de integração, o repositório GitHub do serviço OPC Vault digitaliza todos os componentes para vulnerabilidades. Monitorize estas atualizações no GitHub e aplique-as ao serviço em intervalos regulares.
 
 ### <a name="maintain-an-inventory"></a>Manter um inventário
 
-Mantenha um inventário de ativos para todos os hosts de produção (incluindo máquinas virtuais persistentes), dispositivos, todos os intervalos de endereços IP internos, VIPs e nomes de domínio DNS públicos. Sempre que você adicionar ou remover um sistema, endereço IP do dispositivo, VIP ou domínio DNS público, deverá atualizar o inventário dentro de 30 dias.
+Mantenha um inventário de ativos para todos os anfitriões de produção (incluindo máquinas virtuais persistentes), dispositivos, todas as gamas internas de endereços IP, VIPs e nomes públicos de domínio DNS. Sempre que adicionar ou remover um sistema, endereço IP do dispositivo, domínio VIP ou dNS público, deve atualizar o inventário dentro de 30 dias.
 
-#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventário da implantação de produção do microserviço do cofre OPC do Azure padrão 
+#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventário da implantação padrão de produção de microserviço saque do Cofre Azure OPC 
 
-No Azure:
-- **Plano do serviço de aplicativo**: Plano do serviço de aplicativo para hosts de serviço. Padrão S1.
-- **Serviço de aplicativo** para o microserviço: O host do serviço de cofre do OPC.
-- **Serviço** de aplicativo para aplicativo de exemplo: O host do aplicativo de exemplo do cofre OPC.
-- **Key Vault padrão**: Para armazenar segredos e chaves de Azure Cosmos DB para os serviços Web.
-- **Key Vault Premium**: Para hospedar as chaves de AC do emissor, para o serviço de assinatura e para a configuração do cofre e o armazenamento de chaves privadas do aplicativo.
-- **Azure Cosmos DB**: Banco de dados para solicitações de aplicativo e certificado. 
-- **Application insights**: (opcional) monitoramento de solução para serviço Web e aplicativo.
-- **Registro de aplicativo do Azure ad**: Um registro para o aplicativo de exemplo, o serviço e o módulo de borda.
+Em Azure:
+- **Plano de Serviço de Aplicações**: Plano de serviço de aplicativos para anfitriões de serviços. Padrão S1.
+- **Serviço de aplicações** para microserviços: O anfitrião do serviço OPC Vault.
+- **Serviço de aplicações** para aplicação de amostras: O anfitrião da aplicação de amostras OPC Vault.
+- **Key Vault Standard**: Para armazenar segredos e chaves Azure Cosmos DB para os serviços web.
+- **Key Vault Premium**: Para acolher as teclas CA emitentes, para o serviço de assinatura, e para configuração do cofre e armazenamento de chaves privadas de aplicação.
+- **Azure Cosmos DB**: Base de dados para pedidos de pedido e certificado. 
+- **Informações sobre aplicações**: (opcional) Solução de monitorização para o serviço web e aplicação.
+- **Registo de aplicação da AD Azure**: Uma inscrição para a aplicação da amostra, o serviço e o módulo de borda.
 
-Para os serviços de nuvem, todos os nomes de host, grupos de recursos, nome de recurso, IDs de assinatura e IDs de locatário usados para implantar o serviço devem ser documentados. 
+Para os serviços na nuvem, todos os nomes de anfitriões, grupos de recursos, nomes de recursos, iDs de subscrição e iDs de inquilinoutilizados para implementar o serviço devem ser documentados. 
 
-No Azure IoT Edge ou em um servidor de IoT Edge local:
-- **Módulo de IOT Edge do cofre OPC**: Para dar suporte a um servidor de descoberta global de rede de fábrica OPC UA. 
+Em Azure IoT Edge ou num servidor local IoT Edge:
+- **Módulo OPC Vault IoT Edge**: Para suportar uma rede de fábrica OPC UA Global Discovery Server. 
 
-Para os dispositivos IoT Edge, os nomes de host e os endereços IP devem ser documentados. 
+Para os dispositivos IoT Edge, os nomes de anfitriões e os endereços IP devem ser documentados. 
 
-### <a name="document-the-certification-authorities-cas"></a>Documentar as autoridades de certificação (CAs)
+### <a name="document-the-certification-authorities-cas"></a>Documentar as Autoridades de Certificação (AE)
 
-A documentação da hierarquia da autoridade de certificação deve conter todas as CAs operadas. Isso inclui todas as CAS subordinadas relacionadas, as CAs pai e as CAs raiz, mesmo quando elas não são gerenciadas pelo serviço. Em vez de documentação formal, você pode fornecer um conjunto completo de todos os certificados de autoridade de certificação não expirados.
-
-> [!NOTE]
-> O aplicativo de exemplo do cofre OPC dá suporte ao download de todos os certificados usados e produzidos no serviço para documentação.
-
-### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Documentar os certificados emitidos por todas as autoridades de certificação (CAs)
-
-Forneça um conjunto completo de todos os certificados emitidos nos últimos 12 meses.
+A documentação da hierarquia da AC deve conter todos os CaAs operados. Isto inclui todos os CAs subordinados relacionados, cAs-mãe, e CAs raiz, mesmo quando não são geridos pelo serviço. Em vez de documentação formal, pode fornecer um conjunto exaustivo de todos os certificados ca não expirados.
 
 > [!NOTE]
-> O aplicativo de exemplo do cofre OPC dá suporte ao download de todos os certificados usados e produzidos no serviço para documentação.
+> A aplicação de amostra oPC Vault suporta o download de todos os certificados utilizados e produzidos no serviço para documentação.
 
-### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Documentar o procedimento operacional padrão para excluir com segurança as chaves de criptografia
+### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Documentar os certificados emitidos por todas as autoridades de certificação (AE)
 
-Durante o tempo de vida de uma autoridade de certificação, a exclusão de chave pode ocorrer raramente. É por isso que nenhum usuário tem Key Vault direito de exclusão de certificado atribuído e por que não há APIs expostas para excluir um certificado de autoridade de certificação do emissor. O procedimento operacional padrão manual para excluir com segurança as chaves de criptografia da autoridade de certificação só está disponível acessando Key Vault diretamente no portal do Azure. Você também pode excluir o grupo de certificados em Key Vault. Para garantir a exclusão imediata, desabilite a funcionalidade de [exclusão reversível Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) .
+Forneça um conjunto exaustivo de todos os certificados emitidos nos últimos 12 meses.
 
-## <a name="certificates"></a>Certificados
+> [!NOTE]
+> A aplicação de amostra oPC Vault suporta o download de todos os certificados utilizados e produzidos no serviço para documentação.
 
-### <a name="certificates-must-comply-with-minimum-certificate-profile"></a>Os certificados devem estar em conformidade com o perfil de certificado mínimo
+### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Documentar o procedimento normal de funcionamento para a apagar as chaves criptográficas de forma segura
 
-O serviço de cofre do OPC é uma AC online que emite certificados de entidade final para assinantes. O microserviço do compartimento OPC segue essas diretrizes na implementação padrão.
+Durante a vida de um CA, a eliminação da chave só pode acontecer raramente. É por isso que nenhum utilizador tem certificado de cofre de chave Apague o direito de exclusão e por que não existem APIs expostos para eliminar um certificado CA emitente. O procedimento de funcionamento padrão manual para a desabater as chaves criptográficas da autoridade de certificação apenas está disponível acedendo diretamente ao Key Vault no portal Azure. Também pode eliminar o grupo de certificados no Cofre chave. Para garantir a eliminação imediata, desative a funcionalidade de eliminação suave do [Cofre chave.](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
-- Todos os certificados devem incluir os seguintes campos X. 509, conforme especificado abaixo:
+## <a name="certificates"></a>certificados
+
+### <a name="certificates-must-comply-with-minimum-certificate-profile"></a>Os certificados devem cumprir o perfil mínimo do certificado
+
+O serviço OPC Vault é um CA on-line que emite certificados de entidadefinal para assinantes. O microserviço OPC Vault segue estas orientações na implementação padrão.
+
+- Todos os certificados devem incluir os seguintes campos X.509, conforme especificado abaixo:
   - O conteúdo do campo de versão deve ser v3. 
-  - O conteúdo do campo serialNumber deve incluir pelo menos 8 bytes de entropia obtido de um gerador de número aleatório de FIPS (Federal Information Processing Standards) 140 aprovado.<br>
+  - O conteúdo do campo serialNumber deve incluir pelo menos 8 bytes de entropia obtidos a partir de um FIPS (Normas Federais de Processamento de Informação) 140 gerador de números aleatórios aprovado.<br>
     > [!IMPORTANT]
-    > O número de série do cofre OPC é, por padrão, 20 bytes e é obtido do gerador de número aleatório criptográfico do sistema operacional. O gerador de número aleatório é o FIPS 140 aprovado em dispositivos Windows, mas não no Linux. Considere isso ao escolher uma implantação de serviço que usa VMs Linux ou contêineres do Docker Linux, em que a tecnologia subjacente OpenSSL não é o FIPS 140 aprovado.
-  - Os campos issuerUniqueID e subjectUniqueID não devem estar presentes.
-  - Os certificados de entidade final devem ser identificados com a extensão de restrições básicas, de acordo com a RFC 5280 da IETF.
-  - O campo pathLenConstraint deve ser definido como 0 para o certificado de AC emissora. 
-  - A extensão de uso estendido de chave deve estar presente e deve conter o conjunto mínimo de OIDs (identificadores de objeto de uso de chave estendida). O OID anyExtendedKeyUsage (2.5.29.37.0) não deve ser especificado. 
-  - A extensão de CDP (ponto de distribuição de CRL) deve estar presente no certificado de autoridade de certificação do emissor.<br>
+    > O número de série do Cofre OPC é por padrão de 20 bytes, e é obtido a partir do gerador de números aleatórios criptográficos do sistema operativo. O gerador de números aleatórios é fips 140 aprovado em dispositivos Windows, mas não no Linux. Considere isto ao escolher uma implementação de serviço que utilize VMs Linux ou recipientes de estivador Linux, nos quais a tecnologia subjacente OpenSSL não é aprovada por FIPS 140.
+  - Os campos UniqueID e sujeitos UniqueID não devem estar presentes.
+  - Os certificados de entidade final devem ser identificados com a extensão de restrições básicas, de acordo com o IETF RFC 5280.
+  - O campo pathLenConstraint deve ser definido para 0 para o certificado CA emissor. 
+  - A extensão de utilização da chave estendida deve estar presente e deve conter o conjunto mínimo de identificadores de objetos de utilização de chaves estendidas (OIDs). O OID de utilização de teclas estendidas (2.5.29.37.0) não deve ser especificado. 
+  - A extensão do Ponto de Distribuição CRL (CDP) deve estar presente no certificado CA emitente.<br>
     > [!IMPORTANT]
-    > A extensão de CDP está presente em certificados de AC do cofre OPC. No entanto, os dispositivos OPC UA usam métodos personalizados para distribuir CRLs.
-  - A extensão de acesso às informações da autoridade deve estar presente nos certificados do Assinante.<br>
+    > A extensão do CDP está presente nos certificados OPC Vault CA. No entanto, os dispositivos OPC UA utilizam métodos personalizados para distribuir CRLs.
+  - A extensão de acesso à informação da Autoridade deve estar presente nos certificados de subscrição.<br>
     > [!IMPORTANT]
-    > A extensão de acesso às informações da autoridade está presente nos certificados do assinante do OPC Vault. No entanto, os dispositivos OPC UA usam métodos personalizados para distribuir informações de AC do emissor.
-- Algoritmos assimétricos aprovados, comprimentos de chave, funções de hash e modos de preenchimento devem ser usados.
-  - O RSA e o SHA-2 são os únicos algoritmos com suporte.
-  - A RSA pode ser usada para criptografia, troca de chaves e assinatura.
-  - A criptografia RSA deve usar somente os modos de preenchimento OAEP, RSA-KEM ou RSA-PSS.
-  - São necessários comprimentos de chave maiores ou iguais a 2048 bits.
-  - Use a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512).
-  - As chaves de AC raiz RSA com um tempo de vida típico maior ou igual a 20 anos devem ser de 4096 bits ou mais.
-  - As chaves de AC do emissor RSA devem ter pelo menos 2048 bits. Se a data de expiração do certificado de autoridade de certificação for posterior a 2030, a chave da autoridade de certificação deverá ser de 4096 bits ou mais.
-- Tempo de vida do certificado
-  - Certificados de AC raiz: O período de validade máximo do certificado para autoridades de certificação raiz não deve exceder 25 anos.
-  - Subautoridade de certificação ou certificados de AC do emissor online: O período de validade máximo do certificado para CAs que estão online e que executam somente certificados de assinante não devem exceder 6 anos. Para essas CAs, a chave de assinatura privada relacionada não deve ser usada por mais de três anos para emitir novos certificados.<br>
+    > A extensão de Acesso de Informação da Autoridade está presente nos certificados de subscrição do OPC Vault. No entanto, os dispositivos OPC UA utilizam métodos personalizados para distribuir informações do Emitente CA.
+- Devem ser utilizados algoritmos assimétricos aprovados, comprimentos-chave, funções de hash e modos de enchimento.
+  - RSA e SHA-2 são os únicos algoritmos suportados.
+  - A RSA pode ser usada para encriptação, troca de chaves e assinatura.
+  - A encriptação RSA deve utilizar apenas os modos de enchimento OAEP, RSA-KEM ou RSA-PSS.
+  - São necessários comprimentos-chave superiores ou iguais a 2048 bits.
+  - Use a família SHA-2 de algoritmos de haxixe (SHA256, SHA384 e SHA512).
+  - As teclas RSA Root CA com uma vida útil típica superior ou igual a 20 anos devem ser de 4096 bits ou superiores.
+  - As teclas CA do Emitente RSA devem ser pelo menos 2048 bits. Se a data de validade do certificado CA for posterior a 2030, a chave CA deve ser de 4096 bits ou superior.
+- Duração do certificado
+  - Certificados de ca raiz: O período máximo de validade do certificado para os CaA radiculares não deve exceder 25 anos.
+  - Certificados de Emissão Ca sub CA ou on-line: O período máximo de validade do certificado para os AG que estão on-line e emitir apenas certificados de subscrição não deve exceder 6 anos. Para estes AA, a chave de assinatura privada conexa não deve ser utilizada mais de 3 anos para emitir novos certificados.<br>
     > [!IMPORTANT]
-    > O certificado do emissor, como é gerado no microserviço do cofre do OPC padrão sem AC raiz externa, é tratado como uma subautoridade de certificação online, com requisitos e vidas de vida correspondentes. O tempo de vida padrão é definido como 5 anos, com um comprimento de chave maior ou igual a 2048.
-  - Todas as chaves assimétricas devem ter um tempo de vida máximo de 5 anos e um tempo de vida de 1 ano recomendado.<br>
+    > O certificado Emitente, tal como é gerado no microserviço padrão do OPC Vault sem Root CA externo, é tratado como um Sub CA online, com os respetivos requisitos e vidas. O tempo de vida padrão é definido para 5 anos, com um comprimento chave maior ou igual a 2048.
+  - Todas as chaves assimétricas devem ter uma duração máxima de 5 anos e uma vida útil recomendada de 1 ano.<br>
     > [!IMPORTANT]
-    > Por padrão, os tempos de vida dos certificados de aplicativo emitidos com o cofre OPC têm um tempo de vida de dois anos e devem ser substituídos a cada ano. 
-  - Sempre que um certificado é renovado, ele é renovado com uma nova chave.
-- Extensões específicas do OPC UA em certificados de instância do aplicativo
-  - A extensão subjectAltName inclui o URI do aplicativo e os nomes de host. Eles também podem incluir endereços FQDN, IPv4 e IPv6.
-  - O KeyUsage inclui digitalSignature, nonrepúdio, keyEncipherment e dataEncipherment.
-  - O extendedKeyUsage inclui serverAuth e clientAuth.
-  - O authorityKeyIdentifier é especificado em certificados assinados.
+    > Por padrão, as vidas dos certificados de candidatura emitidos com o OPC Vault têm uma vida útil de 2 anos, e devem ser substituídas todos os anos. 
+  - Sempre que um certificado é renovado, é renovado com uma nova chave.
+- Extensões específicas da OPC UA nos certificados de instância de aplicação
+  - A extensão do sujeito AltName inclui a aplicação Uri e nomes de anfitriões. Estes também podem incluir endereços FQDN, IPv4 e IPv6.
+  - A chaveUsage inclui digitalSignature, nonRepudiation, keyEncipherment e dataEncipherment.
+  - O alargadoKeyUsage inclui serverAuth e clientAuth.
+  - A autoridadeKeyIdentifier é especificada em certificados assinados.
 
-### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Chaves de CA e certificados devem atender aos requisitos mínimos
+### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Chaves e certificados ca devem satisfazer os requisitos mínimos
 
-- **Chaves privadas**: As chaves RSA devem ter pelo menos 2048 bits. Se a data de expiração do certificado de autoridade de certificação for posterior a 2030, a chave da autoridade de certificação deverá ser de 4096 bits ou mais.
-- **Tempo de vida**: O período de validade máximo do certificado para CAs que estão online e que executam somente certificados de assinante não devem exceder 6 anos. Para essas CAs, a chave de assinatura privada relacionada não deve ser usada por mais de três anos para emitir novos certificados.
+- **Chaves privadas**: As teclas RSA devem ser de, pelo menos, 2048 bits. Se a data de validade do certificado CA for posterior a 2030, a chave CA deve ser de 4096 bits ou superior.
+- **Duração do tempo**de vida : O prazo máximo de validade do certificado para os AG que estejam online e emitir apenas certificados de assinante não deve exceder 6 anos. Para estes AA, a chave de assinatura privada conexa não deve ser utilizada mais de 3 anos para emitir novos certificados.
 
-### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>As chaves de CA são protegidas usando módulos de segurança de hardware
+### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>As teclas CA estão protegidas usando módulos de segurança de hardware
 
-O OpcVault usa Azure Key Vault Premium e as chaves são protegidas por HSM (módulos de segurança de hardware) do FIPS 140-2 nível 2. 
+OPcVault utiliza o Azure Key Vault Premium e as teclas estão protegidas por módulos de segurança de hardware de nível 2 (HSM) fips 140-2 Nível 2. 
 
-Os módulos de criptografia que Key Vault usam, sejam eles validados por FIPS ou software. As chaves criadas ou importadas como protegidas por HSM são processadas dentro de um HSM, validadas para o FIPS 140-2 nível 2. As chaves criadas ou importadas como protegidas por software são processadas dentro de módulos criptográficos validados para o FIPS 140-2 nível 1.
+Os módulos criptográficos que o Key Vault utiliza, seja HSM ou software, são validados por FIPS. As chaves criadas ou importadas como protegidas por HSM são processadas dentro de um HSM, validado para o Nível 2 do FIPS 140-2. As teclas criadas ou importadas como protegidas por software são processadas dentro de módulos criptográficos validados para o Nível 1 40-2 FIPS 1.
 
 ## <a name="operational-practices"></a>Práticas operacionais
 
-### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-enrollment"></a>Documentar e manter as práticas de PKI operacional padrão para registro de certificado
+### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-enrollment"></a>Documentar e manter práticas pki operacionais padrão para inscrição de certificados
 
-Documente e mantenha os procedimentos operacionais padrão (SOPs) para saber como o CAs emite certificados, incluindo: 
+Documentar e manter os procedimentos operacionais padrão (SOPs) para a forma como os CA emitem certificados, incluindo: 
 - Como o assinante é identificado e autenticado. 
-- Como a solicitação de certificado é processada e validada (se aplicável, inclua também como a renovação de certificado e as solicitações de rechaveamento são processadas). 
-- Como os certificados emitidos são distribuídos para os assinantes. 
+- Como o pedido de certificado é processado e validado (se aplicável, inclua também como a renovação do certificado e os pedidos de rechave são processados). 
+- Como os certificados emitidos são distribuídos aos assinantes. 
 
-O SOP de microserviço do cofre OPC é descrito na [arquitetura do cofre OPC](overview-opc-vault-architecture.md) e [gerencia o serviço de certificado do cofre do OPC](howto-opc-vault-manage.md). As práticas seguem a "especificação de arquitetura unificada do OPC, parte 12: Descoberta e serviços globais. "
+O SOP microservice OPC Vault é descrito na [arquitetura OPC Vault](overview-opc-vault-architecture.md) e [Gere ncisa o serviço de certificado saque de oPC.](howto-opc-vault-manage.md) As práticas seguem "OPC Unified Architecture Specification Part 12: Discovery and Global Services".
 
 
-### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Documentar e manter as práticas de PKI operacional padrão para revogação de certificado
+### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Documentar e manter práticas pki operacionais padrão para revogação de certificados
 
-O processo de revogação de certificado é descrito na [arquitetura do cofre OPC](overview-opc-vault-architecture.md) e [gerencia o serviço de certificado do cofre do OPC](howto-opc-vault-manage.md).
+O processo de revogação do certificado é descrito na [arquitetura OPC Vault](overview-opc-vault-architecture.md) e [gerencie o serviço de certificado saque de OPC.](howto-opc-vault-manage.md)
     
-### <a name="document-ca-key-generation-ceremony"></a>Cerimônia de geração de chave de CA de documento 
+### <a name="document-ca-key-generation-ceremony"></a>Cerimónia de geração chave do Documento CA 
 
-A geração de chave de AC do emissor no microserviço do cofre OPC é simplificada, devido ao armazenamento seguro em Azure Key Vault. Para obter mais informações, consulte [gerenciar o serviço de certificado do cofre do OPC](howto-opc-vault-manage.md).
+A geração chave EMEmememCA no microserviço OPC Vault é simplificada, devido ao armazenamento seguro no Cofre chave Azure. Para mais informações, consulte Gerir o serviço de [certificado saque de OPC](howto-opc-vault-manage.md).
 
-No entanto, quando você estiver usando uma autoridade de certificação raiz externa, uma cerimônia de geração de chave de CA deverá aderir aos requisitos a seguir.
+No entanto, quando se está a usar uma autoridade externa de certificação Root, uma cerimónia de geração chave ca deve aderir aos seguintes requisitos.
 
-A cerimônia de geração de chave de CA deve ser executada em um script documentado que inclui pelo menos os seguintes itens: 
-- Definição de funções e responsabilidades do participante.
-- Aprovação para conduta da cerimônia de geração de chave de CA.
-- Hardware criptográfico e materiais de ativação necessários para a cerimônia.
-- Preparação de hardware (incluindo atualização e desconexão de informações de ativo/configuração).
-- Instalação do sistema operacional.
-- Etapas específicas executadas durante a cerimônia de geração de chave de CA, como: 
-  - Instalação e configuração do aplicativo de CA.
-  - Geração de chave de CA.
-  - Backup da chave de CA.
-  - Assinatura de certificado de autoridade de certificação.
+A cerimónia de geração-chave da AC deve ser realizada contra um roteiro documentado que inclua pelo menos os seguintes itens: 
+- Definição de funções e responsabilidades dos participantes.
+- Aprovação para a realização da cerimónia de geração chave da AC.
+- Material criptográfico e de ativação necessários para a cerimónia.
+- Preparação de hardware (incluindo atualização de informações sobre ativos/configuração e aprovação).
+- Instalação do sistema operativo.
+- Passos específicos realizados durante a cerimónia de geração chave ca, tais como: 
+  - Instalação e configuração de aplicações CA.
+  - Geração chave ca.
+  - Reforço da chave CA.
+  - Assinatura de certificado de ca.
   - Importação de chaves assinadas no HSM protegido do serviço.
-  - Desligamento do sistema da AC.
-  - Preparação dos materiais para armazenamento.
+  - Encerramento do sistema CA.
+  - Preparação de materiais para armazenamento.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Agora que você aprendeu como gerenciar com segurança o cofre OPC, você pode:
+Agora que aprendeu a gerir com segurança o Cofre OPC, pode:
 
 > [!div class="nextstepaction"]
-> [Proteger dispositivos OPC UA com o cofre OPC](howto-opc-vault-secure.md)
+> [Dispositivos OPC UA seguros com cofre OPC](howto-opc-vault-secure.md)

@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120816"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374317"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de gestão da API
-Este tópico fornece uma referência para as seguintes políticas de gerenciamento de API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AuthenticationPolicies"></a>Políticas de autenticação
 
@@ -34,7 +34,7 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 ##  <a name="Basic"></a>Autenticar com Básico
  Utilize a política `authentication-basic` para autenticar com um serviço de backend utilizando a autenticação Básica. Esta política define efetivamente o cabeçalho de autorização http para o valor correspondente às credenciais fornecidas na política.
 
-### <a name="policy-statement"></a>Declaração de política
+### <a name="policy-statement"></a>Declaração política
 
 ```xml
 <authentication-basic username="username" password="password" />
@@ -69,7 +69,7 @@ Este tópico fornece uma referência para as seguintes políticas de gerenciamen
 ##  <a name="ClientCertificate"></a>Autenticação com certificado de cliente
  Utilize a política `authentication-certificate` para autenticar com um serviço de backend utilizando certificado de cliente. O certificado tem de ser instalado primeiro [na API Management](https://go.microsoft.com/fwlink/?LinkID=511599) e é identificado pela sua impressão digital.
 
-### <a name="policy-statement"></a>Declaração de política
+### <a name="policy-statement"></a>Declaração política
 
 ```xml
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
@@ -109,7 +109,7 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 ##  <a name="ManagedIdentity"></a>Autenticar com identidade gerida  
  Utilize a política `authentication-managed-identity` para autenticar com um serviço de backend utilizando a identidade gerida do serviço de Gestão API. Esta política utiliza essencialmente a identidade gerida para obter um sinal de acesso do Azure Ative Directory para aceder ao recurso especificado. Após a obtenção com sucesso do símbolo, a política definirá o valor do símbolo no cabeçalho `Authorization` utilizando o esquema `Bearer`.
   
-### <a name="policy-statement"></a>Declaração de política  
+### <a name="policy-statement"></a>Declaração política  
   
 ```xml  
 <authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
@@ -156,7 +156,7 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 |Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |resource|Cadeia. O ID da app da Web Target API (recurso seguro) no Diretório Ativo Azure.|Sim|N/D|  
-|saída-token-variável-nome|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de objeto `string`. |Não|N/D|  
+|nome de saída-token-variável|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de objeto `string`. |Não|N/D|  
 |ignore-error|Boolean. Se for definido para `true`, o gasoduto político continuará a executar mesmo que não seja obtido um token de acesso.|Não|false|  
   
 ### <a name="usage"></a>Utilização  
@@ -167,7 +167,7 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 -   **Âmbitos de política:** todos os âmbitos
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre como trabalhar com políticas, consulte:
+Para mais informações que trabalhem com políticas, consulte:
 
 + [Políticas em Gestão aPi](api-management-howto-policies.md)
 + [Transforme APIs](transform-api.md)

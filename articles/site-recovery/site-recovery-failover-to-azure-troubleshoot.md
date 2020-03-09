@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de failover para falhas do Azure | Microsoft Docs
-description: Este artigo descreve maneiras de solucionar erros comuns no failover para o Azure
+title: Problemas falham nas falhas de Azure Microsoft Docs
+description: Este artigo descreve formas de resolver erros comuns ao falhar com o Azure
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
@@ -10,61 +10,61 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754419"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363005"
 ---
-# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover da VM VMware ou da máquina física para o Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Erros de resolução de problemas ao falhar em VMware VM ou máquina física para o Azure
 
-Você pode receber um dos seguintes erros durante o failover de uma máquina virtual para o Azure. Para solucionar problemas, use as etapas descritas para cada condição de erro.
+Pode receber um dos seguintes erros ao mesmo tempo que faz a falha de uma máquina virtual para o Azure. Para resolução de problemas, utilize os passos descritos para cada condição de erro.
 
-## <a name="failover-failed-with-error-id-28031"></a>Falha no failover com a ID de erro 28031
+## <a name="failover-failed-with-error-id-28031"></a>Falha falhou com Erro ID 28031
 
-Site Recovery não pôde criar uma máquina virtual com failover no Azure. Isso pode ocorrer devido a um dos seguintes motivos:
+A Recuperação do Site não foi capaz de criar uma máquina virtual falhada em Azure. Pode acontecer por uma das seguintes razões:
 
-* Não há cota suficiente disponível para criar a máquina virtual: você pode verificar a cota disponível acessando assinatura-> uso + cotas. Você pode abrir uma [nova solicitação de suporte](https://aka.ms/getazuresupport) para aumentar a cota.
+* Não existe quota suficiente para criar a máquina virtual: Pode verificar a quota disponível indo para Subscrição -> Utilização + quotas. Pode abrir um [novo pedido](https://aka.ms/getazuresupport) de apoio para aumentar a quota.
 
-* Você está tentando fazer failover de máquinas virtuais de famílias de tamanho diferentes no mesmo conjunto de disponibilidade. Certifique-se de escolher a mesma família de tamanho para todas as máquinas virtuais no mesmo conjunto de disponibilidade. Altere o tamanho indo para as configurações de computação e rede da máquina virtual e, em seguida, repita o failover.
+* Está a tentar falhar máquinas virtuais de diferentes famílias de tamanhos no mesmo conjunto de disponibilidade. Certifique-se de que escolhe a família do mesmo tamanho para todas as máquinas virtuais no mesmo conjunto de disponibilidade. Mude o tamanho indo para as definições de Compute e Rede da máquina virtual e, em seguida, retentar a falha.
 
-* Há uma política na assinatura que impede a criação de uma máquina virtual. Altere a política para permitir a criação de uma máquina virtual e, em seguida, repita o failover.
+* Existe uma política sobre a subscrição que impede a criação de uma máquina virtual. Mude a política para permitir a criação de uma máquina virtual e, em seguida, retentar a falha.
 
-## <a name="failover-failed-with-error-id-28092"></a>Falha no failover com a ID de erro 28092
+## <a name="failover-failed-with-error-id-28092"></a>Falha falhou com error ID 28092
 
-Site Recovery não pôde criar um adaptador de rede para a máquina virtual com failover. Verifique se você tem uma cota suficiente disponível para criar interfaces de rede na assinatura. Você pode verificar a cota disponível acessando assinatura-> uso + cotas. Você pode abrir uma [nova solicitação de suporte](https://aka.ms/getazuresupport) para aumentar a cota. Se você tiver uma cota suficiente, isso pode ser um problema intermitente, tente a operação novamente. Se o problema persistir mesmo após novas tentativas, deixe um comentário no final deste documento.  
+A Recuperação do Site não foi capaz de criar uma interface de rede para a falha sobre a máquina virtual. Certifique-se de que dispõe de quota suficiente para criar interfaces de rede na subscrição. Pode verificar a quota disponível indo para Subscrição -> Utilização + quotas. Pode abrir um [novo pedido](https://aka.ms/getazuresupport) de apoio para aumentar a quota. Se tiver quota suficiente, então esta pode ser uma questão intermitente, tente novamente a operação. Se a questão persistir mesmo após as tentativas de tentativas, deixe um comentário no final deste documento.  
 
-## <a name="failover-failed-with-error-id-70038"></a>Falha no failover com a ID de erro 70038
+## <a name="failover-failed-with-error-id-70038"></a>Falha falhou com erro ID 70038
 
-Site Recovery não pôde criar uma máquina virtual clássica com failover no Azure. Isso pode acontecer porque:
+A Recuperação do Site não foi capaz de criar uma máquina virtual clássica falhada em Azure. Pode acontecer porque:
 
-* Um dos recursos, como uma rede virtual necessária para a criação da máquina virtual, não existe. Crie a rede virtual conforme fornecido nas configurações de computação e rede da máquina virtual ou modifique a configuração para uma rede virtual que já existe e, em seguida, repita o failover.
+* Um dos recursos, como uma rede virtual que é necessária para a criação da máquina virtual, não existe. Crie a rede virtual conforme fornecido nas definições computacionais e de rede da máquina virtual ou modifique a definição para uma rede virtual que já existe e, em seguida, retentar a falha.
 
-## <a name="failover-failed-with-error-id-170010"></a>Falha no failover com a ID de erro 170010
+## <a name="failover-failed-with-error-id-170010"></a>Falha falhou com erro ID 170010
 
-Site Recovery não pôde criar uma máquina virtual com failover no Azure. Isso pode acontecer porque uma atividade interna de hidratação falhou para a máquina virtual local.
+A Recuperação do Site não foi capaz de criar uma máquina virtual falhada em Azure. Pode acontecer porque uma atividade interna de hidratação falhou na máquina virtual no local.
 
-Para abrir qualquer computador no Azure, o ambiente do Azure exige que alguns dos drivers estejam no estado de inicialização e serviços como o DHCP para estar no estado de inicialização automática. Portanto, a atividade hidratação, no momento do failover, converte o tipo de inicialização dos **drivers ATAPI, intelide, storflt, VMBus e storvsc** para inicialização. Ele também converte o tipo de inicialização de alguns serviços como DHCP para inicialização automática. Essa atividade pode falhar devido a problemas específicos do ambiente. 
+Para criar qualquer máquina em Azure, o ambiente Azure exige que alguns dos condutores estejam no arranque do estado e serviços como o DHCP estejam em estado de arranque automático. Assim, a atividade de hidratação, no momento do failover, converte o tipo de arranque de **atapi, intelide, storflt, vmbus e storvsc para** iniciar. Também converte o tipo de arranque de alguns serviços como o DHCP para iniciar automaticamente. Esta atividade pode falhar devido a questões específicas do ambiente. 
 
-Para alterar manualmente o tipo de inicialização de drivers para o **sistema operacional convidado do Windows**, siga as etapas abaixo:
+Para alterar manualmente o tipo de controladores de arranque para **o Windows Guest OS,** siga os passos seguintes:
 
-1. [Baixe](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) o script no-hidratação e execute-o da seguinte maneira. Esse script verifica se a VM requer hidratação.
+1. [Descarregue](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) o script sem hidratação e execute-o da seguinte forma. Este guião verifica se a VM necessita de hidratação.
 
     `.\Script-no-hydration.ps1`
 
-    Isso fornecerá o seguinte resultado se hidratação for necessário:
+    Dá o seguinte resultado se for necessária hidratação:
 
         REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
         This system doesn't meet no-hydration requirement.
 
-    Caso a VM atenda a um requisito no-hidratação, o script fornecerá o resultado "este sistema atende ao requisito no-hidratação". Nesse caso, todos os drivers e serviços estão no estado conforme exigido pelo Azure e hidratação na VM não é necessário.
+    Caso o VM cumpra o requisito de não hidratação, o script dará o resultado "Este sistema cumpre os requisitos de não hidratação". Neste caso, todos os motoristas e serviços estão no estado, conforme exigido pelo Azure e não é necessária hidratação no VM.
 
-2. Execute o script no-hidratação-set da seguinte maneira se a VM não atender ao requisito no-hidratação.
+2. Execute o script sem hidratação da seguinte forma se o VM não cumprir o requisito de não hidratação.
 
     `.\Script-no-hydration.ps1 -set`
     
-    Isso converterá o tipo de inicialização de drivers e fornecerá o resultado como abaixo:
+    Isto converterá o tipo de motorização de arranque e dará o resultado como abaixo:
     
         REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
@@ -72,105 +72,105 @@ Para alterar manualmente o tipo de inicialização de drivers para o **sistema o
 
         This system is now no-hydration compatible. 
 
-## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Não é possível conectar/RDP/SSH à máquina virtual com failover devido ao botão de conexão esmaecida na máquina virtual
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Incapaz de ligar/RDP/SSH à máquina virtual falhada devido ao botão de ligação acinzentado na máquina virtual
 
-Se o botão **conectar** na VM com failover no Azure estiver esmaecido e você não estiver conectado ao Azure por meio de uma rota expressa ou conexão VPN site a site, então
+Se o botão **Connect** no VM falhado em Azure estiver acinzentado e não estiver ligado ao Azure através de uma rota expressa ou ligação VPN local-para-local, então,
 
-1. Vá para **máquina Virtual** > **rede**, clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navegue até **configurações de IP**e clique no campo nome da configuração de IP necessária. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Para habilitar o endereço IP público, clique em **habilitar**. ![habilitar](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png) IP
-4. Clique em **definir as configurações necessárias** > **criar nova**. ![criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. Digite o nome do endereço público, escolha as opções padrão para **SKU** e **atribuição**e clique em **OK**.
-6. Agora, para salvar as alterações feitas, clique em **salvar**.
-7. Feche os painéis e navegue até a seção **visão geral** da máquina virtual para conectar/RDP.
+1. Vá à **máquina Virtual** > **Networking,** clique no nome da interface de rede necessária.  ![](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG) de interface de rede
+2. Navegue para **configurações ip**e clique no campo de nome da configuração IP necessária. ![IPConfigurações](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. Para ativar o endereço IP público, clique em **Ativar**. ![ativar](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png) IP
+4. Clique em **Configurar as definições necessárias** > **Criar novas**. ![Criar novos](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Introduza o nome do endereço público, escolha as opções predefinidas para **SKU** e **atribuição,** em seguida, **clique**OK .
+6. Agora, para guardar as alterações feitas, clique em **Guardar**.
+7. Feche os painéis e navegue até à secção **de visão geral** da máquina virtual para ligar/RDP.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Não é possível conectar/RDP/SSH-botão conectar da VM disponível
+## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Incapaz de ligar/RDP/SSH - Botão VM Connect disponível
 
-Se o botão **conectar** na VM com failover no Azure estiver disponível (não esmaecido), verifique o **diagnóstico de inicialização** em sua máquina virtual e verifique se há erros, conforme listado neste [artigo](../virtual-machines/windows/boot-diagnostics.md).
+Se o botão **Connect** no VM falhado em Azure estiver disponível (não está acinzentado), verifique os **diagnósticos da Bota** na sua Máquina Virtual e verifique se há erros listados [neste artigo](../virtual-machines/windows/boot-diagnostics.md).
 
-1. Se a máquina virtual não tiver sido iniciada, tente fazer failover para um ponto de recuperação mais antigo.
-2. Se o aplicativo dentro da máquina virtual não estiver ativo, tente fazer failover para um ponto de recuperação consistente com o aplicativo.
-3. Se a máquina virtual estiver ingressada no domínio, verifique se o controlador de domínio está funcionando com precisão. Isso pode ser feito seguindo as etapas fornecidas abaixo:
+1. Se a máquina virtual não tiver começado, tente falhar num ponto de recuperação mais antigo.
+2. Se a aplicação dentro da máquina virtual não estiver em alta, tente falhar num ponto de recuperação consistente com aplicações.
+3. Se a máquina virtual for unida ao domínio, certifique-se de que o controlador de domínio está a funcionar com precisão. Isto pode ser feito seguindo os passos seguintes:
 
     a. Crie uma nova máquina virtual na mesma rede.
 
-    b.  Verifique se é possível ingressar no mesmo domínio em que se espera que a máquina virtual com failover apareça.
+    b.  Certifique-se de que é capaz de se juntar ao mesmo domínio em que se espera que a máquina virtual falhada venha a surgir.
 
-    c. Se o controlador de domínio **não** estiver funcionando corretamente, tente fazer logon na máquina virtual com failover usando uma conta de administrador local.
-4. Se você estiver usando um servidor DNS personalizado, verifique se ele está acessível. Isso pode ser feito seguindo as etapas fornecidas abaixo:
+    c. Se o controlador de domínio **não** estiver a funcionar com precisão, tente iniciar sessão na máquina virtual falhada utilizando uma conta de administrador local.
+4. Se estiver a utilizar um servidor DNS personalizado, certifique-se de que é acessível. Isto pode ser feito seguindo os passos seguintes:
 
     a. Criar uma nova máquina virtual na mesma rede e
 
-    b. Verifique se a máquina virtual é capaz de realizar a resolução de nomes usando o servidor DNS personalizado
+    b. Verifique se a máquina virtual é capaz de fazer a resolução de nomeusando o Servidor DNS personalizado
 
 >[!Note]
->Habilitar qualquer configuração diferente do diagnóstico de inicialização exigiria que o agente de VM do Azure fosse instalado na máquina virtual antes do failover
+>Permitir qualquer definição que não seja o Boot Diagnostics exigiria que o Agente Azure VM fosse instalado na máquina virtual antes da falha
 
-## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>Não é possível abrir o console serial após o failover de um computador baseado em UEFI no Azure
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>Incapaz de abrir consola em série após falha de uma máquina baseada na UEFI em Azure
 
-Se você conseguir se conectar ao computador usando o RDP, mas não puder abrir o console serial, siga as etapas abaixo:
+Se conseguir ligar-se à máquina utilizando RDP ou não conseguir abrir a consola em série, siga os passos abaixo:
 
-* Se o sistema operacional do computador for Red Hat ou Oracle Linux 7. */8.0, execute o seguinte comando na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
+* Se a máquina OS for Red Hat ou Oracle Linux 7.*/8.0, execute o seguinte comando no Failover Azure VM com permissões de raiz. Reinicie o VM após o comando.
 
         grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
 
-* Se o sistema operacional do computador for CentOS 7. *, execute o comando a seguir na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
+* Se a máquina OS for CentOS 7.*, percorra o seguinte comando no Failover Azure VM com permissões de raiz. Reinicie o VM após o comando.
 
         grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
-## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensagem de desligamento inesperada (ID do evento 6008)
+## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensagem de encerramento inesperada (Id do evento 6008)
 
-Ao inicializar uma VM do Windows após o failover, se você receber uma mensagem de desligamento inesperada na VM recuperada, isso indica que um estado de desligamento da VM não foi capturado no ponto de recuperação usado para failover. Isso acontece quando você se recupera em um ponto em que a VM não foi completamente desligada.
+Ao iniciar uma falha no post do Windows VM, se receber uma mensagem de encerramento inesperada no VM recuperado, indica que um estado de paragem vM não foi capturado no ponto de recuperação utilizado para a falha. Isto acontece quando se recupera a um ponto em que o VM não foi totalmente desligado.
 
-Isso normalmente não é uma causa de preocupação e, em geral, pode ser ignorado para failovers não planejados. Se o failover for planejado, verifique se a VM está desligada corretamente antes do failover e forneça tempo suficiente para os dados de replicação pendentes locais a serem enviados ao Azure. Em seguida, use a opção **mais recente** na [tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover de VM.
+Isto normalmente não é motivo de preocupação e geralmente pode ser ignorado por falhas não planeadas. Se a falha estiver prevista, certifique-se de que o VM é corretamente desligado antes da falha e fornecer tempo suficiente para que os dados de replicação pendentes no local sejam enviados para o Azure. Em seguida, utilize a opção **Mais recente** no [ecrã Failover](site-recovery-failover.md#run-a-failover) para que quaisquer dados pendentes no Azure sejam processados num ponto de recuperação, que é então utilizado para falha de VM.
 
-## <a name="unable-to-select-the-datastore"></a>Não é possível selecionar o repositório de armazenamento
+## <a name="unable-to-select-the-datastore"></a>Incapaz de selecionar a Datastore
 
-Esse problema é indicado quando você não consegue ver o repositório de armazenamento no portal do Azure ao tentar proteger novamente a máquina virtual que sofreu um failover. Isso ocorre porque o destino mestre não é reconhecido como uma máquina virtual em vCenters adicionado a Azure Site Recovery.
+Este problema é indicado quando não consegue ver a loja de dados em Azure o portal ao tentar reproteger a máquina virtual que sofreu uma falha. Isto porque o alvo Principal não é reconhecido como uma máquina virtual sob vCenters adicionado à Recuperação do Site Azure.
 
-Para obter mais informações sobre como proteger novamente um computador virtual, consulte [proteger novamente e executar failback de computadores em um site local após o failover para o Azure](vmware-azure-reprotect.md).
+Para obter mais informações sobre a reproteção de uma máquina vitual, consulte [Reprotect e fail back machines to a site in-local after failover to Azure](vmware-azure-reprotect.md).
 
-Para resolver o problema:
+Para resolver a questão:
 
-Crie manualmente o destino mestre no vCenter que gerencia o computador de origem. O repositório de armazenamento estará disponível após as próximas operações do vCenter Discovery e do Refresh Fabric.
+Crie manualmente o alvo Master no vCenter que gere a sua máquina de origem. A loja de dados estará disponível após as próximas operações de descoberta e atualização do tecido vCenter.
 
 > [!Note]
 > 
-> As operações de descoberta e de malha de atualização podem levar até 30 minutos para serem concluídas. 
+> As operações de descoberta e atualização do tecido podem demorar até 30 minutos para ser concluídas. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>O registro de destino mestre do Linux com o CS falha com um erro de SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registo de Linux Master Target com CS falha com um erro SSL 35 
 
-O registro de destino mestre Azure Site Recovery com o servidor de configuração falha devido à habilitação do proxy autenticado no destino mestre. 
+O registo principal de recuperação do site Azure com o servidor de configuração falha devido ao proxy autenticado ser ativado no Alvo Principal. 
  
-Esse erro é indicado pelas seguintes cadeias de caracteres no log de instalação: 
+Este erro é indicado pelas seguintes cordas no registo de instalação: 
 
 ```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
 ```
 
-Para resolver o problema:
+Para resolver a questão:
  
-1. Na VM do servidor de configuração, abra um prompt de comando e verifique as configurações de proxy usando os seguintes comandos:
+1. No VM do servidor de configuração, abra um pedido de comando e verifique as definições de procuração utilizando os seguintes comandos:
 
     cat /etc/environment  echo $http_proxy  echo $https_proxy 
 
-2. Se a saída dos comandos anteriores mostrar que as configurações http_proxy ou https_proxy estão definidas, use um dos seguintes métodos para desbloquear as comunicações de destino mestre com o servidor de configuração:
+2. Se a saída dos comandos anteriores mostrar que as definições de http_proxy ou https_proxy são definidas, utilize um dos seguintes métodos para desbloquear as comunicações Master Target com o servidor de configuração:
    
-   - Baixe a [ferramenta PsExec](https://aka.ms/PsExec).
-   - Use a ferramenta para acessar o contexto de usuário do sistema e determinar se o endereço do proxy está configurado. 
-   - Se o proxy estiver configurado, abra o IE em um contexto de usuário do sistema usando a ferramenta PsExec.
+   - Descarregue a [ferramenta PsExec](https://aka.ms/PsExec).
+   - Utilize a ferramenta para aceder ao contexto do utilizador do Sistema e determinar se o endereço proxy está configurado. 
+   - Se o proxy estiver configurado, abra o IE num contexto de utilizador do sistema utilizando a ferramenta PsExec.
   
-     **PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"**
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
 
-   - Para garantir que o servidor de destino mestre possa se comunicar com o servidor de configuração:
+   - Para garantir que o servidor alvo principal pode comunicar com o servidor de configuração:
   
-     - Modifique as configurações de proxy no Internet Explorer para ignorar o endereço IP do servidor de destino mestre por meio do proxy.   
+     - Modifique as definições de procuração no Internet Explorer para contornar o endereço IP do servidor Master Target através do proxy.   
      Ou
-     - Desabilite o proxy no servidor de destino mestre. 
+     - Desative o proxy no servidor Master Target. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Solucionar problemas [de conexão RDP com a VM do Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Solucionar problemas [de conexão SSH para VM Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Ligação RDP de resolução de problemas [ao Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Ligação SSH de resolução de problemas [ao Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Se precisar de mais ajuda, poste sua consulta no [fórum site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) ou deixe um comentário no final deste documento. Temos uma comunidade ativa que deve ser capaz de ajudá-lo.
+Se precisar de mais ajuda, poste a sua consulta no Fórum de [Recuperação](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) do Site ou deixe um comentário no final deste documento. Temos uma comunidade ativa que deve ser capaz de ajudá-lo.

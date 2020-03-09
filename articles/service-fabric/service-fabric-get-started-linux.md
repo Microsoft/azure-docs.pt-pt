@@ -1,14 +1,14 @@
 ---
-title: Configurar seu ambiente de desenvolvimento no Linux
+title: Instale o seu ambiente de desenvolvimento em Linux
 description: Instale o runtime e o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir esta configuração, estará pronto para criar aplicações.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457887"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382967"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Para instalar o SDK e o pacote de runtime associado através da ferramenta de li
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Adicione a chave do JDK de azul ao seu keyring de APT e configure seu repositório.
+7. Adicione a Chave Azul JDK ao seu teclado APT e instale o seu repositório.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
@@ -228,7 +228,7 @@ Instale o [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linu
 
 ## <a name="set-up-java-development"></a>Configurar o desenvolvimento em Java
 
-Para criar Service Fabric serviços usando o Java, instale o gradle para executar tarefas de compilação. Execute o comando abaixo para instalar o gradle. As bibliotecas Java do Service Fabric são extraídas do Maven.
+Para construir serviços de tecido de serviço usando Java, instale gradle para executar tarefas de construção. Executar o comando abaixo para instalar Gradle. As bibliotecas Java do Service Fabric são extraídas do Maven.
 
 
 * Ubuntu
@@ -261,7 +261,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse, em vez de utilizar um instalador de pacote (`apt` ou `apt-get`). Se o fizer, assegura que obtém a versão mais recente do Eclipse. Pode instalar o Eclipse IDE para Programadores de Java ou para Programadores de Java EE.
 
-1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Você pode atualizar a criação usando as instruções em [criação do eclipse: plug-ins do Eclipse para gradle][buildship-update].
+1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Pode atualizar a Buildship utilizando as instruções da [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
 
 2. Para instalar o plug-in do Service Fabric, selecione **Ajuda** > **Instalar Novo Software**.
 
@@ -275,7 +275,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 
 6. Execute os passos de instalação. Em seguida, aceite o contrato de licença do utilizador final.
 
-Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Em seguida, pesquise Service Fabric na lista de plug-ins instalados. Selecione **Atualizar** se uma versão mais recente estiver disponível.
+Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se estiver disponível uma versão mais recente.
 
 Para obter mais informações, veja [Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse](service-fabric-get-started-eclipse.md).
 

@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
 ms.openlocfilehash: 6d87d3373711d12df3f2cced26ef35ae951ad41e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116189"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356669"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir falhas transparentes e coordenadas de várias bases de dados
 
@@ -390,7 +390,7 @@ Tenha em atenção as seguintes limitações:
 
 Como discutido anteriormente, grupos de auto-failover e geo-replicação ativa também podem ser geridos programáticamente usando o Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. A geo-replicação ativa inclui um conjunto de APIs do Gestor de Recursos Azure para gestão, incluindo a Base de [Dados Azure SQL REST API](https://docs.microsoft.com/rest/api/sql/) e [os cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas APIs exigem a utilização de grupos de recursos e apoiam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [o Controlo de Acesso baseado em Funções azure](../role-based-access-control/overview.md).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Gerir a falha da base de dados SQL com bases de dados únicas e piscinas elásticas
 
@@ -413,7 +413,7 @@ Como discutido anteriormente, grupos de auto-failover e geo-replicação ativa t
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Desencadeia a falha de um grupo de falhas para a instância secundária|
 | [Remover-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Remove um grupo de failover|
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Gerir a falha da base de dados SQL com bases de dados únicas e piscinas elásticas
 

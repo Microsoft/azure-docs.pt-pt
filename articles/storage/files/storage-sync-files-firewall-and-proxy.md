@@ -1,6 +1,6 @@
 ---
-title: Sincronização de Arquivos do Azure configurações de proxy e firewall local | Microsoft Docs
-description: Configuração de rede local Sincronização de Arquivos do Azure
+title: Definições de firewall e proxy do Ficheiro Azure no local / Microsoft Docs
+description: Configuração da rede Azure File Sync no local
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,58 +8,58 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750458"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381227"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
-Sincronização de Arquivos do Azure conecta seus servidores locais a arquivos do Azure, habilitando a sincronização de vários sites e recursos de camadas de nuvem. Como tal, um servidor local deve estar conectado à Internet. Um administrador de ti precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
+O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização multi-site e as funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de nuvem Azure.
 
-Este artigo fornecerá informações sobre requisitos específicos e opções disponíveis para conectar com êxito e segurança seu servidor ao Sincronização de Arquivos do Azure.
+Este artigo fornecerá informações sobre requisitos e opções específicas disponíveis para ligar com sucesso e de forma segura o seu servidor ao Azure File Sync.
 
-## <a name="overview"></a>Visão geral
-Sincronização de Arquivos do Azure atua como um serviço de orquestração entre o Windows Server, o compartilhamento de arquivos do Azure e vários outros serviços do Azure para sincronizar dados, conforme descrito em seu grupo de sincronização. Para que Sincronização de Arquivos do Azure funcionem corretamente, você precisará configurar seus servidores para se comunicar com os seguintes serviços do Azure:
+## <a name="overview"></a>Descrição geral
+O Azure File Sync funciona como um serviço de orquestração entre o seu Windows Server, a sua partilha de ficheiros Azure e vários outros serviços Azure para sincronizar dados conforme descrito no seu grupo de sincronização. Para que o Azure File Sync funcione corretamente, terá de configurar os seus servidores para comunicar com os seguintes serviços Azure:
 
-- Armazenamento do Azure
+- Storage do Azure
 - Azure File Sync
-- Gestor de Recursos do Azure
+- Azure Resource Manager
 - Serviços de autenticação
 
 > [!Note]  
-> O agente de Sincronização de Arquivos do Azure no Windows Server inicia todas as solicitações para serviços de nuvem, o que resulta em apenas considerar o tráfego de saída de uma perspectiva de firewall. <br /> Nenhum serviço do Azure inicia uma conexão com o agente de Sincronização de Arquivos do Azure.
+> O agente Dessincronização de ficheiros Azure no Windows Server inicia todos os pedidos de serviços na nuvem, o que resulta em apenas ter de considerar o tráfego de saída a partir de uma perspetiva de firewall. <br /> Nenhum serviço Azure inicia uma ligação com o agente Dessincronização de Ficheiros Azure.
 
 ## <a name="ports"></a>Portas
-Sincronização de Arquivos do Azure move dados de arquivo e metadados exclusivamente por HTTPS e requer que a porta 443 seja aberta de saída.
-Como resultado, todo o tráfego é criptografado.
+O Azure File Sync move dados de ficheiros e metadados exclusivamente sobre HTTPS e requer que a porta 443 seja aberta.
+Como resultado, todo o tráfego está encriptado.
 
-## <a name="networks-and-special-connections-to-azure"></a>Redes e conexões especiais com o Azure
-O agente de Sincronização de Arquivos do Azure não tem requisitos relacionados a canais especiais, como o [ExpressRoute](../../expressroute/expressroute-introduction.md), etc. para o Azure.
+## <a name="networks-and-special-connections-to-azure"></a>Redes e ligações especiais ao Azure
+O agente Dessincronização de Ficheiros Azure não tem requisitos em relação a canais especiais como [expressRoute](../../expressroute/expressroute-introduction.md), etc. para o Azure.
 
-Sincronização de Arquivos do Azure funcionará por meio de qualquer meio disponível que permita o alcance do Azure, adaptando-se automaticamente a várias características de rede, como largura de banda, latência, além de oferecer controle de administrador para ajuste fino. Nem todos os recursos estão disponíveis no momento. Se você quiser configurar um comportamento específico, informe-nos por meio [do Azure files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
+O Azure File Sync funcionará através de todos os meios disponíveis que permitam chegar ao Azure, adaptando-se automaticamente a várias características da rede, como largura de banda, latência e oferta de controlo administrativo para afinação. Nem todas as funcionalidades estão disponíveis neste momento. Se quiser configurar comportamentos específicos, avise-nos através do [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Proxy
-O Sincronização de Arquivos do Azure dá suporte a configurações de proxy de todo o computador e do aplicativo.
+O Azure File Sync suporta definições específicas de procuração específicas e de procuração em toda a máquina.
 
-**As configurações de proxy específicas do aplicativo** permitem a configuração de um proxy especificamente para o tráfego de sincronização de arquivos do Azure. As configurações de proxy específicas do aplicativo têm suporte na versão do agente 4.0.1.0 ou mais recente e podem ser configuradas durante a instalação do agente ou usando o cmdlet do PowerShell Set-StorageSyncProxyConfiguration.
+**As definições de proxy específicas** da aplicação permitem a configuração de um proxy especificamente para o tráfego de Sincronização de Ficheiros Azure. As definições de proxy específicas da aplicação são suportadas na versão 4.0.1.0 ou mais recente do agente e podem ser configuradas durante a instalação do agente ou utilizando o cmdlet de Configuração PowerShell de Configuração De Configuração De Configuração De Configuração De Configuração De Conjunto-ArmazenamentoSyncProxy.
 
-Comandos do PowerShell para definir configurações de proxy específicas do aplicativo:
+PowerShell ordena configurar definições de proxy específicas da aplicação:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
-**As configurações de proxy de todo o computador** são transparentes para o agente de sincronização de arquivos do Azure, pois todo o tráfego do servidor é roteado pelo proxy.
+**As definições de procuração** em toda a máquina são transparentes para o agente Dessincronização de ficheiros Azure, uma vez que todo o tráfego do servidor é encaminhado através do proxy.
 
-Para definir as configurações de proxy de todo o computador, siga as etapas abaixo: 
+Para configurar as definições de procuração em toda a máquina, siga os passos abaixo: 
 
-1. Definir configurações de proxy para aplicativos .NET 
+1. Configure as definições de procuração para aplicações .NET 
 
-   - Edite estes dois arquivos:  
+   - Editar estes dois ficheiros:  
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Adicione a seção < System. net > nos arquivos Machine. config (abaixo da seção < System. serviceModel >).  Altere 127.0.01:8888 para o endereço IP e a porta do servidor proxy. 
+   - Adicione a secção <system.net> secção nos ficheiros machine.config (abaixo da secção <system.serviceModel> ).  Altere 127.0.01:8888 para o endereço IP e porta para o servidor proxy. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -68,44 +68,44 @@ Para definir as configurações de proxy de todo o computador, siga as etapas ab
       </system.net>
      ```
 
-2. Definir as configurações de proxy do WinHTTP 
+2. Definir as definições de proxy WinHTTP 
 
-   - Execute o seguinte comando em um prompt de comando elevado ou no PowerShell para ver a configuração de proxy existente:   
+   - Executar o seguinte comando a partir de um pedido de comando elevado ou PowerShell para ver a definição de procuração existente:   
 
-     netsh WinHTTP show proxy
+     netsh winhttp mostrar procuração
 
-   - Execute o comando a seguir em um prompt de comando elevado ou no PowerShell para definir a configuração de proxy (alterar 127.0.01:8888 para o endereço IP e a porta do servidor proxy):  
+   - Executar o seguinte comando a partir de um pedido de comando elevado ou PowerShell para definir a definição de procuração (alteração 127.01:8888 para o endereço IP e porta para o servidor proxy):  
 
-     netsh WinHTTP Set proxy 127.0.0.1:8888
+     netsh winhttp set proxy 127.0.0.1:8888
 
-3. Reinicie o serviço do agente de sincronização de armazenamento executando o seguinte comando em um prompt de comando elevado ou PowerShell: 
+3. Reiniciar o serviço de Agente de Sincronização de Armazenamento executando o seguinte comando a partir de um pedido de comando elevado ou PowerShell: 
 
-      filesyncsvc net stop
+      net stop filesyncsvc
 
-      Observação: o serviço filesyncsvc (agente de sincronização de armazenamento) será iniciado automaticamente quando for interrompido.
+      Nota: O serviço de Agente de Sincronização de Armazenamento (filesyncsvc) iniciará automaticamente uma vez parado.
 
 ## <a name="firewall"></a>Firewall
-Como mencionado em uma seção anterior, a porta 443 precisa ser aberta de saída. Com base em políticas em seu datacenter, ramificação ou região, restringir ainda mais o tráfego nessa porta para domínios específicos pode ser desejado ou necessário.
+Como referido numa secção anterior, o porto 443 tem de ser aberto. Com base em políticas no seu datacenter, sucursal ou região, pode ser desejado ou necessário um maior restrição do tráfego sobre este porto para domínios específicos.
 
-A tabela a seguir descreve os domínios necessários para a comunicação:
+A tabela seguinte descreve os domínios necessários para a comunicação:
 
-| Serviço | Ponto de extremidade de nuvem pública | Ponto de extremidade do Azure governamental | Utilização |
+| Serviço | Ponto final da nuvem pública | Ponto final do Governo de Azure | Utilização |
 |---------|----------------|---------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de usuário (como o PowerShell) vai para/por essa URL, incluindo a chamada de registro de servidor inicial. |
-| **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Azure Resource Manager chamadas devem ser feitas por um usuário autenticado. Para ter sucesso, essa URL é usada para autenticação de usuário. |
-| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implantação de Sincronização de Arquivos do Azure, uma entidade de serviço no Azure Active Directory da assinatura será criada. Essa URL é usada para isso. Essa entidade de segurança é usada para delegar um conjunto mínimo de direitos ao serviço de Sincronização de Arquivos do Azure. O usuário que executa a configuração inicial do Sincronização de Arquivos do Azure deve ser um usuário autenticado com privilégios de proprietário da assinatura. |
-| **Storage do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor baixa um arquivo, o servidor executa essa movimentação de dados com mais eficiência ao conversar diretamente com o compartilhamento de arquivos do Azure na conta de armazenamento. O servidor tem uma chave SAS que permite apenas o acesso de compartilhamento de arquivos direcionado. |
-| **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;.afs.azure.us | Após o registro inicial do servidor, o servidor recebe uma URL regional para a instância do serviço de Sincronização de Arquivos do Azure nessa região. O servidor pode usar a URL para se comunicar de forma direta e eficiente com a instância que manipula sua sincronização. |
-| **PKI da Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Depois que o agente de Sincronização de Arquivos do Azure estiver instalado, a URL PKI será usada para baixar os certificados intermediários necessários para se comunicar com o serviço Sincronização de Arquivos do Azure e o compartilhamento de arquivos do Azure. A URL OCSP é usada para verificar o status de um certificado. |
+| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de utilizador (como powerShell) vai para/através deste URL, incluindo a chamada inicial de registo do servidor. |
+| **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | As chamadas do Gestor de Recursos Azure devem ser feitas por um utilizador autenticado. Para ter sucesso, este URL é utilizado para a autenticação do utilizador. |
+| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implementação do Azure File Sync, será criado um diretor de serviço no Diretório Ativo Azure da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar um conjunto mínimo de direitos ao serviço Desincronização de Ficheiros Azure. O utilizador que executa a configuração inicial do Azure File Sync deve ser um utilizador autenticado com privilégios do proprietário da subscrição. |
+| **Armazenamento do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, então o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente com a parte de ficheiro Azure na Conta de Armazenamento. O servidor tem uma chave SAS que só permite o acesso à partilha de ficheiros direcionado. |
+| **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Após o registo inicial do servidor, o servidor recebe um URL regional para a instância de serviço Azure File Sync naquela região. O servidor pode utilizar o URL para comunicar direta e eficientemente com a instância que manuseia a sua sincronização. |
+| **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Uma vez instalado o agente Bluee File Sync, o URL PKI é utilizado para descarregar certificados intermédios necessários para comunicar com o serviço Desincronização de Ficheiros Azure e a partilha de ficheiros Azure. O URL OCSP é utilizado para verificar o estado de um certificado. |
 
 > [!Important]
-> Ao permitir o tráfego para &ast;. one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível no servidor. Há muito mais serviços da Microsoft disponíveis em subdomínios.
+> Ao permitir que o tráfego &ast;.one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos mais serviços da Microsoft disponíveis em subdomínios.
 
-Se &ast;. one.microsoft.com for muito amplo, você poderá limitar a comunicação do servidor, permitindo a comunicação apenas com instâncias regionais explícitas do serviço de sincronização de arquivos do Azure. Quais instâncias escolher dependem da região do serviço de sincronização de armazenamento que você implantou e registrou o servidor. Essa região é chamada de "URL do ponto de extremidade primário" na tabela a seguir.
+Se &ast;.one.microsoft.com é demasiado ampla, pode limitar a comunicação do servidor, permitindo a comunicação apenas a instâncias regionais explícitas do serviço Azure Files Sync. Que instância(s) escolher depende da região do serviço de sincronização de armazenamento que implementou e registou o servidor. Esta região chama-se "URL de ponto final primário" na tabela abaixo.
 
-Para fins de BCDR (continuidade dos negócios e recuperação de desastre), você pode ter especificado os compartilhamentos de arquivos do Azure em uma conta de armazenamento GRS (globalmente redundante). Se esse for o caso, os compartilhamentos de arquivos do Azure realizarão failover para a região emparelhada no caso de uma interrupção regional duradoura. Sincronização de Arquivos do Azure usa os mesmos emparelhamentos regionais que o armazenamento. Portanto, se você usar contas de armazenamento GRS, será necessário habilitar URLs adicionais para permitir que o servidor se comunique com a região emparelhada para Sincronização de Arquivos do Azure. A tabela a seguir chama essa "região emparelhada". Além disso, há uma URL de perfil do Gerenciador de tráfego que também precisa ser habilitada. Isso garantirá que o tráfego de rede possa ser redirecionado diretamente para a região emparelhada em caso de failover e seja chamado de "URL de descoberta" na tabela a seguir.
+Por razões de continuidade de negócios e recuperação de desastres (BCDR), pode ter especificado as suas ações de ficheiro Azure numa conta de armazenamento globalmente redundante (GRS). Se for esse o caso, então as suas ações de ficheiro Saque A partir de Azure falhará na região emparelhada em caso de uma paragem regional duradoura. O Azure File Sync utiliza os mesmos pares regionais que o armazenamento. Por isso, se utilizar contas de armazenamento GRS, tem de ativar URLs adicionais para permitir que o seu servidor fale com a região emparelhada para o Azure File Sync. A tabela abaixo chama a esta "região emparelhada". Além disso, existe um URL de perfil de gestor de tráfego que precisa ser ativado também. Isto garantirá que o tráfego da rede pode ser perfeitamente reencaminhado para a região emparelhada em caso de falha e é chamado de "Discovery URL" na tabela abaixo.
 
-| Nuvem  | Região | URL do ponto de extremidade primário | Região emparelhada | URL de descoberta |
+| Cloud  | Região | URL de ponto final primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
 | Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Austrália Sudeste | https:\//tm-kailani-aue.one.microsoft.com |
 | Público |Austrália Sudeste | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
@@ -128,36 +128,36 @@ Para fins de BCDR (continuidade dos negócios e recuperação de desastre), voc�
 | Público | Ásia Sudeste | https:\//kailani10.one.microsoft.com | Ásia Leste | https:\//tm-kailani10.one.microsoft.com |
 | Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
 | Público | Oeste do Reino Unido | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
-| Público | E.U.A. Centro-Oeste | https:\//westcentralus01.afs.azure.net | E.U.A. Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Público | E.U.A. Centro-Oeste | https:\//westcentralus01.afs.azure.net | E.U.A.Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Público | Europa Ocidental | https:\//kailani6.one.microsoft.com | Europa do Norte | https:\//tm-kailani6.one.microsoft.com |
 | Público | E.U.A. Oeste | https:\//kailani.one.microsoft.com | E.U.A. Leste | https:\//tm-kailani.one.microsoft.com |
-| Público | E.U.A. Oeste 2 | https:\//westus201.afs.azure.net | E.U.A. Centro-Oeste | https:\//tm-westus201.afs.azure.net |
-| Administração pública | US Gov - Arizona | https:\//usgovarizona01.afs.azure.us | US Gov - Texas | https:\//tm-usgovarizona01.afs.azure.us |
-| Administração pública | US Gov - Texas | https:\//usgovtexas01.afs.azure.us | US Gov - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
+| Público | E.U.A.Oeste 2 | https:\//westus201.afs.azure.net | E.U.A. Centro-Oeste | https:\//tm-westus201.afs.azure.net |
+| Governo | US Gov - Arizona | https:\//usgovarizona01.afs.azure.us | US Gov - Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Governo | US Gov - Texas | https:\//usgovtexas01.afs.azure.us | US Gov - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
-- Se você usar contas de armazenamento com redundância local (LRS) ou com redundância de zona (ZRS), você só precisará habilitar a URL listada em "URL do ponto de extremidade primário".
+- Se utilizar contas de armazenamento redundantes localmente redundantes (LRS) ou de zona redundante (ZRS), apenas necessita de ativar o URL listado em "URL de ponto final primário".
 
-- Se você usar contas de armazenamento GRS (com redundância global), habilite três URLs.
+- Se utilizar contas de armazenamento globalmente redundantes (GRS), ative três URLs.
 
-**Exemplo:** Você implanta um serviço de sincronização de armazenamento no `"West US"` e registra seu servidor com ele. As URLs para permitir que o servidor se comunique para esse caso são:
+**Exemplo:** Implementa um serviço de sincronização de armazenamento em `"West US"` e regista o seu servidor com ele. Os URLs para permitir que o servidor se comunique para este caso são:
 
-> - https:\//kailani.one.microsoft.com (ponto de extremidade primário: oeste dos EUA)
-> - https:\//kailani1.one.microsoft.com (região de failover emparelhada: leste dos EUA)
+> - https:\//kailani.one.microsoft.com (ponto final primário: Oeste dos EUA)
+> - https:\//kailani1.one.microsoft.com (região de fail-over emparelhada: Leste dos EUA)
 > - https:\//tm-kailani.one.microsoft.com (URL de descoberta da região primária)
 
-## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade de rede para pontos de extremidade de serviço
-Depois que um servidor é registrado com o serviço de Sincronização de Arquivos do Azure, o cmdlet Test-StorageSyncNetworkConnectivity e o ServerRegistration. exe podem ser usados para testar as comunicações com todos os pontos de extremidade (URLs) específicos desse servidor. Esse cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor trabalhe totalmente com Sincronização de Arquivos do Azure e pode ser usado para ajustar as configurações de proxy e firewall.
+## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade da rede aos pontos finais do serviço
+Uma vez registado um servidor com o serviço Desincronização de Ficheiros Azure, o Cmdlet de Conectividade Test-StorageSyncNetworkE e serverRegistration.exe podem ser utilizados para testar comunicações com todos os pontos finais (URLs) específicos deste servidor. Este cmdlet pode ajudar a resolver problemas quando uma comunicação incompleta impede o servidor de trabalhar totalmente com o Azure File Sync e pode ser usado para afinar configurações de proxy e firewall.
 
-Para executar o teste de conectividade de rede, instale Sincronização de Arquivos do Azure Agent versão 9,1 ou posterior e execute os seguintes comandos do PowerShell:
+Para executar o teste de conectividade da rede, instale a versão 9.1 ou posterior do agente Dessincronizado do Ficheiro Azure e execute os seguintes comandos PowerShell:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
 ```
 
-## <a name="summary-and-risk-limitation"></a>Resumo e limitação de risco
-As listas anteriores neste documento contêm as URLs às quais Sincronização de Arquivos do Azure se comunica atualmente. Os firewalls devem ser capazes de permitir o tráfego de saída para esses domínios. A Microsoft se esforça para manter essa lista atualizada.
+## <a name="summary-and-risk-limitation"></a>Limitação do resumo e do risco
+As listas anteriores neste documento contêm o URLs Azure File Sync com que comunica atualmente. As firewalls devem ser capazes de permitir a saída do tráfego para estes domínios. A Microsoft esforça-se por manter esta lista atualizada.
 
-A configuração de regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se essas configurações de firewall forem usadas, será necessário ter em mente que as URLs serão adicionadas e podem até mesmo mudar ao longo do tempo. Verifique este artigo periodicamente.
+A criação de regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e podem até mudar ao longo do tempo. Verifique este artigo periodicamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

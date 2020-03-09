@@ -1,6 +1,6 @@
 ---
-title: Extensão de máquina virtual de dependência Azure Monitor para Windows
-description: Implante o Azure Monitor agente de dependência na máquina virtual do Windows usando uma extensão de máquina virtual.
+title: Extensão de máquina virtual da Dependência do Monitor Azure para Windows
+description: Implemente o agente de dependência do Monitor Azure na máquina virtual do Windows utilizando uma extensão virtual da máquina.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgoedtel
@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980157"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383277"
 ---
-# <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual de dependência Azure Monitor para Windows
+# <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual da Dependência do Monitor Azure para Windows
 
-O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente do Microsoft Dependency. A extensão da máquina virtual do agente de dependência de VM do Azure para Windows é publicada e tem suporte da Microsoft. A extensão instala o agente de dependência em máquinas virtuais do Azure. Este documento detalha as plataformas com suporte, as configurações e as opções de implantação para a extensão de máquina virtual do agente de dependência de VM do Azure para Windows.
+A funcionalidade Azure Monitor for VMs Map obtém os seus dados do agente microsoft Dependency. A extensão virtual da máquina virtual do agente de dependência Azure VM para windows é publicada e suportada pela Microsoft. A extensão instala o agente Dependency em máquinas virtuais Azure. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão virtual da máquina virtual do agente de dependência Do VM Azure para windows.
 
-## <a name="operating-system"></a>Sistema operativo
+## <a name="operating-system"></a>Sistema Operativo
 
-A extensão do agente de dependência de VM do Azure para Windows pode ser executada nos sistemas operacionais com suporte listados na seção [sistemas operacionais com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) no artigo Azure monitor para VMs implantação.
+A extensão do agente de dependência Azure VM para windows pode ser executada contra os sistemas operativos suportados listados na secção de [sistemas operativos suportados](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) do artigo de implementação do Monitor Azure para VMs.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do agente de dependência de VM do Azure em uma VM do Windows do Azure.
+O seguinte JSON mostra o esquema para a extensão do agente de dependência Azure VM num VM Do Windows Azure.
 
 ```json
 {
@@ -69,22 +69,22 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 }
 ```
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor/exemplo |
+| Nome | Valor/Exemplo |
 | ---- | ---- |
-| apiVersion | 2015-01-01 |
-| publicador | Microsoft.Azure.Monitoring.DependencyAgent |
-| tipo | DependencyAgentWindows |
+| apiVersão | 2015-01-01 |
+| editora | Microsoft.Azure.Monitoring.DependencyAgent |
+| Tipo | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
-## <a name="template-deployment"></a>Implementação de modelos
+## <a name="template-deployment"></a>implantação do modelo
 
-Você pode implantar as extensões de VM do Azure com modelos de Azure Resource Manager. Você pode usar o esquema JSON detalhado na seção anterior em um modelo de Azure Resource Manager para executar a extensão do agente de dependência de VM do Azure durante uma implantação de modelo de Azure Resource Manager.
+Pode implementar as extensões Azure VM com modelos de Gestor de Recursos Azure. Pode utilizar o esquema JSON detalhado na secção anterior num modelo de Gestor de Recursos Azure para executar a extensão do agente de dependência Azure VM durante uma implementação do modelo de gestor de recursos Azure.
 
-O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual. Ou você pode colocá-lo no nível raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/templates/child-resource-name-type.md).
+O JSON para uma extensão virtual da máquina pode ser aninhado dentro do recurso virtual da máquina. Ou, pode colocá-lo no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação do JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/templates/child-resource-name-type.md)
 
-O exemplo a seguir pressupõe que a extensão do agente de dependência está aninhada dentro do recurso de máquina virtual. Quando você Aninha o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
+O exemplo que se segue pressupõe que a extensão do agente dependency está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
 
 ```json
@@ -105,7 +105,7 @@ O exemplo a seguir pressupõe que a extensão do agente de dependência está an
 }
 ```
 
-Quando você coloca a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual pai. O tipo reflete a configuração aninhada.
+Quando coloca a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual dos pais. O tipo reflete a configuração aninhada.
 
 ```json
 {
@@ -125,9 +125,9 @@ Quando você coloca a extensão JSON na raiz do modelo, o nome do recurso inclui
 }
 ```
 
-## <a name="powershell-deployment"></a>Implantação do PowerShell
+## <a name="powershell-deployment"></a>Implementação powerShell
 
-Você pode usar o comando `Set-AzVMExtension` para implantar a extensão da máquina virtual do agente de dependência em uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell.
+Pode utilizar o comando `Set-AzVMExtension` para implantar a extensão virtual do agente dependency para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam de ser armazenadas numa mesa de hash PowerShell.
 
 ```powershell
 
@@ -140,22 +140,22 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando o módulo Azure PowerShell. Para ver o estado de implantação das extensões de uma determinada VM, execute o seguinte comando usando o módulo Azure PowerShell:
+Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o módulo PowerShell Azure:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-A saída de execução de extensão é registrada em arquivos encontrados no seguinte diretório:
+A saída de execução de extensão é registada em ficheiros encontrados no seguinte diretório:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 ```
 
-### <a name="support"></a>Suporte
+### <a name="support"></a>apoio
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Ou, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Ou pode arquivar um incidente de apoio azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para obter informações sobre como utilizar o Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

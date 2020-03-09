@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701404"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375665"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início único
 
@@ -48,9 +48,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| ID | Obrigatório | A Azure AD usa este atributo para povoar o atributo `InResponseTo` da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma identificação válida. |
-| Versão | Obrigatório | Este parâmetro deve ser definido para **2.0**. |
-| EmissãoInstant | Obrigatório | Esta é uma cadeia DateTime com um valor UTC e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). A Azure AD espera um valor DateTime deste tipo, mas não avalia nem utiliza o valor. |
+| ID | Necessário | A Azure AD usa este atributo para povoar o atributo `InResponseTo` da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma identificação válida. |
+| Versão | Necessário | Este parâmetro deve ser definido para **2.0**. |
+| EmissãoInstant | Necessário | Esta é uma cadeia DateTime com um valor UTC e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). A Azure AD espera um valor DateTime deste tipo, mas não avalia nem utiliza o valor. |
 | AssertionConsumerServiceUrl | Opcional | Se fornecido, este parâmetro deve coincidir com o `RedirectUri` do serviço de nuvem em Azure AD. |
 | ForceAuthn | Opcional | Este é um valor booleano. Se for verdade, significa que o utilizador será obrigado a reautenticar, mesmo que tenha uma sessão válida com a AD Azure. |
 | IsPassive | Opcional | Este é um valor booleano que especifica se o Azure AD deve autenticar o utilizador em silêncio, sem interação do utilizador, utilizando o cookie de sessão se existir. Se isso for verdade, a Azure AD tentará autenticar o utilizador utilizando o cookie de sessão. |
@@ -91,7 +91,7 @@ A AD Azure ignora o atributo `AllowCreate`.
 ### <a name="requestauthncontext"></a>RequestAuthnContext
 O elemento `RequestedAuthnContext` especifica os métodos de autenticação desejados. É opcional em `AuthnRequest` elementos enviados para a AD Azure. A Azure AD suporta `AuthnContextClassRef` valores como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
-### <a name="scoping"></a>Cedido
+### <a name="scoping"></a>Scoping
 O elemento `Scoping`, que inclui uma lista de fornecedores de identidade, é opcional em elementos `AuthnRequest` enviados para a AD Azure.
 
 Se fornecido, não inclua o `ProxyCount` elemento atributo, `IDPListOption` ou `RequesterID`, uma vez que não são suportados.
@@ -99,7 +99,7 @@ Se fornecido, não inclua o `ProxyCount` elemento atributo, `IDPListOption` ou `
 ### <a name="signature"></a>Assinatura
 Não inclua um elemento `Signature` em elementos `AuthnRequest`, uma vez que a Azure AD não suporta pedidos de autenticação assinados.
 
-### <a name="subject"></a>Assunto
+### <a name="subject"></a>Requerente
 A AD Azure ignora o elemento `Subject` de elementos `AuthnRequest`.
 
 ## <a name="response"></a>Resposta
@@ -210,7 +210,7 @@ Para gerar esta assinatura digital, a Azure AD utiliza a chave de assinatura no 
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Assunto
+#### <a name="subject"></a>Requerente
 
 Isto especifica o principal que é objeto das declarações na afirmação. Contém um elemento `NameID`, que representa o utilizador autenticado. O valor `NameID` é um identificador direcionado que é direcionado apenas para o prestador de serviços que é o público para o token. É persistente - pode ser revogado, mas nunca é reatribuído. É também opaco, na medida em que não revela nada sobre o utilizador e não pode ser usado como um identificador para consultas de atributos.
 

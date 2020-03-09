@@ -1,6 +1,6 @@
 ---
-title: Monitorar, diagnosticar e solucionar problemas do armazenamento do Azure | Microsoft Docs
-description: Use recursos como análise de armazenamento, registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas relacionados ao armazenamento do Azure.
+title: Monitor, diagnóstico e resolução de problemas Azure Storage  Microsoft Docs
+description: Utilize funcionalidades como análise de armazenamento, registo saqueado do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas relacionados com o armazenamento do Azure.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,45 +9,45 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748573"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357908"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Visão geral
-Diagnosticar e solucionar problemas em um aplicativo distribuído hospedado em um ambiente de nuvem pode ser mais complexo do que em ambientes tradicionais. Os aplicativos podem ser implantados em uma infraestrutura de PaaS ou IaaS, localmente, em um dispositivo móvel ou em alguma combinação desses ambientes. Normalmente, o tráfego de rede do aplicativo pode atravessar redes públicas e privadas e seu aplicativo pode usar várias tecnologias de armazenamento, como Armazenamento do Microsoft Azure tabelas, BLOBs, filas ou arquivos, além de outros armazenamentos de dados, como relacionais e bancos de dados de documentos.
+## <a name="overview"></a>Descrição geral
+Diagnosticar e resolver problemas numa aplicação distribuída alojada num ambiente de nuvem pode ser mais complexo do que em ambientes tradicionais. As aplicações podem ser implantadas numa infraestrutura PaaS ou IaaS, no local, num dispositivo móvel, ou em alguma combinação destes ambientes. Normalmente, o tráfego de rede da sua aplicação pode atravessar redes públicas e privadas e a sua aplicação pode usar várias tecnologias de armazenamento, tais como Mesas de Armazenamento Microsoft Azure, Blobs, Filas ou Ficheiros, além de outras lojas de dados, como relacional e bases de dados de documentos.
 
-Para gerenciar esses aplicativos com êxito, você deve monitorá-los proativamente e entender como diagnosticar e solucionar problemas de todos os aspectos deles e de suas tecnologias dependentes. Como um usuário dos serviços de armazenamento do Azure, você deve monitorar continuamente os serviços de armazenamento que seu aplicativo usa para quaisquer alterações inesperadas no comportamento (como tempos de resposta mais lentos do que os normais) e usar o registro em log para coletar dados mais detalhados e analisar um problema no Detalhado. As informações de diagnóstico obtidas no monitoramento e no registro em log ajudarão você a determinar a causa raiz do problema que seu aplicativo encontrou. Em seguida, você pode solucionar o problema e determinar as etapas apropriadas que você pode executar para corrigi-lo. O armazenamento do Azure é um serviço principal do Azure e forma uma parte importante da maioria das soluções que os clientes implantam na infraestrutura do Azure. O armazenamento do Azure inclui recursos para simplificar o monitoramento, o diagnóstico e a solução de problemas de armazenamento em seus aplicativos baseados em nuvem.
+Para gerir estas aplicações com sucesso, deve monitorizá-las proactivamente e compreender como diagnosticar e resolver todos os aspetos das mesmas e das suas tecnologias dependentes. Como utilizador dos serviços de Armazenamento Azure, deve monitorizar continuamente os serviços de Armazenamento que a sua aplicação utiliza para quaisquer alterações inesperadas de comportamento (como tempos de resposta mais lentos do que o habitual), e utilizar o registo para recolher dados mais detalhados e analisar um problema em profundidade. As informações de diagnóstico obtidas tanto da monitorização como do registo irão ajudá-lo a determinar a causa principal do problema que a sua aplicação encontrou. Depois pode resolver o problema e determinar as medidas adequadas que pode tomar para o remediar. O Azure Storage é um serviço Azure central, e constitui uma parte importante da maioria das soluções que os clientes implementam para a infraestrutura Azure. O Azure Storage inclui capacidades para simplificar problemas de monitorização, diagnóstico e armazenamento de problemas nas suas aplicações baseadas na nuvem.
 
 > [!NOTE]
-> Os arquivos do Azure não dão suporte ao registro em log no momento.
+> Os Ficheiros Azure não suportam a exploração madeireira neste momento.
 >
 
-Para obter um guia prático de solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte solução de problemas de ponta [a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e analisador de mensagem](../storage-e2e-troubleshooting.md).
+Para obter um guia prático para resolução de problemas de ponta a ponta nas aplicações de Armazenamento Azure, consulte a resolução de problemas de ponta a ponta utilizando métricas de [armazenamento e registo sinuosos, AzCopy e Analisador de Mensagens.](../storage-e2e-troubleshooting.md)
 
 * [Introdução]
   * [Como este guia é organizado]
-* [Monitorando seu serviço de armazenamento]
-  * [Monitorando a integridade do serviço]
-  * [Capacidade de monitoramento]
-  * [Monitorando a disponibilidade]
-  * [Monitorando o desempenho]
-* [Diagnosticando problemas de armazenamento]
-  * [Problemas de integridade do serviço]
+* [Monitorização do seu serviço de armazenamento]
+  * [Monitorização da saúde do serviço]
+  * [Capacidade de monitorização]
+  * [Monitorização da disponibilidade]
+  * [Desempenho de monitorização]
+* [Diagnóstico de problemas de armazenamento]
+  * [Problemas de saúde do serviço]
   * [Problemas de desempenho]
-  * [Diagnosticando erros]
+  * [Diagnóstico de erros]
   * [Problemas do emulador de armazenamento]
-  * [Ferramentas de log de armazenamento]
-  * [Usando as ferramentas de log de rede]
-* [Rastreamento de ponta a ponta]
-  * [Correlacionando dados de log]
-  * [ID de solicitação do cliente]
-  * [ID de solicitação do servidor]
-  * [Carimbos]
+  * [Ferramentas de exploração madeireira de armazenamento]
+  * [Utilização de ferramentas de registo de rede]
+* [Rastreio de ponta a ponta]
+  * [Correlacionar dados de registo]
+  * [ID de pedido de cliente]
+  * [ID de pedido do servidor]
+  * [Selos temporais]
 * [Orientação na resolução de problemas]
   * [As métricas apresentam uma AverageE2ELatency alta e uma AverageServerLatency baixa]
   * [As métricas apresentam uma AverageE2ELatency baixa e uma AverageServerLatency baixa, mas o cliente está a ter latência elevada]
@@ -59,209 +59,209 @@ Para obter um guia prático de solução de problemas de ponta a ponta em aplica
   * [O cliente está a receber mensagens de HTTP 403 (Proibido)]
   * [O cliente está a receber mensagens de HTTP 404 (Não encontrado)]
   * [O cliente está a receber mensagens de HTTP 409 (Conflito)]
-  * [Métricas mostram PercentSuccess baixa ou entradas de registo de análise tem operações com o estado de transação de ClientOtherErrors]
+  * [As métricas mostram que as entradas de registo low PercentSuccess ou analytics têm operações com o estado de transação do ClientOtherErrors]
   * [As métricas de capacidade mostram um aumento inesperado no uso da capacidade de armazenamento]
-  * [O problema se for utilizar o emulador de armazenamento para desenvolvimento ou teste]
-  * [Pode encontrar problemas ao instalar o Azure SDK para .NET]
-  * [Tem um problema com um serviço de armazenamento diferente]
-  * [Solucionando problemas de VHDs em máquinas virtuais do Windows](../../virtual-machines/windows/troubleshoot-vhds.md)   
-  * [Solucionando problemas de VHDs em máquinas virtuais Linux](../../virtual-machines/linux/troubleshoot-vhds.md)
-  * [Solucionando problemas de arquivos do Azure com o Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [Solucionando problemas de arquivos do Azure com o Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
-* [Appendices]
-  * [Apêndice 1: Utilizar o Fiddler para capturar o tráfego HTTP e HTTPS]
-  * [Apêndice 2: Wireshark a utilizar para capturar o tráfego de rede]
-  * [Apêndice 3: Utilizar o Microsoft Message Analyzer para capturar o tráfego de rede]
-  * [Apêndice 4: Com o Excel para ver métricas e registo de dados]
-  * [Apêndice 5: monitoramento com o Application Insights para o Azure DevOps]
+  * [O seu problema surge da utilização do emulador de armazenamento para desenvolvimento ou teste]
+  * [Encontra problemas na instalação do SDK Azure para .NET]
+  * [Você tem um problema diferente com um serviço de armazenamento]
+  * [Resolução de Problemas VHDs em máquinas virtuais do Windows](../../virtual-machines/windows/troubleshoot-vhds.md)   
+  * [Resolução de Problemas VHDs em máquinas virtuais Linux](../../virtual-machines/linux/troubleshoot-vhds.md)
+  * [Problemas de resolução de problemas de Ficheiros Azure com Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [Problemas de resolução de problemas de Ficheiros Azure com Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+* [Apêndices]
+  * [Apêndice 1: Usar o Violinista para capturar o tráfego HTTP e HTTPS]
+  * [Apêndice 2: Usar o Wireshark para capturar o tráfego da rede]
+  * [Apêndice 3: Usar o Microsoft Message Analyzer para capturar o tráfego da rede]
+  * [Apêndice 4: Utilizar o Excel para visualizar métricas e registar dados]
+  * [Apêndice 5: Monitorização com Insights de Aplicação para DevOps Azure]
 
 ## <a name="introduction"></a>Introdução
-Este guia mostra como usar recursos como Análise de Armazenamento do Azure, log do lado do cliente na biblioteca de cliente do armazenamento do Azure e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas relacionados ao armazenamento do Azure.
+Este guia mostra-lhe como usar funcionalidades como o Azure Storage Analytics, a exploração madeireira do lado do cliente na Biblioteca de Clientes de Armazenamento Azure e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas relacionados com o Armazenamento Azure.
 
 ![][1]
 
-Este guia deve ser lido principalmente pelos desenvolvedores de serviços online que usam os serviços de armazenamento do Azure e os profissionais de ti responsáveis pelo gerenciamento desse serviços online. Os objetivos deste guia são:
+Este guia destina-se a ser lido principalmente por desenvolvedores de serviços online que utilizam os Serviços de Armazenamento Azure e os IT Pros responsáveis pela gestão desses serviços online. Os objetivos deste guia são:
 
-* Para ajudá-lo a manter a integridade e o desempenho de suas contas de armazenamento do Azure.
-* Para fornecer os processos e as ferramentas necessárias para ajudá-lo a decidir se um problema ou problema em um aplicativo está relacionado ao armazenamento do Azure.
-* Para fornecer diretrizes acionáveis para resolver problemas relacionados ao armazenamento do Azure.
+* Para ajudá-lo a manter a saúde e desempenho das suas contas de Armazenamento Azure.
+* Para lhe fornecer os processos e ferramentas necessários para ajudá-lo a decidir se um problema ou problema numa aplicação está relacionado com o Armazenamento Azure.
+* Para lhe fornecer orientações atonais para resolver problemas relacionados com o Armazenamento Azure.
 
 ### <a name="how-this-guide-is-organized"></a>Como este guia é organizado
-A seção "[monitorando seu serviço de armazenamento]" descreve como monitorar a integridade e o desempenho de seus serviços de armazenamento do Azure usando métricas de análise de armazenamento do Azure (métricas de armazenamento).
+A secção "[Monitorização do seu serviço de armazenamento]de armazenamento " descreve como monitorizar a saúde e o desempenho dos seus serviços de armazenamento Azure usando métricas de análise de armazenamento azure (Métricas de armazenamento).
 
-A seção "[Diagnosticando problemas de armazenamento]" descreve como diagnosticar problemas usando o log de análise de armazenamento do Azure (log de armazenamento). Ele também descreve como habilitar o log do lado do cliente usando as instalações em uma das bibliotecas de cliente, como a biblioteca de cliente de armazenamento para .NET ou o SDK do Azure para Java.
+A secção "[Diagnóstico de problemas de armazenamento]de armazenamento de diagnóstico " descreve como diagnosticar problemas usando o registo de armazenamento de armazenamento azure (armazenamento madeirio). Também descreve como permitir a exploração madeireira do lado do cliente utilizando as instalações de uma das bibliotecas de clientes, como a Biblioteca de Clientes de Armazenamento para .NET ou o Azure SDK para Java.
 
-A seção "[rastreamento de ponta a ponta]" descreve como você pode correlacionar as informações contidas em vários arquivos de log e dados de métricas.
+A secção " Rastreio de[Rastreio de ponta a ponta]" descreve como pode correlacionar a informação contida em vários ficheiros de registo e dados de métricas.
 
-A seção "[Orientação na resolução de problemas]" fornece diretrizes de solução de problemas para alguns dos problemas comuns relacionados ao armazenamento que você pode encontrar.
+A secção " Orientação de resolução de[Orientação na resolução de problemas]" fornece orientação de resolução de problemas para alguns dos problemas comuns relacionados com o armazenamento que você pode encontrar.
 
-Os "[Appendices]" incluem informações sobre como usar outras ferramentas, como Wireshark e Netmon, para analisar dados de pacote de rede, o Fiddler para analisar mensagens HTTP/HTTPS e o Microsoft Message Analyzer para correlacionar os dados de log.
+Os "[Apêndices]" incluem informações sobre a utilização de outras ferramentas, como wireshark e Netmon para analisar dados de pacotes de rede, Fiddler para analisar mensagens HTTP/HTTPS e Microsoft Message Analyzer para correlacionar dados de registo.
 
-## <a name="monitoring-your-storage-service"></a>Monitorando seu serviço de armazenamento
-Se você estiver familiarizado com o monitoramento de desempenho do Windows, poderá considerar as métricas de armazenamento como sendo um equivalente do armazenamento do Azure dos contadores do monitor de desempenho do Windows. Em métricas de armazenamento, você encontrará um conjunto abrangente de métricas (contadores na terminologia do monitor de desempenho do Windows), como a disponibilidade do serviço, o número total de solicitações de serviço ou a porcentagem de solicitações bem-sucedidas para o serviço. Para obter uma lista completa das métricas disponíveis, consulte [análise de armazenamento esquema de tabela de métricas](https://msdn.microsoft.com/library/azure/hh343264.aspx). Você pode especificar se deseja que o serviço de armazenamento colete e agregue métricas a cada hora ou a cada minuto. Para obter mais informações sobre como habilitar métricas e monitorar suas contas de armazenamento, consulte [habilitando métricas de armazenamento e exibindo dados de métricas](https://go.microsoft.com/fwlink/?LinkId=510865).
+## <a name="monitoring-your-storage-service"></a>Monitorização do seu serviço de armazenamento
+Se estiver familiarizado com a monitorização de desempenho do Windows, pode pensar que as Métricas de Armazenamento são um equivalente de Armazenamento Azure dos balcões do Windows Performance Monitor. Nas Métricas de Armazenamento, encontrará um conjunto abrangente de métricas (contadores na terminologia do Windows Performance Monitor) como disponibilidade de serviço, número total de pedidos de serviço ou percentagem de pedidos de serviço bem-sucedidos. Para obter uma lista completa das métricas disponíveis, consulte [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx). Pode especificar se pretende que o serviço de armazenamento recolha e agrega métricas a cada hora ou a cada minuto. Para obter mais informações sobre como ativar métricas e monitorizar as suas contas de armazenamento, consulte [a Habilitação](https://go.microsoft.com/fwlink/?LinkId=510865)das métricas de armazenamento e os dados das métricas de visualização .
 
-Você pode escolher quais métricas por hora deseja exibir no [portal do Azure](https://portal.azure.com) e configurar regras que notificam os administradores por email sempre que uma métrica por hora excede um limite específico. Para obter mais informações, consulte [receber notificações de alerta](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
+Pode escolher quais as métricas horárias que pretende apresentar no [portal Azure](https://portal.azure.com) e configurar regras que notificam os administradores por e-mail sempre que uma métrica horária exceda um determinado limiar. Para mais informações, consulte [Receber Notificações](/azure/monitoring-and-diagnostics/monitoring-overview-alerts)de Alerta .
 
-Recomendamos que você examine [Azure monitor para armazenamento](../../azure-monitor/insights/storage-insights-overview.md) (versão prévia). É um recurso do Azure Monitor que oferece monitoramento abrangente de suas contas de armazenamento do Azure, fornecendo uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços de armazenamento do Azure. Ele não exige que você habilite ou configure nada, e você pode exibir imediatamente essas métricas dos gráficos interativos predefinidos e de outras visualizações incluídas.
+Recomendamos que reveja o [Monitor Azure para Armazenamento](../../azure-monitor/insights/storage-insights-overview.md) (pré-visualização). É uma característica do Azure Monitor que oferece uma monitorização abrangente das suas contas de Armazenamento Azure, fornecendo uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de Armazenamento Azure. Não requer que ative ou configure nada, e pode imediatamente visualizar estas métricas a partir dos gráficos interativos pré-definidos e outras visualizações incluídas.
 
-O serviço de armazenamento coleta métricas usando um melhor esforço, mas pode não registrar cada operação de armazenamento.
+O serviço de armazenamento recolhe métricas utilizando um esforço melhor, mas pode não registar todas as operações de armazenamento.
 
-No portal do Azure, você pode exibir métricas como disponibilidade, total de solicitações e números de latência média para uma conta de armazenamento. Uma regra de notificação também foi configurada para alertar um administrador se a disponibilidade cair abaixo de um determinado nível. Da exibição desses dados, uma área possível para investigação é a porcentagem de sucesso do serviço tabela abaixo de 100% (para obter mais informações, consulte a seção "as[Métricas mostram PercentSuccess baixa ou entradas de registo de análise tem operações com o estado de transação de ClientOtherErrors]").
+No portal Azure, pode ver métricas como disponibilidade, pedidos totais e números médios de latência para uma conta de armazenamento. Foi também criada uma regra de notificação para alertar um administrador se a disponibilidade descer abaixo de um determinado nível. Ao visualizar estes dados, uma área possível para investigação é a percentagem de sucesso do serviço de mesa abaixo de 100% (para mais informações, ver a secção "[As métricas mostram que as entradas de registo low PercentSuccess ou analytics têm operações com o estado de transação do ClientOtherErrors]").
 
-Você deve monitorar continuamente seus aplicativos do Azure para garantir que eles estejam íntegros e funcionando conforme o esperado:
+Deve monitorizar continuamente as suas aplicações Azure para garantir que estão saudáveis e a atuar como esperado:
 
-* Estabelecer algumas métricas de linha de base para o aplicativo que permitirá que você compare os dados atuais e identifique quaisquer alterações significativas no comportamento do armazenamento do Azure e do seu aplicativo. Os valores de suas métricas de linha de base serão, em muitos casos, específicos ao aplicativo e você deverá estabelecer isso quando estiver testando o desempenho de seu aplicativo.
-* Gravar métricas de minuto e usá-las para monitorar ativamente erros inesperados e anomalias, como picos de contagens de erros ou taxas de solicitação.
-* Gravar métricas por hora e usá-las para monitorar valores médios, como contagens médias de erros e taxas de solicitação.
-* Investigar possíveis problemas usando as ferramentas de diagnóstico, conforme discutido posteriormente na seção "[Diagnosticando problemas de armazenamento]".
+* Estabelecer algumas métricas de base para aplicação que lhe permitirão comparar os dados atuais e identificar quaisquer alterações significativas no comportamento do armazenamento do Azure e da sua aplicação. Os valores das suas métricas de base serão, em muitos casos, específicos da aplicação e deverá supor-se quando estiver a testar a sua aplicação.
+* Registar métricas minúsculas e usá-las para monitorizar ativamente erros e anomalias inesperadas, tais como picos nas contagens de erros ou taxas de pedido.
+* Registar métricas horárias e usá-las para monitorizar valores médios como contagens médias de erros e taxas de pedido.
+* Investigar potenciais problemas usando ferramentas de diagnóstico, como discutido mais tarde na secção "[Diagnóstico de problemas de armazenamento]de armazenamento ."
 
-Os gráficos na imagem a seguir ilustram como a média que ocorre para métricas por hora podem ocultar picos na atividade. As métricas por hora aparecem para mostrar uma taxa constante de solicitações, enquanto as métricas de minuto revelam as flutuações que estão realmente ocorrendo.
+Os gráficos na imagem seguinte ilustram como a média que ocorre para métricas horárias pode esconder picos de atividade. As métricas horárias parecem mostrar uma taxa constante de pedidos, enquanto as métricas minúsculas revelam as flutuações que estão realmente a ocorrer.
 
 ![][3]
 
-O restante desta seção descreve quais métricas você deve monitorar e por quê.
+O resto desta secção descreve quais as métricas que deve monitorizar e porquê.
 
-### <a name="monitoring-service-health"></a>Monitorando a integridade do serviço
-Você pode usar o [portal do Azure](https://portal.azure.com) para exibir a integridade do serviço de armazenamento (e outros serviços do Azure) em todas as regiões do Azure em todo o mundo. O monitoramento permite que você veja imediatamente se um problema fora do seu controle está afetando o serviço de armazenamento na região que você usa para seu aplicativo.
+### <a name="monitoring-service-health"></a>Monitorização da saúde do serviço
+Pode utilizar o [portal Azure](https://portal.azure.com) para ver a saúde do serviço de armazenamento (e outros serviços Azure) em todas as regiões do Azure em todo o mundo. A monitorização permite-lhe ver imediatamente se um problema fora do seu controlo está a afetar o serviço de Armazenamento na região que utiliza para a sua aplicação.
 
-O [portal do Azure](https://portal.azure.com) também pode fornecer notificações de incidentes que afetam os vários serviços do Azure.
-Observação: essas informações estavam disponíveis anteriormente, juntamente com os dados históricos, no [painel de serviços do Azure](https://status.azure.com).
+O [portal Azure](https://portal.azure.com) também pode fornecer notificações de incidentes que afetam os vários serviços Azure.
+Nota: Esta informação estava previamente disponível, juntamente com dados históricos, no [Painel de Assistência Azure](https://status.azure.com).
 
-Embora o [portal do Azure](https://portal.azure.com) colete informações de integridade de dentro dos data centers do Azure (monitoramento interno), você também pode considerar a adoção de uma abordagem externa para gerar transações sintéticas que acessam periodicamente seu aplicativo Web hospedado no Azure de vários locais. Os serviços oferecidos pelo [dynaTrace](https://www.dynatrace.com/en/synthetic-monitoring) e pelo Application insights para DevOps do Azure são exemplos dessa abordagem. Para obter mais informações sobre Application Insights do Azure DevOps, consulte o apêndice "[Apêndice 5: monitorando com Application insights para o Azure DevOps](#appendix-5)".
+Enquanto o [portal Azure](https://portal.azure.com) recolhe informações de saúde de dentro dos centros de dados Azure (monitorização interna), também poderia considerar a adoção de uma abordagem externa para gerar transações sintéticas que acedem periodicamente à sua aplicação web hospedada no Azure a partir de vários locais. Os serviços oferecidos pela [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) e pela Application Insights para a Azure DevOps são exemplos desta abordagem. Para obter mais informações sobre os Insights de Aplicação para Azure DevOps, consulte o apêndice "[Apêndice 5: Monitorização com Insights de Aplicação para Azure DevOps](#appendix-5)."
 
-### <a name="monitoring-capacity"></a>Capacidade de monitoramento
-As métricas de armazenamento armazenam somente métricas de capacidade para o serviço blob porque os BLOBs normalmente se descontam para a maior proporção de dados armazenados (no momento da gravação, não é possível usar as métricas de armazenamento para monitorar a capacidade de suas tabelas e filas). Você poderá encontrar esses dados na tabela **$MetricsCapacityBlob** se tiver habilitado o monitoramento para o serviço BLOB. As métricas de armazenamento registram esses dados uma vez por dia e você pode usar o valor de **RowKey** para determinar se a linha contém uma entidade relacionada a dados de usuário ( **dados**de valor) ou dados de análise (valor **Analytics**). Cada entidade armazenada contém informações sobre a quantidade de armazenamento usada (**capacidade** medida em bytes) e o número atual de contêineres (**ContainerCount**) e blobs (**objectCount**) em uso na conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob** , consulte [análise de armazenamento esquema de tabela de métricas](https://msdn.microsoft.com/library/azure/hh343264.aspx).
+### <a name="monitoring-capacity"></a>Capacidade de monitorização
+Armazenamento As métricas apenas armazenam métricas de capacidade para o serviço de blob porque as bolhas normalmente representam a maior proporção de dados armazenados (no momento da escrita, não é possível usar Métricas de Armazenamento para monitorizar a capacidade das suas mesas e filas). Pode encontrar estes dados na tabela **$MetricsCapacityBlob** se tiver ativado a monitorização do serviço Blob. As Métricas de Armazenamento registam estes dados uma vez por dia, e pode utilizar o valor do **RowKey** para determinar se a linha contém uma entidade que se relaciona com os dados dos utilizadores **(dados**de valor) ou dados de análise **(análise**de valor). Cada entidade armazenada contém informações sobre a quantidade de armazenamento utilizada **(Capacidade** medida em bytes) e o número atual de contentores **(ContainerCount)** e blobs **(ObjectCount)** em uso na conta de armazenamento. Para obter mais informações sobre as métricas de capacidade armazenadas na tabela **$MetricsCapacityBlob,** consulte Storage [Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
-> Você deve monitorar esses valores para obter um aviso antecipado de que está se aproximando dos limites de capacidade de sua conta de armazenamento. No portal do Azure, você pode adicionar regras de alerta para notificá-lo se o uso de armazenamento agregado exceder ou cair abaixo dos limites que você especificar.
+> Deve monitorizar estes valores para um aviso precoce de que está a aproximar-se dos limites de capacidade da sua conta de armazenamento. No portal Azure, pode adicionar regras de alerta para notificá-lo se o uso agregado de armazenamento exceder ou ficar abaixo dos limiares que especifica.
 >
 >
 
-Para obter ajuda para estimar o tamanho de vários objetos de armazenamento, como BLOBs, consulte a postagem no blog [noções básicas sobre cobrança de armazenamento do Azure – largura de banda, transações e capacidade](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Para ajudar a estimar o tamanho de vários objetos de armazenamento, como bolhas, consulte o post de blog [Understanding Azure Storage Billing – Width, Transactions e Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-### <a name="monitoring-availability"></a>Monitorando a disponibilidade
-Você deve monitorar a disponibilidade dos serviços de armazenamento em sua conta de armazenamento monitorando o valor na coluna **disponibilidade** nas tabelas de métricas por hora ou minuto – **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$ MetricsCapacityBlob**. A coluna **disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou a operação da API representada pela linha (o **RowKey** mostra se a linha contém métricas para o serviço como um todo ou para uma operação de API específica).
+### <a name="monitoring-availability"></a>Monitorização da disponibilidade
+Deverá monitorizar a disponibilidade dos serviços de armazenamento na sua conta de armazenamento, monitorizando o valor da coluna **Disponibilidade** nas tabelas de métricas de hora ou minutos — **$MetricsHourPrimaryTransactionsBlob,** **$MetricsHourPrimaryTransactionsTable,** **$MetricsHourPrimaryTransactionsQueue,** **$MetricsMinutePrimaryTransactionsBlob,** **$MetricsMinutePrimaryTransactionsTable,** **$MetricsMinutePrimaryTransactionsQueue** **, MetricsCapacityBlob**. A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linha (a **RowKey** mostra se a linha contém métricas para o serviço como um todo ou para uma operação específica da API).
 
-Qualquer valor menor que 100% indica que algumas solicitações de armazenamento estão falhando. Você pode ver por que eles estão falhando examinando as outras colunas nos dados de métricas que mostram os números de solicitações com tipos de erro diferentes, como **ServerTimeoutError**. Você deve esperar que a **disponibilidade** fique temporariamente abaixo de 100% por motivos como tempos limite de servidor transitório enquanto o serviço move partições para uma solicitação de balanceamento de carga melhor; a lógica de repetição no aplicativo cliente deve lidar com essas condições intermitentes. O artigo [análise de armazenamento mensagens de status e operações registradas](https://msdn.microsoft.com/library/azure/hh343260.aspx) lista os tipos de transação que as métricas de armazenamento incluem em seu cálculo de **disponibilidade** .
+Qualquer valor inferior a 100% indica que alguns pedidos de armazenamento estão a falhar. Pode ver porque estão a falhar examinando as outras colunas nos dados das métricas que mostram o número de pedidos com diferentes tipos de erros, tais como **ServerTimeoutError**. Deve esperar ver a **Disponibilidade** cair temporariamente abaixo de 100% por razões como intervalos transitórios do servidor enquanto o serviço move divisórias para um pedido de melhor equilíbrio de carga; a lógica de retry na sua aplicação cliente deve lidar com tais condições intermitentes. O artigo [Armazenamento Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/azure/hh343260.aspx) lista os tipos de transação que as Métricas de Armazenamento incluem no seu cálculo de **Disponibilidade.**
 
-No [portal do Azure](https://portal.azure.com), você pode adicionar regras de alerta para notificá-lo se a **disponibilidade** de um serviço estiver abaixo de um limite especificado.
+No [portal Azure,](https://portal.azure.com)pode adicionar regras de alerta para notificá-lo se **a Disponibilidade** para um serviço ficar abaixo de um limiar que especifica.
 
-A seção "[Orientação na resolução de problemas]" deste guia descreve alguns dos problemas de serviço de armazenamento comuns relacionados à disponibilidade.
+A secção " Orientação de resolução de[Orientação na resolução de problemas]" deste guia descreve alguns problemas comuns de serviço de armazenamento relacionados com a disponibilidade.
 
-### <a name="monitoring-performance"></a>Monitorando o desempenho
-Para monitorar o desempenho dos serviços de armazenamento, você pode usar as seguintes métricas das tabelas de métricas por hora e minuto.
+### <a name="monitoring-performance"></a>Desempenho de monitorização
+Para monitorizar o desempenho dos serviços de armazenamento, pode utilizar as seguintes métricas a partir das tabelas de métricas de hora e minutos.
 
-* Os valores nas colunas **AverageE2ELatency** e **AverageServerLatency** mostram o tempo médio que o serviço de armazenamento ou o tipo de operação de API está demorando para processar solicitações. **AverageE2ELatency** é uma medida de latência de ponta a ponta que inclui o tempo necessário para ler a solicitação e enviar a resposta além do tempo necessário para processar a solicitação (portanto, inclui a latência de rede quando a solicitação atinge o serviço de armazenamento); **AverageServerLatency** é uma medida apenas do tempo de processamento e, portanto, exclui qualquer latência de rede relacionada à comunicação com o cliente. Consulte a seção "as[As métricas apresentam uma AverageE2ELatency alta e uma AverageServerLatency baixa]" posteriormente neste guia para obter uma discussão sobre por que pode haver uma diferença significativa entre esses dois valores.
-* Os valores nas colunas **TotalIngress** e **TotalEgress** mostram a quantidade total de dados, em bytes, chegando e saindo do serviço de armazenamento ou por meio de um tipo de operação de API específica.
-* Os valores na coluna **TotalRequests** mostram o número total de solicitações que o serviço de armazenamento da operação de API está recebendo. **TotalRequests** é o número total de solicitações que o serviço de armazenamento recebe.
+* Os valores nas colunas **AverageE2ELatency** e **AverageServerLatency** mostram o tempo médio que o serviço de armazenamento ou o tipo de operação API estão a levar para processar pedidos. **AverageE2ELatency** é uma medida de latência de ponta a ponta que inclui o tempo de leitura do pedido e enviar a resposta para além do tempo de processo (portanto, inclui latência da rede assim que o pedido chegar ao serviço de armazenamento); **AverageServerLatency** é uma medida do tempo de processamento e, portanto, exclui qualquer latência da rede relacionada com a comunicação com o cliente. Consulte a secção "[As métricas apresentam uma AverageE2ELatency alta e uma AverageServerLatency baixa]" mais tarde neste guia para uma discussão sobre por que pode haver uma diferença significativa entre estes dois valores.
+* Os valores nas colunas **TotalIngress** e **TotalEgress** mostram a quantidade total de dados, em bytes, entrando e saindo do seu serviço de armazenamento ou através de um tipo específico de operação API.
+* Os valores na coluna **TotalRequests** mostram o número total de pedidos que o serviço de armazenamento da operação API está a receber. **TotalRequests** é o número total de pedidos que o serviço de armazenamento recebe.
 
-Normalmente, você monitorará alterações inesperadas em qualquer um desses valores como um indicador de que você tem um problema que requer investigação.
+Normalmente, irá monitorizar para alterações inesperadas em qualquer um destes valores como um indicador de que tem um problema que requer investigação.
 
-No [portal do Azure](https://portal.azure.com), você pode adicionar regras de alerta para notificá-lo se qualquer uma das métricas de desempenho desse serviço cair abaixo ou exceder um limite especificado.
+No [portal Azure,](https://portal.azure.com)pode adicionar regras de alerta para notificá-lo se alguma das métricas de desempenho deste serviço ficar abaixo ou exceder um limiar que especifica.
 
-A seção "[Orientação na resolução de problemas]" deste guia descreve alguns dos problemas de serviço de armazenamento comuns relacionados ao desempenho.
+A secção "[Orientação na resolução de problemas]" deste guia descreve alguns problemas comuns de serviço de armazenamento relacionados com o desempenho.
 
-## <a name="diagnosing-storage-issues"></a>Diagnosticando problemas de armazenamento
-Há várias maneiras que você pode estar atento a um problema ou problema em seu aplicativo, incluindo:
+## <a name="diagnosing-storage-issues"></a>Diagnóstico de problemas de armazenamento
+Há várias maneiras de tomar conhecimento de um problema ou problema na sua aplicação, incluindo:
 
-* Uma grande falha que faz com que o aplicativo falhe ou pare de funcionar.
-* Alterações significativas de valores de linha de base nas métricas que você está monitorando, conforme descrito na seção anterior "[monitorando seu serviço de armazenamento]".
-* Relatórios de usuários de seu aplicativo que alguma operação específica não foi concluída conforme o esperado ou que algum recurso não está funcionando.
-* Erros gerados em seu aplicativo que aparecem em arquivos de log ou por meio de algum outro método de notificação.
+* Uma falha grave que faz com que a aplicação se despenhe ou deixe de funcionar.
+* Alterações significativas dos valores de base nas métricas que está a monitorizar como descrito na secção anterior "[Monitorização do seu serviço de armazenamento]de armazenamento ."
+* Relatos de utilizadores da sua aplicação de que alguma operação em particular não foi concluída como esperado ou que alguma funcionalidade não está a funcionar.
+* Erros gerados dentro da sua aplicação que aparecem em ficheiros de registo ou através de algum outro método de notificação.
 
-Normalmente, os problemas relacionados aos serviços de armazenamento do Azure se enquadram em uma das quatro categorias amplas:
+Tipicamente, as questões relacionadas com os serviços de armazenamento azure enquadram-se numa das quatro grandes categorias:
 
-* Seu aplicativo tem um problema de desempenho, relatado por seus usuários ou revelado por alterações nas métricas de desempenho.
-* Há um problema com a infraestrutura de armazenamento do Azure em uma ou mais regiões.
-* Seu aplicativo está encontrando um erro, relatado por seus usuários ou revelado por um aumento em uma das métricas de contagem de erros que você monitora.
-* Durante o desenvolvimento e o teste, você pode estar usando o emulador de armazenamento local; Você pode encontrar alguns problemas relacionados especificamente ao uso do emulador de armazenamento.
+* A sua aplicação tem um problema de desempenho, relatado pelos seus utilizadores, ou revelado por alterações nas métricas de desempenho.
+* Existe um problema com a infraestrutura de armazenamento Azure em uma ou mais regiões.
+* A sua aplicação encontra um erro, relatado pelos seus utilizadores, ou revelado por um aumento numa das métricas de contagem de erros que monitoriza.
+* Durante o desenvolvimento e teste, pode estar a utilizar o emulador de armazenamento local; pode encontrar algumas questões relacionadas especificamente com o uso do emulador de armazenamento.
 
-As seções a seguir descrevem as etapas que você deve seguir para diagnosticar e solucionar problemas em cada uma dessas quatro categorias. A seção "[Orientação na resolução de problemas]" mais adiante neste guia fornece mais detalhes para alguns problemas comuns que você pode encontrar.
+As seguintes secções descrevem os passos que deve seguir para diagnosticar e resolver problemas em cada uma destas quatro categorias. A secção " Orientação de[Orientação na resolução de problemas]" mais tarde neste guia fornece mais detalhes para algumas questões comuns que você pode encontrar.
 
-### <a name="service-health-issues"></a>Problemas de integridade do serviço
-Os problemas de integridade do serviço normalmente estão fora do seu controle. O [portal do Azure](https://portal.azure.com) fornece informações sobre quaisquer problemas contínuos com os serviços do Azure, incluindo serviços de armazenamento. Se você tiver optado pelo armazenamento com redundância geográfica com acesso de leitura quando criou sua conta de armazenamento, se seus dados ficarem indisponíveis no local primário, seu aplicativo poderá mudar temporariamente para a cópia somente leitura no local secundário. Para ler a partir do secundário, seu aplicativo deve ser capaz de alternar entre usar os locais de armazenamento primário e secundário e ser capaz de trabalhar em um modo de funcionalidade reduzido com dados somente leitura. As bibliotecas de cliente de armazenamento do Azure permitem que você defina uma política de repetição que pode ler do armazenamento secundário caso uma leitura do armazenamento primário falhe. Seu aplicativo também precisa estar ciente de que os dados no local secundário são eventualmente consistentes. Para obter mais informações, consulte a postagem do blog [Opções de redundância de armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+### <a name="service-health-issues"></a>Problemas de saúde do serviço
+Os problemas de saúde do serviço estão normalmente fora do seu controlo. O [portal Azure](https://portal.azure.com) fornece informações sobre quaisquer problemas em curso com os serviços Azure, incluindo serviços de armazenamento. Se optou pelo Armazenamento Geo-Redundante de Leitura-Acesso quando criou a sua conta de armazenamento, então se os seus dados ficarem indisponíveis no local principal, a sua aplicação pode mudar temporariamente para a cópia apenas de leitura no local secundário. Para ler a partir do secundário, a sua aplicação deve ser capaz de alternar entre a utilização dos locais de armazenamento primário e secundário e poder trabalhar num modo de funcionalidade reduzido com dados apenas de leitura. As bibliotecas do Cliente de Armazenamento Azure permitem definir uma política de retry que pode ler a partir do armazenamento secundário no caso de uma leitura do armazenamento primário falhar. A sua aplicação também precisa de estar ciente de que os dados no local secundário são eventualmente consistentes. Para mais informações, consulte o blog post [Azure Storage Redundancy Options e read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ### <a name="performance-issues"></a>Problemas de desempenho
-O desempenho de uma aplicação pode ser subjetivo, sobretudo na perspetiva do utilizador. Por conseguinte, é importante ter métricas de linha base disponíveis para o ajudar a identificar onde poderá existir um problema de desempenho. Muitos fatores podem afetar o desempenho de um serviço de armazenamento do Azure da perspectiva do aplicativo cliente. Esses fatores podem operar no serviço de armazenamento, no cliente ou na infraestrutura de rede; Portanto, é importante ter uma estratégia para identificar a origem do problema de desempenho.
+O desempenho de uma aplicação pode ser subjetivo, sobretudo na perspetiva do utilizador. Por conseguinte, é importante ter métricas de linha base disponíveis para o ajudar a identificar onde poderá existir um problema de desempenho. Muitos fatores podem afetar o desempenho de um serviço de armazenamento Azure do ponto de vista da aplicação do cliente. Estes fatores podem funcionar no serviço de armazenamento, no cliente, ou na infraestrutura de rede; por conseguinte, é importante dispor de uma estratégia para identificar a origem da questão do desempenho.
 
-Depois de identificar o local provável da causa do problema de desempenho das métricas, você poderá usar os arquivos de log para encontrar informações detalhadas para diagnosticar e solucionar o problema ainda mais.
+Depois de ter identificado a localização provável da causa do problema de desempenho a partir das métricas, pode então utilizar os ficheiros de registo para encontrar informações detalhadas para diagnosticar e resolver ainda mais o problema.
 
-A seção "[Orientação na resolução de problemas]" mais adiante neste guia fornece mais informações sobre alguns problemas comuns relacionados ao desempenho que você pode encontrar.
+A secção " Orientação de[Orientação na resolução de problemas]" mais tarde neste guia fornece mais informações sobre algumas questões comuns relacionadas com o desempenho que você pode encontrar.
 
-### <a name="diagnosing-errors"></a>Diagnosticando erros
-Os usuários do seu aplicativo podem notificá-lo de erros relatados pelo aplicativo cliente. As métricas de armazenamento também registram contagens de tipos de erro diferentes de seus serviços de armazenamento, como **NetworkError**, **ClientTimeoutError**ou **AuthorizationError**. Enquanto as métricas de armazenamento registram apenas contagens de tipos de erro diferentes, você pode obter mais detalhes sobre solicitações individuais examinando os logs de servidor, do lado do cliente e da rede. Normalmente, o código de status HTTP retornado pelo serviço de armazenamento fornecerá uma indicação de por que a solicitação falhou.
+### <a name="diagnosing-errors"></a>Diagnóstico de erros
+Os utilizadores da sua aplicação podem notificá-lo dos erros reportados pela aplicação do cliente. As Métricas de Armazenamento também registam contagens de diferentes tipos de erros dos seus serviços de armazenamento, tais como **NetworkError,** **ClientTimeoutError**, ou **AuthorizationError**. Enquanto as Métricas de Armazenamento registam apenas contagens de diferentes tipos de erros, pode obter mais detalhes sobre pedidos individuais examinando registos do lado do servidor, do lado do cliente e da rede. Normalmente, o código de estado HTTP devolvido pelo serviço de armazenamento dará uma indicação do motivo pelo qual o pedido falhou.
 
 > [!NOTE]
-> Lembre-se de que você deve esperar ver alguns erros intermitentes: por exemplo, erros devido a condições transitórias de rede ou erros de aplicativo.
+> Lembre-se que deve esperar ver alguns erros intermitentes: por exemplo, erros devido a condições de rede transitórias ou erros de aplicação.
 >
 >
 
 Os recursos seguintes são úteis para compreender os códigos de estado e erro relacionados com o armazenamento:
 
-* [Códigos de erro comuns da API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx)
+* [Códigos comuns de erro da API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx)
 * [Códigos de Erro do Serviço de Blobs](https://msdn.microsoft.com/library/azure/dd179439.aspx)
-* [Códigos de erro do serviço fila](https://msdn.microsoft.com/library/azure/dd179446.aspx)
-* [Códigos de erro do serviço tabela](https://msdn.microsoft.com/library/azure/dd179438.aspx)
-* [Códigos de erro do serviço de arquivo](https://msdn.microsoft.com/library/azure/dn690119.aspx)
+* [Códigos de erro do serviço de fila](https://msdn.microsoft.com/library/azure/dd179446.aspx)
+* [Códigos de erro do serviço de mesa](https://msdn.microsoft.com/library/azure/dd179438.aspx)
+* [Códigos de erro de serviço de ficheiros](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
 ### <a name="storage-emulator-issues"></a>Problemas do emulador de armazenamento
-O SDK do Azure inclui um emulador de armazenamento que você pode executar em uma estação de trabalho de desenvolvimento. Esse emulador simula a maior parte do comportamento dos serviços de armazenamento do Azure e é útil durante o desenvolvimento e o teste, permitindo que você execute aplicativos que usam os serviços de armazenamento do Azure sem a necessidade de uma assinatura do Azure e uma conta de armazenamento do Azure.
+O Azure SDK inclui um emulador de armazenamento que pode executar numa estação de trabalho de desenvolvimento. Este emulador simula a maior parte do comportamento dos serviços de armazenamento Azure e é útil durante o desenvolvimento e teste, permitindo-lhe executar aplicações que utilizam serviços de armazenamento Azure sem a necessidade de uma subscrição Azure e uma conta de armazenamento Azure.
 
-A seção "[Orientação na resolução de problemas]" deste guia descreve alguns problemas comuns encontrados usando o emulador de armazenamento.
+A secção " Orientação de Resolução de[Orientação na resolução de problemas]" deste guia descreve algumas questões comuns encontradas usando o emulador de armazenamento.
 
-### <a name="storage-logging-tools"></a>Ferramentas de log de armazenamento
-O log de armazenamento fornece registro em log de solicitações de armazenamento no lado do servidor em sua conta de armazenamento do Azure. Para obter mais informações sobre como habilitar o registro em log do lado do servidor e acessar os dados de log, consulte [habilitando o log de armazenamento e acessando dados de log](https://go.microsoft.com/fwlink/?LinkId=510867).
+### <a name="storage-logging-tools"></a>Ferramentas de exploração madeireira de armazenamento
+Armazenamento A Logging fornece registo de pedidos de armazenamento do lado do servidor na sua conta de armazenamento Azure. Para obter mais informações sobre como ativar o registo do lado do servidor e aceder aos dados de registo, consulte [a ativação](https://go.microsoft.com/fwlink/?LinkId=510867)do registo de armazenamento e o acesso aos dados de registo .
 
-A biblioteca de cliente de armazenamento para .NET permite que você colete dados de log do lado do cliente relacionados às operações de armazenamento executadas pelo seu aplicativo. Para obter mais informações, veja [Client-side Logging with the .NET Storage Client Library](https://go.microsoft.com/fwlink/?LinkId=510868) (Registo do Lado do Cliente com a Biblioteca de Clientes de Armazenamento .NET).
-
-> [!NOTE]
-> Em algumas circunstâncias (como falhas de autorização SAS), um usuário pode relatar um erro para o qual você pode encontrar nenhum dado de solicitação nos logs de armazenamento do lado do servidor. Você pode usar os recursos de log da biblioteca de cliente de armazenamento para investigar se a causa do problema está no cliente ou usar as ferramentas de monitoramento de rede para investigar a rede.
->
->
-
-### <a name="using-network-logging-tools"></a>Usando as ferramentas de log de rede
-Você pode capturar o tráfego entre o cliente e o servidor para fornecer informações detalhadas sobre os dados que o cliente e o servidor estão trocando e as condições de rede subjacentes. As ferramentas de log de rede úteis incluem:
-
-* O [Fiddler](https://www.telerik.com/fiddler) é um proxy de depuração Web gratuito que permite que você examine os cabeçalhos e os dados de conteúdo de mensagens de solicitação e resposta http e HTTPS. Para obter mais informações, consulte o [Apêndice 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
-* [Monitor de rede da Microsoft (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote para uma ampla gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte o "[Apêndice 2: usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
-* O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que, além da captura de dados de pacotes de rede, ajuda você a exibir e analisar os dados de log capturados de outras ferramentas. Para obter mais informações, consulte[o "Apêndice 3: usando o Microsoft Message Analyzer para capturar o tráfego de rede](#appendix-3)".
-* Se você quiser executar um teste de conectividade básico para verificar se o computador cliente pode se conectar ao serviço de armazenamento do Azure pela rede, não é possível fazer isso usando a ferramenta de **ping** padrão no cliente. No entanto, você pode usar a [ferramenta **tcping** ](https://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
-
-Em muitos casos, os dados de log do log de armazenamento e da biblioteca de cliente de armazenamento serão suficientes para diagnosticar um problema, mas em alguns cenários, talvez seja necessário obter informações mais detalhadas que essas ferramentas de log de rede podem fornecer. Por exemplo, usar o Fiddler para exibir mensagens HTTP e HTTPS permite exibir dados de cabeçalho e de carga enviados de e para os serviços de armazenamento, o que permite que você examine como um aplicativo cliente tenta operações de armazenamento novamente. Os analisadores de protocolo, como o Wireshark, operam no nível de pacote, permitindo que você exiba dados TCP, o que permite solucionar problemas de conectividade e pacotes perdidos. O analisador de mensagem pode operar em camadas HTTP e TCP.
-
-## <a name="end-to-end-tracing"></a>Rastreamento de ponta a ponta
-O rastreamento de ponta a ponta usando uma variedade de arquivos de log é uma técnica útil para investigar possíveis problemas. Você pode usar as informações de data/hora de seus dados de métrica como uma indicação de onde começar a procurar nos arquivos de log para obter as informações detalhadas que o ajudarão a solucionar o problema.
-
-### <a name="correlating-log-data"></a>Correlacionando dados de log
-Ao exibir logs de aplicativos cliente, rastreamentos de rede e log de armazenamento do lado do servidor, é essencial ser capaz de correlacionar as solicitações nos diferentes arquivos de log. Os arquivos de log incluem um número de campos diferentes que são úteis como identificadores de correlação. A ID de solicitação do cliente é o campo mais útil a ser usado para correlacionar entradas em logs diferentes. No entanto, às vezes, pode ser útil usar a ID de solicitação do servidor ou os carimbos de data/hora. As seções a seguir fornecem mais detalhes sobre essas opções.
-
-### <a name="client-request-id"></a>ID de solicitação do cliente
-A biblioteca de cliente de armazenamento gera automaticamente uma ID de solicitação de cliente exclusiva para cada solicitação.
-
-* No log do lado do cliente que a biblioteca de cliente de armazenamento cria, a ID de solicitação do cliente é exibida no campo **ID de solicitação do cliente** de cada entrada de log relacionada à solicitação.
-* Em um rastreamento de rede como um capturado pelo Fiddler, a ID de solicitação do cliente é visível em mensagens de solicitação como o valor do cabeçalho http **x-MS-Client-Request-ID** .
-* No log de armazenamento do lado do servidor, a ID de solicitação do cliente aparece na coluna ID de solicitação do cliente.
+A Biblioteca do Cliente de Armazenamento para .NET permite-lhe recolher dados de registo do lado do cliente relacionados com as operações de armazenamento realizadas pela sua aplicação. Para obter mais informações, veja [Client-side Logging with the .NET Storage Client Library](https://go.microsoft.com/fwlink/?LinkId=510868) (Registo do Lado do Cliente com a Biblioteca de Clientes de Armazenamento .NET).
 
 > [!NOTE]
-> É possível que várias solicitações compartilhem a mesma ID de solicitação de cliente, pois o cliente pode atribuir esse valor (embora a biblioteca de cliente de armazenamento atribua um novo valor automaticamente). Quando o cliente tenta novamente, todas as tentativas compartilham a mesma ID de solicitação do cliente. No caso de um lote enviado do cliente, o lote tem uma única ID de solicitação de cliente.
+> Em algumas circunstâncias (como falhas de autorização SAS), um utilizador pode reportar um erro para o qual não encontra dados de pedido nos registos de Armazenamento do lado do servidor. Pode utilizar as capacidades de registo da Biblioteca de Clientes de Armazenamento para investigar se a causa do problema está no cliente ou utilizar ferramentas de monitorização de rede para investigar a rede.
 >
 >
 
-### <a name="server-request-id"></a>ID de solicitação do servidor
-O serviço de armazenamento gera automaticamente IDs de solicitação do servidor.
+### <a name="using-network-logging-tools"></a>Utilização de ferramentas de registo de rede
+Pode capturar o tráfego entre o cliente e o servidor para fornecer informações detalhadas sobre os dados que o cliente e o servidor estão a trocar e as condições de rede subjacentes. Ferramentas úteis de registo de rede incluem:
 
-* No log de armazenamento do lado do servidor, a ID de solicitação do servidor aparece na coluna de **cabeçalho ID da solicitação** .
-* Em um rastreamento de rede como um capturado pelo Fiddler, a ID de solicitação do servidor aparece em mensagens de resposta como o valor do cabeçalho http **x-MS-Request-ID** .
-* No log do lado do cliente que a biblioteca de cliente de armazenamento cria, a ID de solicitação do servidor é exibida na coluna **texto da operação** para a entrada de log mostrando os detalhes da resposta do servidor.
+* [Fiddler](https://www.telerik.com/fiddler) é um proxy de depuração web gratuito que lhe permite examinar os cabeçalhos e os dados de carga útil de MENSAGENs de pedido e resposta HTTP e HTTPS. Para mais informações, consulte [o Apêndice 1: Utilizar o Violinista para capturar o tráfego HTTP e HTTPS](#appendix-1).
+* [O Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e o [Wireshark](https://www.wireshark.org/) são analisadores de protocolos de rede gratuitos que lhe permitem visualizar informações detalhadas sobre pacotes para uma vasta gama de protocolos de rede. Para obter mais informações sobre wireshark, consulte "[Apêndice 2: Usar o Wireshark para capturar o tráfego](#appendix-2)da rede ".
+* O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que além de capturar dados de pacotes de rede, ajuda-o a visualizar e analisar os dados de registo capturados a partir de outras ferramentas. Para mais informações, consulte " Apêndice 3: Utilizar o[Microsoft Message Analyzer para capturar o tráfego](#appendix-3)da rede ".
+* Se pretender realizar um teste de conectividade básico para verificar se a sua máquina cliente pode ligar-se ao serviço de armazenamento Azure através da rede, não pode fazê-lo utilizando a ferramenta de **ping** padrão no cliente. No entanto, pode utilizar a ferramenta [ **tcping** ](https://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
+
+Em muitos casos, os dados de registo do Armazenamento De registo e da Biblioteca de Clientes de Armazenamento serão suficientes para diagnosticar um problema, mas em alguns cenários, poderá necessitar da informação mais detalhada que estas ferramentas de registo de rede podem fornecer. Por exemplo, usar o Fiddler para visualizar mensagens HTTP e HTTPS permite-lhe visualizar dados de cabeçalho e carga útil enviados de e para os serviços de armazenamento, o que lhe permitiria examinar como uma aplicação de cliente retenta operações de armazenamento. Os analisadores de protocolos, como o Wireshark, operam ao nível do pacote, permitindo-lhe visualizar dados de TCP, o que lhe permitiria resolver problemas com pacotes perdidos e problemas de conectividade. O Analisador de Mensagens pode funcionar tanto nas camadas HTTP como nas camadas TCP.
+
+## <a name="end-to-end-tracing"></a>Rastreio de ponta a ponta
+Rastreio de ponta a ponta usando uma variedade de ficheiros de registo é uma técnica útil para investigar potenciais problemas. Pode utilizar as informações de data/hora a partir dos seus dados de métricas como indicação de onde começar a procurar nos ficheiros de registo para obter informações detalhadas que o ajudarão a resolver o problema.
+
+### <a name="correlating-log-data"></a>Correlacionar dados de registo
+Ao visualizar registos de aplicações de clientes, vestígios de rede e registo de armazenamento do lado do servidor, é fundamental poder correlacionar os pedidos através dos diferentes ficheiros de registo. Os ficheiros de registo incluem uma série de diferentes campos que são úteis como identificadores de correlação. O ID de pedido do cliente é o campo mais útil para ser usado para correlacionar as entradas nos diferentes registos. No entanto, por vezes, pode ser útil usar o ID de pedido do servidor ou selos de tempo. As seguintes secções fornecem mais detalhes sobre estas opções.
+
+### <a name="client-request-id"></a>ID de pedido de cliente
+A Biblioteca do Cliente de Armazenamento gera automaticamente um ID de pedido único do cliente para cada pedido.
+
+* No registo do cliente que a Biblioteca do Cliente de Armazenamento cria, o ID de pedido do cliente aparece no campo de ID do Pedido de **Cliente** de cada entrada de registo relacionada com o pedido.
+* Num traço de rede, como um capturado pela Fiddler, o ID de pedido do cliente é visível em mensagens de pedido como o valor de cabeçalho http de **x-ms-cliente-pedido-id** HTTP.
+* No registo de registo de registo de armazenamento do lado do servidor, o ID de pedido do cliente aparece na coluna de ID de pedido do Cliente.
 
 > [!NOTE]
-> O serviço de armazenamento sempre atribui uma ID de solicitação de servidor exclusiva a cada solicitação recebida, para que cada tentativa de repetição do cliente e de cada operação incluída em um lote tenha uma ID de solicitação de servidor exclusiva.
+> É possível que vários pedidos partilhem o mesmo ID de pedido de cliente porque o cliente pode atribuir este valor (embora a Biblioteca do Cliente de Armazenamento atribua automaticamente um novo valor). Quando o cliente se retenta, todas as tentativas partilham a mesma identificação de pedido de cliente. No caso de um lote enviado do cliente, o lote tem uma identificação de pedido de cliente único.
 >
 >
 
-Se a biblioteca de cliente de armazenamento gerar uma **StorageException** no cliente, a propriedade **RequestInformation** conterá um objeto **RequestResult** que inclui uma propriedade de um **pedido** . Você também pode acessar um objeto **RequestResult** de uma instância do **OperationContext** .
+### <a name="server-request-id"></a>ID de pedido do servidor
+O serviço de armazenamento gera automaticamente iDs de pedido de servidor.
 
-O exemplo de código abaixo demonstra como definir um valor de **ClientRequestId** personalizado anexando um objeto **OperationContext** à solicitação ao serviço de armazenamento. Ele também mostra como recuperar o valor de **ServerRequestId** da mensagem de resposta.
+* No registo de registo de registo de registo de armazenamento do lado do servidor, o ID de pedido do servidor aparece na coluna de cabeçalho do **Id de Pedido.**
+* Num traço de rede, como um capturado pelo Fiddler, o ID de pedido do servidor aparece em mensagens de resposta como o valor do cabeçalho http do **x-ms-request-id.**
+* No registo do lado do cliente que a Biblioteca do Cliente de Armazenamento cria, o ID de pedido do servidor aparece na coluna 'Texto de **Operação'** para a entrada de registo mostrando detalhes da resposta do servidor.
+
+> [!NOTE]
+> O serviço de armazenamento atribui sempre um ID de pedido de servidor único a cada pedido que recebe, pelo que cada tentativa de retry do cliente e cada operação incluída num lote tem um ID de pedido de servidor único.
+>
+>
+
+Se a Biblioteca do Cliente de Armazenamento lançar uma **Exceção** de Armazenamento no cliente, a propriedade **RequestInformation** contém um objeto **RequestResult** que inclui uma propriedade **ServiceRequestID.** Também pode aceder a um objeto **RequestResult** a partir de uma instância **OperationContext.**
+
+A amostra de código abaixo demonstra como definir um valor personalizado **do ClienteRequestId** anexando um objeto **OperationContext** o pedido ao serviço de armazenamento. Também mostra como recuperar o valor **ServerRequestId** a partir da mensagem de resposta.
 
 ```csharp
 //Parse the connection string for the storage account.
@@ -295,16 +295,16 @@ catch (StorageException storageException)
 }
 ```
 
-### <a name="timestamps"></a>Carimbos
-Você também pode usar carimbos de data/hora para localizar entradas de log relacionadas, mas tenha cuidado com qualquer distorção de relógio entre o cliente e o servidor que podem existir. Pesquise mais ou menos 15 minutos para corresponder entradas do lado do servidor com base no carimbo de data/hora no cliente. Lembre-se de que os metadados de BLOB para os blobs que contêm métricas indicam o intervalo de tempo para as métricas armazenadas no BLOB. Esse intervalo de tempo será útil se você tiver muitos blobs de métricas para o mesmo minuto ou hora.
+### <a name="timestamps"></a>Selos temporais
+Também pode usar selos temporais para localizar entradas de registo relacionadas, mas tenha cuidado com qualquer desvio de relógio entre o cliente e o servidor que possa existir. Procure mais ou menos 15 minutos para combinar as entradas do lado do servidor com base na marca de tempo no cliente. Lembre-se que os metadados blob para as bolhas que contêm métricas indicam o intervalo de tempo para as métricas armazenadas na bolha. Este intervalo de tempo é útil se tiver muitas manchas métricas durante o mesmo minuto ou hora.
 
-## <a name="troubleshooting-guidance"></a>Diretrizes de solução de problemas
-Esta seção irá ajudá-lo com o diagnóstico e a solução de problemas de alguns dos problemas comuns que seu aplicativo pode encontrar ao usar os serviços de armazenamento do Azure. Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
+## <a name="troubleshooting-guidance"></a>Orientação de resolução de problemas
+Esta secção irá ajudá-lo no diagnóstico e resolução de problemas de algumas das questões comuns que a sua aplicação pode encontrar ao utilizar os serviços de armazenamento Azure. Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
-**Árvore de decisão de solução de problemas**
+**Árvore de decisão de resolução de problemas**
 
 ---
-Seu problema está relacionado ao desempenho de um dos serviços de armazenamento?
+O seu problema diz respeito ao desempenho de um dos serviços de armazenamento?
 
 * [As métricas apresentam uma AverageE2ELatency alta e uma AverageServerLatency baixa]
 * [As métricas apresentam uma AverageE2ELatency baixa e uma AverageServerLatency baixa, mas o cliente está a ter latência elevada]
@@ -312,54 +312,54 @@ Seu problema está relacionado ao desempenho de um dos serviços de armazenament
 * [Ocorrem atrasos inesperados na entrega de mensagens numa fila]
 
 ---
-Seu problema está relacionado à disponibilidade de um dos serviços de armazenamento?
+O seu problema diz respeito à disponibilidade de um dos serviços de armazenamento?
 
 * [As métricas apresentam um aumento do PercentThrottlingError]
 * [As métricas apresentam um aumento do PercentTimeoutError]
 * [As métricas apresentam um aumento do PercentNetworkError]
 
 ---
- O aplicativo cliente está recebendo uma resposta HTTP 4XX (como 404) de um serviço de armazenamento?
+ A sua aplicação cliente está a receber uma resposta HTTP 4XX (como 404) de um serviço de armazenamento?
 
 * [O cliente está a receber mensagens de HTTP 403 (Proibido)]
 * [O cliente está a receber mensagens de HTTP 404 (Não encontrado)]
 * [O cliente está a receber mensagens de HTTP 409 (Conflito)]
 
 ---
-[Métricas mostram PercentSuccess baixa ou entradas de registo de análise tem operações com o estado de transação de ClientOtherErrors]
+[As métricas mostram que as entradas de registo low PercentSuccess ou analytics têm operações com o estado de transação do ClientOtherErrors]
 
 ---
 [As métricas de capacidade mostram um aumento inesperado no uso da capacidade de armazenamento]
 
 ---
-[Você está enfrentando reinicializações inesperadas de máquinas virtuais que têm um grande número de VHDs anexados]
+[Você está experimentando reboots inesperados de Máquinas Virtuais que têm um grande número de VHDs anexados]
 
 ---
-[O problema se for utilizar o emulador de armazenamento para desenvolvimento ou teste]
+[O seu problema surge da utilização do emulador de armazenamento para desenvolvimento ou teste]
 
 ---
-[Pode encontrar problemas ao instalar o Azure SDK para .NET]
+[Encontra problemas na instalação do SDK Azure para .NET]
 
 ---
-[Tem um problema com um serviço de armazenamento diferente]
+[Você tem um problema diferente com um serviço de armazenamento]
 
 ---
-### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram alta AverageE2ELatency e baixa AverageServerLatency
-A ilustração abaixo da ferramenta de monitoramento de [portal do Azure](https://portal.azure.com) mostra um exemplo em que o **AverageE2ELatency** é significativamente maior do que o **AverageServerLatency**.
+### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram uma alta média E2ELatency e baixa médiaServerLatency
+A ilustração abaixo da ferramenta de monitorização do [portal Azure](https://portal.azure.com) mostra um exemplo em que a **MédiaE2ELatency** é significativamente superior à **Média ServerLatency**.
 
 ![][4]
 
-O serviço de armazenamento calcula apenas a métrica **AverageE2ELatency** para solicitações bem-sucedidas e, ao contrário de **AverageServerLatency**, inclui o tempo que o cliente leva para enviar os dados e receber a confirmação do serviço de armazenamento. Portanto, uma diferença entre **AverageE2ELatency** e **AverageServerLatency** pode ser devido ao aplicativo cliente estar lento para responder ou devido a condições na rede.
+O serviço de armazenamento apenas calcula a métrica **AverageE2ELatency** para pedidos bem sucedidos e, ao contrário da **AverageServerLatency,** inclui o tempo que o cliente demora a enviar os dados e receber reconhecimento do serviço de armazenamento. Portanto, uma diferença entre **AverageE2ELatency** e **AverageServerLatency** pode ser devido à aplicação do cliente ser lenta para responder, ou devido às condições na rede.
 
 > [!NOTE]
-> Você também pode exibir **E2ELatency** e **ServerLatency** para operações de armazenamento individuais nos dados de log de log de armazenamento.
+> Também pode **visualizar e2ELatency** e **ServerLatency** para operações individuais de armazenamento nos dados de registo de registo de armazenamento.
 >
 >
 
-#### <a name="investigating-client-performance-issues"></a>Investigando problemas de desempenho do cliente
-As possíveis razões para o cliente responder lentamente incluem ter um número limitado de conexões ou threads disponíveis, ou ter poucos recursos, como CPU, memória ou largura de banda de rede. Talvez seja possível resolver o problema modificando o código do cliente para ser mais eficiente (por exemplo, usando chamadas assíncronas para o serviço de armazenamento) ou usando uma máquina virtual maior (com mais núcleos e mais memória).
+#### <a name="investigating-client-performance-issues"></a>Investigar problemas de desempenho do cliente
+As possíveis razões para o cliente responder lentamente incluem ter um número limitado de ligações ou fios disponíveis, ou ser baixo em recursos como CPU, memória ou largura de banda da rede. Poderá ser capaz de resolver o problema modificando o código do cliente para ser mais eficiente (por exemplo, utilizando chamadas assíncronas para o serviço de armazenamento), ou utilizando uma Máquina Virtual maior (com mais núcleos e mais memória).
 
-Para os serviços tabela e fila, o algoritmo Nagle também pode causar alta **AverageE2ELatency** em comparação com **AverageServerLatency**: para obter mais informações, consulte o [algoritmo do post Nagle não é amigável em direção a pequenas solicitações](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Você pode desabilitar o algoritmo Nagle no código usando a classe **ServicePointManager** no namespace **System.net** . Você deve fazer isso antes de fazer qualquer chamada para os serviços de tabela ou fila em seu aplicativo, pois isso não afeta as conexões que já estão abertas. O exemplo a seguir vem do método **Application_Start** em uma função de trabalho.
+Para os serviços de mesa e fila, o algoritmo Nagle também pode causar **alta médiaE2ELatency** em comparação com **averageServerLatency**: para mais informações, consulte o algoritmo pós [Nagle não é amigável para pequenos pedidos](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Pode desativar o algoritmo Nagle em código utilizando a classe **ServicePointManager** no **espaço de** System.Net nome. Deve fazê-lo antes de fazer chamadas para a mesa ou serviços de fila na sua aplicação, uma vez que isso não afeta ligações que já estão abertas. O exemplo que se segue provém do método **Application_Start** no papel de trabalhador.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -369,127 +369,127 @@ ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAcc
 queueServicePoint.UseNagleAlgorithm = false;
 ```
 
-Você deve verificar os logs do lado do cliente para ver quantas solicitações seu aplicativo cliente está enviando e verificar afunilamentos de desempenho relacionados ao .NET geral em seu cliente, como CPU, coleta de lixo do .NET, utilização de rede ou memória. Como ponto de partida para a solução de problemas de aplicativos cliente .NET, consulte [depuração, rastreamento e criação de perfil](https://msdn.microsoft.com/library/7fe0dd2y).
+Deverá verificar os registos do lado do cliente para ver quantos pedidos o seu pedido de cliente está a enviar, e verificar se existem estrangulamentos gerais de desempenho relacionados com .NET no seu cliente, tais como CPU, .NET recolha de lixo, utilização da rede ou memória. Como ponto de partida para a resolução de problemas com aplicações de clientes .NET, consulte [Debugging, Tracing e Profiling](https://msdn.microsoft.com/library/7fe0dd2y).
 
-#### <a name="investigating-network-latency-issues"></a>Investigando problemas de latência de rede
-Normalmente, a alta latência de ponta a ponta causada pela rede é devido a condições transitórias. Você pode investigar os problemas de rede transitórios e persistentes, como pacotes descartados usando ferramentas como o Wireshark ou o Microsoft Message Analyzer.
+#### <a name="investigating-network-latency-issues"></a>Investigar problemas de latência da rede
+Tipicamente, a alta latência de ponta a ponta causada pela rede deve-se a condições transitórias. Pode investigar problemas de rede transitórios e persistentes, tais como pacotes abandonados, utilizando ferramentas como o Wireshark ou o Microsoft Message Analyzer.
 
-Para obter mais informações sobre como usar o Wireshark para solucionar problemas de rede, consulte o "[Apêndice 2: Wireshark a utilizar para capturar o tráfego de rede]".
+Para obter mais informações sobre o uso da Wireshark para resolver problemas de rede, consulte "[Apêndice 2: Usar o Wireshark para capturar o tráfego da rede]da rede ."
 
-Para obter mais informações sobre como usar o Microsoft Message Analyzer para solucionar problemas de rede, consulte[Apêndice 3: Utilizar o Microsoft Message Analyzer para capturar o tráfego de rede]".
+Para obter mais informações sobre a utilização do Microsoft Message Analyzer para resolver problemas de rede, consulte " Apêndice 3: Utilizar o[Apêndice 3: Usar o Microsoft Message Analyzer para capturar o tráfego da rede]da rede ."
 
-### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram baixa AverageE2ELatency e baixa AverageServerLatency, mas o cliente está sofrendo alta latência
-Nesse cenário, a causa mais provável é um atraso nas solicitações de armazenamento que atingem o serviço de armazenamento. Você deve investigar por que as solicitações do cliente não estão fazendo isso no serviço BLOB.
+### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram baixa média E2ELatency e baixa médiaServerLatency, mas o cliente está com alta latência
+Neste cenário, a causa mais provável é um atraso nos pedidos de armazenamento que chegam ao serviço de armazenamento. Deve investigar porque é que os pedidos do cliente não estão a chegar ao serviço de blob.
 
-Um motivo possível para o cliente atrasar o envio de solicitações é que há um número limitado de conexões ou threads disponíveis.
+Uma das razões possíveis para o cliente atrasar os pedidos é que há um número limitado de ligações ou fios disponíveis.
 
-Verifique também se o cliente está executando várias tentativas e investigue o motivo, se for. Para determinar se o cliente está executando várias tentativas, você pode:
+Verifique também se o cliente está a realizar várias tentativas e investigue a razão se for. Para determinar se o cliente está a realizar múltiplas tentativas, pode:
 
-* Examine os logs de Análise de Armazenamento. Se várias repetições estiverem ocorrendo, você verá várias operações com a mesma ID de solicitação de cliente, mas com IDs de solicitação de servidor diferentes.
-* Examine os logs do cliente. O log detalhado indicará que houve uma nova tentativa.
-* Depure seu código e verifique as propriedades do objeto **OperationContext** associado à solicitação. Se a operação for repetida, a propriedade **RequestResults** incluirá várias IDs de solicitação de servidor exclusivas. Você também pode verificar as horas de início e de término de cada solicitação. Para obter mais informações, consulte o exemplo de código na seção [ID de solicitação do servidor].
+* Examine os registos de Análise de Armazenamento. Se várias tentativas estiverem a acontecer, verá várias operações com o mesmo ID de pedido de cliente, mas com diferentes iDs de pedido de servidor.
+* Examine os registos do cliente. A exploração madeireira verbosa indicará que ocorreu uma nova tentativa.
+* Desinveja o seu código e verifique as propriedades do objeto **OperationContext** associado supérficante ao pedido. Se a operação tiver sido novamente tentada, a propriedade **RequestResults** incluirá múltiplas iDs de pedido de servidor únicos. Também pode verificar os tempos de início e fim para cada pedido. Para mais informações, consulte a amostra de código na secção [ID de pedido do servidor]do servidor .
 
-Se não houver nenhum problema no cliente, investigue possíveis problemas de rede, como perda de pacotes. Você pode usar ferramentas como o Wireshark ou o Microsoft Message Analyzer para investigar problemas de rede.
+Se não houver problemas no cliente, deve investigar potenciais problemas de rede, como a perda de pacotes. Pode utilizar ferramentas como wireshark ou Microsoft Message Analyzer para investigar problemas de rede.
 
-Para obter mais informações sobre como usar o Wireshark para solucionar problemas de rede, consulte o "[Apêndice 2: Wireshark a utilizar para capturar o tráfego de rede]".
+Para obter mais informações sobre o uso da Wireshark para resolver problemas de rede, consulte "[Apêndice 2: Usar o Wireshark para capturar o tráfego da rede]da rede ."
 
-Para obter mais informações sobre como usar o Microsoft Message Analyzer para solucionar problemas de rede, consulte[Apêndice 3: Utilizar o Microsoft Message Analyzer para capturar o tráfego de rede]".
+Para obter mais informações sobre a utilização do Microsoft Message Analyzer para resolver problemas de rede, consulte " Apêndice 3: Utilizar o[Apêndice 3: Usar o Microsoft Message Analyzer para capturar o tráfego da rede]da rede ."
 
-### <a name="metrics-show-high-AverageServerLatency"></a>As métricas mostram alta AverageServerLatency
-No caso de alta **AverageServerLatency** para solicitações de download de BLOB, você deve usar os logs de log de armazenamento para ver se há solicitações repetidas para o mesmo BLOB (ou conjunto de BLOBs). Para solicitações de upload de BLOB, você deve investigar o tamanho de bloco que o cliente está usando (por exemplo, blocos com menos de 64 K de tamanho podem resultar em sobrecargas, a menos que as leituras também estejam em blocos inferiores a 64 K) e se vários clientes estiverem carregando blocos para o mesmo blob em para LELO. Você também deve verificar as métricas por minuto em busca de picos no número de solicitações que resultam na excedente os destinos de escalabilidade por segundo: Consulte também "as[As métricas apresentam um aumento do PercentTimeoutError]".
+### <a name="metrics-show-high-AverageServerLatency"></a>As métricas mostram uma elevada média de atraso no servidor
+No caso de **uma elevada média de** venda de serviços para pedidos de descarregamento de blob, deve utilizar os registos de registo de armazenamento para ver se existem pedidos repetidos para a mesma bolha (ou conjunto de bolhas). Para pedidos de upload de blob, você deve investigar o tamanho do bloco que o cliente está usando (por exemplo, blocos com menos de 64 K de tamanho pode resultar em despesas aéreas a menos que as leituras também estejam em pedaços inferiores a 64 K), e se vários clientes estão carregando blocos para a mesma bolha em para para llel. Deve também verificar as métricas por minuto para picos no número de pedidos que resultam em exceder os objetivos de escalabilidade por segundo: ver também "[As métricas apresentam um aumento do PercentTimeoutError]."
 
-Se você estiver vendo alta **AverageServerLatency** para solicitações de download de blob quando houver solicitações repetidas no mesmo BLOB ou conjunto de BLOBs, deverá considerar armazenar esses BLOBs em cache usando o cache do Azure ou a CDN (rede de distribuição de conteúdo) do Azure. Para solicitações de upload, você pode melhorar a taxa de transferência usando um tamanho de bloco maior. Para consultas a tabelas, também é possível implementar o cache do lado do cliente em clientes que executam as mesmas operações de consulta e onde os dados não são alterados com frequência.
+Se estiver a ver uma **alta média de vendas para** pedidos de descarregamento de blob quando há pedidos repetidos a mesma bolha ou conjunto de bolhas, então deve considerar o corte destas bolhas usando o Azure Cache ou a Rede de Entrega de Conteúdos Azure (CDN). Para pedidos de upload, pode melhorar a entrada utilizando um tamanho de bloco maior. Para consultas a tabelas, também é possível implementar o caching do lado do cliente em clientes que realizam as mesmas operações de consulta e onde os dados não mudam frequentemente.
 
-Valores de alta **AverageServerLatency** também podem ser um sintoma de tabelas ou consultas mal projetadas que resultam em operações de verificação ou que seguem o antipadrão Append/preceder. Para obter mais informações, consulte "as[As métricas apresentam um aumento do PercentThrottlingError]".
-
-> [!NOTE]
-> Você pode encontrar uma lista abrangente de verificação de desempenho da lista de verificação aqui: [armazenamento do Microsoft Azure lista de verificação de desempenho e escalabilidade](storage-performance-checklist.md).
->
->
-
-### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Você está enfrentando atrasos inesperados na entrega de mensagens em uma fila
-Se você estiver enfrentando um atraso entre a hora em que um aplicativo adiciona uma mensagem a uma fila e o tempo que ela torna disponível para leitura da fila, execute as seguintes etapas para diagnosticar o problema:
-
-* Verifique se o aplicativo está adicionando as mensagens à fila com êxito. Verifique se o aplicativo não está repetindo o método **AddMessage** várias vezes antes de ter sucesso. Os logs da biblioteca de cliente de armazenamento mostrarão novas tentativas repetidas de operações de armazenamento.
-* Verifique se não há nenhuma distorção de relógio entre a função de trabalho que adiciona a mensagem à fila e a função de trabalho que lê a mensagem da fila que a torna exibida como se houver um atraso no processamento.
-* Verifique se a função de trabalho que lê as mensagens da fila está falhando. Se um cliente de fila chamar o método **GetMessage** , mas não responder com uma confirmação, a mensagem permanecerá invisível na fila até que o período de **invisibilityTimeout** expire. Neste ponto, a mensagem fica disponível para processamento novamente.
-* Verifique se o comprimento da fila está crescendo ao longo do tempo. Isso pode ocorrer se você não tiver trabalhadores suficientes disponíveis para processar todas as mensagens que outros trabalhadores estão colocando na fila. Verifique também as métricas para ver se as solicitações de exclusão estão falhando e se o remover da fila as mensagens, o que pode indicar tentativas de falha repetidas para excluir a mensagem.
-* Examine os logs de log de armazenamento para qualquer operação de fila que tenha mais de **E2ELatency** e valores de **ServerLatency** esperados em um período de tempo maior do que o normal.
-
-### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>As métricas mostram um aumento em PercentThrottlingError
-Os erros de limitação ocorrem quando você excede as metas de escalabilidade de um serviço de armazenamento. O serviço de armazenamento limita-se a garantir que nenhum cliente ou locatário possa usar o serviço às custas de outros. Para obter mais informações, consulte [escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md) para obter detalhes sobre metas de escalabilidade para contas de armazenamento e metas de desempenho para partições nas contas de armazenamento.
-
-Se a métrica **PercentThrottlingError** mostrar um aumento na porcentagem de solicitações que estão falhando com um erro de limitação, você precisará investigar um dos dois cenários:
-
-* [Aumento transitório PercentThrottlingError]
-* [Aumento permanente PercentThrottlingError erro]
-
-Um aumento em **PercentThrottlingError** geralmente ocorre ao mesmo tempo que um aumento no número de solicitações de armazenamento ou quando você está inicialmente testando seu aplicativo. Isso também pode se manifestar no cliente como mensagens de status HTTP "503 Server Busy" ou "500 tempo limite de operação" de operações de armazenamento.
-
-#### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitório em PercentThrottlingError
-Se você estiver vendo picos no valor de **PercentThrottlingError** que coincidem com períodos de alta atividade para o aplicativo, implemente uma estratégia de retirada exponencial (não linear) para novas tentativas no cliente. As repetições de retirada reduzem a carga imediata na partição e ajudam seu aplicativo a suavizar picos de tráfego. Para obter mais informações sobre como implementar políticas de repetição usando a biblioteca de cliente de armazenamento, consulte o [namespace Microsoft. Azure. Storage. RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
+Valores de **Alta Média ServerLatency** também podem ser um sintoma de tabelas ou consultas mal concebidas que resultam em operações de digitalização ou que seguem o padrão de apêndice/preparação. Para mais informações, consulte "[As métricas apresentam um aumento do PercentThrottlingError]".
 
 > [!NOTE]
-> Você também pode ver picos no valor de **PercentThrottlingError** que não coincidem com períodos de alta atividade para o aplicativo: a causa mais provável aqui é o serviço de armazenamento que move partições para melhorar o balanceamento de carga.
+> Pode encontrar aqui uma lista completa de verificação de desempenho da lista de verificação: [Desempenho do Armazenamento do Microsoft Azure e lista](storage-performance-checklist.md)de verificação de escalabilidade .
 >
 >
 
-#### <a name="permanent-increase-in-PercentThrottlingError"></a>Aumento permanente no erro de PercentThrottlingError
-Se você estiver vendo um valor consistentemente alto para **PercentThrottlingError** seguindo um aumento permanente nos volumes de transação ou quando estiver executando os testes de carga iniciais em seu aplicativo, será necessário avaliar como seu aplicativo está usando partições de armazenamento e se ele está se aproximando das metas de escalabilidade de uma conta de armazenamento. Por exemplo, se você estiver vendo erros de limitação em uma fila (que conta como uma única partição), deverá considerar o uso de filas adicionais para distribuir as transações entre várias partições. Se você estiver vendo erros de limitação em uma tabela, precisará considerar o uso de um esquema de particionamento diferente para distribuir suas transações entre várias partições usando um intervalo maior de valores de chave de partição. Uma causa comum desse problema é o antipadrão preceder/acrescentar em que você seleciona a data como a chave de partição e, em seguida, todos os dados em um determinado dia são gravados em uma partição: sob carga, isso pode resultar em um afunilamento de gravação. Considere um design de particionamento diferente ou avalie se usar o armazenamento de BLOBs pode ser uma solução melhor. Verifique também se a limitação está ocorrendo como resultado de picos em seu tráfego e investigue maneiras de suavizar seu padrão de solicitações.
+### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Está a sofrer atrasos inesperados na entrega de mensagens numa fila
+Se estiver a passar por um atraso entre o momento em que uma aplicação adiciona uma mensagem a uma fila e o tempo que fica disponível para ler a partir da fila, então deve tomar os seguintes passos para diagnosticar o problema:
 
-Se você distribuir suas transações em várias partições, ainda deverá estar atento aos limites de escalabilidade definidos para a conta de armazenamento. Por exemplo, se você usou dez filas, cada uma processando o máximo de 2.000 1 KB de mensagens por segundo, você estará no limite geral de 20.000 mensagens por segundo para a conta de armazenamento. Se você precisar processar mais de 20.000 entidades por segundo, considere o uso de várias contas de armazenamento. Você também deve ter em mente que o tamanho de suas solicitações e entidades tem um impacto quando o serviço de armazenamento limita seus clientes: se você tiver mais solicitações e entidades, você poderá ser limitado mais cedo.
+* Verifique se a aplicação está a adicionar com sucesso as mensagens à fila. Verifique se a aplicação não está a tentar novamente o método **AddMessage** várias vezes antes de ter sucesso. Os registos da Biblioteca de Clientes de Armazenamento mostrarão quaisquer repetições repetidas de operações de armazenamento.
+* Verifique se não há nenhum desvio de relógio entre a função do trabalhador que adiciona a mensagem à fila e o papel do trabalhador que lê a mensagem da fila que faz parecer que há um atraso no processamento.
+* Verifique se o papel do trabalhador que lê as mensagens da fila está a falhar. Se um cliente de fila ligar para o método **GetMessage** mas não responder com um reconhecimento, a mensagem permanecerá invisível na fila até que o período de **invisibilidade Timeout** expire. Neste ponto, a mensagem volta a estar disponível para processamento.
+* Verifique se o comprimento da fila está a crescer ao longo do tempo. Isto pode ocorrer se não tiver trabalhadores suficientes disponíveis para processar todas as mensagens que outros trabalhadores estão colocando na fila. Verifique também as métricas para ver se os pedidos de eliminação estão a falhar e a contagem de fila em mensagens, o que pode indicar tentativas repetidas falhadas de apagar a mensagem.
+* Examine os registos de registo de armazenamento para quaisquer operações de fila que tenham valores **de E2ELatency** e **ServerLatency** superiores ao esperado durante um período de tempo mais longo do que o habitual.
 
-O design de consulta ineficiente também pode fazer com que você atinja os limites de escalabilidade para partições de tabela. Por exemplo, uma consulta com um filtro que seleciona apenas um percentual das entidades em uma partição, mas que examina todas as entidades em uma partição precisará acessar cada entidade. Cada entidade lida será contada para o número total de transações nessa partição; Portanto, você pode acessar facilmente as metas de escalabilidade.
+### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>As métricas mostram um aumento no PercentThrottlingError
+Erros de estrangulamento ocorrem quando excede os alvos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento acelera para garantir que nenhum cliente ou inquilino possa utilizar o serviço em detrimento de outros. Para obter mais informações, consulte [a escalabilidade e os objetivos](scalability-targets-standard-account.md) de desempenho para as contas de armazenamento padrão para obter detalhes sobre os alvos de escalabilidade para contas de armazenamento e metas de desempenho para divisórias dentro das contas de armazenamento.
+
+Se a métrica **PercentThrottlingError** mostrar um aumento na percentagem de pedidos que estão a falhar com um erro de estrangulamento, precisa de investigar um de dois cenários:
+
+* [Aumento transitório no PercentThrottlingError]
+* [Aumento permanente do erro do Erro PercentThrottling Error]
+
+Um aumento no **PercentThrottlingError** ocorre frequentemente ao mesmo tempo que um aumento no número de pedidos de armazenamento, ou quando está inicialmente a carregar a testar a sua aplicação. Isto também pode manifestar-se no cliente como "503 Server Busy" ou "500 Operation Timeout" HTTP mensagens de estado de http das operações de armazenamento.
+
+#### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitório no PercentThrottlingError
+Se estiver a ver picos no valor do **PercentThrottlingError** que coincidem com períodos de alta atividade para a aplicação, implementa uma estratégia exponencial (não linear) de back-off para repetições no seu cliente. Os retentores de back-off reduzem a carga imediata na divisória e ajudam a sua aplicação a suavizar os picos no tráfego. Para obter mais informações sobre como implementar políticas de retry utilizando a Biblioteca de Clientes de Armazenamento, consulte o [espaço de nome Microsoft.Azure.Storage.RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
-> Seu teste de desempenho deve revelar qualquer design de consulta ineficiente em seu aplicativo.
+> Também pode ver picos no valor do **PercentThrottlingError** que não coincidem com períodos de alta atividade para a aplicação: a causa mais provável aqui é o serviço de armazenamento movendo divisórias para melhorar o equilíbrio de carga.
 >
 >
 
-### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>As métricas mostram um aumento em PercentTimeoutError
-Suas métricas mostram um aumento no **PercentTimeoutError** para um dos seus serviços de armazenamento. Ao mesmo tempo, o cliente recebe um alto volume de mensagens de status HTTP de "tempo limite de operação 500" de operações de armazenamento.
+#### <a name="permanent-increase-in-PercentThrottlingError"></a>Aumento permanente do erro do Erro PercentThrottling Error
+Se estiver a ver um valor consistentemente elevado para o **PercentThrottlingError** na sequência de um aumento permanente dos volumes de transações, ou quando está a realizar os seus testes de carga iniciais na sua aplicação, então precisa de avaliar como a sua aplicação está a usar divisórias de armazenamento e se está a aproximar-se dos alvos de escalabilidade para uma conta de armazenamento. Por exemplo, se estiver a ver erros de estrangulamento numa fila (que conta como uma única divisória), então deve considerar usar filas adicionais para espalhar as transações em várias divisórias. Se estiver a ver erros de estrangulamento numa mesa, tem de considerar a utilização de um esquema de partilha diferente para difundir as suas transações em várias divisórias, utilizando uma gama mais alargada de valores-chave de divisórias. Uma das causas comuns deste problema é o anti-padrão de preparação/apêndice onde seleciona a data como chave de partição e, em seguida, todos os dados de um determinado dia são escritos a uma divisória: sob carga, isto pode resultar num estrangulamento de escrita. Ou considere um design de divisória diferente ou avalie se o uso do armazenamento de bolhas pode ser uma solução melhor. Verifique também se a estrangulamento está a ocorrer em resultado de picos no seu tráfego e investigue formas de suavizar o seu padrão de pedidos.
+
+Se distribuir as suas transações por várias divisórias, ainda deve estar ciente dos limites de escalabilidade definidos para a conta de armazenamento. Por exemplo, se usou dez filas cada uma processando o máximo de 2.000 mensagens 1KB por segundo, estará no limite global de 20.000 mensagens por segundo para a conta de armazenamento. Se precisa processar mais de 20.000 entidades por segundo, deve considerar a utilização de várias contas de armazenamento. Deve também ter em conta que a dimensão dos seus pedidos e entidades tem impacto no momento em que o serviço de armazenamento acelera os seus clientes: se tiver pedidos e entidades maiores, poderá ser estrangulado mais cedo.
+
+O design de consulta ineficiente também pode fazer com que você atinja os limites de escalabilidade para divisórias de mesa. Por exemplo, uma consulta com um filtro que seleciona apenas um por cento das entidades numa partição mas que digitaliza todas as entidades numa partição terá de aceder a cada entidade. Todas as entidades lidas contarão para o número total de transações nessa divisória; portanto, pode facilmente atingir os alvos de escalabilidade.
 
 > [!NOTE]
-> Você poderá ver erros de tempo limite temporariamente à medida que o serviço de armazenamento balancear a carga de solicitações movendo uma partição para um novo servidor.
+> Os seus testes de desempenho devem revelar quaisquer projetos de consulta ineficientes na sua aplicação.
 >
 >
 
-A métrica **PercentTimeoutError** é uma agregação das seguintes métricas: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**e **SASServerTimeoutError**.
+### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>As métricas mostram um aumento no PercentTimeoutError
+As suas métricas mostram um aumento no **PercentTimeoutError** para um dos seus serviços de armazenamento. Ao mesmo tempo, o cliente recebe um elevado volume de mensagens de estado "500 OperaTimeout" HTTP das operações de armazenamento.
 
-Os tempos limite do servidor são causados por um erro no servidor. Os tempos limite do cliente acontecem porque uma operação no servidor excedeu o tempo limite especificado pelo cliente; por exemplo, um cliente que usa a biblioteca de cliente de armazenamento pode definir um tempo limite para uma operação usando a propriedade **servertimeou** da classe **QueueRequestOptions** .
+> [!NOTE]
+> Pode ver erros de timeout temporariamente à medida que o serviço de armazenamento equilibra os pedidos, movendo uma partição para um novo servidor.
+>
+>
 
-Os tempos limite do servidor indicam um problema com o serviço de armazenamento que requer mais investigação. Você pode usar métricas para ver se está atingindo os limites de escalabilidade para o serviço e para identificar qualquer pico no tráfego que possa estar causando esse problema. Se o problema for intermitente, pode ser devido à atividade de balanceamento de carga no serviço. Se o problema for persistente e não for causado por seu aplicativo atingir os limites de escalabilidade do serviço, você deverá gerar um problema de suporte. Para tempos limite do cliente, você deve decidir se o tempo limite está definido como um valor apropriado no cliente e alterar o valor de tempo limite definido no cliente ou investigar como você pode melhorar o desempenho das operações no serviço de armazenamento, por exemplo, otimizando sua tabela consulta ou redução do tamanho de suas mensagens.
+A métrica **PercentTimeoutError** é uma agregação das seguintes métricas: **ClientTimeoutError**, **AnonymousTimeTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimetimeerror**e **SASServerTimeoutError**.
 
-### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>As métricas mostram um aumento em PercentNetworkError
-Suas métricas mostram um aumento no **PercentNetworkError** para um dos seus serviços de armazenamento. A métrica **PercentNetworkError** é uma agregação das seguintes métricas: **NetworkError**, **AnonymousNetworkError**e **SASNetworkError**. Isso ocorre quando o serviço de armazenamento detecta um erro de rede quando o cliente faz uma solicitação de armazenamento.
+Os intervalos do servidor são causados por um erro no servidor. Os prazos de cliente acontecem porque uma operação no servidor excedeu o prazo especificado pelo cliente; por exemplo, um cliente que utilize a Biblioteca do Cliente de Armazenamento pode definir um prazo para uma operação utilizando a propriedade **ServerTimeout** da classe **QueueRequestOptions.**
 
-A causa mais comum desse erro é a desconexão de um cliente antes do tempo limite expirar no serviço de armazenamento. Investigue o código em seu cliente para entender por que e quando o cliente se desconecta do serviço de armazenamento. Você também pode usar o Wireshark, o Microsoft Message Analyzer ou o Tcping para investigar problemas de conectividade de rede do cliente. Essas ferramentas são descritas nos [Appendices].
+Os intervalos do servidor indicam um problema com o serviço de armazenamento que requer uma investigação mais aprofundada. Pode usar métricas para ver se está a atingir os limites de escalabilidade do serviço e identificar quaisquer picos de tráfego que possam estar a causar este problema. Se o problema for intermitente, pode ser devido à atividade de equilíbrio de carga no serviço. Se o problema for persistente e não for causado pela sua aplicação atingir os limites de escalabilidade do serviço, deverá levantar uma questão de suporte. Para os timeouts do cliente, você deve decidir se o prazo definido para um valor apropriado no cliente e ou alterar o valor de timeout definido no cliente ou investigar como você pode melhorar o desempenho das operações no serviço de armazenamento, por exemplo, otimizando o tempo estabelecido no cliente as suas consultas de mesa ou reduzindo o tamanho das suas mensagens.
 
-### <a name="the-client-is-receiving-403-messages"></a>O cliente está recebendo mensagens HTTP 403 (proibido)
-Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das causas prováveis é o cliente estar a utilizar uma Assinatura de Acesso Partilhado (SAS) expirada quando envia um pedido de armazenamento (embora outras causas possíveis incluam distorção do relógio, chaves inválidas e cabeçalhos vazios). Se uma chave de SAS expirada for a causa, não verá entradas nos dados do Registo de Armazenamento do lado do servidor. A tabela a seguir mostra um exemplo do log do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra esse problema ocorrendo:
+### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>As métricas mostram um aumento no PercentNetworkError
+As suas métricas mostram um aumento no **PercentNetworkError** para um dos seus serviços de armazenamento. A métrica **PercentNetworkError** é uma agregação das seguintes métricas: **NetworkError**, **AnonymousNetworkError**, e **SASNetworkError**. Estes ocorrem quando o serviço de armazenamento deteta um erro de rede quando o cliente faz um pedido de armazenamento.
 
-| Origem | Verbosidade | Verbosidade | ID de pedido de cliente | Texto da operação |
+A causa mais comum deste erro é um cliente desligar antes que um prazo expire no serviço de armazenamento. Investigue o código no seu cliente para perceber porquê e quando o cliente se desliga do serviço de armazenamento. Também pode utilizar wireshark, Microsoft Message Analyzer ou Tcping para investigar problemas de conectividade de rede do cliente. Estas ferramentas são descritas nos [Apêndices]
+
+### <a name="the-client-is-receiving-403-messages"></a>O cliente está a receber mensagens HTTP 403 (Proibidas)
+Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das causas prováveis é o cliente estar a utilizar uma Assinatura de Acesso Partilhado (SAS) expirada quando envia um pedido de armazenamento (embora outras causas possíveis incluam distorção do relógio, chaves inválidas e cabeçalhos vazios). Se uma chave de SAS expirada for a causa, não verá entradas nos dados do Registo de Armazenamento do lado do servidor. A tabela seguinte mostra uma amostra do registo do lado do cliente gerado pela Biblioteca do Cliente de Armazenamento que ilustra este problema que ocorre:
+
+| Origem | Verbosidade | Verbosidade | ID de pedido de cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
-| Microsoft.Azure.Storage |Proteção das |3 |-... 85d077ab |Iniciando a operação com o local primário por modo de local PrimaryOnly. |
-| Microsoft.Azure.Storage |Proteção das |3 |-... 85d077ab |Iniciando solicitação síncrona para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.Azure.Storage |Proteção das |3 |-... 85d077ab |Aguardando resposta. |
-| Microsoft.Azure.Storage |Aviso |2 |-... 85d077ab |Exceção gerada ao aguardar a resposta: o servidor remoto retornou um erro: (403) proibido. |
-| Microsoft.Azure.Storage |Proteção das |3 |-... 85d077ab |Resposta recebida. Código de status = 403, ID da solicitação = 9d67c64a-64ed-4B0D-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
-| Microsoft.Azure.Storage |Aviso |2 |-... 85d077ab |Exceção lançada durante a operação: o servidor remoto retornou um erro: (403) proibido.. |
-| Microsoft.Azure.Storage |Proteção das |3 |-... 85d077ab |Verificando se a operação deve ser repetida. Contagem de repetições = 0, código de status HTTP = 403, exceção = o servidor remoto retornou um erro: (403) proibido.. |
-| Microsoft.Azure.Storage |Proteção das |3 |-... 85d077ab |O próximo local foi definido como primário, com base no modo de localização. |
-| Microsoft.Azure.Storage |Erro |1 |-... 85d077ab |A política de repetição não permitiu uma nova tentativa. A falha com o servidor remoto retornou um erro: (403) proibido. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab-... |Início da operação com localização Primary por modo de localização PrimaryOnly. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab -... |Iniciando um pedido sincronizado para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab -... |À espera de resposta. |
+| Microsoft.Azure.Storage |Aviso |2 |85d077ab -... |Exceção lançada enquanto aguarda resposta: O servidor remoto devolveu um erro: (403) Proibido. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab -... |Resposta recebida. Código de estado = 403, ID de pedido = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Aviso |2 |85d077ab -... |Exceção lançada durante a operação: O servidor remoto devolveu um erro: (403) Proibido.. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab -... |Verificando se a operação deve ser novamente tentada. Contagem de retry = 0, CÓDIGO de estado HTTP = 403, Exceção = O servidor remoto devolveu um erro: (403) Proibido.. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab -... |A próxima localização foi definida para Primary, com base no modo de localização. |
+| Microsoft.Azure.Storage |Erro |1 |85d077ab -... |A política de retry não permitiu uma nova tentativa. Falha com o servidor remoto devolveu um erro: (403) Proibido. |
 
-Nesse cenário, você deve investigar por que o token SAS expira antes que o cliente envie o token para o servidor:
+Neste cenário, deve investigar por que razão o token SAS está expirando antes que o cliente envie o token para o servidor:
 
 * Normalmente, não deve definir uma hora de início quando cria uma SAS para um cliente utilizar imediatamente. Se existirem pequenas diferenças horárias entre o anfitrião que gera a SAS com a hora atual e o serviço de armazenamento, é possível que o serviço de armazenamento receba uma SAS que ainda não seja válida.
 * Não defina um tempo de expiração demasiado curto numa SAS. Novamente, pequenas diferenças horárias entre o anfitrião que gera a SAS e o serviço de armazenamento podem levar uma SAS a expirar aparentemente mais cedo do que o previsto.
-* O parâmetro de versão na chave SAS (por exemplo, **VA = 2015-04-05**) corresponde à versão da biblioteca de cliente de armazenamento que você está usando? Recomendamos que você sempre use a versão mais recente da [biblioteca de cliente de armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/).
+* O parâmetro da versão na tecla SAS (por exemplo **sv=2015-04-05**) corresponde à versão da Biblioteca de Clientes de Armazenamento que está a utilizar? Recomendamos que utilize sempre a versão mais recente da Biblioteca do Cliente de [Armazenamento.](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * Se voltar a gerar as chaves de acesso ao armazenamento, quaisquer tokens de SAS existentes podem ser invalidados. Este problema pode ocorrer se gerar tokens de SAS com um tempo de expiração longo para aplicações cliente na cache.
 
-Se estiver a utilizar a Biblioteca de Cliente de Armazenamento para gerar tokens de SAS, é fácil criar um token válido. No entanto, se você estiver usando a API REST de armazenamento e construindo os tokens SAS manualmente, consulte [delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx).
+Se estiver a utilizar a Biblioteca de Cliente de Armazenamento para gerar tokens de SAS, é fácil criar um token válido. No entanto, se estiver a utilizar a API REST de armazenamento e a construir as fichas SAS à mão, consulte o [Acesso Delegante com uma Assinatura de Acesso Partilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
-### <a name="the-client-is-receiving-404-messages"></a>O cliente está recebendo mensagens HTTP 404 (não encontrado)
+### <a name="the-client-is-receiving-404-messages"></a>O cliente está a receber mensagens HTTP 404 (Não encontradas)
 Se a aplicação cliente receber uma mensagem de HTTP 404 (Não encontrado) do servidor, isso implica que o objeto que o cliente estava a tentar utilizar (por exemplo, um blob, contentor, entidade, tabela ou fila) não existe no serviço de armazenamento. Existem vários motivos possíveis para tal, como:
 
 * [O cliente ou outro processo eliminou anteriormente o objeto]
@@ -497,89 +497,89 @@ Se a aplicação cliente receber uma mensagem de HTTP 404 (Não encontrado) do s
 * [O código JavaScript do lado do cliente não tem permissão para aceder ao objeto]
 * [Falha de rede]
 
-#### <a name="client-previously-deleted-the-object"></a>O cliente ou outro processo excluiu anteriormente o objeto
-Em cenários em que o cliente está tentando ler, atualizar ou excluir dados em um serviço de armazenamento, normalmente é fácil identificar no log do lado do servidor uma operação anterior que excluiu o objeto em questão do serviço de armazenamento. Geralmente, os dados de log mostram que outro usuário ou processo excluiu o objeto. No log de armazenamento do lado do servidor, as colunas tipo de operação e chave de objeto solicitada mostram quando um cliente excluiu um objeto.
+#### <a name="client-previously-deleted-the-object"></a>O cliente ou outro processo anteriormente eliminado o objeto
+Nos cenários em que o cliente está a tentar ler, atualizar ou eliminar dados num serviço de armazenamento é geralmente fácil identificar nos registos do lado do servidor uma operação anterior que apagou o objeto em questão do serviço de armazenamento. Frequentemente, os dados de registo mostram que outro utilizador ou processo apagou o objeto. No registo de registo de registo de armazenamento do lado do servidor, as colunas de chave de objetos de funcionamento e solicitadas mostram quando um cliente apagou um objeto.
 
-No cenário em que um cliente está tentando inserir um objeto, pode não ser imediatamente óbvio porque isso resulta em uma resposta HTTP 404 (não encontrada), dado que o cliente está criando um novo objeto. No entanto, se o cliente estiver criando um blob, ele deverá ser capaz de localizar o contêiner de BLOBs, se o cliente estiver criando uma mensagem, ele deverá ser capaz de encontrar uma fila e, se o cliente estiver adicionando uma linha, ele deverá ser capaz de localizar a tabela.
+No cenário em que um cliente está a tentar inserir um objeto, pode não ser imediatamente óbvio por que isso resulta numa resposta HTTP 404 (Não encontrada) dado que o cliente está a criar um novo objeto. No entanto, se o cliente está a criar uma bolha, deve ser capaz de encontrar o recipiente blob, se o cliente estiver a criar uma mensagem deve ser capaz de encontrar uma fila, e se o cliente estiver adicionando uma linha deve ser capaz de encontrar a mesa.
 
-Você pode usar o log do lado do cliente da biblioteca do cliente de armazenamento para obter uma compreensão mais detalhada de quando o cliente envia solicitações específicas ao serviço de armazenamento.
+Pode utilizar o registo do lado do cliente da Biblioteca do Cliente de Armazenamento para obter uma compreensão mais detalhada de quando o cliente envia pedidos específicos para o serviço de armazenamento.
 
-O seguinte log do lado do cliente gerado pela biblioteca de cliente de armazenamento ilustra o problema quando o cliente não consegue encontrar o contêiner para o blob que está sendo criado. Esse log inclui detalhes das seguintes operações de armazenamento:
+O seguinte registo do lado do cliente gerado pela biblioteca do Cliente de Armazenamento ilustra o problema quando o cliente não consegue encontrar o recipiente para a bolha que está a criar. Este registo inclui detalhes das seguintes operações de armazenamento:
 
 | ID do pedido | Operação |
 | --- | --- |
-| -... 07b26a5d |Método **DeleteIfExists** para excluir o contêiner de BLOB. Observe que essa operação inclui uma solicitação **Head** para verificar a existência do contêiner. |
-| e2d06d78… |Método **CreateIfNotExists** para criar o contêiner de BLOB. Observe que essa operação inclui uma solicitação **Head** que verifica a existência do contêiner. A **cabeça** retorna uma mensagem 404, mas continua. |
-| -... de8b1c3c |Método **UploadFromStream** para criar o blob. A solicitação **Put** falha com uma mensagem 404 |
+| 07b26a5d-... |**EliminarSeExiste** método para eliminar o recipiente de bolhas. Note que esta operação inclui um pedido **HEAD** para verificar a existência do recipiente. |
+| e2d06d78… |**CreateIfNotExiste** método para criar o recipiente blob. Note que esta operação inclui um pedido **HEAD** que verifica a existência do recipiente. O **HEAD** devolve uma mensagem 404, mas continua. |
+| de8b1c3c-... |**Método UploadFromStream** para criar a bolha. O pedido **do PUT** falha com uma mensagem 404 |
 
-Entradas de log:
+Entradas de registo:
 
-| ID do pedido | Texto da operação |
+| ID do pedido | Texto da Operação |
 | --- | --- |
-| -... 07b26a5d |Iniciando a solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| -... 07b26a5d |StringToSign = HEAD............ x-MS-Client-Request-ID: 07b26a5d-.... x-MS-Date: terça-feira, 03 de junho de 2014 10:33:11 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. ResType: contêiner. |
-| -... 07b26a5d |Aguardando resposta. |
-| -... 07b26a5d |Resposta recebida. Código de status = 200, ID da solicitação = eeead849-... Content-MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
-| -... 07b26a5d |Os cabeçalhos de resposta foram processados com êxito, prosseguindo com o restante da operação. |
-| -... 07b26a5d |Baixando o corpo da resposta. |
-| -... 07b26a5d |Operação concluída com êxito. |
-| -... 07b26a5d |Iniciando a solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| -... 07b26a5d |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
-| -... 07b26a5d |Aguardando resposta. |
-| -... 07b26a5d |Resposta recebida. Código de status = 202, ID da solicitação = 6ab2a4cf-..., Content-MD5 =, ETag =. |
-| -... 07b26a5d |Os cabeçalhos de resposta foram processados com êxito, prosseguindo com o restante da operação. |
-| -... 07b26a5d |Baixando o corpo da resposta. |
-| -... 07b26a5d |Operação concluída com êxito. |
-| e2d06d78-... |Iniciando a solicitação assíncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
-| e2d06d78-... |StringToSign = HEAD............ x-MS-Client-Request-ID: e2d06d78-.... x-MS-Date: terça-feira, 03 de junho de 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. ResType: contêiner. |
-| e2d06d78-... |Aguardando resposta. |
-| -... de8b1c3c |Iniciando a solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
-| -... de8b1c3c |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
-| -... de8b1c3c |Preparando para gravar dados de solicitação. |
-| e2d06d78-... |Exceção gerada ao aguardar a resposta: o servidor remoto retornou um erro: (404) não encontrado.. |
-| e2d06d78-... |Resposta recebida. Código de status = 404, ID da solicitação = 353ae3bc-..., Content-MD5 =, ETag =. |
-| e2d06d78-... |Os cabeçalhos de resposta foram processados com êxito, prosseguindo com o restante da operação. |
-| e2d06d78-... |Baixando o corpo da resposta. |
-| e2d06d78-... |Operação concluída com êxito. |
-| e2d06d78-... |Iniciando a solicitação assíncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Iniciando um pedido sincronizado para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |StringtoSign = HEAD.................. x-ms-cliente-request-id:07b26a5d-.... x-ms-date:Tue, 03 jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |À espera de resposta. |
+| 07b26a5d-... |Resposta recebida. Código de estado = 200, Id de Pedido = eeead849-... Conteúdo-MD5 = , ETag = &quot;0x8D14D2DC63D059B&quot;. |
+| 07b26a5d-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
+| 07b26a5d-... |A descarregar o corpo de resposta. |
+| 07b26a5d-... |Operação concluída com sucesso. |
+| 07b26a5d-... |Iniciando um pedido sincronizado para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |À espera de resposta. |
+| 07b26a5d-... |Resposta recebida. Código de estado = 202, ID de pedido = 6ab2a4cf-..., Content-MD5 = , ETag = . |
+| 07b26a5d-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
+| 07b26a5d-... |A descarregar o corpo de resposta. |
+| 07b26a5d-... |Operação concluída com sucesso. |
+| e2d06d78-... |Iniciando um pedido assíncrono para https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |StringtoSign = HEAD.................. x-ms-cliente-request-id:e2d06d78-.... x-ms-date:Tue, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |À espera de resposta. |
+| de8b1c3c-... |Iniciando um pedido sincronizado para https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Preparando-se para escrever dados de pedidos. |
+| e2d06d78-... |Exceção lançada enquanto aguarda resposta: O servidor remoto devolveu um erro: (404) Não Encontrado.. |
+| e2d06d78-... |Resposta recebida. Código de estado = 404, ID de pedido = 353ae3bc-..., Content-MD5 = , ETag = . |
+| e2d06d78-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
+| e2d06d78-... |A descarregar o corpo de resposta. |
+| e2d06d78-... |Operação concluída com sucesso. |
+| e2d06d78-... |Iniciando um pedido assíncrono para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
-| e2d06d78-... |Aguardando resposta. |
-| -... de8b1c3c |Gravando dados de solicitação. |
-| -... de8b1c3c |Aguardando resposta. |
-| e2d06d78-... |Exceção gerada ao aguardar a resposta: o servidor remoto retornou um erro: (409) conflito.. |
-| e2d06d78-... |Resposta recebida. Código de status = 409, ID da solicitação = c27da20e-..., Content-MD5 =, ETag =. |
-| e2d06d78-... |Baixando o corpo da resposta de erro. |
-| -... de8b1c3c |Exceção gerada ao aguardar a resposta: o servidor remoto retornou um erro: (404) não encontrado.. |
-| -... de8b1c3c |Resposta recebida. Código de status = 404, ID da solicitação = 0eaeab3e-..., Content-MD5 =, ETag =. |
-| -... de8b1c3c |Exceção gerada durante a operação: o servidor remoto retornou um erro: (404) não encontrado.. |
-| -... de8b1c3c |A política de repetição não permitiu uma nova tentativa. Falha com o servidor remoto retornou um erro: (404) não encontrado.. |
-| e2d06d78-... |A política de repetição não permitiu uma nova tentativa. Falha com o servidor remoto retornou um erro: (409) conflito.. |
+| e2d06d78-... |À espera de resposta. |
+| de8b1c3c-... |Escrever dados de pedidos. |
+| de8b1c3c-... |À espera de resposta. |
+| e2d06d78-... |Exceção lançada enquanto aguarda resposta: O servidor remoto devolveu um erro: (409) Conflito.. |
+| e2d06d78-... |Resposta recebida. Código de estado = 409, ID de pedido = c27da20e-..., Content-MD5 = , ETag = . |
+| e2d06d78-... |Descarregar o corpo de resposta a erros. |
+| de8b1c3c-... |Exceção lançada enquanto aguarda resposta: O servidor remoto devolveu um erro: (404) Não Encontrado.. |
+| de8b1c3c-... |Resposta recebida. Código de estado = 404, ID de pedido = 0eaeab3e-..., Content-MD5 = , ETag = . |
+| de8b1c3c-... |Exceção lançada durante a operação: O servidor remoto devolveu um erro: (404) Não Encontrado.. |
+| de8b1c3c-... |A política de retry não permitiu uma nova tentativa. Falha com o servidor remoto devolveu um erro: (404) Não Encontrado.. |
+| e2d06d78-... |A política de retry não permitiu uma nova tentativa. Falha com o servidor remoto devolveu um erro: (409) Conflito.. |
 
-Neste exemplo, o log mostra que o cliente está intercalando solicitações do método **CreateIfNotExists** (ID da solicitação e2d06d78...) com as solicitações do método **UploadFromStream** (de8b1c3c-...). Essa intercalação acontece porque o aplicativo cliente está invocando esses métodos de forma assíncrona. Modifique o código assíncrono no cliente para garantir que ele crie o contêiner antes de tentar carregar quaisquer dados para um blob nesse contêiner. O ideal é que você crie todos os contêineres antecipadamente.
+Neste exemplo, o registo mostra que o cliente está a interceder pedidos do método **CreateIfNotExists** (solicitar ID e2d06d78...) com os pedidos do método **UploadFromStream** (de8b1c3c-...). Esta interdição acontece porque a aplicação do cliente está invocando estes métodos assincronicamente. Modifique o código assíncrono no cliente para garantir que cria o recipiente antes de tentar enviar quaisquer dados para uma bolha nesse recipiente. Idealmente, deve criar todos os seus recipientes com antecedência.
 
-#### <a name="SAS-authorization-issue"></a>Um problema de autorização de assinatura de acesso compartilhado (SAS)
-Se o aplicativo cliente tentar usar uma chave SAS que não inclua as permissões necessárias para a operação, o serviço de armazenamento retornará uma mensagem HTTP 404 (não encontrado) para o cliente. Ao mesmo tempo, você verá também um valor diferente de zero para **SASAuthorizationError** nas métricas.
+#### <a name="SAS-authorization-issue"></a>Um problema de autorização de assinatura de acesso partilhado (SAS)
+Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as permissões necessárias para a operação, o serviço de armazenamento devolve uma mensagem HTTP 404 (Não encontrada) ao cliente. Ao mesmo tempo, verá também um valor não nulo para o **SASAuthorizationError** nas métricas.
 
-A tabela a seguir mostra um exemplo de mensagem de log do lado do servidor do arquivo de log de log de armazenamento:
+A tabela que se segue mostra uma mensagem de registo do lado do servidor da amostra do ficheiro de registo de registo de armazenamento:
 
 | Nome | Valor |
 | --- | --- |
-| Hora de início da solicitação | 2014-05-30T06:17:48.4473697Z |
+| Hora de início do pedido | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
-| Status da solicitação     | SASAuthorizationError        |
+| Estado do pedido     | SASAuthorizationError        |
 | Código de estado de HTTP   | 404                          |
 | Tipo de autenticação| Sas                          |
-| Tipo de serviço       | Blob                         |
+| Tipo de serviço       | Blobs                         |
 | URL do Pedido        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
-| Cabeçalho da ID da solicitação  | a1f348d5-8032-4912-93ef-b393e5252a3b |
+| Pedir cabeçalho de ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de pedido de cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
-Investigue por que o aplicativo cliente está tentando executar uma operação para a qual não recebeu permissões.
+Investigue por que razão o seu pedido de cliente está a tentar realizar uma operação para a qual não lhe foram concedidas permissões.
 
-#### <a name="JavaScript-code-does-not-have-permission"></a>O código JavaScript do lado do cliente não tem permissão para acessar o objeto
-Se você estiver usando um cliente JavaScript e o serviço de armazenamento estiver retornando mensagens HTTP 404, verifique os seguintes erros de JavaScript no navegador:
+#### <a name="JavaScript-code-does-not-have-permission"></a>O código JavaScript do lado do cliente não tem permissão para aceder ao objeto
+Se estiver a utilizar um cliente JavaScript e o serviço de armazenamento estiver a devolver mensagens HTTP 404, verifique os seguintes erros JavaScript no navegador:
 
 ```
 SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
@@ -587,15 +587,15 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 ```
 
 > [!NOTE]
-> Você pode usar o Ferramentas para Desenvolvedores F12 no Internet Explorer para rastrear as mensagens trocadas entre o navegador e o serviço de armazenamento ao solucionar problemas de JavaScript do lado do cliente.
+> Pode utilizar as Ferramentas de Desenvolvimento F12 no Internet Explorer para rastrear as mensagens trocadas entre o navegador e o serviço de armazenamento quando estiver a resolver problemas com o lado do cliente, o JavaScript.
 >
 >
 
-Esses erros ocorrem porque o navegador da Web implementa a mesma restrição de segurança de [política de origem](https://www.w3.org/Security/wiki/Same_Origin_Policy) que impede que uma página da Web chame uma API em um domínio diferente do domínio do qual a página vem.
+Estes erros ocorrem porque o navegador implementa a mesma restrição de segurança da política de [origem](https://www.w3.org/Security/wiki/Same_Origin_Policy) que impede uma página web de chamar uma API num domínio diferente do domínio de onde a página provém.
 
-Para contornar o problema de JavaScript, você pode configurar o CORS (compartilhamento de recursos entre origens) para o serviço de armazenamento que o cliente está acessando. Para obter mais informações, consulte [suporte a CORS (compartilhamento de recursos entre origens) para serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).
+Para contornar o problema do JavaScript, pode configurar a Cross Origin Resource Sharing (CORS) para o serviço de armazenamento a que o cliente está a aceder. Para mais informações, consulte suporte para serviços de armazenamento de [recursos de origem cruzada (CORS) para serviços de armazenamento azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
-O exemplo de código a seguir mostra como configurar seu serviço blob para permitir que o JavaScript em execução no domínio contoso acesse um blob em seu serviço de armazenamento de BLOBs:
+A seguinte amostra de código mostra como configurar o seu serviço de blob para permitir que o JavaScript funcionano domínio Contoso aceda a uma bolha no seu serviço de armazenamento blob:
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
@@ -613,19 +613,19 @@ sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
 ```
 
-#### <a name="network-failure"></a>Falha de rede
-Em algumas circunstâncias, os pacotes de rede perdidos podem levar o serviço de armazenamento retornando mensagens HTTP 404 para o cliente. Por exemplo, quando o aplicativo cliente está excluindo uma entidade do serviço tabela, você vê que o cliente lança uma exceção de armazenamento relatando uma mensagem de status "HTTP 404 (não encontrado)" do serviço tabela. Ao investigar a tabela no serviço de armazenamento de tabela, você verá que o serviço excluiu a entidade conforme solicitado.
+#### <a name="network-failure"></a>Falha na rede
+Em algumas circunstâncias, os pacotes de rede perdidos podem levar ao serviço de armazenamento devolvendo mensagens HTTP 404 ao cliente. Por exemplo, quando a sua aplicação cliente está a apagar uma entidade do serviço de mesa, vê o cliente lançar uma exceção de armazenamento reportando uma mensagem de estado "HTTP 404 (Não Encontrada)" do serviço de mesa. Ao investigar a tabela no serviço de armazenamento de mesa, vê que o serviço apagou a entidade conforme solicitado.
 
-Os detalhes da exceção no cliente incluem a ID da solicitação (7e84f12d...) atribuída pelo serviço tabela para a solicitação: você pode usar essas informações para localizar os detalhes da solicitação nos logs de armazenamento do lado do servidor pesquisando na coluna **solicitação-ID-cabeçalho** no arquivo de log. Você também pode usar as métricas para identificar quando falhas, como isso ocorre, e então Pesquisar os arquivos de log com base no tempo em que as métricas registraram esse erro. Essa entrada de log mostra que a exclusão falhou com uma mensagem de status "erro de outro cliente HTTP (404)". A mesma entrada de log também inclui a ID da solicitação gerada pelo cliente na coluna **cliente-solicitação-ID** (813ea74f...).
+Os detalhes de exceção no cliente incluem o ID de pedido (7e84f12d...) atribuído pelo serviço de mesa para o pedido: você pode usar esta informação para localizar os detalhes do pedido nos registos de armazenamento do lado do servidor, pesquisando na coluna de **cabeçalho de pedido** no ficheiro de registo. Também pode utilizar as métricas para identificar quando ocorrerem falhas como esta e, em seguida, pesquisar os ficheiros de registo com base no momento em que as métricas registaram este erro. Esta entrada de registo mostra que a eliminação falhou com uma mensagem de estado "HTTP (404) Client Other Error". A mesma entrada de registo inclui também o ID de pedido gerado pelo cliente na coluna de **pedido-cliente** (813ea74f...).
 
-O log do lado do servidor também inclui outra entrada com o mesmo valor de **Client-Request-ID** (813ea74f...) para uma operação de exclusão bem-sucedida para a mesma entidade e do mesmo cliente. Essa operação de exclusão bem-sucedida ocorreu logo antes da solicitação de exclusão com falha.
+O registo do lado do servidor também inclui outra entrada com o mesmo valor de **cliente-pedido-id** (813ea74f...) para uma operação de eliminação bem sucedida para a mesma entidade, e do mesmo cliente. Esta operação de eliminação bem sucedida ocorreu muito pouco antes do pedido de eliminação falhado.
 
-A causa mais provável desse cenário é que o cliente enviou uma solicitação de exclusão para a entidade para o serviço tabela, que teve êxito, mas não recebeu uma confirmação do servidor (talvez devido a um problema de rede temporário). Em seguida, o cliente repetirá a operação automaticamente (usando a mesma **ID de cliente-solicitação**) e essa nova tentativa falhará porque a entidade já tinha sido excluída.
+A causa mais provável deste cenário é que o cliente enviou um pedido de eliminação da entidade para o serviço de mesa, que conseguiu, mas não recebeu um reconhecimento do servidor (talvez devido a um problema temporário de rede). O cliente voltou então a tentar automaticamente a operação (utilizando o mesmo **cliente-pedido-id),** e este retry falhou porque a entidade já tinha sido apagada.
 
-Se esse problema ocorrer com frequência, você deve investigar por que o cliente está falhando em receber confirmações do serviço tabela. Se o problema for intermitente, você deverá interceptar o erro "HTTP (404) não encontrado" e o registrar no cliente, mas permitir que o cliente continue.
+Se este problema ocorrer com frequência, deve investigar por que razão o cliente não está a receber agradecimentos do serviço de mesa. Se o problema for intermitente, deverá prender o erro "HTTP (404) Não Encontrado" e instá-lo no cliente, mas permitir que o cliente continue.
 
-### <a name="the-client-is-receiving-409-messages"></a>O cliente está recebendo mensagens HTTP 409 (conflito)
-A tabela a seguir mostra uma extração do log do lado do servidor para duas operações de cliente: **DeleteIfExists** seguido imediatamente pelo **CreateIfNotExists** usando o mesmo nome de contêiner de BLOB. Cada operação do cliente resulta em duas solicitações enviadas ao servidor, primeiro **uma solicitação** **getcontainerproperties** para verificar se o contêiner existe, seguido pela solicitação **DeleteContainer** ou createcontêiner.
+### <a name="the-client-is-receiving-409-messages"></a>O cliente está a receber mensagens HTTP 409 (Conflito)
+A tabela seguinte mostra um extrato do registo do lado do servidor para duas operações do cliente: **DeleteIfExists** seguido imediatamente pela **CreateIfNotExists** usando o mesmo nome de recipiente blob. Cada operação do cliente resulta em dois pedidos enviados para o servidor, primeiro um pedido **getContainerProperties** para verificar se o recipiente existe, seguido do pedido **de DeleteContainer** ou **CreateContainer.**
 
 | Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido de cliente |
 | --- | --- | --- | --- | --- |
@@ -634,55 +634,55 @@ A tabela a seguir mostra uma extração do log do lado do servidor para duas ope
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-… |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-… |
 
-O código no aplicativo cliente exclui e, em seguida, recria imediatamente um contêiner de BLOB usando o mesmo nome: o método **CreateIfNotExists** (ID de solicitação do cliente bc881924-...) eventualmente falha com o erro http 409 (conflito). Quando um cliente elimina blobs, contentores, tabelas ou filas, tem de passar um curto período até o nome ficar novamente disponível.
+O código na aplicação do cliente elimina e recria imediatamente um recipiente blob com o mesmo nome: o método **CreateIfNotExists** (Id de pedido de cliente bc881924-...) acaba por falhar com o erro HTTP 409 (Conflito). Quando um cliente elimina blobs, contentores, tabelas ou filas, tem de passar um curto período até o nome ficar novamente disponível.
 
 A aplicação cliente deve utilizar nomes de contentor exclusivos sempre que criar novos contentores se o padrão de eliminação/recriação for comum.
 
-### <a name="metrics-show-low-percent-success"></a>As métricas mostram baixa PercentSuccess ou as entradas de log de análise têm operações com o status de transação de ClientOtherErrors
-A métrica **PercentSuccess** captura a porcentagem de operações que foram bem-sucedidas com base em seu código de status http. Operações com códigos de status de contagem de 2XX como bem-sucedidas, enquanto as operações com códigos de status nos intervalos 3XX, 4XX e 5XX são contadas como sem êxito e diminuem o valor de métrica **PercentSuccess** . Nos arquivos de log de armazenamento do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**.
+### <a name="metrics-show-low-percent-success"></a>As métricas mostram que as entradas de registo low PercentSuccess ou analytics têm operações com o estado de transação do ClientOtherErrors
+A métrica **PercentSuccess** captura a percentagem de operações que foram bem sucedidas com base no seu Código de Estado HTTP. As operações com códigos de estado de 2XX contam como bem sucedidas, enquanto as operações com códigos de estado nas gamas 3XX, 4XX e 5XX são contabilizadas como infrutíferas e baixam o valor métrico **PercentSuccess.** Nos ficheiros de registo de armazenamento do lado do servidor, estas operações são registadas com um estado de transação de **ClientesOtherErrors**.
 
-É importante observar que essas operações foram concluídas com êxito e, portanto, não afetam outras métricas, como disponibilidade. Alguns exemplos de operações que são executadas com êxito, mas que podem resultar em códigos de status HTTP malsucedidos incluem:
+É importante notar que estas operações foram concluídas com sucesso e, portanto, não afetam outras métricas, como a disponibilidade. Alguns exemplos de operações que executam com sucesso, mas que podem resultar em códigos de estado HTTP mal sucedidos incluem:
 
-* **ResourceNotFound** (não encontrado 404), por exemplo, de uma solicitação get para um blob que não existe.
-* **ResourceAlreadyExists** (conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe.
-* **ConditionNotMet** (não modificado 304), por exemplo, de uma operação condicional, como quando um cliente envia um valor de **ETag** e um cabeçalho http **If-None-Match** para solicitar uma imagem somente se ela tiver sido atualizada desde a última operação.
+* **ResourceNotFound** (Não Encontrado 404), por exemplo, de um pedido GET para uma bolha que não existe.
+* **Recursos JáExistis** (Conflito 409), por exemplo, a partir de uma operação **CreateIfNotExist** onde o recurso já existe.
+* **CondicionadoNotMet** (Não Modificado 304), por exemplo, a partir de uma operação condicional, como quando um cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se tiver sido atualizado desde a última operação.
 
-Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página [códigos de erro comuns da API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx).
+Pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento devolvem na página Códigos de [Erro DaPI Common REST](https://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>As métricas de capacidade mostram um aumento inesperado no uso da capacidade de armazenamento
-Se você vir alterações repentinas e inesperadas no uso da capacidade em sua conta de armazenamento, poderá investigar os motivos examinando primeiro as métricas de disponibilidade; por exemplo, um aumento no número de solicitações de exclusão com falha pode levar a um aumento na quantidade de armazenamento de BLOBs que você está usando como operações de limpeza específicas do aplicativo que talvez você deva liberar espaço de disco pode não estar funcionando conforme o esperado (por exemplo, , porque os tokens SAS usados para liberar espaço expiraram).
+Se vir mudanças repentinas e inesperadas no uso da capacidade na sua conta de armazenamento, pode investigar as razões, analisando primeiro as suas métricas de disponibilidade; por exemplo, um aumento do número de pedidos de eliminação falhados pode levar a um aumento da quantidade de armazenamento blob que está a usar como operações de limpeza específicas da aplicação que você poderia esperar estar libertando espaço pode não estar funcionando como esperado (por exemplo, , porque as fichas SAS utilizadas para libertar o espaço expiraram).
 
-### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Seu problema surge com o uso do emulador de armazenamento para desenvolvimento ou teste
-Normalmente, você usa o emulador de armazenamento durante o desenvolvimento e o teste para evitar o requisito de uma conta de armazenamento do Azure. Os problemas comuns que podem ocorrer quando você está usando o emulador de armazenamento são:
+### <a name="your-issue-arises-from-using-the-storage-emulator"></a>O seu problema surge da utilização do emulador de armazenamento para desenvolvimento ou teste
+Normalmente utiliza o emulador de armazenamento durante o desenvolvimento e testa-se para evitar a exigência de uma conta de armazenamento Azure. As questões comuns que podem ocorrer quando se está a usar o emulador de armazenamento são:
 
-* [O recurso "X" não está funcionando no emulador de armazenamento]
-* [Erro "o valor de um dos cabeçalhos HTTP não está no formato correto" ao usar o emulador de armazenamento]
-* [A execução do emulador de armazenamento requer privilégios administrativos]
+* [A funcionalidade "X" não está a funcionar no emulador de armazenamento]
+* [Erro "O valor de um dos cabeçalhos HTTP não está no formato correto" ao utilizar o emulador de armazenamento]
+* [Executar o emulador de armazenamento requer privilégios administrativos]
 
-#### <a name="feature-X-is-not-working"></a>O recurso "X" não está funcionando no emulador de armazenamento
-O emulador de armazenamento não dá suporte a todos os recursos dos serviços de armazenamento do Azure, como o serviço de arquivo. Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](storage-use-emulator.md).
+#### <a name="feature-X-is-not-working"></a>A funcionalidade "X" não está a funcionar no emulador de armazenamento
+O emulador de armazenamento não suporta todas as funcionalidades dos serviços de armazenamento Azure, como o serviço de ficheiros. Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](storage-use-emulator.md).
 
-Para os recursos para os quais o emulador de armazenamento não dá suporte, use o serviço de armazenamento do Azure na nuvem.
+Para as características que o emulador de armazenamento não suporta, utilize o serviço de armazenamento Azure na nuvem.
 
-#### <a name="error-HTTP-header-not-correct-format"></a>Erro "o valor de um dos cabeçalhos HTTP não está no formato correto" ao usar o emulador de armazenamento
-Você está testando seu aplicativo que usa a biblioteca de cliente de armazenamento em relação ao emulador de armazenamento local e chamadas de método como **CreateIfNotExists** falham com a mensagem de erro "o valor de um dos cabeçalhos HTTP não está no formato correto". Isso indica que a versão do emulador de armazenamento que você está usando não oferece suporte à versão da biblioteca de cliente de armazenamento que você está usando. A biblioteca de cliente de armazenamento adiciona o cabeçalho **x-MS-Version** a todas as solicitações que ele faz. Se o emulador de armazenamento não reconhecer o valor no cabeçalho **x-MS-Version** , ele rejeitará a solicitação.
+#### <a name="error-HTTP-header-not-correct-format"></a>Erro "O valor de um dos cabeçalhos HTTP não está no formato correto" ao utilizar o emulador de armazenamento
+Está a testar a sua aplicação que utiliza a Biblioteca do Cliente de Armazenamento contra o emulador de armazenamento local e chamadas de métodos como **CreateIfNotExists** falham com a mensagem de erro "O valor para um dos cabeçalhos HTTP não está no formato correto." Isto indica que a versão do emulador de armazenamento que está a utilizar não suporta a versão da biblioteca de clientes de armazenamento que está a utilizar. A Biblioteca do Cliente de Armazenamento adiciona a **versão x-ms-cabeçalho** a todos os pedidos que faz. Se o emulador de armazenamento não reconhecer o valor no cabeçalho da **versão x-ms,** rejeita o pedido.
 
-Você pode usar os logs do cliente de biblioteca de armazenamento para ver o valor do **cabeçalho x-MS-Version** que está enviando. Você também pode ver o valor do **cabeçalho x-MS-Version** se usar o Fiddler para rastrear as solicitações do aplicativo cliente.
+Pode utilizar os registos do Cliente da Biblioteca de Armazenamento para ver o valor do cabeçalho da **versão x-ms** que está a enviar. Também pode ver o valor do cabeçalho da **versão x-ms** se utilizar o Fiddler para rastrear os pedidos da sua aplicação de cliente.
 
-Esse cenário normalmente ocorre se você instalar e usar a versão mais recente da biblioteca de cliente de armazenamento sem Atualizar o emulador de armazenamento. Você deve instalar a versão mais recente do emulador de armazenamento ou usar o armazenamento em nuvem em vez do emulador para desenvolvimento e teste.
+Este cenário ocorre normalmente se instalar e utilizar a versão mais recente da Biblioteca do Cliente de Armazenamento sem atualizar o emulador de armazenamento. Deve instalar a versão mais recente do emulador de armazenamento ou utilizar o armazenamento em nuvem em vez do emulador para desenvolvimento e teste.
 
-#### <a name="storage-emulator-requires-administrative-privileges"></a>A execução do emulador de armazenamento requer privilégios administrativos
-As credenciais de administrador são solicitadas quando você executa o emulador de armazenamento. Isso ocorre apenas quando você está inicializando o emulador de armazenamento pela primeira vez. Depois de inicializar o emulador de armazenamento, você não precisa de privilégios administrativos para executá-lo novamente.
+#### <a name="storage-emulator-requires-administrative-privileges"></a>Executar o emulador de armazenamento requer privilégios administrativos
+É solicitado para credenciais de administrador quando executa o emulador de armazenamento. Isto só ocorre quando está a inicializar o emulador de armazenamento pela primeira vez. Depois de ter rubricado o emulador de armazenamento, não precisa de privilégios administrativos para o voltar a executar.
 
-Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](storage-use-emulator.md). Você também pode inicializar o emulador de armazenamento no Visual Studio, o que também exigirá privilégios administrativos.
+Para obter mais informações, veja [Utilizar o Emulador de Armazenamento do Azure para Programação e Teste](storage-use-emulator.md). Também pode inicializar o emulador de armazenamento no Estúdio Visual, que também exigirá privilégios administrativos.
 
-### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Você está encontrando problemas ao instalar o SDK do Azure para .NET
-Quando você tenta instalar o SDK, ele falha ao tentar instalar o emulador de armazenamento no computador local. O log de instalação contém uma das seguintes mensagens:
+### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Encontra problemas na instalação do SDK Azure para .NET
+Quando tenta instalar o SDK, falha a tentativa de instalar o emulador de armazenamento na sua máquina local. O registo de instalação contém uma das seguintes mensagens:
 
-* CAQuietExec: erro: não é possível acessar a instância do SQL
-* CAQuietExec: erro: não é possível criar o banco de dados
+* CAQuietExec: Erro: Incapaz de aceder à instância SQL
+* CAQuietExec: Erro: Incapaz de criar base de dados
 
-A causa é um problema com a instalação de LocalDB existente. Por padrão, o emulador de armazenamento usa o LocalDB para manter os dados quando simula os serviços de armazenamento do Azure. Você pode redefinir sua instância de LocalDB executando os comandos a seguir em uma janela de prompt de comando antes de tentar instalar o SDK.
+A causa é um problema com a instalação localDB existente. Por padrão, o emulador de armazenamento utiliza o LocalDB para persistir os dados quando simula os serviços de armazenamento Azure. Pode redefinir a sua instância LocalDB executando os seguintes comandos numa janela de comando-pronta antes de tentar instalar o SDK.
 
 ```
 sqllocaldb stop v11.0
@@ -691,158 +691,158 @@ delete %USERPROFILE%\WAStorageEmulatorDb3*.*
 sqllocaldb create v11.0
 ```
 
-O comando **excluir** remove todos os arquivos de banco de dados antigos das instalações anteriores do emulador de armazenamento.
+O comando **de eliminação** remove quaisquer ficheiros de base de dados antigos de instalações anteriores do emulador de armazenamento.
 
 ### <a name="you-have-a-different-issue-with-a-storage-service"></a>Você tem um problema diferente com um serviço de armazenamento
-Se as seções anteriores de solução de problemas não incluírem o problema que você está tendo com um serviço de armazenamento, adote a seguinte abordagem para diagnosticar e solucionar o problema.
+Se as secções anteriores de resolução de problemas não incluirem o problema que está a ter com um serviço de armazenamento, deverá adotar a seguinte abordagem para diagnosticar e resolver problemas.
 
-* Verifique suas métricas para ver se há alguma alteração de seu comportamento de linha de base esperado. A partir das métricas, você poderá determinar se o problema é transitório ou permanente e quais operações de armazenamento o problema está afetando.
-* Você pode usar as informações de métricas para ajudá-lo a Pesquisar os dados de log do lado do servidor para obter informações mais detalhadas sobre os erros que estão ocorrendo. Essas informações podem ajudá-lo a solucionar problemas e resolver o problema.
-* Se as informações nos logs do lado do servidor não forem suficientes para solucionar o problema com êxito, você poderá usar os logs do lado do cliente da biblioteca de cliente de armazenamento para investigar o comportamento do seu aplicativo cliente e ferramentas como o Fiddler, o Wireshark e o Microsoft Analisador de mensagem para investigar sua rede.
+* Verifique as suas métricas para ver se há alguma alteração do seu comportamento esperado na linha de base. A partir das métricas, poderá ser capaz de determinar se o problema é transitório ou permanente e quais as operações de armazenamento que o problema está a afetar.
+* Pode utilizar as informações das métricas para o ajudar a pesquisar os dados de registo do lado do servidor para obter informações mais detalhadas sobre quaisquer erros que ocorram. Esta informação pode ajudá-lo a resolver problemas e resolver o problema.
+* Se as informações nos registos do servidor não forem suficientes para resolver o problema com sucesso, pode utilizar os registos do lado do cliente da Biblioteca de Clientes de Armazenamento para investigar o comportamento da sua aplicação cliente, e ferramentas como Fiddler, Wireshark e Microsoft Analisador de Mensagens para investigar a sua rede.
 
-Para obter mais informações sobre como usar o Fiddler, consulte o "[Apêndice 1: Utilizar o Fiddler para capturar o tráfego HTTP e HTTPS]".
+Para obter mais informações sobre a utilização do Violinista, consulte "[Apêndice 1: Usar o Violinista para capturar o tráfego HTTP e HTTPS]."
 
-Para obter mais informações sobre como usar o Wireshark, consulte o "[Apêndice 2: Wireshark a utilizar para capturar o tráfego de rede]".
+Para obter mais informações sobre a utilização do Wireshark, consulte "[Apêndice 2: Usar o Wireshark para capturar o tráfego da rede]da rede ."
 
-Para obter mais informações sobre como usar o Microsoft Message Analyzer, consulte o "[Apêndice 3: Utilizar o Microsoft Message Analyzer para capturar o tráfego de rede]".
+Para obter mais informações sobre a utilização do Microsoft Message Analyzer, consulte " Apêndice 3: Utilizar o[Apêndice 3: Usar o Microsoft Message Analyzer para capturar o tráfego da rede]o tráfego da rede ."
 
 ## <a name="appendices"></a>Apêndices
-Os apêndices descrevem várias ferramentas que podem ser úteis quando você estiver diagnosticando e Solucionando problemas com o armazenamento do Azure (e outros serviços). Essas ferramentas não fazem parte do armazenamento do Azure e outras são produtos de terceiros. Dessa forma, as ferramentas discutidas nesses apêndices não são cobertas por nenhum contrato de suporte que você possa ter com Microsoft Azure ou armazenamento do Azure e, portanto, como parte do processo de avaliação, você deve examinar as opções de licenciamento e suporte disponíveis no provedores dessas ferramentas.
+Os apêndices descrevem várias ferramentas que pode achar úteis quando está a diagnosticar e resolver problemas com o Armazenamento Azure (e outros serviços). Estas ferramentas não fazem parte do Armazenamento Azure e algumas são produtos de terceiros. Como tal, as ferramentas discutidas nestes apêndices não estão abrangidas por qualquer acordo de suporte que possa ter com o Microsoft Azure ou o Azure Storage, pelo que, como parte do seu processo de avaliação, deve examinar as opções de licenciamento e suporte disponíveis a partir do fornecedores destas ferramentas.
 
-### <a name="appendix-1"></a>Apêndice 1: usando o Fiddler para capturar o tráfego HTTP e HTTPS
-O [Fiddler](https://www.telerik.com/fiddler) é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre o aplicativo cliente e o serviço de armazenamento do Azure que você está usando.
+### <a name="appendix-1"></a>Apêndice 1: Usar o Violinista para capturar o tráfego HTTP e HTTPS
+[O Fiddler](https://www.telerik.com/fiddler) é uma ferramenta útil para analisar o tráfego HTTP e HTTPS entre a aplicação do seu cliente e o serviço de armazenamento Azure que está a utilizar.
 
 > [!NOTE]
-> O Fiddler pode decodificar o tráfego HTTPS; Você deve ler cuidadosamente a documentação do Fiddler para entender como ele faz isso e entender as implicações de segurança.
+> O violinista pode descodificar o tráfego HTTPS; deve ler atentamente a documentação do Fiddler para entender como o faz e compreender as implicações de segurança.
 >
 >
 
-Este apêndice fornece uma breve explicação de como configurar o Fiddler para capturar o tráfego entre o computador local em que você instalou o Fiddler e os serviços de armazenamento do Azure.
+Este apêndice fornece uma breve passagem de como configurar o Fiddler para capturar o tráfego entre a máquina local onde instalou o Fiddler e os serviços de armazenamento Azure.
 
-Depois de iniciar o Fiddler, ele começará a capturar o tráfego HTTP e HTTPS em seu computador local. A seguir estão alguns comandos úteis para controlar o Fiddler:
+Depois de ter lançado o Fiddler, começará a capturar o tráfego HTTP e HTTPS na sua máquina local. Seguem-se alguns comandos úteis para controlar o Violinista:
 
-* Pare e inicie a captura de tráfego. No menu principal, vá para **arquivo** e clique em **capturar tráfego** para ativar e desativar a captura.
-* Salvar dados de tráfego capturados. No menu principal, vá para **arquivo**, clique em **salvar**e clique em **todas as sessões**: isso permite que você salve o tráfego em um arquivo de sessão. Você pode recarregar um arquivo de sessão posteriormente para análise ou enviá-lo se solicitado ao suporte da Microsoft.
+* Pare e comece a capturar o tráfego. No menu principal, vá ao **File** e clique em **Capture Traffic** para alternar a captura.
+* Guarde os dados de tráfego capturados. No menu principal, vá a **File,** clique em **Guardar**, e depois clique em **Todas as Sessões**: isto permite-lhe guardar o tráfego num ficheiro Dearquivo de Sessão. Pode recarregar um Arquivo de Sessão mais tarde para análise, ou enviá-lo se solicitado para o suporte da Microsoft.
 
-Para limitar a quantidade de tráfego capturada pelo Fiddler, você pode usar filtros que você configura na guia **filtros** . A captura de tela a seguir mostra um filtro que captura somente o tráfego enviado para o ponto de extremidade de armazenamento **contosoemaildist.Table.Core.Windows.net** :
+Para limitar a quantidade de tráfego que o Fiddler captura, pode utilizar filtros que configura no separador **Filtros.** A imagem seguinte mostra um filtro que captura apenas o tráfego enviado para o ponto final de armazenamento **contosoemaildist.table.core.windows.net:**
 
 ![][5]
 
-### <a name="appendix-2"></a>Apêndice 2: usando o Wireshark para capturar o tráfego de rede
-O [Wireshark](https://www.wireshark.org/) é um analisador de protocolo de rede que permite exibir informações detalhadas de pacotes para uma ampla gama de protocolos de rede.
+### <a name="appendix-2"></a>Apêndice 2: Usar o Wireshark para capturar o tráfego da rede
+[O Wireshark](https://www.wireshark.org/) é um analisador de protocolo de rede que lhe permite visualizar informações detalhadas sobre pacotes para uma ampla gama de protocolos de rede.
 
-O procedimento a seguir mostra como capturar informações detalhadas de pacote para o tráfego do computador local em que você instalou o Wireshark para o serviço tabela em sua conta de armazenamento do Azure.
+O procedimento seguinte mostra como capturar informações detalhadas sobre o tráfego da máquina local onde instalou o Wireshark no serviço de mesa na sua conta de armazenamento Azure.
 
-1. Inicie o Wireshark em seu computador local.
-2. Na seção **Iniciar** , selecione a interface de rede local ou as interfaces que estão conectadas à Internet.
-3. Clique em **Opções de captura**.
-4. Adicione um filtro à caixa de texto **filtro de captura** . Por exemplo, o **host contosoemaildist.Table.Core.Windows.net** configurará o Wireshark para capturar somente os pacotes enviados de ou para o ponto de extremidade do serviço tabela na conta de armazenamento **contosoemaildist** . Confira a [lista completa de filtros de captura](https://wiki.wireshark.org/CaptureFilters).
+1. Lance o Wireshark na sua máquina local.
+2. Na secção **Iniciar,** selecione a interface de rede local ou as interfaces que estão ligadas à internet.
+3. Clique em **opções de captura**.
+4. Adicione um filtro à caixa de texto **do Filtro de Captura.** Por exemplo, **o anfitrião contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas pacotes enviados para ou a partir do ponto final do serviço de mesa na conta de armazenamento **contoso-e-mail..** Confira a [lista completa de Filtros de Captura](https://wiki.wireshark.org/CaptureFilters).
 
    ![][6]
-5. Clique em **Iniciar**. Agora, o Wireshark capturará todos os pacotes enviados de ou para o ponto de extremidade do serviço tabela à medida que você usar o aplicativo cliente no computador local.
-6. Quando terminar, no menu principal, clique em **capturar** e em **parar**.
-7. Para salvar os dados capturados em um arquivo de captura do Wireshark, no menu principal, clique em **arquivo** e em **salvar**.
+5. Clique em **Iniciar**. A Wireshark irá agora capturar todos os pacotes enviados de ou para o ponto final do serviço de mesa, uma vez que utiliza a aplicação do seu cliente na sua máquina local.
+6. Quando terminar, no menu principal clique em **Capturar** **e,** em seguida, parar .
+7. Para guardar os dados capturados num Ficheiro de Captura de Wireshark, no menu principal clique em **File** e, em seguida, **Guardar**.
 
-O WireShark realçará todos os erros existentes na janela **pacote de pacotes** . Você também pode usar a janela **informações de especialista** (clique em **analisar**e, em seguida, informações de **especialistas**) para exibir um resumo de erros e avisos.
+O WireShark irá destacar quaisquer erros que existam na janela da **lista de pacotes.** Também pode utilizar a janela **Expert Info** (clique em **Analisar,** depois **Expert Info**) para ver um resumo de erros e avisos.
 
 ![][7]
 
-Você também pode optar por exibir os dados TCP conforme a camada de aplicativo o vê clicando com o botão direito do mouse nos dados TCP e selecionando **seguir fluxo TCP**. Isso será útil se você tiver capturado o despejo sem um filtro de captura. Para obter mais informações, consulte os [fluxos de TCP a seguir](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Também pode optar por visualizar os dados do TCP à medida que a camada de aplicação os vê clicando corretamente nos dados do TCP e selecionando **o Fluxo de TCP**. Isto é útil se capturar a sua lixeira sem filtro de captura. Para mais informações, consulte [A seguir fluxos de TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> Para obter mais informações sobre como usar o Wireshark, consulte o [Guia do usuário do Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
+> Para mais informações sobre a utilização do Wireshark, consulte o Guia de [Utilizadores de Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
 >
 >
 
-### <a name="appendix-3"></a>Apêndice 3: usando o Microsoft Message Analyzer para capturar o tráfego de rede
-Você pode usar o Microsoft Message Analyzer para capturar o tráfego HTTP e HTTPS de forma semelhante ao Fiddler e capturar o tráfego de rede de forma semelhante ao Wireshark.
+### <a name="appendix-3"></a>Apêndice 3: Usar o Microsoft Message Analyzer para capturar o tráfego da rede
+Pode utilizar o Microsoft Message Analyzer para capturar o tráfego HTTP e HTTPS de forma semelhante ao Fiddler e capturar o tráfego da rede de forma semelhante à Wireshark.
 
-#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configurar uma sessão de rastreamento da Web usando o analisador de mensagem da Microsoft
-Para configurar uma sessão de rastreamento da Web para o tráfego HTTP e HTTPS usando o Microsoft Message Analyzer, execute o aplicativo Analisador de mensagens da Microsoft e, em seguida, no menu **arquivo** , clique em **capturar/rastrear**. Na lista de cenários de rastreamento disponíveis, selecione **proxy Web**. Em seguida, no painel de **configuração do cenário de rastreamento** , na caixa de texto **HostnameFilter** , adicione os nomes dos seus pontos de extremidade de armazenamento (você pode procurar esses nomes na [portal do Azure](https://portal.azure.com)). Por exemplo, se o nome da sua conta de armazenamento do Azure for **contosodata**, você deverá adicionar o seguinte à caixa de texto **HostnameFilter** :
+#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configure uma sessão de rastreio web utilizando o Microsoft Message Analyzer
+Para configurar uma sessão de rastreio web para o tráfego HTTP e HTTPS utilizando o Microsoft Message Analyzer, execute a aplicação Do Microsoft Message Analyzer e, em seguida, no menu **'Ficheiro',** clique em **Capturar/Rastrear**. Na lista de cenários de vestígios disponíveis, selecione **Web Proxy**. Em seguida, no painel de configuração do **cenário de traço,** na caixa de texto **HostnameFilter,** adicione os nomes dos seus pontos finais de armazenamento (pode procurar estes nomes no [portal Azure).](https://portal.azure.com) Por exemplo, se o nome da sua conta de armazenamento Azure for **contosodata,** deverá adicionar o seguinte à caixa de texto **HostnameFilter:**
 
 ```
 contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 ```
 
 > [!NOTE]
-> Um caractere de espaço separa os nomes de host.
+> Um personagem espacial separa os nomes de anfitriões.
 >
 >
 
-Quando estiver pronto para começar a coletar dados de rastreamento, clique no botão **Iniciar com** .
+Quando estiver pronto para começar a recolher dados de vestígios, clique no botão **Iniciar com o botão.**
 
-Para obter mais informações sobre o rastreamento de **proxy da Web** do Microsoft Message Analyzer, consulte [provedor Microsoft-PEF-WebProxy](https://technet.microsoft.com/library/jj674814.aspx).
+Para obter mais informações sobre o rastreio web **proxy** do Microsoft Message Analyzer, consulte [microsoft-PEF-WebProxy Provider](https://technet.microsoft.com/library/jj674814.aspx).
 
-O rastreamento de **proxy da Web** interno no analisador de mensagem da Microsoft baseia-se no Fiddler; Ele pode capturar o tráfego HTTPS do lado do cliente e exibir mensagens HTTPS não criptografadas. O rastreamento de **proxy Web** funciona Configurando um proxy local para todo o tráfego HTTP e HTTPS que fornece acesso a mensagens não criptografadas.
+O traço de **proxy web** incorporado no Microsoft Message Analyzer baseia-se no Fiddler; pode capturar o tráfego HTTPS do lado do cliente e exibir mensagens HTTPS não encriptadas. O rastreio **do Web Proxy** funciona configurando um proxy local para todo o tráfego HTTP e HTTPS que lhe dá acesso a mensagens não encriptadas.
 
-#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnosticando problemas de rede usando o Microsoft Message Analyzer
-Além de usar o rastreamento de **proxy da Web** do Microsoft Message Analyzer para capturar detalhes do tráfego http/https entre o aplicativo cliente e o serviço de armazenamento, você também pode usar o rastreamento de **camada de link local** interno para capturar informações de pacote de rede. Isso permite que você capture dados semelhantes aos que você pode capturar com o Wireshark e diagnostique problemas de rede, como pacotes descartados.
+#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnosticar problemas de rede usando o Microsoft Message Analyzer
+Além de utilizar o traço web **proxy** do Microsoft Message Analyzer para capturar detalhes do tráfego HTTP/HTTPs entre a aplicação do cliente e o serviço de armazenamento, também pode usar o traço de camada de **link local** incorporado para capturar informações de pacotes de rede. Isto permite-lhe capturar dados semelhantes aos que pode capturar com o Wireshark e diagnosticar problemas de rede como pacotes abandonados.
 
-A captura de tela a seguir mostra um exemplo de rastreamento de **camada de link local** com algumas mensagens **informativas** na coluna **DiagnosisTypes** . Clicar em um ícone na coluna **DiagnosisTypes** mostra os detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem #305 porque ela não recebeu uma confirmação do cliente:
+A imagem que se segue mostra um exemplo de traço de camada de **ligação local** com algumas mensagens **informativas** na coluna **DiagnosisTypes.** Clicar num ícone na coluna **DiagnosticsTypes** mostra os detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem #305 porque não recebeu um reconhecimento do cliente:
 
 ![][9]
 
-Ao criar a sessão de rastreamento no analisador de mensagens da Microsoft, você pode especificar filtros para reduzir a quantidade de ruído no rastreamento. Na página **capturar/rastrear** na qual você define o rastreamento, clique no link **Configurar** ao lado de **Microsoft-Windows-NDIS-PacketCapture**. A captura de tela a seguir mostra uma configuração que filtra o tráfego TCP para os endereços IP de três serviços de armazenamento:
+Quando criar a sessão de rastreio no Microsoft Message Analyzer, pode especificar filtros para reduzir a quantidade de ruído no rastreio. Na página **Capturar / Rastrear** onde define o rastreio, clique no link **Configure** ao lado do **Microsoft-Windows-NDIS-PacketCapture**. A seguinte imagem mostra uma configuração que filtra o tráfego de TCP para os endereços IP de três serviços de armazenamento:
 
 ![][10]
 
-Para obter mais informações sobre o rastreamento de camada de link local do Microsoft Message Analyzer, consulte [provedor Microsoft-PEF-NDIS-PacketCapture](https://technet.microsoft.com/library/jj659264.aspx).
+Para obter mais informações sobre o rastreio da camada de link local do Microsoft Message Analyzer, consulte [microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 
-### <a name="appendix-4"></a>Apêndice 4: usando o Excel para exibir métricas e dados de log
-Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento do armazenamento de tabelas do Azure em um formato delimitado que facilita a carga dos dados no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de BLOBs do Azure já estão em um formato delimitado que você pode carregar no Excel. No entanto, você precisará adicionar títulos de coluna apropriados com base nas informações em [análise de armazenamento formato de log](https://msdn.microsoft.com/library/azure/hh343259.aspx) e [análise de armazenamento esquema de tabela de métricas](https://msdn.microsoft.com/library/azure/hh343264.aspx).
+### <a name="appendix-4"></a>Apêndice 4: Utilizar o Excel para visualizar métricas e registar dados
+Muitas ferramentas permitem-lhe descarregar os dados das Métricas de Armazenamento do armazenamento da mesa Azure num formato delimitado que facilita a colocação dos dados no Excel para visualização e análise. Armazenamento Dados de registo de armazenamento do armazenamento de blob Azure já estão num formato delimitado que pode carregar no Excel. No entanto, terá de adicionar títulos de coluna apropriados baseados nas informações do [Formato](https://msdn.microsoft.com/library/azure/hh343259.aspx) de Registo de Armazenamento Analytics e da Tabela de [Métricas de Armazenamento Analytics Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
-Para importar os dados de log de armazenamento para o Excel depois de baixá-los do armazenamento de BLOBs:
+Para importar os seus dados de Registo de Armazenamento para Excel depois de os transferir do armazenamento de blob:
 
-* No menu **dados** , clique em **do texto**.
-* Navegue até o arquivo de log que você deseja exibir e clique em **importar**.
-* Na etapa 1 do **Assistente de importação de texto**, selecione **delimitado**.
+* No menu **Dados,** clique **em Texto**.
+* Navegue no ficheiro de registo que pretende visualizar e clique em **Importar**.
+* No passo 1 do Assistente de Importação de **Texto,** selecione **Delimited**.
 
-Na etapa 1 do **Assistente de importação de texto**, selecione **ponto e vírgula** como o único delimitador e escolha aspas duplas como o **qualificador de texto**. Em seguida, clique em **concluir** e escolha onde inserir os dados em sua pasta de trabalho.
+No passo 1 do Assistente de Importação de **Texto,** selecione **Semicolon** como o único delimitador e escolha a dupla cotação como **qualificação**para texto . Em seguida, clique em **Terminar** e escolha onde colocar os dados no seu livro de trabalho.
 
-### <a name="appendix-5"></a>Apêndice 5: monitoramento com o Application Insights para o Azure DevOps
-Você também pode usar o recurso Application Insights para o Azure DevOps como parte de seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:
+### <a name="appendix-5"></a>Apêndice 5: Monitorização com Insights de Aplicação para DevOps Azure
+Também pode utilizar a funcionalidade Application Insights para O Azure DevOps como parte do seu desempenho e monitorização de disponibilidade. Esta ferramenta pode:
 
-* Verifique se o serviço Web está disponível e respondendo. Se seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço Web, ele pode testar sua URL a cada poucos minutos de locais em todo o mundo e informar se há um problema.
-* Diagnostique rapidamente quaisquer problemas de desempenho ou exceções em seu serviço Web. Descubra se a CPU ou outros recursos estão sendo ampliados, obtenha rastreamentos de pilha de exceções e pesquise facilmente por meio de rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, a Microsoft poderá enviar um email para você. Você pode monitorar os serviços Web .NET e Java.
+* Certifique-se de que o seu serviço web está disponível e reativo. Quer a sua aplicação seja um web site ou uma aplicação de dispositivoque utilize um serviço web, pode testar o seu URL a cada poucos minutos de locais de todo o mundo, e informá-lo se há algum problema.
+* Diagnostice rapidamente quaisquer problemas de desempenho ou exceções no seu serviço web. Descubra se cpU ou outros recursos estão sendo esticados, obtenha vestígios de pilhas de exceções e facilmente procure através de vestígios de registo. Se o desempenho da aplicação descer abaixo dos limites aceitáveis, a Microsoft pode enviar-lhe um e-mail. Pode monitorizar os serviços web .NET e Java.
 
-Você pode encontrar mais informações em [o que é Application insights](../../azure-monitor/app/app-insights-overview.md).
+Pode encontrar mais informações no [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre análise no armazenamento do Azure, consulte estes recursos:
+Para obter mais informações sobre analítica no Armazenamento Azure, consulte estes recursos:
 
 * [Monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Análise de armazenamento](storage-analytics.md)
 * [Métricas de análise de armazenamento](storage-analytics-metrics.md)
-* [Esquema de tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)
-* [Logs de análise de armazenamento](storage-analytics-logging.md)
-* [Formato de log da análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format)
+* [Esquema de mesa de métricas de análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)
+* [Registos de análise de armazenamento](storage-analytics-logging.md)
+* [Formato de registo de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introdução]: #introduction
 [Como este guia é organizado]: #how-this-guide-is-organized
 
-[Monitorando seu serviço de armazenamento]: #monitoring-your-storage-service
-[Monitorando a integridade do serviço]: #monitoring-service-health
-[Capacidade de monitoramento]: #monitoring-capacity
-[Monitorando a disponibilidade]: #monitoring-availability
-[Monitorando o desempenho]: #monitoring-performance
+[Monitorização do seu serviço de armazenamento]: #monitoring-your-storage-service
+[Monitorização da saúde do serviço]: #monitoring-service-health
+[Capacidade de monitorização]: #monitoring-capacity
+[Monitorização da disponibilidade]: #monitoring-availability
+[Desempenho de monitorização]: #monitoring-performance
 
-[Diagnosticando problemas de armazenamento]: #diagnosing-storage-issues
-[Problemas de integridade do serviço]: #service-health-issues
+[Diagnóstico de problemas de armazenamento]: #diagnosing-storage-issues
+[Problemas de saúde do serviço]: #service-health-issues
 [Problemas de desempenho]: #performance-issues
-[Diagnosticando erros]: #diagnosing-errors
+[Diagnóstico de erros]: #diagnosing-errors
 [Problemas do emulador de armazenamento]: #storage-emulator-issues
-[Ferramentas de log de armazenamento]: #storage-logging-tools
-[Usando as ferramentas de log de rede]: #using-network-logging-tools
+[Ferramentas de exploração madeireira de armazenamento]: #storage-logging-tools
+[Utilização de ferramentas de registo de rede]: #using-network-logging-tools
 
-[Rastreamento de ponta a ponta]: #end-to-end-tracing
-[Correlacionando dados de log]: #correlating-log-data
-[ID de solicitação do cliente]: #client-request-id
-[ID de solicitação do servidor]: #server-request-id
-[Carimbos]: #timestamps
+[Rastreio de ponta a ponta]: #end-to-end-tracing
+[Correlacionar dados de registo]: #correlating-log-data
+[ID de pedido de cliente]: #client-request-id
+[ID de pedido do servidor]: #server-request-id
+[Selos temporais]: #timestamps
 
 [Orientação na resolução de problemas]: #troubleshooting-guidance
 [As métricas apresentam uma AverageE2ELatency alta e uma AverageServerLatency baixa]: #metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency
@@ -851,8 +851,8 @@ Para obter mais informações sobre análise no armazenamento do Azure, consulte
 [Ocorrem atrasos inesperados na entrega de mensagens numa fila]: #you-are-experiencing-unexpected-delays-in-message-delivery
 
 [As métricas apresentam um aumento do PercentThrottlingError]: #metrics-show-an-increase-in-PercentThrottlingError
-[Aumento transitório PercentThrottlingError]: #transient-increase-in-PercentThrottlingError
-[Aumento permanente PercentThrottlingError erro]: #permanent-increase-in-PercentThrottlingError
+[Aumento transitório no PercentThrottlingError]: #transient-increase-in-PercentThrottlingError
+[Aumento permanente do erro do Erro PercentThrottling Error]: #permanent-increase-in-PercentThrottlingError
 [As métricas apresentam um aumento do PercentTimeoutError]: #metrics-show-an-increase-in-PercentTimeoutError
 [As métricas apresentam um aumento do PercentNetworkError]: #metrics-show-an-increase-in-PercentNetworkError
 
@@ -864,21 +864,21 @@ Para obter mais informações sobre análise no armazenamento do Azure, consulte
 [Falha de rede]: #network-failure
 [O cliente está a receber mensagens de HTTP 409 (Conflito)]: #the-client-is-receiving-409-messages
 
-[Métricas mostram PercentSuccess baixa ou entradas de registo de análise tem operações com o estado de transação de ClientOtherErrors]: #metrics-show-low-percent-success
+[As métricas mostram que as entradas de registo low PercentSuccess ou analytics têm operações com o estado de transação do ClientOtherErrors]: #metrics-show-low-percent-success
 [As métricas de capacidade mostram um aumento inesperado no uso da capacidade de armazenamento]: #capacity-metrics-show-an-unexpected-increase
-[O problema se for utilizar o emulador de armazenamento para desenvolvimento ou teste]: #your-issue-arises-from-using-the-storage-emulator
-[O recurso "X" não está funcionando no emulador de armazenamento]: #feature-X-is-not-working
-[Erro "o valor de um dos cabeçalhos HTTP não está no formato correto" ao usar o emulador de armazenamento]: #error-HTTP-header-not-correct-format
-[A execução do emulador de armazenamento requer privilégios administrativos]: #storage-emulator-requires-administrative-privileges
-[Pode encontrar problemas ao instalar o Azure SDK para .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
-[Tem um problema com um serviço de armazenamento diferente]: #you-have-a-different-issue-with-a-storage-service
+[O seu problema surge da utilização do emulador de armazenamento para desenvolvimento ou teste]: #your-issue-arises-from-using-the-storage-emulator
+[A funcionalidade "X" não está a funcionar no emulador de armazenamento]: #feature-X-is-not-working
+[Erro "O valor de um dos cabeçalhos HTTP não está no formato correto" ao utilizar o emulador de armazenamento]: #error-HTTP-header-not-correct-format
+[Executar o emulador de armazenamento requer privilégios administrativos]: #storage-emulator-requires-administrative-privileges
+[Encontra problemas na instalação do SDK Azure para .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
+[Você tem um problema diferente com um serviço de armazenamento]: #you-have-a-different-issue-with-a-storage-service
 
-[Appendices]: #appendices
-[Apêndice 1: Utilizar o Fiddler para capturar o tráfego HTTP e HTTPS]: #appendix-1
-[Apêndice 2: Wireshark a utilizar para capturar o tráfego de rede]: #appendix-2
-[Apêndice 3: Utilizar o Microsoft Message Analyzer para capturar o tráfego de rede]: #appendix-3
-[Apêndice 4: Com o Excel para ver métricas e registo de dados]: #appendix-4
-[Apêndice 5: monitoramento com o Application Insights para o Azure DevOps]: #appendix-5
+[Apêndices]: #appendices
+[Apêndice 1: Usar o Violinista para capturar o tráfego HTTP e HTTPS]: #appendix-1
+[Apêndice 2: Usar o Wireshark para capturar o tráfego da rede]: #appendix-2
+[Apêndice 3: Usar o Microsoft Message Analyzer para capturar o tráfego da rede]: #appendix-3
+[Apêndice 4: Utilizar o Excel para visualizar métricas e registar dados]: #appendix-4
+[Apêndice 5: Monitorização com Insights de Aplicação para DevOps Azure]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

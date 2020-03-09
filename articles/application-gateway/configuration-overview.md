@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
 ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913264"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373618"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 

@@ -1,7 +1,7 @@
 ---
-title: Personalizar declarações do aplicativo de locatário do Azure AD (PowerShell)
+title: Personalize as alegações de aplicativos de inquilino da Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
-description: Esta página descreve o mapeamento de declarações Azure Active Directory.
+description: Esta página descreve o Webe Ative Directory alega mapeamento.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,46 +13,46 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 57a66f73a2c0c37426c23c7274853148fd976ac8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699075"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375827"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Pré-visualização)
 
 > [!NOTE]
-> Esse recurso substituirá e substituirá a [personalização de declarações](active-directory-saml-claims-customization.md) oferecida pelo portal hoje. No mesmo aplicativo, se você personalizar as declarações usando o portal além do método de grafo/PowerShell detalhado neste documento, os tokens emitidos para esse aplicativo ignorarão a configuração no Portal. As configurações feitas por meio dos métodos detalhados neste documento não serão refletidas no Portal.
+> Esta funcionalidade substitui e substitui a personalização de [reclamações](active-directory-saml-claims-customization.md) oferecida através do portal de hoje. Na mesma aplicação, se personalizar as reclamações utilizando o portal para além do método Graph/PowerShell detalhado neste documento, os tokens emitidos para essa aplicação ignorarão a configuração no portal. As configurações efetuadas através dos métodos detalhados neste documento não se refletirão no portal.
 
-Esse recurso é usado por administradores de locatários para personalizar as declarações emitidas em tokens para um aplicativo específico em seu locatário. Você pode usar políticas de mapeamento de declarações para:
+Esta funcionalidade é utilizada pelos administradores dos inquilinos para personalizar as reclamações emitidas em fichas para uma aplicação específica no seu inquilino. Pode utilizar políticas de mapeamento de reclamações para:
 
-- Selecione quais declarações são incluídas nos tokens.
-- Criar tipos de declaração que ainda não existem.
-- Escolha ou altere a origem dos dados emitidos em declarações específicas.
+- Selecione quais reclamações estão incluídas em fichas.
+- Criar tipos de reclamação que ainda não existem.
+- Escolha ou altere a fonte de dados emitidos em reclamações específicas.
 
 > [!NOTE]
-> Esse recurso está atualmente em visualização pública. Esteja preparado para reverter ou remover todas as alterações. O recurso está disponível em qualquer assinatura do Azure Active Directory (AD do Azure) durante a visualização pública. No entanto, quando o recurso se torna disponível de forma geral, alguns aspectos do recurso podem exigir uma assinatura do Azure AD Premium. Esse recurso dá suporte à configuração de políticas de mapeamento de declaração para protocolos WS-enalimentado, SAML, OAuth e OpenID Connect.
+> Esta capacidade está atualmente em pré-visualização pública. Esteja preparado para reverter ou remover todas as alterações. A funcionalidade está disponível em qualquer subscrição do Azure Ative Directory (Azure AD) durante a pré-visualização pública. No entanto, quando a funcionalidade se torna geralmente disponível, alguns aspetos da funcionalidade podem requerer uma subscrição premium Azure AD. Esta funcionalidade suporta a configuração de políticas de mapeamento de reclamações para protocolos WS-Fed, SAML, OAuth e OpenID Connect.
 
-## <a name="claims-mapping-policy-type"></a>Tipo de política de mapeamento de declarações
+## <a name="claims-mapping-policy-type"></a>Tipo de política de mapeamento de sinistros
 
-No Azure AD, um objeto de **política** representa um conjunto de regras impostas em aplicativos individuais ou em todos os aplicativos em uma organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas a objetos aos quais elas são atribuídas.
+Em Azure AD, um objeto **político** representa um conjunto de regras aplicadas em aplicações individuais ou em todas as aplicações de uma organização. Cada tipo de política tem uma estrutura única, com um conjunto de propriedades que são depois aplicadas a objetos aos quais são atribuídos.
 
-Uma política de mapeamento de declarações é um tipo de objeto de **política** que modifica as declarações emitidas em tokens emitidos para aplicativos específicos.
+Uma política de mapeamento de sinistros é um tipo de objeto **político** que modifica as reclamações emitidas em fichas emitidas para aplicações específicas.
 
-## <a name="claim-sets"></a>Conjuntos de declarações
+## <a name="claim-sets"></a>Conjuntos de reclamações
 
-Há determinados conjuntos de declarações que definem como e quando são usados em tokens.
+Há certos conjuntos de alegações que definem como e quando são usadas em fichas.
 
-| Conjunto de declarações | Descrição |
+| Conjunto de reclamações | Descrição |
 |---|---|
-| Conjunto de declarações de núcleo | Estão presentes em todos os tokens, independentemente da política. Essas declarações também são consideradas restritas e não podem ser modificadas. |
-| Conjunto de declarações básico | Inclui as declarações emitidas por padrão para tokens (além do conjunto de declarações de núcleo). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
-| Conjunto de declarações restrita | Não é possível modificar usando a política. A fonte de dados não pode ser alterada e nenhuma transformação é aplicada ao gerar essas declarações. |
+| Conjunto de reivindicação do núcleo | Estão presentes em todos os símbolos, independentemente da política. Estas alegações também são consideradas restritas e não podem ser modificadas. |
+| Conjunto de reclamações básicas | Inclui as reclamações que são emitidas por defeito para fichas (além do conjunto de reclamação principal). Pode omiti-lo ou modificar as reivindicações básicas utilizando as políticas de mapeamento de sinistros. |
+| Conjunto de reclamações restritas | Não pode ser modificado usando a política. A fonte de dados não pode ser alterada, e nenhuma transformação é aplicada ao gerar estas alegações. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: conjunto de declarações restritas de JWT (token Web JSON)
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Quadro 1: Conjunto de reclamações restritas jSON Web Token (JWT)
 
-| Tipo de declaração (nome) |
+| Tipo de reclamação (nome) |
 | ----- |
 | _claim_names |
 | _claim_sources |
@@ -61,14 +61,14 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | acr |
 | actor |
 | actortoken |
-| AIO |
+| aio |
 | altsecid |
 | amr |
 | app_chain |
 | app_displayname |
 | app_res |
 | appctx |
-| appctxsender |
+| aperitivo |
 | appid |
 | appidacr |
 | assertion |
@@ -86,11 +86,11 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | client_id |
 | cloud_graph_host_name |
 | cloud_instance_name |
-| CNF |
+| cnf |
 | code |
 | controlos |
 | credential_keys |
-| CSR |
+| cSr |
 | csr_type |
 | deviceid |
 | dns_names |
@@ -99,14 +99,14 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | e_exp |
 | e-mail |
 | endpoint |
-| enfpolids |
+| enfpolidas |
 | exp |
 | expires_on |
 | grant_type |
 | graph |
 | group_sids |
 | grupos |
-| hasgroups |
+| grupos hasgroups |
 | hash_alg |
 | home_oid |
 | `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
@@ -116,9 +116,9 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
-| IAT |
-| identityprovider |
-| IDP |
+| iat |
+| provedor de identidade |
+| idp |
 | in_corp |
 | instance |
 | ipaddr |
@@ -133,8 +133,8 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | mdm_compliance_url |
 | mdm_enrollment_url |
 | mdm_terms_of_use_url |
-| NameID |
-| NBF |
+| nameid |
+| nbf |
 | netbios_name |
 | nonce |
 | oid |
@@ -158,7 +158,7 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | request_nonce |
 | resource |
 | role |
-| funções |
+| roles |
 | scope |
 | scp |
 | sid |
@@ -166,28 +166,28 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | signin_state |
 | src1 |
 | src2 |
-| projeto |
+| sub |
 | tbid |
 | tenant_display_name |
 | tenant_region_scope |
 | thumbnail_photo |
 | tid |
 | tokenAutologonEnabled |
-| trustedfordelegation |
+| trustfordelegação |
 | unique_name |
-| sufixo |
+| upn |
 | user_setting_sync_url |
 | o nome de utilizador |
 | uti |
-| versão |
+| ver |
 | verified_primary_email |
 | verified_secondary_email |
 | wids |
 | win_ver |
 
-### <a name="table-2-saml-restricted-claim-set"></a>Tabela 2: conjunto de declarações restritas SAML
+### <a name="table-2-saml-restricted-claim-set"></a>Quadro 2: Conjunto de reclamações restritas SAML
 
-| Tipo de declaração (URI) |
+| Tipo de reclamação (URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -236,294 +236,294 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
 |`http://schemas.microsoft.com/identity/claims/scope`|
 
-## <a name="claims-mapping-policy-properties"></a>Propriedades da política de mapeamento de declarações
+## <a name="claims-mapping-policy-properties"></a>Propriedades políticas de mapeamento de sinistros
 
-Para controlar quais declarações são emitidas e de onde vêm os dados, use as propriedades de uma política de mapeamento de declarações. Se uma política não for definida, o sistema emitirá tokens que incluem o conjunto de declarações de núcleo, o conjunto de declarações básico e quaisquer [declarações opcionais](active-directory-optional-claims.md) que o aplicativo optou por receber.
+Para controlar as reclamações emitidas e de onde vêm os dados, utilize as propriedades de uma política de mapeamento de sinistros. Se uma política não for definida, o sistema emite fichas que incluem o conjunto de reclamações fundamentais, o conjunto de reclamações básicas e quaisquer [reclamações opcionais](active-directory-optional-claims.md) que o pedido tenha optado por receber.
 
-### <a name="include-basic-claim-set"></a>Incluir conjunto de declarações básicas
+### <a name="include-basic-claim-set"></a>Incluir conjunto básico de reclamação
 
-**Cadeia de caracteres:** IncludeBasicClaimSet
+**Cadeia:** Incluir O Conjunto de Reclamações Básicas
 
-**Tipo de dados:** Booliano (verdadeiro ou falso)
+**Tipo de dados:** Boolean (Verdadeiro ou Falso)
 
-**Resumo:** Esta propriedade determina se o conjunto de declarações básico está incluído nos tokens afetados por essa política.
+**Resumo:** Esta propriedade determina se o conjunto de reclamações básicas está incluído em fichas afetadas por esta política.
 
-- Se definido como true, todas as declarações no conjunto de declarações básico são emitidas em tokens afetados pela política. 
-- Se definido como false, as declarações no conjunto de declarações básico não estão nos tokens, a menos que sejam adicionadas individualmente na propriedade de esquema de declarações da mesma política.
+- Se for definido como Verdadeiro, todas as reclamações no conjunto de reivindicações básicas são emitidas em fichas afetadas pela política. 
+- Se definidos para Falso, as reclamações no conjunto de reclamações básicas não estão nos tokens, a menos que sejam adicionadas individualmente na propriedade de sinistros da mesma política.
 
 > [!NOTE] 
-> As declarações no conjunto de declarações de núcleo estão presentes em todos os tokens, independentemente do que essa propriedade está definida como. 
+> As reclamações no conjunto de reclamações principais estão presentes em cada token, independentemente do que esta propriedade está definida. 
 
-### <a name="claims-schema"></a>Esquema de declarações
+### <a name="claims-schema"></a>Sinistros esquema
 
-**Cadeia de caracteres:** ClaimsSchema
+**Cadeia:** SinistrosSchema
 
-**Tipo de dados:** Blob JSON com uma ou mais entradas de esquema de declaração
+**Tipo de dados:** JSON blob com uma ou mais entradas de esquema de reivindicação
 
-**Resumo:** Essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básico e do conjunto de declarações de núcleo.
-Para cada entrada de esquema de declaração definida nessa propriedade, determinadas informações são necessárias. Especifique de onde os dados serão provenientes (par**valor** ou **origem/ID**) e quais declarações os dados são emitidos como (**tipo de declaração**).
+**Resumo:** Esta propriedade define quais as reclamações presentes nas fichas afetadas pela apólice, para além do conjunto de reclamações básicas e do conjunto de reclamações fundamentais.
+Para cada reclamação, é necessária uma entrada de esquemadefinido neste imóvel, é necessária determinada suposição. Especifique de onde vêm os dados ( Par de**Valor** ou **Fonte/ID),** e que afirmam que os dados são emitidos como (**Tipo de reclamação).**
 
-### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
+### <a name="claim-schema-entry-elements"></a>Reclamar elementos de entrada de esquemas
 
-**Valor:** O elemento Value define um valor estático como os dados a serem emitidos na declaração.
+**Valor:** O elemento Valor define um valor estático como os dados a emitir na reclamação.
 
-**Par de origem/ID:** Os elementos Source e ID definem de onde os dados na declaração são originados. 
+**Par de fonte/id:** Os elementos Fonte e ID definem de onde os dados da reclamação são obtidos. 
 
-Defina o elemento de origem como um dos seguintes valores: 
+Desloque o elemento Fonte a um dos seguintes valores: 
 
-- "user": os dados na declaração são uma propriedade no objeto de usuário. 
-- "Application": os dados na declaração são uma propriedade na entidade de serviço do aplicativo (cliente). 
-- "Resource": os dados na declaração são uma propriedade na entidade de serviço de recurso.
-- "Audience": os dados na declaração são uma propriedade na entidade de serviço que é o público do token (o cliente ou a entidade de serviço de recurso).
-- "Company": os dados na declaração são uma propriedade no objeto da empresa do locatário do recurso.
-- "Transformation": os dados na declaração são de transformação de declarações (consulte a seção "transformação de declarações" mais adiante neste artigo).
+- "utilizador": Os dados da reclamação são uma propriedade no objeto utilizador. 
+- "aplicação": Os dados da reclamação são um imóvel no principal de serviço de aplicação (cliente). 
+- "recurso": Os dados da reclamação são uma propriedade no principal do serviço de recursos.
+- "público": Os dados da reclamação são uma propriedade no principal de serviço que é o público do token (quer o cliente quer o principal do serviço de recursos).
+- "empresa": Os dados da reclamação são um imóvel sobre o objeto da Empresa do Arrendatário de Recursos.
+- "Transformação": Os dados da reclamação são de transformação de sinistros (ver a secção "Transformação de Sinistros" mais tarde neste artigo).
 
-Se a origem for transformação, o elemento Transformation também deverá ser incluído nessa **definição de declaração** .
+Se a fonte for transformação, o elemento **TransformationID** deve ser incluído nesta definição de reivindicação também.
 
-O elemento ID identifica qual propriedade na fonte fornece o valor para a declaração. A tabela a seguir lista os valores de ID válido para cada valor de origem.
+O elemento ID identifica qual o imóvel da fonte que fornece o valor para a reclamação. A tabela seguinte lista os valores de ID válidos para cada valor da Fonte.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: valores de ID válidos por origem
+#### <a name="table-3-valid-id-values-per-source"></a>Quadro 3: Valores de ID válidos por fonte
 
 | Origem | ID | Descrição |
 |-----|-----|-----|
 | Utilizador | Apelido | Nome da Família |
 | Utilizador | givenName | Nome Próprio |
-| Utilizador | displayName | Nome a Apresentar |
-| Utilizador | ObjectID | ObjectID |
-| Utilizador | correio | Endereço de E-mail |
+| Utilizador | DisplayName | Nome a Apresentar |
+| Utilizador | objectide | ObjectID |
+| Utilizador | mail | Endereço de E-mail |
 | Utilizador | userprincipalname | Nome Principal de Utilizador |
 | Utilizador | Departamento|Departamento|
-| Utilizador | onpremisessamaccountname | Nome da conta SAM local |
-| Utilizador | NetBiosName| Nome NetBios |
+| Utilizador | onpremisessamaccountname | No local, nome da conta SAM |
+| Utilizador | netbiosname| Nome NetBios |
 | Utilizador | dnsdomainname | Nome de domínio DNS |
-| Utilizador | onpremisesecurityidentifier | Identificador de segurança local |
-| Utilizador | CompanyName| Nome da Organização |
-| Utilizador | StreetAddress | Morada |
-| Utilizador | PostalCode | Código postal |
-| Utilizador | preferredlanguange | Idioma preferencial |
-| Utilizador | onpremisesuserprincipalname | UPN local |
-| Utilizador | mailNickname | Apelido de email |
-| Utilizador | extensionAttribute1 | Atributo de extensão 1 |
-| Utilizador | extensionAttribute2 | Atributo de extensão 2 |
-| Utilizador | extensionattribute3 | Atributo de extensão 3 |
-| Utilizador | extensionattribute4 | Atributo de extensão 4 |
-| Utilizador | extensionattribute5 | Atributo de extensão 5 |
-| Utilizador | extensionattribute6 | Atributo de extensão 6 |
-| Utilizador | extensionattribute7 | Atributo de extensão 7 |
-| Utilizador | extensionattribute8 | Atributo de extensão 8 |
-| Utilizador | extensionattribute9 | Atributo de extensão 9 |
-| Utilizador | extensionattribute10 | Atributo de extensão 10 |
-| Utilizador | extensionattribute11 | Atributo de extensão 11 |
-| Utilizador | extensionattribute12 | Atributo de extensão 12 |
-| Utilizador | extensionattribute13 | Atributo de extensão 13 |
-| Utilizador | extensionAttribute14 | Atributo de extensão 14 |
-| Utilizador | extensionAttribute15 | Atributo de extensão 15 |
-| Utilizador | othermail | Outros emails |
+| Utilizador | identificador de segurança no local | Identificador de segurança no local |
+| Utilizador | nome da empresa| Nome da organização |
+| Utilizador | endereço de rua | Morada |
+| Utilizador | código postal | Código postal |
+| Utilizador | preferredlanguange | Língua Preferida |
+| Utilizador | onpremisesuserprincipalname | On-premiseUPN |
+| Utilizador | apelido de correio | Apelido de Correio |
+| Utilizador | extensãoatribuído1 | Atributo de extensão 1 |
+| Utilizador | extensãoatribuído2 | Atributo de extensão 2 |
+| Utilizador | extensãoatribui3 | Atributo de extensão 3 |
+| Utilizador | extensãoatribuído4 | Atributo de extensão 4 |
+| Utilizador | extensãoatribuído5 | Atributo de extensão 5 |
+| Utilizador | extensãoatribui6 | Atributo de extensão 6 |
+| Utilizador | extensãoatribuído7 | Atributo de extensão 7 |
+| Utilizador | extensãoatribui8 | Atributo de extensão 8 |
+| Utilizador | extensãoatribui9 | Atributo de extensão 9 |
+| Utilizador | extensãoatribuído10 | Atributo de extensão 10 |
+| Utilizador | extensãoatribuído11 | Atributo de extensão 11 |
+| Utilizador | extensãoatribuído12 | Atributo de extensão 12 |
+| Utilizador | extensãoatribuído13 | Atributo de extensão 13 |
+| Utilizador | extensãoatribuído14 | Atributo de extensão 14 |
+| Utilizador | extensãoatribuído15 | Atributo de extensão 15 |
+| Utilizador | outro correio | Outros Correios |
 | Utilizador | país | País |
-| Utilizador | city | Cidade |
+| Utilizador | city | Localidade |
 | Utilizador | state | Estado |
-| Utilizador | JobTitle | Cargo |
-| Utilizador | employeeid | ID de Empregado |
-| Utilizador | facsimileTelephoneNumber | Número de telefone do fax |
-| aplicativo, recurso, público-alvo | displayName | Nome a Apresentar |
-| aplicativo, recurso, público-alvo | com objeto | ObjectID |
-| aplicativo, recurso, público-alvo | etiquetas | Marca da entidade de serviço |
-| Empresa | tenantcountry | País do locatário |
+| Utilizador | título de emprego | Cargo |
+| Utilizador | employeeid | ID do empregado |
+| Utilizador | facsimilephonenumber | Número de telefone facsímile |
+| aplicação, recurso, público | DisplayName | Nome a Apresentar |
+| aplicação, recurso, público | objeto | ObjectID |
+| aplicação, recurso, público | etiquetas | Etiqueta principal de serviço |
+| Empresa | país inquilino | País do arrendatário |
 
-Transformation **:** O elemento Transformation deve ser fornecido somente se o elemento Source estiver definido como "Transformation".
+**TransformationID:** O elemento TransformationID só deve ser fornecido se o elemento Fonte estiver definido para "transformação".
 
-- Esse elemento deve corresponder ao elemento ID da entrada de transformação na propriedade **ClaimsTransformation** que define como os dados para essa declaração são gerados.
+- Este elemento deve coincidir com o elemento ID da entrada de transformação na propriedade **ClaimsTransformation** que define como os dados desta reclamação são gerados.
 
-**Tipo de declaração:** Os elementos **JwtClaimType** e **SamlClaimType** definem a qual declaração essa entrada de esquema de declaração se refere.
+**Tipo de reclamação:** Os elementos **JwtClaimType** e **SamlClaimType** definem a que alegam que esta inscrição de esquema de reclamação se refere.
 
-- O JwtClaimType deve conter o nome da declaração a ser emitida em JWTs.
-- O SamlClaimType deve conter o URI da declaração a ser emitida em tokens SAML.
+- O JwtClaimType deve conter o nome da alegação a emitir em JWTs.
+- O SamlClaimType deve conter o URI da alegação a emitir em fichas SAML.
 
 > [!NOTE]
-> Os nomes e URIs de declarações no conjunto de declarações restritos não podem ser usados para os elementos de tipo de declaração. Para obter mais informações, consulte a seção "exceções e restrições" mais adiante neste artigo.
+> Os nomes e URIs de reclamações no conjunto de reclamações restritas não podem ser utilizados para os elementos do tipo de reclamação. Para mais informações, consulte a secção "Exceções e restrições" mais tarde neste artigo.
 
 ### <a name="claims-transformation"></a>Transformação de afirmações
 
-**Cadeia de caracteres:** ClaimsTransformation
+**Cadeia:** Transformação de Sinistros
 
-**Tipo de dados:** Blob JSON, com uma ou mais entradas de transformação 
+**Tipo de dados:** Bolha JSON, com uma ou mais entradas de transformação 
 
-**Resumo:** Use essa propriedade para aplicar transformações comuns aos dados de origem, para gerar os dados de saída para declarações especificadas no esquema de declarações.
+**Resumo:** Utilize esta propriedade para aplicar transformações comuns a dados de origem, para gerar os dados de saída para sinistros especificados no Schema de Sinistros.
 
-**ID:** Use o elemento ID para fazer referência a essa entrada de transformação na entrada de esquema de declarações Transformation. Esse valor deve ser exclusivo para cada entrada de transformação nessa política.
+**ID:** Utilize o elemento ID para fazer referência a esta entrada de transformação na entrada TransformationID Claims Schema. Este valor deve ser único para cada entrada de transformação dentro desta política.
 
-**TransformationMethod:** O elemento TransformationMethod identifica qual operação é executada para gerar os dados para a declaração.
+**Método de Transformação:** O elemento TransformationMethod identifica qual a operação realizada para gerar os dados para a reclamação.
 
-Com base no método escolhido, um conjunto de entradas e saídas é esperado. Defina as entradas e saídas usando os elementos **InputClaims**, **InputParameters** e **OutputClaims** .
+Com base no método escolhido, espera-se um conjunto de inputs e saídas. Defina as inputs e saídas utilizando os elementos **InputClaims,** **InputParameters** e **OutputClaims.**
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: métodos de transformação e entradas e saídas esperadas
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Quadro 4: Métodos de transformação e inputs e saídas esperados
 
-|TransformationMethod|Entrada esperada|Resultado esperado|Descrição|
+|Método de Transformação|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
-|Associar|Seqüência1, seqüência2, separador|outputClaim|Une cadeias de caracteres de entrada usando um separador entre. Por exemplo: seqüência1: "foo@bar.com", seqüência2: "sandbox", separador: "." resulta em outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|correio|outputClaim|Extrai a parte local de um endereço de email. Por exemplo: mail: "foo@bar.com" resulta em outputClaim: "foo". Se nenhum sinal de \@ estiver presente, a cadeia de caracteres de entrada original será retornada como está.|
+|Associar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:"foo@bar.com" , string2:"sandbox", separador:"." resulta em saídaClaim:"foo@bar.com.sandbox"|
+|ExtractMailPrefix|mail|outputClaim|Extrai a parte local de um endereço de e-mail. Por exemplo: correio:"foo@bar.com" resulta em saídaClaim:"foo". Se não houver \@ sinal, então a cadeia de entrada original é devolvida como está.|
 
-**InputClaims:** Use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**Créditos de entrada:** Utilize um elemento InputClaims para passar os dados de uma entrada de esquema de reclamação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** é unida ao elemento ID da entrada de esquema de declaração para localizar a declaração de entrada apropriada. 
-- **TransformationClaimType** é usado para atribuir um nome exclusivo a essa entrada. Esse nome deve corresponder a uma das entradas esperadas para o método de transformação.
+- **ClaimTypeReferenceId** é unido com o elemento ID da entrada do esquema de reclamação para encontrar a reclamação de entrada apropriada. 
+- **TransformationClaimType** é usado para dar um nome único a esta entrada. Este nome deve corresponder a uma das inputs esperadas para o método de transformação.
 
-**InputParameters:** Use um elemento InputParameters para passar um valor constante para uma transformação. Ele tem dois atributos: **Value** e **ID**.
+**InputParameters:** Utilize um elemento InputParameters para passar um valor constante a uma transformação. Tem dois atributos: **Valor** e **ID**.
 
-- **Valor** é o valor constante real a ser passado.
-- A **ID** é usada para atribuir um nome exclusivo à entrada. O nome deve corresponder a uma das entradas esperadas para o método de transformação.
+- **Valor** é o valor real constante a ser passado.
+- **O ID** é usado para dar um nome único à entrada. O nome deve corresponder a uma das inputs esperadas para o método de transformação.
 
-**OutputClaims:** Use um elemento OutputClaims para armazenar os dados gerados por uma transformação e vinculá-los a uma entrada de esquema de declaração. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**OutputClaims:** Utilize um elemento OutputClaims para manter os dados gerados por uma transformação e amarrá-los a uma entrada de esquema de reclamação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** é unida à ID da entrada de esquema de declaração para localizar a declaração de saída apropriada.
-- **TransformationClaimType** é usado para fornecer um nome exclusivo para a saída. O nome deve corresponder a uma das saídas esperadas para o método de transformação.
+- **ClaimTypeReferenceId** é acompanhado pelo ID da entrada schema de reclamação para encontrar a reclamação de saída apropriada.
+- **TransformationClaimType** é usado para dar um nome único à saída. O nome deve coincidir com uma das saídas esperadas para o método de transformação.
 
 ### <a name="exceptions-and-restrictions"></a>Exceções e restrições
 
-**NameID e UPN SAML:** Os atributos dos quais você origina os valores NameID e UPN e as transformações de declarações permitidas são limitados. Consulte a tabela 5 e a tabela 6 para ver os valores permitidos.
+**SAML NameID e UPN:** Os atributos a partir dos quais se fornecem os valores NameID e UPN, e as transformações de sinistros que são permitidas, são limitados. Consulte a tabela 5 e a tabela 6 para ver os valores permitidos.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atributos permitidos como uma fonte de dados para NameID do SAML
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Quadro 5: Atributos permitidos como fonte de dados para O NameID SAML
 
 |Origem|ID|Descrição|
 |-----|-----|-----|
-| Utilizador | correio|Endereço de E-mail|
+| Utilizador | mail|Endereço de E-mail|
 | Utilizador | userprincipalname|Nome Principal de Utilizador|
-| Utilizador | onpremisessamaccountname|Nome da conta Sam local|
-| Utilizador | employeeid|ID de Empregado|
-| Utilizador | extensionAttribute1 | Atributo de extensão 1 |
-| Utilizador | extensionAttribute2 | Atributo de extensão 2 |
-| Utilizador | extensionattribute3 | Atributo de extensão 3 |
-| Utilizador | extensionattribute4 | Atributo de extensão 4 |
-| Utilizador | extensionattribute5 | Atributo de extensão 5 |
-| Utilizador | extensionattribute6 | Atributo de extensão 6 |
-| Utilizador | extensionattribute7 | Atributo de extensão 7 |
-| Utilizador | extensionattribute8 | Atributo de extensão 8 |
-| Utilizador | extensionattribute9 | Atributo de extensão 9 |
-| Utilizador | extensionattribute10 | Atributo de extensão 10 |
-| Utilizador | extensionattribute11 | Atributo de extensão 11 |
-| Utilizador | extensionattribute12 | Atributo de extensão 12 |
-| Utilizador | extensionattribute13 | Atributo de extensão 13 |
-| Utilizador | extensionAttribute14 | Atributo de extensão 14 |
-| Utilizador | extensionAttribute15 | Atributo de extensão 15 |
+| Utilizador | onpremisessamaccountname|Nas instalações do nome da conta Sam|
+| Utilizador | employeeid|ID do empregado|
+| Utilizador | extensãoatribuído1 | Atributo de extensão 1 |
+| Utilizador | extensãoatribuído2 | Atributo de extensão 2 |
+| Utilizador | extensãoatribui3 | Atributo de extensão 3 |
+| Utilizador | extensãoatribuído4 | Atributo de extensão 4 |
+| Utilizador | extensãoatribuído5 | Atributo de extensão 5 |
+| Utilizador | extensãoatribui6 | Atributo de extensão 6 |
+| Utilizador | extensãoatribuído7 | Atributo de extensão 7 |
+| Utilizador | extensãoatribui8 | Atributo de extensão 8 |
+| Utilizador | extensãoatribui9 | Atributo de extensão 9 |
+| Utilizador | extensãoatribuído10 | Atributo de extensão 10 |
+| Utilizador | extensãoatribuído11 | Atributo de extensão 11 |
+| Utilizador | extensãoatribuído12 | Atributo de extensão 12 |
+| Utilizador | extensãoatribuído13 | Atributo de extensão 13 |
+| Utilizador | extensãoatribuído14 | Atributo de extensão 14 |
+| Utilizador | extensãoatribuído15 | Atributo de extensão 15 |
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: métodos de transformação permitidos para NameID SAML
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Quadro 6: Métodos de transformação permitidos para o Nome De SAML
 
-| TransformationMethod | Restrições |
+| Método de Transformação | Restrições |
 | ----- | ----- |
-| ExtractMailPrefix | Nenhuma |
-| Associar | O sufixo que está sendo Unido deve ser um domínio verificado do locatário do recurso. |
+| ExtractMailPrefix | Nenhum |
+| Associar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege aplicativos de políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet do Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para seu objeto de aplicativo. Para obter mais informações sobre este cmdlet do Azure PowerShell, clique [aqui](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Uma chave de assinatura personalizada deve ser atribuída ao principal objeto do serviço para que uma política de mapeamento de sinistros entre em vigor. Isto garante o reconhecimento de que os tokens foram modificados pelo criador da política de mapeamento de sinistros e protege as aplicações de políticas de mapeamento de sinistros criadas por intervenientes maliciosos. Para adicionar uma chave de assinatura personalizada, pode utilizar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para o seu objeto Aplicação. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-As aplicações que tenham o mapeamento de sinistros ativadas devem validar as suas chaves de assinatura simbólica, através da aplicação `appid={client_id}` aos seus pedidos de [metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados do OpenID Connect que você deve usar: 
+As aplicações que tenham o mapeamento de sinistros ativadas devem validar as suas chaves de assinatura simbólica, através da aplicação `appid={client_id}` aos seus pedidos de [metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que deve utilizar: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
 ```
 
-### <a name="cross-tenant-scenarios"></a>Cenários entre locatários
+### <a name="cross-tenant-scenarios"></a>Cenários de inquilinos cruzados
 
-As políticas de mapeamento de declarações não se aplicam a usuários convidados. Se um usuário convidado tentar acessar um aplicativo com uma política de mapeamento de declarações atribuída à sua entidade de serviço, o token padrão será emitido (a política não terá efeito).
+As políticas de mapeamento de sinistros não se aplicam aos utilizadores convidados. Se um utilizador convidado tentar aceder a uma aplicação com uma política de mapeamento de sinistros atribuída ao seu diretor de serviço, o token predefinido é emitido (a apólice não tem efeito).
 
-## <a name="claims-mapping-policy-assignment"></a>Atribuição de política de mapeamento de declarações
+## <a name="claims-mapping-policy-assignment"></a>Atribuição de política de mapeamento de sinistros
 
-As políticas de mapeamento de declarações só podem ser atribuídas a objetos de entidade de serviço.
+As políticas de mapeamento de sinistros só podem ser atribuídas aos objetos principais de serviço.
 
-### <a name="example-claims-mapping-policies"></a>Exemplo de políticas de mapeamento de declarações
+### <a name="example-claims-mapping-policies"></a>Exemplo reivindica políticas de mapeamento
 
-No Azure AD, muitos cenários são possíveis quando você pode personalizar declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
+Em Azure AD, muitos cenários são possíveis quando você pode personalizar reclamações emitidas em tokens para diretores de serviço específicos. Nesta secção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de reclamações.
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
-Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas para entidades de serviço. Se você for novo no Azure AD, recomendamos que [saiba como obter um locatário do Azure ad](quickstart-create-new-tenant.md) antes de prosseguir com esses exemplos.
+Nos seguintes exemplos, cria, atualiza, liga e elimina políticas para os diretores de serviços. Se você é novo em Azure AD, recomendamos que você [aprenda sobre como obter um inquilino Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.
 
-Para começar, execute as seguintes etapas:
+Para começar, faça os seguintes passos:
 
-1. Baixe a versão mais recente da [Visualização pública do módulo do Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Execute o comando Connect para entrar em sua conta de administrador do Azure AD. Execute esse comando toda vez que iniciar uma nova sessão.
+1. Descarregue o mais recente lançamento público de [pré-visualização do Módulo PowerShell AzurShell.](https://www.powershellgallery.com/packages/AzureADPreview)
+1. Execute o comando Connect para iniciar sessão na sua conta de administração Azure AD. Execute este comando sempre que iniciar uma nova sessão.
 
    ``` powershell
    Connect-AzureAD -Confirm
    ```
-1. Para ver todas as políticas que foram criadas em sua organização, execute o comando a seguir. Recomendamos que você execute esse comando após a maioria das operações nos cenários a seguir, para verificar se as políticas estão sendo criadas conforme o esperado.
+1. Para ver todas as políticas que foram criadas na sua organização, executar o seguinte comando. Recomendamos que dirija este comando após a maioria das operações nos seguintes cenários, para verificar se as suas políticas estão a ser criadas como esperado.
 
    ``` powershell
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para omitir as declarações básicas de tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política para omitir as alegações básicas dos tokens emitidos a um diretor de serviços
 
-Neste exemplo, você cria uma política que remove o conjunto de declarações básicas de tokens emitidos para entidades de serviço vinculadas.
+Neste exemplo, cria-se uma política que remove a reivindicação básica definida a partir de fichas emitidas para os principais de serviços ligados.
 
-1. Crie uma política de mapeamento de declarações. Essa política, vinculada a entidades de serviço específicas, remove o conjunto de declarações básicas de tokens.
-   1. Para criar a política, execute este comando: 
+1. Crie uma política de mapeamento de reivindicações. Esta política, ligada a princípios de serviço específicos, remove a reivindicação básica definida a partir de fichas.
+   1. Para criar a política, executar este comando: 
     
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
-   2. Para ver sua nova política e obter o ObjectId da política, execute o seguinte comando:
+   2. Para ver a sua nova política, e para obter a política ObjectId, executar o seguinte comando:
     
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Atribua a política à entidade de serviço. Você também precisa obter o ObjectId da entidade de serviço.
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
-   2. Quando você tiver o ObjectId da entidade de serviço, execute o seguinte comando:  
+1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu diretor de serviço.
+   1. Para ver todos os diretores de serviço da sua organização, pode [consultar a Microsoft Graph API](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)inscreva-se na sua conta Azure AD.
+   2. Quando tiver o ObjectId do seu diretor de serviço, execute o seguinte comando:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para incluir EmployeeID e TenantCountry como declarações em tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política para incluir o EmployeeID e o TenantCountry como reclamações em fichas emitidas a um diretor de serviços
 
-Neste exemplo, você cria uma política que adiciona o EmployeeID e o TenantCountry a tokens emitidos para entidades de serviço vinculadas. O EmployeeID é emitido como o tipo de declaração de nome em tokens SAML e JWTs. O TenantCountry é emitido como o tipo de declaração country nos tokens SAML e JWTs. Neste exemplo, continuamos a incluir o conjunto de declarações básicas nos tokens.
+Neste exemplo, cria-se uma política que adiciona o EmployeeID e o TenantCountry aos tokens emitidos aos principais de serviços ligados. O EmployeeID é emitido como o tipo de reclamação de nome em ambas as fichas SAML e JWTs. O TenantCountry é emitido como o tipo de reivindicação do país em tokens SAML e JWTs. Neste exemplo, continuamos a incluir as alegações básicas estabelecidas nos símbolos.
 
-1. Crie uma política de mapeamento de declarações. Essa política, vinculada a entidades de serviço específicas, adiciona as declarações EmployeeID e TenantCountry a tokens.
-   1. Para criar a política, execute o seguinte comando:  
+1. Crie uma política de mapeamento de reivindicações. Esta política, ligada a princípios de serviço específicos, adiciona as reivindicações do EmployeeID e do TenantCountry aos tokens.
+   1. Para criar a política, executar o seguinte comando:  
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
-   2. Para ver sua nova política e obter o ObjectId da política, execute o seguinte comando:
+   2. Para ver a sua nova política, e para obter a política ObjectId, executar o seguinte comando:
      
       ``` powershell  
       Get-AzureADPolicy
       ```
-1. Atribua a política à entidade de serviço. Você também precisa obter o ObjectId da entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
-   2. Quando você tiver o ObjectId da entidade de serviço, execute o seguinte comando:  
+1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu diretor de serviço. 
+   1. Para ver todos os diretores de serviço da sua organização, pode [consultar a Microsoft Graph API](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)inscreva-se na sua conta Azure AD.
+   2. Quando tiver o ObjectId do seu diretor de serviço, execute o seguinte comando:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política que usa uma transformação de declarações em tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política que utilize uma transformação de sinistros em fichas emitidas a um diretor de serviços
 
-Neste exemplo, você cria uma política que emite uma declaração personalizada "JoinedData" para JWTs emitida para entidades de serviço vinculadas. Essa declaração contém um valor criado unindo os dados armazenados no atributo extensionAttribute1 no objeto de usuário com ". sandbox". Neste exemplo, excluimos o conjunto de declarações básicas nos tokens.
+Neste exemplo, cria-se uma política que emite uma reivindicação personalizada "JoinedData" a JWTs emitida sorveros de serviço ligados. Esta alegação contém um valor criado ao juntar os dados armazenados no atributo extensão1 no objeto do utilizador com ".sandbox". Neste exemplo, excluímos as reivindicações básicas estabelecidas nos símbolos.
 
-1. Crie uma política de mapeamento de declarações. Essa política, vinculada a entidades de serviço específicas, adiciona as declarações EmployeeID e TenantCountry a tokens.
-   1. Para criar a política, execute o seguinte comando:
+1. Crie uma política de mapeamento de reivindicações. Esta política, ligada a princípios de serviço específicos, adiciona as reivindicações do EmployeeID e do TenantCountry aos tokens.
+   1. Para criar a política, executar o seguinte comando:
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
-   2. Para ver sua nova política e obter o ObjectId da política, execute o seguinte comando: 
+   2. Para ver a sua nova política, e para obter a política ObjectId, executar o seguinte comando: 
      
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Atribua a política à entidade de serviço. Você também precisa obter o ObjectId da entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
-   2. Quando você tiver o ObjectId da entidade de serviço, execute o seguinte comando: 
+1. Atribua a apólice ao seu diretor de serviço. Também precisa de obter o ObjectId do seu diretor de serviço. 
+   1. Para ver todos os diretores de serviço da sua organização, pode [consultar a Microsoft Graph API](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)inscreva-se na sua conta Azure AD.
+   2. Quando tiver o ObjectId do seu diretor de serviço, execute o seguinte comando: 
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, consulte [como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)
+Para aprender a personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar as reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)
