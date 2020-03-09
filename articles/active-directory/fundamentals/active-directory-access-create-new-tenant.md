@@ -1,5 +1,5 @@
 ---
-title: Início rápido-acesso & criar novo locatário-Azure AD
+title: Quickstart - Access & create new tenant - Azure AD
 description: Instruções sobre como localizar o Azure Active Directory e como criar um novo inquilino para a sua organização.
 services: active-directory
 author: msaburnley
@@ -13,11 +13,11 @@ ms.author: ajburnle
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024607"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376875"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início rápido: Criar um novo inquilino no Azure Active Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -33,11 +33,11 @@ Depois de iniciar sessão no portal do Azure, pode criar um novo inquilino para 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/)da sua organização.
 
-1. No menu portal do Azure, selecione **criar um recurso**.  
+1. A partir do menu do portal Azure, selecione **Criar um recurso**.  
 
-    ![Página Azure Active Directory criar Resource](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Diretório Ativo Azure Criar página de resoure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-1. Selecione **identidade**e, em seguida, selecione **Azure Active Directory**.
+1. Selecione **Identidade**, e, em seguida, selecione **Azure Ative Directory**.
 
     É apresentada a página **Criar diretório**.
 
@@ -63,7 +63,7 @@ Se não quiser continuar a utilizar esta aplicação, poderá eliminar o inquili
 
     O inquilino e a informação associada são eliminados.
 
-    ![Página de visão geral, com o botão excluir diretório realçado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Página de visão geral, com botão de diretório Delete destacado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 - Para alterar ou adicionar nomes de domínio, veja [Como adicionar um nome de domínio personalizado ao Microsoft Azure Active Directory](add-custom-domain.md)
@@ -72,6 +72,6 @@ Se não quiser continuar a utilizar esta aplicação, poderá eliminar o inquili
 
 - Para adicionar grupos e membros, veja [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-- Saiba mais sobre o [acesso baseado em função usando Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e [acesso condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerenciar o acesso a aplicativos e recursos da sua organização.
+- Saiba mais sobre [o acesso baseado em papéis usando a Gestão de Identidade Privilegiada](../../role-based-access-control/pim-azure-resource.md) e acesso [condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerir a aplicação da sua organização e o acesso a recursos.
 
 - Saiba mais sobre o Azure AD, incluindo [informações básicas de licenciamento, terminologia e funcionalidades associadas](active-directory-whatis.md).

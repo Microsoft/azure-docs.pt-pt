@@ -2,17 +2,23 @@
 title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 2e747b7faa6e9766a577b472cc3e283d6223109e
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.date: 03/06/2020
+ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228119"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924930"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
-Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos ao nível da subscrição. Utiliza-se implementações de nível de subscrição para tomar medidas que façam sentido a esse nível, tais como a criação de grupos de recursos ou a atribuição [de controlo de acesso baseado em papéis.](../../role-based-access-control/overview.md)
+Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos no:
+
+* nível de subscrição (abrangido por este artigo)
+* [nível de grupo de gestão](deploy-to-management-group.md)
+* [nível de inquilino](deploy-to-tenant.md)
+
+Utiliza-se implementações de nível de subscrição para tomar medidas que façam sentido a esse nível, tais como a criação de grupos de recursos ou a atribuição [de controlo de acesso baseado em papéis.](../../role-based-access-control/overview.md)
 
 Para implementar modelos ao nível da subscrição, utilize o Azure CLI, PowerShell ou REST API. O portal Azure não suporta a implantação no nível de subscrição.
 
@@ -21,7 +27,7 @@ Para implementar modelos ao nível da subscrição, utilize o Azure CLI, PowerSh
 Pode implementar os seguintes tipos de recursos ao nível da subscrição:
 
 * [orçamentos](/azure/templates/microsoft.consumption/budgets)
-* [implementações](/azure/templates/microsoft.resources/deployments)
+* [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se implantam em grupos de recursos.
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
 * [definições políticas](/azure/templates/microsoft.authorization/policydefinitions)
@@ -88,12 +94,12 @@ Para implementações de nível de subscrição, existem algumas considerações
 
 * A função de [recurso Group()](template-functions-resource.md#resourcegroup) **não** é suportada.
 * As funções de [referência](template-functions-resource.md#reference) e [lista](template-functions-resource.md#list) são suportadas.
-* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-o para obter o ID de recursos que são usados em implementações de nível de subscrição. Não forneça um valor para o parâmetro do grupo de recursos.
+* Utilize a função [de subscriçãoResourceId()](template-functions-resource.md#subscriptionresourceid) para obter o ID de recursos que são implantados a nível de subscrição.
 
   Por exemplo, para obter o ID de recurso para uma definição de política, use:
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   O ID de recurso devolvido tem o seguinte formato:
@@ -101,8 +107,6 @@ Para implementações de nível de subscrição, existem algumas considerações
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  Ou, utilize a função [de subscriçãoResourceId()](template-functions-resource.md#subscriptionresourceid) para obter o ID de recurso para um recurso de nível de subscrição.
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 

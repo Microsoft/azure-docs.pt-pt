@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 0cdff3ac6eb2faed0c0b6b8796fdb3b6b0411018
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202089"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357524"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para funções azure
 
@@ -40,7 +40,7 @@ Outra abordagem para processar bolhas é escrever mensagens de fila que correspo
 
 ## <a name="example"></a>Exemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que escreve um tronco quando uma bolha é adicionada ou atualizada no recipiente `samples-workitems`.
 
@@ -56,7 +56,7 @@ A cadeia `{name}` no caminho do gatilho da bolha `samples-workitems/{name}` cria
 
 Para obter mais informações sobre o atributo `BlobTrigger`, consulte [atributos e anotações.](#attributes-and-annotations)
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 O exemplo seguinte mostra uma ligação do gatilho blob num ficheiro e código *function.json* que utiliza a encadernação. A função escreve um tronco quando uma bolha é adicionada ou atualizada no [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)`samples-workitems` .
 
@@ -103,7 +103,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo seguinte mostra uma ligação do gatilho blob num ficheiro *function.json* e [código JavaScript](functions-reference-node.md) que utiliza a ligação. A função escreve um tronco quando uma bolha é adicionada ou atualizada no recipiente `samples-workitems`.
 
@@ -137,7 +137,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 O exemplo seguinte mostra uma ligação do gatilho blob num ficheiro *function.json* e [código Python](functions-reference-python.md) que utiliza a ligação. A função escreve um tronco quando uma bolha é adicionada ou atualizada no [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)`samples-workitems` .
 
@@ -174,7 +174,7 @@ def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Esta função escreve um tronco quando uma bolha é adicionada ou atualizada no recipiente `myblob`.
 
@@ -196,7 +196,7 @@ public void run(
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize os seguintes atributos para configurar um gatilho de bolha:
 
@@ -252,19 +252,19 @@ A conta de armazenamento a utilizar é determinada na seguinte ordem:
 * O atributo `StorageAccount` aplicado à classe.
 * A conta de armazenamento padrão para a aplicação de função (definição de aplicação "AzureWebJobsStorage").
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Os atributos C# não são suportados pelo Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O atributo `@BlobTrigger` é usado para lhe dar acesso à bolha que desencadeou a função. Consulte o exemplo do [gatilho](#example) para obter detalhes.
 
@@ -276,8 +276,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | deve ser definido para `blobTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
-|**direção** | n/d | deve ser definido para `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. As exceções são observadas na secção [de utilização.](#usage) |
+|**tipo** | n/d | Deve ser definido para `blobTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | n/d | Deve ser definido para `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. As exceções são observadas na secção [de utilização.](#usage) |
 |**nome** | n/d | O nome da variável que representa a bolha no código de função. |
 |**caminho** | **BlobPath** |O [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) para monitorizar.  Pode ser um padrão de [nome blob.](#blob-name-patterns) |
 |**conexão** | **Conexão** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada `AzureWebJobsStorage`.<br><br>A cadeia de ligação deve ser para uma conta de armazenamento geral, não para uma conta de [armazenamento Blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
@@ -286,23 +286,23 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 ## <a name="usage"></a>Utilização
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Aceda aos dados blob utilizando `context.bindings.<NAME>` onde `<NAME>` corresponda ao valor definido na *função.json*.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Aceda aos dados blob através do parâmetro digitado como [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o exemplo do [gatilho](#example) para obter detalhes.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O atributo `@BlobTrigger` é usado para lhe dar acesso à bolha que desencadeou a função. Consulte o exemplo do [gatilho](#example) para obter detalhes.
 
@@ -352,15 +352,15 @@ Se a bolha for denominada *{20140101}-soundfile.mp3*, o `name` valor variável n
 
 ## <a name="metadata"></a>Metadados
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -369,11 +369,11 @@ module.exports = function (context, myBlob) {
 };
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os metadados não estão disponíveis em Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Os metadados não estão disponíveis em Java.
 

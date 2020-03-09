@@ -15,11 +15,11 @@ ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d024382f816e98fb5cb83331dd417f0c41362bc4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207052"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358091"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de funções de administrador no Diretório Ativo do Azure
 

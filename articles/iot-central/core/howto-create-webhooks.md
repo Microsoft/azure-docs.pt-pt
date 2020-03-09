@@ -9,15 +9,15 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: db4e48a7bff9127810b051a9ab63bbe9d78cf6da
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022431"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394131"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook sobre regras na Azure IoT Central
 
-*Este tópico se aplica a construtores e administradores.*
+*Este tópico aplica-se a construtores e administradores.*
 
 Os Webhooks permitem-lhe ligar a sua aplicação IoT Central a outras aplicações e serviços para monitorização remota e notificações. Os Webhooks notificam automaticamente outras aplicações e serviços que liga sempre que uma regra é desencadeada na sua aplicação IoT Central. A sua aplicação IoT Central envia um pedido post para o ponto final http da outra aplicação sempre que uma regra é desencadeada. A carga útil contém detalhes do dispositivo e detalhes do gatilho da regra.
 
@@ -39,7 +39,7 @@ Neste exemplo, liga-se ao RequestBin para ser notificado quando as regras dispar
 
 Agora, quando a regra é desencadeada, vê-se um novo pedido aparecer no RequestBin.
 
-## <a name="payload"></a>carga útil
+## <a name="payload"></a>Carga útil
 
 Quando uma regra é desencadeada, é feito um pedido HTTP POST para o URL de callback contendo uma carga útil json com os dados de telemetria, dispositivo, regra e aplicação. A carga pode parecer a seguinte:
 

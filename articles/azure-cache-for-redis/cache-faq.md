@@ -1,217 +1,217 @@
 ---
 title: FAQ da Cache do Azure para Redis
-description: Conheça as respostas a perguntas comuns, padrões e práticas recomendadas para o cache do Azure para Redis
+description: Aprenda as respostas a perguntas, padrões e boas práticas comuns para Azure Cache for Redis
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: ddf7999153e9d9722e627d148b116750fe3aaecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433454"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355883"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
-Conheça as respostas a perguntas comuns, padrões e práticas recomendadas para o cache do Azure para Redis.
+Aprenda as respostas a perguntas comuns, padrões e boas práticas para Azure Cache for Redis.
 
-## <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não for respondida aqui?
-Se sua pergunta não estiver listada aqui, informe-nos e ajudaremos você a encontrar uma resposta.
+## <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
+Se a sua pergunta não estiver listada aqui, avise-nos e ajudaremos a encontrar uma resposta.
 
-* Você pode postar uma pergunta nos comentários no final destas perguntas frequentes e entrar em contato com a equipe de cache do Azure e outros membros da Comunidade sobre este artigo.
-* Para alcançar um público mais amplo, você pode postar uma pergunta no [Fórum do MSDN do cache do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) e entrar em contato com a equipe de cache do Azure e outros membros da Comunidade.
-* Se você quiser fazer uma solicitação de recurso, poderá enviar suas solicitações e ideias para o [cache do Azure para Redis User Voice](https://feedback.azure.com/forums/169382-cache).
-* Você também pode enviar um email para nós em [comentários externos do cache do Azure](mailto:azurecache@microsoft.com).
+* Você pode publicar uma pergunta nos comentários no final desta FAQ e envolver-se com a equipe Azure Cache e outros membros da comunidade sobre este artigo.
+* Para chegar a um público mais vasto, você pode colocar uma pergunta no [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) e envolver-se com a equipe Azure Cache e outros membros da comunidade.
+* Se quiser fazer um pedido de funcionalidade, pode submeter os seus pedidos e ideias ao [Azure Cache para Redis User Voice](https://feedback.azure.com/forums/169382-cache).
+* Pode também enviar-nos um e-mail para o [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
 
-## <a name="azure-cache-for-redis-basics"></a>Cache do Azure para noções básicas do Redis
-As perguntas frequentes nesta seção abrangem alguns dos fundamentos do cache do Azure para Redis.
+## <a name="azure-cache-for-redis-basics"></a>Azure Cache para redis básicos
+As FAQs desta secção cobrem alguns dos fundamentos de Azure Cache para Redis.
 
-* [O que é o cache do Azure para Redis?](#what-is-azure-cache-for-redis)
-* [Como posso começar a usar o cache do Azure para Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
+* [O que é Azure Cache para Redis?](#what-is-azure-cache-for-redis)
+* [Como posso começar com O Cache Azure para redis?](#how-can-i-get-started-with-azure-cache-for-redis)
 
-As perguntas frequentes a seguir abordam os conceitos básicos e as perguntas sobre o cache do Azure para Redis e são respondidas em uma das outras seções de perguntas frequentes.
+As seguintes PERGUNTAS abrangem conceitos básicos e perguntas sobre Azure Cache for Redis e são respondidas numa das outras secções de PERGUNTAS FREQUENTES.
 
-* [Qual o cache do Azure para oferta e tamanho do Redis devo usar?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
-* [Qual cache do Azure para clientes do Redis posso usar?](#what-azure-cache-for-redis-clients-can-i-use)
-* [Há um emulador local para o cache do Azure para Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
-* [Como fazer monitorar a integridade e o desempenho do meu cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+* [Que Azure Cache para redis oferecendo e tamanho devo usar?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [Que Cache Azure para clientes Redis posso usar?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Há algum emmulador local para o Azure Cache para o Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
+* [Como posso monitorizar a saúde e o desempenho da minha cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
-## <a name="planning-faqs"></a>Perguntas frequentes sobre planejamento
-* [Qual o cache do Azure para oferta e tamanho do Redis devo usar?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
-* [Cache do Azure para desempenho Redis](#azure-cache-for-redis-performance)
-* [Em qual região devo localizar meu cache?](#in-what-region-should-i-locate-my-cache)
-* [Como sou cobrado pelo cache do Azure para Redis?](#how-am-i-billed-for-azure-cache-for-redis)
-* [Posso usar o cache do Azure para Redis com a nuvem do Azure governamental, a nuvem do Azure na China ou o Microsoft Azure Alemanha?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+## <a name="planning-faqs"></a>Planejamento de FaQs
+* [Que Azure Cache para redis oferecendo e tamanho devo usar?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [Azure Cache para performance Redis](#azure-cache-for-redis-performance)
+* [Em que região devo localizar o meu cache?](#in-what-region-should-i-locate-my-cache)
+* [Como é que fui cobrado pelo Azure Cache pelo Redis?](#how-am-i-billed-for-azure-cache-for-redis)
+* [Posso usar o Azure Cache para Redis com azure government cloud, Azure China Cloud ou Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
-## <a name="development-faqs"></a>Perguntas frequentes sobre desenvolvimento
-* [O que as opções de configuração StackExchange. Redis fazem?](#what-do-the-stackexchangeredis-configuration-options-do)
-* [Qual cache do Azure para clientes do Redis posso usar?](#what-azure-cache-for-redis-clients-can-i-use)
-* [Há um emulador local para o cache do Azure para Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
-* [Como posso executar comandos do Redis?](#how-can-i-run-redis-commands)
-* [Por que o cache do Azure para Redis tem uma referência da biblioteca de classes do MSDN como alguns dos outros serviços do Azure?](#why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
-* [Posso usar o cache do Azure para Redis como um cache de sessão do PHP?](#can-i-use-azure-cache-for-redis-as-a-php-session-cache)
-* [O que são bancos de dados Redis?](#what-are-redis-databases)
+## <a name="development-faqs"></a>Perguntas-Gerais de Desenvolvimento
+* [O que fazem as opções de configuração StackExchange.Redis?](#what-do-the-stackexchangeredis-configuration-options-do)
+* [Que Cache Azure para clientes Redis posso usar?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Há algum emmulador local para o Azure Cache para o Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
+* [Como posso executar os comandos redis?](#how-can-i-run-redis-commands)
+* [Porque é que o Azure Cache para redis não tem uma referência da biblioteca da classe MSDN como alguns dos outros serviços do Azure?](#why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+* [Posso usar o Cache Azure para redis como cache de sessão php?](#can-i-use-azure-cache-for-redis-as-a-php-session-cache)
+* [O que são bases de dados redis?](#what-are-redis-databases)
 
-## <a name="security-faqs"></a>Perguntas frequentes sobre segurança
-* [Quando devo habilitar a porta não SSL para se conectar ao Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+## <a name="security-faqs"></a>Perguntas de Segurança
+* [Quando devo ativar a porta não SSL para a ligação ao Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
 
-## <a name="production-faqs"></a>Perguntas frequentes sobre produção
-* [O que são algumas práticas recomendadas de produção?](#what-are-some-production-best-practices)
-* [Quais são algumas das considerações ao usar comandos comuns do Redis?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
-* [Como fazer o benchmark e testar o desempenho do meu cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-* [Detalhes importantes sobre o crescimento de ThreadPool](#important-details-about-threadpool-growth)
-* [Habilite o GC do servidor para obter mais taxa de transferência no cliente ao usar StackExchange. Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
-* [Considerações sobre desempenho em relação a conexões](#performance-considerations-around-connections)
+## <a name="production-faqs"></a>FaQs de produção
+* [Quais são as melhores práticas de produção?](#what-are-some-production-best-practices)
+* [Quais são algumas das considerações quando se usam comandos redis comuns?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+* [Como posso comparar e testar o desempenho da minha cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* [Detalhes importantes sobre o crescimento da ThreadPool](#important-details-about-threadpool-growth)
+* [Ativar o server GC para obter mais entrada no cliente ao utilizar StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Considerações de desempenho em torno de ligações](#performance-considerations-around-connections)
 
-## <a name="monitoring-and-troubleshooting-faqs"></a>Perguntas frequentes sobre monitoramento e solução de problemas
-As perguntas frequentes nesta seção abordam perguntas comuns de monitoramento e solução de problemas. Para obter mais informações sobre como monitorar e solucionar problemas do cache do Azure para instâncias do Redis, consulte [como monitorar o cache do Azure para Redis](cache-how-to-monitor.md) e os vários guias de solução de problemas.
+## <a name="monitoring-and-troubleshooting-faqs"></a>Monitorização e resolução de problemas de FAQs
+As PERGUNTAS Frequentes desta secção cobrem questões comuns de monitorização e resolução de problemas. Para obter mais informações sobre monitorização e resolução de problemas do seu Azure Cache para os casos Redis, consulte [Como monitorizar o Azure Cache for Redis](cache-how-to-monitor.md) e os vários guias de resolução de problemas.
 
-* [Como fazer monitorar a integridade e o desempenho do meu cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [Por que estou vendo tempos limite?](#why-am-i-seeing-timeouts)
-* [Por que meu cliente foi desconectado do cache?](#why-was-my-client-disconnected-from-the-cache)
+* [Como posso monitorizar a saúde e o desempenho da minha cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+* [Porque é que estou a ver intervalos?](#why-am-i-seeing-timeouts)
+* [Porque é que o meu cliente foi desligado da cache?](#why-was-my-client-disconnected-from-the-cache)
 
-## <a name="prior-cache-offering-faqs"></a>Perguntas frequentes sobre a oferta de cache anterior
-* [Qual oferta de cache do Azure é adequada para mim?](#which-azure-cache-offering-is-right-for-me)
+## <a name="prior-cache-offering-faqs"></a>Cache Anterior oferecendo FAQs
+* [Que oferta de Azure Cache é certa para mim?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>O que é a Cache do Azure para Redis?
-O cache do Azure para Redis é baseado no popular [Redis](https://redis.io/)de software livre. Ele fornece acesso a um cache do Azure seguro e dedicado para Redis, gerenciado pela Microsoft e acessível de qualquer aplicativo no Azure. Para obter uma visão geral mais detalhada, consulte a página de produto [cache do Azure para Redis](https://azure.microsoft.com/services/cache/) no Azure.com.
+Azure Cache for Redis é baseado no popular software de código aberto [Redis.](https://redis.io/) Dá-lhe acesso a um Azure Cache para Redis, seguro e dedicado, gerido pela Microsoft, e acessível a partir de qualquer aplicação dentro do Azure. Para obter uma visão mais detalhada, consulte a página de produtos [Azure Cache para Redis](https://azure.microsoft.com/services/cache/) na Azure.com.
 
-### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Como posso começar a usar o cache do Azure para Redis?
-Há várias maneiras de começar a usar o cache do Azure para Redis.
+### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Como posso começar com O Cache Azure para redis?
+Há várias maneiras de começar com Azure Cache para Redis.
 
-* Você pode conferir um dos nossos tutoriais disponíveis para [.net](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.net](cache-web-app-howto.md), [Java](cache-java-get-started.md), [node. js](cache-nodejs-get-started.md)e [Python](cache-python-get-started.md).
-* Você pode assistir [a criar aplicativos de alto desempenho usando o Cache Microsoft Azure para Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* Você pode conferir a documentação do cliente para os clientes que correspondem à linguagem de desenvolvimento do seu projeto para ver como usar o Redis. Há muitos clientes Redis que podem ser usados com o cache do Azure para Redis. Para obter uma lista de clientes do Redis, consulte [https://redis.io/clients](https://redis.io/clients).
+* Pode consultar um dos nossos tutoriais disponíveis para [.NET,](cache-dotnet-how-to-use-azure-redis-cache.md) [ASP.NET](cache-web-app-howto.md), [Java,](cache-java-get-started.md) [Node.js](cache-nodejs-get-started.md)e [Python.](cache-python-get-started.md)
+* Pode ver [como construir aplicações de alto desempenho utilizando o Cache Microsoft Azure para Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+* Pode consultar a documentação do cliente para os clientes que correspondem à linguagem de desenvolvimento do seu projeto para ver como utilizar o Redis. Há muitos clientes Redis que podem ser usados com Azure Cache para Redis. Para uma lista de clientes redis, consulte [https://redis.io/clients. ](https://redis.io/clients)
 
-Se você ainda não tiver uma conta do Azure, poderá:
+Se ainda não tem uma conta Azure, pode:
 
 * [Criar uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Receberá créditos que podem ser utilizados para experimentar os serviços pagos do Azure. Mesmo depois de gastar todos os créditos, pode manter a conta e utilizar os serviços e recursos gratuitos do Azure.
 * [Ativar os benefícios de subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). A sua subscrição do MSDN dá-lhe créditos todos os meses que pode utilizar em serviços pagos do Azure.
 
 <a name="cache-size"></a>
 
-### <a name="what-azure-cache-for-redis-offering-and-size-should-i-use"></a>Qual o cache do Azure para oferta e tamanho do Redis devo usar?
-Cada cache do Azure para oferta de Redis fornece níveis diferentes de **tamanho**, **largura de banda**, **alta disponibilidade**e opções de **SLA** .
+### <a name="what-azure-cache-for-redis-offering-and-size-should-i-use"></a>Que Azure Cache para redis oferecendo e tamanho devo usar?
+Cada oferta de Cache Azure para Redis oferece diferentes níveis de **tamanho,** **largura de banda,** **alta disponibilidade**e opções **de SLA.**
 
-Veja a seguir as considerações para escolher uma oferta de cache.
+Seguem-se considerações para escolher uma oferta de Cache.
 
-* **Memória**: as camadas básica e Standard oferecem 250 MB a 53 GB. A camada Premium oferece até 1,2 TB (como um cluster) ou 120 GB (não clusterizado). Para obter mais informações, consulte [Azure cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
-* **Desempenho de rede**: se você tiver uma carga de trabalho que exija alta taxa de transferência, a camada Premium oferecerá mais largura de banda em comparação com o Standard ou Basic. Além disso, dentro de cada camada, caches de tamanho maior têm mais largura de banda devido à VM subjacente que hospeda o cache. Para obter mais informações, consulte a [tabela a seguir](#cache-performance).
-* **Taxa de transferência**: a camada Premium oferece a taxa de transferência máxima disponível. Se o servidor de cache ou o cliente atingir os limites de largura de banda, você poderá receber tempos limite no lado do cliente. Para mais informações, consulte a tabela a seguir.
-* **Alta disponibilidade/SLA**: o cache do Azure para Redis garante que um cache Standard/Premium esteja disponível em pelo menos 99,9% do tempo. Para saber mais sobre nosso SLA, veja [preços do cache do Azure para Redis](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). O SLA cobre apenas a conectividade com os pontos de extremidade do cache. O SLA não engloba a proteção contra perda de dados. É recomendável usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra perda de dados.
-* **Persistência de dados Redis**: a camada Premium permite que você persista os dados de cache em uma conta de armazenamento do Azure. Em um cache básico/Standard, todos os dados são armazenados apenas na memória. Problemas de infraestrutura subjacentes podem resultar em potencial perda de dados. É recomendável usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra perda de dados. O cache do Azure para Redis oferece opções de RDB e AOF (em breve) no Redis persistence. Para obter mais informações, consulte [como configurar a persistência para um cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
-* **Cluster Redis**: para criar caches maiores que 120 GB ou para fragmentar dados entre vários nós do Redis, você pode usar o clustering Redis, que está disponível na camada Premium. Cada nó consiste em um par de cache primário/de réplica para alta disponibilidade. Para obter mais informações, consulte [como configurar o clustering para um cache Premium do Azure para Redis](cache-how-to-premium-clustering.md).
-* **Segurança aprimorada e isolamento de rede**: a implantação da VNET (rede virtual) do Azure fornece segurança e isolamento aprimorados para o cache do Azure para Redis, bem como para sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso. Para obter mais informações, consulte [como configurar o suporte de rede virtual para um cache do Azure Premium para Redis](cache-how-to-premium-vnet.md).
-* **Configurar o Redis**: nas camadas Standard e Premium, você pode configurar o Redis para notificações de keyspace.
-* **Número máximo de conexões de cliente**: a camada Premium oferece o número máximo de clientes que podem se conectar ao Redis, com um número maior de conexões para caches de tamanho maior. O clustering não aumenta o número de conexões disponíveis para um cache clusterizado. Para obter mais informações, consulte [Azure cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
-* **Núcleo dedicado para o Redis Server**: na camada Premium, todos os tamanhos de cache têm um núcleo dedicado para Redis. Nas camadas básica/Standard, o tamanho C1 e acima têm um núcleo dedicado para o servidor Redis.
-* O **Redis é de thread único** , então ter mais de dois núcleos não oferece um benefício adicional em ter apenas dois núcleos, mas tamanhos de VM maiores normalmente têm mais largura de banda do que tamanhos menores. Se o servidor de cache ou o cliente atingir os limites de largura de banda, você receberá tempos limite no lado do cliente.
-* **Melhorias de desempenho**: os caches na camada Premium são implantados em hardware que tem processadores mais rápidos, proporcionando melhor desempenho em comparação com a camada básica ou Standard. Os caches da camada Premium têm mais taxa de transferência e latências menores.
+* **Memória**: Os níveis Básico e Standard oferecem 250 MB – 53 GB. O nível Premium oferece até 1,2 TB (como cluster) ou 120 GB (não agrupado). Para mais informações, consulte [Azure Cache para preços redis](https://azure.microsoft.com/pricing/details/cache/).
+* **Desempenho da rede**: Se tiver uma carga de trabalho que requer uma elevada entrada, o nível Premium oferece mais largura de banda em comparação com standard ou Básico. Também dentro de cada nível, caches de tamanho maior têm mais largura de banda devido ao VM subjacente que acolhe a cache. Para mais informações, consulte a [tabela seguinte](#cache-performance).
+* **Entrada**: O nível Premium oferece o máximo de entrada disponível. Se o servidor cache ou cliente atingir os limites de largura de banda, poderá receber intervalos de tempo do lado do cliente. Para mais informações, consulte a tabela seguinte.
+* **Alta Disponibilidade/SLA**: Azure Cache for Redis garante que uma cache Standard/Premium está disponível pelo menos 99,9% das vezes. Para saber mais sobre o nosso SLA, consulte [Azure Cache para preços redis](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). O SLA cobre apenas a conectividade com os pontos finais do Cache. O SLA não cobre a proteção contra a perda de dados. Recomendamos a utilização da funcionalidade de persistência de dados Redis no nível Premium para aumentar a resiliência contra a perda de dados.
+* **Redis Data Persistence**: O nível Premium permite-lhe persistir os dados de cache numa conta de Armazenamento Azure. Numa cache Basic/Standard, todos os dados são armazenados apenas na memória. As questões subjacentes à infraestrutura podem resultar numa potencial perda de dados. Recomendamos a utilização da funcionalidade de persistência de dados Redis no nível Premium para aumentar a resiliência contra a perda de dados. Azure Cache for Redis oferece opções RDB e AOF (em breve) na persistência de Redis. Para mais informações, consulte [Como configurar a persistência de um Cache Premium Azure para Redis](cache-how-to-premium-persistence.md).
+* **Redis Cluster**: Para criar caches superiores a 120 GB, ou para fragmentos de dados em vários nós Redis, pode utilizar o clusterredis, que está disponível no nível Premium. Cada nó consiste num par de cache primário/réplica para alta disponibilidade. Para mais informações, consulte [Como configurar o agrupamento para um Cache Premium Azure para Redis](cache-how-to-premium-clustering.md).
+* **Reforço**da segurança e isolamento da rede : A implantação da Rede Virtual Azure (VNET) proporciona uma maior segurança e isolamento para o seu Azure Cache para Redis, bem como subredes, políticas de controlo de acesso e outras funcionalidades para restringir ainda mais o acesso. Para mais informações, consulte [como configurar o suporte da Rede Virtual para um Cache Premium Azure para Redis](cache-how-to-premium-vnet.md).
+* **Configure Redis**: Tanto nos níveis Standard como Premium, pode configurar redis para notificações keyspace.
+* **Número máximo de ligações ao cliente**: O nível Premium oferece o número máximo de clientes que podem ligar-se à Redis, com um maior número de ligações para caches de maior dimensão. O agrupamento não aumenta o número de ligações disponíveis para uma cache agrupada. Para mais informações, consulte [O Cache Azure para obter preços redis](https://azure.microsoft.com/pricing/details/cache/).
+* **Core dedicado para Redis Server**: No nível Premium, todos os tamanhos de cache têm um núcleo dedicado para redis. Nos níveis Basic/Standard, o tamanho C1 e acima têm um núcleo dedicado para o servidor Redis.
+* **Redis é de roscar-se,** por isso ter mais de dois núcleos não oferece benefícios adicionais por ter apenas dois núcleos, mas tamanhos de VM maiores normalmente têm mais largura de banda do que tamanhos menores. Se o servidor cache ou cliente atingir os limites de largura de banda, então receberá intervalos de tempo no lado do cliente.
+* **Melhorias**de desempenho : Os caches no nível Premium são implantados em hardware que tem processadores mais rápidos, proporcionando um melhor desempenho em comparação com o nível Básico ou Standard. Os caches de nível premium têm maior entrada e lestabeleceções mais baixas.
 
 <a name="cache-performance"></a>
 
-### <a name="azure-cache-for-redis-performance"></a>Cache do Azure para desempenho Redis
-A tabela a seguir mostra os valores máximos de largura de banda observados durante o teste de vários tamanhos de caches padrão e Premium usando `redis-benchmark.exe` de uma VM IaaS no cache do Azure para o ponto de extremidade Redis. Para a taxa de transferência SSL, Redis-benchmark é usado com stunnel para se conectar ao cache do Azure para o ponto de extremidade Redis.
+### <a name="azure-cache-for-redis-performance"></a>Azure Cache para performance Redis
+A tabela seguinte mostra os valores máximos de largura de banda observados enquanto testa vários tamanhos de caches Standard e Premium utilizando `redis-benchmark.exe` de um IaaS VM contra o Azure Cache para ponto final redis. Para a entrada de SSL, o redis-benchmark é usado com um túnel para ligar ao Azure Cache para redis endpoint.
 
 >[!NOTE] 
->Esses valores não são garantidos e não há SLA para esses números, mas devem ser típicos. Você deve testar o teste de seu próprio aplicativo para determinar o tamanho de cache certo para seu aplicativo.
->Esses números podem mudar à medida que publicamos os resultados mais recentes periodicamente.
+>Estes valores não estão garantidos e não há SLA para estes números, mas devem ser típicos. Deve carregar o teste da sua própria aplicação para determinar o tamanho certo da cache para a sua aplicação.
+>Estes números podem mudar à medida que publicamos resultados mais recentes periodicamente.
 >
 
-A partir desta tabela, podemos desenhar as seguintes conclusões:
+A partir desta tabela, podemos tirar as seguintes conclusões:
 
-* A taxa de transferência para os caches que têm o mesmo tamanho é maior na camada Premium em comparação com a camada Standard. Por exemplo, com um cache de 6 GB, a taxa de transferência de P1 é de 180.000 solicitações por segundo (RPS) em comparação com 100.000 RPS para C3.
-* Com o clustering Redis, a taxa de transferência aumenta linearmente à medida que você aumenta o número de fragmentos (nós) no cluster. Por exemplo, se você criar um cluster P4 de 10 fragmentos, a taxa de transferência disponível será 400.000 * 10 = 4 milhões RPS.
-* A taxa de transferência para maiores tamanhos de chave é maior na camada Premium em comparação com a camada Standard.
+* A entrada para os caches do mesmo tamanho é maior no nível Premium em comparação com o nível Standard. Por exemplo, com uma cache de 6 GB, a entrada de P1 é de 180.000 pedidos por segundo (RPS) em comparação com 100.000 RPS para C3.
+* Com o agrupamento Redis, a entrada aumenta linearmente à medida que aumenta o número de fragmentos (nós) no cluster. Por exemplo, se criar um aglomerado P4 de 10 fragmentos, então a entrada disponível é de 400.000 * 10 = 4 milhões de RPS.
+* A entrada para tamanhos-chave maiores é maior no nível Premium em comparação com o Standard Tier.
 
-| Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | tamanho do valor de 1 KB | tamanho do valor de 1 KB |
+| Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho de valor de 1 KB | Tamanho de valor de 1 KB |
 | --- | --- | --- | --- | --- | --- |
-| **Tamanhos de cache padrão** | | |**Megabits por segundo (MB/s)/megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) não SSL** |**SSL de solicitações por segundo (RPS)** |
-| C0 | 250 MB | Partilhado | 100 / 12.5  |  15 000 |   7\.500 |
-| C1 |   1 GB | 1      | 500 / 62.5  |  38.000 |  20.720 |
-| C2 | 2,5 GB | 2      | 500 / 62.5  |  41.000 |  37.000 |
-| C3 |   6 GB | 4      | 1000 / 125  | 100.000 |  90,000 |
-| C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55.000 |
-| C5 |  26 GB | 4      | 1,000 / 125 | 102.000 |  93.000 |
-| C6 |  53 GB | 8      | 2,000 / 250 | 126.000 | 120,000 |
-| **Tamanhos de cache Premium** | |**Núcleos de CPU por fragmento** | **Megabits por segundo (MB/s)/megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) não SSL, por fragmento** |**SSL de solicitações por segundo (RPS), por fragmento** |
-| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172.000 |
-| P2 |  13 GB |  4 | 3,000 / 375   | 350.000 | 341.000 |
-| P3 |  26 GB |  4 | 3,000 / 375   | 350.000 | 341.000 |
-| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373.000 |
-| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373.000 |
+| **Tamanhos de cache padrão** | | |**Megabits por seg (Mb/s) / Megabytes por seg (MB/s)** |**Pedidos por segundo (RPS) Não-SSL** |**Pedidos por segundo (RPS) SSL** |
+| C0 | 250 MB | Partilhada | 100 / 12.5  |  15 000 |   7\.500 |
+| C1 |   1 GB | 1      | 500 / 62.5  |  38,000 |  20,720 |
+| C2 | 2,5 GB | 2      | 500 / 62.5  |  41,000 |  37,000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100 000 |  90,000 |
+| C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55,000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102,000 |  93,000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126,000 | 120,000 |
+| **Tamanhos de cache premium** | |**Núcleos de CPU por fragmento** | **Megabits por seg (Mb/s) / Megabytes por seg (MB/s)** |**Pedidos por segundo (RPS) Não-SSL, por fragmento** |**Pedidos por segundo (RPS) SSL, por fragmento** |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172,000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
 
-Para obter instruções sobre como configurar o stunnel ou baixar as ferramentas do Redis, como `redis-benchmark.exe`, consulte a seção [como posso executar comandos do Redis?](#cache-commands) .
+Para obter instruções sobre a instalação do túnel ou o download das ferramentas Redis, como `redis-benchmark.exe`, veja a secção [De como posso executar comandos Redis?](#cache-commands)
 
 <a name="cache-region"></a>
 
-### <a name="in-what-region-should-i-locate-my-cache"></a>Em qual região devo localizar meu cache?
-Para obter o melhor desempenho e a menor latência, localize o cache do Azure para Redis na mesma região que o aplicativo cliente de cache.
+### <a name="in-what-region-should-i-locate-my-cache"></a>Em que região devo localizar o meu cache?
+Para melhor desempenho e menor latência, localize o seu Azure Cache para Redis na mesma região que a sua aplicação de cliente cache.
 
 <a name="cache-billing"></a>
 
-### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Como sou cobrado pelo cache do Azure para Redis?
-O cache do Azure para o preço do Redis está [aqui](https://azure.microsoft.com/pricing/details/cache/). A página de preços lista os preços como uma taxa por hora. Os caches são cobrados por minuto a partir do momento em que o cache é criado até o momento em que um cache é excluído. Não há nenhuma opção para parar ou pausar a cobrança de um cache.
+### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Como é que fui cobrado pelo Azure Cache pelo Redis?
+Azure Cache para os preços redis está [aqui.](https://azure.microsoft.com/pricing/details/cache/) A página de preços lista os preços como uma taxa horária. Os caches são faturados por minuto a partir do momento em que a cache é criada até ao momento em que uma cache é eliminada. Não há opção para parar ou parar a faturação de um cache.
 
-### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Posso usar o cache do Azure para Redis com a nuvem do Azure governamental, a nuvem do Azure na China ou o Microsoft Azure Alemanha?
-Sim, o cache do Azure para Redis está disponível na nuvem do Azure governamental, na nuvem do Azure China 21Vianet e Microsoft Azure Alemanha. As URLs para acessar e gerenciar o cache do Azure para Redis são diferentes nessas nuvens em comparação com a nuvem pública do Azure.
+### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Posso usar o Azure Cache para Redis com azure government cloud, Azure China Cloud ou Microsoft Azure Germany?
+Sim, o Azure Cache for Redis está disponível na Azure Government Cloud, Azure China 21Vianet Cloud e Microsoft Azure Germany. Os URLs para aceder e gerir o Azure Cache para Redis são diferentes nestas nuvens em comparação com a Nuvem Pública Azure.
 
-| Nuvem   | Sufixo DNS para Redis            |
+| Cloud   | Dns Sufixo para Redis            |
 |---------|---------------------------------|
 | Público  | *.redis.cache.windows.net       |
-| US Gov  | *.redis.cache.usgovcloudapi.net |
+| Gov dos EUA  | *.redis.cache.usgovcloudapi.net |
 | Alemanha | *.redis.cache.cloudapi.de       |
 | China   | *.redis.cache.chinacloudapi.cn  |
 
-Para obter mais informações sobre considerações ao usar o cache do Azure para Redis com outras nuvens, consulte os links a seguir.
+Para obter mais informações sobre considerações ao utilizar O Cache Azure para Redis com outras nuvens, consulte os seguintes links.
 
-- [Bancos de dados do Azure governamental-cache do Azure para Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure China 21Vianet Cloud-cache do Azure para Redis](https://www.azure.cn/home/features/redis-cache/)
+- [Bases de dados do Governo Azure - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure China 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)
 
-Para obter informações sobre como usar o cache do Azure para Redis com o PowerShell na nuvem do Azure governamental, nuvem do Azure China 21Vianet e Microsoft Azure Alemanha, consulte [como se conectar a outras nuvens-cache do Azure para Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+Para obter informações sobre a utilização de Azure Cache para Redis com PowerShell em Azure Government Cloud, Azure China 21Vianet Cloud, e Microsoft Azure Germany, veja [como se conectar a outras nuvens - Azure Cache para Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
-### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>O que as opções de configuração StackExchange. Redis fazem?
-StackExchange. Redis tem muitas opções. Esta seção aborda algumas das configurações comuns. Para obter informações mais detalhadas sobre as opções StackExchange. Redis, consulte [configuração de stackexchange. Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
+### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>O que fazem as opções de configuração StackExchange.Redis?
+StackExchange.Redis tem muitas opções. Esta secção fala sobre algumas das configurações comuns. Para obter informações mais detalhadas sobre as opções StackExchange.Redis, consulte a [configuração StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
 | ConfigurationOptions | Descrição | Recomendação |
 | --- | --- | --- |
-| AbortOnConnectFail |Quando definido como true, a conexão não será reconectada após uma falha de rede. |Defina como false e permita que StackExchange. Redis reconecte automaticamente. |
-| ConnectRetry |O número de vezes para repetir tentativas de conexão durante a conexão inicial. |Consulte as notas a seguir para obter diretrizes. |
-| ConnectTimeout |Tempo limite em MS para operações de conexão. |Consulte as notas a seguir para obter diretrizes. |
+| AbortOnConnectFail |Quando for verdadeira, a ligação não se reconecta após uma falha de rede. |Despumre a falso e deixe stackExchange.Redis voltar a ligar-se automaticamente. |
+| ConnectRetry |O número de vezes para repetir as tentativas de ligação durante a ligação inicial. |Consulte as seguintes notas para obter orientação. |
+| ConnectTimeout |Intervalo em Ms para operações de ligação. |Consulte as seguintes notas para obter orientação. |
 
-Normalmente, os valores padrão do cliente são suficientes. Você pode ajustar as opções com base em sua carga de trabalho.
+Normalmente, os valores padrão do cliente são suficientes. Pode afinar as opções com base na sua carga de trabalho.
 
 * **Tentativas**
-  * Para ConnectRetry e ConnectTimeout, as diretrizes gerais são fail fast e tentar novamente. Essa orientação se baseia em sua carga de trabalho e em quanto tempo em média leva para o cliente emitir um comando Redis e receber uma resposta.
-  * Permita que o StackExchange. Redis se reconecte automaticamente em vez de verificar o status da conexão e se reconectar. **Evite usar a propriedade ConnectionMultiplexer. IsConnected**.
-  * Bola – às vezes, você pode encontrar um problema em que está tentando novamente e as novas tentativas bola e nunca são recuperadas. Se bola ocorrer, você deverá considerar o uso de um algoritmo de repetição de retirada exponencial, conforme descrito em [diretrizes gerais de repetição](../best-practices-retry-general.md) publicadas pelo grupo de práticas de & de padrões da Microsoft.
+  * Para o ConnectRetry e o ConnectTimeout, a orientação geral é falhar rapidamente e voltar a tentar novamente. Esta orientação baseia-se na sua carga de trabalho e no tempo que o seu cliente leva para emitir um comando Redis e receber uma resposta.
+  * Deixe o StackExchange.Redis voltar a ligar-se automaticamente em vez de verificar o estado da ligação e voltar a ligar-se. **Evite utilizar a propriedade ConnectionMultiplexer.IsConnected**.
+  * Bola de neve - às vezes pode-se encontrar um problema em que se está a tentar e a bola de neve tenta e nunca se recupera. Se ocorrer uma bola de neve, deve considerar a utilização de um algoritmo exponencial de retry backoff, conforme descrito na [orientação geral de Retry](../best-practices-retry-general.md) publicada pelo grupo Microsoft Patterns & Practices.
   
-* **Valores de tempo limite**
-  * Considere sua carga de trabalho e defina os valores de acordo. Se você estiver armazenando valores grandes, defina o tempo limite como um valor mais alto.
-  * Defina `AbortOnConnectFail` como false e permita que o StackExchange. Redis reconecte para você.
-  * Use uma única instância de ConnectionMultiplexer para o aplicativo. Você pode usar um LazyConnection para criar uma única instância que é retornada por uma propriedade de conexão, conforme mostrado em [conectar-se ao cache usando a classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
-  * Defina a propriedade `ConnectionMultiplexer.ClientName` como um nome exclusivo da instância de aplicativo para fins de diagnóstico.
-  * Use várias instâncias de `ConnectionMultiplexer` para cargas de trabalho personalizadas.
-      * Você pode seguir esse modelo se tiver uma carga variável em seu aplicativo. Por exemplo:
-      * Você pode ter um multiplexador para lidar com chaves grandes.
-      * Você pode ter um multiplexador para lidar com chaves pequenas.
-      * Você pode definir valores diferentes para tempos limite de conexão e lógica de repetição para cada ConnectionMultiplexer que você usar.
-      * Defina a propriedade `ClientName` em cada multiplexador para ajudar com o diagnóstico.
-      * Essas diretrizes podem levar a uma latência mais simplificada por `ConnectionMultiplexer`.
+* **Valores de timeout**
+  * Considere a sua carga de trabalho e detete os valores em conformidade. Se estiver a armazenar valores elevados, detete o prazo para um valor mais elevado.
+  * Desloque `AbortOnConnectFail` a falso e deixe stackExchange.Redis voltar a ligar-se para si.
+  * Utilize uma única instância de Ligação Multiplexer para a aplicação. Pode utilizar uma LazyConnection para criar uma única instância que é devolvida por uma propriedade de Ligação, como mostra o [Connect à cache utilizando a classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+  * Deteto a propriedade `ConnectionMultiplexer.ClientName` para uma instância de aplicação nome único para fins de diagnóstico.
+  * Utilize várias `ConnectionMultiplexer` instâncias para cargas de trabalho personalizadas.
+      * Pode seguir este modelo se tiver uma carga variada na sua aplicação. Por exemplo:
+      * Podes ter um multiplexer para lidar com chaves grandes.
+      * Podes ter um multiplexer para lidar com chaves pequenas.
+      * Pode definir diferentes valores para intervalos de ligação e voltar a tentar a lógica de cada LigaçãoMultiplexer que utiliza.
+      * Detete a propriedade `ClientName` em cada multiplexer para ajudar com diagnósticos.
+      * Esta orientação pode conduzir a uma latência mais simplificada por `ConnectionMultiplexer`.
 
-### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Qual cache do Azure para clientes do Redis posso usar?
-Uma das ótimas coisas sobre o Redis é que há muitos clientes oferecendo suporte a várias linguagens de desenvolvimento diferentes. Para obter uma lista atual de clientes, consulte [clientes do Redis](https://redis.io/clients). Para obter tutoriais que abrangem várias linguagens e clientes diferentes, consulte [como usar o cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e seus artigos irmãos no sumário.
+### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Que Cache Azure para clientes Redis posso usar?
+Uma das grandes coisas sobre redis é que há muitos clientes apoiando muitas línguas de desenvolvimento diferentes. Para uma lista atual de clientes, consulte [clientes Redis.](https://redis.io/clients) Para tutoriais que cobrem várias línguas e clientes diferentes, veja [como usar o Azure Cache para redis](cache-dotnet-how-to-use-azure-redis-cache.md) e os seus artigos de irmãos na tabela de conteúdos.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 <a name="cache-emulator"></a>
 
-### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>Há um emulador local para o cache do Azure para Redis?
-Não há um emulador local para o cache do Azure para Redis, mas você pode executar a versão MSOpenTech do Redis-Server. exe nas [ferramentas de linha de comando do Redis](https://github.com/MSOpenTech/redis/releases/) em seu computador local e conectar-se a ela para obter uma experiência semelhante a um emulador de cache local, conforme mostrado no exemplo a seguir:
+### <a name="is-there-a-local-emulator-for-azure-cache-for-redis"></a>Há algum emmulador local para o Azure Cache para o Redis?
+Não existe emulador local para O Cache Azure para Redis, mas pode executar a versão MSOpenTech do redis-server.exe a partir das ferramentas de [linha de comando Redis](https://github.com/MSOpenTech/redis/releases/) na sua máquina local e ligar-se a ele para obter uma experiência semelhante a um emulador local, como mostra o seguinte exemplo:
 
     private static Lazy<ConnectionMultiplexer>
           lazyConnection = new Lazy<ConnectionMultiplexer>
@@ -230,158 +230,158 @@ Não há um emulador local para o cache do Azure para Redis, mas você pode exec
         }
 
 
-Opcionalmente, você pode configurar um arquivo [Redis. conf](https://redis.io/topics/config) para corresponder melhor às [configurações de cache padrão](cache-configure.md#default-redis-server-configuration) para o cache do Azure online para Redis, se desejado.
+Pode configurar opcionalmente um ficheiro [redis.conf](https://redis.io/topics/config) para combinar mais estreitamente as [definições](cache-configure.md#default-redis-server-configuration) de cache padrão para o seu Azure Cache online para Redis, se desejar.
 
 <a name="cache-commands"></a>
 
-### <a name="how-can-i-run-redis-commands"></a>Como posso executar comandos do Redis?
-Você pode usar qualquer um dos comandos listados em [comandos Redis](https://redis.io/commands#) , exceto pelos comandos listados em [comandos Redis sem suporte no cache do Azure para Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis). Você tem várias opções para executar comandos Redis.
+### <a name="how-can-i-run-redis-commands"></a>Como posso executar os comandos redis?
+Pode utilizar qualquer um dos comandos listados nos [comandos Redis,](https://redis.io/commands#) exceto os comandos listados nos [comandos Redis não suportados em Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis). Tem várias opções para executar comandos Redis.
 
-* Se você tiver um cache Standard ou Premium, poderá executar comandos Redis usando o [console do Redis](cache-configure.md#redis-console). O console do Redis fornece uma maneira segura de executar comandos do Redis no portal do Azure.
-* Você também pode usar as ferramentas de linha de comando do Redis. Para usá-los, execute as seguintes etapas:
-* Baixe as [ferramentas de linha de comando do Redis](https://github.com/MSOpenTech/redis/releases/).
-* Conecte-se ao cache usando `redis-cli.exe`. Passe o ponto de extremidade do cache usando a opção-h e a chave usando-a, conforme mostrado no exemplo a seguir:
+* Se tiver uma cache Standard ou Premium, pode executar comandos Redis utilizando a [Consola Redis](cache-configure.md#redis-console). A consola Redis fornece uma forma segura de executar comandos Redis no portal Azure.
+* Também pode utilizar as ferramentas de linha de comando Redis. Para usá-los, execute os seguintes passos:
+* Descarregue as [ferramentas da linha de comando Redis](https://github.com/MSOpenTech/redis/releases/).
+* Ligue-se à cache utilizando `redis-cli.exe`. Passe no ponto final da cache utilizando o interruptor -h e a tecla utilizando - a como mostrado no seguinte exemplo:
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> As ferramentas de linha de comando Redis não funcionam com a porta SSL, mas você pode usar um utilitário como `stunnel` para conectar com segurança as ferramentas à porta SSL seguindo as instruções no artigo [como usar a ferramenta de linha de comando Redis com o cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) .
+> As ferramentas de linha de comando Redis não funcionam com a porta SSL, mas pode utilizar um utilitário como `stunnel` para ligar as ferramentas de forma segura à porta SSL seguindo as instruções na [ferramenta de linha de comando Redis com azure Cache para artigo redis.](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool)
 >
 >
 
 <a name="cache-reference"></a>
 
-### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Por que o cache do Azure para Redis tem uma referência da biblioteca de classes do MSDN como alguns dos outros serviços do Azure?
-O cache Microsoft Azure para Redis é baseado no popular cache do Azure de software livre para Redis. Ele pode ser acessado por uma ampla variedade de [clientes Redis](https://redis.io/clients) para muitas linguagens de programação. Cada cliente tem sua própria API que faz chamadas para o cache do Azure para a instância Redis usando [comandos Redis](https://redis.io/commands).
+### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Porque é que o Azure Cache para redis não tem uma referência da biblioteca da classe MSDN como alguns dos outros serviços do Azure?
+O Microsoft Azure Cache for Redis baseia-se no popular Azure Cache de origem aberta para redis. Pode ser acedido por uma grande variedade de [clientes Redis](https://redis.io/clients) para muitas linguagens de programação. Cada cliente tem a sua própria API que faz chamadas para o Azure Cache for Redis, usando [comandos Redis.](https://redis.io/commands)
 
-Como cada cliente é diferente, não há uma referência de classe centralizada no MSDN, e cada cliente mantém sua própria documentação de referência. Além da documentação de referência, há vários tutoriais que mostram como começar a usar o cache do Azure para Redis usando diferentes idiomas e clientes de cache. Para acessar esses tutoriais, consulte [como usar o cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e seus artigos irmãos no sumário.
+Como cada cliente é diferente, não existe uma referência de classe centralizada na MSDN, e cada cliente mantém a sua própria documentação de referência. Além da documentação de referência, existem vários tutoriais que mostram como começar com o Azure Cache for Redis usando diferentes idiomas e clientes cache. Para aceder a estes tutoriais, veja [como usar o Azure Cache para redis](cache-dotnet-how-to-use-azure-redis-cache.md) e os seus artigos de irmãos na tabela de conteúdos.
 
-### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Posso usar o cache do Azure para Redis como um cache de sessão do PHP?
-Sim, para usar o cache do Azure para Redis como um cache de sessão do PHP, especifique a cadeia de conexão para o cache do Azure para a instância do Redis no `session.save_path`.
+### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Posso usar o Cache Azure para redis como cache de sessão php?
+Sim, para utilizar o Cache Azure para Redis como cache de sessão PHP, especifique a cadeia de ligação ao seu Cache Azure para redis em `session.save_path`.
 
 > [!IMPORTANT]
-> Ao usar o cache do Azure para Redis como um cache de sessão do PHP, você deve codificar por URL a chave de segurança usada para se conectar ao cache, conforme mostrado no exemplo a seguir:
+> Ao utilizar o Azure Cache para Redis como cache de sessão PHP, deve codificar a chave de segurança utilizada para se ligar à cache, como mostra o seguinte exemplo:
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Se a chave não for codificada em URL, você poderá receber uma exceção com uma mensagem como: `Failed to parse session.save_path`
+> Se a chave não estiver codificada em URL, poderá receber uma exceção com uma mensagem como: `Failed to parse session.save_path`
 >
 >
 
-Para obter mais informações sobre como usar o cache do Azure para Redis como um cache de sessão do PHP com o cliente PhpRedis, consulte [manipulador de sessão do PHP](https://github.com/phpredis/phpredis#php-session-handler).
+Para obter mais informações sobre a utilização do Azure Cache para Redis como cache de sessão PHP com o cliente PhpRedis, consulte [php session handler](https://github.com/phpredis/phpredis#php-session-handler).
 
-### <a name="what-are-redis-databases"></a>O que são bancos de dados Redis?
+### <a name="what-are-redis-databases"></a>O que são bases de dados redis?
 
-Os bancos de dados do Redis são apenas uma separação lógica de data dentro da mesma instância Redis. A memória de cache é compartilhada entre todos os bancos de dados e o consumo real de memória de um determinado banco de dado depende das chaves/valores armazenados nesse banco de dados. Por exemplo, um cache C6 tem 53 GB de memória e um P5 tem 120 GB. Você pode optar por colocar todos os 53 GB/120 GB em um banco de dados ou pode dividi-los entre vários bancos de dados. 
+As bases de dados redis são apenas uma separação lógica de dados dentro da mesma instância redis. A memória cache é partilhada entre todas as bases de dados e o consumo real de memória de uma determinada base de dados depende das chaves/valores armazenados nessa base de dados. Por exemplo, uma cache C6 tem 53 GB de memória, e um P5 tem 120 GB. Pode optar por colocar todos os 53 GB / 120 GB numa base de dados ou pode dividi-lo entre várias bases de dados. 
 
 > [!NOTE]
-> Ao usar um cache do Azure Premium para Redis com clustering habilitado, somente o banco de dados 0 está disponível. Essa limitação é uma limitação Redis intrínseca e não é específica do cache do Azure para Redis. Para obter mais informações, consulte [preciso fazer qualquer alteração no meu aplicativo cliente para usar o clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> Ao utilizar um Cache Premium Azure para Redis com clustering ativado, apenas está disponível a base de dados 0. Esta limitação é uma limitação intrínseca de Redis e não é específica de Azure Cache para Redis. Para mais informações, consulte [Se preciso de fazer alterações na aplicação do meu cliente para utilizar o clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 > 
 > 
 
 
 <a name="cache-ssl"></a>
 
-### <a name="when-should-i-enable-the-non-ssl-port-for-connecting-to-redis"></a>Quando devo habilitar a porta não SSL para se conectar ao Redis?
-O servidor Redis não dá suporte nativo a SSL, mas o cache do Azure para Redis. Se você estiver se conectando ao cache do Azure para Redis e seu cliente oferecer suporte a SSL, como StackExchange. Redis, você deve usar SSL.
+### <a name="when-should-i-enable-the-non-ssl-port-for-connecting-to-redis"></a>Quando devo ativar a porta não SSL para a ligação ao Redis?
+O servidor Redis não suporta nativamente o SSL, mas o Azure Cache para redis sim. Se está a ligar-se ao Azure Cache para redis e o seu cliente suporta a SSL, tal como stackExchange.Redis, então deve utilizar o SSL.
 
 >[!NOTE]
->A porta não SSL é desabilitada por padrão para o novo cache do Azure para instâncias de Redis. Se o cliente não oferecer suporte a SSL, você deverá habilitar a porta não SSL seguindo as instruções na seção portas de [acesso](cache-configure.md#access-ports) do artigo [configurar um cache no cache do Azure para Redis](cache-configure.md) .
+>A porta não-SSL é desativada por padrão para o novo Azure Cache para os casos Redis. Se o seu cliente não suportar o SSL, então deve ativar a porta não SSL seguindo as instruções na secção portas de [acesso](cache-configure.md#access-ports) da [Configuração de uma cache em Azure Cache para artigo redis.](cache-configure.md)
 >
 >
 
-Ferramentas de Redis como `redis-cli` não funcionam com a porta SSL, mas você pode usar um utilitário como `stunnel` para conectar com segurança as ferramentas à porta SSL seguindo as instruções na postagem do blog [anunciando o provedor de estado de sessão do ASP.net para a versão de visualização do Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) .
+Ferramentas vermelhas como `redis-cli` não funcionam com a porta SSL, mas pode utilizar um utilitário como `stunnel` para ligar as ferramentas de forma segura à porta SSL seguindo as instruções no [anúncio ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) post.
 
-Para obter instruções sobre como baixar as ferramentas do Redis, consulte a seção [como posso executar comandos do Redis?](#cache-commands)
+Para obter instruções sobre o download das ferramentas Redis, veja a secção [de comandos Redis?](#cache-commands)
 
-### <a name="what-are-some-production-best-practices"></a>O que são algumas práticas recomendadas de produção?
-* [Práticas recomendadas do StackExchange. Redis](#stackexchangeredis-best-practices)
+### <a name="what-are-some-production-best-practices"></a>Quais são as melhores práticas de produção?
+* [StackExchange.Redis boas práticas](#stackexchangeredis-best-practices)
 * [Configuração e conceitos](#configuration-and-concepts)
 * [Teste de desempenho](#performance-testing)
 
-#### <a name="stackexchangeredis-best-practices"></a>Práticas recomendadas do StackExchange. Redis
-* Defina `AbortConnect` como false e, em seguida, deixe o ConnectionMultiplexer se reconectar automaticamente. [Consulte aqui para obter detalhes](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
-* Reutilize o ConnectionMultiplexer-não crie um novo para cada solicitação. O padrão de `Lazy<ConnectionMultiplexer>` [mostrado aqui](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) é recomendado.
-* O Redis funciona melhor com valores menores, portanto, considere a possibilidade de aumentar dados maiores em várias chaves. Nesta [discussão de Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 KB é considerado grande. Leia [Este artigo](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) para obter um problema de exemplo que pode ser causado por valores grandes.
-* Defina [as configurações de ThreadPool](#important-details-about-threadpool-growth) para evitar tempos limite.
-* Use pelo menos o connectTimeout padrão de 5 segundos. Esse intervalo dá ao StackExchange. Redis tempo suficiente para restabelecer a conexão no caso de uma rede Blip.
-* Esteja atento aos custos de desempenho associados a diferentes operações que você está executando. Por exemplo, o comando `KEYS` é uma operação O (n) e deve ser evitado. O [site do Redis.Io](https://redis.io/commands/) tem detalhes sobre a complexidade do tempo para cada operação que ele suporta. Clique em cada comando para ver a complexidade de cada operação.
+#### <a name="stackexchangeredis-best-practices"></a>StackExchange.Redis boas práticas
+* Desloque `AbortConnect` a falso e deixe o ConnectionMultiplexer voltar a ligar-se automaticamente. [Consulte aqui para mais detalhes.](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)
+* Reutilizar o ConnectionMultiplexer - não crie um novo para cada pedido. Recomenda-se o padrão `Lazy<ConnectionMultiplexer>` [mostrado aqui.](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
+* Redis funciona melhor com valores menores, por isso considere cortar dados maiores em várias teclas. [Nesta discussão redis,](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)100 kb é considerado grande. Leia [este artigo](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) para um problema de exemplo que pode ser causado por grandes valores.
+* Configure as [definições de ThreadPool](#important-details-about-threadpool-growth) para evitar intervalos.
+* Utilize pelo menos o tempo de ligação predefinido de 5 segundos. Este intervalo dá ao StackExchange.Redis tempo suficiente para restabelecer a ligação em caso de blip de rede.
+* Esteja ciente dos custos de desempenho associados a diferentes operações que está a executar. Por exemplo, o comando `KEYS` é uma operação O(n) e deve ser evitado. O [site redis.io](https://redis.io/commands/) tem detalhes em torno da complexidade do tempo para cada operação que suporta. Clique em cada comando para ver a complexidade de cada operação.
 
 #### <a name="configuration-and-concepts"></a>Configuração e conceitos
-* Use a camada Standard ou Premium para sistemas de produção. O Escalão Básico é um sistema de nó único sem replicação de dados e sem SLA. Além disso, utilize pelo menos uma cache C1. Caches C0 normalmente são usados para cenários simples de desenvolvimento/teste.
-* Lembre-se de que Redis é um armazenamento **de dados na memória** . Leia [Este artigo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para que você esteja ciente dos cenários em que podem ocorrer perda de dados.
-* Desenvolva seu sistema de modo que ele possa lidar com blips de conexão [devido a patches e failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+* Utilizar o Standard ou o Premium Tier para sistemas de produção. O Basic Tier é um único sistema de nó sem replicação de dados e sem SLA. Além disso, use pelo menos uma cache C1. Os caches C0 são normalmente usados para cenários simples de dev/teste.
+* Lembre-se que Redis é uma loja de dados **em memória.** Leia [este artigo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para que esteja ciente de cenários onde a perda de dados pode ocorrer.
+* Desenvolva o seu sistema de modo a que possa lidar com os blips de ligação [devido a remendos e falhas](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
 #### <a name="performance-testing"></a>Teste de desempenho
-* Comece usando `redis-benchmark.exe` para ter uma ideia de possível taxa de transferência antes de escrever seus próprios testes de desempenho. Como `redis-benchmark` não oferece suporte a SSL, você deve [habilitar a porta não SSL por meio do portal do Azure](cache-configure.md#access-ports) antes de executar o teste. Para obter exemplos, consulte [como posso avaliar e testar o desempenho do meu cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-* A VM do cliente usada para teste deve estar na mesma região que o cache do Azure para a instância Redis.
-* É recomendável usar a série de VMs Dv2 para seu cliente, pois ele tem um hardware melhor e deve fornecer os melhores resultados.
-* Verifique se a VM do cliente escolhida tem pelo menos tanto capacidade de computação quanto de largura de banda quanto o cache que você está testando.
-* Habilite o VRSS no computador cliente se você estiver no Windows. [Consulte aqui para obter detalhes](https://technet.microsoft.com/library/dn383582.aspx).
-* As instâncias de Redis da camada Premium têm melhor latência de rede e taxa de transferência porque estão em execução em hardware melhor para CPU e rede.
+* Comece por usar `redis-benchmark.exe` para obter uma sensação de possível entrada antes de escrever os seus próprios testes perf. Como `redis-benchmark` não suporta o SSL, tem de [ativar a porta Não-SSL através do portal Azure](cache-configure.md#access-ports) antes de executar o teste. Por exemplo, ver [como posso comparar e testar o desempenho da minha cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* O VM cliente utilizado para testes deve estar na mesma região que o seu Azure Cache para redis.
+* Recomendamos a utilização da Série VM Dv2 para o seu cliente, uma vez que têm melhor hardware e devem dar os melhores resultados.
+* Certifique-se de que o vM do seu cliente que escolhe tem pelo menos tanta capacidade de computação e largura de banda como a cache que está a testar.
+* Ative o VRSS na máquina do cliente se estiver no Windows. [Consulte aqui para mais detalhes.](https://technet.microsoft.com/library/dn383582.aspx)
+* Os casos de Redis de nível premium têm melhor latência e entrada de rede porque estão a funcionar com um melhor hardware tanto para cpu como para network.
 
 <a name="cache-redis-commands"></a>
 
-### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Quais são algumas das considerações ao usar comandos comuns do Redis?
+### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Quais são algumas das considerações quando se usam comandos redis comuns?
 
-* Evite usar determinados comandos Redis que levam muito tempo para serem concluídos, a menos que você entenda totalmente o impacto desses comandos. Por exemplo, não execute o comando [Keys](https://redis.io/commands/keys) em produção. Dependendo do número de chaves, pode levar muito tempo para retornar. Redis é um servidor de thread único e processa comandos um de cada vez. Se você tiver outros comandos emitidos após as chaves, eles não serão processados até que o Redis processe o comando KEYS. O [site do Redis.Io](https://redis.io/commands/) tem detalhes sobre a complexidade do tempo para cada operação que ele suporta. Clique em cada comando para ver a complexidade de cada operação.
-* Tamanhos de chave – devo usar pequenos valores/chave ou valores/chave grandes? Depende do cenário. Se seu cenário exigir chaves maiores, você poderá ajustar o ConnectionTimeout e, em seguida, repetir os valores e ajustar sua lógica de repetição. Do ponto de vista do Redis Server, valores menores oferecem melhor desempenho.
-* Essas considerações não significam que você não pode armazenar valores maiores em Redis; Você deve estar ciente das considerações a seguir. As latências serão mais altas. Se você tiver um conjunto de dados maior e outro menor, poderá usar várias instâncias de ConnectionMultiplexer, cada uma configurada com um conjunto diferente de valores de tempo limite e de repetição, conforme descrito no anterior, o [que as opções de configuração stackexchange. Redis fazem](#cache-configuration) .
+* Evite utilizar certos comandos Redis que demoram muito tempo a ser concluídos, a menos que compreenda completamente o impacto destes comandos. Por exemplo, não executar o comando [KEYS](https://redis.io/commands/keys) em produção. Dependendo do número de chaves, pode levar muito tempo a regressar. Redis é um servidor de um fio único e processa comandos um de cada vez. Se tiver outros comandos emitidos após as KEYS, não serão processados até que a Redis processe o comando KEYS. O [site redis.io](https://redis.io/commands/) tem detalhes em torno da complexidade do tempo para cada operação que suporta. Clique em cada comando para ver a complexidade de cada operação.
+* Tamanhos-chave - devo usar pequenas chaves/valores ou grandes chaves/valores? Depende do cenário. Se o seu cenário necessitar de teclas maiores, pode ajustar o Tempo de Ligação, em seguida, retentar os valores e ajustar a sua lógica de retry. Do ponto de vista do servidor Redis, valores menores dão melhor desempenho.
+* Estas considerações não significam que não se pode armazenar valores maiores em Redis; deve estar ciente das seguintes considerações. As tardios serão mais altas. Se tiver um conjunto de dados maiore e menor, pode utilizar várias instâncias de ConnectionMultiplexer, cada uma configurada com um conjunto diferente de valores de tempo e de retry, como descrito no anterior O que as opções de [configuração StackExchange.Redis fazem](#cache-configuration) a secção.
 
 <a name="cache-benchmarking"></a>
 
-### <a name="how-can-i-benchmark-and-test-the-performance-of-my-cache"></a>Como fazer o benchmark e testar o desempenho do meu cache?
+### <a name="how-can-i-benchmark-and-test-the-performance-of-my-cache"></a>Como posso comparar e testar o desempenho da minha cache?
 * [Ativar o diagnóstico da cache](cache-how-to-monitor.md#enable-cache-diagnostics) para poder [monitorizar](cache-how-to-monitor.md) o estado de funcionamento da cache. Pode ver as métricas no portal do Azure e [transferi-las e revê-las](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) com as ferramentas da sua escolha.
-* Você pode usar Redis-benchmark. exe para testar a carga do servidor Redis.
-* Verifique se o cliente de teste de carga e o cache do Azure para Redis estão na mesma região.
-* Use Redis-CLI. exe e monitore o cache usando o comando INFO.
-* Se a carga estiver causando alta fragmentação de memória, você deverá escalar verticalmente para um tamanho de cache maior.
-* Para obter instruções sobre como baixar as ferramentas do Redis, consulte a seção [como posso executar comandos do Redis?](#cache-commands)
+* Pode utilizar redis-benchmark.exe para carregar o teste do seu servidor Redis.
+* Certifique-se de que o cliente de teste de carga e o Cache Azure para Redis estão na mesma região.
+* Utilize redis-cli.exe e monitorize a cache utilizando o comando INFO.
+* Se a sua carga estiver a causar uma fragmentação de memória elevada, deve escalar até um tamanho maior.
+* Para obter instruções sobre o download das ferramentas Redis, veja a secção [de comandos Redis?](#cache-commands)
 
-Os comandos a seguir fornecem um exemplo de como usar Redis-benchmark. exe. Para obter resultados precisos, execute estes comandos de uma VM na mesma região que o cache.
+Os seguintes comandos fornecem um exemplo de utilização de redis-benchmark.exe. Para obter resultados precisos, execute estes comandos a partir de um VM na mesma região que a sua cache.
 
-* Testar solicitações de conjunto em pipeline usando uma carga de 1K
+* Teste de pedidos de SET pipelined utilizando uma carga útil de 1k
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50`
-* Teste solicitações GET em pipeline usando uma carga de 1K.
-  Observação: execute o teste SET mostrado acima primeiro para popular o cache
+* Teste os pedidos get pipelined utilizando uma carga útil de 1k.
+  NOTA: Executar o teste SET mostrado acima do primeiro para povoar cache
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
 
 <a name="threadpool"></a>
 
-### <a name="important-details-about-threadpool-growth"></a>Detalhes importantes sobre o crescimento de ThreadPool
-O ThreadPool do CLR tem dois tipos de threads – threads "Worker" e "porta de conclusão de e/s" (IOCP).
+### <a name="important-details-about-threadpool-growth"></a>Detalhes importantes sobre o crescimento da ThreadPool
+O CLR ThreadPool tem dois tipos de fios - "Trabalhador" e "I/O Completion Port" (IOCP).
 
-* Os threads de trabalho são usados para coisas como processar os métodos `Task.Run(…)`ou `ThreadPool.QueueUserWorkItem(…)`. Esses threads também são usados por vários componentes no CLR quando o trabalho precisa ocorrer em um thread em segundo plano.
-* Os threads IOCP são usados quando a e/s assíncrona acontece, como ao ler da rede.
+* Os fios dos trabalhadores são usados para coisas como processar os métodos `Task.Run(…)`ou `ThreadPool.QueueUserWorkItem(…)`. Estes fios também são utilizados por vários componentes no CLR quando o trabalho tem de acontecer num fio de fundo.
+* Os fios DOICosão são usados quando o IO assíncrono acontece, como quando se lê a partir da rede.
 
-O pool de segmentos fornece novos threads de trabalho ou threads de conclusão de e/s sob demanda (sem nenhuma limitação) até atingir a configuração "mínima" para cada tipo de thread. Por padrão, o número mínimo de threads é definido como o número de processadores em um sistema.
+O conjunto de rosca fornece novos fios de trabalho ou fios de conclusão de I/S a pedido (sem qualquer estrangulamento) até atingir a definição "Mínima" para cada tipo de fio. Por padrão, o número mínimo de fios é definido para o número de processadores num sistema.
 
-Depois que o número de threads (ocupados) existentes atinge o número "mínimo" de threads, o ThreadPool limitará a taxa na qual injeta novos threads para um thread por 500 milissegundos. Normalmente, se o seu sistema obtiver uma intermitência de trabalho que precisa de um thread IOCP, ele processará esse trabalho rapidamente. No entanto, se a intermitência de trabalho for mais do que a configuração "mínima" configurada, haverá algum atraso no processamento de parte do trabalho, pois o ThreadPool aguarda uma das duas coisas a acontecer.
+Uma vez que o número de fios existentes (ocupados) atinge o número "mínimo" de fios, o ThreadPool irá acelerar a velocidade a que injeta novos fios a um fio por 500 milissegundos. Normalmente, se o seu sistema tiver uma explosão de trabalho que precisa de um fio COI, irá processar esse trabalho rapidamente. No entanto, se a explosão de trabalho for mais do que a configuração "Mínima" configurada, haverá algum atraso no processamento de parte do trabalho enquanto a ThreadPool espera que aconteça uma de duas coisas.
 
-1. Um thread existente torna-se livre para processar o trabalho.
-2. Nenhum thread existente torna-se gratuito para 500 MS, portanto, um novo thread é criado.
+1. Um fio existente torna-se livre para processar o trabalho.
+2. Nenhum fio existente fica livre por 500 ms, por isso é criado um novo fio.
 
-Basicamente, isso significa que, quando o número de threads ocupados for maior que o mínimo de threads, você provavelmente está pagando um atraso de 500 MS antes que o tráfego de rede seja processado pelo aplicativo. Além disso, é importante observar que, quando um thread existente permanece ocioso por mais de 15 segundos (com base no que eu me lembro), ele será limpo e esse ciclo de crescimento e redução poderá se repetir.
+Basicamente, significa que quando o número de fios Ocupados é maior do que os fios Min, você provavelmente está pagando um atraso de 500 ms antes que o tráfego da rede seja processado pela aplicação. Além disso, é importante notar que quando um fio existente permanece inativo por mais de 15 segundos (com base no que me lembro), será limpo e este ciclo de crescimento e encolhimento pode repetir-se.
 
-Se olharmos um exemplo de mensagem de erro de StackExchange. Redis (Build 1.0.450 ou posterior), você verá que agora ele imprime estatísticas de ThreadPool (consulte os detalhes de IOCP e de trabalho abaixo).
+Se olharmos para uma mensagem de erro de exemplo de StackExchange.Redis (construir 1.0.450 ou mais tarde), verá que agora imprime estatísticas da ThreadPool (ver detalhes do IOCP e do TRABALHADOR abaixo).
 
     System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
     queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-No exemplo anterior, você pode ver que, para o thread IOCP, há seis threads ocupados e o sistema está configurado para permitir quatro threads mínimos. Nesse caso, o cliente provavelmente terá visto atrasos de 2 500 a MS, pois 6 > 4.
+No exemplo anterior, pode ver que para o fio IOCP existem seis fios ocupados e o sistema está configurado para permitir quatro fios mínimos. Neste caso, o cliente provavelmente teria visto dois atrasos de 500 ms, porque 6 > 4.
 
-Observe que StackExchange. Redis pode atingir tempos limite se o crescimento de IOCP ou threads de trabalho for limitado.
+Note que StackExchange.Redis pode atingir os intervalos se o crescimento de linhas DOIP ou TRABALHADOR for estrangulado.
 
 ### <a name="recommendation"></a>Recomendação
 
-Dadas essas informações, é altamente recomendável que os clientes definam o valor mínimo de configuração para IOCP e threads de trabalho para algo maior que o valor padrão. Não podemos dar a orientação de um único tamanho sobre o que esse valor deve ter porque o valor certo para um aplicativo provavelmente será muito alto ou baixo para outro aplicativo. Essa configuração também pode afetar o desempenho de outras partes de aplicativos complicados, de modo que cada cliente precisa ajustar essa configuração para suas necessidades específicas. Um bom ponto de partida é 200 ou 300 e, em seguida, teste e ajuste conforme necessário.
+Tendo em conta esta informação, recomendamos vivamente que os clientes estabeleçam o valor mínimo de configuração para os fios IOCP e WORKER para algo maior do que o valor padrão. Não podemos dar orientações de tamanho único sobre o que este valor deve ser porque o valor certo para uma aplicação será provavelmente demasiado alto ou baixo para outra aplicação. Esta definição também pode impactar o desempenho de outras partes de aplicações complicadas, pelo que cada cliente precisa de afinar esta configuração às suas necessidades específicas. Um bom ponto de partida é 200 ou 300, depois testar e ajustar conforme necessário.
 
-Como definir essa configuração:
+Como configurar esta definição:
 
-* É recomendável alterar essa configuração programaticamente usando o método [ThreadPool. SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) no `global.asax.cs`. Por exemplo:
+* Recomendamos que esta definição seja alterada programáticamente utilizando o método [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) em `global.asax.cs`. Por exemplo:
 
 ```cs
 private readonly int minThreads = 200;
@@ -396,91 +396,91 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > O valor especificado por esse método é uma configuração global, afetando todo o AppDomain. Por exemplo, se você tiver uma máquina de 4 núcleos e quiser definir *MinWorkerThreads* e *minIoThreads* como 50 por CPU durante o tempo de execução, você usaria **ThreadPool. SetMinThreads (200, 200)** .
+  > O valor especificado por este método é uma definição global, afetando todo o AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e pretender definir *minWorkerThreads* e *minIoThreads* a 50 por CPU durante o tempo de execução, utilizaria **ThreadPool.SetMinThreads (200, 200)** .
 
-* Também é possível especificar a configuração de threads mínimos usando o [parâmetro de configuração *MinIoThreads* ou *MinWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) no elemento de configuração `<processModel>` no `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos dessa maneira geralmente não é recomendado, pois é uma configuração de todo o sistema.**
+* Também é possível especificar a definição de fios mínimos utilizando a [configuração *minIoThreads* ou *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sob o elemento de configuração `<processModel>` em `Machine.config`, normalmente localizado a `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **A definição do número de fios mínimos desta forma não é geralmente recomendada, porque se trata de uma definição ao nível do Sistema.**
 
   > [!NOTE]
-  > O valor especificado neste elemento de configuração é uma configuração *por núcleo* . Por exemplo, se você tiver uma máquina de 4 núcleos e quiser que sua configuração de *minIoThreads* seja 200 em tempo de execução, você usaria `<processModel minIoThreads="50"/>`.
+  > O valor especificado neste elemento de configuração é uma definição *por núcleo.* Por exemplo, se tiver uma máquina de 4 núcleos e quiser que a definição de *minIoThreads* seja de 200 no tempo de execução, utilizará `<processModel minIoThreads="50"/>`.
   >
 
 <a name="server-gc"></a>
 
-### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Habilite o GC do servidor para obter mais taxa de transferência no cliente ao usar StackExchange. Redis
-Habilitar o GC do servidor pode otimizar o cliente e fornecer melhor desempenho e taxa de transferência ao usar StackExchange. Redis. Para obter mais informações sobre o GC do servidor e como habilitá-lo, consulte os seguintes artigos:
+### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Ativar o server GC para obter mais entrada no cliente ao utilizar StackExchange.Redis
+Ativar o servidor GC pode otimizar o cliente e fornecer um melhor desempenho e entrada ao utilizar StackExchange.Redis. Para obter mais informações sobre o servidor GC e como o ativar, consulte os seguintes artigos:
 
-* [Para habilitar o GC do servidor](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
-* [Conceitos básicos da coleta de lixo](/dotnet/standard/garbage-collection/fundamentals)
-* [Coleta de lixo e desempenho](/dotnet/standard/garbage-collection/performance)
+* [Para ativar o servidor GC](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Fundamentos da Coleção de Lixo](/dotnet/standard/garbage-collection/fundamentals)
+* [Recolha e Performance de Lixo](/dotnet/standard/garbage-collection/performance)
 
 
-### <a name="performance-considerations-around-connections"></a>Considerações sobre desempenho em relação a conexões
+### <a name="performance-considerations-around-connections"></a>Considerações de desempenho em torno de ligações
 
-Cada tipo de preço tem limites diferentes para conexões de cliente, memória e largura de banda. Embora cada tamanho de cache permita *até* um determinado número de conexões, cada conexão com Redis tem sobrecarga associada a ela. Um exemplo de tal sobrecarga seria o uso de CPU e memória como resultado da criptografia TLS/SSL. O limite máximo de conexões para um determinado tamanho de cache pressupõe um cache levemente carregado. Se a carga da sobrecarga de conexão *mais* a carga das operações do cliente exceder a capacidade para o sistema, o cache poderá ter problemas de capacidade mesmo que você não tenha excedido o limite de conexão para o tamanho do cache atual.
+Cada nível de preços tem limites diferentes para ligações ao cliente, memória e largura de banda. Embora cada tamanho de cache permita *até* um certo número de ligações, cada ligação com Redis tem sobrecarga associada a ele. Um exemplo de tal sobrecarga seria cpU e uso de memória como resultado da encriptação TLS/SSL. O limite máximo de ligação para um dado tamanho de cache pressupõe uma cache levemente carregada. Se a carga a partir de ligação superior *mais* a carga das operações do cliente exceder a capacidade do sistema, a cache pode experimentar problemas de capacidade mesmo que não tenha excedido o limite de ligação para o tamanho atual do cache.
 
-Para obter mais informações sobre os limites de conexões diferentes para cada camada, consulte [Azure cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/). Para obter mais informações sobre conexões e outras configurações padrão, consulte [configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration).
+Para obter mais informações sobre os diferentes limites de ligações para cada nível, consulte [O Cache Azure para preços Redis](https://azure.microsoft.com/pricing/details/cache/). Para obter mais informações sobre ligações e outras configurações predefinidas, consulte a [configuração do servidor Predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
 <a name="cache-monitor"></a>
 
-### <a name="how-do-i-monitor-the-health-and-performance-of-my-cache"></a>Como fazer monitorar a integridade e o desempenho do meu cache?
-O cache Microsoft Azure para instâncias Redis pode ser monitorado no [portal do Azure](https://portal.azure.com). Você pode exibir as métricas, fixar os gráficos de métricas no quadro inicial, personalizar o intervalo de data e hora dos gráficos de monitoramento, adicionar e remover métricas dos gráficos e definir alertas quando determinadas condições forem atendidas. Para obter mais informações, consulte [monitorar o cache do Azure para Redis](cache-how-to-monitor.md).
+### <a name="how-do-i-monitor-the-health-and-performance-of-my-cache"></a>Como posso monitorizar a saúde e o desempenho da minha cache?
+Os casos do Microsoft Azure Cache para redis podem ser monitorizados no [portal Azure](https://portal.azure.com). Pode visualizar métricas, gráficos de métricas de pin os gráficos para a Startboard, personalizar a gama de data e hora dos gráficos de monitorização, adicionar e remover métricas dos gráficos, e definir alertas quando determinadas condições são satisfeitas. Para mais informações, consulte [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
 
-O **menu de recursos** do cache do Azure para Redis também contém várias ferramentas para monitorar e solucionar problemas de seus caches.
+O menu Azure Cache for Redis **Resource** também contém várias ferramentas para monitorizar e resolver problemas nos seus caches.
 
-* **Diagnosticar e resolver problemas** fornece informações sobre problemas comuns e estratégias para resolvê-los.
-* O **Resource Health** inspeciona o recurso e informa se ele está sendo executado conforme o esperado. Para obter mais informações sobre o serviço de integridade de recursos do Azure, consulte [visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
-* **Nova solicitação de suporte** fornece opções para abrir uma solicitação de suporte para seu cache.
+* **Diagnosticar e resolver problemas** fornece informações sobre questões e estratégias comuns para resolvê-los.
+* **A saúde** dos recursos observa o seu recurso e diz-lhe se está a funcionar como esperado. Para mais informações sobre o serviço de saúde azure Resource, consulte a [visão geral da saúde do Recurso Azure.](../resource-health/resource-health-overview.md)
+* **Novo pedido de apoio** oferece opções para abrir um pedido de apoio para a sua cache.
 
-Essas ferramentas permitem monitorar a integridade do cache do Azure para instâncias Redis e ajudá-lo a gerenciar seus aplicativos de cache. Para obter mais informações, consulte a seção "suporte & configurações de solução de problemas" de [como configurar o cache do Azure para Redis](cache-configure.md).
+Estas ferramentas permitem-lhe monitorizar a saúde do seu Azure Cache para os casos Redis e ajudá-lo a gerir as suas aplicações de cache. Para mais informações, consulte a secção "Definições de Suporte e Resolução de Problemas" de [Como configurar o Azure Cache para Redis](cache-configure.md).
 
 <a name="cache-timeouts"></a>
 
-### <a name="why-am-i-seeing-timeouts"></a>Por que estou vendo tempos limite?
-Os tempos limite acontecem no cliente que você usa para se comunicar com o Redis. Quando um comando é enviado para o servidor Redis, o comando é colocado em fila e o servidor Redis eventualmente seleciona o comando e o executa. No entanto, o cliente pode atingir o tempo limite durante esse processo e, se ele faz uma exceção, é gerado no lado da chamada. Para obter mais informações sobre como solucionar problemas de tempo limite, consulte exceções [do cliente](cache-troubleshoot-client.md) e de [tempo limite do stackexchange. Redis](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
+### <a name="why-am-i-seeing-timeouts"></a>Porque é que estou a ver intervalos?
+Os intervalos acontecem no cliente que usas para falar com o Redis. Quando um comando é enviado para o servidor Redis, o comando é feito em fila e o servidor Redis eventualmente apanha o comando e executa-o. No entanto, o cliente pode sair durante este processo e se o fizer uma exceção é levantada no lado da chamada. Para obter mais informações sobre problemas de resolução de tempo, consulte as exceções de [timeout do lado do cliente](cache-troubleshoot-client.md) e [StackExchange.Redis](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 
-### <a name="why-was-my-client-disconnected-from-the-cache"></a>Por que meu cliente foi desconectado do cache?
-A seguir estão alguns motivos comuns para uma desconexão do cache.
+### <a name="why-was-my-client-disconnected-from-the-cache"></a>Porque é que o meu cliente foi desligado da cache?
+Seguem-se alguma razão comum para uma desconexão de cache.
 
 * Causas do lado do cliente
-  * O aplicativo cliente foi reimplantado.
-  * O aplicativo cliente executou uma operação de dimensionamento.
-    * No caso de serviços de nuvem ou aplicativos Web, isso pode ser devido ao dimensionamento automático.
-  * A camada de rede no lado do cliente foi alterada.
+  * A aplicação do cliente foi redistribuída.
+  * A aplicação do cliente realizou uma operação de escala.
+    * No caso dos Serviços cloud ou aplicações web, isto pode ser devido a autoscalcificação.
+  * A camada de rede do lado do cliente mudou.
   * Erros transitórios ocorreram no cliente ou nos nós de rede entre o cliente e o servidor.
-  * Os limites do limite de largura de banda foram atingidos.
-  * As operações associadas à CPU levaram muito tempo para serem concluídas.
+  * Os limites de limiar de largura de banda foram atingidos.
+  * As operações ligadas à CPU demoraram muito tempo a ser concluídas.
 * Causas do lado do servidor
-  * Na oferta de cache padrão, o cache do Azure para o serviço Redis iniciou um failover do nó primário para o nó secundário.
-  * O Azure estava corrigindo a instância em que o cache foi implantado
-    * Isso pode ser para atualizações do servidor Redis ou manutenção geral da VM.
+  * Na oferta padrão de cache, o serviço Azure Cache for Redis iniciou uma falha do nó primário para o nó secundário.
+  * O Azure estava a remendar o caso em que a cache foi implantada.
+    * Isto pode ser para atualizações do servidor Redis ou manutenção geral vm.
 
-### <a name="which-azure-cache-offering-is-right-for-me"></a>Qual das ofertas da Cache do Azure é melhor para mim?
+### <a name="which-azure-cache-offering-is-right-for-me"></a>Que oferta de Azure Cache é certa para mim?
 > [!IMPORTANT]
-> De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)do ano passado, o serviço de cache gerenciado do Azure e o serviço de cache na função do Azure foram **desativados** em 30 de novembro de 2016. Nossa recomendação é usar o [cache do Azure para Redis](https://azure.microsoft.com/services/cache/). Para obter informações sobre como migrar, consulte [migrar do serviço de cache gerenciado para o cache do Azure para Redis](cache-migrate-to-redis.md).
+> De acordo com o [anúncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)do ano passado, o Azure Managed Cache Service e o serviço Azure In-Role Cache **foram retirados** a 30 de novembro de 2016. A nossa recomendação é usar [o Azure Cache para redis.](https://azure.microsoft.com/services/cache/) Para obter informações sobre a migração, consulte [Migrate do Serviço de Cache Gerido para Azure Cache for Redis](cache-migrate-to-redis.md).
 >
 >
 
 ### <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
-O cache do Azure para Redis está geralmente disponível em tamanhos de até 120 GB e tem um SLA de disponibilidade de 99,9%. A nova [camada Premium](cache-premium-tier-intro.md) oferece tamanhos de até 1,2 TB e suporte para clustering, VNET e persistência, com um SLA de 99,9%.
+O Azure Cache for Redis está geralmente disponível em tamanhos até 120 GB e tem uma disponibilidade de SLA de 99,9%. O novo [nível premium](cache-premium-tier-intro.md) oferece tamanhos até 1,2 TB e suporte para clustering, VNET e persistência, com um SLA de 99,9%.
 
-O cache do Azure para Redis oferece aos clientes a capacidade de usar um cache do Azure seguro e dedicado para o Redis, gerenciado pela Microsoft. Com essa oferta, você tem de aproveitar o rico conjunto de recursos e o ecossistema fornecido pelo Redis, além de hospedagem e monitoramento confiáveis da Microsoft.
+O Azure Cache para a Redis dá aos clientes a capacidade de utilizar um Azure Cache para Redis, seguro e dedicado, gerido pela Microsoft. Com esta oferta, você pode aproveitar o conjunto de funcionalidades ricas e o ecossistema fornecido pela Redis, e hospedagem e monitorização confiáveis da Microsoft.
 
-Ao contrário dos caches tradicionais que lidam apenas com os pares chave-valor, o Redis é popular para seus tipos de dados altamente de alto desempenho. O Redis também dá suporte à execução de operações atômicas nesses tipos, como anexar a uma cadeia de caracteres; incrementando o valor em um hash; enviando por push para uma lista; Calculando interseção de conjunto, União e diferença; ou obtendo o membro com a classificação mais alta em um conjunto classificado. Outros recursos incluem suporte para transações, pub/sub, scripts de lua, chaves com tempo de vida limitado e definições de configuração para fazer com que o Redis se comporte mais como um cache tradicional.
+Ao contrário dos caches tradicionais que lidam apenas com pares de valor-chave, redis é popular pelos seus tipos de dados altamente performantes. A Redis também suporta a execução de operações atómicas neste tipo, como a despesa com uma corda; incrementando o valor num hash; empurrando para uma lista; cruzamento de conjuntode computação, união e diferença; ou obter o membro com a classificação mais alta em um conjunto classificado. Outras funcionalidades incluem suporte para transações, pub/sub, scripts Lua, chaves com um tempo limitado para viver, e configurações de configuração para fazer redis comportar-se mais como um cache tradicional.
 
-Outro aspecto fundamental do sucesso do Redis é o ecossistema íntegro e vibrante de software livre criado em relação a ele. Isso se reflete no conjunto variado de clientes Redis disponíveis em vários idiomas. Esse ecossistema e uma ampla variedade de clientes permitem que o cache do Azure para Redis seja usado por praticamente qualquer carga de trabalho que você criar dentro do Azure.
+Outro aspeto fundamental para o sucesso da Redis é o saudável e vibrante ecossistema de código aberto construído à sua volta. Isto reflete-se no conjunto diversificado de clientes Redis disponíveis em várias línguas. Este ecossistema e uma vasta gama de clientes permitem que o Azure Cache para redis seja usado por quase toda a carga de trabalho que construiria dentro do Azure.
 
-Para obter mais informações sobre a introdução ao cache do Azure para Redis, consulte [como usar o cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e a [documentação do cache do Azure para Redis](index.yml).
+Para mais informações sobre o início com Azure Cache for Redis, consulte [Como Usar o Cache Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e [Azure Cache para documentação redis.](index.yml)
 
-### <a name="managed-cache-service"></a>Serviço de cache gerenciado
-[O serviço de cache gerenciado foi desativado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+### <a name="managed-cache-service"></a>Serviço cache gerido
+[O serviço de Cache gerido foi retirado a 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Para exibir a documentação arquivada, consulte [documentação do serviço de cache gerenciado arquivado](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
+Para ver a documentação arquivada, consulte a Documentação do Serviço de [Cache Gerida Arquivada](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
-### <a name="in-role-cache"></a>Cache na Função
-[Cache na Função foi desativado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+### <a name="in-role-cache"></a>Cache em Papel
+[In-Role Cache foi reformado a 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Para exibir a documentação arquivada, consulte [documentação de cache na função arquivada](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
+Para ver a documentação arquivada, consulte documentação de [cache arquivada em funções.](/previous-versions/azure/azure-services/dn386103(v=azure.100))
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

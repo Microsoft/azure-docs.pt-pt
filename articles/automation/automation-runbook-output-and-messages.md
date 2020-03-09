@@ -1,36 +1,42 @@
 ---
-title: Saída e mensagens do runbook na automação do Azure
-description: Descreve como criar e recuperar mensagens de saída e de erro de runbooks na automação do Azure.
+title: Saída de livro de execução e mensagens na Automação Azure
+description: Descreve como criar e recuperar mensagens de saída e erro a partir de livros de execução na Automatização Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 34246d66a48baec160a83411511ed78948c5dd8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ede607191604fbedd4b36523fae18ef1a7a5a2e0
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421047"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925118"
 ---
-# <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na automação do Azure
+# <a name="runbook-output-and-messages-in-azure-automation"></a>Saída de livro de execução e mensagens na Automação Azure
 
-A maioria dos runbooks de automação do Azure tem alguma forma de saída. Essa saída pode ser uma mensagem de erro para o usuário ou um objeto complexo que você pretende usar com outro runbook. O Windows PowerShell fornece [vários fluxos](/powershell/module/microsoft.powershell.core/about/about_redirection) para enviar a saída de um script ou fluxo de trabalho. A automação do Azure funciona com cada um desses fluxos de forma diferente. Você deve seguir as práticas recomendadas de como usar cada um quando estiver criando um runbook.
+A maioria dos livros de automação Azure têm alguma forma de saída. Esta saída pode ser uma mensagem de erro para o utilizador ou um objeto complexo destinado a ser utilizado com outro livro de execução. O Windows PowerShell fornece [vários fluxos](/powershell/module/microsoft.powershell.core/about/about_redirection) para enviar saída a partir de um script ou fluxo de trabalho. A Azure Automation trabalha com cada um destes riachos de forma diferente. Deve seguir as melhores práticas para usar os streams quando está a criar um livro de corridas.
 
-A tabela a seguir fornece uma breve descrição de cada um dos fluxos e seu comportamento na portal do Azure para runbooks publicados e ao [testar um runbook](automation-testing-runbook.md). Mais detalhes sobre cada fluxo são fornecidos nas seções posteriores.
+A tabela seguinte descreve brevemente cada stream com o seu comportamento no portal Azure para livros publicados e durante o [teste de um livro de execução](automation-testing-runbook.md). O fluxo de saída é o fluxo principal utilizado para a comunicação entre os livros de execução. Os outros fluxos são classificados como fluxos de mensagens, destinados a comunicar informações ao utilizador. 
 
-| Transmissão | Descrição | Publicado | Testar |
+| Transmitir em fluxo | Descrição | Publicado | Teste |
 |:--- |:--- |:--- |:--- |
-| Saída |Objetos destinados a ser consumidos por outros runbooks. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
-| Aviso |Mensagem de aviso para o utilizador. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
-| Erro |Mensagem de erro para o utilizador. Ao contrário de uma exceção, o runbook continua após uma mensagem de erro por predefinição. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
-| Verboso |Mensagens que fornecem informações gerais ou de depuração. |Escrito no histórico da tarefa apenas se o registo verboso está ativado runbook. |Só é apresentado no Painel de Resultados do Teste se $VerbosePreference estiver definido como Continuar no runbook. |
-| Progresso |Registos gerados automaticamente antes e após cada atividade no runbook. O runbook não deve tentar criar seus próprios registros de progresso, pois eles são destinados a um usuário interativo. |Escrito no histórico da tarefa apenas se o registo de progressos estiver ativado para o runbook. |Não é apresentado no painel de resultados do teste. |
-| Depurar |Mensagens destinadas a um utilizador interativo. Não deve ser usado em runbooks. |Não é escrito no histórico da tarefa. |Não é escrito no painel de resultados de teste. |
+| Erro |Mensagem de erro para o utilizador. Ao contrário de uma exceção, o livro de execução continua após uma mensagem de erro por padrão. |Escrito para a história do trabalho |Exibido no painel de saída do teste |
+| Depurar |Mensagens destinadas a um utilizador interativo. Não deve ser usado em livros de corridas. |Não escrito para a história do trabalho |Não exibido no painel de saída do teste |
+| Saída |Objetos destinados a ser consumidos por outros runbooks. |Escrito para a história do trabalho |Exibido no painel de saída do teste |
+| Progresso |Registos gerados automaticamente antes e após cada atividade no runbook. O livro de execução não deve tentar criar os seus próprios registos de progresso, uma vez que se destinam a um utilizador interativo. |Escrito para o histórico de emprego apenas se o progresso da exploração é ligado para o livro de corridas |Não exibido no painel de saída do teste |
+| Verboso |Mensagens que dão informações gerais ou depuradas. |Escrito para o histórico de emprego apenas se a exploração madeireira verbosa for ligada para o livro de corridas |Apresentado no painel de saída do teste apenas se *$VerbosePreference* estiver definido para **continuar** no livro de execução |
+| Aviso |Mensagem de aviso para o utilizador. |Escrito para a história do trabalho |Exibido no painel de saída do teste |
+
+>[!NOTE]
+>Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="output-stream"></a>Fluxo de saída
-O fluxo de saída destina-se à saída de objetos, que são criados por um script ou fluxo de trabalho quando ele é executado corretamente. Na automação do Azure, esse fluxo é usado principalmente para objetos destinados a serem consumidos por [runbooks pai que chamam o runbook atual](automation-child-runbooks.md). Quando [chamar um runbook inline](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) partir de um runbook de principal, são devolvidos dados do fluxo de saída para o elemento principal. Use apenas o fluxo de saída para comunicar informações gerais de volta para o usuário se você souber que o runbook nunca é chamado por outro runbook. Como melhor prática, no entanto, deve geralmente usa o [Stream verboso](#verbose-stream) para comunicar informações gerais ao utilizador.
 
-Pode escrever dados para o fluxo de saída através de [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) ou ao colocar o objeto na sua própria linha no runbook.
+O fluxo de saída é utilizado para a saída de objetos criados por um script ou fluxo de trabalho quando funciona corretamente. A Azure Automation usa principalmente este fluxo para objetos a consumir por livros de execução dos pais que chamam o atual livro de [execução](automation-child-runbooks.md). Quando um progenitor chama um livro de [execução inline,](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution)a criança devolve os dados do fluxo de saída ao progenitor. 
+
+O seu livro de execução utiliza o fluxo de saída para comunicar informações gerais ao cliente apenas se nunca for chamado por outro livro de execução. Como uma boa prática, no entanto, os livros de execução devem normalmente usar o [fluxo Verbose](#verbose-stream) para comunicar informações gerais ao utilizador.
+
+Faça com que o seu livro de execução escreva dados para o fluxo de saída utilizando a [Saída de Escrita](https://technet.microsoft.com/library/hh849921.aspx). Em alternativa, pode colocar o objeto na sua própria linha no script.
 
 ```powershell
 #The following lines both write an object to the output stream.
@@ -38,11 +44,9 @@ Write-Output –InputObject $object
 $object
 ```
 
-### <a name="output-from-a-function"></a>Saída de uma função
+### <a name="handling-output-from-a-function"></a>Manuseamento da saída a partir de uma função
 
-Quando você grava no fluxo de saída em uma função que está incluída no seu runbook, a saída é passada de volta para o runbook. Se o runbook atribuir essa saída a uma variável, em seguida, ele não está escrito para o fluxo de saída. Gravar em quaisquer outros fluxos de dentro da função grava no fluxo correspondente para o runbook.
-
-Considere o seguinte runbook de exemplo:
+Quando uma função de livro de execução escreve para o fluxo de saída, a saída é passada de volta para o livro de execução. Se o livro de execução atribuir essa saída a uma variável, a saída não está escrita no fluxo de saída. Escrever a quaisquer outros fluxos de dentro da função escreve para o fluxo correspondente para o livro de execução. Considere o seguinte livro de execução powerShell Workflow.
 
 ```powershell
 Workflow Test-Runbook
@@ -60,32 +64,34 @@ Workflow Test-Runbook
 }
 ```
 
-O fluxo de saída da tarefa de runbook seria:
+O fluxo de saída para o trabalho do livro de corridas é:
 
 ```output
 Output inside of function
 Output outside of function
 ```
 
-O fluxo verboso da tarefa de runbook seria:
+O fluxo verbose para o trabalho do livro de corridas é:
 
 ```output
 Verbose outside of function
 Verbose inside of function
 ```
 
-Depois de publicar o runbook e antes de iniciá-lo, você também deve ativar o log detalhado nas configurações do runbook para obter a saída de fluxo detalhado.
+Depois de publicar o livro de execução e antes de o iniciar, também deve ligar a madeira verbosa nas definições do livro de execução para obter a saída de fluxo verbose.
 
-### <a name="declaring-output-data-type"></a>Declarando tipo de dados de saída
+### <a name="declaring-output-data-type"></a>Declarar tipo de dados de saída
 
-Um fluxo de trabalho pode especificar o tipo de dados das respetivas saídas ao utilizar o [atributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Este atributo não tem qualquer efeito durante o tempo de execução, mas ela fornece uma indicação para o autor do runbook no tempo de design de saída prevista do runbook. Como o conjunto de ferramentas para runbooks continua a evoluir, a importância de declarar tipos de dados de saída em tempo de design aumenta em importância. Como resultado, é uma prática recomendada incluir essa declaração em todos os runbooks que você criar.
-
-Aqui está uma lista de tipos de saída de exemplo:
+Seguem-se exemplos de tipos de dados de saída:
 
 * System.String
 * System.Int32
 * System.Collections.Hashtable
 * Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+
+#### <a name="declare-output-data-type-in-a-workflow"></a>Declarar tipo de dados de saída num fluxo de trabalho
+
+Um fluxo de trabalho especifica o tipo de dados da sua saída utilizando o [atributo OutputType](https://technet.microsoft.com/library/hh847785.aspx). Este atributo não tem qualquer efeito durante o tempo de funcionação, mas fornece-lhe uma indicação no momento do design da saída esperada do livro de execução. À medida que o conjunto de ferramentas para livros de execução continua a evoluir, a importância de declarar tipos de dados de saída no tempo de design aumenta. Portanto, é uma boa prática incluir esta declaração em quaisquer livros que você cria.
 
 O runbook de exemplo seguintes produz um objeto de cadeia de caracteres e inclui uma declaração do respetivo tipo de saída. Se o seu runbook devolve uma matriz de um determinado tipo, em seguida, ainda deverá especificar o tipo em vez de uma matriz do tipo.
 
@@ -99,34 +105,38 @@ Workflow Test-Runbook
 }
  ```
 
-Para declarar um tipo de saída em runbooks de fluxo de trabalho gráfico ou gráfico do PowerShell, você pode selecionar a opção de menu **entrada e saída** e digitar o nome do tipo de saída. É recomendável que você use o nome completo da classe .NET para torná-lo facilmente identificável ao fazer referência a ele de um runbook pai. Isso expõe todas as propriedades dessa classe para o barramento de dados no runbook e fornece muita flexibilidade ao usá-las para lógica condicional, registro em log e referência como valores para outras atividades no runbook.<br> ![opção de entrada e saída do runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+#### <a name="declare-output-data-type-in-a-graphical-runbook"></a>Declarar tipo de dados de saída num livro de execução gráfico
 
-No exemplo a seguir, você tem dois runbooks gráficos para demonstrar esse recurso. Se você aplicar o modelo de design modular runbook, terá um runbook, que serve como o *modelo de runbook de autenticação* Gerenciando a autenticação com o Azure usando a conta Executar como. Nosso segundo runbook, que normalmente executaria a lógica principal para automatizar um determinado cenário, nesse caso, irá executar o modelo de *runbook de autenticação* e exibir os resultados para o painel de saída de **teste** . Em circunstâncias normais, esse runbook faria algo em relação a um recurso que aproveita a saída do runbook filho.
+Para declarar um tipo de saída num livro de execução de fluxo de trabalho de PowerShell gráfico ou gráfico, pode selecionar a opção de menu **De entrada e saída** e introduzir o tipo de saída. Recomenda-se utilizar o nome completo da classe .NET para tornar o tipo facilmente identificável quando um livro-mãe o refere. O uso do nome completo expõe todas as propriedades da classe ao databus no livro de execução e aumenta a flexibilidade quando as propriedades são usadas para lógica condicional, exploração madeireira e referenciação como valores para outras atividades do livro de corridas.<br> ![opção de entrada e saída do livro de corridas](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-Aqui está a lógica básica do runbook **authenticateto-Azure** .<br> Exemplo de ![autenticar modelo de runbook](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
+>[!NOTE]
+>Depois de introduzir um valor no campo Tipo de **Saída** no painel de propriedades de Entrada e Saída, certifique-se de clicar fora do controlo para que reconheça a sua entrada.
 
-Ele inclui o tipo de saída *Microsoft. Azure. Commands. Profile. Models. PSAzureContext*, que retorna as propriedades do perfil de autenticação.<br> ![exemplo de tipo de saída de runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+O exemplo seguinte mostra dois livros gráficos para demonstrar a funcionalidade de entrada e saída. Aplicando o modelo modular de design de runbook, tem um livro de execução como o modelo Authenticate Runbook gerindo a autenticação com o Azure usando a conta Run As. O segundo livro de corridas, que normalmente executa a lógica central para automatizar um determinado cenário, neste caso executa o modelo Authenticate Runbook. Apresenta os resultados no painel de saída do teste. Em circunstâncias normais, você faria com que este livro de execução fizesse algo contra um recurso alavancando a saída do livro infantil.
 
-Embora esse runbook seja direto, há um item de configuração para chamar aqui. A última atividade está executando o cmdlet **Write-Output** e grava os dados de perfil em uma variável $ _ usando uma expressão do PowerShell para o parâmetro **InputObject** , que é necessário para esse cmdlet.
+Aqui está a lógica básica do livro de execução **AuthenticateTo-Azure.**<br> ![autenticar o modelo de modelo de livro de execução](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
 
-Para o segundo runbook neste exemplo, chamado *Test-ChildOutputType*, você simplesmente tem duas atividades.<br> ![runbook de tipo de saída filho de exemplo](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+O livro de execução inclui o tipo de saída `Microsoft.Azure.Commands.Profile.Models.PSAzureContext`, que devolve as propriedades do perfil de autenticação.<br> ![série de saída do livro de execução](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
 
-A primeira atividade chama o **runbook autenticato-Azure** e a segunda atividade está executando o cmdlet **Write-Verbose** com a **fonte de dados** da saída da **atividade** e o valor para o **caminho do campo** é **Context. Subscription. subscriptionname**, que está especificando a saída de contexto do runbook **autenticato-Azure** .<br> ![fonte de dados de parâmetro de cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+Embora este livro seja simples, há um item de configuração para chamar aqui. A última atividade executa o cmdlet **de escrita para** escrever dados de perfil para uma variável usando uma expressão PowerShell para o parâmetro de objeto de *entrada.* Este parâmetro é necessário para **a saída de escrita**.
 
-A saída resultante é o nome da assinatura.<br> ![Resultados do runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+O segundo livro de ensaios neste exemplo, denominado **Test-ChildOutputType,** simplesmente define duas atividades.<br> ![exemplo de executão de saída infantil](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-> [!NOTE]
-> Depois de inserir um valor na caixa **tipo de saída** no painel **Propriedades de entrada e saída** , você precisa clicar fora do controle para que sua entrada possa ser reconhecida pelo controle.
+A primeira atividade chama o livro de execução **AuthenticateTo-Azure.** A segunda atividade executa o cmdlet **Write-Verbose** com **fonte de dados** definida para a saída de **Atividade**. Além disso, **o caminho de campo** está definido para **Context.Subscription.SubscriptionName**, a saída de contexto do livro de execução **AuthenticateTo-Azure.**<br> ![Write-Verbose Cmdlet Data Source](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+
+A saída resultante é o nome da subscrição.<br> ![Resultados do livro de execução test-childoutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
 ## <a name="message-streams"></a>Fluxos de mensagens
 
-Ao contrário do fluxo de saída, fluxos de mensagens destinam-se para comunicar informações ao usuário. Há vários fluxos de mensagens para diferentes tipos de informações, e cada um é tratado de forma diferente pela automação do Azure.
+Ao contrário do fluxo de saída, os streams de mensagens comunicam informações ao utilizador. Existem vários fluxos de mensagens para diferentes tipos de informação, e a Azure Automation lida com cada fluxo de forma diferente.
 
-### <a name="warning-and-error-streams"></a>Fluxos de aviso e de erro
+### <a name="warning-and-error-streams"></a>Fluxos de advertência e erro
 
-Os fluxos de avisos e erros destinam-se a registar problemas que ocorrem num runbook. Eles são gravados no histórico de trabalho quando um runbook é executado e são incluídos no painel de saída de teste no portal do Azure quando um runbook é testado. Por predefinição, o runbook continuará a executar após um aviso ou erro. Pode especificar que o runbook deve ser suspenso após um aviso ou erro ao definir uma [variável de preferência](#preference-variables) no runbook antes de criar a mensagem. Por exemplo, para fazer com que um runbook suspenda um erro como seria uma exceção, defina **$ErrorActionPreference** para parar.
+O Aviso e erro transmite problemas de registo que ocorrem num livro de execução. A Azure Automation escreve estes fluxos para o histórico de trabalho ao executar um livro de corridas. A automatização inclui os fluxos no painel de saída do Teste no portal Azure quando um livro de execução é testado. 
 
-Criar um aviso ou erro mensagem através da [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet. Atividades também podem escrever nestes fluxos.
+Por predefinição, um livro de execução continua a ser executado após um aviso ou erro. Pode especificar que o seu livro de execução deve suspender com um aviso ou erro, fazendo com que o livro de execução detete uma [variável de preferência](#preference-variables) antes de criar a mensagem. Por exemplo, para fazer com que o livro de execução suspenda um erro como acontece numa exceção, defino a *variável $ErrorActionPreference* para **parar**.
+
+Crie uma mensagem de aviso ou erro utilizando o cmdlet [de aviso de escrita](https://technet.microsoft.com/library/hh849931.aspx) ou de erro de [escrita.](https://technet.microsoft.com/library/hh849962.aspx) As atividades também podem escrever para os streams de Aviso e Erro.
 
 ```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -136,13 +146,19 @@ Write-Warning –Message "This is a warning message."
 Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
 ```
 
+### <a name="debug-stream"></a>Fluxo de depuração
+
+A Azure Automation utiliza o fluxo de mensagens Debug para utilizadores interativos. Não deve ser usado em livros de execução.
+
 ### <a name="verbose-stream"></a>Fluxo verboso
 
-O fluxo de mensagens verbosas destina-se a informações gerais sobre o funcionamento do runbook. Como o [fluxo de depuração](#debug-stream) não está disponível em um runbook, as mensagens detalhadas devem ser usadas para informações de depuração. Por padrão, as mensagens detalhadas de runbooks publicados não são armazenadas no histórico de trabalhos. Para armazenar mensagens detalhadas, configure runbooks publicados para registros detalhados de log na guia Configurar do runbook no portal do Azure. Na maioria dos casos, deve manter a predefinição de não criar registos verbosos dos runbooks por motivos de desempenho. Ative esta opção apenas para solucionar problemas ou depurar um runbook.
+O fluxo de mensagens Verbose suporta informações gerais sobre a operação do livro de recortes. Uma vez que o fluxo Debug não está disponível para um livro de execução, o seu livro de execução deve utilizar mensagens verbosas para depurar informações. 
 
-Ao [testar um runbook](automation-testing-runbook.md), as mensagens detalhadas não são exibidas mesmo se o runbook estiver configurado para registrar em log os registros detalhados. Para exibir mensagens detalhadas durante [o teste de um runbook](automation-testing-runbook.md), você deve definir a variável $VerbosePreference como continuar. Com esse conjunto de variáveis, as mensagens detalhadas são exibidas no painel saída de teste do portal do Azure.
+Por padrão, o histórico de trabalho não armazena mensagens verbosas de livros publicados, por razões de desempenho. Para armazenar mensagens verbosas, utilize o separador **Configurar** do portal Azure com a definição **de Log Verbose Records** para configurar os seus livros publicados para registar mensagens verbosas. Ative esta opção apenas para solucionar problemas ou depurar um runbook. Na maioria dos casos, deve manter a definição padrão de não registar registos verbosos.
 
-Criar um através de mensagens verbosas a [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet.
+Ao testar um livro de [execução,](automation-testing-runbook.md)as mensagens verbosas não são apresentadas mesmo que o livro de execução esteja configurado para registar registos verbosos. Para exibir mensagens verbosas enquanto testa um livro de [execução,](automation-testing-runbook.md)tem de definir a variável $VerbosePreference para continuar. Com este conjunto variável, as mensagens verbosas são exibidas no painel de saída do portal Azure.
+
+Crie uma mensagem verbosa utilizando o cmdlet [Write-Verbose.](https://technet.microsoft.com/library/hh849951.aspx)
 
 ```powershell
 #The following line creates a verbose message.
@@ -150,21 +166,18 @@ Criar um através de mensagens verbosas a [Write-Verbose](https://technet.micros
 Write-Verbose –Message "This is a verbose message."
 ```
 
-### <a name="debug-stream"></a>Fluxo de depuração
-
-O fluxo de depuração destina-se para utilização com um utilizador interativo e não deve ser utilizado em runbooks.
-
 ## <a name="progress-records"></a>Registos de progresso
 
-Se você configurar um runbook para registrar em log os registros de andamento (na guia Configurar do runbook no portal do Azure), um registro será gravado no histórico do trabalho antes e depois que cada atividade for executada. Na maioria dos casos, deve manter a predefinição de não criar registos de progresso de um runbook para maximizar o desempenho. Ative esta opção apenas para solucionar problemas ou depurar um runbook. Ao testar um runbook, não são apresentadas mensagens de progresso, mesmo que o runbook esteja configurado para registos de progressos.
+Pode utilizar o separador **Configure** do portal Azure para configurar um livro de execução para registar registos de progresso. A definição predefinida é não registar os registos, para maximizar o desempenho. Na maioria dos casos, deve manter a definição predefinida. Ative esta opção apenas para solucionar problemas ou depurar um runbook. 
 
-O cmdlet [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) não é válido em um runbook, pois esse cmdlet destina-se ao uso com um usuário interativo.
+Se permitir a exploração de registos de progresso, o seu livro de execução escreve um registo para o histórico de empregos antes e depois de cada atividade ser executada. Testar um livro de execução não mostra mensagens de progresso mesmo que o livro de execução esteja configurado para registar registos de progresso.
+
+>[!NOTE]
+>O cmdlet Write-Progress não é válido num livro de execução, uma vez que este cmdlet [destina-se](https://technet.microsoft.com/library/hh849902.aspx) a ser utilizado com um utilizador interativo.
 
 ## <a name="preference-variables"></a>Variáveis de preferência
 
-Windows PowerShell usa [variáveis de preferência](https://technet.microsoft.com/library/hh847796.aspx) para determinar como responder a dados enviados para diferentes fluxos de saída. Você pode definir essas variáveis em um runbook para controlar como ele responde aos dados enviados em diferentes fluxos.
-
-A tabela seguinte lista as variáveis de preferências que podem ser utilizadas em runbooks com seus válido e os valores predefinidos. Essa tabela inclui apenas os valores que são válidos em um runbook. Valores adicionais são válidos para as variáveis de preferência quando usados no Windows PowerShell fora da automação do Azure.
+Pode definir certas [variáveis preferenciais](https://technet.microsoft.com/library/hh847796.aspx) do Windows PowerShell nos seus livros de execução para controlar a resposta aos dados enviados para diferentes fluxos de saída. A tabela seguinte lista as variáveis preferenciais que podem ser usadas em livros de execução, com os seus valores predefinidos e válidos. Valores adicionais estão disponíveis para as variáveis preferenciais quando usados no Windows PowerShell fora da Automação Azure.
 
 | Variável | Default Value | Valores válidos |
 |:--- |:--- |:--- |
@@ -172,25 +185,25 @@ A tabela seguinte lista as variáveis de preferências que podem ser utilizadas 
 | ErrorActionPreference |Continuar |Parar<br>Continuar<br>SilentlyContinue |
 | VerbosePreference |SilentlyContinue |Parar<br>Continuar<br>SilentlyContinue |
 
-A tabela seguinte lista o comportamento para os valores das variáveis de preferência que são válidos em runbooks.
+A tabela seguinte enumera o comportamento dos valores variáveis preferenciais que são válidos em livros de execução.
 
 | Valor | Comportamento |
 |:--- |:--- |
 | Continuar |Regista a mensagem e continua a executar o runbook. |
-| SilentlyContinue |Continua a executar o runbook sem registar a mensagem. Esse valor tem o efeito de ignorar a mensagem. |
+| SilentlyContinue |Continua a executar o runbook sem registar a mensagem. Este valor tem o efeito de ignorar a mensagem. |
 | Parar |Regista a mensagem e suspende o runbook. |
 
-## <a name="runbook-output"></a>Recuperando mensagens e saída do runbook
+## <a name="runbook-output"></a>Recuperação da saída do livro de corridas e das mensagens
 
-### <a name="azure-portal"></a>Portal do Azure
+### <a name="retrieve-runbook-output-and-messages-in-azure-portal"></a>Recuperar saída de livro de corridas e mensagens no portal Azure
 
-Você pode exibir os detalhes de um trabalho de runbook na portal do Azure na guia trabalhos de um runbook. O resumo do trabalho exibe os parâmetros de entrada e o [fluxo de saída](#output-stream) , além das informações gerais sobre o trabalho e quaisquer exceções, se elas ocorreram. O histórico inclui mensagens do [fluxo de saída](#output-stream) e dos [fluxos de aviso e de erro](#warning-and-error-streams) , bem como os [registros de andamento](#progress-records) e [fluxo detalhados](#verbose-stream) se o runbook estiver configurado para registrar em log os registros detalhados e de andamento.
+Pode ver os detalhes de um trabalho de livro de corridas no portal Azure usando o separador **Jobs** para o livro de execução. O resumo do trabalho apresenta os parâmetros de entrada e o fluxo de [saída,](#output-stream)para além de informações gerais sobre o trabalho e quaisquer exceções que tenham ocorrido. O histórico de trabalho inclui mensagens dos fluxos de saída e dos fluxos de [aviso e erro.](#warning-and-error-streams) Também inclui mensagens do [fluxo verbose](#verbose-stream) e [registos](#progress-records) de progresso se o livro de execução estiver configurado para registar registos verbosos e de progresso.
 
-### <a name="windows-powershell"></a>Windows PowerShell
+### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Recuperar saída de livro de corridas e mensagens no Windows PowerShell
 
-No Windows PowerShell, você pode recuperar a saída e as mensagens de um runbook usando o cmdlet [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) . Este cmdlet necessita do ID da tarefa e tem um parâmetro denominado Fluxo, onde pode especificar que fluxo deve ser devolvido. Pode especificar **qualquer** para retornar todos os fluxos da tarefa.
+No Windows PowerShell, é possível recuperar a saída e as mensagens de um livro de execução utilizando o cmdlet [Get-AzAutomationJobOutput.](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) Este cmdlet requer a identificação do trabalho e tem um parâmetro chamado *Stream* no qual especifica o fluxo para recuperar. Pode especificar um valor de **Qualquer** para este parâmetro para recuperar todos os fluxos para o trabalho.
 
-O exemplo seguinte inicia um runbook de exemplo e, em seguida, aguarda que este seja concluído. Depois de concluído, o seu fluxo de saída é recolhido da tarefa.
+O exemplo seguinte inicia um runbook de exemplo e, em seguida, aguarda que este seja concluído. Assim que o livro de execução completar a execução, o script recolhe o fluxo de saída do livro de execução do trabalho.
 
 ```powershell
 $job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
@@ -212,38 +225,43 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
 ```
 
-### <a name="graphical-authoring"></a>Criação gráfica
+### <a name="retrieve-runbook-output-and-messages-in-graphical-runbooks"></a>Recuperar saída de livro de corridas e mensagens em livros gráficos
 
-Para runbooks gráficos, o log extra está disponível na forma de rastreamento de nível de atividade. Há dois níveis de rastreamento: básico e detalhado. No rastreamento básico, você pode ver a hora de início e de término de cada atividade no runbook mais informações relacionadas a qualquer nova tentativa de atividade. Alguns exemplos são, o número de tentativas e a hora de início da atividade. No rastreamento detalhado, você obtém o rastreamento básico, além de dados de entrada e saída para cada atividade. Atualmente, os registros de rastreamento são gravados usando o fluxo detalhado, portanto, você deve habilitar o log detalhado ao habilitar o rastreamento. Para runbooks gráficos com o rastreamento habilitado, não é necessário registrar em log os registros de andamento. O rastreamento básico tem a mesma finalidade e é mais informativo.
+Para livros de execução gráficos, o registo extra de saída e mensagens está disponível sob a forma de rastreio ao nível da atividade. Existem dois níveis de rastreio: Básico e Detalhado. O rastreio básico exibe o tempo de início e fim de cada atividade no livro de execução, além de informações relacionadas com eventuais repetições de atividade. Alguns exemplos são o número de tentativas e o tempo de início da atividade. O rastreio detalhado inclui características básicas de rastreio, além do registo de dados de entrada e de saída para cada atividade. 
 
-![Exibição de fluxos de trabalho de criação gráfica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
+Atualmente, o rastreio ao nível da atividade escreve registos usando a corrente verbose. Por isso, deve ativar a exploração verbosa quando ativa o rastreio. Para os livros gráficos com rastreio habilitado, não há necessidade de registar registos de progresso. O rastreio básico serve o mesmo propósito e é mais informativo.
 
-Você pode ver na captura de tela anterior que, ao habilitar o log detalhado e o rastreamento para runbooks gráficos, muito mais informações estão disponíveis no modo de exibição fluxos de trabalho de produção. Essas informações extras podem ser essenciais para solucionar problemas de produção com um runbook e, portanto, você deve habilitá-lo apenas para essa finalidade e não como uma prática geral. Os registros de rastreamento podem ser especialmente numerosos. Com o rastreamento de runbook gráfico, você pode obter de dois a quatro registros por atividade, dependendo se você configurou o rastreamento básico ou detalhado. A menos que você precise dessas informações para acompanhar o progresso de um runbook para solução de problemas, talvez você queira manter o rastreamento desativado.
+![Visão de fluxos de trabalho de autoria gráfica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-**Para habilitar o rastreamento em nível de atividade, execute as seguintes etapas:**
+Pode ver pela imagem que permitir a exploração verbosa e o rastreio de livros gráficos disponibiliza muito mais informação na vista **De produção Job Streams.** Esta informação extra pode ser essencial para resolver problemas de produção com um livro de execução. 
+
+No entanto, a menos que necessite desta informação para acompanhar o progresso de um livro de corridas para resolução de problemas, talvez queira continuar a rastrear desligado como uma prática geral. Os registos de vestígios podem ser especialmente numerosos. Com o rastreio de rcadirgráficos gráficos, pode obter dois a quatro discos por atividade, dependendo da sua configuração de rastreio básico ou detalhado.
+
+**Para permitir o rastreio ao nível da atividade:**
 
 1. No portal do Azure, abra a sua conta da Automatização.
-2. Em **automação de processo**, selecione **Runbooks** para abrir a lista de runbooks.
-3. Na página Runbooks, clique para selecionar um runbook gráfico na lista de runbooks.
-4. Em **configurações**, clique em **registro em log e rastreamento**.
-5. Na página log e rastreamento, em registros detalhados de log, clique **em** ativar para habilitar o log detalhado e, em rastreamento de nível de atividade, altere o nível de rastreamento para **básico** ou **detalhado** com base no nível de rastreamento que você precisa.<br>
+2. Selecione **Runbooks** na secção **De automatização** de processos para abrir a lista de livros de execução.
+3. Na página Runbooks, selecione um livro de execução gráfico da sua lista de livros de execução.
+4. Em **Definições,** clique em **Registar e rastrear**.
+5. Na página Logging and Tracing, sob **registos verbosos**de Log, clique **em On** para ativar a exploração verbosa.
+6. No rastreio **ao nível da atividade,** altere o nível de rastreio para **Básico** ou **Detalhado,** com base no nível de rastreio necessário.<br>
 
-   ![Página de rastreamento e log de criação gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
+   ![Página de autorgráfico gráfico de login e rastreio](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure monitorar logs
+### <a name="retrieve-runbook-output-and-messages-in-microsoft-azure-monitor-logs"></a>Recuperar saída de livro de corridas e mensagens nos registos do Microsoft Azure Monitor
 
-A automação pode enviar o status do trabalho de runbook e fluxos de trabalho para seu espaço de trabalho Log Analytics. Com os logs de Azure Monitor que você pode,
+A Azure Automation pode enviar o estado de trabalho do livro de recortes e os fluxos de trabalho para o seu espaço de trabalho Log Analytics. O Monitor Azure suporta registos que lhe permitem:
 
-* Obtenha informações sobre seus trabalhos de automação
-* Disparar um email ou alerta com base no status do trabalho de runbook (por exemplo, com falha ou suspenso)
-* Escrever consultas avançadas em seus fluxos de trabalho
-* Correlacionar trabalhos entre contas de automação
-* Visualizar seu histórico de trabalho ao longo do tempo
+* Obtenha informações sobre os seus trabalhos de Automação.
+* Desencadeie um e-mail ou alerta com base no estado do seu trabalho no livro de recortes, por exemplo, falhado ou suspenso.
+* Escreva consultas avançadas através de fluxos de emprego.
+* Correlacionar os empregos através das contas da Automação.
+* Visualizar o histórico de emprego.
 
-Para obter mais informações sobre como configurar a integração com os logs de Azure Monitor para coletar, correlacionar e agir sobre os dados do trabalho, consulte [encaminhar fluxos de trabalho e status do trabalho da automação para Azure monitor logs](automation-manage-send-joblogs-log-analytics.md).
+Para obter mais informações sobre a configuração da integração com os registos do Monitor Azure para recolher, correlacionar e agir sobre os dados de emprego, consulte o estado de trabalho avançado e os [fluxos de emprego da Automação para os registos do Monitor Azure](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre a execução dos runbooks, como monitorizar trabalhos de runbooks e outros detalhes técnicos, veja [Track a runbook job (Acompanhar um trabalho de runbook)](automation-runbook-execution.md)
-* Para entender como projetar e usar runbooks filho, consulte [Runbooks filho na automação do Azure](automation-child-runbooks.md)
-* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](/powershell/scripting/overview).
+* Para saber mais sobre a execução do livro de corridas, monitorização de trabalhos de livros de corridas e outros detalhes técnicos, consulte [Track a runbook job](automation-runbook-execution.md).
+* Para entender como desenhar e usar livros infantis, consulte [livros infantis em Automação Azure](automation-child-runbooks.md).
+* Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](/powershell/scripting/overview).

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 600b0f598c54b5db154fd488aebf26a6fcdc0b1d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368788"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925078"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop
 
@@ -72,7 +72,7 @@ Atribuir um utilizador do Diretório Ativo Azure, a função de aplicação Tena
 
 Atribuir a função de candidatura do TenantCreator:
 
-1. Vá ao [portal Azure](https://portal.azure.com) para gerir o papel de candidatura do TenantCreator. Procure e selecione **aplicações Enterprise**. Se está a trabalhar com vários inquilinos do Azure Ative Diretório, é uma boa prática abrir uma sessão de navegador privada e copiar e colar os URLs na barra de endereços.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerir a função de candidatura do TenantCreator. Procure e selecione **aplicações Enterprise**. Se está a trabalhar com vários inquilinos do Azure Ative Diretório, é uma boa prática abrir uma sessão de navegador privada e copiar e colar os URLs na barra de endereços.
 
    ![Screenshot de pesquisa de aplicações da Enterprise no portal Azure](media/azure-portal-enterprise-applications.png)
 2. Dentro das **aplicações da Enterprise,** procure o **Windows Virtual Desktop**. Verá as duas candidaturas para as quais deu consentimento na secção anterior. Destas duas aplicações, selecione **Windows Virtual Desktop**.

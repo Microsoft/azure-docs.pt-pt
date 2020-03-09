@@ -1,64 +1,64 @@
 ---
-title: Configurar a CLI da malha de Service Fabric do Azure
-description: A CLI (interface de linha de comando) de malha Service Fabric é necessária para implantar e gerenciar recursos localmente e na malha de Service Fabric do Azure. Veja como configurá-lo.
+title: Configurar o ClI de malha de tecido de serviço Azure
+description: A Interface de Linha de Comando de Malha de Tecido de Serviço (CLI) é necessária para implantar e gerir recursos localmente e em malha de tecido de serviço Azure. Eis como preparar tudo.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461883"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391900"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurar a CLI do Service Fabric mesh
-A CLI (interface de linha de comando) de malha Service Fabric é necessária para implantar e gerenciar recursos localmente e na malha de Service Fabric do Azure. Veja como configurá-lo.
+A Interface de Linha de Comando de Malha de Tecido de Serviço (CLI) é necessária para implantar e gerir recursos localmente e em malha de tecido de serviço Azure. Eis como preparar tudo.
 
-Há três tipos de CLI que podem ser usados e resumidos na tabela a seguir.
+Existem três tipos de CLI que podem ser usados e são resumidos na tabela abaixo.
 
-| Módulo da CLI | Ambiente de destino |  Descrição | 
+| Módulo CLI | Ambiente-alvo |  Descrição | 
 |---|---|---|
-| malha AZ | Malha de Service Fabric do Azure | A CLI principal que permite que você implante seus aplicativos e gerencie recursos no ambiente de malha de Service Fabric do Azure. 
-| sfctl | Clusters locais | Service Fabric CLI que permite a implantação e o teste de Service Fabric recursos em clusters locais.  
-| CLI do Maven | Clusters locais & malha de Service Fabric do Azure | Um wrapper em torno de `az mesh` e `sfctl` que permite aos desenvolvedores de Java usar uma experiência de linha de comando familiar para a experiência de desenvolvimento local e do Azure.  
+| malha az | Malha de tecido de serviço azure | O CLI primário que lhe permite implementar as suas aplicações e gerir recursos contra o ambiente de malha de tecido de serviço Azure. 
+| sfctl | Aglomerados locais | Serviço Tecido CLI que permite a implantação e teste de recursos de Tecido de Serviço contra clusters locais.  
+| Maven CLI | Clusters locais e malha de tecido de serviço azure | Um invólucro em torno de `az mesh` e `sfctl` que permite aos desenvolvedores de Java usar uma experiência familiar de linha de comando para experiência de desenvolvimento local e Azure.  
 
 Para a pré-visualização, a CLI do Azure Service Fabric Mesh é escrita como uma extensão da CLI do Azure. Pode instalá-la no Azure Cloud Shell ou numa instalação local da CLI do Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-## <a name="install-the-azure-service-fabric-mesh-cli"></a>Instalar a CLI da malha de Service Fabric do Azure
-1. Você deve instalar o CLI do Azure versão 2.0.67 ou posterior. Executar `az --version` para localizar a versão. Para instalar ou atualizar para a versão mais recente da CLI, consulte [instalar o CLI do Azure][azure-cli-install].
+## <a name="install-the-azure-service-fabric-mesh-cli"></a>Instale o CLI de malha de tecido de serviço Azure
+1. Tem de instalar a versão Azure CLI 2.0.67 ou posterior. Executar `az --version` para localizar a versão. Para instalar ou atualizar para a versão mais recente do CLI, consulte [Instalar o Azure CLI][azure-cli-install].
 
-2. Instale o módulo de extensão da CLI da malha de Service Fabric do Azure usando o comando a seguir. 
+2. Instale o módulo de extensão CLI de malha de tecido de tecido de serviço Azure utilizando o seguinte comando. 
 
     ```azurecli-interactive
     az extension add --name mesh
     ```
 
-3. Atualize um módulo CLI existente do Azure Service Fabric mesh usando o comando a seguir.
+3. Atualize um módulo CLI de malha de tecido de tecido azure existente utilizando o seguinte comando.
 
     ```azurecli-interactive
     az extension update --name mesh
     ```
 
-## <a name="install-the-service-fabric-cli-sfctl"></a>Instalar a CLI do Service Fabric (sfctl) 
+## <a name="install-the-service-fabric-cli-sfctl"></a>Instale o Tecido de Serviço CLI (sfctl) 
 
-Siga as instruções em [Configurar a CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). O módulo **sfctl** pode ser usado para implantação de aplicativos com base no modelo de recurso em relação a clusters Service Fabric em seu computador local. 
+Siga as instruções no Conjunto de [Tecidos de Serviço CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). O módulo **sfctl** pode ser utilizado para a implementação de aplicações com base no modelo de recursos contra os clusters de tecido de serviço na sua máquina local. 
 
-## <a name="install-the-maven-cli"></a>Instalar a CLI do Maven 
+## <a name="install-the-maven-cli"></a>Instale o Maven CLI 
 
-Para usar a CLI do Maven, o seguinte precisa ser instalado em seu computador: 
+Para utilizar o Maven CLI, é necessário instalar na sua máquina o seguinte: 
 
 * [Java](https://www.azul.com/downloads/zulu/)
 * [Maven](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* CLI da malha do Azure (AZ mesh)-para direcionar a malha de Service Fabric do Azure 
-* SFCTL (SFCTL) – para os clusters locais de destino 
+* Malha Azure CLI (malha az) - Para direcionar a malha de tecido de serviço Azure 
+* SFCTL (sfctl) - Para direcionar os clusters locais 
 
-A CLI do Maven para Service Fabric ainda está em versão prévia. 
+O Maven CLI para tecido de serviço ainda está em pré-visualização. 
 
-Para usar o plug-in do Maven em seu aplicativo Java do Maven, adicione o seguinte trecho ao arquivo pom. xml:
+Para utilizar o plugin Maven na sua aplicação Maven Java, adicione o seguinte corte ao seu ficheiro pom.xml:
 
 ```XML
 <project>
@@ -80,7 +80,7 @@ Para usar o plug-in do Maven em seu aplicativo Java do Maven, adicione o seguint
 </project>
 ```
 
-Leia a seção de [referência da CLI do Maven](service-fabric-mesh-reference-maven.md) para saber mais sobre o uso detalhado.
+Leia a secção de [referência maven CLI](service-fabric-mesh-reference-maven.md) para saber sobre o uso detalhado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

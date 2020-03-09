@@ -14,18 +14,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cddf2ab36b2372ce93ae8a2a6230ccb02ae30117
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721023"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376004"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
 
 ## <a name="install-azure-ad-connect"></a>Instalar o Azure AD Connect
 
 > [!IMPORTANT]
-> A Microsoft não suporta a modificação ou operação de sincronizações do Azure AD Connect fora das ações anteriormente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou sem suporte de Azure AD Connect sincronização. Como resultado, a Microsoft não pode fornecer suporte técnico para essas implantações.
+> A Microsoft não suporta a modificação ou operação de sincronizações do Azure AD Connect fora das ações anteriormente documentadas. Qualquer uma destas ações pode resultar num estado inconsistente ou não apoiado de sincronização azure AD Connect. Como resultado, a Microsoft não pode fornecer suporte técnico para tais implementações.
 
 Pode encontrar a transferência do Azure AD Connect no [Centro de Transferências da Microsoft](https://go.microsoft.com/fwlink/?LinkId=615771).
 
@@ -46,7 +46,7 @@ Pode encontrar a transferência do Azure AD Connect no [Centro de Transferência
 |Instalar utilizando as definições rápidas | [Instalação rápida do Azure AD Connect](./how-to-connect-install-express.md)|
 |Instalar utilizando as definições personalizadas | [Instalação personalizada do Azure AD Connect](./how-to-connect-install-custom.md)|
 |Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
+|Após a instalação | [Verifique a instalação e atribua licenças](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Saber mais sobre como instalar o Azure AD Connect
 Terá também de se preparar para questões [operacionais](how-to-connect-sync-operations.md). Pode pretender ter um servidor de reserva a que possa efetuar a ativação pós-falha facilmente em caso de [desastre](how-to-connect-sync-staging-server.md#disaster-recovery). Se planear efetuar alterações frequentes na configuração, deverá planear um servidor no [modo de teste](how-to-connect-sync-staging-server.md).
@@ -68,7 +68,7 @@ A [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchr
 
 A [repetição de escrita de palavras-passe](../authentication/quickstart-sspr.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
 
-O [write-back do dispositivo](how-to-connect-device-writeback.md) permitirá que um dispositivo registrado no Azure ad seja gravado no local Active Directory para que possa ser usado para acesso condicional.
+[A reescrita](how-to-connect-device-writeback.md) do dispositivo permitirá que um dispositivo registado em Azure AD seja reescrito no diretório ativo no local para que possa ser utilizado para acesso condicional.
 
 A funcionalidade [impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) está ativada por predefinição e protege o diretório na nuvem de sofrer várias eliminações ao mesmo tempo. Por predefinição, permite 500 eliminações por execução. Pode alterar esta definição consoante o tamanho da sua organização.
 
@@ -165,11 +165,11 @@ O portal do Azure AD Connect Health mostra vistas de alertas, monitorização de
 * **Active Directory Domain Services**: esta opção mostra todas as florestas do AD FS que o Azure AD Connect Health está atualmente a monitorizar. Quando seleciona uma floresta, o painel que aparece mostra informações sobre essa floresta. Estas informações incluem uma descrição geral de informações essenciais, o dashboard de Controladores de Domínio, o dashboard de Estado de Replicação, alertas e monitorização. Saiba mais acerca das capacidades em [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
 * **Configurar**: esta secção inclui opções para ativar ou desativar o seguinte:
 
-   - A **atualização automática** do agente de Azure ad Connect Health para a versão mais recente: o agente de Azure ad Connect Health é atualizado automaticamente sempre que novas versões estão disponíveis. Essa opção é habilitada por padrão.
-   - **Acesso a dados** da integridade de diretório do Azure ad pela Microsoft apenas para fins de solução de problemas: se essa opção estiver habilitada, a Microsoft poderá acessar os mesmos dados exibidos pelo usuário. Essas informações podem ser úteis para solução de problemas e para fornecer a assistência necessária. Esta opção está desabilitada por padrão
+   - A **atualização automática** do agente Azure AD Connect Health para a versão mais recente: o agente Azure AD Connect Health é automaticamente atualizado sempre que existem novas versões disponíveis. Esta opção é ativada por defeito.
+   - **O acesso aos dados** da integridade do diretório da AD Azure pela Microsoft apenas para fins de resolução de problemas: se esta opção estiver ativada, a Microsoft pode aceder aos mesmos dados visualizados pelo utilizador. Estas informações podem ser úteis para resolução de problemas e para prestar a assistência necessária. Esta opção é desativada por padrão
 * O **Controlo de acesso baseado em funções (IAM)** é a secção para gerir o acesso aos dados do Connect Health na base da função. 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições rápidas](how-to-connect-install-express.md)

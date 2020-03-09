@@ -1,5 +1,5 @@
 ---
-title: Solucionar erros de autenticação ao usar o RDP para se conectar à VM do Azure | Microsoft Docs
+title: Erros de autenticação de resolução de problemas quando utiliza RDP para ligar ao Azure VM  Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,82 +15,82 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155620"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381659"
 ---
-# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar erros de autenticação ao usar o RDP para se conectar à VM do Azure
+# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Resolver problemas de autenticação quando utiliza o protocolo RDP (Remote Desktop Protocol) para se ligar à VM do Azure
 
-Este artigo pode ajudá-lo a solucionar problemas de erros de autenticação que ocorrem quando você usa a conexão protocolo RDP (RDP) para se conectar a uma VM (máquina virtual) do Azure.
+Este artigo pode ajudá-lo a resolver erros de autenticação que ocorrem quando utiliza a ligação do Protocolo de Ambiente de Trabalho Remoto (RDP) para se ligar a uma máquina virtual Azure (VM).
 
 ## <a name="symptoms"></a>Sintomas
 
-Você captura uma captura de tela de uma VM do Azure que mostra o ecrã de boas-vindas e indica que o sistema operacional está em execução. No entanto, ao tentar se conectar à VM usando Conexão de Área de Trabalho Remota, você receberá uma das seguintes mensagens de erro.
+Captura-se uma imagem de um VM Azure que mostra o ecrã Welcome e indica que o sistema operativo está em funcionamento. No entanto, quando tenta ligar-se ao VM utilizando a Ligação remota de ambiente de trabalho, recebe uma das seguintes mensagens de erro.
 
 ### <a name="error-message-1"></a>Mensagem de erro 1
 
-**Ocorreu um erro de autenticação. Não é possível contatar a autoridade de segurança local.**
+**Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contactada.**
 
 ### <a name="error-message-2"></a>Mensagem de erro 2
 
-**O computador remoto ao qual você está tentando se conectar requer Autenticação no Nível da Rede (NLA), mas o controlador de domínio do Windows não pode ser contatado para executar o NLA. Se você for um administrador no computador remoto, poderá desabilitar o NLA usando as opções na guia remoto da caixa de diálogo Propriedades do sistema.**
+**O computador remoto a que está a tentar ligar requer autenticação de nível de rede (NLA), mas o seu controlador de domínio Windows não pode ser contactado para executar o NLA. Se for administrador no computador remoto, pode desativar o NLA utilizando as opções no separador Remoto da caixa de diálogo System Properties.**
 
-### <a name="error-message-3-generic-connection-error"></a>Mensagem de erro 3 (erro de conexão genérica)
+### <a name="error-message-3-generic-connection-error"></a>Mensagem de erro 3 (erro genérico de ligação)
 
-**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema persistir, contate o proprietário do computador remoto ou o administrador da rede.**
+**Este computador não pode ligar-se ao computador remoto. Tente ligar-se novamente, se o problema continuar, contacte o proprietário do computador remoto ou o seu administrador de rede.**
 
 ## <a name="cause"></a>Causa
 
-Há várias razões pelas quais a NLA pode bloquear o acesso de RDP a uma VM.
+Existem várias razões pelas quais a NLA pode bloquear o acesso rdp a um VM.
 
 ### <a name="cause-1"></a>Causa 1
 
-A VM não pode se comunicar com o controlador de domínio (DC). Esse problema pode impedir que uma sessão RDP acesse uma VM usando credenciais de domínio. No entanto, você ainda poderá fazer logon usando as credenciais de administrador local. Esse problema pode ocorrer nas seguintes situações:
+O VM não pode comunicar com o controlador de domínio (DC). Este problema poderia impedir que uma sessão de RDP aceda a um VM utilizando credenciais de domínio. No entanto, ainda seria capaz de iniciar sessão utilizando as credenciais do Administrador Local. Este problema pode ocorrer nas seguintes situações:
 
-1. O canal de segurança Active Directory entre essa VM e o DC está desfeito.
+1. O Canal de Segurança do Diretório Ativo entre este VM e o DC está avariado.
 
-2. A VM tem uma cópia antiga da senha da conta e o controlador de domínio tem uma cópia mais recente.
+2. O VM tem uma cópia antiga da senha da conta e o DC tem uma cópia mais recente.
 
-3. O controlador de domínio ao qual esta VM está se conectando não está íntegro.
+3. O DC a que este VM está a ligar não é saudável.
 
 ### <a name="cause-2"></a>Causa 2
 
-O nível de criptografia da VM é maior que aquele usado pelo computador cliente.
+O nível de encriptação do VM é maior do que o que é usado pelo computador cliente.
 
 ### <a name="cause-3"></a>Causa 3
 
-Os protocolos TLS 1,0, 1,1 ou 1,2 (servidor) estão desabilitados na VM.
+Os protocolos TLS 1.0, 1.1 ou 1.2 (servidor) são desativados no VM.
 
 ### <a name="cause-4"></a>Causa 4
 
-A VM foi configurada para desabilitar o logon usando credenciais de domínio e a autoridade de segurança local (LSA) está configurada incorretamente.
+O VM foi criado para desativar o login utilizando credenciais de domínio, e a Autoridade de Segurança Local (LSA) é criada incorretamente.
 
 ### <a name="cause-5"></a>Causa 5
 
-A VM foi configurada para aceitar somente conexões de algoritmo em conformidade com padrão FIPS (FIPS). Isso geralmente é feito usando Active Directory política. Essa é uma configuração rara, mas o FIPS pode ser aplicado somente para conexões Área de Trabalho Remotas.
+O VM foi criado para aceitar apenas ligações de algoritmos compatíveis com a Norma Federal de Processamento de Informação (FIPS). Isto é geralmente feito utilizando a política de Diretório Ativo. Esta é uma configuração rara, mas os FIPS podem ser aplicados apenas para ligações de ambiente de trabalho remoto.
 
-## <a name="before-you-troubleshoot"></a>Antes de solucionar problemas
+## <a name="before-you-troubleshoot"></a>Antes de resolver problemas
 
 ### <a name="create-a-backup-snapshot"></a>Criar um instantâneo de backup
 
-Para criar um instantâneo de backup, siga as etapas em fazer o [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Para criar uma imagem de backup, siga os passos em [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-### <a name="connect-to-the-vm-remotely"></a>Conectar-se à VM remotamente
+### <a name="connect-to-the-vm-remotely"></a>Ligue-se ao VM remotamente
 
-Para se conectar à VM remotamente, use um dos métodos em [como usar as ferramentas remotas para solucionar problemas de VM do Azure](remote-tools-troubleshoot-azure-vm-issues.md).
+Para ligar remotamente ao VM, utilize um dos métodos em [Como utilizar ferramentas remotas para resolver problemas com os problemas do Azure VM](remote-tools-troubleshoot-azure-vm-issues.md).
 
-### <a name="group-policy-client-service"></a>Serviço de cliente de diretiva de grupo
+### <a name="group-policy-client-service"></a>Serviço de cliente de política de grupo
 
-Se esta for uma VM ingressada no domínio, primeiro interrompa o serviço de cliente Política de Grupo para impedir que qualquer política de Active Directory substitua as alterações. Para tal, execute o seguinte comando:
+Se este for um VM filiado em domínios, primeiro pare o serviço de Cliente de Política de Grupo para evitar que qualquer Política de Diretório Ativo sobreamente as alterações. Para tal, execute o seguinte comando:
 
 ```cmd
 REM Disable the member server to retrieve the latest GPO from the domain upon start
 REG add "HKLM\SYSTEM\CurrentControlSet\Services\gpsvc" /v Start /t REG_DWORD /d 4 /f
 ```
 
-Depois que o problema for corrigido, restaure a capacidade dessa VM para entrar em contato com o domínio para recuperar o GPO mais recente do domínio. Para fazer isso, execute os seguintes comandos:
+Depois de o problema ser corrigido, restaure a capacidade deste VM de contactar o domínio para recuperar o mais recente GPO do domínio. Para tal, execute os seguintes comandos:
 
 ```cmd
 sc config gpsvc start= auto
@@ -99,11 +99,11 @@ sc start gpsvc
 gpupdate /force
 ```
 
-Se a alteração for revertida, isso significa que uma política de Active Directory está causando o problema. 
+Se a mudança for revertida, significa que uma política de Diretório Ativo está a causar o problema. 
 
 ### <a name="workaround"></a>Solução
 
-Para contornar esse problema, execute os seguintes comandos na janela de comando para desabilitar a NLA:
+Para resolver este problema, execute os seguintes comandos na janela de comando para desativar a NLA:
 
 ```cmd
 REM Disable the Network Level Authentication
@@ -112,9 +112,9 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 0
 ```
 
-Em seguida, reinicie a VM.
+Em seguida, reinicie o VM.
 
-Para reabilitar o NLA, execute o seguinte comando e reinicie a VM:
+Para reativar o NLA, executar o seguinte comando e, em seguida, reiniciar o VM:
 
 ```cmd
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v disabledomaincreds /t REG_DWORD /d 0 /f
@@ -126,101 +126,101 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="for-domain-joined-vms"></a>Para VMs ingressadas no domínio
+### <a name="for-domain-joined-vms"></a>Para VMs unidos pelo domínio
 
-Para solucionar esse problema, primeiro verifique se a VM pode se conectar a um controlador de domínio e se o controlador de domínio tem um status de "íntegro" e pode lidar com solicitações da VM.
+Para resolver este problema, verifique primeiro se o VM pode ligar-se a um DC e se o DC tem um estatuto de "saudável" e pode lidar com pedidos do VM.
 
 >[!Note] 
->Para testar a integridade do controlador de domínio, você pode usar outra VM na mesma VNET e sub-rede que compartilham o mesmo servidor de logon.
+>Para testar a saúde em DC, pode utilizar outro VM no mesmo VNET e Subnet que partilham o mesmo servidor de logon.
 
-Conecte-se à VM que tem o problema usando Console serial, CMD remoto ou PowerShell remoto, de acordo com as etapas na seção "conectar-se à VM remotamente".
+Ligue-se ao VM que tem o problema utilizando a consola serial, a CMD remota ou a PowerShell remota, de acordo com os passos na secção "Ligar à VM remotamente".
 
-Para determinar a qual DC a VM está se conectando, execute o seguinte comando no console do: 
+Para determinar a que DC o VM está a ligar, execute o seguinte comando na consola: 
 
 ```cmd
 set | find /i "LOGONSERVER"
 ```
 
-Em seguida, verifique a integridade do canal seguro entre a VM e o controlador de domínio. Para fazer isso, execute o seguinte comando em uma instância do PowerShell com privilégios elevados. Esse comando retorna um sinalizador booliano que indica se o canal seguro está ativo:
+Em seguida, verifique a saúde do canal seguro entre o VM e o DC. Para tal, execute o seguinte comando num caso elevado de PowerShell. Este comando devolve uma bandeira booleana que indica se o canal seguro está vivo:
 
 ```powershell
 Test-ComputerSecureChannel -verbose
 ```
 
-Se o canal for interrompido, execute o seguinte comando para repará-lo:
+Se o canal estiver avariado, execute o seguinte comando para repará-lo:
 
 ```powershell
 Test-ComputerSecureChannel -repair
 ```
 
-Verifique se a senha da conta do computador no Active Directory está atualizada na VM e no controlador de domínio:
+Certifique-se de que a palavra-passe da conta de computador no Diretório Ativo é atualizada no VM e no DC:
 
 ```powershell
 Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDENTIAL WITH DOMAIN ADMIN LEVEL>
 ```
 
-Se a comunicação entre o DC e a VM for boa, mas o controlador de domínio não estiver íntegro o suficiente para abrir uma sessão RDP, você poderá tentar reiniciar o controlador de domínio.
+Se a comunicação entre o DC e o VM for boa, mas o DC não for suficientemente saudável para abrir uma sessão de RDP, pode tentar reiniciar o DC.
 
-Se os comandos anteriores não corrigiram o problema de comunicação com o domínio, você poderá reingressar essa VM no domínio. Para tal, siga estes passos:
+Se os comandos anteriores não corrigirem o problema de comunicação ao domínio, pode voltar a juntar este VM ao domínio. Para tal, siga estes passos:
 
-1. Crie um script chamado Unjoin. ps1 usando o conteúdo a seguir e, em seguida, implante o script como uma extensão de script personalizado no portal do Azure:
+1. Crie um script que se chame Unjoin.ps1 utilizando o seguinte conteúdo e, em seguida, implemente o script como uma extensão de script personalizado no portal Azure:
 
     ```cmd
     cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
     ```
     
-    Esse script leva a VM do domínio de modo forçado e reinicia 10 segundos depois. Em seguida, você precisa limpar o objeto de computador no lado do domínio.
+    Este guião tira o VM do domínio à força e reinicia-o 10 segundos depois. Depois, tens de limpar o objeto do Computador do lado do domínio.
 
-2.  Depois que a limpeza for concluída, reingresse essa VM no domínio. Para fazer isso, crie um script chamado JoinDomain. ps1 usando o conteúdo a seguir e, em seguida, implante o script como uma extensão de script personalizado no portal do Azure: 
+2.  Depois da limpeza, volte a juntar-se a este VM ao domínio. Para isso, crie um script que se chame JoinDomain.ps1 utilizando o seguinte conteúdo e, em seguida, implemente o script como uma extensão de script personalizado no portal Azure: 
 
     ```cmd
     cmd /c "netdom join <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10"
     ```
 
     >[!Note] 
-    >Isso une a VM no domínio usando as credenciais especificadas.
+    >Isto une o VM no domínio utilizando as credenciais especificadas.
 
-Se o canal de Active Directory estiver íntegro, a senha do computador será atualizada e o controlador de domínio estiver funcionando conforme o esperado, tente as etapas a seguir.
+Se o canal ative diretório estiver saudável, a palavra-passe do computador é atualizada e o controlador de domínio está a funcionar como esperado, tente os seguintes passos.
 
-Se o problema persistir, verifique se a credencial do domínio está desabilitada. Para fazer isso, abra uma janela de prompt de comandos com privilégios elevados e execute o seguinte comando para determinar se a VM está configurada para desabilitar contas de domínio para fazer logon na VM:
+Se o problema persistir, verifique se a credencial de domínio está desativada. Para tal, abra uma janela de comando elevado e, em seguida, executar o seguinte comando para determinar se o VM está configurado para desativar contas de domínio para iniciar sessão no VM:
 
 ```cmd
 REG query "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v disabledomaincreds
 ```
 
-Se a chave for definida como **1**, isso significa que o servidor foi configurado para não permitir credenciais de domínio. Altere essa chave para **0**.
+Se a chave estiver definida para **1,** isto significa que o servidor foi configurado para não permitir credenciais de domínio. Mude esta chave para **0**.
 
-### <a name="for-standalone-vms"></a>Para VMs autônomas
+### <a name="for-standalone-vms"></a>Para VMs autónomos
 
-#### <a name="check-minencryptionlevel"></a>Verificar MinEncryptionLevel
+#### <a name="check-minencryptionlevel"></a>Verifique o MinEncryptionLevel
 
-Em uma instância do CMD, execute o seguinte comando para consultar o valor do registro **MinEncryptionLevel** :
+Num caso CMD, execute o seguinte comando para consultar o valor do registo **MinCryptonLevel:**
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel
 ```
 
-Com base no valor do registro, siga estas etapas:
+Com base no valor do registo, siga estes passos:
 
-* 4 (FIPS): Vá para [verificar conexões de algoritmos compatíveis com FIPS](#fips-compliant).
+* 4 (FIPS): Vá verificar as ligações de [algoritmos compatíveis](#fips-compliant)com os FIPs .
 
-* 3 (criptografia de 128 bits): Defina a severidade como **2** executando o seguinte comando:
+* 3 (encriptação de 128 bits): Desloque a gravidade para **2** executando o seguinte comando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f
     ```
 
-* 2 (criptografia mais alta possível, conforme ditado pelo cliente): Você pode tentar definir a criptografia com o valor mínimo de **1** executando o seguinte comando:
+* 2 (Encriptação mais elevada possível, conforme ditado pelo cliente): Pode tentar definir a encriptação para o valor mínimo de **1** executando o seguinte comando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 1 /f
     ```
     
-Reinicie a VM para que as alterações no registro entrem em vigor.
+Reinicie o VM de modo a que as alterações ao registo entrem em vigor.
 
-#### <a name="tls-version"></a>Versão do TLS
+#### <a name="tls-version"></a>Versão TLS
 
-Dependendo do sistema, o RDP usa o protocolo TLS 1,0, 1,1 ou 1,2 (servidor). Para consultar como esses protocolos são configurados na VM, abra uma instância do CMD e execute os seguintes comandos:
+Dependendo do sistema, o RDP utiliza o protocolo TLS 1.0, 1.1 ou 1.2 (servidor). Para consultar como estes protocolos são estabelecidos no VM, abra uma instância CMD e, em seguida, executar os seguintes comandos:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled
@@ -228,7 +228,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled
 ```
 
-Se os valores retornados não forem todos **1**, isso significará que o protocolo está desabilitado. Para habilitar esses protocolos, execute os seguintes comandos:
+Se os valores devolvidos não forem todos **1,** isto significa que o protocolo está desativado. Para ativar estes protocolos, execute os seguintes comandos:
 
 ```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
@@ -236,7 +236,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protoc
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 ```
 
-Para outras versões de protocolo, você pode executar os seguintes comandos:
+Para outras versões protocolares, pode executar os seguintes comandos:
 
 <pre lang="bat">
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS <i>x.x</i>\Server" /v Enabled
@@ -244,40 +244,40 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 </pre>
 
 > [!Note]
-> Obtenha a versão x. x do SSH/TLS nos logs do sistema operacional convidado nos erros do SCHANNEL.
+> Obtenha a versão SSH/TLS x.x a partir dos registos do OS Do Hóspede nos erros Do SCHANNEL.
 
-#### <a name="fips-compliant"></a>Verificar conexões de algoritmos em conformidade com FIPs
+#### <a name="fips-compliant"></a>Verifique as ligações de algoritmos compatíveis com os FIPs
 
-A área de trabalho remota pode ser imposta para usar somente conexões de algoritmo em conformidade com FIPs. Isso pode ser definido usando uma chave do registro. Para fazer isso, abra uma janela de prompt de comandos com privilégios elevados e consulte as seguintes chaves:
+O ambiente de trabalho remoto pode ser aplicado para utilizar apenas ligações de algoritmo compatíveis com OSFiPs. Isto pode ser definido utilizando uma chave de registo. Para isso, abra uma janela elevada de comando pronta e, em seguida, questione as seguintes teclas:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy" /v Enabled
 ```
 
-Se o comando retornar **1**, altere o valor do registro para **0**.
+Se o comando devolver **1**, altere o valor do registo para **0**.
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy" /v Enabled /t REG_DWORD /d 0
 ```
 
-Verifique qual é o MinEncryptionLevel atual na VM:
+Verifique qual é o atual MinEncryptionLevel no VM:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel
 ```
 
-Se o comando retornar **4**, altere o valor do registro para **2**
+Se o comando devolver **4**, altere o valor do registo para **2**
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2
 ```
 
-Reinicie a VM para que as alterações no registro entrem em vigor.
+Reinicie o VM de modo a que as alterações ao registo entrem em vigor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Método SetEncryptionLevel da classe Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
+[Método de SetEncryptionLevel da classe Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
 
-[Configurar os níveis de autenticação e criptografia do servidor](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[Configure os níveis de autenticação e encriptação do servidor](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
 
-[Classe Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)
+[Win32_TSGeneralSetting aula](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 1/21/2020
 ms.author: raynew
 ms.openlocfilehash: b7ace4f470a4e054be5d7f5945fc3e9c4f7d0810
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444252"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362894"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para O Azure
 
@@ -174,7 +174,7 @@ Rede de hóspedes/servidor múltiplos NICs | Sim.
 
 **Componente** | **Suportado**
 --- | ---
-Rota Expresso Azure | Sim
+Azure ExpressRoute | Sim
 ILB | Sim
 ELB | Sim
 Traffic Manager do Azure | Sim

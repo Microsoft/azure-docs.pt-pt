@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: MT
+ms.openlocfilehash: 1d9f148351e4ce12d6f6bcd699cdd74e94ba09ef
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161572"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358104"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium de Funções Azure
 
@@ -65,7 +65,7 @@ As instâncias de cálculo adicionais são adicionadas automaticamente para a su
 
 ### <a name="longer-run-duration"></a>Duração de longo prazo
 
-As Funções Azure num plano de consumo estão limitadas a 10 minutos para uma única execução.  No plano Premium, a duração da execução não se aplica a 30 minutos para evitar execuções em fuga. No entanto, pode [modificar a configuração host.json](./functions-host-json.md#functiontimeout) para fazer estes 60 minutos para aplicações de plano Premium.
+As Funções Azure num plano de consumo estão limitadas a 10 minutos para uma única execução.  No plano Premium, a duração da execução não se aplica a 30 minutos para evitar execuções em fuga. No entanto, pode [modificar a configuração host.json](./functions-host-json.md#functiontimeout) para tornar esta aplicação de plano Premium deslimitada (60 minutos garantida).
 
 ## <a name="plan-and-sku-settings"></a>Plan e definições de SKU
 
