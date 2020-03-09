@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 9364c344c58d17f9f6e6404dd8aa850af032cee9
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138361"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385191"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenha dados de sensores de parceiros de sensores
 
@@ -18,7 +18,7 @@ O Azure FarmBeats ajuda-o a trazer dados de streaming dos seus dispositivos IoT 
 
   ![Parceiros FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-A integração de dados de dispositivo com o Azure FarmBeats ajuda você a obter dados de aterramento de sensores de IoT implantados em seu farm para o Hub de dados. Os dados, uma vez disponíveis, podem ser visualizados através do acelerador FarmBeats. Os dados podem ser utilizados para a fusão de dados e machine learning/inteligência artificial (ML/AI) utilizando farmBeats.
+Integrar dados do dispositivo com o Azure FarmBeats ajuda-o a obter dados terrestres dos sensores IoT implantados na sua quinta para o centro de dados. Os dados, uma vez disponíveis, podem ser visualizados através do acelerador FarmBeats. Os dados podem ser utilizados para a fusão de dados e machine learning/inteligência artificial (ML/AI) utilizando farmBeats.
 
 Para iniciar o streaming de dados dos sensores, certifique-se do seguinte:
 
@@ -47,9 +47,9 @@ Pode gerar a informação acima seguindo estes passos: (Por favor, note que este
 
 3a. Vá ao Azure Ative Directory -> Registos de Aplicações
 
-3b. Clique no Registo de Aplicações que foi criado como parte da sua implementação farmBeats. Ele terá o mesmo nome que o seu hub de dados FarmBeats.
+3b. Clique no Registo de Aplicações que foi criado como parte da sua implementação farmBeats. Terá o mesmo nome que o seu centro de dados FarmBeats.
 
-3c. Clique em "Expor um API" -> Clique em "Adicionar uma aplicação de cliente" e insira **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verifique "Autorizar o Scope". Isso dará acesso ao CLI do Azure (Cloud Shell) para executar as etapas a seguir.
+3c. Clique em "Expor um API" -> Clique em "Adicionar uma aplicação de cliente" e insira **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verifique "Autorizar o Scope". Isto dará acesso ao Azure CLI (Cloud Shell) para realizar os passos abaixo.
 
 4. Abra o Cloud Shell. Esta opção está disponível na barra de ferramentas no canto superior direito do portal Azure.
 

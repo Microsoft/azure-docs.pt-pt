@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de SQL Server para o armazenamento de BLOBs usando portal do Azure
+title: Copiar dados do SQL Server para o armazenamento Blob usando o portal Azure
 description: Saiba como copiar dados de um arquivo de dados no local para a cloud mediante a utilização de um runtime de integração autoalojado no Azure Data Factory.
 services: data-factory
 ms.author: abnarain
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 01f2644874da032b95162f3f5721ab9dbea74265
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974720"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393441"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -28,7 +28,7 @@ Neste tutorial, vai executar os seguintes passos:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
-> * Criar um integration runtime autoalojado.
+> * Crie um integration runtime autoalojado.
 > * Criar serviços ligados do SQL Server e do Armazenamento do Azure.
 > * Criar conjuntos de dados do SQL Server e dos Blobs do Azure.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.
@@ -82,14 +82,14 @@ Utilize o nome e a chave da sua conta de armazenamento neste tutorial. Para obte
 
     ![Procurar conta de armazenamento](media/doc-common-process/search-storage-account.png)
 
-1. Na lista de contas de armazenamento, filtre sua conta de armazenamento, se necessário. Em seguida, selecione a sua conta de armazenamento.
+1. Na lista de contas de armazenamento, filtre para a sua conta de armazenamento, se necessário. Em seguida, selecione a sua conta de armazenamento.
 
 1. Na janela **Conta de armazenamento**, selecione **Chaves de acesso**.
 
 1. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e cole-os no Bloco de notas ou noutro editor, para utilizar mais adiante no tutorial.
 
 #### <a name="create-the-adftutorial-container"></a>Criar o contentor adftutorial
-Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu armazenamento de Blobs.
+Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu Armazenamento de blobs.
 
 1. Na janela **Conta de armazenamento**, vá para **Descrição Geral** e selecione **Blobs**.
 
@@ -101,13 +101,13 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na lista de contentores, clique em **adftutorial**.
 
-1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
+1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados.
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**:
+1. No menu esquerdo, selecione **Criar um recurso** > **Analytics** > **Data Factory:**
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -117,7 +117,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
    ![Nome da nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 
-1. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
+1. Selecione a **subscrição** do Azure na qual quer criar a fábrica de dados.
 1. Em **Grupo de Recursos**, efetue um destes passos:
 
    - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
@@ -141,31 +141,31 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
    ![Página Vamos começar](./media/doc-common-process/get-started-page.png)
 
-1. Na guia **geral** na parte inferior da janela **Propriedades** , em **nome**, insira **SQLServerToBlobPipeline**.
+1. No separador **Geral** na parte inferior da janela **Propriedades,** para **Nome,** introduza **O SQLServerToBlobPipeline**.
 
    ![Nome do pipeline](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
 
-1. Na caixa de ferramentas **atividades** , expanda **mover & transformação**. Arraste e largue a atividade **Copiar** para a superfície de desenho do pipeline. Defina o nome da atividade como **CopySqlServerToAzureBlobActivity**.
+1. Na caixa de **ferramentas De Atividades,** expanda **o Move & Transform**. Arraste e largue a atividade **Copiar** para a superfície de desenho do pipeline. Defina o nome da atividade como **CopySqlServerToAzureBlobActivity**.
 
 1. Na janela **Propriedades**, vá para o separador **Origem** e selecione **+ Novo**.
 
-1. Na caixa de diálogo **novo conjunto de novos** , procure **SQL Server**. Selecione **SQL Server**e, em seguida, selecione **continuar**.
+1. Na caixa de diálogo **New Dataset,** procure o **Servidor SQL**. Selecione **O Servidor SQL**e, em seguida, selecione **Continuar**.
 
-1. Na caixa de diálogo **definir propriedades** , em **nome**, insira **SqlServerDataset**. Em **serviço vinculado**, selecione **+ novo**. Neste passo, vai criar uma ligação para o arquivo de dados de origem (base de dados do SQL Server).
+1. Na caixa de diálogo **set Properties,** em **nome,** introduza **SqlServerDataset**. No **serviço Linked,** selecione **+ Novo**. Neste passo, vai criar uma ligação para o arquivo de dados de origem (base de dados do SQL Server).
 
-1. Na caixa de diálogo **novo serviço vinculado** , adicione o **nome** como **SqlServerLinkedService**. Em **conectar via Integration Runtime**, selecione **+ novo**.  Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O runtime de integração autoalojado é o componente que copia os dados da base de dados do SQL Server no seu computador para o armazenamento de Blobs.
+1. Na caixa de diálogo **new Linked Service,** adicione **o Nome** como **SqlServerLinkedService**. Em Connect através do tempo de **execução de integração,** selecione **+New**.  Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O runtime de integração autoalojado é o componente que copia os dados da base de dados do SQL Server no seu computador para o armazenamento de Blobs.
 
-1. Na caixa de diálogo **configuração do Integration Runtime** , selecione **auto-hospedado**e, em seguida, selecione **Avançar**.
+1. Na caixa de diálogo de configuração de tempo de **integração,** selecione **Self-Hosted**, e, em seguida, selecione **Next**.
 
-1. Em nome, insira **TutorialIntegrationRuntime**. Em seguida, selecione **Seguinte**.
+1. Sob nome, **insira TutorialIntegrationRuntime**. Em seguida, selecione **Seguinte**.
 
-1. Para configurações, selecione **clique aqui para iniciar a instalação expressa para este computador**. Essa ação instala o Integration Runtime em seu computador e o registra com Data Factory. Em alternativa, pode utilizar a opção de configuração manual para transferir o ficheiro de instalação, executá-lo e utilizar a chave para registar o runtime de integração.
+1. Para definições, selecione **Clique aqui para lançar a configuração expressa para este computador**. Esta ação instala o tempo de funcionação de integração na sua máquina e regista-o na Data Factory. Em alternativa, pode utilizar a opção de configuração manual para transferir o ficheiro de instalação, executá-lo e utilizar a chave para registar o runtime de integração.
 
 1. Na janela **Configuração Rápida do Runtime de Integração (Autoalojado)** , selecione **Fechar**.
 
     ![Configuração rápida do runtime de integração (autoalojado)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
-1. Na caixa de diálogo **novo serviço vinculado** , confirme se **TutorialIntegrationRuntime** está selecionado em **conectar via Integration Runtime**. Em seguida, execute as seguintes etapas:
+1. Na caixa de diálogo **new Linked Service,** confirme que o Tempo de Tempo de Início de Tempo de **Integração** tutorial é selecionado no Connect através do tempo de execução da **integração**. Em seguida, tome os seguintes passos:
 
     a. Em **Nome**, introduza **SqlServerLinkedService**.
 
@@ -177,7 +177,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
     e. Em **Nome de utilizador** e **Palavra-passe**, introduza o nome de utilizador e a palavra-passe. Se precisar de utilizar um caráter de barra invertida (\\) no nome da sua conta de utilizador ou no nome do seu servidor, utilize o caráter de escape (\\) como prefixo. Por exemplo, utilize *omeudominion\\\\omeuutilizador*.
 
-    f. Selecione **Testar ligação**. Esta etapa é para confirmar se Data Factory pode se conectar ao seu banco de dados do SQL Server usando o Integration Runtime que você criou.
+    f. Selecione **Testar ligação**. Este passo é confirmar que a Data Factory pode ligar-se à sua base de dados do SQL Server utilizando o tempo de integração auto-hospedado que criou.
 
     g. Para guardar o serviço ligado, selecione **Concluir**.
 
@@ -191,27 +191,27 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
 1. Vá para o separador **Sink**, na parte inferior da janela **Propriedades**, e selecione **+ Novo**.
 
-1. Na caixa de diálogo **novo conjunto de novos** , selecione **armazenamento de BLOBs do Azure**. Em seguida, selecione **Continuar**.
+1. Na caixa de diálogo **New Dataset,** selecione **Armazenamento De Blob Azure**. Em seguida, selecione **Continuar**.
 
-1. Na caixa de diálogo **selecionar formato** , escolha o tipo de formato dos seus dados. Em seguida, selecione **Continuar**.
+1. Na caixa de diálogo **Select Format,** escolha o tipo de formato dos seus dados. Em seguida, selecione **Continuar**.
 
     ![Seleção de formato de dados](./media/doc-common-process/select-data-format.png)
 
-1. Na caixa de diálogo **definir propriedades** , digite **AzureBlobDataset** para o nome. Junto à caixa de texto **Serviço ligado**, selecione **+ Novo**.
+1. Na caixa de diálogo **set Properties,** **introduza o Conjunto De Dados AzureBlob dataset** para nome. Junto à caixa de texto **Serviço ligado**, selecione **+ Novo**.
 
-1. Na caixa de diálogo **novo serviço vinculado (armazenamento de BLOBs do Azure)** , digite **AzureStorageLinkedService** como nome, selecione sua conta de armazenamento na lista nome da **conta de armazenamento** . Teste a conexão e selecione **concluir** para implantar o serviço vinculado.
-1. Depois que o serviço vinculado for criado, você voltará para a página **definir propriedades** . Selecione **Continuar**.
+1. Na caixa de diálogo **New Linked Service (Azure Blob Storage),** introduza o **AzureStorageLinkedService** como nome, selecione a sua conta de armazenamento na lista de nomes da **conta de armazenamento.** Teste a ligação e, em seguida, selecione **Terminar** para implementar o serviço ligado.
+1. Após a criação do serviço ligado, volta à página de **propriedades do set.** Selecione **Continuar**.
 
 1. Deverá regressar à janela com o conjunto de dados de sink aberto. No separador **Ligação**, siga os passos abaixo:
 
     a. Em **Serviço ligado**, confirme que **AzureStorageLinkedService** está selecionado.
 
-    b. Em **caminho do arquivo**, digite **adftutorial/fromonprem** para a parte do **contêiner/diretório** . Se a pasta de saída não existir no contentor adftutorial, o Data Factory cria-a automaticamente.
+    b. No **caminho do arquivo,** introduza **adftutorial/fromonprem** para a parte **contentor/diretório.** Se a pasta de saída não existir no contentor adftutorial, o Data Factory cria-a automaticamente.
 
-    c. Para a parte do **arquivo** , selecione **adicionar conteúdo dinâmico**.
-    ![expressão dinâmica para resolver o nome do arquivo](./media/tutorial-hybrid-copy-portal/file-name.png)
+    c. Para a parte **Do Ficheiro,** selecione **Adicionar conteúdo dinâmico**.
+    ![expressão dinâmica para a resolução do nome do ficheiro](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-    d. Adicione `@CONCAT(pipeline().RunId, '.txt')`e, em seguida, selecione **concluir**. Esta ação renomeará o arquivo com PipelineRunID. txt.
+    d. Adicione `@CONCAT(pipeline().RunId, '.txt')`, e, em seguida, selecione **Terminar**. Esta ação renomeará o ficheiro com PipelineRunID.txt.
 
 1. Vá para o separador com o pipeline aberto ou selecione o pipeline na vista de árvore. Em **Conjunto de Dados de Sink**, confirme que **AzureBlobDataset** está selecionado.
 
@@ -219,18 +219,18 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
 1. Para publicar as entidades que criou no Data Factory, selecione **Publicar Tudo**.
 
-1. Aguarde até ver a mensagem **Publicação com êxito**. Para verificar o status da publicação, selecione o link **Mostrar notificações** na parte superior da janela. Para fechar a janela de notificação, selecione **Fechar**.
+1. Aguarde até ver a mensagem **Publicação com êxito**. Para verificar o estado da publicação, selecione o link **'Notificações de série'** na parte superior da janela. Para fechar a janela de notificação, selecione **Fechar**.
 
 
 ## <a name="trigger-a-pipeline-run"></a>Acionar uma execução de pipeline
-Selecione **Adicionar gatilho** na barra de ferramentas para o pipeline e, em seguida, selecione **disparar agora**.
+**Selecione Adicionar gatilho** na barra de ferramentas para o gasoduto e, em seguida, selecione **'Trigger Now**.
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Vá para a guia **Monitor** . Você verá o pipeline que você disparou manualmente na etapa anterior.
+1. Vá ao separador **Monitor.** Vê o oleoduto que desencadeou manualmente no passo anterior.
 
     ![Monitorizar execuções de pipeline](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-1. Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Você vê apenas execuções de atividade porque há apenas uma atividade no pipeline. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Para voltar para a exibição execuções de pipeline, selecione **pipeline é executado** na parte superior.
+1. Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Só há atividade porque só há uma atividade no oleoduto. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Para voltar à vista Pipeline Runs, selecione **Pipeline Runs** na parte superior.
 
 ## <a name="verify-the-output"></a>Verificar a saída
 O pipeline cria automaticamente a pasta de saída com o nome *fromonprem* no contentor de blobs `adftutorial`. Confirme que consegue ver o ficheiro *[pipeline().RunId].txt* na pasta de saída.
@@ -241,7 +241,7 @@ O pipeline neste exemplo copia dados de uma localização para outra localizaç�
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
-> * Criar um integration runtime autoalojado.
+> * Crie um integration runtime autoalojado.
 > * Criar serviços ligados do SQL Server e do Armazenamento.
 > * Criar conjuntos de dados do SQL Server e do armazenamento de Blobs.
 > * Criar um pipeline com uma atividade de cópia para mover os dados.

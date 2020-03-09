@@ -1,6 +1,6 @@
 ---
-title: Selecionar imagens de VM do Windows no Azure
-description: Use Azure PowerShell para determinar o editor, a oferta, a SKU e a versão das imagens de VM do Marketplace.
+title: Selecione imagens VM do Windows em Azure
+description: Utilize o Azure PowerShell para determinar a editora, oferta, SKU e versão para imagens De Marketplace VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039542"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388658"
 ---
-# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Localizar imagens de VM do Windows no Azure Marketplace com Azure PowerShell
+# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Encontre imagens VM do Windows no Mercado Azure com A PowerShell Azure
 
-Este artigo descreve como usar Azure PowerShell para localizar imagens de VM no Azure Marketplace. Em seguida, você pode especificar uma imagem do Marketplace ao criar uma VM programaticamente com o PowerShell, modelos do Resource Manager ou outras ferramentas.
+Este artigo descreve como usar o Azure PowerShell para encontrar imagens VM no Azure Marketplace. Pode então especificar uma imagem do Marketplace quando criar um VM programáticamente com modelos PowerShell, Resource Manager ou outras ferramentas.
 
-Você também pode procurar imagens e ofertas disponíveis usando a vitrine do [Azure Marketplace](https://azuremarketplace.microsoft.com/) , o [portal do Azure](https://portal.azure.com)ou o [CLI do Azure](../linux/cli-ps-findimage.md). 
+Também pode navegar em imagens e ofertas disponíveis utilizando a montra [Azure Marketplace,](https://azuremarketplace.microsoft.com/) o [portal Azure,](https://portal.azure.com)ou o [Azure CLI.](../linux/cli-ps-findimage.md) 
 
  
 
@@ -33,14 +33,14 @@ Você também pode procurar imagens e ofertas disponíveis usando a vitrine do [
 
 ## <a name="table-of-commonly-used-windows-images"></a>Tabela de imagens do Windows comumente usadas
 
-Esta tabela mostra um subconjunto de SKUs disponíveis para os editores e ofertas indicadas.
+Esta tabela mostra um subconjunto de Skus disponíveis para as Editoras e Ofertas indicadas.
 
 | Publicador | Oferta | Sku |
 |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2019-datacenter |
-| MicrosoftWindowsServer |WindowsServer |2019-datacenter-Core |
+| MicrosoftWindowsServer |WindowsServer |Centro de Dados 2019-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |
-| MicrosoftWindowsServer |WindowsServer |2016-datacenter |
+| MicrosoftWindowsServer |WindowsServer |Centro de Dados 2016 |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
@@ -50,47 +50,47 @@ Esta tabela mostra um subconjunto de SKUs disponíveis para os editores e oferta
 | MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
 | MicrosoftRServer |RServer-WS2016 |Enterprise |
 
-## <a name="navigate-the-images"></a>Navegar pelas imagens
+## <a name="navigate-the-images"></a>Navegue nas imagens
 
-Uma maneira de localizar uma imagem em um local é executar os cmdlets [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer)e [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) na ordem:
+Uma maneira de encontrar uma imagem num local é executar o [Get-AzVMImagePublisher,](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer)e [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) cmdlets por ordem:
 
 1. Listar os publicadores de imagem.
 2. Para um determinado publicador, liste as respetivas ofertas.
 3. Para uma determinada oferta, liste as respetivas SKUs.
 
-Em seguida, para uma SKU selecionada, execute [Get-AzVMImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimage) para listar as versões a serem implantadas.
+Em seguida, para um SKU selecionado, executar [Get-AzVMImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimage) para listar as versões para implementar.
 
-1. Listar os Publicadores:
+1. Lista rindo os editores:
 
     ```powershell
     $locName="<Azure location, such as West US>"
     Get-AzVMImagePublisher -Location $locName | Select PublisherName
     ```
 
-2. Preencha o nome do editor escolhido e liste as ofertas:
+2. Preencha o nome de editor escolhido e enumere as ofertas:
 
     ```powershell
     $pubName="<publisher>"
     Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
     ```
 
-3. Preencha o nome da oferta escolhida e liste as SKUs:
+3. Preencha o nome da oferta escolhida e enumere as SKUs:
 
     ```powershell
     $offerName="<offer>"
     Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
     ```
 
-4. Preencha o nome do SKU escolhido e obtenha a versão da imagem:
+4. Preencha o nome SKU escolhido e obtenha a versão de imagem:
 
     ```powershell
     $skuName="<SKU>"
     Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
     
-Na saída do comando `Get-AzVMImage`, você pode selecionar uma imagem de versão para implantar uma nova máquina virtual.
+A partir da saída do comando `Get-AzVMImage`, pode selecionar uma imagem de versão para implantar uma nova máquina virtual.
 
-O exemplo a seguir mostra a sequência completa de comandos e suas saídas:
+O exemplo que se segue mostra a sequência completa de comandos e as suas saídas:
 
 ```powershell
 $locName="West US"
@@ -121,7 +121,7 @@ advantys
 ...
 ```
 
-Para o editor de *MicrosoftWindowsServer* :
+Para o editor do *MicrosoftWindowsServer:*
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -138,7 +138,7 @@ WindowsServer
 WindowsServerSemiAnnual
 ```
 
-Para a oferta de *WindowsServer* :
+Para a oferta do *WindowsServer:*
 
 ```powershell
 $offerName="WindowsServer"
@@ -169,24 +169,24 @@ Skus
 ...
 ```
 
-Em seguida, para o SKU *2019-datacenter* :
+Então, para o SKU *2019-Datacenter:*
 
 ```powershell
 $skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Agora você pode combinar o Publicador, a oferta, a SKU e a versão selecionados em um URN (valores separados por:). Passe este URN com o parâmetro `--image` ao criar uma VM com o cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Opcionalmente, você pode substituir o número de versão no URN por "mais recente" para obter a versão mais recente da imagem.
+Agora pode combinar o editor selecionado, oferta, SKU e versão numa URN (valores separados por :). Passe este URN com o parâmetro `--image` quando criar um VM com o cmdlet [New-AzVM.](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) Pode substituir opcionalmente o número da versão na URN por "mais recente" para obter a versão mais recente da imagem.
 
-Se você implantar uma VM com um modelo do Resource Manager, você definirá os parâmetros de imagem individualmente nas propriedades de `imageReference`. Veja a [referência do modelo](/azure/templates/microsoft.compute/virtualmachines).
+Se implementar um VM com um modelo de Gestor de Recursos, então irá definir os parâmetros de imagem individualmente nas propriedades `imageReference`. Veja a [referência do modelo](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>Exibir Propriedades do plano
+### <a name="view-plan-properties"></a>Ver propriedades do plano
 
-Para exibir as informações do plano de compra de uma imagem, execute o cmdlet `Get-AzVMImage`. Se a propriedade `PurchasePlan` na saída não for `null`, a imagem terá os termos que você precisa aceitar antes da implantação programática.  
+Para ver a informação do plano de compra de uma imagem, execute a `Get-AzVMImage` cmdlet. Se a propriedade `PurchasePlan` na saída não for `null`, a imagem tem termos que precisa de aceitar antes da implementação programática.  
 
-Por exemplo, a imagem do *Windows Server 2016 datacenter* não tem termos adicionais, portanto, as informações de `PurchasePlan` são `null`:
+Por exemplo, a imagem do *Datacenter do Windows Server 2016* não tem termos adicionais, pelo que a informação `PurchasePlan` é `null`:
 
 ```powershell
 $version = "2016.127.20170406"
@@ -212,7 +212,7 @@ DataDiskImages   : []
 
 ```
 
-O exemplo a seguir mostra um comando semelhante para a imagem *máquina virtual de ciência de dados-Windows 2016* , que tem as seguintes propriedades de `PurchasePlan`: `name`, `product`e `publisher`. Algumas imagens também têm uma propriedade `promotion code`. Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e habilitar a implantação programática.
+O exemplo abaixo mostra um comando semelhante para a Máquina Virtual da *Ciência dos Dados - imagem do Windows 2016,* que tem as seguintes propriedades `PurchasePlan`: `name`, `product`e `publisher`. Algumas imagens também têm uma propriedade `promotion code`. Para implementar esta imagem, consulte as seguintes secções para aceitar os termos e para permitir a implementação programática.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -241,9 +241,9 @@ DataDiskImages   : []
 
 ```
 
-### <a name="accept-the-terms"></a>Aceitar os termos
+### <a name="accept-the-terms"></a>Aceite os termos
 
-Para exibir os termos de licença, use o cmdlet [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) e passe os parâmetros do plano de compra. A saída fornece um link para os termos da imagem do Marketplace e mostra se você aceitou os termos anteriormente. Certifique-se de usar todas as letras minúsculas nos valores de parâmetro.
+Para visualizar os termos da licença, utilize o cmdlet [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) e passe nos parâmetros do plano de compra. A saída fornece uma ligação aos termos da imagem do Marketplace e mostra se aceitou previamente os termos. Certifique-se de que utiliza todas as letras minúsculas nos valores do parâmetro.
 
 ```powershell
 Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -262,7 +262,7 @@ Accepted          : False
 Signdate          : 1/25/2019 7:43:00 PM
 ```
 
-Use o cmdlet [set-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/set-azmarketplaceterms) para aceitar ou rejeitar os termos. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Certifique-se de usar todas as letras minúsculas nos valores de parâmetro. 
+Utilize os termos [set-AzMarketplace para](https://docs.microsoft.com/powershell/module/az.marketplaceordering/set-azmarketplaceterms) aceitar ou rejeitar os termos. Só precisa de aceitar termos uma vez por subscrição para a imagem. Certifique-se de que utiliza todas as letras minúsculas nos valores do parâmetro. 
 
 ```powershell
 $agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -284,9 +284,9 @@ Accepted          : True
 Signdate          : 2/23/2018 7:49:31 PM
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>Implantar usando parâmetros do plano de compra
+### <a name="deploy-using-purchase-plan-parameters"></a>Implementar utilizando parâmetros do plano de compra
 
-Depois de aceitar os termos de uma imagem, você pode implantar uma VM nessa assinatura. Conforme mostrado no trecho a seguir, use o cmdlet [set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) para definir as informações do plano do Marketplace para o objeto da VM. Para obter um script completo para criar configurações de rede para a VM e concluir a implantação, consulte os [exemplos de script do PowerShell](powershell-samples.md).
+Depois de aceitar os termos para uma imagem, pode implementar um VM nessa subscrição. Como mostrado no seguinte corte, utilize o cmdlet [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) para definir as informações do plano Marketplace para o objeto VM. Para um script completo para criar definições de rede para o VM e completar a implementação, consulte os exemplos do [script PowerShell](powershell-samples.md).
 
 ```powershell
 ...
@@ -318,13 +318,13 @@ $version = "19.01.14"
 $vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
 ```
-Em seguida, você passará a configuração da VM junto com os objetos de configuração de rede para o cmdlet `New-AzVM`.
+Em seguida, passará a configuração VM juntamente com objetos de configuração de rede para o `New-AzVM` cmdlet.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para criar uma máquina virtual rapidamente com o cmdlet `New-AzVM` usando informações básicas de imagem, consulte [criar uma máquina virtual do Windows com o PowerShell](quick-create-powershell.md).
+Para criar rapidamente uma máquina virtual com a `New-AzVM` cmdlet utilizando informações básicas de imagem, consulte [Criar uma máquina virtual Windows com powerShell](quick-create-powershell.md).
 
 
-Consulte um exemplo de script do PowerShell para [criar uma máquina virtual totalmente configurada](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Consulte um exemplo de script PowerShell para [criar uma máquina virtual totalmente configurada](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 
 

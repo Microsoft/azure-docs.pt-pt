@@ -4,11 +4,11 @@ description: Este artigo descreve como configurar a monitorização de um cluste
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250701"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395326"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift clusters com Monitor Azure para recipientes
 

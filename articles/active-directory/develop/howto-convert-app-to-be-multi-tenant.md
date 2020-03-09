@@ -14,12 +14,12 @@ ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: b3338edf644aee8409cfca05d4ac801594cbf66b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 33116039d5e47b95322ffafb4e8f4eef31bd84cf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467764"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375629"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Inscrever em qualquer utilizador do Diretório Ativo Azure utilizando o padrão de aplicação multi-inquilino
 
@@ -115,7 +115,7 @@ Algumas permissões podem ser consentidas por um utilizador regular, enquanto ou
 
 As permissões apenas para aplicações requerem sempre o consentimento de um administrador inquilino. Se a sua aplicação solicitar uma permissão apenas para aplicações e um utilizador tentar iniciar sessão na aplicação, é apresentada uma mensagem de erro dizendo que o utilizador não pode consentir.
 
-Algumas permissões delegadas também requerem o consentimento de um administrador inquilino. Por exemplo, a capacidade de reescrever para a AD Azure como o utilizador assinado requer o consentimento de um administrador inquilino. Tal como as permissões apenas para aplicações, se um utilizador comum tentar iniciar sessão numa aplicação que solicite uma permissão delegada que requer o consentimento do administrador, a sua aplicação recebe um erro. Se uma permissão requer consentimento administrativo é determinado pelo desenvolvedor que publicou o recurso, e pode ser encontrado na documentação para o recurso. A documentação de permissões para a API do [Gráfico AD Azure][AAD-Graph-Perm-Scopes] e [a API do Microsoft Graph][MSFT-Graph-permission-scopes] indicam quais as permissões que requerem consentimento administrativo.
+Algumas permissões delegadas também requerem o consentimento de um administrador inquilino. Por exemplo, a capacidade de reescrever para a AD Azure como o utilizador assinado requer o consentimento de um administrador inquilino. Tal como as permissões apenas para aplicações, se um utilizador comum tentar iniciar sessão numa aplicação que solicite uma permissão delegada que requer o consentimento do administrador, a sua aplicação recebe um erro. Se uma permissão requer consentimento administrativo é determinado pelo desenvolvedor que publicou o recurso, e pode ser encontrado na documentação para o recurso. A documentação de permissões para a [API do Microsoft Graph][MSFT-Graph-permission-scopes] indica quais as permissões que requerem consentimento administrativo.
 
 Se o seu pedido utilizar permissões que requerem consentimento administrativo, precisa de ter um gesto como um botão ou link onde o administrador possa iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual pedido de autorização OAuth2/OpenID Connect que também inclui o parâmetro de corda de consulta `prompt=admin_consent`. Uma vez que o administrador tenha consentido e o diretor de serviço seja criado no inquilino do cliente, os pedidos subsequentes de inscrição não precisam do parâmetro `prompt=admin_consent`. Uma vez que o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro utilizador no inquilino é solicitado para o consentimento a partir desse ponto.
 
@@ -182,7 +182,6 @@ Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizad
 * [Integração de aplicações com o Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral do Quadro de Consentimento][AAD-Consent-Overview]
 * [Âmbitos de permissão da Microsoft Graph API][MSFT-Graph-permission-scopes]
-* [Âmbitos de permissão da AD Graph API azure][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -192,8 +191,6 @@ Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizad
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
@@ -213,10 +210,6 @@ Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizad
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md

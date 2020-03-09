@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de e para SQL Server
-description: Saiba mais sobre como mover dados de e para o banco de SQL Server no local ou em uma VM do Azure usando Azure Data Factory.
+title: Copiar dados de e para o Servidor SQL
+description: Saiba como mover dados de e para a base de dados do SQL Server que está no local ou num VM Azure utilizando a Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,68 +13,68 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
 ms.openlocfilehash: 6b5c5d46003c995ae0e853809e2283e8502615bc
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891957"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388340"
 ---
-# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiar dados de e para SQL Server usando Azure Data Factory
+# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiar dados de e para o Servidor SQL utilizando a Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão da Azure Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-sqlserver-connector.md)
 > * [Versão atual](connector-sql-server.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para um banco de SQL Server. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia na Azure Data Factory para copiar dados de e para uma base de dados do SQL Server. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade da cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector de SQL Server tem suporte para as seguintes atividades:
+Este conector SQL Server é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
+- [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)
 
-Você pode copiar dados de um SQL Server banco de dados para qualquer armazenamento de dado de coletor com suporte. Ou então, você pode copiar dados de qualquer armazenamento de dados de origem com suporte para um SQL Server. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de uma base de dados do SQL Server para qualquer loja de dados de sink suportado. Ou pode copiar dados de qualquer loja de dados de origem suportada para uma base de dados do SQL Server. Para obter uma lista de lojas de dados que sejam suportadas como fontes ou afunda-se pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, esse conector de SQL Server dá suporte a:
+Especificamente, este conector SQL Server suporta:
 
-- SQL Server versões 2016, 2014, 2012, 2008 R2, 2008 e 2005.
-- Copiar dados usando a autenticação do SQL ou do Windows.
-- Como fonte, recuperar dados usando uma consulta SQL ou um procedimento armazenado.
-- Como coletor, acrescentar dados a uma tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
+- Versões SQL Server 2016, 2014, 2012, 2008 R2, 2008 e 2005.
+- Copiar dados utilizando a autenticação SQL ou Windows.
+- Como fonte, recuperar dados utilizando uma consulta SQL ou um procedimento armazenado.
+- Como pia, anexando dados a uma tabela de destino ou invocando um procedimento armazenado com lógica personalizada durante a cópia.
 
-Não há suporte para [SQL Server Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017) .
+[O SQL Server Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017) não é suportado.
 
 >[!NOTE]
->O SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) não tem suporte neste conector agora. Para solucionar o trabalho, você pode usar um [conector ODBC genérico](connector-odbc.md) e um SQL Server driver ODBC. Siga [este guia](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) com as configurações de cadeia de conexão e download do driver ODBC.
+>O Servidor SQL [Sempre Encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) não é suportado por este conector agora. Para trabalhar, pode utilizar um [conector ODBC genérico](connector-odbc.md) e um controlador ODBC do Servidor SQL. Siga [esta orientação](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) com configurações de descarregamento e cadeia de ligação do condutor DaOBC.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Começar
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas para o conector de banco de dados SQL Server.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector de base de dados Do Servidor SQL.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As propriedades a seguir têm suporte para o serviço vinculado SQL Server:
+As seguintes propriedades são suportadas para o serviço ligado ao Servidor SQL:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como **SqlServer**. | Sim |
-| connectionString |Especifique as informações de **ConnectionString** necessárias para se conectar ao banco de dados do SQL Server usando a autenticação do SQL ou a autenticação do Windows. Consulte os exemplos a seguir.<br/>Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| userName |Especifique um nome de usuário se você usar a autenticação do Windows. Um exemplo é **domainname\\username**. |Não |
-| palavra-passe |Especifique uma senha para a conta de usuário que você especificou para o nome de usuário. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Ou, você pode [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Não |
-| connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |Não |
+| tipo | A propriedade do tipo deve ser definida para **SqlServer**. | Sim |
+| connectionString |Especifique as informações do String de **ligação** necessárias para se ligar à base de dados do Servidor SQL utilizando a autenticação SQL ou a autenticação do Windows. Consulte as seguintes amostras.<br/>Também pode colocar uma senha no Cofre de Chaves Azure. Se for autenticação SQL, retire a configuração `password` da cadeia de ligação. Para mais informações, consulte o exemplo jSON seguindo as credenciais da tabela e [da loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
+| userName |Especifique um nome de utilizador se utilizar a autenticação do Windows. Um exemplo é **o nome de domínio\\nome de utilizador**. |Não |
+| palavra-passe |Especifique uma palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como **SecureString** para o armazenar de forma segura na Azure Data Factory. Ou pode [fazer referência a um segredo armazenado no Cofre de Chaves Azure.](store-credentials-in-key-vault.md) |Não |
+| connectVia | Este tempo de execução de [integração](concepts-integration-runtime.md) é utilizado para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, o tempo de execução de integração do Azure padrão é utilizado. |Não |
 
 >[!TIP]
->Se você encontrar um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "o limite de sessão para o banco de dados for XXX e foi atingido", adicione `Pooling=false` à sua cadeia de conexão e tente novamente.
+>Se tiver atingido um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "O limite de sessão para a base de dados é XXX e foi atingido", adicione `Pooling=false` à sua cadeia de ligação e tente novamente.
 
-**Exemplo 1: usar a autenticação do SQL**
+**Exemplo 1: Utilizar a autenticação SQL**
 
 ```json
 {
@@ -92,7 +92,7 @@ As propriedades a seguir têm suporte para o serviço vinculado SQL Server:
 }
 ```
 
-**Exemplo 2: usar a autenticação do SQL com uma senha no Azure Key Vault**
+**Exemplo 2: Utilize a autenticação SQL com uma palavra-passe no Cofre de Chaves Azure**
 
 ```json
 {
@@ -118,7 +118,7 @@ As propriedades a seguir têm suporte para o serviço vinculado SQL Server:
 }
 ```
 
-**Exemplo 3: usar a autenticação do Windows**
+**Exemplo 3: Utilizar a autenticação do Windows**
 
 ```json
 {
@@ -143,16 +143,16 @@ As propriedades a seguir têm suporte para o serviço vinculado SQL Server:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de SQL Server DataSet.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados do Servidor SQL.
 
-Para copiar dados de e para um SQL Server, há suporte para as seguintes propriedades:
+Para copiar dados de e para uma base de dados do SQL Server, são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como **Sqlservertable**. | Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para **SqlServerTable**. | Sim |
 | schema | Nome do esquema. |Não para a origem, Sim para o sink  |
-| table | Nome da tabela/exibição. |Não para a origem, Sim para o sink  |
-| tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para a origem, Sim para o sink |
+| table | Nome da mesa/vista. |Não para a origem, Sim para o sink  |
+| tableName | Nome da mesa/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para uma nova carga de trabalho, utilize `schema` e `table`. | Não para a origem, Sim para o sink |
 
 **Exemplo**
 
@@ -177,25 +177,25 @@ Para copiar dados de e para um SQL Server, há suporte para as seguintes proprie
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de seções e propriedades disponíveis para uso para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela fonte de SQL Server e pelo coletor.
+Para obter uma lista completa de secções e propriedades disponíveis para utilização para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte e pia do Servidor SQL.
 
-### <a name="sql-server-as-a-source"></a>SQL Server como uma fonte
+### <a name="sql-server-as-a-source"></a>SQL Server como fonte
 
-Para copiar dados de SQL Server, defina o tipo de fonte na atividade de cópia como **sqlsource**. As propriedades a seguir têm suporte na seção origem da atividade de cópia:
+Para copiar dados do SQL Server, delineie o tipo de origem na atividade de cópia para **SqlSource**. As seguintes propriedades são suportadas na secção de origem da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **sqlsource**. | Sim |
+| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **SqlSource**. | Sim |
 | sqlReaderQuery |Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| sqlReaderStoredProcedureName |Esta propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
+| storedProcedureParameters |Estes parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
 
-**Pontos a serem observados:**
+**Pontos a notar:**
 
-- Se **sqlReaderQuery** for especificado para **sqlsource**, a atividade de cópia executará essa consulta em relação à fonte de SQL Server para obter os dados. Você também pode especificar um procedimento armazenado especificando **sqlReaderStoredProcedureName** e **storedprocedureparameters** se o procedimento armazenado usar parâmetros.
-- Se você não especificar **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na seção "Structure" do conjunto de dados JSON serão usadas para construir uma consulta. O `select column1, column2 from mytable` de consulta é executado no SQL Server. Se a definição do conjunto de dados não tiver "Structure", todas as colunas serão selecionadas na tabela.
+- Se o **sqlReaderQuery** for especificado para **o SqlSource,** a atividade de cópia executa esta consulta contra a fonte do Servidor SQL para obter os dados. Também pode especificar um procedimento armazenado especificando **sqlReaderStoredProcedureName** e **storedProcedureParameters** se o procedimento armazenado levar parâmetros.
+- Se não especificar o **sqlReaderQuery** ou **o sqlReaderStoredProcedureName,** as colunas definidas na secção "estrutura" do conjunto de dados JSON são usadas para construir uma consulta. A consulta `select column1, column2 from mytable` vai contra o Servidor SQL. Se a definição de conjunto de dados não tiver "estrutura", todas as colunas são selecionadas a partir da tabela.
 
-**Exemplo: usar consulta SQL**
+**Exemplo: Utilize consulta SQL**
 
 ```json
 "activities":[
@@ -227,7 +227,7 @@ Para copiar dados de SQL Server, defina o tipo de fonte na atividade de cópia c
 ]
 ```
 
-**Exemplo: usar um procedimento armazenado**
+**Exemplo: Utilize um procedimento armazenado**
 
 ```json
 "activities":[
@@ -263,7 +263,7 @@ Para copiar dados de SQL Server, defina o tipo de fonte na atividade de cópia c
 ]
 ```
 
-**A definição do procedimento armazenado**
+**A definição de procedimento armazenado**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -282,26 +282,26 @@ END
 GO
 ```
 
-### <a name="sql-server-as-a-sink"></a>SQL Server como um coletor
+### <a name="sql-server-as-a-sink"></a>SQL Server como um lavatório
 
 > [!TIP]
-> Saiba mais sobre os comportamentos de gravação com suporte, as configurações e as práticas recomendadas da [prática recomendada para carregar dados em SQL Server](#best-practice-for-loading-data-into-sql-server).
+> Saiba mais sobre os comportamentos de escrita suportados, configurações e boas práticas das [melhores práticas para carregar dados no SQL Server](#best-practice-for-loading-data-into-sql-server).
 
-Para copiar dados para SQL Server, defina o tipo de coletor na atividade de cópia como **sqlsink**. As propriedades a seguir têm suporte na seção coletor de atividade de cópia:
+Para copiar dados para o SQL Server, delineie o tipo de pia na atividade de cópia para **SqlSink**. As seguintes propriedades são suportadas na secção de sumidouro da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do coletor da atividade de cópia deve ser definida como **sqlsink**. | Sim |
-| writeBatchSize |Número de linhas a serem inseridas na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. |Não |
-| writeBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção em lote ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são para o TimeSpan. Um exemplo é "00:30:00" por 30 minutos. Se nenhum valor for especificado, o tempo limite padrão será "02:00:00". |Não |
-| preCopyScript |Esta propriedade especifica uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados em SQL Server. Ele é invocado apenas uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados pré-carregados. |Não |
-| sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. <br/>Esse procedimento armazenado é *invocado por lote*. Para operações que são executadas apenas uma vez e não têm nada a ver com os dados de origem, por exemplo, excluir ou truncar, use a propriedade `preCopyScript`. | Não |
-| storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
-| sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia torna os dados que estão sendo movidos disponíveis em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |
+| tipo | A propriedade tipo do sumidouro da atividade de cópia deve ser definida para **SqlSink**. | Sim |
+| writeBatchSize |Número de linhas para inserir na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, a Azure Data Factory determina dinamicamente o tamanho adequado do lote com base no tamanho da linha. |Não |
+| writeBatchTimeout |Esta propriedade especifica o tempo de espera para que a operação de inserção do lote esteja concluída antes de sair.<br/>Os valores permitidos são para o tempo. Um exemplo é "00:30:00" por 30 minutos. Se não for especificado qualquer valor, o prazo de paragem é de "02:00:00". |Não |
+| preCopyScript |Esta propriedade especifica uma consulta SQL para que a atividade de cópia seja executada antes de escrever dados no SQL Server. É invocado apenas uma vez por cópia. Pode usar esta propriedade para limpar os dados pré-carregados. |Não |
+| sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote*. Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, excluir ou truncar, utilizar a propriedade `preCopyScript`. | Não |
+| storedProcedureTableTypeParâmetrometerName |O nome do parâmetro do tipo de mesa especificado no procedimento armazenado.  |Não |
+| sqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia disponibiliza os dados numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Não |
 | storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
-| tableOption | Especifica se a tabela do coletor deve ser criada automaticamente se não existir com base no esquema de origem. Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate`. |Não |
+| tabelaOpção | Especifica se criar automaticamente a mesa do lavatório se não existir com base no esquema de origem. A criação de mesa automática não é suportada quando o lavatório especifica o procedimento armazenado ou a cópia encenada é configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate`. |Não |
 
-**Exemplo 1: acrescentar dados**
+**Exemplo 1: Dados do apêndice**
 
 ```json
 "activities":[
@@ -334,9 +334,9 @@ Para copiar dados para SQL Server, defina o tipo de coletor na atividade de cóp
 ]
 ```
 
-**Exemplo 2: invocar um procedimento armazenado durante a cópia**
+**Exemplo 2: Invocar um procedimento armazenado durante a cópia**
 
-Saiba mais detalhes em [invocar um procedimento armazenado de um coletor SQL](#invoke-a-stored-procedure-from-a-sql-sink).
+Saiba mais detalhes a partir de [Invoke um procedimento armazenado a partir de um lavatório SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -374,33 +374,33 @@ Saiba mais detalhes em [invocar um procedimento armazenado de um coletor SQL](#i
 ]
 ```
 
-## <a name="best-practice-for-loading-data-into-sql-server"></a>Prática recomendada para carregar dados em SQL Server
+## <a name="best-practice-for-loading-data-into-sql-server"></a>As melhores práticas para carregar dados no Servidor SQL
 
-Ao copiar dados para o SQL Server, você pode exigir um comportamento de gravação diferente:
+Quando copia dados para o Servidor SQL, pode exigir um comportamento de escrita diferente:
 
-- [Append](#append-data): meus dados de origem têm apenas registros novos.
-- [Upsert](#upsert-data): meus dados de origem têm inserções e atualizações.
-- [Substituir](#overwrite-the-entire-table): Eu quero recarregar toda a tabela de dimensões a cada vez.
-- [Gravar com lógica personalizada](#write-data-with-custom-logic): preciso de processamento extra antes da inserção final na tabela de destino.
+- [Apêndice](#append-data): Os meus dados de origem têm apenas novos registos.
+- [Upsert](#upsert-data): Os meus dados de origem têm inserções e atualizações.
+- [Reescrever:](#overwrite-the-entire-table)Quero recarregar toda a tabela de dimensões de cada vez.
+- [Escreva com lógica personalizada:](#write-data-with-custom-logic)Preciso de processamento extra antes da inserção final na tabela de destino.
 
-Consulte as respectivas seções sobre como configurar o em Azure Data Factory e as práticas recomendadas.
+Consulte as respetivas secções para saber como configurar na Azure Data Factory e nas melhores práticas.
 
-### <a name="append-data"></a>Acrescentar dados
+### <a name="append-data"></a>Dados anexados
 
-Acrescentar dados é o comportamento padrão desse conector do coletor de SQL Server. Azure Data Factory faz uma inserção em massa para gravar em sua tabela com eficiência. Você pode configurar a origem e o coletor de acordo com a atividade de cópia.
+Os dados de aparação são o comportamento padrão deste conector sql server. A Azure Data Factory faz uma inserção a granel para escrever à sua mesa de forma eficiente. Pode configurar a fonte e afundar-se em conformidade na atividade da cópia.
 
 ### <a name="upsert-data"></a>Fazer upsert de dados
 
-**Opção 1:** Quando você tiver uma grande quantidade de dados a serem copiados, use a seguinte abordagem para fazer um Upsert: 
+**Opção 1:** Quando tiver uma grande quantidade de dados para copiar, utilize a seguinte abordagem para fazer um upsert: 
 
-- Primeiro, use uma [tabela temporária](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) para carregar em massa todos os registros usando a atividade de cópia. Como as operações em tabelas temporárias não são registradas, você pode carregar milhões de registros em segundos.
-- Execute uma atividade de procedimento armazenado no Azure Data Factory para aplicar uma instrução [Merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou Insert/Update. Use a tabela temporária como uma origem para executar todas as atualizações ou inserções como uma única transação. Dessa forma, o número de viagens de ida e volta e operações de log são reduzidos. No final da atividade de procedimento armazenado, a tabela temporária pode ser truncada para estar pronta para o próximo ciclo de Upsert.
+- Em primeiro lugar, utilize uma [tabela temporária](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) para carregar a granel todos os registos utilizando a atividade de cópia. Como as operações contra mesas temporárias não estão registadas, podes carregar milhões de discos em segundos.
+- Executar uma atividade de procedimento armazenado na Azure Data Factory para aplicar uma declaração [de FUSÃO](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou INSERÇÃO/ATUALIZAÇÃO. Utilize a tabela temporária como fonte para efetuar todas as atualizações ou inserções como uma única transação. Desta forma, o número de viagens de ida e volta e de operações de registo é reduzido. No final da atividade do procedimento armazenado, a tabela temporária pode ser truncada para estar pronta para o próximo ciclo de upsert.
 
-Por exemplo, em Azure Data Factory, você pode criar um pipeline com uma **atividade de cópia** encadeada com uma **atividade de procedimento armazenado**. O primeiro copia os dados do seu repositório de origem em uma tabela temporária de banco de dado, por exemplo, **# #UpsertTempTable**, como o nome da tabela no conjunto de dados. Em seguida, o último invoca um procedimento armazenado para mesclar dados de origem da tabela temporária na tabela de destino e limpar a tabela temporária.
+Como exemplo, na Azure Data Factory, pode criar um pipeline com uma **atividade de Cópia** acorrentada a uma atividade de Procedimento **Armazenado**. Os dados anteriores copiam os dados da sua loja de origem numa tabela temporária de base de dados, por exemplo, **##UpsertTempTable,** como o nome da tabela no conjunto de dados. Em seguida, este último invoca um procedimento armazenado para fundir os dados de origem da tabela temporária na tabela-alvo e limpar a tabela temporária.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-No banco de dados, defina um procedimento armazenado com lógica de MESCLAgem, como o exemplo a seguir, que é apontado da atividade de procedimento armazenado anterior. Suponha que o destino seja a tabela de **marketing** com três colunas: **ProfileId**, **estado**e **categoria**. Faça o Upsert com base na coluna **ProfileId** .
+Na sua base de dados, defina um procedimento armazenado com lógica MERGE, como o seguinte exemplo, que é apontado para a atividade de procedimento sinuoso anterior. Assuma que o alvo é a tabela **de Marketing** com três colunas: **ProfileID,** **Estado**e **Categoria**. Faça o upsert com base na coluna **ProfileID.**
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -419,31 +419,31 @@ BEGIN
 END
 ```
 
-**Opção 2:** Você também pode optar por [invocar um procedimento armazenado dentro da atividade de cópia](#invoke-a-stored-procedure-from-a-sql-sink). Essa abordagem executa cada linha na tabela de origem em vez de usar BULK INSERT como a abordagem padrão na atividade de cópia, que não é apropriada para Upsert de grande escala.
+**Opção 2:** Também pode optar por [invocar um procedimento armazenado dentro da atividade de cópia](#invoke-a-stored-procedure-from-a-sql-sink). Esta abordagem executa cada linha na tabela de origem em vez de usar a inserção a granel como a abordagem padrão na atividade de cópia, o que não é apropriado para o upsert em larga escala.
 
-### <a name="overwrite-the-entire-table"></a>Substituir a tabela inteira
+### <a name="overwrite-the-entire-table"></a>Sobrepor toda a mesa
 
-Você pode configurar a propriedade **preCopyScript** em um coletor de atividade de cópia. Nesse caso, para cada atividade de cópia executada, Azure Data Factory executa o script primeiro. Em seguida, ele executa a cópia para inserir os dados. Por exemplo, para substituir a tabela inteira com os dados mais recentes, especifique um script para primeiro excluir todos os registros antes de carregar em massa os novos dados da origem.
+Pode configurar a propriedade **préCopyScript** num afundado de atividade de cópia. Neste caso, para cada atividade de cópia que executa, a Azure Data Factory executa primeiro o script. Em seguida, executa a cópia para inserir os dados. Por exemplo, para substituir toda a tabela com os dados mais recentes, especifique um script para primeiro apagar todos os registos antes de carregar em massa os novos dados a partir da fonte.
 
-### <a name="write-data-with-custom-logic"></a>Gravar dados com lógica personalizada
+### <a name="write-data-with-custom-logic"></a>Escreva dados com lógica personalizada
 
-As etapas para gravar dados com lógica personalizada são semelhantes às descritas na seção de [dados Upsert](#upsert-data) . Quando você precisa aplicar processamento extra antes da inserção final dos dados de origem na tabela de destino, para grande escala, você pode fazer uma das duas coisas: 
+Os passos para escrever dados com lógica personalizada são semelhantes aos descritos na secção de [dados upsert.](#upsert-data) Quando necessitar de aplicar um tratamento extra antes da inserção final de dados de origem na tabela de destino, em larga escala, pode fazer uma de duas coisas: 
 
-- Carregar em uma tabela temporária e, em seguida, invocar um procedimento armazenado. 
+- Carregue para uma mesa temporária e, em seguida, invoque um procedimento armazenado. 
 - Invoque um procedimento armazenado durante a cópia.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Invocar um procedimento armazenado de um coletor SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Invoque um procedimento armazenado a partir de um lavatório SQL
 
-Ao copiar dados para um banco de SQL Server, você também pode configurar e invocar um procedimento armazenado especificado pelo usuário com parâmetros adicionais. O recurso de procedimento armazenado aproveita os [parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
+Quando copia dados numa base de dados do SQL Server, também pode configurar e invocar um procedimento armazenado especificado pelo utilizador com parâmetros adicionais. A função de procedimento armazenado tira partido dos [parâmetros de valor de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
-> Invocar um procedimento armazenado processa a linha de dados por linha em vez de usar uma operação em massa, que não é recomendável para uma cópia em larga escala. Saiba mais na [prática recomendada para carregar dados em SQL Server](#best-practice-for-loading-data-into-sql-server).
+> Invocar um procedimento armazenado processa os dados de linha a linha em vez de utilizar uma operação a granel, que não recomendamos para cópiaem em larga escala. Saiba mais sobre [as melhores práticas para carregar dados no Servidor SQL](#best-practice-for-loading-data-into-sql-server).
 
-Você pode usar um procedimento armazenado quando os mecanismos de cópia internos não atenderem ao propósito. Um exemplo é quando você deseja aplicar processamento extra antes da inserção final dos dados de origem na tabela de destino. Alguns exemplos de processamento extra são quando você deseja mesclar colunas, Pesquisar valores adicionais e inserir dados em mais de uma tabela.
+Pode utilizar um procedimento armazenado quando os mecanismos de cópia incorporados não servem o propósito. Um exemplo é quando pretende aplicar um tratamento extra antes da inserção final de dados de origem na tabela de destino. Alguns exemplos de processamento extra são quando você quer fundir colunas, procurar valores adicionais e inserir dados em mais de uma tabela.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Upsert em uma tabela no banco de dados SQL Server. Suponha que os dados de entrada e a tabela de **marketing** do coletor tenham três colunas: **ProfileId**, **estado**e **categoria**. Faça o Upsert com base na coluna **ProfileId** e aplique-o somente para uma categoria específica chamada "produtoA".
+A amostra que se segue mostra como utilizar um procedimento armazenado para fazer um upsert numa tabela na base de dados do SQL Server. Assuma que os dados de entrada e a tabela de **marketing** do lavatório têm cada uma três colunas: **ProfileID,** **Estado**e **Categoria**. Faça o upsert com base na coluna **ProfileID** e aplique-o apenas para uma categoria específica chamada "ProductA".
 
-1. No banco de dados, defina o tipo de tabela com o mesmo nome que **sqlWriterTableType**. O esquema do tipo de tabela é o mesmo que o esquema retornado pelos dados de entrada.
+1. Na sua base de dados, defina o tipo de tabela com o mesmo nome que **o sqlWriterTableType**. O esquema do tipo de mesa é o mesmo que o esquema devolvido pelos seus dados de entrada.
 
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -453,7 +453,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
     )
     ```
 
-2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **sqlWriterStoredProcedureName**. Ele manipula os dados de entrada da fonte especificada e as mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
+2. Na sua base de dados, defina o procedimento armazenado com o mesmo nome que **o sqlWriterStoredProcedureName**. Trata os dados de entrada da sua fonte especificada e se funde na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que o nome do **quadro** definido no conjunto de dados.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -470,7 +470,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
     END
     ```
 
-3. Em Azure Data Factory, defina a seção **SQL Sink** na atividade de cópia da seguinte maneira:
+3. Na Azure Data Factory, defina a secção **de sumidouro SQL** na atividade de cópia da seguinte forma:
 
     ```json
     "sink": {
@@ -486,74 +486,74 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
     }
     ```
 
-## <a name="data-type-mapping-for-sql-server"></a>Mapeamento de tipo de dados para SQL Server
+## <a name="data-type-mapping-for-sql-server"></a>Mapeamento de tipo de dados para Servidor SQL
 
-Quando você copia dados de e para SQL Server, os seguintes mapeamentos são usados de tipos de dados SQL Server para Azure Data Factory tipos de dados provisórios. Para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para o coletor, consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
+Quando copia dados de e para o SQL Server, os seguintes mapeamentos são utilizados desde tipos de dados do Servidor SQL para tipos de dados provisórios da Azure Data Factory. Para saber como a atividade da cópia mapeia o esquema de origem e o tipo de dados para a pia, consulte [schema e mapeamentos de tipo](copy-activity-schema-and-type-mapping.md)de dados .
 
-| Tipo de dados SQL Server | Azure Data Factory tipo de dados provisório |
+| Tipo de dados do Servidor SQL | Tipo de dados provisórios da Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| Decimal |Decimal |
+| decimal |decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Flutuante |Double |
-| imagem |Byte[] |
+| Float |Valor de duplo |
+| image |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |decimal |
 | nvarchar |String, Char[] |
 | real |Único |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
-| sql_variant |Objeto |
+| smallmoney |decimal |
+| sql_variant |Object |
 | texto |String, Char[] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]
-> Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.
+> Para tipos de dados que mapeiam para o tipo de decimal provisório, atualmente a Azure Data Factory suporta precisão até 28. Se tiver dados que requeiram precisão superior a 28, considere converter-se numa cadeia numa consulta SQL.
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
-## <a name="getmetadata-activity-properties"></a>Propriedades da atividade GetMetadata
+## <a name="getmetadata-activity-properties"></a>Obtenha propriedades de atividadede Metadados
 
-Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
+Para saber mais detalhes sobre as propriedades, consulte [a atividade do GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="troubleshoot-connection-issues"></a>Resolver problemas de ligação
 
-1. Configure sua instância de SQL Server para aceitar conexões remotas. Inicie o **SQL Server Management Studio**, clique com o botão direito do mouse em **servidor**e selecione **Propriedades**. Selecione **conexões** na lista e marque a caixa de seleção **permitir conexões remotas com este servidor** .
+1. Configure a sua instância do Servidor SQL para aceitar ligações remotas. Inicie o Estúdio de Gestão do **Servidor SQL,** **servidor**de clique satislo, e selecione **Propriedades**. Selecione **Ligações** da lista e selecione as **ligações remotas permitir em relação a esta** caixa de verificação do servidor.
 
     ![Ativar ligações remotas](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
-    Para obter etapas detalhadas, consulte [Configurar a opção de configuração de servidor de acesso remoto](https://msdn.microsoft.com/library/ms191464.aspx).
+    Para obter passos detalhados, consulte [Configure a opção](https://msdn.microsoft.com/library/ms191464.aspx)de configuração do servidor de acesso remoto .
 
-2. Iniciar **SQL Server Configuration Manager**. Expanda **SQL Server configuração de rede** para a instância desejada e selecione **protocolos para MSSQLSERVER**. Os protocolos aparecem no painel direito. Habilite o TCP/IP clicando com o botão direito do mouse em **TCP/IP** e selecionando **habilitar**.
+2. Inicie o gestor de configuração do **servidor SQL**. Expandir a configuração da **rede de servidores SQL** para a instância que deseja e selecionar **Protocolos para MSSQLSERVER**. Os protocolos aparecem no painel certo. Ativar o TCP/IP clicando no **TCP/IP** e selecionando **o Enable**.
 
-    ![Habilitar TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
+    ![Ativar TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
-    Para obter mais informações e maneiras alternativas de habilitar o protocolo TCP/IP, consulte [habilitar ou desabilitar um protocolo de rede do servidor](https://msdn.microsoft.com/library/ms191294.aspx).
+    Para mais informações e formas alternativas de ativar o protocolo TCP/IP, consulte [Ativar ou desativar um protocolo](https://msdn.microsoft.com/library/ms191294.aspx)de rede de servidores .
 
-3. Na mesma janela, clique duas vezes em **TCP/IP** para iniciar a janela **Propriedades de TCP/IP** .
-4. Alterne para a guia **endereços IP** . Role para baixo para ver a seção **IPAll** . Anote a **porta TCP**. O padrão é **1433**.
-5. Crie uma **regra para o Firewall do Windows** no computador para permitir o tráfego de entrada por essa porta. 
-6. **Verificar conexão**: para se conectar ao SQL Server usando um nome totalmente qualificado, use SQL Server Management Studio de um computador diferente. Um exemplo é `"<machine>.<domain>.corp.<company>.com,1433"`.
+3. Na mesma janela, clique duplo **no TCP/IP** para lançar a janela **TCP/IP Properties.**
+4. Mude para o separador **endereços IP.** Desloque-se para baixo para ver a secção **IPAll.** Escreva a **porta TCP.** O predefinido é **1433**.
+5. Crie uma **regra para o Windows Firewall** na máquina para permitir a entrada de tráfego através desta porta. 
+6. **Verifique a ligação**: Para ligar ao Servidor SQL utilizando um nome totalmente qualificado, utilize o Estúdio de Gestão de Servidores SQL de uma máquina diferente. Um exemplo é `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: Conectar-se à API dos serviços de mídia do Azure v3-.NET
-description: Este artigo demonstra como se conectar à API dos serviços de mídia v3 com .NET.
+title: Ligue-se ao Azure Media Services v3 API - .NET
+description: Este artigo demonstra como ligar aos Media Services v3 API com .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,63 +14,63 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899899"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359488"
 ---
-# <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API dos serviços de mídia v3-.NET
+# <a name="connect-to-media-services-v3-api---net"></a>Ligue-se aos Media Services v3 API - .NET
 
-Este artigo mostra como se conectar ao SDK do .NET dos serviços de mídia do Azure v3 usando o método de logon da entidade de serviço.
+Este artigo mostra-lhe como se conectar ao Azure Media Services v3 .NET SDK utilizando o método principal de login do serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia
-- Instale uma ferramenta que você gostaria de usar para o desenvolvimento do .NET. As etapas neste artigo mostram como usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Você pode usar Visual Studio Code, consulte [trabalhando com C# ](https://code.visualstudio.com/docs/languages/csharp). Ou, você pode usar um editor de código diferente.
+- [Criar uma conta de Media Services.](create-account-cli-how-to.md) Lembre-se do nome do grupo de recursos e do nome da conta Media Services
+- Instale uma ferramenta que gostaria de utilizar para o desenvolvimento .NET. Os passos deste artigo mostram como usar o [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Pode usar o Código do Estúdio Visual, ver [Trabalhar com C# ](https://code.visualstudio.com/docs/languages/csharp). Ou podes usar um editor de código diferente.
 
 > [!IMPORTANT]
-> Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
+> Rever convenções de [nomeação.](media-services-apis-overview.md#naming-conventions)
 
 ## <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
 1. Inicie o Visual Studio. 
-1. No menu **arquivo** , clique em **novo** > **projeto**. 
-1. Crie um aplicativo de console do **.NET Core** .
+1. A partir do menu **'Ficheiro',** clique em **New** > **Project**. 
+1. Crie uma aplicação de consola **.NET Core.**
 
-O aplicativo de exemplo neste tópico é destinado a `netcoreapp2.0`. O código usa ' async Main ', que está disponível a partir C# de 7,1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para obter mais detalhes.
+A aplicação de amostras neste tópico, visa `netcoreapp2.0`. O código utiliza 'assync main', que C# está disponível a partir de 7.1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para mais detalhes.
 
-## <a name="add-required-nuget-packages"></a>Adicionar pacotes NuGet necessários
+## <a name="add-required-nuget-packages"></a>Adicione os pacotes NuGet necessários
 
-1. No Visual Studio, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador do NuGet**.
-2. Na janela do **console do Gerenciador de pacotes** , use `Install-Package` comando para adicionar os seguintes pacotes NuGet. Por exemplo, `Install-Package Microsoft.Azure.Management.Media`.
+1. No Estúdio Visual, selecione **Tools** > **NuGet Package Manager** > **NuGet Manager Console**.
+2. Na janela consola do Gestor de **Pacotes,** utilize `Install-Package` comando para adicionar os seguintes pacotes NuGet. Por exemplo, `Install-Package Microsoft.Azure.Management.Media`.
 
 |Pacote|Descrição|
 |---|---|
-|`Microsoft.Azure.Management.Media`|SDK dos serviços de mídia do Azure. <br/>Para verificar se você está usando o pacote mais recente dos serviços de mídia do Azure, verifique [Microsoft. Azure. Management. Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|Biblioteca de autenticação ADAL para SDK do Azure para NET|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Ler valores de configuração de variáveis de ambiente e arquivos JSON locais|
-|`Microsoft.Extensions.Configuration.Json`|Ler valores de configuração de variáveis de ambiente e arquivos JSON locais
-|`WindowsAzure.Storage`|SDK de armazenamento|
+|`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>Para se certificar de que está a utilizar o mais recente pacote azure Media Services, consulte [microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
+|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|Biblioteca de autenticação ADAL para Azure SDK para NET|
+|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Leia os valores de configuração de variáveis ambientais e ficheiros JSON locais|
+|`Microsoft.Extensions.Configuration.Json`|Leia os valores de configuração de variáveis ambientais e ficheiros JSON locais
+|`WindowsAzure.Storage`|Armazenamento SDK|
 
-## <a name="create-and-configure-the-app-settings-file"></a>Criar e configurar o arquivo de configurações do aplicativo
+## <a name="create-and-configure-the-app-settings-file"></a>Criar e configurar o ficheiro de definições da aplicação
 
-### <a name="create-appsettingsjson"></a>Criar appSettings. JSON
+### <a name="create-appsettingsjson"></a>Criar appssettings.json
 
-1. Acesse o **arquivo de texto** > **geral** .
-1. Nomeie-o como "appSettings. JSON".
-1. Defina a propriedade "copiar para o diretório de saída" do arquivo. JSON como "copiar se for mais recente" (para que o aplicativo possa acessá-lo quando publicado).
+1. Vá ao **arquivo**de texto **geral** > .
+1. Nomeie-o "appsettings.json".
+1. Detete a propriedade "Copy to Output Directory" do ficheiro .json para "Copiar se for mais recente" (para que a aplicação possa aceder-lhe quando publicada).
 
-### <a name="set-values-in-appsettingsjson"></a>Definir valores em appSettings. JSON
+### <a name="set-values-in-appsettingsjson"></a>Definir valores em apps.json
 
-Execute o comando `az ams account sp create` conforme descrito em [APIs de acesso](access-api-cli-how-to.md). O comando retorna JSON que você deve copiar em "appSettings. JSON".
+Executar o comando `az ams account sp create` conforme descrito nas [APIs](access-api-cli-how-to.md)de acesso . O comando devolve a JSOn que deve copiar para as suas "definições de apps.json".
  
 ## <a name="add-configuration-file"></a>Adicionar o ficheiro de configuração
 
-Para sua conveniência, adicione um arquivo de configuração que seja responsável por ler valores de "appSettings. JSON".
+Por conveniência, adicione um ficheiro de configuração responsável pela leitura de valores de "appsettings.json".
 
-1. Adicione uma nova classe. cs ao seu projeto. Dê-lhe o nome `ConfigWrapper`. 
-1. Cole o código a seguir neste arquivo (Este exemplo pressupõe que você tem o namespace `ConsoleApp1`).
+1. Adicione uma nova classe .cs ao seu projeto. Dê-lhe o nome `ConfigWrapper`. 
+1. Colar o seguinte código neste ficheiro (este exemplo pressupõe que tem o espaço de nome é `ConsoleApp1`).
 
 ```csharp
 using System;
@@ -141,12 +141,12 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="connect-to-the-net-client"></a>Conectar-se ao cliente .NET
+## <a name="connect-to-the-net-client"></a>Ligue-se ao cliente .NET
 
-Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código a seguir, a função GetCredentialsAsync cria o objeto createclientcredentials com base nas credenciais fornecidas no arquivo de configuração local.
+Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código abaixo, a função GetCredentialsAsync cria o objeto ServiceClientCredenciacom base nas credenciais fornecidas no ficheiro de configuração local.
 
 1. Abra `Program.cs`.
-1. Cole o código a seguir:
+1. Colar o seguinte código:
 
 ```csharp
 using System;
@@ -228,19 +228,19 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: carregar, codificar e transmitir vídeos-.NET](stream-files-tutorial-with-api.md) 
-- [Tutorial: transmitir ao vivo com os serviços de mídia v3-.NET](stream-live-tutorial-with-api.md)
-- [Tutorial: analisar vídeos com os serviços de mídia v3-.NET](analyze-videos-tutorial-with-api.md)
-- [Criar uma entrada de trabalho de um arquivo local-.NET](job-input-from-local-file-how-to.md)
-- [Criar uma entrada de trabalho de uma URL HTTPS-.NET](job-input-from-http-how-to.md)
-- [Codificar com uma transformação personalizada-.NET](customize-encoder-presets-how-to.md)
-- [Usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves-.NET](protect-with-aes128.md)
-- [Usar a criptografia dinâmica de DRM e o serviço de entrega de licença-.NET](protect-with-drm.md)
-- [Obter uma chave de assinatura da política existente-.NET](get-content-key-policy-dotnet-howto.md)
-- [Criar filtros com os serviços de mídia-.NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Exemplos avançados de vídeo sob demanda de Azure Functions V2 com os serviços de mídia v3](https://aka.ms/ams3functions)
+- [Tutorial: Upload, codificação e streaming de vídeos - .NET](stream-files-tutorial-with-api.md) 
+- [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
+- [Tutorial: Analise vídeos com Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Criar uma entrada de emprego a partir de um ficheiro local - .NET](job-input-from-local-file-how-to.md)
+- [Criar uma entrada de trabalho a partir de um URL HTTPS - .NET](job-input-from-http-how-to.md)
+- [Codificar com um Transform personalizado - .NET](customize-encoder-presets-how-to.md)
+- [Utilize encriptação dinâmica AES-128 e o serviço de entrega de chaves - .NET](protect-with-aes128.md)
+- [Utilize encriptação dinâmica DRM e serviço de entrega de licenças - .NET](protect-with-drm.md)
+- [Obtenha uma chave de assinatura da política existente - .NET](get-content-key-policy-dotnet-howto.md)
+- [Criar filtros com Serviços de Media - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Exemplos avançados de vídeo a pedido de Funções Azure v2 com Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet) (Referência de .NET)
-* Para obter mais exemplos de código, consulte o repositório de [exemplos do SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet) .
+* Para obter mais exemplos de código, consulte o repo das [amostras .NET SDK.](https://github.com/Azure-Samples/media-services-v3-dotnet)
