@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 7c77527b7300c1149e96c94a4dbe122da226ac6d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720440"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382554"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte protocolar para cabeçalhos HTTP no Serviço de Porta Da Frente Azure
 Este artigo descreve o protocolo que o Front Door Service suporta com partes do caminho de chamada (ver imagem). As seguintes secções fornecem mais informações sobre os cabeçalhos HTTP suportados pelo Serviço porta da frente.
@@ -53,7 +53,7 @@ Quaisquer cabeçalhos enviados para a Porta da Frente a partir do backend també
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYWYS00YTU0LTk0YzMnwZmNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. Isto é fundamental para a resolução de problemas, uma vez que é usado para pesquisar registos de acesso.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma porta da frente](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

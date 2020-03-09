@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384755"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos do sistema De Caixa de Dados Azure
 
@@ -58,7 +58,7 @@ O Azure IoT Edge permite a comunicação de saída de um dispositivo Edge no loc
 
 Utilize a tabela seguinte para a configuração da porta para os servidores que hospedam o tempo de execução do Edge Azure IoT:
 
-| Porto nº. | Dentro ou fora | Âmbito do porto | Obrigatório | Orientações |
+| Porto nº. | Dentro ou fora | Âmbito do porto | Necessário | Orientação |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Fora       | WAN        | Sim      | Outbound aberto para fornecimento de IoT Edge. Esta configuração é necessária quando usar scripts manuais ou do Azure IoT dispositivo aprovisionamento DPS (serviço).|
 
@@ -66,13 +66,13 @@ Para obter informações completas, vá às regras de [configuração da Firewal
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 
-Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. O seu dispositivo Data Box Edge e o serviço dependem de outras aplicações da Microsoft, como o Azure Service Bus, o Azure Ative Directory Access Control, as contas de armazenamento e os servidores microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Estas alterações exigem que o administrador de rede monitorize e atualize as regras de firewall para o seu Data Box Edge conforme e quando necessário.
+Os administradores de rede podem configurar frequentemente regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e saída. O seu dispositivo Data Box Edge e o serviço dependem de outras aplicações da Microsoft, como o Azure Service Bus, o Azure Ative Directory Access Control, as contas de armazenamento e os servidores microsoft Update. Os padrões de URL associados a estas aplicações podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a estas aplicações podem mudar. Estas alterações exigem que o administrador de rede monitorize e atualize as regras de firewall para o seu Data Box Edge conforme e quando necessário.
 
-Recomendamos que estabeleça as suas regras de firewall para tráfego de saída, com base em endereços IP fixos Data Box Edge, liberalmente na maioria dos casos. No entanto, você pode usar as informações abaixo para definir regras de firewall avançadas que são necessárias para criar ambientes seguros.
+Recomendamos que estabeleça as suas regras de firewall para tráfego de saída, com base em endereços IP fixos Data Box Edge, liberalmente na maioria dos casos. No entanto, pode utilizar as informações abaixo para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
-> - Os IPs do dispositivo (origem) devem ser sempre definidos para todas as interfaces de rede habilitadas para nuvem.
-> - Os IPs de destino devem ser definidos para [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - Os IPs do dispositivo (fonte) devem ser sempre definidos para todas as interfaces de rede ativadas pela nuvem.
+> - Os IPs de destino devem ser definidos para [as gamas IP](https://www.microsoft.com/download/confirmation.aspx?id=41653)do centro de dados Azure .
 
 ### <a name="url-patterns-for-gateway-feature"></a>Padrões de URL para recurso de gateway
 
@@ -80,7 +80,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 ### <a name="url-patterns-for-compute-feature"></a>Padrões de URL para recurso computacional
 
-| Padrão de URL                      | Componente ou funcionalidade                     |   
+| Padrão URL                      | Componente ou funcionalidade                     |   
 |----------------------------------|---------------------------------------------|
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registo de contentores da Microsoft (obrigatório)               |
 | https://\*.azurecr.io                     | Registos pessoais e de terceiros (opcional) | 
@@ -92,7 +92,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 ### <a name="url-patterns-for-compute-for-azure-government"></a>Padrões de URL para computação para governo Azure
 
-| Padrão de URL                      | Componente ou funcionalidade                     |  
+| Padrão URL                      | Componente ou funcionalidade                     |  
 |----------------------------------|---------------------------------------------|
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registo de contentores da Microsoft (obrigatório)               |
 | https://\*.azure-devices.us              | Acesso ioT Hub (obrigatório)           |
@@ -135,4 +135,4 @@ Por fim, certifique-se de que valida a sua solução no seu conjunto de dados e 
 
 ## <a name="next-step"></a>Passo seguinte
 
-- [Implantar seu Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Implemente a sua borda de caixa de dados Azure](data-box-edge-deploy-prep.md)

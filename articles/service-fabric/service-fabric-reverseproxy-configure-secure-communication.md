@@ -1,41 +1,41 @@
 ---
-title: Comunicação segura de proxy reverso do Azure Service Fabric
-description: Configure o proxy reverso para habilitar a comunicação de ponta a ponta segura em um aplicativo Service Fabric do Azure.
+title: Azure Service Fabric reverter proxy secure communication
+description: Configure o proxy inverso para permitir uma comunicação segura de ponta a ponta numa aplicação Azure Service Fabric.
 author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639399"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393246"
 ---
-# <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conectar-se a um serviço seguro com o proxy reverso
+# <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligue-se a um serviço seguro com o proxy inverso
 
-Este artigo explica como estabelecer uma conexão segura entre o proxy reverso e os serviços, permitindo assim um canal seguro de ponta a ponta. Para saber mais sobre o proxy reverso, consulte [proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md)
+Este artigo explica como estabelecer uma ligação segura entre o proxy e os serviços invertidos, permitindo assim o fim do canal seguro. Para saber mais sobre procuração inversa, consulte [Procuração Reversa no Tecido de Serviço Azure](service-fabric-reverseproxy.md)
 
-Só há suporte para a conexão com serviços seguros quando o proxy reverso está configurado para escutar em HTTPS. Este artigo pressupõe que esse é o caso.
-Consulte Configurar [proxy reverso no Azure Service Fabric](service-fabric-reverseproxy-setup.md) para configurar o proxy reverso no Service Fabric.
+A ligação a serviços seguros só é suportada quando o proxy inverso estiver configurado para ouvir em HTTPS. Este artigo assume que este é o caso.
+Consulte a [Configuração de procuração inversa no Tecido de Serviço Azure](service-fabric-reverseproxy-setup.md) para configurar o proxy inverso no Tecido de Serviço.
 
-## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de conexão segura entre o proxy reverso e os serviços 
+## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de ligação seguro entre o proxy e os serviços invertidos 
 
-### <a name="reverse-proxy-authenticating-to-services"></a>Autenticação de proxy reverso para serviços:
-O proxy reverso se identifica aos serviços usando seu certificado. Para clusters do Azure, o certificado é especificado com a propriedade ***reverseProxyCertificate*** na [seção tipo de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. perfabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) do modelo do Resource Manager. Para clusters autônomos, o certificado é especificado com a propriedade ***ReverseProxyCertificate*** ou ***ReverseProxyCertificateCommonNames*** na seção de **segurança** de ClusterConfig. JSON. Para saber mais, confira [habilitar o proxy reverso em clusters autônomos](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+### <a name="reverse-proxy-authenticating-to-services"></a>Proxy inversa autenticando serviços:
+O representante inverso identifica-se aos serviços que utilizam o seu certificado. Para os clusters Azure, o certificado é especificado com a propriedade ***proxyCertificate inversa*** na secção de [recursos](../azure-resource-manager/templates/template-syntax.md) [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) Do modelo de Gestor de Recursos. Para clusters autónomos, o certificado é especificado com o ***ReverseProxyCertificate*** ou com a propriedade ***ReverseProxyCertificateCommonNames*** na secção **de Segurança** do ClusterConfig.json. Para saber mais, consulte Permitir a [procuração inversa em clusters autónomos](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
-Os serviços podem implementar a lógica para verificar o certificado apresentado pelo proxy reverso. Os serviços podem especificar os detalhes do certificado de cliente aceito como definições de configuração no pacote de configuração. Isso pode ser lido em tempo de execução e usado para validar o certificado apresentado pelo proxy reverso. Consulte [gerenciar parâmetros de aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
+Os serviços podem implementar a lógica para verificar o certificado apresentado pelo representante inverso. Os serviços podem especificar os dados do certificado de cliente aceites como configurações de configuração no pacote de configuração. Isto pode ser lido no tempo de execução e utilizado para validar o certificado apresentado pelo representante inverso. Consulte os [parâmetros de aplicação Para](service-fabric-manage-multiple-environment-app-configuration.md) adicionar as definições de configuração. 
 
-### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Proxy reverso verificando a identidade do serviço por meio do certificado apresentado pelo serviço:
-O proxy reverso dá suporte às seguintes políticas para executar a validação de certificado do servidor dos certificados apresentados pelos serviços: nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
-Para selecionar a política para uso de proxy reverso, especifique o **ApplicationCertificateValidationPolicy** na seção **ApplicationGateway/http** em [fabricSettings](service-fabric-cluster-fabric-settings.md).
+### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Procuração inversa verificando a identidade do serviço através do certificado apresentado pelo serviço:
+O proxy inverso suporta as seguintes políticas para executar a validação do certificado de servidor dos certificados apresentados pelos serviços: Nenhum, ServiceCommonNameAndIssuer e ServiceCertificateThumbprints.
+Para selecionar a política de procuração inversa para usar, especifique a Política de **Validação** de Certificados de Aplicação na secção **ApplicationGateway/Http** em [definições](service-fabric-cluster-fabric-settings.md)de tecido .
 
-A próxima seção mostra os detalhes de configuração para cada uma dessas opções.
+A secção seguinte mostra detalhes de configuração para cada uma destas opções.
 
-### <a name="service-certificate-validation-options"></a>Opções de validação de certificado de serviço 
+### <a name="service-certificate-validation-options"></a>Opções de validação de certificadode serviço 
 
-- **Nenhum**: o proxy reverso ignora a verificação do certificado de serviço com proxy e estabelece a conexão segura. Este é o comportamento padrão.
-Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** na seção [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+- **Nenhum**: Procuração inversa ignora a verificação do certificado de serviço à procura e estabelece a ligação segura. Este é o comportamento padrão.
+Especifique a Política de **Validação** de Certificados de Aplicação com valor **Nenhum** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -55,7 +55,7 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** na
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: o proxy reverso verifica o certificado apresentado pelo serviço com base no nome comum do certificado e na impressão digital do emissor imediato: especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCommonNameAndIssuer** na seção [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+- **ServiçoCommonNameAndIssuer**: Proxy invertido verifica o certificado apresentado pelo serviço com base no nome comum do certificado e na impressão digital do emitente imediato: Especifique a Política de Validação de Certificados de **Aplicação** com o serviço de **valorCommonNameAndIssuer** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -75,10 +75,10 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** na
    }
    ```
 
-   Para especificar a lista de nome comum do serviço e as impressões digitais do emissor, adicione uma seção [**ApplicationGateway/http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) em **fabricSettings**, conforme mostrado abaixo. Vários nomes comuns de certificado e pares de impressão digital do emissor podem ser adicionados na matriz de **parâmetros** . 
+   Para especificar a lista de impressões digitais de nome comum do serviço e emitente, adicione uma secção [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) em **definições**de tecido, como mostrado abaixo. Os pares de impressão de polegar estampa de impressão de vários certificados podem ser adicionados na matriz de **parâmetros.** 
 
-   Se o proxy reverso do ponto de extremidade estiver se conectando para apresentar um certificado que é o nome comum e a impressão digital do emissor corresponde a qualquer um dos valores especificados aqui, o canal SSL é estabelecido. 
-   Após a falha de correspondência dos detalhes do certificado, o proxy reverso falha a solicitação do cliente com um código de status 502 (gateway inadequado). A linha de status HTTP também conterá a frase "certificado SSL inválido". 
+   Se o proxy inverso do ponto final estiver ligado a apresentar um certificado que o nome comum e a impressão digital emitentes correspondem a qualquer um dos valores aqui especificados, o canal SSL é estabelecido. 
+   Ao não corresponder aos dados do certificado, o proxy inverso falha o pedido do cliente com um código de estado 502 (Bad Gateway). A linha de estado HTTP também conterá a frase "Certificado SSL inválido". 
 
    ```json
    {
@@ -102,7 +102,7 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** na
    }
    ```
 
-- **ServiceCertificateThumbprints**: o proxy reverso verificará o certificado de serviço com proxy com base em sua impressão digital. Você pode optar por ir para essa rota quando os serviços são configurados com certificados autoassinados: especifique o **ApplicationCertificateValidationPolicy** com o valor **ServiceCertificateThumbprints** na seção [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+- **ServiceCertificateThumbprints**: O proxy inverso verificará o certificado de serviço com base na sua impressão digital. Pode optar por seguir esta rota quando os serviços estiverem configurados com certificados auto-assinados: Especifique a Política de Validação de Certificados de **Aplicação** com fichas de valor **ServiceCertificateThumbprints** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
    ```json
    {
@@ -122,7 +122,7 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** na
    }
    ```
 
-   Especifique também as impressões digitais com uma entrada **ServiceCertificateThumbprints** na seção **ApplicationGateway/http** . Várias impressões digitais podem ser especificadas como uma lista separada por vírgulas no campo valor, conforme mostrado abaixo:
+   Especifique também as impressões digitais com uma entrada **serviceCertificateThumbprints** na secção **ApplicationGateway/Http.** As impressões digitais múltiplas podem ser especificadas como uma lista separada da víramida no campo de valor, como mostrado abaixo:
 
    ```json
    {
@@ -143,12 +143,12 @@ Especifique o **ApplicationCertificateValidationPolicy** com o valor **None** na
    }
    ```
 
-   Se a impressão digital do certificado do servidor estiver listada nessa entrada de configuração, o proxy reverso terá sucesso na conexão SSL. Caso contrário, ele encerra a conexão e falha a solicitação do cliente com um 502 (gateway inadequado). A linha de status HTTP também conterá a frase "certificado SSL inválido".
+   Se a impressão digital do certificado de servidor estiver listada nesta entrada de config, o proxy inverso sucede à ligação SSL. Caso contrário, encerra a ligação e falha o pedido do cliente com um 502 (Bad Gateway). A linha de estado HTTP também conterá a frase "Certificado SSL inválido".
 
-## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Lógica de seleção de ponto de extremidade quando os serviços expõem pontos de extremidades seguros e não seguros
-O Service Fabric dá suporte à configuração de vários pontos de extremidade para um serviço. Para obter mais informações, consulte [especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md).
+## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Lógica de seleção de pontos finais quando os serviços expõem pontos finais seguros e não seguros
+O tecido de serviço suporta configurar vários pontos finais para um serviço. Para mais informações, consulte [Especificar recursos num manifesto](service-fabric-service-manifest-resources.md)de serviço .
 
-Proxy reverso seleciona um dos pontos de extremidade para encaminhar a solicitação com base no parâmetro de consulta **listenername** no [URI do serviço](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Se o parâmetro **listenername** não for especificado, o proxy reverso poderá escolher qualquer ponto de extremidade da lista de pontos de extremidade. Dependendo dos pontos de extremidade configurados para o serviço, ele selecionado pode ser um ponto de extremidade HTTP ou HTTPS. Pode haver cenários ou requisitos em que você deseja que o proxy reverso opere em um "modo somente de segurança"; ou seja, você não quer que o proxy reverso seguro encaminhe solicitações a pontos de extremidade não seguros. Para definir o proxy reverso para o modo somente segurança, especifique a entrada de configuração **SecureOnlyMode** com o valor **true** na seção [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .   
+O proxy inverso seleciona um dos pontos finais para encaminhar o pedido com base no parâmetro de consulta **ListenerName** no [serviço URI](./service-fabric-reverseproxy.md#uri-format-for-addressing-services-by-using-the-reverse-proxy). Se o parâmetro **ListenerName** não for especificado, o proxy inverso pode escolher qualquer ponto final da lista de pontos finais. Dependendo dos pontos finais configurados para o serviço, o ponto final selecionado pode ser um ponto final HTTP ou HTTPS. Pode haver cenários ou requisitos em que pretenda que o representante inverso funcione num "modo de segurança"; isto é, não quer que o representante inverso seguro reencaminha os pedidos para pontos finais não seguros. Para definir o proxy inverso para o modo de segurança, especifique a entrada de configuração **SecureOnlyMode** com valor **verdadeiro** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)   
 
 ```json
 {
@@ -170,26 +170,26 @@ Proxy reverso seleciona um dos pontos de extremidade para encaminhar a solicita�
 ```
 
 > [!NOTE]
-> Ao operar em **SecureOnlyMode**, se um cliente tiver especificado um **listenername** correspondente a um ponto de extremidade http (não seguro), o proxy reverso falhará na solicitação com um código de status http 404 (não encontrado).
+> Ao operar em **SecureOnlyMode**, se um cliente tiver especificado um **ListenerName** correspondente a um ponto final HTTP (não garantido), o proxy inverso falha o pedido com um código de estado HTTP 404 (não encontrado).
 
-## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configurando a autenticação de certificado do cliente por meio do proxy reverso
-A terminação SSL ocorre no proxy reverso e todos os dados do certificado do cliente são perdidos. Para os serviços executarem a autenticação de certificado de cliente, especifique a configuração **ForwardClientCertificate** na seção [**ApplicationGateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) .
+## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configuração da autenticação do certificado de cliente através do proxy inverso
+A rescisão do SSL ocorre no proxy inverso e todos os dados do certificado de cliente são perdidos. Para que os serviços realizem a autenticação do certificado de cliente, especifique a definição **de ForwardClientCertificate** na secção [**ApplicationGateway/Http.** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
-1. Quando **ForwardClientCertificate** for definido como **false**, o proxy reverso não solicitará o certificado do cliente durante seu handshake de SSL com o cliente.
+1. Quando o **ForwardClientCertificate** estiver definido como **falso,** o proxy inverso não solicitará o certificado de cliente durante o seu aperto de mão SSL com o cliente.
 Este é o comportamento padrão.
 
-2. Quando **ForwardClientCertificate** é definido como **true**, o proxy reverso solicita o certificado do cliente durante seu handshake de SSL com o cliente.
-Em seguida, ele encaminhará os dados do certificado do cliente em um cabeçalho HTTP personalizado chamado **X-Client-Certificate**. O valor do cabeçalho é a cadeia de caracteres de formato PEM codificado em base64 do certificado do cliente. O serviço pode ter êxito/falha na solicitação com o código de status apropriado depois de inspecionar os dados do certificado.
-Se o cliente não apresentar um certificado, o proxy reverso encaminha um cabeçalho vazio e permite que o serviço manipule o caso.
+2. Quando o **ForwardClientCertificate** estiver definido como **verdadeiro,** o proxy inverso solicita o certificado do cliente durante o seu aperto de mão SSL com o cliente.
+Em seguida, encaminhará os dados do certificado de cliente num cabeçalho HTTP personalizado chamado **X-Cliente-Certificado**. O valor do cabeçalho é a cadeia de formato PEM codificada base64 do certificado do cliente. O serviço pode suceder/falhar o pedido com o código de estado adequado após a inspeção dos dados do certificado.
+Se o cliente não apresentar um certificado, o proxy inverso encaminha um cabeçalho vazio e deixe o serviço tratar da caixa.
 
 > [!NOTE]
-> O proxy reverso é um mero encaminhador. Ele não executará nenhuma validação do certificado do cliente.
+> Procuração inversa é um mero avançado. Não realizará qualquer validação do certificado do cliente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Configure e configure o proxy reverso em um cluster](service-fabric-reverseproxy-setup.md).
-* Consulte [Configurar o proxy reverso para se conectar a serviços seguros](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
-* Consulte um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Chamadas de procedimento remoto com Reliable Services comunicação remota](service-fabric-reliable-services-communication-remoting.md)
-* [API Web que usa OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Configurar e configurar procuração inversa num cluster](service-fabric-reverseproxy-setup.md).
+* Consulte o [Proxy inverso da Configuração para ligar a serviços seguros](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
+* Veja um exemplo de comunicação http entre serviços num [projeto de amostra no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
+* [Chamadas de procedimento remoto com serviços fiáveis remoting](service-fabric-reliable-services-communication-remoting.md)
+* [Web API que usa OWIN em Serviços Fiáveis](service-fabric-reliable-services-communication-webapi.md)
 * [Gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)

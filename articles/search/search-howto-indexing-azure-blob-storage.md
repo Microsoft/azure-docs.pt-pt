@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020629"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379566"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Armazenamento de Blob Azure com pesquisa cognitiva azure
 
@@ -102,7 +102,7 @@ Para mais informações sobre a criação de índices, consulte [Criar Índice](
 ### <a name="step-3-create-an-indexer"></a>Passo 3: Criar um indexador
 Um indexante liga uma fonte de dados a um índice de pesquisa de alvo, e fornece um horário para automatizar a atualização de dados.
 
-Depois que o índice e a fonte de dados tiverem sido criados, você estará pronto para criar o indexador:
+Uma vez criado o índice e a fonte de dados, está pronto para criar o indexante:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -115,9 +115,9 @@ Depois que o índice e a fonte de dados tiverem sido criados, você estará pron
       "schedule" : { "interval" : "PT2H" }
     }
 
-Este indexante funcionará de duas em duas horas (o intervalo de horário está definido para "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo como "PT30M". O intervalo mais curto com suporte é de 5 minutos. A agenda é opcional-se omitida, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
+Este indexante funcionará de duas em duas horas (o intervalo de horário está definido para "PT2H"). Para executar um indexante a cada 30 minutos, detete o intervalo para "PT30M". O intervalo suportado mais curto é de 5 minutos. O horário é opcional - se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexer a qualquer momento.   
 
-Para obter mais detalhes sobre a API criar indexador, confira [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para mais detalhes sobre a API Create Indexer, consulte [create indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre a definição de horários indexantes, consulte [como agendar indexadores para pesquisa cognitiva azure](search-howto-schedule-indexers.md).
 
@@ -256,8 +256,8 @@ Os parâmetros de configuração acima descritos aplicam-se a todas as bolhas. �
 
 | Nome da propriedade | Valor patrimonial | Explicação |
 | --- | --- | --- |
-| AzureSearch_Skip |"Verdadeiro" |Instrui o indexante blob a saltar completamente a bolha. Nem os metadados nem a extração de conteúdos são tentados. Isto é útil quando uma bolha particular falha repetidamente e interrompe o processo de indexação. |
-| AzureSearch_SkipContent |"Verdadeiro" |Isto equivale a `"dataToExtract" : "allMetadata"` definição descrita [acima do](#PartsOfBlobToIndex) âmbito de aplicação a uma bolha específica. |
+| AzureSearch_Skip |"verdadeiro" |Instrui o indexante blob a saltar completamente a bolha. Nem os metadados nem a extração de conteúdos são tentados. Isto é útil quando uma bolha particular falha repetidamente e interrompe o processo de indexação. |
+| AzureSearch_SkipContent |"verdadeiro" |Isto equivale a `"dataToExtract" : "allMetadata"` definição descrita [acima do](#PartsOfBlobToIndex) âmbito de aplicação a uma bolha específica. |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>Lidar com erros
@@ -399,5 +399,5 @@ A tabela seguinte resume o processamento feito para cada formato de documento, e
 | Texto simples (texto/planície) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extrair texto|
 
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar o Azure Pesquisa Cognitiva melhor
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar a Pesquisa Cognitiva Azure melhor
 Se tiver pedidos de funcionalidades ou ideias para melhorias, informe-nos no nosso [site userVoice](https://feedback.azure.com/forums/263029-azure-search/).

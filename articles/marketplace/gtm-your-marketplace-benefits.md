@@ -1,6 +1,6 @@
 ---
-title: Serviços de entrada no mercado-seus benefícios do Marketplace comercial | Azure
-description: Serviços de entrada no mercado-recursos da Microsoft que os editores podem usar são descritos nesta seção.
+title: Go-To-Market Services - os seus benefícios no mercado comercial Azure
+description: Go-To-Market Services - Os recursos da Microsoft que os editores podem utilizar são descritos nesta secção.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: MaggiePucciEvans
 ms.service: marketplace
@@ -9,70 +9,70 @@ ms.topic: article
 ms.date: 02/08/2020
 ms.author: evansma
 ms.openlocfilehash: 1ecb48751715d32e1e67f09e0e3d4bf9577c8eab
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064947"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392887"
 ---
-# <a name="your-commercial-marketplace-benefits"></a>Seus benefícios do Marketplace comercial
+# <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
-Você publicou no Marketplace, agora deseja ver que sua oferta foi bem-sucedida. Fornecemos os benefícios-vendas, técnico e marketing-você precisa acelerar o crescimento da sua oferta.
+Publicou no mercado, agora quer ver a sua oferta ser bem sucedida. Oferecemos-lhe os benefícios - vendas, técnicos e marketing - que precisa para acelerar o crescimento da sua oferta.
 
-Quando você entrar em contato com sua oferta, a equipe de recompensas do Marketplace entrará em contato para começar a trabalhar com você em seus benefícios qualificados. Os benefícios das recompensas do Marketplace se acumulam com base no seu envolvimento e vendas do Marketplace comercial. Quanto mais você se envolver, mais você obterá de volta.
+Quando for em direto com a sua oferta, a equipa de Marketplace Rewards irá trabalhar consigo sobre os seus benefícios elegíveis. Os benefícios do Marketplace Rewards acumulam-se com base no seu envolvimento e vendas no mercado comercial. Quanto mais te envolves, mais voltas.
 
-## <a name="marketplace-rewards"></a>Recompensas do Marketplace
+## <a name="marketplace-rewards"></a>Recompensas do Mercado
 
-As recompensas do Marketplace foram projetadas para dar suporte a você em seu estágio específico de crescimento, começando com as atividades de reconhecimento para ajudá-lo a obter seus primeiros clientes. Conforme você cresce no Marketplace, você desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e a fechar acordos. 
+O Marketplace Rewards foi concebido para o apoiar na sua fase específica de crescimento, começando com atividades de sensibilização para o ajudar a obter os seus primeiros clientes. À medida que cresce através do mercado, desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e fechar negócios. 
 
-O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento são projetados para progredir para o próximo estágio, permitindo que você aumente sua empresa para os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, aproveitando o Marketplace comercial como sua plataforma. 
+O programa cria um ciclo de feedback positivo: os benefícios em cada fase de crescimento são projetados para progredir para a fase seguinte, permitindo-lhe crescer o seu negócio para clientes da Microsoft, com o campo da Microsoft, e através do canal da Microsoft, alavancando o mercado comercial como a sua plataforma. 
 
 Os seus benefícios são diferenciados com base no facto de a sua oferta ser [Lista, Julgamento ou Transact.](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option)
 
-Você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa, com base em sua qualificação. 
+Será contactado por um membro da equipa de Recompensas quando a sua oferta for ao vivo, com base na sua elegibilidade. 
 
-Para parceiros do Transact, à medida que você aumenta suas vendas cobradas por meio da plataforma do Marketplace, você desbloqueia mais benefícios por camada. 
+Para os parceiros Da Transact, à medida que cresce as suas vendas faturadas através da plataforma de marketplace, desbloqueia maiores benefícios por nível. 
 
-O requisito mínimo para publicar nas vitrines é um MPNID, portanto, esses benefícios estão disponíveis para todos os parceiros, independentemente do status de competência do MPN ou do tipo de parceiro. Cada parceiro é capacitado para aumentar seus negócios por meio do Marketplace como uma plataforma. 
+O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado como uma plataforma. 
 
 Você receberá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/) 
 
 Descrições detalhadas de todos os benefícios do programa podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
 
-As etapas para começar são fáceis:
+Os seus passos para começar são fáceis:
 
-1. Publicar uma oferta em um Microsoft AppSource ou no Azure Marketplace.
-2. A equipe chega ao "proprietário" ou ao "contato principal" por oferta do Marketplace. É uma boa prática entrar num indivíduo ou num pseudónimo que verifica regularmente: mensagens enviadas a pseudónimos como info@company.com muitas vezes se perdem.
+1. Publique uma oferta no Microsoft AppSource ou no Azure Marketplace.
+2. A equipa contacta o "proprietário" ou o "contacto primário" por oferta de mercado. É uma boa prática entrar num indivíduo ou num pseudónimo que verifica regularmente: mensagens enviadas a pseudónimos como info@company.com muitas vezes se perdem.
 
 >[!Note]
->Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, entre em contato com sua organização que seja o proprietário da oferta em questão, procurando Portal do Cloud Partner ou no Partner Center. Eles devem ter a comunicação e as próximas etapas. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou a sua empresa, pode levantar um bilhete de apoio em https://aka.ms/marketplacepublishersupport.
+>Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, quer olhando para o Cloud Partner Portal ou no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou a sua empresa, pode levantar um bilhete de apoio em https://aka.ms/marketplacepublishersupport.
 
-O escopo das atividades disponíveis se expande conforme você aumenta suas ofertas no Marketplace. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e práticas recomendadas.
+O âmbito das atividades disponíveis para si expande-se à medida que cultiva as suas ofertas no mercado. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um e-mail auto-servido de recursos e boas práticas.
 
-## <a name="list-trial-and-consulting-benefits"></a>Benefícios de lista, avaliação e consultoria
+## <a name="list-trial-and-consulting-benefits"></a>Lista, julgamento e consultoria
 
-Se você publicar uma prova de conceito, implementação ou workshop de avaliação ou consultoria, será atribuído um gerente de envolvimento por três meses, que ajudará você a orientá-lo em um plano de entrada no mercado bem-sucedido. Você pode repetir esse contrato de três meses sempre que publicar uma nova oferta, para ajudar a obter cada uma de suas novas ofertas iniciadas com êxito.
+Se publicar um teste ou uma prova de consultoria de conceito, implementação ou workshop, será-lhe atribuído um gestor de noivado por três meses, que ajudará a guiá-lo num plano de sucesso para o mercado. Pode repetir este noivado de três meses cada vez que publicar uma nova oferta, para ajudar a que cada uma das suas novas ofertas começasse com sucesso.
 
-A tabela a seguir resume os requisitos de qualificação para as ofertas de lista e avaliação:
+O quadro abaixo resume os requisitos de elegibilidade para ofertas de lista e experimentação:
 
-![Benefícios para o mercado](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Benefícios go-to-market](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
 
-## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Marketplace para parceiros do Transact
+## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Mercado para parceiros transatas
 
-Quando você entra em funcionamento com sua oferta do Azure Marketplace ou Microsoft AppSource, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do Marketplace comercial. 
+Ao entrar em direto com a sua oferta transacionável no Azure Marketplace ou no Microsoft AppSource, poderá aceder a benefícios adicionais à medida que cresce as suas transações de vendas faturadas ou os seus lugares vendidos através do mercado comercial. 
 
 >[!Note]
->O limite de estações vendidas aplica-se somente a aplicativos Microsoft 365s (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2020.
+>O limiar de venda de lugares aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2020.
 
-Esses benefícios foram projetados para dar suporte a você em marketing, vendas e atividades técnicas e, assim, ajudar você a obter mais visitantes, receber mais clientes potenciais e converter mais negócios.
+Estes benefícios destinam-se a apoiá-lo em marketing, vendas e atividades técnicas, ajudando assim a obter mais visitantes, receber mais pistas e converter mais negócios.
 
-Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de envolvimento dedicado para escolher as atividades de valor mais alto para seu portfólio de ofertas do Marketplace. Esse envolvimento é o verde por oferta, o que significa que você pode escolher suas atividades e o tempo dessas atividades para alinhar-se ao tempo das estratégias de marketing e vendas mais amplas de sua empresa. 
+Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor de noivado dedicado para escolher as atividades de maior valor para o seu portfólio de ofertas de marketplace. Este compromisso é sempre verde por oferta, o que significa que você pode escolher suas atividades e o tempo destas atividades para alinhar com o tempo das estratégias de marketing e vendas mais amplas da sua empresa. 
 
 ![Benefícios de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
 
-![Benefícios de vendas](./media/marketplace-publishers-guide/sales-benefit.png)
+![Benefícios de venda](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
@@ -80,30 +80,30 @@ Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de
 
 Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
 
-Além dos benefícios de recompensas, os parceiros de aplicações empresariais com as ofertas da Dynamics publicadas no Microsoft AppSource têm uma programação suplementar disponível através do [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Isso inclui suporte técnico, de marketing e de vendas especializado para as necessidades de parceiros de aplicativos de negócios.
+Além dos benefícios de recompensas, os parceiros de aplicações empresariais com as ofertas da Dynamics publicadas no Microsoft AppSource têm uma programação suplementar disponível através do [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Isto inclui suporte técnico, de marketing e vendas especializado para as necessidades dos parceiros de aplicações empresariais.
 
-## <a name="marketplace-rewards-requirements-and-restrictions"></a>Requisitos e restrições do Marketplace
+## <a name="marketplace-rewards-requirements-and-restrictions"></a>Requisitos e restrições de Recompensas do Mercado
 
-### <a name="publisher-agreement"></a>Contrato do editor
+### <a name="publisher-agreement"></a>Acordo de Editor
 
 Todas as atividades descritas nesta página estão abrangidas pelo acordo de editor de [marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e estão de acordo com o Programa de Benefícios Comerciais Addendum.
 
 ### <a name="cancellation-policy"></a>Política de cancelamento
 
-Os editores [de listas e ensaios](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) podem optar por participar ou optar por atividades por publicação de oferta. Os parceiros podem recusar qualquer envolvimento a qualquer momento. 
+Os editores [de listas e ensaios](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) podem optar por participar ou optar por atividades por publicação de oferta. Os parceiros podem optar por qualquer compromisso a qualquer momento. 
 
-A Microsoft se reserva o direito de revogar e encerrar os benefícios das recompensas do Marketplace para os editores que: 
+A Microsoft reserva-se o direito de revogar e rescindir os benefícios do Marketplace Rewards aos editores que: 
 
-* envolva atividades ilegais usando a listagem do Marketplace.
-* estão listadas no Marketplace comercial. 
-* Use sua oferta para mostrar marketing ou outro conteúdo que viole as leis de direitos autorais ou marcas comerciais.
+* exercer atividades ilegais utilizando a sua listagem de mercado.
+* são desclassificados do mercado comercial. 
+* usar a sua oferta para mostrar marketing ou outros conteúdos que violem leis de direitos autorais ou de marca.
 * violar as políticas do programa de patrocínio sinuoso do [Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, utilizando o financiamento de patrocínio sinuoso do Azure para as suas próprias operações internas ou mineração de bitcoin. 
 
 ### <a name="offer-availability"></a>Oferta Disponibilidade
 
-Essa oferta é conduzida em inglês para todos os parceiros com uma oferta ao vivo no Azure Marketplace ou Microsoft AppSource.
+Esta oferta é realizada em inglês para todos os parceiros com uma oferta ao vivo no Azure Marketplace ou microsoft AppSource.
 
-As transações que se prove serem fraudulentas não contarão para o nível de programa de [vendas faturado](https://aka.ms/marketplacepublisherrewards)de uma editora, como se nota na [lista, teste,](#list-trial-and-consulting-benefits) secção de consultoria, secção de benefícios do [parceiro transata](#marketplace-rewards-for-transact-partners) e [o deck de programas detalhados.](https://aka.ms/marketplacepublisherrewards) A Microsoft alocará parceiros a camadas de qualificação com base em suas vendas cobradas reais, depois que a fraude tiver sido removida. 
+As transações que se prove serem fraudulentas não contarão para o nível de programa de [vendas faturado](https://aka.ms/marketplacepublisherrewards)de uma editora, como se nota na [lista, teste,](#list-trial-and-consulting-benefits) secção de consultoria, secção de benefícios do [parceiro transata](#marketplace-rewards-for-transact-partners) e [o deck de programas detalhados.](https://aka.ms/marketplacepublisherrewards) A Microsoft atribuirá parceiros a níveis de elegibilidade com base nas suas vendas faturadas reais, depois de a fraude ter sido removida. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

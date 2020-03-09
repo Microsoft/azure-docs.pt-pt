@@ -1,6 +1,6 @@
 ---
-title: Extensão do driver NVIDIA GPU – VMs do Windows do Azure
-description: Microsoft Azure extensão para instalar drivers NVIDIA GPU em VMs de computação da série N executando o Windows.
+title: Extensão do condutor da GPU da NVIDIA - VMs do Windows Azure
+description: Extensão Microsoft Azure para instalar controladores GPU NVIDIA em VMs computacionais da série N executando Windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
@@ -14,40 +14,40 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
 ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073027"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383298"
 ---
-# <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de driver NVIDIA GPU para Windows
+# <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão do condutor da GPU da NVIDIA para Windows
 
 ## <a name="overview"></a>Descrição geral
 
-Essa extensão instala drivers NVIDIA GPU em VMs da série N do Windows. Dependendo da família de VMs, a extensão instala os drivers CUDA ou GRID. Ao instalar os drivers NVIDIA usando essa extensão, você estará aceitando e concordando com os termos do [contrato de licença de usuário final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reiniciada para concluir a configuração do driver.
+Esta extensão instala controladores GPU da NVIDIA em VMs da série N do Windows. Dependendo da família VM, a extensão instala os condutores CUDA ou GRID. Quando instala os controladores NVIDIA utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de Licença de Utilizador Final da [NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
 
-As instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
-Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Linux](hpccompute-gpu-linux.md).
+As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
+Uma extensão também está disponível para instalar os pilotos gpu da NVIDIA em [VMs da série N Linux](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Esta extensão dá suporte ao seguinte OSs:
+Esta extensão suporta as seguintes OSs:
 
 | Distribuição | Versão |
 |---|---|
-| Windows 10 | Principal |
+| Windows 10 | Principal |
 | Windows Server 2016 | Principal |
 | Windows Server 2012 R2 | Principal |
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão de Microsoft Azure para Drivers NVIDIA GPU requer que a VM de destino esteja conectada à Internet e tenha acesso.
+A extensão Microsoft Azure para os controladores GPU da NVIDIA requer que o VM alvo esteja ligado à internet e tenha acesso.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão.
+O seguinte JSON mostra o esquema para a extensão.
 
 ```json
 {
@@ -74,7 +74,7 @@ O JSON a seguir mostra o esquema para a extensão.
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
+| publicador | Microsoft.HpcCompute | string |
 | tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
@@ -83,11 +83,11 @@ O JSON a seguir mostra o esquema para a extensão.
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager 
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a configuração pós-implantação.
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a configuração da implementação do post.
 
-A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/resource-manager-template-child-resource.md) 
 
-O exemplo a seguir pressupõe que a extensão esteja aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo que se segue pressupõe que a extensão está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 ```json
 {
@@ -141,7 +141,7 @@ az vm extension set `
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando Azure PowerShell e CLI do Azure. Para ver o estado de implantação das extensões de uma determinada VM, execute o comando a seguir.
+Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell e o Azure CLI. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -151,7 +151,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-A saída de execução de extensão é registrada no seguinte diretório:
+A saída de execução de extensão é registada no seguinte diretório:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
@@ -161,19 +161,19 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 | Código de Erro | Significado | Ação possível |
 | :---: | --- | --- |
-| 0 | Operação bem-sucedida |
-| 1 | Operação bem-sucedida. Reinicialização necessária. |
-| 100 | Operação sem suporte ou não pôde ser concluída. | Possíveis causas: versão do PowerShell sem suporte, o tamanho da VM não é uma VM da série N, falha ao baixar dados. Verifique os arquivos de log para determinar a causa do erro. |
-| 240, 840 | Tempo limite da operação. | Repita a operação. |
-| -1 | Ocorreu uma exceção. | Verifique os arquivos de log para determinar a causa da exceção. |
-| -5x | Operação interrompida devido a reinicialização pendente. | Reinicialize a VM. A instalação continuará após a reinicialização. A desinstalação deve ser chamada manualmente. |
+| 0 | Operação bem sucedida |
+| 1 | Operação bem sucedida. Reiniciar necessário. |
+| 100 | Operação não suportada ou não pôde ser concluída. | Possíveis causas: Versão PowerShell não suportada, tamanho VM não é um VM da série N, falha de dados de descarregamento. Verifique os ficheiros de registo para determinar a causa do erro. |
+| 240, 840 | Intervalo de funcionamento. | Operação de retry. |
+| -1 | A exceção ocorreu. | Verifique os ficheiros de registo para determinar a causa da exceção. |
+| -5x | Operação interrompida devido a reinicialização pendente. | Reiniciar VM. A instalação continuará após o reboot. A desinstalação deve ser invocada manualmente. |
 
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre extensões, consulte [recursos e extensões de máquina virtual para Windows](features-windows.md).
+Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina Virtual para Windows](features-windows.md).
 
-Para obter mais informações sobre as VMs da série N, consulte [tamanhos de máquina virtual com otimização de GPU](../windows/sizes-gpu.md).
+Para obter mais informações sobre VMs da série N, consulte [gpu otimizado tamanhos](../windows/sizes-gpu.md)de máquinavirtual .

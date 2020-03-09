@@ -4,11 +4,11 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591188"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380660"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos de Gestor de Recursos Azure
 
@@ -258,7 +258,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| Devolução | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| retorno | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 

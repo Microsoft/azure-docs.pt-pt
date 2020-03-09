@@ -1,6 +1,6 @@
 ---
-title: Vários endereços IP para máquinas virtuais do Azure-PowerShell | Microsoft Docs
-description: Saiba como atribuir vários endereços IP a uma máquina virtual usando o PowerShell. | Gerenciador de recursos
+title: Múltiplos endereços IP para máquinas virtuais Azure - PowerShell / Microsoft Docs
+description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando o PowerShell. | Gestor de Recursos
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -17,29 +17,29 @@ ms.date: 03/24/2017
 ms.author: kumud
 ms.reviewer: annahar
 ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647327"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381040"
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando o PowerShell
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando powerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Este artigo explica como criar uma VM (máquina virtual) por meio do modelo de implantação Azure Resource Manager usando o PowerShell. Vários endereços IP não podem ser atribuídos a recursos criados por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implantação do Azure, leia o artigo [entender os modelos de implantação](../resource-manager-deployment-model.md) .
+Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Gestor de Recursos Azure utilizando o PowerShell. Vários endereços IP não podem ser atribuídos aos recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo dos [modelos de implementação Da Understand.](../resource-manager-deployment-model.md)
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Criar uma VM com vários endereços IP
+## <a name = "create"></a>Criar um VM com vários endereços IP
 
-As etapas a seguir explicam como criar uma VM de exemplo com vários endereços IP, conforme descrito no cenário. Altere os valores de variáveis conforme necessário para sua implementação.
+Os passos que se seguem explicam como criar um vM de exemplo com vários endereços IP, como descrito no cenário. Altere os valores variáveis conforme necessário para a sua implementação.
 
-1. Abra um prompt de comando do PowerShell e conclua as etapas restantes nesta seção em uma única sessão do PowerShell. Se você ainda não tiver o PowerShell instalado e configurado, conclua as etapas no artigo [como instalar e configurar Azure PowerShell](/powershell/azure/overview) .
-2. Faça logon em sua conta com o comando `Connect-AzAccount`.
-3. Substitua *MyResource* e *westus* por um nome e um local de sua escolha. Crie um grupo de recursos. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+1. Abra um pedido de comando PowerShell e complete os passos restantes nesta secção numa única sessão powerShell. Se ainda não tiver o PowerShell instalado e configurado, complete os passos no artigo Como instalar e configurar o artigo [Azure PowerShell.](/powershell/azure/overview)
+2. Faça login na sua conta com o comando `Connect-AzAccount`.
+3. Substitua *o myResourceGroup* e *o westus* por um nome e localização à sua escolha. Crie um grupo de recursos. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
    ```powershell
    $RgName   = "MyResourceGroup"
@@ -50,7 +50,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
    -Location $Location
    ```
 
-4. Crie uma rede virtual (VNet) e uma sub-rede no mesmo local que o grupo de recursos:
+4. Criar uma rede virtual (VNet) e uma subnet no mesmo local que o grupo de recursos:
 
    ```powershell
 
@@ -71,7 +71,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
    $Subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
    ```
 
-5. Crie um NSG (grupo de segurança de rede) e uma regra. O NSG protege a VM usando regras de entrada e saída. Neste caso, é criada uma regra de entrada para a porta 3389, que permite ligações de ambiente de trabalho remotas recebidas.
+5. Criar um grupo de segurança de rede (NSG) e uma regra. O NSG assegura o VM utilizando regras de entrada e saída. Neste caso, é criada uma regra de entrada para a porta 3389, que permite ligações de ambiente de trabalho remotas recebidas.
 
     ```powershell
     
@@ -95,9 +95,9 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -SecurityRules $NSGRule
     ```
 
-6. Defina a configuração de IP primário para a NIC. Altere 10.0.0.4 para um endereço válido na sub-rede que você criou, se você não usou o valor definido anteriormente. Antes de atribuir um endereço IP estático, é recomendável primeiro confirmar que ele ainda não está em uso. Insira o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço estiver disponível, a saída retornará *true*. Se não estiver disponível, a saída retornará *false* e uma lista de endereços que estão disponíveis. 
+6. Defina a configuração ip primária para o NIC. Altere 10.0.0.4 para um endereço válido na subnet que criou, se não utilizar o valor previamente definido. Antes de atribuir um endereço IP estático, recomenda-se que primeiro confirme que ainda não está a ser utilizado. Introduza o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço estiver disponível, a saída devolve *True*. Se não estiver disponível, a saída devolve *Falso* e uma lista de endereços disponíveis. 
 
-    Nos comandos a seguir, **substitua \<> de nome de substituição com o nome DNS exclusivo a ser usado.** O nome deve ser exclusivo em todos os endereços IP públicos em uma região do Azure. Esse é um parâmetro opcional. Ele poderá ser removido se você quiser se conectar apenas à VM usando o endereço IP público.
+    Nos seguintes comandos, **substitua \<substituir-por-o-seu-nome único> com o nome DNS único a utilizar.** O nome deve ser único em todos os endereços IP públicos dentro de uma região de Azure. Este é um parâmetro opcional. Pode ser removido se pretender ligar-se apenas ao VM utilizando o endereço IP público.
 
     ```powershell
     
@@ -119,12 +119,12 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -Primary
     ```
 
-    Quando você atribui várias configurações de IP a uma NIC, uma configuração deve ser atribuída como a *-primária*.
+    Quando atribui várias configurações ip a um NIC, uma configuração deve ser atribuída como *-Primária*.
 
     > [!NOTE]
-    > Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre preços de endereço IP, leia a página de [preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
+    > Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre os preços do endereço IP, leia a página de preços do [endereço IP.](https://azure.microsoft.com/pricing/details/ip-addresses) Existe um limite para o número de endereços IP públicos que podem ser usados numa subscrição. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
 
-7. Defina as configurações de IP secundário para a NIC. Você pode adicionar ou remover configurações conforme necessário. Cada configuração de IP deve ter um endereço IP privado atribuído. Cada configuração pode, opcionalmente, ter um endereço IP público atribuído.
+7. Defina as configurações ip secundárias para o NIC. Pode adicionar ou remover as configurações conforme necessário. Cada configuração IP deve ter um endereço IP privado atribuído. Cada configuração pode opcionalmente ter um endereço IP público atribuído.
 
     ```powershell
     
@@ -150,7 +150,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -PrivateIpAddress 10.0.0.6
     ```
 
-8. Crie a NIC e associe as três configurações de IP a ela:
+8. Crie o NIC e associe-lhe as três configurações IP:
 
    ```powershell
    $NIC = New-AzNetworkInterface `
@@ -162,9 +162,9 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
    ```
 
    >[!NOTE]
-   >Embora todas as configurações sejam atribuídas a uma NIC neste artigo, você pode atribuir várias configurações de IP a cada NIC anexada à VM. Para saber como criar uma VM com várias NICs, leia o artigo [criar uma VM com várias NICs](../virtual-machines/windows/multiple-nics.md) .
+   >Apesar de todas as configurações serem atribuídas a um NIC neste artigo, pode atribuir várias configurações ip a cada NIC anexado ao VM. Para aprender a criar um VM com vários NICs, leia o [Create a VM com vários artigos nics.](../virtual-machines/windows/multiple-nics.md)
 
-9. Crie a VM inserindo os seguintes comandos:
+9. Criar o VM inserindo os seguintes comandos:
 
     ```powershell
     
@@ -193,14 +193,14 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -VM $VmConfig
     ```
 
-10. Adicione os endereços IP privados ao sistema operacional da VM concluindo as etapas para seu sistema operacional na seção [adicionar endereços IP a um sistema operacional da VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
+10. Adicione os endereços IP privados ao sistema operativo VM, preenchendo as etapas do seu sistema operativo nos [endereços ADD IP a uma](#os-config) secção do sistema operativo VM deste artigo. Não adicione os endereços IP públicos ao sistema operativo.
 
-## <a name="add"></a>Adicionar endereços IP a uma VM
+## <a name="add"></a>Adicione endereços IP a um VM
 
-Você pode adicionar endereços IP públicos e privados ao adaptador de rede do Azure concluindo as etapas a seguir. Os exemplos nas seções a seguir pressupõem que você já tem uma VM com as três configurações de IP descritas no [cenário](#scenario) neste artigo, mas isso não é necessário.
+Pode adicionar endereços IP privados e públicos à interface de rede Azure, completando os passos que se seguem. Os exemplos nas seguintes secções assumem que já tem um VM com as três configurações IP descritas no [cenário](#scenario) neste artigo, mas não é necessário que o faça.
 
-1. Abra um prompt de comando do PowerShell e conclua as etapas restantes nesta seção em uma única sessão do PowerShell. Se você ainda não tiver o PowerShell instalado e configurado, conclua as etapas no artigo [como instalar e configurar Azure PowerShell](/powershell/azure/overview) .
-2. Altere os "valores" do $Variables a seguir para o nome da NIC à qual você deseja adicionar o endereço IP e o grupo de recursos e o local em que a NIC existe:
+1. Abra um pedido de comando PowerShell e complete os passos restantes nesta secção numa única sessão powerShell. Se ainda não tiver o PowerShell instalado e configurado, complete os passos no artigo Como instalar e configurar o artigo [Azure PowerShell.](/powershell/azure/overview)
+2. Altere os "valores" dos seguintes $Variables para o nome do NIC a que pretende adicionar endereço IP e ao grupo de recursos e localização em que o NIC existe:
 
    ```powershell
    $NicName  = "MyNIC"
@@ -208,65 +208,65 @@ Você pode adicionar endereços IP públicos e privados ao adaptador de rede do 
    $Location = "westus"
    ```
 
-   Se você não souber o nome da NIC que deseja alterar, insira os seguintes comandos e, em seguida, altere os valores das variáveis anteriores:
+   Se não sabe o nome do NIC que pretende alterar, insira os seguintes comandos e, em seguida, altere os valores das variáveis anteriores:
 
    ```powershell
    Get-AzNetworkInterface | Format-Table Name, ResourceGroupName, Location
    ```
 
-3. Crie uma variável e defina-a como a NIC existente digitando o seguinte comando:
+3. Crie uma variável e desloque-a para o NIC existente digitando o seguinte comando:
 
    ```powershell
    $MyNIC = Get-AzNetworkInterface -Name $NicName -ResourceGroupName $RgName
    ```
 
-4. Nos comandos a seguir, altere *MyVNet* e *mysubnet* para os nomes da VNet e da sub-rede à qual a NIC está conectada. Insira os comandos para recuperar os objetos VNet e de sub-rede aos quais a NIC está conectada:
+4. Nos seguintes comandos, altere *myVNet* e *MySubnet* para os nomes da VNet e sub-rede a que o NIC está ligado. Introduza os comandos para recuperar os objetos VNet e sub-rede a que o NIC está ligado:
 
    ```powershell
    $MyVNet = Get-AzVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
    $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
    ```
 
-   Se você não souber o nome da VNet ou da sub-rede à qual a NIC está conectada, digite o seguinte comando:
+   Se não souber o nome VNet ou subnet a que o NIC está ligado, introduza o seguinte comando:
 
    ```powershell
    $MyNIC.IpConfigurations
    ```
 
-   Na saída, procure um texto semelhante à seguinte saída de exemplo:
+   Na saída, procure texto semelhante à seguinte saída de exemplo:
 
    ```
    "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
    ```
 
-    Nessa saída, *MyVnet* é a VNet e *mysubnet* é a sub-rede à qual a NIC está conectada.
+    Nesta saída, *myVnet* é o VNet e *MySubnet* é a sub-rede a que o NIC está ligado.
 
-5. Conclua as etapas em uma das seções a seguir, com base em seus requisitos:
+5. Complete os passos numa das seguintes secções, com base nos seus requisitos:
 
-   **Adicionar um endereço IP privado**
+   **Adicione um endereço IP privado**
 
-   Para adicionar um endereço IP privado a uma NIC, você deve criar uma configuração de IP. O comando a seguir cria uma configuração com um endereço IP estático de 10.0.0.7. Ao especificar um endereço IP estático, ele deve ser um endereço não utilizado para a sub-rede. É recomendável que você primeiro teste o endereço para garantir que ele esteja disponível inserindo o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet`. Se o endereço IP estiver disponível, a saída retornará *true*. Se não estiver disponível, a saída retornará *false*e uma lista de endereços que estão disponíveis.
+   Para adicionar um endereço IP privado a um NIC, tem de criar uma configuração IP. O seguinte comando cria uma configuração com um endereço IP estático de 10.0.0.7. Ao especificar um endereço IP estático, deve ser um endereço não utilizado para a sub-rede. Recomenda-se que teste primeiro o endereço para garantir que está disponível entrando no comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet`. Se o endereço IP estiver disponível, a saída devolve *True*. Se não estiver disponível, a saída devolve *Falso,* e uma lista de endereços disponíveis.
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
    $MyNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
    ```
 
-   Crie quantas configurações forem necessárias, usando nomes de configuração exclusivos e endereços IP privados (para configurações com endereços IP estáticos).
+   Crie as configurações necessárias, utilizando nomes de configuração únicos e endereços IP privados (para configurações com endereços IP estáticos).
 
-   Adicione o endereço IP privado ao sistema operacional da VM concluindo as etapas para seu sistema operacional na seção [adicionar endereços IP a um sistema operacional da VM](#os-config) deste artigo.
+   Adicione o endereço IP privado ao sistema operativo VM preenchendo as etapas do seu sistema operativo nos [endereços IP Add a uma](#os-config) secção do sistema operativo VM deste artigo.
 
-   **Adicionar um endereço IP público**
+   **Adicione um endereço IP público**
 
-   Um endereço IP público é adicionado pela Associação de um recurso de endereço IP público a uma nova configuração de IP ou uma configuração de IP existente. Conclua as etapas em uma das seções a seguir, conforme necessário.
+   Um endereço IP público é adicionado associando um recurso de endereço IP público a uma nova configuração IP ou uma configuração IP existente. Complete os passos numa das secções que se seguem, conforme necessário.
 
    > [!NOTE]
-   > Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre preços de endereço IP, leia a página de [preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
+   > Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre os preços do endereço IP, leia a página de preços do [endereço IP.](https://azure.microsoft.com/pricing/details/ip-addresses) Existe um limite para o número de endereços IP públicos que podem ser usados numa subscrição. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
    >
 
-   **Associar o recurso de endereço IP público a uma nova configuração de IP**
+   **Associar o recurso de endereço IP público a uma nova configuração IP**
 
-   Sempre que você adicionar um endereço IP público em uma nova configuração de IP, também deverá adicionar um endereço IP privado, pois todas as configurações de IP devem ter um endereço IP privado. Você pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
+   Sempre que adicionar um endereço IP público numa nova configuração IP, também deve adicionar um endereço IP privado, porque todas as configurações IP devem ter um endereço IP privado. Pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
 
    ```powershell
    $myPublicIp3 = New-AzPublicIpAddress `
@@ -276,7 +276,7 @@ Você pode adicionar endereços IP públicos e privados ao adaptador de rede do 
    -AllocationMethod Static
    ```
 
-   Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIp3* associado, digite o seguinte comando:
+   Para criar uma nova configuração IP com um endereço IP privado estático e o recurso de endereço IP público do *myPublicIp3* associado, insira o seguinte comando:
 
    ```powershell
    Add-AzNetworkInterfaceIpConfig `
@@ -287,15 +287,15 @@ Você pode adicionar endereços IP públicos e privados ao adaptador de rede do 
    -PublicIpAddress $myPublicIp3
    ```
 
-   **Associar o recurso de endereço IP público a uma configuração de IP existente**
+   **Associar o recurso de endereço IP público a uma configuração IP existente**
 
-   Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tenha um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado digitando o seguinte comando:
+   Um recurso de endereço IP público só pode ser associado a uma configuração IP que ainda não tem uma associada. Pode determinar se uma configuração IP tem um endereço IP público associado, introduzindo o seguinte comando:
 
    ```powershell
    $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
    ```
 
-   Verá um resultado semelhante ao seguinte:
+   Vê-se uma saída semelhante à seguinte:
 
    ```
    Name       PrivateIpAddress PublicIpAddress                                           Primary
@@ -305,7 +305,7 @@ Você pode adicionar endereços IP públicos e privados ao adaptador de rede do 
    IpConfig-3 10.0.0.6                                                                     False
    ```
 
-   Como a coluna **PublicIpAddress** para *ipconfig-3* está em branco, nenhum recurso de endereço IP público está associado a ele no momento. Você pode adicionar um recurso de endereço IP público existente ao IpConfig-3 ou inserir o seguinte comando para criar um:
+   Uma vez que a coluna **PublicIpAddress** para *IpConfig-3* está em branco, nenhum recurso de endereço IP público está atualmente associado ao mesmo. Pode adicionar um recurso de endereço IP público existente ao IpConfig-3, ou introduzir o seguinte comando para criar um:
 
    ```powershell
    $MyPublicIp3 = New-AzPublicIpAddress `
@@ -314,7 +314,7 @@ Você pode adicionar endereços IP públicos e privados ao adaptador de rede do 
    -Location $Location -AllocationMethod Static
    ```
 
-   Digite o seguinte comando para associar o recurso de endereço IP público à configuração de IP existente chamada *ipconfig-3*:
+   Introduza o seguinte comando para associar o recurso de endereço IP público à configuração IP existente chamada *IpConfig-3*:
 
    ```powershell
    Set-AzNetworkInterfaceIpConfig `
@@ -324,18 +324,18 @@ Você pode adicionar endereços IP públicos e privados ao adaptador de rede do 
    -PublicIpAddress $myPublicIp3
    ```
 
-6. Defina a NIC com a nova configuração de IP digitando o seguinte comando:
+6. Detete o NIC com a nova configuração IP, entrando no seguinte comando:
 
    ```powershell
    Set-AzNetworkInterface -NetworkInterface $MyNIC
    ```
 
-7. Exiba os endereços IP privados e os recursos de endereço IP público atribuídos à NIC digitando o seguinte comando:
+7. Consulte os endereços IP privados e os recursos de endereço IP públicos atribuídos ao NIC, inserindo o seguinte comando:
 
    ```powershell
    $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
    ```
 
-8. Adicione o endereço IP privado ao sistema operacional da VM concluindo as etapas para seu sistema operacional na seção [adicionar endereços IP a um sistema operacional da VM](#os-config) deste artigo. Não adicione o endereço IP público ao sistema operacional.
+8. Adicione o endereço IP privado ao sistema operativo VM preenchendo as etapas do seu sistema operativo nos [endereços IP Add a uma](#os-config) secção do sistema operativo VM deste artigo. Não adicione o endereço IP público ao sistema operativo.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

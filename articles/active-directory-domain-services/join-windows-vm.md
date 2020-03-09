@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 05705d14db336b15a6ddf2317f9e69464c8e575b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613879"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378532"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Junte-se a uma máquina virtual do Windows Server para um domínio gerido
 
@@ -39,7 +39,7 @@ Para completar este tutorial, precisa dos seguintes recursos:
     * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
     * Se necessário, crie e configure uma instância de Serviços de [Domínio de Diretório Ativo Azure][create-azure-ad-ds-instance].
-* Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
+* Uma conta de utilizador que faz parte do domínio gerido pelo Azure AD DS.
     * Certifique-se de que a sincronização da palavra-passe Do Azure AD Connect ou o reset da palavra-passe autosserviço foi realizado para que a conta possa iniciar sessão no domínio gerido pelo Azure AD DS.
 * Um hospedeiro Azure Bastion implantado na sua rede virtual Azure AD DS.
     * Se necessário, [crie um anfitrião do Bastião Azure.][azure-bastion]
@@ -153,7 +153,7 @@ Com o VM criado e uma ligação RDP baseada na web estabelecida usando o Azure B
 
     ![Especificar o domínio gerido pela AD DS azure para aderir](./media/join-windows-vm/join-domain.png)
 
-1. Introduza credenciais de domínio para se juntar ao domínio. Utilize as credenciais para um utilizador que pertença ao grupo de *administradores da AD DC azure.* Apenas membros deste grupo têm privilégios de se juntar às máquinas ao domínio gerido pela AD DS azure. A conta deve fazer parte do domínio gerido pela Azure AD DS ou pelo inquilino Azure AD - contas de diretórios externos associados ao seu inquilino Azure AD não podem autenticar corretamente durante o processo de união de domínios. As credenciais de conta podem ser especificadas de uma das seguintes formas:
+1. Introduza credenciais de domínio para se juntar ao domínio. Utilize as credenciais para um utilizador que faz parte do domínio gerido pelo Azure AD DS. A conta deve fazer parte do domínio gerido pela Azure AD DS ou pelo inquilino Azure AD - contas de diretórios externos associados ao seu inquilino Azure AD não podem autenticar corretamente durante o processo de união de domínios. As credenciais de conta podem ser especificadas de uma das seguintes formas:
 
     * **Formato UPN** (recomendado) - Introduza o sufixo principal do utilizador (UPN) para a conta de utilizador, tal como configurado em Azure AD. Por exemplo, o sufixo UPN do utilizador de *contosoadmina* seria `contosoadmin@aaddscontoso.onmicrosoft.com`. Existem alguns casos comuns de utilização em que o formato UPN pode ser usado de forma fiável para iniciar sessão no domínio em vez do formato *SAMAccountName:*
         * Se o prefixo UPN de um utilizador for longo, como o *nome deehasareallylongname,* o *Nome SAMAccount pode* ser autogerado.
@@ -169,7 +169,7 @@ Com o VM criado e uma ligação RDP baseada na web estabelecida usando o Azure B
 1. Para completar o processo para aderir ao domínio gerido pela AD DS Azure, reinicie o VM.
 
 > [!TIP]
-> Pode juntar-se a um VM utilizando o PowerShell com o cmdlet [add-computer.][add-computer] O exemplo seguinte junta-se ao domínio *AADDSCONTOSO* e, em seguida, reinicia o VM. Quando solicitado, insira as credenciais para um utilizador que pertença ao grupo de *administradores da AD DC do Azure:*
+> Pode juntar-se a um VM utilizando o PowerShell com o cmdlet [add-computer.][add-computer] O exemplo seguinte junta-se ao domínio *AADDSCONTOSO* e, em seguida, reinicia o VM. Quando solicitado, introduza as credenciais para um utilizador que faça parte do domínio gerido pelo Azure AD DS:
 >
 > `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
@@ -218,7 +218,7 @@ Se receber uma solicitação que pede credenciais para aderir ao domínio, mas d
 
 Depois de experimentar cada uma destas etapas de resolução de problemas, tente juntar-se ao VM do Windows Server novamente para o domínio gerido.
 
-* Certifique-se de que a conta de utilizador que especifica pertence ao grupo de *administradores da AAD DC.*
+* Certifique-se de que a conta de utilizador que especifica pertence ao domínio gerido pelo Azure AD DS.
 * Confirme que a conta faz parte do domínio gerido pela Azure AD DS ou pelo inquilino azure AD. As contas de diretórios externos associados ao seu inquilino Azure AD não podem autenticar corretamente durante o processo de união de domínios.
 * Tente utilizar o formato UPN para especificar credenciais, como `contosoadmin@aaddscontoso.onmicrosoft.com`. Se houver muitos utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo, o *Nome SAMAccount para* a sua conta pode ser autogerado. Nestes casos, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
 * Verifique se permitiu a sincronização da [palavra-passe][password-sync] no seu domínio gerido. Sem este passo de configuração, as hashes de senha necessárias não estarão presentes no domínio gerido pelo Azure AD DS para autenticar corretamente o seu sinal na tentativa.

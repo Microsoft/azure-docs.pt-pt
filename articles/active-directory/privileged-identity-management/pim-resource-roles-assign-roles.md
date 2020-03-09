@@ -1,6 +1,6 @@
 ---
-title: Atribuir funções de recurso do Azure no Privileged Identity Management-Azure Active Directory | Microsoft Docs
-description: Saiba como atribuir funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
+title: Atribuir funções de recurso Azure na Gestão privilegiada de Identidade - Diretório Ativo Azure [ Azure Ative Diretório ] Microsoft Docs
+description: Saiba como atribuir funções de recurso Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,115 +16,115 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895949"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375424"
 ---
-# <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Atribuir funções de recurso do Azure no Privileged Identity Management
+# <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Atribuir funções de recurso Azure na Gestão de Identidade Privilegiada
 
-O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pode gerenciar as funções de recurso internas do Azure, bem como as funções personalizadas, incluindo (mas não se limitando a):
+O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) pode gerir as funções de recurso Azure incorporado, bem como funções personalizadas, incluindo (mas não se limitando a):
 
 - Proprietário
 - Administrador de Acesso de Utilizador
 - Contribuinte
 - Administrador de Segurança
-- Gerenciador de segurança
+- Gestor de Segurança
 
 > [!NOTE]
-> Os usuários ou membros de um grupo atribuído ao proprietário ou às funções de assinatura do administrador de acesso do usuário e aos administradores globais do Azure AD que habilitam o gerenciamento de assinaturas no Azure AD têm permissões de administrador de recursos por padrão. Esses administradores podem atribuir funções, definir configurações de função e revisar o acesso usando Privileged Identity Management para recursos do Azure. Um usuário não pode gerenciar Privileged Identity Management para recursos sem permissões de administrador de recursos. Exiba a lista de [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+> Os utilizadores ou membros de um grupo atribuído às funções de subscrição do Proprietário ou do Administrador de Acesso ao Utilizador, e os administradores da Azure AD Global que permitem a gestão de subscrições em Azure AD têm permissões de administrador de recursos por padrão. Estes administradores podem atribuir funções, configurar definições de funções e rever o acesso utilizando a Gestão de Identidade Privilegiada para os recursos Do Azure. Um utilizador não pode gerir a Gestão de Identidade Privilegiada para Recursos sem permissões de administrador de Recursos. Veja a lista de [papéis incorporados para os recursos azure.](../../role-based-access-control/built-in-roles.md)
 
-## <a name="assign-a-role"></a>Atribuir uma função
+## <a name="assign-a-role"></a>Atribuir um papel
 
-Siga estas etapas para tornar um usuário qualificado para uma função de recurso do Azure.
+Siga estes passos para tornar um utilizador elegível para uma função de recurso Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que seja membro da função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que seja membro do papel de [administrador privilegiado.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-    Para obter informações sobre como conceder a outro administrador acesso para gerenciar Privileged Identity Management, consulte [conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    Para obter informações sobre como conceder a outro administrador acesso para gerir a Gestão de Identidade Privilegiada, consulte o [acesso de Grant a outros administradores para gerir a Gestão de Identidade Privilegiada.](pim-how-to-give-access-to-pim.md)
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **recursos do Azure**.
+1. Selecione **recursos Azure**.
 
-1. Use o **filtro de recursos** para filtrar a lista de recursos gerenciados.
+1. Utilize o **filtro Derecurso** para filtrar a lista de recursos geridos.
 
-    ![Lista de recursos do Azure a serem gerenciados](./media/pim-resource-roles-assign-roles/resources-list.png)
+    ![Lista de recursos azure para gerir](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Selecione o recurso que você deseja gerenciar, como uma assinatura ou grupo de gerenciamento.
+1. Selecione o recurso que pretende gerir, como uma subscrição ou grupo de gestão.
 
-1. Em gerenciar, selecione **funções** para ver a lista de funções para recursos do Azure.
+1. Em Manage, selecione **Roles** para ver a lista de funções para os recursos Azure.
 
-    ![Funções de recursos do Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
+    ![Funções de recursos azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. Selecione **Adicionar membro** para abrir o painel nova atribuição.
+1. **Selecione Adicionar membro** para abrir o novo painel de atribuição.
 
-1. Selecione **selecionar uma função** para abrir o painel Selecionar uma função.
+1. **Selecione Selecione uma função** para abrir o painel de funções Select.
 
-    ![Painel de nova atribuição](./media/pim-resource-roles-assign-roles/resources-select-role.png)
+    ![Novo painel de atribuição](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Selecione uma função que você deseja atribuir e clique em **selecionar**.
+1. Selecione uma função que pretende atribuir e, em seguida, clique em **Selecionar**.
 
-    O painel Selecionar um membro ou grupo é aberto.
+    Abre-se um painel de membro ou grupo.
 
-1. Selecione um membro ou grupo que você deseja atribuir à função e, em seguida, clique em **selecionar**.
+1. Selecione um membro ou grupo que deseja atribuir à função e, em seguida, clique em **Selecionar**.
 
-    ![Selecionar um membro ou um painel de grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
+    ![Selecione um painel de membro ou grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-    O painel configurações de associação é aberto.
+    O painel de definições de Membro abre.
 
-1. Na lista **tipo de atribuição** , selecione **qualificado** ou **ativo**.
+1. Na lista do **tipo de Atribuição,** selecione **Elegível** ou **Ativo**.
 
-    ![Painel de configurações de associações](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
+    ![Painel de definições de membros](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
-    Privileged Identity Management para recursos do Azure fornece dois tipos distintos de atribuição:
+    A Gestão privilegiada de Identidade dos recursos Azure fornece dois tipos distintos de atribuição:
 
-    - Atribuições **qualificadas** exigem que o membro da função execute uma ação para usar a função. As ações podem incluir a execução de uma verificação de MFA (autenticação multifator), o fornecimento de uma justificativa de negócios ou a solicitação de aprovação de aprovadores designados.
+    - As atribuições **elegíveis** exigem que o membro do papel execute uma ação para utilizar o papel. As ações podem incluir a realização de um controlo de autenticação multifactor (MFA), o fornecimento de uma justificação de negócio, ou o pedido de aprovação dos aprovadores designados.
 
-    - As atribuições **ativas** não exigem que o membro execute qualquer ação para usar a função. Os membros atribuídos como ativos têm os privilégios atribuídos à função em todos os momentos.
+    - As atribuições **ativas** não requerem que o membro execute qualquer ação para usar o papel. Os membros designados como ativos têm sempre os privilégios atribuídos ao papel.
 
-1. Se a atribuição deve ser permanente (permanentemente qualificada ou permanentemente atribuída), marque a caixa de seleção **permanentemente** .
+1. Se a atribuição for permanente (permanentemente elegível ou permanentemente atribuída), selecione a caixa de verificação **Permanente.**
 
-    Dependendo das configurações de função, a caixa de seleção pode não aparecer ou pode não ser modificável.
+    Dependendo das definições de função, a caixa de verificação pode não aparecer ou pode ser inmodificável.
 
-1. Para especificar uma duração de atribuição específica, desmarque a caixa de seleção e modifique as caixas de data e hora de início e/ou término.
+1. Para especificar uma duração específica da atribuição, limpe a caixa de verificação e modifique as caixas de data e hora de início e/ou fim.
 
-    ![Configurações de associações-data e hora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+    ![Definições de membros - data e hora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
 
-1. Quando terminar, selecione **concluído**.
+1. Quando terminar, selecione **Done**.
 
-    ![Nova atribuição-adicionar](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+    ![Nova atribuição - Adicionar](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
-1. Para criar a nova atribuição de função, selecione **Adicionar**. Uma notificação do status é exibida.
+1. Para criar a nova atribuição de funções, selecione **Adicionar**. É apresentada uma notificação do estado.
 
-    ![Nova atribuição-notificação](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+    ![Nova atribuição - Notificação](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
-## <a name="update-or-remove-an-existing-role-assignment"></a>Atualizar ou remover uma atribuição de função existente
+## <a name="update-or-remove-an-existing-role-assignment"></a>Atualizar ou remover uma atribuição de funções existente
 
-Siga estas etapas para atualizar ou remover uma atribuição de função existente.
+Siga estes passos para atualizar ou remover uma atribuição de funções existente.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **recursos do Azure**.
+1. Selecione **recursos Azure**.
 
-1. Selecione o recurso que você deseja gerenciar, como uma assinatura ou grupo de gerenciamento.
+1. Selecione o recurso que pretende gerir, como uma subscrição ou grupo de gestão.
 
-1. Em gerenciar, selecione **funções** para ver a lista de funções para recursos do Azure.
+1. Em Manage, selecione **Roles** para ver a lista de funções para os recursos Azure.
 
-    ![Funções de recurso do Azure – selecionar função](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
+    ![Funções de recurso Azure - Função selecione](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 
-1. Selecione a função que você deseja atualizar ou remover.
+1. Selecione a função que pretende atualizar ou remover.
 
-1. Localize a atribuição de função nas guias **funções qualificadas** ou **funções ativas** .
+1. Encontre a atribuição de funções nas **funções elegíveis** ou nos separadores de **funções ativas.**
 
-    ![Atualizar ou remover atribuição de função](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+    ![Atualizar ou remover a atribuição de funções](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
 
-1. Selecione **Atualizar** ou **remover** para atualizar ou remover a atribuição de função.
+1. Selecione **Atualizar** ou **Remover** para atualizar ou remover a atribuição de funções.
 
-    Para obter informações sobre como estender uma atribuição de função, consulte [estender ou renovar funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-renew-extend.md).
+    Para obter informações sobre o alargamento de uma atribuição de funções, consulte Extend ou renovar funções de [recurso Azure na Gestão de Identidade Privilegiada.](pim-resource-roles-renew-extend.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Estender ou renovar funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-renew-extend.md)
-- [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
-- [Atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
+- [Alargar ou renovar funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
+- [Configure definições de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
+- [Atribuir funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)

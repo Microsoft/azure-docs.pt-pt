@@ -1,6 +1,6 @@
 ---
-title: Notas de versão do StorSimple 8000 Series Update 4 | Documentos da Microsoft
-description: Descreve os novos recursos, problemas e soluções alternativas para StorSimple 8000 Series Update 4.
+title: Notas de lançamento da Série StorSimple 8000 Update 4 Microsoft Docs
+description: Descreve as novas funcionalidades, problemas e soluções para o StorSimple 8000 Series Update 4.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,80 +15,80 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698646"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394574"
 ---
-# <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de versão do StorSimple 8000 Series Update 4
+# <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de lançamento da Série 4 storSimple 8000
 
 ## <a name="overview"></a>Descrição geral
 
-As notas de versão seguintes descrevem os novos recursos e identificar os problemas em aberto críticos para a StorSimple 8000 Series Update 4. Também contêm uma lista das atualizações de software StorSimple incluídos nesta versão. 
+As seguintes notas de lançamento descrevem as novas funcionalidades e identificam as questões críticas em aberto para o StorSimple 8000 Series Update 4. Também contêm uma lista das atualizações de software StorSimple incluídas nesta versão. 
 
-Atualização 4 pode ser aplicada a todos os dispositivos StorSimple com o lançamento (GA) ou atualização 0.1 por meio de atualização 3.1. A versão de dispositivo associada a atualização 4 é 6.3.9600.17820.
+A atualização 4 pode ser aplicada a qualquer dispositivo StorSimple que execute o Lançamento (GA) ou o Update 0.1 através do Update 3.1. A versão do dispositivo associada ao Update 4 é de 6.3.9600.17820.
 
-Reveja as informações contidas nas notas de versão antes de implementar a atualização na sua solução StorSimple.
+Por favor, reveja as informações contidas nas notas de lançamento antes de implementar a atualização na sua solução StorSimple.
 
 > [!IMPORTANT]
-> * A atualização 4 tem o software de dispositivos, USM de firmware, controladores de LSI e firmware, firmware do disco, Storport e Spaceport, segurança e outras atualizações de SO. Demora cerca de quatro horas para instalar esta atualização. Atualização de firmware do disco é uma atualização disruptivas e resulta num período de indisponibilidade para o seu dispositivo. Recomendamos que aplique a atualização 4 para manter o seu dispositivo atualizado. 
-> * Para novas versões, poderá não ver atualizações imediatamente porque fazemos uma implementação faseada de atualizações. Aguarde alguns dias e, em seguida, análise para atualizações novamente como estes ficarão disponível em breve.
+> * O Update 4 tem software de dispositivos, firmware USM, controlador LSI e firmware, firmware de disco, Storport e Spaceport, segurança e outras atualizações de SO. Demora aproximadamente 4 horas a instalar esta atualização. A atualização do firmware do disco é uma atualização disruptiva e resulta numa paragem para o seu dispositivo. Recomendamos que aplique o Update 4 para manter o seu dispositivo atualizado. 
+> * Para novos lançamentos, pode não ver as atualizações imediatamente porque fazemos um lançamento faseado das atualizações. Aguarde alguns dias e, em seguida, procure novamente as atualizações, uma vez que estas estarão disponíveis em breve.
 
-## <a name="whats-new-in-update-4"></a>O que há de novo na atualização 4
+## <a name="whats-new-in-update-4"></a>Novidades na Atualização 4
 
-Foram efetuadas as seguintes principais melhoramentos e correções de erros na atualização 4.
+As seguintes melhorias de teclas e correções de erros foram feitas no Update 4.
 
-* **Mais inteligentes de algoritmos de recuperação de espaço automatizada** – na atualização 4, a recuperação de espaço automatizada algoritmos estão otimizados para ajustar os ciclos de recuperação de espaço com base no espaço reclaimed esperado disponível na cloud. 
+* **Algoritmos** de recuperação de espaço automatizados mais inteligentes – No Update 4, os algoritmos automatizados de recuperação de espaço são melhorados para ajustar os ciclos de recuperação do espaço com base no espaço recuperado esperado disponível na nuvem. 
 
-* **Melhorias de desempenho para volumes afixados localmente** – atualização 4 melhorou o desempenho de volumes localmente afixados em cenários que têm a ingestão de dados de elevado (comparáveis ao tamanho do volume de dados).
+* **Melhorias de desempenho para volumes fixados localmente** – A Atualização 4 melhorou o desempenho de volumes fixados localmente em cenários com elevada ingestão de dados (dados comparáveis ao tamanho do volume).
 
-* **Restauro baseada em mapa térmico** -nas versões anteriores, seguindo uma recuperação após desastre (DR), os dados foi restaurados da cloud com base nos padrões de acesso, resultando num desempenho lento. 
+* **Restauro baseado em mapas de calor** - Nos lançamentos anteriores, após uma recuperação de desastres (DR), os dados foram restaurados da nuvem com base nos padrões de acesso que resultaram num desempenho lento. 
 
-    Um novo recurso está implementado na atualização 4 que roteiros dados acedidos com frequência para criar um mapa térmico quando o dispositivo está a ser utilizada antes de DR (segmentos de dados mais utilizados tem térmico elevado, ao passo que o menor utilizado segmentos ter térmico baixo). Depois de DR, o StorSimple utiliza o mapa térmico para restaurar e os dados da cloud de reidratação automaticamente. 
+    Uma nova funcionalidade é implementada no Update 4 que rastreia dados frequentemente acedidos para criar um mapa de calor quando o dispositivo está em uso antes de DR (a maioria dos pedaços de dados usados têm calor elevado, enquanto os pedaços menos utilizados têm baixo calor). Depois de DR, o StorSimple utiliza o mapa de calor para restaurar e hidratar automaticamente os dados da nuvem. 
 
-    Todas as restaurações estão agora restaurações de mapa térmico com base. Para obter mais informações sobre como consultar e cancelar tarefas de restauro e a reidratação de mapa térmico com base, aceda a [Windows PowerShell para StorSimple referência de cmdlet](https://technet.microsoft.com/library/dn688168.aspx).
+    Todos os restauros são agora restaurados baseados em mapa térmico. Para obter mais informações sobre como consultar e cancelar trabalhos de restauro e reidratação baseados em mapas de calor, vá ao [Windows PowerShell para referência storSimple cmdlet](https://technet.microsoft.com/library/dn688168.aspx).
 
-* **A ferramenta Diagnósticos de StorSimple** – na atualização 4, uma ferramenta de diagnóstico do StorSimple está a ser lançado para permitir a fácil diagnosticar e resolução de problemas dos problemas relacionados com o estado de funcionamento de componente do sistema, rede, desempenho e hardware. Esta ferramenta é executada através do Windows PowerShell para StorSimple. Para obter mais informações, aceda a [resolver problemas com a ferramenta Diagnósticos de StorSimple](storsimple-8000-diagnostics.md).
+* **Ferramenta StorSimple Diagnostics** – No Update 4, está a ser lançada uma ferramenta StorSimple Diagnostics para permitir um diagnóstico fácil e resolução de problemas relacionados com a saúde do sistema, rede, desempenho e componente de hardware. Esta ferramenta é executada através do Windows PowerShell para storSimple. Para mais informações, vá a problemas utilizando a [ferramenta StorSimple Diagnostics](storsimple-8000-diagnostics.md).
 
-* **Ferramenta de migração do StorSimple baseada em interface do Usuário** -antes desta versão, a migração de dados da 5000-7000 série necessários os utilizadores executar uma parte do fluxo de trabalho de migração através da interface do PowerShell do Azure. Nesta versão, uma ferramenta de migração de StorSimple baseada em interface do Usuário fácil de usar é disponibilizada para o suporte facilitar o mesmo fluxo de trabalho de migração. Essa ferramenta também permitem a consolidação de buckets de recuperação. 
+* **Ferramenta de migração StorSimple** baseada na UI - Antes desta versão, a migração de dados da série 5000-7000 exigiu que os utilizadores executassem uma parte do fluxo de trabalho migratório utilizando a interface Azure PowerShell. Nesta versão, uma ferramenta de migração StorSimple baseada em UI é disponibilizada para suporte para facilitar o mesmo fluxo de trabalho migratório. Esta ferramenta também permitiria a consolidação de baldes de recuperação. 
 
-* **Alterações relacionadas com a FIPS** – esta versão e posteriores, FIPS está ativado por predefinição em todos os dispositivos de série 8000 do StorSimple para o Microsoft Azure Government e o Azure público contas da cloud.
+* **Alterações relacionadas com** o FIPS - Esta versão, O FIPS é ativado por padrão em todos os dispositivos da série StorSimple 8000 tanto para o Governo do Microsoft Azure como para as contas de nuvem pública Azure.
 
-* **Atualizar alterações** -nesta versão, tem sido corrigidos erros relacionados com falhas de atualização.
+* **Alterações na atualização** - Neste lançamento, foram corrigidos os bugs relacionados com falhas de atualização.
 
-* **Alerta de falhas de disco** -um novo alerta que avisa o usuário de falhas de disco iminentes é adicionado nesta versão. Se encontrar este alerta, entre em contato com Support da Microsoft para enviar um disco de substituição. Para obter mais informações, aceda a [alertas de hardware no dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
+* **Alerta para falhas** no disco - Um novo alerta que avisa o utilizador de falhas iminentes do disco é adicionado nesta versão. Se encontrar este alerta, contacte o Microsoft Support para enviar um disco de substituição. Para mais informações, vá a alertas de [hardware no seu dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
-* **Alterações de substituição de controlador** -um cmdlet que permita ao usuário consultar o estado do processo de substituição de controlador é adicionado nesta versão. Para obter mais informações, vá para o [cmdlet para o estado de substituição de controlador de consulta](https://technet.microsoft.com/library/dn688168.aspx).
+* **Alterações** de substituição do controlador - Um cmdlet que permite ao utilizador consultar o estado do processo de substituição do controlador é adicionado nesta versão. Para mais informações, vá ao [cmdlet para consulta o estado](https://technet.microsoft.com/library/dn688168.aspx)de substituição do controlador .
 
 
-## <a name="issues-fixed-in-update-4"></a>Problemas corrigidos na atualização 4
+## <a name="issues-fixed-in-update-4"></a>Problemas corrigidos na Atualização 4
 
-A tabela seguinte fornece um resumo dos problemas que foram corrigidas na atualização 4.    
+A tabela seguinte apresenta um resumo das questões que foram corrigidas na Atualização 4.    
 
-| Não | Funcionalidade | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Não | Funcionalidade | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivovirtual |
 | --- | --- | --- | --- | --- |
-| 1 |Ativação pós-falha |Na versão anterior, após a ativação pós-falha, Ocorreu um problema relacionado com a limpeza observada no site do cliente. Este problema é corrigido nesta versão. |Sim |Sim |
-| 2 |volumes afixados localmente |Na versão anterior, Ocorreu um problema para a criação do volume relacionados para volumes afixados localmente que iria resultar em falhas de criação do volume. Este problema foi causado de raiz e corrigido nesta versão. |Sim |Não |
-| 3 |Pacote de suporte |Na versão anterior, ocorreram problemas relacionados com o pacote de suporte que resultaria numa exceção de System.OutOfMemory ou outros erros, resultando numa falha de criação do pacote de suporte. Esses bugs são corrigidos nesta versão. |Sim |Sim |
-| 4 |Monitorização |Na versão anterior, existe um problema relacionado à monitorização localmente os gráficos para volumes afixados em que o consumo foi mostrado na EB. Esse bug foi resolvido nesta versão. |Sim |Sim |
-| 5 |Migração |Na versão anterior, havia várias questões relacionadas à confiabilidade de migração da 5000-7000 série aos dispositivos da 8000 série. Esses problemas foram solucionados nesta versão. |Sim |Sim |
-| 6 |Atualizar |Em versões anteriores, se tiver ocorrido uma falha de atualização, os controladores deveria Ir para o modo de recuperação e, por conseguinte, o utilizador não foi possível continuar com a atualização e será necessário entrar em contacto Support da Microsoft. <br> Esse comportamento foi alterado nesta versão. Se o utilizador tiver uma falha de atualização depois dos dois controladores estiverem a executar a mesma versão (atualização 4), os controladores não entram em modo de recuperação. Se o usuário o perceba desta falha, recomendamos que aguarde um pouco e, em seguida, repita a atualização. A repetição pode ter êxito. Se a nova tentativa falhar, em seguida, deverá contactar o Support da Microsoft. |Sim |Sim |
+| 1 |Ativação pós-falha |No comunicado anterior, após o failover, houve um problema relacionado com a limpeza observada no site do cliente. Esta questão está corrigida nesta versão. |Sim |Sim |
+| 2 |volumes afixados localmente |No lançamento anterior, havia uma questão de criação de volume relacionada para volumes fixados localmente que resultariam em falhas de criação de volume. Esta questão foi causada e corrigida nesta libertação. |Sim |Não |
+| 3 |Pacote de apoio |No lançamento anterior, existiam problemas relacionados com o pacote de Suporte que resultariam numa exceção system.OutOfMemory ou outros erros que resultaram numa falha na criação de pacotes de suporte. Estes insetos estão fixos nesta libertação. |Sim |Sim |
+| 4 |Monitorização |Em versão anterior, existe uma questão relacionada com gráficos de monitorização para volumes fixados localmente onde o consumo foi mostrado no EB. Este bug está resolvido nesta libertação. |Sim |Sim |
+| 5 |Migração |Em lançamentos anteriores, houve vários problemas relacionados com a fiabilidade da migração de 5000-7000 dispositivos da série para 8000 dispositivos da série. Estas questões foram abordadas nesta versão. |Sim |Sim |
+| 6 |Atualizar |Em lançamentos anteriores, se houvesse uma falha de atualização, os controladores entrariam em modo de recuperação e, portanto, o utilizador não poderia avançar com a atualização e teria de contactar o Microsoft Support. <br> Este comportamento foi alterado nesta libertação. Se o utilizador tiver uma falha de atualização depois de ambos os controladores estarem a executar a mesma versão (Update 4), os controladores não entram no modo de recuperação. Se o utilizador encontrar esta falha, recomendamos que aguardem um pouco e, em seguida, voltem a tentar a atualização. A retentativa pode ter sucesso. Se a retentativa falhar, deverá contactar o Microsoft Support. |Sim |Sim |
 
 
-## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemas conhecidos na atualização 4 de versões anteriores
+## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemas conhecidos no Update 4 de lançamentos anteriores
 
-Não existem não existem problemas conhecidos de novo na atualização 4. Para obter uma lista dos problemas transferidas para a atualização 4 de versões anteriores, aceda a [notas de versão de atualização 3](storsimple-update3-release-notes.md#known-issues-in-update-3).
+Não há novos problemas conhecidos na Atualização 4. Para obter uma lista de problemas transportados para a Atualização 4 a partir de lançamentos anteriores, vá a notas de [lançamento do Update 3](storsimple-update3-release-notes.md#known-issues-in-update-3).
 
-## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-4"></a>Ligação série SCSI (SAS) controlador e atualizações de firmware na atualização 4
+## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-4"></a>As atualizações do controlador SCSI (SAS) e do firmware em série na Atualização 4
 
-Esta versão tem o controlador SAS e atualizações de controladores e firmware LSI. Para obter mais informações sobre como instalar estas atualizações, consulte [instalar a atualização 4](storsimple-install-update-4.md) no dispositivo StorSimple.
+Esta versão tem o controlador SAS e as atualizações de controlador LSI e firmware. Para obter mais informações sobre como instalar estas atualizações, consulte [a instalação do Update 4](storsimple-install-update-4.md) no seu dispositivo StorSimple.
 
-## <a name="virtual-device-updates-in-update-4"></a>Atualizações do dispositivo virtual na atualização 4
+## <a name="virtual-device-updates-in-update-4"></a>Atualizações de dispositivos virtuais no Update 4
 
-Esta atualização não é possível aplicar a StorSimple Cloud Appliance (também conhecido como o dispositivo virtual). Novos dispositivos virtual tem de ser criado. 
+Esta atualização não pode ser aplicada ao StorSimple Cloud Appliance (também conhecido como dispositivo virtual). Serão necessários novos dispositivos virtuais. 
 
 ## <a name="next-step"></a>Passo seguinte
 
-Saiba como [instalar a atualização 4](storsimple-install-update-4.md) no dispositivo StorSimple.
+Saiba como instalar o [Update 4](storsimple-install-update-4.md) no seu dispositivo StorSimple.
 

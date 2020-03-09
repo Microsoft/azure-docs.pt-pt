@@ -1,55 +1,55 @@
 ---
-title: Solucionar problemas de cache do Azure para tempos limite do Redis
-description: Saiba como resolver problemas comuns de tempo limite com o cache do Azure para Redis, como a aplicação de patches do Redis Server e as exceções de tempo limite de StackExchange. Redis.
+title: Troubleshoot Azure Cache para intervalos de tempo redis
+description: Saiba como resolver problemas de tempo comum com o Azure Cache para Redis, tais como patching de servidor redis e exceções de tempo de timeout StackExchange.Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412078"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357454"
 ---
-# <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solucionar problemas de cache do Azure para tempos limite do Redis
+# <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Troubleshoot Azure Cache para intervalos de tempo redis
 
-Esta seção aborda a solução de problemas de tempo limite que ocorrem durante a conexão com o cache do Azure para Redis.
+Esta secção discute problemas de resolução de tempo de resolução de problemas que ocorrem quando se conecta a Azure Cache for Redis.
 
-- [Aplicação de patch do servidor Redis](#redis-server-patching)
-- [Exceções de tempo limite de StackExchange. Redis](#stackexchangeredis-timeout-exceptions)
+- [Remendar servidor Redis](#redis-server-patching)
+- [StackExchange.Redis exceções ao intervalo](#stackexchangeredis-timeout-exceptions)
 
 > [!NOTE]
-> Várias das etapas de solução de problemas neste guia incluem instruções para executar comandos do Redis e monitorar várias métricas de desempenho. Para obter mais informações e instruções, consulte os artigos na seção [informações adicionais](#additional-information) .
+> Várias das etapas de resolução de problemas neste guia incluem instruções para executar comandos Redis e monitorizar várias métricas de desempenho. Para mais informações e instruções, consulte os artigos na secção [informação adicional.](#additional-information)
 >
 
-## <a name="redis-server-patching"></a>Aplicação de patch do servidor Redis
+## <a name="redis-server-patching"></a>Remendar servidor Redis
 
-O cache do Azure para Redis atualiza regularmente seu software de servidor como parte da funcionalidade de serviço gerenciado que ele fornece. Essa atividade de [aplicação de patch](cache-failover.md) ocorre em grande parte por trás da cena. Durante os failovers quando os nós de servidor Redis estão sendo corrigidos, os clientes Redis conectados a esses nós podem experimentar tempos limite temporários conforme as conexões são alternadas entre esses nós. Veja [como um failover afeta meu aplicativo cliente](cache-failover.md#how-does-a-failover-affect-my-client-application) para obter mais informações sobre quais patches de efeitos colaterais podem ter em seu aplicativo e como você pode melhorar sua manipulação de eventos de aplicação de patches.
+O Azure Cache para redis atualiza regularmente o seu software de servidor como parte da funcionalidade de serviço gerida que fornece. Esta atividade de [remendos](cache-failover.md) ocorre em grande parte por detrás do local. Durante as falhas quando os nós do servidor Redis estão a ser remendados, os clientes Redis ligados a estes nós podem experimentar intervalos temporários à medida que as ligações são trocadas entre estes nós. Veja [como uma falha afeta o meu pedido](cache-failover.md#how-does-a-failover-affect-my-client-application) de cliente para obter mais informações sobre quais os efeitos colaterais que a correção pode ter na sua aplicação e como pode melhorar o seu tratamento de eventos de remendos.
 
-## <a name="stackexchangeredis-timeout-exceptions"></a>Exceções de tempo limite de StackExchange. Redis
+## <a name="stackexchangeredis-timeout-exceptions"></a>StackExchange.Redis exceções ao intervalo
 
-StackExchange. Redis usa um parâmetro de configuração chamado `synctimeout` para operações síncronas com um valor padrão de 1000 MS. Se uma chamada síncrona não for concluída neste momento, o cliente StackExchange. Redis gera um erro de tempo limite semelhante ao exemplo a seguir:
+StackExchange.Redis usa uma definição de configuração chamada `synctimeout` para operações sincronizadas com um valor padrão de 1000 ms. Se uma chamada sincronizada não estiver concluída neste período, o cliente StackExchange.Redis lança um erro de tempo semelhante ao seguinte exemplo:
 
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
 
-Essa mensagem de erro contém métricas que podem ajudar a indicar a causa e a possível resolução do problema. A tabela a seguir contém detalhes sobre as métricas de mensagem de erro.
+Esta mensagem de erro contém métricas que podem ajudar a apontá-lo para a causa e possível resolução do problema. A tabela seguinte contém detalhes sobre as métricas da mensagem de erro.
 
 | Métrica da mensagem de erro | Detalhes |
 | --- | --- |
-| Inst |Na última fração de tempo: 0 comandos foram emitidos |
-| Manager |O Gerenciador de soquete está fazendo `socket.select`, o que significa que ele está solicitando que o sistema operacional indique um soquete que tenha algo a fazer. O leitor não está lendo ativamente da rede porque não parece que há algo a fazer |
-| fila |Há 73 operações em andamento no total |
-| qu |6 das operações em andamento estão na fila não enviada e ainda não foram gravadas na rede de saída |
-| qs |67 das operações em andamento foram enviadas para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
-| qc |0 das operações em andamento viram respostas, mas ainda não foram marcadas como concluídas porque estão aguardando o loop de conclusão |
-| WR |Há um gravador ativo (o que significa que as 6 solicitações não enviadas não estão sendo ignoradas) bytes/activewriters |
-| no |Não há leitores ativos e zero bytes disponíveis para serem lidos na NIC bytes/activereaders |
+| inst |Na última fatia: 0 comandos foram emitidos |
+| mgr |O gerente da tomada está a fazer `socket.select`, o que significa que está a pedir ao SO que indique uma tomada que tenha algo a ver. O leitor não está a ler ativamente da rede porque acha que não há nada a fazer. |
+| fila |Há 73 operações totais em curso |
+| qu |6 das operações em curso estão na fila não enviada e ainda não foram escritas para a rede de saída |
+| qs |67 das operações em curso foram enviadas para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
+| qc |0 das operações em curso viram respostas, mas ainda não foram marcadas como completas porque estão à espera do ciclo de conclusão |
+| wr |Há um escritor ativo (o que significa que os 6 pedidos não enviados não estão a ser ignorados) bytes/activewriters |
+| no |Não existem leitores ativos e zero bytes estão disponíveis para serem lidos nos bytes/leitores ativos da NIC |
 
-Você pode usar as etapas a seguir para investigar possíveis causas raiz.
+Pode usar os seguintes passos para investigar possíveis causas de raiz.
 
-1. Como prática recomendada, verifique se você está usando o padrão a seguir para se conectar ao usar o cliente StackExchange. Redis.
+1. Como uma boa prática, certifique-se de que está a usar o seguinte padrão para se conectar ao utilizar o cliente StackExchange.Redis.
 
     ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -67,26 +67,26 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
     }
     ```
 
-    Para obter mais informações, consulte [conectar-se ao cache usando stackexchange. Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+    Para mais informações, consulte [Connect to the cache utilizando StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
-1. Verifique se o servidor e o aplicativo cliente estão na mesma região no Azure. Por exemplo, você pode estar recebendo tempos limite quando o cache está no leste dos EUA, mas o cliente está no oeste dos EUA e a solicitação não é concluída dentro do intervalo de `synctimeout` ou você pode estar recebendo tempos limite quando estiver Depurando de seu computador de desenvolvimento local. 
+1. Certifique-se de que o seu servidor e a aplicação do cliente estão na mesma região do Azure. Por exemplo, você pode estar recebendo intervalos quando o seu cache está no Leste dos EUA, mas o cliente está no Oeste dos EUA e o pedido não completa dentro do intervalo `synctimeout` ou você pode estar recebendo intervalos quando você está depurando da sua máquina de desenvolvimento local. 
 
-    É altamente recomendável ter o cache e no cliente na mesma região do Azure. Se você tiver um cenário que inclui chamadas entre regiões, defina o intervalo de `synctimeout` como um valor maior que o intervalo de 1000-MS padrão, incluindo uma propriedade `synctimeout` na cadeia de conexão. O exemplo a seguir mostra um trecho de uma cadeia de conexão para StackExchange. Redis fornecido pelo cache do Azure para Redis com um `synctimeout` de 2000 MS.
+    É altamente recomendado ter a cache e no cliente na mesma região de Azure. Se tiver um cenário que inclua chamadas de região transversal, deve definir o intervalo `synctimeout` para um valor superior ao intervalo padrão de 1000 ms, incluindo uma propriedade `synctimeout` na cadeia de ligação. O exemplo seguinte mostra um corte de uma corda de ligação para StackExchange.Redis fornecida por Azure Cache para Redis com uma `synctimeout` de 2000 ms.
 
         synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
-1. Certifique-se de usar a versão mais recente do [pacote NuGet stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/). Há bugs constantemente corrigidos no código para torná-lo mais robusto a tempos limite para que a versão mais recente seja importante.
-1. Se suas solicitações estiverem vinculadas por limitações de largura de banda no servidor ou cliente, levará mais tempo para que elas sejam concluídas e poderão causar tempos limite. Para ver se o tempo limite é devido à largura de banda de rede no servidor, consulte [limitação de largura de banda do servidor](cache-troubleshoot-server.md#server-side-bandwidth-limitation). Para ver se o tempo limite é devido à largura de banda da rede do cliente, consulte [limitação de largura de banda do cliente](cache-troubleshoot-client.md#client-side-bandwidth-limitation).
-1. Você está recebendo o limite de CPU no servidor ou no cliente?
+1. Certifique-se de que utiliza a versão mais recente do [pacote StackExchange.Redis NuGet](https://www.nuget.org/packages/StackExchange.Redis/). Existem bugs constantemente a ser corrigidos no código para torná-lo mais robusto para os intervalos de tempo, pelo que ter a versão mais recente é importante.
+1. Se os seus pedidos estiverem vinculados por limitações de largura de banda no servidor ou cliente, demora mais tempo a completar e pode causar intervalos. Para ver se o seu tempo limite é devido à largura de banda da rede no servidor, consulte a [limitação da largura de banda do lado do Servidor](cache-troubleshoot-server.md#server-side-bandwidth-limitation). Para ver se o seu tempo limite é devido à largura de banda da rede do cliente, consulte a [limitação da largura de banda do lado do Cliente](cache-troubleshoot-client.md#client-side-bandwidth-limitation).
+1. Está saturado no servidor ou no cliente?
 
-   - Verifique se você está se vinculando à CPU em seu cliente. A alta CPU pode fazer com que a solicitação não seja processada dentro do intervalo de `synctimeout` e fazer com que uma solicitação expire o tempo limite. Mover para um tamanho de cliente maior ou distribuir a carga pode ajudar a controlar esse problema.
-   - Verifique se você está recebendo a CPU no servidor monitorando a métrica de [desempenho de cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)da CPU. As solicitações recebidas enquanto Redis está associada à CPU podem fazer com que essas solicitações expirem o tempo limite. Para resolver essa condição, você pode distribuir a carga entre vários fragmentos em um cache Premium ou atualizar para um tipo de preço ou tamanho maior. Para obter mais informações, consulte [limitação de largura de banda do lado do servidor](cache-troubleshoot-server.md#server-side-bandwidth-limitation).
-1. Há comandos demorando muito para serem processados no servidor? Comandos de longa execução que estão demorando muito tempo para serem processados no servidor Redis podem causar tempos limite. Para obter mais informações sobre comandos de longa execução, consulte [comandos de longa execução](cache-troubleshoot-server.md#long-running-commands). Você pode se conectar ao cache do Azure para a instância do Redis usando o cliente Redis-CLI ou o [console do Redis](cache-configure.md#redis-console). Em seguida, execute o comando [SLOWLOG](https://redis.io/commands/slowlog) para ver se há solicitações mais lentas do que o esperado. O servidor Redis e o StackExchange. Redis são otimizados para muitas solicitações pequenas, em vez de menos solicitações grandes. Dividir seus dados em partes menores pode melhorar as coisas aqui.
+   - Verifique se está a ser vinculado pela CPU ao seu cliente. A Alta CPU pode fazer com que o pedido não seja processado dentro do intervalo `synctimeout` e causar um pedido de tempo. Mudar para um tamanho maior do cliente ou distribuir a carga pode ajudar a controlar este problema.
+   - Verifique se está a ficar com cpU ligado ao servidor, monitorizando a métrica de desempenho da [cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)CPU . Os pedidos que chegam enquanto o Redis está vinculado à CPU podem fazer com que esses pedidos se estem. Para resolver esta condição, pode distribuir a carga por vários fragmentos numa cache premium, ou fazer upgrade para um tamanho maior ou um nível de preços. Para obter mais informações, consulte a [limitação da largura de banda do lado do Servidor](cache-troubleshoot-server.md#server-side-bandwidth-limitation).
+1. Há comandos que levam muito tempo a processar o servidor? Comandos de longa duração que estão a demorar muito tempo a processar no servidor redis podem causar intervalos. Para obter mais informações sobre comandos de longa duração, consulte [comandos de longa duração](cache-troubleshoot-server.md#long-running-commands). Pode ligar-se ao seu Azure Cache para a instância Redis utilizando o cliente redis-cli ou a [Consola Redis](cache-configure.md#redis-console). Em seguida, executar o comando [SLOWLOG](https://redis.io/commands/slowlog) para ver se há pedidos mais lentos do que o esperado. Redis Server e StackExchange.Redis estão otimizados para muitos pequenos pedidos em vez de menos grandes pedidos. Dividir os seus dados em pedaços menores pode melhorar as coisas aqui.
 
-    Para obter informações sobre como se conectar ao ponto de extremidade SSL do seu cache usando Redis-CLI e stunnel, consulte a postagem do blog [anunciando o provedor de estado de sessão do ASP.net para a versão de visualização do Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
-1. Alta carga do servidor Redis pode causar tempos limite. Você pode monitorar a carga do servidor monitorando a [métrica de desempenho `Redis Server Load` cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor Redis esteve ocupado, sem tempo ocioso, processando solicitações. Para ver se determinadas solicitações estão ocupando todo o recurso do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, consulte alta utilização da CPU/carga do servidor.
-1. Havia algum outro evento no lado do cliente que poderia ter causado uma Blip de rede? Os eventos comuns incluem: dimensionamento do número de instâncias do cliente para cima ou para baixo, implantação de uma nova versão do cliente ou dimensionamento automático habilitado. Em nossos testes, descobrimos que o dimensionamento automático ou o dimensionamento/redução podem fazer com que a conectividade de rede de saída seja perdida por vários segundos. O código StackExchange. Redis é resiliente a tais eventos e reconecta. Durante a reconexão, qualquer solicitação na fila pode atingir o tempo limite.
-1. Houve uma grande solicitação antes de várias pequenas solicitações ao cache que atingiram o tempo limite? O parâmetro `qs` na mensagem de erro informa quantas solicitações foram enviadas do cliente para o servidor, mas não processaram uma resposta. Esse valor pode continuar crescendo porque StackExchange. Redis usa uma única conexão TCP e só pode ler uma resposta por vez. Embora a primeira operação tenha expirado, ela não impede que mais dados sejam enviados de ou para o servidor. Outras solicitações serão bloqueadas até que a solicitação grande seja concluída e possa causar tempos limite. Uma solução é minimizar a chance de tempos limite garantindo que o cache seja grande o suficiente para sua carga de trabalho e dividindo valores grandes em partes menores. Outra solução possível é usar um pool de objetos `ConnectionMultiplexer` em seu cliente e escolher o menos carregado `ConnectionMultiplexer` ao enviar uma nova solicitação. O carregamento em vários objetos de conexão deve impedir que um tempo limite único faça com que outras solicitações também expirem o tempo limite.
-1. Se você estiver usando `RedisSessionStateProvider`, verifique se você definiu o tempo limite de repetição corretamente. `retryTimeoutInMilliseconds` deve ser maior que `operationTimeoutInMilliseconds`, caso contrário, não ocorrerá nenhuma nova tentativa. No exemplo a seguir `retryTimeoutInMilliseconds` é definido como 3000. Para obter mais informações, consulte [provedor de estado de sessão do ASP.net para o cache do Azure para Redis](cache-aspnet-session-state-provider.md) e [como usar os parâmetros de configuração do provedor de estado de sessão e do provedor de cache de saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+    Para obter informações sobre a ligação ao ponto final sSL da sua cache utilizando redis-cli e stunnel, consulte a publicação de blog anunciando ASP.NET Session State Provider para o Lançamento de [Pré-visualização redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+1. A carga do servidor Redis alta pode causar intervalos. Pode monitorizar a carga do servidor monitorizando a métrica de desempenho do [cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)`Redis Server Load` . Uma carga de servidor de 100 (valor máximo) significa que o servidor redis tem estado ocupado, sem tempo de inatividade, solicitações de processamento. Para ver se determinados pedidos estão a assumir toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para mais informações, consulte o uso de CPU elevado / Carga do Servidor.
+1. Houve algum outro evento do lado do cliente que pudesse ter causado um blip de rede? Os eventos comuns incluem: escalar o número de casos de clientes para cima ou para baixo, implementar uma nova versão do cliente, ou escala automática ativada. Nos nossos testes, descobrimos que a escala automática ou a escala para cima/para baixo pode fazer com que a conectividade da rede de saída se perca durante vários segundos. StackExchange.Redis code é resiliente a tais eventos e reconecta-se. Durante a religação, quaisquer pedidos na fila podem esgotar-se.
+1. Houve um grande pedido anterior a vários pequenos pedidos para a cache que tinha esgotado? O parâmetro `qs` na mensagem de erro diz-lhe quantos pedidos foram enviados do cliente para o servidor, mas não processou uma resposta. Este valor pode continuar a crescer porque stackExchange.Redis usa uma única ligação TCP e só consegue ler uma resposta de cada vez. Mesmo que a primeira operação tenha sido cronometrada, não impede que mais dados sejam enviados de ou para o servidor. Outros pedidos serão bloqueados até que o grande pedido esteja terminado e possam causar intervalos de tempo. Uma solução é minimizar a possibilidade de intervalos, garantindo que a sua cache é suficientemente grande para a sua carga de trabalho e dividindo grandes valores em pedaços menores. Outra solução possível é utilizar um conjunto de objetos `ConnectionMultiplexer` no seu cliente, e escolher o `ConnectionMultiplexer` menos carregado ao enviar um novo pedido. Carregar vários objetos de ligação deve evitar que um único intervalo de tempo provoque que outros pedidos também se estem.
+1. Se estiver a utilizar `RedisSessionStateProvider`, certifique-se de que definiu corretamente o tempo de reparação. `retryTimeoutInMilliseconds` devem ser superiores `operationTimeoutInMilliseconds`, caso contrário não se repitam. No exemplo que se segue, `retryTimeoutInMilliseconds` é fixado para 3000. Para mais informações, consulte [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) e Como utilizar os [parâmetros de configuração do Fornecedor de Estado de Session e fornecedor de cache](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)de saída .
 
     ```xml
     <add
@@ -103,17 +103,17 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
       retryTimeoutInMilliseconds="3000" />
     ```
 
-1. Verifique o uso de memória no cache do Azure para Redis Server [monitorando](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se uma política de remoção estiver em vigor, o Redis começará a remover chaves quando `Used_Memory` atingir o tamanho do cache. Idealmente, `Used Memory RSS` deve ser apenas um pouco maior do que `Used memory`. Uma grande diferença significa que há fragmentação de memória (interna ou externa). Quando `Used Memory RSS` é menor que `Used Memory`, isso significa que parte da memória de cache foi trocada pelo sistema operacional. Se essa troca ocorrer, você poderá esperar algumas latências significativas. Como Redis não tem controle sobre como suas alocações são mapeadas para páginas de memória, o alto `Used Memory RSS` geralmente é o resultado de um pico no uso de memória. Quando o Redis Server libera memória, o alocador pega a memória, mas pode ou não fornecer a memória de volta ao sistema. Pode haver uma discrepância entre o valor de `Used Memory` e o consumo de memória, conforme relatado pelo sistema operacional. A memória pode ter sido usada e liberada por Redis, mas não foi retornada ao sistema. Para ajudar a reduzir os problemas de memória, você pode executar as seguintes etapas:
+1. Verifique a utilização da memória no servidor Azure Cache para [redis, monitorizando](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se houver uma política de despejo, redis começa a despejar chaves quando `Used_Memory` atinge o tamanho da cache. Idealmente, `Used Memory RSS` deve ser apenas ligeiramente superior ao `Used memory`. Uma grande diferença significa que há fragmentação da memória (interna ou externa). Quando `Used Memory RSS` é inferior a `Used Memory`, significa que parte da memória da cache foi trocada pelo sistema operativo. Se esta troca ocorrer, pode esperar algumas tardios significativas. Como o Redis não tem controlo sobre como as suas dotações são mapeadas para páginas de memória, altas `Used Memory RSS` é frequentemente o resultado de um pico no uso da memória. Quando o servidor Redis liberta a memória, o alocósero tira a memória, mas pode ou não devolver a memória ao sistema. Pode haver uma discrepância entre o valor `Used Memory` e o consumo de memória, conforme relatado pelo sistema operativo. A memória pode ter sido usada e libertada por Redis, mas não devolta ao sistema. Para ajudar a mitigar problemas de memória, pode fazer os seguintes passos:
 
-   - Atualize o cache para um tamanho maior para que você não esteja executando em limitações de memória no sistema.
-   - Defina os tempos de expiração nas chaves para que os valores mais antigos sejam removidos proativamente.
-   - Monitore a métrica de cache `used_memory_rss`. Quando esse valor se aproximar do tamanho do cache, é provável que você comece a ver os problemas de desempenho. Distribua os dados entre vários fragmentos se você estiver usando um cache Premium ou atualizar para um tamanho de cache maior.
+   - Atualize a cache para um tamanho maior para que não esteja a correr contra limitações de memória no sistema.
+   - Detete os prazos de validade nas teclas de modo a que os valores mais antigos sejam despejados proactivamente.
+   - Monitorize a métrica de cache `used_memory_rss`. Quando este valor se aproxima do tamanho da sua cache, é provável que comece a ver problemas de desempenho. Distribua os dados por vários fragmentos se estiver a usar uma cache premium ou a atualizar para um tamanho de cache maior.
 
-   Para obter mais informações, consulte [pressão de memória no servidor Redis](cache-troubleshoot-server.md#memory-pressure-on-redis-server).
+   Para mais informações, consulte [a pressão da memória no servidor Redis](cache-troubleshoot-server.md#memory-pressure-on-redis-server).
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
 - [Resolver problemas do lado do cliente da Cache do Azure para Redis](cache-troubleshoot-client.md)
 - [Resolver problemas do lado do servidor da Cache do Azure para Redis](cache-troubleshoot-server.md)
-- [Como fazer o benchmark e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-- [Como monitorar o cache do Azure para Redis](cache-how-to-monitor.md)
+- [Como posso comparar e testar o desempenho da minha cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Como monitorizar o Azure Cache para redis](cache-how-to-monitor.md)

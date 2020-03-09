@@ -10,11 +10,11 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: f0367a195ca0aa5f26ff0819b00c50fabae1d271
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505843"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359580"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análise espacial IoT usando mapas azure
 
@@ -89,7 +89,7 @@ A figura que se segue representa a área geoveda realçada em azul. A rota do ve
 
 Para completar os passos neste tutorial, é necessário primeiro criar um grupo de recursos no portal Azure. Para criar um grupo de recursos, faça os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Grupos de recursos**.
     
@@ -114,7 +114,7 @@ Para implementar a lógica empresarial baseada na análise espacial do Azure Map
 
 
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Para registar os dados do evento, criaremos um **v2storage** de uso geral que fornece acesso a todos os serviços de Armazenamento Azure: blobs, ficheiros, filas, tabelas e discos.  Precisamos colocar esta conta de armazenamento no grupo de recursos "ContosoRental" para armazenar dados como bolhas. Para criar uma conta de armazenamento, siga as instruções para [criar uma conta](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)de armazenamento . Em seguida, precisamos criar um recipiente para armazenar bolhas. Siga os passos abaixo para fazê-lo:
 

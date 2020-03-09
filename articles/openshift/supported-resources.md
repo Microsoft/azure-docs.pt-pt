@@ -1,38 +1,38 @@
 ---
-title: Recursos com suporte para o Azure Red Hat OpenShift
-description: Entenda quais regiões do Azure e tamanhos de máquina virtual têm suporte Microsoft Azure Red Hat OpenShift.
+title: Recursos suportados para o OpenShift do Chapéu Vermelho Azure
+description: Entenda quais as regiões azure e tamanhos de máquinas virtuais suportados pelo Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274909"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381431"
 ---
-# <a name="azure-red-hat-openshift-resources"></a>Recursos do Azure Red Hat OpenShift
+# <a name="azure-red-hat-openshift-resources"></a>Chapéu Vermelho Azure OpenShift recursos
 
-Este tópico lista as regiões do Azure e os tamanhos de máquina virtual com suporte pelo Microsoft Azure serviço Red Hat OpenShift.
+Este tópico lista as regiões azure e tamanhos de máquinas virtuais suportados pelo serviço Microsoft Azure Red Hat OpenShift.
 
 ## <a name="azure-regions"></a>Regiões do Azure
 
-Consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) para obter uma lista atual de regiões em que você pode implantar clusters do Azure Red Hat OpenShift.
+Consulte [os produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) para uma lista atual de regiões onde pode implantar clusters OpenShift do Chapéu Vermelho Azure.
 
 ## <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais
 
-Aqui estão os tamanhos de máquina virtual com suporte que você pode especificar para os nós de computação em seu cluster do Azure Red Hat OpenShift.
+Aqui estão os tamanhos da máquina virtual suportado que pode especificar para os nós de computação no seu cluster Azure Red Hat OpenShift.
 
 > [!Important]
-> Cada VM tem um número diferente de unidades que podem ser anexadas. Isso pode não estar tão claro quanto o tamanho da memória ou da CPU.
-> Nem todos os tamanhos de VM estão disponíveis em todas as regiões. Mesmo que a API ofereça suporte ao tamanho especificado, você poderá receber um erro se o tamanho não estiver disponível na região que você especificar.
-> Consulte a [lista atual de tamanhos de VM com suporte por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para obter mais informações.
+> Cada VM tem um número diferente de unidades que podem ser anexadas. Isto pode não ser tão imediatamente claro como o tamanho da memória ou do CPU.
+> Nem todos os tamanhos vm estão disponíveis em todas as regiões. Mesmo que a API suporte o tamanho que especifica, poderá obter um erro se o tamanho não estiver disponível na região que especifica.
+> Consulte a lista atual de tamanhos de [VM suportados por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para obter mais informações.
 
-## <a name="compute-node-sizes"></a>Tamanhos de nó de computação
+## <a name="compute-node-sizes"></a>Tamanhos do nó computacional
 
-Os seguintes tamanhos de nó de computação têm suporte da API REST do Azure Red Hat OpenShift:
+Os seguintes tamanhos de nó computacional são suportados pela API OpenShift REST Do chapéu vermelho azure:
 
 |Tamanho|vCPU|RAM|
 |-|-|-|
@@ -50,9 +50,9 @@ Os seguintes tamanhos de nó de computação têm suporte da API REST do Azure R
 |Standard F16s v2|16|32 GB|
 |Standard F32s v2|32|64 GB|
 
-## <a name="master-node-sizes"></a>Tamanhos de nó mestre
+## <a name="master-node-sizes"></a>Tamanhos do nó mestre
 
-Os seguintes tamanhos de nó mestre/infraestrutura têm suporte da API REST do Azure Red Hat OpenShift:
+Os seguintes tamanhos de nós de mestre/infraestrutura são suportados pela API openshift REST Do chapéu vermelho azure:
 
 |Tamanho|vCPU|RAM|
 |-|-|-|
@@ -63,4 +63,4 @@ Os seguintes tamanhos de nó mestre/infraestrutura têm suporte da API REST do A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Experimente o tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+Experimente o tutorial de [cluster Create a Azure Red Hat OpenShift.](tutorial-create-cluster.md)

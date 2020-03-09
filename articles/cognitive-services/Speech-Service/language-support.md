@@ -12,11 +12,11 @@ ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: 13d12bfbf64af9e19b66e63c88c9d7e0534571f3
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617270"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379027"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Apoio à língua e à região para o serviço da Fala
 
@@ -95,8 +95,8 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome de voz curto
 --------|----------|--------|---------|------------
 `de-DE` | Alemão (Alemanha) | Feminino | "Texto de discurso do Servidor da Microsoft para voz de voz (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
-`en-US` | Inglês (EUA) | Feminino | "Texto de discurso do Microsoft Server para voz de voz (en-EUA, JessaNeural)" | "en-US-JessaNeural"
-`en-US` | Inglês (EUA) | Masculino | "Texto de discurso do Servidor da Microsoft para voz de voz (en-EUA, GuyNeural)" | "en-US-GuyNeural"
+`en-US` | English (US) | Feminino | "Texto de discurso do Microsoft Server para voz de voz (en-EUA, JessaNeural)" | "en-US-JessaNeural"
+`en-US` | English (US) | Masculino | "Texto de discurso do Servidor da Microsoft para voz de voz (en-EUA, GuyNeural)" | "en-US-GuyNeural"
 `it-IT` | Italiano (Itália) | Feminino |"Texto de discurso do Servidor da Microsoft para voz de voz (it-IT, ElsaNeural)" | "IT-IT-ElsaNeural"
 `pt-BR` | Português (Brasil) | Feminino | "Texto de discurso do Servidor da Microsoft para voz de voz (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural"
 `zh-CN` | Chinês (continental) | Feminino | "Texto de discurso do Servidor da Microsoft para voz de voz (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
@@ -128,14 +128,14 @@ Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome abre
 | | | Feminino | "Microsoft Server voz texto para voz de voz (en-AU, HayleyRUS)" | "en-AU-HayleyRUS"
 `en-CA` | Inglês (Canadá) | Feminino | "Microsoft Server voz texto para voz de voz (en-CA, Linda)" | "en-CA-Linda"
 | | | Feminino | "Microsoft Server voz texto para voz de voz (en-CA, HeatherRUS)" | "en-CA-HeatherRUS"
-`en-GB` | Inglês (Reino Unido) | Feminino | "Microsoft Server voz texto para voz de voz (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
+`en-GB` | English (UK) | Feminino | "Microsoft Server voz texto para voz de voz (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
 | | | Feminino | "Microsoft Server voz texto para voz de voz (en-GB, HazelRUS)" | "en-GB-HazelRUS"
 | | | Masculino | "Microsoft Server voz texto para voz de voz (en-GB, George, Apollo)" | "en-GB-George-Apollo"
 `en-IE` | Inglês (Irlanda) | Masculino | "Microsoft Server voz texto para voz de voz (en-IE, Sean)" | "en-IE-Sean"
 `en-IN` | English (India) | Feminino | "Microsoft Server voz texto para voz de voz (en-IN, Heera, Apollo)" | "en-IN-Heera-Apollo"
 | | | Feminino | "Microsoft Server voz texto para voz de voz (en-IN, PriyaRUS)" | "en-IN-PriyaRUS"
 | | | Masculino | "Microsoft Server voz texto para voz de voz (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo"
-`en-US` | Inglês (EUA) | Feminino | "Microsoft Server voz texto para voz de voz (en-US, ZiraRUS)" | "en-US-ZiraRUS"
+`en-US` | English (US) | Feminino | "Microsoft Server voz texto para voz de voz (en-US, ZiraRUS)" | "en-US-ZiraRUS"
 | | | Feminino | "Microsoft Server voz texto para voz de voz (en-US, JessaRUS)" | "en-US-JessaRUS"
 | | | Masculino | "Microsoft Server voz texto para voz de voz (en-US, BenjaminRUS)" | "en-US-BenjaminRUS"
 | | | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS"
@@ -222,7 +222,7 @@ A API de **Tradução da Fala** apoia diferentes línguas para a tradução fala
 | Cantonês (tradicional)      | `yue`          |
 | Catalão      | `ca`          |
 | Chinês simplificado      | `zh-Hans`          |
-| Chinês Tradicional      | `zh-Hant`          |
+| Chinês tradicional      | `zh-Hant`          |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Dinamarquês      | `da`          |

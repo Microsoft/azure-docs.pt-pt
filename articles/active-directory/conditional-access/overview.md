@@ -1,6 +1,6 @@
 ---
-title: O que é o acesso condicional no Azure Active Directory?
-description: Saiba como o acesso condicional é o coração do novo plano de controle controlado por identidade.
+title: O que é o Acesso Condicional no Diretório Ativo Azure?
+description: Saiba como o Acesso Condicional está no centro do novo plano de controlo orientado por identidade.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,97 +11,97 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966287"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671881"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
 
-O perímetro de segurança moderno agora se estende além da rede de uma organização para incluir a identidade do usuário e do dispositivo. As organizações podem utilizar esses sinais de identidade como parte de suas decisões de controle de acesso. 
+O moderno perímetro de segurança estende-se agora para além da rede de uma organização para incluir a identidade do utilizador e do dispositivo. As organizações podem utilizar estes sinais de identidade como parte das suas decisões de controlo de acesso. 
 
-O acesso condicional é a ferramenta usada por Azure Active Directory para reunir sinais, tomar decisões e impor políticas organizacionais. O acesso condicional é o coração do novo plano de controle controlado por identidade.
+O Acesso Condicional é a ferramenta utilizada pelo Azure Ative Directory para reunir sinais, tomar decisões e impor políticas organizacionais. O Acesso Condicional está no centro do novo plano de controlo orientado por identidade.
 
-![Sinal condicional conceitual mais decisão de obter a imposição](./media/overview/conditional-access-signal-decision-enforcement.png)
+![Sinal condicional conceptual mais decisão de obter a aplicação da lei](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-As políticas de acesso condicional em suas mais simples são instruções if-then, se um usuário quiser acessar um recurso, ele deverá concluir uma ação. Exemplo: um gerente de folha de pagamento deseja acessar o aplicativo de folha de pagamento e é necessário para executar a autenticação multifator para acessá-lo.
+As políticas de Acesso Condicional na sua mais simples são declarações se então, se um utilizador quer aceder a um recurso, então deve concluir uma ação. Exemplo: Um gestor de folha de pagamento quer aceder à aplicação de folha de pagamento e é obrigado a realizar a autenticação de vários fatores para aceder ao mesmo.
 
-Os administradores enfrentam dois objetivos principais:
+Os administradores são confrontados com dois objetivos primários:
 
 - Capacitar os utilizadores a ser produtivos em qualquer local e em qualquer momento
-- Proteger os ativos da organização
+- Proteja os bens da organização
 
-Usando políticas de acesso condicional, você pode aplicar os controles de acesso certos quando necessário para manter sua organização segura e ficar fora do caminho do usuário quando não for necessário.
+Ao utilizar as políticas de Acesso Condicional, pode aplicar os controlos de acesso certos quando necessário para manter a sua organização segura e ficar fora do caminho do utilizador quando não for necessário.
 
-![Fluxo do processo de acesso condicional conceitual](./media/overview/conditional-access-overview-how-it-works.png)
+![Fluxo de processo de acesso condicional conceptual](./media/overview/conditional-access-overview-how-it-works.png)
 
-As políticas de acesso condicional são impostas após a conclusão da autenticação de primeiro fator. O acesso condicional não se destina à primeira linha de defesa de uma organização para cenários como ataques de DoS (negação de serviço), mas pode usar sinais desses eventos para determinar o acesso.
+As políticas de Acesso Condicional são aplicadas após a autenticação do primeiro fator ter sido concluída. O Acesso Condicional não se destina a ser a primeira linha de defesa de uma organização para cenários como ataques de negação de serviço (DoS), mas pode usar sinais destes eventos para determinar o acesso.
 
 ## <a name="common-signals"></a>Sinais comuns
 
-Os sinais comuns que o acesso condicional pode levar em conta ao fazer uma decisão de política incluem os seguintes sinais:
+Os sinais comuns que o Acesso Condicional pode ter em conta na tomada de uma decisão política incluem os seguintes sinais:
 
-- Associação de usuário ou grupo
-   - As políticas podem ser direcionadas a usuários e grupos específicos, proporcionando aos administradores o controle refinado sobre o acesso.
-- Informações de localização de IP
-   - As organizações podem criar intervalos de endereços IP confiáveis que podem ser usados ao tomar decisões sobre a política. 
-   - Os administradores podem especificar intervalos de IP de países inteiros para bloquear ou permitir o tráfego.
+- Membro do utilizador ou do grupo
+   - As políticas podem ser direcionadas a utilizadores e grupos específicos que dêem aos administradores um controlo fino sobre o acesso.
+- Informações de localização IP
+   - As organizações podem criar gamas de endereços IP fidedignos que podem ser usadas na tomada de decisões políticas. 
+   - Os administradores podem especificar gamas IP de países inteiros para bloquear ou permitir o tráfego a partir de.
 - Dispositivo
-   - Os usuários com dispositivos de plataformas específicas ou marcados com um estado específico podem ser usados ao impor políticas de acesso condicional.
-- Candidatura
-   - Os usuários que tentarem acessar aplicativos específicos podem disparar diferentes políticas de acesso condicional. 
-- Detecção de risco calculado e em tempo real
-   - A integração de sinais com Azure AD Identity Protection permite que as políticas de acesso condicional identifiquem o comportamento de entrada arriscado. As políticas podem forçar os usuários a executar alterações de senha ou autenticação multifator para reduzir seu nível de risco ou ser impedido de acesso até que um administrador execute a ação manual.
+   - Os utilizadores com dispositivos de plataformas específicas ou marcados com um estado específico podem ser utilizados na aplicação das políticas de Acesso Condicional.
+- Aplicação
+   - Os utilizadores que tentem aceder a aplicações específicas podem desencadear diferentes políticas de Acesso Condicional. 
+- Deteção de risco em tempo real e calculada
+   - A integração de sinais com a Proteção de Identidade Azure AD permite políticas de acesso condicional para identificar comportamentos de entrada de risco. As políticas podem então forçar os utilizadores a efetuar alterações de palavra-passe ou autenticação de vários fatores para reduzir o seu nível de risco ou ser bloqueado saem do acesso até que um administrador tome medidas manuais.
 - Microsoft Cloud App Security (MCAS)
-   - Permite que o acesso e as sessões do aplicativo do usuário sejam monitorados e controlados em tempo real, aumentando a visibilidade e o controle sobre o acesso e as atividades executadas em seu ambiente de nuvem.
+   - Permite que o acesso e as sessões de aplicação ao utilizador sejam monitorizados e controlados em tempo real, aumentando a visibilidade e o controlo sobre o acesso e as atividades realizadas dentro do seu ambiente na nuvem.
 
 ## <a name="common-decisions"></a>Decisões comuns
 
-- Bloquear acesso
+- Acesso ao bloco
    - Decisão mais restritiva
 - Conceder acesso
-   - Decisão menos restritiva, ainda pode exigir uma ou mais das seguintes opções:
-      - Exigir autenticação multifator
-      - Exigir que o dispositivo seja marcado como em conformidade
-      - Exigir dispositivo ingressado no Azure AD híbrido
+   - Decisão menos restritiva, pode ainda exigir uma ou mais das seguintes opções:
+      - Exigir autenticação de vários fatores
+      - Exigir que o dispositivo seja marcado como conforme
+      - Exigir dispositivo ad ad hybrid Azure
       - Requer aplicação aprovada do cliente
-      - Exigir política de proteção de aplicativo (visualização)
+      - Exigir política de proteção de aplicativos (pré-visualização)
 
-## <a name="commonly-applied-policies"></a>Políticas comumente aplicadas
+## <a name="commonly-applied-policies"></a>Políticas geralmente aplicadas
 
-Muitas organizações têm problemas comuns de acesso que as políticas de acesso condicional podem ajudar, como:
+Muitas organizações têm preocupações comuns de acesso que as políticas de Acesso Condicional podem ajudar com tais:
 
-- Exigindo a autenticação multifator para usuários com funções administrativas
-- Exigindo a autenticação multifator para tarefas de gerenciamento do Azure
-- Bloqueando entradas para usuários tentando usar protocolos de autenticação herdados
-- Exigindo locais confiáveis para o registro da autenticação multifator do Azure
-- Bloqueando ou concedendo acesso de locais específicos
-- Bloqueando comportamentos de entrada arriscados
-- Exigindo dispositivos gerenciados pela organização para aplicativos específicos
+- Exigir a autenticação de vários fatores para utilizadores com funções administrativas
+- Exigir a autenticação de vários fatores para tarefas de gestão do Azure
+- Bloqueio de inscrições para utilizadores que tentem usar protocolos de autenticação legado
+- Exigindo localizações fidedignas para o registo de autenticação multi-factor Azure
+- Bloquear ou conceder acesso a partir de locais específicos
+- Bloquear comportamentos de inscrição arriscados
+- Exigindo dispositivos geridos pela organização para aplicações específicas
 
 ## <a name="customer-case-studies"></a>Casos práticos de clientes
 
-Descubra como outras organizações usam o acesso condicional do Azure AD para definir e implementar decisões de controle de acesso automatizadas. As seguintes histórias em destaque demonstram como essas necessidades do cliente são atendidas.
+Descubra como outras organizações usam o Acesso Condicional Azure AD para definir e implementar decisões automatizadas de controlo de acesso. As seguintes histórias em destaque demonstram como estas necessidades dos clientes são satisfeitas.
 
-* [O Wipro impulsiona a produtividade móvel com as ferramentas de segurança de nuvem da Microsoft para melhorar os compromissos com o cliente.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) As políticas de acesso condicional no Azure AD permitiram que a empresa compartilhe documentos, recursos e aplicativos com entidades externas confiáveis---que possam usar suas próprias credenciais---ao mesmo tempo em que mantém o controle sobre seus próprios dados corporativos.
-* [Entrega ARAMEX limitada-a logística global e a empresa de transporte criam um escritório conectado à nuvem com a solução de gerenciamento de identidade e acesso](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Garantir o acesso seguro era especialmente difícil com os funcionários remotos do ARAMEX. A empresa agora está aplicando o acesso condicional para permitir que esses funcionários remotos acessem seus aplicativos SaaS de fora da rede. A regra de acesso condicional decidirá se deseja impor a autenticação multifator, concedendo apenas às pessoas certas o acesso certo.
+* [A Wipro impulsiona a produtividade móvel com ferramentas de segurança na nuvem da Microsoft para melhorar os compromissos dos clientes.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) As políticas de Acesso Condicional na AD Azure permitiram à empresa partilhar documentos, recursos e aplicações com entidades externas de confiança--- que podem usar as suas próprias credenciais--- mantendo o controlo sobre os seus próprios dados corporativos.
+* [Entrega limitada da Aramex - Empresa global de logística e transporte cria escritório ligado à nuvem com solução de gestão de identidade e acesso.](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en) Garantir um acesso seguro foi especialmente difícil com os funcionários remotos da Aramex. A empresa está agora a aplicar acesso condicional para permitir que estes funcionários remotos acedam às suas aplicações SaaS de fora da rede. A regra de Acesso Condicional decidirá se aplicará a Autenticação Multi-Factor, dando apenas às pessoas certas o acesso certo.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Clientes com [licenças de Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso aos recursos de acesso condicional. 
+Os clientes com [licenças empresariais Microsoft 365](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso às funcionalidades de Acesso Condicional. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Criando uma política de acesso condicional por parte](concept-conditional-access-policies.md)
+[Construção de uma política de acesso condicional peça por peça](concept-conditional-access-policies.md)
 
-Para saber como implementar o acesso condicional em seu ambiente, consulte [planejar sua implantação de acesso condicional no Azure Active Directory](plan-conditional-access.md).
+Para aprender a implementar o Acesso Condicional no seu ambiente, consulte [Planize a sua implementação de Acesso Condicional no Diretório Ativo Azure](plan-conditional-access.md).
 
-[Saiba mais sobre a proteção de identidade](../identity-protection/overview-v2.md)
+[Conheça a Proteção de Identidade](../identity-protection/overview-v2.md)
 
-[Saiba mais sobre o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[Saiba mais sobre o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 
-[Saiba mais sobre o Microsoft Intune](https://docs.microsoft.com/intune/index)
+[Saiba mais sobre o Microsoft Intune](/intune/index)

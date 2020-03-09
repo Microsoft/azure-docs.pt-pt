@@ -4,11 +4,11 @@ description: Saiba como os dados podem ser alterados antes de previsões de indi
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148271"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361188"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar dados de expressão antes ou durante a predição
 LUIS fornece maneiras de manipular a expressão antes ou durante a predição. Estes incluem [a fixação](luis-tutorial-bing-spellcheck.md)de ortografias e a fixação de problemas de fuso horário para data pré-construídaV2 . [](luis-reference-prebuilt-datetimev2.md)
@@ -35,7 +35,7 @@ O ponto final requer dois parâmetros para correção ortográfica será trabalh
 
 Quando [bing spell check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) deteta um erro, a expressão original, e a expressão corrigida são devolvidas juntamente com previsões do ponto final.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +49,7 @@ Quando [bing spell check API V7](https://azure.microsoft.com/services/cognitive-
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
 
 ```JSON
 {
@@ -85,7 +85,7 @@ O fuso horário é corrigido adicionando o fuso horário do utilizador ao [ponto
 ### <a name="daylight-savings-example"></a>Exemplo de economia de hora de Verão
 Se necessitar do data-data pré-construído devolvidoV2 para se ajustar ao horário de verão, deve utilizar o parâmetro de `timezoneOffset` consulta string com um valor de +/- em minutos para a consulta do [ponto final.](https://go.microsoft.com/fwlink/?linkid=2092356)
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Pedido de ponto final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[Pedido de ponto final de previsão V2](#tab/V2)
 
 Adicione a 60 minutos:
 
@@ -95,7 +95,7 @@ Remova 60 minutos:
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=acender as luzes? **timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscrição-key={string}&log={boolean}
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Pedido de ponto final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[Pedido de ponto final de previsão V3](#tab/V3)
 
 Adicione a 60 minutos:
 

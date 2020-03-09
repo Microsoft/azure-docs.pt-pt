@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: implantar um aplicativo com o portal do LUIS'
+title: 'Quickstart: Implemente uma app com o portal LUIS'
 titleSuffix: Azure Cognitive Services
-description: Este guia de início rápido mostra como implantar um aplicativo Criando um recurso de ponto de extremidade de previsão, atribuindo o recurso, treinando e publicando o aplicativo.
+description: Este quickstart mostra como implementar uma aplicação criando um recurso final de previsão, atribuindo o recurso, formação e publicação da app.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,69 +11,69 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772485"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393681"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: implantar um aplicativo no portal do LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
 
-Quando seu aplicativo LUIS estiver pronto para retornar previsões de expressão para um aplicativo cliente (por exemplo, um bot de chat), você precisará implantar o aplicativo no ponto de extremidade de previsão.
+Quando a sua aplicação LUIS estiver pronta para devolver previsões de expressão a uma aplicação de cliente (por exemplo, um chat bot), precisa de implementar a app para o ponto final da previsão.
 
-Neste guia de início rápido, você aprende a implantar um aplicativo. Você cria um recurso de ponto de extremidade de previsão, atribui o recurso ao aplicativo, treina o aplicativo e publica o aplicativo.
+Neste arranque rápido, aprende-se a implementar uma aplicação. Cria um recurso de ponto final de previsão, atribui o recurso à app, treina a app e publica a aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Obtenha uma [assinatura do Azure](https://azure.microsoft.com/free).
-* Conclua o [início rápido do portal anterior](get-started-portal-build-app.md) ou [Baixe e importe o aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
-* Se você tiver aplicativos que tenham a autenticação de recursos do Azure de data de antecipação, [migre para um recurso do Azure](luis-migration-authoring.md). Algumas páginas do portal parecem diferentes quando a autenticação de email está em vigor.
+* Obtenha uma [assinatura Azure.](https://azure.microsoft.com/free)
+* Complete o [portal anterior, arranque](get-started-portal-build-app.md) rápido ou [descarregamento e importe a aplicação.](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json)
+* Se tiver aplicações que antecedam a autenticação de recursos Azure, [emigra para um recurso Azure.](luis-migration-authoring.md) Algumas páginas do portal parecem diferentes quando a autenticação por e-mail está em vigor.
 
-## <a name="create-the-endpoint-resource"></a>Criar o recurso de ponto de extremidade
+## <a name="create-the-endpoint-resource"></a>Criar o recurso endpoint
 
-Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Esse recurso só deve ser usado para consultas de previsão de ponto de extremidade. Não use esse recurso para criar alterações no aplicativo.
+Cria-se o recurso final de previsão no portal Azure. Este recurso só deve ser utilizado para consultas de previsão de pontofinal. Não utilize este recurso para a autoria de alterações à aplicação.
 
-1. Entre e crie um recurso no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
+1. Inscreva-se e crie um recurso no [portal Azure.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 
-1. Configure a assinatura com as seguintes configurações:
+1. Configure a subscrição com as seguintes definições:
 
-   |Definição|Valor|Finalidade|
+   |Definição|Valor|Objetivo|
    |--|--|--|
-   |Nome|`my-luis-resource`|O nome do recurso do Azure. Você precisará desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
-   |Subscrição|A sua subscrição|Selecione uma das assinaturas associadas à sua conta.|
-   |Grupo de recursos|`my-resource-group`|Crie um novo grupo de recursos para todos os seus recursos de serviço cognitiva. Quando terminar os recursos, você poderá excluir o grupo de recursos para limpar sua assinatura. |
-   |Local de criação|**E.U.A. Oeste**|A região do Azure para criação.|
-   |Tipo de preço de criação|**F0**|O tipo de preço padrão para criação.|
-   |Local do tempo de execução|**E.U.A. Oeste**|A região do Azure para consultas de ponto de extremidade de previsão.|
-   |Tipo de preço de tempo de execução|**S0**|Este nível de preços fornece sites de alto tráfego.|
+   |Nome|`my-luis-resource`|O nome do recurso Azure. Precisa deste nome quando atribui o recurso à app no portal LUIS.|
+   |Subscrição|A sua subscrição|Selecione uma das subscrições associadas à sua conta.|
+   |Grupo de recursos|`my-resource-group`|Crie um novo grupo de recursos para todos os seus recursos de serviço cognitivo. Quando terminar os recursos, pode eliminar o grupo de recursos para limpar a sua subscrição. |
+   |Localização de autoria|**E.U.A. Oeste**|A região de Azure para autoria.|
+   |Nível de preços de autoria|**F0**|O nível de preços padrão para a autoria.|
+   |Localização do tempo de execução|**E.U.A. Oeste**|A região de Azure para consultas de ponto final de previsão.|
+   |Nível de preços de tempo de execução|**S0**|Este nível de preços fornece sites de alto tráfego.|
    | | | |
 
 
-   ![Escolha da API do Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
+   ![Escolha da API Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-1. Selecione **criar** para criar o recurso do Azure.
+1. Selecione **Criar** para criar o recurso Azure.
 
-   Na próxima seção, você aprenderá a conectar esse novo recurso a um aplicativo LUIS no portal do LUIS.
+   Na secção seguinte, aprende-se a ligar este novo recurso a uma aplicação LUIS no portal LUIS.
 
-## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Atribuir a chave de recurso ao aplicativo LUIS no portal do LUIS
+## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Atribuir a chave de recursos à app LUIS no portal LUIS
 
-Sempre que você criar um novo recurso para LUIS, será necessário atribuir o recurso ao aplicativo LUIS. Depois de atribuído, você não precisará executar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
+Sempre que cria um novo recurso para o LUIS, tem de atribuir o recurso à aplicação LUIS. Depois de atribuído, não precisará de fazer este passo de novo, a menos que crie um novo recurso. Poderá criar um novo recurso para expandir as regiões da sua app ou para suportar um maior número de consultas de previsão.
 
-1. Entre no portal do [Luis de visualização](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
+1. Inscreva-se no [portal DE pré-visualização](https://preview.luis.ai) luis e escolha a aplicação **myEnglishApp** na lista de aplicações.
 
-1. Selecione **gerenciar** no menu superior direito e, em seguida, selecione **recursos do Azure**.
+1. Selecione **Gerir** no menu superior direito e, em seguida, selecione **Recursos Azure**.
 
-1. Para adicionar o LUIS, selecione **Adicionar recurso de previsão**.
+1. Para adicionar o LUIS, selecione **Adicionar recurso**de previsão .
 
     ![Para adicionar o recurso de previsão LUIS, selecione Adicionar recurso de previsão](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recursos**.
+1. Selecione o seu nome de inquilino, subscrição e recursos. Selecione **recurso atribuir**.
 
    ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Conclua as mesmas etapas para adicionar a chave de criação ao seu aplicativo.
+1. Complete os mesmos passos para adicionar a chave de autor à sua aplicação.
 
-1. Localize a nova linha na tabela para o novo recurso de previsão e copie a URL do ponto de extremidade. Ele é construído corretamente para fazer uma solicitação de `HTTP GET` ao ponto de extremidade da API do LUIS para uma previsão.
+1. Encontre a nova linha na tabela para o novo recurso de previsão e copie o URL do ponto final. É corretamente construído para fazer um pedido de `HTTP GET` à API para uma previsão.
 
 > [!TIP]
 > Se pretender utilizar o Ative learning para melhorar a sua aplicação LUIS, selecione **parâmetros** de consulta de alteração e selecione **Registos Save**. Esta ação altera o URL de exemplo adicionando o parâmetro de `log=true` consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
@@ -82,17 +82,17 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publicar o aplicativo no ponto de extremidade de previsão
+## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publique a app para o ponto final da previsão
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
 
-## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
+## <a name="prediction-endpoint-request"></a>Pedido de ponto final de previsão
 
-No portal de visualização, `query=` no final da URL é onde o expressão do usuário é acrescentado à solicitação GET. Após a `query=`, insira o mesmo usuário expressão usado no final do início rápido anterior:
+No portal de pré-visualização, `query=` no final do URL é onde a expressão do utilizador está anexada ao pedido GET. Depois do `query=`, introduza a mesma expressão de utilizador utilizada no final do quickstart anterior:
 
 ```Is there a form named hrf-234098```
 
-Verifique se a cadeia de caracteres de consulta inclui os seguintes pares:
+Certifique-se de que a corda de consulta inclui os seguintes pares:
 
 * `show-all-intents=true`
 * `verbose=true`
@@ -136,15 +136,15 @@ O navegador mostra a resposta:
 }
 ```
 
-Para ver esse mesmo nível de informação no painel de teste, você deve publicar o aplicativo. Depois que o aplicativo for publicado, selecione **comparar com publicado** no painel de teste. Use a **exibição mostrar JSON** no painel de teste publicado para ver o mesmo JSON da etapa anterior. Dessa forma, você pode comparar as alterações para o aplicativo atual em que está trabalhando com um aplicativo que é publicado no ponto de extremidade.
+Para ver este mesmo nível de informação no painel de teste, tem de publicar a aplicação. Depois da aplicação ser publicada, selecione **Compare com publicado** no painel de teste. Use **a visão JSON** do show no painel de teste publicado para ver o mesmo JSON que o passo anterior. Desta forma, pode comparar alterações à aplicação atual em que está a trabalhar com uma aplicação que é publicada no ponto final.
 
 [![Comparar atualmente a edição versus versão publicada da app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você terminar este guia de início rápido, selecione **meus aplicativos** no menu de navegação superior. Marque a caixa de seleção do aplicativo na lista e, em seguida, selecione **excluir** na barra de ferramentas de contexto acima da lista.
+Quando terminar com este quickstart, selecione **Minhas aplicações** no menu de navegação superior. Selecione a caixa de verificação da aplicação da lista e, em seguida, selecione **Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Identificar entidades e intenções comuns](luis-tutorial-prebuilt-intents-entities.md)
+> [Identificar intenções e entidades comuns](luis-tutorial-prebuilt-intents-entities.md)

@@ -1,6 +1,6 @@
 ---
-title: Ocultar ou excluir o pacote de acesso no gerenciamento de direitos-Azure AD
-description: Saiba como ocultar ou excluir um pacote de acesso no gerenciamento de direitos Azure Active Directory.
+title: Ocultar ou excluir pacote de acesso na gestão de direitos - Azure AD
+description: Aprenda a ocultar ou a eliminar um pacote de acesso na gestão de direitos do Diretório Ativo Azure.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,53 +17,53 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf410db5a483fc4f5d9efc1a6bd5c6202694ef4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422624"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376595"
 ---
-# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ocultar ou excluir um pacote de acesso no gerenciamento de direitos do Azure AD
+# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ocultar ou eliminar um pacote de acesso na gestão de direitos da AD Azure
 
-Os pacotes do Access são detectáveis por padrão. Isso significa que, se uma política permitir que um usuário solicite o pacote de acesso, ele verá automaticamente o pacote de acesso listado em seu portal meu acesso. No entanto, você pode alterar a configuração **oculta** para que o pacote de acesso não esteja listado no meu portal de acesso do usuário.
+Os pacotes de acesso são detetáveis por defeito. Isto significa que, se uma apólice permitir que um utilizador solicite o pacote de acesso, verá automaticamente o pacote de acesso listado no seu portal My Access. No entanto, pode alterar a definição **Oculta** para que o pacote de acesso não esteja listado no portal My Access do utilizador.
 
-Este artigo descreve como ocultar ou excluir um pacote de acesso.
+Este artigo descreve como esconder ou apagar um pacote de acesso.
 
-## <a name="change-the-hidden-setting"></a>Alterar a configuração oculta
+## <a name="change-the-hidden-setting"></a>Alterar a definição oculta
 
-Siga estas etapas para alterar a configuração **oculta** de um pacote de acesso.
+Siga estes passos para alterar a definição **oculta** para um pacote de acesso.
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Na página Visão geral, clique em **Editar**.
+1. Na página 'Overview', clique em **Editar**.
 
-1. Defina a configuração **oculta** .
+1. Defina a definição **escondida.**
 
-    Se definido como **não**, o pacote de acesso será listado no meu portal de acesso do usuário.
+    Se definido para **Não,** o pacote de acesso será listado no portal My Access do utilizador.
 
-    Se definido como **Sim**, o pacote de acesso não será listado no meu portal de acesso do usuário. A única maneira de um usuário exibir o pacote de acesso é se eles tiverem o **link direto meu acesso do portal** para o pacote de acesso. Para obter mais informações, consulte [compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md).
+    Se definido para **Sim,** o pacote de acesso não será listado no portal My Access do utilizador. A única forma de um utilizador ver o pacote de acesso é se tiver o link do **portal My Access** direto para o pacote de acesso. Para mais informações, consulte o [link Share para solicitar um pacote](entitlement-management-access-package-settings.md)de acesso .
 
-## <a name="delete-an-access-package"></a>Excluir um pacote de acesso
+## <a name="delete-an-access-package"></a>Eliminar um pacote de acesso
 
-Um pacote do Access só poderá ser excluído se não tiver nenhuma atribuição de usuário ativa. Siga estas etapas para excluir um pacote de acesso.
+Um pacote de acesso só pode ser eliminado se não tiver atribuições de utilizador ativos. Siga estes passos para eliminar um pacote de acesso.
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, clique em **atribuições** e remova o acesso para todos os usuários.
+1. No menu esquerdo, clique em **Atribuições** e remova o acesso a todos os utilizadores.
 
-1. No menu à esquerda, clique em **visão geral** e, em seguida, clique em **excluir**.
+1. No menu esquerdo, clique em **Visualização geral** e, em seguida, clique em **Apagar**.
 
-1. Na mensagem de exclusão exibida, clique em **Sim**.
+1. Na mensagem de exclusão que aparece, clique em **Sim**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Exibir, adicionar e remover atribuições para um pacote de acesso](entitlement-management-access-package-assignments.md)
-- [Exibir relatórios e logs](entitlement-management-reports.md)
+- [Ver, adicionar e remover atribuições para um pacote de acesso](entitlement-management-access-package-assignments.md)
+- [Ver relatórios e registos](entitlement-management-reports.md)

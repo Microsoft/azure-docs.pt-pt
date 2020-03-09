@@ -18,11 +18,11 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085519"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377136"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configure SSO no macOS e iOS
 
@@ -69,7 +69,7 @@ Para ativar o SSO através das suas aplicações, terá de fazer os seguintes pa
 
 Para que a plataforma de identidade da Microsoft saiba quais as aplicações que podem partilhar fichas, essas aplicações precisam de partilhar o mesmo ID do Cliente ou ID de aplicação. Este é o identificador único que lhe foi fornecido quando registou a sua primeira aplicação no portal.
 
-A forma como a plataforma de identidade da Microsoft diz às aplicações que utilizam o mesmo ID de aplicação à parte é através dos seus **URIs redirecionados**. Cada aplicação pode ter vários URIs Redirecionados registados no portal de embarque. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Por exemplo:
+A forma como a plataforma de identidade da Microsoft diz às aplicações que utilizam o mesmo ID de aplicação à parte é através dos seus **URIs redirecionados**. Cada aplicação pode ter vários URIs Redirecionados registados no portal de embarque. Cada aplicação na sua suite terá um URI de redirecionamento diferente. Por exemplo:
 
 App1 Redirecionamento URI: `msauth.com.contoso.mytestapp1://auth`  
 App2 Redirecione URI: `msauth.com.contoso.mytestapp2://auth`  

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 3/2/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 06a3ef7677d52ebb0d835dfed2f47fc66870f0ec
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 752e8745a1cf2965d2dc88eaeee9404cf596547a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620893"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669357"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -30,7 +30,7 @@ Se a sua aplicação for um recurso (Web API) a que os clientes possam solicitar
 Consulte as seguintes secções para saber como um recurso pode validar e utilizar as reclamações dentro de um token de acesso.
 
 > [!IMPORTANT]
-> Os tokens de acesso são criados com base no *público* do símbolo, o que significa que a aplicação que possui os âmbitos no símbolo.  É assim que uma definição de recursos `accessTokenAcceptedVersion` no manifesto da [aplicação](reference-app-manifest.md#manifest-reference) para `2` permite que um cliente que liga para o ponto final v1.0 receba um sinal de acesso v2.0.  Da mesma forma, é por isso que a alteração dos [pedidos opcionais](active-directory-optional-claims.md) de acesso ao seu cliente não altera o token de acesso recebido quando é solicitado um token para `user.read`, que é propriedade do recurso MS Graph.  
+> Os tokens de acesso são criados com base no *público* do símbolo, o que significa que a aplicação que possui os âmbitos no símbolo.  É assim que uma definição de recursos `accessTokenAcceptedVersion` no manifesto da [aplicação](reference-app-manifest.md#manifest-reference) para `2` permite que um cliente que liga para o ponto final v1.0 receba um sinal de acesso v2.0.  Da mesma forma, é por isso que a alteração dos [pedidos opcionais](active-directory-optional-claims.md) de acesso ao seu cliente não altera o token de acesso recebido quando é solicitado um token para `user.read`, que é propriedade do recurso.
 > Pela mesma razão, ao testar a sua aplicação de cliente com uma conta pessoal (como hotmail.com ou outlook.com), poderá descobrir que o sinal de acesso recebido pelo seu cliente é uma corda opaca. Isto porque o recurso a ser acedido solicitou bilhetes legados da MSA (conta Microsoft) que são encriptados e não podem ser compreendidos pelo cliente.
 
 ## <a name="sample-tokens"></a>Fichas de amostra
@@ -82,9 +82,9 @@ As reclamações só estão presentes se existir um valor para o preencher. Ent�
 
 | Afirmação | Formato | Descrição |
 |-----|--------|-------------|
-| `aud` | String, um App ID URI | Identifica o destinatário pretendido do símbolo. Em fichas id, o público é o ID de aplicação da sua aplicação, atribuído à sua aplicação no portal Azure. A sua aplicação deverá validar este valor e rejeitar o símbolo se o valor não corresponder. |
+| `aud` | String, um App ID URI | Identifica o destinatário pretendido do símbolo. Em fichas de identificação, o público é o ID de aplicação da sua aplicação, atribuído à sua aplicação no portal Azure. A sua aplicação deverá validar este valor e rejeitar o símbolo se o valor não corresponder. |
 | `iss` | String, um STS URI | Identifica o serviço de token de segurança (STS) que constrói e devolve o símbolo, e o inquilino da AD Azure no qual o utilizador foi autenticado. Se o símbolo emitido for um símbolo v2.0 (ver a reivindicação `ver`), o URI terminará em `/v2.0`. O GUID que indica que o utilizador é um utilizador de uma conta Microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad`. A sua aplicação deve utilizar a parte GUID da reivindicação para restringir o conjunto de inquilinos que podem iniciar sessão na app, se aplicável. |
-|`idp`| String, geralmente um STS URI | Regista o fornecedor de identidade que autenticou o requerente do token. Este valor é idêntico ao valor da reclamação do Emitente, a menos que a conta de utilizador não esteja no mesmo inquilino que o emitente - hóspedes, por exemplo. Se a alegação não estiver presente, significa que o valor da `iss` pode ser usado.  Para contas pessoais que sejam utilizadas num contexto organizacional (por exemplo, uma conta pessoal convidada a um inquilino da AD Azure), a `idp` alegação pode ser "live.com" ou um STS URI contendo o inquilino da conta microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`| String, geralmente um STS URI | Regista o fornecedor de identidade que autenticou o requerente do token. Este valor é idêntico ao valor da reclamação do Emitente, a menos que a conta de utilizador não esteja no mesmo inquilino que o emitente - hóspedes, por exemplo. Se a alegação não estiver presente, significa que o valor da `iss` pode ser usado.  Para contas pessoais que sejam utilizadas num contexto organizacional (por exemplo, uma conta pessoal convidada a um inquilino da AD Azure), a `idp` alegação pode ser "live.com" ou um STS URI contendo o inquilino da conta microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | `iat` | int, um carimbo de tempo UNIX | "Emitido At" indica quando ocorreu a autenticação deste símbolo. |
 | `nbf` | int, um carimbo de tempo UNIX | A alegação "nbf" (não antes) identifica o tempo anterior para o qual o JWT não deve ser aceite para processamento. |
 | `exp` | int, um carimbo de tempo UNIX | A alegação "exp" (tempo de validade) identifica o tempo de validade em ou após o qual o JWT não deve ser aceite para processamento. É importante notar que um recurso pode rejeitar o símbolo antes deste tempo também, como quando é necessária uma alteração na autenticação ou uma revogação simbólica. |
@@ -100,9 +100,9 @@ As reclamações só estão presentes se existir um valor para o preencher. Ent�
 | `scp` | String, uma lista de âmbitos separados do espaço | O conjunto de âmbitos expostos pelo seu pedido para o qual a aplicação do cliente solicitou (e recebeu) o consentimento. A sua aplicação deve verificar se estes âmbitos são válidos expostos pela sua aplicação e tomar decisões de autorização com base no valor destes âmbitos. Apenas incluído para [fichas do utilizador](#user-and-application-tokens). |
 | `roles` | Conjunto de cordas, uma lista de permissões | O conjunto de permissões expostas pela sua aplicação que o pedido ou utilizador foi autorizado a ligar. Para [tokens de aplicação,](#user-and-application-tokens)este é utilizado durante o fluxo de credenciais do cliente[(v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) em vez de âmbitos de utilização.  Para os [tokens](#user-and-application-tokens) do utilizador, este é preenchido com as funções a que o utilizador foi atribuído na aplicação-alvo. |
 | `wids` | Matriz de GUIDS [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Denota as funções atribuídas a este utilizador em todo o número de inquilinos, a partir da secção de funções presentes na página de [funções de administrador](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Esta reclamação é configurada por aplicação, através da propriedade `groupMembershipClaims` do manifesto de [candidatura.](reference-app-manifest.md)  É necessário defini-lo para "All" ou "DirectyRole".  Não pode estar presente em fichas obtidas através do fluxo implícito devido a preocupações de comprimento simbólico. |
-| `groups` | Matriz JSON de GUIDs | Fornece iDs de objetoque representam os membros do grupo do sujeito. Estes valores são únicos (ver Id do Objeto) e podem ser utilizados com segurança para gerir o acesso, como a aplicação da autorização para aceder a um recurso. Os grupos incluídos nos grupos alegam que são configurados por aplicação, através da propriedade `groupMembershipClaims` do manifesto de [candidatura.](reference-app-manifest.md) Um valor nulo excluirá todos os grupos, um valor de "SecurityGroup" incluirá apenas membros do Ative Directory Security Group, e um valor de "All" incluirá grupos de segurança e listas de distribuição do Office 365. <br><br>Consulte a reclamação `hasgroups` abaixo para obter detalhes sobre a utilização da reclamação `groups` com a subvenção implícita. <br>Para outros fluxos, se o número de grupos em que o utilizador se encontra for superior a um limite (150 para SAML, 200 para JWT), então será adicionada uma alegação de sobre-sobredição às fontes de reclamação que apontam para o ponto final do Gráfico AAD contendo a lista de grupos para o utilizador. |
-| `hasgroups` | Booleano | Se presente, sempre `true`, denotar que o utilizador está em pelo menos um grupo. Utilizado sem `groups` pedido de JWTs em fluxos de subvenção implícitos se os grupos completos alegarem que alargaria o fragmento de URI para além dos limites de comprimento do URL (atualmente 6 ou mais grupos). Indica que o cliente deve utilizar o Gráfico para determinar os grupos do utilizador (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` | Objeto JSON | Para pedidos simbólicos que não sejam limitados de comprimento (ver `hasgroups` acima) mas ainda demasiado grandes para o símbolo, será incluído um link para a lista completa de grupos para o utilizador. Para os JWTs como reivindicação distribuída, para a SAML como uma nova reclamação em vez da reivindicação `groups`. <br><br>**Exemplo JWT Valor:** <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
+| `groups` | Matriz JSON de GUIDs | Fornece iDs de objetoque representam os membros do grupo do sujeito. Estes valores são únicos (ver Id do Objeto) e podem ser utilizados com segurança para gerir o acesso, como a aplicação da autorização para aceder a um recurso. Os grupos incluídos nos grupos alegam que são configurados por aplicação, através da propriedade `groupMembershipClaims` do manifesto de [candidatura.](reference-app-manifest.md) Um valor nulo excluirá todos os grupos, um valor de "SecurityGroup" incluirá apenas membros do Ative Directory Security Group, e um valor de "All" incluirá grupos de segurança e listas de distribuição do Office 365. <br><br>Consulte a reclamação `hasgroups` abaixo para obter detalhes sobre a utilização da reclamação `groups` com a subvenção implícita. <br>Para outros fluxos, se o número de grupos em que o utilizador se encontra for superior a um limite (150 para SAML, 200 para JWT), então será adicionada uma alegação de sobre-sobredição às fontes de reclamação que apontam para o ponto final do Microsoft Graph contendo a lista de grupos para o utilizador. |
+| `hasgroups` | Booleano | Se presente, sempre `true`, denotar que o utilizador está em pelo menos um grupo. Utilizado sem `groups` pedido de JWTs em fluxos de subvenção implícitos se os grupos completos alegarem que alargaria o fragmento de URI para além dos limites de comprimento do URL (atualmente 6 ou mais grupos). Indica que o cliente deve utilizar a API do Microsoft Graph para determinar os grupos do utilizador (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
+| `groups:src1` | Objeto JSON | Para pedidos simbólicos que não sejam limitados de comprimento (ver `hasgroups` acima) mas ainda demasiado grandes para o símbolo, será incluído um link para a lista completa de grupos para o utilizador. Para os JWTs como reivindicação distribuída, para a SAML como uma nova reclamação em vez da reivindicação `groups`. <br><br>**Exemplo JWT Valor:** <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | String, um GUID | O principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser utilizado para efetuar controlos de autorização com segurança, como quando o símbolo é usado para aceder a um recurso, e pode ser usado como chave nas tabelas de bases de dados. Como o assunto está sempre presente nos tokens que a Azure AD emite, recomendamos a utilização deste valor num sistema de autorização geral. O sujeito é, no entanto, um identificador em pares - é exclusivo de um determinado ID de aplicação. Portanto, se um único utilizador assinar em duas aplicações diferentes usando duas iDs de cliente diferentes, essas aplicações receberão dois valores diferentes para a reclamação do assunto. Isto pode ou não ser desejado dependendo da sua arquitetura e requisitos de privacidade. Consulte também a reclamação `oid` (que continua a ser a mesma entre aplicações dentro de um inquilino). |
 | `oid` | String, um GUID | O identificador imutável para um objeto na plataforma de identidade da Microsoft, neste caso, uma conta de utilizador. Também pode ser utilizado para efetuar controlos de autorização com segurança e como chave nas tabelas de bases de dados. Este ID identifica exclusivamente o utilizador através de aplicações - duas aplicações diferentes que assinam no mesmo utilizador receberão o mesmo valor na `oid` reclamação. Assim, `oid` podem ser usados ao fazer consultas a serviços online da Microsoft, como o Microsoft Graph. O Microsoft Graph devolverá este ID como a propriedade `id` para uma determinada [conta de utilizador](/graph/api/resources/user). Uma vez que o `oid` permite que várias aplicações se relacionem com os utilizadores, o âmbito `profile` é necessário para receber esta reclamação. Note que se um único utilizador existir em vários inquilinos, o utilizador irá conter um ID de objeto diferente em cada inquilino - são considerados contas diferentes, mesmo que o utilizador entre em cada conta com as mesmas credenciais. |
 | `tid` | String, um GUID | Representa o inquilino da AD Azure de onde o utilizador é. Para contas de trabalho e escola, o GUID é a imutável identificação de inquilino da organização a que o utilizador pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O âmbito `profile` é necessário para receber esta reclamação. |
@@ -111,28 +111,28 @@ As reclamações só estão presentes se existir um valor para o preencher. Ent�
 | `rh` | Corda Opaca | Uma reivindicação interna usada pelo Azure para revalidar fichas. Os recursos não devem utilizar esta alegação. |
 | `ver` | String, `1.0` ou `2.0` | Indica a versão do sinal de acesso. |
 
+**Reivindicação de excesso de grupos**
 
-> [!NOTE]
-> **Reivindicação de excesso de grupos**
->
-> Para garantir que o tamanho do token não exceda os limites de tamanho do cabeçalho HTTP, o Azure AD limita o número de ids do objeto que inclui na reivindicação dos grupos. Se um utilizador for membro de mais grupos do que o limite de sobresagem (150 para tokens SAML, 200 para fichas JWT), então a Azure AD não emite a reivindicação dos grupos no símbolo. Em vez disso, inclui uma alegação de excesso de idade no símbolo que indica a aplicação para consultar a API do Gráfico para recuperar a adesão do grupo do utilizador.
-  ```csharp
-  {
-    ...
-    "_claim_names": {
-     "groups": "src1"
-      },
-      {
-    "_claim_sources": {
-      "src1": {
-          "endpoint":"[Graph Url to get this user's group membership from]"
-          }
-         }
+Para garantir que o tamanho do token não exceda os limites de tamanho do cabeçalho HTTP, o Azure AD limita o número de ids do objeto que inclui na reivindicação dos grupos. Se um utilizador for membro de mais grupos do que o limite de sobresagem (150 para tokens SAML, 200 para fichas JWT), então a Azure AD não emite a reivindicação dos grupos no símbolo. Em vez disso, inclui uma alegação de excesso de idade no símbolo que indica a aplicação para consultar a API do Microsoft Graph para recuperar a adesão do grupo do utilizador.
+
+```JSON
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
        }
-    ...
-   }
-   ```
-> Pode utilizar o `BulkCreateGroups.ps1` fornecido na pasta App [Creation Scripts](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) para ajudar a testar cenários de excesso de idade.
+     }
+  ...
+ }
+ ```
+
+Pode utilizar o `BulkCreateGroups.ps1` fornecido na pasta App [Creation Scripts](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) para ajudar a testar cenários de excesso de idade.
 
 #### <a name="v10-basic-claims"></a>v1.0 reclamações básicas
 
@@ -170,9 +170,9 @@ As identidades da Microsoft podem autenticar de diferentes formas, o que pode se
 
 Para validar uma id_token ou uma access_token, a sua aplicação deve validar tanto a assinatura do token como as reclamações. Para validar fichas de acesso, a sua aplicação também deve validar o emitente, o público e os tokens de assinatura. Estes precisam de ser validados contra os valores do documento de descoberta OpenID. Por exemplo, a versão independente do inquilino do documento está localizada em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-O middleware Azure AD tem capacidades incorporadas para validar fichas de acesso, e você pode navegar através das [nossas amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar um na linguagem da sua escolha. Para obter mais informações sobre como validar explicitamente um símbolo JWT, consulte a amostra manual de [validação JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
+O middleware Azure AD tem capacidades incorporadas para validar fichas de acesso, e você pode navegar através das [nossas amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar um na linguagem da sua escolha.
 
-Fornecemos bibliotecas e amostras de código que mostram como lidar facilmente com validação de fichas. As informações abaixo são fornecidas para aqueles que desejam compreender o processo subjacente. Existem também várias bibliotecas de código aberto de terceiros disponíveis para validação jWT - há pelo menos uma opção para quase todas as plataformas e idiomas lá fora. Para obter mais informações sobre bibliotecas de autenticação Da Azure e amostras de código, consulte as bibliotecas de [autenticação v1.0](../azuread-dev/active-directory-authentication-libraries.md) e as bibliotecas de [autenticação v2.0.](reference-v2-libraries.md)
+Fornecemos bibliotecas e amostras de código que mostram como lidar com a validação de fichas. As informações abaixo são fornecidas para aqueles que desejam compreender o processo subjacente. Existem também várias bibliotecas de código aberto de terceiros disponíveis para validação jWT - há pelo menos uma opção para quase todas as plataformas e idiomas lá fora. Para obter mais informações sobre bibliotecas de autenticação Da Azure e amostras de código, consulte as bibliotecas de [autenticação v1.0](../azuread-dev/active-directory-authentication-libraries.md) e as bibliotecas de [autenticação v2.0.](reference-v2-libraries.md)
 
 ### <a name="validating-the-signature"></a>Validação da assinatura
 
@@ -210,7 +210,7 @@ Este documento de metadados:
 > [!NOTE]
 > O ponto final v1.0 devolve as reclamações de `x5t` e `kid`, enquanto o ponto final v2.0 responde apenas com a reivindicação `kid`. Para a frente, recomendamos que utilize a `kid` alegação para validar o seu símbolo.
 
-Fazer validação de assinaturas está fora do âmbito deste documento - existem muitas bibliotecas de código aberto disponíveis para ajudá-lo a fazê-lo se necessário.  No entanto, a plataforma Microsoft Identity tem uma extensão de assinatura simbólica para os padrões - chaves de assinatura personalizadas.  
+Fazer validação de assinaturas está fora do âmbito deste documento - existem muitas bibliotecas de código aberto disponíveis para ajudá-lo a fazê-lo se necessário.  No entanto, a plataforma Microsoft Identity tem uma extensão de assinatura simbólica para os padrões - chaves de assinatura personalizadas.
 
 Se a sua aplicação tiver chaves de assinatura personalizadas como resultado da utilização da funcionalidade de [mapeamento de reclamações,](active-directory-claims-mapping.md) deve anexar um parâmetro de consulta de `appid` contendo o ID da aplicação para obter um `jwks_uri` apontando para as informações chave de assinatura da sua aplicação, que devem ser usadas para validação. Por exemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém um `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
@@ -233,13 +233,15 @@ A sua aplicação pode receber fichas em nome de um utilizador (o fluxo habitual
 
 * Os tokens apenas com aplicações não terão uma reclamação `scp`, podendo, em vez disso, ter uma reclamação `roles`. É aqui que será registada a autorização de pedido (em oposição às permissões delegadas). Para mais informações sobre permissões delegadas e de candidatura, consulte permissão e consentimento[(v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
 * Muitas alegações específicas do homem desaparecerão, como `name` ou `upn`.
-* As alegações `sub` e `oid` serão as mesmas. 
+* As alegações `sub` e `oid` serão as mesmas.
 
 ## <a name="token-revocation"></a>Revogação simbólica
 
 As fichas de atualização podem ser invalidadas ou revogadas a qualquer momento, por diferentes razões. Estes enquadram-se em duas categorias principais: intervalos e revogações.
 
 ### <a name="token-timeouts"></a>Intervalos de tempo de token
+
+Utilizando [a configuração token lifetime](active-directory-configurable-token-lifetimes.md), o tempo de vida das fichas de atualização pode ser alterado.  É normal e espera-se que algumas fichas não sejam utilizadas (por exemplo, o utilizador não abre a aplicação durante 3 meses) e, portanto, expira.  As aplicações vão encontrar cenários em que o servidor de login rejeita um token de atualização devido à sua idade. 
 
 * MaxInactiveTime: Se o token de atualização não tiver sido utilizado dentro do tempo ditado pelo MaxInactiveTime, o Token Refresh deixará de ser válido.
 * MaxSessionAge: Se maxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor tiverem sido definidos para algo diferente do seu padrão (até revogar), então será necessária uma reautenticação após o tempo definido nos decorridos MaxAgeSession*.
@@ -248,6 +250,8 @@ As fichas de atualização podem ser invalidadas ou revogadas a qualquer momento
   * Uma aplicação sensível tem um MaxAgeSessionSingleFactor de um dia. Se um utilizador fizer login na segunda-feira, e na terça-feira (depois de decorridos 25 horas), será obrigado a reautenticar.
 
 ### <a name="revocation"></a>Revogação
+
+As fichas de atualização podem ser revogadas pelo servidor devido a uma alteração de credenciais, ou devido à utilização ou ação de administração.  As fichas de atualização enquadram-se em duas classes - as emitidas a clientes confidenciais (a coluna mais correta) e as emitidas aos clientes públicos (todas as outras colunas).   
 
 |   | Cookie baseado em palavra-passe | Ficha baseada em palavra-passe | Cookie sem palavra-passe | Ficha não baseada em palavra-passe | Ficha confidencial do cliente |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -264,7 +268,7 @@ As fichas de atualização podem ser invalidadas ou revogadas a qualquer momento
 >
 > Os Tokens De Atualização Primária (PRT) no Windows 10 são segregados com base na credencial. Por exemplo, o Windows Hello e a password têm os respetivos PRTs, isolados uns dos outros. Quando um utilizador se inscreve com uma credencial Hello (PIN ou biometria) e, em seguida, muda a palavra-passe, a PRT baseada na palavra-passe obtida anteriormente será revogada. Voltar a entrar com uma senha invalida o antigo PRT e pede uma nova.
 >
-> As fichas de atualização não são invalidadas ou revogadas quando usadas para obter um novo token de acesso e um token refrescante.  
+> As fichas de atualização não são invalidadas ou revogadas quando usadas para obter um novo token de acesso e um token refrescante.  No entanto, a sua aplicação deve descartar a antiga assim que for utilizada e substituí-la pela nova, uma vez que o novo token tem um novo tempo de validade na seleção. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
