@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
 ms.openlocfilehash: f4885bea686267ce0397e9ca6f3e2c0ac8640971
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273041"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390254"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster azure Kubernetes Service (AKS) utilizando o portal Azure
 

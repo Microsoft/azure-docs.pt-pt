@@ -4,11 +4,11 @@ description: Saiba como utilizar a REST API para restaurar as partilhas de fiche
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444813"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393171"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar as partilhas de ficheiros Azure usando a API REST
 
@@ -186,9 +186,9 @@ O seguinte órgão de pedido define as propriedades necessárias para desencadea
 
 ### <a name="restore-to-alternate-location"></a>Restaurar para localização alternativa
 
-Especifique os seguintes parâmetros para recuperação de local alternativo:
+Especifique os seguintes parâmetros para a recuperação alternativa da localização:
 
-* **targetResourceId**: A conta de armazenamento à qual o conteúdo back-up é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
+* **targetResourceId**: A conta de armazenamento à qual o conteúdo back-up é restaurado. A conta de armazenamento alvo deve estar no mesmo local que o cofre.
 * **nome**: A parte de ficheiro dentro da conta de armazenamento-alvo à qual o conteúdo de back-up é restaurado.
 * **targetFolderPath**: A pasta sob a partilha de ficheiros para a qual os dados são restaurados.
 
@@ -354,7 +354,7 @@ Uma vez que o trabalho de reserva é uma operação de longa duração, deve ser
 
 ## <a name="item-level-recovery-using-rest-api"></a>Recuperação do nível do item utilizando a API REST
 
-Você pode usar essa opção de restauração para restaurar arquivos ou pastas individuais no local original ou alternativo.
+Pode utilizar esta opção de restauro para restaurar ficheiros ou pastas individuais no local original ou alternativo.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13

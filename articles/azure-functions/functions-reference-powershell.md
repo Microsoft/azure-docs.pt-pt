@@ -5,11 +5,11 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485136"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358234"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvimento de funções Azure PowerShell
 
@@ -76,8 +76,8 @@ $TriggerMetadata.sys
 | Propriedade   | Descrição                                     | Tipo     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, na UTC, a função foi desencadeada        | DateTime |
-| Nome do método | O nome da Função que foi desencadeada     | Cadeia de caracteres   |
-| RandGuid   | um guia único para esta execução da função | Cadeia de caracteres   |
+| Nome do método | O nome da Função que foi desencadeada     | string   |
+| RandGuid   | um guia único para esta execução da função | string   |
 
 Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém o `InsertionTime`, `Id`, `DequeueCount`, entre outras coisas. Para obter mais informações sobre os metadados do gatilho da fila, vá à [documentação oficial para os gatilhos](functions-bindings-storage-queue-trigger.md#message-metadata)da fila . Verifique a documentação dos [gatilhos](functions-triggers-bindings.md) com os quais está a trabalhar para ver o que entra nos metadados do gatilho.
 
@@ -128,7 +128,7 @@ Os seguintes parâmetros são válidos para chamar `Push-OutputBinding`:
 | Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da ligação de saída que quer definir. |
-| **`-Value`** | Objeto | 2 | O valor da ligação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
+| **`-Value`** | Object | 2 | O valor da ligação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | Parâmetro do comutador | Nomeado | (Opcional) Quando especificado, força o valor a definir para uma ligação de saída especificada. | 
 
 São também suportados os seguintes parâmetros comuns: 
@@ -235,7 +235,7 @@ O registo em funções PowerShell funciona como registo regular da PowerShell. P
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Escreve para o nível de _registo de informação._ |
-| depurar | **`Write-Debug`** |
+| Depurar | **`Write-Debug`** |
 | Rastreio | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Além destes cmdlets, qualquer coisa escrita para o gasoduto é redirecionada para o nível de registo `Information` e exibida com a formatação padrão PowerShell.
@@ -275,7 +275,7 @@ Existem vários gatilhos e encadernações disponíveis para utilizar com a sua 
 Todos os gatilhos e encadernações estão representados em código como alguns tipos de dados reais:
 
 * Hashtable
-* Cadeia de caracteres
+* string
 * byte[]
 * int
 * double
@@ -296,12 +296,12 @@ O objeto de pedido que é passado para o script é do tipo `HttpRequestContext`,
 
 | Propriedade  | Descrição                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, é passado como um hashtable. Se os dados são uma corda, é passado como uma corda. | object |
+| **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, é passado como um hashtable. Se os dados são uma corda, é passado como uma corda. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Dicionário<string,string><sup>*</sup> |
-| **`Method`** | O método HTTP do pedido.                                | Cadeia de caracteres                    |
+| **`Method`** | O método HTTP do pedido.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de encaminhamento do pedido. | Dicionário<string,string><sup>*</sup> |
 | **`Query`** | Um objeto que contém os parâmetros de consulta.                  | Dicionário<string,string><sup>*</sup> |
-| **`Url`** | A URL do pedido.                                        | Cadeia de caracteres                    |
+| **`Url`** | A URL do pedido.                                        | string                    |
 
 <sup>*</sup> Todas as chaves `Dictionary<string,string>` são insensíveis aos casos.
 
@@ -311,8 +311,8 @@ O objeto de resposta que deve enviar de volta é do tipo `HttpResponseContext`, 
 
 | Propriedade      | Descrição                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Um objeto que contém o corpo da resposta.           | object                    |
-| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | Cadeia de caracteres                    |
+| **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
+| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de estado HTTP da resposta.                       | corda ou int             |
 
@@ -599,7 +599,7 @@ Ao desenvolver funções Azure no [modelo de hospedagem sem servidores,](functio
 
 O teu guião é feito em todas as invocações. Evite utilizar `Install-Module` no seu guião. Em vez disso, utilize `Save-Module` antes de publicar para que a sua função não tenha de perder tempo a descarregar o módulo. Se o arranque a frio estiver a afetar as suas funções, considere implementar a sua aplicação de função para um [plano de Serviço de Aplicações](functions-scale.md#app-service-plan) definido para sempre *num* [plano Premium](functions-scale.md#premium-plan).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

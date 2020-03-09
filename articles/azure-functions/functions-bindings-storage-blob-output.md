@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: c6e15c9a99a78f0f3637f718b35462fe49fd5ee6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202141"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371080"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Ligação de saída de armazenamento Azure Blob para funções Azure
 
@@ -20,7 +20,7 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo seguinte é uma [ C# função](functions-dotnet-class-library.md) que usa um gatilho de bolha e duas ligações de saída. A função é desencadeada pela criação de uma bolha de imagem no recipiente *de imagens de amostra.* Cria cópias de tamanho pequeno e médio da bolha de imagem.
 
@@ -73,7 +73,7 @@ public class ResizeImages
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -122,7 +122,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
@@ -171,7 +171,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 <!--Same example for input and output. -->
 
@@ -224,7 +224,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Esta secção contém os exemplos seguintes:
 
@@ -295,7 +295,7 @@ Esta secção contém os exemplos seguintes:
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize o [BlobAttribute.](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)
 
@@ -323,19 +323,19 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 Os atributos C# não são suportados pelo Script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Os atributos não são suportados pela Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O atributo `@BlobOutput` dá-lhe acesso à bolha que desencadeou a função. Se utilizar um matriz de byte com o atributo, coloque `dataType` para `binary`. Consulte o exemplo de [saída](#example) para mais detalhes.
 
@@ -351,7 +351,7 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | deve ser definido para `blob`. |
+|**tipo** | n/d | Deve ser definido para `blob`. |
 |**direção** | n/d | Deve ser definido para `out` para uma ligação de saída. As exceções são observadas na secção [de utilização.](#usage) |
 |**nome** | n/d | O nome da variável que representa a bolha no código de função.  Definir para `$return` para referenciar o valor de devolução da função.|
 |**caminho** |**BlobPath** | O caminho para o recipiente de bolhas. |
@@ -362,19 +362,19 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 ## <a name="usage"></a>Utilização
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 No JavaScript, aceda aos dados blob utilizando `context.bindings.<name from function.json>`.
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Pode declarar os parâmetros de função como os seguintes tipos para escrever para o armazenamento de bolhas:
 
@@ -383,7 +383,7 @@ Pode declarar os parâmetros de função como os seguintes tipos para escrever p
 
 Consulte o exemplo de [saída](#example) para mais detalhes.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O atributo `@BlobOutput` dá-lhe acesso à bolha que desencadeou a função. Se utilizar um matriz de byte com o atributo, coloque `dataType` para `binary`. Consulte o exemplo de [saída](#example) para mais detalhes.
 
