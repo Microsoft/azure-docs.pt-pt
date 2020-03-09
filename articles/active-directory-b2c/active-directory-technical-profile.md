@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78397825"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78932985"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de Diretório Ativo Azure numa política personalizada azure Ative Directory B2C
 
@@ -58,13 +58,13 @@ O exemplo que se segue mostra o perfil técnico **AAD-Common:**
 
 ## <a name="input-claims"></a>Reclamações de entrada
 
-Os seguintes perfis técnicos incluem **InputClaims** para contas sociais e locais:
+O elemento InputClaims contém uma reclamação, que é usada para procurar uma conta no diretório, ou criar uma nova. Deve haver exatamente um elemento InputClaim na recolha de reclamações de entrada para todos os perfis técnicos da AD Azure. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no Diretório Ativo Azure.
 
-- Os perfis técnicos da conta social **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserWriteUsingAlternativeSecurityId** incluem a alegação **AlternativeSecurityId.** Esta alegação contém o identificador de utilizador da conta social.
-- Os perfis técnicos da conta local **AAD-UserReadUsingEmailAddress** e **AAD-UserWriteLogonEmail** inclui a reclamação de **e-mail.** Esta alegação contém o nome de inscrição da conta local.
-- Os perfis técnicos unificados (locais e sociais) **AAD-UserReadUsingObjectId**, **AAD-userWritePasswordUsingObjectId**, **AAD-userWriteObjectId**, e **AAD-userWriteNumberUsingObjectId** inclui a alegação **objectid.** O identificador único de uma conta.
+Para ler, atualizar ou eliminar uma conta de utilizador existente, a alegação de entrada é uma chave que identifica exclusivamente a conta no diretório da AD Azure. Por exemplo, **objectId**, **userPrincipalName**, **signNames.emailAddress,** **signName.userName**, ou **alternativeSecurityId**. 
 
-O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **de transformação inputClaims** que são usados para modificar as reclamações de entrada ou gerar novos.
+Para criar uma nova conta de utilizador, a alegação de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signNames.emailAddress**, ou **signInNames.userName**. Para uma conta federada: a **alternativaSecurityId**.
+
+O elemento InputClaimsTransformations pode conter uma coleção de elementos de transformação de créditos de entrada que são usados para modificar a reclamação de entrada ou gerar um novo.
 
 ## <a name="output-claims"></a>Reclamações de produção
 

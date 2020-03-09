@@ -1,7 +1,7 @@
 ---
-title: Referência de dados de monitoramento | Microsoft Docs
+title: Monitorização da referência de dados  Microsoft Docs
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre os dados e os recursos coletados para Azure Machine Learning e disponíveis em Azure Monitor. Azure Monitor coleta e superfícies de dados sobre seu espaço de trabalho do Azure Machine Learning e permite que você exiba as métricas, defina alertas e analise os dados registrados.
+description: Conheça os dados e recursos recolhidos para o Azure Machine Learning e disponível no Azure Monitor. O Azure Monitor recolhe e supera dados sobre o seu espaço de trabalho azure machine learning, e permite-lhe visualizar métricas, definir alertas e analisar dados registados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,190 +9,190 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/06/2019
-ms.openlocfilehash: bbc62aa153e6ecb5d9ae65c37392c2697b9beaa2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/06/2020
+ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979706"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927554"
 ---
-# <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Machine Learning
+# <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitorização de machine learning azure
 
-Saiba mais sobre os dados e recursos coletados por Azure Monitor do seu espaço de trabalho Azure Machine Learning. Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter detalhes sobre como coletar e analisar dados de monitoramento.
+Conheça os dados e recursos recolhidos pelo Azure Monitor a partir do seu espaço de trabalho azure Machine Learning. Consulte a Monitorização da [Aprendizagem automática azure](monitor-azure-machine-learning.md) para obter detalhes sobre a recolha e análise de dados de monitorização.
 
 ## <a name="resource-logs"></a>Registos do recurso
 
-A tabela a seguir lista as propriedades de Azure Machine Learning logs de recursos quando eles são coletados nos logs de Azure Monitor ou no armazenamento do Azure.
+A tabela seguinte lista as propriedades dos registos de recursos azure machine learning quando são recolhidas em Registos de Monitores Azure ou armazenamento azure.
 
 ### <a name="amlcomputejobevents-table"></a>Tabela AmlComputeJobEvents
 
 | Propriedade | Descrição |
 |:--- |:---|
-| TimeGenerated | Hora em que a entrada de log foi gerada |
-| OperationName | Nome da operação associada ao evento de log |
-| Categoria | Nome do evento de log, AmlComputeClusterNodeEvent |
-| JobId | ID do trabalho enviado |
-| Experimentoid | ID do experimento |
-| Experimentoname | Nome do experimento |
-| CustomerSubscriptionId | SubscriptionId em que o teste e o trabalho são enviados |
-| WorkspaceName | Nome do espaço de trabalho do Machine Learning |
-| ClusterName | Nome do cluster |
-| ProvisioningState | Estado do envio do trabalho |
+| TimeGenerated | Tempo em que a entrada de registo foi gerada |
+| OperationName | Nome da operação associada ao evento de registo |
+| Categoria | Nome do evento de registo, AmlComputeClusterNodeEvent |
+| JobId | ID do Trabalho submetido |
+| Experimentóide | ID da Experiência |
+| Nome da experiência | Nome da Experiência |
+| CustomerSubscriptionId | Subscrição Id onde Experiment and Job como apresentado |
+| Nome do espaço de trabalho | Nome do espaço de trabalho de aprendizagem automática |
+| ClusterName | Nome do Cluster |
+| ProvisioningState | Submissão do Estado do Trabalho |
 | ResourceGroupName | Nome do grupo de recursos |
-| JobName | Nome do trabalho |
+| JobName | Nome do Trabalho |
 | ClusterId | ID do cluster |
-| EventType | Tipo do evento de trabalho, por exemplo, JobSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
-| ExecutionState | Estado do trabalho (a execução), por exemplo, em fila, em execução, com êxito, com falha |
+| Tipo de evento | Tipo de evento de trabalho, por exemplo, JobSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
+| Estado de Execução | Estado do trabalho (a Corrida), por exemplo, Fila, Corrida, Sucesso, Falhado |
 | ErrorDetails | Detalhes do erro de trabalho |
-| CreationApiVersion | Versão da API usada para criar o trabalho |
+| CriaçãoApiVersão | Versão Api usada para criar o trabalho |
 | ClusterResourceGroupName | Nome do grupo de recursos do cluster |
-| TFWorkerCount | Contagem de trabalhos de TF |
+| TFWorkerCount | Conde dos trabalhadores da TF |
 | TFParameterServerCount | Contagem do servidor de parâmetros TF |
-| Ferramenta de | Tipo de ferramenta usada |
-| RunInContainer | Sinalizador que descreve se o trabalho deve ser executado dentro de um contêiner |
-| JobErrorMessage | mensagem detalhada de erro de trabalho |
-| NodeId | ID do nó criado onde o trabalho está em execução |
+| Tipo de ferramentas | Tipo de ferramenta utilizada |
+| Runincontainer | Bandeira descrevendo se o trabalho deve ser executado dentro de um recipiente |
+| Mensagem de erro de emprego | mensagem detalhada do erro de trabalho |
+| NodeId | ID do nó criado onde o trabalho está correndo |
 
 ### <a name="amlcomputeclusterevents-table"></a>Tabela AmlComputeClusterEvents
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| TimeGenerated | Hora em que a entrada de log foi gerada |
-| OperationName | Nome da operação associada ao evento de log |
-| Categoria | Nome do evento de log, AmlComputeClusterNodeEvent |
+| TimeGenerated | Tempo em que a entrada de registo foi gerada |
+| OperationName | Nome da operação associada ao evento de registo |
+| Categoria | Nome do evento de registo, AmlComputeClusterNodeEvent |
 | ProvisioningState | Estado de provisionamento do cluster |
-| ClusterName | Nome do cluster |
-| ClusterType | Tipo do cluster |
-| CreatedBy | Usuário que criou o cluster |
-| CoreCount | Contagem dos núcleos no cluster |
-| VmSize | Tamanho da VM do cluster |
-| VmPriority | Prioridade dos nós criados dentro de um cluster dedicado/LowPriority |
-| Dimensionartype | Tipo de dimensionamento manual/automático do cluster |
-| InitialNodeCount | Contagem de nós inicial do cluster |
-| MinimumNodeCount | Contagem mínima de nós do cluster |
-| MaximumNodeCount | Contagem máxima de nós do cluster |
-| NodeDeallocationOption | Como o nó deve ser desalocado |
-| Publicador | Editor do tipo de cluster |
+| ClusterName | Nome do aglomerado |
+| clusterType | Tipo do cluster |
+| Criado por | Utilizador que criou o cluster |
+| CoreCount | Conde dos núcleos no aglomerado |
+| VmSize | Tamanho Vm do cluster |
+| VmPriority | Prioridade dos nós criados dentro de um cluster Dedicado/LowPriority |
+| Tipo de escala | Tipo de manual/automóvel de escala de cluster |
+| Contagem inicial | Contagem inicial do nó do cluster |
+| MínimoSNodeCount | Contagem mínima de nó do cluster |
+| Contagem máxima | Contagem máxima do nó do cluster |
+| NodeDeallocationOption | Como o nó deve ser lodo |
+| Publicador | Editor do tipo cluster |
 | Oferta | Oferta com a qual o cluster é criado |
-| SKU | SKU do nó/VM criado dentro do cluster |
-| Versão | Versão da imagem usada enquanto o nó/VM é criado |
-| SubnetId | Sub-redeid do cluster |
-| AllocationState | Estado de alocação do cluster |
-| CurrentNodeCount | Contagem de nós atual do cluster |
-| TargetNodeCount | Contagem de nós de destino do cluster ao escalar/reduzir verticalmente |
-| EventType | Tipo de evento durante a criação do cluster. |
-| NodeIdleTimeSecondsBeforeScaleDown | Tempo ocioso em segundos antes que o cluster seja reduzido verticalmente |
-| PreemptedNodeCount | Contagem de nós admitida preempção do cluster |
-| IsResizeGrow | Sinalizador que indica que o cluster está aumentando verticalmente |
-| VmFamilyName | Nome da família de VMs dos nós que podem ser criados dentro do cluster |
-| LeavingNodeCount | Saindo da contagem de nós do cluster |
-| UnusableNodeCount | Contagem de nós inutilizáveis do cluster |
-| IdleNodeCount | Contagem de nós ociosos do cluster |
-| RunningNodeCount | Contagem de nós em execução do cluster |
-| PreparingNodeCount | Preparando a contagem de nós do cluster |
-| QuotaAllocated | Cota alocada para o cluster |
-| QuotaUtilized | Cota utilizada do cluster |
-| AllocationStateTransitionTime | Tempo de transição de um estado para outro |
-| ClusterErrorCodes | Código de erro recebido durante a criação ou o dimensionamento do cluster |
-| CreationApiVersion | Versão da API usada ao criar o cluster |
+| Sku | Sku do Nó/VM criado dentro do cluster |
+| Versão | Versão da imagem utilizada enquanto o Nó/VM é criado |
+| SubnetId | SubnetId do cluster |
+| Estado de Atribuição | Estado de alocação de cluster |
+| Contagem atual | Contagem atual do nó do cluster |
+| TargetNodeCount | Contagem de nó do alvo do cluster enquanto escala para cima/para baixo |
+| Tipo de evento | Tipo de evento durante a criação de cluster. |
+| NodeIdleTimeSecondsBeforeScaleDown | Tempo inativo em segundos antes de o aglomerado ser reduzido |
+| PreemptedNodeCount | Contagem de nós preempted do cluster |
+| IsResizeGrow | Bandeira indicando que o aglomerado está a escalonar |
+| Nome VmFamily | Nome da família VM dos nós que podem ser criados dentro do cluster |
+| Deixando o Número de Nodede | Deixando a contagem do nó do aglomerado |
+| UnusableNodeCount | Contagem inutilizável do aglomerado |
+| IdleNodeCount | Contagem de nós ocioso do aglomerado |
+| RunningNodeCount | Contagem de nós de execução do cluster |
+| PrepareNodeCount | Preparando a contagem do nó do cluster |
+| QuotaAllocated | Quota atribuída ao cluster |
+| QuotaUtilized | Quota utilizada do cluster |
+| Tempo de Transição do Estado de Atribuição | Tempo de transição de um estado para outro |
+| ClusterErrorCodes | Código de erro recebido durante criação de cluster ou escala |
+| CriaçãoApiVersão | Versão Api usada ao criar o cluster |
 
 ### <a name="amlcomputeclusternodeevents-table"></a>Tabela AmlComputeClusterNodeEvents
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| TimeGenerated | Hora em que a entrada de log foi gerada |
-| OperationName | Nome da operação associada ao evento de log |
-| Categoria | Nome do evento de log, AmlComputeClusterNodeEvent |
-| ClusterName | Nome do cluster |
+| TimeGenerated | Tempo em que a entrada de registo foi gerada |
+| OperationName | Nome da operação associada ao evento de registo |
+| Categoria | Nome do evento de registo, AmlComputeClusterNodeEvent |
+| ClusterName | Nome do aglomerado |
 | NodeId | ID do nó de cluster criado |
-| VmSize | Tamanho da VM do nó |
-| VmFamilyName | Família de VMs à qual o nó pertence |
-| VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Publicador | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
-| Oferta | Oferta associada à criação da VM |
-| SKU | SKU do nó/VM criado |
-| Versão | Versão da imagem usada enquanto o nó/VM é criado |
-| ClusterCreationTime | Hora em que o cluster foi criado |
-| ResizeStartTime | Hora em que o cluster foi iniciado verticalmente |
-| ResizeEndTime | Tempo durante o aumento/redução do cluster concluído |
-| NodeAllocationTime | Hora em que o nó foi alocado |
-| NodeBootTime | Hora em que o nó foi inicializado |
-| StartTaskStartTime | Hora em que a tarefa foi atribuída a um nó e iniciada |
-| StartTaskEndTime | Hora em que a tarefa atribuída a um nó terminou |
-| TotalE2ETimeInSeconds | O nó de tempo total estava ativo |
+| VmSize | Tamanho Vm do nó |
+| Nome VmFamily | Família Vm a que o nó pertence |
+| VmPriority | Prioridade do nó criado Dedicado/LowPriority |
+| Publicador | Editor da imagem vm, por exemplo, microsoft-dsvm |
+| Oferta | Oferta associada à criação de VM |
+| Sku | Sku do Nó/VM criado |
+| Versão | Versão da imagem utilizada enquanto o Nó/VM é criado |
+| Tempo de Criação de Cluster | Tempo em que o cluster foi criado |
+| Redimensionar o Tempo de Início | Tempo em que a escala de cluster para cima/para baixo começou |
+| Tempo de Redimensionar EndTime | Tempo em que a escala de cluster para cima/para baixo terminou |
+| Hora do Nó | Tempo em que nó foi atribuído |
+| NodeBootTime | Tempo em que Nó foi arrancado |
+| Início da tarefa | Tempo em que a tarefa foi atribuída a um nó e começou |
+| Início tasktaskEndTime | Tempo em que a tarefa atribuída a um nó terminou |
+| Totale2eTimeInSeconds | Nó total do tempo estava ativo |
 
 ### <a name="metrics"></a>Métricas
 
-As tabelas a seguir listam as métricas de plataforma coletadas para Azure Machine Learning todas as métricas são armazenadas no namespace **Workspace do Azure Machine Learning**.
+As tabelas seguintes listam as métricas da plataforma recolhidas para o Azure Machine Learning Todas as métricas são armazenadas no espaço de trabalho de **aprendizagem automática Azure**.
 
 **Modelo**
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| Falha na implantação do modelo | Contagem | O número de implantações de modelo que falharam. |
-| Implantação de modelo iniciada | Contagem | O número de implantações de modelo iniciadas. |
-| Implantação de modelo bem-sucedida | Contagem | O número de implantações de modelo que tiveram êxito. |
-| Falha no registro do modelo | Contagem | O número de registros de modelo que falharam. |
-| Registro de modelo bem-sucedido | Contagem | O número de registros de modelo que foram bem-sucedidos. |
+| Implementação do modelo falhou | Contagem | O número de modelas que falharam. |
+| Implementação de modelos iniciado | Contagem | O número de implementações de modelos começou. |
+| Implementação de modelos conseguiu | Contagem | O número de implementações de modelos que conseguiram. |
+| Registo de modelos falhado | Contagem | O número de registos de modelos que falharam. |
+| Registo de modelos bem sucedido | Contagem | O número de registos de modelos que foram bem sucedidos. |
 
 **Quota**
 
-As informações de cota são apenas para Azure Machine Learning computação.
+A informação sobre quotas é apenas para a computação Azure Machine Learning.
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| Núcleos ativos | Contagem | O número de núcleos de computação ativos. |
-| Nós ativos | Contagem | O número de nós ativos. |
+| Núcleos ativos | Contagem | O número de núcleos de computação ativa. |
+| Nódosos ativos | Contagem | O número de nós ativos. |
 | Núcleos ociosos | Contagem | O número de núcleos de computação ociosos. |
-| Nós ociosos | Contagem | O número de nós de computação ociosos. |
-| Deixando núcleos | Contagem | O número de cores de saída. |
-| Saindo de nós | Contagem | O número de nós de saída. |
-| Núcleos preempçãos | Contagem | O número de núcleos admitidos. |
-| Nós admitidos | Contagem | O número de nós admitidos. |
-| Porcentagem de utilização de cota | Percentagem | A porcentagem da cota usada. |
-| Total de núcleos | Contagem | O total de núcleos. |
-| Total de nós | Contagem | O total de nós. |
+| Nódoas ociosas | Contagem | O número de nós de computação ociosa. |
+| Deixando núcleos | Contagem | O número de núcleos de saída. |
+| Deixando nódosos | Contagem | O número de nós que saem. |
+| Núcleos pré-empreitados | Contagem | O número de núcleos pré-empreitados. |
+| Nódosos pré-empreitados | Contagem | O número de nós pré-optados. |
+| Percentagem de utilização de quotas | Percentagem | A percentagem de quota utilizada. |
+| Núcleos totais | Contagem | Os núcleos totais. |
+| Nósodinsos totais | Contagem | Os nódosos totais. |
 | Núcleos inutilizáveis | Contagem | O número de núcleos inutilizáveis. |
 | Nós inutilizáveis | Contagem | O número de nós inutilizáveis. |
 
-Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de cota:
+Seguem-se dimensões que podem ser utilizadas para filtrar métricas de quota:
 
 | Dimensão | Métricas disponíveis com | Descrição |
 | ---- | ---- | ---- |
-| Nome do cluster | Todas as métricas de cota | O nome da instância de computação. |
-| Nome da família de VMs | Porcentagem de utilização de cota | O nome da família de VMs usada pelo cluster. |
-| Prioridade da VM | Porcentagem de utilização de cota | A prioridade da VM.
+| Nome do cluster | Todas as métricas de quota | O nome da instância computacional. |
+| Nome da família Vm | Percentagem de utilização de quotas | O nome da família VM usada pelo aglomerado. |
+| Prioridade Vm | Percentagem de utilização de quotas | A prioridade do VM.
 
-**Executar**
+**Correr**
 
-Informações sobre execuções de treinamento.
+Informação sobre treinos.
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
 | Execuções concluídas | Contagem | O número de execuções concluídas. |
-| Execuções com falha | Contagem | O número de execuções com falha. |
-| Execuções iniciadas | Contagem | O número de execuções iniciadas. |
+| Corridas falhadas | Contagem | O número de corridas falhadas. |
+| Começou a correr | Contagem | O número de corridas iniciadas. |
 
-Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de execução:
+Seguem-se dimensões que podem ser usadas para filtrar métricas de execução:
 
 | Dimensão | Descrição |
 | ---- | ---- |
-| Computatype | O tipo de computação usado pela execução. |
-| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) usado na execução. |
-| PublishedPipelineId | A ID do pipeline publicado usado na execução. |
-| RunType | O tipo de execução. |
+| ComputeType | O tipo de computação que a execução usou. |
+| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) utilizado na corrida. |
+| PublicadoPipelineid | A identificação do gasoduto publicado usado na corrida. |
+| Tipo de execução | O tipo de corrida. |
 
 Os valores válidos para a dimensão RunType são:
 
 | Valor | Descrição |
 | ----- | ----- |
-| Experimentação | Execuções sem pipeline. |
-| PipelineRun | Uma execução de pipeline, que é o pai de um StepRun. |
-| StepRun | Uma execução para uma etapa de pipeline. |
-| ReusedStepRun | Uma execução para uma etapa de pipeline que reutiliza uma execução anterior. |
+| Experimentação | Corridas sem oleodutos. |
+| PipelineRun | Uma corrida de gasodutos, que é o pai de um StepRun. |
+| StepRun | Uma corrida para um passo de oleoduto. |
+| StepRun reutilizado | Uma corrida para um passo de oleoduto que reutiliza uma corrida anterior. |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Veja Também
 
-- Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter uma descrição do Azure Machine Learning de monitoramento.
-- Consulte [monitorando recursos do Azure com Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter detalhes sobre como monitorar recursos do Azure.
+- Consulte a monitorização da [Aprendizagem automática Azure](monitor-azure-machine-learning.md) para obter uma descrição da monitorização do Azure Machine Learning.
+- Consulte [a Monitorização dos recursos do Azure com o Monitor Azure](/azure/azure-monitor/insights/monitor-azure-resource) para obter mais informações sobre a monitorização dos recursos do Azure.

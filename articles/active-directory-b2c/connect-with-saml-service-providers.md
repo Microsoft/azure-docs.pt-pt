@@ -12,12 +12,12 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4cf572b09f1e44faca002528fd00fe5be0b51bc5
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189655"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933033"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registe uma aplicação SAML no Azure AD B2C
 
@@ -113,7 +113,7 @@ Em seguida, faça o upload do certificado de assinatura de afirmação e respost
 
 ### <a name="21-create-the-saml-token-issuer"></a>2.1 Criar o emitente de token SAML
 
-Agora, adicione a capacidade para o seu inquilino emitir fichas SAML.
+Agora, adicione a capacidade para o seu inquilino emitir fichas SAML, usando o [emitente de token SAML](saml-issuer-technical-profile.md) e perfis técnicos do fornecedor de [sessão SAML.](custom-policy-reference-sso.md#samlssosessionprovider)
 
 Abra `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** no pacote de iniciação de política personalizada.
 
@@ -297,7 +297,7 @@ Os metadados são informações utilizadas no protocolo SAML para expor a config
 
 Se existirem propriedades especificadas *tanto* no URL de metadados SAML como no manifesto do registo de aplicação, são **fundidas**. As propriedades especificadas no URL dos metadados são processadas primeiro e têm precedência.
 
-Para este tutorial que utiliza a aplicação de teste SAML, utilize o seguinte valor para `samlMetadataUrl`:
+Para este tutorial, que utiliza a aplicação de teste SAML, utilize o seguinte valor para `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -324,7 +324,7 @@ Para este tutorial, no qual utiliza a aplicação de teste SAML, delineie a prop
 
 Esta propriedade opcional representa o URL `Logout` ( URL`SingleLogoutService` nos metadados partidários), e o `BindingType` para isso é assumido como `Http-Redirect`.
 
-Para este tutorial que utiliza a aplicação de teste SAML, deixe `logoutUrl` definido para `https://samltestapp2.azurewebsites.net/logout`:
+Para este tutorial, que utiliza a aplicação de teste SAML, deixe `logoutUrl` definido para `https://samltestapp2.azurewebsites.net/logout`:
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

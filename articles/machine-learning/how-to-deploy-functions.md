@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
-ms.date: 11/22/2019
-ms.openlocfilehash: 29c91cf14413a11804de82eeaf08d628b125d76a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/06/2020
+ms.openlocfilehash: d03a3d482d147d3bc69354ee09dfe0b187610a09
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471946"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927445"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -148,10 +148,10 @@ Quando `show_output=True`, a saída do processo de construção do Docker é mos
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
-    az appservice plan create --name myplanname --resource-group myresourcegroup --sku EP1 --is-linux
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    Neste exemplo, é utilizado um nível de preços _Linux Premium_ (`--sku EP1`).
+    Neste exemplo, é utilizado um nível de preços _básico sinuoso_ do Linux (`--sku B1`).
 
     > [!IMPORTANT]
     > As imagens criadas pelo Azure Machine Learning usam o Linux, pelo que deve utilizar o parâmetro `--is-linux`.
@@ -159,13 +159,13 @@ Quando `show_output=True`, a saída do processo de construção do Docker é mos
 1. Crie a conta de armazenamento para usar para o armazenamento de trabalho web e obtenha a sua cadeia de ligação. Substitua `<webjobStorage>` pelo nome que pretende utilizar.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. Para criar a aplicação de função, utilize o seguinte comando. Substitua `<app-name>` pelo nome que pretende utilizar. Substitua `<acrinstance>` e `<imagename>` os valores de `package.location` devolvidos anteriormente. Substitua `<webjobStorage>` pelo nome da conta de armazenamento da etapa anterior:
+1. Para criar a aplicação de função, utilize o seguinte comando. Substitua `<app-name>` pelo nome que pretende utilizar. Substitua `<acrinstance>` e `<imagename>` os valores de `package.location` devolvidos anteriormente. Substitua `<webjobStorage>` pelo nome da conta de armazenamento do passo anterior:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -179,7 +179,7 @@ Quando `show_output=True`, a saída do processo de construção do Docker é mos
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactive
+    ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Grave esta cadeia de ligação para fornecer à aplicação de função. Vamos usá-lo mais tarde quando pedirmos `<triggerConnectionString>`
@@ -205,7 +205,7 @@ Quando `show_output=True`, a saída do processo de construção do Docker é mos
     ```
     Poupe o valor devolvido, será usado como `imagetag` no próximo passo.
 
-1. Para fornecer a aplicação de funções com as credenciais necessárias para aceder ao registo do contentor, utilize o seguinte comando. Substitua `<app-name>` pelo nome que pretende utilizar. Substitua `<acrinstance>` e `<imagetag>` os valores da chamada AZ CLI no passo anterior. Substitua `<username>` e `<password>` com as informações de login da ACR obtidas anteriormente:
+1. Para fornecer a aplicação de funções com as credenciais necessárias para aceder ao registo do contentor, utilize o seguinte comando. Substitua `<app-name>` pelo nome da aplicação de funções. Substitua `<acrinstance>` e `<imagetag>` os valores da chamada AZ CLI no passo anterior. Substitua `<username>` e `<password>` com as informações de login da ACR obtidas anteriormente:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -246,6 +246,52 @@ Neste ponto, a aplicação de funções começa a carregar a imagem.
 
 > [!IMPORTANT]
 > Pode levar alguns minutos até a imagem ter carregado. Pode monitorizar o progresso através do Portal Azure.
+
+## <a name="test-the-deployment"></a>Testar a implementação
+
+Uma vez que a imagem tenha carregado e a aplicação esteja disponível, use os seguintes passos para desencadear a aplicação:
+
+1. Crie um ficheiro de texto que contenha os dados que o ficheiro score.py espera. O exemplo seguinte funcionaria com uma score.py que espera uma série de 10 números:
+
+    ```json
+    {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+    ```
+
+    > [!IMPORTANT]
+    > O formato dos dados depende do que o seu score.py e modelo esperam.
+
+2. Utilize o seguinte comando para carregar este ficheiro para o recipiente de entrada na bolha de armazenamento do gatilho criada anteriormente. Substitua `<file>` pelo nome do ficheiro que contém os dados. Substitua `<triggerConnectionString>` com a corda de ligação devolvida mais cedo. Neste exemplo, `input` é o nome do recipiente de entrada criado anteriormente. Se usou um nome diferente, substitua este valor:
+
+    ```azurecli-interactive
+    az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    A saída deste comando é semelhante à seguinte JSON:
+
+    ```json
+    {
+    "etag": "\"0x8D7C21528E08844\"",
+    "lastModified": "2020-03-06T21:27:23+00:00"
+    }
+    ```
+
+3. Para visualizar a saída produzida pela função, utilize o seguinte comando para listar os ficheiros de saída gerados. Substitua `<triggerConnectionString>` com a corda de ligação devolvida mais cedo. Neste exemplo, `output` é o nome do recipiente de saída criado anteriormente. Se usou um nome diferente, substitua este valor::
+
+    ```azurecli-interactive
+    az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
+    ```
+
+    A saída deste comando é semelhante à `sample_input_out.json`.
+
+4. Para descarregar o ficheiro e inspecionar o conteúdo, utilize o seguinte comando. Substitua `<file>` pelo nome de ficheiro devolvido pelo comando anterior. Substitua `<triggerConnectionString>` com a corda de ligação devolvida anteriormente: 
+
+    ```azurecli-interactive
+    az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    Assim que o comando terminar, abra o ficheiro. Contém os dados devolvidos pelo modelo.
+
+Para obter mais informações sobre a utilização de gatilhos blob, consulte a Função Criar uma função desencadeada pelo artigo de [armazenamento da Blob Azure.](/azure/azure-functions/functions-create-storage-blob-triggered-function)
 
 ## <a name="next-steps"></a>Passos seguintes
 

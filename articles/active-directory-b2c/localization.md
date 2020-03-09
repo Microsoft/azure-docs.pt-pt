@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a9fb1d64fb27507e4ee42c39be9ea80fbe5f168
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5dcbc2ee35620d0a29c495b24bd3756769095a17
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184456"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933004"
 ---
 # <a name="localization"></a>Localização
 
@@ -146,7 +146,7 @@ O elemento **LocalizedString** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Uma referência a um elemento do tipo de reclamação ou a um elemento de interface do utilizador na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`ou . O valor `ClaimType` é utilizado para localizar um dos atributos de reclamação, conforme especificado no StringId. O valor `UxElement` é utilizado para localizar um dos elementos da interface do utilizador, conforme especificado no StringId. O valor `ErrorMessage` é utilizado para localizar uma das mensagens de erro do sistema, conforme especificado no StringId. O valor `Predicate` é utilizado para localizar uma das mensagens de erro [predicadas,](predicates.md) conforme especificado no StringId. O valor `InputValidation` é utilizado para localizar uma das mensagens de erro do grupo [PredicateValidação,](predicates.md) conforme especificado no StringId. |
+| ElementType | Sim | Uma referência a um elemento do tipo de reclamação ou a um elemento de interface do utilizador na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`ou `GetLocalizedStringsTransformationClaimType`. O valor `ClaimType` é utilizado para localizar um dos atributos de reclamação, conforme especificado no StringId. O valor `UxElement` é utilizado para localizar um dos elementos da interface do utilizador, conforme especificado no StringId. O valor `ErrorMessage` é utilizado para localizar uma das mensagens de erro do sistema, conforme especificado no StringId. O valor `Predicate` é utilizado para localizar uma das mensagens de erro [predicadas,](predicates.md) conforme especificado no StringId. O valor `InputValidation` é utilizado para localizar uma das mensagens de erro do grupo [PredicateValidação,](predicates.md) conforme especificado no StringId. O valor `GetLocalizedStringsTransformationClaimType` é usado para copiar cordas localizadas em sinistros. Para mais informações, consulte [GetLocalizedStringsTransformation reivindica a transformação](string-transformations.md#getlocalizedstringstransformation)  | 
 | ElementId | Sim | Se o **ElementType** for definido para `ClaimType`, `Predicate`, ou `InputValidation`, este elemento contém uma referência a um tipo de reclamação já definido na secção ClaimsSchema. |
 | StringId | Sim | Se o **ElementType** estiver definido para `ClaimType`, este elemento contém uma referência a um atributo de um tipo de reclamação. Valores possíveis: `DisplayName`, `AdminHelpText`ou `PatternHelpText`. O valor `DisplayName` é utilizado para definir o nome do display de reclamação. O valor `AdminHelpText` é utilizado para definir o nome de texto de ajuda do utilizador da reclamação. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de reclamação. Se o **ElementType** for definido para `UxElement`, este elemento contém uma referência a um atributo de um elemento de interface do utilizador. Se o **ElementType** estiver definido para `ErrorMessage`, este elemento especifica o identificador de uma mensagem de erro. Consulte [as identificações](localization-string-ids.md) de cordas de localização para obter uma lista completa dos identificadores `UxElement`.|
 

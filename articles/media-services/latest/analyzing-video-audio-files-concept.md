@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988350"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359462"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analise ficheiros de vídeo e áudio com a Azure Media Services
 
@@ -36,11 +36,11 @@ Como um lembrete importante, você deve cumprir todas as leis aplicáveis na sua
 
 Atualmente, a Media Services suporta as seguintes predefinições de analisadores incorporados:  
 
-|**Nome da configuração predefinida**|**Cenário**|**Detalhes**|
+|**Nome predefinido**|**Cenário**|**Detalhes**|
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisar áudio|O predefinido aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo a transcrição da fala. Atualmente, o preset suporta o processamento de conteúdo com uma única faixa de áudio que contém a fala numa única língua. Pode especificar o idioma para a carga áudio na entrada utilizando o formato BCP-47 de "região de tag-região linguística". As línguas apoiadas são o inglês ('en-US' e 'en-GB'), o espanhol ('es-ES' e 'es-MX'), o francês ('fr-FR'), o italiano ('it-IT'), o japonês ('ja-JP'), o português ('pt-BR'), o chinês ('zh-CN'), o alemão ('de-de-DE'), o árabe ('ar-EG' e 'ar-SY'), o russo ('pt-R'), o alemão ('de-de-DE'), o árabe ('ar-EG' e 'ar-SY'), o russo ('pt-R'), o alemão ('de-de-DE'), o árabe ('ar-EG' e 'ar-SY'), o russo ('pt-BR'), o alemão ('de-de-DE'), o árabe ('ar-EG' e 'ar-SY'), o russo ('pt-BR'), o alemão ('de-de-DE'), o árabe ('ar-EG' e 'ar-SY'), o russo ('pt-BR'), o alemão ('de-de-DE'DE'), o árabe ('ar-EG' e 'ar-SY'), o russo ('pt-BR'), o alemão ('de-de-DE'), o árabe Hindi ('hi-IN'), e coreano ('ko-KR').<br/><br/> Se o idioma não for especificado ou definido para nula, a deteção automática de idiomas escolhe a primeira língua detetada e continua com o idioma selecionado durante a duração do ficheiro. A funcionalidade de deteção automática de línguas suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Não suporta alternar dinamicamente entre línguas após a primeira língua ser detetada. A funcionalidade de deteção automática de idiomas funciona melhor com gravações áudio com uma fala claramente percetível. Se a deteção automática de idiomas não encontrar a língua, a transcrição remonta ao inglês.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analisar áudio e vídeo|Extrai insights (metadados ricos) tanto de áudio como de vídeo, e produz um ficheiro de formato JSON. Pode especificar se apenas pretende extrair informações áudio ao processar um ficheiro de vídeo. Para mais informações, consulte [O Vídeo Análise](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detetar rostos presentes em vídeo|Descreve as definições a utilizar ao analisar um vídeo para detetar todos os rostos presentes.|
+|[Predefinição faceDetectorPre](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detetar rostos presentes em vídeo|Descreve as definições a utilizar ao analisar um vídeo para detetar todos os rostos presentes.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -65,14 +65,14 @@ O preset permite extrair várias informações de áudio e vídeo de um ficheiro
 
 A saída inclui um ficheiro JSON (insights.json) com todas as informações encontradas no vídeo ou áudio. O JSON pode conter os seguintes elementos:
 
-### <a name="transcript"></a>transcriçõe
+### <a name="transcript"></a>transcrição
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID da linha.|
+|ID|A identificação da linha.|
 |texto|A transcrição em si.|
-|language|O idioma da transcrição. Destina-se a dar suporte à transcrição, em que cada linha pode ter um idioma diferente.|
-|instâncias|Uma lista de intervalos de tempo em que essa linha apareceu. Se a instância for transcrição, ela terá apenas uma instância.|
+|language|A linguagem da transcrição. Destina-se a apoiar a transcrição onde cada linha pode ter uma linguagem diferente.|
+|instâncias|Uma lista de intervalos de tempo onde esta linha apareceu. Se a instância for transcrição, terá apenas 1 instância.|
 
 Exemplo:
 
@@ -103,15 +103,15 @@ Exemplo:
 ] 
 ```
 
-### <a name="ocr"></a>OCR
+### <a name="ocr"></a>ocr
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID da linha de OCR.|
-|texto|O texto de OCR.|
-|confiança|A confiança do reconhecimento.|
-|language|O idioma do OCR.|
-|instâncias|Uma lista de intervalos de tempo em que esse OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
+|ID|O ID da linha OCR.|
+|texto|O texto da OCR.|
+|confiança|A confiança de reconhecimento.|
+|language|A linguagem OCR.|
+|instâncias|Uma lista de intervalos de tempo onde este OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
 
 ```json
 "ocr": [
@@ -146,21 +146,21 @@ Exemplo:
   ],
 ```
 
-### <a name="faces"></a>frente
+### <a name="faces"></a>rostos
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID da face.|
+|ID|A identificação do rosto.|
 |nome|O nome do rosto. Pode ser 'Unknown #0', uma celebridade identificada, ou uma pessoa treinada por clientes.|
-|confiança|A confiança da identificação facial.|
-|descrição|Uma descrição do celebridade. |
-|thumbnailId|A ID da miniatura dessa face.|
+|confiança|A confiança na identificação facial.|
+|descrição|Uma descrição da celebridade. |
+|thumbnailId|A identificação da miniatura daquele rosto.|
 |knownPersonId|A identificação interna (se for uma pessoa conhecida).|
 |referenceId|O Bing ID (se for uma celebridade bing).|
 |referenceType|Atualmente, só o Bing.|
-|título|O título (se for uma celebridade - por exemplo, "CEO da Microsoft").|
+|Título|O título (se for uma celebridade - por exemplo, "CEO da Microsoft").|
 |imageUrl|A URL de imagem, se for uma celebridade.|
-|instâncias|Casos em que o rosto apareceu no intervalo de tempo dado. Cada instância também tem um thumbnailsId. |
+|instâncias|Casos em que o rosto apareceu no intervalo de tempo dado. Cada instância também tem uma miniaturaId. |
 
 ```json
 "faces": [{
@@ -191,11 +191,11 @@ Exemplo:
 }]
 ```
 
-### <a name="shots"></a>momentos
+### <a name="shots"></a>tiros
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID da captura.|
+|ID|A identificação do tiro.|
 |keyFrames|Uma lista de quadros-chave dentro do filme (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Os quadros-chave têm um campo miniaturaId com o ID da miniatura do keyFrame.|
 |instâncias|Uma lista de intervalos de tempo deste tiro (os tiros têm apenas 1 instância).|
 
@@ -248,27 +248,27 @@ Exemplo:
   ]
 ```
 
-### <a name="statistics"></a>estatística
+### <a name="statistics"></a>estatísticas
 
 |Nome|Descrição|
 |---|---|
-|CorrespondenceCount|Número de correspondências no vídeo.|
+|CorrespondênciaCount|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por orador.|
-|SpeakerNumberOfFragments|A quantidade de fragmentos que o orador tem em um vídeo.|
-|SpeakerLongestMonolog|A monolog mais longa do orador. Se o altifalante tiver silêncios dentro do monolog, está incluído. Silêncio no início e o fim do monolog são removidos.|
-|SpeakerTalkToListenRatio|O cálculo é baseado no tempo gasto no monolog do orador (sem o silêncio entre eles) dividido pelo tempo total do vídeo. O tempo é arredondado para o terceiro ponto decimal.|
+|AltifalanteNumberOfFragments|A quantidade de fragmentos que o altifalante tem num vídeo.|
+|SpeakerLongestMonolog|O monologmais mais longo do orador. Se o altifalante tiver silêncios dentro do monolog, está incluído. O silêncio no início e o fim do monologéno são removidos.|
+|SpeakerTalkToListenRatio|O cálculo baseia-se no tempo gasto no monolog (sem o silêncio pelo meio) dividido pelo tempo total do vídeo. O tempo é arredondado para o terceiro ponto decimal.|
 
 
 ### <a name="sentiments"></a>sentimentos
 
-As opiniões são agregadas por seu campo Atfield (positivo/neutro/negativo). Por exemplo, 0-0,1, 0,1-0.2.
+Os sentimentos são agregados pelo seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID de sentimentos.|
-|averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimentos-positivo/neutro/negativo|
-|instâncias|Uma lista de intervalos de tempo em que esse sentimentos apareceu.|
-|Resentitype |O tipo pode ser ' positivo ', ' neutro ' ou ' negativo '.|
+|ID|A identificação do sentimento.|
+|averageScore |A média de todas as pontuações de todos os casos desse tipo de sentimento - Positivo/Neutro/Negativo|
+|instâncias|Uma lista de intervalos de tempo onde este sentimento apareceu.|
+|sentimentoTipo |O tipo pode ser "Positivo", "Neutro" ou "Negativo".|
 
 ```json
 "sentiments": [
@@ -300,10 +300,10 @@ As opiniões são agregadas por seu campo Atfield (positivo/neutro/negativo). Po
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID do rótulo.|
-|nome|O nome do rótulo (por exemplo, ' computador ', ' TV ').|
-|language|O nome do rótulo Language (quando traduzido). BCP-47|
-|instâncias|Uma lista de intervalos de tempo em que esse rótulo apareceu (um rótulo pode aparecer várias vezes). Cada instância tem um campo de confiança. |
+|ID|A identificação da etiqueta.|
+|nome|O nome da etiqueta (por exemplo, "Computador", "TV").).|
+|language|A linguagem do nome do rótulo (quando traduzida). BCP-47|
+|instâncias|Uma lista de intervalos de tempo onde esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada caso tem um campo de confiança. |
 
 ```json
 "labels": [
@@ -358,11 +358,11 @@ As opiniões são agregadas por seu campo Atfield (positivo/neutro/negativo). Po
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID da palavra-chave.|
+|ID|A identificação da palavra-chave.|
 |texto|O texto da palavra-chave.|
-|confiança|A confiança de reconhecimento da palavra-chave.|
-|language|O idioma da palavra-chave (quando traduzido).|
-|instâncias|Uma lista de intervalos de tempo em que essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
+|confiança|A palavra-chave reconhece a confiança.|
+|language|A linguagem da palavra-chave (quando traduzida).|
+|instâncias|Uma lista de intervalos de tempo onde esta palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
 "keywords": [
@@ -403,16 +403,16 @@ As opiniões são agregadas por seu campo Atfield (positivo/neutro/negativo). Po
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-O bloco visualContentModeration contém intervalos de tempo que Video Indexer encontrados para potencialmente ter conteúdo adulto. Se o visualContentModeração estiver vazio, não há conteúdo adulto que tenha sido identificado.
+O bloco visualContentModeration contém intervalos de tempo que o Indexer de Vídeo descobriu potencialmente ter conteúdo adulto. Se o visualContentModeração estiver vazio, não há conteúdo adulto que tenha sido identificado.
 
-Vídeos que são encontrados para conter conteúdo adulto ou erótico podem estar disponíveis somente para exibição particular. Os utilizadores podem submeter um pedido de revisão humana do conteúdo, caso em que o atributo `IsAdult` conterá o resultado da revisão humana.
+Os vídeos que se encontram com conteúdo adulto ou picante podem estar disponíveis apenas para visualização privada. Os utilizadores podem submeter um pedido de revisão humana do conteúdo, caso em que o atributo `IsAdult` conterá o resultado da revisão humana.
 
 |Nome|Descrição|
 |---|---|
-|ID|A ID de moderação do conteúdo visual.|
-|adultScore|A pontuação de adulto (do Content moderator).|
-|racyScore|A pontuação de erótico (da moderação de conteúdo).|
-|instâncias|Uma lista de intervalos de tempo onde essa moderação de conteúdo Visual apareceu.|
+|ID|O ID de moderação de conteúdo visual.|
+|adultScore|A pontuação adulta (de moderador de conteúdo).|
+|racyScore|A pontuação picante (da moderação do conteúdo).|
+|instâncias|Uma lista de intervalos de tempo onde esta moderação de conteúdo visual apareceu.|
 
 ```json
 "VisualContentModeration": [

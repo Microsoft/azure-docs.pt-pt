@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: implantar um modelo de aprendizado de máquina com o designer'
+title: 'Tutorial: Implementar um modelo de machine learning com o designer'
 titleSuffix: Azure Machine Learning
-description: Este tutorial mostra como criar uma solução de análise preditiva no designer de Azure Machine Learning (versão prévia). Treine, pontuate e implante um modelo de aprendizado de máquina usando os módulos arrastar e soltar.
+description: Este tutorial mostra-lhe como construir uma solução de análise preditiva no designer de Machine Learning Azure (pré-visualização). Treine, marque e implemente um modelo de aprendizagem automática utilizando módulos de arrasto e queda.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,110 +9,110 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 390655e3caab89425fe3c8623928c584f8bd3324
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934004"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933165"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: implantar um modelo de aprendizado de máquina com o designer (versão prévia)
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementar um modelo de machine learning com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Você pode implantar o modelo de previsão desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros a oportunidade de usá-lo. Na parte um, você treinou seu modelo. Agora, é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você vai:
+Pode implementar o modelo preditivo desenvolvido na [primeira parte do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros a oportunidade de usá-lo. Na primeira parte, treinou o seu modelo. Agora, é hora de gerar novas previsões com base na entrada do utilizador. Nesta parte do tutorial, irá:
 
 > [!div class="checklist"]
-> * Crie um pipeline de inferência em tempo real.
-> * Crie um cluster inferência.
-> * Implante o ponto de extremidade em tempo real.
-> * Teste o ponto de extremidade em tempo real.
+> * Criar um oleoduto de inferência em tempo real.
+> * Criar um aglomerado de inferência.
+> * Implante o ponto final em tempo real.
+> * Teste o ponto final em tempo real.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua a [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a treinar e pontuar um modelo de aprendizado de máquina no designer.
+Complete a [primeira parte do tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a treinar e a marcar um modelo de aprendizagem automática no designer.
 
-## <a name="create-a-real-time-inference-pipeline"></a>Criar um pipeline de inferência em tempo real
+## <a name="create-a-real-time-inference-pipeline"></a>Criar um oleoduto de inferência em tempo real
 
-Para implantar seu pipeline, você deve primeiro converter o pipeline de treinamento em um pipeline de inferência em tempo real. Esse processo remove módulos de treinamento e adiciona entradas e saídas do serviço Web para manipular solicitações.
+Para implantar o seu oleoduto, primeiro tem de converter o gasoduto de treino num gasoduto de inferência em tempo real. Este processo remove módulos de treino e adiciona inputs e saídas de serviço web para lidar com pedidos.
 
-### <a name="create-a-real-time-inference-pipeline"></a>Criar um pipeline de inferência em tempo real
+### <a name="create-a-real-time-inference-pipeline"></a>Criar um oleoduto de inferência em tempo real
 
-1. Acima da tela do pipeline, selecione **criar pipeline de inferência** > **pipeline de inferência em tempo real**.
+1. Acima da tela do gasoduto, selecione Criar gasoduto de **inferência** > **gasoduto de inferência em tempo real**.
 
-    ![Screenshot mostrando onde encontrar o botão de criar pipeline](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Screenshot mostrando onde encontrar o botão de criar pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
-    Seu pipeline agora deve ser assim: 
+    O seu oleoduto deve agora ser assim: 
 
-   ![Captura de tela mostrando a configuração esperada do pipeline depois de prepará-lo para implantação](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Screenshot mostrando a configuração esperada do pipeline após prepará-lo para a implantação](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
-    Quando você seleciona **criar pipeline de inferência**, várias coisas acontecem:
+    Quando seleciona **O pipeline de inferência Criar,** várias coisas acontecem:
     
-    * O modelo treinado é armazenado como um módulo de **conjunto** de armazenamento na paleta de módulos. Você pode encontrá-lo em **meus conjuntos de valores**.
-    * Módulos de treinamento como **modelo** de treinamento e **dados divididos** são removidos.
-    * O modelo treinado salvo é adicionado de volta ao pipeline.
-    * Os módulos **entrada de serviço Web** e **saída de serviço Web** são adicionados. Esses módulos mostram onde os dados do usuário entram no pipeline e onde os dados são retornados.
+    * O modelo treinado é armazenado como um módulo **Dataset** na paleta de módulos. Pode encontrá-lo sob **os meus conjuntos**de dados.
+    * São removidos módulos de treino como **o Modelo de Comboio** e os Dados **Divididos.**
+    * O modelo treinado guardado é adicionado de volta ao oleoduto.
+    * Os módulos de entrada de serviço **web** e de saída do **serviço web** são adicionados. Estes módulos mostram onde os dados do utilizador entram no pipeline e onde os dados são devolvidos.
 
     > [!NOTE]
-    > Por padrão, a **entrada do serviço Web** esperará o mesmo esquema de dados que os dados de treinamento usados para criar o pipeline de previsão. Nesse cenário, o preço é incluído no esquema. No entanto, o preço não é usado como um fator durante a previsão.
+    > Por padrão, a Entrada do **Serviço Web** espera o mesmo esquema de dados que os dados de treino utilizados para criar o pipeline preditivo. Neste cenário, o preço está incluído no esquema. No entanto, o preço não é usado como fator durante a previsão.
     >
 
-1. Selecione **executar**e use o mesmo destino de computação e teste que você usou na parte um.
+1. Selecione **Submeter**, e use o mesmo alvo de cálculo e experimente que usou na primeira parte.
 
 1. Selecione **Implementar**.
 
-## <a name="create-an-inferencing-cluster"></a>Criar um cluster inferência
+## <a name="create-an-inferencing-cluster"></a>Criar um cluster de inferência
 
-Na caixa de diálogo que aparece, você pode selecionar entre todos os clusters do AKS (serviço kubernetes do Azure) existentes para implantar o modelo. Se você não tiver um cluster AKS, use as etapas a seguir para criar um.
+Na caixa de diálogo que aparece, pode selecionar entre quaisquer clusters de Serviço Azure Kubernetes (AKS) existentes para implementar o seu modelo para. Se não tiver um cluster AKS, use os seguintes passos para criar um.
 
-1. Selecione **computação** na caixa de diálogo que aparece para ir para a página de **computação** .
+1. Selecione **Compute** na caixa de diálogo que parece ir para a página **Compute.**
 
-1. Na faixa de opções de navegação, selecione **clusters de inferência** >  **+ novo**.
+1. Na fita de navegação, selecione **Clusters de Inferência** >  **+ Novo**.
 
-    ![Captura de tela mostrando como chegar ao novo painel de cluster de inferência](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
+    ![Screenshot mostrando como chegar ao novo painel de cluster de inferência](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
-1. No painel cluster de inferência, configure um novo serviço kubernetes.
+1. No painel de cluster de inferência, configure um novo Serviço Kubernetes.
 
-1. Digite *AKs-Compute* para o **nome de computação**.
+1. Introduza *aks-compute* para o **nome Compute**.
     
-1. Selecione uma região próxima que esteja disponível para a **região**.
+1. Selecione uma região próxima que esteja disponível para a **Região.**
 
 1. Selecione **Criar**.
 
     > [!NOTE]
-    > Leva aproximadamente 15 minutos para criar um novo serviço AKS. Você pode verificar o estado de provisionamento na página **clusters de inferência** .
+    > Leva aproximadamente 15 minutos para criar um novo serviço AKS. Pode verificar o estado de provisionamento na página **Inference Clusters.**
     >
 
-## <a name="deploy-the-real-time-endpoint"></a>Implantar o ponto de extremidade em tempo real
+## <a name="deploy-the-real-time-endpoint"></a>Implementar o ponto final em tempo real
 
-Depois que o serviço AKS tiver concluído o provisionamento, retorne ao pipeline inferência em tempo real para concluir a implantação.
+Depois do seu serviço AKS ter terminado o fornecimento, volte ao oleoduto de inferência em tempo real para completar a implantação.
 
-1. Selecione **implantar** acima da tela.
+1. Selecione **Implementar** acima da tela.
 
-1. Selecione **implantar novo ponto de extremidade em tempo real**. 
+1. Selecione **Implementar novo ponto final em tempo real**. 
 
-1. Selecione o cluster AKS que você criou.
+1. Selecione o cluster AKS que criou.
 
 1. Selecione **Implementar**.
 
-    ![Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
+    ![Screenshot mostrando como configurar um novo ponto final em tempo real](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
-    Uma notificação de êxito acima da tela aparece após a conclusão da implantação. Pode levar alguns minutos.
+    Uma notificação de sucesso acima da tela aparece após acabamentos de implantação. Pode levar alguns minutos.
 
-## <a name="test-the-real-time-endpoint"></a>Testar o ponto de extremidade em tempo real
+## <a name="test-the-real-time-endpoint"></a>Teste o ponto final em tempo real
 
-Após a conclusão da implantação, você pode testar seu ponto de extremidade em tempo real indo para a página **pontos** de extremidade.
+Após os acabamentos de implementação, pode testar o seu ponto final em tempo real indo para a página **Endpoints.**
 
-1. Na página **pontos** de extremidade, selecione o ponto de extremidade que você implantou.
+1. Na página **Endpoints,** selecione o ponto final que implementou.
 
-    ![Captura de tela mostrando a guia pontos de extremidade em tempo real com o ponto de extremidades recentemente criado realçado](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+    ![Screenshot mostrando o separador de pontos finais em tempo real com o ponto final recentemente criado em destaque](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
-1. Selecione **testar**.
+1. Selecione **Teste**.
 
-1. Você pode inserir dados de teste manualmente ou usar os dados de exemplo preenchidos automaticamente e selecionar **testar**.
+1. Pode introduzir manualmente dados de teste ou utilizar os dados da amostra auto-preenchidos e selecionar **Test**.
 
-    O portal envia uma solicitação de teste para o ponto de extremidade e mostra os resultados. Embora um valor de preço seja gerado para os dados de entrada, ele não é usado para gerar o valor de previsão.
+    O portal submete um pedido de teste ao ponto final e mostra os resultados. Embora um valor de preço seja gerado para os dados de entrada, não é usado para gerar o valor de previsão.
 
-    ![Captura de tela mostrando como testar o ponto de extremidade em tempo real com o rótulo pontuado para o preço realçado](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+    ![Screenshot mostrando como testar o ponto final em tempo real com o rótulo pontuado para o preço realçado](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -120,7 +120,7 @@ Após a conclusão da implantação, você pode testar seu ponto de extremidade 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu as principais etapas em como criar, implantar e consumir um modelo de aprendizado de máquina no designer. Para saber mais sobre como você pode usar o designer para resolver outros tipos de problemas, consulte nossos outros pipelines de exemplo.
+Neste tutorial, aprendeu os passos-chave na forma de criar, implantar e consumir um modelo de machine learning no designer. Para saber mais sobre como pode usar o designer para resolver outros tipos de problemas, consulte os nossos outros pipelines de amostra.
 
 > [!div class="nextstepaction"]
-> [Exemplo de classificação de risco de crédito](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Amostra de classificação de risco de crédito](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

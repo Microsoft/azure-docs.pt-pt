@@ -3,12 +3,12 @@ title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das definições de suporte e limitações para o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363841"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932754"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para Backup Azure
 
@@ -84,7 +84,7 @@ Aqui está o que é suportado se quiser apoiar as máquinas Linux:
 
 ## <a name="daylight-saving-time-support"></a>Suporte horário de verão
 
-O Azure Backup não suporta o ajuste automático do relógio para o horário de verão para cópias de segurança Do VM Azure. Modifique manualmente as políticas de backup conforme necessário.
+O Azure Backup não suporta o ajuste automático do relógio para o horário de verão para cópias de segurança Do VM Azure. Não desloca a hora do backup para a frente ou para trás. Para garantir que a cópia de segurança corre no momento desejado, modifique as políticas de backup manualmente conforme necessário.
 
 ## <a name="disk-deduplication-support"></a>Suporte de desduplicação de disco
 

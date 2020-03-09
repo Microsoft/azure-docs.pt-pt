@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 42fc10c1e7e88e36e4d2174671702e043fb96538
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208717"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926849"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -33,7 +33,7 @@ O SCIM é uma definição padronizada de dois pontos finais: um ponto final /Uti
 
 O esquema de objeto de utilizador padrão e as APIs de repouso para gestão definidas no SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) permitem que os fornecedores de identidade e apps se integrem mais facilmente entre si. Os desenvolvedores de aplicações que constroem um ponto final do SCIM podem integrar-se com qualquer cliente compatível com o SCIM sem ter de fazer trabalho personalizado.
 
-Automatizar o fornecimento a uma aplicação requer a construção e a integração de um ponto final do SCIM com o sCIM Azure AD. Execute as seguintes etapas para começar a fornecer utilizadores e grupos na sua aplicação. 
+Automatizar o provisionamento a uma aplicação requer a construção e integração de um ponto final sCIM com o cliente Azure AD SCIM. Execute as seguintes etapas para começar a fornecer utilizadores e grupos na sua aplicação. 
     
   * **[Passo 1: Desenhe o seu esquema de utilizador e grupo.](#step-1-design-your-user-and-group-schema)** Identifique os objetos e atributos que a sua aplicação necessita, e determine como mapeiam para o utilizador e grupo esquema suportado pela implementação do Azure AD SCIM.
 
@@ -229,7 +229,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="create-user"></a>Criar utilizador
 
-###### <a name="request"></a>Pedido
+###### <a name="request"></a>Pedir
 
 *POST /Utilizadores*
 ```json
@@ -317,7 +317,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 }
 ```
 
-###### <a name="request"></a>Pedido
+###### <a name="request"></a>Pedir
 *GET /Utilizadores/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Resposta (Utilizador não encontrado. Note que o detalhe não é necessário, apenas estado.)
@@ -752,7 +752,7 @@ TLS 1.2 Cifra Suites barra mínima:
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final do SCIM
 
-Agora que desviaste o teu esquema e compreendeste a implementação do Azure AD SCIM, podes começar a desenvolver o teu ponto final do SCIM. Em vez de começar do zero e construir a implementação completamente por conta própria, pode contar com uma série de bibliotecas SCIM de código aberto publicadas pela commuinty SCIM.  
+Agora que desenhou o seu esquema e compreendeu a implementação do Azure AD SCIM, pode começar a desenvolver o seu ponto final sCIM. Em vez de começar do zero e construir a implementação completamente por conta própria, pode contar com uma série de bibliotecas SCIM de código aberto publicadas pela commuinty SCIM.  
 O código de [referência](https://aka.ms/SCIMReferenceCode) de código de referência .NET Core de código de referência publicado pela equipa de provisionamento da AD Azure é um desses recursos que podem iniciar o seu desenvolvimento. Assim que construíres o teu ponto final do SCIM, vais querer testá-lo. Pode utilizar a recolha de [testes carteiros](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou executar através dos pedidos/respostas da amostra [fornecidos acima .](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)  
 
 Nota: O código de referência destina-se a ajudá-lo a começar a construir o seu ponto final SCIM e é fornecido "AS IS". As contribuições da comunidade são bem-vindas para ajudar a construir e manter o código. 

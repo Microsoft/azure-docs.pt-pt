@@ -1,6 +1,6 @@
 ---
-title: Importar o ambiente de Postman para chamadas REST de serviços de multimédia do Azure
-description: Este tópico fornece uma definição do ambiente de Postman para chamadas REST de serviços de multimédia do Azure.
+title: Importar o ambiente dos Carteiros para chamadas de REST azure Media Services
+description: Este tópico fornece uma definição do ambiente carteiro para chamadas DE REST azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 6813dfca4a89263a10887ef4fa58c7403a9b1294
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637561"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926718"
 ---
-# <a name="import-the-postman-environment"></a>Importar o ambiente do Postman  
+# <a name="import-the-postman-environment"></a>Importar o ambiente do Carteiro  
 
-Este artigo contém uma definição do **Postman** variáveis de ambiente que são utilizadas os [coleção do Postman](postman-collection.md) que contém agrupados pedidos HTTP que chamam APIs de REST de serviços de multimédia. São utilizados os ficheiros de ambiente e uma coleção o [configurar o Postman para a API de REST dos serviços de suporte de dados chama](media-rest-apis-with-postman.md) tutorial.
+Este artigo contém uma definição das variáveis ambientais **do Carteiro** que são usadas na coleção [do Carteiro](postman-collection.md) que contém pedidos http agrupados que chamam media services REST APIs. O ambiente e os ficheiros de recolha são utilizados pelo [Configure Postman for Media Services REST API chama tutorial.](media-rest-apis-with-postman.md)
+
+> [!NOTE]
+> O valor da `AzureADSTSEndpoint ``https://login.microsoftonline.com/{{TenantId}}/oauth2/token` = . Para obter o seu ID de inquilino, pode pairar sobre o seu rato sobre o seu nome de utilizador no portal (no canto superior direito) e estará no "Diretório: Microsoft ({{TENANTID}} ) .
 
 ```
 {

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a4732d780bb241a18e0738c99603799c31c2102f
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184031"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933067"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de senha única numa política personalizada Azure AD B2C
 
@@ -69,7 +69,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 ### <a name="metadata"></a>Metadados
 
-As seguintes definições podem ser utilizadas para configurar a geração e manutenção de códigos:
+As seguintes definições podem ser utilizadas para configurar o modo de geração de códigos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
@@ -77,7 +77,7 @@ As seguintes definições podem ser utilizadas para configurar a geração e man
 | Comprimento de código | Não | Comprimento do código. O valor predefinido é `6`. |
 | Conjunto de caracteres | Não | O conjunto de caracteres para o código, formatado para uso numa expressão regular. Por exemplo, `a-z0-9A-Z`. O valor predefinido é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
 | Tentativas de Numretry | Não | O número de tentativas de verificação antes do código é considerado inválido. O valor predefinido é `5`. |
-| Operação | Sim | A operação a ser realizada. Valores possíveis: `GenerateCode`, ou `VerifyCode`. |
+| Operação | Sim | A operação a ser realizada. Valor possível: `GenerateCode`. |
 | Reutilização Do SameCode | Não | Se um código duplicado deve ser dado em vez de gerar um novo código quando o código não expirou e ainda é válido. O valor predefinido é `false`. |
 
 ### <a name="returning-error-message"></a>Mensagem de erro de retorno
@@ -90,22 +90,22 @@ O exemplo seguinte `TechnicalProfile` é utilizado para gerar um código:
 
 ```XML
 <TechnicalProfile Id="GenerateCode">
-    <DisplayName>Generate Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">600</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="NumRetryAttempts">5</Item>
-        <Item Key="ReuseSameCode">false</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-    </InputClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
-    </OutputClaims>
+  <DisplayName>Generate Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">GenerateCode</Item>
+    <Item Key="CodeExpirationInSeconds">600</Item>
+    <Item Key="CodeLength">6</Item>
+    <Item Key="CharacterSet">0-9</Item>
+    <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="ReuseSameCode">false</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
@@ -132,21 +132,23 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 ### <a name="metadata"></a>Metadados
 
-As seguintes definições podem ser utilizadas para configurar a mensagem de erro apresentada após falha de verificação de código:
+As seguintes definições podem ser utilizadas para codificar o modo de verificação:
+
+| Atributo | Necessário | Descrição |
+| --------- | -------- | ----------- |
+| Operação | Sim | A operação a ser realizada. Valor possível: `VerifyCode`. |
+
+
+### <a name="error-messages"></a>Mensagens de erro
+
+As seguintes definições podem ser utilizadas para configurar as mensagens de erro apresentadas após falha de verificação de código. Os metadados devem ser configurados no perfil técnico [autoafirmado.](self-asserted-technical-profile.md) As mensagens de erro podem ser [localizadas.](localization-string-ids.md#one-time-password-error-messages)
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | UserMessageifSessionNão existe | Não | A mensagem a mostrar ao utilizador se a sessão de verificação de código tiver expirado. Ou o código expirou ou o código nunca foi gerado para um determinado identificador. |
 | UserMessageIfMaxRetryTryTry | Não | A mensagem para mostrar ao utilizador se tiver excedido as tentativas máximas de verificação permitidas. |
 | UserMessageIfInvalidcode | Não | A mensagem para mostrar ao utilizador se tiver fornecido um código inválido. |
-
-### <a name="returning-error-message"></a>Mensagem de erro de retorno
-
-Tal como descrito nos [Metadados,](#metadata)pode personalizar a mensagem de erro mostrada ao utilizador para diferentes casos de erro. Pode localizar ainda mais essas mensagens prefixando o local, por exemplo:
-
-```XML
-<Item Key="en.UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-```
+|UserMessageifSessionConflict|Não| A mensagem a mostrar ao utilizador se o código não puder ser verificado.|
 
 ### <a name="example"></a>Exemplo
 
@@ -154,18 +156,15 @@ Tal como descrito nos [Metadados,](#metadata)pode personalizar a mensagem de err
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
-    <DisplayName>Verify Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-        <Item Key="UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-        <Item Key="UserMessageIfSessionDoesNotExist">Code has expired.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You've tried too many times.</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
-    </InputClaims>
+  <DisplayName>Verify Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">VerifyCode</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+    <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
+  </InputClaims>
 </TechnicalProfile>
 ```
 

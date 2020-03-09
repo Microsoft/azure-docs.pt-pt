@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: beb20518d1350335ceed285f4d5cd9da135132e5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393072"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932785"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup de Troubleshoot Azure: Problemas com o agente ou extensão
 
@@ -50,10 +50,11 @@ Depois de registar e agendar um VM para o serviço de backup Azure, o Backup ini
 **Código de erro**: UserErrorVmProvisioningStateFailed<br>
 **Mensagem de erro**: O VM está em estado de provisionamento falhado<br>
 
-Este erro ocorre quando uma das falhas de extensão coloca o VM no estado falhado de provisionamento.<br>**Open Azure portal > VM > Definições > Extensões > Estado** de extensões e verificar se todas as extensões estão em **estado de provisionamento.**
+Este erro ocorre quando uma das falhas de extensão coloca o VM no estado falhado de provisionamento.<br>**Open Azure portal > VM > Definições > Extensões > Estado** de extensões e verificar se todas as extensões estão em **estado de provisionamento.** Para saber mais, consulte os [Estados de Provisioning.](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states)
 
 - Se a extensão VMSnapshot estiver num estado falhado, clique à direita na extensão falhada e remova-a. Desencadeie um reforço a pedido. Esta ação reinstalará as extensões e executará o trabalho de backup.  <br>
-- Se qualquer outra extensão estiver em estado falhado, então pode interferir com o backup. Certifique-se de que os problemas de extensão estão resolvidos e tente novamente a operação de backup.  
+- Se qualquer outra extensão estiver em estado falhado, então pode interferir com o backup. Certifique-se de que os problemas de extensão estão resolvidos e tente novamente a operação de backup.
+- Se o estado de fornecimento de VM estiver em estado de atualização, pode interferir com o backup. Certifique-se de que está saudável e tente novamente a operação de reserva.
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - O limite máximo de recolha de Ponto de Restauro alcançou
 

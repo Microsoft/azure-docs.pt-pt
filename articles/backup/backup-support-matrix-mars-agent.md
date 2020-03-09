@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte de backup Azure quando faz backup de máquinas que estejam a executar o agente microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 515ca065914dc535c1ba21fdb5ac574e3987ca32
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669048"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932603"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente microsoft Azure Recovery Services (MARS)
 
@@ -158,7 +158,7 @@ Windows 7| 1\.700 GB
 
 **Tipo** | **Suporte**
 --- | ---
-Encriptados| Suportado.
+<sup>*</sup> encriptado| Suportado.
 Comprimidos | Suportado.
 Dispersos | Suportado.
 Comprimido e escasso |Suportado.
@@ -169,6 +169,8 @@ Sequência comprimida| Não suportado. Saltou.
 Sequência dispersa| Não suportado. Saltou.
 OneDrive (ficheiros sincronizados são fluxos escassos)| Não suportado.
 Pastas com replicação DFS ativadas | Não suportado.
+
+\* Certifique-se de que o agente MARS tem acesso aos certificados necessários para aceder aos ficheiros encriptados. Os ficheiros inacessíveis serão ignorados.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes suportados para backup
 

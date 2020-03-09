@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: 032d4793576e2fb9b8de9e36666548e5bffb9460
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898276"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927543"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte ao programa Mercado Comercial no Partner Center
 
@@ -27,9 +27,9 @@ A Microsoft fornece suporte para uma grande variedade de produtos e serviços. E
 
 1. Inscreva-se [no programa Mercado Comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com a sua conta de trabalho. (Se ainda não o fez, terá de [criar uma conta partner center](./create-account.md).)
 
-1. No menu superior do lado direito da página, selecione o ícone **suporte.** 
+2. No menu superior do lado direito da página, selecione o ícone **suporte.** 
  
-1. O painel **de ajuda e suporte** aparecerá do lado direito da página. 
+3. O painel **de ajuda e suporte** aparecerá do lado direito da página. 
  
    ![Menu de apoio drop-down](./media/commercial-marketplace-support-pane.png)
 
@@ -37,11 +37,11 @@ A Microsoft fornece suporte para uma grande variedade de produtos e serviços. E
 
    ![Ajuda e apoio da página inicial](./media/homepage-help-support.png)
 
-1. Selecione **[Documentação](../index.md)** para rever respostas abrangentes a perguntas e recursos. 
+4. Selecione **[Documentação](../index.yml)** para rever respostas abrangentes a perguntas e recursos. 
 
-1. Selecione **[marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder às suas perguntas, aproveitando o conhecimento de outras editoras da Microsoft. 
+5. Selecione **[marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder às suas perguntas, aproveitando o conhecimento de outras editoras da Microsoft. 
 
-1. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um novo bilhete de pedido de **apoio.**  
+6. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um novo bilhete de pedido de **apoio.**  
 
 ## <a name="how-to-open-a-support-ticket"></a>Como abrir um bilhete de apoio
 

@@ -1,73 +1,79 @@
 ---
-title: Perguntas comuns sobre as migrações para Azure
-description: Obtenha respostas para perguntas comuns sobre o serviço migrações para Azure.
+title: FaQ migração azure
+description: Obtenha respostas a perguntas comuns sobre o serviço Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: baf01c0a0d5c6154305f7137c24deb0365b5e812
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: c85c5c6e11beb0178139dad152f56f420b2ac26f
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062103"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926719"
 ---
-# <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
+# <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns
 
-Este artigo responde a perguntas comuns sobre as migrações para Azure. Se tiver mais dúvidas depois de ler este artigo, publique-as no [fórum Azure Migrate](https://aka.ms/AzureMigrateForum). Se você tiver outras dúvidas, leia estes artigos:
+Este artigo responde a perguntas comuns sobre o Azure Migrate. Se tiver dúvidas depois de ler este artigo, pode publicá-las no [fórum Azure Migrate](https://aka.ms/AzureMigrateForum). Também pode rever estes artigos:
 
-- [Perguntas](common-questions-appliance.md) sobre o aparelho Azure Migrate.
-- [Perguntas](common-questions-discovery-assessment.md) sobre descoberta, avaliação e visualização da dependência.
-
+- Perguntas sobre o [aparelho Azure Migrate](common-questions-appliance.md)
+- Perguntas sobre [descoberta, avaliação e visualização da dependência](common-questions-discovery-assessment.md)
 
 ## <a name="what-is-azure-migrate"></a>O que é o Azure Migrate?
 
-As migrações para Azure fornecem um hub central para acompanhar a descoberta, avaliação e migração de seus aplicativos e cargas de trabalho locais e VMs de nuvem privada/pública, para o Azure. O Hub fornece ferramentas de migração do Azure para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros. [Saiba mais](migrate-services-overview.md).
+A Azure Migrate fornece um centro central para acompanhar a descoberta, avaliação e migração das suas aplicações e cargas de trabalho no local e VMs de nuvem privada e pública para Azure. O centro fornece ferramentas azure migrate para avaliação e migração e ofertas ISV de terceiros. [Saiba mais](migrate-services-overview.md).
 
+## <a name="what-can-i-do-with-azure-migrate"></a>O que posso fazer com o Azure Migrate?
 
-## <a name="what-can-i-do-with-azure-migrate"></a>O que posso fazer com as migrações para Azure?
+Utilize o Azure Migrate para descobrir, avaliar e migrar no local infraestruturas, aplicações e dados para o Azure. A Azure Migrate suporta a avaliação e migração de VMware no local, VMs Hiper-V, servidores físicos, outros VMs virtualizados, bases de dados, aplicações web e ambientes de trabalho virtuais. 
 
-Use as migrações para Azure para descobrir, avaliar e migrar dados, aplicativos e infraestrutura locais para o Azure. As migrações para Azure dão suporte à avaliação e migração de VMs VMware locais, VMs do Hyper-V, servidores físicos, outras VMs virtualizadas, bancos de dados, aplicativos Web e áreas de trabalho virtuais. 
+## <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Qual é a diferença entre azure migrate e azure site recovery?
 
-## <a name="whats-the-difference-between-azure-migrate-and-site-recovery"></a>Qual é a diferença entre migrações e Site Recovery do Azure?
+[A Azure Migrate](migrate-services-overview.md) fornece um centro centralizado para avaliação e migração para Azure. 
 
-As migrações para Azure fornecem um hub centralizado para avaliação e migração para o Azure. [A Recuperação do Sítio Azure](../site-recovery/site-recovery-overview.md) é uma solução de recuperação de desastres. A ferramenta migrações para Azure: Server Migration usa algumas funcionalidades de Site Recovery de back-end para a migração de comparação entre alguns computadores locais.
+[A Recuperação do Sítio Azure](../site-recovery/site-recovery-overview.md) é uma solução de recuperação de desastres. 
 
-## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre a avaliação do servidor de migrações para Azure e o MAP Toolkit?
+A ferramenta Azure Migrate: Server Migration utiliza alguma funcionalidade de recuperação de sites para migração de elevadores e mudanças de algumas máquinas no local.
 
-A avaliação do servidor fornece avaliação para ajudar com a preparação da migração e a avaliação de cargas de trabalho para migração para o Azure. O [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/download/details.aspx?id=7826) ajuda com outras tarefas, incluindo o planeamento migratório para versões mais recentes dos sistemas operativos cliente/servidor windows e o rastreio de utilização do software. Para esses cenários, continue a usar o MAP Toolkit.
+## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre azure migrate: Avaliação do servidor e o map Toolkit?
 
-## <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>Qual é a diferença entre a avaliação do servidor e o Site Recovery Planejador de Implantações?
+A Avaliação do Servidor fornece avaliação para ajudar na prontidão da migração e avaliação das cargas de trabalho para migração para Azure. O [Kit de Ferramentas de Avaliação e Planeamento (MAP)](https://www.microsoft.com/download/details.aspx?id=7826) da Microsoft ajuda com outras tarefas, incluindo o planeamento migratório para versões mais recentes de sistemas operativos de clientes windows e servidores, e rastreio de utilização de software. Para estes cenários, continue a utilizar o MAP Toolkit.
 
-A avaliação do servidor é uma ferramenta de planejamento de migração. O Site Recovery Planejador de Implantações é uma ferramenta de planejamento de recuperação de desastre.
+## <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>Qual é a diferença entre a avaliação do servidor e o planejador de implementação de recuperação do site?
 
-- **Planeie a migração no local para o Azure**: Se planeia migrar os seus servidores no local para o Azure, utilize a Avaliação do Servidor para o planeamento da migração. Ele avalia as cargas de trabalho locais e fornece orientações e ferramentas para ajudá-lo a migrar. Depois que o plano de migração estiver em vigor, você poderá usar ferramentas, incluindo migração de servidor de migrações para Azure, para migrar os computadores para o Azure.
-- **Planeie a recuperação de desastres para o Azure**: Se planeia configurar a recuperação de desastres das instalações para Azure com a Recuperação do Local, utilize o Planificador de Implantação de Recuperação do Local. O Planejador de Implantações fornece uma avaliação profunda e específica Site Recovery do seu ambiente local para fins de recuperação de desastres. Ele fornece recomendações sobre a recuperação de desastre, como replicação e failover.
+A Avaliação do Servidor é uma ferramenta de planeamento de migração. O Planejador de Implementação de Recuperação do Site é uma ferramenta de planeamento de recuperação de desastres.
 
-## <a name="how-does-server-migration-work-with-site-recovery"></a>Como funciona a migração de servidor com o Site Recovery?
+Escolha a sua ferramenta com base no que pretende fazer:
 
-- Se você usar as migrações para Azure: migração de servidor para executar uma migração sem agente de VMs do VMware locais, a migração será nativa para migrações para Azure e Site Recovery não será usada.
-- Se você usar migrações para Azure: migração de servidor para executar uma migração baseada em agente de VMs VMware ou migrar VMs Hyper-V ou servidores físicos, a migração de servidor de migrações para Azure usa o mecanismo de replicação Azure Site Recovery.
+- **Planeie a migração no local para o Azure**: Se planeia migrar os seus servidores no local para o Azure, utilize a Avaliação do Servidor para o planeamento da migração. A Avaliação do Servidor avalia as cargas de trabalho no local e fornece orientação e ferramentas para ajudá-lo a migrar. Depois de o plano de migração estar em vigor, pode utilizar ferramentas como o Azure Migrate: Server Migration para migrar as máquinas para Azure.
+- **Planeie a recuperação de desastres para o Azure**: Se planeia configurar a recuperação de desastres das instalações para Azure com a Recuperação do Local, utilize o Planificador de Implantação de Recuperação do Local. O Planificador de Implantação fornece uma avaliação profunda e específica da recuperação do local do seu ambiente no local para efeitos de recuperação de desastres. Fornece recomendações relacionadas com a recuperação de desastres, tais como a replicação e a falha.
 
+## <a name="how-does-server-migration-work-with-site-recovery"></a>Como funciona a Migração do Servidor com a Recuperação do Site?
 
-## <a name="which-geographies-are-supported"></a>Quais regiões têm suporte?
+- Se utilizar o Azure Migrate: Server Migration para realizar uma migração *sem agentes* de VMware VMs no local, a migração é nativa do Azure Migrate e a Recuperação do Local não é usada.
+- Se utilizar o Azure Migrate: Server Migration para realizar uma migração *baseada em agentes* de VMware VMs, ou se migrar VMs Hiper-V ou servidores físicos, o Azure Migrate: Server Migration utiliza o motor de replicação de recuperação do site Azure.
 
-Reveja as geografias apoiadas pelo Azure Migrate para [VMware VM](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) e para [VMs Hiper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v).
+## <a name="which-geographies-are-supported"></a>Que geografias são apoiadas?
+
+- **VMware VMs**: Reveja as [geografias apoiadas](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) pelo Azure Migrate para VMware VMs.
+- **Hiper-V VMs**: Reveja as [geografias apoiadas](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v) pelo Azure Migrate para VMs Hiper-V.
 
 ## <a name="how-do-i-get-started"></a>Como posso começar?
 
-Você identifica a ferramenta de que precisa e a adiciona a um projeto de migrações para Azure. Se você estiver adicionando uma ferramenta ISV ou um movimentador:
-- Comece obtendo uma licença ou se inscrevendo para uma avaliação gratuita, de acordo com a política de ferramentas. O licenciamento para ferramentas está de acordo com o modelo de licenciamento de ISV ou ferramenta.
-- Em cada ferramenta, há uma opção para se conectar a migrações para Azure. Siga as instruções e a documentação da ferramenta para conectar a ferramenta com as migrações para Azure.
-Acompanhe centralmente sua jornada de migração de dentro do projeto de migrações para Azure, no Azure e em outras ferramentas.
+Identifique a ferramenta de que necessita e, em seguida, adicione a ferramenta a um projeto Azure Migrate. 
 
-## <a name="how-do-i-delete-a-project"></a>Como fazer excluir um projeto?
+Para adicionar uma ferramenta ISV ou Movere:
 
-[Aprenda a](how-to-delete-project.md) apagar um projeto. 
+1. Inicie-se com a obtenção de uma licença, ou inscreva-se para um teste gratuito, de acordo com a política de ferramentas. O licenciamento de ferramentas está de acordo com o isv ou o modelo de licenciamento de ferramentas.
+2. Em cada ferramenta, há uma opção para ligar ao Azure Migrate. Siga as instruções e documentação da ferramenta para ligar a ferramenta ao Azure Migrate.
 
+Você pode acompanhar sua viagem de migração de dentro do projeto Azure Migrate, através de Azure, e em outras ferramentas.
 
+## <a name="how-do-i-delete-a-project"></a>Como apago um projeto?
 
+Aprenda a [apagar um projeto.](how-to-delete-project.md) 
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)
