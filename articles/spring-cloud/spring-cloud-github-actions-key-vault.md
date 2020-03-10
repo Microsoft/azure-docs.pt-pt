@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: efe8c1a2726054c54934926f652e338797d4efa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776550"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945473"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Authenticate Azure Spring Cloud com cofre chave em ações GitHub
 O cofre da chave é um lugar seguro para guardar as chaves. Os utilizadores empresariais precisam de armazenar credenciais para ambientes CI/CD no âmbito que controlam. A chave para obter credenciais no cofre principal deve ser limitada ao âmbito de recursos.  Tem acesso apenas ao âmbito do cofre chave, não a toda a mira Azure. É como uma chave que só pode abrir uma caixa forte, não uma chave mestre que pode abrir todas as portas de um edifício. É uma forma de obter uma chave com outra chave, o que é útil num fluxo de trabalho cicd. 
@@ -32,7 +32,6 @@ Com resultados:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -49,7 +48,7 @@ Vá ao painel de instrumentos **key vault** no portal Azure, clique no menu de c
 
 Copiar o nome credencial, por exemplo, `azure-cli-2020-01-19-04-39-02`. Abra o menu de políticas de **acesso,** clique em **+Adicionar link política de acesso.**  Selecione `Secret Management` para **modelo,** em seguida, selecione **Principal**. Colar o nome da credencial no **/Principal** Selecione a caixa de **entrada:**
 
- ![Selecione](./media/github-actions/key-vault2.png)
+ ![Selecionar](./media/github-actions/key-vault2.png)
 
  Clique no botão **Adicionar** no diálogo da **política de acesso adicionar** e, em seguida, clique em **Guardar**.
 
@@ -69,7 +68,6 @@ Mais uma vez, resultados:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -110,5 +108,5 @@ jobs:
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Ações gitHub da nuvem de primavera](./spring-cloud-howto-github-actions.md)

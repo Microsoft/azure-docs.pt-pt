@@ -3,12 +3,12 @@ title: FaQ migração do servidor migratório Azure
 description: Obtenha respostas a perguntas comuns sobre a utilização da Migração do Servidor Migratório Azure migrate para migrar máquinas.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 273ef746e685afcf9f3654963dd9c6bd5b855b24
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927523"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939207"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor migratório Azure Migrador: Questões comuns
 
@@ -74,7 +74,20 @@ Não. A Azure Migrate apoia a migração apenas para discos geridos (Standard HD
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Quantos VMs posso replicar de uma vez usando migração sem agente?
 
 Atualmente, pode migrar 100 VMs por exemplo de vCenter Server simultaneamente. Migrar em lotes de 10 VMs.
+
+## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Quando migrarei máquinas como servidores físicos?
+
+As máquinas migratórias, tratando-as como servidores físicos, são úteis em vários cenários:
+
+- Quando se está a migrar para o local, servidores físicos.
+- Se estiver a migrar VMs virtualizados por plataformas como xen, KVM.
+- Para migrar VMs Hiper-V ou VMware, se por alguma razão você não puder usar o processo de migração padrão para a migração [hyper-V](tutorial-migrate-hyper-v.md)ou [VMware.](server-migrate-overview.md) Por exemplo, se não estiver a executar vCenter VMware vCenter, e estiver a utilizar apenas os anfitriões ESXi.
+- Para migrar VMs que estão atualmente em execução em nuvens privadas para Azure
+- Se quiser migrar VMs em nuvens públicas como Amazon Web Services (AWS) ou Google Cloud Platform (GCP), para O Azure.
+
+## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Preciso de VMware vCenter para migrar VMware VMware VMs?
+Para [migrar VMware VMs](server-migrate-overview.md) usando migração baseada em vMware ou sem agente, os anfitriões ESXi em que os VMs estão localizados devem ser geridos pelo VCenter Server. Se não tiver vCenter Server, pode migrar VMware VMware VMware migrando-os como servidores físicos. [Saiba mais](migrate-support-matrix-physical-migration.md).
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

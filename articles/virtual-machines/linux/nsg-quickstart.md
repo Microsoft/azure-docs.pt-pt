@@ -1,48 +1,43 @@
 ---
-title: Abrir portas para uma VM Linux com CLI do Azure
-description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Linux usando o modelo de implantação do Azure Resource Manager e o CLI do Azure
-services: virtual-machines-linux
-documentationcenter: ''
+title: Abrir portas para um VM com Azure CLI
+description: Aprenda a abrir uma porta /crie um ponto final para o seu VM utilizando o Azure CLI.
 author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
-ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354038"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944552"
 ---
-# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e pontos de extremidade para uma VM Linux com o CLI do Azure
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir portas e pontos finais para um VM com o Azure CLI
 
-Você abre uma porta ou cria um ponto de extremidade para uma VM (máquina virtual) no Azure criando um filtro de rede em uma sub-rede ou interface de rede de VM. Você coloca esses filtros, que controlam o tráfego de entrada e de saída, em um grupo de segurança de rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM com o CLI do Azure. 
-
-
-Para criar um grupo de segurança de rede e regras, você precisa das [CLI do Azure](/cli/azure/install-az-cli2) mais recentes instaladas e conectadas a uma conta do Azure usando [AZ login](/cli/azure/reference-index).
-
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem *MyResource*, *myNetworkSecurityGroup*e *myVnet*.
+Abre uma porta, ou cria um ponto final, para uma máquina virtual (VM) em Azure, criando um filtro de rede numa interface de rede de subnet ou VM. Coloca estes filtros, que controlam o tráfego de entrada e saída, num Grupo de Segurança da Rede ligado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego web na porta 80. Este artigo mostra-lhe como abrir um porto para um VM com o Azure CLI. 
 
 
-## <a name="quickly-open-a-port-for-a-vm"></a>Abrir rapidamente uma porta para uma VM
-Se precisar abrir rapidamente uma porta para uma VM em um cenário de desenvolvimento/teste, você poderá usar o comando [AZ VM Open-Port](/cli/azure/vm) . Esse comando cria um grupo de segurança de rede, adiciona uma regra e a aplica a uma VM ou sub-rede. O exemplo a seguir abre a porta *80* na VM chamada *myVM* no grupo de recursos chamado *MyResource*Group.
+Para criar um Grupo de Segurança de Rede e regras, precisa do mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e registado numa conta Azure utilizando [login az](/cli/azure/reference-index).
+
+Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Exemplo nomes de parâmetros incluem *myResourceGroup,* *myNetworkSecurityGroup*, e *myVnet*.
+
+
+## <a name="quickly-open-a-port-for-a-vm"></a>Abra rapidamente um porto para um VM
+Se precisar de abrir rapidamente uma porta para um VM num cenário de dev/teste, pode utilizar o comando de [porta aberta az vM.](/cli/azure/vm) Este comando cria um Grupo de Segurança de Rede, adiciona uma regra e aplica-a a um VM ou subnet. O exemplo seguinte abre a porta *80* no VM denominado *myVM* no grupo de recursos chamado *myResourceGroup*.
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 
-Para obter mais controle sobre as regras, como definir um intervalo de endereços IP de origem, continue com as etapas adicionais neste artigo.
+Para um maior controlo sobre as regras, como a definição de uma gama de endereços IP fonte, prossiga com os passos adicionais neste artigo.
 
 
-## <a name="create-a-network-security-group-and-rules"></a>Criar um grupo de segurança de rede e regras
-Crie o grupo de segurança de rede com [AZ Network NSG Create](/cli/azure/network/nsg). O exemplo a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup* no local *eastus* :
+## <a name="create-a-network-security-group-and-rules"></a>Criar um Grupo de Segurança de Rede e regras
+Crie o grupo de segurança da rede com a [rede az nsg criar](/cli/azure/network/nsg). O exemplo seguinte cria um grupo de segurança de rede chamado *myNetworkSecurityGroup* na localização *oriental:*
 
 ```azurecli
 az network nsg create \
@@ -51,7 +46,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Adicione uma regra com [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule) para permitir o tráfego HTTP para seu servidor da WebServer (ou ajuste para seu próprio cenário, como acesso SSH ou conectividade de banco de dados). O exemplo a seguir cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego TCP na porta 80:
+Adicione uma regra com a [regra nsg da rede Az criar](/cli/azure/network/nsg/rule) para permitir o tráfego HTTP ao seu webserver (ou ajustar-se para o seu próprio cenário, como acesso sSH ou conectividade de base de dados). O exemplo seguinte cria uma regra chamada *myNetworkSecurityGroupRule* para permitir o tráfego de TCP na porta 80:
 
 ```azurecli
 az network nsg rule create \
@@ -65,7 +60,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Aplicar grupo de segurança de rede à VM
-Associe o grupo de segurança de rede à NIC (interface de rede) da VM com [AZ Network NIC Update](/cli/azure/network/nic). O exemplo a seguir associa uma NIC existente chamada *myNic* ao grupo de segurança de rede chamado *myNetworkSecurityGroup*:
+Associe o Grupo de Segurança da Rede à interface de rede (NIC) do seu VM com a atualização nic da [rede Az](/cli/azure/network/nic). O exemplo seguinte associa um NIC existente chamado *myNic* com o Grupo de Segurança da Rede chamado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -74,7 +69,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Como alternativa, você pode associar o grupo de segurança de rede a uma sub-rede de rede virtual com [AZ Network vnet subnet Update](/cli/azure/network/vnet/subnet) em vez de apenas para a interface de rede em uma única VM. O exemplo a seguir associa uma sub-rede existente chamada *mysubnet* na rede virtual *MyVnet* com o grupo de segurança de rede chamado *myNetworkSecurityGroup*:
+Em alternativa, pode associar o seu Grupo de Segurança de Rede a uma subnet de rede virtual com a [az network vnet update](/cli/azure/network/vnet/subnet) em vez de apenas à interface de rede num único VM. O exemplo seguinte associa uma subnet existente chamada *mySubnet* na rede virtual *myVnet* com o Grupo de Segurança da Rede chamado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \
@@ -84,13 +79,13 @@ az network vnet subnet update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="more-information-on-network-security-groups"></a>Mais informações sobre grupos de segurança de rede
-Os comandos rápidos aqui permitem que você comece a executar o tráfego que flui para sua VM. Os grupos de segurança de rede fornecem muitos ótimos recursos e granularidade para controlar o acesso aos seus recursos. Você pode ler mais sobre como [criar um grupo de segurança de rede e regras de ACL aqui](tutorial-virtual-network.md#secure-network-traffic).
+## <a name="more-information-on-network-security-groups"></a>Mais informações sobre grupos de segurança da rede
+Os comandos rápidos aqui permitem-lhe levantar-se e correr com o tráfego fluindo para o seu VM. Os Grupos de Segurança da Rede fornecem muitas funcionalidades e granularidade para controlar o acesso aos seus recursos. Pode ler mais sobre [a criação](tutorial-virtual-network.md#secure-network-traffic)de um Grupo de Segurança de Rede e regras ACL aqui .
 
-Para aplicativos Web altamente disponíveis, você deve posicionar suas VMs por trás de um Azure Load Balancer. O balanceador de carga distribui o tráfego para VMs, com um grupo de segurança de rede que fornece filtragem de tráfego. Para obter mais informações, consulte [como balancear a carga de máquinas virtuais Linux no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
+Para aplicações web altamente disponíveis, deve colocar os seus VMs atrás de um Equilíbrio de Carga Azure. O equilibrador de carga distribui tráfego para VMs, com um Grupo de Segurança de Rede que fornece filtragem de tráfego. Para mais informações, consulte Como carregar o equilíbrio das [máquinas virtuais Linux em Azure para criar uma aplicação altamente disponível.](tutorial-load-balancer.md)
 
-## <a name="next-steps"></a>Passos seguintes
-Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre como criar ambientes mais detalhados nos seguintes artigos:
+## <a name="next-steps"></a>Passos Seguintes
+Neste exemplo, criou uma regra simples para permitir o tráfego HTTP. Pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
 * [Descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [O que é um Grupo de Segurança de Rede (NSG)? (What is a Network Security Group (NSG)?)](../../virtual-network/security-overview.md)

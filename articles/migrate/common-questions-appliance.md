@@ -2,13 +2,13 @@
 title: FaQ do aparelho migratório Azure
 description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 99f7fc7db79785f99b96e6076607e434e43e605f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.date: 03/09/2020
+ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927315"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939305"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho migratório Azure: Questões comuns
 
@@ -64,7 +64,7 @@ Os dados recolhidos pelo aparelho Azure Migrate estão armazenados na localizaç
 
 Aqui está mais informações sobre como os dados são armazenados:
 
-- Os dados são armazenados de forma segura numa subscrição da Microsoft e são eliminados quando elimina o projeto Azure Migrate.
+- Os dados recolhidos são armazenados de forma segura no CosmosDB numa subscrição da Microsoft. Os dados são eliminados quando elimina o projeto Azure Migrate. O armazenamento é tratado pela Azure Migrate. Não é possível escolher especificamente uma conta de armazenamento para dados recolhidos.
 - Se utilizar a visualização da [dependência,](concepts-dependency-visualization.md)os dados recolhidos são armazenados nos Estados Unidos num espaço de trabalho Azure Log Analytics criado na sua subscrição Azure. Os dados são eliminados quando elimina o espaço de trabalho do Log Analytics na sua subscrição.
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Quantos dados são enviados durante o perfil contínuo?
@@ -88,9 +88,13 @@ Estas etapas descrevem como o aparelho se liga ao VMware vCenter Server:
 3. O aparelho recolhe dados de configuração sobre VMs (núcleos, memória, discos, NICs) e o histórico de desempenho de cada VM durante o mês passado.
 4. Os metadados recolhidos são enviados para a ferramenta De avaliação do servidor Azure (através da internet via HTTPS) para avaliação.
 
-## <a name="can-i-connect-the-appliance-to-multiple-instances-of-vcenter-server"></a>Posso ligar o aparelho a várias instâncias do VCenter Server?
+## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>O aparelho Azure Migrate pode ligar-se a vários servidores vCenter?
 
-Não. Há um mapeamento de um para um entre um aparelho e o VCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, deve implementar vários aparelhos.
+Não. Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, deve implementar vários aparelhos. 
+
+## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto Azure Migrate pode ter vários aparelhos?
+Um projeto pode ter vários aparelhos ligados a ele. No entanto, um aparelho só pode ser associado a um projeto. 
+
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantos VMs ou servidores posso descobrir com um aparelho?
 
@@ -126,6 +130,6 @@ Apenas o aparelho e os agentes do aparelho são atualizados através destas atua
 
 Sim. No portal, vá a página de **saúde** do Agente para o Azure Migrate: Server Assessment ou Azure Migrate: Server Migration tool. Aí, pode verificar o estado de ligação entre o Azure e os agentes de descoberta e avaliação do aparelho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

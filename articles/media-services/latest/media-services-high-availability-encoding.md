@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: f5b02376111a3deba33cd5688330018bd7c370d8
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899220"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934199"
 ---
 # <a name="media-services-high-availability-encoding"></a>Codificação de alta disponibilidade dos Serviços de Media 
 
@@ -42,8 +42,8 @@ Seguindo as orientações e as melhores práticas descritas no artigo, reduzirá
     * [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (que suporta eventos de Media Services de forma nativa).
 
     Também pode consumir eventos da Grelha de Eventos através de Funções Azure.
-*    Quando se cria um [emprego:](transforms-jobs-concept.md)
-    
+* Quando se cria um [emprego:](transforms-jobs-concept.md)
+
     * Selecione aleatoriamente uma conta da lista de contas atualmente utilizadas (esta lista normalmente conterá ambas as contas, mas se os problemas forem detetados, pode conter apenas uma conta). Se a lista estiver vazia, levante um alerta para que um operador possa investigar.
     * A orientação geral é que precisa de uma unidade reservada a meios de [comunicação](media-reserved-units-cli-how-to.md) por [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (a menos que esteja a utilizar [o VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) onde são recomendadas 3 unidades reservadas por meio de trabalho).
     * Obtenha a contagem de unidades reservadas de meios de comunicação (MrUs) para a conta escolhida. Se a contagem de **unidades reservadas** aos meios de comunicação não estiver já no valor máximo, adicione o número de MRUs necessários pelo trabalho e atualize o serviço. Se a sua taxa de submissão de emprego for elevada e estiver frequentemente a consultar as MrUs para descobrir que está no máximo, use uma cache distribuída para o valor com um tempo de tempo razoável.
@@ -60,7 +60,7 @@ Seguindo as orientações e as melhores práticas descritas no artigo, reduzirá
     
 Se descobrir que a contagem de MRU está a bater muito, mova a lógica de decreção para a tarefa periódica. Fazer com que a lógica de submissão pré-trabalho compare a contagem de voo com a contagem atual de MRU para ver se precisa de atualizar as MrUs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Construir streaming de região transversal a vídeo-on-demand](media-services-high-availability-streaming.md)
 * Confira [amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-media-services)

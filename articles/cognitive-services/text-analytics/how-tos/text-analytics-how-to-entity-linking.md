@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367648"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942632"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto
 
@@ -47,7 +47,7 @@ O Text Analytics API oferece duas versões de Reconhecimento de Entidades Nomead
 Consulte o [suporte linguístico](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) para obter informações.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
@@ -74,7 +74,7 @@ Ligação de entidades
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
@@ -94,14 +94,14 @@ Ligação de entidades
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | N/A\*         | "18:30 H 4 de fevereiro de 2012"      |
-| DateTime      | Data          | "2 de maio de 2017", "05/02/2017"   |
+| DateTime      | Date          | "2 de maio de 2017", "05/02/2017"   |
 | DateTime      | Hora          | "8:00", "8:00"  |
 | DateTime      | DataRange     | "2 de maio a 5 de maio"    |
 | DateTime      | Intervalo de tempo     | "18h00 às 19h"     |
-| DateTime      | Duração      | "1 minuto e 45 segundos"   |
+| DateTime      | Duration      | "1 minuto e 45 segundos"   |
 | DateTime      | Definir           | "todas as terças-feiras"     |
 | do IdP           | N/A\*         | "https:\//www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
+| E-mail         | N/A\*         | "support@contoso.com" |
 | Número de telefone dos EUA  | N/A\*         | (apenas números de telefone dos EUA) "(312) 555-0176" |
 | Endereço IP    | N/A\*         | "10.0.0.100" |
 
@@ -130,7 +130,7 @@ Crie um pedido post. Pode [utilizar](text-analytics-how-to-call-api.md) o Cartei
 > [!NOTE]
 > Pode encontrar a sua chave e ponto final para o seu recurso Text Analytics no portal azul. Eles estarão localizados na página de **arranque rápida** do recurso, sob gestão de **recursos.** 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 [Referência de Reconhecimento de Entidade seleção v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -144,7 +144,7 @@ NER
 Ligação de entidades
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 [Referência de Reconhecimento de Entidade (NER) v2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
@@ -185,7 +185,7 @@ Todos os pedidos post devolvem uma resposta formatada JSON com as IDs e propried
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização)](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Respostas exemplo v3
 
@@ -242,7 +242,7 @@ A versão 3 fornece pontos finais separados para ner e ligação de entidades. A
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="example-ner-v2-response"></a>Resposta ner v2
 ```json
@@ -290,7 +290,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para entidades que ligam o 
 * Os pedidos POST são enviados para um ou mais pontos finais, utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 * A saída de resposta, que consiste em entidades ligadas (incluindo pontuações de confiança, compensações e ligações web, para cada id de documento) pode ser utilizada em qualquer aplicação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição Geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)

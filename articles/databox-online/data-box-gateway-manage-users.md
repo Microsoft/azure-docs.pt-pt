@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ee5eec5a5c17e443fe71f0093f09c96cf81ece0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60fd5476d687d9f44aec885cdf888572e8e523a4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60754820"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946125"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway 
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway
 
 Este artigo descreve como utilizar o portal do Azure para gerir os utilizadores no Azure Data Box Gateway. Pode gerir o Azure Data Box Gateway através do portal do Azure ou da IU da Web local. Utilize o portal do Azure para adicionar, modificar ou eliminar utilizadores.
 
@@ -24,17 +24,16 @@ Neste artigo, vai aprender a:
 > [!div class="checklist"]
 > * Adicionar um utilizador
 > * Modificar utilizador
-> * Eliminar um utilizador 
+> * Eliminar um utilizador
 
 ## <a name="about-users"></a>Sobre os utilizadores
 
-Os utilizadores podem ser só de leitura ou ter privilégios máximos. Conforme o nome indica, os utilizadores só de leitura só podem ver os dados de partilha. Os utilizadores com privilégios máximos podem ler dados de partilha, escrever nessas partilhas e modificar ou eliminar os dados de partilha. 
+Os utilizadores podem ser só de leitura ou ter privilégios máximos. Conforme o nome indica, os utilizadores só de leitura só podem ver os dados de partilha. Os utilizadores com privilégios máximos podem ler dados de partilha, escrever nessas partilhas e modificar ou eliminar os dados de partilha.
 
- - **Utilizador com privilégios máximos** - um utilizador local com acesso total. 
+ - **Utilizador com privilégios máximos** - um utilizador local com acesso total.
  - **Utilizador só de leitura** - um utilizador local com acesso só de leitura. Estes utilizadores estão associados a partilhas que permitem operações só de leitura.
 
-As permissões de utilizador são definidas pela primeira vez quando o utilizador é criado durante a criação da partilha. Depois de as permissões associadas a um utilizador serem criadas, podem ser modificadas com o Explorador de Ficheiros. 
-
+As permissões de utilizador são definidas pela primeira vez quando o utilizador é criado durante a criação da partilha. Atualmente, a modificação das permissões de nível de partilha não é suportada.
 
 ## <a name="add-a-user"></a>Adicionar um utilizador
 
@@ -46,10 +45,10 @@ Efetue os seguintes passos no portal do Azure para adicionar um utilizador.
 
 2. Especifique o nome de utilizador e a palavra-passe do utilizador que pretende adicionar. Confirme a palavra-passe e clique em **Adicionar**.
 
-    ![Clicar em adicionar utilizador](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Clique em adicionar utilizador](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrador, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Convidado.  
 
 3. Receberá uma notificação quando a criação do utilizador for iniciada e concluída. Depois de o utilizador ser criado, na barra de comandos, clique em **Atualizar** para ver a lista atualizada de utilizadores.
 

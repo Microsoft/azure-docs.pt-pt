@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
 ms.openlocfilehash: 818337f478a506f80ba87979aa1915d54e6457cf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193786"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374039"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com SQL
 
@@ -144,7 +144,7 @@ Os seguintes métodos de autenticação são suportados para os diretores de ser
 - A autenticação Azure AD é suportada para base de dados SQL pelo portal Azure **Import Database** and **Export Database** blades. A importação e exportação utilizando a autenticação Azure AD também é suportada a partir do comando PowerShell.   
 - A autenticação Azure AD é suportada para base de dados SQL, Instância Gerida e Synapse Azure através do uso CLI. Para mais informações, consulte [Configure e gerea autenticação de Diretório Ativo Azure com Base de Dados SQL ou Azure Synapse](sql-database-aad-authentication-configure.md) e [SQL Server - servidor az sql](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para aprender a criar e povoar o Azure AD, e depois configurar o Azure AD com a Base de Dados Azure SQL ou azure Synapse, consulte configurar e gerir a [autenticação do Diretório Ativo Azure com base de dados SQL, Instância Gerida ou Synapse Azure.](sql-database-aad-authentication-configure.md)
 - Para um tutorial de utilização de diretores de servidores Azure AD (logins) com instâncias geridas, consulte os diretores do [servidor Azure AD (logins) com Instâncias Geridas](sql-database-managed-instance-aad-security-tutorial.md)

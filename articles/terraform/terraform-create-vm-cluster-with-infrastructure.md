@@ -1,14 +1,15 @@
 ---
 title: Tutorial - Criar um cluster Azure VM com Terraform e HCL
-description: Utilize terrafora e HCL para criar um cluster de máquinas virtuais Linux com um equilibrante de carga em Azure
+description: Neste tutorial, você usa Terraform e HCL para criar um cluster de máquinas virtuais Linux com um equilibrador de carga em Azure
+keywords: azure devops terraform vm virtual cluster de máquina
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/09/2020
+ms.openlocfilehash: ae1b8eac15309ff27297d9472e70d32e68acaaac
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470875"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945275"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutorial: Criar um cluster Azure VM com Terraform e HCL
 
@@ -21,7 +22,7 @@ Aprenderá a fazer as seguintes tarefas:
 > * Crie um ficheiro de configuração Terraform.
 > * Utilize um ficheiro de configuração Terraform para criar um equilibrador de carga.
 > * Utilize um ficheiro de configuração Terraform para implantar dois VMs Linux num conjunto de disponibilidade.
-> * Inicie o Terraform.
+> * Inicialize o Terraform.
 > * Crie um plano de execução terraforme.
 > * Aplique o plano de execução terraforme para criar os recursos Azure.
 
@@ -49,6 +50,8 @@ Nesta secção, vai gerar um principal de serviço do Azure e dois ficheiros de 
    variable client_secret {}
   
    provider "azurerm" {
+      version = "~>1.40"
+     
       subscription_id = var.subscription_id
       tenant_id = var.tenant_id
       client_id = var.client_id
@@ -129,7 +132,6 @@ Nesta secção, o utilizador cria um ficheiro com as definições dos recursos p
       name                          = "testConfiguration"
       subnet_id                     = azurerm_subnet.test.id
       private_ip_address_allocation = "dynamic"
-      load_balancer_backend_address_pools_ids = [azurerm_lb_backend_address_pool.test.id]
     }
    }
 
@@ -288,7 +290,7 @@ Se quiser aplicar um plano de execução previamente guardado, execute o seguint
 
 ![Aplicar um plano de execução do Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"] 
 > [Criar um conjunto de escala de máquina virtual Azure usando terrafora](terraform-create-vm-scaleset-network-disks-hcl.md)

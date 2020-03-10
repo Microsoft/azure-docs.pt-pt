@@ -2,23 +2,17 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implementar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: dc46762755718c798b4a7eed6f2dc6b8afce9b98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894880"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942757"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
-Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos no:
-
-* [nível de subscrição](deploy-to-subscription.md)
-* nível de grupo de gestão (abrangido por este artigo)
-* [nível de inquilino](deploy-to-tenant.md)
-
-Utiliza-se implementações de nível de grupo de gestão para tomar medidas que façam sentido a esse nível, tais como a atribuição de controlo de [acesso baseado em papéis](../../role-based-access-control/overview.md) ou a aplicação de [políticas.](../../governance/policy/overview.md)
+À medida que a sua organização amadurece, poderá ter de definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em papéis](../../role-based-access-control/overview.md) para um grupo de gestão. Com modelos de nível de grupo de gestão, pode aplicar declarativamente políticas e atribuir funções ao nível do grupo de gestão.
 
 ## <a name="supported-resources"></a>Recursos suportados
 
@@ -41,10 +35,10 @@ Para os modelos, utilize:
 https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
 ```
 
-Para ficheiros de parâmetros, utilize:
+O esquema para um ficheiro de parâmetros é o mesmo para todos os âmbitos de implantação. Para ficheiros de parâmetros, utilize:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandos de implantação
@@ -165,9 +159,8 @@ O exemplo que se segue atribui uma definição de política existente ao grupo d
 
 * Criar um grupo de [recursos, uma política e uma atribuição de políticas.](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para um exemplo de implementação de definições de espaço de trabalho para o Centro de Segurança Azure, consulte [o deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Para aprender sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autor.](template-syntax.md)
-* Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](template-functions.md).
+* Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) e [ao nível do inquilino.](deploy-to-tenant.md)

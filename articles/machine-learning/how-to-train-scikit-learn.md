@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 08/02/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: d61e33568297e6f72aca0ab736f8a14f1758ffa1
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: bdd2cc400c3df75742689258caea8cb87ee8ccc6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255135"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942273"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Construa modelos de scikit-learn à escala com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Execute este código em qualquer um destes ambientes:
     - Criar um ficheiro de [configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
     - Descarregue o conjunto de dados e o ficheiro de script de amostra 
         - [conjunto de dados da íris](https://archive.ics.uci.edu/ml/datasets/iris)
-        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
+        - [train_iris.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
     - Também pode encontrar uma versão completa do [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) deste guia na página de amostras gitHub. O caderno inclui uma secção expandida que cobre a afinação inteligente do hiperparâmetro e a recuperação do melhor modelo por métricas primárias.
 
 ## <a name="set-up-the-experiment"></a>Configurar a experiência
@@ -158,7 +158,7 @@ run = experiment.submit(estimator)
 run.wait_for_completion(show_output=True)
 ```
 
-À medida que a Corrida é executada, passa pelas seguintes fases:
+À medida que a corrida é executada, passa pelas seguintes fases:
 
 - **Preparação**: É criada uma imagem de estivador de acordo com o estimador TensorFlow. A imagem é enviada para o registo de contentores do espaço de trabalho e cache para posteriores execuções. Os registos também são transmitidos para o histórico de execução e podem ser vistos para monitorizar o progresso.
 
@@ -180,7 +180,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registe o modelo no seu espaço de trabalho com o seguinte código. Especificando os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, fica disponível a implementação do modelo sem código. Isto permite-lhe implementar diretamente o seu modelo como um serviço web a partir do modelo registado, e o `ResourceConfiguration` objeto define o recurso computacional para o serviço web.
+Registe o modelo no seu espaço de trabalho com o seguinte código. Especificando os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, fica disponível a implementação do modelo sem código. Isto permite-lhe implementar diretamente o seu modelo como um serviço web a partir do modelo registado, e [o](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py)`ResourceConfiguration`objeto define o recurso computacional para o serviço web.
 
 ```Python
 from azureml.core import Model
@@ -199,7 +199,7 @@ O modelo que acabou de registar pode ser implementado da mesma forma que qualque
 
 ### <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação do modelo sem código
 
-Em vez da rota de implantação tradicional, também pode utilizar a funcionalidade de implementação sem código (pré-visualização)para o scikit-learn. A implementação de modelos sem código é suportada para todos os tipos de modelos de aprendizagem de scikit incorporados. Ao registar o seu modelo como mostrado acima com os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, pode simplesmente utilizar a função `deploy()` estática para implementar o seu modelo.
+Em vez da rota de implantação tradicional, também pode utilizar a funcionalidade de implementação sem código (pré-visualização)para o scikit-learn. A implementação de modelos sem código é suportada para todos os tipos de modelos de aprendizagem de scikit incorporados. Ao registar o seu modelo como mostrado acima com os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, pode simplesmente utilizar [a](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) função`deploy()`estática para implementar o seu modelo.
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])
@@ -217,7 +217,7 @@ NOTA: Estas dependências estão incluídas no recipiente de inferência de scik
 O completo [como cobrir](how-to-deploy-and-where.md) a implantação em Azure Machine Learning em maior profundidade.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, treinou e registou um modelo de aprendizagem de ficção científica, e aprendeu sobre opções de implementação. Veja estes outros artigos para saber mais sobre o Azure Machine Learning.
 

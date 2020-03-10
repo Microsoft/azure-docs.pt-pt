@@ -1,25 +1,25 @@
 ---
 title: Cria ção de visualização de dependência em Azure Migrate
-description: Descreve a visualização da dependência em Azure Migrate Server Assessment.
+description: Este artigo descreve como configurar a visualização da dependência na Avaliação do Servidor Migratório Azure.
 ms.topic: article
 ms.date: 2/24/2020
-ms.openlocfilehash: 054e2301160a885909630c2968863e5f9e25af69
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b75a38a376558946841d08ab7a9dbf730232e51
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916290"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942079"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização da dependência
 
-Este artigo descreve como configurar a visualização da dependência em Azure Migrate:Server Assessment. [A visualização da dependência](concepts-dependency-visualization.md#what-is-dependency-visualization) ajuda-o a identificar e compreender dependências entre máquinas que pretende avaliar e migrar para Azure.
+Este artigo descreve como configurar a visualização da dependência em Azure Migrate: Server Assessment. [A visualização da dependência](concepts-dependency-visualization.md#what-is-dependency-visualization) ajuda-o a identificar e compreender dependências entre máquinas que pretende avaliar e migrar para Azure.
 
 ## <a name="before-you-start"></a>Antes de começar
 
 - [Reveja](concepts-dependency-visualization.md) os requisitos e custos associados à visualização da dependência.
 - Certifique-se de [ter criado](how-to-add-tool-first-time.md) um projeto Azure Migrate.
-- Se já criou um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta de avaliação do servidor Azure Migrate:Server.
-- Certifique-se de que montou um [aparelho Azure Migrate](migrate-appliance.md) para descobrir as suas máquinas no local. Aprenda a configurar um aparelho para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O aparelho descobre máquinas no local e envia dados de metadados e desempenho para a Avaliação do Servidor Azure Migrate.Server.
+- Se já criou um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta de avaliação do servidor Azure Migrate.
+- Certifique-se de que montou um [aparelho Azure Migrate](migrate-appliance.md) para descobrir as suas máquinas no local. Aprenda a configurar um aparelho para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O aparelho descobre máquinas no local e envia dados de metadados e desempenho para o Azure Migrate: Server Assessment.
 - Para utilizar a visualização da dependência, associa um espaço de [trabalho log Analytics](../azure-monitor/platform/manage-access.md) a um projeto Azure Migrate:
     - Certifique-se de que tem um espaço de trabalho na subscrição que contém o projeto Azure Migrate.
     - O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste asiático ou na Europa Ocidental. Espaços de trabalho noutras regiões não podem ser associados a um projeto.
@@ -32,8 +32,8 @@ Este artigo descreve como configurar a visualização da dependência em Azure M
 
 ## <a name="associate-a-workspace"></a>Associar um espaço de trabalho
 
-1. Depois de ter descoberto máquinas para avaliação, em **Servidores** > **Avaliação de Migração Azure:Servidor**, clique na **visão geral**.  
-2. Em **Azure Migrate:Server Assessment**, clique em **Essencial .**
+1. Depois de ter descoberto máquinas para avaliação, em **Servidores** > **Azure Migrate: Server Assessment**, clique em **Visão Geral**.  
+2. Em **Azure Migrate: Avaliação do servidor,** clique em **Essencial .**
 3. No **workspace OMS,** clique requer **configuração**.
 
      ![Configure log Analytics espaço de trabalho](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
@@ -199,7 +199,7 @@ VMConnection
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Crie uma avaliação](how-to-create-assessment.md) para um grupo.
 

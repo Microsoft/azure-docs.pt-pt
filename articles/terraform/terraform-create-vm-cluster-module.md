@@ -1,14 +1,15 @@
 ---
 title: Tutorial - Criar um cluster Azure VM com Terraform utilizando o Registo de Módulos
-description: Aprenda a utilizar módulos do Terraform para criar um cluster de máquina virtual do Windows no Azure
+description: Neste tutorial, você usa módulos Terraform para criar um cluster de máquinas virtuais Windows em Azure
+keywords: azure devops terraform vm virtual cluster registo de módulos
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: d17a0d7c26cc1a16ab73350fe6e8c28ba4af6ff2
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/09/2020
+ms.openlocfilehash: 9faeee9bb2f0fb6dc148a3868f6fc0dae3833a2a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472213"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945278"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Tutorial: Criar um cluster Azure VM com Terraform utilizando o Registo de Módulos
 
@@ -36,6 +37,8 @@ variable client_id {}
 variable client_secret {}
 
 provider "azurerm" {
+    version = "~>1.40"
+
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -97,7 +100,7 @@ Execute `terraform apply` para aprovisionar as VMs no Azure.
 
 ![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"] 
 > [Navegue na lista de módulos Azure Terraform](https://registry.terraform.io/modules/Azure)

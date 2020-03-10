@@ -89,7 +89,7 @@
       href: relational-nosql.md
     - name: Distribuição global
       items:
-        - name: Descrição geral
+        - name: Descrição geral da distribuição global
           displayName: 'replication, replicate, geo distribution'
           href: distribute-data-globally.md
         - name: Níveis de consistência
@@ -118,7 +118,7 @@
           href: globally-distributed-transactional-analytical-storage.md
     - name: Criação de partições
       items:
-        - name: Descrição geral
+        - name: Descrição geral da criação de partições
           href: partitioning-overview.md
         - name: Partições e dimensionamento horizontal
           href: partition-data.md
@@ -461,7 +461,7 @@
           href: modeling-data.md
         - name: Indexação
           items:
-            - name: Descrição geral
+            - name: Descrição geral da indexação
               displayName: 'range, spatial'
               href: index-overview.md
             - name: Políticas de indexação
@@ -476,7 +476,7 @@
           href: database-transactions-optimistic-concurrency.md
     - name: Feed de alterações
       items:
-        - name: Descrição geral
+        - name: Descrição geral do feed de alterações
           href: change-feed.md
         - name: Ler o feed de alterações
           href: read-change-feed.md
@@ -530,7 +530,7 @@
           href: cosmos-db-reserved-capacity.md
     - name: Segurança
       items:
-        - name: Descrição geral
+        - name: Descrição geral da segurança
           href: database-security.md
         - name: Encriptação de dados
           href: database-encryption-at-rest.md
@@ -564,12 +564,12 @@
   items:
     - name: API de Cassandra
       items:
-        - name: Introdução
-          href: cassandra-introduction.md
-        - name: Suporte a protocolo por fio
-          href: cassandra-support.md
-        - name: Dimensionamento elástico
-          href: manage-scale-cassandra.md
+        - name: Descrição geral
+          items:
+            - name: O que é a API para Cassandra no Cosmos DB?
+              href: cassandra-introduction.md
+            - name: Suporte a protocolo por fio
+              href: cassandra-support.md
         - name: Guias de Início Rápido
           items:
             - name: .NET
@@ -591,6 +591,10 @@
             - name: 4 - Migrar dados
               displayName: import
               href: cassandra-import-data.md
+        - name: Conceitos
+          items:
+            - name: Dimensionamento elástico
+              href: manage-scale-cassandra.md
         - name: Guias de procedimentos
           items:
             - name: Feed de alterações
@@ -628,12 +632,14 @@
               href: cli-samples-cassandra.md
     - name: API do MongoDB
       items:
-        - name: Introdução
-          href: mongodb-introduction.md
-        - name: Suporte a protocolo de transmissão (3.2)
-          href: mongodb-feature-support.md
-        - name: Suporte a protocolo de transmissão (3.6)
-          href: mongodb-feature-support-36.md
+        - name: Descrição geral
+          items:
+            - name: O que é a API do MongoDB no Cosmos DB?
+              href: mongodb-introduction.md
+            - name: Suporte a protocolo de transmissão (3.2)
+              href: mongodb-feature-support.md
+            - name: Suporte a protocolo de transmissão (3.6)
+              href: mongodb-feature-support-36.md
         - name: Guias de Início Rápido
           items:
             - name: .NET
@@ -719,10 +725,12 @@
     - name: API do Gremlin
       displayName: 'graph, graph database'
       items:
-        - name: Introdução
-          href: graph-introduction.md
-        - name: Suporte a protocolo por fio
-          href: gremlin-support.md
+        - name: Descrição geral
+          items:
+            - name: O que é a API do Gremlin no Cosmos DB?
+              href: graph-introduction.md
+            - name: Suporte a protocolo por fio
+              href: gremlin-support.md
         - name: Guias de Início Rápido
           items:
             - name: Consola do Gremlin
@@ -778,8 +786,10 @@
               href: cli-samples-gremlin.md
     - name: API de Tabela
       items:
-        - name: Introdução
-          href: table-introduction.md
+        - name: Descrição geral
+          items:
+            - name: O que é a API de Tabela no Cosmos DB?
+              href: table-introduction.md
         - name: Guias de Início Rápido
           items:
             - name: .NET
@@ -849,10 +859,14 @@
               href: /rest/api/storageservices/table-service-rest-api
     - name: API Etcd
       items:
-        - name: Introdução
-          href: etcd-api-introduction.md
-        - name: Azure Kubernetes com o Azure Cosmos DB
-          href: bootstrap-kubernetes-cluster.md
+        - name: Descrição geral
+          items:
+            - name: O que é a API Etcd no Cosmos DB?
+              href: etcd-api-introduction.md
+        - name: Guias de procedimentos
+          items:
+            - name: Azure Kubernetes com o Azure Cosmos DB
+              href: bootstrap-kubernetes-cluster.md
 - name: Guias de procedimentos
   items:
     - name: Trabalhar com uma conta do Azure Cosmos

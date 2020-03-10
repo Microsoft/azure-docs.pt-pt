@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.topic: reference
-ms.openlocfilehash: 597e1c2f7e04a7861099763d809ac09978e09805
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 9844b2fe7f1cbaf069789a4083229b4a6f37f38f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399602"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943985"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -122,6 +122,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.compute/virtualmachinescalesets
 - microsoft.containerinstance/containergroups
 - microsoft.containerregistry/registros
+- microsoft.containerregistry/registries/agentpools
 - microsoft.containerregistry/registries/buildtasks
 - microsoft.containerregistry/registries/replications
 - microsoft.containerregistry/registries/taskruns
@@ -152,6 +153,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.dbforpostgresql/servergroups
 - microsoft.dbforpostgresql/servidores
 - microsoft.dbforpostgresql/serversv2
+- microsoft.dbforpostgresql/singleservers
 - microsoft.deploymentmanager/artifactsources
 - microsoft.deploymentmanager/rollouts
 - microsoft.deploymentmanager/servicetopologies
@@ -413,6 +415,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.web/connections
 - microsoft.web/customapis
 - ambientes microsoft.web/hosting
+- microsoft.web/kubeenvironments
 - microsoft.web/serverfarms
 - microsoft.web/sites
 - microsoft.web/sites/premieraddons
@@ -458,7 +461,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.security/securitystatuss/virtualmachines
 - microsoft.security/securitystatusesresumos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a [linguagem de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)

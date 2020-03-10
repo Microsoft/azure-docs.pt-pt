@@ -6,14 +6,14 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: eb1bde6bb58e3e5299311636f8222e2fc181ec5d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 61fdc2a4694405d4f56600b2d2b71e9e37232a7a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673306"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943250"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar o Monitor Azure para a sua aplicação Python (pré-visualização)
+# <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar o Monitor Azure para a sua aplicação Python
 
 O Azure Monitor suporta rastreios distribuídos, recolha métrica e registo de aplicações Python através da integração com [o OpenCensus.](https://opencensus.io) Este artigo irá acompanhá-lo através do processo de criação do OpenCensus para Python e enviar os seus dados de monitorização para o Monitor Azure.
 
@@ -40,7 +40,7 @@ Primeiro, é preciso criar um recurso Application Insights no Monitor Azure, que
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor globalmente único | Nome que identifique a app que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome para o novo grupo de recursos para acolher dados de Insights de Aplicação |
-   | **Localização** | E.U.A. Leste | Um local perto de si, ou perto de onde a sua aplicação está hospedada |
+   | **Localização** | EUA Leste | Um local perto de si, ou perto de onde a sua aplicação está hospedada |
 
 1. Selecione **Criar**.
 
@@ -429,7 +429,7 @@ Para obter informações mais detalhadas sobre como utilizar consultas e registo
 * [Integrações OpenCensus](https://github.com/census-instrumentation/opencensus-python#extensions)
 * [Aplicações de amostra seleções do Monitor Azure](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Rastreio de pedidos de entrada](./../../azure-monitor/app/opencensus-python-dependency.md)
 * [Rastreio de pedidos de saída](./../../azure-monitor/app/opencensus-python-request.md)

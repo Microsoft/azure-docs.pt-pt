@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899442"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942635"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de língua e região para a API de Análise de Texto
 
@@ -47,7 +47,7 @@ O suporte linguístico é inicialmente lançado em pré-visualização, graduand
 > [!NOTE]
 > Para um suporte linguístico detalhado para a pré-visualização pública de Reconhecimento de Entidades (NER) v3, consulte [os tipos de entidades nomeados.](named-entity-types.md)
 
-| Idioma              | Código do idioma | Sentimento | Frases-chave | Reconhecimento de Entidades Nomeadas | Ligação de entidades |       Notas        |
+| Linguagem              | Código do idioma | Sentimento | Frases-chave | Reconhecimento de Entidades Nomeadas | Ligação de entidades |       Notas        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Checo                 |     `cs`      |           |             |           ✔ \*           |                |                    |

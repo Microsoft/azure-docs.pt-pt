@@ -1,27 +1,17 @@
 ---
-title: Instalar e configurar terraforma para fornecer recursos Azure
-description: Saiba como instalar e configurar a Terraform para criar recursos Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: tomarchermsft
-manager: gwallace
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/20/2019
-ms.author: tarcher
-ms.openlocfilehash: 74728fb05e900c534580f1c8eaf14dd0e48fc42c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+title: Quickstart - Instale e configure terraforma para fornecer recursos Azure
+description: Neste quicstart, você instala e configura terraforma para criar recursos Azure
+keywords: azure devops terraforma instalar configuração
+ms.topic: quickstart
+ms.date: 03/09/2020
+ms.openlocfilehash: 82635f59ec8165add2046a230a040b06f89d9898
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77473132"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943508"
 ---
-# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Instalar e configurar terraforma para fornecer recursos Azure
+# <a name="quickstart-install-and-configure-terraform-to-provision-azure-resources"></a>Quickstart: Instale e configure a Terraform para fornecer recursos Azure
  
 A Terraform fornece uma maneira fácil de definir, pré-visualizar e implementar infraestruturas em nuvem usando uma linguagem simples de [templating.](https://www.terraform.io/docs/configuration/syntax.html) Este artigo descreve as medidas necessárias para utilizar a Terraform para fornecer recursos em Azure.
 
@@ -29,9 +19,9 @@ Para saber mais sobre como usar terraforma com Azure, visite o [Centro Terraform
 > [!NOTE]
 > Para um suporte específico terraforme, contacte a Terraform diretamente utilizando um dos seus canais comunitários:
 >
->   • A [secção Terraforme](https://discuss.hashicorp.com/c/terraform-core) do portal comunitário contém perguntas, casos de utilização e padrões úteis.
+>    * A [secção Terraforme](https://discuss.hashicorp.com/c/terraform-core) do portal comunitário contém perguntas, casos de uso e padrões úteis.
 >
->   • Para questões relacionadas com o fornecedor, visite a secção [fornecedores terraformedo](https://discuss.hashicorp.com/c/terraform-providers) do portal comunitário.
+>    * Para questões relacionadas com o provedor, visite a secção [fornecedores terraforme do](https://discuss.hashicorp.com/c/terraform-providers) portal comunitário.
 
 
 
@@ -104,6 +94,10 @@ Crie um ficheiro `test.tf` num diretório vazio e cola no seguinte script.
 
 ```hcl
 provider "azurerm" {
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
+  version = "~>2.0"
+  features {}
 }
 resource "azurerm_resource_group" "rg" {
         name = "testResourceGroup"
@@ -153,7 +147,7 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, instalou terrafora ou usou a Cloud Shell para configurar credenciais Azure e começar a criar recursos na sua subscrição Azure. Para criar uma implantação terraforme mais completa em Azure, consulte o seguinte artigo:
 

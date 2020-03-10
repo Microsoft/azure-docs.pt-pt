@@ -1,32 +1,32 @@
 ---
-title: Escalabilidade e metas de desempenho para o armazenamento de tabelas
+title: Metas de escalabilidade e desempenho para armazenamento de mesa
 titleSuffix: Azure Storage
-description: Saiba mais sobre escalabilidade e metas de desempenho para o armazenamento de tabelas.
+description: Conheça a escalabilidade e os alvos de desempenho para armazenamento de mesa.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/09/2020
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 484596b4eb4908ca84d018267d605acc41a8ccea
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b6455733e4955bd1fb5b27e3551e41e5f711df21
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749489"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943534"
 ---
-# <a name="scalability-and-performance-targets-for-table-storage"></a>Escalabilidade e metas de desempenho para o armazenamento de tabelas
+# <a name="scalability-and-performance-targets-for-table-storage"></a>Metas de escalabilidade e desempenho para armazenamento de mesa
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-## <a name="scale-targets-for-table-storage"></a>Dimensionar destinos para o armazenamento de tabelas
+## <a name="scale-targets-for-table-storage"></a>Metas de escala para armazenamento de mesa
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [Lista de verificação de desempenho e escalabilidade para o armazenamento de tabelas](storage-performance-checklist.md)
-- [Metas de escalabilidade para contas de armazenamento Standard](../common/scalability-targets-standard-account.md)
-- [Metas de escalabilidade para o provedor de recursos de armazenamento do Azure](../common/scalability-targets-resource-provider.md)
-- [Cotas e limites de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+- [Lista de verificação de desempenho e escalabilidade para armazenamento de mesa](storage-performance-checklist.md)
+- [Metas de escalabilidade para contas de armazenamento padrão](../common/scalability-targets-standard-account.md)
+- [Metas de escalabilidade para o fornecedor de recursos de armazenamento Azure](../common/scalability-targets-resource-provider.md)
+- [Limites e quotas de subscrição do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

@@ -4,30 +4,26 @@ description: Aprenda a migrar um aparelho virtual da série StorSimple 1200 para
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4a32251b60066d6a85595e4d1b6c002f8587c01d
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330945"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943601"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migração para O Sincronizado de Ficheiros Azure
 
-A série StorSimple 1200 é um aparelho virtual que é executado num centro de dados no local. É possível migrar os dados deste aparelho para um ambiente De sincronização de ficheiros Azure. Este artigo fornece os conhecimentos de fundo necessários e etapas de migração para uma migração bem sucedida para O Ficheiro Sincronizado Azure.
+A série StorSimple 1200 é um aparelho virtual que é executado num centro de dados no local. É possível migrar os dados deste aparelho para um ambiente De sincronização de ficheiros Azure. O Azure File Sync é o serviço Azure de longo prazo padrão e estratégico para o quais os aparelhos StorSimple podem ser migrados.
 
-## <a name="storsimple"></a>StorSimple
+A série StorSimple 1200 chegará ao fim [da vida](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) em dezembro de 2022.  É importante começar a planear a sua migração o mais rápido possível. Este artigo fornece os conhecimentos de fundo necessários e etapas de migração para uma migração bem sucedida para O Ficheiro Sincronizado Azure. 
 
-StorSimple é um produto da Microsoft descontinuado. O suporte alargado a este produto e ao seu serviço na nuvem expira em 31 de dezembro de 2022. É importante começar a planear uma migração fora do StorSimple imediatamente.
-
-O Azure File Sync é o serviço Azure de longo prazo padrão e estratégico para o quais os aparelhos StorSimple podem ser migrados.
+## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
 > A Microsoft está empenhada em ajudar os clientes na sua migração. Envie um e-mail AzureFilesMigration@microsoft .com para um plano de migração personalizado, bem como assistência durante a migração.
-
-## <a name="azure-file-sync"></a>Azure File Sync
 
 O Azure File Sync é um serviço na nuvem da Microsoft, baseado em dois componentes principais:
 
@@ -186,7 +182,7 @@ Pode tentar executar algumas destas cópias em paralelo. Recomendamos o processa
 
 A política de espaço livre de volume de volume de nível de nuvem atua a um nível de volume com pontos finais de servidor potencialmente múltiplos sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num mesmo ponto final do servidor, o sync continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre no disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que o seu objetivo seja apenas ter o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos.
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 
 O problema mais provável é que o comando RoboCopy falha com *"Volume cheio"* no lado do Servidor do Windows. Se for esse o caso, então a sua velocidade de descarregamento é provavelmente melhor do que a sua velocidade de carregamento. O tiering em nuvem atua uma vez por hora para evacuar o conteúdo do disco local do Windows Server, que tem sincronizado.
 

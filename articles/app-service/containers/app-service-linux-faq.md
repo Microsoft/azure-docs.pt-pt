@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443861"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944077"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de Aplicações Azure no Linux FAQ
 
@@ -181,6 +181,10 @@ Aqui estão as regras para determinar qual o recipiente acessível - por ordem d
 
 ## <a name="other-questions"></a>Outras questões
 
+**O que significa "Recurso solicitado não está disponível no grupo de recursos"?**
+
+Pode ver esta mensagem ao criar uma aplicação web utilizando o Azure Resource Manager (ARM). Com base numa limitação atual, para o mesmo grupo de recursos, não é possível misturar aplicações Windows e Linux na mesma região.
+
 **Quais são os caracteres suportados nos nomes das definições de aplicações?**
 
 Só pode utilizar letras (A-Z, a-z), números (0-9) e o caráter de sublinhado (_) para as definições de aplicação.
@@ -189,7 +193,7 @@ Só pode utilizar letras (A-Z, a-z), números (0-9) e o caráter de sublinhado (
 
 Pode submeter a sua ideia no fórum de feedback de [Aplicações Web](https://aka.ms/webapps-uservoice). Adicione "[Linux]" ao título da sua ideia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [O que é o Serviço de Aplicações Azure no Linux?](app-service-linux-intro.md)
 - [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

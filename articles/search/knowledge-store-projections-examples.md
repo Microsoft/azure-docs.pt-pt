@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: daaedf346bed78a93e0762a37687b623d25ef753
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77441974"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943669"
 ---
 # <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Projeções de lojas de conhecimento: Como moldar e exportar enriquecimentos
 
@@ -667,11 +667,17 @@ Ao definir uma projeção, existem algumas questões comuns que podem causar res
 
 + Erros de sintaxe de caminho. Os selecionadores de trajetória são sensíveis a casos e podem levar a avisos de entrada em falta se não utilizar a caixa exata para o seletor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os exemplos deste artigo demonstram padrões comuns sobre como criar projeções. Agora que tem uma boa compreensão dos conceitos, está mais bem equipado para construir projeções para o seu cenário específico.
 
-À medida que itera sobre as definições de loja de conhecimento, considere o enriquecimento incremental como o seu próximo passo. O enriquecimento incremental baseia-se no cache, que permite reutilizar quaisquer enriquecimentos que não sejam afetados por uma modificação de skillset. Isto é especialmente útil para oleodutos que incluem OCR e análise de imagem.
+Ao explorar novas funcionalidades, considere o enriquecimento incremental como o seu próximo passo. O enriquecimento incremental baseia-se no cache, que permite reutilizar quaisquer enriquecimentos que não sejam afetados por uma modificação de skillset. Isto é especialmente útil para oleodutos que incluem OCR e análise de imagem.
 
 > [!div class="nextstepaction"]
 > [Introdução ao enriquecimento incremental e ao cache](cognitive-search-incremental-indexing-conceptual.md)
+
+Para uma visão geral das projeções, saiba mais sobre capacidades como grupos e corte, e como as define num conjunto de [habilidades](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projeções em uma loja de conhecimento](knowledge-store-projection-overview.md)
+

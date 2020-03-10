@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação discurso-texto
+title: Documentação da conversão de voz em texto
 summary: O discurso a texto do serviço speech, também conhecido como reconhecimento da fala, permite a transcrição em tempo real de streams de áudio em texto.
 metadata:
   title: Documentação fala-a-texto - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: 2dd9fa8c9af53c69a1790dd890b48a7092f5a5da
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 7e42f33b0821372c4df4106e3f10fe6981c9d023
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562935"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943393"
 landingContent:
 - title: Introdução
   linkLists:
@@ -53,10 +53,6 @@ landingContent:
       url: how-to-automatic-language-detection.md
     - text: Utilizar formatos de entrada de áudio comprimido
       url: how-to-use-codec-compressed-audio-input-streams.md
-    - text: Utilizar formatos de entrada de áudio comprimido (iOS)
-      url: how-to-use-codec-compressed-audio-input-streams-ios.md
-    - text: Utilizar formatos de entrada de áudio comprimido (Android)
-      url: how-to-use-codec-compressed-audio-input-streams-android.md
   - linkListType: concept
     links:
     - text: Preparar dados personalizados da fala

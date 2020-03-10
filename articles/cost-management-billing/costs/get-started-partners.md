@@ -4,17 +4,17 @@ description: Este artigo explica como os parceiros utilizam as funcionalidades d
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117585"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245450"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -140,18 +140,14 @@ Quando a política de custos está definida como **Sim**, os utilizadores da sub
 
 Quando a política de visibilidade dos custos está ativada, todos os serviços com utilização de subscrições mostram os custos nas tarifas pay as you go. A utilização de reservas aparece com zero custos para custos reais e amortizados. As compras e os direitos não estão associados a uma subscrição específica. Assim, as compras não são apresentadas no âmbito da subscrição.
 
-Para ver os custos do inquilino do cliente, abra **Cost Management + Faturação** e selecione a conta de faturação relevante do Contrato de Parceiro da Microsoft.
 
-![Selecionar uma conta de faturação](./media/get-started-partners/select-billing-account.png)
+### <a name="view-customer-costs"></a>Ver os custos do cliente
 
-Em **Faturação**, selecione **Subscrições do Azure** e, em seguida, selecione um cliente.
-
-![Selecionar um cliente de uma subscrição do Azure](./media/get-started-partners/subscriptions-select-customer.png)
-
-Selecione **Análise de custos** e comece a rever os custos.
-A análise de custos, os orçamentos e os alertas estão disponíveis para os âmbitos RBAC da subscrição e do grupo de subscrição nas tarifas pay as you go.
+Para ver os custos do inquilino do cliente, abra **Cost Management + Faturação**. Selecione **Análise de custos** e altere o âmbito para a subscrição do inquilino do cliente para ver os custos.
 
 ![Ver a análise de custos como um cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+A análise de custos, os orçamentos e os alertas estão disponíveis para os âmbitos RBAC da subscrição e do grupo de subscrição nas tarifas pay as you go.
 
 As vistas amortizadas e os custos reais das instâncias reservadas nos âmbitos RBAC mostram zero custos. Os custos das instâncias reservadas só são apresentados nos âmbitos de faturação onde foram efetuadas compras.
 

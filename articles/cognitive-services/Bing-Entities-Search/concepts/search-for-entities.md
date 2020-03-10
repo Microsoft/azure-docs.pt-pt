@@ -1,7 +1,7 @@
 ---
-title: Pesquisar entidades com o API de Pesquisa de Entidade do Bing
+title: Pesquisa de entidades com a API de Pesquisa de Entidades Bing
 titleSuffix: Azure Cognitive Services
-description: Use o API de Pesquisa de Entidade do Bing para extrair e Pesquisar entidades e locais de consultas de pesquisa.
+description: Utilize a API de Pesquisa de Entidades Bing para extrair e procurar entidades e locais a partir de consultas de pesquisa.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883694"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388495"
 ---
-# <a name="searching-for-entities-with-the-bing-entity-api"></a>Pesquisando entidades com a API de entidade do Bing
+# <a name="searching-for-entities-with-the-bing-entity-api"></a>Procura de entidades com a API entidade bing
 
-## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Sugira termos de pesquisa com o API de Sugestão Automática do Bing
+## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Sugerir termos de pesquisa com a API Bing Autosuggest
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
@@ -36,15 +36,15 @@ Se o termo de pesquisa tiver um erro de ortografia, a resposta da pesquisa inclu
 }
 ```
 
-## <a name="the-bing-entity-search-api-response"></a>A resposta API de Pesquisa de Entidade do Bing
+## <a name="the-bing-entity-search-api-response"></a>A resposta da API de Pesquisa de Entidadebing
 
-A resposta da API contém um objeto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse) . Se o Bing encontrar uma entidade ou local que seja relevante, o objeto inclui o campo `entities`, o campo `places`, ou ambos. Caso contrário, o objeto de resposta não inclui qualquer um dos campos.
+A resposta da API contém um objeto [SearchResponse.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse) Se o Bing encontrar uma entidade ou local que seja relevante, o objeto inclui o campo `entities`, o campo `places`, ou ambos. Caso contrário, o objeto de resposta não inclui qualquer um dos campos.
 > [!NOTE]
 > As respostas de Entidades suportam vários mercados, mas a resposta de Locais suporta apenas as localizações de Empresas nos E.U.A. 
 
 O campo `entities` é um objeto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) que contém uma lista de objetos de [Entidade](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity) (veja o campo `value`). A lista pode conter uma única entidade dominante, várias entidades de desambiguação, ou dos dois tipos. 
 
-Uma entidade dominante é retornada quando o Bing acredita que ela seja a única entidade que atende à solicitação (não há nenhuma ambiguidade sobre qual entidade atende à solicitação). Se várias entidades puderem satisfazer o pedido, a lista contém mais do que uma entidade de desambiguação. Por exemplo, se o pedido utilizar o título genérico do franchise de um filme, a lista provavelmente contém entidades de desambiguação. No entanto, se o pedido especificar um título específico do franchise, a lista provavelmente contém uma única entidade dominante.
+Uma entidade dominante é devolvida quando bing acredita que é a única entidade que satisfaz o pedido (não há ambiguidade sobre qual entidade satisfaz o pedido). Se várias entidades puderem satisfazer o pedido, a lista contém mais do que uma entidade de desambiguação. Por exemplo, se o pedido utilizar o título genérico do franchise de um filme, a lista provavelmente contém entidades de desambiguação. No entanto, se o pedido especificar um título específico do franchise, a lista provavelmente contém uma única entidade dominante.
 
 As entidades incluem figuras bem conhecidas como cantores, atores, atletas, modelos, etc.; locais e pontos de referência, como Mount Rainier ou Lincoln Memorial; e coisas como uma banana, um cão da raça goldendoodle, um livro ou um filme. O campo [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) contém sugestões que identificam o tipo da entidade. Por exemplo, se é uma pessoa, filme, animal ou atração turística. Para obter uma lista de tipos possíveis, veja [Tipos de Entidade](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
 
@@ -172,9 +172,9 @@ A entidade inclui um campo `name`, `description` e `image`. Quando apresenta est
 
 Quando apresentar as informações da entidade (nome, descrição e imagem), também tem de utilizar o URL do campo `webSearchUrl` para ligar à página de resultados da pesquisa do Bing que contém a entidade.
 
-## <a name="find-places"></a>Localizar locais
+## <a name="find-places"></a>Encontre lugares
 
-O `places` campo é um objeto [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) que contém uma lista de objetos [Place](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place) (consulte os [tipos de entidade](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types) para obter mais informações). A lista contém uma ou mais entidades locais que satisfazem o pedido.
+O campo `places` é um objeto [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) que contém uma lista de objetos [Place](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place) (ver os Tipos de [Entidade](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types) para obter mais informações). A lista contém uma ou mais entidades locais que satisfazem o pedido.
 
 Os locais incluem restaurantes, hotéis ou empresas locais. O campo [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) contém sugestões que identificam o tipo da entidade de local. A lista contém uma lista de sugestões, como Local, EmpresaLocal, Restaurante. Cada sugestão sucessiva na matriz restringe o tipo da entidade. Para obter uma lista de tipos possíveis, veja [Tipos de Entidade](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
 
@@ -296,7 +296,7 @@ O seguinte mostra um exemplo que inclui uma regra `LicenseAttribution`.
 
 ![Atribuição de licença](../media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-O aviso de licença que apresentar tem de incluir uma hiperligação para o site que contenha informações sobre a licença. Normalmente, o nome da licença é utilizado como hiperligação. Por exemplo, se o aviso for **Texto ao abrigo da licença CC-BY-SA** e CC-BY-SA for o nome da licença, CC-BY-SA seria utilizado como a hiperligação.
+O aviso de licença que apresentar tem de incluir uma hiperligação para o site que contenha informações sobre a licença. Normalmente, o nome da licença é utilizado como hiperligação. Por exemplo, se o aviso for **Texto ao abrigo da licença CC-BY-SA** e CC-BY-SA for o nome da licença, tornaria CC-BY-SA numa hiperligação.
 
 ### <a name="link-and-text-attribution"></a>Atribuição de ligação e texto
 
@@ -333,4 +333,4 @@ Se não tiver a certeza se a sua experiência pode ser considerada uma experiên
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Experimente um [início rápido](../quickstarts/csharp.md) para começar a procurar entidades com o API de pesquisa de entidade do Bing.
+* Experimente um [Quickstart](../quickstarts/csharp.md) para começar a procurar entidades com a API de Pesquisa de Entidades Bing.

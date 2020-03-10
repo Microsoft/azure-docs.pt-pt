@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: e23685d410b2d663efde8c530be01adaab637bf8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252431"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942503"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Crie um espaço de v Kubernetes: Visual Studio Code e .NET Core com Espaços Azure Dev
 
@@ -81,7 +81,7 @@ Introduza o seguinte comando da CLI do Azure com o grupo de recursos que contém
 Estão disponíveis funcionalidades avançadas, como a depuração do Kubernetes, para programadores de .NET Core e o Node.js com o VS Code.
 
 1. Se não tiver, instale o [VS Code](https://code.visualstudio.com/Download).
-1. Descarregue e instale os [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) espaços vs [Azure Dev](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e extensões. Para cada extensão, clique em instalar na página marketplace da extensão e novamente no Código VS.
+1. Descarregue e instale os [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) espaços vs [Azure Dev](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e extensões. Para cada extensão, clique em instalar na página marketplace da extensão e novamente no Código VS.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Criar uma aplicação Web em execução num contentor
 
@@ -251,7 +251,7 @@ Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá 
 
 **Agora, tem um método para iterar rapidamente no código e depurar diretamente no Kubernetes.** Em seguida, irá ver como pode criar e chamar um segundo contentor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça o desenvolvimento de vários serviços](multi-service-netcore.md)

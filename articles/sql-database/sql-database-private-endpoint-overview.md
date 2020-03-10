@@ -1,111 +1,111 @@
 ---
 title: Ligação Privada
-description: Visão geral do recurso de ponto de extremidade privado
+description: Visão geral da funcionalidade private endpoint
 author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
-ms.date: 09/17/2019
-ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121085"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945373"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Link privado para o banco de dados SQL do Azure e data warehouse (visualização)
+# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Link privado para Base de Dados EArmazém de Dados Azure SQL
 
-O link privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado**. Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de link privado, vá para a página de [documentação do link privado](../private-link/index.yml) . Um ponto de extremidade privado é um endereço IP privado em uma [VNet](../virtual-network/virtual-networks-overview.md) e sub-rede específicas. 
+O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através de um **ponto final privado.** Para obter uma lista de serviços PaaS que suportam a funcionalidade Private Link, vá à página de Documentação de [Link Privado.](../private-link/index.yml) Um ponto final privado é um endereço IP privado dentro de uma [VNet](../virtual-network/virtual-networks-overview.md) e Subnet específicas. 
 
 > [!IMPORTANT]
-> Este artigo aplica-se ao SQL Server do Azure e ao banco de dados SQL e SQL Data Warehouse bancos que são criados no SQL Server do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo não *se aplica* a uma implantação de **instância gerenciada** no banco de dados SQL do Azure.
+> Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo *não* se aplica a uma implantação de **instânciagerida** na Base de Dados Azure SQL.
 
-## <a name="data-exfiltration-prevention"></a>Prevenção de vazamento de dados
+## <a name="data-exfiltration-prevention"></a>Prevenção da exfiltração de dados
 
-Data vazamento no banco de dados SQL do Azure ocorre quando um usuário autorizado, como um administrador de banco de dados, é capaz de extrair dados de um sistema e movê-los para outro local ou sistema fora da organização. Por exemplo, o usuário move os dados para uma conta de armazenamento pertencente a terceiros.
+A exfiltração de dados na Base de Dados Azure SQL é quando um utilizador autorizado, como uma administração de base de dados, é capaz de extrair dados de um sistema e movê-lo para outro local ou sistema fora da organização. Por exemplo, o utilizador transfere os dados para uma conta de armazenamento propriedade de terceiros.
 
-Considere um cenário com um usuário executando o SQL Server Management Studio (SSMS) dentro de uma VM do Azure conectando-se a um banco de dados SQL. Este banco de dados SQL está no data center do oeste dos EUA. O exemplo a seguir mostra como limitar o acesso com pontos de extremidade públicos no banco de dados SQL usando controles de acesso à rede.
+Considere um cenário com um utilizador que executa o SQL Server Management Studio (SSMS) dentro de um Azure VM que liga a uma Base de Dados SQL. Esta Base de Dados SQL está no centro de dados dos EUA Ocidentais. O exemplo abaixo mostra como limitar o acesso com pontos finais públicos na Base de Dados SQL utilizando controlos de acesso à rede.
 
-1. Desabilite todo o tráfego de serviço do Azure para o banco de dados SQL por meio do ponto de extremidade público Configurando **permitir que os**serviços do Azure Certifique-se de que nenhum endereço IP seja permitido nas regras de firewall no nível do servidor e do banco de dados. Para obter mais informações, consulte [banco de dados SQL do Azure e controles de acesso à rede data warehouse](sql-database-networkaccess-overview.md).
-1. Só permita o tráfego para o banco de dados SQL usando o endereço IP privado da VM. Para obter mais informações, consulte os artigos sobre as regras de [ponto de extremidade de serviço](sql-database-vnet-service-endpoint-rule-overview.md) e [Firewall VNet](sql-database-firewall-configure.md).
-1. Na VM do Azure, restrinja o escopo da conexão de saída usando [NSGs (grupos de segurança de rede)](../virtual-network/manage-network-security-group.md) e marcas de serviço da seguinte maneira
-    - Especifique uma regra de NSG para permitir o tráfego para a marca de serviço = SQL. Westus-permitindo somente a conexão com o banco de dados SQL no oeste dos EUA
-    - Especifique uma regra de NSG (com **prioridade mais alta**) para negar o tráfego para a marca de serviço = SQL negando conexões ao banco de dados SQL em todas as regiões
+1. Desative todo o tráfego de serviço azure para a Base de Dados SQL através do ponto final, definindo os Serviços De acesso ao Azure **.** Certifique-se de que não são permitidos endereços IP nas regras de firewall do servidor e da base de dados. Para mais informações, consulte os controlos de acesso à [rede Azure SQL e Data Warehouse](sql-database-networkaccess-overview.md).
+1. Apenas permita o tráfego na Base de Dados SQL utilizando o endereço IP privado do VM. Para mais informações, consulte os artigos sobre as regras de firewall [do Service Endpoint](sql-database-vnet-service-endpoint-rule-overview.md) e [VNet](sql-database-firewall-configure.md).
+1. No VM Azure, reduza o âmbito de ligação de saída utilizando grupos de segurança de [rede (NSGs)](../virtual-network/manage-network-security-group.md) e etiquetas de serviço da seguinte forma
+    - Especifique uma regra NSG para permitir o tráfego para etiqueta de serviço = SQL. WestUs - apenas permitindo a ligação à Base de Dados SQL nos EUA Ocidentais
+    - Especificar uma regra NSG (com uma **prioridade maior)** para negar o tráfego para etiqueta de serviço = SQL - negando ligações à Base de Dados SQL em todas as regiões
 
-No final desta configuração, a VM do Azure pode se conectar somente a bancos de dados SQL na região oeste dos EUA. No entanto, a conectividade não é restrita a um único banco de dados SQL. A VM ainda pode se conectar a qualquer banco de dados SQL na região oeste dos EUA, incluindo os bancos de dados que não fazem parte da assinatura. Embora tenhamos reduzido o escopo dos dados vazamento no cenário acima para uma região específica, nós não o eliminamos completamente.
+No final desta configuração, o Azure VM só pode ligar-se às Bases de Dados SQL na região dos EUA Ocidentais. No entanto, a conectividade não se restringe a uma única base de dados SQL. O VM ainda pode ligar-se a quaisquer bases de dados SQL na região oeste dos EUA, incluindo as bases de dados que não fazem parte da subscrição. Embora tenhamos reduzido o âmbito da exfiltração de dados no cenário acima para uma região específica, não o eliminámos completamente.
 
-Com o link privado, os clientes agora podem configurar controles de acesso à rede como NSGs para restringir o acesso ao ponto de extremidade privado. Os recursos de PaaS individuais do Azure são então mapeados para pontos de extremidade privados específicos. Um insider mal-intencionado só pode acessar o recurso de PaaS mapeado (por exemplo, um banco de dados SQL) e nenhum outro recurso. 
+Com o Private Link, os clientes podem agora configurar controlos de acesso à rede como NSGs para restringir o acesso ao ponto final privado. Os recursos individuais do Azure PaaS são então mapeados para pontos finais privados específicos. Um insider malicioso só pode aceder ao recurso PaaS mapeado (por exemplo, uma Base de Dados SQL) e nenhum outro recurso. 
 
-## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade local sobre emparelhamento privado
+## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade no local sobre o peering privado
 
-Quando os clientes se conectam ao ponto de extremidade público de computadores locais, seu endereço IP precisa ser adicionado ao firewall baseado em IP usando uma [regra de firewall de nível de servidor](sql-database-server-level-firewall-rule.md). Embora esse modelo funcione bem para permitir o acesso a computadores individuais para cargas de trabalho de desenvolvimento ou teste, é difícil gerenciar em um ambiente de produção.
+Quando os clientes se ligam ao ponto final público a partir de máquinas no local, o seu endereço IP precisa de ser adicionado à firewall baseada em IP utilizando uma [regra de firewall ao nível do Servidor](sql-database-server-level-firewall-rule.md). Embora este modelo funcione bem para permitir o acesso a máquinas individuais para dev ou trabalhos de trabalho de teste, é difícil de gerir em um ambiente de produção.
 
-Com o link privado, os clientes podem habilitar o acesso entre instalações ao ponto de extremidade privado usando o [ExpressRoute](../expressroute/expressroute-introduction.md), o emparelhamento privado ou o túnel de VPN. Os clientes podem então desabilitar todo o acesso por meio do ponto de extremidade público e não usar o firewall baseado em IP para permitir qualquer endereço IP.
+Com o Private Link, os clientes podem permitir o acesso transversal ao ponto final privado utilizando o [ExpressRoute,](../expressroute/expressroute-introduction.md)o peering privado ou o túnel VPN. Os clientes podem então desativar todos os acessos através do ponto final público e não utilizar a firewall baseada em IP para permitir quaisquer endereços IP.
 
-## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o link privado para o banco de dados SQL do Azure 
+## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar link privado para base de dados Azure SQL 
 
-### <a name="creation-process"></a>Processo de criação
-Os pontos de extremidade privados podem ser criados usando o portal, o PowerShell ou o CLI do Azure:
+### <a name="creation-process"></a>Processo de Criação
+Os pontos finais privados podem ser criados através do portal PowerShell ou Azure CLI:
 - [Portal](../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../private-link/create-private-endpoint-powershell.md)
 - [CLI](../private-link/create-private-endpoint-cli.md)
 
-### <a name="approval-process"></a>Processo de aprovação
-Depois que o administrador de rede cria o ponto de extremidade privado (PE), o administrador do SQL pode gerenciar a conexão de ponto de extremidade privado (PEC) para o banco de dados SQL.
+### <a name="approval-process"></a>Processo de Aprovação
+Uma vez que o administrador de rede cria o Ponto Final Privado (PE), o administrador SQL pode gerir a Ligação De Endpoint Privada (PEC) à Base de Dados SQL.
 
-1. Navegue até o recurso do SQL Server na portal do Azure de acordo com as etapas mostradas na captura de tela abaixo
+1. Navegue para o recurso do servidor SQL no portal Azure de acordo com os passos indicados na imagem abaixo
 
-    - (1) selecione as conexões de ponto de extremidade privado no painel esquerdo
-    - (2) mostra uma lista de todas as conexões de ponto de extremidade privado (PECs)
-    - (3) o ponto de extremidade particular correspondente (PE) criado ![captura de tela de todos os PECs][3]
+    - (1) Selecione as ligações de ponto final privado no painel esquerdo
+    - (2) Apresenta uma lista de todas as ligações de ponto final privado (PECs)
+    - (3) Correspondente ponto final privado (PE) criado ![Screenshot de todos os PECs][3]
 
-1. Selecione um PEC individual na lista selecionando-o.
-![captura de tela selecionada][6] do PEC
+1. Selecione um PEC individual da lista selecionando-o.
+![Screenshot selecionado][6] PEC
 
-1. O administrador do SQL pode optar por aprovar ou rejeitar um PEC e, opcionalmente, adicionar uma resposta de texto curto.
-Captura de tela ![da aprovação do PEC][4]
+1. O administrador da SQL pode optar por aprovar ou rejeitar um PEC e, opcionalmente, adicionar uma resposta de texto curta.
+![Screenshot da][4] de aprovação pec
 
-1. Após a aprovação ou rejeição, a lista refletirá o estado apropriado junto com o texto de resposta.
-![captura de tela de todos os PECs após a aprovação][5]
+1. Após aprovação ou rejeição, a lista refletirá o estado adequado, juntamente com o texto de resposta.
+![Screenshot de todos os PECs após aprovação][5]
 
-## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Casos de uso de link privado para o banco de dados SQL do Azure 
+## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Utilize casos de Link Privado para base de dados Azure SQL 
 
-Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, rede virtual emparelhada na mesma região ou via conexão VNet a VNet entre regiões. Além disso, os clientes podem se conectar do local usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
+Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, peered VNet na mesma região, ou através da ligação VNet-to-VNet através de regiões. Além disso, os clientes podem ligar-se a partir de instalações utilizando expressRoute, peering privado ou túnel VPN. Abaixo está um diagrama simplificado que mostra os casos de uso comuns.
 
  ![Diagrama de opções de conectividade][1]
 
-## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network-vnet"></a>Testar a conectividade com o banco de dados SQL de uma VM do Azure na mesma rede virtual (VNet)
+## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network-vnet"></a>Testar a conectividade com a Base de Dados SQL a partir de um VM Azure na mesma Rede Virtual (VNet)
 
-Para este cenário, suponha que você criou uma VM (máquina virtual) do Azure executando o Windows Server 2016. 
+Para este cenário, assuma que criou uma Máquina Virtual Azure (VM) que executa o Windows Server 2016. 
 
-1. [Inicie uma sessão de área de trabalho remota (RDP) e conecte-se à máquina virtual](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine). 
-1. Em seguida, você pode fazer algumas verificações de conectividade básicas para garantir que a VM esteja se conectando ao banco de dados SQL por meio do ponto de extremidade privado usando as seguintes ferramentas:
+1. [Inicie uma sessão de Ambiente de Trabalho Remoto (RDP) e ligue-se à máquina virtual](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine). 
+1. Em seguida, pode efetuar algumas verificações básicas de conectividade para garantir que o VM está a ligar-se à Base de Dados SQL através do ponto final privado utilizando as seguintes ferramentas:
     1. Telnet
-    1. Psping
+    1. PSP
     1. Nmap
     1. SQL Server Management Studio (SSMS)
 
-### <a name="check-connectivity-using-telnet"></a>Verificar a conectividade usando telnet
+### <a name="check-connectivity-using-telnet"></a>Verifique a conectividade usando telnet
 
-O [cliente Telnet](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) é um recurso do Windows que pode ser usado para testar a conectividade. Dependendo da versão do sistema operacional Windows, talvez seja necessário habilitar esse recurso explicitamente. 
+[O Cliente Telnet](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) é uma funcionalidade do Windows que pode ser usada para testar a conectividade. Dependendo da versão do Sistema Operativo Windows, poderá ser necessário ativar esta funcionalidade explicitamente. 
 
-Abra uma janela de prompt de comando depois de ter instalado o Telnet. Execute o comando Telnet e especifique o endereço IP e o ponto de extremidade privado do banco de dados SQL.
+Abra uma janela De Comando Rápido depois de ter instalado telnet. Executar o comando Telnet e especificar o endereço IP e o ponto final privado da Base de Dados SQL.
 
 ```
 >telnet 10.1.1.5 1433
 ```
 
-Quando o Telnet se conectar com êxito, você verá uma tela em branco na janela de comando, como a imagem abaixo:
+Quando a Telnet se ligar com sucesso, verá um ecrã em branco na janela de comando como a imagem abaixo:
 
- ![Diagrama de Telnet][2]
+ ![Diagrama de telnet][2]
 
-### <a name="check-connectivity-using-psping"></a>Verificar a conectividade usando Psping
+### <a name="check-connectivity-using-psping"></a>Verifique a conectividade usando a PSPing
 
-[Psping](/sysinternals/downloads/psping) pode ser usado da seguinte maneira para verificar se a conexão de ponto de extremidade privada (PEC) está escutando conexões na porta 1433.
+[A PSPING](/sysinternals/downloads/psping) pode ser utilizada da seguinte forma para verificar se a ligação de ponto final Privado (PEC) está a ouvir ligações no porto 1433.
 
-Execute psping da seguinte maneira fornecendo o FQDN para o servidor do banco de dados SQL e a porta 1433:
+Executar a psping da seguinte forma, fornecendo o FQDN para o seu servidor de Base de Dados SQL e porta 1433:
 
 ```
 >psping.exe mysqldbsrvr.database.windows.net:1433
@@ -123,13 +123,13 @@ Connecting to 10.6.1.4:1433: from 10.6.0.4:49956: 1.43ms
 Connecting to 10.6.1.4:1433: from 10.6.0.4:49958: 2.28ms
 ```
 
-A saída mostra que Psping poderia executar ping no endereço IP privado associado ao PEC.
+A saída mostra que a PSPING poderia pingar o endereço IP privado associado ao PEC.
 
-### <a name="check-connectivity-using-nmap"></a>Verificar a conectividade usando nmap
+### <a name="check-connectivity-using-nmap"></a>Verifique a conectividade usando o Nmap
 
-O Nmap (mapeador de rede) é uma ferramenta livre e de código aberto usada para a descoberta de rede e a auditoria de segurança. Para obter mais informações e o link de download, visite https://nmap.org. Você pode usar essa ferramenta para garantir que o ponto de extremidade privado esteja escutando conexões na porta 1433.
+O Nmap (Mapper de Rede) é uma ferramenta gratuita e de código aberto utilizada para a descoberta da rede e auditoria de segurança. Para mais informações e o link de descarregamento, visite https://nmap.org. Pode utilizar esta ferramenta para garantir que o ponto final privado está a ouvir ligações na porta 1433.
 
-Execute nmap da seguinte maneira fornecendo o intervalo de endereços da sub-rede que hospeda o ponto de extremidade privado.
+Executar o Nmap da seguinte forma, fornecendo a gama de endereços da subnet que acolhe o ponto final privado.
 
 ```
 >nmap -n -sP 10.1.1.0/24
@@ -140,49 +140,50 @@ Host is up (0.00s latency).
 Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 ```
 
-O resultado mostra que um endereço IP está ativo; que corresponde ao endereço IP para o ponto de extremidade privado.
+O resultado mostra que um endereço IP está em cima; que corresponde ao endereço IP para o ponto final privado.
 
 
-### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verificar a conectividade usando o SQL Server Management Studio (SSMS)
+### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verifique a conectividade utilizando o Estúdio de Gestão de Servidores SQL (SSMS)
 > [!NOTE]
->Use o **FQDN (nome de domínio totalmente qualificado)** do servidor em cadeias de conexão para seus clientes. As tentativas de logon feitas diretamente no endereço IP devem falhar por design.
+> Utilize o Nome de **Domínio Totalmente Qualificado (FQDN)** do servidor nas cadeias de ligação para os seus clientes. Qualquer tentativa de login efetuada diretamente no endereço IP falhará. Este comportamento é por design, uma vez que o tráfego de pontos finais privados para o Portal SQL na região e o FQDN precisa de ser especificado para que os logins tenham sucesso.
 
-Siga as etapas aqui para usar o [SSMS para se conectar ao banco de dados SQL](sql-database-connect-query-ssms.md). Depois de se conectar ao banco de dados SQL usando o SSMS, verifique se você está se conectando a partir do endereço IP privado da VM do Azure executando a seguinte consulta:
+Siga os passos aqui para utilizar [o SSMS para ligar à Base de Dados SQL](sql-database-connect-query-ssms.md). Depois de ligar à Base de Dados SQL utilizando SSMS, verifique se está a ligar-se a partir do endereço IP privado do Azure VM executando a seguinte consulta:
 
 ````
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> Na visualização, as conexões com o ponto de extremidade privado dão suporte somente ao **proxy** como a [política de conexão](sql-database-connectivity-architecture.md#connection-policy)
+
+## <a name="limitations"></a>Limitações 
+As ligações ao ponto final privado apenas apoiam a **Proxy** como política de [ligação](sql-database-connectivity-architecture.md#connection-policy)
 
 
-## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Conectando de uma VM do Azure na VNet (rede virtual emparelhada) 
+## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ligação a partir de um VM Azure em Rede Virtual Peered (VNet) 
 
-Configure o [emparelhamento VNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) para estabelecer a conectividade com o banco de dados SQL de uma VM do Azure em uma VNet emparelhada.
+Configure o [vNet que pretende](../virtual-network/tutorial-connect-virtual-networks-powershell.md) estabelecer a conectividade com a Base de Dados SQL a partir de um VM Azure num VNet com um VNet com um vNet com um vNet.
 
-## <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Conectando de uma VM do Azure no ambiente de VNet a VNet
+## <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Ligação a partir de um VM Azure em ambiente VNet-to-VNet
 
-Configure a [conexão de gateway VPN de vnet para vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para estabelecer a conectividade com um banco de dados SQL de uma VM do Azure em uma região ou assinatura diferente.
+Configure a ligação de [gateway VNet-to-VNet VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para estabelecer conectividade com uma Base de Dados SQL a partir de um VM Azure numa região ou subscrição diferente.
 
-## <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Conectando de um ambiente local pela VPN
+## <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Ligação a partir de um ambiente no local sobre VPN
 
-Para estabelecer a conectividade de um ambiente local para o banco de dados SQL, escolha e implemente uma das opções:
-- [Conexão ponto a site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Conexão VPN site a site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- [Circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-## <a name="connecting-from-an-azure-sql-data-warehouse-to-azure-storage-using-polybase"></a>Conectando de um SQL Data Warehouse do Azure ao armazenamento do Azure usando o polybase
-
-O polybase é comumente usado para carregar dados no Azure SQL Data Warehouse de contas de armazenamento do Azure. Se a conta de armazenamento do Azure para a qual você está carregando dados limita o acesso somente a um conjunto de sub-redes de VNet por meio de pontos de extremidade privados, pontos de extremidade de serviço ou firewalls baseados em IP, a conectividade do polybase com a conta será interrompida. Para habilitar os cenários de importação e exportação do polybase com o Azure SQL Data Warehouse se conectando ao armazenamento do Azure que é protegido para uma VNet, siga as etapas fornecidas [aqui](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+Para estabelecer a conectividade de um ambiente no local até à Base de Dados SQL, escolha e implemente uma das opções:
+- [Ligação ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Ligação VPN site-to-site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
+## <a name="connecting-from-an-azure-sql-data-warehouse-to-azure-storage-using-polybase"></a>Ligação de um Armazém de Dados Azure SQL ao Armazenamento Azure usando a Polybase
 
-## <a name="next-steps"></a>Passos seguintes
+A PolyBase é comumente usada para carregar dados no Armazém de Dados Azure SQL a partir de contas de Armazenamento Azure. Se a conta de Armazenamento Azure que está a carregar dados dos limites aceder apenas a um conjunto de subredes VNet através de pontos finais privados, pontos finais de serviço ou firewalls baseados em IP, a conectividade da PolyBase para a conta quebrará. Para permitir tanto cenários de importação e exportação da PolyBase com o Azure SQL Data Warehouse que está ligado ao Armazenamento Azure que está seguro a um VNet, siga os passos [aqui](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)fornecidos . 
 
-- Para obter uma visão geral da segurança do banco de dados SQL do Azure, consulte [protegendo seu banco de dados](sql-database-security-overview.md)
-- Para obter uma visão geral da conectividade do banco de dados SQL do Azure, consulte [arquitetura de conectividade do SQL do Azure](sql-database-connectivity-architecture.md)
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- Para obter uma visão geral da segurança da Base de Dados Azure SQL, consulte [A segurança da sua base de dados](sql-database-security-overview.md)
+- Para uma visão geral da conectividade Azure SQL Database, consulte [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/pe-connect-overview.png

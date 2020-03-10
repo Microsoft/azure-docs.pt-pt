@@ -1,39 +1,33 @@
 ---
-title: Montar o armazenamento de arquivos do Azure em VMs Linux usando SMB
-description: Como montar o armazenamento de arquivos do Azure em VMs Linux usando SMB com o CLI do Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
+title: Armazenamento de ficheiros Mount Azure em VMs Linux usando SMB
+description: Como montar o armazenamento de ficheiros Azure em VMs Linux utilizando SMB com o Azure CLI
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 0918cfda81be93982c1ca6eccce0c116ac65ca28
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7b9b536def2aa7da25fef9f3baa5efdd8b0ed6f7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035663"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944619"
 ---
-# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o armazenamento de arquivos do Azure em VMs Linux usando SMB
+# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de ficheiros Mount Azure em VMs Linux usando SMB
 
-Este artigo mostra como usar o serviço de armazenamento de arquivos do Azure em uma VM do Linux usando uma montagem SMB com o CLI do Azure. O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. 
+Este artigo mostra-lhe como utilizar o serviço de armazenamento de ficheiros Azure num VM Linux utilizando uma montagem SMB com o Azure CLI. O armazenamento de ficheiros Azure oferece partilhas de ficheiros na nuvem utilizando o protocolo Padrão SMB. 
 
-O armazenamento de arquivos oferece compartilhamentos de arquivos na nuvem que usam o protocolo SMB padrão. Você pode montar um compartilhamento de arquivos de qualquer sistema operacional que ofereça suporte a SMB 3,0. Ao usar uma montagem SMB no Linux, você obtém backups fáceis para um local de armazenamento de arquivamento robusto e permanente com suporte de um SLA.
+O armazenamento de ficheiros oferece partilhas de ficheiros na nuvem que utilizam o protocolo Padrão SMB. Pode montar uma partilha de ficheiros de qualquer SISTEMA que suporte o SMB 3.0. Quando você usa uma montagem SMB em Linux, você obtém backups fáceis para um local de armazenamento robusto e permanente de armazenamento que é suportado por um SLA.
 
-Mover arquivos de uma VM para uma montagem SMB hospedada no armazenamento de arquivos é uma ótima maneira de depurar logs. O mesmo compartilhamento SMB pode ser montado localmente em sua estação de trabalho do Mac, Linux ou Windows. O SMB não é a melhor solução para streaming de logs de aplicativos ou Linux em tempo real, porque o protocolo SMB não foi criado para lidar com essas tarefas pesadas de registro em log. Uma ferramenta de camada de registro em log dedicada, como Fluentd, seria uma opção melhor do que o SMB para coletar a saída de log do aplicativo e do Linux.
+Mover ficheiros de um VM para uma montagem SMB que está hospedada no armazenamento de ficheiros é uma ótima maneira de depurar registos. A mesma quota SMB pode ser montada localmente para o seu Mac, Linux ou Windows. A SMB não é a melhor solução para o streaming de registos linux ou de aplicações em tempo real, porque o protocolo SMB não foi construído para lidar com tarefas de exploração tão pesadas. Uma ferramenta dedicada e unificada de camada seletiva, como fluente, seria uma escolha melhor do que a SMB para recolher o Linux e a saída de registo de aplicações.
 
-Este guia requer que você esteja executando o CLI do Azure versão 2.0.4 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Este guia requer que esteja a executar a versão Azure CLI 2.0.4 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos chamado *MyResource* Group no local *leste dos EUA* .
+Crie um grupo de recursos chamado *myResourceGroup* na localização *dos EUA Orientais.*
 
 ```bash
 az group create --name myResourceGroup --location eastus
@@ -41,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma nova conta de armazenamento, dentro do grupo de recursos que você criou, usando [AZ Storage Account Create](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento denominada *mySTORAGEACCT\<número aleatório >* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes de conta de armazenamento devem ser exclusivos, usando `$RANDOM` acrescenta um número ao final para torná-lo exclusivo.
+Crie uma nova conta de armazenamento, dentro do grupo de recursos que criou, utilizando a conta de [armazenamento az criar](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento chamada *mySTORAGEACCT\<número aleatório>* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes das contas de armazenamento devem ser únicos, utilizando `$RANDOM` anexa um número até ao fim para torná-lo único.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -52,11 +46,11 @@ STORAGEACCT=$(az storage account create \
     --query "name" | tr -d '"')
 ```
 
-## <a name="get-the-storage-key"></a>Obter a chave de armazenamento
+## <a name="get-the-storage-key"></a>Obtenha a chave de armazenamento
 
-Quando você cria uma conta de armazenamento, as chaves de conta são criadas em pares para que possam ser giradas sem qualquer interrupção de serviço. Ao alternar para a segunda chave do par, você cria um novo par de chaves. Novas chaves de conta de armazenamento são sempre criadas em pares, portanto, você sempre tem pelo menos uma chave de conta de armazenamento não utilizada pronta para alternar para.
+Quando cria uma conta de armazenamento, as chaves da conta são criadas em pares para que possam ser rodadas sem qualquer interrupção de serviço. Quando mudas para a segunda chave do par, crias um novo par de chaves. As novas chaves da conta de armazenamento são sempre criadas em pares, por isso tem sempre pelo menos uma chave de conta de armazenamento não utilizada pronta a mudar.
 
-Exiba as chaves da conta de armazenamento usando a [lista de chaves de conta de armazenamento AZ](/cli/azure/storage/account/keys). Este exemplo armazena o valor da chave 1 na variável **STORAGEKEY** .
+Ver as chaves da conta de armazenamento utilizando a lista de [chaves da conta de armazenamento az](/cli/azure/storage/account/keys). Este exemplo armazena o valor da chave 1 na variável **STORAGEKEY.**
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -67,11 +61,11 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Criar uma partilha de ficheiros
 
-Crie o compartilhamento de armazenamento de arquivos usando [AZ Storage share Create](/cli/azure/storage/share). 
+Crie a partilha de armazenamento de ficheiros utilizando a criação de partilha de [armazenamento az](/cli/azure/storage/share). 
 
-Os nomes de compartilhamento precisam ter todas as letras minúsculas, números e hifens únicos, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes de partilha têm de ser letras minúsculas, números e hífens individuais, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-Este exemplo cria um compartilhamento chamado *MyShare* com uma cota de 10 Gib. 
+Este exemplo cria uma quota chamada *myshare* com uma quota de 10 GiB. 
 
 ```bash
 az storage share create --name myshare \
@@ -82,38 +76,38 @@ az storage share create --name myshare \
 
 ## <a name="create-a-mount-point"></a>Criar um ponto de montagem
 
-Para montar o compartilhamento de arquivos do Azure em seu computador Linux, você precisa verificar se o pacote **CIFS-utils** está instalado. Para obter instruções de instalação, consulte [instalar o pacote CIFS-utils para sua distribuição do Linux](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
+Para montar a partilha de ficheiros Azure no seu computador Linux, tem de se certificar de que tem o pacote **cifs-utils** instalado. Para obter instruções de instalação, consulte [Instale o pacote cifs-utils para a sua distribuição Linux](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
 
-Os arquivos do Azure usam o protocolo SMB, que se comunica pela porta TCP 445.  Se você estiver tendo problemas para montar o compartilhamento de arquivos do Azure, verifique se o firewall não está bloqueando a porta TCP 445.
+O Azure Files utiliza o protocolo SMB, que comunica através da porta TCP 445.  Se tiver problemas em montar a sua parte de ficheiroS Azure, certifique-se de que a sua firewall não está a bloquear a porta TCP 445.
 
 
 ```bash
 mkdir -p /mnt/MyAzureFileShare
 ```
 
-## <a name="mount-the-share"></a>Montar o compartilhamento
+## <a name="mount-the-share"></a>Monte a parte
 
-Monte o compartilhamento de arquivos do Azure no diretório local. 
+Monte o arquivo Azure partilha para o diretório local. 
 
 ```bash
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
-O comando acima usa o comando [Mount](https://linux.die.net/man/8/mount) para montar o compartilhamento de arquivos do Azure e as opções específicas para o [CIFS](https://linux.die.net/man/8/mount.cifs). Especificamente, as opções file_mode e dir_mode definem arquivos e diretórios para permissão `0777`. A permissão `0777` fornece permissões de leitura, gravação e execução para todos os usuários. Você pode alterar essas permissões substituindo os valores por outras [permissões de chmod](https://en.wikipedia.org/wiki/Chmod). Você também pode usar outras opções de [CIFS](https://linux.die.net/man/8/mount.cifs) , como GID ou UID. 
+O comando acima utiliza o comando de [montagem](https://linux.die.net/man/8/mount) para montar a partilha de ficheiros Azure e opções específicas aos [cifs](https://linux.die.net/man/8/mount.cifs). Especificamente, as opções de file_mode e dir_mode definir ficheiros e diretórios para autorizar `0777`. A permissão `0777` dá leitura, escrita e executa permissões a todos os utilizadores. Pode alterar estas permissões substituindo os valores por [outras permissões chmod](https://en.wikipedia.org/wiki/Chmod). Também pode utilizar outras opções [cifs,](https://linux.die.net/man/8/mount.cifs) tais como gid ou uid. 
 
 
-## <a name="persist-the-mount"></a>Persistir a montagem
+## <a name="persist-the-mount"></a>Persistir no monte
 
-Quando você reinicializa a VM do Linux, o compartilhamento SMB montado é desmontado durante o desligamento. Para remontar o compartilhamento SMB na inicialização, adicione uma linha ao/etc/fstab. do Linux O Linux usa o arquivo fstab para listar os sistemas de arquivos que precisam ser montados durante o processo de inicialização. A adição do compartilhamento SMB garante que o compartilhamento de armazenamento de arquivos seja um sistema de arquivos montado permanentemente para a VM Linux. Adicionar o compartilhamento SMB de armazenamento de arquivos a uma nova VM é possível quando você usa Cloud-init.
+Quando reiniciar o VM Linux, a parte SMB montada é desmontada durante a paragem. Para remontar a parte SMB na bota, adicione uma linha ao Linux /etc/fstab. O Linux usa o ficheiro fstab para listar os sistemas de ficheiros que precisa de montar durante o processo de arranque. A adição da parte SMB garante que a parte de armazenamento de ficheiros é um sistema de ficheiros montado permanentemente para o VM Linux. Adicionar a partilha de SMB de armazenamento de ficheiros a um novo VM é possível quando utilizar o cloud-init.
 
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
-Para aumentar a segurança em ambientes de produção, você deve armazenar suas credenciais fora do fstab.
+Para uma maior segurança em ambientes de produção, deve armazenar as suas credenciais fora da fstab.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Usando Cloud-init para personalizar uma VM do Linux durante a criação](using-cloud-init.md)
+- [Usando cloud-init para personalizar um VM Linux durante a criação](using-cloud-init.md)
 - [Adicionar um disco a uma VM do Linux](add-disk.md)
-- [Azure Disk Encryption para VMs Linux](disk-encryption-overview.md)
+- [Encriptação de disco azure para VMs Linux](disk-encryption-overview.md)
 

@@ -4,12 +4,12 @@ description: Descreve como utilizar a limitação com pedidos do Azure Resource 
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: eabc621ce02d4f30c5efb5bcef2635ea0e8dbcb2
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251346"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944042"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager
 
@@ -124,7 +124,7 @@ Get-AzResourceGroup -Debug
 
 Que retorna valores de muitos, incluindo o seguinte valor de resposta:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -143,7 +143,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 
 Que retorna valores de muitos, incluindo os seguintes valores:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -193,7 +193,7 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter um exemplo completo da PowerShell, consulte limites de gestão de [recursos para uma subscrição](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para obter mais informações sobre limites e quotas, consulte os limites de subscrição e serviço do [Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)

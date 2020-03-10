@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: criar um aplicativo Web de página única usando o API de Pesquisa de Notícias do Bing'
+title: 'Tutorial: Criar uma aplicação web de uma página única usando a API de pesquisa de notícias bing'
 titleSuffix: Azure Cognitive Services
-description: Use este tutorial para criar um aplicativo Web de página única que pode enviar consultas de pesquisa para a API de notícias do Bing e exibir os resultados na página da Web.
+description: Utilize este tutorial para construir uma aplicação web de uma página única que pode enviar consultas de pesquisa para a API bing news, e exibir os resultados dentro da página web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383120"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943123"
 ---
-# <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: criar um aplicativo Web de página única
+# <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de uma página única
 
 A API de Pesquisa de Notícias do Bing permite-lhe pesquisar na Web e obter resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa de Notícias do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
@@ -39,6 +39,12 @@ A aplicação de tutorial ilustra como:
 > * Resolver erros que possam aparecer
 
 A página do tutorial é completamente independente. Não utiliza arquiteturas, folhas de estilo nem ficheiros de imagens externos. Só utiliza funcionalidades da linguagem JavaScript amplamente suportadas e funciona com as versões atuais dos principais browsers.
+
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesquisa bing. Se não as tiver, pode usar uma chave de [ensaio](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave básica do Bing Maps.](https://www.microsoft.com/maps/create-a-bing-maps-key)
+
 
 ## <a name="app-components"></a>Componentes da aplicação
 Tal como qualquer aplicação Web de página única, esta aplicação de tutorial tem três partes:
@@ -61,7 +67,7 @@ O HTML também inclui as divisões (tags `<div>` de HTML) nas quais os resultado
 
 Para evitar ter de incluir a chave de subscrição da API de Pesquisa do Bing no código, armazenamo-la no armazenamento persistente do browser. Antes de a chave ser armazenada, pedimos a chave do utilizador. Se a API rejeitar a chave mais tarde, invalidamos a chave armazenada e voltamos a pedi-la ao utilizador.
 
-Definimos as funções `storeValue` e `retrieveValue` que utilizam o objeto `localStorage` (não suportada em todos os browsers) ou um cookie. A função `getSubscriptionKey()` utiliza essas funções para armazenar e obter a chave do utilizador. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+Definimos as funções `storeValue` e `retrieveValue` que utilizam o objeto `localStorage` (não suportada em todos os browsers) ou um cookie. A função `getSubscriptionKey()` utiliza essas funções para armazenar e obter a chave do utilizador. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
 ``` javascript
 // Cookie names for data we store
@@ -108,7 +114,7 @@ O formulário HTML inclui elementos com os nomes abaixo:
 | `category` | Caixas de verificação para promover tipos específicos de resultados. Por exemplo, promover a Saúde aumenta a classificação de notícias sobre saúde. |
 | `when` | Menu pendente para limitar, opcionalmente, a pesquisa ao dia, semana ou mês mais recente. |
 | `safe` | Uma caixa de verificação que indica se deve ser utilizada a funcionalidade SafeSearch do Bing para filtrar resultados de conteúdos para adultos. |
-| `count` | Campo oculto. O número de resultados de pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
+| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
 | `offset`|  Campo oculto. O desfasamento do primeiro resultado da pesquisa no pedido, utilizado para paginação. É reposto para `0` nos pedidos novos. |
 
 > [!NOTE]
@@ -269,13 +275,13 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > Um pedido HTTP bem-sucedido *não* significa necessariamente que a pesquisa em si foi concluída com êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Além disso, se o pedido tiver uma limitação de frequência, a API devolve uma resposta vazia.
 
-A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
+Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Poderão ocorrer erros nas seguintes fases:
 
 |Fase|Potenciais erros|Resolvido por|
 |-|-|-|
 |Criar o objeto de pedido JavaScript|URL inválido|bloco `try`/`catch`|
 |Fazer o pedido|Erros de rede, ligações abortadas|Processadores de eventos `error` e `abort`|
-|Fazer a pesquisa|Pedido inválido, JSON inválido, limites de frequência|testes no processador de eventos `load`|
+|Fazer a pesquisa|Pedido inválido, JSON inválido, limites de velocidade|testes no processador de eventos `load`|
 
 Os erros são processados mediante a chamada de `renderErrorMessage()` com todos os detalhes dos mesmos conhecidos. Se a resposta passar todos os testes de erros, chamamos `renderSearchResults()` para apresentar os resultados da pesquisa na página.
 
@@ -388,16 +394,16 @@ As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite às APIs do Bing associarem todas as pesquisas de um determinado utilizador, o que tem duas importantes vantagens.
 
-Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela.
+Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela.
 
-Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que veem uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
+Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem novas funcionalidades antes de serem disponibilizadas para o público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que veem uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
+As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
 
 > [!NOTE]
-> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
+> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e os torna disponíveis para o JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal procuração tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
@@ -413,6 +419,6 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa de Notícias do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)

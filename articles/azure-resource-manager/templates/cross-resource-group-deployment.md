@@ -3,12 +3,12 @@ title: Implementar recursos cruzam subscrição e grupo de recursos
 description: Mostra como direcionar mais de um grupo de subscrição e recursos Azure durante a implantação.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3cc31e64e9595c637a23fc54d9d02274ded40dda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250609"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944038"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Dispor recursos do Azure para mais de um grupo de subscrição ou recursos
 
@@ -213,7 +213,7 @@ O quadro seguinte mostra se as funções resolvem para o grupo de recursos e sub
 | ------------- | ----- | ---------- |
 | aninhada        | exterior (padrão) | Grupo de recursos-mãe |
 | aninhada        | interior | Grupo de subrecursos |
-| ligado        | N/D   | Grupo de subrecursos |
+| ligado        | N/A   | Grupo de subrecursos |
 
 O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) de exemplo mostra:
 
@@ -331,7 +331,7 @@ New-AzResourceGroupDeployment `
 
 A saída do exemplo anterior é:
 
-```powershell
+```output
  Name             Type                       Value
  ===============  =========================  ==========
  parentRG         String                     Parent resource group is parentGroup
@@ -378,7 +378,7 @@ A saída do exemplo anterior é:
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para entender como definir parâmetros no seu modelo, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor](template-syntax.md)de Recursos Azure .
 * Para obter dicas sobre a resolução de erros comuns de implementação, consulte erros comuns de [implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).

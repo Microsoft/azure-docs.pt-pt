@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 329b930c950ea7c58bdac798fce51af152aa8ff3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920608"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396262"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço azure no Monitor Azure
 
@@ -166,7 +166,7 @@ O Azure Service Bus suporta as seguintes dimensões para métricas no Monitor Az
 
     ![Criar botão de regra de alerta](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte a visão geral do [Monitor Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Usar a biblioteca .NET do executor em massa no Azure Cosmos DB para operações de importação e atualização em massa
-description: Importe e atualize em massa os documentos de Azure Cosmos DB usando a biblioteca .NET do executor em massa.
+title: Utilize biblioteca de executor a granel .NET em Azure Cosmos DB para operações de importação e atualização a granel
+description: Importar e atualizar os documentos Do Azure Cosmos DB utilizando a biblioteca do executor a granel .NET.
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,45 +10,45 @@ ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442184"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365504"
 ---
-# <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET do executor em massa para executar operações em massa no Azure Cosmos DB
+# <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize a biblioteca executor a granel .NET para realizar operações a granel em Azure Cosmos DB
 
-Este tutorial fornece instruções sobre como usar a biblioteca .NET do executor em massa para importar e atualizar documentos para um contêiner Cosmos do Azure. Para saber mais sobre a biblioteca de executores em massa e como ela ajuda a aproveitar a produtividade e o armazenamento maciços, consulte o artigo [visão geral da biblioteca de executores em massa](bulk-executor-overview.md) . Neste tutorial, você verá um aplicativo .NET de exemplo que importa em massa documentos gerados aleatoriamente em um contêiner Cosmos do Azure. Após a importação, ele mostra como você pode atualizar os dados importados em massa especificando patches como operações a serem executadas em campos de documento específicos.
+Este tutorial fornece instruções sobre a utilização da biblioteca do executor a granel .NET para importar e atualizar documentos para um contentor Azure Cosmos. Para saber sobre a biblioteca de executores a granel e como ajuda a alavancar a entrada e armazenamento maciços, consulte o artigo de visão geral da [biblioteca de executores a granel.](bulk-executor-overview.md) Neste tutorial, você verá uma aplicação de amostra .NET que importa a granel documentos gerados aleatoriamente em um recipiente Azure Cosmos. Após a importação, mostra como pode atualizar em massa os dados importados especificando patches como operações a executar em campos de documentos específicos.
 
-Atualmente, a biblioteca de executores em massa é suportada apenas pela API do SQL Azure Cosmos DB e por contas de API Gremlin. Este artigo descreve como usar a biblioteca .NET do executor em massa com contas da API do SQL. Para saber mais sobre como usar a biblioteca .NET do executor em massa com contas da API do Gremlin, consulte [executar operações em massa na API do Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
+Atualmente, a biblioteca de executora a granel é apoiada apenas pelas contas Azure Cosmos DB SQL API e Gremlin API. Este artigo descreve como usar a biblioteca do executor a granel .NET com contas SQL API. Para aprender sobre a utilização da biblioteca do executor a granel .NET com contas DaAGremlin, consulte a realização de operações a [granel na API Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você ainda não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Certifique-se de habilitar o "desenvolvimento do Azure" durante a instalação do Visual Studio.
+* Se ainda não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Certifique-se de que ativa o "desenvolvimento Do Azure" durante a configuração do Estúdio Visual.
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Ou, você pode usar o [emulador Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade `https://localhost:8081`. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
+* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Ou, pode usar o [emulador Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto final `https://localhost:8081`. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
 
-* Crie uma conta da API do SQL Azure Cosmos DB usando as etapas descritas na seção [criar conta do banco de dados](create-sql-api-dotnet.md#create-account) do artigo início rápido do .net.
+* Crie uma conta API Azure Cosmos DB SQL utilizando os passos descritos na secção de [conta de base](create-sql-api-dotnet.md#create-account) de dados do artigo .NET quickstart.
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos mudar para trabalhar com código baixando um aplicativo .NET de exemplo do GitHub. Esse aplicativo executa operações em massa nos dados armazenados em sua conta do Azure Cosmos. Para clonar o aplicativo, abra um prompt de comando, navegue até o diretório onde você deseja copiá-lo e execute o seguinte comando:
+Agora vamos mudar para trabalhar com código, baixando uma aplicação de amostra .NET do GitHub. Esta aplicação realiza operações a granel nos dados armazenados na sua conta Azure Cosmos. Para clonar a aplicação, abra um pedido de comando, navegue para o diretório onde pretende copiá-la e executar o seguinte comando:
 
 ```
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-O repositório clonado contém dois exemplos "BulkImportSample" e "BulkUpdateSample". Você pode abrir qualquer um dos aplicativos de exemplo, atualizar as cadeias de conexão no arquivo app. config com as cadeias de conexão de sua conta Azure Cosmos DB, compilar a solução e executá-la.
+O repositório clonado contém duas amostras "BulkImportSample" e "BulkUpdateSample". Pode abrir qualquer uma das aplicações da amostra, atualizar as cordas de ligação no ficheiro App.config com as cordas de ligação da sua conta Azure Cosmos DB, construir a solução e executá-la.
 
-O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em massa para sua conta do Azure Cosmos. O aplicativo "BulkUpdateSample" atualiza em massa os documentos importados especificando patches como operações a serem executadas em campos de documento específicos. Nas próximas seções, você examinará o código em cada um desses aplicativos de exemplo.
+A aplicação "BulkImportSample" gera documentos aleatórios e importa-os a granel para a sua conta Azure Cosmos. A aplicação "BulkUpdateSample" atualiza os documentos importados especificando patches como operações a executar em campos de documentos específicos. Nas próximas secções, irá rever o código em cada uma destas aplicações de amostra.
 
-## <a name="bulk-import-data-to-an-azure-cosmos-account"></a>Importar dados em massa para uma conta do Azure Cosmos
+## <a name="bulk-import-data-to-an-azure-cosmos-account"></a>Dados de importação a granel para uma conta Azure Cosmos
 
-1. Navegue até a pasta "BulkImportSample" e abra o arquivo "BulkImportSample. sln".  
+1. Navegue para a pasta "GranelImportSample" e abra o ficheiro "BulkImportSample.sln".  
 
-2. As cadeias de conexão do Azure Cosmos DB são recuperadas do arquivo app. config, conforme mostrado no código a seguir:  
+2. As cordas de ligação do Azure Cosmos DB são recuperadas do ficheiro App.config, conforme mostrado no seguinte código:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -58,9 +58,9 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   O importador em massa cria um novo banco de dados e um contêiner com o nome do banco de dados, o nome do contêiner e os valores de taxa de transferência especificados no arquivo app. config.
+   O importador a granel cria uma nova base de dados e um recipiente com o nome da base de dados, o nome do contentor e os valores de entrada especificados no ficheiro App.config.
 
-3. Em seguida, o objeto DocumentClient é inicializado com o modo de conexão TCP direta:  
+3. Em seguida, o objeto DocumentClient é rubricado com o modo de ligação TCP direto:  
 
    ```csharp
    ConnectionPolicy connectionPolicy = new ConnectionPolicy
@@ -72,7 +72,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
    connectionPolicy)
    ```
 
-4. O objeto BulkExecutor é inicializado com um valor de repetição alto para o tempo de espera e solicitações limitadas. E, em seguida, eles são definidos como 0 para passar o controle de congestionamento para BulkExecutor durante seu tempo de vida.  
+4. O objeto BulkExecuteor é inicializado com um elevado valor de repetição para o tempo de espera e pedidos acelerados. E então eles estão definidos para 0 para passar o controlo de congestionamento para BulkExecutor para a sua vida.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -87,7 +87,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
    client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
    ```
 
-5. O aplicativo invoca a API BulkImportAsync. A biblioteca .NET fornece duas sobrecargas da API de importação em massa, uma que aceita uma lista de documentos JSON serializados e a outra que aceita uma lista de documentos POCO desserializados. Para saber mais sobre as definições de cada um desses métodos sobrecarregados, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet).
+5. O pedido invoca a API BulkImportAsync. A biblioteca .NET fornece duas sobrecargas da API de importação a granel - uma que aceita uma lista de documentos JSON serializados e a outra que aceita uma lista de documentos POCO desserializados. Para saber mais sobre as definições de cada um destes métodos sobrecarregados, consulte a documentação da [API.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet)
 
    ```csharp
    BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -102,28 +102,28 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
    
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |enableUpsert    |   Um sinalizador para habilitar operações de Upsert nos documentos. Se um documento com a ID fornecida já existir, ele será atualizado. Por padrão, ele é definido como false.      |
+   |enableUpsert    |   Uma bandeira para permitir operações upsert nos documentos. Se um documento com a identificação dada já existir, é atualizado. Por defeito, está definido como falso.      |
    |disableAutomaticIdGeneration    |    Um sinalizador para desativar a geração automática do ID. Por predefinição, é definido como true.     |
-   |maxConcurrencyPerPartitionKeyRange    | O grau máximo de simultaneidade por intervalo de chave de partição, definindo como NULL fará com que a biblioteca use um valor padrão de 20. |
-   |maxInMemorySortingBatchSize     |  O número máximo de documentos extraídos do enumerador de documento, que é passado para a chamada à API em cada estágio. Para a fase de classificação na memória que ocorre antes da importação em massa, a definição desse parâmetro como NULL fará com que a biblioteca use o valor mínimo padrão (Documents. Count, 1 milhão).       |
-   |cancellationToken    |    O token de cancelamento para sair normalmente da operação de importação em massa.     |
+   |maxConcurrencyPerPartitionKeyRange    | O grau máximo de conmoeda por divisória, definição para nulo fará com que a biblioteca utilize um valor padrão de 20. |
+   |maxInMemorySortingBatchSize     |  O número máximo de documentos que são retirados do enumerador de documentos, que é passado para a chamada da API em cada fase. Para a fase de triagem em memória que ocorre antes da importação a granel, a fixação deste parâmetro a nula fará com que a biblioteca utilize o valor mínimo predefinido (documentos.count, 10000000).       |
+   |cancelamentoToken    |    O símbolo de cancelamento para sair graciosamente da operação de importação a granel.     |
 
-   **Definição de objeto de resposta de importação em massa** O resultado da chamada à API de importação em massa contém os seguintes atributos:
+   **Definição de objeto de resposta à importação a granel** O resultado da chamada API importada a granel contém os seguintes atributos:
 
    |**Parâmetro**  |**Descrição**  |
    |---------|---------|
-   |NumberOfDocumentsImported (longo)   |  O número total de documentos que foram importados com êxito do total de documentos fornecidos para a chamada à API de importação em massa.       |
-   |TotalRequestUnitsConsumed (duplo)   |   As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.      |
-   |TotalTimeTaken (TimeSpan)    |   O tempo total gasto pela chamada à API de importação em massa para concluir a execução.      |
-   |BadInputDocuments (lista\<objeto >)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Corrija os documentos retornados e tente importar novamente. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
+   |NumberOfDocumentsImportados (longo)   |  O número total de documentos importados com êxito do total dos documentos fornecidos à chamada a granel.       |
+   |TotalRequestUnitsConsumido (duplo)   |   As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.      |
+   |Total timetaken (Timespan)    |   O tempo total deato na chamada a granel da API para completar a execução.      |
+   |BadInputDocuments (Lista\<object>)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Corrija os documentos devolvidos e volte a tentar a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
 
-## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Atualizar dados em massa em sua conta do Azure Cosmos
+## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Dados de atualização a granel na sua conta Azure Cosmos
 
-Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exemplo, você definirá o campo `Name` como um novo valor e removerá o campo `Description` dos documentos existentes. Para obter o conjunto completo de operações de atualização com suporte, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exemplo, irá definir o campo `Name` para um novo valor e remover o campo `Description` dos documentos existentes. Para o conjunto completo de operações de atualização suportadas, consulte a documentação da [API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
-1. Navegue até a pasta "BulkUpdateSample" e abra o arquivo "BulkUpdateSample. sln".  
+1. Navegue na pasta "BulkUpdateSample" e abra o ficheiro "BulkUpdateSample.sln".  
 
-2. Defina os itens de atualização junto com as operações de atualização de campo correspondentes. Neste exemplo, você usará `SetUpdateOperation` para atualizar o `Name` campo e `UnsetUpdateOperation` para remover o campo `Description` de todos os documentos. Pode também executar outras operações, como o incremento um campo de documento por um valor específico, enviar por push valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização em massa, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Defina os itens de atualização juntamente com as operações de atualização de campo correspondentes. Neste exemplo, utilizará `SetUpdateOperation` para atualizar o campo de `Name` e `UnsetUpdateOperation` para remover o campo `Description` de todos os documentos. Pode também executar outras operações, como o incremento um campo de documento por um valor específico, enviar por push valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para conhecer os diferentes métodos fornecidos pela atualização a granel API, consulte a documentação da [API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -140,7 +140,7 @@ Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exem
    }
    ```
 
-3. O aplicativo invoca a API BulkUpdateAsync. Para saber mais sobre a definição do método BulkUpdateAsync, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
+3. A aplicação invoca a API BulkUpdateAsync. Para conhecer a definição do método BulkUpdateAsync, consulte a documentação da [API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
 
    ```csharp
    BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
@@ -153,37 +153,37 @@ Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exem
 
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |maxConcurrencyPerPartitionKeyRange    |   O grau máximo de simultaneidade por intervalo de chave de partição, definindo esse parâmetro como NULL fará com que a biblioteca use o valor padrão (20).   |
-   |maxInMemorySortingBatchSize    |    O número máximo de itens de atualização extraídos do enumerador de itens de atualização passado para a chamada à API em cada estágio. Para a fase de classificação na memória que ocorre antes da atualização em massa, a definição desse parâmetro como NULL fará com que a biblioteca use o valor mínimo padrão (updateItems. Count, 1 milhão).     |
-   | cancellationToken|O token de cancelamento para sair normalmente da operação de atualização em massa. |
+   |maxConcurrencyPerPartitionKeyRange    |   O grau máximo de conmoeda por divisória, definindo este parâmetro como nulo, fará com que a biblioteca utilize o valor predefinido(20).   |
+   |maxInMemorySortingBatchSize    |    O número máximo de itens de atualização retirados do enumerador de itens de atualização passou para a chamada da API em cada fase. Para a fase de triagem em memória que ocorre antes da atualização a granel, a definição deste parâmetro para nula fará com que a biblioteca utilize o valor mínimo predefinido (actualizaçãoItems.count, 10000000).     |
+   | cancelamentoToken|O símbolo de cancelamento para sair graciosamente da operação de atualização a granel. |
 
-   **Definição de objeto de resposta de atualização em massa** O resultado da chamada à API de atualização em massa contém os seguintes atributos:
+   **Definição** de objeto de resposta a atualização a granel O resultado da chamada API a granel contém os seguintes atributos:
 
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |NumberOfDocumentsUpdated (long)    |   O número de documentos que foram atualizados com êxito do total de documentos fornecidos para a chamada à API de atualização em massa.      |
-   |TotalRequestUnitsConsumed (duplo)   |    As unidades de solicitação totais (RUs) consumidas pela chamada à API de atualização em massa.    |
-   |TotalTimeTaken (TimeSpan)   | O tempo total gasto pela chamada à API de atualização em massa para concluir a execução. |
+   |NumberOfDocumentsUpdated (long)    |   O número de documentos que foram atualizados com sucesso a partir do total de documentos fornecidos à chamada a granel da API.      |
+   |TotalRequestUnitsConsumido (duplo)   |    As unidades de pedido totais (RUs) consumidas pela chamada API de atualização a granel.    |
+   |Total timetaken (Timespan)   | O tempo total deatualização a granel da Chamada API para completar a execução. |
     
 ## <a name="performance-tips"></a>Sugestões de desempenho 
 
-Considere os seguintes pontos para melhor desempenho ao usar a biblioteca de executores em massa:
+Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca de executora a granel:
 
-* Para obter o melhor desempenho, execute o aplicativo de uma máquina virtual do Azure que esteja na mesma região que a região de gravação da sua conta do Azure Cosmos.  
+* Para melhor desempenho, execute a sua aplicação a partir de uma máquina virtual Azure que esteja na mesma região que a região de escrita da sua conta Azure Cosmos.  
 
-* É recomendável que você crie uma instância de um único objeto `BulkExecutor` para todo o aplicativo em uma única máquina virtual que corresponda a um contêiner Cosmos específico do Azure.  
+* Recomenda-se que você instantaneamente um único objeto `BulkExecutor` para toda a aplicação dentro de uma única máquina virtual que corresponda a um recipiente Azure Cosmos específico.  
 
-* Como uma única execução de API de operação em massa consome uma grande parte da CPU da máquina do cliente e da e/s de rede (isso acontece pela geração de várias tarefas internamente). Evite a geração de várias tarefas simultâneas no processo do aplicativo que executam chamadas à API de operação em massa. Se uma única chamada à API de operação em massa que está sendo executada em uma única máquina virtual não puder consumir a taxa de transferência do contêiner inteiro (se a taxa de transferência do contêiner > 1 milhão RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente as chamadas à API da operação em massa.  
+* Uma vez que uma única operação a granel a execução da API consome uma grande parte do CPU e da rede IO da máquina cliente (isto acontece desogerando várias tarefas internamente). Evite desovar várias tarefas simultâneas no âmbito do seu processo de aplicação que executam chamadas API da operação a granel. Se uma única chamada a granel da API que está a funcionar numa única máquina virtual não conseguir consumir a entrada de todo o recipiente (se o seu recipiente for de entrada > 1 milhão de RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente as chamadas API de operação a granel.  
 
-* Verifique se o método `InitializeAsync()` é invocado depois de instanciar um objeto BulkExecutor para buscar o mapa de partição do contêiner de Cosmos de destino.  
+* Certifique-se de que o método `InitializeAsync()` é invocado após instantaneamente um objeto BulkExecuteor para obter o mapa de partição do contentor cosmos alvo.  
 
-* No app. config do seu aplicativo, verifique se o **gcServer** está habilitado para melhorar o desempenho
+* Na App.Config da sua aplicação, certifique-se de que o **gcServer** está habilitado para um melhor desempenho
   ```xml  
   <runtime>
     <gcServer enabled="true" />
   </runtime>
   ```
-* A biblioteca emite rastreamentos que podem ser coletados em um arquivo de log ou no console do. Para habilitar ambos, adicione o código a seguir ao arquivo app. config do seu aplicativo.
+* A biblioteca emite vestígios que podem ser recolhidos num ficheiro de registo ou na consola. Para ativar ambos, adicione o seguinte código ao ficheiro App.Config da sua aplicação.
 
   ```xml
   <system.diagnostics>
@@ -196,6 +196,6 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca de exe
   </system.diagnostics>
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre os detalhes do pacote NuGet e as notas de versão, consulte os [detalhes do SDK do executor em massa](sql-api-sdk-bulk-executor-dot-net.md).
+* Para saber mais sobre os detalhes do pacote Nuget e as notas de lançamento, consulte os [detalhes do SDK](sql-api-sdk-bulk-executor-dot-net.md)do executor a granel .

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300915"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943645"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Linha de base de segurança azure para base de dados Azure SQL
 
@@ -575,7 +575,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 **Responsabilidade**: Cliente
 
-## <a name="data-protection"></a>Proteção de Dados
+## <a name="data-protection"></a>Proteção de dados
 
 *Para mais informações, consulte [Controlo de Segurança: Proteção de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
@@ -812,10 +812,10 @@ Compreender o Centro de Segurança Azure Secure Score: https://docs.microsoft.co
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar e descobrir todos os recursos (incluindo as instâncias do Servidor Azure SQL) dentro da sua subscrição(s).  Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
 
 
-Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendado criar e utilizar recursos do Gestor de Recursos Azure para avançar.
+Embora os recursos clássicos do Azure possam ser descobertos através do Azure Resource Graph, é altamente recomendado criar e utilizar recursos do Azure Resource Manager.
 
 
-Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 Como visualizar as suas Assinaturas Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
@@ -886,7 +886,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -1348,7 +1348,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Microsoft 
 
 **Responsabilidade**: Partilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Ver o [Benchmark de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

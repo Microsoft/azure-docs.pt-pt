@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 75bd27f0945c66b9757055c0777b43a050ba67d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920999"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942922"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Armazenamento de Lagos De Dados Azure Gen2
 
@@ -25,15 +25,15 @@ Geração 2 de armazenamento do Data Lake torna o armazenamento do Azure a base 
 
 Uma parte fundamental do Data Lake Storage Gen2 é a adição de um [espaço hierárquico](data-lake-storage-namespace.md) ao armazenamento blob. O espaço de nomes hierárquico organiza os ficheiros de objetos de/para uma hierarquia de diretórios para acesso a dados eficiente. Uma convenção de nomenclatura objeto ao arquivo comuns utiliza barras no nome para simular uma estrutura de diretório hierárquica. Esta estrutura torna-se real com geração 2 de armazenamento do Data Lake. Operações como mudar o nome ou eliminar um diretório tornam-se operações de metadados de atômica única no diretório em vez de enumerar e processamento de todos os objetos que compartilham o prefixo do nome do diretório.
 
-No passado, análise baseada na cloud tinha de comprometer nas áreas de desempenho, gerenciamento e segurança. Geração 2 de armazenamento do Data Lake resolve cada um desses aspectos das seguintes formas:
+Data Lake Storage Gen2 baseia-se no armazenamento blob e melhora o desempenho, gestão e segurança das seguintes formas:
 
--   **O desempenho** é otimizado porque não precisa de copiar ou transformar dados como pré-requisito para análise. O espaço de nomes hierárquico melhora consideravelmente o desempenho de operações de gerenciamento de diretório, que melhora o desempenho geral da tarefa.
+-   **O desempenho** é otimizado porque não precisa de copiar ou transformar dados como pré-requisito para análise. Em comparação com o espaço de nome plano no armazenamento blob, o espaço hierárquico de nomes melhora consideravelmente o desempenho das operações de gestão de diretórios, o que melhora o desempenho global do trabalho.
 
 -   **A gestão** é mais fácil porque pode organizar e manipular ficheiros através de diretórios e subdiretórios.
 
 -   **A segurança** é executável porque pode definir permissões POSIX em diretórios ou ficheiros individuais.
 
--   **A eficácia** dos custos é possível, uma vez que o Data Lake Storage Gen2 é construído em cima do armazenamento de [blob azure](storage-blobs-introduction.md)de baixo custo. As funcionalidades adicionais reduzir o custo total de propriedade para executar a análise de macrodados no Azure.
+Além disso, data Lake Storage Gen2 é muito rentável porque é construído em cima do [armazenamento azure blob](storage-blobs-introduction.md)de baixo custo . As funcionalidades adicionais reduzir o custo total de propriedade para executar a análise de macrodados no Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos de geração 2 de armazenamento do Data Lake
 
@@ -64,7 +64,7 @@ Seguem-se as entidades equivalentes, conforme descrito pelo conceitos diferentes
 | Conceito                                | Organização de nível superior | Organização de nível inferior                                            | Contentor de dados |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | BLOBs – armazenamento de objetos de fins gerais | Contentor              | Diretório virtual (SDK apenas – não fornece manipulação atômica) | Blobs           |
-| Armazenamento de lagos azure data Gen2 – Armazenamento analítico          | Contentor            | Diretório                                                           | Ficheiro           |
+| Armazenamento de lagos azure data Gen2 – Armazenamento analítico          | Contentor            | Active                                                           | Ficheiro           |
 
 ## <a name="supported-blob-storage-features"></a>Recursos de armazenamento Blob suportados
 

@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649512"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944205"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado de serviço Azure Kubernetes (pré-visualização)
 
@@ -30,43 +30,43 @@ O plano de controlo ou servidor API está numa subscrição Azure Kubernetes Ser
 ## <a name="currently-supported-regions"></a>Regiões atualmente apoiadas
 
 * Leste da Austrália
-* Austrália Sudeste
+* Sudeste da Austrália
 * Sul do Brasil
 * Canadá Central
 * Leste do Canadá
 * Cenral EUA
-* Ásia Leste
-* E.U.A. Leste
-* E.U.A. Leste 2
+* Ásia Oriental
+* EUA Leste
+* EUA Leste 2
 * LESTE DOS EUA 2 EUAP
 * França Central
 * Alemanha Norte
 * Leste do Japão
 * Oeste do Japão
 * Coreia do Sul Central
-* Sul da Coreia do Sul
-* E.U.A. Centro-Norte
+* Coreia do Sul
+* EUA Centro-Norte
 * Europa do Norte
 * Europa do Norte
-* E.U.A. Centro-Sul
-* Sul do Reino Unido
+* EUA Centro-Sul
+* Reino Unido Sul
 * Europa Ocidental
-* E.U.A. Oeste
-* E.U.A.Oeste 2
-* E.U.A. Leste 2
+* EUA Oeste
+* EUA Oeste 2
+* EUA Leste 2
 
 ## <a name="currently-supported-availability-zones"></a>Atualmente áreas de disponibilidade suportadas
 
-* E.U.A. Central
-* E.U.A. Leste
-* E.U.A. Leste 2
+* EUA Central
+* EUA Leste
+* EUA Leste 2
 * França Central
 * Leste do Japão
 * Europa do Norte
-* Ásia Sudeste
-* Sul do Reino Unido
+* Sudeste Asiático
+* Reino Unido Sul
 * Europa Ocidental
-* E.U.A.Oeste 2
+* EUA Oeste 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instale a mais recente extensão de pré-visualização Azure CLI AKS
 
@@ -100,6 +100,14 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-private-aks-cluster"></a>Criar um cluster PRIVADO AKS
 
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Crie um grupo de recursos ou utilize um grupo de recursos existente para o seu cluster AKS.
+
+```azurecli-interactive
+az group create -l westus -n MyResourceGroup
+```
+
 ### <a name="default-basic-networking"></a>Rede básica padrão 
 
 ```azurecli-interactive
@@ -126,35 +134,29 @@ Onde *-enable-private-cluster* é uma bandeira obrigatória para um aglomerado p
 > [!NOTE]
 > Se a ponte Docker abordar o CIDR (172.17.0.1/16) entrar em conflito com a sub-rede CIDR, mude o endereço da ponte Docker adequadamente.
 
-## <a name="connect-to-the-private-cluster"></a>Ligue-se ao cluster privado
+## <a name="options-for-connecting-to-the-private-cluster"></a>Opções de ligação ao cluster privado
 
-O ponto final do servidor API não tem endereço IP público. Consequentemente, deve criar uma máquina virtual Azure (VM) numa rede virtual e ligar-se ao servidor API. Para isso, faça o seguinte:
+O ponto final do servidor API não tem endereço IP público. Para gerir o servidor API, terá de utilizar um VM que tenha acesso à Rede Virtual Azure (VNet) do cluster AKS. Existem várias opções para estabelecer a conectividade da rede com o cluster privado.
 
-1. Obtenha credenciais para se ligar ao cluster.
+* Crie um VM na mesma Rede Virtual Azure (VNet) que o cluster AKS.
+* Utilize um VM numa rede separada e instale [o peering de rede virtual][virtual-network-peering].  Consulte a secção abaixo para obter mais informações sobre esta opção.
+* Utilize uma rota expressa ou uma ligação [VPN.][express-route-or-VPN]
 
-   ```azurecli-interactive
-   az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
-   ```
+Criar um VM no mesmo VNET que o cluster AKS é a opção mais fácil.  A Express Route e as VPNs adicionam custos e requerem complexidade adicional de networking.  O epeering de rede virtual requer que planeie as gamas CIDR da sua rede para garantir que não existem gamas sobrepostas.
 
-1. Efetue um dos seguintes procedimentos:
-   * Crie um VM na mesma rede virtual que o cluster AKS.  
-   * Crie um VM numa rede virtual diferente e perselhe esta rede virtual com a rede virtual do cluster AKS.
+## <a name="virtual-network-peering"></a>Peering de rede virtual
 
-     Se criar um VM numa rede virtual diferente, crie uma ligação entre esta rede virtual e a zona privada de DNS. Para tal:
+Como mencionado, o peering VNet é uma forma de aceder ao seu cluster privado. Para utilizar o vnet peering você precisa configurar uma ligação entre a rede virtual e a zona privada DNS.
     
-     a. Vá ao grupo de recursos MC_* no portal Azure.  
-     b. Selecione a zona privada de DNS.   
-     c. No painel esquerdo, selecione o link de **rede Virtual.**  
-     d. Crie um novo link para adicionar a rede virtual do VM à zona privada de DNS. Leva alguns minutos para que a ligação de zona DNS fique disponível.  
-     e. Volte para o grupo de recursos MC_* no portal Azure.  
-     f. No painel certo, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet-\** .  
-     g. No painel esquerdo, selecione **Peerings**.  
-     h. Selecione **Adicionar,** adicione a rede virtual do VM e, em seguida, crie o peering.  
-     i. Vá à rede virtual onde tem o VM, selecione **Peerings,** selecione a rede virtual AKS e, em seguida, crie o peering. Se o endereço variar na rede virtual AKS e no choque de rede virtual do VM, o olhar falha. Para mais informações, consulte o peering da [rede Virtual.][virtual-network-peering]
-
-1. Aceda ao VM via Secure Shell (SSH).
-1. Instale a ferramenta Kubectl e execute os comandos Kubectl.
-
+1. Vá ao grupo de recursos MC_* no portal Azure.  
+2. Selecione a zona privada de DNS.   
+3. No painel esquerdo, selecione o link de **rede Virtual.**  
+4. Crie um novo link para adicionar a rede virtual do VM à zona privada de DNS. Leva alguns minutos para que a ligação de zona DNS fique disponível.  
+5. Volte para o grupo de recursos MC_* no portal Azure.  
+6. No painel certo, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet-\** .  
+7. No painel esquerdo, selecione **Peerings**.  
+8. Selecione **Adicionar,** adicione a rede virtual do VM e, em seguida, crie o peering.  
+9. Vá à rede virtual onde tem o VM, selecione **Peerings,** selecione a rede virtual AKS e, em seguida, crie o peering. Se o endereço variar na rede virtual AKS e no choque de rede virtual do VM, o olhar falha. Para mais informações, consulte o peering da [rede Virtual.][virtual-network-peering]
 
 ## <a name="dependencies"></a>Dependências  
 * O serviço Private Link é suportado apenas no Standard Azure Load Balancer. O Equilíbrio básico de carga azure não é suportado.  
@@ -179,6 +181,8 @@ O ponto final do servidor API não tem endereço IP público. Consequentemente, 
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[private-link-service]: /private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 

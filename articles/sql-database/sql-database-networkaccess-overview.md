@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/09/2020
+ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251911"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945387"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlos de acesso à rede Azure SQL e Data Warehouse
 
@@ -27,19 +27,28 @@ ms.locfileid: "77251911"
 > [!IMPORTANT]
 > Este artigo *não* se aplica à instância gerida pela Base de **Dados Azure SQL**. para obter mais informações sobre a configuração de rede, consulte [a ligação a uma Instância Gerida](sql-database-managed-instance-connect-app.md) .
 
-Quando cria um novo Servidor Azure SQL [a partir do portal Azure,](sql-database-single-database-get-started.md)o resultado é um ponto final público no formato *yourservername.database.windows.net*. Por design, todo o acesso ao ponto final público é negado. Em seguida, pode utilizar os seguintes controlos de acesso à rede para permitir seletivamente o acesso à Base de Dados SQL através do ponto final público
-- Permitir serviços Azure: - Quando definido para ON, outros recursos dentro do limite Azure, por exemplo uma máquina virtual Azure, podem aceder à Base de Dados SQL
+Quando cria um novo Servidor Azure SQL a partir do [portal Azure,](sql-database-single-database-get-started.md)o resultado é um ponto final público no formato, *yourservername.database.windows.net*.
 
-- Regras de firewall IP: - Utilize esta função para permitir explicitamente ligações a partir de um endereço IP específico, por exemplo, a partir de máquinas no local.
+Pode utilizar os seguintes controlos de acesso à rede para permitir o acesso seletiva à Base de Dados SQL através do ponto final público:
+- Permitir serviços Azure: Quando definido para ON, outros recursos dentro do limite Azure, por exemplo uma máquina virtual Azure, podem aceder à Base de Dados SQL
 
-- Regras de firewall da Rede Virtual: - Utilize esta funcionalidade para permitir o tráfego de uma rede virtual específica dentro do limite Azure
+- Regras de firewall IP: Utilize esta funcionalidade para permitir explicitamente ligações a partir de um endereço IP específico, por exemplo, a partir de máquinas no local
 
+Também pode permitir o acesso privado à Base de Dados SQL a partir de [Redes Virtuais](../virtual-network/virtual-networks-overview.md) através de:
+- Regras de firewall da Rede Virtual: Utilize esta funcionalidade para permitir o tráfego de uma rede virtual específica dentro do limite Azure
+
+- Link Privado: Utilize esta funcionalidade para criar um ponto final privado para o Servidor Azure SQL dentro de uma rede virtual específica
+
+
+
+Veja o vídeo abaixo para obter uma explicação de alto nível destes controlos de acesso e do que eles fazem:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+
 
 ## <a name="allow-azure-services"></a>Permitir serviços Azure 
 Durante a criação de um novo Servidor Azure SQL [a partir do portal Azure,](sql-database-single-database-get-started.md)esta definição não é controlada.
 
- ![Screenshot de novo servidor criar][1]
+
 
 Também pode alterar esta definição através do painel de firewall depois de o Servidor Azure SQL ser criado da seguinte forma.
   
@@ -122,14 +131,17 @@ Ponto final do serviço de **rede virtual:** Um ponto final de [serviço de Rede
 
 A firewall do Servidor Azure SQL permite especificar intervalos de endereçoip a partir dos quais as comunicações são aceites na Base de Dados SQL. Esta abordagem é boa para endereços IP estáveis que estão fora da rede privada Azure. No entanto, as máquinas virtuais (VMs) dentro da rede privada Azure estão configuradas com endereços IP *dinâmicos.* Os endereços IP dinâmicos podem alterar-se quando o seu VM é reiniciado e, por sua vez, invalidar a regra de firewall baseada em IP. Seria uma loucura especificar um endereço IP dinâmico numa regra de firewall, num ambiente de produção.
 
-Pode contornar esta limitação obtendo um endereço IP *estático* para o seu VM. Para mais detalhes, consulte os [endereços IP privados para uma máquina virtual utilizando o portal Azure](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é dispendiosa quando feita em escala. 
+Pode contornar esta limitação obtendo um endereço IP *estático* para o seu VM. Para mais detalhes, consulte os [endereços IP privados para uma máquina virtual utilizando o portal Azure](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). No entanto, a abordagem ip estática pode tornar-se difícil de gerir, e é dispendiosa quando feita em escala. 
 
 As regras de rede virtual são alternativas mais fáceis de estabelecer e gerir o acesso a partir de uma subnet específica que contém os seus VMs.
 
 > [!NOTE]
 > Ainda não é possível ter base de dados SQL numa sub-rede. Se o seu servidor de base de dados Azure SQL fosse um nó numa subnet na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com a sua Base de Dados SQL. Neste caso, os seus VMs poderiam comunicar com a Base de Dados SQL sem precisar de quaisquer regras de rede virtual ou regras ip.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="private-link"></a>Ligação Privada 
+O Link Privado permite-lhe ligar-se ao Azure SQL Server através de um **ponto final privado**. Um ponto final privado é um endereço IP privado dentro de uma [rede virtual](../virtual-network/virtual-networks-overview.md) específica e subnet.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para um início rápido na criação de uma regra de firewall IP ao nível do servidor, consulte Criar uma base de [dados Azure SQL](sql-database-single-database-get-started.md).
 
@@ -146,3 +158,4 @@ As regras de rede virtual são alternativas mais fáceis de estabelecer e gerir 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png
 [2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+

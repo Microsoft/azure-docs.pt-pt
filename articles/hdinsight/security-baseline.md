@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a0e6d96f2e3d2686bdf96e5d7e25bf801f0fa9e5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: c3452fc68f7add40979513d3e3956f1c93e327f0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303278"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943954"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança azure para HDInsight
 
@@ -91,7 +91,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Pacotes de rede de registos e registos de fluxo
 
-**Orientação**: Ativar os registos de flog do grupo de segurança da rede (NSG) para o NSG ligado à subrede que está a ser utilizado para proteger o seu cluster Azure HDInsight. Grave os registos de fluxo da NSG numa Conta de Armazenamento Azure para gerar registos de fluxo. Se necessário para investigar atividades anómalas, ative a captura de pacotes do Azure Network Watcher.
+**Orientação**: Ativar os registos de fluxo do grupo de segurança da rede (NSG) para o NSG ligado à subnet que está a ser utilizado para proteger o seu cluster Azure HDInsight. Grave os registos de fluxo da NSG numa Conta de Armazenamento Azure para gerar registos de fluxo. Se necessário para investigar atividades anómalas, ative a captura de pacotes do Azure Network Watcher.
 
 
 Como ativar os registos de fluxo nsg:
@@ -586,7 +586,7 @@ Lista de serviços suportados pelo Customer Lockbox: https://docs.microsoft.com/
 
 **Responsabilidade**: Cliente
 
-## <a name="data-protection"></a>Proteção de Dados
+## <a name="data-protection"></a>Proteção de dados
 
 *Para mais informações, consulte [Controlo de Segurança: Proteção de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
@@ -1422,7 +1422,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Microsoft 
 
 **Responsabilidade**: Partilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Ver o [Benchmark de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

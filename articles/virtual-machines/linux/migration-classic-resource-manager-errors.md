@@ -1,25 +1,19 @@
 ---
 title: Erros comuns durante a migração da implementação Clássica para a implementação Azure Resource Manager
 description: Este artigo cataloga os erros e mitigações mais comuns durante a migração dos recursos iaaS da Azure Service Management para a stack Do Gestor de Recursos Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 5bc03a1b-eb1c-438c-83d9-f0e9d61f1b6a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 7dc60e6514d4f17ae7fe61bfbc043dc1f650b1d4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ffeef74179874a0f477ba857ca519ebc67fded64
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914845"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944713"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erros comuns durante a migração da implementação Clássica para a implementação Azure Resource Manager
 
@@ -28,7 +22,7 @@ ms.locfileid: "77914845"
 
 [!INCLUDE [virtual-machines-common-migration-errors](../../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Visão geral da migração apoiada pela plataforma de recursos IaaS do clássico para o Gestor de Recursos Azure](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)

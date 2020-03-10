@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 3abd9835c1cf750b926f49442f3e34e96dc9c865
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917361"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946424"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (Perguntas Frequentes)
 
@@ -36,6 +36,7 @@ Esta página responde frequentemente a perguntas sobre os Serviços de Domínio 
 * [Posso adicionar controladores de domínio a um domínio gerido pelo Azure AD Domain Services?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Os utilizadores convidados convidados para o meu diretório podem usar os Serviços de Domínio Azure AD?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [Posso mover um domínio de domínio azure ad existente gerido para uma subscrição diferente, grupo de recursos, região ou rede virtual?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Os Serviços de Domínio Azure AD incluem opções de alta disponibilidade?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios geridos para um único diretório da AD Azure?
 Não. Só é possível criar um único domínio gerido servido pelos Serviços de Domínio Azure AD para um único diretório Azure AD.
@@ -75,6 +76,10 @@ Não. Os utilizadores convidados convidados para o seu diretório Azure AD utili
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Posso mover um domínio de domínio azure ad existente gerido para uma subscrição diferente, grupo de recursos, região ou rede virtual?
 Não. Depois de criar um domínio gerido pelo Azure AD Domain Services, não pode então mover a instância para um grupo de recursos diferente, rede virtual, subscrição, etc. Tenha o cuidado de selecionar a subscrição mais adequada, grupo de recursos, região e rede virtual quando implementar a instância Azure AD DS.
 
+### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Os Serviços de Domínio Azure AD incluem opções de alta disponibilidade?
+
+Sim. Cada domínio gerido pelo Azure AD Domain Services inclui dois controladores de domínio. Não gere si ou liga-se a estes controladores de domínio, fazem parte do serviço gerido. Se implantar serviços de domínio Azure AD numa região que suporta Zonas de Disponibilidade, os controladores de domínio são distribuídos por zonas. Em regiões que não suportam Zonas de Disponibilidade, os controladores de domínio são distribuídos por Conjuntos de Disponibilidade. Não tem opções de configuração ou controlo de gestão sobre esta distribuição. Para mais informações, consulte [opções de disponibilidade para máquinas virtuais em Azure](../virtual-machines/windows/availability.md).
+
 ## <a name="administration-and-operations"></a>Administração e operações
 
 * [Posso ligar-me ao controlador de domínio para o meu domínio gerido utilizando o Remote Desktop?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
@@ -91,13 +96,13 @@ Não. Depois de criar um domínio gerido pelo Azure AD Domain Services, não pod
 Não. Não tem permissões para se ligar aos controladores de domínio para o domínio gerido utilizando o Remote Desktop. Os membros do grupo de administradores da *AAD DC* podem administrar o domínio gerido usando ferramentas de administração aD, tais como o Ative Directory Administration Center (ADAC) ou a AD PowerShell. Estas ferramentas estão instaladas utilizando a funcionalidade Ferramentas de *Administração* do Servidor Remoto num servidor Windows ligado ao domínio gerido. Para mais informações, consulte Criar um VM de [gestão para configurar e administrar um domínio gerido pelos Serviços de Domínio Azure AD](tutorial-create-management-vm.md).
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Ativei os Serviços de Domínio Da Azure. Que conta de utilizador uso para unir máquinas a este domínio?
-Os membros do grupo administrativo *AAD DC Administradores* podem juntar máquinas de adesão ao domínio. Além disso, os membros deste grupo recebem acesso remoto ao ambiente de trabalho a máquinas que foram unidas ao domínio.
+Qualquer conta de utilizador que faça parte do domínio gerido pelo Azure AD DS pode juntar-se a um VM. Os membros do grupo de administradores da *AAD DC* têm acesso remoto ao ambiente de trabalho a máquinas que foram unidas ao domínio gerido.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Tenho privilégios de administrador de domínio para o domínio gerido fornecido pelos Serviços de Domínio Azure AD?
 Não. Não lhe são concedidos privilégios administrativos no domínio gerido. *Os* privilégios do Administrador de Domínio e *do Administrador da Empresa* não estão disponíveis para que possa utilizar dentro do domínio. Os membros do administrador de domínio ou dos grupos de administradores empresariais no seu Diretório Ativo no local também não são concedidos privilégios de administrador de domínio/empresa no domínio gerido.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Posso modificar membros do grupo usando LDAP ou outras ferramentas administrativas aD em domínios geridos?
-Não. Os membros do grupo não podem ser modificados em domínios servidos pelos Serviços de Domínio Da Azure AD. O mesmo se aplica aos atributos do utilizador. Pode alterar membros do grupo ou atributos de utilizador, quer em AD Azure, quer no seu domínio no local. As alterações são automaticamente sincronizadas para os Serviços de Domínio Azure AD.
+Os utilizadores e grupos sincronizados do Azure Ative Directory para o Azure AD Domain Services não podem ser modificados porque a sua origem é o Azure Ative Directory. Qualquer utilizador ou grupo originário do domínio gerido pode ser modificado.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Quanto tempo demora a fazer mudanças no meu diretório Azure AD para ser visível no meu domínio gerido?
 As alterações efetuadas no seu diretório Azure AD utilizando o Azure AD UI ou o PowerShell são automaticamente sincronizadas com o seu domínio gerido. Este processo de sincronização funciona em segundo plano. Não há um período de tempo definido para esta sincronização completar todas as alterações do objeto.
@@ -141,11 +146,11 @@ Não. O Azure AD Domain Services é um serviço Azure pay-as-you-go e não faz p
 ### <a name="what-azure-regions-is-the-service-available-in"></a>Em que regiões azure está o serviço disponível?
 Consulte os [Serviços Azure por página da região](https://azure.microsoft.com/regions/#services/) para ver uma lista das regiões azure onde estão disponíveis os Serviços de Domínio Azure AD.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Consulte o guia de resolução de [problemas](troubleshoot.md) para soluções para questões comuns com a configuração ou administração de Serviços de Domínio Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre os Serviços de Domínio Azure AD, veja [o que é azure Ative Directory Domain Services?](overview.md)
 

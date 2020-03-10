@@ -145,10 +145,6 @@
             - name: Saídas
               displayName: 'iteration,copy'
               href: copy-outputs.md
-        - name: Recursos ao nível da subscrição
-          href: deploy-to-subscription.md
-        - name: Recursos ao nível do grupo de gestão
-          href: deploy-to-management-group.md
     - name: Usar ferramentas de criação
       items:
         - name: Código VS
@@ -182,7 +178,15 @@
           href: rollback-on-error.md
         - name: Proteger modelos com o token de SAS
           href: secure-template-with-sas-token.md
-        - name: Implementar para vários grupos de recursos ou subscrições
+    - name: Implementações no âmbito
+      items:
+        - name: Subscrição
+          href: deploy-to-subscription.md
+        - name: Grupo de gestão
+          href: deploy-to-management-group.md
+        - name: Inquilino
+          href: deploy-to-tenant.md
+        - name: Vários grupos de recursos ou subscrições
           href: cross-resource-group-deployment.md
     - name: Fornecer parâmetros
       items:

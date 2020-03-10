@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 4fe04d491525b8119ca21ff1118a2ea460cc0795
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: eabcf40e28927919215979ccc46fa029d19adbfe
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606610"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943429"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Ligação de entrada Azure Cosmos DB para funções Azure 2.x
 
@@ -1430,15 +1430,16 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     | n/d | deve ser definido para `cosmosDB`.        |
-|**direção**     | n/d | deve ser definido para `in`.         |
+|**tipo**     | n/d | Deve ser definido para `cosmosDB`.        |
+|**direção**     | n/d | Deve ser definido para `in`.         |
 |**nome**     | n/d | Nome do parâmetro de enlace que representa o documento na função.  |
 |**nome da base de dados** |**Nome da base de dados** |A base de dados que contém o documento.        |
 |**coleçãoNome** |**Nome de coleção** | O nome da coleção que contém o documento. |
 |**id**    | **Id** | O ID do documento a obter. Esta propriedade suporta [expressões vinculativas.](./functions-bindings-expressions-patterns.md) Não detete as propriedades `id` e **sqlQuery.** Se não definir individualmente, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta de SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade suporta encadernações de tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não detete as propriedades de `id` e `sqlQuery`. Se não definir individualmente, toda a coleção é recuperada.|
-|**conexãoStringSetting**     |**Definição de cordas de ligação**|O nome da definição de aplicação que contém a cadeia de ligação do Azure Cosmos DB.        |
+|**conexãoStringSetting**     |**Definição de cordas de ligação**|O nome da definição de aplicação que contém a cadeia de ligação do Azure Cosmos DB. |
 |**partiçãoChave**|**Chave da Partilha**|Especifica o valor de chave de partição para a pesquisa. Pode incluir parâmetros de ligação. É necessário para procuras em coleções [divididas.](../cosmos-db/partition-data.md#logical-partitions)|
+|**preferredLocalizações**| **Localizações Preferenciais**| (Opcional) Define localizações preferenciais (regiões) para contas de base de dados geo-replicadas no serviço Azure Cosmos DB. Os valores devem ser separados pela vírposta. Por exemplo, "Leste dos EUA, Centro-Sul dos EUA, Norte da Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1466,7 +1467,7 @@ Da biblioteca de tempo de funcionamento das [funções java,](https://docs.micro
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Executar uma função quando um documento Azure Cosmos DB é criado ou modificado (Gatilho)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Guardar alterações num documento Azure Cosmos DB (Encadernação de saída)](./functions-bindings-cosmosdb-v2-output.md)

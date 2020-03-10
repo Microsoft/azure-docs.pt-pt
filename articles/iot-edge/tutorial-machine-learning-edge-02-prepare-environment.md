@@ -8,12 +8,12 @@ ms.date: 1/23/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 572441fe13dfeff550e2e541c3d775bd4c3d433e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9809a9b4d644a1fa11fe9cce1cbd35b037206b29
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482909"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944281"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Criar um ambiente para aprendizagem automática em IoT Edge
 
@@ -30,7 +30,7 @@ Criámos um script PowerShell que cria uma máquina virtual Azure com muitos dos
 
 O VM de desenvolvimento será criado com:
 
-* Windows 10
+* Windows 10
 * [Chocolate](https://chocolatey.org/)
 * [Docker Desktop para Windows](https://www.docker.com/products/docker-desktop)
 * [Git para Windows](https://gitforwindows.org/)
@@ -42,7 +42,7 @@ O VM de desenvolvimento será criado com:
 * [Extensões de código VS](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
   * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 
@@ -208,7 +208,7 @@ Como parte da criação do hub IoT, o guião que executamos na secção anterior
 
 1. Como não foram feitas edificações, basta fechar esta página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criámos um Hub IoT e configuramos uma rota para uma conta de Armazenamento Azure. Em seguida, enviaremos dados de um conjunto de dispositivos simulados através do IoT Hub para a conta de armazenamento. Mais tarde no tutorial, depois de configurarmos o nosso dispositivo e módulos IoT Edge, vamos revisitar rotas e olhar um pouco mais para a consulta de encaminhamento.
 

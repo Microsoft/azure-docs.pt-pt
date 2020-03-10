@@ -4,30 +4,26 @@ description: Aprenda a migrar um aparelho StorSimple 8100 ou 8600 para o Azure F
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d04b38fac2b42d2d510902c7ba54ddebb8e3f410
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330315"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943595"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migração para O Ficheiro Sincronizado Azure
 
-A série StorSimple 8000 está representada pelo 8100 ou pelo 8600 aparelho físico no local e pelos seus componentes de serviço em nuvem. É possível migrar os dados de qualquer um destes aparelhos para um ambiente De sincronização de ficheiros Azure. Este artigo fornece os conhecimentos de fundo necessários e etapas de migração para uma migração bem sucedida para O Ficheiro Sincronizado Azure.
+A série StorSimple 8000 está representada pelos 8100 ou pelos 8600 aparelhos físicos, no local, e pelos seus componentes de serviço na nuvem. É possível migrar os dados de qualquer um destes aparelhos para um ambiente De sincronização de ficheiros Azure. O Azure File Sync é o serviço Azure de longo prazo padrão e estratégico para o quais os aparelhos StorSimple podem ser migrados.
 
-## <a name="storsimple"></a>StorSimple
+A série StorSimple 8000 chegará ao fim [da vida](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) em dezembro de 2022. É importante começar a planear a sua migração o mais rápido possível. Este artigo fornece os conhecimentos de fundo necessários e etapas de migração para uma migração bem sucedida para O Ficheiro Sincronizado Azure. 
 
-StorSimple é um produto da Microsoft descontinuado. O suporte alargado a este produto e ao seu serviço na nuvem expira em 31 de dezembro de 2022. É importante começar a planear uma migração fora do StorSimple imediatamente.
-
-O Azure File Sync é o serviço Azure de longo prazo padrão e estratégico para o quais os aparelhos StorSimple podem ser migrados.
+## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
 > A Microsoft está empenhada em ajudar os clientes na sua migração. Envie um e-mail AzureFilesMigration@microsoft .com para um plano de migração personalizado, bem como assistência durante a migração.
-
-## <a name="azure-file-sync"></a>Azure File Sync
 
 O Azure File Sync é um serviço na nuvem da Microsoft, baseado em dois componentes principais:
 
@@ -247,10 +243,10 @@ Durante este processo de migração, você vai montar vários clones de volume p
 > [!IMPORTANT]
 > Para que isto funcione, deve ser definida uma chave de registo no servidor antes de configurar o Azure File Sync.
 
-1. Crie um novo diretório sobre o acionamento do sistema do VM. As informações do Azure File Sync terão de ser percequidas lá em vez de nos clones de volume montados. Por exemplo: `“C:\syncmetadata”`
+1. Crie um novo diretório sobre o acionamento do sistema do VM. As informações do Azure File Sync terão de ser percequidas lá em vez de nos clones de volume montados. Por exemplo: `"C:\syncmetadata"`
 2. Abra regedite e localize a seguinte colmeia de registo: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Criar uma nova chave de cadeia de tipo, nomeada: ***MetadataRootPath***
-4. Desloque o caminho completo para o diretório que criou no volume do sistema, por exemplo: `C:\syncmetadata”`
+4. Desloque o caminho completo para o diretório que criou no volume do sistema, por exemplo: `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Configure Sincronização de Ficheiros Azure no Azure VM
 
@@ -438,7 +434,7 @@ Uma vez satisfeito e observado a sua implantação aFS por pelo menos alguns dia
 
 A sua migração está completa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Conheça mais o Azure File Sync. Especialmente com a flexibilidade das políticas de tiering em nuvem.
 

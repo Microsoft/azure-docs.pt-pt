@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e28403d905a25e9e792b3b1f31b79c39cd7728b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 5b29f84931c169ffe1c2c81d5e32201cbc63fc88
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522101"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942881"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Diretório Ativo Azure (pré-visualização)
 
@@ -50,6 +50,7 @@ As organizações também devem satisfazer os seguintes requisitos de software.
 
 - Os dispositivos devem estar a executar o Windows 10 Insider Build 18945 ou mais recentes.
 - Deve ter a versão 1.4.32.0 ou mais tarde do [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
+  - Para obter mais informações sobre as opções de autenticação híbrida Azure AD disponíveis, consulte [Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory](../../security/fundamentals/choose-ad-authn.md) e [selecione qual o tipo de instalação a utilizar para o Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Os controladores de domínio do Windows Server devem ter as seguintes correções instaladas:
     - Para windows server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
     - Para windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
@@ -198,6 +199,6 @@ Se instalar uma máquina híbrida Azure AD, depois de o processo de adesão e re
 
 Certifique-se de que os controladores de domínio suficientes são remendados para responder a tempo de atender o seu pedido de recursos. Para verificar se consegue ver um controlador de domínio que está a executar a funcionalidade, reveja a saída de `nltest /dsgetdc:contoso /keylist /kdc`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais sobre sem palavras-passe](concept-authentication-passwordless.md)

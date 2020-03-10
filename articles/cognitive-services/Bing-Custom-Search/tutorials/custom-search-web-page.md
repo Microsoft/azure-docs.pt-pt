@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Criar uma página Web de pesquisa personalizada - Pesquisa Personalizada do Bing'
 titleSuffix: Azure Cognitive Services
-description: Saiba como configurar uma instância de pesquisa personalizada do Bing e integrá-la a uma página da Web com este tutorial.
+description: Aprenda a configurar uma instância de pesquisa personalizada do Bing e integrá-la numa página web com este tutorial.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448776"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943916"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
 
@@ -34,8 +34,8 @@ As tarefas abrangidas são:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se você ainda não tiver o Visual Studio 2017 ou posterior instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito.
+- Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, [Crie um recurso de pesquisa personalizada Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) no portal Azure. também pode usar uma chave de [ensaio.](https://azure.microsoft.com/try/cognitive-services)
+- Se ainda não tiver o Visual Studio 2017 ou posteriormente instalado, pode descarregar e utilizar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito.**
 
 ## <a name="create-a-custom-search-instance"></a>Criar uma instância de pesquisa personalizada
 
@@ -45,9 +45,9 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
   
 2. Navegue para o [portal](https://customsearch.ai) da pesquisa personalizada.  
   
-3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver uma MSA, clique em **Criar uma conta Microsoft**. Se estiver a utilizar o portal pela primeira vez, é-lhe pedida permissão para aceder aos dados. Clique em **Sim**.  
+3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver um MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que usa o portal, pedirá permissões para aceder aos seus dados. Clique em **Sim**.  
   
-4. Depois de iniciar sessão, clique em **Nova pesquisa personalizada**. Na janela **Criar uma nova instância de pesquisa personalizada**, introduza um nome significativo e que descreva o tipo de conteúdo devolvido pela pesquisa. Pode alterar o nome em qualquer altura.  
+4. Depois de iniciar sessão, clique em **Nova pesquisa personalizada**. Na **janela Criar uma nova janela** de instância de pesquisa personalizada, insira um nome significativo e descreva o tipo de conteúdo que a pesquisa retorna. Pode alterar o nome em qualquer altura.  
   
    ![Captura de ecrã da caixa Criar uma nova instância de pesquisa personalizada](../media/newCustomSrch.png)  
   
@@ -60,11 +60,11 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
 
 Para incluir os resultados de sites ou URLs específicos, adicione-os ao separador **Ativo**.
 
-1.  Na página **Configuração**, clique no separador **Ativo** e introduza o URL de um ou mais sites que queira incluir na sua pesquisa.
+1.       Na página **Configuração**, clique no separador **Ativo** e introduza o URL de um ou mais sites que queira incluir na sua pesquisa.
 
     ![Captura de ecrã do separador Ativo do Editor de Definições](../media/customSrchEditor.png)
 
-2.  Para confirmar que a sua instância devolve resultados, introduza uma consulta no painel de pré-visualização no lado direito. O Bing só devolve resultados para sites públicos que lhe estejam indexados.
+2.       Para confirmar que a sua instância devolve resultados, introduza uma consulta no painel de pré-visualização no lado direito. O Bing só devolve resultados para sites públicos que lhe estejam indexados.
 
 ## <a name="add-blocked-entries"></a>Adicionar entradas bloqueadas
 
@@ -79,7 +79,7 @@ Para excluir os resultados de sites ou URLs específicos, adicione-os ao separad
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas afixadas
 
-Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **fixada** . A guia **fixada** contém uma lista de pares de termo de consulta e página da Web que especificam a página da Web que aparece como o principal resultado de uma consulta específica. A página Web só é afixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta afixada com base na condição de correspondência. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
+Para fixar uma página web específica no topo dos resultados da pesquisa, adicione a página web e o termo de consulta ao separador **Pinned.** O separador **Pinned** contém uma lista de pares de prazos de página web e consulta que especificam a página web que aparece como o resultado superior para uma consulta específica. A página web só é fixada se a corda de consulta do utilizador corresponder à corda de consulta do pino com base na condição de correspondência do pino. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
 
 1. Na página **Configuração**, clique no separador **Afixado** e introduza o termo de página Web e consulta da página Web a devolver como o melhor resultado.  
   
@@ -209,7 +209,7 @@ Efetuar uma pesquisa compõe resultados como os seguintes:
 
 ![Captura de ecrã de resultados de pesquisa personalizada](./media/custom-search-webapp-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Chamar o ponto final de Pesquisa Personalizada do Bing (C#)](../call-endpoint-csharp.md)
