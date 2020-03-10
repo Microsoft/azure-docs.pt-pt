@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591528"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933821"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -103,7 +103,14 @@ O criador do laboratório (instrutor/professor) pode ligar-se a um VM do aluno s
 > [!NOTE]
 > Quando o professor inicia o VM e se liga a ele, a quota do aluno não é afetada. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Lista de exportação de máquinas virtuais para um ficheiro CSV
+
+1. Mude para o separador de piscina de **máquinas virtuais.**
+2. Selecione **...** (elipsis) na barra de ferramentas e, em seguida, selecione **Export CSV**. 
+
+    ![Lista de exportação de máquinas virtuais](../media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
+
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre outras opções de utilização do aluno que você (como proprietário de laboratório) pode configurar, consulte o seguinte artigo: [Configure](how-to-configure-student-usage.md)o uso do aluno .
 
 Para saber como os alunos podem redefinir senhas para os seus VMs, consulte [Definir ou redefinir palavra-passe para máquinas virtuais em laboratórios de sala de aula (alunos)](how-to-set-virtual-machine-passwords-student.md).

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649283"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942941"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuração e gestão de FAQs para Web Apps em Azure
 
@@ -212,7 +212,7 @@ Para mais informações, consulte Como criar um Ambiente de [Serviço de Aplica�
 Às vezes, a criação de um App Service Environment falha. Nesse caso, vê-se o seguinte erro nos registos de Atividade:
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 Para resolver isto, certifique-se de que nenhuma das seguintes condições é verdadeira:
@@ -248,7 +248,7 @@ Para efetuar testes de penetração, [submeta um pedido](https://portal.msrc.mic
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como configurar um nome de domínio personalizado para uma aplicação web do App Service que utiliza o Traffic Manager?
 
-Para aprender a usar um nome de domínio personalizado com uma aplicação de Serviço de Aplicações que utiliza o Gestor de Tráfego Azure para equilibrar a carga, consulte configurar um nome de [domínio personalizado para uma aplicação web Azure com traffic Manager](web-sites-traffic-manager-custom-domain-name.md).
+Para aprender a usar um nome de domínio personalizado com uma aplicação de Serviço de Aplicações que utiliza o Gestor de Tráfego Azure para equilibrar a carga, consulte configurar um nome de [domínio personalizado para uma aplicação web Azure com traffic Manager](configure-domain-traffic-manager.md).
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>O meu certificado de serviço de aplicações está marcado por fraude. Como posso resolver isto?
 

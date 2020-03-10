@@ -1,116 +1,108 @@
 ---
-title: Instruções de infraestrutura do Azure de exemplo
-description: Saiba mais sobre as principais diretrizes de design e implementação para implantar uma infraestrutura de exemplo no Azure.
-documentationcenter: ''
-services: virtual-machines-linux
+title: Passo a infraestrutura azure exemplo
+description: Conheça as principais diretrizes de conceção e implementação para a implementação de uma infraestrutura de exemplo no Azure.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf63db18dac5fa202bbf339723c6555c4acb2ca2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036038"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944894"
 ---
-# <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Instruções de infraestrutura do Azure de exemplo para VMs do Linux
-Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Nós detalhamos a criação de uma infraestrutura para um armazenamento online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, e realmente implantando suas VMs (máquinas virtuais).
+# <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exemplo de passagem de infraestrutura Azure para VMs Linux
+Este artigo passa pela construção de uma infraestrutura de aplicação de exemplo. Detalhamos a conceção de uma infraestrutura para uma simples loja on-line que reúne todas as diretrizes e decisões em torno de nomeações, conjuntos de disponibilidade, redes virtuais e equilibradores de carga, e realmente implantando as suas máquinas virtuais (VMs).
 
 ## <a name="example-workload"></a>Carga de trabalho de exemplo
-A Adventure Works Cycles deseja criar um aplicativo de armazenamento online no Azure que consiste em:
+A Adventure Works Cycles quer construir uma aplicação de loja online em Azure que consiste em:
 
-* Dois servidores Nginx executando o front-end do cliente em uma camada da Web
-* Dois servidores Nginx processando dados e pedidos em uma camada de aplicativo
-* Dois servidores MongoDB que fazem parte de um cluster fragmentado para armazenar dados de produtos e pedidos em uma camada de banco de dados
-* Dois controladores de domínio Active Directory para contas de clientes e fornecedores em uma camada de autenticação
-* Todos os servidores estão localizados em duas sub-redes:
-  * uma sub-rede de front-end para os servidores Web 
-  * uma sub-rede de back-end para os servidores de aplicativos, o cluster do MongoDB e os controladores de domínio
+* Dois servidores nginx executando o cliente front-end em um nível web
+* Dois servidores nginx processam dados e encomendas num nível de aplicação
+* Dois servidores MongoDB fazem parte de um cluster fragmentado para armazenar dados e encomendas de produtos num nível de base de dados
+* Dois controladores de domínio de Diretório Ativo para contas de clientes e fornecedores em um nível de autenticação
+* Todos os servidores estão localizados em duas subredes:
+  * uma sub-rede frontal para os servidores web 
+  * uma sub-rede de back-end para os servidores de aplicações, cluster MongoDB e controladores de domínio
 
-![Diagrama de diferentes camadas para infraestrutura de aplicativo](./media/infrastructure-example/example-tiers.png)
+![Diagrama de diferentes níveis para infraestrutura de aplicação](./media/infrastructure-example/example-tiers.png)
 
-O tráfego de entrada seguro da Web deve ter balanceamento de carga entre os servidores Web, uma vez que os clientes navegam no repositório online. O tráfego de processamento de pedidos na forma de solicitações HTTP dos servidores Web deve ter balanceamento de carga entre os servidores de aplicativos. Além disso, a infraestrutura deve ser projetada para alta disponibilidade.
+O tráfego web seguro de entrada deve ser equilibrado entre os servidores web à medida que os clientes navegam na loja on-line. O processamento de encomendas sob a forma de pedidos HTTP dos servidores web deve ser equilibrado entre os servidores da aplicação. Além disso, a infraestrutura deve ser concebida para uma elevada disponibilidade.
 
-O design resultante deve incorporar:
+O desenho resultante deve incorporar:
 
-* Uma assinatura e conta do Azure
+* Uma subscrição e conta Azure
 * Um único grupo de recursos
 * Managed Disks do Azure
-* Uma rede virtual com duas sub-redes
-* Conjuntos de disponibilidade para as VMs com uma função semelhante
+* Uma rede virtual com duas subredes
+* Conjuntos de disponibilidade para os VMs com um papel semelhante
 * Máquinas virtuais
 
-Todos os itens acima seguem estas convenções de nomenclatura:
+Todas estas convenções de nomeação:
 
-* O Adventure Works Cycles usa **[carga de trabalho de ti]-[local]-[recurso do Azure]** como um prefixo
-  * Neste exemplo, "**AZOs**" (armazenamento online do Azure) é o nome da carga de trabalho de ti e "**usar**" (leste dos EUA 2) é o local
-* As redes virtuais usam AZOS-USE-VN<strong>[número]</strong>
-* Os conjuntos de disponibilidade usam AZOs-use-as- **[função]**
-* Os nomes de máquina virtual usam AZOs-use-VM- **[vmname]**
+* Adventure Works Cycles usa [carga de **trabalho de TI]-[recurso Azure]** como prefixo
+  * Para este exemplo, "**azos**" (Azure On-line Store) é o nome da carga de trabalho de TI e "**use**" (East US 2) é o local
+* As redes virtuais utilizam a AZOS-USE-VN<strong>[número]</strong>
+* Os conjuntos de disponibilidade usam azos-use-as-[função]
+* Os nomes das máquinas virtuais usam azos-use-vm- **[vmname]**
 
-## <a name="azure-subscriptions-and-accounts"></a>Contas e assinaturas do Azure
-A Adventure Works Cycles está usando sua assinatura corporativa, chamada de assinatura do Adventure Works Enterprise, para fornecer cobrança para essa carga de trabalho de ti.
+## <a name="azure-subscriptions-and-accounts"></a>Assinaturas e contas azure
+A Adventure Works Cycles está a usar a sua subscrição enterprise, chamada Adventure Works Enterprise Subscription, para fornecer faturação para esta carga de trabalho de TI.
 
-## <a name="storage"></a>Storage
-O Adventure Works Cycles determinou que eles devem usar o Azure Managed Disks. Ao criar VMs, ambas as camadas de armazenamento disponíveis de armazenamento são usadas:
+## <a name="storage"></a>Armazenamento
+A Adventure Works Cycles determinou que deveriam utilizar discos geridos azure. Ao criar VMs, ambos os níveis de armazenamento disponíveis são utilizados:
 
-* **Armazenamento padrão** para servidores Web, servidores de aplicativos e controladores de domínio e seus discos de dados.
-* **Armazenamento Premium** para os servidores de cluster fragmentados do MongoDB e seus discos de dados.
+* **Armazenamento padrão** para os servidores web, servidores de aplicações e controladores de domínio e seus discos de dados.
+* **Armazenamento premium** para os servidores de cluster sharded MongoDB e seus discos de dados.
 
 ## <a name="virtual-network-and-subnets"></a>Rede virtual e sub-redes
-Como a rede virtual não precisa de conectividade contínua com a rede local dos ciclos de trabalho da Adventure, ela decidiu em uma rede virtual somente em nuvem.
+Como a rede virtual não necessita de conectividade permanente com a rede Adventure Work Cycles on-premises, decidiram uma rede virtual apenas em nuvem.
 
-Eles criaram uma rede virtual somente em nuvem com as seguintes configurações usando o portal do Azure:
+Criaram uma rede virtual apenas em nuvem com as seguintes configurações utilizando o portal Azure:
 
 * Nome: AZOS-USE-VN01
-* Local: leste dos EUA 2
+* Localização: East US 2
 * Espaço de endereço de rede virtual: 10.0.0.0/8
 * Primeira sub-rede:
   * Nome: FrontEnd
   * Espaço de endereço: 10.0.1.0/24
 * Segunda sub-rede:
-  * Nome: back-end
+  * Nome: BackEnd
   * Espaço de endereço: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Para manter a alta disponibilidade de todas as quatro camadas de seu armazenamento online, a Adventure Works Cycles decidiu quatro conjuntos de disponibilidade:
+Para manter a elevada disponibilidade dos quatro níveis da sua loja on-line, a Adventure Works Cycles decidiu em quatro conjuntos de disponibilidade:
 
-* **AZOs-use-as-Web** para os servidores Web
-* **AZOs-use-as-app** para os servidores de aplicativos
-* **AZOs-use-as-DB** para os servidores no cluster fragmentado do MongoDB
-* **AZOs-use-as-DC** para os controladores de domínio
+* **azos-use-as-web** para os servidores web
+* **azos-use-as-app** para os servidores de aplicações
+* **azos-use-as-db** para os servidores do cluster mongoDB fragmentado
+* **azos-use-as-dc** para os controladores de domínio
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
-A Adventure Works Cycles decidiu nos seguintes nomes para suas VMs do Azure:
+A Adventure Works Cycles decidiu sobre os seguintes nomes para os seus VMs Azure:
 
-* **AZOs-use-VM-web01** para o primeiro servidor Web
-* **AZOs-use-VM-web02** para o segundo servidor Web
-* **AZOs-use-VM-app01** para o primeiro servidor de aplicativos
-* **AZOs-use-VM-app02** para o segundo servidor de aplicativos
-* **AZOs-use-VM-DB01** para o primeiro servidor MongoDB no cluster
-* **AZOs-use-VM-DB02** para o segundo servidor MongoDB no cluster
-* **AZOs-use-VM-DC01** para o primeiro controlador de domínio
-* **AZOs-use-VM-DC02** para o segundo controlador de domínio
+* **azos-use-vm-web01** para o primeiro servidor web
+* **azos-use-vm-web02** para o segundo servidor web
+* **azos-use-vm-app01** para o primeiro servidor de aplicações
+* **azos-use-vm-app02** para o segundo servidor de aplicações
+* **azos-use-vm-db01** para o primeiro servidor MongoDB no cluster
+* **azos-use-vm-db02** para o segundo servidor MongoDB no cluster
+* **azos-use-vm-dc01** para o primeiro controlador de domínio
+* **azos-use-vm-dc02** para o segundo controlador de domínio
 
 Aqui está a configuração resultante.
 
-![Infraestrutura final do aplicativo implantada no Azure](./media/infrastructure-example/example-config.png)
+![Infraestrutura de aplicação final implantada em Azure](./media/infrastructure-example/example-config.png)
 
 Esta configuração incorpora:
 
-* Uma rede virtual somente em nuvem com duas sub-redes (front-end e BackEnd)
-* Managed Disks do Azure usando discos Standard e Premium
-* Quatro conjuntos de disponibilidade, um para cada camada do repositório online
-* As máquinas virtuais para as quatro camadas
-* Um conjunto de balanceamento de carga externo para tráfego da Web baseado em HTTPS da Internet para os servidores Web
-* Um conjunto de balanceamento de carga interno para tráfego da Web não criptografado dos servidores Web para os servidores de aplicativos
+* Uma rede virtual só para nuvem com duas subredes (FrontEnd e BackEnd)
+* Discos geridos azure usando discos Standard e Premium
+* Quatro conjuntos de disponibilidade, um para cada nível da loja on-line
+* As máquinas virtuais para os quatro níveis
+* Um conjunto externo equilibrado para o tráfego web baseado em HTTPS da Internet para os servidores web
+* Um conjunto interno equilibrado de carga para tráfego web não encriptado dos servidores web para os servidores de aplicações
 * Um único grupo de recursos

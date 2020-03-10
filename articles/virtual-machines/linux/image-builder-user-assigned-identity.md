@@ -6,13 +6,14 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: 36016e462e3f4906c4dfe8c58501c82fd554f3bd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f3990037d75f9f77eaedc7ec4049f14814216d9c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720593"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944967"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Crie uma imagem e utilize uma identidade gerida atribuída ao utilizador para aceder a ficheiros no Armazenamento Azure 
 
@@ -24,23 +25,23 @@ No exemplo abaixo, você vai criar dois grupos de recursos, um será usado para 
 
 
 > [!IMPORTANT]
-> O construtor de imagem do Azure está atualmente em visualização pública.
+> O Azure Image Builder está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-features"></a>Registrar os recursos
-Para usar o construtor de imagens do Azure durante a versão prévia, você precisa registrar o novo recurso.
+## <a name="register-the-features"></a>Registe as características
+Para utilizar o Azure Image Builder durante a pré-visualização, é necessário registar a nova funcionalidade.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Verifique o status do registro do recurso.
+Verifique o estado do registo da funcionalidade.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Verifique seu registro.
+Verifique o seu registo.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -48,7 +49,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Se não disser registrado, execute o seguinte:
+Se não disserem registado, execute o seguinte:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -59,7 +60,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Usaremos algumas informações repetidamente, portanto, criaremos algumas variáveis para armazenar essas informações.
+Vamos usar algumas peças de informação repetidamente, por isso vamos criar algumas variáveis para armazenar essa informação.
 
 
 ```azurecli-interactive
@@ -75,7 +76,7 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Crie uma variável para sua ID de assinatura. Pode obter isto usando `az account show | grep id`.
+Crie uma variável para o seu ID de subscrição. Pode obter isto usando `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -164,7 +165,7 @@ sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Envie a configuração de imagem para o serviço do construtor de imagem do Azure.
+Envie a configuração de imagem para o serviço Azure Image Builder.
 
 ```azurecli-interactive
 az resource create \
@@ -175,7 +176,7 @@ az resource create \
     -n helloImageTemplateMsi01
 ```
 
-Inicie a compilação da imagem.
+Inicie a construção da imagem.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -185,7 +186,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Aguarde a conclusão da compilação. Isto pode levar cerca de 15 minutos.
+Espere que a construção termine. Isto pode levar cerca de 15 minutos.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 

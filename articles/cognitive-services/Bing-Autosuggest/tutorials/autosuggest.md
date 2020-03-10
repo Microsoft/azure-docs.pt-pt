@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: b5032d9d39e66435ca4df36081d6acb225e2327b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 10e25338ab6960addeebcc224d0a6633df451964
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402645"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943153"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtenha sugestões de pesquisa numa página web
 
@@ -29,7 +29,7 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Sugestão Automática do Bing. Se não possui uma chave, [inscreva-se numa avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Sugestão Automática do Bing. Se não tiver um, [crie um recurso Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) no portal Azure. também pode usar uma chave de [ensaio.](https://azure.microsoft.com/try/cognitive-services/)
 
 ## <a name="create-a-new-web-page"></a>Criar uma nova página Web
 
@@ -349,7 +349,7 @@ Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Requisitos de utilização e de apresentação](../UseAndDisplayRequirements.md)

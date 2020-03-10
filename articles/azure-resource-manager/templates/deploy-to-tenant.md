@@ -2,23 +2,17 @@
 title: Desloque recursos para o inquilino
 description: Descreve como implementar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: d63697f3c140b5ad374607f1ecb00dad20e697de
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
-ms.translationtype: MT
+ms.date: 03/09/2020
+ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899142"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942748"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
-Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos no:
-
-* [nível de subscrição](deploy-to-subscription.md)
-* [nível de grupo de gestão](deploy-to-management-group.md)
-* nível de inquilino (abrangido por este artigo)
-
-Você usa implementações de nível de inquilino para tomar ações que fazem sentido a esse nível, tais como a atribuição [de controlo de acesso baseado em papéis](../../role-based-access-control/overview.md) ou a aplicação de [políticas](../../governance/policy/overview.md).
+À medida que a sua organização amadurece, poderá ter de definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em papéis](../../role-based-access-control/overview.md) em todo o seu inquilino DaD Azure. Com modelos de nível de inquilino, você pode aplicar declarativamente políticas e atribuir papéis a nível global.
 
 ## <a name="supported-resources"></a>Recursos suportados
 
@@ -41,10 +35,10 @@ Para os modelos, utilize:
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
 ```
 
-Para ficheiros de parâmetros, utilize:
+O esquema para um ficheiro de parâmetros é o mesmo para todos os âmbitos de implantação. Para ficheiros de parâmetros, utilize:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="required-access"></a>Acesso obrigatório
@@ -178,8 +172,7 @@ O [seguinte modelo](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Para aprender sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autor.](template-syntax.md)
-* Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](template-functions.md).
+* Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou ao nível do grupo de [gestão.](deploy-to-management-group.md)

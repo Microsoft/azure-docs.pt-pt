@@ -8,12 +8,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 359f78cabbe0372e6892695c092ae49b62df7bfa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227459"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944186"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Problemas de resolução de problemas com gestão de atualizações
 
@@ -39,7 +39,7 @@ As atualizações supersed não estão a ser corretamente indicadas como recusad
 
 Quando uma atualização supersed se torna 100% não aplicável, deve alterar o estado de aprovação dessa atualização para **Declinado**. Para fazer isto para todas as suas atualizações:
 
-1. Na Conta de Automação, selecione **Gestão de Atualização** para visualizar o estado da máquina. Ver [Ver avaliações](../manage-update-multi.md#view-an-update-assessment)de atualização .
+1. Na conta Automation, selecione **Update Management** para ver o estado da máquina. Ver [Ver avaliações](../manage-update-multi.md#view-an-update-assessment)de atualização .
 
 2. Verifique a atualização sobresedida para se certificar de que não é aplicável a 100%. 
 
@@ -219,14 +219,17 @@ Este erro pode ocorrer por um dos seguintes motivos:
 
 Quando aplicável, utilize [grupos dinâmicos](../automation-update-management-groups.md) para as suas implementações de atualização. Além disso:
 
-* Verifique se a máquina ainda existe e está acessível. Se não existir, edite a sua implantação e retire a máquina.
+* Verifique se a máquina ainda existe e está acessível. 
+* Se a máquina não existir, edite a sua implantação e retire a máquina.
 * Consulte a secção de planeamento da [rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços que são necessários para gestão de atualizações e, em seguida, verifique se a sua máquina cumpre estes requisitos.
-* Faça a seguinte consulta no Log Analytics para encontrar máquinas no seu ambiente cujo `SourceComputerId` mudou. Procure computadores com o mesmo valor `Computer`, mas um valor `SourceComputerId` diferente. 
+* Verifique a conectividade com o Trabalhador do Livro híbrido utilizando o agente de trabalho de runbook híbrido. Para saber mais sobre o problema, consulte problemas de agente de [atualização da Troubleshoot](update-agent-issues.md).
+* Faça a seguinte consulta no Log Analytics para encontrar máquinas no seu ambiente para as quais `SourceComputerId` mudou. Procure computadores com o mesmo valor `Computer`, mas um valor `SourceComputerId` diferente.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   Depois de encontrar as máquinas afetadas, edite as implementações de atualização que visam essas máquinas e, em seguida, remova-as e readicione-as de modo a que `SourceComputerId` reflita o valor correto.
+
+* Depois de encontrar as máquinas afetadas, edite as implementações de atualização que visam essas máquinas e, em seguida, remova-as e readicione-as de modo a que `SourceComputerId` reflita o valor correto.
 
 ## <a name="updates-nodeployment"></a>Cenário: As atualizações são instaladas sem uma implementação
 
@@ -426,7 +429,7 @@ Se não conseguir resolver um problema de correção, faça uma cópia do seguin
 
 * KB2267602 é a [atualização de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions). É atualizado diariamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

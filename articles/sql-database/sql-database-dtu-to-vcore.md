@@ -1,6 +1,6 @@
 ---
 title: Migrar de DTU para vCore
-description: Migre do modelo de DTU para o modelo vCore. A migração para o vCore é semelhante à atualização ou ao downgrade entre as camadas Standard e Premium.
+description: Migrar do modelo DTU para o modelo vCore. Migrar para vCore é semelhante à atualização ou degradação entre os níveis padrão e premium.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -8,60 +8,60 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: f34439b7750ca1858e71d4a36121eb65001fff50
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/09/2020
+ms.openlocfilehash: 693065046f92e0e9eade14c43e9942772440937d
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811261"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945408"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar do modelo baseado em DTU para o modelo baseado em vCore
 
 ## <a name="migrate-a-database"></a>Migrar uma base de dados
 
-A migração de um banco de dados do modelo de compra baseado em DTU para o modelo de compra baseado em vCore é semelhante à atualização ou ao downgrade entre as camadas de serviço Standard e Premium no modelo de compra baseado em DTU.
+A migração de uma base de dados do modelo de compra baseado em DTU para o modelo de compra baseado em vCore é semelhante à atualização ou degradação entre os níveis de serviço padrão e premium no modelo de compra baseado em DTU.
 
-## <a name="migrate-databases-that-use-geo-replication"></a>Migrar bancos de dados que usam replicação geográfica
+## <a name="migrate-databases-that-use-geo-replication"></a>Migrar bases de dados que usam geo-replicação
 
-A migração do modelo baseado em DTU para o modelo de compra baseado em vCore é semelhante à atualização ou ao downgrade de relações de replicação geográfica entre bancos de dados nas camadas de serviço Standard e Premium. Durante a migração, você não precisa parar a replicação geográfica, mas deve seguir estas regras de sequenciamento:
+A migração do modelo baseado em DTU para o modelo de compra baseado em vCore é semelhante à atualização ou redução das relações de geo-replicação entre bases de dados nos níveis de serviço padrão e premium. Durante a migração, não é preciso parar a geo-replicação, mas tem de seguir estas regras de sequenciação:
 
-- Ao atualizar, você deve atualizar o banco de dados secundário primeiro e, em seguida, atualizar o primário.
-- Ao fazer downgrade, inverta o pedido: você deve fazer o downgrade primeiro do banco de dados primário e, em seguida, efetuar o downgrade do secundário.
+- Ao atualizar, tem de atualizar primeiro a base de dados secundária e, em seguida, atualizar a principal.
+- Ao desaparar, inverta a ordem: primeiro deve desvalorizar a base de dados primária e, em seguida, desvalorizar a secundária.
 
-Quando você estiver usando a replicação geográfica entre dois pools elásticos, recomendamos que você designe um pool como o primário e o outro como o secundário. Nesse caso, quando estiver migrando pools elásticos, você deverá usar as mesmas diretrizes de sequenciamento. No entanto, se você tiver pools elásticos que contêm bancos de dados primários e secundários, trate o pool com a utilização mais alta como a primária e siga as regras de sequenciamento adequadamente.  
+Quando você está usando geo-replicação entre duas piscinas elásticas, recomendamos que designe uma piscina como a primária e a outra como a secundária. Nesse caso, quando se migra piscinas elásticas, deve usar a mesma orientação de sequenciação. No entanto, se tiver piscinas elásticas que contenham bases de dados primárias e secundárias, trate a piscina com maior utilização como primária e siga as regras de sequenciação em conformidade.  
 
-A tabela a seguir fornece orientação para cenários de migração específicos:
+O quadro seguinte fornece orientações para cenários específicos de migração:
 
-|Camada de serviço atual|Camada de serviço de destino|Tipo de migração|Ações do usuário|
+|Nível de serviço atual|Nível de serviço-alvo|Tipo de migração|Ações do utilizador|
 |---|---|---|---|
-|Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas precisa garantir um dimensionamento adequado de vCore *|
-|Premium|Crítico para a empresa|Lateral|Pode migrar em qualquer ordem, mas precisa garantir um dimensionamento adequado de vCore *|
-|Standard|Crítico para a empresa|Atualizar|Deve migrar o secundário primeiro|
-|Crítico para a empresa|Standard|Mudar para uma versão anterior|Deve migrar primeiro o primário|
-|Premium|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro o primário|
-|Fins gerais|Premium|Atualizar|Deve migrar o secundário primeiro|
-|Crítico para a empresa|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro o primário|
-|Fins gerais|Crítico para a empresa|Atualizar|Deve migrar o secundário primeiro|
+|Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas precisa garantir o tamanho vCore apropriado*|
+|Premium|Crítico de negócios|Lateral|Pode migrar em qualquer ordem, mas precisa garantir o tamanho vCore apropriado*|
+|Standard|Crítico de negócios|Atualização|Deve migrar secundário primeiro|
+|Crítico de negócios|Standard|Mudar para uma versão anterior|Deve migrar primeiro as primárias|
+|Premium|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro as primárias|
+|Fins gerais|Premium|Atualização|Deve migrar secundário primeiro|
+|Crítico de negócios|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro as primárias|
+|Fins gerais|Crítico de negócios|Atualização|Deve migrar secundário primeiro|
 ||||
 
-\* a cada 100 DTUs na camada Standard exigem pelo menos 1 vCore e cada 125 DTUs na camada Premium requer pelo menos 1 vCore.
+\* Regra geral, cada 100 DTUs no nível padrão requerem pelo menos 1 vCore, e cada 125 DTUs no nível premium requerem pelo menos 1 vCore. Para mais informações, consulte o [modelo de compra baseado em vCore](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
 
-## <a name="migrate-failover-groups"></a>Migrar grupos de failover
+## <a name="migrate-failover-groups"></a>Grupos de failover migratórios
 
-A migração de grupos de failover com vários bancos de dados requer a migração individual dos bancos de dados primários e secundários. Durante esse processo, as mesmas considerações e regras de sequenciamento se aplicam. Depois que os bancos de dados são convertidos para o modelo de compra baseado em vCore, o grupo de failover permanecerá em vigor com as mesmas configurações de política.
+A migração de grupos failover com múltiplas bases de dados requer migração individual das bases de dados primárias e secundárias. Durante este processo, aplicam-se as mesmas considerações e regras de sequenciação. Após a conversão das bases de dados para o modelo de compra baseado em vCore, o grupo failover permanecerá em vigor com as mesmas definições políticas.
 
-### <a name="create-a-geo-replication-secondary-database"></a>Criar um banco de dados secundário de replicação geográfica
+### <a name="create-a-geo-replication-secondary-database"></a>Criar uma base de dados secundária de geo-replicação
 
-Você pode criar um banco de dados secundário de replicação geográfica (um secundário geográfico) somente usando a mesma camada de serviço usada para o banco de dados primário. Para bancos de dados com uma alta taxa de geração de logs, é recomendável criar o secundário geográfico com o mesmo tamanho de computação que o primário.
+Só pode criar uma base de dados secundária de geo-replicação (uma geo-secundária) utilizando o mesmo nível de serviço utilizado para a base de dados primária. Para bases de dados com uma alta taxa de produção de log, recomendamos a criação do geo-secundário com o mesmo tamanho de computação que o primário.
 
-Se você estiver criando um secundário geográfico no pool elástico para um único banco de dados primário, verifique se a configuração `maxVCore` para o pool corresponde ao tamanho de computação do banco de dados primário. Se você estiver criando um secundário geográfico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações `maxVCore`.
+Se estiver a criar um geo-secundário na piscina elástica para uma única base de dados primária, certifique-se de que a definição de `maxVCore` para a piscina corresponde ao tamanho da base de dados primária. Se você está criando um geo-secundário para uma primária em outra piscina elástica, recomendamos que as piscinas tenham as mesmas configurações `maxVCore`.
 
-## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Use a cópia do banco de dados para converter um banco de dados baseado em DTU em um banco de dados baseado em vCore
+## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilize cópia da base de dados para converter uma base de dados baseada em DTU numa base de dados baseada em vCore
 
-Você pode copiar qualquer banco de dados com um tamanho de computação baseado em DTU para um banco de dados com um tamanho de computação baseado em vCore sem restrições ou sequenciamento especial, contanto que o tamanho de computação de destino dê suporte ao tamanho máximo do banco de dados de origem. A cópia de banco de dados cria um instantâneo dos dados a partir da hora de início da operação de cópia e não sincroniza os dados entre a origem e o destino.
+Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU para uma base de dados com um tamanho de computação baseado em vCore sem restrições ou sequenciação especial, desde que o tamanho da computação-alvo suporte o tamanho máximo da base de dados da base de dados fonte. A cópia da base de dados cria uma imagem instantânea dos dados a partir do momento de início da operação de cópia e não sincroniza os dados entre a fonte e o alvo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, consulte [limites de recursos baseados em vCore do banco de dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md).
-- Para obter os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para pools elásticos, consulte [limites de recursos baseados em vCore do banco de dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
+- Para obter os tamanhos específicos da computação e as escolhas de tamanho de armazenamento disponíveis para bases de dados únicas, consulte [os limites de recursos baseados na Base de Dados SQL vCore para bases de dados únicas](sql-database-vcore-resource-limits-single-databases.md).
+- Para os tamanhos específicos da computação e escolhas de tamanho de armazenamento disponíveis para piscinas elásticas, consulte [os limites de recursos baseados em Bases de Dados SQL vCore para piscinas elásticas](sql-database-vcore-resource-limits-elastic-pools.md).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 2316b52115cc23d11dfb26d951a7f1820f2737cc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77520712"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946094"
 ---
 Os instantâneos incrementais (pré-visualização) são cópias de segurança pontual para discos geridos que, quando retirados, consistem apenas em todas as alterações desde o último instantâneo. Quando tenta descarregar ou utilizar um instantâneo incremental, o VHD completo é utilizado. Esta nova capacidade para instantâneos de disco geridos pode potencialmente permitir que sejam mais rentáveis, uma vez que já não é obrigado a armazenar todo o disco com cada instantâneo individual, a menos que escolha. Tal como as imagens regulares, as imagens incrementais podem ser usadas para criar um disco gerido completo ou, para fazer uma imagem regular.
 
@@ -25,8 +25,7 @@ Os instantâneos incrementais também oferecem uma capacidade diferencial, que e
 
 Atualmente, apenas as seguintes regiões são apoiadas:
 
-- Disponível como uma oferta de GA nas regiões centro-oeste dos EUA, Canadá Leste, Canadá Central.
-- Disponível como uma pré-visualização pública nas regiões leste dos EUA, Leste dos EUA 2, Centro dos EUA, Norte da Europa, Sudeste Asiático.
+- Disponível como uma oferta de GA nas regiões do Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Canadá Leste, Canadá Central, Norte da Europa, Regiões do Sudeste Asiático.
 
 ## <a name="restrictions"></a>Restrições
 - Atualmente, os instantâneos incrementais não podem ser criados depois de ter mudado o tamanho de um disco (apenas durante a pré-visualização).
@@ -157,6 +156,6 @@ Também pode usar modelos do Gestor de Recursos Azure para criar um instantâneo
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se quiser ver o código de amostra que demonstra a capacidade diferencial de instantâneos incrementais, utilizando .NET, consulte cópia [seleções de discos geridos por Copy Azure para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

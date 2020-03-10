@@ -2,24 +2,21 @@
 title: Serviço de Metadados de Instância Azure
 description: Interface RESTful para obter informações sobre a computação, rede e eventos de manutenção de VMs Linux.
 services: virtual-machines-linux
-documentationcenter: ''
 author: KumariSupriya
 manager: paulmey
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: monitoring
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: b0d4d1d13a329b0d95fcd0358f6141486b4435e5
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 3281b4dafa5436c9df760ac8aa3fc82f535b4286
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205012"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944870"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure
 
@@ -321,8 +318,8 @@ As seguintes APIs estão disponíveis através do ponto final dos metadados:
 Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 atestado | Ver [Dados Attested](#attested-data) | 2018-10-01
-identidade | Identidades geridas para os recursos azure. Ver [adquirir um símbolo de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | Ver [Instância API](#instance-api) | 2017-04-02
+identity | Identidades geridas para os recursos azure. Ver [adquirir um símbolo de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+instância | Ver [Instância API](#instance-api) | 2017-04-02
 eventos agendados | Ver [Eventos Agendados](scheduled-events.md) | 2017-08-01
 
 ### <a name="instance-api"></a>Instância API
@@ -354,7 +351,7 @@ armazenamentoPerfil | Ver [Perfil de Armazenamento](#storage-profile) | 2019-06-
 subscriptionId | Assinatura Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/management/tag-resources.md) para a sua Máquina Virtual  | 2017-08-01
 tagsList | Tags formatadas como uma matriz JSON para uma análise programática mais fácil  | 2019-06-04
-version | Versão da imagem VM | 2017-04-02
+versão | Versão da imagem VM | 2017-04-02
 vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para o VM | 2017-04-02
 vmScaleSetName | [Conjunto](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de escala de máquina virtual Nome do seu conjunto de escala de máquina virtual | 2017-12-01
 vmSize | [Tamanho da VM](sizes.md) | 2017-04-02
@@ -559,7 +556,7 @@ AzurePublicCloud
 
 A nuvem e os valores do Ambiente Azure estão listados abaixo.
 
- Cloud   | Ambiente Azure
+ Nuvem   | Ambiente Azure
 ---------|-----------------
 [Todas as regiões globais de Azure geralmente disponíveis](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -673,7 +670,7 @@ Assim que tiver a assinatura acima, pode verificar se a assinatura é da Microso
 > [!NOTE]
 > O certificado para nuvem pública e nuvem soberana será diferente.
 
- Cloud | Certificado
+ Nuvem | Certificado
 ---------|-----------------
 [Todas as regiões globais de Azure geralmente disponíveis](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
@@ -708,11 +705,11 @@ O objeto de referência da imagem contém as seguintes informações sobre a ima
 
 Dados    | Descrição
 --------|-----------------
-ID      | ID do Recurso
+ID      | ID de recurso
 oferta   | Oferta da plataforma ou imagem de mercado
 publicador | Editor de imagem
 sku     | Sku de imagem
-version | Versão da plataforma ou imagem de mercado
+versão | Versão da plataforma ou imagem de mercado
 
 O objeto do disco OS contém as seguintes informações sobre o disco OS utilizado pelo VM:
 
@@ -816,7 +813,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de chamar o serviço de metadados usando diferentes idiomas dentro do VM
 
-Idioma | Exemplo
+Linguagem | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
@@ -856,6 +853,6 @@ Puppet | https://github.com/keirans/azuremetadata
 
     ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [eventos agendados](scheduled-events.md)

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6b7ceca196831484e8f49482b8a18ac8648cac6e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ef7d06dfb074a3453f5589284cbdaf079c48d111
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585480"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933774"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisão para uma base de dados em Azure Cosmos DB
 
-Este artigo explica como fornecer o resultado numa base de dados em Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Para saber quando utilizar a entrada ao nível do contentor e do nível da base de dados, consulte os [casos de utilização para o fornecimento](set-throughput.md) de entrada em contentores e bases de dados. Pode fornecer a entrada de nível de base de dados utilizando o portal Azure ou o Azure Cosmos DB SDKs.
+Este artigo explica como fornecer o resultado numa base de dados em Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Para saber quando utilizar o nível de contentore e a entrada de nível de base de dados, consulte os [casos de utilização para o fornecimento](set-throughput.md) de entrada em contentores e bases de dados. Pode fornecer a entrada de nível de base de dados utilizando o portal Azure ou o Azure Cosmos DB SDKs.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionar débito com o portal do Azure
 
@@ -65,7 +65,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ### <a name="net-v3-sdk"></a>.net V3 SDK
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs" id="DatabaseCreateWithThroughput":::
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API para Cassandra
 Um comando semelhante pode ser executado através de qualquer controlador compatível com cql. 
@@ -74,7 +74,7 @@ Um comando semelhante pode ser executado através de qualquer controlador compat
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os seguintes artigos para conhecer sobre a provisão disponibilizada em Azure Cosmos DB:
 

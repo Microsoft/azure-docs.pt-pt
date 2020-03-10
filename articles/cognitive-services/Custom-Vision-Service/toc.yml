@@ -57,6 +57,8 @@
       href: test-your-model.md
     - name: Melhorar o seu classificador
       href: getting-started-improving-your-classifier.md
+    - name: Selecionar um domínio
+      href: select-domain.md
     - name: Utilizar a API de predição
       href: use-prediction-api.md
     - name: Utilizar a Etiquetadora Inteligente

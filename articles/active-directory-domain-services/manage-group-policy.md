@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613580"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946413"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar a Política de Grupo num domínio gerido pelos Serviços de Domínio Azure AD
 
@@ -42,7 +42,11 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 * Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
 
 > [!NOTE]
-> Como não há acesso a controladores de [domínio em Azure AD DS,](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)não pode criar e usar uma Central Store para modelos administrativos de política de grupo num domínio gerido. A [Sysvol não está incluída no local, a sincronização azure AD Connect,](synchronization.md#what-isnt-synchronized-to-azure-ad-ds)por isso também não pode criar uma Central Store no local e sincronizá-la para Azure AD DS através do Azure AD.
+> Pode utilizar modelos administrativos de política de grupo copiando os novos modelos para a estação de trabalho de gestão. Copie os ficheiros *.admx* em `%SYSTEMROOT%\PolicyDefinitions` e copie os ficheiros *.adml* específicos do local para `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, onde `Language-CountryRegion` corresponde ao idioma e região dos ficheiros *.adml.*
+>
+> Por exemplo, copiar a versão inglesa e americana dos ficheiros *.adml* na pasta `\en-us`.
+>
+> Em alternativa, pode armazenar centralmente o seu Modelo Administrativo de Política de Grupo nos controladores de domínio que fazem parte do domínio gerido pelo Azure AD DS. Para mais informações, consulte [como criar e gerir a Loja Central para Modelos Administrativos](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)de Política de Grupo no Windows .
 
 ## <a name="install-group-policy-management-tools"></a>Instalar ferramentas de Gestão de Políticas de Grupo
 
@@ -114,7 +118,7 @@ Para agrupar configurações de políticas semelhantes, muitas vezes cria GPOs a
 
     Quando terminar, escolha **File > Poupe** para salvar a apólice. Os computadores atualizam a Política do Grupo por padrão a cada 90 minutos e aplicam as alterações que fez.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre as definições de Política de Grupo disponíveis que pode configurar utilizando a Consola de Gestão de Políticas de Grupo, consulte [O Trabalho com itens preferenciais][group-policy-console]de política de grupo .
 

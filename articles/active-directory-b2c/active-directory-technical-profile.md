@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/09/2020
-ms.locfileid: "78932985"
+ms.locfileid: "78944216"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de Diretório Ativo Azure numa política personalizada azure Ative Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78932985"
 
 O Azure Ative Directory B2C (Azure AD B2C) presta suporte à gestão de utilizadores do Diretório Ativo Azure. Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -56,7 +56,7 @@ O exemplo que se segue mostra o perfil técnico **AAD-Common:**
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Reclamações de entrada
+## <a name="inputclaims"></a>Créditos de entrada
 
 O elemento InputClaims contém uma reclamação, que é usada para procurar uma conta no diretório, ou criar uma nova. Deve haver exatamente um elemento InputClaim na recolha de reclamações de entrada para todos os perfis técnicos da AD Azure. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no Diretório Ativo Azure.
 
@@ -66,7 +66,7 @@ Para criar uma nova conta de utilizador, a alegação de entrada é uma chave qu
 
 O elemento InputClaimsTransformations pode conter uma coleção de elementos de transformação de créditos de entrada que são usados para modificar a reclamação de entrada ou gerar um novo.
 
-## <a name="output-claims"></a>Reclamações de produção
+## <a name="outputclaims"></a>OutputClaims
 
 O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo perfil técnico da AD Azure. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no Diretório Ativo Azure. Também pode incluir reclamações que não são devolvidas pelo Diretório Ativo Azure, desde que detetete o `DefaultValue` atributo.
 
@@ -121,7 +121,7 @@ O nome da reclamação é o nome do atributo AD Azure, a menos que seja especifi
 
 ## <a name="azure-ad-technical-provider-operations"></a>Operações de prestador técnico da Azure AD
 
-### <a name="read"></a>Leitura
+### <a name="read"></a>Ler
 
 A operação **Read** lê dados sobre uma única conta de utilizador. Para ler os dados dos utilizadores, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName,** **signInNames** (qualquer tipo, nome do utilizador e conta baseada em e-mail) ou **segurança ida em alternativa**.
 
@@ -153,7 +153,7 @@ O perfil técnico seguinte lê dados sobre uma conta de utilizador utilizando o 
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Escrita
+### <a name="write"></a>Escrever
 
 A operação **Write** cria ou atualiza uma única conta de utilizador. Para escrever uma conta de utilizador, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName**, **signNames.emailAddress**, ou **alternativaSecurityId**.
 
@@ -253,7 +253,7 @@ O perfil técnico seguinte elimina uma conta de utilizador social utilizando **a
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | A operação a ser realizada. Valores possíveis: `Read`, `Write`, `DeleteClaims`ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Levante um erro se o objeto do utilizador não existir no diretório. Valores possíveis: `true` ou `false`. |

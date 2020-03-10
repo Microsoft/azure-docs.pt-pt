@@ -193,10 +193,8 @@
           items:
             - name: API REST de conversão de texto em voz
               href: rest-text-to-speech.md
-        - name: Utilização do conjunto de telefone
-          items:
-            - name: Utilização do conjunto de telefone com API de voz (SAPI)
-              href: sapi-phoneset-usage.md
+        - name: Conjuntos fonéticos SSML
+          href: speech-ssml-phonetic-sets.md
     - name: Recursos
       items:
         - name: FAQ da conversão de texto em voz
@@ -447,8 +445,6 @@
           href: ship-application.md
     - name: Início Rápido
       items:
-        - name: Criar um projeto
-          href: quickstarts/create-project.md
         - name: Configurar o SDK de Voz
           href: quickstarts/setup-platform.md
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
@@ -494,19 +490,14 @@
           href: speech-devices-sdk.md
         - name: Obter o SDK de Dispositivos de Voz
           href: get-speech-devices-sdk.md
-        - name: Notas de versão
-          href: devices-sdk-release-notes.md
-        - name: Detalhes do Roobo v1
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Detalhes do Roobo v2
-          href: speech-devices-sdk-roobo-v2.md
-        - name: Especificação do microfone
     - name: Hardware
       items:
         - name: Recomendações da matriz de microfones
           href: speech-devices-sdk-microphone.md
-        - name: Kit do Roobo v1
+        - name: Detalhes do Roobo v1
           href: speech-devices-sdk-roobo-v1.md
+        - name: Detalhes do Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
     - name: Início Rápido
       items:
         - name: Utilizar o SDK de Dispositivos de Voz

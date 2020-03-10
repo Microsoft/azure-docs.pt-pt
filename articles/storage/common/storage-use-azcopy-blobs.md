@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f218c64d3ffe4955877516551a29376372144598
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526727"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933587"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com armazenamento AzCopy e Blob
 
@@ -73,7 +73,8 @@ Para obter documentos de referência detalhados, consulte a cópia da [azcopy](s
 Também pode fazer o upload de um ficheiro utilizando um símbolo wildcard (*) em qualquer lugar do caminho de ficheiro ou nome de ficheiro. Por exemplo: `'C:\myDirectory\*.txt'`, ou `C:\my*\*.txt`.
 
 > [!NOTE]
-> AzCopy por padrão envia dados para bolhas de bloco. Para fazer upload de ficheiros como Append Blobs, ou Page Blobs use a `--blob-type=[BlockBlob|PageBlob|AppendBlob]`de bandeira .
+> AzCopy por padrão envia dados como blocos de bolhas. Para fazer upload de ficheiros como Append Blobs ou Page Blobs, utilize a bandeira `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> A AzCopy por padrão envia os seus dados para herdar o nível de acesso à conta. Para fazer o upload de ficheiros para um [nível](../blobs/storage-blob-storage-tiers.md)de acesso específico, utilize a `--block-blob-tier=[Hot|Cool|Archive]`da bandeira .
 
 ### <a name="upload-a-directory"></a>Faça upload de um diretório
 
@@ -346,7 +347,7 @@ O primeiro diretório que aparece neste comando é a fonte. O segundo é o desti
 | **Sintaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
 | **Exemplo** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Encontre mais exemplos em qualquer um destes artigos:
 

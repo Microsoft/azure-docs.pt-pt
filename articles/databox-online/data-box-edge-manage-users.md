@@ -1,6 +1,6 @@
 ---
-title: Edge de caixa de dados do Azure, gerir utilizadores | Documentos da Microsoft
-description: Descreve como utilizar o portal do Azure para gerir utilizadores no seu limite de caixa de dados do Azure.
+title: Azure Data Box Edge gere os utilizadores Microsoft Docs
+description: Descreve como utilizar o portal Azure para gerir os utilizadores no seu Edge de Caixa de Dados Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 68f8ad903f967812c4a416c732b35fa1712404cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756707"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946129"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Utilizar o portal do Azure para gerir utilizadores no seu limite de caixa de dados do Azure
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Utilize o portal Azure para gerir os utilizadores no seu Edge de Caixa de Dados Azure
 
-Este artigo descreve como gerir os utilizadores no seu limite de caixa de dados do Azure. Pode gerir o limite de caixa de dados do Azure através do portal do Azure ou através do local da interface do Usuário da web. Utilize o portal do Azure para adicionar, modificar ou eliminar utilizadores.
+Este artigo descreve como gerir os utilizadores no seu Edge de Caixa de Dados Azure. Pode gerir o Azure Data Box Edge através do portal Azure ou através da UI web local. Utilize o portal do Azure para adicionar, modificar ou eliminar utilizadores.
 
 Neste artigo, vai aprender a:
 
@@ -33,30 +33,29 @@ Os utilizadores podem ser só de leitura ou ter privilégios máximos. Conforme 
  - **Utilizador com privilégios máximos** - um utilizador local com acesso total.
  - **Utilizador só de leitura** - um utilizador local com acesso só de leitura. Estes utilizadores estão associados a partilhas que permitem operações só de leitura.
 
-As permissões de utilizador são definidas pela primeira vez quando o utilizador é criado durante a criação da partilha. Depois de as permissões associadas a um utilizador serem criadas, podem ser modificadas com o Explorador de Ficheiros. 
-
+As permissões de utilizador são definidas pela primeira vez quando o utilizador é criado durante a criação da partilha. Atualmente, a modificação das permissões de nível de partilha não é suportada.
 
 ## <a name="add-a-user"></a>Adicionar um utilizador
 
 Efetue os seguintes passos no portal do Azure para adicionar um utilizador.
 
-1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **descrição geral > utilizadores**. Selecione **+ adicionar utilizador** na barra de comandos.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Overview > Users**. Selecione **+ Adicione** o utilizador na barra de comando.
 
     ![Selecione adicionar utilizador](media/data-box-edge-manage-users/add-user-1.png)
 
-2. Especifique o nome de utilizador e a palavra-passe do utilizador que pretende adicionar. Confirme a palavra-passe e selecione **adicionar**.
+2. Especifique o nome de utilizador e a palavra-passe do utilizador que pretende adicionar. Confirme a palavra-passe e selecione **Adicionar**.
 
-    ![Especifique o nome de utilizador e palavra-passe](media/data-box-edge-manage-users/add-user-2.png)
+    ![Especificar o nome de utilizador e a palavra-passe](media/data-box-edge-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > Estes utilizadores estão reservados pelo sistema e não devem ser utilizados: Administrador, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Convidado.  
 
-3. Uma notificação é apresentada quando a criação de utilizador é iniciado e é concluída. Depois do utilizador é criado, na barra de comandos, selecione **atualizar** para ver a lista atualizada de utilizadores.
+3. Uma notificação é mostrada quando a criação do utilizador começa e é concluída. Depois de criado o utilizador, a partir da barra de comando, selecione **Refresh** para visualizar a lista atualizada de utilizadores.
 
 
 ## <a name="modify-user"></a>Modificar utilizador
 
-Pode alterar a palavra-passe associada a um utilizador depois de o utilizador ser criado. Selecione a lista de utilizadores. Introduza e confirme a palavra-passe nova. Guarde as alterações.
+Pode alterar a palavra-passe associada a um utilizador depois de o utilizador ser criado. Selecione na lista de utilizadores. Introduza e confirme a nova senha. Guarde as alterações.
  
 ![Modificar utilizador](media/data-box-edge-manage-users/modify-user-1.png)
 
@@ -66,13 +65,13 @@ Pode alterar a palavra-passe associada a um utilizador depois de o utilizador se
 Efetue os seguintes passos no portal do Azure para eliminar um utilizador.
 
 
-1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **descrição geral > utilizadores**.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Overview > Users**.
 
-    ![Selecione o utilizador eliminar](media/data-box-edge-manage-users/delete-user-1.png)
+    ![Selecione utilizador para eliminar](media/data-box-edge-manage-users/delete-user-1.png)
 
-2. Selecione um utilizador na lista de utilizadores e, em seguida, selecione **eliminar**.  
+2. Selecione um utilizador na lista de utilizadores e, em seguida, selecione **Eliminar**.  
 
-   ![Selecione Delete](media/data-box-edge-manage-users/delete-user-2.png)
+   ![Selecione Excluir](media/data-box-edge-manage-users/delete-user-2.png)
 
 3. Quando lhe for perguntado, confirme a eliminação. 
 

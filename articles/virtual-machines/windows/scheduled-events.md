@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c4461856bd5eeb01eb84b0d39afef9507438f8d3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920669"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944481"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs do Windows
 
@@ -45,7 +45,7 @@ Utilizando Eventos Agendados, a sua aplicação pode descobrir quando a manuten�
 
 Eventos Agendados fornece eventos nos seguintes casos de utilização:
 - [Plataforma iniciada manutenção](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, VM reboot, migração ao vivo ou atualizações de preservação de memória para hospedeiro)
-- Hardware degradado
+- A máquina virtual está a funcionar com hardware de [anfitrião degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se prevê que falhe em breve
 - Manutenção iniciada pelo utilizador (por exemplo, reinicia ou reimplanta um VM)
 - [Spot VM](spot-vms.md) e [Spot escala definir](../../virtual-machine-scale-sets/use-spot.md) despejos de instância
 
@@ -63,12 +63,12 @@ Se a Máquina Virtual não for criada dentro de uma Rede Virtual, os casos padr�
 ### <a name="version-and-region-availability"></a>Versão e Disponibilidade da Região
 O Serviço de Eventos Agendados é versão. As versões são obrigatórias e a versão atual é `2019-01-01`.
 
-| Versão | Tipo de Versão | Regiões | Notas de Versão | 
+| Versão | Tipo de Versão | Regiões | Release Notes (Notas de Lançamento) | 
 | - | - | - | - |
-| 2019-01-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para conjuntos de escala de máquina virtual 'Terminate' |
-| 2017-11-01 | Disponibilidade Geral | Todos | <li> Suporte adicional para o evento de despejo Spot VM 'Preempt'<br> | 
-| 2017-08-01 | Disponibilidade Geral | Todos | <li> Sublinhado de recursos para VMs IaaS<br><li>Requisito de cabeçalho de metadados imposto para todos os pedidos | 
-| 2017-03-01 | Pré-visualização | Todos |<li>Versão inicial |
+| 2019-01-01 | Disponibilidade Geral | Todas | <li> Suporte adicional para conjuntos de escala de máquina virtual 'Terminate' |
+| 2017-11-01 | Disponibilidade Geral | Todas | <li> Suporte adicional para o evento de despejo Spot VM 'Preempt'<br> | 
+| 2017-08-01 | Disponibilidade Geral | Todas | <li> Sublinhado de recursos para VMs IaaS<br><li>Requisito de cabeçalho de metadados imposto para todos os pedidos | 
+| 2017-03-01 | Pré-visualização | Todas |<li>Versão inicial |
 
 > [!NOTE] 
 > Os lançamentos anteriores de pré-visualização de eventos agendados suportavam {mais recente} como a versão api. Este formato já não é suportado e será depreciado no futuro.
@@ -135,6 +135,9 @@ Cada evento está agendado um tempo mínimo no futuro com base no tipo de evento
 | Voltar a implementar | 10 minutos |
 | Preempt | 30 segundos |
 | Terminar | [Configurar o utilizador:](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications)5 a 15 minutos |
+
+> [!NOTE] 
+> Em alguns casos, o Azure é capaz de prever a falha do hospedeiro devido ao hardware degradado e tentará mitigar a perturbação do seu serviço, agendando uma migração. As máquinas virtuais afetadas receberão um evento agendado com uma `NotBefore` que normalmente é de alguns dias no futuro. O tempo real varia consoante a avaliação prevista do risco de falha. O Azure tenta dar 7 dias de antecedência quando possível, mas o tempo real varia e pode ser menor se a previsão for de que há uma alta probabilidade de o hardware falhar iminentemente. Para minimizar o risco para o seu serviço caso o hardware falhe antes de o sistema iniciar a migração, recomenda-se a reutilização da sua máquina virtual o mais rapidamente possível.
 
 ### <a name="event-scope"></a>Âmbito do evento     
 Os eventos agendados são entregues a:
@@ -228,7 +231,7 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
 - Assista a uma [demonstração de eventos agendada](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) saqueada na sexta-feira do Azure. 
 - Reveja as amostras de código de eventos agendados no [Azure Instance Metadata Eventos Agendados GitHub Repositório](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)

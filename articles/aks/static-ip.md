@@ -3,13 +3,13 @@ title: Utilize um endereço IP estático e etiqueta DNS com o equilibrador de ca
 description: Aprenda a criar e utilizar um endereço IP estático com o equilibrador de carga do Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: d5177494ecdd112342b2cd719e9305bfab97902c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/09/2020
+ms.openlocfilehash: 32889dbbcafd9510f8d04cb9c602d4802c6d1a1a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593602"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943573"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilize um endereço IP público estático e etiqueta DNS com o equilibrador de carga do Serviço Azure Kubernetes (AKS)
 
@@ -67,7 +67,7 @@ Antes de criar um serviço, certifique-se de que o principal de serviço utiliza
 ```azurecli-interactive
 az role assignment create \
     --assignee <SP Client ID> \
-    --role "Contributor" \
+    --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
@@ -97,7 +97,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="apply-a-dns-label-to-the-service"></a>Aplicar uma etiqueta DNS no serviço
 
-Se o seu serviço estiver a utilizar um endereço IP público dinâmico ou estático, pode utilizar a anotação de serviço `service.beta.kubernetes.io/azure-dns-label-name` para definir uma etiqueta DNS virada para o público. Isto publica um nome de domínio totalmente qualificado para o seu serviço utilizando os servidores Públicos DNS do Azure e domínio de alto nível. O valor da anotação deve ser único dentro da localização Azure, pelo que é aconselhável utilizar uma etiqueta suficientemente qualificada.   
+Se o seu serviço estiver a utilizar um endereço IP público dinâmico ou estático, pode utilizar a anotação de serviço `service.beta.kubernetes.io/azure-dns-label-name` para definir uma etiqueta DNS virada para o público. Isto publica um nome de domínio totalmente qualificado para o seu serviço utilizando os servidores Públicos DNS do Azure e domínio de alto nível. O valor da anotação deve ser único dentro da localização Azure, pelo que é recomendado utilizar uma etiqueta suficientemente qualificada.   
 
 O Azure anexará automaticamente uma sub-rede predefinida, como `<location>.cloudapp.azure.com` (onde a localização é a região selecionada), ao nome que fornece, para criar o nome DNS totalmente qualificado. Por exemplo:
 
@@ -119,7 +119,7 @@ spec:
 > [!NOTE] 
 > Para publicar o serviço no seu próprio domínio, consulte [o Azure DNS][azure-dns-zone] e o projeto [external-DNS.][external-dns]
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 
 Se o endereço IP estático definido na propriedade *loadBalancerIP* do manifesto de serviço Kubernetes não existir, ou não tiver sido criado no grupo de recursos do nó e nenhuma delegação adicional configurada, a criação do serviço de equilíbrio de carga falha. Para resolver problemas, reveja os eventos de criação de serviço com o [kubectl descrever][kubectl-describe] o comando. Fornecer o nome do serviço conforme especificado no manifesto YAML, como mostra o seguinte exemplo:
 
@@ -151,7 +151,7 @@ Events:
   Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-load-balancer: user supplied IP Address 40.121.183.52 was not found
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para um controlo adicional sobre o tráfego de rede para as suas aplicações, é melhor criar um controlador de [ingresso][aks-ingress-basic]. Também pode criar um controlador de [ingresso com um endereço IP público estático][aks-static-ingress].
 

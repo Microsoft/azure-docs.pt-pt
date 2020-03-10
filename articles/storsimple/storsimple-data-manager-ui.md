@@ -1,157 +1,162 @@
 ---
-title: Interface do usuário do Microsoft Azure StorSimple Gerenciador de Dados
-description: Descreve como usar a interface do usuário do serviço Gerenciador de Dados do StorSimple
+title: Microsoft Azure StorSimple Data Manager UI
+description: Descreve como usar o serviço StorSimple Data Manager UI
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273970"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933757"
 ---
-# <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço de Gerenciador de Dados do StorSimple no portal do Azure
+# <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerir o serviço StorSimple Data Manager no portal Azure
 
-Este artigo explica como você pode usar a interface do usuário do Gerenciador de Dados do StorSimple para transformar os dados que residem nos dispositivos da série StorSimple 8000. Os dados transformados podem ser consumidos por outros serviços do Azure, como os serviços de mídia do Azure, o Azure HDInsight, o Azure Machine Learning e o Azure Pesquisa Cognitiva.
+Este artigo explica como pode utilizar o StorSimple Data Manager UI para transformar os dados residentes nos dispositivos da série StorSimple 8000. Os dados transformados podem então ser consumidos por outros serviços Azure, tais como Azure Media Services, Azure HDInsight, Azure Machine Learning e Azure Cognitive Search.
 
 
-## <a name="use-storsimple-data-transformation"></a>Usar a transformação de dados do StorSimple
+## <a name="use-storsimple-data-transformation"></a>Utilizar a transformação de dados storSimple
 
-O Gerenciador de Dados do StorSimple é o recurso no qual a transformação de dados é instanciada. O serviço de transformação de dados permite transformar dados do formato do StorSimple para o formato nativo em BLOBs ou arquivos do Azure. Para transformar os dados de formato nativo do StorSimple, você precisa especificar os detalhes sobre o dispositivo da série StorSimple 8000 e os dados de interesse que deseja transformar.
+O StorSimple Data Manager é o recurso dentro do qual a transformação de dados é instantânea. O serviço de Transformação de Dados permite transformar dados do formato StorSimple para formato nativo em blobs ou Ficheiros Azure. Para transformar os dados do formato nativo StorSimple, precisa especificar os detalhes sobre o seu dispositivo da série StorSimple 8000 e os dados de interesse que pretende transformar.
 
-### <a name="create-a-storsimple-data-manager-service"></a>Criar um serviço de Gerenciador de Dados do StorSimple
+### <a name="create-a-storsimple-data-manager-service"></a>Criar um serviço storSimple Data Manager
 
-Execute as etapas a seguir para criar um serviço de Gerenciador de Dados do StorSimple.
+Execute os seguintes passos para criar um serviço StorSimple Data Manager.
 
 1. Utilize as credenciais da sua conta Microsoft para iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Clique em **+ criar um recurso** e pesquise Gerenciador de dados do StorSimple.
+2. Clique **+ Crie um recurso** e procure o StorSimple Data Manager.
 
-    ![Criar um serviço Gerenciador de Dados do StorSimple 1](./media/storsimple-data-manager-ui/create-service-1.png)
+    ![Criar um serviço StorSimple Data Manager 1](./media/storsimple-data-manager-ui/create-service-1.png)
 
-3. Clique em Gerenciador de Dados do StorSimple e, em seguida, clique em **criar**.
+3. Clique em StorSimple Data Manager e, em seguida, clique em **Criar**.
     
-    ![Criar um serviço Gerenciador de Dados do StorSimple 2](./media/storsimple-data-manager-ui/create-service-3.png)
+    ![Criar um serviço StorSimple Data Manager 2](./media/storsimple-data-manager-ui/create-service-3.png)
 
 3. Para o novo serviço, especifique o seguinte:
 
-   1. Forneça um **nome de serviço** exclusivo para seu Gerenciador de dados do StorSimple. Este é um nome amigável que pode ser utilizado para identificar o serviço. O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. O nome tem de começar e terminar com uma letra ou um número.
+   1. Forneça um nome de **Serviço** único para o seu Gestor de Dados StorSimple. Este é um nome amigável que pode ser utilizado para identificar o serviço. O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. O nome tem de começar e terminar com uma letra ou um número.
 
-   2. Escolha uma **assinatura** na lista suspensa. A subscrição está ligada à sua conta de faturação. Esse campo será populado automaticamente (e não selecionável) se você tiver apenas uma assinatura.
+   2. Escolha uma **Subscrição** na lista de abandono. A subscrição está ligada à sua conta de faturação. Este campo é automaticamente povoado (e não selecionável) se tiver apenas uma subscrição.
 
    3. Selecione um grupo de recursos existente ou crie um novo grupo. Para obter mais informações, veja [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Grupos de recursos do Azure).
 
-   4. Especifique o **local** para o serviço que hospeda suas contas de armazenamento e seu serviço de Gerenciador de dados do StorSimple. O serviço StorSimple Device Manager, o serviço Gerenciador de Dados e a conta de armazenamento associada devem estar em regiões com suporte.
+   4. Especifique a **Localização** do seu serviço que abriga as suas contas de armazenamento e o seu serviço StorSimple Data Manager. O serviço StorSimple Device Manager, o serviço Data Manager e a conta de armazenamento associada devem estar nas regiões apoiadas.
     
-   5. Para obter um link para esse serviço em seu painel, selecione **fixar no painel**.
+   5. Para obter um link para este serviço no seu painel de instrumentos, selecione **Pin para dashboard**.
     
    6. Clique em **Criar**.
 
-      ![Criar um serviço de Gerenciador de Dados do StorSimple 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Criar um serviço StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
-A criação do serviço demora alguns minutos. Você verá uma notificação depois que o serviço for criado com êxito e o novo serviço for exibido.
+A criação do serviço demora alguns minutos. Você vê uma notificação após a criação do serviço com sucesso e o novo serviço é apresentado.
 
-### <a name="create-a-data-transformation-job-definition"></a>Criar uma definição de trabalho de transformação de dados
+### <a name="create-a-data-transformation-job-definition"></a>Criar uma definição de emprego de transformação de dados
 
-Em um serviço de Gerenciador de Dados do StorSimple, você precisa criar uma definição de trabalho de transformação de dados. Uma definição de trabalho especifica detalhes dos dados do StorSimple que você está interessado em migrar para uma conta de armazenamento no formato nativo. Depois de criar uma definição de trabalho, você pode executar esse trabalho novamente com configurações de tempo de execução diferentes.
+Dentro de um serviço StorSimple Data Manager, você precisa criar uma definição de emprego de transformação de dados. Uma definição de trabalho especifica detalhes dos dados StorSimple que você está interessado em mudar-se para uma conta de armazenamento no formato nativo. Uma vez que cria uma definição de trabalho, então pode executar este trabalho novamente com diferentes configurações de tempo de execução.
 
-Execute as etapas a seguir para criar uma definição de trabalho.
+Execute os seguintes passos para criar uma definição de trabalho.
 
-1. Navegue até o serviço que você criou. Vá para **gerenciamento > definições de trabalho**.
+1. Navegue para o serviço que criou. Ir para Definições de **Gestão > Emprego.**
 
-2. Clique em **+ definição de trabalho**.
+2. Clique **+ Definição de trabalho**.
 
-    ![Clique em + definição de trabalho](./media/storsimple-data-manager-ui/create-job-definition-1.png)
+    ![Clique em +Definição de Emprego](./media/storsimple-data-manager-ui/create-job-definition-1.png)
 
-3. Forneça um nome para a definição de trabalho. O nome pode ter entre 3 e 63 caracteres. O nome pode conter letras maiúsculas e minúsculas, números e hifens.
+3. Forneça um nome para a sua definição de trabalho. O nome pode ser entre 3 e 63 caracteres. O nome pode conter letras maiúsculas e minúsculas, números e hífenes.
 
-4. Especifique um local onde o trabalho é executado. Esse local pode ser diferente do local onde o serviço é implantado.
+4. Especifique um local onde o seu trabalho corre. Esta localização pode ser diferente da localização onde o serviço está implantado.
 
-5. Clique em **origem** para especificar o repositório de dados de origem.
+5. Clique em **Origem** para especificar o repositório de dados de origem.
 
-    ![Configurar repositório de dados de origem](./media/storsimple-data-manager-ui/create-job-definition-2.png)
+    ![Configurar repo de dados de origem](./media/storsimple-data-manager-ui/create-job-definition-2.png)
 
-6. Como esse é um novo serviço de Gerenciador de Dados, não há repositórios de dados configurados. Em **Configurar fonte de dados**, especifique os detalhes do seu dispositivo StorSimple da série 8000 e os dados de interesse.
+6. Uma vez que se trata de um novo serviço de Gestor de Dados, não estão configurados repositórios de dados. Na **configuração da fonte**de dados, especifique os detalhes do seu dispositivo da série StorSimple 8000 e os dados de interesse.
 
-   Para adicionar o Device Manager StorSimple como um repositório de dados, clique em **Adicionar novo** na lista suspensa repositório de dados e clique em **Adicionar repositório de dados**.
+   Para adicionar o seu StorSimple Device Manager como um repositório de dados, clique em **Adicionar novo** no repositório de dados dropdown e, em seguida, clique em **Adicionar Repositório**de Dados .
 
-    ![Adicionar novo repositório de dados](./media/storsimple-data-manager-ui/create-job-definition-3.png)
+    ![Adicione novos dados repo](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-   1. Escolha **StorSimple 8000 Series Manager** como o tipo de repositório de dados.
+   1. Escolha o **Gestor da série StorSimple 8000** como o tipo de repositório de dados.
     
-   2. Insira um nome amigável para o repositório de dados de origem.
+   2. Introduza um nome amigável para o seu repositório de dados de origem.
     
-   3. Na lista suspensa, escolha uma assinatura associada ao serviço de Device Manager do StorSimple.
+   3. Na lista de dropdown, escolha uma subscrição associada ao seu serviço StorSimple Device Manager.
     
-   4. Forneça o nome do Device Manager StorSimple para o **recurso**.
+   4. Forneça o nome do Gestor de Dispositivos StorSimple para o **Recurso**.
 
-   5. Insira a chave de **criptografia de dados de serviço** para o serviço StorSimple Device Manager. 
+   5. Introduza a chave de **encriptação** de dados do Serviço para o serviço StorSimple Device Manager. 
 
-      ![Configurar o repositório de dados de origem 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Configurar repo 1 de dados de origem](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-      Clique em **OK** quando terminar. Isso salva seu repositório de dados. Reutilize este Device Manager do StorSimple em outras definições de trabalho sem inserir esses parâmetros novamente. Levará alguns segundos depois que você clicar em **OK** para que o repositório de dados de origem recém-criado apareça na lista suspensa.
+      Clique **bem** quando estiver pronto. Isto poupa o seu repositório de dados. Reutilizar este Gestor de Dispositivos StorSimple noutras definições de trabalho sem voltar a introduzir estes parâmetros. Demora alguns segundos depois de clicar em **OK** para que o repositório de dados de origem recém-criado apareça no dropdown.
 
-7. Na lista suspensa para **repositório de dados**, selecione o repositório de dados que você criou. 
+7. A partir da lista de relançamento de **dados,** selecione o repositório de dados que criou. 
 
-   1. Insira o nome do dispositivo StorSimple 8000 Series que contém os dados de interesse.
+   1. Introduza o nome do dispositivo da série StorSimple 8000 que contém os dados de interesse.
 
-   2. Especifique o nome do volume que reside no dispositivo StorSimple que tem seus dados de interesse.
+   2. Especifique o nome do volume residente no dispositivo StorSimple que tenha os seus dados de interesse.
 
-   3. Na subseção **filtro** , insira o diretório raiz que contém os dados de interesse no formato _\MyRootDirectory\Data_ . Não há suporte para letras de unidade como _\c: \data_ . Você também pode adicionar qualquer filtro de arquivo aqui.
+   3. Na subsecção **Filter,** introduza o diretório raiz que contém os seus dados de interesse no formato _\MyRootDirectory\Data._ As cartas de condução tais _\C:\Os dados_ não são suportados. Também pode adicionar filtros de ficheiros aqui.
 
-   4. O serviço de transformação de dados funciona nos dados que são enviados para o Azure por meio de instantâneos. Ao executar esse trabalho, você pode optar por fazer um backup sempre que esse trabalho for executado (para trabalhar nos dados mais recentes) ou usar o último backup existente na nuvem (se você estiver trabalhando em alguns dados arquivados).
+   4. O serviço de transformação de dados funciona apenas no último instantâneo dos dados que é empurrado até ao Azure.
 
    5. Clique em **OK**.
 
-      ![Configurar o repositório de dados de origem 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Configurar repo 2 de dados de origem](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
-8. Em seguida, o repositório de dados de destino precisa ser configurado. Escolha contas de armazenamento para colocar arquivos em BLOBs nessa conta. Na lista suspensa, selecione **Adicionar novo** e, em seguida, **definir configurações**.
+8. Em seguida, o repositório de dados-alvo precisa de ser configurado. Escolha contas de armazenamento para colocar ficheiros em bolhas nessa conta. No dropdown, selecione **Adicionar novas** **definições e,** em seguida, configurar .
 
-9. Selecione o tipo de repositório de destino que você deseja adicionar e os outros parâmetros associados ao repositório.
+9. Selecione o tipo de repositório-alvo que pretende adicionar e os outros parâmetros associados ao repositório.
 
-    Se você selecionar um destino de tipo de conta de armazenamento, poderá especificar um nome amigável, assinatura (escolha o mesmo do serviço ou outro) e uma conta de armazenamento.
-        ![configurar o repositório de dados de destino 1](./media/storsimple-data-manager-ui/create-job-definition-10.png)
+    Se selecionar um alvo do tipo de conta de Armazenamento, pode especificar um nome amigável, subscrição (escolha o mesmo que o do serviço ou outro) e uma conta de armazenamento.
+        ![Configurar dados-alvo repo 1](./media/storsimple-data-manager-ui/create-job-definition-10.png)
 
-    Uma fila de armazenamento é criada quando o trabalho é executado. Esta fila é preenchida com mensagens sobre os blobs transformados, à medida que ficam prontos. O nome desta fila é igual ao nome da definição da tarefa.
+    Uma fila de armazenamento é criada quando o trabalho corre. Esta fila é preenchida com mensagens sobre os blobs transformados, à medida que ficam prontos. O nome desta fila é igual ao nome da definição da tarefa.
     
-10. Depois de adicionar o repositório de dados, aguarde alguns minutos.
+10. Depois de adicionar o repositório de dados, espere alguns minutos.
     
-    1. Selecione o repositório que você criou como o destino na lista suspensa no **nome da conta de destino**.
+    1. Selecione o repositório que criou como alvo a partir da lista de dropdown no nome da **conta Target**.
 
-    2. Escolha o tipo de armazenamento como BLOBs ou arquivos. Especifique o nome do contêiner de armazenamento no qual os dados transformados residem. Clique em **OK**.
+    2. Escolha o tipo de armazenamento como bolhas ou ficheiros. Especifique o nome do recipiente de armazenamento onde residem os dados transformados. Clique em **OK**.
 
-        ![Configurar a conta de armazenamento do repositório de dados de destino](./media/storsimple-data-manager-ui/create-job-definition-16.png)
+        ![Configure a conta de armazenamento de repo de dados-alvo](./media/storsimple-data-manager-ui/create-job-definition-16.png)
 
-11. Você também pode marcar a opção para apresentar uma estimativa de duração do trabalho antes de executar o trabalho. Clique em **OK** para criar a definição de trabalho. A definição do trabalho agora está concluída. Você pode usar essa definição de trabalho várias vezes por meio da interface do usuário com configurações de tempo de execução diferentes.
+11. Também pode verificar a opção de apresentar uma estimativa da duração do trabalho antes de executar o trabalho. Clique **em OK** para criar a definição de trabalho. A sua definição de trabalho está agora completa. Pode utilizar esta definição de trabalho várias vezes através da UI com diferentes configurações de tempo de execução.
 
-    ![Concluir definição de trabalho](./media/storsimple-data-manager-ui/create-job-definition-13.png)
+    ![Definição completa de trabalho](./media/storsimple-data-manager-ui/create-job-definition-13.png)
 
-    A definição de trabalho recém-criada é adicionada à lista de definições de trabalho para esse serviço.
+    A definição de emprego recém-criada é adicionada à lista de definições de emprego para este serviço.
 
 ### <a name="run-the-job-definition"></a>Executar a definição de trabalho
 
-Sempre que você precisar mover dados do StorSimple para a conta de armazenamento que você especificou na definição de trabalho, será necessário executá-los. Em tempo de execução, alguns parâmetros podem ser especificados de forma diferente. Os passos são os seguintes:
+Sempre que precisa de transferir dados do StorSimple para a conta de armazenamento que especificou na definição de trabalho, tem de os executar. No tempo de execução, alguns parâmetros podem ser especificados de forma diferente. Os passos são os seguintes:
 
-1. Selecione seu serviço de Gerenciador de Dados do StorSimple e vá para **gerenciamento > definições de trabalho**. Selecione e clique na definição de trabalho que você deseja executar.
+1. Selecione o seu serviço StorSimple Data Manager e vá para as definições de **Gestão > Job**. Selecione e clique na definição de trabalho que pretende executar.
      
-     ![Iniciar execução de trabalho 1](./media/storsimple-data-manager-ui/start-job-run1.png)
+     ![Iniciar a corrida de trabalho 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
 2. Clique em **executar agora**.
      
-     ![Iniciar execução de trabalho 2](./media/storsimple-data-manager-ui/start-job-run2.png)
+     ![Iniciar a corrida de trabalho 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 
-3. Clique em **configurações de execução** para modificar as configurações que você pode querer alterar para esta execução de trabalho. Clique em **OK** e em **executar** para iniciar o trabalho.
+3. Clique em **configurações de Executar** para modificar quaisquer definições que possa querer alterar para esta execução de trabalho. Clique em **OK** e, em seguida, clique em **Executar** para lançar o seu trabalho.
 
-    ![Iniciar execução de trabalho 3](./media/storsimple-data-manager-ui/start-job-run3.png)
+    ![Iniciar a corrida de trabalho 3](./media/storsimple-data-manager-ui/start-job-run3.png)
 
-4. Para monitorar esse trabalho, vá para **trabalhos** em seu Gerenciador de dados do StorSimple. Além do monitoramento na folha **trabalhos** , você também pode escutar na fila de armazenamento em que uma mensagem é adicionada toda vez que um arquivo é movido do StorSimple para a conta de armazenamento.
+4. Para monitorizar este trabalho, vá ao **Jobs** no seu StorSimple Data Manager. Além de monitorizar a lâmina **Jobs,** também pode ouvir na fila de armazenamento onde uma mensagem é adicionada cada vez que um ficheiro é transferido do StorSimple para a conta de armazenamento.
 
-    ![Iniciar execução de trabalho 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+    ![Iniciar a corrida de trabalho 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### <a name="view-logs-after-job-completion"></a>Ver registos após a conclusão do trabalho
+
+Após a conclusão de um trabalho, pode ver o estado do trabalho. O estatuto de trabalho pode ser **bem sucedido,** **parcialmente bem sucedido** e **falhado.** Pode ver a lista de ficheiros que foram copiados com sucesso e ficheiros que não foram copiados. Estas listas estão disponíveis num contentor chamado **"storsimple-data-manager-joblogs"** dentro da sua conta de armazenamento alvo. Dentro deste recipiente, pode procurar uma pasta com o mesmo nome que a sua definição de trabalho. Dentro disto, será criada uma pasta para cada execução de trabalho que conterá as suas listas. O nome desta pasta será o GUID do trabalho, que pode obter na página de detalhes de trabalho. Em alternativa, na maioria dos casos, verá um link para os registos de cópia dentro da própria página de empregos.
+Existem 2 conjuntos de ficheiros CSV que irá ver nesta pasta. Todos os ficheiros que começam com a lista de **ficheiros copiados...** contêm a lista de ficheiros copiados com sucesso. Todos os ficheiros que começam com a lista de **ficheiros falhadas...** contêm ficheiros que não foram capazes de ser copiados, juntamente com uma mensagem de erro.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Use o SDK do .net para iniciar Gerenciador de dados do StorSimple trabalhos](storsimple-data-manager-dotnet-jobs.md).
+[Utilize o SDK .NET para lançar empregos de Gestor de Dados StorSimple](storsimple-data-manager-dotnet-jobs.md).
