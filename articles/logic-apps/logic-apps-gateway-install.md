@@ -7,11 +7,11 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
 ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191347"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358942"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instale no local gateway de dados para aplicações da Lógica Azure
 
@@ -76,7 +76,7 @@ Este artigo mostra como descarregar, instalar e configurar a sua porta de dados 
 
   * Se estiver a atualizar a instalação do gateway para a versão mais recente, desinstale primeiro o seu portal atual para uma experiência mais limpa.
 
-  * O gateway tem dois modos: modo padrão e modo pessoal, que se aplica apenas ao Power BI. Você não pode ter mais de um gateway em execução no mesmo modo no mesmo computador.
+  * O gateway tem dois modos: modo padrão e modo pessoal, que se aplica apenas ao Power BI. Não pode ter mais do que um portal a funcionar no mesmo modo no mesmo computador.
 
   * As Aplicações Lógicas Azure suportam as operações de leitura e escrita através do portal. No entanto, estas operações têm [limites para o seu tamanho](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)de carga útil .
 
@@ -265,7 +265,7 @@ Para mais informações, consulte estes tópicos:
 * [Resolução de problemas na porta de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
 * [Monitorizar e otimizar o desempenho do gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Ligar-se a dados no local a partir de aplicações lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Características de integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)

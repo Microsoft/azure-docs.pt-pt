@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: curtand
 ms.openlocfilehash: 5949f04ecc28a88e340a9c2de530031793f193a0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191389"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377514"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Altere o seu método de verificação de dois fatores e as definições
 
@@ -130,7 +130,7 @@ Dependendo das definições da sua organização, poderá ver uma caixa de verif
 
 A partir da página adicional de verificação de [ **segurança,** ](#to-get-to-the-additional-security-verification-page)selecione Restaurar a **autenticação de vários fatores em dispositivos previamente fidedignos**. Da próxima vez que iniciar sessão em qualquer dispositivo, será solicitado a realização de verificação de dois fatores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de adicionar ou atualizar as definições de verificação de dois fatores, pode gerir as suas palavras-passe da aplicação, iniciar sessão ou obter ajuda com alguns problemas comuns de verificação de dois fatores.
 

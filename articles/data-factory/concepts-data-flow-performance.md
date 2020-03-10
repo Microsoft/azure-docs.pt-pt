@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 02/24/2020
 ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273222"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381954"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
@@ -146,7 +146,7 @@ Gerir o desempenho de juntas no fluxo de dados é uma operação muito comum que
 
 Outra otimização de Join é construir as suas juntas de forma a evitar a tendência da Spark para implementar juntas cruzadas. Por exemplo, quando incluir valores literais nas suas condições de adesão, a Spark pode ver isso como um requisito para executar primeiro um produto cartesiano completo, em seguida, filtrar os valores unidos. Mas se garantir que tem valores de coluna em ambos os lados da sua condição de união, pode evitar este produto cartesiano induzido pela Spark e melhorar o desempenho das suas juntas e fluxos de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte outros artigos do Fluxo de Dados relacionados com o desempenho:
 

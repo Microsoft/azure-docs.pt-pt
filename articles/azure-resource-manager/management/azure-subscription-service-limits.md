@@ -4,11 +4,11 @@ description: Fornece uma lista de limites comuns de subscrição e serviço do A
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: f7fefecddaf50feda247dd711505aef1b4f206f0
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254323"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357467"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviço do Azure, quotas e constrangimentos
 

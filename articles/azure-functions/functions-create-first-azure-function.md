@@ -1,27 +1,27 @@
 ---
-title: Crie sua primeira função sem servidor a partir do portal do Azure
+title: Crie a sua primeira função sem servidor estoque do portal Azure
 description: Saiba como criar a sua primeira Função do Azure para execução sem servidor através do portal do Azure.
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ms.openlocfilehash: 3e5513d8730f455b220fa480eb99ce9c29216210
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769375"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356243"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
-As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. Neste artigo, saiba como usar as funções para criar uma função "Olá, mundo" no portal do Azure.
+As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. Neste artigo, aprenda a usar funções para criar uma função de "olá mundo" no portal Azure.
 
 ![Criar uma aplicação de função no portal do Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> C#os desenvolvedores devem considerar [a criação de sua primeira função no Visual Studio 2019](functions-create-your-first-function-visual-studio.md) em vez de no Portal. 
+> C#os desenvolvedores devem considerar [a criação da sua primeira função no Visual Studio 2019](functions-create-your-first-function-visual-studio.md) em vez de no portal. 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -29,7 +29,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com> com a sua conta 
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Precisa de uma aplicação Function App para alojar a execução das suas funções. Um aplicativo de funções permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
+Precisa de uma aplicação Function App para alojar a execução das suas funções. Uma aplicação de função permite-lhe agrupar funções como uma unidade lógica para uma gestão mais fácil, implementação, escalae e partilha de recursos.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -39,7 +39,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Expanda a sua nova aplicação de funções, selecione o botão **+** junto a **Funções**, escolha **No portal** e selecione **Continuar**.
 
-    ![Início rápido de funções para escolher uma plataforma.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Funciona rapidamente para escolher uma plataforma.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
 1. Escolha **WebHook + API** e selecione **Criar**.
 
@@ -71,9 +71,9 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Você criou um aplicativo de funções com uma função simples disparada por HTTP.  
+Criou uma aplicação de função com uma função simples de http desencadeada.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

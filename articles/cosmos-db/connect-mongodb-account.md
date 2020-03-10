@@ -1,6 +1,6 @@
 ---
-title: Conectar um aplicativo MongoDB ao Azure Cosmos DB
-description: Saiba como conectar um aplicativo do MongoDB a Azure Cosmos DB obtendo a cadeia de conexão do portal do Azure
+title: Ligue uma aplicação MongoDB ao Azure Cosmos DB
+description: Saiba como ligar uma aplicação MongoDB ao Azure Cosmos DB obtendo a cadeia de ligação do portal Azure
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,67 +9,67 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 0f2cd1b7228f2cc9cadb84232222f658a512a81f
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872167"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373843"
 ---
-# <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar um aplicativo MongoDB ao Azure Cosmos DB
+# <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligue uma aplicação MongoDB ao Azure Cosmos DB
 Saiba como ligar a aplicação MongoDB a um Azure Cosmos DB com uma cadeia de ligação do MongoDB. Em seguida, pode utilizar uma base de dados Azure Cosmos como arquivo de dados para a aplicação MongoDB. 
 
 Este tutorial fornece duas formas de recuperar informações da cadeia de ligação:
 
-- [O método de início rápido](#QuickstartConnection), para uso com os drivers .net, Node. js, Shell do MongoDB, Java e Python
-- [O método de cadeia de conexão personalizada](#GetCustomConnection), para uso com outros drivers
+- [O método de arranque rápido](#QuickstartConnection), para uso com .NET, Node.js, MongoDB Shell, Java e Python
+- O método de cadeia de [ligação personalizado,](#GetCustomConnection)para utilização com outros condutores
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure. Se você não tiver uma conta do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) agora mesmo. 
-- Uma conta do cosmos. Para obter instruções, consulte [criar um aplicativo Web usando a API do Azure Cosmos DB para MongoDB e SDK do .net](create-mongodb-dotnet.md).
+- Uma conta do Azure. Se não tiver uma conta Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) agora. 
+- Uma conta cosmos. Para obter instruções, consulte Construir uma aplicação web utilizando a [API do Azure Cosmos DB para MongoDB e .NET SDK](create-mongodb-dotnet.md).
 
-## <a id="QuickstartConnection"></a>Obter a cadeia de conexão do MongoDB usando o início rápido
-1. Em um navegador da Internet, entre no [portal do Azure](https://portal.azure.com).
-2. Na folha **Azure Cosmos DB** , selecione a API. 
-3. No painel esquerdo da folha da conta, clique em **início rápido**. 
-4. Escolha sua plataforma ( **.net**, **node. js**, **shell do MongoDB**, **Java**, **Python**). Se você não vir o driver ou a ferramenta listada, não se preocupe, pois documentamos continuamente mais trechos de código de conexão. Faça um comentário abaixo sobre o que você gostaria de ver. Para saber como criar sua própria conexão, leia [obter as informações da cadeia de conexão da conta](#GetCustomConnection).
-5. Copie e cole o trecho de código em seu aplicativo MongoDB.
+## <a id="QuickstartConnection"></a>Obtenha a cadeia de ligação MongoDB usando o arranque rápido
+1. Num navegador de Internet, inscreva-se no [portal Azure.](https://portal.azure.com)
+2. Na lâmina **Azure Cosmos DB,** selecione a API. 
+3. No painel esquerdo da lâmina da conta, clique em **arranque rápido**. 
+4. Escolha a sua plataforma ( **.NET,** **Node.js,** **MongoDB Shell,** **Java,** **Python).** Se não vir o seu controlador ou ferramenta listado, não se preocupe- documentamos continuamente mais fragmentos de código de ligação. Por favor, comente abaixo o que gostaria de ver. Para aprender a criar a sua própria ligação, leia [as informações de cadeia de ligação da conta](#GetCustomConnection).
+5. Copie e cole o código na sua aplicação MongoDB.
 
-    ![Folha início rápido](./media/connect-mongodb-account/QuickStartBlade.png)
+    ![Lâmina de arranque rápida](./media/connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a>Obter a cadeia de conexão do MongoDB para personalizar
-1. Em um navegador da Internet, entre no [portal do Azure](https://portal.azure.com).
-2. Na folha **Azure Cosmos DB** , selecione a API. 
-3. No painel esquerdo da folha da conta, clique em **cadeia de conexão**. 
-4. A folha **cadeia de conexão** é aberta. Ele tem todas as informações necessárias para se conectar à conta usando um driver para MongoDB, incluindo uma cadeia de conexão preconstruída.
+## <a id="GetCustomConnection"></a>Obtenha a cadeia de ligação MongoDB para personalizar
+1. Num navegador de Internet, inscreva-se no [portal Azure.](https://portal.azure.com)
+2. Na lâmina **Azure Cosmos DB,** selecione a API. 
+3. No painel esquerdo da lâmina da conta, clique em **Fio de Ligação**. 
+4. A lâmina de corda de **ligação** abre- se. Dispõe de todas as informações necessárias para se ligar à conta utilizando um controlador para o MongoDB, incluindo uma cadeia de ligação pré-construída.
 
     ![Painel Cadeia de Ligação](./media/connect-mongodb-account/ConnectionStringBlade.png)
 
-## <a name="connection-string-requirements"></a>Requisitos de cadeia de conexão
+## <a name="connection-string-requirements"></a>Requisitos de cordas de ligação
 > [!Important]
-> O Azure Cosmos DB tem padrões e requisitos de segurança estritos. Azure Cosmos DB contas exigem autenticação e comunicação segura via *SSL*. 
+> A Azure Cosmos DB tem rigorosos requisitos e padrões de segurança. As contas Da Azure Cosmos DB requerem autenticação e comunicação segura via *SSL*. 
 >
 >
 
-O Azure Cosmos DB dá suporte ao formato de URI de cadeia de conexão padrão do MongoDB, com alguns requisitos específicos: Azure Cosmos DB contas exigem autenticação e comunicação segura via SSL. Portanto, o formato da cadeia de conexão é:
+A Azure Cosmos DB suporta o formato de cadeia de cordas de ligação MongoDB padrão URI, com um par de requisitos específicos: as contas Azure Cosmos DB requerem autenticação e comunicação segura via SSL. Então, o formato de cadeia de ligação é:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
-Os valores dessa cadeia de caracteres estão disponíveis na folha **cadeia de conexão** mostrada anteriormente:
+Os valores desta cadeia estão disponíveis na lâmina de corda de **ligação** mostrada anteriormente:
 
-* Nome de usuário (obrigatório): Cosmos nome da conta.
-* Senha (obrigatório): senha da conta do cosmos.
-* Host (obrigatório): FQDN da conta Cosmos.
-* Porta (obrigatório): 10255.
-* Banco de dados (opcional): o banco de dados usado pela conexão. Se nenhum banco de dados for fornecido, o banco de dados padrão será "Test".
-* SSL = true (obrigatório)
+* Nome de utilizador (obrigatório): Nome da conta Cosmos.
+* Palavra-passe (necessária): Senha de conta Cosmos.
+* Anfitrião (obrigatório): FQDN da conta Cosmos.
+* Porto (obrigatório): 10255.
+* Base de dados (opcional): Base de dados que a ligação utiliza. Se não for fornecida nenhuma base de dados, a base de dados padrão é "teste".
+* ssl=verdadeiro (obrigatório)
 
-Por exemplo, considere a conta mostrada na folha **cadeia de conexão** . Uma cadeia de conexão válida é:
+Por exemplo, considere a conta indicada na lâmina de fio de **ligação.** Uma cadeia de ligação válida é:
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
-- Saiba como [usar o Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para MongoDB.
-- Explore os [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.
+- Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para MongoDB.
+- Aprenda a [usar robo 3T](mongodb-robomongo.md) com API da Azure Cosmos DB para MongoDB.
+- Explore [as amostras](mongodb-samples.md) de MongoDB com a API da Azure Cosmos DB para o MongoDB.

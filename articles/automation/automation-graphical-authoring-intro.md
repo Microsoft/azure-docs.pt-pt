@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272977"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373374"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Autoria gráfica em Automação Azure
 
@@ -39,11 +39,11 @@ O controlo de Lona permite-lhe desenhar o seu livro de corridas. Pode adicionar 
 
 O controlo da Biblioteca permite-lhe selecionar [atividades](#activities) para adicionar ao seu livro de execução. Adicione-os à tela, onde pode ligá-los a outras atividades. O controlo da Biblioteca inclui as secções definidas na tabela seguinte.
 
-| Section | Descrição |
+| Secção | Descrição |
 |:--- |:--- |
 | Cmdlets |Todos os cmdlets que podem ser usados no seu livro de execução. Os cmdlets são organizados por módulo. Todos os módulos instalados na sua conta Automation estão disponíveis. |
 | Runbooks |Os livros na sua conta de Automação. Pode adicionar estes livros de execução à tela para serem usados como livros infantis. Apenas são mostrados livros do mesmo tipo de núcleo que o livro de execução que está a ser editado. Para livros gráficos, apenas são mostrados livros de execução baseados na PowerShell. Para os livros de execução de fluxo de trabalho de PowerShell, apenas são apresentados livros de execução baseados em PowerShell Workflow. |
-| Elementos |Os ativos de [automação](/previous-versions/azure/dn939988(v=azure.100)) na sua conta Automation que pode utilizar no seu livro de execução. Adicionar um ativo a um livro de execução adiciona uma atividade de fluxo de trabalho que obtém o ativo selecionado. No caso de ativos variáveis, pode selecionar se deve adicionar uma atividade para obter a variável ou definir a variável. |
+| Inquilino |Os ativos de [automação](/previous-versions/azure/dn939988(v=azure.100)) na sua conta Automation que pode utilizar no seu livro de execução. Adicionar um ativo a um livro de execução adiciona uma atividade de fluxo de trabalho que obtém o ativo selecionado. No caso de ativos variáveis, pode selecionar se deve adicionar uma atividade para obter a variável ou definir a variável. |
 | Controlo do livro de corridas |Controle as atividades que podem ser usadas no seu atual livro de execução. Uma atividade de Junção requer várias inputs e espera até que todos tenham terminado antes de continuar o fluxo de trabalho. Uma atividade de Código executa uma ou mais linhas de PowerShell ou PowerShell Workflow code, dependendo do tipo de livro gráfico. Pode utilizar esta atividade para código personalizado ou para funcionalidades difíceis de alcançar com outras atividades. |
 
 ### <a name="configuration-control"></a>Controlo de configuração
@@ -216,7 +216,7 @@ O exemplo abaixo faz parte de um livro de execução que inicia um conjunto de m
 
 Forma-se um ciclo quando uma atividade de destino se liga à sua atividade de origem ou a outra atividade que eventualmente liga à sua origem. A autoria gráfica não suporta atualmente ciclos. Se o seu livro de execução tiver um ciclo, economiza corretamente, mas recebe um erro quando funciona.
 
-![Cíclico](media/automation-graphical-authoring-intro/runbook-cycle.png)
+![Ciclo de](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="data-sharing-between-activities"></a>Partilha de dados entre atividades
 
@@ -266,7 +266,7 @@ Cada parâmetro de entrada é definido pelas propriedades do quadro seguinte:
 | Nome | Necessário. O nome do parâmetro. O nome deve ser único dentro do livro de execução. Deve começar com uma letra e pode conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
 | Descrição |Opcional. Descrição do propósito para o parâmetro de entrada. |
 | Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O portal Azure fornece um controlo adequado para o tipo de dados para cada parâmetro quando solicita a entrada. Os tipos de parâmetros suportados são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dados não for selecionado, não se leciona a String.|
-| Obrigatório | Opcional. A definição especifica se deve ser previsto um valor para o parâmetro. Se escolher **sim,** deve ser fornecido um valor quando o livro de execução for iniciado. Se escolher **não,** não é necessário um valor quando o livro de execução é iniciado, e um valor predefinido pode ser usado. O livro de execução não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor predefinido. |
+| Mandatory | Opcional. A definição especifica se deve ser previsto um valor para o parâmetro. Se escolher **sim,** deve ser fornecido um valor quando o livro de execução for iniciado. Se escolher **não,** não é necessário um valor quando o livro de execução é iniciado, e um valor predefinido pode ser usado. O livro de execução não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor predefinido. |
 | Default Value | Opcional. O valor utilizado para um parâmetro se não for passado quando o livro de execução é iniciado. Para definir um valor predefinido, escolha **Custom**. Selecione **Nenhum** se não quiser fornecer qualquer valor predefinido. |
 
 ### <a name="runbook-output"></a>Resultado do runbook
@@ -435,7 +435,7 @@ Publique um livro de execução gráfico abrindo o livro de execução para edi�
 
 Tem a opção de reverter para a versão publicada de um livro de execução. Esta operação deita fora quaisquer alterações feitas desde que o livro de execução foi publicado pela última vez. Substitui a versão Draft do livro de execução pela versão Publicada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Para começar a utilizar runbooks do Fluxo de Trabalho do PowerShell, veja [O meu primeiro runbook do Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md).
 * Para começar com livros gráficos, veja [o meu primeiro livro de corridas gráficos.](automation-first-runbook-graphical.md)

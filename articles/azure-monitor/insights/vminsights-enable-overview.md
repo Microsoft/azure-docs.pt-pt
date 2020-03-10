@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
 ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669578"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362178"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Ativar o Monitor Azure para VMs (pré-visualização) visão geral
 
@@ -35,24 +35,24 @@ Antes de começar, certifique-se de que compreende as informações nas secçõe
 
 O Monitor Azure para VMs suporta um espaço de trabalho de Log Analytics nas seguintes regiões:
 
-- E.U.A. Centro-Oeste
-- E.U.A. Oeste
-- E.U.A.Oeste 2
-- E.U.A. Centro-Sul
-- E.U.A. Leste
+- EUA Centro-Oeste
+- EUA Oeste
+- EUA Oeste 2
+- EUA Centro-Sul
+- EUA Leste
 - E.U.A. Leste 2
-- E.U.A. Central
-- E.U.A. Centro-Norte
+- EUA Central
+- EUA Centro-Norte
 - Canadá Central
-- Sul do Reino Unido
+- Reino Unido Sul
 - Europa do Norte
 - Europa Ocidental
-- Ásia Leste
-- Ásia Sudeste
+- Ásia Oriental
+- Sudeste Asiático
 - Índia Central
 - Leste do Japão
 - Leste da Austrália
-- Austrália Sudeste
+- Sudeste da Austrália
 
 >[!NOTE]
 >Pode implantar VMs Azure de qualquer região. Estes VMs não se limitam às regiões suportadas pelo espaço de trabalho Log Analytics.
@@ -82,12 +82,12 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que o Azure Monit
 
 |Versão do SO |Desempenho |Maps |
 |-----------|------------|-----|
-|Windows Server 2019 | X | X |
+|Windows Server de 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
 |Windows Server 2016 | X | X |
 |Windows Server 2012 R2 | X | X |
 |Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
+|Windows Server 2008 R2 | X | X|
 |Windows 10 1803 | X | X |
 |Windows 8.1 | X | X |
 |Windows 8 | X | X |
@@ -165,7 +165,7 @@ Num ambiente híbrido, pode descarregar e instalar manualmente o agente Dependen
 
 A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa suporta num ambiente híbrido.
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
 | Agentes do Windows | Sim | Juntamente com o [agente Log Analytics para Windows,](../../azure-monitor/platform/log-analytics-agent.md)os agentes do Windows precisam do agente Dependency. Para mais informações, consulte [sistemas operativos suportados.](#supported-operating-systems) |
 | Agentes do Linux | Sim | Juntamente com o [agente log analytics do Linux,](../../azure-monitor/platform/log-analytics-agent.md)os agentes linux precisam do agente dependency. Para mais informações, consulte [sistemas operativos suportados.](#supported-operating-systems) |
@@ -175,7 +175,7 @@ Pode descarregar o agente dependency a partir destes locais:
 
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAa4C3A6A41DA5C6A |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Portal do | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAa4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A66638F3F9B449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
@@ -257,6 +257,6 @@ Para obter mais informações sobre a recolha e utilização de dados, consulte 
 
 Agora que permitiu a monitorização do seu VM, a informação de monitorização está disponível para análise no Monitor Azure para VMs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para aprender a utilizar a função de monitorização do Desempenho, consulte o Monitor View Azure para desempenho dos [VMs](vminsights-performance.md). Para visualizar as dependências de aplicações descobertas, consulte o View Azure Monitor para o Mapa de [VMs](vminsights-maps.md).

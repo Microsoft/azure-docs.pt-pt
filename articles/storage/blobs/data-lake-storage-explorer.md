@@ -9,11 +9,11 @@ ms.date: 01/23/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fca9fa8a964c6c9d69ffbb3036bd4774e0d1bd34
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761153"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381971"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Azure Storage Explorer para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -22,15 +22,15 @@ Este artigo mostra-lhe como usar o [Azure Storage Explorer](https://azure.micros
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento que tem o namespace hierárquico (HNS) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
+> * Uma subscrição do Azure. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+> * Uma conta de armazenamento que tem espaço de nome hierárquico (HNS) ativado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
 > * Azure Storage Explorer instalado no seu computador local. Para instalar o Explorador de Armazenamento do Azure para Windows, Macintosh ou Linux, consulte [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Inscreva-se no Explorador de Armazenamento
 
 Ao iniciar o Explorador de Armazenamento, surge a janela **Explorador de Armazenamento do Microsoft Azure - Ligar**. Embora o Storage Explorer forneça várias formas de se conectar às contas de armazenamento, apenas uma forma é suportada atualmente para a gestão de ACLs.
 
-|Tarefa|Finalidade|
+|Tarefa|Objetivo|
 |---|---|
 |Adicionar uma Conta do Azure | Redireciona-o para a página de inscrição da sua organização para o autenticar ao Azure. Atualmente este é o único método de autenticação suportado se quiser gerir e definir ACLs.|
 |Utilizar uma cadeia de ligação ou um URI de assinatura de acesso partilhado | Pode ser utilizado para aceder diretamente a um contentor ou conta de armazenamento com um token SAS ou uma cadeia de ligação partilhada. |
@@ -106,9 +106,9 @@ Em ambas as categorias, existem três permissões que pode atribuir em ficheiros
 
 Pode gerir permissões em diretórios individuais, bem como ficheiros individuais, que são o que lhe permite um controlo de acesso fino. O processo de gestão de permissões tanto para diretórios como para ficheiros é o mesmo que acima descrito. Clique no ficheiro ou no diretório que pretende gerir as permissões e seguir o mesmo processo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprenda as listas de controlo de acesso no Data Lake Storage Gen2.
 
 > [!div class="nextstepaction"]
-> [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) (Controlo de acesso no Azure Data Lake Storage Gen2)
+> [Controlo de Acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

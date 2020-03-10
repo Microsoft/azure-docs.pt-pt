@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/23/2020
 ms.author: juliako
 ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251379"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359510"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -44,7 +44,7 @@ Se planeia proteger o seu conteúdo utilizando encriptação dinâmica dos Media
 
 O seu cliente de streaming pode especificar os seguintes formatos HLS:
 
-|Protocolo|Exemplo|
+|Protocol|Exemplo|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
@@ -54,7 +54,7 @@ O seu cliente de streaming pode especificar os seguintes formatos HLS:
 
 O seu cliente de streaming pode especificar os seguintes formatos MPEG-DASH:
 
-|Protocolo|Exemplo|
+|Protocol|Exemplo|
 |---|---|
 |MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
@@ -63,7 +63,7 @@ O seu cliente de streaming pode especificar os seguintes formatos MPEG-DASH:
 
 O seu cliente de streaming pode especificar os seguintes formatos Smooth Streaming:
 
-|Protocolo|Notas/exemplos| 
+|Protocol|Notas/exemplos| 
 |---|---|
 |Transmissão em Fluxo Uniforme| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |Smooth Streaming 2.0 (manifesto legado)|Por predefinição, o formato manifesto Smooth Streaming contém a etiqueta de repetição (r-tag). No entanto, alguns jogadores não apoiam a `r-tag`. Os clientes com estes jogadores podem usar um formato que desativa a r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
@@ -300,7 +300,7 @@ Consulte a [comunidade azure media services](media-services-community.md) para v
 
 Você pode abrir um bilhete de apoio navegando para [novo pedido](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de apoio .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!NOTE]
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.

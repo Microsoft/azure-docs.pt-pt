@@ -1,6 +1,6 @@
 ---
-title: Cotas e limites de serviço-lote do Azure | Microsoft Docs
-description: Saiba mais sobre as cotas, os limites e as restrições do lote do Azure padrão e como solicitar aumentos de cota
+title: Quotas e limites de serviço - Lote Azure / Microsoft Docs
+description: Conheça as quotas, limites e constrangimentos do Lote Azure padrão, e como solicitar aumentos de quota
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -15,136 +15,136 @@ ms.date: 08/13/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: c8a78acfa1f3e7332cee337ae1a82ee365fe356a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022975"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357158"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
-Assim como ocorre com outros serviços do Azure, há limites em determinados recursos associados ao serviço de lote. Muitos desses limites são cotas padrão aplicadas pelo Azure no nível de assinatura ou conta. Este artigo discute esses padrões e como você pode solicitar aumentos de cota.
+Tal como acontece com outros serviços azure, existem limites em certos recursos associados ao serviço Batch. Muitos destes limites são quotas por defeito aplicadas pelo Azure ao nível da subscrição ou da conta. Este artigo discute esses incumprimentos e como pode solicitar aumentos de quota.
 
-Lembre-se dessas cotas ao projetar e escalar verticalmente suas cargas de trabalho do lote. Por exemplo, se o pool não alcançar o número de destino de nós de computação que você especificou, você pode ter atingido o limite de cota de núcleo para sua conta do lote.
+Tenha em mente estas quotas à medida que projeta e amplia as suas cargas de trabalho do Lote. Por exemplo, se a sua piscina não atingir o número-alvo de nós computacionais que especificou, pode ter atingido o limite de quota central da sua conta Batch.
 
 Pode executar várias cargas de trabalho do Batch numa única conta do Batch ou distribuí-las entre contas do Batch que estejam na mesma subscrição, mas em diferentes regiões do Azure.
 
-Se você planeja executar cargas de trabalho de produção no lote, talvez seja necessário aumentar uma ou mais das cotas acima do padrão. Se você quiser gerar uma cota, poderá abrir uma solicitação de atendimento ao [cliente](#increase-a-quota) online sem encargos.
+Se planeia executar cargas de trabalho de produção em Batch, poderá ter de aumentar uma ou mais quotas acima do padrão. Se quiser aumentar uma quota, pode abrir um pedido de apoio ao [cliente](#increase-a-quota) online gratuitamente.
 
 ## <a name="resource-quotas"></a>Quotas de recursos
 
-Uma quota é um limite de crédito, não uma garantia de capacidade. Se você tiver necessidades de capacidade em grande escala, entre em contato com o suporte do Azure.
+Uma quota é um limite de crédito, não uma garantia de capacidade. Se tiver necessidades de capacidade em larga escala, contacte o suporte do Azure.
 
-Observe também que as cotas não são valores garantidos. As cotas podem variar com base nas alterações do serviço de lote ou de uma solicitação de usuário para alterar um valor de cota.
+Note também que as quotas não são valores garantidos. As quotas podem variar em função das alterações do serviço 'Lote' ou de um pedido do utilizador para alterar o valor da quota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="cores-quotas-in-user-subscription-mode"></a>Cotas de núcleos no modo de assinatura do usuário
+### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de cores no modo de subscrição do utilizador
 
-Se você criou uma conta do lote com o modo de alocação do pool definido como **assinatura do usuário**, as cotas são aplicadas de forma diferente. Nesse modo, as VMs do lote e outros recursos são criados diretamente em sua assinatura quando um pool é criado. As cotas de núcleos do lote do Azure não se aplicam a uma conta criada neste modo. Em vez disso, as cotas em sua assinatura para núcleos de computação regionais e outros recursos são aplicadas. Saiba mais sobre essas cotas na [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Se criou uma conta Batch com o modo de alocação de piscina definido para **a subscrição do utilizador,** as quotas são aplicadas de forma diferente. Neste modo, os VMs de Lote e outros recursos são criados diretamente na sua subscrição quando uma piscina é criada. As quotas de núcleos do Lote Azure não se aplicam a uma conta criada neste modo. Em vez disso, aplicam-se as quotas na sua subscrição para núcleos de computação regional e outros recursos. Saiba mais sobre estas quotas nos [limites de subscrição e serviço do Azure, quotas e constrangimentos.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-## <a name="pool-size-limits"></a>Limites de tamanho do pool
+## <a name="pool-size-limits"></a>Limites do tamanho da piscina
 
-Os limites de tamanho do pool são definidos pelo serviço de lote. Ao contrário das [cotas de recursos](#resource-quotas), esses valores não podem ser alterados. Somente os pools com comunicação entre nós e imagens personalizadas têm restrições diferentes da cota padrão.
+Os limites do tamanho da piscina são definidos pelo serviço Batch. Ao contrário das quotas de [recursos,](#resource-quotas)estes valores não podem ser alterados. Apenas piscinas com comunicação inter-nó e imagens personalizadas têm restrições diferentes da quota padrão.
 
 | **Recurso** | **Limite Máximo** |
 | --- | --- |
-| **Nós de computação no [pool habilitado para comunicação entre nós](batch-mpi.md)**  ||
-| Modo de alocação do pool do serviço de lote | 100 |
-| Modo de alocação do pool de assinaturas do lote | 80 |
-| **Nós de computação no [pool criado com um recurso de imagem gerenciada](batch-custom-images.md)** <sup>1</sup> ||
+| **Nóscomputa em piscina ativada por [comunicação inter-nó](batch-mpi.md)**  ||
+| Modo de atribuição de piscina de serviço de lote | 100 |
+| Modo de atribuição de piscina de subscrição de lote | 80 |
+| **Computação de sos em [piscina criada com um recurso](batch-custom-images.md)** de imagem gerido<sup>1</sup> ||
 | Nós dedicados | 2000 |
 | Nós de baixa prioridade | 1000 |
 
-<sup>1</sup> para pools que não são habilitados para comunicação entre nós.
+<sup>1</sup> Para piscinas que não estejam ativadas para a comunicação inter-nó.
 
 ## <a name="other-limits"></a>Outros limites
 
-Limites adicionais definidos pelo serviço de lote. Ao contrário das [cotas de recursos](#resource-quotas), esses valores não podem ser alterados.
+Limites adicionais definidos pelo serviço Batch. Ao contrário das quotas de [recursos,](#resource-quotas)estes valores não podem ser alterados.
 
 | **Recurso** | **Limite Máximo** |
 | --- | --- |
-| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 x número de núcleos de nó |
-| [Aplicativos](batch-application-packages.md) por conta do lote | 20 |
-| Pacotes de aplicativos por aplicativo | 40 |
-| Pacotes de aplicativos por pool | 10 |
-| Tempo de vida máximo da tarefa | 180 dias<sup>1</sup> |
-| [Montagens](virtual-file-mount.md) por nó de computação | 10 |
+| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de cálculo | 4 x número de núcleos de nó |
+| [Aplicações](batch-application-packages.md) por conta Lote | 20 |
+| Pacotes de aplicação por aplicação | 40 |
+| Pacotes de aplicação por piscina | 10 |
+| Duração máxima da tarefa | 180 dias<sup>1</sup> |
+| [Montes](virtual-file-mount.md) por nó de computação | 10 |
 
-<sup>1</sup> o tempo de vida máximo de uma tarefa, desde quando ela é adicionada ao trabalho até ser concluída, é de 180 dias. As tarefas concluídas persistem por sete dias; os dados para tarefas não concluídas no tempo de vida máximo não estão acessíveis.
+<sup>1</sup> O tempo máximo de vida de uma tarefa, a partir do momento em que é adicionado ao trabalho até ao momento em que completa, é de 180 dias. As tarefas concluídas persistem durante sete dias; Os dados relativos a tarefas não concluídas no prazo máximo de vida não são acessíveis.
 
-## <a name="view-batch-quotas"></a>Exibir cotas do lote
+## <a name="view-batch-quotas"></a>Ver quotas de lote
 
-Exiba suas cotas de conta do lote no [portal do Azure][portal].
+Consulte as quotas da sua conta Batch no [portal Azure][portal].
 
-1. Selecione **contas do lote** no portal e, em seguida, selecione a conta do lote em que você está interessado.
-1. Selecione **cotas** no menu da conta do lote.
-1. Exibir as cotas atualmente aplicadas à conta do lote
+1. Selecione **as contas do Lote** no portal e, em seguida, selecione a conta 'Lote' em que está interessado.
+1. Selecione **Quotas** no menu da conta Batch.
+1. Ver as quotas atualmente aplicadas à conta Lote
 
-    ![Cotas da conta do lote][account_quotas]
+    ![Quotas de conta de lote][account_quotas]
 
-## <a name="increase-a-quota"></a>Aumentar uma cota
+## <a name="increase-a-quota"></a>Aumentar uma quota
 
-Siga estas etapas para solicitar um aumento de cota para sua conta do lote ou sua assinatura usando o [portal do Azure][portal]. O tipo de aumento de cota depende do modo de alocação de pool da sua conta do lote. Para solicitar um aumento de cota, você deve incluir a série de VMs para a qual deseja aumentar a cota. Quando o aumento da cota é aplicado, ele é aplicado a todas as séries de VMs.
+Siga estes passos para solicitar um aumento de quota para a sua conta Batch ou a sua subscrição utilizando o [portal Azure][portal]. O tipo de aumento de quota depende do modo de atribuição de piscina da sua conta Batch. Para solicitar um aumento de quota, deve incluir a série VM para a sua necessidade de aumentar a quota. Quando o aumento da quota é aplicado, é aplicado a todas as séries de VMs.
 
-### <a name="increase-cores-quota-in-batch"></a>Aumentar a cota de núcleos no lote 
+### <a name="increase-cores-quota-in-batch"></a>Aumentar a quota de núcleos em Lote 
 
-1. Selecione o bloco **ajuda + suporte** no painel do portal ou o ponto de interrogação ( **?** ) no canto superior direito do Portal.
-1. Selecione **nova solicitação de suporte** > **noções básicas**.
-1. Em **noções básicas**:
+1. Selecione o azulejo **de suporte Help +** no seu portal dashboard, ou o ponto de interrogação ( **?** ) no canto superior direito do portal.
+1. Selecione **novo pedido** de suporte > **Basics**.
+1. No **Básico:**
    
-    a. **Tipo de problema** > **limites de serviço e assinatura (cotas)**
+    a. **Tipo de emissão** > **Serviço e limites de subscrição (quotas)**
    
     b. Selecione a sua subscrição.
    
-    c. **Tipo de cota** > **lote**
+    c. **Lote** de ** > ** tipo de quota
       
     Selecione **Seguinte**.
     
-1. Na **detalhes**:
+1. Em **Detalhes**:
       
-    a. Em **fornecer detalhes**, especifique o local, o tipo de cota e a conta do lote.
+    a. Em **fornecer detalhes**, especifique a localização, o tipo de quota e a conta Lote.
     
-    ![Aumento da cota de lote][quota_increase]
+    ![Aumento da quota de lote][quota_increase]
 
-    Os tipos de cota incluem:
+    Os tipos de quotas incluem:
 
-    * **Por conta do lote**  
-        Valores específicos de uma única conta do lote, incluindo núcleos dedicados e de baixa prioridade, e o número de trabalhos e pools.
+    * **Conta Por Lote**  
+        Valores específicos de uma única conta batch, incluindo núcleos dedicados e de baixa prioridade, e número de empregos e piscinas.
         
     * **Por região**  
-        Valores que se aplicam a todas as contas do lote em uma região e incluem o número de contas do lote por região por assinatura.
+        Valores aplicáveis a todas as contas do Lote numa região e inclui o número de contas de Lote por região por subscrição.
 
-    A cota de baixa prioridade é um único valor em todas as séries da VM. Se você precisar de SKUs restritos, deverá selecionar **núcleos de baixa prioridade** e incluir as famílias de VMs a serem solicitadas.
+    A quota de baixa prioridade é um valor único em todas as séries VM. Se precisar de SKUs constrangidos, deve selecionar **núcleos de baixa prioridade** e incluir as famílias VM a solicitar.
 
-    b. Selecione uma **severidade** de acordo com o impacto do seu [negócio][support_sev].
+    b. Selecione uma **Severidade** de acordo com o impacto do seu [negócio][support_sev].
 
     Selecione **Seguinte**.
 
-1. Em **informações de contato**:
+1. Em informações de **contacto:**
    
-    a. Selecione um **método de contato preferencial**.
+    a. Selecione um método de **contacto preferido**.
    
-    b. Verifique e insira os detalhes de contato necessários.
+    b. Verifique e introduza os dados de contacto necessários.
    
-    Selecione **criar** para enviar a solicitação de suporte.
+    Selecione **Criar** para submeter o pedido de apoio.
 
-Depois de enviar sua solicitação de suporte, o suporte do Azure entrará em contato com você. As solicitações de cota podem ser concluídas em alguns minutos ou até dois dias úteis.
+Assim que tiver apresentado o seu pedido de apoio, o suporte do Azure entrará em contacto consigo. Os pedidos de quota podem ser concluídos dentro de alguns minutos ou até dois dias úteis.
 
-## <a name="related-quotas-for-vm-pools"></a>Cotas relacionadas para pools de VMs
+## <a name="related-quotas-for-vm-pools"></a>Quotas relacionadas para piscinas vm
 
-Os pools do lote na configuração de máquina virtual implantados em uma rede virtual do Azure alocam automaticamente recursos de rede do Azure adicionais. Os seguintes recursos são necessários para cada nó de pool de 50 em uma rede virtual:
+Os conjuntos de lotes na Configuração da Máquina Virtual implantados numa rede virtual Azure atribuem automaticamente recursos adicionais de rede Azure. São necessários os seguintes recursos para cada 50 nós de piscina numa rede virtual:
 
 * Um [grupo de segurança de rede](../virtual-network/security-overview.md#network-security-groups)
 * Um [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* Um [balanceador de carga](../load-balancer/load-balancer-overview.md)
+* Um [equilibrador de carga](../load-balancer/load-balancer-overview.md)
 
-Esses recursos são alocados na assinatura que contém a rede virtual fornecida ao criar o pool do lote. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Se você planejar implantações de pool grande em uma rede virtual, verifique as cotas da assinatura para esses recursos. Se necessário, solicite um aumento no portal do Azure selecionando **ajuda + suporte**.
+Estes recursos são atribuídos na subscrição que contém a rede virtual fornecida na criação do pool Batch. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Se planeia grandes implantações de piscinas numa rede virtual, verifique as quotas de subscrição para estes recursos. Se necessário, solicite um aumento no portal Azure selecionando **Ajuda + suporte**.
 
 
 ## <a name="related-topics"></a>Tópicos relacionados
-* [Criar uma conta do lote do Azure usando o portal do Azure](batch-account-create-portal.md)
-* [Visão geral do recurso de lote do Azure](batch-api-basics.md)
+* [Crie uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md)
+* [Visão geral da funcionalidade do Lote Azure](batch-api-basics.md)
 * [Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com

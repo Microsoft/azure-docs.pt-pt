@@ -1,6 +1,6 @@
 ---
-title: Extensão do driver NVIDIA GPU – VMs Linux do Azure
-description: Microsoft Azure extensão para instalar drivers NVIDIA GPU em VMs de computação da série N executando o Linux.
+title: Extensão do condutor da GPU da NVIDIA - VMs Azure Linux
+description: Extensão Microsoft Azure para instalar os pilotos gpu da NVIDIA em VMs computacionais da série N executando Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
@@ -14,27 +14,27 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073731"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383350"
 ---
-# <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de driver NVIDIA GPU para Linux
+# <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor da GPU da NVIDIA para o Linux
 
 ## <a name="overview"></a>Descrição geral
 
-Essa extensão instala drivers NVIDIA GPU em VMs da série N do Linux. Dependendo da família de VMs, a extensão instala os drivers CUDA ou GRID. Ao instalar os drivers NVIDIA usando essa extensão, você estará aceitando e concordando com os termos do [contrato de licença de usuário final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reiniciada para concluir a configuração do driver.
+Esta extensão instala os condutores de GPU da NVIDIA em VMs da série N Linux. Dependendo da família VM, a extensão instala os condutores CUDA ou GRID. Quando instala os controladores NVIDIA utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de Licença de Utilizador Final da [NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
 
-As instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](
+As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
-Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Windows](hpccompute-gpu-windows.md).
+Também está disponível uma extensão para instalar controladores GPU da NVIDIA em [VMs da série N do Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Essa extensão dá suporte aos seguintes distribuições de sistema operacional, dependendo do suporte de driver para a versão específica do sistema operacional.
+Esta extensão suporta os seguintes distros de SO, dependendo do suporte do condutor para a versão oS específica.
 
 | Distribuição | Versão |
 |---|---|
@@ -44,11 +44,11 @@ Essa extensão dá suporte aos seguintes distribuições de sistema operacional,
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão de Microsoft Azure para Drivers NVIDIA GPU requer que a VM de destino esteja conectada à Internet e tenha acesso.
+A extensão Microsoft Azure para os controladores GPU da NVIDIA requer que o VM alvo esteja ligado à internet e tenha acesso.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão.
+O seguinte JSON mostra o esquema para a extensão.
 
 ```json
 {
@@ -75,19 +75,19 @@ O JSON a seguir mostra o esquema para a extensão.
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| tipo | NvidiaGpuDriverLinux | string |
+| publicador | Microsoft.HpcCompute | Cadeia de caracteres |
+| tipo | NvidiaGpuDriverLinux | Cadeia de caracteres |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Definições
 
-Todas as configurações são opcionais. O comportamento padrão é não atualizar o kernel se não for necessário para a instalação do driver, instalar o driver mais recente com suporte e o kit de ferramentas do CUDA (conforme aplicável).
+Todas as definições são opcionais. O comportamento predefinido é não atualizar o núcleo se não for necessário para a instalação do controlador, instalar o mais recente controlador suportado e o conjunto de ferramentas CUDA (conforme aplicável).
 
-| Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
+| Nome | Descrição | Default Value | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Atualizar o kernel mesmo se não for necessário para a instalação do driver | false | VERDADEIRO, FALSO | boolean |
-| driverVersion | NV: versão do driver de grade<br> NC/ND: versão do kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRADE: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
-| installCUDA | Instale o kit de ferramentas do CUDA. Somente relevante para VMs da série NC/ND. | true | VERDADEIRO, FALSO | boolean |
+| atualizandoOS | Atualize o núcleo mesmo que não seja necessário para a instalação do condutor | false | VERDADEIRO, FALSO | valor booleano |
+| driverVersion | NV: Versão do controlador grid<br> VERSÃO NC/ND: versão de kit de ferramentas CUDA. Os mais recentes controladores para o CUDA escolhido saem automaticamente instalados. | mais recente | GRELHA: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | Cadeia de caracteres |
+| instalarCUDA | Instale o conjunto de ferramentas CUDA. Apenas relevante para vMs da série NC/ND. | true | VERDADEIRO, FALSO | valor booleano |
 
 
 ## <a name="deployment"></a>Implementação
@@ -95,11 +95,11 @@ Todas as configurações são opcionais. O comportamento padrão é não atualiz
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager 
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a configuração pós-implantação.
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem a configuração da implementação do post.
 
-A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/resource-manager-template-child-resource.md) 
 
-O exemplo a seguir pressupõe que a extensão esteja aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo que se segue pressupõe que a extensão está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 ```json
 {
@@ -138,7 +138,7 @@ Set-AzVMExtension
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O exemplo a seguir espelha os exemplos de Azure Resource Manager e PowerShell acima e também adiciona configurações personalizadas como um exemplo de instalação de driver não padrão. Especificamente, ele atualiza o kernel do sistema operacional e instala um driver específico de versão do kit de ferramentas do CUDA.
+O exemplo que se segue espelha os exemplos acima do Gestor de Recursos Azure e powerShell e também adiciona configurações personalizadas como exemplo para a instalação do controlador não predefinido. Especificamente, atualiza o kernel OS e instala um controlador específico da versão cuda toolkit.
 
 ```azurecli
 az vm extension set `
@@ -155,9 +155,9 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
-Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando Azure PowerShell e CLI do Azure. Para ver o estado de implantação das extensões de uma determinada VM, execute o comando a seguir.
+Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell e o Azure CLI. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -175,22 +175,22 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 ### <a name="exit-codes"></a>Códigos de saída
 
-| Código de saída | Significado | Ação possível |
+| Código de Saída | Significado | Ação possível |
 | :---: | --- | --- |
-| 0 | Operação bem-sucedida |
-| 1 | Uso incorreto da extensão | Verificar log de saída de execução |
-| 10 | Linux Integration Services para Hyper-V e Azure não disponível ou instalado | Verificar saída de lspci |
-| 11 | GPU NVIDIA não encontrada neste tamanho de VM | Usar um [so e um tamanho de VM com suporte](../linux/n-series-driver-setup.md) |
-| 12 | Oferta de imagem sem suporte |
-| 13 | Tamanho da VM sem suporte | Usar uma VM da série N para implantar |
-| 14 | Operação malsucedida | Verificar log de saída de execução |
+| 0 | Operação bem sucedida |
+| 1 | Utilização incorreta da extensão | Verifique o registo de saída de execução |
+| 10 | Serviços de Integração Linux para Hiper-V e Azure não disponíveis ou instalados | Verifique a saída de lspci |
+| 11 | NVIDIA GPU não encontrada neste tamanho VM | Use um [tamanho VM suportado e OS](../linux/n-series-driver-setup.md) |
+| 12 | Oferta de imagem não suportada |
+| 13 | Tamanho VM não suportado | Use um VM da série N para implementar |
+| 14 | Operação infrutífera | Verifique o registo de saída de execução |
 
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre extensões, consulte [recursos e extensões de máquina virtual para Linux](features-linux.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina virtual para Linux](features-linux.md).
 
-Para obter mais informações sobre as VMs da série N, consulte [tamanhos de máquina virtual com otimização de GPU](../linux/sizes-gpu.md).
+Para obter mais informações sobre VMs da série N, consulte [gpu otimizado tamanhos](../linux/sizes-gpu.md)de máquinavirtual .

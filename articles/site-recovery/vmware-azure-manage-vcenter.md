@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611759"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362825"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gerir vCenter Server VMware vCenter
 
@@ -120,6 +120,6 @@ Se o número de VMs que pretende migrar para um novo VCenter Server for superior
 1. [Adicione o antigo VCenter Server](#add-vmware-server-to-the-vault) e o seu endereço IP ao servidor de configuração.
 1. [Reativar](vmware-azure-tutorial.md#enable-replication) a replicação para os VMs que permanecem no servidor antigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se tiver algum problema, consulte falhas de descoberta do [Troubleshoot vCenter Server](vmware-azure-troubleshoot-vcenter-discovery-failures.md).

@@ -8,11 +8,11 @@ ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
 ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661571"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367704"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -101,14 +101,14 @@ Tal como os dados recolhidos para o desempenho do servidor, o Application Insigh
 
 2. Os registos abrem com uma consulta para cada uma das vistas do painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
-    ![Consulta de registos](media/tutorial-performance/10-page-view-logs.png)
+    ![consulta de logs](media/tutorial-performance/10-page-view-logs.png)
 
 3.  Smart Diagnostics é uma característica dos Registos que identifica padrões únicos nos dados. Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia. Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
 
     ![Logs com Diagnósticos Inteligentes](media/tutorial-performance/11-page-view-logs-dsmart.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu a identificar as exceções do tempo de execução, avance para o próximo tutorial para saber como criar alertas em resposta a falhas.
 
 > [!div class="nextstepaction"]

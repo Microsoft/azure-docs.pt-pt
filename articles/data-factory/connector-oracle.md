@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423815"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356294"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oráculo utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -65,7 +65,7 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 O serviço ligado ao Oracle suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **Oráculo**. | Sim |
 | connectionString | Especifica as informações necessárias para se ligar à instância da Base de Dados Oracle. <br/>Também pode colocar uma palavra-passe no Cofre de Chaves Azure e retirar a configuração `password` da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. <br><br>Tipo de **ligação suportada:** Pode utilizar o **Oracle SID** ou **o Oracle Service Name** para identificar a sua base de dados:<br>- Se utilizar SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se utilizar o Nome de Serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>Para opções avançadas de ligação nativa oracle, pode optar por adicionar uma entrada em [TNSNAMES. O](http://www.orafaq.com/wiki/Tnsnames.ora) ficheiro ORA no servidor Oracle e no serviço ligado ao Oracle, opte por utilizar o tipo de ligação Oracle Service Name e configurar o nome de serviço correspondente. | Sim |
@@ -170,7 +170,7 @@ Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dado
 
 Para copiar dados de e para a Oracle, detete a propriedade do tipo do conjunto de dados para `OracleTable`. São suportadas as seguintes propriedades.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para `OracleTable`. | Sim |
 | schema | Nome do esquema. |Não para a origem, Sim para o sink  |
@@ -209,7 +209,7 @@ Esta secção fornece uma lista de propriedades suportadas pela fonte do Orácul
 
 Para copiar dados da Oracle, delineie o tipo de origem na atividade de cópia para `OracleSource`. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para `OracleSource`. | Sim |
 | oracleReaderQuery | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativa a carga divisória, tem de ligar os parâmetros correspondentes de partição incorporados na sua consulta. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
@@ -256,7 +256,7 @@ Para copiar dados da Oracle, delineie o tipo de origem na atividade de cópia pa
 
 Para copiar dados para a Oracle, delineie o tipo de pia na atividade de cópia para `OracleSink`. As seguintes propriedades são suportadas na secção de **sumidouro** da atividade de cópia.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do lavatório da atividade de cópia deve ser definida para `OracleSink`. | Sim |
 | writeBatchSize | Insere os dados na tabela SQL quando o tamanho do tampão atinge `writeBatchSize`.<br/>Os valores permitidos são Inteiros (número de linhas). |Não (o padrão é de 10.000) |
@@ -350,25 +350,25 @@ Quando copia dados de e para a Oracle, aplicam-se os seguintes mapeamentos. Para
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(apenas suportado no Oráculo 10g ou superior) |
-| CHAR |Cadeia |
-| CLOB |Cadeia |
+| CHAR |String |
+| CLOB |String |
 | DATA |DateTime |
 | FLOAT |Decimal, String (se precisão > 28) |
 | INTEGER |Decimal, String (se precisão > 28) |
-| LONG |Cadeia |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |Cadeia |
-| NCLOB |Cadeia |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Decimal, String (se precisão > 28) |
-| NVARCHAR2 |Cadeia |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Cadeia |
+| ROWID |String |
 | TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Cadeia |
-| TIMESTAMP WITH TIME ZONE |Cadeia |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |Número |
-| VARCHAR2 |Cadeia |
-| XML |Cadeia |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Os tipos de dados INTERVAL ANO A MÊS e INTERVAL DAY To SECOND não são suportados.
@@ -377,5 +377,5 @@ Quando copia dados de e para a Oracle, aplicam-se os seguintes mapeamentos. Para
 
 Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

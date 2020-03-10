@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jeconnoc
 ms.openlocfilehash: 0e47bde280e9483f3c265e0d3147eadcbb128612
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270995"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344177"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade do negócio e recuperação de desastres (BCDR): Regiões Emparelhadas de Azure
 
@@ -49,9 +49,9 @@ Não. Os clientes podem aproveitar os serviços azure para arquiteto um serviço
 | Geografia | Par Regional A | Par Regional B  |
 |:--- |:--- |:--- |
 | Ásia-Pacífico |Ásia Oriental (Hong Kong) | Sudeste Asiático (Singapura) |
-| Austrália |Leste da Austrália |Austrália Sudeste |
+| Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
-| Brasil |Sul do Brasil |E.U.A. Centro-Sul |
+| Brasil |Sul do Brasil |EUA Centro-Sul |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |China Norte |China Leste|
 | China |China Norte 2 |China Leste 2|
@@ -61,20 +61,20 @@ Não. Os clientes podem aproveitar os serviços azure para arquiteto um serviço
 | Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
-| Coreia |Coreia do Sul Central |Sul da Coreia do Sul |
-| América do Norte |E.U.A. Leste |E.U.A. Oeste |
-| América do Norte |E.U.A. Leste 2 |E.U.A. Central |
-| América do Norte |E.U.A. Centro-Norte |E.U.A. Centro-Sul |
-| América do Norte |E.U.A.Oeste 2 |E.U.A. Centro-Oeste |
+| Coreia |Coreia do Sul Central |Coreia do Sul |
+| América do Norte |EUA Leste |EUA Oeste |
+| América do Norte |EUA Leste 2 |EUA Central |
+| América do Norte |EUA Centro-Norte |EUA Centro-Sul |
+| América do Norte |EUA Oeste 2 |EUA Centro-Oeste |
 | Noruega | Noruega Leste | Noroeste da Noruega |
 | África do Sul | África do Sul Norte |África do Sul Ocidental |
 | Suíça | Suíça Norte |Suíça Oeste |
-| RU |Oeste do Reino Unido |Sul do Reino Unido |
+| RU |Reino Unido Oeste |Reino Unido Sul |
 | Emirados Árabes Unidos | Emirados Unidos norte | Central dos Emirados Emirados Unidos
-| Departamento de Defesa dos EUA |US DoD - Leste |US DoD Centro |
-| Governo dos EUA |US Gov - Arizona |US Gov - Texas |
-| Governo dos EUA |US Gov - Iowa |US Gov - Virginia |
-| Governo dos EUA |US Gov - Virginia |US Gov - Texas |
+| Departamento de Defesa dos EUA |US DoD Leste |US DoD Centro |
+| Governo dos EUA |Gov (US) - Arizona |Gov (US) - Texas |
+| Governo dos EUA |US Gov - Iowa |Gov (US) - Virginia |
+| Governo dos EUA |Gov (US) - Virginia |Gov (US) - Texas |
 
 > [!Important]
 > - A Índia Ocidental é emparelhada numa só direção. A região secundária da Índia Ocidental é o sul da Índia, mas a região secundária do sul da Índia é a Índia Central.

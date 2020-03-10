@@ -1,7 +1,7 @@
 ---
-title: Administração de serviço no portal
+title: Administração de serviços no portal
 titleSuffix: Azure Cognitive Search
-description: Gerenciar um serviço de Pesquisa Cognitiva do Azure, um serviço de pesquisa de nuvem hospedado no Microsoft Azure, usando o portal do Azure.
+description: Gerencie um serviço de Pesquisa Cognitiva Azure, um serviço de pesquisa em nuvem hospedado no Microsoft Azure, utilizando o portal Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,114 +10,114 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754319"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379592"
 ---
-# <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
+# <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para pesquisa cognitiva Azure no portal Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
+> * [> python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) 
 
-O Azure Pesquisa Cognitiva é um serviço de pesquisa baseado em nuvem totalmente gerenciado usado para criar uma experiência de pesquisa avançada em aplicativos personalizados. Este artigo aborda as tarefas de administração de serviço que podem ser executadas no [portal do Azure](https://portal.azure.com) para um serviço de pesquisa que você já provisionou. A administração do serviço é leve por design, limitada às seguintes tarefas:
+A Azure Cognitive Search é um serviço de pesquisa totalmente gerido e baseado na nuvem usado para construir uma rica experiência de pesquisa em aplicações personalizadas. Este artigo cobre as tarefas de administração de serviços que pode executar no [portal Azure](https://portal.azure.com) para um serviço de pesquisa que já disponibilizou. A administração de serviços é leve por design, limitada às seguintes tarefas:
 
 > [!div class="checklist"]
-> * Gerencie o acesso às *chaves de API* usadas para acesso de leitura ou gravação ao seu serviço.
-> * Ajuste a capacidade do serviço alterando a alocação de partições e réplicas.
-> * Monitore o uso de recursos, em relação aos limites máximos de sua camada de serviço.
+> * Gerencie o acesso às *teclas api utilizadas* para ler ou escrever acesso ao seu serviço.
+> * Ajuste a capacidade do serviço alterando a atribuição de divisórias e réplicas.
+> * Monitorize a utilização dos recursos, em relação aos limites máximos do seu nível de serviço.
 
-Observe que a *atualização* não está listada como uma tarefa administrativa. Como os recursos são alocados quando o serviço é provisionado, a mudança para uma camada diferente requer um novo serviço. Para obter detalhes, consulte [criar um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md).
+Note que *a atualização* não está listada como uma tarefa administrativa. Uma vez que os recursos são atribuídos quando o serviço é prestado, a mudança para um nível diferente requer um novo serviço. Para mais detalhes, consulte Criar um serviço de [Pesquisa Cognitiva Azure.](search-create-service-portal.md)
 
-Você pode monitorar o volume de consulta e outras métricas e usar essas informações para ajustar seu serviço para tempos de resposta mais rápidos. Para obter mais informações, consulte [monitorar o uso e as métricas de consulta](search-monitor-usage.md) e [desempenho e otimização](search-performance-optimization.md).
+Pode monitorizar o volume de consultas e outras métricas e utilizar esses insights para ajustar o seu serviço para tempos de resposta mais rápidos. Para mais informações, consulte a [utilização do Monitor e as métricas](search-monitor-usage.md) de consulta e [desempenho e otimização.](search-performance-optimization.md)
 
 <a id="admin-rights"></a>
 
 ## <a name="administrator-rights"></a>Direitos de administrador
-O provisionamento ou encerramento do serviço em si pode ser feito por um administrador ou coadministrador de assinatura do Azure.
+O fornecimento ou desmantelamento do próprio serviço pode ser feito por um administrador de subscrição do Azure ou coadministrador.
 
-Dentro de um serviço, qualquer pessoa com acesso à URL de serviço e uma chave de API de administrador tem acesso de leitura/gravação ao serviço. Acesso de leitura/gravação fornece a capacidade de adicionar, excluir ou modificar objetos de servidor, incluindo chaves de API, índices, indexadores, fontes de dados, agendas e atribuições de função, conforme implementado por meio de [funções definidas pelo RBAC](search-security-rbac.md).
+Dentro de um serviço, qualquer pessoa com acesso ao URL de serviço e uma chave de api-key de administração tem acesso de leitura ao serviço. O acesso à leitura de escrita fornece a capacidade de adicionar, excluir ou modificar objetos do servidor, incluindo api-keys, índices, indexadores, fontes de dados, horários e atribuições de papéis implementadas através de [funções definidas pelo RBAC](search-security-rbac.md).
 
-Toda a interação do usuário com o Azure Pesquisa Cognitiva se enquadra em um destes modos: acesso de leitura/gravação ao serviço (direitos de administrador) ou acesso somente leitura ao serviço (direitos de consulta). Para obter mais informações, consulte [gerenciar as chaves de API](search-security-api-keys.md).
+Toda a interação do utilizador com a Pesquisa Cognitiva Azure insere-se num destes modos: acesso de leitura-escrita ao serviço (direitos de administrador) ou acesso apenas a leitura ao serviço (direitos de consulta). Para mais informações, consulte [Gerir as teclas api.](search-security-api-keys.md)
 
 <a id="sys-info"></a>
 
-## <a name="logging-and-system-information"></a>Registro em log e informações do sistema
-O Azure Pesquisa Cognitiva não expõe arquivos de log para um serviço individual por meio do portal ou interfaces programáticas. Na camada básica e acima, a Microsoft monitora todos os serviços de Pesquisa Cognitiva do Azure para 99,9% de disponibilidade por SLA (contratos de nível de serviço). Se o serviço for lento ou a taxa de transferência de solicitação cair abaixo dos limites de SLA, as equipes de suporte examinarão os arquivos de log disponíveis para eles e resolverão o problema.
+## <a name="logging-and-system-information"></a>Registo e informação do sistema
+A Pesquisa Cognitiva Azure não expõe ficheiros de registo para um serviço individual, seja através do portal ou das interfaces programáticas. No nível Básico e acima, a Microsoft monitoriza todos os serviços de Pesquisa Cognitiva Azure para 99,9% de disponibilidade por acordos de nível de serviço (SLA). Se o serviço for lento ou o pedido de entrada ficar abaixo dos limiares de SLA, as equipas de suporte revejam os ficheiros de registo disponíveis e resolvam o problema.
 
-Em termos de informações gerais sobre seu serviço, você pode obter informações das seguintes maneiras:
+Em termos de informações gerais sobre o seu serviço, pode obter informações das seguintes formas:
 
-* No portal, no painel de serviço, por meio de notificações, propriedades e mensagens de status.
-* Usando o [PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/) para [obter propriedades de serviço](https://docs.microsoft.com/rest/api/searchmanagement/services)ou status no uso de recursos de índice.
+* No portal, no painel de atendimento, através de notificações, propriedades e mensagens de estado.
+* Utilizando o [PowerShell](search-manage-powershell.md) ou a [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) para obter propriedades de [serviço,](https://docs.microsoft.com/rest/api/searchmanagement/services)ou estado no uso de recursos indexados.
 
 
 <a id="sub-5"></a>
 
-## <a name="monitor-resource-usage"></a>Monitorar o uso de recursos
-No painel, o monitoramento de recursos é limitado às informações mostradas no painel de serviço e algumas métricas que você pode obter consultando o serviço. No painel de serviço, na seção uso, você pode determinar rapidamente se os níveis de recursos de partição são adequados para seu aplicativo. Você pode provisionar recursos externos, como o monitoramento do Azure, se desejar capturar e persistir eventos registrados. Para obter mais informações, consulte [monitorando pesquisa cognitiva do Azure](search-monitor-usage.md).
+## <a name="monitor-resource-usage"></a>Monitorizar a utilização de recursos
+No painel de instrumentos, a monitorização de recursos limita-se às informações mostradas no painel de instrumentos de serviço e a algumas métricas que pode obter consultando o serviço. No painel de instrumentos de serviço, na secção utilização, pode determinar rapidamente se os níveis de recursos de partição são adequados para a sua aplicação. Pode fornecer recursos externos, como a monitorização do Azure, se quiser capturar e persistir eventos registados. Para mais informações, consulte [Monitorização da Pesquisa Cognitiva Azure](search-monitor-usage.md).
 
-Usando a API REST do serviço de pesquisa, você pode obter uma contagem de documentos e índices programaticamente: 
+Utilizando o serviço de pesquisa REST API, pode contar com documentos e índices programáticamente: 
 
-* [Obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Contagem de documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Obter Estatísticas de Índices](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Documentos de Contagem](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
-## <a name="disaster-recovery-and-service-outages"></a>Interrupções de serviço e recuperação de desastre
+## <a name="disaster-recovery-and-service-outages"></a>Recuperação de desastres e interrupções de serviço
 
-Embora possamos recuperar seus dados, o Azure Pesquisa Cognitiva não fornece um failover instantâneo do serviço se houver uma interrupção no nível do cluster ou do data center. Se um cluster falhar na data center, a equipe de operações irá detectar e trabalhar para restaurar o serviço. Você passará por tempo de inatividade durante a restauração do serviço, mas poderá solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Embora possamos salvar os seus dados, a Pesquisa Cognitiva Azure não fornece falhas instantâneas do serviço se houver uma falha no nível de cluster ou centro de dados. Se um cluster falhar no centro de dados, a equipa de operações detetará e trabalhará para restaurar o serviço. Você vai experimentar tempo de inatividade durante a restauração do serviço, mas você pode solicitar créditos de serviço para compensar a indisponibilidade de serviço de acordo de nível de [serviço (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Se o serviço contínuo for necessário no caso de falhas catastróficas fora do controle da Microsoft, você poderá [provisionar um serviço adicional](search-create-service-portal.md) em uma região diferente e implementar uma estratégia de replicação geográfica para garantir que os índices sejam totalmente redundantes em todos os serviços.
+Se for necessário um serviço contínuo em caso de falhas catastróficas fora do controlo da Microsoft, poderá [fornecer um serviço adicional](search-create-service-portal.md) numa região diferente e implementar uma estratégia de georeplicação para garantir que os índices são totalmente redundantes em todos os serviços.
 
-Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos de Geografia aproveitando a mesma fonte de dados. Dois serviços em regiões diferentes, cada um executando um indexador, podem indexar a mesma fonte de dados para obter redundância geográfica. Se você estiver indexando de fontes de dados que também são com redundância geográfica, lembre-se de que os indexadores do Azure Pesquisa Cognitiva só podem executar a indexação incremental (mesclar atualizações de documentos novos, modificados ou excluídos) de réplicas primárias. Em um evento de failover, certifique-se de apontar novamente o indexador para a nova réplica primária. 
+Os clientes que usam [indexadores](search-indexer-overview.md) para povoar e atualizar índices podem lidar com a recuperação de desastres através de indexadores geoespecíficos que alavancam a mesma fonte de dados. Dois serviços em diferentes regiões, cada um com um indexante, poderiam indexar a mesma fonte de dados para alcançar o geo-redundância. Se estiver a indexar a partir de fontes de dados que também são geo-redundantes, esteja ciente de que os indexadores de Pesquisa Cognitiva Azure só podem realizar indexação incremental (atualizações de fusão de novos documentos, modificados ou eliminados) a partir de réplicas primárias. Num evento de failover, certifique-se de reapontar o indexante para a nova réplica primária. 
 
-Se você não usar indexadores, você usaria o código do aplicativo para enviar objetos e dados por push a diferentes serviços de pesquisa em paralelo. Para obter mais informações, consulte [desempenho e otimização no Azure pesquisa cognitiva](search-performance-optimization.md).
+Se não utilizar os indexadores, utilizará o seu código de aplicação para empurrar objetos e dados para diferentes serviços de pesquisa em paralelo. Para mais informações, consulte [Performance e otimização em Pesquisa Cognitiva Azure](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
-Como o Azure Pesquisa Cognitiva não é uma solução de armazenamento de dados principal, não fornecemos um mecanismo formal para backup e restauração de autoatendimento. No entanto, você pode usar o código de exemplo **index-backup-restore** neste [repositório de exemplo do Azure pesquisa cognitiva .net](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup da definição de índice e do instantâneo para uma série de arquivos JSON e, em seguida, usar esses arquivos para restaurar o índice, se necessário. Essa ferramenta também pode mover índices entre as camadas de serviço.
+Como a Pesquisa Cognitiva Azure não é uma solução primária de armazenamento de dados, não fornecemos um mecanismo formal para a cópia de segurança e restauro do self-service. No entanto, pode utilizar o código de amostra **de restauro de cópias** de segurança de índice neste repo de [amostra Azure Cognitive Search .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup da sua definição de índice e instantâneo para uma série de ficheiros JSON e, em seguida, usar estes ficheiros para restaurar o índice, se necessário. Esta ferramenta também pode mover índices entre os níveis de serviço.
 
-Caso contrário, o código do aplicativo usado para criar e popular um índice é a opção de restauração de fato se você excluir um índice por engano. Para recriar um índice, você o excluirá (supondo que ele exista), recriará o índice no serviço e recarregará recuperando dados do seu armazenamento de dados primário.
+Caso contrário, o seu código de aplicação utilizado para criar e povoar um índice é a opção de restauro de facto se eliminar um índice por engano. Para reconstruir um índice, eliminaria-o (assumindo que existe), recriaria o índice no serviço e recarregaria recuperando dados da sua loja de dados primária.
 
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>Aumentar ou reduzir verticalmente
-Cada serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você se inscreveu para uma [camada que fornece recursos dedicados](search-limits-quotas-capacity.md), clique no bloco **escala** no painel de serviço para ajustar o uso do recurso.
+Cada serviço de pesquisa começa com um mínimo de uma réplica e uma divisória. Se se inscreveu para um [nível que forneça recursos dedicados,](search-limits-quotas-capacity.md)clique no azulejo **SCALE** no painel de instrumentos de serviço para ajustar o uso de recursos.
 
-Quando você adiciona capacidade por meio de qualquer recurso, o serviço os usa automaticamente. Nenhuma ação adicional é necessária em sua parte, mas há um pequeno atraso antes que o impacto do novo recurso seja realizado. Pode levar 15 minutos ou mais para provisionar recursos adicionais.
+Quando adiciona capacidade através de qualquer recurso, o serviço utiliza-os automaticamente. Não são necessárias mais medidas da sua parte, mas há um ligeiro atraso antes de o impacto do novo recurso ser realizado. Pode levar 15 minutos ou mais para fornecer recursos adicionais.
 
  ![][10]
 
 ### <a name="add-replicas"></a>Adicionar réplicas
-O aumento de consultas por segundo (QPS) ou a obtenção de alta disponibilidade é feito adicionando réplicas. Cada réplica tem uma cópia de um índice, portanto, adicionar mais uma réplica se traduz em mais um índice disponível para lidar com solicitações de consulta de serviço. Um mínimo de 3 réplicas é necessário para alta disponibilidade (consulte [planejamento de capacidade](search-capacity-planning.md) para obter detalhes).
+O aumento das consultas por segundo (QPS) ou a obtenção de uma elevada disponibilidade é feito adicionando réplicas. Cada réplica tem uma cópia de um índice, por isso adicionar mais uma réplica traduz-se em mais um índice disponível para o manuseamento de pedidos de consulta de serviço. São necessárias no mínimo 3 réplicas para uma elevada disponibilidade (ver [Planeamento de Capacidade](search-capacity-planning.md) para mais detalhes).
 
-Um serviço de pesquisa com mais réplicas pode balancear a carga de solicitações de consulta em um número maior de índices. Dado um nível de volume de consulta, a taxa de transferência da consulta será mais rápida quando houver mais cópias do índice disponíveis para atender à solicitação. Se você estiver tendo latência de consulta, poderá esperar um impacto positivo no desempenho quando as réplicas adicionais estiverem online.
+Um serviço de pesquisa com mais réplicas pode carregar pedidos de consulta de saldo sobre um maior número de índices. Dado um nível de volume de consulta, a produção de consulta será mais rápida quando houver mais cópias do índice disponível para atender o pedido. Se estiver a sentir latência de consulta, pode esperar um impacto positivo no desempenho uma vez que as réplicas adicionais estejam online.
 
-Embora a taxa de transferência de consulta fique ativa conforme você adiciona réplicas, ela não é precisamente dupla ou tripla à medida que você adiciona réplicas ao seu serviço. Todos os aplicativos de pesquisa estão sujeitos a fatores externos que podem executar o ping no desempenho da consulta. As consultas complexas e a latência de rede são dois fatores que contribuem para variações nos tempos de resposta da consulta.
+Embora a entrada de consulta sacuda à medida que adiciona réplicas, não duplica nem triplica precisamente à medida que adiciona réplicas ao seu serviço. Todas as aplicações de pesquisa estão sujeitas a fatores externos que podem influenciar o desempenho da consulta. Consultas complexas e latência da rede são dois fatores que contribuem para variações nos tempos de resposta de consulta.
 
-### <a name="add-partitions"></a>Adicionar partições
-A maioria dos aplicativos de serviço tem uma necessidade interna de mais réplicas em vez de partições. Para os casos em que uma contagem de documentos aumentada é necessária, você pode adicionar partições se tiver se inscrito no serviço padrão. A camada básica não fornece partições adicionais.
+### <a name="add-partitions"></a>Adicionar divisórias
+A maioria das aplicações de serviço tem uma necessidade incorporada de mais réplicas do que divisórias. Para os casos em que é necessária uma contagem de documentos acrescida, pode adicionar divisórias se se inscrever no serviço Standard. O nível básico não prevê divisórias adicionais.
 
-Na camada Standard, as partições são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Este é um artefato de fragmentação. Um índice é criado em 12 fragmentos, que podem ser armazenados em 1 partição ou igualmente divididos em 2, 3, 4, 6 ou 12 partições (um fragmento por partição).
+No nível Standard, as divisórias são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Este é um artefacto de sharding. Um índice é criado em 12 fragmentos, que podem ser armazenados em 1 divisória ou igualmente divididos em 2, 3, 4, 6 ou 12 divisórias (um fragmento por partição).
 
 ### <a name="remove-replicas"></a>Remover réplicas
-Após períodos de grandes volumes de consulta, você pode usar o controle deslizante para reduzir as réplicas depois que as cargas de consulta de pesquisa tiverem sido normalizadas (por exemplo, depois que as vendas de feriado estiverem acima). Não há mais etapas necessárias para sua parte. A redução da contagem de réplicas abandona as máquinas virtuais no data center. Suas operações de consulta e ingestão de dados agora serão executadas em menos VMs do que antes. O requisito mínimo é uma réplica.
+Após períodos de volumes de consultas elevadas, pode utilizar o slider para reduzir as réplicas após a normalização das cargas de consulta de pesquisa (por exemplo, após as vendas de férias terem terminado). Não são necessários mais passos da sua parte. A redução da contagem de réplicas renuncia às máquinas virtuais no centro de dados. As suas operações de consulta e ingestão de dados passarão agora com menos VMs do que antes. O requisito mínimo é uma réplica.
 
-### <a name="remove-partitions"></a>Remover partições
-Em contraste com a remoção de réplicas, o que não exige esforço adicional de sua parte, talvez você tenha algum trabalho para fazer se estiver usando mais armazenamento do que pode ser reduzido. Por exemplo, se sua solução estiver usando três partições, o downsizing para uma ou duas partições gerará um erro se o novo espaço de armazenamento for menor do que o necessário para hospedar o índice. Como você pode esperar, suas opções são excluir índices ou documentos dentro de um índice associado para liberar espaço ou manter a configuração atual.
+### <a name="remove-partitions"></a>Remover divisórias
+Em contraste com a remoção de réplicas, que não requer esforço extra da sua parte, poderá ter algum trabalho a fazer se estiver a utilizar mais armazenamento do que pode ser reduzido. Por exemplo, se a sua solução estiver a utilizar três divisórias, reduzir o tamanho de uma ou duas divisórias gerará um erro se o novo espaço de armazenamento for inferior ao necessário para hospedar o seu índice. Como seria de esperar, as suas escolhas são apagar índices ou documentos dentro de um índice associado para libertar espaço ou manter a configuração atual.
 
-Não há nenhum método de detecção que indique quais fragmentos de índice são armazenados em partições específicas. Cada partição fornece aproximadamente 25 GB de armazenamento, portanto, será necessário reduzir o armazenamento para um tamanho que possa ser acomodado pelo número de partições que você tem. Se você quiser reverter para uma partição, todos os 12 fragmentos deverão se ajustar.
+Não existe um método de deteção que lhe diga quais os fragmentos de índice armazenados em divisórias específicas. Cada partição fornece aproximadamente 25 GB de armazenamento, pelo que terá de reduzir o armazenamento para um tamanho que pode ser acomodado pelo número de divisórias que tem. Se quiser voltar a uma partição, todos os 12 fragmentos terão de caber.
 
-Para ajudar no futuro planejamento, talvez você queira verificar o armazenamento (usando [obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver quanto você realmente usou. 
+Para ajudar no planeamento futuro, é melhor verificar o armazenamento (usando estatísticas do [Get Index)](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)para ver quanto realmente utilizou. 
 
 <a id="next-steps"></a>
 
-## <a name="next-steps"></a>Passos seguintes
-Depois de entender os conceitos por trás da administração do serviço, considere usar o [PowerShell](search-manage-powershell.md) para automatizar tarefas.
+## <a name="next-steps"></a>Passos Seguintes
+Assim que compreender os conceitos por detrás da administração de serviços, considere usar o [PowerShell](search-manage-powershell.md) para automatizar tarefas.
 
-Também recomendamos a revisão do [artigo desempenho e otimização](search-performance-optimization.md).
+Recomendamos também a revisão do artigo de [desempenho e otimização.](search-performance-optimization.md)
 
 <!--Image references-->
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png

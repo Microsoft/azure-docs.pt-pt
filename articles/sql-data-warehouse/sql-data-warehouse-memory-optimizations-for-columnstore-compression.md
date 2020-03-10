@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 11c0a168e4b2e8eac03eaebd37b208446082d1b4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197203"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381096"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de remo para a loja de colunas
 
@@ -139,6 +139,6 @@ O tamanho dWU e a classe de recursos do utilizador em conjunto determinam a quan
 - Para aumentar os DWUs, veja como escala o [desempenho?](quickstart-scale-compute-portal.md)
 - Para alterar a classe de recursos para uma consulta, consulte Alterar um exemplo de [classe de recursos do utilizador](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para encontrar mais formas de melhorar o desempenho do SQL Analytics, consulte a visão geral do [Desempenho.](sql-data-warehouse-overview-manage-user-queries.md)

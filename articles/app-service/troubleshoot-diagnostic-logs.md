@@ -1,198 +1,198 @@
 ---
 title: Ativar o registo de diagnósticos
-description: Saiba como habilitar o log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
+description: Saiba como permitir o registo de diagnóstico e adicionar instrumentação à sua aplicação, bem como como aceder à informação registada pelo Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985939"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356183"
 ---
-# <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar o log de diagnóstico para aplicativos no serviço Azure App
-## <a name="overview"></a>Visão geral
-O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplicativo do serviço de aplicativo](overview.md). Neste artigo, você aprende a habilitar o log de diagnósticos e a adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
+# <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar diagnósticos de login para apps no Serviço de Aplicações Azure
+## <a name="overview"></a>Descrição geral
+O Azure fornece diagnósticos incorporados para ajudar a depurar uma aplicação de Serviço de [Aplicações.](overview.md) Neste artigo, aprende-se a permitir o registo de diagnóstico e a adicionar instrumentação à sua aplicação, bem como como aceder à informação registada pelo Azure.
 
-Este artigo usa o [portal do Azure](https://portal.azure.com) e CLI do Azure para trabalhar com logs de diagnóstico. Para obter informações sobre como trabalhar com logs de diagnóstico usando o Visual Studio, consulte [Solucionando problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
+Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI para trabalhar com registos de diagnóstico. Para obter informações sobre o trabalho com registos de diagnóstico utilizando o Visual Studio, consulte [Troubleshooting Azure em Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> Além das instruções de registro neste artigo, há uma nova funcionalidade integrada de registro em log com o monitoramento do Azure. Você encontrará mais informações sobre esse recurso na seção [enviar logs para Azure monitor (versão prévia)](#send-logs-to-azure-monitor-preview) . 
+> Além das instruções de registo neste artigo, há uma nova capacidade de exploração madeireira integrada com a Monitorização Azure. Você encontrará mais sobre esta capacidade na secção [Enviar para o Monitor Azure (pré-visualização).](#send-logs-to-azure-monitor-preview) 
 >
 >
 
 |Tipo|Plataforma|Localização|Descrição|
 |-|-|-|-|
-| Registo de aplicação | Windows, Linux | Sistema de arquivos do serviço de aplicativo e/ou BLOBs de armazenamento do Azure | Registra as mensagens geradas pelo código do aplicativo. As mensagens podem ser geradas pela estrutura da Web que você escolher ou do código do aplicativo diretamente usando o padrão de log padrão do seu idioma. Cada mensagem recebe uma das seguintes categorias: **crítico**, **erro**, **aviso**, **informações**, **depuração**e **rastreamento**. Você pode selecionar o quão detalhado deseja que o log seja definindo o nível de severidade ao habilitar o log do aplicativo.|
-| Registo de servidor web| Windows | Sistema de arquivos do serviço de aplicativo ou BLOBs de armazenamento do Azure| Dados de solicitação HTTP brutos no [formato de arquivo de log estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de log inclui dados como o método HTTP, o URI de recurso, o IP do cliente, a porta do cliente, o agente do usuário, o código de resposta e assim por diante. |
-| Mensagens de erro detalhadas| Windows | Sistema de arquivos do serviço de aplicativo | Cópias das páginas de erro *. htm* que seriam enviadas ao navegador do cliente. Por motivos de segurança, as páginas de erro detalhadas não devem ser enviadas aos clientes em produção, mas o serviço de aplicativo pode salvar a página de erro cada vez que um erro de aplicativo ocorre com código HTTP 400 ou superior. A página pode conter informações que podem ajudar a determinar por que o servidor retorna o código de erro. |
-| Rastreio de pedido falhado | Windows | Sistema de arquivos do serviço de aplicativo | Informações detalhadas de rastreamento sobre solicitações com falha, incluindo um rastreamento dos componentes do IIS usados para processar a solicitação e o tempo gasto em cada componente. É útil se você quiser melhorar o desempenho do site ou isolar um erro de HTTP específico. Uma pasta é gerada para cada solicitação com falha, que contém o arquivo de log XML e a folha de estilos XSL com a qual exibir o arquivo de log. |
-| Log de implantação | Windows, Linux | Sistema de arquivos do serviço de aplicativo | Registra quando você publica o conteúdo em um aplicativo. O log de implantação ocorre automaticamente e não há configurações configuráveis para o log de implantação. Ele ajuda a determinar por que uma implantação falhou. Por exemplo, se você usar um [script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), poderá usar o log de implantação para determinar por que o script está falhando. |
+| Registo de aplicação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações e/ou blobs de armazenamento Azure | Regista mensagens geradas pelo seu código de aplicação. As mensagens podem ser geradas pelo quadro web que escolher, ou pelo seu código de aplicação diretamente utilizando o padrão padrão de registo da sua língua. Cada mensagem é atribuída uma das seguintes categorias: **Crítico,** **Erro,** **Aviso,** **Informação,** **Depuração**e **Rastreio**. Pode selecionar a verbosa que pretende que a exploração madeireira seja definindo o nível de gravidade quando ativa o registo da aplicação.|
+| Registo de servidor web| Portal do | Sistema de ficheiros do Serviço de Aplicações ou blobs de armazenamento Azure| Raw HTTP solicita mandam dados no [formato de ficheiro de registo alargado W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de registo inclui dados como o método HTTP, o recurso URI, o IP do cliente, a porta cliente, o agente utilizador, o código de resposta, e assim por diante. |
+| Mensagens de erro detalhadas| Portal do | Sistema de ficheiros do Serviço de Aplicações | Cópias das páginas de erro *.htm* que teriam sido enviadas para o navegador cliente. Por razões de segurança, as páginas de erro detalhadas não devem ser enviadas aos clientes em produção, mas o Serviço de Aplicações pode guardar a página de erro sempre que ocorrer um erro de aplicação que tenha código HTTP 400 ou superior. A página pode conter informações que podem ajudar a determinar por que o servidor devolve o código de erro. |
+| Rastreio de pedido falhado | Portal do | Sistema de ficheiros do Serviço de Aplicações | Informações detalhadas sobre pedidos falhados, incluindo um vestígio dos componentes IIS utilizados para processar o pedido e o tempo decorrido em cada componente. É útil se quiser melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada pedido falhado, que contém o ficheiro de registo XML, e a folha de estilo XSL para visualizar o ficheiro de registo com. |
+| Exploração madeireira de implantação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações | Faça logs para quando publica conteúdo numa aplicação. O registo de implantação ocorre automaticamente e não existem configurações configuráveis para o registo de implantação. Ajuda-te a determinar porque é que um destacamento falhou. Por exemplo, se utilizar um script de [implementação personalizado,](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)poderá utilizar o registo de implementação para determinar porque é que o script está a falhar. |
 
 > [!NOTE]
-> O serviço de aplicativo fornece uma ferramenta de diagnósticos dedicada e interativa para ajudá-lo a solucionar problemas de seu aplicativo. Para obter mais informações, consulte [visão geral do diagnóstico de serviço Azure app](overview-diagnostics.md).
+> O Serviço de Aplicações fornece uma ferramenta dedicada de diagnóstico interativa para ajudá-lo a resolver problemas com a sua aplicação. Para mais informações, consulte a visão geral dos diagnósticos do Serviço de [Aplicações Azure](overview-diagnostics.md).
 >
-> Além disso, você pode usar outros serviços do Azure para aprimorar os recursos de log e monitoramento do seu aplicativo, como [Azure monitor](../azure-monitor/app/azure-web-apps.md).
+> Além disso, pode utilizar outros serviços Azure para melhorar as capacidades de registo e monitorização da sua aplicação, como o [Azure Monitor](../azure-monitor/app/azure-web-apps.md).
 >
 
-## <a name="enable-application-logging-windows"></a>Habilitar o log de aplicativo (Windows)
+## <a name="enable-application-logging-windows"></a>Ativar o registo de aplicações (Windows)
 
-Para habilitar o log de aplicativos para aplicativos do Windows no [portal do Azure](https://portal.azure.com), navegue até seu aplicativo e selecione **logs do serviço de aplicativo**.
+Para permitir o registo de aplicações para aplicações windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione registos do **Serviço de Aplicações.**
 
-Selecione **ativado** para o **registro em log do aplicativo (Filesystem)** ou **log de aplicativo (BLOB)** ou ambos. 
+Selecione **para** qualquer **registo de aplicações (Sistema de Ficheiros)** ou Registo de **Aplicações (Blob)** , ou ambos. 
 
-A opção **FileSystem** é para fins de depuração temporária e fica desativada em 12 horas. A opção **blob** é para o log de longo prazo e precisa de um contêiner de armazenamento de BLOBs no qual os logs serão gravados.  A opção **blob** também inclui informações adicionais nas mensagens de log, como a ID da instância de VM de origem da mensagem de log (`InstanceId`), ID de thread (`Tid`) e um carimbo de data/hora mais granular ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
+A opção **Filesystem** é para fins de depuração temporária, e desliga-se em 12 horas. A opção **Blob** é para a exploração a longo prazo, e precisa de um recipiente de armazenamento de bolhas para escrever troncos.  A opção **Blob** também inclui informações adicionais nas mensagens de registo, tais como a identificação da instância VM de origem da mensagem de log (`InstanceId`), id de linha (`Tid`) e um carimbo de tempo mais granular[ (`EventTickCount`). ](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)
 
 > [!NOTE]
-> No momento, somente os logs de aplicativos .NET podem ser gravados no armazenamento de BLOBs. Java, PHP, Node. js, os logs de aplicativo do Python só podem ser armazenados no sistema de arquivos do serviço de aplicativo (sem modificações de código para gravar logs no armazenamento externo).
+> Atualmente, apenas os registos de aplicações .NET podem ser escritos no armazenamento de blob. Java, PHP, Node.js, os registos de aplicações Python só podem ser armazenados no sistema de ficheiros do Serviço de Aplicações (sem modificações de código para escrever registos para armazenamento externo).
 >
-> Além disso, se você [regenerar as chaves de acesso da sua conta de armazenamento](../storage/common/storage-create-storage-account.md), deverá redefinir a respectiva configuração de registro em log para usar as chaves de acesso atualizadas. Para efetuar este procedimento:
+> Além disso, se [regenerar as chaves](../storage/common/storage-create-storage-account.md)de acesso da sua conta de armazenamento, tem de redefinir a respetiva configuração de registo para utilizar as teclas de acesso atualizadas. Para efetuar este procedimento:
 >
-> 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
-> 2. Enable logging to the storage account blob again. Save your setting.
+> 1. No separador **Configurar,** desloque a respetiva função de registo para **desligar**. Guarde a sua configuração.
+> 2. Ative o registo na bolha da conta de armazenamento novamente. Guarde a sua configuração.
 >
 >
 
-Select the **Level**, or the level of details to log. The following table shows the log categories included in each level:
+Selecione o **Nível**, ou o nível de detalhes para registar. O quadro seguinte mostra as categorias de registo incluídas em cada nível:
 
-| Nível | Included categories |
+| Nível | Categorias incluídas |
 |-|-|
-|**Desativado** | Nenhuma |
-|**Error** | Error, Critical |
-|**Warning** | Warning, Error, Critical|
-|**Information** | Info, Warning, Error, Critical|
-|**Verbose** | Trace, Debug, Info, Warning, Error, Critical (all categories) |
+|**Desativado** | Nenhum |
+|**Erro** | Erro, Crítico |
+|**Aviso** | Aviso, Erro, Crítico|
+|**Informação** | Informação, Aviso, Erro, Crítico|
+|**Verbose** | Trace, Debug, Info, Warning, Error, Critical (todas as categorias) |
 
-When finished, select **Save**.
+Quando terminar, selecione **Guardar**.
 
-## <a name="enable-application-logging-linuxcontainer"></a>Enable application logging (Linux/Container)
+## <a name="enable-application-logging-linuxcontainer"></a>Ativar o registo de aplicações (Linux/Contentor)
 
-To enable application logging for Linux apps or custom container apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
+Para permitir o registo de aplicações para aplicações Linux ou aplicações de contentores personalizadas no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione registos do **Serviço de Aplicações**.
 
-In **Application logging**, select **File System**.
+No registo de registo de **aplicações,** selecione **Sistema de Ficheiros**.
 
-In **Quota (MB)** , specify the disk quota for the application logs. In **Retention Period (Days)** , set the number of days the logs should be retained.
+No **Contingente (MB)** , especifique a quota do disco para os registos de aplicação. No período de **retenção (Dias)** , detete o número de dias em que os registos devem ser conservados.
 
-When finished, select **Save**.
+Quando terminar, selecione **Guardar**.
 
-## <a name="enable-web-server-logging"></a>Enable web server logging
+## <a name="enable-web-server-logging"></a>Ativar o registo do servidor web
 
-To enable web server logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
+Para permitir o registo de servidores web para aplicações windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione registos do **Serviço de Aplicações**.
 
-For **Web server logging**, select **Storage** to store logs on blob storage, or **File System** to store logs on the App Service file system. 
+Para **o registo do servidor Web,** selecione **Storage** para armazenar registos no armazenamento de blob ou sistema **de ficheiros** para armazenar registos no sistema de ficheiros do Serviço de Aplicações. 
 
-In **Retention Period (Days)** , set the number of days the logs should be retained.
+No período de **retenção (Dias)** , detete o número de dias em que os registos devem ser conservados.
 
 > [!NOTE]
-> If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. Para efetuar este procedimento:
+> Se [regenerar as chaves](../storage/common/storage-create-storage-account.md)de acesso da sua conta de armazenamento, tem de redefinir a respetiva configuração de registo para utilizar as teclas atualizadas. Para efetuar este procedimento:
 >
-> 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
-> 2. Enable logging to the storage account blob again. Save your setting.
+> 1. No separador **Configurar,** desloque a respetiva função de registo para **desligar**. Guarde a sua configuração.
+> 2. Ative o registo na bolha da conta de armazenamento novamente. Guarde a sua configuração.
 >
 >
 
-When finished, select **Save**.
+Quando terminar, selecione **Guardar**.
 
-## <a name="log-detailed-errors"></a>Log detailed errors
+## <a name="log-detailed-errors"></a>Registar erros detalhados
 
-To save the error page or failed request tracing for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
+Para guardar a página de erro ou o pedido falhado que rastreia as aplicações do Windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione registos do Serviço de **Aplicações**.
 
-Under **Detailed Error Logging** or **Failed Request Tracing**, select **On**, then select **Save**.
+Em registo **de erro detalhado ou** rastreio de pedido **falhado,** selecione, e depois selecione **Save**.
 
-Both types of logs are stored in the App Service file system. Up to 50 errors (files/folders) are retained. When the number of HTML files exceed 50, the oldest 26 errors are automatically deleted.
+Ambos os tipos de registos são armazenados no sistema de ficheiros do Serviço de Aplicações. São retidos até 50 erros (ficheiros/pastas). Quando o número de ficheiros HTML ultrapassa os 50, os 26 erros mais antigos são automaticamente eliminados.
 
-## <a name="add-log-messages-in-code"></a>Add log messages in code
+## <a name="add-log-messages-in-code"></a>Adicione mensagens de registo no código
 
-In your application code, you use the usual logging facilities to send log messages to the application logs. Por exemplo:
+No seu código de aplicação, utiliza as instalações habituais de registo para enviar mensagens de registo para os registos de aplicação. Por exemplo:
 
-- ASP.NET applications can use the [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) class to log information to the application diagnostics log. Por exemplo:
+- ASP.NET aplicações podem utilizar o [Sistema.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) class para registar informações no registo de diagnósticos da aplicação. Por exemplo:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- Por predefinição, ASP.NET Core utiliza o fornecedor de registo [microsoft.Extensions.Logging.AzureAppServices.](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) Para mais informações, consulte [ASP.NET Core logging em Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
 
 ## <a name="stream-logs"></a>Transmitir registos
 
-Before you stream logs in real time, enable the log type that you want. Any information written to files ending in .txt, .log, or .htm that are stored in the */LogFiles* directory (d:/home/logfiles) is streamed by App Service.
+Antes de fazer o streaming de registos em tempo real, ative o tipo de registo que deseja. Qualquer informação escrita para ficheiros que terminem em .txt, .log ou .htm que sejam armazenadas no diretório */LogFiles* (d:/home/logfiles) é transmitida pelo Serviço de Aplicações.
 
 > [!NOTE]
-> Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
+> Alguns tipos de tampão de registo escrevem para o ficheiro de registo, o que pode resultar em eventos fora de ordem no fluxo. Por exemplo, uma entrada de registo de aplicação que ocorra quando um utilizador visita uma página pode ser exibida no fluxo antes da entrada correspondente de registo HTTP para o pedido da página.
 >
 
-### <a name="in-azure-portal"></a>In Azure portal
+### <a name="in-azure-portal"></a>No portal Azure
 
-To stream logs in the [Azure portal](https://portal.azure.com), navigate to your app and select **Log stream**. 
+Para transmitir registos no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **log stream**. 
 
-### <a name="in-cloud-shell"></a>In Cloud Shell
+### <a name="in-cloud-shell"></a>Na nuvem shell
 
-To stream logs live in [Cloud Shell](../cloud-shell/overview.md), use the following command:
+Para transmitir registos ao vivo na [Cloud Shell,](../cloud-shell/overview.md)utilize o seguinte comando:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-To filter specific events, such as errors, use the **--Filter** parameter. Por exemplo:
+Para filtrar eventos específicos, tais como erros, utilize o parâmetro **--Filtro.** Por exemplo:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-To filter specific log types, such as HTTP, use the **--Path** parameter. Por exemplo:
+Para filtrar tipos de registo específicos, como http, utilize o parâmetro **--Caminho.** Por exemplo:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
 ```
 
-### <a name="in-local-terminal"></a>In local terminal
+### <a name="in-local-terminal"></a>No terminal local
 
-To stream logs in the local console, [install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [sign in to your account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Once signed in, followed the [instructions for Cloud Shell](#in-cloud-shell)
+Para transmitir registos na consola local, [instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e [inicie sessão na sua conta](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Uma vez assinado, seguiu as [instruções para Cloud Shell](#in-cloud-shell)
 
-## <a name="access-log-files"></a>Access log files
+## <a name="access-log-files"></a>Aceder a ficheiros de registo
 
-If you configure the Azure Storage blobs option for a log type, you need a client tool that works with Azure Storage. For more information, see [Azure Storage Client Tools](../storage/common/storage-explorers.md).
+Se configurar a opção de blobs de armazenamento Azure para um tipo de log, precisa de uma ferramenta cliente que funcione com o Armazenamento Azure. Para mais informações, consulte ferramentas de cliente de [armazenamento azure](../storage/common/storage-explorers.md).
 
-For logs stored in the App Service file system, the easiest way is to download the ZIP file in the browser at:
+Para registos armazenados no sistema de ficheiros do Serviço de Aplicações, a forma mais fácil é descarregar o ficheiro ZIP no navegador em:
 
-- Linux/container apps: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Windows apps: `https://<app-name>.scm.azurewebsites.net/api/dump`
+- Aplicativos Linux/contentor: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Aplicativos para windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-Para aplicativos do Linux/contêiner, o arquivo ZIP contém logs de saída do console para o host do Docker e o contêiner do Docker. Para um aplicativo expandido, o arquivo ZIP contém um conjunto de logs para cada instância. No sistema de arquivos do serviço de aplicativo, esses arquivos de log são o conteúdo do diretório */Home/LogFiles* .
+Para aplicações Linux/contentor, o ficheiro ZIP contém registos de saída de consolas tanto para o hospedeiro do estivador como para o recipiente de estivador. Para uma aplicação com escala, o ficheiro ZIP contém um conjunto de registos para cada instância. No sistema de ficheiros do Serviço de Aplicações, estes ficheiros de registo são o conteúdo do diretório */home/LogFiles.*
 
-Para aplicativos do Windows, o arquivo ZIP contém o conteúdo do diretório *D:\Home\LogFiles* no sistema de arquivos do serviço de aplicativo. Ele tem a seguinte estrutura:
+Para aplicações Windows, o ficheiro ZIP contém o conteúdo do diretório *D:\Home\LogFiles* no sistema de ficheiros do Serviço de Aplicações. Tem a seguinte estrutura:
 
-| Tipo de log | Diretório | Descrição |
+| Tipo de log | Active | Descrição |
 |-|-|-|
-| **Logs de aplicativo** |*/LogFiles/Application/* | Contém um ou mais arquivos de texto. O formato das mensagens de log depende do provedor de log que você usa. |
-| **Rastreamentos de solicitação com falha** | */LogFiles/W3SVC # # # # # # # # #/* | Contém arquivos XML e um arquivo XSL. Você pode exibir os arquivos XML formatados no navegador. |
-| **Logs de erros detalhados** | */LogFiles/DetailedErrors/* | Contém arquivos de erro HTM. Você pode exibir os arquivos HTM no navegador.<br/>Outra maneira de exibir os rastreamentos de solicitação com falha é navegar até a página do aplicativo no Portal. No menu à esquerda, selecione **diagnosticar e resolver problemas**, em seguida, procure **logs de rastreamento de solicitação com falha**, clique no ícone para procurar e exibir o rastreamento desejado. |
-| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O serviço de aplicativo não dá suporte aos campos `s-computername`, `s-ip`ou `cs-version`. |
-| **Logs de implantação** | */LogFiles/git/* e */Deployments/* | Conter logs gerados pelos processos de implantação internos, bem como logs para implantações do git. |
+| **Registos de aplicação** |*/Ficheiros de Registo/Aplicação/* | Contém um ou mais ficheiros de texto. O formato das mensagens de registo depende do fornecedor de registo que utiliza. |
+| **Vestígios de pedido falhados** | */LogFiles/W3SVC##########* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |
+| **Registos de erros detalhados** | */Ficheiros de Registo/Erros Detalhados/* | Contém ficheiros de erro HTM. Pode ver os ficheiros HTM no navegador.<br/>Outra forma de ver os vestígios de pedido falhados é navegar para a página da sua aplicação no portal. A partir do menu esquerdo, selecione **Diagnosticar e resolver problemas,** em seguida, procurar registos de rastreio de rastreio de **pedidos falhados,** em seguida, clique no ícone para navegar e ver o traço que deseja. |
+| **Registos de servidores web** | */LogFiles/http/RawLogs/* | Contém ficheiros de texto formatados utilizando o formato de ficheiro de [registo alargado W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidas com um editor de texto ou um utilitário como [o Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O Serviço de Aplicações não suporta os campos `s-computername`, `s-ip`ou `cs-version`. |
+| **Registos de implantação** | */LogFiles/Git/* e */implementações/* | Contenha registos gerados pelos processos internos de implantação, bem como registos para implementações git. |
 
-## <a name="send-logs-to-azure-monitor-preview"></a>Enviar logs para Azure Monitor (versão prévia)
+## <a name="send-logs-to-azure-monitor-preview"></a>Envie registos para o Monitor Azure (pré-visualização)
 
-Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), você pode [criar configurações de diagnóstico (versão prévia)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) para enviar logs para contas de armazenamento, Hubs de eventos e log Analytics. 
+Com a nova integração do [Monitor Azure,](https://aka.ms/appsvcblog-azmon)pode criar Definições de [Diagnóstico (pré-visualização)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) para enviar registos para Contas de Armazenamento, Centros de Eventos e Log Analytics. 
 
 > [!div class="mx-imgBorder"]
 > ![Definições de Diagnóstico (pré-visualização)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
 
-### <a name="supported-log-types"></a>Tipos de log com suporte
+### <a name="supported-log-types"></a>Tipos de registo suportados
 
-A tabela a seguir mostra os tipos de log e as descrições com suporte: 
+A tabela que se segue mostra os tipos e descrições suportadas: 
 
-| Tipo de log | Suporte do Windows | Suporte para Linux (Docker) | Descrição |
+| Tipo de log | Suporte para janelas | Suporte linux (Docker) | Descrição |
 |-|-|-|
 | AppServiceConsoleLogs | TBA | Sim | Saída padrão e erro padrão |
-| AppServiceHTTPLogs | Sim | Sim | Logs do servidor Web |
-| AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
-| AppServiceAuditLogs | Sim | Sim | Atividade de logon via FTP e kudu |
-| AppServiceFileAuditLogs | TBA | Sim | Alterações de arquivo via FTP e kudu |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativo |
+| AppServiceHTTPLogs | Sim | Sim | Registos de servidores web |
+| AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
+| AppServiceAuditLogs | Sim | Sim | Atividade de login via FTP e Kudu |
+| AppServiceFileAuditLogs | TBA | Sim | Alterações de ficheiros via FTP e Kudu |
+| AppServiceAppLogs | TBA | Java SE e Tomcat | Registos de aplicação |
 
 ## <a name="nextsteps"></a> Passos seguintes
-* [Logs de consulta com Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
-* [Como monitorar Azure App serviço](web-sites-monitor.md)
-* [Solução de problemas de serviço de Azure App no Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analisar logs de aplicativo no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Como monitorizar o Serviço de Aplicações Azure](web-sites-monitor.md)
+* [Troubleshooting Azure App Service em Estúdio Visual](troubleshoot-dotnet-visual-studio.md)
+* [Analisar registos de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

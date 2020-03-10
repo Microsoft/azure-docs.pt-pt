@@ -10,11 +10,11 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 767c1fddbc3d1f46d4341a70c990c2b57ad40e54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373539"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos credenciais na Automação Azure
 
@@ -23,7 +23,7 @@ Um ativo credencial automationis detém um objeto, que contém credenciais de se
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 > [!NOTE]
-> Os ativos seguros na automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Esta chave está armazenada no Cofre chave. Antes de armazenar um ativo seguro, a chave é carregada de Key Vault e, em seguida, usada para criptografar o ativo.
+> Os ativos seguros na Automatização Azure incluem credenciais, certificados, ligações e variáveis encriptadas. Estes ativos são encriptados e armazenados na Automatização Azure utilizando uma chave única que é gerada para cada conta de automação. Esta chave está armazenada no Cofre chave. Antes de armazenar um ativo seguro, a chave é carregada a partir do Cofre chave e depois usada para encriptar o ativo.
 
 ## <a name="azure-powershell-az-cmdlets"></a>Cmdlets Azure PowerShell Az
 
@@ -56,7 +56,7 @@ A função na tabela seguinte é utilizada para aceder a credenciais num livro p
 | automationassets.get_automation_credential | Recupera informações sobre um ativo credencial. |
 
 > [!NOTE]
-> Você deve importar o módulo "automationassets" na parte superior do seu runbook do Python para acessar as funções de ativo.
+> Deve importar o módulo de "automação" no topo do seu livro de execução Python para aceder às funções do ativo.
 
 ## <a name="creating-a-new-credential-asset"></a>Criar um novo ativo credencial
 
@@ -87,7 +87,7 @@ Você recupera um ativo credencial em um livro de execução ou configuração D
 > [!NOTE]
 > **Get-AzAutomationCredential** não devolve um **PSCredential** que pode ser usado para autenticação. Só fornece informações sobre a credencial. Se precisar de utilizar uma credencial num livro de execução, deve utilizar o **Get-AutomationPSCredential** para recuperar o objeto **PSCredential.**
 
-### <a name="textual-runbook-sample"></a>Exemplo de runbook textual
+### <a name="textual-runbook-sample"></a>Amostra de livro textual
 
 Comandos de exemplo seguintes mostram como utilizar uma credencial do PowerShell num runbook. Neste exemplo, a credencial é recuperada e o seu nome de utilizador e senha atribuídos a variáveis.
 
@@ -139,7 +139,7 @@ print cred["username"]
 print cred["password"]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre links na autoria gráfica, consulte [Links na autoria gráfica](../automation-graphical-authoring-intro.md#links-and-workflow)
 * Para compreender os diferentes métodos de autenticação com automação, consulte [Azure Automation Security](../automation-security-overview.md)

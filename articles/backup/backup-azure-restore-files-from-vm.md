@@ -3,12 +3,12 @@ title: Recuperar ficheiros e pastas da cópia de segurança Azure VM
 description: Neste artigo, aprenda a recuperar ficheiros e pastas de um ponto de recuperação de máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660925"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363894"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -125,7 +125,7 @@ Para enumerar todos os volumes lógicos, nomes e seus caminhos num grupo de volu
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command's results>
 ```
 
 Para montar os volumes lógicos no caminho da sua escolha:
@@ -163,11 +163,11 @@ A tabela que se segue mostra a compatibilidade entre os sistemas operativos do s
 
 |Servidor OS | Cliente compatível OS  |
 | --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server de 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
+| Windows Server 2008 R2 | Windows 7   |
 
 ### <a name="for-linux-os"></a>Para Linux OS
 
@@ -202,10 +202,10 @@ Se executar o script num computador com acesso restrito, certifique-se de que h�
 
 - `download.microsoft.com`
 - URLs de Serviço de Recuperação (nome geo-nome refere-se à região onde reside o cofre de serviço de recuperação)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Para geos públicos de Azure)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Para Azure China 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Para o Governo dos EUA de Azure)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Para a Alemanha Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para geos públicos de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para o Governo dos EUA de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para a Alemanha Azure)
 - Portas de saída 53 (DNS), 443,3260
 
 > [!NOTE]
@@ -249,7 +249,7 @@ Uma vez que o processo de recuperação de ficheiros anexa todos os discos da c�
 - Cada vez que o utilizador descarrega um script, o Azure Backup inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, este processo levará muito tempo. Se houver sucessivas explosões de pedidos, a preparação do alvo entrará numa espiral de descarregamento. Portanto, é recomendado descarregar um script do Portal/Powershell/CLI, esperar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Por esta altura, espera-se que o alvo esteja pronto para a ligação a partir do guião.
 - Após a recuperação do ficheiro, certifique-se de que volta ao portal e clique em **discos Desmontar** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a possibilidade de recuperação.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Se tiver problemas ao recuperar ficheiros das máquinas virtuais, consulte a tabela seguinte para obter informações adicionais.
 
@@ -295,13 +295,13 @@ Para navegar em ficheiros e pastas, o script utiliza o iniciador iSCSI na máqui
 
 Utilizamos um mecanismo de autenticação CHAP mútuo para que cada componente autenticao o outro. Isto significa que é extremamente difícil para um iniciador falso ligar-se ao alvo iSCSI e para um alvo falso ser ligado à máquina onde o script é executado.
 
-O fluxo de dados entre o serviço de recuperação e a máquina está protegido construindo um túnel SSL seguro sobre tCP[(TLS 1.2 deve ser suportado](#system-requirements) na máquina onde o script é executado).
+O fluxo de dados entre o serviço de recuperação e a máquina está protegido construindo um túnel TLS seguro sobre tCP[(TLS 1.2 deve ser suportado](#system-requirements) na máquina onde o script é executado).
 
 Qualquer lista de controlo de acesso de ficheiros (ACL) presente no VM pai/backed também está preservada no sistema de ficheiros montado.
 
 O script dá acesso apenas a leitura a um ponto de recuperação e é válido por apenas 12 horas. Se desejar remover o acesso mais cedo, assine no Portal Azure/PowerShell/CLI e execute **discos desmontados** para esse ponto de recuperação específico. O guião será invalidado imediatamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para quaisquer problemas durante a restauração de ficheiros, consulte a secção [de resolução de problemas](#troubleshooting)
 - Saiba como [restaurar ficheiros via Powershell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)

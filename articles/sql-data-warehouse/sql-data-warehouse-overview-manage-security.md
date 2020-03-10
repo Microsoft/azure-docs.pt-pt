@@ -13,11 +13,11 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: 89ec405a348e3ace851fd5f5e17283a8036692a5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199415"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357178"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteja uma base de dados em Azure Synapse
 > [!div class="op_single_selector"]
@@ -98,5 +98,5 @@ Na Base de Dados SQL, a chave de encriptação da base de dados está protegida 
 
 Pode encriptar a sua base de dados através do [portal Azure](sql-data-warehouse-encryption-tde.md) ou [DoT T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para mais detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL pool](sql-data-warehouse-connect-overview.md).

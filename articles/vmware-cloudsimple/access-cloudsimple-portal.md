@@ -1,6 +1,6 @@
 ---
-title: Access Azure VMware Solutions (AVS) - Portal
-description: Descreve como aceder à Azure VMware Solutions (AVS) do portal Azure
+title: Access Azure VMware Solution by CloudSimple - Portal
+description: Descreve como aceder ao portal da VMware Solution by CloudSimple no portal do Azure
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/04/2019
@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c0b0601b9d2cf505aa5b25e10875338352cab771
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77015955"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384216"
 ---
-# <a name="access-azure-vmware-solutions-avs-from-the-azure-portal"></a>Access Azure VMware Solutions (AVS) do portal Azure
+# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Aceda à Solução VMware por CloudSimple do portal Azure
 
-O único sinal é suportado para acesso ao portal AVS. Depois de iniciar sessão no portal Azure, pode aceder ao portal AVS sem voltar a entrar. A primeira vez que acede ao portal AVS é solicitado a autorizar o pedido de Autorização de [Serviço AVS.](#consent-to-avs-service-authorization-application) Autorização é uma ação única.
+O único sinal é suportado para acesso ao portal CloudSimple. Depois de iniciar sessão no portal Azure, pode aceder ao portal CloudSimple sem voltar a entrar. A primeira vez que acede ao portal CloudSimple é solicitado a autorizar o pedido de Autorização de [Serviço CloudSimple.](#consent-to-cloudsimple-service-authorization-application)  Autorização é uma ação única.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os utilizadores com funções de **Proprietário** e **Contribuinte** incorporados podem aceder ao portal AVS. As funções devem ser configuradas no grupo de recursos onde o serviço AVS é implantado. As funções também podem ser configuradas no objeto de serviço AVS. Para obter mais informações sobre a verificação do seu papel, consulte o artigo de atribuição de [papéis da View.](https://docs.microsoft.com/azure/role-based-access-control/check-access) Apenas os utilizadores com funções de **Proprietário** e **Colaborador** incorporados podem aceder ao portal AVS. As funções devem ser configuradas na subscrição. Para obter mais informações sobre a verificação do seu papel, consulte o artigo de atribuição de [papéis da View.](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+Os utilizadores com funções de **Proprietário** e **Contribuinte** incorporados podem aceder ao portal CloudSimple.  As funções devem ser configuradas no grupo de recursos onde o serviço CloudSimple é implantado.  As funções também podem ser configuradas no objeto de serviço CloudSimple.  Para obter mais informações sobre a verificação do seu papel, consulte o artigo de atribuição de [papéis Da View.](https://docs.microsoft.com/azure/role-based-access-control/check-access) Apenas os utilizadores com funções de **Proprietário** e **Colaborador** incorporados podem aceder ao portal CloudSimple.  As funções devem ser configuradas na subscrição.  Para obter mais informações sobre a verificação do seu papel, consulte o artigo de atribuição de [papéis Da View.](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
-Se estiver a utilizar funções personalizadas, a função deve ter qualquer uma das seguintes operações em ```Actions```.  Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Se alguma das operações fizer parte de ```NotActions```, o utilizador não pode aceder ao portal AVS. 
+Se estiver a utilizar funções personalizadas, a função deve ter qualquer uma das seguintes operações em ```Actions```.  Para obter mais informações sobre papéis personalizados, consulte [funções personalizadas para os recursos Do Azure.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)  Se alguma das operações fizer parte de ```NotActions```, o utilizador não pode aceder ao portal CloudSimple.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -36,40 +36,40 @@ Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-avs-portal"></a>Aceda ao portal AVS
+## <a name="access-the-cloudsimple-portal"></a>Aceder ao portal da CloudSimple
 
 1. Selecione **Todos os serviços**.
 
-2. Pesquisa de **Serviços AVS**.
+2. Pesquisa por **Serviços CloudSimple**.
 
-3. Selecione o serviço AVS no qual pretende criar a sua Cloud Privada.
+3. Selecione o serviço CloudSimple no qual pretende criar a sua Cloud Privada.
 
-4. Na página **'Visão Geral',** clique **em ir ao portal AVS**. Se estiver a aceder ao portal AVS do portal Azure pela primeira vez, será solicitado a autorizar o pedido de Autorização de [Serviço DaVs.](#consent-to-avs-service-authorization-application) 
+4. Na página **'Overview',** clique em **ir ao portal CloudSimple**.  Se estiver a aceder ao portal CloudSimple do portal Azure pela primeira vez, será solicitado a autorizar o pedido de Autorização de [Serviço CloudSimple.](#consent-to-cloudsimple-service-authorization-application) 
 
-    ![Lançar portal AVS](media/launch-cloudsimple-portal.png)
+    ![Lançar portal CloudSimple](media/launch-cloudsimple-portal.png)
 
 > [!NOTE]
-> Se selecionar uma operação Cloud Privada (como criar ou expandir uma Nuvem Privada) diretamente a partir do portal Azure, o portal AVS abre-se para a página indicada.
+> Se selecionar uma operação Cloud Privada (como criar ou expandir uma Nuvem Privada) diretamente a partir do portal Azure, o portal CloudSimple abre-se para a página indicada.
 
-No portal AVS, selecione **Home** no menu lateral para mostrar informações sumárias sobre a sua Nuvem Privada AVS. Os recursos e capacidade da sua Nuvem Privada AVS são mostrados, juntamente com alertas e tarefas que requerem atenção. Para tarefas comuns, clique nos ícones nomeados no topo da página.
+No portal CloudSimple, selecione **Home** no menu lateral para mostrar informações sumárias sobre as suas Nuvens Privadas. Os recursos e capacidade das suas Nuvens Privadas são mostrados, juntamente com alertas e tarefas que requerem atenção. Para tarefas comuns, clique nos ícones nomeados no topo da página.
 
-![Página Inicial](media/cloudsimple-portal-home.png)
+![Home Page](media/cloudsimple-portal-home.png)
 
-## <a name="consent-to-avs-service-authorization-application"></a>Consentimento para pedido de autorização de serviço AVS
+## <a name="consent-to-cloudsimple-service-authorization-application"></a>Consentimento para pedido de autorização de serviço CloudSimple
 
-O lançamento do portal AVS do portal Azure pela primeira vez requer o seu consentimento para o pedido de Autorização de Serviço DaVs. Selecione **Aceitar** conceder permissões solicitadas e aceder ao portal AVS.
+O lançamento do portal CloudSimple do portal Azure pela primeira vez requer o seu consentimento para a aplicação de Autorização de Serviço CloudSimple.  Selecione **Aceitar** conceder permissões solicitadas e aceder ao portal CloudSimple.
 
-![Consentimento para Autorização de Serviço AVS - administradores](media/cloudsimple-azure-consent.png)
+![Consentimento para CloudSimple Service Authorization - administradores](media/cloudsimple-azure-consent.png)
 
-Se tiver privilégio de administrador global, pode consentir pela sua organização. Selecione **O Consentimento em nome da sua organização.**
+Se tiver privilégio de administrador global, pode consentir pela sua organização.  Selecione **O Consentimento em nome da sua organização.**
 
-![Consentimento para Autorização de Serviço AVS - administração global](media/cloudsimple-azure-consent-global-admin.png)
+![Consentimento para CloudSimple Service Authorization - administração global](media/cloudsimple-azure-consent-global-admin.png)
 
-Se as suas permissões não permitirem o acesso ao portal AVS, contacte o administrador global do seu inquilino para conceder as permissões necessárias. Um administrador global pode consentir em nome da sua organização.
+Se as suas permissões não permitirem o acesso ao portal CloudSimple, contacte o administrador global do seu inquilino para conceder permissões necessárias.  Um administrador global pode consentir em nome da sua organização.
 
-![Consentimento para Autorização de Serviço AVS - requer administradores](media/cloudsimple-azure-consent-requires-administrator.png)
+![Consentimento para A Autorização de Serviço CloudSimple - requer administradores](media/cloudsimple-azure-consent-requires-administrator.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [criar uma nuvem privada](https://docs.azure.cloudsimple.com/create-private-cloud/)
 * Saiba como [configurar um ambiente de nuvem privada](quickstart-create-private-cloud.md)

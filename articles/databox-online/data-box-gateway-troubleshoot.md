@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60754446"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384650"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway 
 
@@ -31,11 +31,11 @@ Para diagnosticar e resolver quaisquer erros do dispositivo, pode executar os te
 
 1. Na IU da Web local, aceda a **Resolução de problemas > Testes de diagnóstico**. Selecione o teste que pretende executar e clique em **Executar teste**. Esta ação executa os testes para diagnosticar possíveis problemas nas definições de rede, dispositivo, proxy Web, hora ou cloud. Será notificado de que o dispositivo está a executar testes.
 
-    ![Clicar em adicionar utilizador](media/data-box-gateway-troubleshoot/run-diag-1.png)
+    ![Clique em adicionar utilizador](media/data-box-gateway-troubleshoot/run-diag-1.png)
  
 2. Depois de os testes estarem concluídos, os resultados são apresentados. Se um teste falhar, é apresentado um URL para a ação recomendada. Pode clicar no URL para ver a ação recomendada. 
  
-    ![Clicar em adicionar utilizador](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Clique em adicionar utilizador](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Recolher pacote de Suporte
@@ -46,11 +46,11 @@ Efetue os seguintes passos para recolher um pacote de Suporte.
 
 1. Na IU da Web local, aceda a **Resolução de problemas > Suporte**. Clique em **Criar pacote de suporte**. O sistema começa a recolher o pacote de suporte. A recolha do pacote pode demorar vários minutos.
 
-    ![Clicar em adicionar utilizador](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Clique em adicionar utilizador](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. Depois de o pacote de Suporte estar criado, clique em **Transferir pacote de Suporte**. Um pacote zipado é transferido no caminho que escolher. Pode deszipe o pacote.
+2. Depois de o pacote de Suporte estar criado, clique em **Transferir pacote de Suporte**. Um pacote zipado é transferido no caminho que escolher. Pode desapertar o pacote.
 
-    ![Clicar em adicionar utilizador](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Clique em adicionar utilizador](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Utilizar registos para resolução de problemas
 
@@ -58,7 +58,7 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
 
 1. Para ver os ficheiros de erro, aceda à partilha e clique na partilha para ver o conteúdo. 
 
-      ![Clicar em adicionar utilizador](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Clique em adicionar utilizador](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Clique na _pasta Microsoft Data Box Gateway_. Esta pasta tem duas subpastas:
 
@@ -98,8 +98,8 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Não foi possível carregar dados para a conta porque a conta ou a partilha está desativada.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Não foi possível ligar ao contentor porque as permissões de conta estão erradas ou desatualizadas. Verifique o seu acesso.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Não foi possível adicionar novos dados porque o contentor está cheio. Verifique as especificações do Azure para tamanhos de contentor suportados com base no tipo. Por exemplo, o Azure Files só suporta um tamanho de ficheiro máximo de 5 TB.                                     |
-    |    2009            |    ERROR_CLOUD_CONTAINER_MISSING                |     Não foi possível carregar os dados uma vez que o contentor associado a partilha não existe.                                     |    
-    |    2997            |    ERROR_ITEM_CANCELED                                     |    Ocorreu um erro inesperado. Este é um erro transitório que será resolvido de forma automática.                                                                           |
+    |    2009            |    ERROR_CLOUD_CONTAINER_MISSING                |     Não conseguiu fazer o upload dos dados porque o contentor associado à parte não existe.                                     |    
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    Ocorreu um erro inesperado. Este é um erro transitório que se resolverá sozinho.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    Ocorreu um erro inesperado. O erro pode ser resolvido de forma automática mas se persistir durante mais de 24 horas, contacte o Suporte da Microsoft.                                                                                                     |
     |    16000           |    RefreshException                                        |    Não foi possível atualizar este ficheiro.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    Não foi possível atualizar este ficheiro porque já existe no sistema local.                                                                                                                                                         |

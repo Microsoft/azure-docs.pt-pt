@@ -1,5 +1,5 @@
 ---
-title: Início rápido-adicionar um aplicativo ao seu locatário do Azure Active Directory
+title: Quickstart - Adicione uma app ao seu inquilino de Diretório Ativo Azure
 description: Este início rápido utiliza o portal do Azure para adicionar uma aplicação da galeria ao seu inquilino do Azure Active Directory (Azure AD).
 services: active-directory
 author: msmimart
@@ -12,11 +12,11 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420478"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379778"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início Rápido: Adicionar uma aplicação ao seu inquilino do Azure Active Directory
 
@@ -24,7 +24,7 @@ O Azure Active Directory (Azure AD) tem uma galeria que contém milhares de apli
 
 Após a adição de uma aplicação ao seu inquilino do Azure AD, pode:
 
-- Gerencie o acesso do usuário ao aplicativo com uma política de acesso condicional.
+- Gerir o acesso do utilizador à aplicação com uma política de Acesso Condicional.
 - Configurar utilizadores para o início de sessão único na aplicação com as contas do Azure AD deles.
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -42,58 +42,58 @@ Para testar os passos neste tutorial, recomendamos utilizar um ambiente de não 
 
 Para adicionar uma aplicação da galeria ao seu inquilino do Azure AD:
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
-2. No painel de **Azure Active Directory** , selecione **aplicativos empresariais**. O painel **todos os aplicativos** é aberto e exibe uma amostra aleatória dos aplicativos em seu locatário do Azure AD.
+2. No painel **azure Ative Directory,** selecione **aplicações Enterprise**. O painel **de aplicações Todas as aplicações** abre e exibe uma amostra aleatória das aplicações no seu inquilino Azure AD.
 
-3. Para adicionar um aplicativo da galeria ao seu locatário, selecione **novo aplicativo**. 
+3. Para adicionar uma aplicação de galeria ao seu inquilino, selecione **Nova aplicação.** 
 
-    ![Selecione novo aplicativo para adicionar um aplicativo da galeria ao seu locatário](media/add-application-portal/new-application.png)
+    ![Selecione Nova aplicação para adicionar uma app de galeria ao seu inquilino](media/add-application-portal/new-application.png)
 
- 4. Mude para a nova experiência de visualização da Galeria: na faixa na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **clique aqui para experimentar a Galeria de aplicativos nova e aprimorada**.
+ 4. Mude para a nova experiência de pré-visualização da galeria: No banner no topo da página Adicionar uma página de **aplicação,** selecione o link que diz Clique aqui para experimentar a nova e melhorada galeria de **aplicações**.
 
-5. O painel **procurar na galeria do Azure AD (visualização)** é aberto e exibe blocos para plataformas de nuvem, aplicativos locais e aplicativos em destaque. Observe que os aplicativos listados na seção **aplicativos em destaque** têm ícones que indicam se eles dão suporte ao SSO (logon único) federado e ao provisionamento.
+5. O painel **Browse Azure AD Gallery (Preview)** abre e exibe azulejos para plataformas em nuvem, aplicações no local e aplicações em destaque. Note que as aplicações listadas na secção **de aplicações em destaque** têm ícones que indicam se suportam um único sinal federado (SSO) e o provisionamento.
 
-    ![Pesquisar um aplicativo por nome ou categoria](media/add-application-portal/browse-gallery.png)
+    ![Procure uma aplicação por nome ou categoria](media/add-application-portal/browse-gallery.png)
 
-6. Você pode procurar a galeria do aplicativo que deseja adicionar ou pesquisar o aplicativo inserindo seu nome na caixa de pesquisa. Em seguida, selecione o aplicativo nos resultados. No formulário, você pode editar o nome do aplicativo para corresponder às necessidades da sua organização. Neste exemplo, alteramos o nome para **GitHub-Test**.
+6. Pode consultar a galeria para obter a aplicação que pretende adicionar, ou procurar a aplicação inserindo o seu nome na caixa de pesquisa. Em seguida, selecione a aplicação a partir dos resultados. Na forma, pode editar o nome da aplicação para corresponder às necessidades da sua organização. Neste exemplo, mudamos o nome para **teste GitHub.**
 
-    ![Mostra como adicionar um aplicativo da Galeria](media/add-application-portal/create-application.png)
+    ![Mostra como adicionar uma aplicação da galeria](media/add-application-portal/create-application.png)
 
 7. Selecione **Criar**. É apresentada uma página de introdução com as opções para configurar a aplicação para a sua organização.
 
-Você terminou de adicionar seu aplicativo. As secções seguintes mostram-lhe como alterar o logótipo e editar outras propriedades da aplicação.
+Terminou de adicionar a sua candidatura. As secções seguintes mostram-lhe como alterar o logótipo e editar outras propriedades da aplicação.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Localizar a aplicação do seu inquilino do Azure AD
 
-Vamos supor que teve de se ausentar e que voltou agora para retomar a configuração da aplicação. A primeira coisa a fazer é localizar seu aplicativo.
+Vamos supor que teve de se ausentar e que voltou agora para retomar a configuração da aplicação. A primeira coisa a fazer é encontrar a sua candidatura.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
-1. No painel de **Azure Active Directory** , selecione **aplicativos empresariais**.
-1. No menu suspenso **tipo de aplicativo** , selecione **todos os aplicativos**e, em seguida, selecione **aplicar**. Para saber mais sobre as opções de visualização, veja [View tenant applications](view-applications-portal.md) (Ver aplicações do inquilino).
-1. Agora, pode ver uma lista com todas as aplicações no seu inquilino do Azure AD. A lista é uma amostra aleatória. Para ver mais aplicativos, selecione **Mostrar mais** uma ou mais vezes.
-1. Para localizar rapidamente um aplicativo em seu locatário, insira o nome do aplicativo na caixa de pesquisa e selecione **aplicar**. Este exemplo localiza o aplicativo GitHub-Test adicionado anteriormente.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
+1. No painel **azure Ative Directory,** selecione **aplicações Enterprise**.
+1. A partir do menu de entrega do **Tipo de Aplicação,** selecione **Todas as Aplicações,** e, em seguida, selecione **Aplicar**. Para saber mais sobre as opções de visualização, veja [View tenant applications](view-applications-portal.md) (Ver aplicações do inquilino).
+1. Agora, pode ver uma lista com todas as aplicações no seu inquilino do Azure AD. A lista é uma amostra aleatória. Para ver mais aplicações, selecione **Mostrar mais** uma ou mais vezes.
+1. Para encontrar rapidamente uma candidatura no seu inquilino, insira o nome da candidatura na caixa de pesquisa e selecione **Apply**. Este exemplo encontra a aplicação de teste GitHub adicionada anteriormente.
 
-    ![Mostra como localizar um aplicativo usando a caixa de pesquisa](media/add-application-portal/find-application.png)
+    ![Mostra como encontrar uma aplicação usando a caixa de pesquisa](media/add-application-portal/find-application.png)
 
 ## <a name="configure-user-sign-in-properties"></a>Configurar as propriedades de início de sessão do utilizador
 
-Agora que você encontrou o aplicativo, você pode abri-lo e configurar as propriedades do aplicativo.
+Agora que encontrou a aplicação, pode abri-la e configurar propriedades de aplicação.
 
-Para editar as propriedades do aplicativo:
+Para editar as propriedades da aplicação:
 
-1. Selecione o aplicativo para abri-lo.
-2. Selecione **Propriedades** para abrir o painel Propriedades para edição.
+1. Selecione a aplicação para abri-la.
+2. Selecione **Propriedades** para abrir o painel de propriedades para edição.
 
-    ![Mostra as propriedades da tela de propriedades e do aplicativo editável](media/add-application-portal/edit-properties.png)
+    ![Mostra as propriedades do ecrã e da aplicação editável do Properties](media/add-application-portal/edit-properties.png)
 
-3. Dispense alguns momentos para compreender as opções de início de sessão. As opções determinam como os usuários atribuídos ou não atribuídos ao aplicativo podem entrar no aplicativo. Além disso, as opções também determinam se um usuário pode ver o aplicativo no painel de acesso.
+3. Dispense alguns momentos para compreender as opções de início de sessão. As opções determinam como os utilizadores que estão designados ou não atribuídos à aplicação podem assinar na aplicação. E as opções também determinam se um utilizador pode ver a aplicação no painel de acesso.
 
-    - **Habilitado para que os usuários entrem?** Determina se os usuários atribuídos ao aplicativo podem entrar.
-    - **Atribuição de usuário necessária?** Determina se os usuários que não estão atribuídos ao aplicativo podem entrar.
-    - **Visível para os usuários?** Determina se os usuários atribuídos a um aplicativo podem vê-lo no painel de acesso e no iniciador do O365.
+    - **Habilitado para os utilizadores iniciarem o seu sessão?** determina se os utilizadores afetados à aplicação podem iniciar o seu insessão.
+    - **Atribuição de utilizador necessária?** determina se os utilizadores que não estão designados para a aplicação podem iniciar o seu sessão.
+    - **Visível para os utilizadores?** determina se os utilizadores designados para uma aplicação podem vê-lo no painel de acesso e no lançador O365.
 
-4. Use as tabelas a seguir para ajudá-lo a escolher as melhores opções para suas necessidades.
+4. Utilize as seguintes tabelas para o ajudar a escolher as melhores opções para as suas necessidades.
 
    - Comportamento para utilizadores **atribuídos**:
 
@@ -113,7 +113,7 @@ Para editar as propriedades do aplicativo:
 
        | Definições da propriedades da aplicação | | | Experiência para utilizadores não atribuídos | |
        |---|---|---|---|---|
-       | Habilitado para os usuários entrarem? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
+       | Habilitado para os utilizadores iniciarem o seu insessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
        | sim | sim | sim | não  | não   |
        | sim | sim | não  | não  | não   |
        | sim | não  | sim | sim | não   |
@@ -130,20 +130,20 @@ Para editar as propriedades do aplicativo:
 Para utilizar um logótipo personalizado:
 
 1. Crie um logótipo com 215 por 215 píxeis e guarde-o no formato PNG.
-1. Como você já encontrou seu aplicativo, selecione o aplicativo.
+1. Uma vez que já encontrou a sua candidatura, selecione a aplicação.
 1. No painel esquerdo, selecione **Propriedades**.
 1. Atualize o logótipo.
-1. Quando tiver terminado, selecione **salvar**. 
+1. Quando terminar, selecione **Guardar**. 
 
-    ![Mostra como alterar o logotipo da página de propriedades do aplicativo](media/add-application-portal/change-logo.png)
+    ![Mostra como mudar o logótipo da página Properties da aplicação](media/add-application-portal/change-logo.png)
 
    > [!NOTE]
-   > A miniatura exibida neste painel de **Propriedades** não é atualizada imediatamente. Você pode fechar e reabrir as propriedades para ver o ícone atualizado.
+   > A miniatura exibida neste painel **Properties** não atualiza imediatamente. Pode fechar e reabrir as propriedades para ver o ícone atualizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Agora que você adicionou o aplicativo à sua organização do Azure AD, [escolha um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que você deseja usar e consulte o artigo apropriado abaixo:
+Agora que adicionou a aplicação à sua organização Azure AD, [escolha um único método de inscrição](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que deseja utilizar e consulte o artigo apropriado abaixo:
 
-- [Configurar o logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
-- [Configurar o logon único com senha](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configurar logon vinculado](configure-linked-sign-on.md)
+- [Configure o único sign-on baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configure o sinal único da palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
+- [Configurar o sign-on ligado](configure-linked-sign-on.md)

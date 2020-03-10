@@ -10,11 +10,11 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169817"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355302"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos da computação no Azure Machine Learning? 
 
@@ -72,7 +72,7 @@ Pode utilizar clusters de computação Azure Machine Learning para treino e para
 
 Um alvo de cálculo não gerido *não* é gerido pela Azure Machine Learning. Cria este tipo de alvo de computação fora do Azure Machine Learning e, em seguida, fixa-o ao seu espaço de trabalho. Os recursos computacionais não geridos podem exigir passos adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprenda a:
 * [Configurar um alvo de computação para treinar o seu modelo](how-to-set-up-training-targets.md)

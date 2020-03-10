@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539404"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379629"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem aos campos de cordas num índice de pesquisa cognitiva azure
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre propriedades indexadas, consulte [Create Ind
 ## <a name="language-analyzer-list"></a>Lista de analisadores de linguagem 
  Abaixo está a lista de idiomas suportados juntamente com nomes de lucene e analisadores da Microsoft.  
 
-|Idioma|Nome do Analisador da Microsoft|Nome do Analisador Lucene|  
+|Linguagem|Nome do Analisador da Microsoft|Nome do Analisador Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Arménio||hy.lucene|  
@@ -71,7 +71,7 @@ Para obter mais informações sobre propriedades indexadas, consulte [Create Ind
 |Búlgaro|bg.microsoft|bg.lucene|  
 |Catalão|ca.microsoft|ca.lucene|  
 |Chinês simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
-|Chinês tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
+|Chinês Tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
 |Croata|hr.microsoft||  
 |Checo|cs.microsoft|cs.lucene|  
 |Dinamarquês|da.microsoft|da.lucene|  
@@ -123,7 +123,7 @@ Para obter mais informações sobre propriedades indexadas, consulte [Create Ind
 
  Todos os analisadores com nomes anotados com **Lucene** são alimentados pelos [analisadores linguísticos de Apache Lucene.](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 + [Criar &#40;a API de pesquisa cognitiva do Index Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

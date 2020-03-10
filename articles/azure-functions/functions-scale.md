@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 9970894436107ab51c2ad2d31aa1e14a3e6b5778
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584546"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356497"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem de funções azure
 
@@ -39,7 +39,7 @@ A tabela seguinte indica o nível atual de suporte para os três planos de hospe
 
 | | Plano de consumo | Plano Premium | Plano dedicado |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | GA | GA |
+| Portal do | GA | GA | GA |
 | Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Plano de consumo
@@ -63,7 +63,7 @@ Quando se está a usar o plano Premium, as instâncias do anfitrião das Funçõ
 
 * Casos perpetuamente quentes para evitar qualquer arranque frio
 * Conectividade VNet
-* Duração ilimitada de execução
+* Duração ilimitada de execução (60 minutos garantidos)
 * Tamanhos de instância premium (um núcleo, dois núcleos e quatro instâncias centrais)
 * Preços mais previsíveis
 * Alocação de aplicativos de alta densidade para planos com aplicações de múltiplas funções

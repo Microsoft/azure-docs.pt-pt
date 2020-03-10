@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: overview
 ms.date: 12/31/2019
 ms.openlocfilehash: ea53ee3f3c1d39652982b6343b1e634dac1fbc75
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525928"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360650"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual de Ciência de Dados Azure para Linux e Windows?
 
@@ -75,7 +75,7 @@ Saiba mais sobre a [aprendizagem profunda disponível e os quadros de IA.](dsvm-
 
 Consulte uma lista completa de ferramentas tanto no Windows como no Linux DSVM's [aqui](tools-included.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais com estes artigos:
 

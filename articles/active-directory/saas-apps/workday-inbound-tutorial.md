@@ -16,11 +16,11 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365633"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378409"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configure workday para fornecimento automático de utilizadores
 
@@ -345,7 +345,7 @@ Neste passo, você concederá permissões políticas de "segurança de processos
 
 1. Introduza ativar na caixa de pesquisa e, em seguida, clique no link **Ativar alterações**de política de segurança pendente .
 
-    ![Ativar](./media/workday-inbound-tutorial/wd_isu_16.png "Ativar")
+    ![Ativar](./media/workday-inbound-tutorial/wd_isu_16.png "Activate")
 
 1. Inicie a tarefa de ativação da política de segurança pendente, inserindo um comentário para fins de auditoria e, em seguida, clique em **OK**.
 1. Complete a tarefa no ecrã seguinte, verificando a caixa de verificação **Confirme,** e, em seguida, clique **em OK**.
@@ -1360,7 +1360,7 @@ O serviço de provisionamento da AD Azure insere-se na categoria de processador 
 
 No que diz respeito à retenção de dados, o serviço de provisionamento de AD Azure não gera relatórios, realiza análises ou fornece insights para além de 30 dias. Por isso, o serviço de provisionamento da Azure AD não armazena, processa ou retém quaisquer dados para além de 30 dias. Este design está em conformidade com os regulamentos do RGPD, os regulamentos de conformidade de privacidade da Microsoft e as políticas de retenção de dados da Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre o Workday e o Azure Ative Directory](workday-tutorial.md)

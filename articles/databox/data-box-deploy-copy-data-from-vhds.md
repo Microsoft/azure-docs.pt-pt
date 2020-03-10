@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471232"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380200"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Utilizar caixa de dados para importar dados como discos geridos em Azure
 
@@ -167,7 +167,7 @@ Para garantir a integridade dos dados, a soma de verificação é calculada inli
 Uma vez terminada a cópia, pode ir para **preparar o navio.**
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 

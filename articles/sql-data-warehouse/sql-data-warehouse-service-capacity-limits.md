@@ -12,11 +12,11 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: a225c375d877ae44c2b21ea8e79e31f17db36878
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198189"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358396"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade da Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -38,13 +38,13 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Base de Dados |Tamanho máximo | Gen1: 240 TB comprimido no disco. Este espaço é independente do espaço temporário ou de log, pelo que este espaço é dedicado a tabelas permanentes.  A compressão da loja de colunas agrupada é estimada em 5X.  Esta compressão permite que a base de dados cresça para aproximadamente 1 PB quando todas as tabelas estiverem agrupadas (o tipo de tabela predefinido). <br/><br/> Gen2: Armazenamento ilimitado para mesas de lojas de colunas.  A parte da loja de remo da base de dados ainda está limitada a 240 TB comprimidos no disco. |
+| Base de dados |Tamanho máximo | Gen1: 240 TB comprimido no disco. Este espaço é independente do espaço temporário ou de log, pelo que este espaço é dedicado a tabelas permanentes.  A compressão da loja de colunas agrupada é estimada em 5X.  Esta compressão permite que a base de dados cresça para aproximadamente 1 PB quando todas as tabelas estiverem agrupadas (o tipo de tabela predefinido). <br/><br/> Gen2: Armazenamento ilimitado para mesas de lojas de colunas.  A parte da loja de remo da base de dados ainda está limitada a 240 TB comprimidos no disco. |
 | Tabela |Tamanho máximo |Tamanho ilimitado para mesas de loja de colunas. <br>60 TB para mesas de loja de remo comprimidos no disco. |
-| Tabela |Tabelas por base de dados | 100 000 |
+| Tabela |Tabelas por base de dados | 100,000 |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Dependente do tipo de [dados](sql-data-warehouse-tables-data-types.md)da coluna . Para tipos de dados de caracteres, o MAX Limit pode armazenar até 2 GB no armazenamento off page (row-overflow).  Os caracteres não-Unicode, como o limite de carvão ou varchar, são 8000 numa página de dados, caracteres Unicode como nchar ou nvarchar limit é de 4000 numa página de dados.  Utilize os tamanhos de armazenamento da página de dados para aumentar o desempenho. |
 | Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma forma que é para o SQL Server com compressão de página. Tal como o SQL Server, o armazenamento de transbordo de linha é suportado, o que permite que as colunas de **comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são empurradas para fora da linha, apenas a raiz de 24 bytes é armazenada no registo principal. Para mais informações, consulte dados de [transbordo de linha superiores a 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabela |Divisórias por mesa |15 000<br/><br/>Para um alto desempenho, recomendamos minimizar o número de divisórias que necessita, ao mesmo tempo que suporta os seus requisitos de negócio. À medida que o número de divisórias aumenta, as operações gerais para as operações de Linguagem de Definição de Dados (DDL) e Linguagem de Manipulação de Dados (DML) crescem e causam um desempenho mais lento. |
+| Tabela |Divisórias por mesa |15,000<br/><br/>Para um alto desempenho, recomendamos minimizar o número de divisórias que necessita, ao mesmo tempo que suporta os seus requisitos de negócio. À medida que o número de divisórias aumenta, as operações gerais para as operações de Linguagem de Definição de Dados (DDL) e Linguagem de Manipulação de Dados (DML) crescem e causam um desempenho mais lento. |
 | Tabela |Caracteres por valor de fronteira de divisória. |4000 |
 | Índice |Índices não agrupados por tabela. |50<br/><br/>Aplica-se apenas às mesas de loja de remo. |
 | Índice |Índices agrupados por tabela. |1<br><br/>Aplica-se tanto às mesas da loja de remo como às mesas de lojas de colunas. |
@@ -54,7 +54,7 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Estatísticas |Colunas por objeto estatístico. |32 |
 | Estatísticas |Estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos Armazenados |Níveis máximos de nidificação. |8 |
-| Ver |Colunas por vista |1,024 |
+| Vista |Colunas por vista |1,024 |
 ||||
 
 ## <a name="loads"></a>Cargas
@@ -74,10 +74,10 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Consulta |Parâmetros máximos |2098 |
 | Batch |Tamanho máximo |65,536*4096 |
 | Selecione resultados |Colunas por linha |4096<br/><br/>Nunca poderá ter mais de 4096 colunas por linha no resultado SELECT. Não há garantiade que sempre se pode ter 4096. Se o plano de consulta necessitar de uma tabela temporária, podem aplicar-se as 1024 colunas por tabela máxima. |
-| SELECIONAR |Subqueries aninhados |32<br/><br/>Nunca poderá ter mais de 32 subqueries aninhados numa declaração SELECT. Não há garantiade que sempre se pode ter 32. Por exemplo, um JOIN pode introduzir uma subqueria no plano de consulta. O número de subqueries também pode ser limitado pela memória disponível. |
-| SELECIONAR |Colunas por JOIN |1024 colunas<br/><br/>Nunca poderá ter mais de 1024 colunas no JOIN. Não há garantiade que sempre se pode ter 1024. Se o plano JOIN necessitar de uma tabela temporária com mais colunas do que o resultado JOIN, o limite de 1024 aplica-se à tabela temporária. |
-| SELECIONAR |Bytes por grupo por colunas. |8060<br/><br/>As colunas da cláusula GROUP BY podem ter um máximo de 8060 bytes. |
-| SELECIONAR |Bytes por ORDEM Por colunas |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes |
+| SELECT |Subqueries aninhados |32<br/><br/>Nunca poderá ter mais de 32 subqueries aninhados numa declaração SELECT. Não há garantiade que sempre se pode ter 32. Por exemplo, um JOIN pode introduzir uma subqueria no plano de consulta. O número de subqueries também pode ser limitado pela memória disponível. |
+| SELECT |Colunas por JOIN |1024 colunas<br/><br/>Nunca poderá ter mais de 1024 colunas no JOIN. Não há garantiade que sempre se pode ter 1024. Se o plano JOIN necessitar de uma tabela temporária com mais colunas do que o resultado JOIN, o limite de 1024 aplica-se à tabela temporária. |
+| SELECT |Bytes por grupo por colunas. |8060<br/><br/>As colunas da cláusula GROUP BY podem ter um máximo de 8060 bytes. |
+| SELECT |Bytes por ORDEM Por colunas |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes |
 | Identificadores por declaração |Número de identificadores referenciados |65,535<br/><br/> O número de identificadores que podem ser contidos numa única expressão de uma consulta é limitado. Exceder este número resulta no erro do Servidor SQL 8632. Para obter mais informações, consulte [Erro interno: Foi atingido um limite de serviços](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a)de expressão . |
 | Cordas literais | Número de cordas literais em comunicado | 20,000 <br/><br/>O número de constantes de cordas numa única expressão de uma consulta é limitado. Exceder este número resulta no erro do Servidor SQL 8632.|
 ||||
@@ -97,6 +97,6 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | sys.dm_pdw_sql_requests |Os mais recentes 1000 pedidos SQL que são armazenados em sys.dm_pdw_exec_requests. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter recomendações sobre a utilização de Azure Synapse, consulte a [Folha de Batota](cheat-sheet.md).

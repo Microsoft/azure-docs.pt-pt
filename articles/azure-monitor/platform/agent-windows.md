@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
 ms.openlocfilehash: 21efb16cf519d4bcad520af1c7d8818f36a77218
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668643"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372944"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ligar computadores Windows ao Monitor Azure
 
@@ -199,7 +199,7 @@ Também pode realizar uma simples consulta de log no portal Azure.
 
 Nos resultados da pesquisa devolvidos, deve ver registos de batimentos cardíacos para o computador indicando que está ligado e reportando ao serviço.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja [a gestão e manutenção do agente Log Analytics para windows e Linux](agent-manage.md) para aprender como reconfigurar, atualizar ou remover o agente da máquina virtual.
 

@@ -10,11 +10,11 @@ ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 137623e4c52d24061aec8ec11fca0fc02ca54c7f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190981"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372452"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Trabalhadores do livro híbrido de troubleshoot
 
@@ -147,7 +147,7 @@ Se vir o erro **A classe especificada não existe..** no `/var/opt/microsoft/oms
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a>Portal do
 
 O Windows Hybrid Runbook Worker depende do [agente Log Analytics para](../../azure-monitor/platform/log-analytics-agent.md) o Windows comunicar com a sua conta Automation para registar o trabalhador, receber trabalhos de livro e reportar o estado. Se o registo do trabalhador falhar, eis algumas possíveis causas para o erro:
 
@@ -231,7 +231,7 @@ Para resolver este problema, remova a seguinte chave de registo e reinicie a `He
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

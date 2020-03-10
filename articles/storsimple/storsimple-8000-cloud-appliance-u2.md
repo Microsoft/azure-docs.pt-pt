@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965732"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366806"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
 
@@ -52,7 +52,7 @@ O StorSimple Cloud Appliance está disponível em dois modelos, um 8010 convenci
 
 <sup>1</sup> *Anteriormente conhecido como 1100*.
 
-<sup>2</sup> *Os dispositivos 8010 e 8020 utilizam o armazenamento padrão do Azure para o escalão de nuvem. A diferença só existe no escalão local dentro do dispositivo*.
+<sup>2</sup> *Tanto o 8010 como o 8020 utilizam o Azure Standard Storage para o nível de nuvem. A diferença só existe no nível local dentro do dispositivo*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Como a aplicação da cloud é diferente do dispositivo físico
 
@@ -64,8 +64,8 @@ A tabela seguinte mostra algumas diferenças fundamentais entre a StorSimple Clo
 
 |  | Dispositivo físico | Aplicação da cloud |
 | --- | --- | --- |
-| **Location** |Reside no datacenter. |É executado no Azure. |
-| **Interfaces de rede** |Tem seis interfaces de rede: DADOS 0 a DATA 5. |Tem apenas uma interface de rede: DATA 0. |
+| **Localização** |Reside no datacenter. |É executado no Azure. |
+| **Interfaces de rede** |Possui seis interfaces de rede: de DADOS 0 a DADOS 5. |Possui apenas uma interface de rede: DADOS 0. |
 | **Registo** |Registado durante o passo de configuração inicial. |O registo é uma tarefa separada. |
 | **Chave de encriptação dos dados do serviço** |Volte a gerá-la no dispositivo físico e, em seguida, atualize a aplicação da cloud com a nova chave. |Não é possível voltar a gerar a chave a partir da aplicação da cloud. |
 | **Tipos de volume suportados** |Suporta volumes afixados localmente e escalonados. |Suporta apenas volumes escalonados. |
@@ -96,7 +96,7 @@ Antes de aprovisionar a aplicação da cloud, terá de efetuar os seguintes prep
 Efetue as seguintes atualizações no serviço Gestor de Dispositivos do StorSimple antes de criar uma aplicação da cloud:
 
 * Adicionar [registos de controlo de acesso](storsimple-8000-manage-acrs.md) para as VMs que serão servidores de anfitrião para a aplicação da cloud.
-* Utilizar uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região da aplicação da cloud. As contas do Storage em regiões diferentes poderão ter um fraco desempenho. Pode utilizar uma conta de armazenamento Standard ou Premium com a aplicação da cloud. Mais informações sobre como criar uma [conta de armazenamento padrão](../storage/common/storage-create-storage-account.md).
+* Utilizar uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região da aplicação da cloud. As contas do Storage em regiões diferentes poderão ter um fraco desempenho. Pode utilizar uma conta de armazenamento Standard ou Premium com a aplicação da cloud. Mais informações sobre como criar uma [conta de Armazenamento Padrão.](../storage/common/storage-create-storage-account.md)
 * Utilize uma conta de armazenamento diferente para a criação da aplicação da cloud a partir da conta utilizada para os seus dados. Com a mesma conta do Storage, poderá obter um fraco desempenho.
 
 Certifique-se de que tem as seguintes informações antes de começar:
@@ -110,7 +110,7 @@ Antes de executar estes procedimentos, certifique-se de que cumpriu os [Pré-req
 
 Execute os seguintes passos para criar a StorSimple Cloud Appliance.
 
-### <a name="step-1-create-a-cloud-appliance"></a>Passo 1: Criar um dispositivo de nuvem
+### <a name="step-1-create-a-cloud-appliance"></a>Passo 1: Criar uma aplicação da cloud
 
 Execute os seguintes passos para criar a StorSimple Cloud Appliance.
 
@@ -118,7 +118,7 @@ Execute os seguintes passos para criar a StorSimple Cloud Appliance.
 
 Se a criação da aplicação da cloud falhar neste passo, é possível que não tenha conectividade à Internet. Para obter mais informações, aceda a [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) (resolver problemas relacionados com falhas de conectividade à Internet) quando criar uma aplicação da cloud.
 
-### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Passo 2: Configurar e registrar o dispositivo de nuvem
+### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Passo 2: Configurar e registar a aplicação da cloud
 
 Antes de iniciar este procedimento, certifique-se de que tem uma cópia da chave de encriptação de dados do serviço. A chave de encriptação de dados do serviço é criada quando regista o seu primeiro dispositivo físico StorSimple com o serviço Gestor de Dispositivos do StorSimple. Foi-lhe indicado para guardá-la numa localização segura. Se não tiver uma cópia da chave de encriptação de dados do serviço, deve contactar o apoio técnico da Microsoft para obter assistência.
 
@@ -126,7 +126,7 @@ Execute os seguintes passos para configurar e registar a StorSimple Cloud Applia
 
 [!INCLUDE [Configure and register a cloud appliance](../../includes/storsimple-8000-configure-register-cloud-appliance.md)]
 
-### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Passo 3: Adicional Modificar as definições de configuração do dispositivo
+### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Passo 3: (opcional) Modificar as definições de configuração do dispositivo
 
 A seguinte secção descreve as definições de configuração do dispositivo necessárias para a StorSimple Cloud Appliance se pretender utilizar o CHAP, o Snapshot Manager do StorSimple ou alterar a palavra-passe de administrador de dispositivos.
 
@@ -162,13 +162,13 @@ O acesso remoto à aplicação da cloud através da interface do Windows PowerSh
 
 O procedimento de dois passos seguinte descreve como ligar remotamente à sua aplicação da cloud.
 
-### <a name="step-1-configure-remote-management"></a>Passo 1: Configurar o gerenciamento remoto
+### <a name="step-1-configure-remote-management"></a>Passo 1: Configurar a gestão remota
 
 Execute os seguintes passos para configurar a gestão remota da StorSimple Cloud Appliance.
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passo 2: Acessar remotamente o dispositivo de nuvem
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passo 2: Aceder remotamente à aplicação da cloud
 
 Depois de ativar a gestão remota na aplicação da cloud, utilize a comunicação remota do Windows PowerShell para ligar à aplicação a partir de outra máquina virtual dentro da mesma rede virtual. Por exemplo, pode ligar a partir da VM de anfitrião que configurou e utilizou para estabelecer ligação a iSCSI. Na maioria das implementações, irá abrir um ponto final público para aceder à VM do anfitrião que pode utilizar para aceder à aplicação da cloud.
 

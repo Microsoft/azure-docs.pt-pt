@@ -14,17 +14,17 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073440"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374384"
 ---
 # <a name="about-api-management"></a>Acerca da Gestão de API
 
-O gerenciamento de API (APIM) é uma maneira de criar gateways de API modernos e consistentes para serviços de back-end existentes.
+A Gestão de API (APIM) é uma forma de criar gateways de API consistentes e modernos para serviços de back-end existentes.
 
-O gerenciamento de API ajuda as organizações a publicar APIs para desenvolvedores externos, parceiros e internos para desbloquear o potencial de seus dados e serviços. Um pouco por todo o lado, as empresas procuram expandir as suas operações como uma plataforma digital, criando novos canais, encontrando novos clientes e promovendo um envolvimento mais profundo com os clientes existentes. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. Pode utilizar a API Management do Azure para iniciar um programa de API totalmente funcional baseado em qualquer back-end.
+A API Management ajuda as organizações a publicar APIs a programadores externos, parceiros e internos para desbloquear o potencial dos seus dados e serviços. Um pouco por todo o lado, as empresas procuram expandir as suas operações como uma plataforma digital, criando novos canais, encontrando novos clientes e promovendo um envolvimento mais profundo com os clientes existentes. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. Pode utilizar a API Management do Azure para iniciar um programa de API totalmente funcional baseado em qualquer back-end.
 
 Este artigo apresenta uma descrição geral dos cenários comuns que envolvem a APIM.  Também fornece uma breve descrição geral dos componentes principais do sistema de APIM. O artigo, em seguida, apresenta uma descrição geral mais detalhada de cada componente.
 
@@ -60,7 +60,7 @@ O sistema é constituído pelos seguintes componentes:
   * Criar uma conta e subscrever para obter chaves de API.
   * Aceder a análises sobre a sua própria utilização.
 
-Para obter mais informações, consulte [gerenciamento de API baseado em nuvem: O aproveitamento do White Paper](https://j.mp/ms-apim-whitepaper) sobre o poder do APIs em PDF. Este documento técnico introdutório sobre a API Management da CITO Research abrange: 
+Para obter mais informações, consulte o documento técnico em PDF [API Management baseada na nuvem: tirar partido do poder das APIs](https://j.mp/ms-apim-whitepaper). Este documento técnico introdutório sobre a API Management da CITO Research abrange: 
  
  * Requisitos e desafios de API comuns
  * Desassociar APIs e apresentar fachadas
@@ -69,19 +69,19 @@ Para obter mais informações, consulte [gerenciamento de API baseado em nuvem: 
  * Análise e métricas
  * Obtenção de controlo e conhecimentos aprofundados com uma plataforma de API Management
  * Utilização de soluções em nuvem versus no local
- * Gestão de API do Azure
+ * API Management do Azure
  
 ## <a name="apis"> </a>APIs e operações
 As APIs são a base de uma instância de serviço de API Management. Cada API representa um conjunto de operações disponíveis para os programadores. Cada API contém uma referência ao serviço de back-end que implementa a API e as respetivas operações efetuam o mapeamento para as operações implementadas pelo serviço de back-end. As operações da API Management são altamente configuráveis, com controlo sobre o mapeamento de URL, parâmetros de caminho e consulta, conteúdo do pedido e da resposta e colocação em cache das respostas de operações. Também é possível implementar políticas de limite de taxa, quotas e restrição de IP ao nível da API ou da operação individual.
 
 Para obter mais informações, consulte [Como criar APIs][How to create APIs] e [Como adicionar operações a uma API][How to add operations to an API].
 
-## <a name="products"> </a> Produtos
+## <a name="products"></a> Produtos
 Os produtos são a forma como as APIs são apresentadas aos programadores. Os produtos na API Management têm uma ou mais APIs e são configurados com um título, uma descrição e termos de utilização. Os produtos podem ser **Abertos** ou **Protegidos**. Os produtos protegidos têm de ser subscritos antes de poderem ser utilizados, enquanto os produtos abertos podem ser utilizados sem uma subscrição. Quando um produto estiver pronto para ser utilizado pelos programadores, pode ser publicado. Assim que for publicado, pode ser visualizado (e subscrito, no caso dos produtos protegidos) pelos programadores. A aprovação de subscrição é configurada ao nível do produto e pode exigir a aprovação do administrador ou ser aprovada automaticamente.
 
 Os grupos são utilizados para gerir a visibilidade dos produtos para os programadores. Os produtos concedem visibilidade aos grupos e os programadores podem ver e subscrever os produtos que estão visíveis para os grupos a que pertencem. 
 
-## <a name="groups"> </a> Grupos
+## <a name="groups"></a> Grupos
 Os grupos são utilizados para gerir a visibilidade dos produtos para os programadores. A Gestão de API tem os seguintes grupos de sistema imutáveis:
 
 * **Administradores** – os administradores da subscrição do Azure são membros deste grupo. Os administradores gerem as instâncias de serviço de API Management, criando as APIs, as operações e os produtos que são utilizados pelos programadores.
@@ -92,14 +92,14 @@ Para além destes grupos de sistema, os administradores podem criar grupos perso
 
 Para obter mais informações, consulte [Como criar e utilizar grupos][How to create and use groups].
 
-## <a name="developers"> </a> Programadores
+## <a name="developers"></a> Desenvolvedores
 Os programadores representam as contas de utilizador numa instância de serviço de API Management. Os programadores podem ser criados ou convidados a aderirem por administradores, ou podem inscrever-se a partir do [Portal do programador][Developer portal]. Cada programador é membro de um ou mais grupos e pode subscrever os produtos que concedem visibilidade a esses grupos.
 
 Quando os programadores subscrevem um produto, é-lhes concedida a chave primária e secundária desse produto. Esta chave é utilizada ao efetuar chamadas para as APIs do produto.
 
 Para obter mais informações, consulte [Como criar ou convidar programadores][How to create or invite developers] e [Como associar grupos a programadores][How to associate groups with developers].
 
-## <a name="policies"> </a> Políticas
+## <a name="policies"></a> Políticas
 As políticas são uma funcionalidade poderosa da Gestão de API que permite ao portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e a limitação de taxa de chamadas para restringir o número de chamadas recebidas de um programador, bem como várias outras políticas disponíveis.
 
 As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](/azure/api-management/api-management-advanced-policies#choose) e [Definir variável](/azure/api-management/api-management-advanced-policies#set-variable), baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) e [Expressões de política](/azure/api-management/api-management-policy-expressions).
@@ -108,7 +108,7 @@ As expressões de política podem ser utilizadas como valores de atributo ou val
 Para obter uma lista completa das políticas de API Management, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como utilizar e configurar as políticas, consulte [Políticas de API Management][API Management policies]. Para consultar um tutorial sobre a criação de um produto com políticas de limite de taxa e quota, consulte [Como criar e configurar definições de produto avançadas][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"> </a> Portal do programador
+## <a name="developer-portal"></a> Portal de desenvolvimento
 O portal do programador é o local onde os programadores podem saber mais sobre as suas APIs, ver e chamar operações e subscrever produtos. Os potenciais clientes podem visitar o portal do programador, ver APIs e operações e inscrever-se. O URL do seu portal do programador está localizado no dashboard do portal do Azure da sua instância de serviço de Gestão de API.
 
 Pode personalizar o aspeto e a funcionalidade do portal do programador ao adicionar conteúdo personalizado, personalizar os estilos e adicionar a sua imagem corporativa.
@@ -121,7 +121,7 @@ Para obter mais informações sobre a Gestão de API, veja a seguinte apresenta�
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Conclua o guia de início rápido seguinte e comece a utilizar a Gestão de API do Azure:
 

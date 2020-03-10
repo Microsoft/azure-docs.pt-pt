@@ -7,11 +7,11 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
 ms.openlocfilehash: 287933de6403d680c5aa5b6c78df49abe5f2ac56
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591375"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364525"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utilize o Emulador Azure Cosmos para desenvolvimento e testes locais
 
@@ -243,7 +243,7 @@ Para ver a lista de opções, escreva `Microsoft.Azure.Cosmos.Emulator.exe /?` n
 | GetStatus |Obtém o estatuto de Emulador Azure Cosmos. O estado é indicado pelo código de saída: 1 = A iniciar, 2 = Em execução, 3 = Parado. Um código de saída negativo indica que ocorreu um erro. Não é produzido outro resultado. | Microsoft.Azure.Cosmos.Emulator.exe /GetStatus| |
 | Encerrar| Desliga o Emulador Azure Cosmos.| Microsoft.Azure.Cosmos.Emulator.exe /Shutdown | |
 |DataPath | Especifica o caminho onde pretende armazenar os ficheiros de dados. O valor predefinido é %LocalAppdata%\CosmosDBEmulator. | Microsoft.Azure.Cosmos.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: um caminho acessível |
-|Porta | Especifica o número de porta a utilizar para o emulador. O valor padrão é 8081. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<porta\> | \<porta\>: número de porta individual |
+|Port | Especifica o número de porta a utilizar para o emulador. O valor padrão é 8081. |Microsoft.Azure.Cosmos.Emulator.exe /Port=\<porta\> | \<porta\>: número de porta individual |
 | ComputePort | Especificou o número de porta a utilizar para o serviço Compute Interop Gateway. A porta de sonda http do Gateway é calculada como ComputePort + 79. Por isso, a ComputePort e a ComputePort + 79 devem estar abertas e disponíveis. O valor padrão é 8900. | Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=\<computeport\> | \<\>computeport : Número único da porta |
 | EnableMongoDbEndpoint=3.2 | Permite mongoDB API 3.2 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2 | |
 | EnableMongoDbEndpoint=3.6 | Habilita mongoDB API 3.6 | Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6 | |
@@ -485,7 +485,7 @@ Utilize os seguintes passos se estiver a trabalhar no Mac:
 
 Após seguir estes passos, o seu ambiente confiará no certificado utilizado pelo Emulador ao ligar-se ao endereço IP expõe por `/AllowNetworkAccess`.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Use as seguintes dicas para ajudar a resolver problemas que encontra com o Emulador Azure Cosmos:
 
@@ -525,7 +525,7 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 3. Na lista de aplicações, desloque para **Emulador do Azure Cosmos DB**, selecione-o, clique em **Desinstalar** e, em seguida, confirme e clique em **Desinstalar** novamente.
 4. Quando a aplicação estiver desinstalada, navegue para `%LOCALAPPDATA%\CosmosDBEmulator` e elimine a pasta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar o emulador local para desenvolvimento local gratuito. Agora pode avançar para o tutorial seguinte e ficar a saber como exportar certificados SSL do emulador.
 

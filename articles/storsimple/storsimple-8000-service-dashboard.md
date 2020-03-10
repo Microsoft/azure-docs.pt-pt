@@ -1,6 +1,6 @@
 ---
-title: Utilize StorSimple 8000 series resumo do dispositivo | Documentos da Microsoft
-description: Descreve o painel de resumo do serviço StorSimple e explica como usá-lo para monitorizar o estado de funcionamento da solução StorSimple.
+title: Utilize o resumo do dispositivo da série StorSimple 8000 [ Resumo do dispositivo da série StorSimple 8000 ] Microsoft Docs
+description: Descreve a lâmina de resumo do serviço StorSimple e explica como usá-la para monitorizar a saúde da sua solução StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,74 +15,74 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60633148"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366782"
 ---
-# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utilize o painel de resumo de serviço para o dispositivo da série StorSimple 8000
+# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utilize a lâmina de resumo de serviço para dispositivo da série StorSimple 8000
 
 ## <a name="overview"></a>Descrição geral
 
-Painel de resumo do serviço StorSimple Device Manager fornece um resumo de todos os dispositivos que estão ligados ao serviço StorSimple Device Manager, realce os dispositivos que necessitam de atenção de um administrador de sistema. Este tutorial apresenta o painel de resumo do serviço, explica a função e o conteúdo de dashboard e descreve as tarefas que pode efetuar a partir desta página.
+A lâmina de resumo do serviço StorSimple Device Manager fornece uma visão sumária de todos os dispositivos que estão ligados ao serviço StorSimple Device Manager, destacando os dispositivos que precisam da atenção de um administrador do sistema. Este tutorial introduz a lâmina de resumo do serviço, explica o conteúdo e função do painel de instrumentos, e descreve as tarefas que pode executar a partir desta página.
 
 ![Resumo do serviço](./media/storsimple-8000-service-dashboard/service-summary1.png)
 
 
 ## <a name="management-commands"></a>Comandos de gestão
 
-No painel Resumo do serviço do StorSimple, pode ver as opções para gerir o seu serviço StorSimple Device Manager e os dispositivos da série StorSimple 8000 registados para este serviço. Consulte os comandos de gestão na parte superior do painel e no lado esquerdo.
+Na lâmina de resumo do serviço StorSimple, vê as opções para gerir o seu serviço StorSimple Device Manager e os dispositivos da série StorSimple 8000 registados neste serviço. Vê-se os comandos de gestão na parte superior da lâmina e no lado esquerdo.
 
 ![Barra de comandos](./media/storsimple-8000-service-dashboard/service-summary2.png)
 
-Utilize estas opções para executar várias operações, como adicionar partilhas ou volumes ou monitor as várias tarefas em execução em dispositivos do StorSimple.
+Utilize estas opções para realizar várias operações, tais como adicionar partilhas ou volumes, ou monitorizar os vários trabalhos em execução nos dispositivos StorSimple.
 
 
 ## <a name="essentials"></a>Essentials
 
-A área do essentials captura algumas das propriedades importantes, como o grupo de recursos, a localização e subscrição na qual o seu StorSimple Device Manager foi criado.
+A área essencial captura algumas das propriedades importantes, tais como o grupo de recursos, localização e subscrição em que o seu StorSimple Device Manager foi criado.
 
 ![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
 ## <a name="storsimple-device-manager-service-summary"></a>Resumo do serviço StorSimple Device Manager
 
-* O **alertas** mosaico fornece um instantâneo de todos os alertas ativos em todos os dispositivos, agrupados por gravidade do alerta.
+* O **azulejo Alerts** fornece uma imagem instantânea de todos os alertas ativos em todos os dispositivos, agrupados por gravidade de alerta.
 
-    ![Mosaico alertas](./media/storsimple-8000-service-dashboard/service-summary4.png)
+    ![Alertas de azulejos](./media/storsimple-8000-service-dashboard/service-summary4.png)
 
-    Clicar no mosaico abre o **alertas** painel, onde pode clicar num alerta individual para ver detalhes adicionais sobre o alerta, incluindo as ações recomendadas. Também pode limpar o alerta se o problema foi resolvido.
+    Clicar no azulejo abre a lâmina **alertas,** onde pode clicar num alerta individual para ver detalhes adicionais sobre esse alerta, incluindo quaisquer ações recomendadas. Também pode limpar o alerta se o problema tiver sido resolvido.
 
-    ![Clique no mosaico alertas](./media/storsimple-8000-service-dashboard/service-summary8.png)
+    ![Clique em azulejo sintetizar alertas](./media/storsimple-8000-service-dashboard/service-summary8.png)
 
-* O **capacidade** apresenta mosaico mostra o armazenamento primário que está aprovisionado e restantes em todos os dispositivos em relação a memória total disponível em todos os dispositivos. **Aprovisionado** refere-se para a quantidade de armazenamento que é preparado e alocado para uso, **restante** refere-se para a capacidade restante, que pode ser aprovisionada em todos os dispositivos.
+* Os ecrãs de **azulejos** da Capacidade mostram o armazenamento primário que é aprovisionado e permanece em todos os dispositivos em relação ao armazenamento total disponível em todos os dispositivos. **O provisionado** refere-se à quantidade de armazenamento que é preparado e atribuído para utilização, **remanescente** refere-se à capacidade restante que pode ser aprovisionada em todos os dispositivos.
 
-    ![Mosaico de capacidade](./media/storsimple-8000-service-dashboard/service-summary6.png)
+    ![Telha de capacidade](./media/storsimple-8000-service-dashboard/service-summary6.png)
 
-    O **camadas restantes** capacidade é a capacidade disponível que pode ser aprovisionada incluindo cloud, enquanto o **restantes Local** é a capacidade restante nos discos ligados para o StorSimple 8000 dispositivos de série.
+    A capacidade restante de **Tiered** é a capacidade disponível que pode ser aprovisionada, incluindo a nuvem, enquanto o **Restante Local** é a capacidade restante nos discos ligados aos dispositivos da série StorSimple 8000.
 
 
-* Na **utilização** gráfico, pode ver as métricas relevantes para os seus dispositivos. Pode ver o armazenamento primário utilizado em todos os dispositivos e o armazenamento na cloud consumidos pelos dispositivos nos últimos sete dias, a predefinição do período de tempo. 
+* Na tabela **de utilização,** pode ver as métricas relevantes para os seus dispositivos. Pode visualizar o armazenamento primário utilizado em todos os dispositivos, e o armazenamento em nuvem consumido pelos dispositivos ao longo dos últimos 7 dias, o período de tempo padrão. 
 
     ![Mosaico utilização](./media/storsimple-8000-service-dashboard/service-summary7.png) 
 
-    Para escolher uma escala de tempo diferente, utilize o **editar** opção no canto superior direito do gráfico.
+    Para escolher uma escala de tempo diferente, utilize a opção **Editar** no canto superior direito da tabela.
 
-     ![Clique no mosaico utilização](./media/storsimple-8000-service-dashboard/service-summary10.png)
+     ![Clique em azulejo de uso](./media/storsimple-8000-service-dashboard/service-summary10.png)
 
-     ![Exportar dados do gráfico](./media/storsimple-8000-service-dashboard/service-summary11.png)
+     ![Dados do gráfico de exportação](./media/storsimple-8000-service-dashboard/service-summary11.png)
 
-* O **dispositivos** mosaico fornece um resumo do número de dispositivos da série StorSimple 8000 na seu StorSimple Device Manager agrupadas por Estado de dispositivo. 
+* O azulejo **dispositivos** fornece um resumo do número de dispositivos da série StorSimple 8000 no seu StorSimple Device Manager agrupado pelo estado do dispositivo. 
 
-    ![Mosaico de dispositivos](./media/storsimple-8000-service-dashboard/service-summary5.png)
+    ![Telha de dispositivos](./media/storsimple-8000-service-dashboard/service-summary5.png)
 
-    Clique neste mosaico para abrir o **dispositivos** painel de lista e, em seguida, clique num dispositivo individual para explorar o resumo de dispositivo específico para o dispositivo. Também pode executar ações específicas do dispositivo a partir de um painel de resumo de determinado dispositivo. Para obter mais informações sobre o painel de resumo do dispositivo, aceda a [painel de resumo do dispositivo](storsimple-8000-device-dashboard.md).
+    Clique neste azulejo para abrir a lâmina da lista de **Dispositivos** e, em seguida, clique num dispositivo individual para perfurar o resumo do dispositivo específico do dispositivo. Também pode executar ações específicas do dispositivo a partir de uma determinada lâmina de resumo do dispositivo. Para obter mais informações sobre a lâmina de resumo do dispositivo, vá à [lâmina de resumo](storsimple-8000-device-dashboard.md)do dispositivo .
 
-    ![Clique em mosaico de dispositivos](./media/storsimple-8000-service-dashboard/service-summary9.png)
+    ![Clique em azulejo de dispositivos](./media/storsimple-8000-service-dashboard/service-summary9.png)
 
 ## <a name="view-the-activity-logs"></a>Ver os registos de atividade
 
-Para ver as diversas operações executadas dentro do StorSimple Device Manager, clique a **registos de atividades** ligação no lado esquerdo do painel de resumo de serviço do StorSimple. Isto leva-o para o **registos de atividades** painel, onde pode ver um resumo das operações recentes levadas a cabo.
+Para visualizar as várias operações realizadas dentro do seu Gestor de Dispositivos StorSimple, clique no link de **registos de atividade** no lado esquerdo da sua lâmina de resumo de serviço StorSimple. Isto leva-o à lâmina de **registos de atividade,** onde pode ver um resumo das operações recentes realizadas.
 
 ![Registos de Atividade](./media/storsimple-8000-service-dashboard/activity-logs1.png)
 ## <a name="next-steps"></a>Passos Seguintes

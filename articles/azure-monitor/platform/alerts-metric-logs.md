@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.subservice: alerts
 ms.openlocfilehash: 9f61c62bc4960cb8e5bff31f84bd73a14240b613
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250717"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368023"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas métricos para registos no Monitor Azure
 
@@ -685,7 +685,7 @@ Ou utilize o modelo de recurso de implantação utilizando o AZURE CLI:
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre os [alertas métricos.](alerts-metric.md)
 - Saiba mais sobre alertas de [log em Azure.](../../azure-monitor/platform/alerts-unified-log.md)

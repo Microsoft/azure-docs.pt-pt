@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 514de1435519282335124bfd67bac82669240b78
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616519"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372827"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -123,7 +123,7 @@ Utilizando incidentes, o Security Center fornece-lhe uma única visão de uma ca
 
 Além de estarem disponíveis no portal Azure ou programáticamente, os alertas de segurança e incidentes são auditados como eventos no Registo de [Atividades do Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) Para obter mais informações sobre o esquema do evento, consulte Alertas de [Segurança no registo da Atividade Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, consulte:
 

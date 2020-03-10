@@ -1,6 +1,6 @@
 ---
-title: Habilitar a área de trabalho remota para Linux no Azure Lab Services | Microsoft Docs
-description: Saiba como habilitar a área de trabalho remota para máquinas virtuais Linux em um laboratório no Azure Lab Services.
+title: Ativar o ambiente de trabalho remoto para linux nos Serviços de Laboratório Azure  Microsoft Docs
+description: Aprenda a ativar o ambiente de trabalho remoto para máquinas virtuais Linux num laboratório em Serviços de Laboratório Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,54 +14,54 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
 ms.openlocfilehash: cb9a3e2b9ddcd0f74bfa4978f0bc3f4eb0688257
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583724"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360646"
 ---
-# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Habilitar a área de trabalho remota para máquinas virtuais Linux em um laboratório no Azure Lab Services
-Este artigo mostra como realizar as seguintes tarefas:
+# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Ativar o ambiente de trabalho remoto para máquinas virtuais Linux em um laboratório em Serviços de Laboratório Azure
+Este artigo mostra-lhe como fazer as seguintes tarefas:
 
-- Habilitar área de trabalho remota para VM Linux
-- Como o professor pode se conectar à VM do modelo via Conexão de Área de Trabalho Remota (RDP).
+- Ativar o ambiente de trabalho remoto para Linux VM
+- Como o professor pode ligar-se ao modelo VM através da Ligação remota de ambiente de trabalho (RDP).
 
-## <a name="enable-remote-desktop-for-linux-vm"></a>Habilitar área de trabalho remota para VM Linux
-Durante a criação do laboratório, os professores podem habilitar a **conexão de área de trabalho remota** para imagens do **Linux** . A opção **habilitar conexão de área de trabalho remota** é mostrada quando uma imagem do Linux é selecionada para o modelo. Quando essa opção está habilitada, os professores podem se conectar à VM de modelo e VMs de estudante via RDP (Área de Trabalho Remota). 
+## <a name="enable-remote-desktop-for-linux-vm"></a>Ativar o ambiente de trabalho remoto para Linux VM
+Durante a criação do laboratório, os professores podem permitir **a ligação remota de ambiente** de trabalho para imagens **linux.** A opção **Enable Remote Desktop Connection** é mostrada quando uma imagem Linux é selecionada para o modelo. Quando esta opção está ativada, os professores podem ligar-se ao modelo VM e vMs dos alunos via RDP (Ambiente de Trabalho Remoto). 
 
-![Habilitar a conexão de área de trabalho remota para uma imagem do Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+![Ativar a ligação remota para o ambiente de trabalho para uma imagem linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
-Na caixa de mensagem **habilitando conexão de área de trabalho remota** , selecione **continuar com área de trabalho remota**. 
+Na caixa de mensagens de ligação à **secretária de trabalho remota ativa,** selecione Continue com o Ambiente de Trabalho **Remoto**. 
 
-![Habilitar a conexão de área de trabalho remota para uma imagem do Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
+![Ativar a ligação remota para o ambiente de trabalho para uma imagem linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> Habilitar a **conexão de área de trabalho remota** abre apenas a porta **RDP** em computadores Linux. Se o RDP já estiver instalado e configurado na imagem da máquina virtual (por exemplo: Ubuntu Máquina Virtual de Ciência de Dados Image), você/alunos poderão se conectar a VMs via RDP sem seguir nenhuma etapa adicional.
+> Ativar a **ligação remota** de ambiente de trabalho apenas abre a porta **RDP** nas máquinas Linux. Se o RDP já estiver instalado e configurado na imagem da máquina virtual (por exemplo: Ubuntu Data Science Virtual Machine image), você/estudantes podem ligar-se a VMs via RDP sem seguir quaisquer passos adicionais.
 > 
-> Se a imagem da VM não tiver o RDP instalado e configurado, você precisará se conectar ao computador Linux usando o SSH pela primeira vez e instalar os pacotes RDP e GUI para que você/alunos possam se conectar ao computador Linux usando o RDP mais tarde. Para obter mais informações, consulte [instalar e configurar o área de trabalho remota para se conectar a uma VM do Linux no Azure](../../virtual-machines/linux/use-remote-desktop.md). Em seguida, você publica a imagem para que os alunos possam RDP nas VMs do Linux do aluno. 
+> Se a imagem VM não tiver RDP instalada e configurada, precisa de ligar à máquina Linux utilizando sSH pela primeira vez e instalar pacotes RDP e GUI para que possa ligar-se à máquina Linux utilizando RDP mais tarde. Para mais informações, consulte Instalar e configurar o [Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md). Depois, publica a imagem para que os alunos possam fazer RDP nos VMs do aluno Linux. 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
-Atualmente, a conexão de área de trabalho remota tem suporte para os seguintes sistemas operacionais:
+Atualmente, a ligação remota de ambiente de trabalho é suportada para os seguintes sistemas operativos:
 
-- openSUSE Leap 42,3
-- Baseado em CentOS 7,5
-- "Stretch" do Debian 9
-- Ubuntu Server 16, 4 LTS
+- abrir Salto SUSE 42.3
+- Baseado em CentOS 7.5
+- Debian 9 "Esticar"
+- Ubuntu Server 16.04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Ligar à VM do modelo 
-Os professores devem se conectar à VM de modelo usando o SSH primeiro e instalar os pacotes RDP e GUI nela. Em seguida, os professores podem usar o RDP para se conectar à VM do modelo: 
+Os professores devem ligar-se ao modelo VM usando primeiro o SSH e instalar pacotes RDP e GUI nele. Em seguida, os professores podem usar RDP para ligar ao modelo VM: 
 
-1. Se você vir **Personalizar modelo** na barra de ferramentas, selecione-o. Em seguida, selecione **continuar** na caixa de diálogo **Personalizar modelo** . Essa ação inicia a VM do modelo.  
+1. Se vir o **modelo Personalizar** na barra de ferramentas, selecione-o. Em seguida, selecione **Continuar** na caixa de diálogo do **modelo Personalizar.** Esta ação inicia o modelo VM.  
 
-    ![Personalizar modelo](../media/how-to-enable-remote-desktop-linux/customize-template.png)
-2. Depois que a VM de modelo for iniciada, você poderá selecionar **conectar modelo** e, em seguida, **conectar-se via SSH** na barra de ferramentas. 
+    ![Modelo de personalizar](../media/how-to-enable-remote-desktop-linux/customize-template.png)
+2. Depois do vM do modelo ter começado, pode selecionar o **modelo De Ligar** e, em seguida, ligar através do **SSH** na barra de ferramentas. 
 
-    ![Conectar-se ao modelo via RDP após a criação do laboratório](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
-3. Você verá a caixa de diálogo **conectar-se à sua máquina virtual** a seguir. Selecione o botão **copiar** ao lado da caixa de texto para copiá-la para a área de transferência. Salve a cadeia de conexão SSH. Use essa cadeia de conexão de um terminal SSH ( [como uma](https://www.putty.org/)reseqüência) para se conectar à máquina virtual.
+    ![Ligue-se ao modelo via RDP após a criação do laboratório](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
+3. Veja o seguinte Ligar à sua caixa de diálogo **virtual.** Selecione o botão **Copiar** ao lado da caixa de texto para copiá-lo para a área de recortes. Guarde a cadeia de ligação SSH. Utilize esta cadeia de ligação a partir de um terminal SSH (como [putty)](https://www.putty.org/)para ligar à máquina virtual.
  
-    ![Cadeia de conexão SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
-4. Instale pacotes RDP e GUI para que você/alunos possam se conectar ao computador Linux usando o RDP mais tarde. Para obter mais informações, consulte [instalar e configurar o área de trabalho remota para se conectar a uma VM do Linux no Azure](../../virtual-machines/linux/use-remote-desktop.md). Em seguida, você publica a imagem para que os alunos possam RDP nas VMs do Linux do aluno.
-5. Depois que esses pacotes são instalados, você pode usar o **modelo conectar-se a** na barra de ferramentas e, em seguida, selecionar **conectar via RDP** para se conectar à VM de modelo via RDP. Salve o arquivo RDP e use-o para se conectar à VM de modelo via RDP. 
+    ![Cadeia de ligação SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
+4. Instale pacotes RDP e GUI para que possa ligar-se à máquina Linux utilizando RDP mais tarde. Para mais informações, consulte Instalar e configurar o [Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure](../../virtual-machines/linux/use-remote-desktop.md). Depois, publica a imagem para que os alunos possam fazer RDP nos VMs do aluno Linux.
+5. Depois de instaladas estas embalagens, pode utilizar o **Modelo Connect para** a barra de ferramentas e, em seguida, selecionar Ligar via **RDP** para ligar ao modelo VM via RDP. Guarde o ficheiro RDP e use-o para ligar ao modelo VM via RDP. 
 
-## <a name="next-steps"></a>Passos seguintes
-Depois que um instrutor habilitou o recurso de conexão de área de trabalho remota, os alunos podem se conectar às suas VMs por meio de RDP/SSH. Para obter mais informações, consulte [usar a área de trabalho remota para VMs do Linux em um laboratório de sala de aula](how-to-use-remote-desktop-linux-student.md). 
+## <a name="next-steps"></a>Passos Seguintes
+Depois de um instrutor ativar a função de ligação remota de ambiente de trabalho, os alunos podem ligar-se aos seus VMs via RDP/SSH. Para mais informações, consulte Utilize o [ambiente de trabalho remoto para VMs linux num laboratório de sala de aula](how-to-use-remote-desktop-linux-student.md). 

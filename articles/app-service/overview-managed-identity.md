@@ -1,17 +1,17 @@
 ---
 title: Identidades geridas
-description: Saiba como funcionam identidades geridas no Azure App Service e nas Funções Azure, como configurar uma identidade gerida e gerar um símbolo para um recurso de back end.
+description: Saiba como funcionam identidades geridas no Azure App Service e nas Funções Azure, como configurar uma identidade gerida e gerar um símbolo para um recurso de back-end.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 3e414e40cb92f5c7e8c2e1d083419d57e06a0995
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 6e3169f2bfcba0a02af1490f875cbab8a14d02f6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161924"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365533"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -24,7 +24,7 @@ A sua aplicação pode ser concedida a dois tipos de identidades:
 - Uma **identidade atribuída** ao sistema está ligada à sua aplicação e é eliminada se a sua aplicação for eliminada. Uma aplicação só pode ter uma identidade atribuída ao sistema.
 - Uma **identidade atribuída ao utilizador** é um recurso Azure autónomo que pode ser atribuído à sua aplicação. Uma aplicação pode ter várias identidades atribuídas ao utilizador.
 
-## <a name="adding-a-system-assigned-identity"></a>Adicionar uma identidade atribuída ao sistema
+## <a name="add-a-system-assigned-identity"></a>Adicione uma identidade atribuída ao sistema
 
 A criação de uma aplicação com uma identidade atribuída ao sistema requer que seja definida uma propriedade adicional na aplicação.
 
@@ -52,7 +52,7 @@ Para configurar uma identidade gerida utilizando o Azure CLI, terá de utilizar 
 
 Os seguintes passos irão acompanhá-lo através da criação de uma aplicação web e atribuindo-lhe uma identidade usando o CLI:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição Azure ao abrigo da qual deseja implementar a aplicação:
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição Azure sob a qual gostaria de implementar a aplicação:
 
     ```azurecli-interactive
     az login
@@ -71,7 +71,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma aplicação
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
-### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
+### <a name="using-azure-powershell"></a>Com o Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -146,10 +146,10 @@ Quando o site é criado, tem as seguintes propriedades adicionais:
 }
 ```
 
-Quando `<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedade tenantId identifica a que inquilino a AAD a identidade pertence. O principalid é um identificador único para a nova identidade da aplicação. Dentro da AAD, o diretor de serviço tem o mesmo nome que deu ao seu Serviço de Aplicações ou à instância De Funções Azure.
+A propriedade tenantId identifica a que inquilino a AAD a identidade pertence. O principalid é um identificador único para a nova identidade da aplicação. Dentro da AAD, o diretor de serviço tem o mesmo nome que deu ao seu Serviço de Aplicações ou à instância De Funções Azure.
 
 
-## <a name="adding-a-user-assigned-identity"></a>Adicionar uma identidade atribuída ao utilizador
+## <a name="add-a-user-assigned-identity"></a>Adicione uma identidade atribuída ao utilizador
 
 Criar uma aplicação com uma identidade atribuída ao utilizador requer que crie a identidade e, em seguida, adicione o seu identificador de recursos à sua app config.
 
@@ -230,15 +230,17 @@ Quando o site é criado, tem as seguintes propriedades adicionais:
 }
 ```
 
-Quando `<PRINCIPALID>` e `<CLIENTID>` são substituídos por GUIDs. O principalid é um identificador único para a identidade que é usada para a administração aAD. O clienteId é um identificador único para a nova identidade da aplicação que é usada para especificar qual a identidade a usar durante as chamadas de tempo de execução.
+O principalid é um identificador único para a identidade que é usada para a administração aAD. O clienteId é um identificador único para a nova identidade da aplicação que é usada para especificar que identidade usar durante as chamadas de tempo de execução.
 
 
-## <a name="obtaining-tokens-for-azure-resources"></a>Obtenção de fichas para recursos Azure
+## <a name="obtain-tokens-for-azure-resources"></a>Obtenha fichas para recursos Azure
 
 Uma aplicação pode usar a sua identidade gerida para obter fichas para aceder a outros recursos protegidos pela AAD, como o Azure Key Vault. Estes tokens representam a aplicação de acesso ao recurso, e nenhum utilizador específico da aplicação. 
 
+Poderá ser necessário configurar o recurso-alvo para permitir o acesso a partir da sua aplicação. Por exemplo, se solicitar um sinal para aceder ao Key Vault, tem de se certificar de que adicionou uma política de acesso que inclua a identidade da sua aplicação. Caso contrário, as suas chamadas para o Cofre Chave serão rejeitadas, mesmo que incluam o símbolo. Para saber mais sobre quais os recursos suportam os tokens do Azure Ative Directory, consulte [os serviços azure que suportam a autenticação Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+
 > [!IMPORTANT]
-> Poderá ser necessário configurar o recurso-alvo para permitir o acesso a partir da sua aplicação. Por exemplo, se solicitar um sinal para aceder ao Key Vault, tem de se certificar de que adicionou uma política de acesso que inclua a identidade da sua aplicação. Caso contrário, as suas chamadas para o Cofre Chave serão rejeitadas, mesmo que incluam o símbolo. Para saber mais sobre quais os recursos suportam os tokens do Azure Ative Directory, consulte [os serviços azure que suportam a autenticação Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+> Os serviços de back-end para identidades geridas mantêm uma cache por recurso URI por cerca de 8 horas. Se atualizar a política de acesso de um determinado recurso-alvo e recuperar imediatamente um símbolo desse recurso, poderá continuar a obter um símbolo em cache com permissões desatualizadas até que esse token expire. Não há como forçar uma atualização simbólica.
 
 Existe um simples protocolo REST para obter um símbolo em Funções de Serviço de Aplicações e Azure. Isto pode ser usado para todas as aplicações e línguas. Para .NET e Java, o Azure SDK fornece uma abstração sobre este protocolo e facilita uma experiência de desenvolvimento local.
 
@@ -255,7 +257,7 @@ O **MSI_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solic
 > |-----|-----|-----|
 > |resource|Consulta|O recurso AAD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.|
 > |api-version|Consulta|A versão da API simbólica a ser utilizada. "2017-09-01" é atualmente a única versão suportada.|
-> |segredo|Cabeçalho|O valor da variável ambiente MSI_SECRET. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação de pedido do lado do servidor (SSRF).|
+> |secret|Cabeçalho|O valor da variável ambiente MSI_SECRET. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação de pedido do lado do servidor (SSRF).|
 > |clientid|Consulta|(Opcional, a menos que para o utilizador atribuído) A identificação da identidade atribuída ao utilizador a utilizar. Se omitida, a identidade atribuída ao sistema é utilizada.|
 
 > [!IMPORTANT]
@@ -301,7 +303,7 @@ Content-Type: application/json
 
 ### <a name="code-examples"></a>Exemplos de código
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!TIP]
 > Para idiomas .NET, também pode utilizar [microsoft.Azure.Services.AppAuthentication](#asal) em vez de elaborar este pedido por si mesmo.
@@ -317,7 +319,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const rp = require('request-promise');
@@ -333,7 +335,7 @@ const getToken = function(resource, cb) {
 }
 ```
 
-# <a name="pythontabpython"></a>[python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 ```python
 import os
@@ -352,7 +354,7 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -413,7 +415,7 @@ Para aplicações e funções java, a forma mais simples de trabalhar com uma id
 
 ## <a name="remove"></a>Remover uma identidade
 
-Uma identidade atribuída ao sistema pode ser removida desativando a funcionalidade utilizando o portal, PowerShell ou CLI da mesma forma que foi criada. As identidades atribuídas ao utilizador podem ser removidas individualmente. Para remover todas as identidades, no protocolo de modelo REST/ARM, isto é feito definindo o tipo para "Nenhum":
+Uma identidade atribuída ao sistema pode ser removida desativando a funcionalidade utilizando o portal, PowerShell ou CLI da mesma forma que foi criada. As identidades atribuídas ao utilizador podem ser removidas individualmente. Para remover todas as identidades, desloque o tipo para "Nenhuma" no [modelo ARM:](#using-an-azure-resource-manager-template)
 
 ```json
 "identity": {
@@ -426,7 +428,7 @@ A remoção de uma identidade atribuída ao sistema desta forma também a elimin
 > [!NOTE]
 > Há também uma definição de aplicação que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de fichas local. No entanto, deixa a identidade no lugar, e a ferramenta ainda mostrará a identidade gerida como "on" ou "habilitada". Como resultado, não é recomendada a utilização desta definição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Access SQL Database de forma segura usando uma identidade gerida](app-service-web-tutorial-connect-msi.md)

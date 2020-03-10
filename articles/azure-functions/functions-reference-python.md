@@ -3,12 +3,12 @@ title: Referência de desenvolvedor python para funções Azure
 description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 1b94cb51bcb4e2634cdb04c389efbab44bb024bb
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
-ms.translationtype: MT
+ms.openlocfilehash: 6c625c050652ffac568ac45b06af7a853c75c8c2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206338"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358056"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvimento de funções azure Python
 
@@ -65,16 +65,16 @@ A estrutura de pasta recomendada para um projeto funções Python parece ser o s
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -89,19 +89,47 @@ A pasta principal do projeto (\_app \_\_\_) pode conter os seguintes ficheiros:
 
 Cada função tem o seu próprio ficheiro de código e ficheiro de configuração de ligação (função.json). 
 
-O código partilhado deve ser mantido numa pasta separada na aplicação\_ \_\_\_. Para os módulos de referência na pasta SharedCode, pode utilizar a seguinte sintaxe:
-
-```python
-from __app__.SharedCode import myFirstHelperFunction
-```
-
-Para referência de módulos locais para uma função, pode utilizar a sintaxe relativa de importação da seguinte forma:
-
-```python
-from . import example
-```
-
 Ao implementar o seu projeto numa aplicação de funções no Azure, todo o conteúdo da pasta principal ( *\_\_app\_\_* ) deve ser incluído no pacote, mas não na própria pasta. Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto, neste exemplo `tests`. Isto impede-o de implementar código de teste com a sua aplicação. Para mais informações, consulte [O Teste da Unidade](#unit-testing).
+
+## <a name="import-behavior"></a>Comportamento de importação
+
+Pode importar módulos no seu código de função utilizando referências relativas e absolutas explícitas. Com base na estrutura da pasta acima apresentada, as seguintes importações funcionam a partir do ficheiro de função *\_aplicação \_\_\_\my\_first\_function\\_\_init\_\_.py*:
+
+```python
+from . import example #(explicit relative)
+```
+
+```python
+from ..shared_code import my_first_helper_function #(explicit relative)
+```
+
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+As seguintes importações *não funcionam* dentro do mesmo ficheiro:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+O código partilhado deve ser mantido numa pasta separada na *aplicação \_\_\_\_* . Para os módulos de referência na pasta de *código\_partilhada,* pode utilizar a seguinte sintaxe:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## <a name="triggers-and-inputs"></a>Gatilhos e Inputs
 
@@ -158,7 +186,7 @@ def main(req: func.HttpRequest,
 Quando a função é invocada, o pedido HTTP é passado para a função como `req`. Uma entrada será recuperada do Armazenamento de Blob Azure com base no _ID_ no URL da rota e disponibilizada como `obj` no corpo de função.  Aqui, a conta de armazenamento especificada é a cadeia de ligação encontrada na definição de aplicações AzureWebJobsStorage, que é a mesma conta de armazenamento usada pela aplicação de função.
 
 
-## <a name="outputs"></a>Saídas
+## <a name="outputs"></a>Resultado
 
 A saída pode ser expressa tanto no valor de retorno como nos parâmetros de saída. Se houver apenas uma saída, recomendamos a utilização do valor de devolução. Para várias saídas, terá de utilizar parâmetros de saída.
 
@@ -627,9 +655,9 @@ Certifique-se de que também atualiza a sua função.json para suportar o métod
 
 Este método HTTP é usado pelos navegadores da Web para negociar a lista de origens permitidas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para mais informações, consulte os seguintes recursos:
 
 * [Documentação api do pacote funções Azure](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: adicionar um usuário convidado com o PowerShell-Azure AD'
+title: 'Quickstart: Adicione um utilizador convidado com PowerShell - Azure AD'
 description: Neste guia de início rápido, irá aprender a utilizar o PowerShell para enviar um convite para um utilizador externo de colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273361"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377804"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guia de Início Rápido: Adicionar um utilizador convidado com o PowerShell
 
@@ -75,14 +75,14 @@ Quando lhe for pedido, introduza as suas credenciais.
 
 ## <a name="send-an-invitation"></a>Enviar um convite
 
-1. Para enviar um convite para sua conta de email de teste, execute o seguinte comando do PowerShell (substitua **"areia"** e **areia\@fabrikam.com** pelo nome e endereço de email de sua conta de email de teste): 
+1. Para enviar um convite para a sua conta de e-mail de teste, execute o seguinte comando PowerShell (substitua **"Sanda"** e **sanda\@fabrikam.com** com o nome da sua conta de e-mail de teste e endereço de e-mail): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
    ```
 2. O comando envia um convite para o endereço de e-mail especificado. Verifique o resultado, que deve ter um aspeto semelhante ao seguinte:
 
-   ![Resultado do PowerShell a mostrar a aceitação do utilizador pendente](media/quickstart-invite-powershell/powershell-azureadmsinvitation-result.png)
+   ![Resultado do PowerShell a mostrar a aceitação pendente do utilizador](media/quickstart-invite-powershell/powershell-azureadmsinvitation-result.png)
 
 ## <a name="verify-the-user-exists-in-the-directory"></a>Certifique-se de que o utilizador existe no diretório
 
@@ -91,7 +91,7 @@ Quando lhe for pedido, introduza as suas credenciais.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Verifique a saída para certificar-se de que o usuário que você convidou está listado, com um UPN (nome principal do usuário) no formato *emailaddress*#EXT #\@*domínio*. Por exemplo, *sanda_fabrikam. com # ext #\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização da qual você enviou os convites.
+3. Verifique a saída para se certificar de que o utilizador que convidou está listado, com um nome principal do utilizador (UPN) no endereço de *e-mail*do formato #EXT#\@*domínio*. Por exemplo, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
 
    ![Resultado do PowerShell que mostra o utilizador convidado adicionado](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 
@@ -105,7 +105,7 @@ Quando já não precisar da conta de utilizador de teste no diretório, pode eli
 Por exemplo: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste guia de início rápido, convidou e adicionou um único utilizador convidado para o seu diretório com o PowerShell. Em seguida, aprenda a convidar utilizadores em lote com o PowerShell.
 
 > [!div class="nextstepaction"]

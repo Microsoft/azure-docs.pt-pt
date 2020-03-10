@@ -1,6 +1,6 @@
 ---
-title: Hubs de eventos do Azure-enviar/receber eventos usando o .NET Framework
-description: 'Início rápido: Este artigo fornece uma explicação para a criação de um aplicativo .NET Framework que envia eventos para os hubs de eventos do Azure.'
+title: Hubs de eventos Azure - Enviar/receber eventos usando o .NET Framework
+description: 'Quickstart: Este artigo fornece um walkthrough para criar uma aplicação .NET Framework que envia eventos para O Hubs de Eventos Azure.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -16,25 +16,25 @@ ms.custom: seodec18
 ms.date: 12/20/2019
 ms.author: shvija
 ms.openlocfilehash: 385430d993afe8b7a0ad57991d3c93eebd46ddcb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437271"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365408"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Início rápido: enviar eventos para ou receber eventos dos hubs de eventos do Azure usando .NET Framework
-Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuídos. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análises em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Quickstart: Envie eventos ou receba eventos de Hubs de Eventos Azure usando .NET Framework
+Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
 
-Este tutorial mostra como criar .NET Framework aplicativos de console no C# para enviar eventos ou receber eventos de um eventhub. 
+Este tutorial mostra como criar aplicações C# de consola .NET Framework para enviar eventos para ou receber eventos a partir de um eventhub. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com).
-- **Crie um namespace de hubs de eventos e um hub de eventos**. O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de conexão para o namespace do hub de eventos** seguindo as instruções do artigo: obter a cadeia de [conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Irá utilizar a cadeia de ligação mais tarde neste tutorial.
+- **Crie um espaço de nome sinuoso do Event Hubs e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo.](event-hubs-create.md) Em seguida, obtenha a corda de **ligação para o espaço** de nome do centro do evento seguindo as instruções do artigo: Obtenha a corda de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Irá utilizar a cadeia de ligação mais tarde neste tutorial.
 
 ## <a name="send-events"></a>Enviar eventos 
-Esta seção mostra como criar um aplicativo de console de .NET Framework para enviar eventos para um hub de eventos. 
+Esta secção mostra-lhe como criar uma aplicação de consola .NET Framework para enviar eventos para um centro de eventos. 
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
@@ -59,7 +59,7 @@ No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Adicione os campos seguintes à classe **Programa**, substituindo os valores dos marcadores de posição pelo nome do hub de eventos que criou na secção anterior e pela cadeia de ligação de ao nível do espaço de nomes que guardou anteriormente. Pode copiar a cadeia de ligação para o seu hub de eventos de **primário de cadeia de ligação** chave sob **RootManageSharedAccessKey** na página do Hub de eventos no portal do Azure. Para obter passos detalhados, consulte [obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal).
+2. Adicione os campos seguintes à classe **Programa**, substituindo os valores dos marcadores de posição pelo nome do hub de eventos que criou na secção anterior e pela cadeia de ligação de ao nível do espaço de nomes que guardou anteriormente. Pode copiar o fio de ligação para o seu centro de eventos a partir da chave primária de **cordas de conexão** sob o **RootManageSharedAccessKey** na página Do Hub de Eventos no portal Azure. Para passos detalhados, consulte [a corda de ligação Get](event-hubs-get-connection-string.md#get-connection-string-from-the-portal).
    
     ```csharp
     static string eventHubName = "Your Event Hub name";
@@ -103,7 +103,7 @@ No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do
 5. Execute o programa e certifique-se de que não existem erros.
   
 ## <a name="receive-events"></a>Receber eventos
-Nesta seção, você escreverá um aplicativo de console .NET Framework que recebe mensagens de um hub de eventos usando o [host do processador de eventos](event-hubs-event-processor-host.md). O [Anfitrião do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica a receção de eventos provenientes dos hubs de eventos ao gerir pontos de verificação persistentes e receções em paralelo desses hubs de eventos. Se utilizar o Anfitrião do Processador de Eventos, pode dividir eventos por múltiplos recetores, mesmo se estiverem alojados em nós diferentes. 
+Nesta secção, escreve uma aplicação de consola .NET Framework que recebe mensagens de um centro de eventos utilizando o Anfitrião do Processador de [Eventos](event-hubs-event-processor-host.md). O [Anfitrião do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica a receção de eventos provenientes dos hubs de eventos ao gerir pontos de verificação persistentes e receções em paralelo desses hubs de eventos. Se utilizar o Anfitrião do Processador de Eventos, pode dividir eventos por múltiplos recetores, mesmo se estiverem alojados em nós diferentes. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -188,7 +188,7 @@ No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do
       using Microsoft.ServiceBus.Messaging;
       ```
     
-2. Substitua a `Main` método no `Program` classe com o código a seguir, substituindo o nome do hub de eventos e a cadeia de ligação de ao nível do espaço de nomes que guardou anteriormente e a conta de armazenamento e a chave que copiou nas secções anteriores. 
+2. Substitua o método `Main` na classe `Program` pelo seguinte código, substituindo o nome do hub do evento e a cadeia de ligação ao nível do espaço de nome que guardou anteriormente, e a conta de armazenamento e a chave que copiou nas secções anteriores. 
     
       ```csharp
       static void Main(string[] args)
@@ -214,11 +214,11 @@ No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do
     
 3. Execute o programa e certifique-se de que não existem erros.
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Leia os seguintes artigos: 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Recursos e terminologia nos hubs de eventos do Azure](event-hubs-features.md).
+- [Características e terminologia em Azure Event Hubs.](event-hubs-features.md)
 - [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 

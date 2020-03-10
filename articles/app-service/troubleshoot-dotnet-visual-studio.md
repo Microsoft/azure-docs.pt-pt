@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
 ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227893"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373764"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Troubleshoot uma aplicação no Azure App Service usando o Visual Studio
 ## <a name="overview"></a>Descrição geral
 Este tutorial mostra como usar as ferramentas do Estúdio Visual para ajudar a desinpurar uma aplicação no [App Service,](https://go.microsoft.com/fwlink/?LinkId=529714)executando remotamente o [modo de depuração](https://docs.microsoft.com/visualstudio/debugger/) ou visualizando registos de aplicações e registos de servidores web.
 
-Irá aprender:
+Irá aprender a:
 
 * Quais as funções de gestão de aplicações disponíveis no Estúdio Visual.
 * Como utilizar a vista remota do Estúdio Visual para fazer mudanças rápidas numa aplicação remota.

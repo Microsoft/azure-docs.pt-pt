@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201565"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379240"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
 
@@ -215,7 +215,7 @@ Repor o gateway de VPN do Azure é útil se perder a conectividade VPN em vário
 
 Para obter os passos para alterar um SKU de gateway, veja [Redimensionar um SKU de gateway](vpn-gateway-about-SKUS-legacy.md#classicresize).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/).
 * Para obter informações sobre o Túnel Forçado, veja [About Forced Tunneling](vpn-gateway-about-forced-tunneling.md) (Sobre o Túnel Forçado).

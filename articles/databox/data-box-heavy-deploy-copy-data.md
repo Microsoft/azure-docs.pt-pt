@@ -10,15 +10,15 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914037"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380356"
 ---
 ::: zone target = "docs"
 
-# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box Heavy via SMB
+# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Tutorial: Copiar dados para caixa de dados Azure Heavy via SMB
 
 ::: zone-end
 
@@ -54,7 +54,7 @@ Em cada caso, confirme se os nomes das partilhas e das pastas e os tamanhos dos 
 
 Antes de começar, certifique-se de que:
 
-1. Concluiu o [Tutorial: Configurar o Azure Data Box Heavy](data-box-deploy-set-up.md).
+1. Completou o [Tutorial: Instale](data-box-deploy-set-up.md)a Caixa de Dados Azure Heavy .
 2. Recebeu o Data Box Heavy e o estado da encomenda no portal é **Entregue**.
 3. Tem um computador anfitrião com os dados que quer copiar para o Data Box Heavy. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
@@ -82,9 +82,9 @@ A tabela a seguir mostra o caminho UNC para as partilhas no Data Box Heavy e o U
  
 |                   |                                                            |
 |-------------------|--------------------------------------------------------------------------------|
-| Blobs de bloco do Azure | <li>Caminho UNC para as partilhas: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Blobs de páginas do Azure  | <li>Caminho UNC para as partilhas: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Ficheiros do Azure       |<li>Caminho UNC para as partilhas: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
+| Blobs de bloco do Azure | <li>Caminho UNC para as partilhas: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Blobs de páginas do Azure  | <li>Caminho UNC para as partilhas: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Ficheiros do Azure       |<li>Caminho UNC para as partilhas: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
 Os passos para se ligar através de um cliente Windows ou Linux são diferentes.
 
@@ -120,7 +120,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     The command completed successfully.
     ```
 
-4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o Explorador de Ficheiros.
+4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o Explorador de Ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
@@ -268,7 +268,7 @@ Depois de ligar à partilha SMB, inicie a cópia dos dados.
 
 Repita os passos acima para copiar dados para o segundo nó do dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Heavy, como:
 
@@ -296,7 +296,7 @@ Avance para o tutorial seguinte para saber como enviar o Data Box Heavy de volta
 
 3. Utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados para as partilhas.
 
-Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o Azure Data Box via SMB](data-box-heavy-deploy-copy-data.md).
+Para instruções passo a passo, vá ao [Tutorial: Copie os dados para a Caixa de Dados Azure via SMB](data-box-heavy-deploy-copy-data.md).
 
 ### <a name="copy-data-via-nfs"></a>Copiar dados através de NFS
 
@@ -308,7 +308,7 @@ Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o A
 3. Utilize o comando `cp` ou `rsync` para copiar os dados. 
 4. Repita estes passos para se ligar e copiar os dados para o segundo nó do Data Box Heavy.
 
-Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o Azure Data Box via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
+Para instruções passo a passo, vá ao [Tutorial: Copie os dados para a Caixa de Dados Azure via NFS](data-box-heavy-deploy-copy-data-via-nfs.md).
 
 ### <a name="copy-data-via-rest"></a>Copiar dados via REST
 
@@ -316,7 +316,7 @@ Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o A
 2. Para copiar dados para o Armazenamento de blobs do Data Box, pode utilizar o AzCopy.
 3. Repita estes passos para se ligar e copiar os dados para o segundo nó do Data Box Heavy.
 
-Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o Armazenamento de blobs do Azure Data Box via APIs REST](data-box-heavy-deploy-copy-data-via-rest.md).
+Para instruções passo a passo, vá ao [Tutorial: Copie os dados para](data-box-heavy-deploy-copy-data-via-rest.md)o armazenamento da Caixa de Dados Azure através de APIs REST .
 
 ### <a name="copy-data-via-data-copy-service"></a>Copiar dados através do serviço de cópia de dados
 
@@ -324,7 +324,7 @@ Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o A
 2. Preencha os parâmetros e crie uma tarefa.
 3. Repita estes passos para se ligar e copiar os dados para o segundo nó do Data Box Heavy.
 
-Para obter instruções passo a passo, aceda ao [Tutorial: Utilizar o serviço de cópia de dados para copiar dados para o Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
+Para instruções passo a passo, vá ao Tutorial: Utilize o serviço de cópia de [dados para copiar dados em Azure Data Box Heavy](data-box-heavy-deploy-copy-data-via-copy-service.md).
 
 ### <a name="copy-data-to-managed-disks"></a>Copiar dados para discos geridos
 
@@ -333,7 +333,7 @@ Para obter instruções passo a passo, aceda ao [Tutorial: Utilizar o serviço d
 3. Em seguida, pode copiar os dados através das ferramentas SMB ou NFS.
 4. Repita estes passos para se ligar e copiar os dados para o segundo nó do Data Box Heavy.
 
-Para obter instruções passo a passo, aceda ao [Tutorial: Utilizar o Data Box Heavy para importar dados como discos geridos no Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
+Para instruções passo a passo, vá ao [Tutorial: Use data box heavy para importar dados como discos geridos em Azure](data-box-heavy-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 

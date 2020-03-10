@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662999"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360904"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Monitor Azure
 A monitorização de soluções de alavancagem de serviços em Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. Este artigo fornece uma breve visão geral das soluções de monitorização no Azure e detalhes sobre a sua utilização e instalação.
@@ -100,7 +100,7 @@ Pode verificar a ligação entre uma área de trabalho do Log Analytics e uma co
 Para remover uma solução instalada, localize-a na [lista de soluções instaladas](#list-installed-monitoring-solutions). Clique no nome da solução para abrir a sua página sumária e, em seguida, clique em **Delete**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Obtenha uma [lista de soluções de monitorização da Microsoft](solutions-inventory.md).
 * Aprenda a [criar consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos através da monitorização de soluções.
 

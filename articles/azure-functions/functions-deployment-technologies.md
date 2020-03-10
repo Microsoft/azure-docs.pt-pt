@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
 ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190758"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356163"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -196,7 +196,7 @@ A tabela que se segue mostra os sistemas operativos e idiomas que suportam a edi
 
 Quando implementar a sua aplicação de funções para o Azure, pode ser implantado para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre as ranhuras de implantação, consulte a documentação de slots de implantação de [funções azure](../app-service/deploy-staging-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de funções: 
 

@@ -4,11 +4,11 @@ description: Insira algumas linhas de código no seu dispositivo ou na aplicaç�
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666501"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362243"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API insights de aplicação para eventos e métricas personalizados
 

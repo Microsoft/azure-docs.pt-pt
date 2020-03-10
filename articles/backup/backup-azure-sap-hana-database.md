@@ -4,11 +4,11 @@ description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA 
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: a5fd09e0e487d103e8bd78964c11b572a62e28fa
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164615"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382423"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -202,7 +202,7 @@ Se quiser obter uma cópia de segurança local (usando o HANA Studio) de uma bas
     * Definir **enable_auto_log_backup** para **Sim.**
     * Definir **log_backup_using_backint** para **true**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como restaurar as bases de [dados SAP HANA em execução em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
 * Saiba como gerir as bases de [dados SAP HANA que são apoiadas usando o Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

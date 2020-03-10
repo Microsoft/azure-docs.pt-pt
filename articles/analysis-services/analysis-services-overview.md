@@ -8,11 +8,11 @@ ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272960"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375140"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -81,15 +81,15 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|E.U.A. Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|E.U.A. Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|E.U.A. Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
-|E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|E.U.A. Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|E.U.A. Oeste     |    S8, S9, S8v2, S9v2   |    2  |
+|EUA Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|EUA Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|EUA Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
+|EUA Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|EUA Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|EUA Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|EUA Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|EUA Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|EUA Oeste     |    S8, S9, S8v2, S9v2   |    2  |
 |E.U.A. Oeste 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
 |E.U.A. Oeste 2    |    S8, S9, S8v2, S9v2  |    1     |
 
@@ -99,7 +99,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Europa do Norte     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Europa do Norte     |    S8v2, S9v2      |    3     |
-|Sul do Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|Reino Unido Sul     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa Ocidental     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Europa Ocidental    |   S8, S9, S8v2, S9v2  |  1  |
 
@@ -109,9 +109,9 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
-|Austrália Sudeste     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Ásia Sudeste     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Dimensionar para as suas necessidades
@@ -254,7 +254,7 @@ As coisas evoluem rapidamente. Obtenha as últimas informações sobre o [blog P
 
 O Analysis Services tem uma vibrante comunidade de utilizadores. Junte-se à conversa no [fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Inscreva-se numa Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   

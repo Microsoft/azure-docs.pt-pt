@@ -9,11 +9,11 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026137"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381969"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso em Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Para definir permissões de nível de ficheiros e diretórios, consulte qualquer
 
 |||
 |--------|-----------|
-|Explorador do Armazenamento do Azure |[Use o Azure Storage Explorer para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Explorador do Storage do Azure |[Use o Azure Storage Explorer para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Use .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
 |Java|[Use java para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Use python para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
@@ -88,7 +88,7 @@ Tanto os ACLs de acesso como os ACLs predefinidos têm a mesma estrutura.
 
 As permissões num objeto de contentor estiveram **leia,** **Escreva**e **Execute,** e podem ser utilizadas em ficheiros e diretórios, como mostrado na tabela seguinte:
 
-|            |    Ficheiros     |   Diretório |
+|            |    Ficheiro     |   Active |
 |------------|-------------|----------|
 | **Leitura (R)** | Pode editar o conteúdo de um ficheiro | Requer **leitura** e **execução** para listar o conteúdo do diretório |
 | **Escrita (W)** | Pode escrever ou acrescentar a um ficheiro | Requer **escrever** e **executar** para criar itens infantis num diretório |
@@ -105,7 +105,7 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Leitura + Escrita + Execução |
 | 5            | `R-X`        | Leitura + Execução         |
-| 4            | `R--`        | Leitura                   |
+| 4            | `R--`        | Ler                   |
 | 0            | `---`        | Sem permissões         |
 
 #### <a name="permissions-inheritance"></a>Herança de permissões
@@ -302,7 +302,7 @@ O criador de um ficheiro ou diretório torna-se o proprietário. No caso do dire
 
 O grupo próprio é copiado do grupo próprio do directório-mãe ao abrigo do qual é criado o novo ficheiro ou diretório.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Sou o utilizador proprietário de um ficheiro, mas não tenho as permissões de RWX necessárias. O que devo fazer?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Sou o utilizador proprietário de um ficheiro, mas não tenho as permissões de RWX necessárias. O que posso fazer?
 
 O utilizador proprietário pode alterar as permissões do ficheiro para atribuir as permissões de RWX necessárias a ele próprio.
 
@@ -321,7 +321,7 @@ $ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>
 ```
 
-Quando tiver o OID correto para o diretor de serviço, aceda à página de **Acesso ao Controlo** do Explorador de Armazenamento para adicionar o OID e atribuir permissões adequadas para o OID. Certifique-se de selecionar **salvar**.
+Quando tiver o OID correto para o diretor de serviço, aceda à página de **Acesso ao Controlo** do Explorador de Armazenamento para adicionar o OID e atribuir permissões adequadas para o OID. Certifique-se de que seleciona **Guardar**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 suporta a herança de ACLs?
 
@@ -340,6 +340,6 @@ Os ACLs não herdam. No entanto, os ACLs padrão podem ser usados para definir A
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: using access control lists on Linux (ACL: utilizar listas de controlo de acesso no Linux)](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Visão geral do Armazenamento de Lagos De Dados Azure Gen2](../blobs/data-lake-storage-introduction.md)

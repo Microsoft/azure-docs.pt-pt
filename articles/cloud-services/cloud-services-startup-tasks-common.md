@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462246"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378947"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do Serviço Comum cloud
 Este artigo fornece alguns exemplos de tarefas comuns de arranque que você pode querer realizar no seu serviço na nuvem. Pode utilizar tarefas de arranque para realizar operações antes de iniciar uma função. As operações que desejare efetuar incluem a instalação de um componente, o registo de componentes COM, a definição de teclas de registo ou o início de um processo de longo prazo. 
@@ -493,7 +493,7 @@ Nem todos os recicladores de funções incluem um reboot, mas todos os recicles 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Utilize armazenamento local para armazenar ficheiros que devem ser acedidos na função
 Se pretender copiar ou criar um ficheiro durante a sua tarefa de arranque que seja então acessível à sua função, então esse ficheiro deve ser colocado no armazenamento local. Consulte a [secção anterior](#create-files-in-local-storage-from-a-startup-task).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja o [modelo e pacote](cloud-services-model-and-package.md) de serviço na nuvem
 
 Saiba mais sobre como funcionam [as Tarefas.](cloud-services-startup-tasks.md)

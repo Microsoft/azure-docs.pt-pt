@@ -12,11 +12,11 @@ ms.date: 02/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b55199ec2684ab7b95ce4e4988b19814c27b2cc3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189587"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374800"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,9 +61,9 @@ Os metadados do perfil técnico autoafirmado **LocalAccountSignUpWithLogonEmail*
 
 O elemento **Definição** de Conteúdo contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na secção ids de **definição** de conteúdo mais tarde nesta página. |
+| ID | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na secção ids de **definição** de conteúdo mais tarde nesta página. |
 
 O elemento **Definição** de Conteúdo contém os seguintes elementos:
 
@@ -137,7 +137,7 @@ Um elemento **metadados** contém os seguintes elementos:
 
 O elemento **Item** do elemento **Metadados** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Chave | Sim | A chave dos metadados.  |
 
@@ -145,7 +145,7 @@ O elemento **Item** do elemento **Metadados** contém os seguintes atributos:
 
 A definição de conteúdo suporta os seguintes itens de metadados:
 
-| Chave | Necessário | Descrição |
+| Chave | Required | Descrição |
 | --------- | -------- | ----------- |
 | DisplayName | Não | Uma cadeia que contém o nome da definição de conteúdo. |
 
@@ -159,9 +159,9 @@ O elemento **LocalizadoResourcesReferences** contém os seguintes elementos:
 
 O elemento **LocalizadoResourcesReference** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
-| Idioma | Sim | Uma cadeia que contém uma linguagem apoiada para a política por RFC 5646 - Tags para identificar idiomas. |
+| Linguagem | Sim | Uma cadeia que contém uma linguagem apoiada para a política por RFC 5646 - Tags para identificar idiomas. |
 | LocalizedResourcesReferenceId | Sim | O identificador do elemento **Recursos Localizados.** |
 
 O exemplo seguinte mostra uma definição de conteúdo de inscrição ou inscrição com referência à localização para inglês, francês e espanhol:
@@ -201,7 +201,7 @@ O atributo ID do elemento **ContentDefinition** especifica o tipo de página que
 | **api.self-asserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização** de perfis - Apresenta um formulário a que os utilizadores podem aceder à atualização do seu perfil. Esta página é semelhante à página de inscrição da conta social, com exceção dos campos de entrada de palavras-passe. |
 | **api.signuporsignina** | [unificado.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | Página de **inscrição ou inscrição unificada** - Trata do processo de inscrição e de inscrição do utilizador. Os utilizadores podem utilizar fornecedores de identidade empresarial, fornecedores de identidade social, como facebook ou Google+, ou contas locais. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para um exemplo de personalização da interface do utilizador utilizando definições de conteúdo, consulte:
 

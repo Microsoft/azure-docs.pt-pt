@@ -1,6 +1,6 @@
 ---
-title: Processamento de dados e funções definidas pelo usuário – gêmeos digital do Azure | Microsoft Docs
-description: Visão geral do processamento de dados, correspondências e funções definidas pelo usuário com o gêmeos digital do Azure.
+title: Processamento de dados e funções definidas pelo utilizador - Gémeas Digitais Azure Microsoft Docs
+description: Visão geral do processamento de dados, matchers e funções definidas pelo utilizador com As Gémeas Digitais Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,42 +9,42 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382290"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
-O Azure digital gêmeos oferece recursos avançados de computação. Os desenvolvedores podem definir e executar funções personalizadas em mensagens de telemetria de entrada para enviar eventos para pontos de extremidade predefinidos.
+A Azure Digital Twins oferece capacidades avançadas de computação. Os desenvolvedores podem definir e executar funções personalizadas contra mensagens de telemetria para enviar eventos para pontos finais pré-definidos.
 
 ## <a name="data-processing-flow"></a>Fluxo de processamento de dados
 
-Depois que os dispositivos enviam dados de telemetria para o Azure digital gêmeos, os desenvolvedores podem processar dados em quatro fases: *validar*, *corresponder*, *computar*e *distribuir*.
+Depois de os dispositivos enviarem dados de telemetria para as Gémeas Digitais Azure, os desenvolvedores podem processar dados em quatro fases: *validar,* *combinar,* *compute*e *despachar*.
 
-[![o fluxo de processamento de dados do Azure digital gêmeos](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[fluxo de processamento de dados de gémeos digitais ![Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
-1. A fase validar transforma a mensagem de telemetria de entrada em um formato de [objeto de transferência de dados](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comumente compreendido. Essa fase também executa a validação do dispositivo e do sensor.
-1. A fase de correspondência localiza as funções apropriadas definidas pelo usuário a serem executadas. Os correspondentes predefinidos localizam as funções definidas pelo usuário com base no dispositivo, no sensor e nas informações de espaço da mensagem de telemetria de entrada.
-1. A fase de computação executa as funções definidas pelo usuário correspondentes na fase anterior. Essas funções podem ler e atualizar valores computados em nós de grafo espaciais e podem emitir notificações personalizadas.
-1. A fase de expedição roteia todas as notificações personalizadas da fase de computação para os pontos de extremidade definidos no grafo.
+1. A fase de validação transforma a mensagem de telemetria de entrada num formato de objeto de transferência de [dados](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comumente compreendido. Esta fase também executa a validação do dispositivo e do sensor.
+1. A fase de jogo encontra as funções definidas pelo utilizador adequadas para serem executadas. Os matchers predefinidos encontram as funções definidas pelo utilizador com base no dispositivo, sensor e informações espaciais a partir da mensagem de telemetria que está a chegar.
+1. A fase do cálculo executa as funções definidas pelo utilizador correspondidas na fase anterior. Estas funções podem ler e atualizar valores computorizados em nódos de gráficos espaciais e podem emitir notificações personalizadas.
+1. A fase de despacho direciona quaisquer notificações personalizadas da fase do cálculo para pontos finais definidos no gráfico.
 
 ## <a name="data-processing-objects"></a>Objetos de processamento de dados
 
-O processamento de dados no Azure digital gêmeos consiste em definir três objetos: *correspondências*, *funções definidas pelo usuário*e *atribuições de função*.
+O processamento de dados em Gémeos Digitais Azure consiste na definição de três objetos: *matchers,* *funções definidas pelo utilizador*e atribuições de *papéis.*
 
-[![objetos de processamento de dados do Azure digital gêmeos](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[objetos de processamento de dados de ![Azure Digital Twins](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
-### <a name="matchers"></a>Correspondências
+### <a name="matchers"></a>Matchers
 
-Os correspondentes definem um conjunto de condições que avaliam as ações que ocorrem com base na telemetria do sensor de entrada. As condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo pai do sensor e do espaço pai do sensor. As condições são expressas como comparações em relação a um [caminho JSON](https://jsonpath.com/) , conforme descrito neste exemplo:
+Os matchers definem um conjunto de condições que avaliam que ações ocorrem com base na telemetria do sensor de entrada. As condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo principal do sensor e do espaço dos pais do sensor. As condições são expressas como comparações com um [caminho JSON,](https://jsonpath.com/) tal como descrito neste exemplo:
 
-- Todos os sensores de **temperatura** de DataType representados pelo valor de cadeia de caracteres de escape `\"Temperature\"`
-- Tendo `01` em sua porta
-- Que pertencem a dispositivos com o **fabricante** da chave de propriedade estendida definido como o valor da cadeia de caracteres de escape `\"Contoso\"`
-- Que pertencem a espaços do tipo especificado pela cadeia de caracteres de escape `\"Venue\"`
-- Que são descendentes do **spaceid** pai `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Todos os sensores de datatype **Temperatura** representados pelo valor de corda escapado `\"Temperature\"`
+- Ter `01` no seu porto
+- Que pertencem a dispositivos com a chave de propriedade estendida **Fabricante** definido para o valor string escapado `\"Contoso\"`
+- Que pertencem a espaços do tipo especificados pela `\"Venue\"` String fugitivo
+- Que são descendentes dos pais **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
@@ -86,42 +86,42 @@ Os correspondentes definem um conjunto de condições que avaliam as ações que
 ```
 
 > [!IMPORTANT]
-> - Os caminhos JSON diferenciam maiúsculas de minúsculas.
-> - A carga JSON é a mesma que a carga retornada por:
+> - Os caminhos da JSON são sensíveis ao caso.
+> - A carga útil da JSON é a mesma que a carga útil que é devolvida por:
 >   - `/sensors/{id}?includes=properties,types` para o sensor.
->   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` para o dispositivo pai do sensor.
->   - `/spaces/{id}?includes=properties,types,location,timezone` para o espaço pai do sensor.
-> - As comparações diferenciam maiúsculas de minúsculas.
+>   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` para o dispositivo principal do sensor.
+>   - `/spaces/{id}?includes=properties,types,location,timezone` para o espaço dos pais do sensor.
+> - As comparações são insensíveis.
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo utilizador
 
-Uma função definida pelo usuário é uma função personalizada executada em um ambiente isolado do Azure digital gêmeos. As funções definidas pelo usuário têm acesso à mensagem de telemetria do sensor bruto, pois ela é recebida. As funções definidas pelo usuário também têm acesso ao grafo espacial e ao serviço de Dispatcher. Depois que a função definida pelo usuário é registrada em um grafo, uma correspondência (detalhada [acima](#matchers)) deve ser criada para especificar quando a função é executada. Por exemplo, quando o Azure digital gêmeos recebe uma nova telemetria de um determinado sensor, a função correspondente definida pelo usuário pode calcular uma média móvel das últimas leituras do sensor.
+Uma função definida pelo utilizador é uma função personalizada executada dentro de um ambiente isolado das Gémeas Digitais Azure. As funções definidas pelo utilizador têm acesso à mensagem de telemetria de sensores brutos à medida que são recebidas. As funções definidas pelo utilizador também têm acesso ao serviço de gráfico sonante e deexpedidor. Depois de a função definida pelo utilizador estar registada dentro de um gráfico, deve ser criado um fósforo [(detalhado acima)](#matchers)para especificar quando a função é executada. Por exemplo, quando o Azure Digital Twins recebe uma nova telemetria a partir de um determinado sensor, a função definida pelo utilizador pode calcular uma média móvel das últimas leituras de sensores.
 
-As funções definidas pelo usuário podem ser escritas em JavaScript. Os métodos auxiliares interagem com o grafo no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar trechos de código personalizados em relação a mensagens de telemetria do sensor. Alguns exemplos:
+As funções definidas pelo utilizador podem ser escritas no JavaScript. Os métodos auxiliares interagem com o gráfico no ambiente de execução definido pelo utilizador. Os desenvolvedores podem executar fragmentos de código personalizados contra mensagens de telemetria de sensores. Os exemplos incluem:
 
-- Defina o sensor lendo diretamente no objeto sensor dentro do grafo.
-- Execute uma ação com base em leituras de sensor diferentes dentro de um espaço no grafo.
-- Crie uma notificação quando determinadas condições forem atendidas para uma leitura de sensor de entrada.
-- Anexe metadados do grafo à leitura do sensor antes de enviar uma notificação.
+- Coloque a leitura do sensor diretamente no objeto do sensor dentro do gráfico.
+- Execute uma ação baseada em diferentes leituras de sensores dentro de um espaço no gráfico.
+- Crie uma notificação quando determinadas condições forem satisfeitas para uma leitura do sensor de entrada.
+- Fixe os metadados gráficos à leitura do sensor antes de enviar uma notificação.
 
-Para obter mais informações, leia [como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
+Para mais informações, leia [Como utilizar funções definidas pelo utilizador](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Exemplos
 
-O [repositório do GitHub para o exemplo C# de gêmeos digital](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contém alguns exemplos das funções definidas pelo usuário:
-- [Essa função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) procura valores de dióxido de carbono, movimento e temperatura para determinar se um espaço está disponível com esses valores no intervalo. Os [tutoriais para o digital gêmeos](tutorial-facilities-udf.md) exploram essa função em mais detalhes. 
-- [Essa função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) procura dados de vários sensores de movimento e determina que o espaço estará disponível se nenhum deles detectar nenhum movimento. Você pode substituir facilmente a função definida pelo usuário usada no [início rápido](quickstart-view-occupancy-dotnet.md)ou nos [tutoriais](tutorial-facilities-setup.md), fazendo as alterações mencionadas na seção comentários do arquivo. 
+O [repo GitHub para C# a amostra De Gémeos Digitais](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contém alguns exemplos das funções definidas pelo utilizador:
+- [Esta função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) procura valores de dióxido de carbono, movimento e temperatura para determinar se uma sala está disponível com estes valores ao alcance. Os [tutoriais para Gémeos Digitais](tutorial-facilities-udf.md) exploram esta função em mais detalhes. 
+- [Esta função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) procura dados de múltiplos sensores de movimento, e determina que o espaço está disponível se nenhum deles detetar qualquer movimento. Pode substituir facilmente a função definida pelo utilizador utilizada no [quickstart](quickstart-view-occupancy-dotnet.md), ou nos [tutoriais,](tutorial-facilities-setup.md)fazendo as alterações mencionadas na secção de comentários do ficheiro. 
 
 ### <a name="role-assignment"></a>Atribuição de função
 
-As ações de uma função definida pelo usuário estão sujeitas ao [controle de acesso baseado em função](./security-role-based-access-control.md) do Azure digital gêmeos para proteger os dados no serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o grafo espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e permissão para *criar*, *ler*, *Atualizar*ou *excluir* dados do grafo em um determinado espaço. O nível de acesso de uma função definida pelo usuário é verificado quando a função definida pelo usuário solicita dados no grafo ou tenta uma ação. Para obter mais informações, leia [controle de acesso baseado em função](./security-create-manage-role-assignments.md).
+As ações de uma função definida pelo utilizador estão sujeitas ao [controlo de acesso baseado em funções](./security-role-based-access-control.md) da Azure Digital Twins para obter dados seguros dentro do serviço. As atribuições de funções definem quais as funções definidas pelo utilizador têm as permissões adequadas para interagir com o gráfico espacial e as suas entidades. Por exemplo, uma função definida pelo utilizador pode ter a capacidade e permissão para *CRIAR,* *LER,* *ATUALIZAR*ou *ELIMINAR* dados de gráficos num determinado espaço. O nível de acesso de uma função definida pelo utilizador é verificado quando a função definida pelo utilizador pede ao gráfico dados ou tenta uma ação. Para mais informações, leia o [controlo de acesso baseado em papéis.](./security-create-manage-role-assignments.md)
 
-É possível que um correspondente dispare uma função definida pelo usuário que não tenha nenhuma atribuição de função. Nesse caso, a função definida pelo usuário não lê nenhum dado do grafo.
+É possível que um matcher desencadeie uma função definida pelo utilizador que não tenha atribuições de funções. Neste caso, a função definida pelo utilizador não lê quaisquer dados do gráfico.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre como rotear eventos e mensagens de telemetria para outros serviços do Azure, leia [eventos e mensagens de rota](./concepts-events-routing.md).
+- Para saber mais sobre como encaminhar eventos e mensagens de telemetria para outros serviços do Azure, leia [eventos e mensagens da Route.](./concepts-events-routing.md)
 
-- Para saber mais sobre como criar correspondências, funções definidas pelo usuário e atribuições de função, leia o [guia para usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
+- Para saber mais sobre como criar matchers, funções definidas pelo utilizador e atribuições de papéis, leia [Guia para utilizar funções definidas pelo utilizador](./how-to-user-defined-functions.md).
 
-- Examine a [documentação de referência da biblioteca de cliente da função definida pelo usuário](./reference-user-defined-functions-client-library.md).
+- Reveja a documentação de referência da biblioteca do [cliente de função definida pelo utilizador.](./reference-user-defined-functions-client-library.md)

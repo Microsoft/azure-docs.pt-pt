@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 365c228edd97ffcd02b86508deff4272365447f6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 99083cd08db98a6d6ac56d4cf55aaf9d0e64e2b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672145"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362326"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes Windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Monitor Azure, bem como quaisquer registos ou métricas únicos, conforme definido numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, tais como [O Monitor Azure para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center](/azure/security-center/)e [Azure Automation.](../../automation/automation-intro.md)
@@ -87,7 +87,7 @@ Existem vários métodos para instalar o agente Log Analytics e ligar a sua máq
 
 As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:
 
-* Windows Server 2019
+* Windows Server de 2019
 * Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
 * Windows 7 SP1, Windows 8 Enterprise e Pro, e Windows 10 Enterprise e Pro
 
@@ -101,7 +101,7 @@ Esta secção fornece detalhes sobre as distribuições suportadas de Linux.
 A partir do versões lançadas em Agosto de 2018, estamos a efetuar as seguintes alterações ao nosso modelo de suporte:  
 
 * Apenas o servidor são suportadas as versões, não cliente.  
-* As novas versões de [Distros Endossados do Azure Linux](../../virtual-machines/linux/endorsed-distros.md) são sempre suportadas.  
+* Concentre-se em qualquer uma das [distros apoiadas pelo Azure Linux.](../../virtual-machines/linux/endorsed-distros.md) Note que pode haver algum atraso entre um novo distro/versão sendo O Endosso Do Azure Linux e sendo suportado para o agente Log Analytics Linux.
 * Todas as versões secundárias são suportadas para cada versão principal listado.
 * Não são suportadas versões que passaram a data de fim do suporte do respetivo fabricante.  
 * Novas versões de AMI não são suportadas.  
@@ -142,7 +142,7 @@ A tabela seguinte realça os pacotes necessários para distros linux suportados 
 Para garantir a segurança dos dados em trânsito para os registos do Monitor Azure, encorajamo-lo vivamente a configurar o agente para utilizar pelo menos a Segurança da Camada de Transporte (TLS) 1.2. As versões mais antigas da Camada de Tomadas TLS/Secure (SSL) revelaram-se vulneráveis e, embora ainda trabalhem para permitir a retrocompatibilidade, não são **recomendadas**.  Para obter informações adicionais, reveja o [envio de dados de forma segura utilizando o TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 O agente do Linux e do Windows comunica a saída do serviço Azure Monitor através da porta TCP 443, e se a máquina se ligar através de uma firewall ou servidor proxy para comunicar através da Internet, reveja os requisitos abaixo para entender a configuração da rede Necessário. Se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à Internet, pode configurar um [gateway Log Analytics](gateway.md) e, em seguida, configurar o agente para ligar através da porta de entrada para os registos do Monitor Azure. O agente pode então receber informações de configuração e enviar dados recolhidos dependendo das regras de recolha de dados e soluções de monitorização que tenha ativado no seu espaço de trabalho.
 
 ![Diagrama de comunicação de agente do log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
@@ -172,7 +172,7 @@ Para o agente Linux, o servidor proxy é especificado durante a instalação ou 
 
 |Propriedade| Descrição |
 |--------|-------------|
-|Protocolo | https |
+|Protocol | https |
 |Utilizador | Nome de utilizador opcional para a autenticação de proxy |
 |palavra-passe | Palavra-passe opcional para a autenticação de proxy |
 |proxyhost | Endereço ou FQDN do gateway de análise de registo do servidor proxy |
@@ -185,7 +185,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Reveja [as fontes](agent-data-sources.md) de dados para compreender as fontes de dados disponíveis para recolher dados do seu sistema Windows ou Linux. 
 * Saiba mais sobre consultas de [registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes e soluções de dados. 

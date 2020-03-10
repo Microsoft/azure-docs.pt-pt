@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 0c32d438ac8551f061343edb747e9fc035b498e2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560529"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379833"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster azure Data Explorer e base de dados usandoC#
 
@@ -127,6 +127,6 @@ Agora tem um cluster e uma base de dados.
     kustoManagementClient.Clusters.Delete(resourceGroupName, clusterName);
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Dados de ingestão utilizando o Azure Data Explorer .NET Standard SDK (Pré-visualização)](net-standard-ingest-data.md)

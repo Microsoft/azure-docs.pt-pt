@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 ms.date: 01/07/2020
 tags: azure-synapse
 ms.openlocfilehash: 42f79b83d174571d26f49b28ed480f86a004036c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196132"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358406"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configure e gerea autenticação de Diretório Ativo Azure com SQL
 
@@ -129,7 +129,7 @@ A sua instância gerida necessita de permissões para ler a AD Azure para realiz
 
 5. Após a conclusão da operação com sucesso, a seguinte notificação aparecerá no canto superior direito:
 
-    ![exito](./media/sql-database-aad-authentication/success.png)
+    ![êxito](./media/sql-database-aad-authentication/success.png)
 
 6. Agora pode escolher o seu administrador Azure AD para a sua instância gerida. Para isso, na página de administração do Diretório Ativo, selecione o comando **de administração set.**
 
@@ -525,7 +525,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 A orientação sobre problemas de resolução de problemas com a Autenticação AD Azure pode ser encontrada no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral do acesso e controlo na Base de Dados SQL, veja [Acesso e controlo da Base de Dados SQL](sql-database-control-access.md).
 - Para obter uma descrição geral de inícios de sessão, utilizadores e funções de base de dados da Base de Dados SQL, veja [Inícios de sessão, utilizadores e funções de base de dados](sql-database-manage-logins.md).

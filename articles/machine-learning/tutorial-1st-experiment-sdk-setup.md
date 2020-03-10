@@ -11,11 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165981"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355328"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começar a criar a sua primeira experiência ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Neste tutorial:
 
 > [!div class="checklist"]
 > * Crie um espaço de trabalho de [aprendizagem automática Azure](concept-workspace.md) para usar no próximo tutorial.
-> * Clone o notebook tutoriais em sua pasta no espaço de trabalho.
+> * Clone o caderno de tutoriais para a sua pasta no espaço de trabalho.
 > * Crie uma instância computacional baseada em nuvem com O SDK de Aprendizagem automática Azure instalado e pré-configurado.
 
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar.
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Liga o seu grupo de subscrição e recursos Azure a um objeto facilmente consumido no serviço. 
+Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implementar modelos de aprendizagem automática. Liga o seu grupo de subscrição e recursos Azure a um objeto facilmente consumido no serviço. 
 
 Cria um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure. 
 
@@ -100,7 +100,7 @@ Completa as seguintes etapas de experimentação no estúdio Azure Machine Learn
 
 Se tiver widgets personalizados ou preferir usar o Jupyter/JupyterLab, selecione o **Jupyter** descer na extrema direita, então selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, completou estas tarefas:
 

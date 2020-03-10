@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 8c9732aec73f6387c9d32bb2333a3e7f834c2165
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 03/05/2020
+ms.openlocfilehash: 66c257f940d4345f333aacf95f8efc9051a9566c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249901"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358874"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligue-se a redes virtuais Azure a partir de Aplicações Lógicas Azure utilizando um ambiente de serviço de integração (ISE)
 
-Para cenários em que as suas aplicações lógicas e contas de integração precisam de acesso a uma [rede virtual Azure, crie](../virtual-network/virtual-networks-overview.md)um ambiente de serviço de [ *integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). O ISE é um ambiente isolado que utiliza armazenamento dedicado e outros recursos que são mantidos separados do público, serviço "global", multi-inquilino logic Apps. Esta separação também reduz qualquer impacto que outros inquilinos do Azure possam ter no desempenho das suas apps. Um ISE também lhe fornece os seus próprios endereços IP estáticos. Estes endereços IP são separados dos endereços IP estáticos que são partilhados pelas aplicações lógicas no serviço público, multi-inquilino.
+Para cenários em que as suas aplicações lógicas e contas de integração precisam de acesso a uma [rede virtual Azure, crie](../virtual-network/virtual-networks-overview.md)um ambiente de serviço de [ *integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Um ISE é um ambiente isolado que utiliza armazenamento dedicado e outros recursos que são mantidos separados do serviço "global" de Aplicações Lógicas Multi-Inquilinos. Esta separação também reduz qualquer impacto que outros inquilinos do Azure possam ter no desempenho das suas apps. Um ISE também lhe fornece os seus próprios endereços IP estáticos. Estes endereços IP são separados dos endereços IP estáticos que são partilhados pelas aplicações lógicas no serviço público, multi-inquilino.
 
 Quando cria um ISE, o Azure *injeta* esse ISE na sua rede virtual Azure, que depois implanta o serviço De aplicações lógicas na sua rede virtual. Quando criar uma aplicação lógica ou uma conta de integração, selecione o ise como localização. A sua aplicação lógica ou conta de integração pode então aceder diretamente a recursos, tais como máquinas virtuais (VMs), servidores, sistemas e serviços, na sua rede virtual.
 
@@ -55,10 +55,10 @@ Este artigo mostra-lhe como completar estas tarefas:
     **Prefixo de endereço**: 0.0.0.0/0<br>
     **Próximo salto**: Internet
 
-* Se pretender utilizar servidores DNS personalizados para a sua rede virtual Azure, [instale esses servidores seguindo estes passos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar o seu ISE para a sua rede virtual. Caso contrário, sempre que mudar o seu servidor DNS, também tem de reiniciar o seu ISE.
+* Se pretender utilizar servidores DNS personalizados para a sua rede virtual Azure, [instale esses servidores seguindo estes passos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar o seu ISE para a sua rede virtual. Para obter mais informações sobre a gestão das definições do servidor DNS, consulte [Criar, alterar ou eliminar uma rede virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-  > [!IMPORTANT]
-  > Se alterar as definições do servidor DNS depois de criar um ISE, certifique-se de que reinicia o ISE. Para obter mais informações sobre a gestão das definições do servidor DNS, consulte [Criar, alterar ou eliminar uma rede virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
+  > [!NOTE]
+  > Se alterar as definições do servidor DNS ou do servidor DNS, tem de reiniciar o ISE para que o ISE possa recolher essas alterações. Para mais informações, consulte [Reiniciar o seu ISE](#restart-ISE).
 
 <a name="enable-access"></a>
 
@@ -128,7 +128,7 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
    ![Fornecer detalhes ambientais](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Required | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Subscrição** | Sim | <*Azure-subscription-name*> | A subscrição Azure para usar para o seu ambiente |
    | **Grupo de recursos** | Sim | <> de nome de *grupo azure-recursos* | Um novo ou já existente grupo de recursos Azure onde você quer criar o seu ambiente |
@@ -278,13 +278,25 @@ A unidade base Premium ISE tem capacidade fixa, por isso, se precisar de mais en
 
 1. Quando terminar as definições de escala automática, guarde as alterações.
 
+<a name="restart-ISE"></a>
+
+## <a name="restart-ise"></a>Reiniciar ise
+
+Se alterar as definições do servidor DNS ou do servidor DNS, tem de reiniciar o ISE para que o ISE possa recolher essas alterações. Reiniciar um Premium SKU ISE não resulta em tempo de paragem devido a redundância e componentes que reiniciam um de cada vez durante a reciclagem. No entanto, um Developer SKU ISE experimenta tempo de inatividade porque não existe redundância. Para mais informações, consulte [ise SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+1. No [portal Azure,](https://portal.azure.com)vá ao seu ambiente de serviço de integração.
+
+1. No menu ISE, selecione **Visão Geral**. Na barra de ferramentas Overview, **Restart**.
+
+   ![Reiniciar o ambiente do serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
+
 ## <a name="delete-ise"></a>Eliminar ise
 
 Antes de eliminar um ISE de que já não precisa ou um grupo de recursos Azure que contenha um ISE, verifique se não tem políticas ou fechaduras no grupo de recursos Azure que contenha esses recursos ou na sua rede virtual Azure porque estes itens podem bloquear a eliminação.
 
 Depois de eliminar o ise, poderá ter de esperar até 9 horas antes de tentar eliminar a rede virtual do Azure ou subredes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Adicione artefactos aos ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 * [Verifique a saúde da rede para obter ambientes de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)

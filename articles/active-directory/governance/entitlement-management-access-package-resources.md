@@ -1,6 +1,6 @@
 ---
-title: Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
-description: Saiba como alterar as funções de recurso para um pacote do Access existente no gerenciamento de direitos Azure Active Directory.
+title: Alterar funções de recurso para um pacote de acesso na gestão de direitos da Azure AD - Diretório Ativo Azure
+description: Saiba como alterar as funções de recurso para um pacote de acesso existente na gestão de direitos do Diretório Ativo Azure.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,171 +17,171 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174652"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376664"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recurso para um pacote de acesso na gestão de direitos da AD Azure
 
-Como um Gerenciador de pacotes do Access, você pode alterar os recursos em um pacote do Access a qualquer momento sem se preocupar com o provisionamento do acesso do usuário aos novos recursos ou a remoção de seu acesso dos recursos anteriores. Este artigo descreve como alterar as funções de recurso para um pacote do Access existente.
+Como gestor de pacotes de acesso, pode alterar os recursos num pacote de acesso a qualquer momento sem se preocupar em fornecer o acesso do utilizador aos novos recursos ou remover o seu acesso aos recursos anteriores. Este artigo descreve como alterar as funções de recurso para um pacote de acesso existente.
 
 Este vídeo fornece uma visão geral de como alterar um pacote de acesso.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3LD4Z]
 
-## <a name="check-catalog-for-resources"></a>Verificar o catálogo em busca de recursos
+## <a name="check-catalog-for-resources"></a>Verifique o catálogo de recursos
 
-Se você precisar adicionar recursos a um pacote do Access, verifique se os recursos necessários estão disponíveis no catálogo. Se você for um Gerenciador de pacotes do Access, não poderá adicionar recursos a um catálogo, mesmo que você os tenha. Você está restrito a usar os recursos disponíveis no catálogo.
+Se precisar de adicionar recursos a um pacote de acesso, deverá verificar se os recursos que necessita estão disponíveis no catálogo. Se é gestor de pacotes de acesso, não pode adicionar recursos a um catálogo, mesmo que os possua. Está restrito a utilizar os recursos disponíveis no catálogo.
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **Catálogo** e, em seguida, abra o catálogo.
+1. No menu esquerdo, clique em **Catálogo** e abra o catálogo.
 
-1. No menu à esquerda, clique em **recursos** para ver a lista de recursos neste catálogo.
+1. No menu à esquerda, clique em **Recursos** para ver a lista de recursos neste catálogo.
 
-    ![Lista de recursos em um catálogo](./media/entitlement-management-access-package-resources/catalog-resources.png)
+    ![Lista de recursos num catálogo](./media/entitlement-management-access-package-resources/catalog-resources.png)
 
-1. Se você for um Gerenciador de pacotes do Access e precisar adicionar recursos ao catálogo, poderá pedir ao proprietário do catálogo para adicioná-los.
+1. Se você é um gestor de pacotes de acesso e precisa adicionar recursos ao catálogo, você pode pedir ao proprietário do catálogo para adicioná-los.
 
-## <a name="add-resource-roles"></a>Adicionar funções de recurso
+## <a name="add-resource-roles"></a>Adicionar funções de recursos
 
-Uma função de recurso é uma coleção de permissões associadas a um recurso. A maneira de disponibilizar os recursos para os usuários solicitarem é adicionando funções de recurso ao seu pacote de acesso. Você pode adicionar funções de recursos para grupos, equipes, aplicativos e sites do SharePoint.
+Um papel de recursos é uma coleção de permissões associadas a um recurso. A forma como disponibiliza recursos para os utilizadores solicitarem é adicionando funções de recursos ao seu pacote de acesso. Pode adicionar funções de recursos para grupos, equipas, aplicações e sites SharePoint.
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, clique em **funções de recurso**.
+1. No menu esquerdo, clique nas **funções de Recurso.**
 
-1. Clique em **adicionar funções de recurso** para abrir a página Adicionar funções de recurso ao pacote de acesso.
+1. Clique em **adicionar funções de recurso** para abrir as funções de recurso Adicionar para aceder à página do pacote.
 
-    ![Pacote de acesso – adicionar funções de recurso](./media/entitlement-management-access-package-resources/resource-roles-add.png)
+    ![Pacote de acesso - Adicionar funções de recursos](./media/entitlement-management-access-package-resources/resource-roles-add.png)
 
-1. Dependendo se você deseja adicionar um grupo, uma equipe, um aplicativo ou um site do SharePoint, execute as etapas em uma das seções de função de recurso a seguir.
+1. Dependendo se pretende adicionar um site de grupo, equipa, aplicação ou SharePoint, execute os passos numa das seguintes secções de recurso.
 
-## <a name="add-a-group-or-team-resource-role"></a>Adicionar uma função de recurso de equipe ou grupo
+## <a name="add-a-group-or-team-resource-role"></a>Adicione uma função de grupo ou de recursos de equipa
 
-Você pode ter o gerenciamento de direitos para adicionar automaticamente usuários a um grupo ou a uma equipe do Microsoft Teams quando eles forem atribuídos a um pacote de acesso. 
+Pode ter uma gestão de direitos adicionando automaticamente os utilizadores a um grupo ou a uma equipa em Microsoft Teams quando lhes for atribuído um pacote de acesso. 
 
-- Quando um grupo ou equipe faz parte de um pacote do Access e um usuário é atribuído a esse pacote do Access, o usuário é adicionado a esse grupo ou equipe, se ainda não estiver presente.
-- Quando a atribuição de pacote de acesso de um usuário expira, elas são removidas do grupo ou da equipe, a menos que tenham atualmente uma atribuição a outro pacote de acesso que inclua o mesmo grupo ou equipe.
+- Quando um grupo ou equipa faz parte de um pacote de acesso e um utilizador é atribuído a esse pacote de acesso, o utilizador é adicionado a esse grupo ou equipa, se não estiver presente.
+- Quando a atribuição do pacote de acesso de um utilizador expira, eles são removidos do grupo ou equipa, a menos que tenham atualmente uma atribuição para outro pacote de acesso que inclua esse mesmo grupo ou equipa.
 
-Você pode selecionar qualquer [grupo de segurança do Azure ad ou grupo do Office 365](../fundamentals/active-directory-groups-create-azure-portal.md). Os administradores podem adicionar qualquer grupo a um catálogo; os proprietários do catálogo podem adicionar qualquer grupo ao catálogo se eles forem proprietários do grupo. Tenha em mente as seguintes restrições do Azure AD ao selecionar um grupo:
+Pode selecionar qualquer grupo de [segurança Azure AD ou Office 365 Group](../fundamentals/active-directory-groups-create-azure-portal.md). Os administradores podem adicionar qualquer grupo a um catálogo; os proprietários de catálogos podem adicionar qualquer grupo ao catálogo se forem proprietários do grupo. Tenha em mente os seguintes constrangimentos da AD Azure ao selecionar um grupo:
 
-- Quando um usuário, incluindo um convidado, é adicionado como um membro a um grupo ou equipe, ele pode ver todos os outros membros desse grupo ou equipe.
-- O Azure AD não pode alterar a associação de um grupo que foi sincronizado do Windows Server Active Directory usando Azure AD Connect ou que foi criado no Exchange Online como um grupo de distribuição.  
-- A associação de grupos dinâmicos não pode ser atualizada com a adição ou remoção de um membro, portanto, as associações de grupo dinâmicos não são adequadas para uso com o gerenciamento de direitos.
+- Quando um utilizador, incluindo um hóspede, é adicionado como membro a um grupo ou equipa, pode ver todos os outros membros desse grupo ou equipa.
+- A Azure AD não pode alterar a adesão de um grupo que foi sincronizado a partir do Windows Server Ative Directory utilizando o Azure AD Connect, ou que foi criado no Exchange Online como um grupo de distribuição.  
+- A adesão a grupos dinâmicos não pode ser atualizada adicionando ou removendo um membro, pelo que as associações dinâmicas do grupo não são adequadas para utilização com a gestão de direitos.
 
-Para obter mais informações, consulte [comparar grupos](https://docs.microsoft.com/office365/admin/create-groups/compare-groups) e [grupos do Office 365 e Microsoft Teams](https://docs.microsoft.com/microsoftteams/office-365-groups).
+Para mais informações, consulte [Compare grupos](https://docs.microsoft.com/office365/admin/create-groups/compare-groups) e [Office 365 Groups e Microsoft Teams](https://docs.microsoft.com/microsoftteams/office-365-groups).
 
-1. Na página **adicionar funções de recurso ao pacote de acesso** , clique em **grupos e equipes** para abrir o painel Selecionar grupos.
+1. Nas **funções de recurso Adicionar para aceder à** página do pacote, clique em **Grupos e Equipas** para abrir o painel de grupos Select.
 
-1. Selecione os grupos e as equipes que você deseja incluir no pacote de acesso.
+1. Selecione os grupos e equipas que pretende incluir no pacote de acesso.
 
-    ![Pacote de acesso – adicionar funções de recurso-selecionar grupos](./media/entitlement-management-access-package-resources/group-select.png)
+    ![Pacote de acesso - Adicionar funções de recursos - Selecione grupos](./media/entitlement-management-access-package-resources/group-select.png)
 
 1. Clique em **Selecionar**.
 
-    Depois de selecionar o grupo ou a equipe, a coluna de **subtipo** listará um dos seguintes subtipos:
+    Uma vez selecionada o grupo ou equipa, a coluna **sub-tipo** listará um dos seguintes subtipos:
 
     |  |  |
     | --- | --- |
     | Segurança | Usado para conceder acesso aos recursos. |
-    | Distribuição | Usado para enviar notificações para um grupo de pessoas. |
-    | O365 | Grupo do Office 365 que não está habilitado para equipes. Usado para colaboração entre usuários, dentro e fora da sua empresa. |
-    | Equipa | Grupo do Office 365 habilitado para equipes. Usado para colaboração entre usuários, dentro e fora da sua empresa. |
+    | Distribuição | Usado para enviar notificações a um grupo de pessoas. |
+    | O365 | Grupo 365 do Office que não está habilitado para as equipas. Usado para colaboração entre utilizadores, dentro e fora da sua empresa. |
+    | Equipa | Grupo 365 do Office que está habilitado para as equipas. Usado para colaboração entre utilizadores, dentro e fora da sua empresa. |
 
-1. Na lista **função** , selecione **proprietário** ou **membro**.
+1. Na lista **de Funções,** selecione **Proprietário** ou **Membro**.
 
-    Normalmente, você seleciona a função de membro. Se você selecionar a função proprietário, isso permitirá que os usuários adicionem ou removam outros membros ou proprietários.
+    Normalmente, seleciona a função de Membro. Se selecionar a função Proprietário, isso permitirá que os utilizadores adicionem ou removam outros membros ou proprietários.
 
-    ![Pacote de acesso-Adicionar função de recurso para um grupo ou equipe](./media/entitlement-management-access-package-resources/group-role.png)
+    ![Pacote de acesso - Adicionar função de recurso para um grupo ou equipa](./media/entitlement-management-access-package-resources/group-role.png)
 
 1. Clique em **Adicionar**.
 
-    Qualquer usuário com atribuições existentes ao pacote de acesso se tornará automaticamente membros deste grupo ou equipe quando ele for adicionado.
+    Qualquer utilizador com atribuições existentes ao pacote de acesso tornar-se-á automaticamente membros deste grupo ou equipa quando este for adicionado.
 
-## <a name="add-an-application-resource-role"></a>Adicionar uma função de recurso de aplicativo
+## <a name="add-an-application-resource-role"></a>Adicione uma função de recurso de aplicação
 
-Você pode fazer com que o Azure AD atribua automaticamente aos usuários o acesso a um aplicativo empresarial do Azure AD, incluindo aplicativos SaaS e aplicativos de sua organização federados ao Azure AD, quando um usuário recebe um pacote de acesso. Para aplicativos que se integram ao Azure AD por meio de logon único federado, o Azure AD emitirá tokens de Federação para usuários atribuídos ao aplicativo.
+Pode ter o Azure AD a atribuir automaticamente aos utilizadores acesso a uma aplicação empresarial Azure AD, incluindo aplicações SaaS e aplicações da sua organização federadas para a AD Azure, quando um utilizador é atribuído a um pacote de acesso. Para aplicações que se integrem com a Azure AD através de um único sign-on federado, a Azure AD emitirá fichas da federação para utilizadores atribuídos à aplicação.
 
-Os aplicativos podem ter várias funções. Ao adicionar um aplicativo a um pacote do Access, se esse aplicativo tiver mais de uma função, será necessário especificar a função apropriada para esses usuários. Se você estiver desenvolvendo aplicativos, poderá ler mais sobre como essas funções são adicionadas aos seus aplicativos em [como configurar a declaração de função emitida no token SAML para aplicativos empresariais](../develop/active-directory-enterprise-app-role-management.md).
+As aplicações podem ter múltiplas funções. Ao adicionar uma aplicação a um pacote de acesso, se essa aplicação tiver mais de uma função, terá de especificar a função adequada para esses utilizadores. Se estiver a desenvolver aplicações, pode ler mais sobre como essas funções são adicionadas às suas aplicações em [Como: Configurar a alegação de função emitida no símbolo SAML para aplicações empresariais](../develop/active-directory-enterprise-app-role-management.md).
 
-Quando uma função de aplicativo faz parte de um pacote de acesso:
+Uma vez que uma função de candidatura faça parte de um pacote de acesso:
 
-- Quando um usuário recebe esse pacote de acesso, o usuário é adicionado a essa função de aplicativo, se ainda não estiver presente.
-- Quando a atribuição de pacote de acesso de um usuário expirar, seu acesso será removido do aplicativo, a menos que eles tenham uma atribuição a outro pacote de acesso que inclua essa função de aplicativo.
+- Quando é atribuído a um utilizador esse pacote de acesso, o utilizador é adicionado a essa função de aplicação, se não estiver já presente.
+- Quando a atribuição do pacote de acesso de um utilizador expirar, o seu acesso será removido da aplicação, a menos que tenham uma atribuição para outro pacote de acesso que inclua essa função de aplicação.
 
-Aqui estão algumas considerações ao selecionar um aplicativo:
+Aqui ficam algumas considerações ao selecionar uma aplicação:
 
-- Os aplicativos também podem ter grupos atribuídos às suas funções.  Você pode optar por adicionar um grupo no lugar de uma função de aplicativo em um pacote do Access, no entanto, o aplicativo não ficará visível para o usuário como parte do pacote de acesso no meu portal de acesso.
+- As candidaturas também podem ter grupos atribuídos às suas funções.  Pode optar por adicionar um grupo no lugar de uma função de aplicação num pacote de acesso, no entanto, a aplicação não será visível para o utilizador como parte do pacote de acesso no portal My Access.
 
-1. Na página **adicionar funções de recurso ao pacote de acesso** , clique em **aplicativos** para abrir o painel Selecionar aplicativos.
+1. Na página adicionar recursos para aceder à página do **pacote,** clique em **Aplicações** para abrir o painel de aplicações Select.
 
-1. Selecione os aplicativos que você deseja incluir no pacote de acesso.
+1. Selecione as aplicações que pretende incluir no pacote de acesso.
 
-    ![Pacote de acesso – adicionar funções de recurso-selecionar aplicativos](./media/entitlement-management-access-package-resources/application-select.png)
+    ![Pacote de acesso - Adicionar funções de recursos - Selecione aplicações](./media/entitlement-management-access-package-resources/application-select.png)
 
 1. Clique em **Selecionar**.
 
-1. Na lista **função** , selecione uma função de aplicativo.
+1. Na lista **de Papéis,** selecione uma função de candidatura.
 
-    ![Pacote de acesso-Adicionar função de recurso para um aplicativo](./media/entitlement-management-access-package-resources/application-role.png)
+    ![Pacote de acesso - Adicionar função de recurso para uma aplicação](./media/entitlement-management-access-package-resources/application-role.png)
 
 1. Clique em **Adicionar**.
 
-    Todos os usuários com atribuições existentes ao pacote de acesso receberão automaticamente acesso a esse aplicativo quando ele for adicionado.
+    Qualquer utilizador com atribuições existentes ao pacote de acesso terá automaticamente acesso a esta aplicação quando for adicionado.
 
-## <a name="add-a-sharepoint-site-resource-role"></a>Adicionar uma função de recurso de site do SharePoint
+## <a name="add-a-sharepoint-site-resource-role"></a>Adicione uma função de recurso do site SharePoint
 
-O Azure AD pode atribuir automaticamente acesso de usuários a um site do SharePoint Online ou a um conjunto de sites do SharePoint Online quando eles recebem um pacote de acesso.
+A Azure AD pode atribuir automaticamente aos utilizadores acesso a um site SharePoint Online ou à recolha do site SharePoint Online quando lhes for atribuído um pacote de acesso.
 
-1. Na página **adicionar funções de recurso ao pacote de acesso** , clique em **sites do SharePoint** para abrir o painel selecionar sites do SharePoint Online.
+1. Nas **funções de recurso Adicionar para aceder à** página do pacote, clique em sites **SharePoint** para abrir o painel de sites Select SharePoint Online.
 
-1. Selecione os sites do SharePoint Online que você deseja incluir no pacote de acesso.
+1. Selecione os sites SharePoint Online que pretende incluir no pacote de acesso.
 
-    ![Pacote de acesso-adicionar funções de recurso-selecionar sites do SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
+    ![Pacote de acesso - Adicionar funções de recursos - Selecione sites Online SharePoint](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 
 1. Clique em **Selecionar**.
 
-1. Na lista **função** , selecione uma função de site do SharePoint Online.
+1. Na lista **de Papéis,** selecione uma função de site SharePoint Online.
 
-    ![Pacote de acesso-Adicionar função de recurso para um site do SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
+    ![Pacote de acesso - Adicionar função de recurso para um site Online SharePoint](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
 1. Clique em **Adicionar**.
 
-    Todos os usuários com atribuições existentes ao pacote de acesso receberão automaticamente acesso a esse site do SharePoint Online quando ele for adicionado.
+    Qualquer utilizador com atribuições existentes para o pacote de acesso terá automaticamente acesso a este site Do SharePoint Online quando for adicionado.
 
-## <a name="remove-resource-roles"></a>Remover funções de recurso
+## <a name="remove-resource-roles"></a>Remover as funções de recurso
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. No menu à esquerda, clique em **funções de recurso**.
+1. No menu esquerdo, clique nas **funções de Recurso.**
 
-1. Na lista de funções de recurso, localize a função de recurso que você deseja remover.
+1. Na lista de funções de recursos, encontre o papel de recurso que pretende remover.
 
-1. Clique nas reticências ( **...** ) e, em seguida, clique em **remover função de recurso**.
+1. Clique na elipse **(...)** e clique em remover a **função de recurso**.
 
-    Todos os usuários com atribuições existentes ao pacote de acesso terão automaticamente seu acesso revogado para essa função de recurso quando ele for removido.
+    Qualquer utilizador com atribuições existentes ao pacote de acesso terá automaticamente o seu acesso revogado desta função de recurso quando este for removido.
 
-## <a name="when-changes-are-applied"></a>Quando as alterações são aplicadas
+## <a name="when-changes-are-applied"></a>Quando são aplicadas alterações
 
-No gerenciamento de direitos, o Azure AD processará alterações em massa para atribuição e recursos em seus pacotes de acesso várias vezes por dia. Portanto, se você fizer uma atribuição ou alterar as funções de recurso do seu pacote de acesso, poderá levar até 24 horas para que essa alteração seja feita no Azure AD, além da quantidade de tempo que leva para propagar essas alterações para outros serviços online da Microsoft ou para o aplicativo SaaS conectado &. Se a alteração afetar apenas alguns objetos, a alteração provavelmente levará apenas alguns minutos para ser aplicada ao Azure AD, após o qual outros componentes do Azure AD detectarão essa alteração e atualizarão os aplicativos SaaS. Se a alteração afetar milhares de objetos, a alteração levará mais tempo. Por exemplo, se você tiver um pacote de acesso com 2 aplicativos e 100 atribuições de usuário e decidir adicionar uma função de site do SharePoint ao pacote de acesso, pode haver um atraso até que todos os usuários façam parte dessa função de site do SharePoint. Você pode monitorar o progresso por meio do log de auditoria do Azure AD, do log de provisionamento do Azure AD e dos logs de auditoria do site do SharePoint.
+Na gestão de direitos, a Azure AD irá processar alterações a granel para atribuição e recursos nos seus pacotes de acesso várias vezes ao dia. Assim, se fizer uma atribuição, ou alterar as funções de recursos do seu pacote de acesso, pode demorar até 24 horas para que essa alteração seja feita em Azure AD, além do tempo que leva para propagar essas alterações a outros Serviços Online da Microsoft ou aplicação SaaS conectada s. Se a sua alteração afetar apenas alguns objetos, a alteração provavelmente levará apenas alguns minutos para ser aplicada em Azure AD, após o que outros componentes da AD Azure detetarão então essa alteração e atualização das aplicações SaaS. Se a sua mudança afetar milhares de objetos, a mudança demorará mais tempo. Por exemplo, se tiver um pacote de acesso com 2 aplicações e 100 atribuições de utilizador, e decidir adicionar uma função de site sharePoint ao pacote de acesso, pode haver um atraso até que todos os utilizadores façam parte dessa função do site SharePoint. Pode monitorizar o progresso através do registo de auditoria da AD Azure, do registo de provisionamento de AD Azure e dos registos de auditoria do site SharePoint.
 
-Quando você remove um membro de uma equipe, eles são removidos do grupo do Office 365 também. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+Quando remove um membro de uma equipa, este também é removido do Grupo do Office 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar um grupo básico e adicionar membros usando Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Como configurar a declaração de função emitida no token SAML para aplicativos empresariais](../develop/active-directory-enterprise-app-role-management.md)
+- [Crie um grupo básico e adicione membros usando o Diretório Ativo Azure](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Como: Configurar a alegação de função emitida no símbolo SAML para aplicações empresariais](../develop/active-directory-enterprise-app-role-management.md)
 - [Introdução ao SharePoint Online](/sharepoint/introduction)

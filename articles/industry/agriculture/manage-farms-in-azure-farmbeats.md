@@ -1,82 +1,82 @@
 ---
-title: Gerenciar farms
-description: Descreve como gerenciar farms
+title: Gerir Quintas
+description: Descreve como gerir quintas
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482416"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385157"
 ---
 # <a name="manage-farms"></a>Gerir terrenos agrícolas
 
-Você pode gerenciar seus farms no Azure FarmBeats. Este artigo fornece informações sobre como criar farms, instalar dispositivos, sensores e drones que ajudam a gerenciar seus farms.
+Você pode gerir suas fazendas em Azure FarmBeats. Este artigo fornece informações sobre como criar quintas, instalar dispositivos, sensores e drones que o ajudam a gerir as suas quintas.
 
-## <a name="create-farms"></a>Criar farms
+## <a name="create-farms"></a>Criar quintas
 
 Utilize os passos seguintes:
 
-1. Faça logon no acelerador de farm, a página **farms** é exibida.
-    A página **farms** exibe a lista de farms caso eles já tenham sido criados na assinatura.
+1. Login no Acelerador de Fazendas, a página **Farms** exibe.
+    A página **Farms** apresenta a lista de quintas no caso de já terem sido criadas por subscrição.
 
-    Aqui está a imagem de exemplo:
+    Aqui está a imagem da amostra:
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Batidas da Fazenda do Projeto](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
-2. Selecione **criar farm** e forneça o **nome**, os **aparas** e o **endereço**.
-3. Em **definir limite do farm**, (campo obrigatório) selecione **marcar no mapa** ou **colar código geojson**.
+2. Selecione **Criar Quinta** e fornecer **Nome,** **Colheitas** e **Endereço**.
+3. No **Limite da Fazenda Define**, (campo obrigatório) selecione **ou Marca no mapa** ou **código Paste GeoJSON**.
 
-Aqui estão as duas maneiras de definir um limite de farm:
+Aqui estão as duas formas de definir um limite agrícola:
 
-1. **Marcar no mapa**: Use a ferramenta de controle de mapa para desenhar e marcar o limite do farm. Para marcar os limites, ![farm de projeto vence](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e marque os limites exatos.
+1. **Marca no mapa**: Utilize a ferramenta de controlo do mapa para desenhar e marcar o limite da quinta. Para marcar os limites, ![Project Farm Bate](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e marcar os limites exatos.
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Batidas da Fazenda do Projeto](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
-2. **Colar código geojson**: o geojson é um formato para codificar estruturas de dados geográficos, usando JavaScript Object Notation (JSON). Esta opção exibe uma caixa de texto em que uma cadeia de caracteres geojson pode ser inserida para marcar os limites do farm. Você também pode criar código geojson a partir de GeoJSON.io.
-Use as dicas de ferramenta para ajudar a preencher as informações.
+2. **Código GeoJson**da Pasta : O GeoJSON é um formato para codificar estruturas geográficas de dados, utilizando a Notação de Objetos JavaScript (JSON). Esta opção exibe uma caixa de texto onde uma cadeia GeoJSON pode ser inserida para marcar os limites da fazenda. Também pode criar código GeoJSON a partir de GeoJSON.io.
+Utilize as pontas de ferramentas para ajudar a preencher a informação.
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Batidas da Fazenda do Projeto](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
-3.  Selecione **Enviar** para criar um farm. Um novo farm é criado e exibido na página **farms** .
+3.  Selecione **Submeter** para criar uma quinta. Uma nova quinta é criada e exibida na página **quinta.**
 
-## <a name="view-farm"></a>Exibir farm
+## <a name="view-farm"></a>Ver fazenda
 
-A página lista de farms exibe uma lista de farms criados. Selecione um farm para exibir a lista de:
+A página da lista farm apresenta uma lista de quintas criadas. Selecione uma quinta para ver a lista de:
 
- - **Contagem de dispositivos** — exibe o número e o status dos dispositivos implantados no farm.
- - **Mapa** — mapa do farm com os dispositivos implantados no farm.
- - **Telemetria** — exibe a telemetria dos sensores implantados no farm.
- - **Mapas de precisão mais** recentes — exibe o mapa de índices satélite mais recente (Evi, NDWI), a umidade de solo calor e o mapa de posicionamento do sensor.
+ - A **contagem do dispositivo** - apresenta o número e o estado dos dispositivos implantados dentro da exploração.
+ - **Mapa** — mapa da quinta com os dispositivos implantados na quinta.
+ - **Telemetria** — exibe a telemetria dos sensores implantados na quinta.
+ - **Os mais recentes mapas** de precisão — exibem o mais recente mapa de índices de satélite (EVI, NDWI), mapa de calor da humidade do solo e mapa de colocação de sensores.
 
-## <a name="edit-farm"></a>Editar farm
+## <a name="edit-farm"></a>Editar quinta
 
-A página **farms** exibe uma lista de farms criados.
+A página **Farms** apresenta uma lista de quintas criadas.
 
-1.  Selecione um farm para exibir e editar o farm.
-2.  Selecione **Editar farm** para editar as informações do farm. Na janela **detalhes do farm** , você pode editar **nomes**, **aparas**, **endereços**e definir campos de **limite do farm** .
+1.  Selecione uma quinta para ver e editar a quinta.
+2.  Selecione **Editar Quinta** para editar as informações da quinta. Na janela Detalhes da **Fazenda,** pode editar **Nome**, **Colheitas,** **Endereço,** e definir campos **de fronteira agrícola.**
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
+    ![Batidas da Fazenda do Projeto](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 
-3. Selecione **Enviar** para salvar os detalhes editados.
+3. Selecione **Submeter** para guardar os detalhes editados.
 
-## <a name="delete-farm"></a>Excluir farm
+## <a name="delete-farm"></a>Eliminar quinta
 
-A página **farms** exibe uma lista de farms criados. Use as seguintes etapas para excluir um farm:
+A página **Farms** apresenta uma lista de quintas criadas. Utilize os seguintes passos para eliminar uma exploração:
 
-1.  Selecione um farm na lista para excluir os detalhes do farm.
-2.  Selecione **excluir farm** para excluir o farm.
+1.  Selecione uma quinta da lista para apagar detalhes da quinta.
+2.  **Selecione Delete Farm** para apagar a quinta.
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Batidas da Fazenda do Projeto](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
-    > Quando você exclui um farm, os dispositivos e mapas associados ao farm não são excluídos. Todas as informações de farm associadas ao dispositivo e aos mapas não serão relevantes. Você pode continuar a exibir dispositivos, telemetria e mapas do serviço FarmBeats.
+    > Quando se elimina uma quinta, os dispositivos e mapas associados à quinta não são apagados. Qualquer informação agrícola associada ao dispositivo e mapas não será relevante. Pode continuar a ver dispositivos, telemetria e mapas do serviço FarmBeats.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Agora que você criou seu farm, saiba como [obter dados de sensor](get-sensor-data-from-sensor-partner.md) que fluem para seu farm.
+Agora que criou a sua quinta, aprenda a obter dados de [sensores](get-sensor-data-from-sensor-partner.md) fluindo para a sua fazenda.

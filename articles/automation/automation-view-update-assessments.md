@@ -1,67 +1,67 @@
 ---
-title: Exibir avaliações de atualização de Gerenciamento de Atualizações do Azure
-description: Este artigo descreve como exibir as avaliações de atualização para implantações de atualização.
+title: Ver avaliações de atualização da Atualização do Azure
+description: Este artigo descreve como visualizar avaliações de atualização para atualizações.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310089"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373090"
 ---
-# <a name="view-azure-update-management-update-assessments"></a>Exibir avaliações de atualização de Gerenciamento de Atualizações do Azure
+# <a name="view-azure-update-management-update-assessments"></a>Ver avaliações de atualização da Atualização do Azure
 
-Em sua conta de automação do Azure, selecione **Gerenciamento de atualizações** para exibir o status de seus computadores.
+Na sua conta Azure Automation, selecione **Update Management** para ver o estado das suas máquinas.
 
-Esta exibição fornece informações sobre seus computadores, atualizações ausentes, implantações de atualização e implantações de atualização agendada. Na coluna **conformidade** , você pode ver a última vez em que o computador foi avaliado. Na coluna **prontidão do agente de atualização** , você pode ver a integridade do agente de atualização. Se houver um problema, selecione o link para acessar a documentação de solução de problemas que pode ajudá-lo a corrigir o problema.
+Esta visão fornece informações sobre as suas máquinas, atualizações em falta, implementações de atualizações e implementações de atualizações programadas. Na coluna **COMPLIANCE,** pode ver a última vez que a máquina foi avaliada. Na coluna DE PRONTIDÃO DO AGENTE DE **Atualização,** pode ver a saúde do agente de atualização. Se houver algum problema, selecione o link para ir à documentação de resolução de problemas que pode ajudá-lo a corrigir o problema.
 
-Para executar uma pesquisa de logs que retorna informações sobre a máquina, atualização ou implantação, selecione o item correspondente na lista. O painel **pesquisa de log** é aberto com uma consulta para o item selecionado:
+Para executar uma pesquisa de registo que devolve informações sobre a máquina, atualização ou implementação, selecione o item correspondente na lista. O painel de pesquisa de **registo** abre com uma consulta para o item selecionado:
 
-![Gerenciamento de Atualizações exibição padrão](media/automation-update-management/update-management-view.png)
+![Visão padrão de gestão de atualização](media/automation-update-management/update-management-view.png)
 
-## <a name="view-missing-updates"></a>Exibir atualizações ausentes
+## <a name="view-missing-updates"></a>Ver atualizações em falta
 
-Selecione **atualizações ausentes** para exibir a lista de atualizações ausentes em seus computadores. Cada atualização é listada e pode ser selecionada. As informações sobre o número de computadores que exigem a atualização, os detalhes do sistema operacional e um link para obter mais informações são mostradas. O painel **pesquisa de logs** também mostra mais detalhes sobre as atualizações.
+Selecione **as atualizações Em falta** para visualizar a lista de atualizações que faltam nas suas máquinas. Cada atualização está listada e pode ser selecionada. São todas mostradas informações sobre o número de máquinas que requerem a atualização, detalhes do sistema operativo e um link para mais informações. O painel de **pesquisa de Registo** também mostra mais detalhes sobre as atualizações.
 
-![Atualizações ausentes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+![Atualizações em falta](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classificações de atualizações
+## <a name="update-classifications"></a>Classificações de atualização
 
-As tabelas a seguir listam as classificações de atualização com suporte no Gerenciamento de Atualizações, com uma definição para cada classificação.
+As tabelas seguintes listam as classificações de atualização suportadas na Gestão de Atualizações, com uma definição para cada classificação.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>Portal do
 
 |Classificação  |Descrição  |
 |---------|---------|
-|Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
-|Atualizações de segurança     | Uma atualização para um problema específico de um produto e relacionado à segurança.        |
-|Update rollups     | Um conjunto cumulativo de hotfixes que são empacotados em conjunto para facilitar a implantação.        |
-|Pacotes de funcionalidades     | Novos recursos do produto que são distribuídos fora de uma versão do produto.        |
-|Service packs     | Um conjunto cumulativo de hotfixes que são aplicados a um aplicativo.        |
-|Atualizações de definições     | Uma atualização para vírus ou outros arquivos de definição.        |
-|Ferramentas     | Um utilitário ou recurso que ajuda a concluir uma ou mais tarefas.        |
-|Atualizações     | Uma atualização para um aplicativo ou arquivo que está instalado no momento.        |
+|Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico e não relacionado com a segurança.        |
+|Atualizações de segurança     | Uma atualização para um problema específico do produto e relacionado com a segurança.        |
+|Update rollups     | Um conjunto cumulativo de hotfixes que são embalados em conjunto para uma fácil implantação.        |
+|Pacotes de funcionalidades     | Novas funcionalidades do produto que são distribuídas fora de uma versão do produto.        |
+|Service packs     | Um conjunto cumulativo de hotfixos que são aplicados a uma aplicação.        |
+|Atualizações de definições     | Uma atualização de ficheiros de vírus ou outradefinição.        |
+|Ferramentas     | Um utilitário ou funcionalidade que ajuda a completar uma ou mais tarefas.        |
+|Atualizações     | Uma atualização de uma aplicação ou ficheiro que está atualmente instalado.        |
 
 ### <a name="linux-2"></a>Linux
 
 |Classificação  |Descrição  |
 |---------|---------|
-|Atualizações críticas e de segurança     | Atualizações para um problema específico ou um problema específico do produto, relacionado à segurança.         |
+|Atualizações críticas e de segurança     | Atualizações para um problema específico ou um problema específico do produto, relacionado com a segurança.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas por natureza ou que não são atualizações de segurança.        |
 
-Para o Linux, Gerenciamento de Atualizações pode distinguir entre atualizações críticas e atualizações de segurança na nuvem enquanto exibe dados de avaliação. (Essa granularidade é possível devido ao enriquecimento de dados na nuvem.) Para aplicação de patch, Gerenciamento de Atualizações depende dos dados de classificação disponíveis no computador. Ao contrário de outras distribuições, o CentOS não tem essas informações disponíveis nas versões RTM do produto. Se você tiver máquinas CentOS configuradas para retornar dados de segurança para o comando a seguir, Gerenciamento de Atualizações poderá aplicar patch com base nas classificações:
+Para o Linux, a Atualização de Gestão pode distinguir entre atualizações críticas e atualizações de segurança na nuvem enquanto exibe dados de avaliação. (Esta granularidade é possível devido ao enriquecimento de dados na nuvem.) Para remendar, a Atualização Management baseia-se nos dados de classificação disponíveis na máquina. Ao contrário de outras distribuições, o CentOS não tem esta informação disponível nas versões RTM do produto. Se tiver máquinas CentOS configuradas para devolver os dados de segurança para o seguinte comando, a Atualização de Gestão pode corrigir com base nas classificações:
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Atualmente, não há um método com suporte para habilitar a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas o suporte de melhor esforço é fornecido aos clientes que habilitaram essa funcionalidade por conta própria.
+Atualmente não existe um método suportado para permitir a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas é prestado um apoio de melhor esforço aos clientes que tenham ativado esta funcionalidade por conta própria.
 
-Para classificar atualizações no Red Hat Enterprise versão 6, você precisa instalar o plug-in yum-Security. No Red Hat Enterprise Linux 7, o plug-in já faz parte do próprio yum, não há necessidade de instalar nada. Para obter mais informações, consulte o seguinte [artigo de conhecimento](https://access.redhat.com/solutions/10021)do Red Hat.
+Para classificar as atualizações na versão 6 da Red Hat Enterprise, é necessário instalar o plugin de segurança de yum. No Red Hat Enterprise Linux 7, o plugin já faz parte do próprio yum, não há necessidade de instalar nada. Para mais informações, consulte o seguinte artigo de [conhecimento](https://access.redhat.com/solutions/10021)do Chapéu Vermelho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Depois de exibir as avaliações de atualização, você pode agendar uma implantação de atualização seguindo as etapas em [gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).
+Depois de visualizar quaisquer avaliações de atualização, pode agendar uma implementação de atualização seguindo os passos nas atualizações e patches do [Manage para os seus VMs Azure](automation-tutorial-update-management.md).

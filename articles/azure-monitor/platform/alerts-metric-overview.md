@@ -5,11 +5,11 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.subservice: alerts
 ms.openlocfilehash: 2f1734d30136be904aedf7d880922ba052130ec7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664734"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384512"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entenda como os alertas métricos funcionam no Monitor Azure
 
@@ -141,7 +141,7 @@ Para alertas métricos, normalmente será notificado em menos de 5 minutos se de
 Pode encontrar a lista completa dos tipos de recursos suportados neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba como criar, visualizar e gerir alertas métricos em Azure](alerts-metric.md)
 - [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Do Azure](../../azure-monitor/platform/alerts-metric-create-templates.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: c82b5d02ab3928eb0472f2a047cdca2238bf0b63
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443404"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382930"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerir contas de laboratório nos Serviços de Laboratório Azure 
 Nos Serviços de Laboratório Azure, uma conta de laboratório é um recipiente para tipos de laboratório geridos, como laboratórios de sala de aula. Um administrador cria uma conta de laboratório com os Serviços de Laboratório Azure e dá acesso aos donos de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas do laboratório ou apagar uma conta de laboratório.
@@ -26,7 +26,7 @@ Nos Serviços de Laboratório Azure, uma conta de laboratório é um recipiente 
 ## <a name="create-a-lab-account"></a>Criar uma conta de laboratório
 Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta de laboratório com o Azure Lab Services. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** no menu esquerdo. Selecione **Contas laboratoriais** na secção **DevOps.** Se selecionar estrela (`*`) ao lado das **Contas laboratoriais,** é adicionado à secção **FAVORITES** no menu esquerdo. A partir da próxima vez, selecione **Contas laboratoriais** em **FAVORITOS**.
 
     ![Todos os Serviços -> Contas laboratoriais](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
@@ -67,7 +67,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta
     ![Página da conta de laboratório](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="view-lab-accounts"></a>Ver contas de laboratório
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os recursos** do menu. 
 3. Selecione **Contas laboratoriais** para o **tipo**. 
     Também pode filtrar por subscrição, grupo de recursos, localizações e etiquetas. 
@@ -112,7 +112,7 @@ Siga as instruções da secção anterior que apresenta as contas laboratoriais 
 > [!NOTE]
 > Também pode utilizar o módulo Az.LabServices PowerShell (pré-visualização) para gerir contas de laboratório. Para mais informações, consulte a página inicial da [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
 - [Permitir que o criador do laboratório escolha a localização do laboratório](allow-lab-creator-pick-lab-location.md)

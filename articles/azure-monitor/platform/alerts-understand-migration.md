@@ -7,11 +7,11 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665277"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384532"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entenda como funciona a ferramenta de migração
 
@@ -270,7 +270,7 @@ Como parte da migração, serão criados novos alertas métricos e novos grupos 
 - Excluindo as subscrições ou grupos de recursos durante a duração do processo de migração a partir da atribuição de políticas. [Saiba mais sobre a gestão](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion)do âmbito de exclusão de políticas.
 - Remoção ou alteração do efeito para "auditoria" ou "apêndice" (que, por exemplo, pode resolver questões relacionadas com as etiquetas em falta). [Saiba mais sobre como gerir o efeito das políticas.](../../governance/policy/concepts/definition-structure.md#policy-rule)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356934"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -364,14 +364,14 @@ O quadro seguinte representa o mapeamento da política de utilização chave x50
 
 |**Bandeiras de utilização da chave X509**|**Operações chave do cofre chave**|**Comportamento padrão**|
 |----------|--------|--------|
-|DataEncipherment|encriptar, desencriptar| N/D |
-|Decifração|desencriptação| N/D  |
+|DataEncipherment|encriptar, desencriptar| N/A |
+|Decifração|desencriptação| N/A  |
 |Assinatura Digital|assinar, verificar| Padrão do cofre chave sem uma especificação de utilização no tempo de criação do certificado | 
-|EncipherOnly|encrypt| N/D |
-|KeyCertSign|assinar, verificar|N/D|
+|EncipherOnly|encrypt| N/A |
+|KeyCertSign|assinar, verificar|N/A|
 |KeyEncipherment|wrapKey, desembrulharKey| Padrão do cofre chave sem uma especificação de utilização no tempo de criação do certificado | 
-|Não Repudiação|assinar, verificar| N/D |
-|crlsign|assinar, verificar| N/D |
+|Não Repudiação|assinar, verificar| N/A |
+|crlsign|assinar, verificar| N/A |
 
 ### <a name="certificate-issuer"></a>Emissor do Certificado
 
@@ -474,7 +474,7 @@ As seguintes permissões podem ser utilizadas ao autorizar um utilizador ou um r
 
 Para mais informações, consulte as operações da [conta de armazenamento na referência aadia](/rest/api/keyvault)do cofre de chaves . Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres - Atualizar a Política](/rest/api/keyvault/vaults/updateaccesspolicy)de Acesso .
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consulte Também
 
 - [Autenticação, pedidos e respostas](authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](/azure/key-vault/key-vault-developers-guide)

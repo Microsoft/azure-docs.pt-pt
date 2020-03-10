@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596169"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357116"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -94,16 +94,16 @@ Tanto kubenet como Azure CNI fornecem conectividade de rede para os seus cluster
 
 Existem as seguintes diferenças de comportamento entre kubenet e Azure CNI:
 
-| Capacidade                                                                                   | Rio Kubenet   | Azure CNI |
+| Funcionalidade                                                                                   | Rio Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| Implementar cluster na rede virtual existente ou nova                                            | Suportado - UDRs aplicados manualmente | Suportado |
-| Conectividade pod                                                                         | Suportado | Suportado |
+| Implementar cluster na rede virtual existente ou nova                                            | Suportado - UDRs aplicados manualmente | Suportadas |
+| Conectividade pod                                                                         | Suportadas | Suportadas |
 | Conectividade Pod-VM; VM na mesma rede virtual                                          | Funciona quando iniciado por pod | Funciona nos dois sentidos |
 | Conectividade Pod-VM; VM em rede virtual peered                                            | Funciona quando iniciado por pod | Funciona nos dois sentidos |
 | Acesso no local utilizando VPN ou Rota Expresso                                                | Funciona quando iniciado por pod | Funciona nos dois sentidos |
-| Acesso aos recursos garantidos por pontos finais de serviço                                             | Suportado | Suportado |
-| Expor os serviços kubernetes usando um serviço de balanceadores de carga, App Gateway ou controlador de ingresso | Suportado | Suportado |
-| DNS e Zonas Privadas De PredefinidoS Azure                                                          | Suportado | Suportado |
+| Acesso aos recursos garantidos por pontos finais de serviço                                             | Suportadas | Suportadas |
+| Expor os serviços kubernetes usando um serviço de balanceadores de carga, App Gateway ou controlador de ingresso | Suportadas | Suportadas |
+| DNS e Zonas Privadas De PredefinidoS Azure                                                          | Suportadas | Suportadas |
 
 No que diz respeito ao DNS, com os plugins DNS kubenet e Azure CNI é oferecido pela CoreDNS, um conjunto de daemon em execução no AKS. Para obter mais informações sobre o CoreDNS em Kubernetes consulte [Personalização do Serviço DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS está configurado por padrão para enviar domínios desconhecidos para os servidores DNS do nó, por outras palavras, para a funcionalidade DNS da Rede Virtual Azure onde o cluster AKS é implantado. Assim, o Azure DNS e as Zonas Privadas trabalharão para cápsulas em AKS.
 
@@ -145,7 +145,7 @@ A política de rede é uma funcionalidade Kubernetes disponível no AKS que perm
 
 Para obter mais informações, consulte o tráfego seguro entre as cápsulas utilizando políticas de [rede no Serviço Azure Kubernetes (AKS)][use-network-policies].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar com a rede AKS, crie e configure um cluster AKS com as suas próprias gamas de endereços IP utilizando [kubenet][aks-configure-kubenet-networking] ou [Azure CNI][aks-configure-advanced-networking].
 

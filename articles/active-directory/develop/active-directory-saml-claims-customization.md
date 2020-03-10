@@ -15,11 +15,11 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161261"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375864"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar as reclamações emitidas no token SAML para aplicações empresariais
 
@@ -71,7 +71,7 @@ Selecione a fonte desejada para a alegação `NameIdentifier` (ou NameID). Pode 
 
 | Nome | Descrição |
 |------|-------------|
-| Email | Endereço de e-mail do utilizador |
+| E-mail | Endereço de e-mail do utilizador |
 | userprincipalName | Nome principal do utilizador (UPN) do utilizador |
 | onpremisessamaccount | Nome da conta SAM que foi sincronizado a partir do local Azure AD |
 | objectide | Objectid do utilizador em Azure AD |
@@ -176,7 +176,7 @@ Em primeiro lugar, a Azure AD verifica se o tipo de utilizador da Brita é `All 
 
 ![Configuração condicional de sinistros](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
 * [Configure um único sinal sobre aplicações que não estejam na galeria de aplicações da AD Azure](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)

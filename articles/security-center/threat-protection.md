@@ -1,5 +1,5 @@
 ---
-title: Proteção contra ameaças no Centro de Segurança Azure
+title: Proteção contra ameaças no Centro de Segurança do Azure
 description: Este tópico descreve os recursos protegidos pelas funcionalidades de proteção contra ameaças do Azure Security Center
 services: security-center
 documentationcenter: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
 ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921645"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372941"
 ---
-# <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança Azure
+# <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
 Esta página descreve brevemente as fontes dos alertas de segurança apresentados pelo Azure Security Center para os utilizadores no nível de preços padrão.
 
@@ -273,7 +273,7 @@ Para se defender de ataques DDoS, compre uma licença para a Proteção DDoS Azu
 Para obter uma lista dos alertas de Proteção DDoS Azure, consulte a [tabela de alertas de Referência](alerts-reference.md#alerts-azureddos).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre os alertas de segurança destas funcionalidades de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas do Azure Security Center](alerts-reference.md)

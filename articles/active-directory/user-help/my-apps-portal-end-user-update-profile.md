@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022284"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374731"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualize o seu perfil e informações sobre contas no portal My Apps
 
@@ -33,7 +33,7 @@ Se não tiver acesso ao portal **My Apps,** deve contactar o seu Helpdesk para o
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este conteúdo destina-se aos utilizadores **das Minhas Apps.** Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Este conteúdo destina-se aos utilizadores **das Minhas Apps.** Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na Documentação de Gestão de [Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps)
 
 ## <a name="view-your-organization-related-profile-information"></a>Consulte as informações de perfil relacionadas com a organização
 
@@ -83,7 +83,7 @@ Se pretender alterar a palavra-passe para o seu trabalho ou conta escolar, pode 
 
     ![Alterar página de palavra-passe](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
-3. Selecione **submeter**.
+3. Selecione **Submeter**.
 
     A sua senha foi alterada. Será obrigado a iniciar sessão em todas as aplicações que tenha assinado anteriormente para utilizar o seu trabalho ou conta escolar.
 
@@ -114,7 +114,7 @@ A verificação de dois fatores requer que utilize duas peças de informação d
 
     - **Configurar a aplicação Microsoft Authenticator.** Pode optar por configurar a aplicação Microsoft Authenticator para funcionar como método de verificação. Para obter mais informações sobre a aplicação Microsoft Authenticator, consulte [o que é a aplicação Autenticadora Microsoft?](user-help-auth-app-overview.md)
 
-3. Selecione **guardar** para guardar as alterações.
+3. Selecione **Guardar** para guardar as suas alterações.
 
 ## <a name="review-your-organizations-terms-of-use-statement"></a>Reveja os termos de utilização da sua organização
 
@@ -138,7 +138,7 @@ Pode optar por assinar por todos os lugares em que está inscrito para usar o se
 
 2. Na caixa de confirmação **sign out em todo o lado,** selecione **Sim** para confirmar que pretende assinar fora de todas as suas sessões e dispositivos. Selecione **Não** se mudar de ideia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de terminar as suas atualizações na página **perfil,** pode:
 

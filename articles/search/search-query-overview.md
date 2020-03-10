@@ -1,7 +1,7 @@
 ---
 title: Tipos de consulta e composição
 titleSuffix: Azure Cognitive Search
-description: Noções básicas para criar uma consulta de pesquisa no Azure Pesquisa Cognitiva, usando parâmetros para filtrar, selecionar e classificar resultados.
+description: Fundamentos para a construção de uma consulta de pesquisa em Pesquisa Cognitiva Azure, utilizando parâmetros para filtrar, selecionar e classificar resultados.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793223"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379650"
 ---
-# <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição no Azure Pesquisa Cognitiva
+# <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição em Pesquisa Cognitiva Azure
 
-No Azure Pesquisa Cognitiva, uma consulta é uma especificação completa de uma operação de ida e volta. Os parâmetros na solicitação fornecem critérios de correspondência para localizar documentos em um índice, quais campos incluir ou excluir, instruções de execução passadas para o mecanismo e diretivas para formatar a resposta. Não especificado (`search=*`), uma consulta é executada em todos os campos pesquisáveis como uma operação de pesquisa de texto completo, retornando um conjunto de resultados não pontuados em ordem arbitrária.
+Na Pesquisa Cognitiva Azure, uma consulta é uma especificação completa de uma operação de ida e volta. Os parâmetros do pedido fornecem critérios de correspondência para encontrar documentos num índice, quais os campos a incluir ou excluir, instruções de execução passadas ao motor e diretivas para moldar a resposta. Não especificada (`search=*`), uma consulta corre contra todos os campos pesquisáveis como uma operação de pesquisa de texto completo, devolvendo um resultado não marcado definido em ordem arbitrária.
 
-O exemplo a seguir é uma consulta representativa construída na [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Este exemplo visa o [índice de demonstração de hotéis](search-get-started-portal.md) e inclui parâmetros comuns.
+O exemplo seguinte é uma consulta representativa construída na [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Este exemplo visa o índice de demonstração de [hotéis](search-get-started-portal.md) e inclui parâmetros comuns.
 
 ```
 {
@@ -33,73 +33,73 @@ O exemplo a seguir é uma consulta representativa construída na [API REST](http
 }
 ```
 
-+ **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para construções de consulta avançada, como expressões regulares, pesquisa de proximidade, difusa e pesquisa de curingas, para citar alguns.
++ **`queryType`** define o parser, que é ou o [simples parser](search-query-simple-examples.md) de consulta padrão (ideal para pesquisa completa de texto), ou o parser de [consulta lucene completo](search-query-lucene-examples.md) usado para construções de consulta avançada saqueadas como expressões regulares, pesquisa de proximidade, pesquisa de difusão e wildcard, para citar alguns.
 
-+ **`search`** fornece os critérios de correspondência, geralmente texto, mas geralmente acompanhados por operadores boolianos. Termos autônomos únicos são consultas de *termo* . As consultas de várias partes entre aspas são consultas de *frase-chave* . A pesquisa pode ser indefinida, como em **`search=*`** , mas é mais provável que ela seja composta por termos, frases e operadores semelhantes ao que aparece no exemplo.
++ **`search`** fornece os critérios de correspondência, geralmente texto, mas muitas vezes acompanhado por operadores booleanos. Termos autónomos únicos são consultas *a prazo.* Consultas multipartes fechadas em citações são consultas de *frase chave.* A procura pode ser indefinida, como em **`search=*`** , mas mais provável é composta por termos, frases e operadores semelhantes ao que aparece no exemplo.
 
-+ **`searchFields`** restringe a execução da consulta a campos específicos. Qualquer campo atribuído como *pesquisável* no esquema de índice é um candidato para esse parâmetro.
++ **`searchFields`** limita a execução de consultas a campos específicos. Qualquer campo que seja atribuído como *pesquisável* no esquema de índice é um candidato a este parâmetro.
 
-As respostas também são moldadas pelos parâmetros que você inclui na consulta. No exemplo, o conjunto de resultados consiste em campos listados na instrução **`select`** . Somente os campos marcados como *recuperáveis* podem ser usados em uma instrução $SELECT. Além disso, somente os **`top`** 10 ocorrências são retornados nessa consulta, enquanto **`count`** informa quantos documentos correspondem ao geral, o que pode ser maior que o retornado. Nessa consulta, as linhas são classificadas por classificação em ordem decrescente.
+As respostas também são moldadas pelos parâmetros que inclui na consulta. No exemplo, o conjunto de resultados consiste em campos enumerados na declaração **`select`.** Apenas os campos marcados como *recuperáveis* podem ser usados numa declaração $select. Além disso, apenas os **`top`** 10 acessos são devolvidos nesta consulta, enquanto **`count`** lhe diz quantos documentos correspondem globalmente, o que pode ser mais do que o que são devolvidos. Nesta consulta, as filas são ordenadas pela Classificação em ordem descendente.
 
-No Azure Pesquisa Cognitiva, a execução da consulta é sempre em relação a um índice, autenticado usando uma chave de API fornecida na solicitação. Em repouso, ambos são fornecidos nos cabeçalhos de solicitação.
+Na Pesquisa Cognitiva Azure, a execução de consulta é sempre contra um índice, autenticado usando uma chave api fornecida no pedido. Em REST, ambos são fornecidos em cabeçalhos de pedido.
 
 ### <a name="how-to-run-this-query"></a>Como executar esta consulta
 
-Para executar essa consulta, use [o Search Explorer e o índice de demonstração de hotéis](search-get-started-portal.md). 
+Para executar esta consulta, use o explorador de [pesquisa e o índice de demonstração de hotéis.](search-get-started-portal.md) 
 
-Você pode colar essa cadeia de caracteres de consulta na barra de pesquisa do Gerenciador: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
+Pode colar esta cadeia de consulta na barra de pesquisa do explorador: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
-## <a name="how-query-operations-are-enabled-by-the-index"></a>Como as operações de consulta são habilitadas pelo índice
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Como as operações de consulta são ativadas pelo índice
 
-Design de índice e design de consulta são rigidamente acoplados ao Pesquisa Cognitiva do Azure. Um fato essencial para saber antecipadamente é que o *esquema de índice*, com atributos em cada campo, determina o tipo de consulta que você pode criar. 
+Design de índice e design de consulta estão bem acoplado si na Pesquisa Cognitiva Azure. Um facto essencial para saber na frente é que o *esquema de índice,* com atributos em cada campo, determina o tipo de consulta que você pode construir. 
 
-Atributos de índice em um campo definem as operações permitidas-se um campo é *pesquisável* no índice, *recuperável* em Results, *classificável*, *filtrável*e assim por diante. Na cadeia de caracteres de consulta de exemplo, `"$orderby": "Rating"` só funciona porque o campo de classificação está marcado como *classificável* no esquema de índice. 
+Os atributos de índice num campo definiram as operações permitidas - se um campo é *pesquisável* no índice, *recuperável* em resultados, *classificativo,* *filtrante*, e assim por diante. Na cadeia de consulta de exemplo, `"$orderby": "Rating"` só funciona porque o campo rating é marcado como classificado como *classificado* no esquema de índice. 
 
-![Definição de índice para o exemplo de Hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definição de índice para o exemplo de Hotel")
+![Definição de índice para a amostra do hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definição de índice para a amostra do hotel")
 
-A captura de tela acima é uma lista parcial de atributos de índice para o exemplo de hotéis. Você pode exibir o esquema de índice inteiro no Portal. Para obter mais informações sobre atributos de índice, consulte [criar API REST de índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+A imagem acima é uma lista parcial de atributos de índice para a amostra de hotéis. Pode ver todo o esquema do índice no portal. Para obter mais informações sobre os atributos do índice, consulte [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Algumas funcionalidades de consulta são habilitadas para índice em vez de em uma base por campo. Esses recursos incluem: [mapas de sinônimos](search-synonyms.md), [analisadores personalizados](index-add-custom-analyzers.md), [construções de sugestores (para consultas de preenchimento automático e sugerido)](index-add-suggesters.md), [lógica de Pontuação para resultados de classificação](index-add-scoring-profiles.md).
+> Algumas funcionalidades de consulta são ativadas em todo o índice e não numa base por campo. Estas capacidades incluem: [mapas de sinónimo,](search-synonyms.md) [analisadores](index-add-custom-analyzers.md) [personalizados, construções sugestionantes (para consultas autocompletas e sugeridas)](index-add-suggesters.md), lógica de [pontuação para resultados de ranking](index-add-scoring-profiles.md).
 
-## <a name="elements-of-a-query-request"></a>Elementos de uma solicitação de consulta
+## <a name="elements-of-a-query-request"></a>Elementos de um pedido de consulta
 
-As consultas são sempre direcionadas a um único índice. Você não pode unir índices ou criar estruturas de dados personalizadas ou temporárias como um destino de consulta. 
+As consultas são sempre dirigidas a um único índice. Não pode aderir a índices ou criar estruturas de dados personalizadas ou temporárias como alvo de consulta. 
 
-Os elementos necessários em uma solicitação de consulta incluem os seguintes componentes:
+Os elementos necessários num pedido de consulta incluem os seguintes componentes:
 
-+ Coleção de pontos de extremidade de serviço e de índice, expressa como uma URL que contém componentes fixos e definidos pelo usuário: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
-+ **`api-version`** (somente REST) é necessário porque mais de uma versão da API está disponível o tempo todo. 
-+ **`api-key`** , uma consulta ou uma chave de API de administração, autentica a solicitação para seu serviço.
-+ **`queryType`** , simples ou completo, que pode ser omitido se você estiver usando a sintaxe simples padrão interna.
-+ **`search`** ou **`filter`** fornece os critérios de correspondência, que podem ser não especificados se você quiser executar uma pesquisa vazia. Ambos os tipos de consulta são discutidos em termos do analisador simples, mas até mesmo consultas avançadas exigem o parâmetro de pesquisa para passar expressões de consulta complexas.
++ Recolha de documentos de ponto final de serviço e indexados, expressa como URL contendo componentes fixos e definidos pelo utilizador: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
++ **`api-version`** (apenas rest) é necessário porque mais de uma versão da API está sempre disponível. 
++ **`api-key`,** seja uma consulta ou uma chave de api, autentica o pedido ao seu serviço.
++ **`queryType`,** simples ou cheio, que podem ser omitidos se estiver a utilizar a simples sintaxe incorporada.
++ **`search`** ou **`filter`** fornece os critérios de correspondência, que podem não ser especificados se quiser realizar uma pesquisa vazia. Ambos os tipos de consultas são discutidos em termos do simples parser, mas mesmo consultas avançadas requerem o parâmetro de pesquisa para passar expressões de consulta complexas.
 
-Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista completa de atributos, consulte [criar índice (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Para uma análise mais detalhada de como os parâmetros são usados durante o processamento, consulte [como funciona a pesquisa de texto completo no Azure pesquisa cognitiva](search-lucene-query-architecture.md).
+Todos os outros parâmetros de pesquisa são opcionais. Para a lista completa de atributos, consulte [Criar Índice (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Para ver mais de perto como os parâmetros são usados durante o processamento, consulte como funciona a [pesquisa de texto completo em Azure Cognitive Search](search-lucene-query-architecture.md).
 
-## <a name="choose-apis-and-tools"></a>Escolher APIs e ferramentas
+## <a name="choose-apis-and-tools"></a>Escolha APIs e ferramentas
 
-A tabela a seguir lista as APIs e abordagens baseadas em ferramentas para enviar consultas.
+A tabela que se segue lista as APIs e as abordagens baseadas em ferramentas para a apresentação de consultas.
 
 | Metodologia | Descrição |
 |-------------|-------------|
-| [Gerenciador de pesquisa (Portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para as seleções de índice e versão de API. Os resultados são retornados como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
-| [O postmaster ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste na Web são uma excelente opção para chamadas REST formular. A API REST dá suporte a todas as operações possíveis no Azure Pesquisa Cognitiva. Neste artigo, saiba como configurar um cabeçalho de solicitação HTTP e o corpo para enviar solicitações para o Azure Pesquisa Cognitiva.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva do Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Pesquisar documentos (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Métodos GET ou POST em um índice, usando parâmetros de consulta para entrada adicional.  |
+| [Explorador de pesquisa (portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para seleções de indexação e versão api. Os resultados são devolvidos como documentos da JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
+| [Carteiro ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste web são uma excelente escolha para formular chamadas REST. A API REST suporta todas as operações possíveis na Pesquisa Cognitiva Azure. Neste artigo, aprenda a configurar um cabeçalho de pedido http e corpo para o envio de pedidos para pesquisa cognitiva Azure.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Documentos de pesquisa (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Métodos GET ou POST num índice, utilizando parâmetros de consulta para entrada adicional.  |
 
-## <a name="choose-a-parser-simple--full"></a>Escolha um analisador: simples | completo
+## <a name="choose-a-parser-simple--full"></a>Escolha um parser: simples ! cheio
 
-O Azure Pesquisa Cognitiva se encontra na parte superior do Apache Lucene e oferece a você uma opção entre dois analisadores de consulta para lidar com consultas típicas e especializadas. As solicitações que usam o analisador simples são formuladas usando a [sintaxe de consulta simples](query-simple-syntax.md), selecionada como o padrão para sua velocidade e eficácia em consultas de texto de forma livre. Essa sintaxe oferece suporte a vários operadores de pesquisa comuns, incluindo os operadores e, ou, não, frase, sufixo e precedência.
+A Azure Cognitive Search fica em cima de Apache Lucene e dá-lhe uma escolha entre dois parsers de consulta para lidar com consultas típicas e especializadas. Os pedidos que utilizam o simples parser são formulados utilizando a [simples sintaxe](query-simple-syntax.md)de consulta, selecionada como padrão para a sua velocidade e eficácia em consultas de texto de forma livre. Esta sintaxe apoia vários operadores comuns de pesquisa, incluindo os operadores de e, OU, não, frase, sufixo e precedência.
 
-A [sintaxe de consulta Lucene completa](query-Lucene-syntax.md#bkmk_syntax), habilitada quando você adiciona `queryType=full` à solicitação, expõe a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). A sintaxe completa estende a sintaxe simples. Qualquer consulta que você escreve para a sintaxe simples é executada no analisador Lucene completo. 
+A [sintaxe de consulta lucene completa,](query-Lucene-syntax.md#bkmk_syntax)ativada quando se adiciona `queryType=full` ao pedido, expõe a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte de [Apache Lucene.](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) A sintaxe completa estende a simples sintaxe. Qualquer consulta que escreva para a simples sintaxe passa por baixo do parser lucene completo. 
 
-Os exemplos a seguir ilustram o ponto: a mesma consulta, mas com configurações de QueryType diferentes, produzem resultados diferentes. Na primeira consulta, o `^3` depois que `historic` é tratado como parte do termo de pesquisa. O resultado mais classificado para essa consulta é "Marquis pedágio & Suites", que tem o *oceano* em sua descrição
+Os seguintes exemplos ilustram o ponto: a mesma consulta, mas com diferentes definições de consultaType, produzem resultados diferentes. Na primeira consulta, o `^3` após `historic` é tratado como parte do termo de pesquisa. O resultado mais bem classificado para esta consulta é "Marquis Plaza & Suites", que tem *o oceano* na sua descrição
 
 ```
 queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-A mesma consulta que usa o analisador Lucene completo interpreta `^3` como um reforçador de termo em campo. A alternância de analisadores altera a classificação, com os resultados que contêm o termo *histórico* movendo para a parte superior.
+A mesma consulta usando o parser Lucene completo interpreta `^3` como um impulsionador de termo no campo. Trocar de parsers muda a classificação, com resultados que contêm o termo *histórico* movendo-se para o topo.
 
 ```
 queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
@@ -109,57 +109,57 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 ## <a name="types-of-queries"></a>Tipos de consultas
 
-O Azure Pesquisa Cognitiva dá suporte a uma ampla variedade de tipos de consulta. 
+A Pesquisa Cognitiva Azure suporta uma ampla gama de tipos de consultas. 
 
 | Tipo de consulta | Utilização | Exemplos e mais informações |
 |------------|--------|-------------------------------|
-| Pesquisa de texto de forma livre | Parâmetro de pesquisa e o analisador| A pesquisa de texto completo procura um ou mais termos em todos os campos *pesquisáveis* em seu índice e funciona da forma como você esperaria que um mecanismo de pesquisa como o Google ou o Bing funcionasse. O exemplo na introdução é pesquisa de texto completo.<br/><br/>A pesquisa de texto completo passa por uma análise de texto usando o analisador Lucene padrão (por padrão) para reduzir todos os termos, remover palavras de parada como "a". Você pode substituir o padrão por analisadores [não-inglês](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores independentes de linguagem especializada](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise de texto. Um exemplo é a [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. Isso é útil para dados como CEPs, IDs e alguns nomes de produtos. | 
-| Pesquisa filtrada | [Expressão de filtro OData](query-odata-filter-orderby-syntax.md) e um analisador | As consultas de filtro avaliam uma expressão booliana em todos os campos *filtráveis* em um índice. Ao contrário da pesquisa, uma consulta de filtro corresponde ao conteúdo exato de um campo, incluindo a diferenciação de maiúsculas e minúsculas nos campos de cadeia de caracteres. Outra diferença é que as consultas de filtro são expressas na sintaxe do OData. <br/>[Exemplo de expressão de filtro](search-query-simple-examples.md#example-3-filter-queries) |
-| Pesquisa geográfica | [EDM. GeographyPoint tipo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) no campo, expressão de filtro e qualquer analisador | As coordenadas armazenadas em um campo com um EDM. GeographyPoint são usadas para "localizar perto de mim" ou controles de pesquisa baseados em mapa. <br/>[Exemplo de pesquisa geográfica](search-query-simple-examples.md#example-5-geo-search)|
-| Pesquisa de intervalo | expressão de filtro e analisador simples | No Pesquisa Cognitiva do Azure, as consultas de intervalo são criadas usando o parâmetro de filtro. <br/>[Exemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
-| [Pesquisa em campo](query-lucene-syntax.md#bkmk_fields) | Parâmetro de pesquisa e analisador completo | Crie uma expressão de consulta composta direcionada a um único campo. <br/>[Exemplo de pesquisa em campo](search-query-lucene-examples.md#example-2-fielded-search) |
-| [pesquisa difusa](query-lucene-syntax.md#bkmk_fuzzy) | Parâmetro de pesquisa e analisador completo | Corresponde a termos com uma construção ou grafia semelhante. <br/>[Exemplo de pesquisa difusa](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [pesquisa de proximidade](query-lucene-syntax.md#bkmk_proximity) | Parâmetro de pesquisa e analisador completo | Localiza os termos que estão próximos um do outro em um documento. <br/>[Exemplo de pesquisa de proximidade](search-query-lucene-examples.md#example-4-proximity-search) |
-| [aumento de termo](query-lucene-syntax.md#bkmk_termboost) | Parâmetro de pesquisa e analisador completo | Classifica um documento mais alto se ele contiver o termo aumentado, em relação a outros que não. <br/>[Exemplo de aumento de termo](search-query-lucene-examples.md#example-5-term-boosting) |
-| [pesquisa de expressão regular](query-lucene-syntax.md#bkmk_regex) | Parâmetro de pesquisa e analisador completo | Corresponde com base no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-6-regex) |
-|  [pesquisa de prefixo ou curinga](query-lucene-syntax.md#bkmk_wildcard) | Parâmetro de pesquisa e analisador completo | Corresponde com base em um prefixo e til (`~`) ou caractere único (`?`). <br/>[Exemplo de pesquisa curinga](search-query-lucene-examples.md#example-7-wildcard-search) |
+| Pesquisa de texto de formulário gratuito | Parâmetro de pesquisa e parser| A pesquisa completa de texto procura um ou mais termos em todos os campos *pesquisáveis* do seu índice, e funciona da forma que se espera que um motor de busca como o Google ou o Bing funcione. O exemplo na introdução é a pesquisa completa de texto.<br/><br/>A pesquisa completa de texto passa pela análise de texto utilizando o analisador lucene padrão (por padrão) para reduzir todos os termos, removendo palavras de paragem como "o". Pode anular o padrão com [analisadores não ingleses](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores agnósticos](index-add-custom-analyzers.md#AnalyzerTable) especializados que modificam a análise de texto. Um exemplo é a [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único símbolo. Isto é útil para dados como códigos postais, iDs e alguns nomes de produtos. | 
+| Pesquisa filtrada | Expressão de [filtro OData](query-odata-filter-orderby-syntax.md) e parser | As consultas de filtro avaliam uma expressão booleana sobre todos os campos *filtrados* num índice. Ao contrário da pesquisa, uma consulta de filtro corresponde ao conteúdo exato de um campo, incluindo sensibilidade de caso em campos de cordas. Outra diferença é que as consultas de filtro são expressas na sintaxe OData. <br/>[Exemplo de expressão de filtro](search-query-simple-examples.md#example-3-filter-queries) |
+| Pesquisa geográfica | [Tipo Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) no campo, expressão de filtro, e ou parser | As coordenadas armazenadas num campo com um Edm.GeographyPoint são usadas para "encontrar perto de mim" ou controlos de pesquisa baseados em mapas. <br/>[Exemplo de geopesquisa](search-query-simple-examples.md#example-5-geo-search)|
+| Pesquisa de alcance | expressão de filtro e simples parser | Na Pesquisa Cognitiva Azure, as consultas de alcance são construídas utilizando o parâmetro do filtro. <br/>[Exemplo de filtro de gama](search-query-simple-examples.md#example-4-range-filters) | 
+| [Pesquisa no terreno](query-lucene-syntax.md#bkmk_fields) | Parâmetro de pesquisa e parser completo | Construa uma expressão de consulta composta visando um único campo. <br/>[Exemplo de pesquisa em campo](search-query-lucene-examples.md#example-2-fielded-search) |
+| [pesquisa fuzzy](query-lucene-syntax.md#bkmk_fuzzy) | Parâmetro de pesquisa e parser completo | Corresponde em termos de construção ou ortografia semelhantes. <br/>[Exemplo de pesquisa fuzzy](search-query-lucene-examples.md#example-3-fuzzy-search) |
+| [pesquisa de proximidade](query-lucene-syntax.md#bkmk_proximity) | Parâmetro de pesquisa e parser completo | Encontra termos que estão próximos um do outro num documento. <br/>[Exemplo de pesquisa de proximidade](search-query-lucene-examples.md#example-4-proximity-search) |
+| [aumento de termo](query-lucene-syntax.md#bkmk_termboost) | Parâmetro de pesquisa e parser completo | Classifica um documento mais alto se contiver o termo reforçado, em relação a outros que não o fizerem. <br/>[Exemplo de reforço de termo](search-query-lucene-examples.md#example-5-term-boosting) |
+| [pesquisa regular de expressão](query-lucene-syntax.md#bkmk_regex) | Parâmetro de pesquisa e parser completo | Fósforos baseados no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-6-regex) |
+|  [pesquisa wildcard ou prefixo](query-lucene-syntax.md#bkmk_wildcard) | Parâmetro de pesquisa e parser completo | Fósforos baseados num prefixo e tilde (`~`) ou num único carácter (`?`). <br/>[Exemplo de pesquisa de Wildcard](search-query-lucene-examples.md#example-7-wildcard-search) |
 
-## <a name="manage-search-results"></a>Gerenciar resultados da pesquisa 
+## <a name="manage-search-results"></a>Gerir resultados de pesquisa 
 
-Os resultados da consulta são transmitidos como documentos JSON na API REST, embora se você usar as APIs do .NET, a serialização será interna. Você pode formatar os resultados definindo parâmetros na consulta, selecionando campos específicos para a resposta.
+Os resultados da consulta são transmitidos como documentos JSON na API REST, embora se utilizar .NET APIs, a serialização é incorporada. Pode moldar os resultados definindo parâmetros na consulta, selecionando campos específicos para a resposta.
 
-Os parâmetros na consulta podem ser usados para estruturar o conjunto de resultados das seguintes maneiras:
+Os parâmetros da consulta podem ser utilizados para estruturar o resultado definido das seguintes formas:
 
-+ Limitando ou enviando em lote o número de documentos nos resultados (50 por padrão)
-+ Selecionando campos para incluir nos resultados
-+ Definindo uma ordem de classificação
-+ Adicionando realces de ocorrências para chamar a atenção para os termos correspondentes no corpo dos resultados da pesquisa
++ Limitação ou loteamento do número de documentos nos resultados (50 por defeito)
++ Selecionar campos para incluir nos resultados
++ Definição de uma ordem de classificação
++ Adicionar destaques de sucesso para chamar a atenção para termos correspondentes no corpo dos resultados da pesquisa
 
 ### <a name="tips-for-unexpected-results"></a>Dicas para resultados inesperados
 
-Ocasionalmente, a substância e não a estrutura dos resultados são inesperados. Quando os resultados da consulta não são o que você espera ver, você pode tentar essas modificações de consulta para ver se o resultado melhora:
+Ocasionalmente, a substância e não a estrutura dos resultados são inesperadas. Quando os resultados da consulta não são o que espera ver, pode experimentar estas modificações de consulta para ver se os resultados melhoram:
 
-+ Altere **`searchMode=any`** (padrão) para **`searchMode=all`** para exigir correspondências em todos os critérios em vez de qualquer um dos critérios. Isso é especialmente verdadeiro quando operadores boolianos são incluídos na consulta.
++ Alterar **`searchMode=any`** (padrão) para **`searchMode=all`** exigir correspondências em todos os critérios em vez de qualquer um dos critérios. Isto é especialmente verdade quando os operadores booleanos são incluídos na consulta.
 
-+ Altere a técnica de consulta se a análise de texto ou lexical for necessária, mas o tipo de consulta impede o processamento linguístico. Na pesquisa de texto completo, a análise de texto ou lexical corrige os erros de ortografia, as formas de palavra singular e até mesmo verbos ou substantivos irregulares. Para algumas consultas como pesquisa difusa ou curinga, a análise de texto não faz parte do pipeline de análise de consulta. Para alguns cenários, as expressões regulares foram usadas como uma solução alternativa. 
++ Altere a técnica de consulta se o texto ou a análise lexical forem necessárias, mas o tipo de consulta impede o processamento linguístico. Em plena pesquisa de texto, texto ou análise lexical corrige automaticamente erros ortográficos, formas de palavras singulares e até verbos irregulares ou substantivos. Para algumas consultas, como pesquisa fuzzy ou wildcard, a análise de texto não faz parte do pipeline de consulta. Para alguns cenários, expressões regulares têm sido usadas como uma suposições. 
 
 ### <a name="paging-results"></a>Resultados de paginação
-O Azure Pesquisa Cognitiva facilita a implementação da paginação dos resultados da pesquisa. Usando os parâmetros **`top`** e **`skip`** , você pode emitir com facilidade solicitações de pesquisa que permitem receber o conjunto total de resultados da pesquisa em subconjuntos gerenciáveis e ordenados que habilitam facilmente boas práticas de interface do usuário de pesquisa. Ao receber esses subconjuntos de resultados mais pequenos, pode também receber a contagem de documentos no conjunto total de resultados da pesquisa.
+A Pesquisa Cognitiva Azure facilita a implementação dos resultados da pesquisa. Ao utilizar os parâmetros **`top`** e **`skip`,** pode emitir sem problemas pedidos de pesquisa que lhe permitem receber o conjunto total de resultados de pesquisa em subconjuntos manejáveis e ordenados que facilmente permitem boas práticas de Pesquisa de UI. Ao receber esses subconjuntos de resultados mais pequenos, pode também receber a contagem de documentos no conjunto total de resultados da pesquisa.
 
-Você pode aprender mais sobre os resultados da pesquisa de paginação no artigo como paginar [os resultados da pesquisa no Azure pesquisa cognitiva](search-pagination-page-layout.md).
+Pode saber mais sobre os resultados da pesquisa de paging no artigo Como página resultados de [pesquisa em Pesquisa Cognitiva Azure](search-pagination-page-layout.md).
 
 ### <a name="ordering-results"></a>Ordenar resultados
-Ao receber resultados para uma consulta de pesquisa, você pode solicitar que o Pesquisa Cognitiva do Azure forneça os resultados ordenados por valores em um campo específico. Por padrão, o Azure Pesquisa Cognitiva ordena os resultados da pesquisa com base na classificação da Pontuação de pesquisa de cada documento, que é derivada de [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
+Ao receber resultados para uma consulta de pesquisa, pode solicitar que a Pesquisa Cognitiva Azure sirva os resultados encomendados por valores num campo específico. Por padrão, a Pesquisa Cognitiva Azure ordena os resultados de pesquisa com base na classificação da pontuação de pesquisa de cada documento, que é derivada da [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Se você quiser que o Azure Pesquisa Cognitiva retorne os resultados ordenados por um valor diferente da Pontuação de pesquisa, você poderá usar o parâmetro de pesquisa **`orderby`** . Você pode especificar o valor do parâmetro **`orderby`** para incluir nomes de campo e chamadas para a [**função `geo.distance()`** ](query-odata-filter-orderby-syntax.md) para valores geoespaciais. Cada expressão pode ser seguida por `asc` para indicar que os resultados são solicitados em ordem crescente e **`desc`** para indicar que os resultados são solicitados em ordem decrescente. A ordem ascendente de classificação predefinida.
+Se quiser que a Pesquisa Cognitiva Azure devolva os seus resultados encomendados por um valor diferente da pontuação de pesquisa, pode utilizar o parâmetro de pesquisa **`orderby`.** Pode especificar o valor do parâmetro **`orderby`** para incluir nomes de campo e chamadas para a [**função`geo.distance()`** ](query-odata-filter-orderby-syntax.md) para valores geoespaciais. Cada expressão pode ser seguida por `asc` para indicar que os resultados são solicitados por ordem ascendente, e **`desc`** para indicar que os resultados são solicitados por ordem descendente. A ordem ascendente de classificação predefinida.
 
 
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
-No Azure Pesquisa Cognitiva, enfatizando a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitada usando os parâmetros **`highlight`** , **`highlightPreTag`** e **`highlightPostTag`** . Você pode especificar quais campos *pesquisáveis* devem ter seu texto correspondente enfatizado, bem como especificar as marcas de cadeia de caracteres exatas a serem acrescentadas ao início e ao fim do texto correspondente que o Azure pesquisa cognitiva retorna.
+Na Pesquisa Cognitiva Azure, enfatizar a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitada usando os **parâmetros`highlight`** , **`highlightPreTag`** e **`highlightPostTag`.** Pode especificar quais os campos *pesquisáveis* que devem ter o seu texto compatível enfatizado, bem como especificar as etiquetas de corda exatas para anexar ao início e ao fim do texto combinado que a Pesquisa Cognitiva Azure retorna.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
-+ [Gerenciador de pesquisa](search-explorer.md)
-+ [Como consultar no .NET](search-query-dotnet.md)
++ [Como funciona a pesquisa completa de texto em Azure Cognitive Search (consulta de arquitetura de análise)](search-lucene-query-architecture.md)
++ [Explorador de pesquisa](search-explorer.md)
++ [Como consultar em .NET](search-query-dotnet.md)
 + [Como consultar em REST](search-create-index-rest-api.md)

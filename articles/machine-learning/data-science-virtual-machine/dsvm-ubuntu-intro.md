@@ -9,11 +9,11 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360649"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -132,7 +132,7 @@ Pode definir o JupyterLab como o servidor de portátil predefinido adicionando e
 c.Spawner.default_url = '/lab'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Eis como pode continuar a sua aprendizagem e a exploração:
 

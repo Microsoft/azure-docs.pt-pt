@@ -1,49 +1,49 @@
 ---
-title: Formatos de conteúdo com suporte
-description: Saiba mais sobre os formatos de conteúdo com suporte no registro de contêiner do Azure, incluindo imagens de contêiner compatíveis com Docker, gráficos Helm, imagens de OCI e artefatos de OCI.
+title: Formatos de conteúdo suportado
+description: Conheça os formatos de conteúdo suportados pelo Registo de Contentores Azure, incluindo imagens de contentores compatíveis com o Docker, gráficos Helm, imagens OCI e artefactos OCI.
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455015"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361796"
 ---
-# <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de conteúdo com suporte no registro de contêiner do Azure
+# <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de conteúdo suportados no Registo de Contentores Do Azure
 
-Use um repositório privado no registro de contêiner do Azure para gerenciar um dos seguintes formatos de conteúdo. 
+Utilize um repositório privado no Registo de Contentores Azure para gerir um dos seguintes formatos de conteúdo. 
 
-## <a name="docker-compatible-container-images"></a>Imagens de contêiner compatíveis com o Docker
+## <a name="docker-compatible-container-images"></a>Imagens de contentores compatíveis com docker
 
-Há suporte para os seguintes formatos de imagem de contêiner do Docker:
+Os seguintes formatos de imagem de contentor Estivador são suportados:
 
-* [Manifesto de imagem do Docker v2, esquema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
+* [Docker Image Manifest V2, Schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Manifesto de imagem do Docker v2, esquema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) -inclui listas de manifesto que permitem que os registros armazenem imagens multiplataforma em uma única referência de "imagem: marca"
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - inclui Listas de Manifesto que permitem aos registos armazenar imagens multiplataforma sob uma única referência "imagem:tag"
 
-## <a name="oci-images"></a>Imagens de OCI
+## <a name="oci-images"></a>Imagens oCI
 
-O registro de contêiner do Azure dá suporte a imagens que atendem à [especificação de formato de imagem de OCI (Open container Initiative)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Os formatos de empacotamento incluem o [formato de imagem de singularidade (SIF)](https://github.com/sylabs/sif).
+O Registo de Contentores Azure suporta imagens que vão ao encontro da Especificação do Formato de Imagem da [Iniciativa de Contentores Abertos (OCI).](https://github.com/opencontainers/image-spec/blob/master/spec.md) Os formatos de embalagem incluem [formato de imagem singularidade (SIF)](https://github.com/sylabs/sif).
 
-## <a name="oci-artifacts"></a>Artefatos de OCI
+## <a name="oci-artifacts"></a>Artefactos oci
 
-O registro de contêiner do Azure dá suporte à [especificação de distribuição de OCI](https://github.com/opencontainers/distribution-spec), uma especificação independente de fornecedor e de nuvem para armazenar, compartilhar, proteger e implantar imagens de contêiner e outros tipos de conteúdo (artefatos). A especificação permite que um registro armazene uma grande variedade de artefatos, além de imagens de contêiner. Você usa ferramentas apropriadas para o artefato para enviar e extrair artefatos. Para obter um exemplo, consulte [enviar por push e efetuar pull de um artefato de OCI usando um registro de contêiner do Azure](container-registry-oci-artifacts.md).
+O Registo de Contentores Azure suporta a Especificação de [Distribuição do OCI](https://github.com/opencontainers/distribution-spec), uma especificação neutra em nuvem-agnóstica para armazenar, partilhar, proteger e implantar imagens de contentores e outros tipos de conteúdo (artefactos). A especificação permite que um registo armazene uma vasta gama de artefactos, além de imagens de contentores. Usa ferramentas apropriadas ao artefacto para empurrar e puxar artefactos. Por exemplo, consulte [Empurre e puxe um artefacto OCI utilizando um registo de contentores Azure](container-registry-oci-artifacts.md).
 
-Para saber mais sobre os artefatos de OCI, consulte o repositório [do OCI (registro de oras)](https://github.com/deislabs/oras) e o repositório de [artefatos de OCI](https://github.com/opencontainers/artifacts) no github.
+Para saber mais sobre artefactos OCI, consulte o [Registo OCI como repo de armazenamento (ORAS)](https://github.com/deislabs/oras) e o [Repo de Artefactos OCI](https://github.com/opencontainers/artifacts) no GitHub.
 
-## <a name="helm-charts"></a>Gráficos do Helm
+## <a name="helm-charts"></a>Gráficos de leme
 
-O registro de contêiner do Azure pode hospedar repositórios para [gráficos Helm](https://helm.sh/), um formato de empacotamento usado para gerenciar e implantar aplicativos para kubernetes rapidamente. Há suporte para o [cliente Helm](https://docs.helm.sh/using_helm/#installing-helm) versão 2 (2.11.0 ou posterior).
+O Registo de Contentores Azure pode acolher repositórios para [gráficos Helm,](https://helm.sh/)um formato de embalagem usado para gerir e implementar rapidamente aplicações para Kubernetes. [A](https://docs.helm.sh/using_helm/#installing-helm) versão do cliente helm 2 (2.11.0 ou posterior) é suportada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Consulte como [enviar por push e](container-registry-get-started-docker-cli.md) efetuar pull de imagens com o registro de contêiner do Azure.
+* Veja como [empurrar e puxar](container-registry-get-started-docker-cli.md) imagens com o Registo de Contentores Azure.
 
-* Use [tarefas ACR](container-registry-tasks-overview.md) para compilar e testar imagens de contêiner. 
+* Utilize [tarefas ACR](container-registry-tasks-overview.md) para construir e testar imagens de contentores. 
 
-* Use o [Moby BuildKit](https://github.com/moby/buildkit) para compilar e empacotar contêineres no formato OCI.
+* Utilize o [Moby BuildKit](https://github.com/moby/buildkit) para construir e embalar contentores em formato OCI.
 
-* Configure um [repositório Helm](container-registry-helm-repos.md) hospedado no registro de contêiner do Azure. 
+* Crie um [repositório Helm](container-registry-helm-repos.md) hospedado no Registo de Contentores Azure. 
 
 

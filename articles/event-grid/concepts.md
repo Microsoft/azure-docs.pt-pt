@@ -1,6 +1,6 @@
 ---
-title: Conceitos do Azure Event Grid
-description: Descreve o Azure Event Grid e respetivos conceitos. Define vários componentes essenciais do Event Grid.
+title: Conceitos de Grelha de Eventos Azure
+description: Descreve o Azure Event Grid e respetivos conceitos. Define vários componentes chave da Grelha de Eventos.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,84 +8,84 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305263"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359435"
 ---
-# <a name="concepts-in-azure-event-grid"></a>Conceitos no Azure Event Grid
+# <a name="concepts-in-azure-event-grid"></a>Conceitos na Grelha de Eventos Azure
 
-Este artigo descreve os principais conceitos no Azure Event Grid.
+Este artigo descreve os principais conceitos na Grelha de Eventos Azure.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventos
 
-Um evento é a menor quantidade de informações que descreve totalmente algo aconteceram no sistema. Cada evento tem informações comuns, como: origem do evento, o tempo que demorou o evento local e o identificador exclusivo. Cada evento também tem informações específicas que só são relevantes para o tipo específico de evento. Por exemplo, um evento sobre um novo ficheiro a ser criado no armazenamento do Azure inclui detalhes sobre o ficheiro, tal como o `lastTimeModified` valor. Em alternativa, um evento de Hubs de eventos tem o URL do arquivo de captura. 
+Um evento é a menor quantidade de informação que descreve totalmente algo que aconteceu no sistema. Cada evento tem informações comuns como: fonte do evento, hora do evento, e identificador único. Cada evento também tem informações específicas que só são relevantes para o tipo específico de evento. Por exemplo, um evento sobre um novo ficheiro que está a ser criado no Armazenamento Azure tem detalhes sobre o ficheiro, como o valor `lastTimeModified`. Ou, um evento de Event Hubs tem o URL do ficheiro Capture. 
 
-Um evento de tamanho até 64 KB é abordado pelo contrato de nível de serviço do disponibilidade geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos mais de 64 KB são cobrados em incrementos de 64 KB. 
+Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço de Disponibilidade Geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos superiores a 64 KB são carregados em incrementos de 64 KB. 
 
 
-Para obter as propriedades que são enviadas num evento, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Para as propriedades que são enviadas em um evento, consulte [O evento Azure Event Grid schema](event-schema.md).
 
 ## <a name="publishers"></a>Editores
 
-Um publicador é o utilizador ou a organização que decide para enviar eventos para o Event Grid. A Microsoft publica os eventos para vários serviços do Azure. Pode publicar eventos de seu próprio aplicativo. As organizações que alojam serviços fora do Azure podem publicar eventos através do Event Grid.
+Uma editora é o utilizador ou organização que decide enviar eventos para a Event Grid. A Microsoft publica eventos para vários serviços Azure. Pode publicar eventos a partir da sua própria aplicação. Organizações que acolhem serviços fora do Azure podem publicar eventos através da Event Grid.
 
 ## <a name="event-sources"></a>Origens de eventos
 
-Uma origem de evento é onde acontece o evento. Cada origem de evento está associada a um ou mais tipos de evento. Por exemplo, o armazenamento do Azure é a origem do evento para o blob criado eventos. O IoT Hub é a origem do evento para o dispositivo que criou a eventos. Seu aplicativo é a fonte de eventos para eventos personalizados que definir. Origens de eventos são responsáveis pelo envio de eventos para o Event Grid.
+Uma fonte de evento é onde o evento acontece. Cada fonte de evento está relacionada com um ou mais tipos de eventos. Por exemplo, o Armazenamento Azure é a fonte do evento para eventos criados pela Blob. IoT Hub é a fonte do evento para eventos criados pelo dispositivo. A sua aplicação é a fonte do evento para eventos personalizados que define. Fontes do evento são responsáveis pelo envio de eventos para a Rede de Eventos.
 
-Para obter informações sobre a implementação de qualquer uma das origens de Event Grid suportadas, consulte [origens de eventos no Azure Event Grid](event-sources.md).
+Para obter informações sobre a implementação de qualquer uma das fontes suportadas da Rede de Eventos, consulte fontes do [evento em Azure Event Grid](event-sources.md).
 
 ## <a name="topics"></a>Tópicos
 
-O tópico do event grid fornece um ponto de extremidade em que a origem envia eventos. O publicador cria o tópico do event grid e decide se uma origem de evento precisa de um tópico ou mais de um tópico. Um tópico é utilizado para uma coleção de eventos relacionados. Para responder a determinados tipos de eventos, os assinantes decidir quais tópicos para subscrever.
+O tópico da grelha de eventos fornece um ponto final onde a fonte envia eventos. A editora cria o tópico da grelha do evento e decide se uma fonte de evento precisa de um tópico ou mais do que um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para responder a certos tipos de eventos, os subscritores decidem quais os tópicos a subscrever.
 
-Tópicos de sistema são tópicos de incorporada fornecidos pelos serviços do Azure. Não vê a tópicos de sistema na sua subscrição do Azure, porque o publicador detém os tópicos, mas pode subscrevê-los. Para subscrever, fornecem informações sobre o recurso que pretende receber eventos a partir de. Desde que tenham acesso ao recurso, pode subscrever para seus eventos.
+Os tópicos do sistema são tópicos incorporados fornecidos pelos serviços azure. Não vê tópicos de sistema na sua subscrição Azure porque a editora é proprietária dos tópicos, mas pode subscrever-os. Para subscrever, fornece informações sobre o recurso de que pretende receber eventos. Desde que tenha acesso ao recurso, pode subscrever os seus eventos.
 
-Tópicos personalizados são tópicos de terceiros e de aplicação. Quando criar ou recebem acesso a um tópico personalizado, verá esse tópico personalizado na sua subscrição.
+Os tópicos personalizados são aplicação e tópicos de terceiros. Quando cria ou lhe é atribuído acesso a um tópico personalizado, vê esse tópico personalizado na sua subscrição.
 
-Ao conceber a sua aplicação, tem flexibilidade ao decidir como vários tópicos de criar. Para soluções de grandes, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados com a modificação de contas de utilizador e processamento de pedidos. Não é provável que qualquer manipulador de eventos quer que as duas categorias de eventos. Criar dois tópicos personalizados e deixar de subscrever o que interessa-los de manipuladores de eventos. Para soluções de pequenas, poderá preferir enviar todos os eventos para um único tópico. Os assinantes do evento podem filtrar para os tipos de evento que desejarem.
+Ao desenhar a sua aplicação, tem flexibilidade ao decidir quantos tópicos criar. Para grandes soluções, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere uma aplicação que envie eventos relacionados com a modificação das contas de utilizador e encomendas de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e deixe que os manipuladores de eventos subscrevam aquele que lhes interessa. Para soluções pequenas, talvez prefira enviar todos os eventos para um único tópico. Os subscritores do evento podem filtrar os tipos de eventos que querem.
 
 ## <a name="event-subscriptions"></a>Subscrições de eventos
 
-Uma subscrição informa ao Event Grid os eventos num tópico deseja receber. Ao criar a subscrição, é fornecer um ponto de extremidade para manipular o evento. Pode filtrar os eventos que são enviados para o ponto final. Pode filtrar por tipo de evento, ou um padrão de assunto. Para obter mais informações, consulte [esquema de subscrições do Event Grid](subscription-creation-schema.md).
+Uma subscrição diz ao Event Grid quais os eventos sobre um tópico que está interessado em receber. Ao criar a subscrição, fornece um ponto final para lidar com o evento. Pode filtrar os eventos enviados para o ponto final. Pode filtrar por tipo de evento ou padrão de assunto. Para mais informações, consulte o esquema de [subscrição da Event Grid](subscription-creation-schema.md).
 
-Para obter exemplos de criação de subscrições, veja:
+Por exemplo, na criação de subscrições, consulte:
 
-* [Exemplos da CLI do Azure para o Event Grid](cli-samples.md)
-* [Exemplos do Azure PowerShell para o Event Grid](powershell-samples.md)
-* [Modelos do Azure Resource Manager para Event Grid](template-samples.md)
+* [Amostras azure CLI para grelha de eventos](cli-samples.md)
+* [Amostras azure PowerShell para grelha de eventos](powershell-samples.md)
+* [Modelos de Gestor de Recursos Azure para grelha de eventos](template-samples.md)
 
-Para obter informações sobre como obter subscrições do grid de seu evento atual, consulte [subscrições do Event Grid da consulta](query-event-subscriptions.md).
+Para obter as suas subscrições de grelha de eventos atuais, consulte [as subscrições da Grelha](query-event-subscriptions.md)de Eventos de Consulta .
 
-## <a name="event-subscription-expiration"></a>Expiração da subscrição de evento
-A subscrição do evento expirará automaticamente após essa data. Definir uma expiração para subscrições de eventos que são necessários apenas por um período limitado, e não quiser se preocupar sobre a limpeza nessas subscrições. Por exemplo, ao criar uma subscrição de evento para um cenário de teste, pode desejar definir uma vencimento. 
+## <a name="event-subscription-expiration"></a>Expiração da subscrição do evento
+A subscrição do evento expirará automaticamente após essa data. Detete uma expiração para subscrições de eventos que só são necessárias por um tempo limitado e não se quer preocupar em limpar essas subscrições. Por exemplo, ao criar uma subscrição de evento para testar um cenário, é melhor definir uma expiração. 
 
-Para obter um exemplo de configuração de uma de vencimento, consulte [subscrever com filtros avançados](how-to-filter-events.md#subscribe-with-advanced-filters).
+Para um exemplo de definição de uma expiração, consulte [Subscrever com filtros avançados](how-to-filter-events.md#subscribe-with-advanced-filters).
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
-Da perspectiva do Event Grid, um manipulador de eventos é o local em que o evento é enviado. O manipulador demora alguns mais nenhuma ação ao processar o evento. Event Grid suporta vários tipos de manipulador. Pode usar um serviço do Azure suportado ou a sua própria webhook como o manipulador. Dependendo do tipo de processador, o Event Grid segue mecanismos diferentes para garantir a entrega do evento. Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorna um código de estado `200 – OK`. Para a fila de armazenamento do Azure, os eventos sejam repetidos até que o serviço de fila com êxito processa o envio de mensagens na fila.
+Do ponto de vista da Grelha de Eventos, um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais medidas para processar o evento. A Grelha de Eventos suporta vários tipos de manipuladores. Pode utilizar um serviço Azure suportado ou o seu próprio webhook como manipulador. Dependendo do tipo de manipulador, a Rede de Eventos segue diferentes mecanismos para garantir a entrega do evento. Para os manipuladores de eventos http webhook, o evento é novamente experimentado até que o manipulador derdete um código de estado de `200 – OK`. Para a fila de armazenamento Azure, os eventos são novamente experimentados até que o serviço de fila processe com sucesso a mensagem empurrar para a fila.
 
-Para obter informações sobre a implementação de qualquer um dos manipuladores Event Grid suportados, consulte [manipuladores de eventos no Azure Event Grid](event-handlers.md).
+Para obter informações sobre a implementação de qualquer um dos manipuladores de Rede de Eventos suportados, consulte os manipuladores de [eventos em Azure Event Grid](event-handlers.md).
 
 ## <a name="security"></a>Segurança
 
-Event Grid fornece segurança para a subscrição de tópicos e tópicos de publicação. Ao subscrever, tem de ter as permissões adequadas no tópico do Event grid recurso ou eventos. Ao publicar, tem de ter um token SAS ou a autenticação de chave para o tópico. Para obter mais informações, consulte [Event Grid segurança e autenticação](security-authentication.md).
+A Event Grid oferece segurança para subscrever tópicos e temas editoriais. Ao subscrever, deve ter permissões adequadas sobre o tópico da rede de recursos ou eventos. Ao publicar, deve ter um símbolo SAS ou autenticação chave para o tópico. Para mais informações, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)
 
 ## <a name="event-delivery"></a>Entrega de eventos
 
-Se o Event Grid não é possível confirmar que um evento foi recebido pelo ponto de final do subscritor, entrega novamente o evento. Para obter mais informações, consulte [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
+Se a Event Grid não puder confirmar que um evento foi recebido pelo ponto final do assinante, reentrega o evento. Para mais informações, consulte a [entrega e a retentação da mensagem da Rede de Eventos.](delivery-and-retry.md)
 
 ## <a name="batching"></a>Lotes
 
-Quando utilizar um tópico personalizado, eventos tem sempre de ser publicados numa matriz. Isso pode ser um lote de um para cenários de débito e baixa, no entanto, para elevado volume casos de utilização, recomenda-se que batch vários eventos em conjunto por publicar para alcançar maior eficiência. Lotes podem ser até 1 MB. Cada evento ainda não deve ser superior a 64 KB (disponibilidade geral) ou 1 MB (pré-visualização).
+Ao utilizar um tópico personalizado, os eventos devem ser sempre publicados numa matriz. Este pode ser um lote de um para cenários de baixa produção, no entanto, para casos de uso de alto volume, recomenda-se que você emlote vários eventos juntos por publicação para obter uma maior eficiência. Os lotes podem chegar a 1 MB. Cada evento não deve ainda ser superior a 64 KB (Disponibilidade Geral) ou 1 MB (pré-visualização).
 
 > [!NOTE]
-> Um evento de tamanho até 64 KB é abordado pelo contrato de nível de serviço do disponibilidade geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos mais de 64 KB são cobrados em incrementos de 64 KB. 
+> Um evento de tamanho até 64 KB é coberto pelo Acordo de Nível de Serviço de Disponibilidade Geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos superiores a 64 KB são carregados em incrementos de 64 KB. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
-* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).
+* Para começar rapidamente a usar a Grelha de Eventos, consulte [create e encaminhe eventos personalizados com a Grelha de Eventos Azure](custom-event-quickstart.md).

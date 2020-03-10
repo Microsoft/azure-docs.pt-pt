@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: danlep
 ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525308"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365031"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores azure nas regiões de Azure
 
@@ -26,23 +26,23 @@ Para obter informações sobre quotas e outros limites nas suas implantações, 
 
 As regiões seguintes e os recursos máximos estão disponíveis para grupos de contentores com o Linux e contentores [baseados](container-instances-faq.md#what-windows-base-os-images-are-supported) no Windows Server 2016.
 
-| Regiões | SO | CPU Máxima | Memória Max (GB) | Armazenamento (GB) |
+| Regiões | SO | Máx. da CPU | Memória Max (GB) | Armazenamento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental, Oeste DOS EUA, OESTE DOS EUA 2 | Linux | 4 | 16 | 50 |
 | Austrália Leste, Japão Leste | Linux | 2 | 8 | 50 |
-| E.U.A. Centro-Norte | Linux | 2 | 3.5 | 50 |
-| Brasil Sul, Japão Leste, Europa Ocidental | Windows | 4 | 16 | 20 |
-| Leste dos EUA, Oeste dos EUA | Windows | 4 | 14 | 20 |
-| Austrália Leste, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste DOS 2, Norte Dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Índia Do Sul, Reino Unido Sul, Oeste DOS EUA 2 | Windows | 2 | 3.5 | 20 |
+| EUA Centro-Norte | Linux | 2 | 3.5 | 50 |
+| Brasil Sul, Japão Leste, Europa Ocidental | Portal do | 4 | 16 | 20 |
+| Leste dos EUA, Oeste dos EUA | Portal do | 4 | 14 | 20 |
+| Austrália Leste, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste DOS 2, Norte Dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Índia Do Sul, Reino Unido Sul, Oeste DOS EUA 2 | Portal do | 2 | 3.5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade - Windows Server 2019 LTSC, 1809 implementações (pré-visualização)
 
 As regiões seguintes e os recursos máximos estão disponíveis para grupos de contentores com contentores baseados no Windows Server 2019 (pré-visualização).
 
-| Regiões | SO | CPU Máxima | Memória Max (GB) | Armazenamento (GB) |
+| Regiões | SO | Máx. da CPU | Memória Max (GB) | Armazenamento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
-| Austrália Leste, Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Japão Leste, Norte Central EUA, Norte Da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental | Windows | 4 | 16 | 20 |
-| Leste dos EUA 2, Oeste DOS EUA 2 | Windows | 2 | 3.5 | 20 |
+| Austrália Leste, Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Japão Leste, Norte Central EUA, Norte Da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental | Portal do | 4 | 16 | 20 |
+| Leste dos EUA 2, Oeste DOS EUA 2 | Portal do | 2 | 3.5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilidade - Implantação de rede virtual
@@ -61,7 +61,7 @@ As seguintes regiões e recursos máximos estão disponíveis para um grupo de c
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Informe a equipa se gostaria de ver regiões adicionais ou aumento da disponibilidade de recursos em [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 

@@ -9,11 +9,11 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
 ms.openlocfilehash: 31e8506067133304144614ff58974ee21e9680be
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251922"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361353"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 
@@ -33,7 +33,7 @@ Os macrodados são recolhidos em volumes cada vez maiores, a velocidades mais r�
 
 Esta secção lista as capacidades do Azure HDInsight.
 
-|Capacidade  |Descrição  |
+|Funcionalidade  |Descrição  |
 |---------|---------|
 |Cloud nativa     |     O Azure HDInsight permite-lhe criar clusters otimizados para o [Hadoop](./hadoop/apache-hadoop-linux-tutorial-get-started.md), o  [Spark](./spark/apache-spark-jupyter-spark-sql.md), a  [Consulta interativa (LLAP)](./interactive-query/apache-interactive-query-get-started.md), o  [Kafka](./kafka/apache-kafka-get-started.md), o  [Storm](./storm/apache-storm-tutorial-get-started-linux.md), o  [HBase](./hbase/apache-hbase-tutorial-get-started-linux.md) e os  [Serviços ML](./r-server/r-server-overview.md) no Azure. O HDInsight também oferece um SLA de ponto a ponto em todas as suas cargas de trabalho de produção.  |
 |Baixo custo e dimensionável     | O HDInsight permite-lhe [aumentar ou reduzir](./hdinsight-administer-use-portal-linux.md#scale-clusters) verticalmente cargas de trabalho. Pode reduzir os [custos criando clusters a pedido](./hdinsight-hadoop-create-linux-clusters-adf.md) e pagando apenas pelo que utiliza. Também pode criar pipelines de dados para operacionalizar as tarefas. A computação e o armazenamento desassociados oferecem um melhor desempenho e flexibilidade. |
@@ -129,6 +129,6 @@ As ferramentas de business intelligence (BI) familiares obtêm, analisam e repor
 
 * [Ligue excel ao Apache Hadoop com o Controlador Microsoft Hive ODBC](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (requer Windows)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar o cluster Apache Hadoop no HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)

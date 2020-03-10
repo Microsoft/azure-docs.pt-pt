@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c62af3ddf8b2c2dc8082dc4f4870ecfcdc175ab8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661964"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380741"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança - um guia de referência
 
@@ -243,7 +243,7 @@ Abaixo das tabelas de alertas está uma tabela descrevendo a cadeia de morte do 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
 |**PREVIEW - Função vinculativa à função cluster-admin detetada**|A análise do registo de auditoria da Kubernetes detetou uma nova ligação à função de administração de cluster, resultando em privilégios de administrador. Proporcionar privilégios desnecessariamente aos administradores pode resultar em problemas de escalada de privilégios no cluster.|Persistência|
-|**PREVIEW - Painel de instrumentos de Kubernetes exposto detetado**|A análise de registo de auditoria da Kubernetes detetou a exposição do Painel Kubernetes por um serviço LoadBalancer. Os dashboards expostos permitem o acesso não autenticado à gestão do cluster e representam uma ameaça à segurança.|Persistência|
+|**PREVIEW - Painel de instrumentos de Kubernetes exposto detetado**|A análise de registo de auditoria da Kubernetes detetou a exposição do Painel Kubernetes por um serviço LoadBalancer. Os dashboards expostos permitem o acesso não autenticado à gestão do cluster e representam uma ameaça à segurança.|Acesso inicial|
 |**PREVIEW - Nova função de privilégios elevados detetado**|A análise de registo de auditoria da Kubernetes detetou um novo papel com privilégios elevados. Uma ligação a um papel com privilégios elevados confere ao utilizador/grupo privilégios elevados no cluster. Proporcionar privilégios elevados desnecessariamente pode resultar em problemas de escalada de privilégios no cluster.|Persistência|
 |**PREVIEW - Novo recipiente no espaço de nome do sistema kube detetado**|A análise de registo de auditoria da Kubernetes detetou um novo recipiente no espaço de nome do sistema kube que não está entre os recipientes que normalmente funcionam neste espaço de nome. Os espaços de nome do sistema kube não devem conter recursos de utilizador. Os atacantes podem usar este espaço de nome para ocultar componentes maliciosos.|Persistência|
 |**PREVIEW - Recipiente de mineração de moeda digital detetado**|A análise de registo de auditoria da Kubernetes detetou um recipiente que tem uma imagem associada a uma ferramenta de mineração de moeda digital.|Execução|
@@ -263,7 +263,7 @@ Abaixo das tabelas de alertas está uma tabela descrevendo a cadeia de morte do 
 |**O servidor SSH está a funcionar dentro de um contentor**|Os registos da máquina indicam que um servidor SSH está a funcionar dentro de um contentor do Docker. Embora este comportamento possa ser intencional, indica frequentemente que um recipiente é mal configurado ou violado.|Execução|
 |**Recipiente com imagem de mineiro detetado**|Os registos das máquinas indicam a execução de um contentor do Docker com uma imagem associada à mineração de moeda digital. Este comportamento pode indicar que os seus recursos estão a ser abusados.|Execução|
 |**Pedido suspeito à Kubernetes API**|Os registos das máquinas indicam que foi feito um pedido suspeito à API kubernetes. O pedido foi enviado de um nó kubernetes, possivelmente de um dos contentores que funcionano nó. Embora este comportamento possa ser intencional, pode indicar que o nó está a executar um contentor comprometido.|Execução|
-|**Pedido suspeito ao Painel de Kubernetes**|Os registos das máquinas indicam que foi feito um pedido suspeito ao Painel kubernetes. O pedido foi enviado de um nó kubernetes, possivelmente de um dos contentores que funcionano nó. Embora este comportamento possa ser intencional, pode indicar que o nó está a executar um contentor comprometido.|-|
+|**Pedido suspeito ao Painel de Kubernetes**|Os registos das máquinas indicam que foi feito um pedido suspeito ao Painel kubernetes. O pedido foi enviado de um nó kubernetes, possivelmente de um dos contentores que funcionano nó. Embora este comportamento possa ser intencional, pode indicar que o nó está a executar um contentor comprometido.|Movimento lateral|
 ||||
 
 
@@ -395,7 +395,7 @@ Compreender a intenção de um ataque pode ajudá-lo a investigar e reportar o e
 
 A série de passos que descrevem a progressão de um ciberataque do reconhecimento à exfiltração de dados é muitas vezes referida como uma "cadeia de morte". 
 
-As intençãos suportadas pela cadeia de morte suportadas do Security Center baseiam-se na [estrutura mITRE ATT&CK™](https://attack.mitre.org/matrices/enterprise) e descritas na tabela abaixo.
+As intençãos suportadas pela cadeia de morte suportadas do Security Center baseiam-se na [estrutura de&trade; MITRE ATT&AMP;CK](https://attack.mitre.org/matrices/enterprise) e descritas na tabela abaixo.
 
 |Intenção|Descrição|
 |------|-------|
@@ -415,7 +415,7 @@ As intençãos suportadas pela cadeia de morte suportadas do Security Center bas
 ||||
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre alertas, consulte o seguinte:
 
 * [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md)
