@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110013"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394485"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Fábrica de Dados Azure
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
@@ -65,13 +65,13 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade web | Cadeia | Sim
-tipo | Deve ser definido para **WebActivity**. | Cadeia | Sim
+nome | Nome da atividade web | String | Sim
+tipo | Deve ser definido para **WebActivity**. | String | Sim
 método | Método API de repouso para o ponto final alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
 url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade irá esgotar-se a 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
-conector | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
+cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Corda (ou expressão com resultadoTipo de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
 corpo | Representa a carga útil que é enviada para o ponto final.  | Corda (ou expressão com resultadoTipo de corda). <br/><br/>Consulte o esquema da carga útil do pedido na secção esquema de [carga útil solicitação.](#request-payload-schema) | Necessário para métodos POST/PUT.
-autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básico, ou Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não
+autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básico, ou Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoTipo de corda) | Não
 datasets | A lista de conjuntos de dados passou para o ponto final. | Conjunto de referências de conjuntos de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | A lista de serviços ligados passou para o ponto final. | Conjunto de referências de serviço ligadas. Pode ser uma matriz vazia. | Sim
 
@@ -92,7 +92,7 @@ O quadro seguinte mostra os requisitos para o conteúdo da JSON:
 
 Abaixo estão os tipos de autenticação suportados na atividade web.
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
 Se não for necessária a autenticação, não inclua o imóvel de "autenticação".
 

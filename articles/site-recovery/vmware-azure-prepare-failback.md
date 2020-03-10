@@ -1,75 +1,75 @@
 ---
-title: Preparar VMs VMware para nova proteção e failback com Azure Site Recovery
-description: Preparar para failback de VMs do VMware após o failover com Azure Site Recovery
+title: Prepare VMware VMs para reproteção e failback com recuperação do site Azure
+description: Prepare-se para a reprovação de VMware VMs após falha com recuperação do site Azure
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498231"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362852"
 ---
-# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Prepare-se para a nova proteção e failback de VMs VMware
+# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Prepare-se para reproteção e reprovação de VMware VMs
 
-Após o [failover](site-recovery-failover.md) de VMs VMware locais ou servidores físicos para o Azure, você protege novamente as VMs do Azure criadas após o failover, para que elas sejam replicadas de volta para o site local. Com a replicação do Azure para o local no local, você pode fazer failback executando um failover do Azure para o local quando estiver pronto.
+Após a [falha](site-recovery-failover.md) de VMs no local ou servidores físicos para o Azure, reprotege os VMs Azure criados após a failover, de modo que se replicam de volta ao local. Com a replicação de Azure para as instalações no local, pode então falhar com uma falha de Azure para as instalações quando estiver pronto.
 
-Antes de continuar, obtenha uma visão geral rápida com este vídeo sobre como fazer failback do Azure para um site local.<br /><br />
+Antes de continuar, obtenha uma visão geral rápida com este vídeo sobre como falhar de Azure para um local no local.<br /><br />
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
-## <a name="reprotectionfailback-components"></a>Componentes de nova proteção/failback
+## <a name="reprotectionfailback-components"></a>Componentes de reproteção/falha
 
-Você precisa de vários componentes e configurações em vigor antes de poder proteger novamente e fazer failback do Azure.
+Precisa de uma série de componentes e configurações no lugar antes de poder reproteger e falhar no Azure.
 
 **Componente**| **Detalhes**
 --- | ---
-**Servidor de configuração no local** | O servidor de configuração local deve estar em execução e conectado ao Azure.<br/><br/> A VM para a qual você está realizando o failback deve existir no banco de dados do servidor de configuração. Se o desastre afetar o servidor de configuração, restaure-o com o mesmo endereço IP para garantir que o failback funcione.<br/><br/>  Se os endereços IP de máquinas replicadas foram retidos no failover, a conectividade site a site (ou conectividade de ExpressRoute) deve ser estabelecida entre máquinas de VMs do Azure e a NIC de failback do servidor de configuração. Para endereços IP retidos, o servidor de configuração precisa de dois NICs-um para a conectividade do computador de origem e outro para a conectividade de failback do Azure. Isso evita a sobreposição de intervalos de endereços de sub-rede para a origem e as VMs com failover.
-**Servidor de processo no Azure** | Você precisa de um servidor de processo no Azure antes de fazer failback para o site local.<br/><br/> O servidor de processo recebe dados da VM do Azure protegida e os envia para o site local.<br/><br/> Você precisa de uma rede de baixa latência entre o servidor de processo e a VM protegida, portanto, recomendamos que você implante o servidor de processo no Azure para obter um desempenho de replicação superior.<br/><br/> Para prova de conceito, você pode usar o servidor de processo local e o ExpressRoute com emparelhamento privado.<br/><br/> O servidor de processo deve estar na rede do Azure na qual a VM com failover está localizada. O servidor de processo também deve ser capaz de se comunicar com o servidor de configuração local e com o servidor de destino mestre.
-**Servidor de destino mestre separado** | O servidor de destino Mestre recebe dados de failback e, por padrão, um servidor de destino mestre do Windows é executado no servidor de configuração local.<br/><br/> Um servidor de destino mestre pode ter até 60 discos anexados a ele. As VMs com failback têm mais do que um total coletivo de 60 discos, ou se você estiver realizando o failback de grandes volumes de tráfego, crie um servidor de destino mestre separado para realizar o failover.<br/><br/> Se os computadores forem coletados em um grupo de replicação para consistência de várias VMS, as VMs deverão ser todas Windows ou devem ser Linux. Porquê? Como todas as VMs em um grupo de replicação devem usar o mesmo servidor de destino mestre e o servidor de destino mestre deve ter o mesmo sistema operacional (com a mesma ou uma versão superior) do que aquelas dos computadores replicados.<br/><br/> O servidor de destino mestre não deve ter nenhum instantâneo em seus discos, caso contrário, a nova proteção e o failback não funcionarão.<br/><br/> O destino mestre não pode ter um controlador paravirtual SCSI. O controlador só pode ser um controlador lógico LSI. Sem um controlador LSI Logic, a nova proteção falha.
-**Política de replicação de failback** | Para replicar de volta para o site local, você precisa de uma política de failback. Essa política é criada automaticamente quando você cria uma política de replicação para o Azure.<br/><br/> A política é associada automaticamente ao servidor de configuração. Ele é definido como um limite de RPO de 15 minutos, retenção de ponto de recuperação de 24 horas e frequência de instantâneo consistente com o aplicativo é de 60 minutos. A política não pode ser editada. 
-**Emparelhamento privado VPN/ExpressRoute de site a site** | A nova proteção e o failback precisam de uma conexão VPN site a site ou do emparelhamento privado do ExpressRoute para replicar dados. 
+**Servidor de configuração no local** | O servidor de configuração no local deve estar a funcionar e ligado ao Azure.<br/><br/> O VM a que está a falhar deve existir na base de dados do servidor de configuração. Se o desastre afetar o servidor de configuração, restaure-o com o mesmo endereço IP para garantir que o failback funciona.<br/><br/>  Se os endereços IP de máquinas replicadas foram retidos no failover, a conectividade site-a-site (ou conectividade ExpressRoute) deve ser estabelecida entre as máquinas De VMs Azure e o NIC de backback do servidor de configuração. Para endereços IP retidos, o servidor de configuração precisa de dois NICs - um para conectividade da máquina de origem e outro para a conectividade de failback do Azure. Isto evita a sobreposição de gamas de endereços de sub-rede para a fonte e falhou sobre os VMs.
+**Servidor de processos em Azure** | Precisa de um servidor de processo sintetização em Azure antes de poder voltar ao seu site no local.<br/><br/> O servidor de processos recebe dados do VM Azure protegido e envia-os para o local.<br/><br/> Precisa de uma rede de baixa latência entre o servidor de processo e o VM protegido, por isso recomendamos que implemente o servidor de processo sintetizador em Azure para um desempenho de replicação mais elevado.<br/><br/> Para a prova de conceito, pode utilizar o servidor de processos no local e o ExpressRoute com o peering privado.<br/><br/> O servidor de processo deve estar na rede Azure na qual o VM falhado está localizado. O servidor de processo também deve ser capaz de comunicar com o servidor de configuração no local e o servidor de alvo principal.
+**Servidor de alvo principal separado** | O servidor de alvo principal recebe dados de falha e, por padrão, um servidor de alvo principal do Windows funciona no servidor de configuração no local.<br/><br/> Um servidor de alvo principal pode ter até 60 discos ligados a ele. Os VMs que estão a ser falhados têm mais de um total coletivo de 60 discos, ou se estiver a falhar grandes volumes de tráfego, crie um servidor-alvo principal separado para o failback.<br/><br/> Se as máquinas forem reunidas num grupo de replicação para a consistência multi-VM, os VMs devem ser todos Windows, ou devem ser todos Linux. Porquê? Porque todos os VMs de um grupo de replicação devem usar o mesmo servidor alvo principal, e o servidor alvo principal deve ter o mesmo sistema operativo (com a mesma ou uma versão mais alta) do que os das máquinas replicadas.<br/><br/> O servidor-alvo principal não deve ter fotografias nos seus discos, caso contrário a reprotecção e o recuo não funcionarão.<br/><br/> O alvo principal não pode ter um controlador SCSI paravirtual. O controlador só pode ser um controlador LSI Logic. Sem um controlador LSI Logic, a reprotecção falha.
+**Política de replicação de failback** | Para replicar de volta ao local, precisa de uma política de retrocesso. Esta política é criada automaticamente quando se cria uma política de replicação para o Azure.<br/><br/> A política é associada automaticamente ao servidor de configuração. Está definido para um limiar de RPO de 15 minutos, retenção de ponto de recuperação de 24 horas, e frequência instantânea consistente com aplicativos é de 60 minutos. A apólice não pode ser editada. 
+**Peering privado site-to-site VPN/ExpressRoute** | A reproteção e o failback precisam de uma ligação VPN site-to-site, ou de um peering privado ExpressRoute para replicar dados. 
 
 
-## <a name="ports-for-reprotectionfailback"></a>Portas para nova proteção/failback
+## <a name="ports-for-reprotectionfailback"></a>Portas para reproteção/recuo
 
-Um número de portas deve estar aberto para nova proteção/failback. O gráfico a seguir ilustra as portas e o fluxo de reproteção/failback.
+Algumas portas devem estar abertas para reprotecção/reprovação. O gráfico seguinte ilustra as portas e reprotege/falha o fluxo.
 
-![Portas para failover e failback](./media/vmware-azure-reprotect/failover-failback.png)
+![Portos para falha e recuo](./media/vmware-azure-reprotect/failover-failback.png)
 
 
-## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor de processo no Azure
+## <a name="deploy-a-process-server-in-azure"></a>Implementar um servidor de processo sintetizar em Azure
 
-1. [Configure um servidor de processo](vmware-azure-set-up-process-server-azure.md) no Azure para failback.
-2. Verifique se as VMs do Azure podem alcançar o servidor de processo. 
-3. Verifique se a conexão VPN site a site ou a rede de emparelhamento privado do ExpressRoute tem largura de banda suficiente para enviar dados do servidor de processo para o site local.
+1. [Instale um servidor](vmware-azure-set-up-process-server-azure.md) de processo em Azure para o failback.
+2. Certifique-se de que os VMs Azure podem chegar ao servidor de processos. 
+3. Certifique-se de que a ligação VPN site-to-site ou a rede de peering privado ExpressRoute tem largura de banda suficiente para enviar dados do servidor de processo para o site no local.
 
-## <a name="deploy-a-separate-master-target-server"></a>Implantar um servidor de destino mestre separado
+## <a name="deploy-a-separate-master-target-server"></a>Implementar um servidor de alvo principal separado
 
-1. Observe os [requisitos e as limitações](#reprotectionfailback-components)do servidor de destino mestre.
-2. Crie um servidor de destino mestre do [Windows](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers) ou [Linux](vmware-azure-install-linux-master-target.md) para corresponder ao sistema operacional das VMs que você deseja proteger novamente e fazer failback.
-3. Verifique se você não usa o Storage vMotion para o servidor de destino mestre ou o failback pode falhar. A máquina VM não pode ser iniciada porque os discos não estão disponíveis para ela.
-    - Para evitar isso, exclua o servidor de destino mestre da sua lista do vMotion.
-    - Se um destino mestre passar por uma tarefa de armazenamento do vMotion após a nova proteção, os discos de VM protegidos anexados ao servidor de destino mestre migrarão para o destino da tarefa do vMotion. Se você tentar realizar o failback após isso, a desanexação de disco falhará porque os discos não foram encontrados. Em seguida, é difícil encontrar os discos em suas contas de armazenamento. Se isso ocorrer, localize-os manualmente e anexe-os à VM. Depois disso, a VM local pode ser inicializada.
+1. Note os [requisitos e limitações](#reprotectionfailback-components)do servidor alvo principal .
+2. Crie um servidor-alvo principal [do Windows](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers) ou [do Linux,](vmware-azure-install-linux-master-target.md) para combinar com o sistema operativo dos VMs que pretende reproteger e falhar.
+3. Certifique-se de que não utiliza o Armazenamento vMotion para o servidor de alvo principal, ou o failback pode falhar. A máquina VM não pode arrancar porque os discos não estão disponíveis.
+    - Para evitar isto, exclua o servidor alvo principal da sua lista de vMotion.
+    - Se um alvo principal for submetido a uma tarefa de armazenamento vMotion após a reprotecção, os discos VM protegidos ligados ao servidor alvo principal migram para o alvo da tarefa vMotion. Se tentar esfalhar depois disto, o destacamento do disco falha porque os discos não são encontrados. Então é difícil encontrar os discos nas suas contas de armazenamento. Se isto ocorrer, encontre-os manualmente e prenda-os ao VM. Depois disso, o VM no local pode ser iniciado.
 
-4. Adicione uma unidade de retenção ao servidor de destino mestre do Windows existente. Adicione um novo disco e formate a unidade. A unidade de retenção é usada para interromper os pontos no tempo em que a VM é replicada de volta para o site local. Observe esses critérios. Se eles não forem atendidos, a unidade não será listada para o servidor de destino mestre:
-    - O volume não é usado para nenhuma outra finalidade, como um destino de replicação, e não está no modo de bloqueio.
-    - O volume não é um volume de cache. O volume de instalação personalizada para o servidor de processo e o destino mestre não são elegíveis para um volume de retenção. Quando o servidor de processo e o destino mestre são instalados em um volume, o volume é um volume de cache do destino mestre.
-    - O tipo de sistema de arquivos do volume não é FAT ou FAT32.
-    - A capacidade do volume é diferente de zero.
-    - O volume de retenção padrão para o Windows é o volume R.
-    - O volume de retenção padrão para Linux é/mnt/Retention.
+4. Adicione uma unidade de retenção ao servidor-alvo principal do Windows existente. Adicione um novo disco e forte a unidade. A unidade de retenção é usada para parar os pontos no tempo quando o VM se replica de volta ao local no local. Note estes critérios. Se não forem cumpridos, a unidade não está listada para o servidor principal do alvo:
+    - O volume não é usado para qualquer outro propósito, como um alvo de replicação, e não está em modo de bloqueio.
+    - O volume não é um volume de cache. O volume de instalação personalizado para o servidor de processo e alvo principal não é elegível para um volume de retenção. Quando o servidor de processo e o alvo principal são instalados num volume, o volume é um volume de cache do alvo principal.
+    - O tipo de sistema de ficheiros do volume não é FAT ou FAT32.
+    - A capacidade de volume não é zero.
+    - O volume de retenção predefinido para Windows é o volume R.
+    - O volume de retenção padrão para linux é /mnt/retenção.
 
-5. Adicione uma unidade se você estiver usando um servidor de processo existente. A nova unidade deve atender aos requisitos na última etapa. Se a unidade de retenção não estiver presente, ela não aparecerá na lista suspensa de seleção no Portal. Depois de adicionar uma unidade ao destino mestre local, levará até 15 minutos para que a unidade apareça na seleção no Portal. Você pode atualizar o servidor de configuração se a unidade não aparecer após 15 minutos.
-6. Instale as ferramentas do VMware ou as ferramentas de VM abertas no servidor de destino mestre. Sem as ferramentas, os repositórios de armazenamento no host ESXi do destino mestre não podem ser detectados.
-7. Defina o disco. EnableUUID = true configurada nos parâmetros de configuração da VM de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um UUID consistente para o VMDK para que ele seja montado corretamente.
-8. Verifique os requisitos de acesso do vCenter Server:
-    - Se a VM para a qual você está realizando o failback estiver em um host ESXi gerenciado pelo VMware vCenter Server, o servidor de destino mestre precisará acessar o arquivo de disco de máquina virtual (VMDK) da VM local, para gravar os dados replicados nos discos da máquina virtual. Verifique se o repositório de armazenamento de VM local está montado no host de destino mestre com acesso de leitura/gravação.
-    - Se a VM não estiver em um host ESXi gerenciado por um VMware vCenter Server, Site Recovery criará uma nova VM durante a reproteção. Essa VM é criada no host ESXi no qual você cria a VM do servidor de destino mestre. Escolha o host ESXi cuidadosamente para criar a VM no host que você deseja. O disco rígido da VM tem de estar num arquivo de dados que seja acessível pelo anfitrião no qual o servidor de destino principal está em execução.
-    - Outra opção, se a VM local já existir para failback, é excluí-la antes de fazer um failback. Em seguida, o failback cria uma nova VM no mesmo host que o host ESXi de destino mestre. Quando você realiza o failback para um local alternativo, os dados são recuperados para o mesmo armazenamento e o mesmo host ESXi usado pelo servidor de destino mestre local.
-9. Para computadores físicos que executam failback em VMs VMware, você deve concluir a descoberta do host no qual o servidor de destino mestre está em execução, antes de proteger novamente o computador.
-10. Verifique se o host ESXi no qual a VM de destino mestre tem pelo menos um repositório de armazenamento de sistemas de arquivos de máquina virtual (VMFS) anexado a ele. Se nenhum repositório de dados do VMFS estiver anexado, a entrada do repositório do armazenamento nas configurações de nova proteção estará vazia e você não poderá continuar.
+5. Adicione uma unidade se estiver a utilizar um servidor de processo existente. A nova unidade deve satisfazer os requisitos no último passo. Se a unidade de retenção não estiver presente, não aparece na lista de seleção no portal. Depois de adicionar uma unidade ao alvo principal no local, leva até 15 minutos para a unidade aparecer na seleção no portal. Pode atualizar o servidor de configuração se a unidade não aparecer após 15 minutos.
+6. Instale ferramentas VMware ou ferramentas abertas de vm no servidor alvo principal. Sem as ferramentas, as lojas de dados do anfitrião ESXi do alvo principal não podem ser detetadas.
+7. Desloque o disco. EnableUUID=definição verdadeira nos parâmetros de configuração do VM alvo principal em VMware. Se esta linha não existir, adicione. Esta definição é necessária para fornecer um UUID consistente ao VMDK de modo a que monte corretamente.
+8. Verifique os requisitos de acesso do VCenter Server:
+    - Se o VM ao qual está a falhar estiver num hospedeiro ESXi gerido pelo VMware vCenter Server, o servidor-alvo principal precisa de acesso ao ficheiro VM Virtual Machine Disk (VMDK) no local, para escrever os dados replicados nos discos da máquina virtual. Certifique-se de que a loja de dados VM no local está montada no anfitrião principal alvo com acesso de leitura/escrita.
+    - Se o VM não estiver num hospedeiro ESXi gerido por um VMware vCenter Server, a Recovery do Site cria um novo VM durante a reproteção. Este VM é criado no hospedeiro ESXi no qual cria o VM do servidor alvo principal. Escolha cuidadosamente o hospedeiro ESXi para criar o VM no hospedeiro que desejar. O disco rígido da VM tem de estar num arquivo de dados que seja acessível pelo anfitrião no qual o servidor de destino principal está em execução.
+    - Outra opção, se o VM no local já existir para o failback, é apagá-lo antes de fazer um failback. O failback cria então um novo VM no mesmo hospedeiro que o anfitrião esXi alvo principal. Quando não consegue voltar a um local alternativo, os dados são recuperados para a mesma loja de dados e para o mesmo hospedeiro ESXi que o utilizado pelo servidor-alvo principal no local.
+9. Para máquinas físicas que não reemter os VMs VMware, deve concluir a descoberta do hospedeiro em que o servidor alvo principal está a funcionar, antes de poder reproteger a máquina.
+10. Verifique se o hospedeiro ESXi em que o alvo principal VM tem pelo menos uma loja de dados virtual de ficheiros de máquinas (VMFS) anexada ao mesmo. Se não forem anexadas reservas de dados VMFS, a entrada da loja de dados nas definições de reproteção está vazia e não pode proceder.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Proteger](vmware-azure-reprotect.md) novamente uma VM.
+[Reproteja](vmware-azure-reprotect.md) um VM.

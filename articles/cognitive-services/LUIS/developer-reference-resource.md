@@ -1,33 +1,33 @@
 ---
-title: Recursos para desenvolvedores-Reconhecimento vocal
+title: Recursos de desenvolvimento - Compreensão da Linguagem
 description: SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS.
 ms.topic: reference
 ms.date: 02/11/2020
-ms.openlocfilehash: fda4301a0851e6a36cbb6493dcf48293b2c5db37
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: f9d531f800ba0729a1f679c0bf3b11c8958c78ed
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152691"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391943"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvimento sdK, REST e CLI para a compreensão da linguagem (LUIS)
 
 SDKs, REST APIs, CLI, ajudam-no a desenvolver aplicações de Compreensão de Línguas (LUIS) na sua linguagem de programação. Gerencie os seus recursos Azure e as previsões do LUIS.
 
-## <a name="azure-resource-management"></a>Gerenciamento de recursos do Azure
+## <a name="azure-resource-management"></a>Gestão de recursos azure
 
-Use a camada de gerenciamento de serviços cognitivas do Azure para criar, editar, listar e excluir o Reconhecimento vocal ou recurso de serviço cognitiva.
+Utilize a camada de Gestão de Serviços Cognitivos Azure para criar, editar, listar e eliminar o recurso de Compreensão linguística ou serviço cognitivo.
 
-Encontre a documentação de referência com base na ferramenta:
+Encontre documentação de referência com base na ferramenta:
 
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
 
-## <a name="language-understanding-authoring-and-prediction-requests"></a>Solicitações de criação e previsão de Reconhecimento vocal
+## <a name="language-understanding-authoring-and-prediction-requests"></a>Pedidos de autore de previsão de compreensão linguística
 
-O serviço de Reconhecimento vocal é acessado de um recurso do Azure que você precisa criar. Há dois recursos:
+O serviço de Compreensão de Línguas é acedido a partir de um recurso Azure que você precisa criar. Há dois recursos:
 
 * Utilize o recurso **de autoria** para a formação para criar, editar, treinar e publicar.
 * Utilize a **previsão** para o tempo de execução para enviar o texto do utilizador e receber uma previsão.
@@ -42,7 +42,7 @@ As [especificações LUIS REST](https://github.com/Azure/azure-rest-api-specs/tr
 
 ### <a name="rest-apis"></a>APIs REST
 
-As APIS de ponto de extremidade de criação e de previsão estão disponíveis em APIs REST:
+Tanto a autoria como o ponto final de previsão APIS estão disponíveis a partir de APIs REST:
 
 |Tipo|Versão|
 |--|--|
@@ -74,7 +74,7 @@ A tabela que se segue explica os parâmetros, denotados com aparelhos encaracola
 
 ### <a name="language-based-sdks"></a>SDKs baseados em linguagem
 
-|Idioma |Documentação de referência|Pacote|Amostras|Guias de Início Rápido|
+|Idioma |Documentação de referência|Pacote|Amostras|Inícios rápidos|
 |--|--|--|--|--|
 |C#|[Criação de conteúdos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Previsão](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Autor nuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Previsão NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net Amostras de SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Criar e gerir app](sdk-authoring.md?pivots=programming-language-csharp)<br>[Ponto final da previsão de consulta](sdk-query-prediction-endpoint.md)|
 |Ir|[Autoria e previsão](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Criação de conteúdos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Previsão](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Autoria e Previsão usando REST](luis-get-started-get-intent-from-rest.md)|
@@ -87,11 +87,11 @@ A tabela que se segue explica os parâmetros, denotados com aparelhos encaracola
 
 A Language Understanding (LUIS) fornece um [recipiente](luis-container-howto.md) para fornecer no local e versões contidas da sua aplicação.
 
-### <a name="export-and-import-formats"></a>Exportar e importar formatos
+### <a name="export-and-import-formats"></a>Formatos de exportação e importação
 
 A Compreensão de Idiomas fornece a capacidade de gerir a sua app e os seus modelos num formato JSON, o formato `.LU`[(LUDown)](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)e um pacote comprimido para o recipiente de Compreensão de Línguas.
 
-A importação e a exportação desses formatos estão disponíveis nas APIs e no portal do LUIS. O portal fornece importação e exportação como parte da lista de aplicativos e lista de versões.
+A importação e exportação destes formatos está disponível a partir das APIs e do portal LUIS. O portal fornece importação e exportação como parte da lista de Apps e Versões.
 
 ## <a name="other-tools-and-sdks"></a>Outras ferramentas e SDKs
 
@@ -109,7 +109,7 @@ A estrutura bot fornece [várias ferramentas](https://github.com/microsoft/botbu
 ## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os [códigos](luis-reference-response-codes.md) de erro http comuns
-* [Documentação de referência](https://docs.microsoft.com/azure/index#pivot=sdkstools) para todas as APIs e SDKs
+* [Documentação de referência](https://docs.microsoft.com/azure/index) para todas as APIs e SDKs
 * [Quadro bot](https://github.com/Microsoft/botbuilder-dotnet) e [Serviço Bot Azure](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [Recipientes Cognitivos](../cognitive-services-container-support.md)

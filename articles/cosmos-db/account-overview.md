@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com contas de Azure Cosmos DB
-description: Este artigo descreve como criar e usar contas do Azure Cosmos. Ele também mostra a hierarquia de elementos em uma conta do Azure Cosmos
+title: Trabalhar com contas da Azure Cosmos DB
+description: Este artigo descreve como criar e usar contas Azure Cosmos. Também mostra a hierarquia de elementos numa conta Azure Cosmos
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d29ed68b2945b2473b33aa88176e6f5d832a0fba
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872269"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392445"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Trabalhar com uma conta do Azure Cosmos
 
-Azure Cosmos DB é uma PaaS (plataforma como serviço) totalmente gerenciada. Para começar a usar Azure Cosmos DB, inicialmente você deve criar uma conta do Azure Cosmos em sua assinatura do Azure. Sua conta do Azure Cosmos contém um nome DNS exclusivo e você pode gerenciar uma conta usando portal do Azure, CLI do Azure ou usando diferentes SDKs específicos do idioma. Para obter mais informações, consulte [como gerenciar sua conta do Azure Cosmos](how-to-manage-database-account.md).
+Azure Cosmos DB é uma plataforma totalmente gerida como um serviço (PaaS). Para começar a utilizar o Azure Cosmos DB, deverá inicialmente criar uma conta Azure Cosmos na sua subscrição Azure. A sua conta Azure Cosmos contém um nome DNS único e pode gerir uma conta utilizando o portal Azure, o Azure CLI ou utilizando diferentes SDKs específicos em línguas. Para mais informações, consulte [como gerir a sua conta Azure Cosmos.](how-to-manage-database-account.md)
 
-A conta do Azure cosmos é a unidade fundamental de distribuição global e alta disponibilidade. Para distribuir globalmente seus dados e a taxa de transferência em várias regiões do Azure, você pode adicionar e remover regiões do Azure para sua conta do Azure Cosmos a qualquer momento. Você pode configurar sua conta do Azure Cosmos para ter uma única ou várias regiões de gravação. Para obter mais informações, consulte [como adicionar e remover regiões do Azure para sua conta do Azure Cosmos](how-to-manage-database-account.md). Você pode configurar o nível de [consistência padrão](consistency-levels.md) na conta do Azure Cosmos. O Azure Cosmos DB fornece SLAs abrangentes que abrangem a taxa de transferência, a latência no 99 º percentil, a consistência e a alta disponibilidade. Para obter mais informações, consulte [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
+A conta Azure Cosmos é a unidade fundamental de distribuição global e alta disponibilidade. Para distribuir globalmente os seus dados e produção em várias regiões azure, pode adicionar e remover as regiões Azure à sua conta Azure Cosmos a qualquer momento. Pode configurar a sua conta Azure Cosmos para ter uma única ou múltipla região de escrita. Para mais informações, consulte [como adicionar e remover as regiões Azure à sua conta Azure Cosmos](how-to-manage-database-account.md). Pode configurar o nível de [consistência padrão](consistency-levels.md) na conta Azure Cosmos. A Azure Cosmos DB fornece SLAs abrangentes que englobam a entrada, latência no percentil 99, consistência e elevada disponibilidade. Para mais informações, consulte [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Para gerenciar com segurança o acesso a todos os dados em sua conta do Azure Cosmos, você pode usar as [chaves mestras](secure-access-to-data.md) associadas à sua conta. Para proteger ainda mais o acesso aos seus dados, você pode configurar um [ponto de extremidade de serviço de rede virtual](vnet-service-endpoint.md) e um [Firewall de IP](firewall-support.md) em sua conta do Azure Cosmos. 
+Para gerir de forma segura o acesso a todos os dados da sua conta Azure Cosmos, pode utilizar as [chaves principais](secure-access-to-data.md) associadas à sua conta. Para garantir um acesso mais seguro aos seus dados, pode configurar um ponto final de [serviço VNET](vnet-service-endpoint.md) e [uma firewall IP](firewall-support.md) na sua conta Azure Cosmos. 
 
-## <a name="elements-in-an-azure-cosmos-account"></a>Elementos em uma conta do Azure Cosmos
+## <a name="elements-in-an-azure-cosmos-account"></a>Elementos numa conta Azure Cosmos
 
-O contêiner Cosmos do Azure é a unidade fundamental de escalabilidade. Você pode praticamente ter uma taxa de transferência provisionada ilimitada (RU/s) e armazenamento em um contêiner. Azure Cosmos DB particiona de forma transparente seu contêiner usando a chave de partição lógica que você especifica para dimensionar de forma elástica a produtividade e o armazenamento provisionados. Para obter mais informações, consulte [trabalhando com itens e contêineres de Cosmos do Azure](databases-containers-items.md).
+O contentor Azure Cosmos é a unidade fundamental da escalabilidade. Pode praticamente ter um fornecimento ilimitado (RU/s) e armazenamento num recipiente. A Azure Cosmos DB divisória transparentemente o seu recipiente utilizando a chave de partição lógica que especifica para escalar elástico a sua entrada e armazenamento aprovisionados. Para mais informações, consulte [o trabalho com recipientes e itens da Azure Cosmos.](databases-containers-items.md)
 
-No momento, você pode criar no máximo 100 contas do Azure Cosmos em uma assinatura do Azure. Uma única conta do Azure Cosmos pode praticamente gerenciar A quantidade ilimitada de dados e a taxa de transferência provisionada. Para gerenciar seus dados e a taxa de transferência provisionada, você pode criar um ou mais bancos de Cosmos do Azure em sua conta e dentro desse banco de dados, você pode criar um ou mais contêineres. A imagem a seguir mostra a hierarquia de elementos em uma conta do Azure Cosmos:
+Atualmente, pode criar um máximo de 100 contas Azure Cosmos sob uma subscrição Azure. Uma única conta Azure Cosmos pode praticamente gerir uma quantidade ilimitada de dados e a sua provisão. Para gerir os seus dados e a sua entrada aprovisionada, pode criar uma ou mais bases de dados da Azure Cosmos na sua conta e dentro dessa base de dados, pode criar um ou mais contentores. A imagem seguinte mostra a hierarquia dos elementos numa conta azure cosmos:
 
-![Hierarquia de uma conta do Azure Cosmos](./media/account-overview/hierarchy.png)
+![Hierarquia de uma conta Azure Cosmos](./media/account-overview/hierarchy.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como gerenciar sua conta do Azure Cosmos e outros conceitos:
+Saiba como gerir a sua conta Azure Cosmos e outros conceitos:
 
-* [Como gerenciar sua conta do Azure Cosmos](how-to-manage-database-account.md)
+* [Como gerir a sua conta Azure Cosmos](how-to-manage-database-account.md)
 * [Distribuição global](distribute-data-globally.md)
 * [Níveis de consistência](consistency-levels.md)
-* [Trabalhando com itens e contêineres Cosmos do Azure](databases-containers-items.md)
-* [Ponto de extremidade de serviço VNET para sua conta do Azure Cosmos](vnet-service-endpoint.md)
-* [IP-firewall para sua conta do Azure Cosmos](firewall-support.md)
-* [Como adicionar e remover regiões do Azure para sua conta do Azure Cosmos](how-to-manage-database-account.md)
-* [SLAs de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Trabalhar com contentores e itens Azure Cosmos](databases-containers-items.md)
+* [Ponto final do serviço VNET para a sua conta Azure Cosmos](vnet-service-endpoint.md)
+* [Firewall IP para a sua conta Azure Cosmos](firewall-support.md)
+* [Como adicionar e remover as regiões azure à sua conta Azure Cosmos](how-to-manage-database-account.md)
+* [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

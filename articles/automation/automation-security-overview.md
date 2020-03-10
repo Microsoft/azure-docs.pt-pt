@@ -1,5 +1,5 @@
 ---
-title: Introdução à autenticação na automação do Azure
+title: Introdução à autenticação na Automação Azure
 description: Este artigo fornece uma descrição geral da segurança de Automatização e os métodos de autenticação diferentes disponíveis para as Contas de Automatização na Automatização do Azure.
 keywords: segurança de automatização, automatização segura; autenticação de automatização
 services: automation
@@ -8,11 +8,11 @@ ms.date: 03/19/2018
 ms.topic: conceptual
 ROBOTS: NOINDEX
 ms.openlocfilehash: b2003469fa35de837c3a9214e40cfb333156b40c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420685"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360894"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introdução à Autenticação na Automatização do Azure  
 A Automatização do Azure permite-lhe automatizar tarefas relativamente aos recursos no Azure, no local e outros fornecedores de serviços em nuvem, tais como os Amazon Web Services (AWS).  Para um runbook efetuar as ações necessárias, tem de ter permissões para aceder de forma segura aos recursos com os direitos mínimos necessários dentro da subscrição.
@@ -41,7 +41,7 @@ A tabela seguinte resume os métodos de autenticação diferentes para cada ambi
 | Método | Ambiente | Artigo |
 | --- | --- | --- |
 | Conta de Utilizador do Azure AD |Azure Resource Manager e Azure clássico |[Autenticar Runbooks com a conta de Utilizador do Azure AD](automation-create-aduser-account.md) |
-| Conta Run As do Azure |Gestor de Recursos do Azure |[Autenticar Runbooks com a conta Run As do Azure](automation-sec-configure-azure-runas-account.md) |
+| Conta Run As do Azure |Azure Resource Manager |[Autenticar Runbooks com a conta Run As do Azure](automation-sec-configure-azure-runas-account.md) |
 | Conta Run As Clássica do Azure |Azure clássico |[Autenticar Runbooks com a conta Run As do Azure](automation-sec-configure-azure-runas-account.md) |
 | Autenticação do Windows |Datacenter No Local |[Autenticar Runbooks para Funções de Trabalho de Runbook Híbridas](automation-hybrid-runbook-worker.md) |
 | Credenciais AWS |Amazon Web Services |[Autenticar Runbooks com os Amazon Web Services (AWS)](automation-config-aws-account.md) |

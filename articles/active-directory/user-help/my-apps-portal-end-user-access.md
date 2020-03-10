@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a5dae30c8b8f43602581b39005389211da83cb9e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022310"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375878"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inscreva-se e inicie aplicações a partir do portal My Apps
 
@@ -33,7 +33,7 @@ Se não tiver acesso ao portal **My Apps,** contacte o seu Helpdesk para obter p
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este conteúdo destina-se aos utilizadores das Minhas Apps. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Este conteúdo destina-se aos utilizadores das Minhas Apps. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na Documentação de Gestão de [Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps)
 
 ## <a name="supported-browsers"></a>Browsers suportados
 
@@ -77,7 +77,7 @@ Um ícone é adicionado à direita da sua barra de **Endereço,** permitindo-lhe
 
 Pode escolher quantas aplicações visualizar na secção **Recentemente Utilizada** e decidir se permite que os URLs internos da sua organização redirecionem.
 
-1. Selecione o ícone de extensão do ![ícone](media/my-apps-portal/my-apps-portal-extension-icon.png) de extensão de **entrada segura de meus aplicativos** no lado direito da barra de **endereços** e selecione **entrar para começar**.
+1. Selecione o novo ícone de extensão de **sinalização seguro das minhas aplicações** ![ícone de extensão](media/my-apps-portal/my-apps-portal-extension-icon.png) à direita da sua barra de **endereços** e, em seguida, selecione **Iniciar o 'Sign's '**
 
 2. Clique à direita no ícone **definições** ![Ícone definições](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), e depois selecione **Definições**.
 
@@ -178,9 +178,9 @@ Pode iniciar qualquer uma das aplicações disponíveis baseadas na nuvem a part
 
 Depois de chegar ao portal **My Apps,** pode:
 
-- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para mais informações, consulte [O Acesso e utilize coleções no portal My Apps](my-applications-portal-workspaces.md).
+- Organize as suas aplicações nas várias categorias criadas e fornecidas pela sua organização. Para mais informações, consulte [O Acesso e utilize coleções no portal My Apps](my-applications-portal-workspaces.md).
 
-- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para mais informações, consulte [Editar ou revogar permissões](my-applications-portal-permissions-saved-accounts.md)de aplicação no portal My Apps .
+- Rever, atualizar ou revogar as permissões concedidas aos pedidos. Para mais informações, consulte [Editar ou revogar permissões](my-applications-portal-permissions-saved-accounts.md)de aplicação no portal My Apps .
 
 >[!Note]
 >Se não vir nenhuma coleção ou categoria disponível, significa que o seu administrador não criou ou partilhou nenhuma com você. Contacte o Helpdesk da sua organização para obter assistência adicional ou permissões para ver coleções partilhadas.

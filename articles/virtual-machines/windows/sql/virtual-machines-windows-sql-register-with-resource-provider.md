@@ -15,11 +15,11 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201633"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388733"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registe uma máquina virtual SQL Server em Azure com o fornecedor de recursos SQL VM
 
@@ -35,14 +35,14 @@ A implementação de uma imagem Do SQL Server VM Azure Marketplace através do p
 
 - **Gestão simplificada da licença**: Registar-se com o fornecedor de recursos SQL VM simplifica a gestão da licença SQL Server e permite identificar rapidamente VMs do Servidor SQL com o Benefício Híbrido Azure habilitado através do [portal Azure,](virtual-machines-windows-sql-manage-portal.md)o Az CLI ou PowerShell: 
 
-   # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+   # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -106,14 +106,14 @@ Para registar o seu VM De Servidor SQL com o fornecedor de recursos SQL VM, tem 
 
 Registe o seu fornecedor de recursos SQL VM na sua subscrição Azure utilizando o Az CLI ou o PowerShell. 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -132,7 +132,7 @@ Forneça o tipo de licença SQL Server como pagamento -as-you-go (`PAYG`) para p
 
 Falhas de cluster As instâncias e as implementações em várias instâncias só podem ser registadas com o fornecedor de recursos SQL VM em modo leve. 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 Registe o VM do Servidor SQL em modo leve com o Az CLI: 
 
@@ -142,7 +142,7 @@ Registe o VM do Servidor SQL em modo leve com o Az CLI:
   ```
 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registe o VM do Servidor SQL em modo leve com a PowerShell:  
 
@@ -183,7 +183,7 @@ Especifique `AHUB`, `PAYG`, ou `DR` como o **sqlLicenseType,** e `SQL2008-WS2008
 Para registar a sua instância SQL Server 2008 ou 2008 R2 na instância Windows Server 2008, utilize o seguinte snippet de código Az CLI ou PowerShell: 
 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 Registe o seu VM SQL Server 2008 no modo NoAgent com o Az CLI: 
 
@@ -202,7 +202,7 @@ Registe o seu SQL Server 2008 R2 VM no modo NoAgent com o Az CLI:
    --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registe o SQL Server 2008 VM no modo NoAgent com powerShell: 
 
@@ -245,7 +245,7 @@ Para atualizar o modo de agente para o seu pleno:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá ao seu recurso de [máquinas virtuais SQL.](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 
 1. Selecione a sua máquina virtual SQL Server e selecione **visão geral**. 
 1. Para VMs de servidor SQL com o modo NoAgent ou leve IaaS, selecione as atualizações do tipo de licença only e edição estão disponíveis com a mensagem de **extensão SQL IaaS.**
@@ -258,7 +258,7 @@ Para atualizar o modo de agente para o seu pleno:
 
 ### <a name="command-line"></a>Linha de comandos
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 Executar o seguinte corte de código Az CLI:
 
@@ -267,7 +267,7 @@ Executar o seguinte corte de código Az CLI:
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Executar o seguinte corte de código PowerShell:
 
@@ -286,7 +286,7 @@ Pode verificar se o seu VM de Servidor SQL já foi registado no fornecedor de re
 
 ### <a name="azure-portal"></a>Portal do Azure 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Vá às suas [máquinas virtuais SQL Server](virtual-machines-windows-sql-manage-portal.md).
 1. Selecione o seu VM do Servidor SQL da lista. Se o seu VM de Servidor SQL não estiver listado aqui, provavelmente não foi registado no fornecedor de recursos SQL VM. 
 1. Ver o valor em **status**. Se o **Status** for **bem sucedido,** então o VM do Servidor SQL foi registado com sucesso no fornecedor de recursos SQL VM. 
@@ -297,14 +297,14 @@ Pode verificar se o seu VM de Servidor SQL já foi registado no fornecedor de re
 
 Verifique o estado de registo VM do Servidor SQL atual utilizando a Az CLI ou a PowerShell. `ProvisioningState` mostrará `Succeeded` se o registo tiver sido bem sucedido. 
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="az-cli"></a>[AZ CLI](#tab/bash)
 
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -345,7 +345,7 @@ Para não registar o seu VM do Servidor SQL com o fornecedor de recursos que uti
 
 ### <a name="command-line"></a>Linha de comandos
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Para desregistar a sua máquina virtual SQL Server do fornecedor de recursos com o Azure CLI, utilize o comando [az sql vm eliminar.](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) Isto removerá o *recurso* virtual da máquina Do SQL Server, mas não eliminará a máquina virtual. 
 
 
@@ -356,7 +356,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para desregistar a sua máquina virtual SQL Server do fornecedor de recursos com o Azure CLI, utilize o comando [New-AzSqlVM.](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) Isto removerá o *recurso* virtual da máquina Do SQL Server, mas não eliminará a máquina virtual. 
 
 ```powershell-interactive
@@ -440,11 +440,11 @@ Não. O registo com o fornecedor de recursos SQL VM não está disponível no po
 
 **Posso registar um VM com o fornecedor de recursos SQL VM antes da instalação do Servidor SQL?**
 
-Não. Uma VM deve ter pelo menos uma instância de SQL Server (Mecanismo de Banco de Dados) para registrar com êxito com o provedor de recursos de VM do SQL. Se não houver uma instância do SQL Server no VM, o novo recurso Microsoft.SqlVirtualMachine estará em estado falhado.
+Não. Um VM deve ter pelo menos uma instância de SQL Server (Database Engine) para se registar com sucesso com o fornecedor de recursos SQL VM. Se não houver uma instância do SQL Server no VM, o novo recurso Microsoft.SqlVirtualMachine estará em estado falhado.
 
 **Posso registar um VM com o fornecedor de recursos SQL VM se houver várias instâncias do Servidor SQL?**
 
-Sim. O provedor de recursos da VM do SQL registrará apenas uma instância do SQL Server (Mecanismo de Banco de Dados). O fornecedor de recursos SQL VM registará a instância padrão do Servidor SQL no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão total, ou a instância padrão do Servidor SQL deve existir ou o VM deve ter apenas uma chamada instância de Servidor SQL.
+Sim. O fornecedor de recursos SQL VM registará apenas uma instância do SQL Server (Database Engine). O fornecedor de recursos SQL VM registará a instância padrão do Servidor SQL no caso de múltiplas instâncias. Se não houver uma instância predefinida, apenas é suportado o registo em modo leve. Para atualizar do modo de gestão leve para o modo de gestão total, ou a instância padrão do Servidor SQL deve existir ou o VM deve ter apenas uma chamada instância de Servidor SQL.
 
 **Posso registar uma instância de cluster sQL Server failover com o fornecedor de recursos SQL VM?**
 

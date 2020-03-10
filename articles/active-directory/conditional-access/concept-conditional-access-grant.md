@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d3f18fb11dc54f560d867e2b5ff87251e2c836
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
-ms.translationtype: MT
+ms.openlocfilehash: 09a720be10b09e11adc8acdc8ab26a06870311b0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249110"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893126"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
 
@@ -35,7 +35,7 @@ O bloco é um controlo poderoso que deve ser controlado com conhecimento apropri
 Os administradores podem optar por impor um ou mais controlos ao conceder acesso. Estes controlos incluem as seguintes opções: 
 
 - [Exigir autenticação multi-factor (autenticação azure multi-factor)](../authentication/concept-mfa-howitworks.md)
-- [Exigir que o dispositivo seja marcado como conforme (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [Exigir que o dispositivo seja marcado como conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Requerer dispositivo híbrido Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Exigir aplicação de cliente aprovada](app-based-conditional-access.md)
 - [Exigir política de proteção de aplicativos](app-protection-based-conditional-access.md)
@@ -53,7 +53,7 @@ A seleção desta caixa de verificação exigirá que os utilizadores realizem a
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exigir que o dispositivo seja marcado como conforme
 
-As organizações que implementaram o Microsoft Intune podem utilizar as informações devolvidas dos seus dispositivos para identificar dispositivos que satisfaçam os requisitos específicos de conformidade. Esta informação de conformidade política é transmitida de Intune para AD Azure, onde o Acesso Condicional pode tomar decisões para conceder ou bloquear o acesso aos recursos. Para obter mais informações sobre as políticas de conformidade, consulte o artigo [Definir regras sobre dispositivos para permitir o acesso aos recursos na sua organização usando o Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
+As organizações que implementaram o Microsoft Intune podem utilizar as informações devolvidas dos seus dispositivos para identificar dispositivos que satisfaçam os requisitos específicos de conformidade. Esta informação de conformidade política é transmitida de Intune para AD Azure, onde o Acesso Condicional pode tomar decisões para conceder ou bloquear o acesso aos recursos. Para obter mais informações sobre as políticas de conformidade, consulte o artigo [Definir regras sobre dispositivos para permitir o acesso aos recursos na sua organização usando o Intune](/intune/protect/device-compliance-get-started).
 
 Um dispositivo pode ser marcado como conforme por Intune (para qualquer dispositivo OS) ou por um sistema DEM de terceiros para dispositivos Windows 10. O Jamf Pro é o único sistema MDM suportado por terceiros. Mais informações sobre integração podem ser encontradas no artigo, [Integrao Jamf Pro com Intune para o cumprimento.](/intune/protect/conditional-access-integrate-jamf)
 
@@ -67,7 +67,35 @@ As organizações podem optar por utilizar a identidade do dispositivo como part
 
 As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas seja feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
-As aplicações suportadas podem ser encontradas no artigo, [aplicações protegidas microsoft Intune](/intune/apps/apps-supported-intune-apps).
+Esta definição aplica-se às seguintes aplicações de clientes:
+
+- Proteção de Informação do Microsoft Azure
+- Reservas da Microsoft
+- Microsoft Cortana
+- Microsoft Dynamics 365
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Flow
+- Navegador Gerido Intune microsoft
+- Faturação da Microsoft
+- Microsoft Kaizala
+- Microsoft Launcher
+- Microsoft OneDrive
+- Microsoft OneNote
+- Microsoft Outlook
+- Microsoft Planner
+- Microsoft PowerApps
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Skype para negócios
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams
+- Microsoft To-Do
+- Microsoft Visio
+- Microsoft Word
+- Microsoft Yammer
 
 **Observações**
 
@@ -76,17 +104,26 @@ As aplicações suportadas podem ser encontradas no artigo, [aplicações proteg
    - Apenas suporta o iOS e Android para o estado da plataforma do dispositivo.
 - O Acesso Condicional não pode considerar o Microsoft Edge no modo InPrivate uma aplicação de cliente aprovada.
 
+Consulte o artigo, [Como: Exigir aplicações de clientes aprovadas para acesso](app-based-conditional-access.md) a aplicações na nuvem com Acesso Condicional para exemplos de configuração.
+
 ### <a name="require-app-protection-policy"></a>Pedir uma política de proteção de aplicações
 
 Na sua política de Acesso Condicional, pode exigir que esteja presente uma política de proteção de [aplicações Intune](/intune/app-protection-policy) na aplicação do cliente antes de o acesso estar disponível para as aplicações na nuvem selecionadas. 
 
-As aplicações suportadas podem ser encontradas no artigo, [aplicações protegidas microsoft Intune](/intune/apps/apps-supported-intune-apps).
+Esta definição aplica-se às seguintes aplicações de clientes:
+
+- Microsoft Cortana
+- Microsoft OneDrive
+- Microsoft Outlook
+- Microsoft Planner
 
 **Observações**
 
 - Aplicativos para política de proteção de aplicações suportam a funcionalidade de gestão de aplicações móveis Intune com proteção de políticas.
 - Os requisitos da política de **proteção de aplicações Exigem:**
     - Apenas suporta o iOS e Android para o estado da plataforma do dispositivo.
+
+Consulte o artigo, Como: Exigir a política de [proteção de aplicações e uma aplicação de cliente aprovada para acesso](app-protection-based-conditional-access.md) a aplicações na nuvem com Acesso Condicional para exemplos de configuração.
 
 ### <a name="terms-of-use"></a>Termos de utilização
 

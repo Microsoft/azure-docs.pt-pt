@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190976"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379707"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como utilizar a Pesquisa Cognitiva Azure a partir de uma aplicação .NET
 

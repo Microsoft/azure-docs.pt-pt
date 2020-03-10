@@ -4,11 +4,11 @@ description: As definições de Política Azure têm vários efeitos que determi
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544135"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356371"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
 
@@ -95,7 +95,7 @@ Exemplo 2: Um único **campo/par** de valor utilizando um [pseudónimo](definiti
 }
 ```
 
-## <a name="modify"></a>Modificar
+## <a name="modify"></a>modificar
 
 Modificar é usado para adicionar, atualizar ou remover etiquetas num recurso durante a criação ou atualização. Um exemplo comum é atualizar tags em recursos como costCenter. Uma política de modificação deve sempre ter `mode` definida para _Indexada,_ a menos que o recurso-alvo seja um grupo de recursos. Os recursos não conformes existentes podem ser remediados com uma tarefa de [reparação.](../how-to/remediate-resources.md) Uma única regra de Modificação pode ter qualquer número de operações.
 

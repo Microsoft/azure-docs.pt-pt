@@ -1,66 +1,66 @@
 ---
 title: Simular falhas nos microserviços do Azure
-description: Este artigo fala sobre as ações de possibilidade de teste encontradas em Microsoft Azure Service Fabric.
+description: Este artigo fala sobre as ações de testability encontradas no Microsoft Azure Service Fabric.
 author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465581"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394439"
 ---
-# <a name="testability-actions"></a>Ações de possibilidade de teste
-Para simular uma infraestrutura não confiável, o Azure Service Fabric fornece a você, o desenvolvedor, maneiras de simular várias falhas do mundo real e transições de estado. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível inferior que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode escrever cenários de teste abrangentes para seus serviços.
+# <a name="testability-actions"></a>Ações de testabilidade
+Para simular uma infraestrutura pouco fiável, o Azure Service Fabric fornece-lhe, o desenvolvedor, formas de simular várias falhas no mundo real e transições estatais. Estes são expostos como ações de testabilidade. As ações são as APIs de baixo nível que causam uma injeção específica de falhas, transição do Estado ou validação. Ao combinar estas ações, pode escrever cenários de teste abrangentes para os seus serviços.
 
-Service Fabric fornece alguns cenários de teste comuns compostos por essas ações. É altamente recomendável que você utilize esses cenários internos, que são cuidadosamente escolhidos para testar transições de Estado comum e casos de falha. No entanto, as ações podem ser usadas para criar cenários de teste personalizados quando você quiser adicionar cobertura para cenários que ainda não são cobertos pelos cenários internos ou personalizados adaptados para seu aplicativo.
+O Service Fabric fornece alguns cenários comuns de teste compostos por estas ações. Recomendamos vivamente que utilize estes cenários incorporados, que são cuidadosamente escolhidos para testar transições de estado comum e casos de falha. No entanto, as ações podem ser usadas para criar cenários de teste personalizados quando você quer adicionar cobertura para cenários que ainda não estão cobertos pelos cenários incorporados ou que são personalizados para a sua aplicação.
 
-C#as implementações das ações são encontradas no assembly System. Fabric. dll. O módulo System Fabric PowerShell é encontrado no assembly Microsoft. Microsoft. Microsoft. PowerShell. dll. Como parte da instalação do tempo de execução, o módulo do PowerShell do infabric é instalado para permitir a facilidade de uso.
+C#as implementações das ações encontram-se no conjunto System.Fabric.dll. O módulo PowerShell do tecido do sistema encontra-se no conjunto Microsoft.ServiceFabric.Powershell.dll. Como parte da instalação do tempo de funcionamento, o módulo ServiceFabric PowerShell está instalado para permitir uma facilidade de utilização.
 
-## <a name="graceful-vs-ungraceful-fault-actions"></a>Ações de falha normais versus não de carência
-As ações de possibilidade de teste são classificadas em dois buckets principais:
+## <a name="graceful-vs-ungraceful-fault-actions"></a>Graciosa vs. ações de culpa graciosas
+As ações de testabilidade são classificadas em dois grandes baldes:
 
-* Falhas de não-cortesia: essas falhas simulam falhas, como reinicializações de máquina e falhas de processo. Nesses casos de falhas, o contexto de execução do processo é interrompido abruptamente. Isso significa que nenhuma limpeza do estado pode ser executada antes de o aplicativo ser iniciado novamente.
-* Falhas normais: essas falhas simulam ações normais, como movimentações e quedas de réplica disparadas pelo balanceamento de carga. Nesses casos, o serviço recebe uma notificação do fechamento e pode limpar o estado antes de sair.
+* Falhas ingraciosas: Estas falhas simulam falhas como o reinício da máquina e as falhas de processo. Nestes casos de falhas, o contexto de execução do processo para abruptamente. Isto significa que nenhuma limpeza do Estado pode ser executada antes que a aplicação recomece.
+* Falhas graciosas: Estas falhas simulam ações graciosas como movimentos de réplica e gotas desencadeadas pelo equilíbrio de carga. Nesses casos, o serviço recebe uma notificação do encerramento e pode limpar o estado antes de sair.
 
-Para obter uma melhor validação de qualidade, execute a carga de trabalho de serviço e de negócios enquanto induzir várias falhas normais e não de carência. Falhas inesperadas do exercício situações em que o processo de serviço é encerrado abruptamente no meio de algum fluxo de trabalho. Isso testará o caminho de recuperação depois que a réplica de serviço for restaurada por Service Fabric. Isso ajudará a testar a consistência dos dados e se o estado do serviço será mantido corretamente após falhas. O outro conjunto de falhas (as falhas normais) testa se o serviço reage corretamente às réplicas que estão sendo movidas por Service Fabric. Isso testa o tratamento de cancelamento no método RunAsync. O serviço precisa verificar se o token de cancelamento está sendo definido, salvar corretamente seu estado e sair do método RunAsync.
+Para uma melhor validação de qualidade, gere a carga de trabalho de serviço e de negócio, ao mesmo tempo que induz várias falhas graciosas e enão graciosas. Falhas ingraciosas exercitam cenários onde o processo de serviço sai abruptamente no meio de algum fluxo de trabalho. Isto testa o caminho de recuperação assim que a réplica do serviço é restaurada pela Service Fabric. Isto ajudará a testar a consistência dos dados e se o estado de serviço é mantido corretamente após falhas. O outro conjunto de falhas (as falhas graciosas) testa que o serviço reage corretamente a réplicas que estão a ser movidas pela Service Fabric. Isto testa o tratamento do cancelamento no método RunAsync. O serviço precisa verificar se o token de cancelamento está a ser definido, salvar corretamente o seu estado e sair do método RunAsync.
 
-## <a name="testability-actions-list"></a>Lista de ações de possibilidade de teste
-| Ação | Descrição | API gerenciada | Cmdlet do PowerShell | Falhas normais/não de carência |
+## <a name="testability-actions-list"></a>Lista de ações de testabilidade
+| Ação | Descrição | API gerido | PowerShell cmdlet | Falhas graciosas/ingraciosas |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Remove todo o estado do teste do cluster em caso de um desligamento inadequado do driver de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
-| InvokeDataLoss |Induzi a perda de dados em uma partição de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Pertinente |
-| InvokeQuorumLoss |Coloca uma determinada partição de serviço com estado na perda de quorum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Pertinente |
-| MovePrimary |Move a réplica primária especificada de um serviço com estado para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Pertinente |
-| MoveSecondary |Move a réplica secundária atual de um serviço com estado para um nó de cluster diferente. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Pertinente |
-| RemoveReplica |Simula uma falha de réplica removendo uma réplica de um cluster. Isso fechará a réplica e a passará para a função ' none ', removendo todo o seu estado do cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Pertinente |
-| RestartDeployedCodePackage |Simula uma falha de processo de pacote de códigos reiniciando um pacote de códigos implantado em um nó em um cluster. Isso anula o processo do pacote de códigos, que reiniciará todas as réplicas de serviço do usuário hospedadas nesse processo. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Anormais |
-| RestartNode |Simula uma falha de nó de Cluster Service Fabric reiniciando um nó. |RestartNodeAsync |Restart-ServiceFabricNode |Anormais |
-| RestartPartition |Simula um cenário de blecaute de Datacenter ou de indisponibilidade de cluster reiniciando algumas ou todas as réplicas de uma partição. |RestartPartitionAsync |Restart-ServiceFabricPartition |Pertinente |
-| RestartReplica |Simula uma falha de réplica reiniciando uma réplica persistente em um cluster, fechando a réplica e, em seguida, reabrindo-a. |RestartReplicaAsync |Restart-ServiceFabricReplica |Pertinente |
-| StartNode |Inicia um nó em um cluster que já está parado. |StartNodeAsync |Start-ServiceFabricNode |Não aplicável |
-| StopNode |Simula uma falha de nó interrompendo um nó em um cluster. O nó ficará inoperante até que o StartNode seja chamado. |StopNodeAsync |Stop-ServiceFabricNode |Anormais |
-| ValidateApplication |Valida a disponibilidade e a integridade de todos os serviços de Service Fabric em um aplicativo, geralmente depois de induzir alguma falha no sistema. |ValidateApplicationAsync |Test-ServiceFabricApplication |Não aplicável |
-| ValidateService |Valida a disponibilidade e a integridade de um serviço de Service Fabric, geralmente depois de induzir alguma falha no sistema. |ValidateServiceAsync |Test-ServiceFabricService |Não aplicável |
+| CleantestState |Remove todo o estado de ensaio do cluster em caso de paragem do condutor de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
+| InvokeDataLoss |Induz a perda de dados numa divisória de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Gracioso |
+| InvokeQuorumLoss |Coloca uma partição de serviço imponente em perda de quórum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Gracioso |
+| MovePrimary |Move a réplica primária especificada de um serviço de estado para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Gracioso |
+| MoveSecondary |Move a réplica secundária atual de um serviço imponente para um nó de cluster diferente. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Gracioso |
+| RemoveReplica |Simula uma falha de réplica removendo uma réplica de um cluster. Isto fechará a réplica e a transirá para o papel "Nenhum", retirando todo o seu estado do cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Gracioso |
+| RestartDeployedCodePackage |Simula uma falha de processo de pacote de código reiniciando um pacote de código implantado num nó num cluster. Isto aborta o processo do pacote de código, que reiniciará todas as réplicas do serviço de utilizador alojadas nesse processo. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Ingracioso |
+| Reinício Do nono |Simula uma falha do nó de cluster de tecido de serviço reiniciando um nó. |RestartNodeAsync |Restart-ServiceFabricNode |Ingracioso |
+| Reiniciar A Partição |Simula um apagão de datacenter ou um apagão de cluster reiniciando algumas ou todas as réplicas de uma divisória. |RestartPartitionAsync |Restart-ServiceFabricPartition |Gracioso |
+| RestartReplica |Simula uma falha de réplica reiniciando uma réplica persistiu num cluster, fechando a réplica e reabrindo-a. |RestartReplicaAsync |Restart-ServiceFabricReplica |Gracioso |
+| Início Nóde |Começa um nó num aglomerado que já está parado. |StartNodeAsync |Start-ServiceFabricNode |Não aplicável |
+| StopNode |Simula uma falha no nó, parando um nó num aglomerado. O nó vai ficar para baixo até que o StartNode seja chamado. |StopNodeAsync |Stop-ServiceFabricNode |Ingracioso |
+| ValidateApplication |Valida a disponibilidade e saúde de todos os serviços de Tecido de Serviço dentro de uma aplicação, geralmente depois de induzir alguma falha no sistema. |ValidateApplicationAsync |Test-ServiceFabricApplication |Não aplicável |
+| ValidateService |Valida a disponibilidade e a saúde de um serviço de Tecido de Serviço, geralmente depois de induzir alguma falha no sistema. |ValidateServiceAsync |Test-ServiceFabricService |Não aplicável |
 
-## <a name="running-a-testability-action-using-powershell"></a>Executando uma ação de possibilidade de teste usando o PowerShell
-Este tutorial mostra como executar uma ação de possibilidade de teste usando o PowerShell. Você aprenderá a executar uma ação de possibilidade de teste em um cluster local (uma caixa) ou em um cluster do Azure. Microsoft. Fabric. PowerShell. dll--o módulo Service Fabric PowerShell – é instalado automaticamente quando você instala o MSI do Microsoft Service Fabric. O módulo é carregado automaticamente quando você abre um prompt do PowerShell.
+## <a name="running-a-testability-action-using-powershell"></a>Executando uma ação de testability usando PowerShell
+Este tutorial mostra-lhe como executar uma ação de testability utilizando o PowerShell. Você aprenderá a executar uma ação de testability contra um cluster local (uma caixa) ou um cluster Azure. Microsoft.Fabric.Powershell.dll -- o módulo PowerShell de tecido de serviço -- é instalado automaticamente quando instala o Microsoft Service Fabric MSI. O módulo é carregado automaticamente quando abre um pedido PowerShell.
 
-Segmentos do tutorial:
+Segmentos tutoriais:
 
-* [Executar uma ação em um cluster de uma caixa](#run-an-action-against-a-one-box-cluster)
-* [Executar uma ação em um cluster do Azure](#run-an-action-against-an-azure-cluster)
+* [Execute uma ação contra um aglomerado de uma caixa](#run-an-action-against-a-one-box-cluster)
+* [Execute uma ação contra um cluster Azure](#run-an-action-against-an-azure-cluster)
 
-### <a name="run-an-action-against-a-one-box-cluster"></a>Executar uma ação em um cluster de uma caixa
-Para executar uma ação de possibilidade de teste em um cluster local, primeiro conecte-se ao cluster e abra o prompt do PowerShell no modo de administrador. Vamos examinar a ação **Restart-ServiceFabricNode** .
+### <a name="run-an-action-against-a-one-box-cluster"></a>Execute uma ação contra um aglomerado de uma caixa
+Para executar uma ação de testabilidade contra um cluster local, ligue-se primeiro ao cluster e abra o pedido powerShell no modo de administrador. Vejamos a ação **Restart-ServiceFabricNode.**
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Aqui, a ação **Restart-ServiceFabricNode** está sendo executada em um nó chamado "Node1". O modo de conclusão especifica que ele não deve verificar se a ação Restart-node foi realmente bem-sucedida. A especificação do modo de conclusão como "Verify" fará com que ele verifique se a ação de reinicialização realmente teve êxito. Em vez de especificar diretamente o nó por seu nome, você pode especificá-lo por meio de uma chave de partição e o tipo de réplica, da seguinte maneira:
+Aqui a ação **Restart-ServiceFabricNode** está a ser executada num nó chamado "Nó1". O modo de conclusão especifica que não deve verificar se a ação do nó de reinício realmente conseguiu. Especificar o modo de conclusão como "Verificar" fará com que verifique se a ação de reinício realmente foi bem sucedida. Em vez de especificar diretamente o nó pelo seu nome, pode especificá-lo através de uma chave de partição e do tipo de réplica, da seguinte forma:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -75,20 +75,20 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Restart-ServiceFabricNode** deve ser usado para reiniciar um nó de Service Fabric em um cluster. Isso interromperá o processo Fabric. exe, que reiniciará todas as réplicas do serviço do sistema e do serviço de usuário hospedadas nesse nó. Usar essa API para testar seu serviço ajuda a descobrir bugs nos caminhos de recuperação de failover. Ele ajuda a simular falhas de nó no cluster.
+**Reiniciar o serviçoFabricNode** deve ser utilizado para reiniciar um nó de tecido de serviço num cluster. Isto irá parar o processo Fabric.exe, que reiniciará todo o serviço de sistema e réplicas de serviço de utilizador alojadas nesse nó. A utilização desta API para testar o seu serviço ajuda a descobrir bugs ao longo dos caminhos de recuperação de failover. Ajuda a simular falhas no nó no cluster.
 
-A captura de tela a seguir mostra o comando **Restart-ServiceFabricNode** de teste em ação.
+A imagem seguinte mostra o comando de testabilidade **Restart-ServiceFabricNode** em ação.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-A saída do primeiro **Get-ServiceFabricNode** (um cmdlet do módulo Service Fabric PowerShell) mostra que o cluster local tem cinco nós: node. 1 para node. 5. Depois que a ação de possibilidade de teste (cmdlet) **Restart-ServiceFabricNode** for executada no nó, chamado node. 4, vemos que o tempo de atividade do nó foi redefinido.
+A saída do primeiro **Get-ServiceFabricNode** (um cmdlet do módulo PowerShell de tecido de serviço) mostra que o cluster local tem cinco nós: Nó.1 a Nó.5. Após a ação de testabilidade (cmdlet) **Reiniciar o ServiçoFabricNode** é executado no nó, chamado Node.4, vemos que o tempo de uptime do nó foi reposto.
 
-### <a name="run-an-action-against-an-azure-cluster"></a>Executar uma ação em um cluster do Azure
-A execução de uma ação de possibilidade de teste (usando o PowerShell) em um cluster do Azure é semelhante à execução da ação em um cluster local. A única diferença é que, antes de executar a ação, em vez de conectar-se ao cluster local, você precisa se conectar ao cluster do Azure primeiro.
+### <a name="run-an-action-against-an-azure-cluster"></a>Execute uma ação contra um cluster Azure
+Executar uma ação de testabilidade (utilizando powerShell) contra um cluster Azure é semelhante a executar a ação contra um cluster local. A única diferença é que antes de poder executar a ação, em vez de se ligar ao cluster local, precisa de se ligar primeiro ao cluster Azure.
 
-## <a name="running-a-testability-action-using-c35"></a>Executando uma ação de possibilidade de teste usando C&#35;
-Para executar uma ação de possibilidade de teste C#usando o, primeiro você precisa se conectar ao cluster usando o FabricClient. Em seguida, obtenha os parâmetros necessários para executar a ação. Parâmetros diferentes podem ser usados para executar a mesma ação.
-Observando a ação RestartServiceFabricNode, uma maneira de executá-la é usando as informações de nó (nome do nó e ID da instância do nó) no cluster.
+## <a name="running-a-testability-action-using-c35"></a>Executar uma ação de testability usando C&#35;
+Para executar uma ação C#de testability utilizando, primeiro precisa de se ligar ao cluster utilizando o FabricClient. Em seguida, obtenha os parâmetros necessários para executar a ação. Diferentes parâmetros podem ser usados para executar a mesma ação.
+Olhando para a ação RestartServiceFabricNode, uma maneira de executá-lo é usando a informação do nó (nome do nó e id da instância do nó) no cluster.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
@@ -96,13 +96,13 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Explicação do parâmetro:
 
-* **Completemode** especifica que o modo não deve verificar se a ação de reinicialização realmente foi bem-sucedida. A especificação do modo de conclusão como "Verify" fará com que ele verifique se a ação de reinicialização realmente teve êxito.  
-* **OperationTimeout** define a quantidade de tempo para a operação ser concluída antes que uma exceção TimeoutException seja lançada.
-* **CancellationToken** permite que uma chamada pendente seja cancelada.
+* **CompleteMode** especifica que o modo não deve verificar se a ação de reinício realmente foi bem sucedida. Especificar o modo de conclusão como "Verificar" fará com que verifique se a ação de reinício realmente foi bem sucedida.  
+* **Operação O tempo** de tempo definido para a operação terminar antes de ser lançada uma exceção timeoutException.
+* **CancelamentoToken** permite que uma chamada pendente seja cancelada.
 
-Em vez de especificar diretamente o nó por seu nome, você pode especificá-lo por meio de uma chave de partição e o tipo de réplica.
+Em vez de especificar diretamente o nó pelo seu nome, pode especificá-lo através de uma chave de partição e do tipo de réplica.
 
-Para obter mais informações, consulte PartitionSelector e ReplicaSelector.
+Para mais informações, consulte PartitionSelector e ReplicaSelector.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll
@@ -170,11 +170,11 @@ class Test
 }
 ```
 
-## <a name="partitionselector-and-replicaselector"></a>PartitionSelector e ReplicaSelector
+## <a name="partitionselector-and-replicaselector"></a>Seletor de divisórias e replicaselector
 ### <a name="partitionselector"></a>PartitionSelector
-PartitionSelector é um auxiliar exposto na capacidade de teste e é usado para selecionar uma partição específica na qual executar qualquer uma das ações de possibilidade de teste. Ele pode ser usado para selecionar uma partição específica se a ID da partição for conhecida com antecedência. Ou você pode fornecer a chave de partição e a operação resolverá a ID da partição internamente. Você também tem a opção de selecionar uma partição aleatória.
+PartitionSelector é um ajudante exposto na testability e é usado para selecionar uma divisória específica para executar qualquer uma das ações de testability. Pode ser usado para selecionar uma divisória específica se o ID da partição for conhecido previamente. Ou, pode fornecer a chave de partição e a operação resolverá internamente o ID da partilha. Também tem a opção de selecionar uma partição aleatória.
 
-Para usar esse auxiliar, crie o objeto PartitionSelector e selecione a partição usando um dos métodos Select *. Em seguida, passe o objeto PartitionSelector para a API que o exige. Se nenhuma opção for selecionada, o padrão será uma partição aleatória.
+Para utilizar este ajudante, crie o objeto PartitionSelector e selecione a partição utilizando um dos métodos Select* . Em seguida, passe o objeto PartitionSelector para a API que o exija. Se não for selecionada nenhuma opção, não se aplica a uma divisória aleatória.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -196,9 +196,9 @@ PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf
 ```
 
 ### <a name="replicaselector"></a>ReplicaSelector
-ReplicaSelector é um auxiliar exposto na capacidade de teste e é usado para ajudar a selecionar uma réplica na qual executar qualquer uma das ações de possibilidade de teste. Ele pode ser usado para selecionar uma réplica específica se a ID da réplica for conhecida com antecedência. Além disso, você tem a opção de selecionar uma réplica primária ou uma secundária aleatória. ReplicaSelector deriva de PartitionSelector, portanto, você precisa selecionar a réplica e a partição na qual deseja executar a operação de possibilidade de teste.
+O ReplicaSelector é um ajudante exposto na testabilidade e é utilizado para ajudar a selecionar uma réplica para executar qualquer uma das ações de testabilidade. Pode ser usado para selecionar uma réplica específica se o ID da réplica for conhecido previamente. Além disso, tem a opção de selecionar uma réplica primária ou uma secundária aleatória. O ReplicaSelector deriva do PartitionSelector, por isso tem de selecionar tanto a réplica como a divisória na qual deseja realizar a operação de testability.
 
-Para usar esse auxiliar, crie um objeto ReplicaSelector e defina como deseja selecionar a réplica e a partição. Em seguida, você pode passá-lo para a API que o exige. Se nenhuma opção for selecionada, o padrão será uma réplica aleatória e uma partição aleatória.
+Para utilizar este ajudante, crie um objeto ReplicaSelector e detetete a forma como pretende selecionar a réplica e a partição. Pode então passá-lo para a API que o exige. Se não for selecionada nenhuma opção, não se aplica a uma réplica aleatória e a uma partição aleatória.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -219,8 +219,8 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Cenários de possibilidade de teste](service-fabric-testability-scenarios.md)
-* Como testar seu serviço
-  * [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)
-  * [Falhas de comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md)
+* [Cenários de testabilidade](service-fabric-testability-scenarios.md)
+* Como testar o seu serviço
+  * [Simular falhas durante as cargas de trabalho do serviço](service-fabric-testability-workload-tests.md)
+  * [Falhas de comunicação serviço-serviço](service-fabric-testability-scenarios-service-communication.md)
 

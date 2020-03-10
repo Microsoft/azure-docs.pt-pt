@@ -1,55 +1,55 @@
 ---
-title: Migrar VMs VMware com migração de servidor de migrações do Azure baseada em agente
-description: Saiba como executar uma migração baseada em agente de VMs VMware com migrações para Azure.
+title: VMs migratórios vMware com migração de servidores de migração azure baseado seleções
+description: Aprenda a executar uma migração baseada em agentes de VMware VMs com Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057282"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945518"
 ---
-# <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs do VMware para o Azure (baseado em agente)
+# <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMs migratórios para Azure (baseado em agente)
 
-Este artigo mostra como migrar VMs VMware locais para o Azure, usando a migração baseada em agente com a ferramenta de migração de servidor migrações para Azure.
+Este artigo mostra-lhe como migrar vMs no local para Azure, utilizando a migração baseada em agentes com a ferramenta migração do servidor de migração do servidor migratório Azure Migrate.
 
-[A Azure Migrate](migrate-services-overview.md) fornece um centro central para acompanhar a descoberta, avaliação e migração das suas aplicações e cargas de trabalho no local, e instâncias de VM AWS/GCP, para o Azure. O Hub fornece ferramentas de migração do Azure para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros.
+[A Azure Migrate](migrate-services-overview.md) fornece um centro central para acompanhar a descoberta, avaliação e migração das suas aplicações e cargas de trabalho no local, e instâncias de VM AWS/GCP, para o Azure. O hub fornece ferramentas azure migrate para avaliação e migração, bem como ofertas de fornecedores de software independentes de terceiros (ISV).
 
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Configure o ambiente de origem e implante um dispositivo de replicação de migração do Azure para a migração baseada em agente.
-> * Configure o ambiente de destino para a migração.
+> * Instale o ambiente de origem e implante um aparelho de replicação Azure Migrate para migração baseada em agentes.
+> * Criar o ambiente-alvo para a migração.
 > * Configure uma política de replicação.
 > * Ative a replicação.
-> * Execute uma migração de teste para verificar se tudo está funcionando conforme o esperado.
-> * Execute uma migração completa para o Azure.
+> * Faça uma migração de teste para ter certeza de que está tudo funcionando como esperado.
+> * Fazer uma migração completa para Azure.
 
 > [!NOTE]
-> Os tutoriais mostram o caminho de implantação mais simples para um cenário, para que você possa configurar rapidamente uma prova de conceito. Os tutoriais usam as opções padrão sempre que possível e não mostram todas as configurações e caminhos possíveis. Para obter instruções detalhadas, consulte o How-tos para avaliação e migração do VMware.
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa rapidamente configurar uma prova de conceito. Os tutoriais usam opções padrão sempre que possível, e não mostram todas as configurações e caminhos possíveis. Para obter instruções detalhadas, reveja os How-tos para avaliação e migração de VMware.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Recomendamos que você experimente a avaliação de VM VMware com a avaliação de servidor de migrações para Azure, antes de migrar as VMs para o Azure. Configure uma avaliação da seguinte maneira:
+Recomendamos que experimente a avaliação vMware VM com a Avaliação do Servidor Migratório Azure, antes de migrar VMs para O Azure. Configurar uma avaliação da seguinte forma:
 
 1. Siga o tutorial para [preparar Azure e VMware](tutorial-prepare-vmware.md) para avaliação.
 2. Em seguida, siga [este tutorial](tutorial-assess-vmware.md) para configurar um aparelho Azure Migrate para avaliação, e descubra e avalie vMs.
 
 
-Embora seja recomendável experimentar uma avaliação, você não precisa executar uma avaliação antes de migrar as VMs.
+Embora recomendemos que experimente uma avaliação, não precisa fazer uma avaliação antes de migrar VMs.
 
 ## <a name="migration-methods"></a>Métodos de migração
 
-Você pode migrar VMs do VMware para o Azure usando a ferramenta de migração de servidor de migrações para Azure. Essa ferramenta oferece algumas opções para a migração de VM do VMware:
+Pode migrar VMware VMs para Azure utilizando a ferramenta migração do servidor de migração do servidor migratório Azure Migrate. Esta ferramenta oferece um par de opções para a migração VMware VM:
 
-- Replicação sem agente. Migre VMs sem a necessidade de instalar nada nelas.
-- Migração baseada em agente. ou replicação. Instale um agente (o agente de serviços de mobilidade) na VM para replicação.
+- Réplica sem agente. Migrar VMs sem precisar de instalar nada neles.
+- Migração baseada em agente. ou replicação. Instale um agente (o agente de serviços de mobilidade) no VM para replicação.
 
-Para decidir se deseja usar a migração baseada em agente ou sem agente, leia estes artigos:
+Para decidir se pretende utilizar migração sem agentes ou baseada em agentes, reveja estes artigos:
 
 - [Conheça](server-migrate-overview.md) as opções de migração VMware.
 - [Compare os métodos de migração.](server-migrate-overview.md#compare-migration-methods)
@@ -62,24 +62,24 @@ Para decidir se deseja usar a migração baseada em agente ou sem agente, leia e
 Antes de começar este tutorial, tem de:
 
 1. [Reveja](migrate-architecture.md) a arquitetura de migração VMware.
-2. Verifique se sua conta do Azure é atribuída à função colaborador da máquina virtual, para que você tenha permissões para:
+2. Certifique-se de que a sua conta Azure é atribuída a função de Colaborador de Máquina Virtual, para que tenha permissões para:
 
     - Criar uma VM no grupo de recursos selecionado.
     - Criar uma VM na rede virtual selecionada.
-    - Gravar em um disco gerenciado do Azure. 
+    - Escreva para um disco gerido pelo Azure. 
 
-3. [Criar uma rede Azure.](../virtual-network/manage-virtual-network.md#create-a-virtual-network) Os computadores locais são replicados para o Azure Managed disks. Quando você faz failover para o Azure para migração, as VMs do Azure são criadas a partir desses discos gerenciados e ingressadas em uma rede do Azure que você especifica ao configurar a migração.
+3. [Criar uma rede Azure.](../virtual-network/manage-virtual-network.md#create-a-virtual-network) As máquinas no local são replicadas para discos geridos pelo Azure. Quando falha o Azure para migração, os VMs Azure são criados a partir destes discos geridos, e juntou-se a uma rede Azure que especifica quando configura a migração.
 
 
 ## <a name="prepare-azure"></a>Preparar o Azure
 
-Se você já tiver executado uma avaliação com a avaliação do servidor de migrações para Azure, poderá ignorar as instruções nesta seção, pois você já concluiu essas etapas. 
+Se já fez uma avaliação com a Avaliação do Servidor Migratório Azure, pode ignorar as instruções nesta secção, uma vez que já concluiu estes passos. 
 
-Se você não tiver executado uma avaliação, precisará configurar as permissões do Azure antes de migrar com a migração de servidor de migrações para Azure.
+Se ainda não fez uma avaliação, precisa de configurar permissões Azure antes de poder migrar com a Migração do Servidor Migratório Migratório Azure Migrate.
 
 - **Crie um projeto**: A sua conta Azure precisa de permissões para criar um projeto Azure Migrate. 
-- **Registe o aparelho de replicação Azure Migrate**: O aparelho de replicação cria e regista uma aplicação azure ative directory na sua conta Azure. Você precisa delegar permissões para isso.
-- **Create Key Vault**: Para migrar VMware VMware utilizando a Migração do Servidor Migratório Migratório Migratório Azure Migração, a Azure Migrate cria um Cofre chave no grupo de recursos, para gerir as chaves de acesso da conta de armazenamento de replicação na sua subscrição. Para criar o cofre, você precisa de permissões de atribuição de função no grupo de recursos no qual o projeto de migração do Azure reside. 
+- **Registe o aparelho de replicação Azure Migrate**: O aparelho de replicação cria e regista uma aplicação azure ative directory na sua conta Azure. Precisa delegar permissões para isto.
+- **Create Key Vault**: Para migrar VMware VMware utilizando a Migração do Servidor Migratório Migratório Migratório Azure Migração, a Azure Migrate cria um Cofre chave no grupo de recursos, para gerir as chaves de acesso da conta de armazenamento de replicação na sua subscrição. Para criar o cofre, você precisa de permissões de atribuição de papéis no grupo de recursos em que o projeto Azure Migrate reside. 
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto
@@ -87,52 +87,52 @@ Se você não tiver executado uma avaliação, precisará configurar as permiss�
 1. No portal Azure, abra a subscrição e selecione controlo de **acesso (IAM)** .
 2. No **Check access,** encontre a conta relevante e clique nela para visualizar permissões.
 3. Deve ter permissões de **Contribuinte** ou **Proprietário.**
-    - Se você acabou de criar uma conta gratuita do Azure, você é o proprietário da sua assinatura.
-    - Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir a função.
+    - Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição.
+    - Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>Atribuir permissões para registrar o dispositivo de replicação
+### <a name="assign-permissions-to-register-the-replication-appliance"></a>Atribuir permissões para registar o aparelho de replicação
 
-Para a migração baseada em agente, delegue permissões para migração de servidor de migrações para Azure para criar e registrar um aplicativo do Azure AD em sua conta. Você pode atribuir permissões usando um dos seguintes métodos:
+Para a migração baseada em agentes, delege permissões para a Migração do Servidor Migratório Migratório Migratório Azure migrate para criar e registar uma aplicação Azure AD na sua conta. Pode atribuir permissões utilizando um dos seguintes métodos:
 
-- Um locatário/administrador global pode conceder permissões a usuários no locatário para criar e registrar aplicativos do Azure AD.
-- Um locatário/administrador global pode atribuir a função de desenvolvedor de aplicativo (que tem as permissões) à conta.
+- Um inquilino/administrador global pode conceder permissões aos utilizadores do inquilino, para criar e registar aplicações da Azure AD.
+- Um inquilino/administrador global pode atribuir a função de Desenvolvedor de Aplicações (que tem as permissões) à conta.
 
-Vale a pena observar que:
+Vale a pena notar que:
 
-- Os aplicativos não têm nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
-- Você só precisa dessas permissões ao registrar um novo dispositivo de replicação. Você pode remover as permissões depois que o dispositivo de replicação for configurado. 
+- As aplicações não têm outras permissões de acesso na subscrição que não as descritas acima.
+- Só precisa destas permissões quando regista um novo aparelho de replicação. Pode retirar as permissões após a instalação do aparelho de replicação. 
 
 
-#### <a name="grant-account-permissions"></a>Permissões de conta de concessão
+#### <a name="grant-account-permissions"></a>Concessão de permissões de conta
 
-O locatário/administrador global pode conceder permissões da seguinte maneira
+O inquilino/administrador global pode conceder permissões da seguinte forma
 
 1. Em Azure AD, o inquilino/administrador global deve navegar para **o Diretório Ativo do Azure** > **utilizadores** > **Definições**de utilizador .
 2. O administrador deve definir **os registos** da App para **Sim**.
 
-    ![Permissões do Azure AD](./media/tutorial-prepare-vmware/aad.png)
+    ![Permissões da AD Azure](./media/tutorial-prepare-vmware/aad.png)
 
 > [!NOTE]
-> Essa é uma configuração padrão que não é sensível. [Saiba mais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Esta é uma definição padrão que não é sensível. [Saiba mais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-#### <a name="assign-application-developer-role"></a>Atribuir função de desenvolvedor de aplicativo 
+#### <a name="assign-application-developer-role"></a>Atribuir papel de desenvolvedor de aplicações 
 
-O locatário/administrador global pode atribuir a função de desenvolvedor de aplicativo a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+O inquilino/administrador global pode atribuir a função de Desenvolvedor de Aplicações a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## <a name="assign-permissions-to-create-key-vault"></a>Atribuir permissões para criar Key Vault
+## <a name="assign-permissions-to-create-key-vault"></a>Atribuir permissões para criar o Cofre chave
 
-Atribua permissões de atribuição de função no grupo de recursos no qual o projeto de migrações para Azure reside, da seguinte maneira:
+Atribuir permissões de atribuição de funções no grupo de recursos em que reside o projeto Azure Migrate:
 
 1. No grupo de recursos no portal Azure, selecione controlo de **acesso (IAM)** .
 2. No **Check access,** encontre a conta relevante e clique nela para visualizar permissões. Precisa de permissões de **Proprietário** (ou **Colaborador** e Administrador de **Acesso ao Utilizador).**
-3. Se você não tiver as permissões necessárias, solicite-as do proprietário do grupo de recursos. 
+3. Se não tiver as permissões necessárias, solicite-as ao proprietário do grupo de recursos. 
 
 
 ## <a name="prepare-on-premises-vmware"></a>Preparar o VMware no local
 
 ### <a name="prepare-an-account-for-automatic-discovery"></a>Preparar uma conta para a deteção automática
 
-A migração de servidor de migrações para Azure precisa acessar servidores VMware para:
+A migração do servidor migratório Azure necessita de acesso aos servidores VMware para:
 
 - Detetar automaticamente VMs. É necessária, pelo menos, uma conta só de leitura.
 - Orquestrar a replicação, a ativação pós-falha e a reativação pós-falha. Precisa de uma conta com capacidade para executar operações como criar e remover discos, e ligar VMs.
@@ -154,78 +154,78 @@ Crie a conta da seguinte forma:
 
 O Serviço de mobilidade tem de ser instalado em cada computador que queira replicar.
 
-- O dispositivo de replicação de migrações para Azure pode fazer uma instalação por push desse serviço quando você habilita a replicação de um computador, ou você pode instalá-lo manualmente ou usando ferramentas de instalação.
+- O aparelho de replicação Azure Migrate pode fazer uma instalação de pressão deste serviço quando ativa a replicação de uma máquina, ou pode instalá-lo manualmente, ou utilizando ferramentas de instalação.
 - Neste tutorial, vamos instalar o Serviço de mobilidade com a instalação push.
-- Para a instalação por push, você precisa preparar uma conta que a migração do servidor de migrações para Azure pode usar para acessar a VM.
+- Para a instalação push, você precisa preparar uma conta que a Migração do Servidor Migratório Migratório Azure pode usar para aceder ao VM. Esta conta é utilizada apenas para a instalação push, se não instalar manualmente o serviço mobility.
 
 Prepare a conta da seguinte forma:
 
 1. Prepare um domínio ou uma conta local com permissões para instalar na VM.
 2. Para os VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso remoto ao utilizador na máquina local, adicionando a entrada do DWORD **LocalAccountTokenFilterPolicy,** com um valor no registo, em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**
-3. Para VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
+3. Para os VMs Linux, prepare uma conta raiz no servidor linux fonte.
 
 
 ### <a name="check-vmware-requirements"></a>Verificar os requisitos de VMware
 
-Verifique se os servidores VMware e as VMs estão em conformidade com os requisitos de migração para o Azure. 
+Certifique-se de que os servidores vMware e VMs cumprem os requisitos de migração para o Azure. 
 
 
 > [!NOTE]
-> A migração baseada em agente com a migração de servidor de migrações para Azure baseia-se nos recursos do serviço de Azure Site Recovery. Alguns requisitos podem ser vinculados à documentação Site Recovery.
+> A migração baseada em agentes com a Migração do Servidor Migratório Migratório Migratório Azure migrate baseia-se em funcionalidades do serviço de recuperação do site Azure. Alguns requisitos podem ligar-se à documentação de Recuperação do Site.
 
 1. [Verifique](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) os requisitos do servidor do VMware.
 2. [Verificar](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) Requisitos de apoio vm para a migração.
-3. Verifique as configurações da VM. As VMs no local que replica para o Azure devem cumprir os requisitos da [Azure VM](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+3. Verifique as definições de VM. As VMs no local que replica para o Azure devem cumprir os requisitos da [Azure VM](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicionar a ferramenta de migração de servidor de migrações para Azure
+## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicione a ferramenta de migração do servidor migratório Azure Migrate
 
-Se você não seguir o tutorial para avaliar as VMs do VMware, configure um projeto de migrações para Azure e adicione a ferramenta de migração de servidor de migrações para Azure:
+Se não seguiu o tutorial para avaliar vMware VMs, criou um projeto Azure Migrate e, em seguida, adicione a ferramenta de migração do servidor migratório Azure:
 
 1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
 2. Em **Serviços**, selecione **Azure Migrate**.
 
-    ![Configurar migrações para Azure](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
+    ![Criar o Azure Migrate](./media/tutorial-migrate-vmware-agent/azure-migrate-search.png)
 
 3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
 4. Em **Discover, avalie e emigra os servidores,** clique em **avaliar e migrar servidores**.
 
-    ![Descobrir e avaliar servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ![Descubra e avalie servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
 
 1. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
 2. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
 3. Em Detalhes do **Projeto,** especifique o nome do projeto e geografia em que pretende criar o projeto, e clique em **Next**
 
-    ![Criar um projeto de migrações para Azure](./media/tutorial-migrate-vmware-agent/migrate-project.png)
+    ![Criar um projeto Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
-    Você pode criar um projeto de migrações para Azure em qualquer uma dessas regiões.
+    Você pode criar um projeto Azure Migrate em qualquer uma destas geografias.
 
     **Geografia** | **Região**
     --- | ---
     Ásia | Ásia Sudeste
-    Europa | Europa Setentrional ou Europa Ocidental
-    Estados Unidos | Leste dos EUA ou Oeste EUA Central
+    Europa | Norte da Europa ou Europa Ocidental
+    Estados Unidos | Leste dos EUA ou Centro-Oeste dos EUA
 
-    A geografia especificada para o projeto só é utilizada para armazenar os metadados recolhidos das VMs no local. Você pode selecionar qualquer região de destino para a migração real.
+    A geografia especificada para o projeto só é utilizada para armazenar os metadados recolhidos das VMs no local. Pode selecionar qualquer região-alvo para a migração real.
 4. Na ferramenta de **avaliação Select,** selecione **Skip adicionando uma ferramenta de avaliação para agora** > **Seguinte**.
 5. Na **ferramenta de migração Select**, selecione **Azure Migrate: Server Migration** > **Next**.
 6. Em **Rever + adicionar ferramentas,** reveja as definições e clique em Adicionar **ferramentas**
 7. Depois de adicionar a ferramenta, aparece no projeto Migratório Azure > Servidores > **Ferramentas migratórias.**
 
-## <a name="set-up-the-replication-appliance"></a>Configurar o dispositivo de replicação
+## <a name="set-up-the-replication-appliance"></a>Configurar o aparelho de replicação
 
-A primeira etapa da migração é configurar o dispositivo de replicação. O dispositivo de replicação é uma VM VMware local única e altamente disponível que hospeda esses componentes:
+O primeiro passo da migração é a instalação do aparelho de replicação. O aparelho de replicação é um VMware VMware único, altamente disponível, no local que acolhe estes componentes:
 
 - Servidor de **configuração**: O servidor de configuração coordena as comunicações entre as instalações e o Azure e gere a replicação de dados.
-- **Servidor de processos**: O servidor de processo funciona como um portal de replicação. Ele recebe dados de replicação; otimiza-o com caching, compactação e criptografia e o envia para uma conta de armazenamento de cache no Azure. O servidor de processo também instala o agente do serviço de mobilidade nas VMs que você deseja replicar e executa a descoberta automática de VMs do VMware locais.
+- **Servidor de processos**: O servidor de processo funciona como um portal de replicação. Recebe dados de replicação; otimiza-o com cache, compressão e encriptação, e envia-o para uma conta de armazenamento em cache em Azure. O servidor de processo saque também o agente do Serviço de Mobilidade em VMs que pretende replicar e realiza a descoberta automática de VMware vMware no local.
 
 
-Para configurar o dispositivo de replicação, baixe um modelo OVA (Open Virtualization Application) preparado. Você importa o modelo para o VMware e cria a VM do dispositivo de replicação. 
+Para configurar o aparelho de replicação, faça o download de um modelo preparado de aplicação de virtualização aberta (OVA). Importa-se o modelo em VMware e cria-se o vM do aparelho de replicação. 
 
-### <a name="download-the-replication-appliance-template"></a>Baixar o modelo do dispositivo de replicação
+### <a name="download-the-replication-appliance-template"></a>Descarregue o modelo do aparelho de replicação
 
-Baixe o modelo da seguinte maneira:
+Descarregue o modelo da seguinte forma:
 
 1. No projeto Azure Migrate clique em **Servidores** sob **objetivos de migração**.
 2. In **Azure Migrate - Servers** > **Azure Migrate: Server Migration**, clique em **Discover**.
@@ -236,21 +236,21 @@ Baixe o modelo da seguinte maneira:
 4. Em **Como pretende migrar?**
 5. Na **região Target,** selecione a região de Azure para a qual pretende migrar as máquinas.
 6. Selecione **Confirmar que a região alvo para a migração é o nome da região**.
-7. Clique em **Criar recursos.** Isso cria um cofre de Azure Site Recovery em segundo plano.
-    - Você não pode alterar a região de destino deste projeto depois de clicar nesse botão.
-    - Todas as migrações subsequentes são para essa região.
+7. Clique em **Criar recursos.** Isto cria um cofre de recuperação de sítios Azure em segundo plano.
+    - Não pode alterar a região alvo deste projeto depois de clicar neste botão.
+    - Todas as migrações subsequentes são para esta região.
 
     ![Criar cofre dos Serviços de Recuperação](./media/tutorial-migrate-vmware-agent/create-resources.png)
 
 8. Em Se pretender instalar um novo aparelho de **replicação,** selecione **Instale um aparelho**de replicação .
-9. Clique em **Baixar,** para descarregar o aparelho de replicação. Isso baixa um modelo OVF que você usa para criar uma nova VM VMware que executa o dispositivo.
+9. Clique em **Baixar,** para descarregar o aparelho de replicação. Isto descarrega um modelo OVF que utiliza para criar um novo VMware VMware VM que executa o aparelho.
     ![Baixar ](./media/tutorial-migrate-vmware-agent/download-ova.png) OVA
-10. Observe o nome do grupo de recursos e o cofre dos serviços de recuperação. Você precisa deles durante a implantação do dispositivo.
+10. Reparem no nome do grupo de recursos e no cofre dos Serviços de Recuperação. Precisa destes durante a colocação do aparelho.
 
 
 ### <a name="import-the-template-in-vmware"></a>Importar o modelo no VMware
 
-Depois de baixar o modelo OVF, você o importará para o VMware para criar o aplicativo de replicação em uma VM VMware que executa o Windows Server 2016.
+Depois de descarregar o modelo OVF, importa-o em VMware para criar a aplicação de replicação num VMware VM running Windows Server 2016.
 
 1. Inicie sessão no servidor VMware vCenter ou no anfitrião vSphere ESXi, com o VMWare vSphere Client.
 2. No menu **Ficheiro**, selecione **Implementar o Modelo OVF**, para iniciar o Assistente para **Implementar o Modelo OVF**. 
@@ -264,27 +264,27 @@ Depois de baixar o modelo OVF, você o importará para o VMware para criar o apl
    > [!TIP]
    > Se pretender adicionar outra NIC, desmarque **Ligar após a implementação** > **Concluir**. Por predefinição, o modelo contém uma NIC única. Pode adicionar mais NICs após a implementação.
 
-### <a name="kick-off-replication-appliance-setup"></a>Iniciar a instalação do dispositivo de replicação
+### <a name="kick-off-replication-appliance-setup"></a>Iniciar a configuração do aparelho de replicação
 
 1. A partir da consola do VMWare vSphere Client, ligue a VM.
 2. A VM arranca para uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
-3. Após a conclusão da instalação, entre na VM como administrador, usando a senha de administrador.
-4. Na primeira vez que você entrar, a ferramenta de instalação do dispositivo de replicação (Azure Site Recovery ferramenta de configuração) será iniciada em alguns segundos.
-5. Insira um nome a ser usado para registrar o dispositivo com a migração de servidor de migrações para Azure. Clique depois em **Seguinte**.
+3. Depois de a instalação terminar, inscreva-se no VM como administrador, utilizando a senha de administração.
+4. A primeira vez que inicia a sua inscrição, a ferramenta de configuração do aparelho de replicação (Ferramenta de Configuração de Recuperação do Local Azure) começa em poucos segundos.
+5. Introduza um nome a utilizar para registar o aparelho com a Migração do Servidor Migratório Migratório Migratório Migratório Migratório Azure Migrate. Clique depois em **Seguinte**.
 6. A ferramenta verifica se a VM pode ligar ao Azure. Depois de a ligação estar estabelecida, selecione **Iniciar sessão** para iniciar sessão na sua subscrição do Azure.
-7. Aguarde até que a ferramenta termine de registrar um aplicativo do Azure AD para identificar o dispositivo. O dispositivo é reinicializado.
+7. Aguarde que a ferramenta termine de registar uma aplicação Azure AD para identificar o aparelho. O aparelho reinicia.
 1. Inicie sessão na máquina novamente. Em poucos segundos, o Assistente de Gestão do Servidor de Configuração inicia automaticamente.
 
-### <a name="register-the-replication-appliance"></a>Registrar o dispositivo de replicação
+### <a name="register-the-replication-appliance"></a>Registe o aparelho de replicação
 
-Conclua a configuração e o registro do dispositivo de replicação.
+Termine de configurar e registar o aparelho de replicação.
 
 1. No Assistente de Gestão do Servidor de Configuração, **selecione conectividade configuração**.
-2. Selecione a NIC (por padrão, há apenas uma NIC) que o dispositivo de replicação usa para a descoberta de VM e para fazer uma instalação por push do serviço de mobilidade em computadores de origem.
-3. Selecione a NIC que o dispositivo de replicação usa para conectividade com o Azure. Em seguida, selecione **Guardar**. Você não pode alterar essa configuração depois que ela é configurada.
-4. Se o dispositivo estiver localizado atrás de um servidor proxy, você precisará especificar as configurações de proxy.
-    - Especifique o nome de procuração como **http://ip-address,** ou **http://FQDN** . Não há suporte para servidores proxy HTTPS.
-5. Quando for solicitada a assinatura, os grupos de recursos e os detalhes do cofre, adicione os detalhes que você anotou ao baixar o modelo do dispositivo.
+2. Selecione o NIC (por predefinição, há apenas um NIC) que o aparelho de replicação utiliza para a descoberta de VM e para fazer uma instalação push do serviço mobility em máquinas de origem.
+3. Selecione o NIC que o aparelho de replicação utiliza para a conectividade com o Azure. Em seguida, selecione **Guardar**. Não é possível alterar esta definição depois de configurada.
+4. Se o aparelho estiver localizado atrás de um servidor proxy, tem de especificar as definições de procuração.
+    - Especifique o nome de procuração como **http://ip-address,** ou **http://FQDN** . Os servidores proxy HTTPS não são suportados.
+5. Quando solicitado para a subscrição, grupos de recursos e detalhes do cofre, adicione os detalhes que observou quando descarregou o modelo do aparelho.
 6. Em **Instalar software de terceiros**, aceite o contrato de licença. Selecione **Transferir e Instalar** para instalar o Servidor MySQL.
 7. Selecione **Instalar VMware PowerCLI**. Certifique-se de que todas as janelas do browser estão fechadas antes de efetuar este procedimento. Em seguida, selecione **Continuar**.
 8. Em **Validar configuração da aplicação**, os pré-requisitos são verificados antes de continuar.
@@ -296,7 +296,7 @@ Conclua a configuração e o registro do dispositivo de replicação.
 12. Selecione **Finalizar configuração** para concluir o registo.
 
 
-Depois que o dispositivo de replicação é registrado, a avaliação de servidor migrações para Azure se conecta aos servidores VMware usando as configurações especificadas e descobre as VMs. Pode ver VMs descobertos em **Gerir** > **itens descobertos,** no **separador Outros.**
+Após a matrícula do aparelho de replicação, a Avaliação do Servidor Migrador Azure liga-se aos servidores VMware utilizando as definições especificadas e descobre VMs. Pode ver VMs descobertos em **Gerir** > **itens descobertos,** no **separador Outros.**
 
 
 ## <a name="replicate-vms"></a>Replicar VMs
@@ -304,7 +304,7 @@ Depois que o dispositivo de replicação é registrado, a avaliação de servido
 Agora, selecione VMs para migração.
 
 > [!NOTE]
-> Você pode replicar até 10 computadores juntos. Se você precisar replicar mais, replique-os simultaneamente em lotes de 10.
+> Podes replicar até 10 máquinas juntas. Se precisar de replicar mais, reproduza-os simultaneamente em lotes de 10.
 
 1. No projeto Azure Migrate > **Servers,** **Azure Migrate: Server Migration,** clique em **Replicate**.
 
@@ -324,7 +324,7 @@ Agora, selecione VMs para migração.
     - Se não tiver executado uma avaliação ou não quiser utilizar as definições de avaliação, selecione as opções **Não**.
     - Se tiver selecionado para utilizar a avaliação, selecione o grupo de VMs e o nome da avaliação.
 
-8. Verifique cada VM que você deseja migrar. Em seguida, clique em **Seguinte: Definições de destino**.
+8. Verifique cada VM que queira migrar. Em seguida, clique em **Seguinte: Definições de destino**.
 9. Em **Definições de destino**, selecione a subscrição, assim como a região de destino para a qual vai migrar, e especifique o grupo de recursos no qual as VMs do Azure vão residir após a migração.
 10. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
 11. Em **Benefício Híbrido do Azure**:
@@ -350,16 +350,16 @@ Agora, selecione VMs para migração.
 
 
 
-## <a name="track-and-monitor"></a>Acompanhar e monitorar
+## <a name="track-and-monitor"></a>Faixa e monitor
 
 - Quando clicar em **Replicar** começa um trabalho de replicação de arranque. 
-- Quando o trabalho iniciar replicação é concluído com êxito, os computadores começam sua replicação inicial para o Azure.
-- Após a conclusão da replicação inicial, a replicação delta começa. As alterações incrementais em discos locais são replicadas periodicamente para os discos de réplica no Azure.
+- Quando o trabalho de Replicação Inicial termina com sucesso, as máquinas iniciam a sua replicação inicial para Azure.
+- Após os acabamentos iniciais da replicação, começa a replicação delta. As alterações incrementais nos discos no local são periodicamente replicadas para os discos de réplica em Azure.
 
 
-Você pode acompanhar o status do trabalho nas notificações do Portal.
+Pode rastrear o estado do emprego nas notificações do portal.
 
-![Acompanhar trabalho](./media/tutorial-migrate-vmware-agent/jobs.png)
+![Track job](./media/tutorial-migrate-vmware-agent/jobs.png)
 
 Pode monitorizar o estado de replicação clicando em **servidores de replicação** em **Azure Migrate: Server Migration**.
 ![monitor](./media/tutorial-migrate-vmware-agent/replicate-servers.png) de replicação
@@ -367,13 +367,13 @@ Pode monitorizar o estado de replicação clicando em **servidores de replicaç�
 ## <a name="run-a-test-migration"></a>Executar uma migração de teste
 
 
-Quando a replicação delta é iniciada, você pode executar uma migração de teste para as VMs antes de executar uma migração completa para o Azure. É altamente recomendável que você faça isso pelo menos uma vez para cada computador, antes de migrá-lo.
+Quando a replicação delta começar, você pode executar uma migração de teste para os VMs, antes de executar uma migração completa para Azure. Recomendamos vivamente que faça isto pelo menos uma vez por cada máquina, antes de a migrar.
 
-- A execução de uma migração de teste verifica se a migração funcionará conforme o esperado, sem afetar os computadores locais, que permanecem operacionais e continuam replicando. 
-- A migração de teste simula a migração criando uma VM do Azure usando dados replicados (geralmente migrando para uma VNet de não produção em sua assinatura do Azure).
-- Você pode usar a VM do Azure de teste replicado para validar a migração, executar testes de aplicativo e resolver problemas antes da migração completa.
+- A realização de um teste de migração verifica que a migração funcionará como esperado, sem afetar as máquinas no local, que permanecem operacionais, e continuam a replicar-se. 
+- A migração de teste simula a migração criando um VM Azure usando dados replicados (geralmente migrando para um VNet não-produção na sua assinatura Azure).
+- Pode utilizar o teste replicado Azure VM para validar a migração, realizar testes de aplicações e resolver quaisquer problemas antes da migração total.
 
-Faça uma migração de teste da seguinte maneira:
+Faça uma migração de teste da seguinte forma:
 
 
 1. Nos **objetivos de migração** > **servidores** > **Migração Do Servidor,** clique em **servidores migrados**de teste .
@@ -394,7 +394,7 @@ Faça uma migração de teste da seguinte maneira:
 
 ## <a name="migrate-vms"></a>Migrar VMs
 
-Depois de verificar se a migração de teste funciona conforme o esperado, você pode migrar os computadores locais.
+Depois de verificar que a migração do teste funciona como esperado, pode migrar as máquinas no local.
 
 1. No projeto Azure Migrate > **Servers** > **Azure Migrate: Server Migration,** clique em **servidores de replicação**.
 
@@ -409,30 +409,33 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 ## <a name="complete-the-migration"></a>Complete a migração
 
-1. Depois da migração ser feita, clique à direita no VM > **Pare a migração**. Isso interrompe a replicação para o computador local e limpa as informações de estado de replicação da VM.
+1. Depois da migração ser feita, clique à direita no VM > **Pare a migração**. Isto faz o seguinte:
+    - Para a replicação para a máquina no local.
+    - Remove a máquina da contagem de **servidores de replicação** em Migração Azure: Migração do Servidor.
+    - Limpa informações do estado de replicação para o VM.
 2. Instale o Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou o agente [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) nas máquinas migradas.
 3. Execute otimizações de aplicação pós-migração, tais como atualizar cadeias de ligação de base de dados e configurações de servidor Web.
 4. Execute testes de aplicação final e de aceitação da migração na aplicação migrada em execução no Azure.
-5. Reduza o tráfego para a instância de VM do Azure migrada.
+5. Corte o tráfego para a instância azure vm migrada.
 6. Remova as VMs no local do seu inventário de VMs locais.
 7. Remova as VMs no local das cópias de segurança locais.
 8. Atualize qualquer documentação interna para mostrar a nova localização e endereço IP das VMs do Azure. 
 
-## <a name="post-migration-best-practices"></a>Práticas recomendadas após a migração
+## <a name="post-migration-best-practices"></a>Boas práticas pós-migração
 
 - Local
     - Mova o tráfego da aplicação para a aplicação em execução na instância da VM do Azure migrada.
     - Remova as VMs no local do seu inventário de VMs locais.
     - Remova as VMs no local das cópias de segurança locais.
     - Atualize qualquer documentação interna para mostrar a nova localização e endereço IP das VMs do Azure.
-- Ajuste as configurações da VM do Azure após a migração:
-    - O [agente de VM do Azure](../virtual-machines/extensions/agent-windows.md) gere a interação da VM com o Controlador de Recursos de Infraestrutura do Azure. É necessário para alguns serviços do Azure, como o Azure Backup, o Site Recovery e a Segurança do Azure. Ao migrar VMs VMare com migração baseada em agente, o instalador do serviço de mobilidade instala o agente de VM do Azure em computadores Windows. Em VMs do Linux, recomendamos que você instale o agente após a migração.
-    - Desinstale manualmente o serviço de mobilidade da VM do Azure após a migração.
-    - Desinstale manualmente as ferramentas do VMware após a migração.
-- No Azure:
+- Ajuste as definições de VM Azure após a migração:
+    - O [agente de VM do Azure](../virtual-machines/extensions/agent-windows.md) gere a interação da VM com o Controlador de Recursos de Infraestrutura do Azure. É necessário para alguns serviços do Azure, como o Azure Backup, o Site Recovery e a Segurança do Azure. Ao migrar VMare VMs com migração baseada em agentes, o instalador do Serviço de Mobilidade instala o agente Azure VM nas máquinas Windows. Nos VMs Linux, recomendamos que instale o agente após a migração.
+    - Desinstale manualmente o serviço de Mobilidade a partir do VM Azure após a migração.
+    - Desinstale manualmente as ferramentas VMware após a migração.
+- Em Azure:
     - Execute otimizações de aplicação pós-migração, tais como atualizar cadeias de ligação de base de dados e configurações de servidor Web.
     - Execute testes de aplicação final e de aceitação da migração na aplicação migrada em execução no Azure.
-- Continuidade dos negócios/recuperação de desastre
+- Continuidade do negócio/recuperação de desastres
     - Mantenha os dados seguros ao fazer uma cópia de segurança das VMs do Azure através do serviço Azure Backup. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:

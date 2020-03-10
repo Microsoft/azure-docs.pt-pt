@@ -4,11 +4,11 @@ description: Este artigo descreve as definições de tecido e as políticas de a
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: 01f8eb861a1fc53ad95a95d7695df8e4b5b8a2ab
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164513"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393278"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do tecido de serviço
 Este artigo descreve as várias definições de tecido para o seu cluster De Tecido de Serviço que pode personalizar. Para clusters hospedados em Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para mais informações, consulte [Atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o ficheiro *ClusterConfig.json* e realizando uma atualização de configuração no seu cluster. Para mais informações, consulte [Atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -320,7 +320,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |MaxPercentDeltaUnhealthyNodes|Int, padrão é 10|Estático|Política de avaliação da saúde de cluster: por cento máximo dos nós delta não saudáveis permitidos para que o cluster seja saudável |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, padrão é 15|Estático|Política de avaliação da saúde de upgrade do cluster: por cento máximo do delta dos nós não saudáveis em um domínio de upgrade permitido para que o cluster seja saudável |
 
-## <a name="hosting"></a>Hospedagem
+## <a name="hosting"></a>Alojamento
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
@@ -593,7 +593,7 @@ Segue-se uma lista de definições de Tecido que pode personalizar, organizadapo
 |MaxCopyQueueSize|uint, padrão é 1024|Estático|Este é o valor máximo que define o tamanho inicial para a fila que mantém as operações de replicação. Note que deve ser uma potência de 2. Se durante o tempo de funcionamento a fila crescer para este tamanho, a operação será acelerada entre os replicadores primários e secundários.|
 |MaxPrimaryReplicationQueueMemorySize|uint, padrão é 0|Estático|Este é o valor máximo da fila de replicação primária em bytes.|
 |MaxPrimaryReplicationQueueSize|uint, padrão é 1024|Estático|Este é o número máximo de operações que podem existir na fila de replicação primária. Note que deve ser uma potência de 2.|
-|MaxReplicationMessageSize|uint, padrão é 52428800|Estático|Tamanho máximo da mensagem das operações de replicação. O padrão é de 50MB.|
+|MaxReplicationMessageSize|Uint, padrão é 52428800|Estático|Tamanho máximo da mensagem das operações de replicação. O padrão é de 50MB.|
 |MaxSecondaryReplicationQueueMemorySize|uint, padrão é 0|Estático|Este é o valor máximo da fila de replicação secundária em bytes.|
 |MaxSecondaryReplicationQueueSize|uint, padrão é 2048|Estático|Este é o número máximo de operações que podem existir na fila de replicação secundária. Note que deve ser uma potência de 2.|
 |QueueHealthMonitoringInterval|TimeSpan, o padrão é comum:TimeSpan:FromSeconds (30)|Estático|Especifique a hora de tempo em segundos. Este valor determina o período de tempo utilizado pelo Replicador para monitorizar quaisquer eventos de saúde de aviso/erro nas filas de operação de replicação. Um valor de '0' desativa a monitorização da saúde |

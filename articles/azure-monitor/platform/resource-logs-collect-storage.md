@@ -8,11 +8,11 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658976"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394938"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Registos de recursos do Archive Azure para conta de armazenamento
 [Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem.  Este artigo descreve a recolha de registos de plataformas numa conta de armazenamento Azure para reter dados para arquivamento.

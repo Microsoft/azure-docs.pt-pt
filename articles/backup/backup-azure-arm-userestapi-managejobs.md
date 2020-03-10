@@ -1,23 +1,23 @@
 ---
-title: Gerenciar trabalhos de backup usando a API REST
-description: Neste artigo, saiba como rastrear e gerenciar trabalhos de backup e restauração do backup do Azure usando a API REST.
+title: Gerir trabalhos de backup usando a API REST
+description: Neste artigo, aprenda a rastrear e gerir backups e restaurar os trabalhos de Backup Azure usando a Rest API.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173400"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395526"
 ---
-# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhar trabalhos de backup e restauração usando a API REST
+# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Rastrear backup e restaurar postos de trabalho usando a API REST
 
-O serviço de backup do Azure dispara trabalhos que são executados em segundo plano em vários cenários, como o disparo de backup, operações de restauração, desabilitando o backup. Esses trabalhos podem ser rastreados usando suas IDs.
+O serviço de backup Azure desencadeia trabalhos que funcionam em segundo plano em vários cenários, tais como desencadear backup, restaurar operações, desativar o backup. Estes trabalhos podem ser rastreados usando as suas identificações.
 
-## <a name="fetch-job-information-from-operations"></a>Buscar informações de trabalho de operações
+## <a name="fetch-job-information-from-operations"></a>Buscar informações sobre emprego das operações
 
-Uma operação, como disparar o backup, sempre retornará um jobID. Por exemplo: a resposta final de uma [operação de API REST de backup de gatilho](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
+Uma operação como o dedisparomento de cópia de segurança irá sempre devolver um JOBID. Por exemplo: A resposta final de uma operação de [backup de gatilho REST API](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
 
 ```http
 {
@@ -33,25 +33,25 @@ Uma operação, como disparar o backup, sempre retornará um jobID. Por exemplo:
 }
 ```
 
-O trabalho de backup da VM do Azure é identificado pelo campo "jobId" e pode ser acompanhado como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando uma solicitação *Get* simples.
+O trabalho de backup Azure VM é identificado por campo "jobId" e pode ser rastreado como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando um simples pedido *GET.*
 
-## <a name="tracking-the-job"></a>Acompanhando o trabalho
+## <a name="tracking-the-job"></a>Rastreando o trabalho
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o status atual do trabalho. Depois de ser "concluído" ou "CompletedWithWarnings", a seção "extendedInfo" revela mais detalhes sobre o trabalho.
+O `{jobName}` é "jobId" mencionado acima. A resposta é sempre de 200 OK com o campo "status" indicando o estado atual do trabalho. Uma vez "Concluído" ou "CompletedWithWarnings", a secção 'ExtendedInfo' revela mais detalhes sobre o trabalho.
 
 ### <a name="response"></a>Resposta
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [Recurso de Emprego](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Resposta de exemplo
 
-Depois que o URI de *obtenção* é enviado, uma resposta de 200 (OK) é retornada.
+Uma vez que o *GET* URI é submetido, uma resposta de 200 (OK) é devolvida.
 
 ```http
 HTTP/1.1 200 OK

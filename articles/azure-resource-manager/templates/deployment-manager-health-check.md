@@ -1,47 +1,47 @@
 ---
-title: Distribuição de integração de integridade-Deployment Manager do Azure
+title: Lançamento da integração em saúde - Gestor de Implantação Azure
 description: Descreve como implementar um serviço ao longo de várias regiões com o Gestor de implementação do Azure. Ela mostra práticas recomendadas de implantação segura para verificar a estabilidade da sua implementação antes de implementar para todas as regiões.
 author: mumian
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
 ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484808"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388151"
 ---
-# <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir a distribuição de integração de integridade para o Azure Deployment Manager (visualização pública)
+# <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir o lançamento da integração em saúde ao Gestor de Implantação do Azure (pré-visualização pública)
 
-O [Azure Deployment Manager](./deployment-manager-overview.md) permite que você execute distribuições em etapas de recursos de Azure Resource Manager. Os recursos são implantados na região por região de maneira ordenada. A verificação de integridade integrada do Azure Deployment Manager pode monitorar as distribuições e parar automaticamente as distribuições problemáticas, para que você possa solucionar problemas e reduzir a escala do impacto. Esse recurso pode reduzir a indisponibilidade de serviço causada por regressões em atualizações.
+[O Gestor de Implantação azure](./deployment-manager-overview.md) permite-lhe realizar lançamentos encenados de recursos do Gestor de Recursos Do Azure. Os recursos são implantados região por região de forma ordenada. O exame de saúde integrado do Gestor de Implantação do Azure pode monitorizar os lançamentos e parar automaticamente os lançamentos problemáticos, para que possa resolver problemas e reduzir a escala do impacto. Esta funcionalidade pode reduzir a indisponibilidade do serviço causada por regressões em atualizações.
 
-## <a name="health-monitoring-providers"></a>Provedores de monitoramento de integridade
+## <a name="health-monitoring-providers"></a>Prestadores de cuidados de saúde
 
-Para tornar a integração de integridade o mais fácil possível, a Microsoft tem trabalhado com algumas das principais empresas de monitoramento de integridade do serviço para fornecer uma solução simples de copiar/colar para integrar verificações de integridade às suas implantações. Se você ainda não estiver usando um monitor de integridade, estas são excelentes soluções para começar:
+Para facilitar a integração em saúde o mais possível, a Microsoft tem trabalhado com algumas das principais empresas de monitorização da saúde para lhe fornecer uma solução simples de cópia/pasta para integrar os controlos de saúde com as suas implementações. Se ainda não está a usar um monitor de saúde, estas são ótimas soluções para começar:
 
-| ![provedor de monitoramento de integridade do Gerenciador de implantação do Azure datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![provedor de monitoramento de integridade do Gerenciador de implantação do Azure site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![provedor de monitoramento de integridade do Gerenciador de implantação do Azure Wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
+| ![azure deployment manager health monitor health monitor datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![site de monitorização de saúde do gestor de implantação azure 24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor de saúde provedor de ondas](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
-|Datadog, a principal plataforma de monitoramento e análise para ambientes de nuvem modernos. Veja [como o Datadog se integra ao Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, a solução de monitoramento de serviços de nuvem pública e privado tudo em um. Veja [como o Site24x7 se integra ao Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, a plataforma de monitoramento e análise para ambientes de aplicativos de várias nuvens. Veja [como o Wavefront se integra ao Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
+|Datadog, a principal plataforma de monitorização e análise para ambientes de nuvem moderna. Veja como o Datadog se integra com o Gestor de [Implantação azure.](https://www.datadoghq.com/azure-deployment-manager/)|Site24x7, a solução de monitorização de serviços de nuvem privada e pública. Veja [como o Site24x7 se integra com o Gestor de Implantação do Azure.](https://www.site24x7.com/azure/adm.html)| Wavefront, a plataforma de monitorização e análise para ambientes de aplicações multi-cloud. Veja como a Wavefront se integra com o Gestor de [Implantação Azure.](https://go.wavefront.com/wavefront-adm/)|
 
-## <a name="how-service-health-is-determined"></a>Como a integridade do serviço é determinada
+## <a name="how-service-health-is-determined"></a>Como a saúde do serviço é determinada
 
-Os [provedores de monitoramento de integridade](#health-monitoring-providers) oferecem vários mecanismos para monitorar serviços e alertá-lo sobre qualquer problema de integridade do serviço. [Azure monitor](../../azure-monitor/overview.md) é um exemplo de uma dessas ofertas. Azure Monitor pode ser usado para criar alertas quando determinados limites são excedidos. Por exemplo, o pico de utilização da memória e da CPU ultrapassa os níveis esperados quando você implanta uma nova atualização para seu serviço. Quando notificado, você pode tomar medidas corretivas.
+[Os prestadores](#health-monitoring-providers) de cuidados de saúde oferecem vários mecanismos de monitorização dos serviços e alertam-no para quaisquer problemas de saúde do serviço. [O Azure Monitor](../../azure-monitor/overview.md) é um exemplo de uma dessas ofertas. O Monitor Azure pode ser utilizado para criar alertas quando determinados limiares são ultrapassados. Por exemplo, a sua memória e utilização de CPU aumentam para além dos níveis esperados quando implementa uma nova atualização para o seu serviço. Quando notificado, pode tomar medidas corretivas.
 
-Esses provedores de integridade normalmente oferecem APIs REST para que o status dos monitores de seu serviço possa ser examinado programaticamente. As APIs REST podem voltar com um simples sinal íntegro/não íntegro (determinado pelo código de resposta HTTP) e/ou com informações detalhadas sobre os sinais que ele está recebendo.
+Estes prestadores de saúde normalmente oferecem APIs REST para que o estado dos monitores do seu serviço possa ser examinado programáticamente. As APIs rest podem voltar com um simples sinal saudável/insalubre (determinado pelo código de resposta HTTP) e/ou com informações detalhadas sobre os sinais que está a receber.
 
-A nova etapa *HealthCheck* no Azure Deployment Manager permite que você declare códigos http que indicam um serviço íntegro ou, para resultados Rest mais complexos, você pode até mesmo especificar expressões regulares que, se corresponderem, indicam uma resposta íntegra.
+O novo passo *healthCheck* no Azure Deployment Manager permite-lhe declarar códigos HTTP que indicam um serviço saudável, ou, para resultados REST mais complexos, pode até especificar expressões regulares que, se coincidirem, indicam uma resposta saudável.
 
-O fluxo para obter a instalação com as verificações de integridade do Azure Deployment Manager:
+O fluxo para a configuração com o Gestor de Destacamento Azure verifica a saúde:
 
-1. Crie seus monitores de integridade por meio de um provedor de serviços de integridade de sua escolha.
-1. Crie uma ou mais etapas do healthCheck como parte de sua distribuição de Deployment Manager do Azure. Preencha as etapas de healthCheck com as seguintes informações:
+1. Crie os seus monitores de saúde através de um prestador de serviços de saúde à sua escolha.
+1. Crie um ou mais passos de verificação de saúde Como parte do lançamento do seu Gestor de Implantação Azure. Preencha os passos de saúdeConfira os passos com as seguintes informações:
 
-    1. O URI para a API REST para seus monitores de integridade (conforme definido pelo seu provedor de serviços de integridade).
-    1. Informações de autenticação. Atualmente, somente a autenticação de estilo de chave de API tem suporte.
-    1. [Códigos de status http](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) ou expressões regulares que definem uma resposta íntegra. Observe que você pode fornecer expressões regulares, as quais todas devem corresponder para que a resposta seja considerada íntegra, ou você pode fornecer expressões das quais qualquer um deve corresponder para que a resposta seja considerada íntegra. Os dois métodos têm suporte.
+    1. O URI para a API REST para os seus monitores de saúde (conforme definido pelo seu prestador de serviços de saúde).
+    1. Informação de autenticação. Atualmente, apenas a autenticação de estilo chave API é suportada.
+    1. [Códigos](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) de estado HTTP ou expressões regulares que definem uma resposta saudável. Note que pode fornecer expressões regulares, que TODOS devem corresponder para que a resposta seja considerada saudável, ou pode fornecer expressões das quais qualquer deve corresponder para que a resposta seja considerada saudável. Ambos os métodos são apoiados.
 
-    O JSON a seguir é um exemplo:
+    O seguinte Json é um exemplo:
 
     ```json
     {
@@ -90,7 +90,7 @@ O fluxo para obter a instalação com as verificações de integridade do Azure 
     },
     ```
 
-1. Invoque as etapas de healthCheck no momento apropriado em sua distribuição de Deployment Manager do Azure. No exemplo a seguir, uma etapa de verificação de integridade é invocada em **postDeploymentSteps** de **stepGroup2**.
+1. Invoque os passos healthCheck no momento apropriado no lançamento do seu Gestor de Implantação Azure. No exemplo seguinte, é invocado um passo de verificação de saúde no **postDeploymentSteps** do **stepGroup2**.
 
     ```json
     "stepGroups": [
@@ -128,33 +128,33 @@ O fluxo para obter a instalação com as verificações de integridade do Azure 
     ]
     ```
 
-Para percorrer um exemplo, consulte [tutorial: usar a verificação de integridade no Azure Deployment Manager](./deployment-manager-health-check.md).
+Para percorrer um exemplo, consulte [Tutorial: Use o health check in Azure Deployment Manager](./deployment-manager-health-check.md).
 
-## <a name="phases-of-a-health-check"></a>Fases de uma verificação de integridade
+## <a name="phases-of-a-health-check"></a>Fases de um exame de saúde
 
-Neste ponto, o Azure Deployment Manager sabe como consultar a integridade do seu serviço e em quais fases em sua distribuição fazer isso. No entanto, o Azure Deployment Manager também permite uma configuração profunda do tempo dessas verificações. Uma etapa healthCheck é executada em três fases sequenciais, todas com durações configuráveis: 
+Neste momento, o Gestor de Implantação azure sabe como consultar a saúde do seu serviço e em que fases do seu lançamento o fará. No entanto, o Gestor de Implementação do Azure também permite uma configuração profunda do tempo destas verificações. Uma etapa healthCheck é executada em 3 fases sequenciais, todas com durações configuráveis: 
 
 1. Wait
 
-    1. Após a conclusão de uma operação de implantação, as VMs podem ser reinicializadas, reconfiguradas com base em novos dados ou até serem iniciadas pela primeira vez. Também leva tempo para que os serviços comecem a emitir sinais de integridade para serem agregados pelo provedor de monitoramento de integridade em algo útil. Durante esse processo de tumultuada, talvez não faça sentido verificar a integridade do serviço, pois a atualização ainda não atingiu um estado estável. Na verdade, o serviço pode ser oscillating entre Estados íntegros e não íntegros à medida que os recursos são liquidados. 
-    1. Durante a fase de espera, a integridade do serviço não é monitorada. Isso é usado para permitir que os recursos implantados detortam antes de iniciar o processo de verificação de integridade. 
+    1. Após a conclusão de uma operação de implantação, os VMs podem estar a reiniciar, reconfigurando-se com base em novos dados, ou mesmo sendo iniciados pela primeira vez. Os serviços demoram também a que os serviços comecem a emitir sinais de saúde para serem agregados pelo prestador de cuidados de saúde em algo útil. Durante este processo tumultuoso, pode não fazer sentido verificar a saúde do serviço, uma vez que a atualização ainda não chegou a um estado estável. Com efeito, o serviço pode oscilar entre estados saudáveis e pouco saudáveis à medida que os recursos se instalam. 
+    1. Durante a fase de espera, a saúde do serviço não é monitorizada. Isto é usado para permitir aos recursos implantados o tempo para assar antes de iniciar o processo de verificação de saúde. 
 1. Elástico
 
-    1. Como é impossível saber em todos os casos quanto tempo os recursos levarão para serem disparados antes de se tornarem estáveis, a fase elástica permite um período de tempo flexível entre o momento em que os recursos são potencialmente instáveis e quando eles são necessários para manter uma integridade estável status.
-    1. Quando a fase elástica começa, o Azure Deployment Manager começa a sondar o ponto de extremidade REST fornecido para integridade do serviço periodicamente. O intervalo de sondagem é configurável. 
-    1. Se o Health Monitor voltar com sinais indicando que o serviço não está íntegro, esses sinais serão ignorados, a fase elástica continuará e a sondagem continuará. 
-    1. Assim que o monitor de integridade volta com sinais indicando que o serviço está íntegro, a fase elástica termina e a fase Íntegrostate começa. 
-    1. Assim, a duração especificada para a fase elástica é a quantidade máxima de tempo que pode ser gasta sondando a integridade do serviço antes que uma resposta íntegra seja considerada obrigatória. 
+    1. Uma vez que é impossível saber em todos os casos quanto tempo os recursos demorarão a assar antes de se tornarem estáveis, a fase Elástica permite um período de tempo flexível entre quando os recursos são potencialmente instáveis e quando são necessários para manter um estável saudável estado.
+    1. Quando a fase Elástica começa, o Gestor de Implantação azure começa a sondar periodicamente o ponto final de REST fornecido para a saúde do serviço. O intervalo de votação é configurável. 
+    1. Se o monitor de saúde voltar com sinais que indicam que o serviço não é saudável, estes sinais são ignorados, a fase Elástica continua e as sondagens continuam. 
+    1. Assim que o monitor de saúde volta com sinais indicando que o serviço é saudável, a fase Elástica termina e começa a fase HealthyState. 
+    1. Assim, a duração especificada para a fase Elástica é o tempo máximo que pode ser gasto a votar para a saúde do serviço antes que uma resposta saudável seja considerada obrigatória. 
 1. HealthyState
 
-    1. Durante a fase Íntegrostate, a integridade do serviço é sondada continuamente no mesmo intervalo da fase elástica. 
-    1. Espera-se que o serviço mantenha sinais íntegros do provedor de monitoramento de integridade para toda a duração especificada. 
-    1. Se a qualquer momento uma resposta não íntegra for detectada, o Azure Deployment Manager interromperá toda a distribuição e retornará a resposta REST que está realizando os sinais de serviço não íntegros.
-    1. Depois que a duração de Íntegrostate terminar, o healthCheck estará concluído e a implantação continuará na próxima etapa.
+    1. Durante a fase HealthyState, a saúde do serviço é continuamente sondada no mesmo intervalo que a fase Elástica. 
+    1. Espera-se que o serviço mantenha sinais saudáveis do prestador de monitorização da saúde durante toda a duração especificada. 
+    1. Se em algum momento for detetada uma resposta pouco saudável, o Gestor de Implantação do Azure irá parar todo o lançamento e devolver a resposta REST transportando os sinais de serviço pouco saudáveis.
+    1. Uma vez terminada a duração do HealthyState, o healthCheck está completo, e a implementação continua para o próximo passo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre como integrar o monitoramento de integridade no Azure Deployment Manager. Avance para o artigo seguinte para saber como implementar com o Gestor de implementação.
+Neste artigo, aprendeu a integrar a monitorização da saúde no Gestor de Implantação do Azure. Avance para o artigo seguinte para saber como implementar com o Gestor de implementação.
 
 > [!div class="nextstepaction"]
-> [Tutorial: integrar a verificação de integridade no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)
+> [Tutorial: integrar o exame de saúde no Gestor de Implantação do Azure](./deployment-manager-tutorial-health-check.md)

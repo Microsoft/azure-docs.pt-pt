@@ -1,19 +1,19 @@
 ---
-title: 'Conectar a rede local à rede virtual do Azure: VPN site a site: Portal'
+title: 'Ligue a rede no local à rede virtual Azure: Site-to-Site VPN: Portal'
 description: Passos para criar uma ligação IPsec da sua rede no local a uma rede virtual do Azure através da Internet pública. Estes passos ajudam-no a criar uma ligação de Gateway de Rede de VPNs em vários sites com o portal.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894995"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391125"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma ligação Site a Site no portal do Azure
 
@@ -43,27 +43,27 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 Os exemplos neste artigo utilizam os seguintes valores. Pode utilizar estes valores para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo. Para obter mais informações sobre as definições do Gateway de VPN em geral, veja [Sobre as Definições do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **Nome da rede virtual:** VNet1
+* **Nome de rede virtual:** VNet1
 * **Espaço de Endereços:** 10.1.0.0/16
 * **Subscrição:** a subscrição que pretende utilizar
 * **Grupo de Recursos:** TestRG1
 * **Região:** Leste dos EUA
 * **Sub-rede:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (opcional neste exercício)
-* **Intervalo de endereços da sub-rede do gateway:** 10.1.255.0/27
+* Gama de endereços de **sub-rede gateway:** 10.1.255.0/27
 * **Nome do gateway de rede virtual:** VNet1GW
-* **Nome do endereço IP público:** VNet1GWIP
+* **Nome do endereço IP público:** VNet1GWpip
 * **Tipo de VPN:** baseado na rota
-* **Tipo de conexão:** Site a site (IPsec)
+* **Tipo de ligação:** Site-a-site (IPsec)
 * **Tipo de gateway:** VPN
-* **Nome do gateway de rede local:** Site1
-* **Nome da conexão:** VNet1toSite1
+* Nome de **gateway da rede local:** Site1
+* **Nome de ligação:** VNet1toSite1
 * **Chave partilhada:** neste exemplo, utilizaremos abc123. No entanto, pode utilizar uma chave qualquer, desde que seja compatível com o seu hardware de VPN. O mais importante é que os valores correspondam em ambos os lados da ligação.
 
-## <a name="CreatVNet"></a>1. criar uma rede virtual
+## <a name="CreatVNet"></a>1. Criar uma rede virtual
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="VNetGateway"></a>2. criar o gateway de VPN
+## <a name="VNetGateway"></a>2. Criar o gateway VPN
 
 Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muitas vezes, pode demorar 45 minutos ou mais, dependendo do SKU de gateway selecionado.
 
@@ -71,20 +71,20 @@ Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muit
 
 ### <a name="example-settings"></a>Definições de exemplo
 
-* **Detalhes da instância > região:** Leste dos EUA
-* Redes virtuais **> rede virtual:** VNet1
-* **Detalhes da instância > nome:** VNet1GW
-* **Detalhes da instância > tipo de gateway:** VPNS
-* **Detalhes da instância > tipo de VPN:** Baseado em rota
-* **Intervalo de endereços de sub-rede do gateway de > de rede virtual:** 10.1.255.0/27
-* **Endereço IP público > nome do endereço IP público:** VNet1GWIP
+* **Detalhes da instância > Região:** Leste dos EUA
+* **Rede Virtual > Rede Virtual:** VNet1
+* **Detalhes da instância > Nome:** VNet1GW
+* **Detalhes da instância > tipo Gateway:** VPN
+* **Detalhes da instância > tipo VPN:** Baseado em rota
+* Gama de endereços de **rede virtual > Gateway:** 10.1.255.0/27
+* **Endereço IP público > Nome** de endereço IP público: VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 
-## <a name="LocalNetworkGateway"></a>3. criar o gateway de rede local
+## <a name="LocalNetworkGateway"></a>3. Criar o portal da rede local
 
 O gateway de rede local refere-se normalmente à sua localização no local. Dê um nome ao site pelo qual o Azure se possa referir ao mesmo e especifique o endereço IP do dispositivo VPN no local para o qual vai criar uma ligação. Também pode especificar os prefixos do endereço IP que vai ser encaminhado através do gateway de VPN para o dispositivo VPN. Os prefixos do endereço que especificar são os que estão localizados na sua rede no local. Se a sua rede no local for alterada ou se precisar de alterar o endereço IP público para o dispositivo VPN, pode atualizar facilmente os valores mais tarde.
 
@@ -97,7 +97,7 @@ O gateway de rede local refere-se normalmente à sua localização no local. Dê
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
-## <a name="VPNDevice"></a>4. configurar seu dispositivo VPN
+## <a name="VPNDevice"></a>4. Configure o seu dispositivo VPN
 
 As ligações de Site a Site para uma rede no local requerem um dispositivo VPN. Neste passo, configure o seu dispositivo VPN. Quando configurar o dispositivo VPN, irá precisar do seguinte:
 
@@ -106,13 +106,13 @@ As ligações de Site a Site para uma rede no local requerem um dispositivo VPN.
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>5. criar a conexão VPN
+## <a name="CreateConnection"></a>5. Criar a ligação VPN
 
 Crie a ligação de Rede de VPNs entre o gateway de rede virtual e o dispositivo VPN no local.
 
 [!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
-## <a name="VerifyConnection"></a>6. verificar a conexão VPN
+## <a name="VerifyConnection"></a>6. Verificar a ligação VPN
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 

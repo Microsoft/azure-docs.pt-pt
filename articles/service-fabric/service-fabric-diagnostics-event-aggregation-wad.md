@@ -1,76 +1,76 @@
 ---
-title: Agregação de eventos com o Windows Diagnóstico do Azure
-description: Saiba mais sobre como agregar e coletar eventos usando o WAD para monitoramento e diagnóstico de clusters de Service Fabric do Azure.
+title: Agregação de eventos com diagnósticos Windows Azure
+description: Aprenda sobre agregação e recolha de eventos usando WAD para monitorização e diagnóstico de clusters Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980211"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389887"
 ---
-# <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e coleta de eventos usando o Windows Diagnóstico do Azure
+# <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e recolha de eventos utilizando diagnósticos Windows Azure
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
 
-Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda você a analisar e solucionar problemas no cluster ou problemas nos aplicativos e serviços em execução nesse cluster.
+Quando se gere um cluster azure service fabric, é uma boa ideia recolher os registos de todos os nós num local central. Ter os registos num local central ajuda-o a analisar e resolver problemas no seu cluster, ou problemas nas aplicações e serviços que estão a decorrer nesse cluster.
 
-Uma maneira de carregar e coletar logs é usar a extensão do Windows Diagnóstico do Azure (WAD), que carrega os logs no armazenamento do Azure e também tem a opção de enviar logs para Aplicativo Azure insights ou hubs de eventos. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [logs de Azure monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
+Uma forma de carregar e recolher registos é utilizar a extensão de Diagnósticos Do Windows Azure (WAD), que envia registos para o Armazenamento Azure, e também tem a opção de enviar registos para insights de aplicação Azure ou Hubs de Eventos. Também pode utilizar um processo externo para ler os eventos a partir do armazenamento e colocá-los num produto de plataforma de análise, como [registos do Monitor Azure](../log-analytics/log-analytics-service-fabric.md) ou outra solução de log-parsing.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-As seguintes ferramentas são usadas neste artigo:
+Neste artigo são utilizadas as seguintes ferramentas:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-* [O Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="service-fabric-platform-events"></a>Service Fabric eventos da plataforma
-Service Fabric define alguns [canais de log prontos para uso](service-fabric-diagnostics-event-generation-infra.md), dos quais os canais a seguir são pré-configurados com a extensão para enviar dados de monitoramento e diagnóstico para uma tabela de armazenamento ou em outro lugar:
-  * [Eventos operacionais](service-fabric-diagnostics-event-generation-operational.md): operações de nível superior que a plataforma Service Fabric executa. Os exemplos incluem a criação de aplicativos e serviços, as alterações de estado do nó e as informações de atualização. Eles são emitidos como logs ETW (rastreamento de eventos para Windows)
-  * [Eventos de modelo de programação de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-  * [Eventos de modelo de programação de Reliable Services](service-fabric-reliable-services-diagnostics.md)
+## <a name="service-fabric-platform-events"></a>Eventos da plataforma Service Fabric
+O Tecido de Serviço configura-o com alguns [canais de registo fora da caixa,](service-fabric-diagnostics-event-generation-infra.md)dos quais os seguintes canais são pré-configurados com a extensão para enviar dados de monitorização e diagnóstico para uma tabela de armazenamento ou em qualquer outro lugar:
+  * [Eventos operacionais](service-fabric-diagnostics-event-generation-operational.md): operações de nível mais elevado que a plataforma Service Fabric realiza. Exemplos incluem criação de aplicações e serviços, alterações do estado do nó e informação de upgrade. Estes são emitidos como Rastreio de Eventos para registos windows (ETW)
+  * [Eventos de modelos de programação de atores fiáveis](service-fabric-reliable-actors-diagnostics.md)
+  * [Eventos de modelos de programação de serviços fiáveis](service-fabric-reliable-services-diagnostics.md)
 
-## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Implantar a extensão de diagnóstico por meio do portal
-A primeira etapa na coleta de logs é implantar a extensão de diagnóstico nos nós do conjunto de dimensionamento de máquinas virtuais no Cluster Service Fabric. A extensão de diagnóstico coleta logs em cada VM e os carrega na conta de armazenamento que você especificar. As etapas a seguir descrevem como fazer isso para clusters novos e existentes por meio dos modelos portal do Azure e Azure Resource Manager.
+## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Implementar a extensão de Diagnósticoatravés do portal
+O primeiro passo na recolha de registos é implantar a extensão de Diagnóstico na escala virtual de máquinas definidas no cluster Service Fabric. A extensão de Diagnóstico recolhe registos em cada VM e envia-os para a conta de armazenamento que especifica. Os passos seguintes descrevem como realizar isto para novos e existentes clusters através do portal Azure e modelos do Gestor de Recursos Azure.
 
-### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Implantar a extensão de diagnóstico como parte da criação do cluster por meio de portal do Azure
-Ao criar o cluster, na etapa configuração do cluster, expanda as configurações opcionais e verifique se o diagnóstico está definido como **ativado** (a configuração padrão).
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Implementar a extensão de Diagnósticos como parte da criação de cluster através do portal Azure
+Ao criar o seu cluster, no passo de configuração do cluster, expanda as definições opcionais e certifique-se de que o Diagnóstico está definido para **Ligar** (a definição predefinida).
 
-![Diagnóstico do Azure configurações no portal para a criação do cluster](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
+![Definições de Diagnóstico Azure no portal para criação de cluster](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
 
-É altamente recomendável que você baixe o modelo **antes de clicar em criar** na etapa final. Para obter detalhes, consulte [configurar um cluster de Service Fabric usando um modelo de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Você precisa do modelo para fazer alterações em quais canais (listados acima) para coletar dados.
+Recomendamos vivamente que descarregue o modelo antes de clicar em **Criar** no passo final. Para mais detalhes, consulte a [Configuração de um cluster de tecido](service-fabric-cluster-creation-via-arm.md)de serviço utilizando um modelo de Gestor de Recursos Azure . Você precisa do modelo para fazer alterações em que canais (listados acima) para recolher dados a partir de.
 
 ![Modelo de cluster](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Agora que você está agregando eventos no armazenamento do Azure, [configure Azure monitor logs](service-fabric-diagnostics-oms-setup.md) para obter informações e consultá-los no portal de logs de Azure monitor
+Agora que está a agregar eventos no Armazenamento Azure, [instale registos do Azure Monitor](service-fabric-diagnostics-oms-setup.md) para obter informações e questioná-los no portal de registos do Monitor Azure
 
 >[!NOTE]
->Atualmente, não há nenhuma maneira de filtrar ou groomar os eventos que são enviados para as tabelas. Se você não implementar um processo para remover eventos da tabela, a tabela continuará crescendo (a extremidade padrão é 50 GB). As instruções sobre como alterar isso estão [mais adiante neste artigo](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Além disso, há um exemplo de um serviço de grooming de dados em execução no [exemplo de Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você escreva um para você mesmo, a menos que haja um bom motivo para armazenar logs além de um período de 30 ou 90 dias.
+>Atualmente não há forma de filtrar ou preparar os eventos que são enviados para as mesas. Se não implementar um processo para remover eventos da mesa, a tabela continuará a crescer (a tampa predefinida é de 50 GB). As instruções sobre como alterar isto estão [ainda abaixo neste artigo](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Além disso, existe um exemplo de um serviço de preparação de dados que está a funcionar na [amostra watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e recomenda-se que escreva um para si também, a menos que haja uma boa razão para armazenar registos para além de um prazo de 30 ou 90 dias.
 
 
 
-## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implantar a extensão de diagnóstico por meio de Azure Resource Manager
+## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implementar a extensão de Diagnóstico através do Gestor de Recursos Azure
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Criar um cluster com a extensão de diagnóstico
-Para criar um cluster usando o Gerenciador de recursos, você precisa adicionar o JSON de configuração de diagnóstico ao modelo completo do Resource Manager. Fornecemos um exemplo de modelo do Resource Manager de cluster de cinco VMs com a configuração de diagnóstico adicionada a ela como parte de nossos exemplos de modelo do Resource Manager. Você pode vê-lo neste local na Galeria de exemplos do Azure: [cluster de cinco nós com exemplo de modelo do Gerenciador de recursos de diagnóstico](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Para criar um cluster utilizando o Gestor de Recursos, precisa de adicionar a configuração de diagnóstico JSON ao modelo completo do Gestor de Recursos. Fornecemos uma amostra de modelo de gestor de recursos de cluster de cinco VM com configuração de diagnóstico adicionada a ele como parte das amostras do nosso modelo de Gestor de Recursos. Pode vê-lo neste local na galeria Azure Samples: [Cluster de cinco nós com amostra](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)de modelo de Gestor de Recursos de Diagnóstico .
 
-Para ver a configuração de diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy. JSON e procure **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **implantar no Azure** disponível no link anterior.
+Para ver a definição de Diagnósticos no modelo De Gestor de Recursos, abra o ficheiro azuredeploy.json e procure **iaaSDiagnostics**. Para criar um cluster utilizando este modelo, selecione o botão **Deploy para Azure** disponível no link anterior.
 
-Como alternativa, você pode baixar o exemplo do Resource Manager, fazer alterações nele e criar um cluster com o modelo modificado usando o comando `New-AzResourceGroupDeployment` em uma janela Azure PowerShell. Consulte o código a seguir para os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [implantar um grupo de recursos com o modelo de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
+Em alternativa, pode descarregar a amostra do Gestor de Recursos, fazer alterações e criar um cluster com o modelo modificado utilizando o comando `New-AzResourceGroupDeployment` numa janela Azure PowerShell. Consulte o seguinte código para os parâmetros que passa para o comando. Para obter informações detalhadas sobre como implementar um grupo de recursos utilizando o PowerShell, consulte o artigo Implementar um grupo de recursos com o modelo do Gestor de [Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
-### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Adicionar a extensão de diagnóstico a um cluster existente
-Se você tiver um cluster existente que não tenha o diagnóstico implantado, poderá adicioná-lo ou atualizá-lo por meio do modelo de cluster. Modifique o modelo do Resource Manager que é usado para criar o cluster existente ou baixe o modelo do portal, conforme descrito anteriormente. Modifique o arquivo template. JSON executando as seguintes tarefas:
+### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Adicione a extensão de diagnóstico a um cluster existente
+Se tiver um cluster existente que não tenha Diagnósticos implementados, pode adicioná-lo ou atualizá-lo através do modelo de cluster. Modifique o modelo de Gestor de Recursos que é usado para criar o cluster existente ou descarregar o modelo a partir do portal como descrito anteriormente. Modificar o ficheiro template.json executando as seguintes tarefas:
 
-Adicione um novo recurso de armazenamento ao modelo adicionando à seção recursos.
+Adicione um novo recurso de armazenamento ao modelo adicionando à secção de recursos.
 
 ```json
 {
@@ -89,7 +89,7 @@ Adicione um novo recurso de armazenamento ao modelo adicionando à seção recur
 },
 ```
 
- Em seguida, adicione à seção de parâmetros logo após as definições da conta de armazenamento, entre `supportLogStorageAccountName`. Substitua o texto do espaço reservado *nome da conta de armazenamento aqui* pelo nome da conta de armazenamento que você deseja.
+ Em seguida, adicione à secção de parâmetros logo após as definições da conta de armazenamento, entre `supportLogStorageAccountName`. Substitua o nome da conta de armazenamento de texto do espaço *reservado, com* o nome da conta de armazenamento que deseja.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -111,7 +111,7 @@ Adicione um novo recurso de armazenamento ao modelo adicionando à seção recur
       }
     },
 ```
-Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template. JSON adicionando o código a seguir dentro da matriz de extensões. Certifique-se de adicionar uma vírgula no início ou no final, dependendo de onde ela é inserida.
+Em seguida, atualize a secção `VirtualMachineProfile` do ficheiro template.json adicionando o seguinte código dentro da matriz de extensões. Certifique-se de adicionar uma vírina no início ou no fim, dependendo de onde está inserida.
 
 ```json
 {
@@ -177,10 +177,10 @@ Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template. JSON
 }
 ```
 
-Depois de modificar o arquivo template. JSON conforme descrito, Republique o modelo do Resource Manager. Se o modelo foi exportado, a execução do arquivo Deploy. ps1 republicará o modelo. Depois de implantar o, verifique se o **ProvisioningState** foi **bem-sucedido**.
+Depois de modificar o ficheiro template.json conforme descrito, republique o modelo de Gestor de Recursos. Se o modelo foi exportado, executar o ficheiro deploy.ps1 republique o modelo. Depois de se implantar, certifique-se de que o Estado de **Provisioning** é **bem sucedido**.
 
 > [!TIP]
-> Se você pretende implantar contêineres em seu cluster, habilite WAD para selecionar as estatísticas do Docker adicionando-as à seção **WadCfg > DiagnosticMonitorConfiguration** .
+> Se vai implantar contentores no seu cluster, ative o WAD a recolher estatísticas de estivadores adicionando isto à sua secção **WadCfg > DiagnosticMonitorConfiguration.**
 >
 >```json
 >"DockerSources": {
@@ -191,45 +191,45 @@ Depois de modificar o arquivo template. JSON conforme descrito, Republique o mod
 >},
 >```
 
-### <a name="update-storage-quota"></a>Atualizar cota de armazenamento
+### <a name="update-storage-quota"></a>Quota de armazenamento de atualização
 
-Como as tabelas preenchidas pela extensão crescem até que a cota seja atingida, talvez você queira considerar a diminuição do tamanho da cota. O valor padrão é 50 GB e é configurável no modelo no campo `overallQuotaInMB` em `DiagnosticMonitorConfiguration`
+Uma vez que as tabelas povoadas pela extensão crescem até que a quota seja atingida, é melhor considerar a diminuição do tamanho da quota. O valor predefinido é de 50 GB e é configurável no modelo sob o campo `overallQuotaInMB` sob `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
 ```
 
-## <a name="log-collection-configurations"></a>Configurações de coleta de log
-Os logs de canais adicionais também estão disponíveis para coleta, aqui estão algumas das configurações mais comuns que você pode fazer no modelo para clusters em execução no Azure.
+## <a name="log-collection-configurations"></a>Configurações de recolha de registos
+Os registos de canais adicionais também estão disponíveis para recolha, aqui estão algumas das configurações mais comuns que você pode fazer no modelo para clusters em execução em Azure.
 
-* Canal operacional-base: habilitada por padrão, operações de alto nível executadas por Service Fabric e o cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de atualização, etc. Para obter uma lista de eventos, consulte [eventos de canal operacional](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal Operacional - Base: Ativado por defeito, operações de alto nível realizadas pela Service Fabric e pelo cluster, incluindo eventos para um nó que se aproxima, uma nova aplicação a ser implementada, ou uma reversão de atualização, etc. Para obter uma lista de eventos, consulte [eventos do Canal Operacional.](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal operacional-detalhado: isso inclui relatórios de integridade e decisões de balanceamento de carga, além de tudo no canal operacional de base. Esses eventos são gerados pelo sistema ou pelo seu código usando as APIs de integridade ou de relatório de carga, como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para exibir esses eventos no diagnóstico do Visual Studio, Visualizador de Eventos adicione "Microsoft-0x4000000000000008:4:" à lista de provedores de ETW.
+* Canal Operacional - Detalhado: Isto inclui relatórios de saúde e decisões de equilíbrio de carga, além de tudo no canal operacional base. Estes eventos são gerados pelo sistema ou pelo seu código utilizando as APIs de informação sobre saúde ou carga, tais como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para ver estes eventos no Visualiza Studio's Diagnostic Event Viewer adicione "Microsoft-ServiceFabric:4:0x400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" à lista de fornecedor
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Canal de dados e mensagens-base: logs críticos e eventos gerados no sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados, além de logs de canais operacionais detalhados. Esses eventos são falhas de processamento de solicitação e outros problemas críticos no ReverseProxy, bem como solicitações processadas. **Essa é nossa recomendação para registro em log abrangente**. Para exibir esses eventos no Visualizador de Eventos de diagnóstico do Visual Studio, adicione "Microsoft-0x4000000000000010:4:" à lista de provedores de ETW.
+* Data and Messaging Channel - Base: Registos e eventos críticos gerados nas mensagens (atualmente apenas no ReverseProxy) e na trajetória de dados, além de registos de canais operacionais detalhados. Estes eventos são falhas de processamento de pedidos e outras questões críticas no ReverseProxy, bem como pedidos processados. **Esta é a nossa recomendação para uma exploração madeireira abrangente.** Para ver estes eventos no VisualizaStudio's Diagnostic Event Viewer, adicione "Microsoft-ServiceFabric:4:0x4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Data & canal de mensagens – detalhado: canal detalhado que contém todos os logs não críticos de dados e mensagens no cluster e o canal operacional detalhado. Para obter uma solução de problemas detalhada de todos os eventos de proxy reverso, consulte o [Guia de diagnóstico de proxy reverso](service-fabric-reverse-proxy-diagnostics.md).  Para exibir esses eventos no Visualizador de eventos de diagnóstico do Visual Studio, adicione "Microsoft-perfabric: 4:0x4000000000000020" à lista de provedores de ETW.
+* Canal de Dados e Mensagens - Detalhado: Canal Verbose que contém todos os registos não críticos a partir de dados e mensagens no cluster e no canal operacional detalhado. Para uma resolução detalhada de problemas de todos os eventos de procuração inversa, consulte o [guia de diagnóstico de procuração inversa](service-fabric-reverse-proxy-diagnostics.md).  Para ver estes eventos no visualizador de eventos de diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" à lista de fornecedores da ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
   ```
 
 >[!NOTE]
->Esse canal tem um volume muito alto de eventos, a habilitação da coleta de eventos desse canal detalhado resulta na geração rápida de muitos rastreamentos e pode consumir capacidade de armazenamento. Ative isso apenas se for absolutamente necessário.
+>Este canal tem um volume muito elevado de eventos, permitindo a recolha de eventos a partir deste canal detalhado resulta em muitos vestígios sendo gerados rapidamente, e pode consumir capacidade de armazenamento. Só ligue isto se for absolutamente necessário.
 
 
-Para habilitar o **canal operacional base** , nossa recomendação para o registro em log abrangente com a menor quantidade de ruído, o `EtwManifestProviderConfiguration` na `WadCfg` do modelo seria semelhante ao seguinte:
+Para ativar o **Canal Operacional Base** a nossa recomendação para uma exploração madeireira abrangente com a menor quantidade de ruído, o `EtwManifestProviderConfiguration` no `WadCfg` do seu modelo seria o seguinte:
 
 ```json
   "WadCfg": {
@@ -278,13 +278,13 @@ Para habilitar o **canal operacional base** , nossa recomendação para o regist
       },
 ```
 
-## <a name="collect-from-new-eventsource-channels"></a>Coletar de novos canais EventSource
+## <a name="collect-from-new-eventsource-channels"></a>Recolha a partir de novos canais EventSource
 
-Para atualizar o diagnóstico para coletar logs de novos canais EventSource que representam um novo aplicativo que você está prestes a implantar, execute as mesmas etapas descritas anteriormente para a configuração de diagnóstico para um cluster existente.
+Para atualizar diagnósticos para recolher registos de novos canais EventSource que representam uma nova aplicação que está prestes a implementar, execute os mesmos passos descritos anteriormente para a configuração de Diagnósticos para um cluster existente.
 
-Atualize a seção `EtwEventSourceProviderConfiguration` no arquivo template. JSON para adicionar entradas para os novos canais EventSource antes de aplicar a atualização de configuração usando o comando `New-AzResourceGroupDeployment` PowerShell. O nome da origem do evento é definido como parte do seu código no arquivo ServiceEventSource.cs gerado pelo Visual Studio.
+Atualize a secção `EtwEventSourceProviderConfiguration` no ficheiro template.json para adicionar entradas para os novos canais EventSource antes de aplicar a atualização de configuração utilizando o comando `New-AzResourceGroupDeployment` PowerShell. O nome da fonte do evento é definido como parte do seu código no ficheiro ServiceEventSource.cs gerado pelo Estúdio Visual.
 
-Por exemplo, se a origem do evento for nomeada como My-EventSource, adicione o código a seguir para posicionar os eventos de My-EventSource em uma tabela chamada MyDestinationTableName.
+Por exemplo, se a sua fonte de evento for chamada My-Eventsource, adicione o seguinte código para colocar os eventos do My-Eventsource numa tabela chamada MyDestinationTableName.
 
 ```json
         {
@@ -296,35 +296,35 @@ Por exemplo, se a origem do evento for nomeada como My-EventSource, adicione o c
         }
 ```
 
-Para coletar contadores de desempenho ou logs de eventos, modifique o modelo do Resource Manager usando os exemplos fornecidos em [criar uma máquina virtual do Windows com monitoramento e diagnóstico usando um modelo de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Em seguida, Republique o modelo do Resource Manager.
+Para recolher contadores de desempenho ou registos de eventos, modifique o modelo do Gestor de Recursos utilizando os exemplos fornecidos na [Create a Windows virtual machine com monitorização e diagnóstico utilizando um modelo de Gestor](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)de Recursos Azure . Em seguida, republique o modelo de Gestor de Recursos.
 
-## <a name="collect-performance-counters"></a>Coletar contadores de desempenho
+## <a name="collect-performance-counters"></a>Colete contadores de desempenho
 
-Para coletar métricas de desempenho do cluster, adicione os contadores de desempenho ao seu "WadCfg > DiagnosticMonitorConfiguration" no modelo do Resource Manager para o cluster. Consulte [monitoramento de desempenho com wad](service-fabric-diagnostics-perf-wad.md) para ver as etapas de modificação de seu `WadCfg` para coletar contadores de desempenho específicos. Referencie [Service Fabric contadores de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista de contadores de desempenho que recomendamos coletar.
+Para recolher métricas de desempenho do seu cluster, adicione os contadores de desempenho à sua "WadCfg > DiagnosticMonitorConfiguration" no modelo De Gestor de Recursos para o seu cluster. Consulte [a monitorização do desempenho com](service-fabric-diagnostics-perf-wad.md) a WAD para obter passos na modificação do seu `WadCfg` para recolher contadores de desempenho específicos. [Balcões](service-fabric-diagnostics-event-generation-perf.md) de desempenho de tecido de serviço de referência para uma lista de contadores de desempenho que recomendamos a recolha.
   
-Se você estiver usando um coletor de Application Insights, conforme descrito na seção abaixo, e quiser que essas métricas sejam exibidas na Application Insights, certifique-se de adicionar o nome do coletor na seção "coletores", como mostrado acima. Isso enviará automaticamente os contadores de desempenho que são configurados individualmente para o recurso de Application Insights.
+Se estiver a usar um afundado application Insights, como descrito na secção abaixo, e quiser que estas métricas apareçam em Insights de Aplicação, certifique-se de adicionar o nome do lavatório na secção "pias", como mostrado acima. Isto enviará automaticamente os contadores de desempenho que estão configurados individualmente para o seu recurso Application Insights.
 
 
-## <a name="send-logs-to-application-insights"></a>Enviar logs para Application Insights
+## <a name="send-logs-to-application-insights"></a>Enviar registos para Informações de Aplicação
 
-### <a name="configuring-application-insights-with-wad"></a>Configurando Application Insights com WAD
+### <a name="configuring-application-insights-with-wad"></a>Configurar insights de aplicação com WAD
 
 >[!NOTE]
->Isso só é aplicável a clusters do Windows no momento.
+>Isto só é aplicável aos clusters windows no momento.
 
-Há duas maneiras principais de enviar dados do WAD para o Aplicativo Azure insights, que é obtido adicionando um coletor de Application Insights à configuração do WAD, por meio do portal do Azure ou por meio de um modelo de Azure Resource Manager.
+Existem duas formas primárias de enviar dados de WAD para Azure Application Insights, que é conseguido adicionando um afundado de Aplicação Insights à configuração WAD, através do portal Azure ou através de um modelo de Gestor de Recursos Azure.
 
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Adicione uma chave de instrumentação de Application Insights ao criar um cluster no portal do Azure
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Adicione uma chave de instrumentação de insights de aplicação ao criar um cluster no portal Azure
 
-![Adicionando um AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+![Adicionar um AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
 
-Ao criar um cluster, se o diagnóstico for ativado, um campo opcional para inserir uma chave de instrumentação de Application Insights será exibido. Se você colar sua chave de Application Insights aqui, o coletor de Application Insights será configurado automaticamente para você no modelo do Resource Manager que é usado para implantar o cluster.
+Ao criar um cluster, se o Diagnóstico for ligado, um campo opcional para introduzir uma chave de instrumentação de insights de aplicação mostrará. Se colar aqui a chave de insights de aplicação, o afundador de Insights de Aplicação é automaticamente configurado para si no modelo de Gestor de Recursos que é usado para implementar o seu cluster.
 
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Adicionar o coletor de Application Insights ao modelo do Resource Manager
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Adicione o afundatório de insights de aplicação ao modelo de Gestor de Recursos
 
-No "WadCfg" do modelo do Resource Manager, adicione um "coletor", incluindo as duas alterações a seguir:
+No modelo "WadCfg" do gestor de recursos, adicione um "Sink" incluindo as duas seguintes alterações:
 
-1. Adicione a configuração do coletor diretamente depois que a declaração da `DiagnosticMonitorConfiguration` for concluída:
+1. Adicione a configuração do lavatório diretamente após a declaração do `DiagnosticMonitorConfiguration` estiver concluída:
 
     ```json
     "SinksConfig": {
@@ -338,28 +338,28 @@ No "WadCfg" do modelo do Resource Manager, adicione um "coletor", incluindo as d
 
     ```
 
-2. Inclua o coletor no `DiagnosticMonitorConfiguration` adicionando a linha a seguir na `DiagnosticMonitorConfiguration` da `WadCfg` (direita antes que os `EtwProviders` sejam declarados):
+2. Incluir o lavatório no `DiagnosticMonitorConfiguration` adicionando a seguinte linha no `DiagnosticMonitorConfiguration` do `WadCfg` (mesmo antes de declarar o `EtwProviders`):
 
     ```json
     "sinks": "applicationInsights"
     ```
 
-Nos dois trechos de código anteriores, o nome "applicationInsights" foi usado para descrever o coletor. Isso não é um requisito e, desde que o nome do coletor esteja incluído em "coletores", você pode definir o nome como qualquer cadeia de caracteres.
+Em ambos os códigos anteriores, o nome "applicationInsights" foi usado para descrever a pia. Isto não é um requisito e enquanto o nome da pia estiver incluído em "pias", pode definir o nome em qualquer corda.
 
-Atualmente, os logs do cluster aparecem como **rastreamentos** no Visualizador de log do Application insights. Como a maioria dos rastreamentos provenientes da plataforma são do nível "informativo", você também pode considerar alterar a configuração do coletor para enviar somente logs do tipo "aviso" ou "erro". Isso pode ser feito adicionando "canais" ao seu coletor, conforme demonstrado neste [artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Atualmente, os registos do cluster aparecem como **vestígios** no visualizador de registo da Application Insights. Uma vez que a maioria dos vestígios provenientes da plataforma são de nível "Informational", também pode considerar alterar a configuração do lavatório para apenas enviar registos do tipo "Aviso" ou "Erro". Isto pode ser feito adicionando "Canais" à sua pia, como demonstrado [neste artigo.](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 >[!NOTE]
->Se você usar uma chave de Application Insights incorreta no portal ou no modelo do Resource Manager, será necessário alterar manualmente a chave e atualizar o cluster/reimplantá-la.
+>Se utilizar uma chave de insights de aplicação incorreta, quer no portal quer no modelo do Gestor de Recursos, terá de alterar manualmente a chave e atualizá-la do cluster/reimplantá-la.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de configurar corretamente o diagnóstico do Azure, você verá os dados nas tabelas de armazenamento dos logs ETW e EventSource. Se você optar por usar logs de Azure Monitor, Kibana ou qualquer outra plataforma de análise e visualização de dados que não esteja configurada diretamente no modelo do Resource Manager, certifique-se de configurar a plataforma de sua escolha para ler os dados dessas tabelas de armazenamento. Fazer isso para Azure Monitor logs é relativamente trivial e é explicado em [análise de eventos e log](service-fabric-diagnostics-event-analysis-oms.md). Application Insights é um pouco um caso especial nesse sentido, já que ele pode ser configurado como parte da configuração da extensão de diagnóstico, portanto, consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se você optar por usar o ia.
+Depois de configurar corretamente os diagnósticos do Azure, verá os dados nas tabelas de Armazenamento dos registos ETW e EventSource. Se optar por utilizar registos do Monitor Azure, kibana ou qualquer outra plataforma de análise e visualização de dados que não esteja configurada diretamente no modelo de Gestor de Recursos, certifique-se de configurar a plataforma da sua escolha para ler nos dados a partir destas tabelas de armazenamento. Fazer isto para os registos do Monitor Azure é relativamente trivial, e é explicado em [Evento e análise](service-fabric-diagnostics-event-analysis-oms.md)de registos. Application Insights é um caso um pouco especial neste sentido, uma vez que pode ser configurado como parte da configuração de extensão de diagnóstico, por isso consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por usar IA.
 
 >[!NOTE]
->Atualmente, não há nenhuma maneira de filtrar ou groomar os eventos que são enviados para a tabela. Se você não implementar um processo para remover eventos da tabela, a tabela continuará crescendo. Atualmente, há um exemplo de um serviço de grooming de dados em execução no [exemplo de Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você escreva um para você mesmo, a menos que haja um bom motivo para você armazenar logs além de um período de 30 ou 90 dias.
+>Não existe atualmente forma de filtrar ou preparar os eventos que são enviados para a mesa. Se não implementar um processo para remover eventos da mesa, a mesa continuará a crescer. Atualmente, existe um exemplo de um serviço de tratamento de dados que está a funcionar na [amostra watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e recomenda-se que escreva um para si também, a menos que haja uma boa razão para armazenar registos para além de um prazo de 30 ou 90 dias.
 
-* [Saiba como coletar contadores de desempenho ou logs usando a extensão de diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Análise e visualização de eventos com Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análise de eventos e visualização com logs de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
-* [Análise e visualização de eventos com Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análise de eventos e visualização com logs de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Saiba como recolher contadores de desempenho ou registos utilizando a extensão de Diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Análise de Eventos e Visualização com Insights de Aplicação](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Análise e Visualização de Eventos com registos do Monitor Azure](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análise de Eventos e Visualização com Insights de Aplicação](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Análise e Visualização de Eventos com registos do Monitor Azure](service-fabric-diagnostics-event-analysis-oms.md)

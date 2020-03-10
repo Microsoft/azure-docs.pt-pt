@@ -8,11 +8,11 @@ ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083012"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355939"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com Azure Cosmos DB
 
@@ -34,8 +34,8 @@ Como base de dados distribuída globalmente, a Cosmos DB fornece SLAs abrangente
 
 |Tipo de operação  | Região única |Multi-região (escreve uma região única)|Multi-região (escreve várias regiões) |
 |---------|---------|---------|-------|
-|registra    | 99.99    |99.99   |99.999|
-|pareça     | 99.99    |99.999  |99.999|
+|escreve    | 99.99    |99.99   |99.999|
+|lê     | 99.99    |99.999  |99.999|
 
 > [!NOTE]
 > Na prática, a disponibilidade real de escrita para a estagnação limitada, sessão, prefixo consistente e modelos de consistência eventual é significativamente maior do que os SLAs publicados. A disponibilidade de leitura real para todos os níveis de consistência é significativamente maior do que as SLAs publicadas.

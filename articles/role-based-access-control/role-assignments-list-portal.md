@@ -15,11 +15,11 @@ ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598073"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393983"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de atribuições de funções utilizando o Azure RBAC e o portal Azure
 

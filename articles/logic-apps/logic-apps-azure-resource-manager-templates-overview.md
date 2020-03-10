@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: 486f90d82af729a3dbfd836239d2d19ebdf44819
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191429"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386583"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: Implementação automática para Aplicações Lógicas Azure utilizando modelos de Gestor de Recursos Azure
 
@@ -321,7 +321,7 @@ Aqui estão os atributos que são específicos da definição de recursos de apl
 
 | Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| `state` | Sim | Cadeia | O estado da sua aplicação lógica na implementação, onde `Enabled` significa que a sua aplicação lógica está ao vivo e `Disabled` significa que a sua aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto, mas quiser implementar uma versão de rascunho, pode utilizar a opção `Disabled`. |
+| `state` | Sim | String | O estado da sua aplicação lógica na implementação, onde `Enabled` significa que a sua aplicação lógica está ao vivo e `Disabled` significa que a sua aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto, mas quiser implementar uma versão de rascunho, pode utilizar a opção `Disabled`. |
 | `integrationAccount` | Não | Object | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários de negócios a empresas (B2B), este objeto inclui o atributo `id`, que especifica o ID para a conta de integração. |
 | `definition` | Sim | Object | A definição subjacente à definição de fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na vista de código e é totalmente descrita na [referência de Schema para](../logic-apps/logic-apps-workflow-definition-language.md) o tópico de Linguagem de Definição de Fluxo de Trabalho. Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte a [definição de Fluxo de Trabalho e os parâmetros](#workflow-definition-parameters). <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "vista de design" para "visão de código" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer.](https://resources.azure.com) |
 | `parameters` | Não | Object | Os valores de [parâmetro de definição](#workflow-definition-parameters) de fluxo de trabalho para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho](#workflow-definition-parameters). Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um objeto `$connections` que define os valores de ligação a utilizar no tempo de execução. |

@@ -1,61 +1,61 @@
 ---
-title: Depurar aplicativos Service Fabric do Azure no Windows
-description: Saiba como monitorar e diagnosticar seus serviços escritos usando Microsoft Azure Service Fabric em um computador de desenvolvimento local.
+title: Aplicativos de tecido de serviço Debug Azure no Windows
+description: Aprenda a monitorizar e diagnosticar os seus serviços escritos usando o Microsoft Azure Service Fabric numa máquina de desenvolvimento local.
 author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464618"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388420"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador local
+# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa instalação de desenvolvimento de máquinas locais
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 > * [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 > 
 > 
 
-O monitoramento, a detecção, o diagnóstico e a solução de problemas permitem que os serviços continuem com o mínimo de interrupção para a experiência do usuário. Embora o monitoramento e o diagnóstico sejam críticos em um ambiente de produção implantado real, a eficiência dependerá da adoção de um modelo semelhante durante o desenvolvimento de serviços para garantir que eles funcionem quando você migrar para uma configuração do mundo real. Service Fabric facilita para os desenvolvedores de serviço a implementação de diagnósticos que podem funcionar diretamente entre as configurações de desenvolvimento local de um único computador e as configurações de cluster de produção reais.
+A monitorização, deteção, diagnóstico e resolução de problemas permitem que os serviços continuem com a mínima perturbação na experiência do utilizador. Embora a monitorização e os diagnósticos sejam cruciais num ambiente de produção implementado, a eficiência dependerá da adoção de um modelo semelhante durante o desenvolvimento de serviços para garantir que funcionam quando se muda para uma configuração real. O Service Fabric facilita que os desenvolvedores de serviços implementem diagnósticos que possam funcionar perfeitamente em conjuntos de desenvolvimento local de máquina única e configurações de clusters de produção no mundo real.
 
-## <a name="event-tracing-for-windows"></a>Rastreamento de Eventos para Windows
-O ETW ( [rastreamento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) ) é a tecnologia recomendada para rastrear mensagens em Service Fabric. Alguns benefícios de usar o ETW são:
+## <a name="event-tracing-for-windows"></a>Rastreio de eventos para janelas
+O rastreio de [eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) é a tecnologia recomendada para rastrear mensagens em Tecido de Serviço. Alguns benefícios da utilização de ETW são:
 
-* **O ETW é rápido.** Ele foi criado como uma tecnologia de rastreamento que tem impacto mínimo sobre os tempos de execução de código.
-* **O rastreamento ETW funciona diretamente entre ambientes de desenvolvimento locais e também configurações de cluster reais.** Isso significa que você não precisa reescrever seu código de rastreamento quando estiver pronto para implantar seu código em um cluster real.
-* **Service Fabric código do sistema também usa o ETW para rastreamento interno.** Isso permite que você exiba os rastreamentos de aplicativo intercalados com Service Fabric rastreamentos do sistema. Ele também ajuda a entender com mais facilidade as sequências e as inter-relações entre o código do aplicativo e os eventos no sistema subjacente.
-* **Há suporte interno em ferramentas do Service Fabric Visual Studio para exibir eventos ETW.** Os eventos ETW aparecem na exibição de eventos de diagnóstico do Visual Studio quando o Visual Studio é configurado corretamente com Service Fabric. 
+* **ETW é rápido.** Foi construído como uma tecnologia de rastreio que tem o mínimo impacto nos tempos de execução de códigos.
+* **O rastreio da ETW funciona perfeitamente em ambientes de desenvolvimento local e também em conjuntos de clusters do mundo real.** Isto significa que não precisa reescrever o seu código de rastreio quando estiver pronto para implementar o seu código para um aglomerado real.
+* **O código do sistema service Fabric também utiliza ETW para rastreio interno.** Isto permite-lhe visualizar os vestígios da sua aplicação interisolados com os vestígios do sistema De Serviço Fabric. Também o ajuda a entender mais facilmente as sequências e inter-relações entre o seu código de aplicação e eventos no sistema subjacente.
+* **Existe suporte incorporado nas ferramentas do Estúdio Visual de Tecido de Serviço para visualizar eventos DaTW.** Os eventos ETW aparecem na vista de Eventos de Diagnóstico do Estúdio Visual uma vez que o Estúdio Visual está corretamente configurado com tecido de serviço. 
 
-## <a name="view-service-fabric-system-events-in-visual-studio"></a>Exibir Service Fabric eventos do sistema no Visual Studio
-Service Fabric emite eventos ETW para ajudar os desenvolvedores de aplicativos a entender o que está acontecendo na plataforma. Se você ainda não tiver feito isso, vá em frente e siga as etapas em [criando seu primeiro aplicativo no Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Essas informações ajudarão você a colocar um aplicativo em funcionamento com o Visualizador de eventos de diagnóstico mostrando as mensagens de rastreamento.
+## <a name="view-service-fabric-system-events-in-visual-studio"></a>Ver eventos do sistema de tecido de serviço em Estúdio Visual
+Service Fabric emite eventos Da ETW para ajudar os desenvolvedores de aplicações a entender o que está a acontecer na plataforma. Se ainda não o fez, siga os passos na Criação da [sua primeira aplicação no Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Esta informação irá ajudá-lo a obter uma aplicação em funcionamento com o Visualizador de Eventos de Diagnóstico mostrando as mensagens de rastreio.
 
-1. Se a janela eventos de diagnóstico não aparecer automaticamente, vá para a guia **Exibir** no Visual Studio, escolha **outras janelas** e, em seguida, **Visualizador de eventos de diagnóstico**.
-2. Cada evento tem informações de metadados padrão que informam o nó, o aplicativo e o serviço do qual o evento é proveniente. Você também pode filtrar a lista de eventos usando a caixa **filtrar eventos** na parte superior da janela eventos. Por exemplo, você pode filtrar o **nome do nó** ou o **nome do serviço.** E, quando estiver examinando os detalhes do evento, você também pode pausar usando o botão **Pausar** na parte superior da janela eventos e retomar mais tarde sem perda de eventos.
+1. Se a janela de eventos de diagnóstico não aparecer automaticamente, vá ao separador **Ver** em Estúdio Visual, escolha **Outras Janelas** e, em **seguida, Diagnostic Events Viewer**.
+2. Cada evento tem informações padrão de metadados que lhe dizem o nó, aplicação e serviço de que o evento está vindo. Também pode filtrar a lista de eventos utilizando a caixa de **eventos Filter** na parte superior da janela de eventos. Por exemplo, pode filtrar o nome do **nó** ou o nome do **serviço.** E quando você está olhando para os detalhes do evento, você também pode parar usando o botão **Pausa** na parte superior da janela de eventos e retomar mais tarde sem qualquer perda de eventos.
    
-   ![Visualizador de eventos de diagnóstico do Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+   ![Visualizal Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
-## <a name="add-your-own-custom-traces-to-the-application-code"></a>Adicionar seus próprios rastreamentos personalizados ao código do aplicativo
-O Service Fabric modelos de projeto do Visual Studio contêm código de exemplo. O código mostra como adicionar rastreamentos ETW de código de aplicativo personalizado que aparecem no visualizador ETW do Visual Studio junto com rastreamentos do sistema de Service Fabric. A vantagem desse método é que os metadados são adicionados automaticamente aos rastreamentos e o Visualizador de eventos de diagnóstico do Visual Studio já está configurado para exibi-los.
+## <a name="add-your-own-custom-traces-to-the-application-code"></a>Adicione os seus próprios vestígios personalizados ao código de aplicação
+Os modelos do projeto Service Fabric Visual Studio contêm código de amostra. O código mostra como adicionar os traços de código de aplicação personalizados ETW que aparecem no espectador Visual Studio ETW ao lado de vestígios de sistema do Service Fabric. A vantagem deste método é que os metadados são adicionados automaticamente aos vestígios, e o VisualizaStudio Diagnostic Events Viewer já está configurado para os exibir.
 
-Para projetos criados a partir dos **modelos de serviço** (com ou sem estado), basta procurar a implementação de `RunAsync`:
+Para projetos **criados** a partir dos modelos de serviço (apátridas ou apátridas) basta procurar a implementação `RunAsync`:
 
-1. A chamada para `ServiceEventSource.Current.ServiceMessage` no método `RunAsync` mostra um exemplo de um rastreamento ETW personalizado do código do aplicativo.
-2. No arquivo **ServiceEventSource.cs** , você encontrará uma sobrecarga para o método `ServiceEventSource.ServiceMessage` que deve ser usado para eventos de alta frequência devido a motivos de desempenho.
+1. A chamada para `ServiceEventSource.Current.ServiceMessage` no método `RunAsync` mostra um exemplo de um traço ETW personalizado do código de aplicação.
+2. No ficheiro **ServiceEventSource.cs,** encontrará uma sobrecarga para o método `ServiceEventSource.ServiceMessage` que deve ser utilizado para eventos de alta frequência devido a razões de desempenho.
 
-Para projetos criados com base nos **modelos de ator** (sem estado ou com estado):
+Para projetos **criados** a partir dos modelos de ator (apátrida ou apátrida):
 
-1. Abra o arquivo **"ProjectName". cs** , em que *ProjectName* é o nome escolhido para seu projeto do Visual Studio.  
-2. Localize o código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` no método *DoWorkAsync* .  Este é um exemplo de um rastreamento ETW personalizado escrito do código do aplicativo.  
-3. No arquivo **ActorEventSource.cs**, você encontrará uma sobrecarga para o método `ActorEventSource.ActorMessage` que deve ser usado para eventos de alta frequência devido a motivos de desempenho.
+1. Abra o ficheiro **"ProjectName".cs** onde *o ProjectName* é o nome que escolheu para o seu projeto Visual Studio.  
+2. Encontre o código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` no método *DoWorkAsync.*  Este é um exemplo de um traço ETW personalizado escrito a partir do código de aplicação.  
+3. No ficheiro **ActorEventSource.cs,** encontrará uma sobrecarga para o método `ActorEventSource.ActorMessage` que deve ser utilizado para eventos de alta frequência devido a razões de desempenho.
 
-Depois de adicionar o rastreamento ETW personalizado ao seu código de serviço, você pode criar, implantar e executar o aplicativo novamente para ver seus eventos no Visualizador de eventos de diagnóstico. Se você depurar o aplicativo com **F5**, o Visualizador de eventos de diagnóstico será aberto automaticamente.
+Depois de adicionar o rastreio personalizado da ETW ao seu código de serviço, pode construir, implementar e executar novamente a aplicação para ver o seu(s) evento no Visualizador de Eventos de Diagnóstico. Se depurar a aplicação com **F5,** o Visualizador de Eventos de Diagnóstico abrirá automaticamente.
 
 ## <a name="next-steps"></a>Passos seguintes
-O mesmo código de rastreamento que você adicionou ao seu aplicativo acima para diagnóstico local funcionará com ferramentas que você pode usar para exibir esses eventos ao executar seu aplicativo em um cluster do Azure. Confira estes artigos que discutem as diferentes opções para as ferramentas e descrevem como você pode configurá-las.
+O mesmo código de rastreio que adicionou à sua aplicação acima para diagnósticos locais funcionará com ferramentas que pode usar para visualizar estes eventos ao executar a sua aplicação num cluster Azure. Confira estes artigos que discutem as diferentes opções para as ferramentas e descreva como pode configurar.
 
-* [Como coletar logs com Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Agregação e coleta de eventos usando EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+* [Como recolher registos com diagnósticos Azure](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Agregação e recolha de eventos usando eventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

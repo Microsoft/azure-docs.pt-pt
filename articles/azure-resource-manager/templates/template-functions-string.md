@@ -4,11 +4,11 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207066"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78354924"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia para modelos de Gestor de Recursos Azure
 
@@ -109,8 +109,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Cadeia | Um dois três |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Um dois três |
 | toJsonOutput | Object | {"um": "a", "dois": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -174,8 +174,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Cadeia | Um dois três |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Um dois três |
 | toJsonOutput | Object | {"um": "a", "dois": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -239,8 +239,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Cadeia | Um dois três |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Um dois três |
 | toJsonOutput | Object | {"um": "a", "dois": "b"} |
 
 ## <a name="concat"></a>concat
@@ -290,7 +290,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | Cadeia | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) de exemplo mostra como combinar duas matrizes.
 
@@ -331,7 +331,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| Devolução | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| retorno | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>Contém
 
@@ -466,8 +466,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | Cadeia | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | Cadeia | Olá, mundo! |
+| dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Olá, mundo! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -521,8 +521,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | Cadeia | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | Cadeia | Olá, mundo! |
+| dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Olá, mundo! |
 
 ## <a name="empty"></a>vazio
 
@@ -704,8 +704,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | um |
-| stringOutput | Cadeia | O |
+| arrayOutput | String | um |
+| stringOutput | String | O |
 
 ## <a name="format"></a>format
 
@@ -762,7 +762,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| formatTest | Cadeia | Olá, Utilizador. Número formato: 8.175.133 |
+| formatTest | String | Olá, Utilizador. Número formato: 8.175.133 |
 
 ## <a name="guid"></a>guid
 
@@ -945,8 +945,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | três |
-| stringOutput | Cadeia | e |
+| arrayOutput | String | três |
+| stringOutput | String | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -1230,7 +1230,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 ## <a name="replace"></a>substituir
 
@@ -1282,8 +1282,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Cadeia | 1231231234 |
-| segundaSaída | Cadeia | 123-123-xxxx |
+| firstOutput | String | 1231231234 |
+| segundaSaída | String | 123-123-xxxx |
 
 ## <a name="skip"></a>saltar
 
@@ -1350,8 +1350,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["three"] |
-| stringOutput | Cadeia | dois três |
+| arrayOutput | Array | ["three"] |
+| stringOutput | String | dois três |
 
 ## <a name="split"></a>dividir
 
@@ -1409,8 +1409,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Matriz | ["um", "dois", "três"] |
-| segundaSaída | Matriz | ["um", "dois", "três"] |
+| firstOutput | Array | ["um", "dois", "três"] |
+| segundaSaída | Array | ["um", "dois", "três"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1545,9 +1545,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Cadeia | {"valueA":10,"valueB":"Exemplo Texto"} |
-| arrayOutput | Cadeia | ["a","b","c"] |
-| intOutput | Cadeia | 5 |
+| objectOutput | String | {"valueA":10,"valueB":"Exemplo Texto"} |
+| arrayOutput | String | ["a","b","c"] |
+| intOutput | String | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1608,7 +1608,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| substringOutput | Cadeia | dois |
+| substringOutput | String | dois |
 
 ## <a name="take"></a>tomar
 
@@ -1675,8 +1675,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["um", "dois"] |
-| stringOutput | Cadeia | em |
+| arrayOutput | Array | ["um", "dois"] |
+| stringOutput | String | em |
 
 ## <a name="tolower"></a>toLower
 
@@ -1726,8 +1726,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | Cadeia | Um dois três |
-| toUpperOutput | Cadeia | Um dois três |
+| toLowerOutput | String | Um dois três |
+| toUpperOutput | String | Um dois três |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1777,8 +1777,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | Cadeia | Um dois três |
-| toUpperOutput | Cadeia | Um dois três |
+| toLowerOutput | String | Um dois três |
+| toUpperOutput | String | Um dois três |
 
 ## <a name="trim"></a>aparar
 
@@ -1824,7 +1824,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| Devolução | Cadeia | Um dois três |
+| retorno | String | Um dois três |
 
 ## <a name="uniquestring"></a>único String
 
@@ -1980,9 +1980,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2035,9 +2035,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2090,9 +2090,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="utcnow"></a>utcNow
 

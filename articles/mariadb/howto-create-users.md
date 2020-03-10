@@ -1,35 +1,35 @@
 ---
-title: Criar usuários-banco de dados do Azure para MariaDB
-description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um banco de dados do Azure para o MariaDB Server.
+title: Criar utilizadores - Base de Dados Azure para MariaDB
+description: Este artigo descreve como pode criar novas contas de utilizador para interagir com uma Base de Dados Azure para o servidor MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: cbfcb097b4fda30bdeed940a5acb609b02f5d788
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764274"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387149"
 ---
-# <a name="create-users-in-azure-database-for-mariadb"></a>Criar usuários no banco de dados do Azure para MariaDB 
-Este artigo descreve como você pode criar usuários no banco de dados do Azure para MariaDB.
+# <a name="create-users-in-azure-database-for-mariadb"></a>Criar utilizadores na Base de Dados Azure para o MariaDB 
+Este artigo descreve como pode criar utilizadores na Base de Dados Azure para o MariaDB.
 
-Ao criar pela primeira vez o banco de dados do Azure para MariaDB, você forneceu um nome de usuário e uma senha de logon de administrador do servidor. Para obter mais informações, você pode seguir o [início rápido](quickstart-create-mariadb-server-database-using-azure-portal.md). Você pode localizar o nome de usuário de logon do administrador do servidor no portal do Azure.
+Quando criou a sua Base de Dados Azure para o MariaDB, forneceu um servidor de nome de utilizador de login e palavra-passe. Para mais informações, pode seguir o [Quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md). Pode localizar o nome de utilizador de login do seu servidor a partir do portal Azure.
 
-O usuário administrador do servidor Obtém determinados privilégios para o servidor, conforme listado: selecionar, inserir, atualizar, excluir, criar, descartar, recarregar, processar, REFERENCIAr, INDEXar, alterar, mostrar bancos de dados, criar tabelas TEMPORÁRIAs, bloquear tabelas, executar, replicação SUBORDINAda, replicação CLIENTE, CRIAR EXIBIÇÃO, MOSTRAR EXIBIÇÃO, CRIAR ROTINA, ALTERAR ROTINA, CRIAR USUÁRIO, EVENTO, GATILHO
+O utilizador do servidor obtém certos privilégios para o seu servidor como listado: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENTE, CRIAR VISTA, MOSTRAR VISTA, CRIAR ROTINA, ALTERAR ROTINA, CRIAR UTILIZADOR, EVENTO, GATILHO
 
-Depois que o banco de dados do Azure para o servidor MariaDB for criado, você poderá usar a primeira conta de usuário administrador do servidor para criar usuários adicionais e conceder acesso de administrador a eles. Além disso, a conta do administrador do servidor pode ser usada para criar usuários com menos privilégios que tenham acesso a esquemas de banco de dados individuais.
+Uma vez criada a Base de Dados Azure para o servidor MariaDB, pode utilizar a primeira conta de utilizador do servidor para criar utilizadores adicionais e conceder acesso à administração dos mesmos. Além disso, a conta de administração do servidor pode ser usada para criar utilizadores menos privilegiados que tenham acesso a esquemas de base de dados individuais.
 
-## <a name="create-additional-admin-users"></a>Criar usuários administradores adicionais
-1. Obtenha as informações de conexão e o nome de usuário do administrador.
-   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Você pode encontrar facilmente o nome do servidor e as informações de entrada na página **visão geral** do servidor ou na página **Propriedades** no portal do Azure. 
+## <a name="create-additional-admin-users"></a>Criar utilizadores adicionais de administração
+1. Obtenha as informações de ligação e o nome do utilizador administrativo.
+   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode facilmente encontrar o nome do servidor e informações de início de sessão a partir da página **'Overview'** do servidor ou da página **Propriedades** no portal Azure. 
 
-2. Use a conta de administrador e a senha para se conectar ao servidor de banco de dados. Use sua ferramenta de cliente preferida, como MySQL Workbench, MySQL. exe, HeidiSQL ou outros. 
-   Se você não tiver certeza de como se conectar, consulte [usar o MySQL Workbench para se conectar e consultar dados](./connect-workbench.md)
+2. Utilize a conta de administração e a palavra-passe para se ligar ao seu servidor de base de dados. Utilize a sua ferramenta de cliente preferida, como mySQL Workbench, mysql.exe, HeidiSQL, ou outros. 
+   Se não tiver a certeza de como se conectar, consulte [Use MySQL Workbench para ligar e consultar dados](./connect-workbench.md)
 
-3. Edite e execute o código SQL a seguir. Substitua seu novo nome de usuário pelo valor de espaço reservado `new_master_user`. Essa sintaxe concede os privilégios listados em todos os esquemas de banco de dados ( *.* ) ao nome de usuário (new_master_user neste exemplo). 
+3. Editar e executar o seguinte código SQL. Substitua o seu novo nome de utilizador pelo valor do espaço reservado `new_master_user`. Esta sintaxe concede os privilégios listados em todas as bases de dados ( *.* ) ao nome do utilizador (new_master_user neste exemplo). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -39,24 +39,24 @@ Depois que o banco de dados do Azure para o servidor MariaDB for criado, você p
    FLUSH PRIVILEGES;
    ```
 
-4. Verificar as concessões 
+4. Verifique as subvenções 
    ```sql
    USE sys;
    
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
 
-## <a name="create-database-users"></a>Criar usuários de banco de dados
+## <a name="create-database-users"></a>Criar utilizadores de bases de dados
 
-1. Obtenha as informações de conexão e o nome de usuário do administrador.
-   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Você pode encontrar facilmente o nome do servidor e as informações de entrada na página **visão geral** do servidor ou na página **Propriedades** no portal do Azure. 
+1. Obtenha as informações de ligação e o nome do utilizador administrativo.
+   Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode facilmente encontrar o nome do servidor e informações de início de sessão a partir da página **'Overview'** do servidor ou da página **Propriedades** no portal Azure. 
 
-2. Use a conta de administrador e a senha para se conectar ao servidor de banco de dados. Use sua ferramenta de cliente preferida, como MySQL Workbench, MySQL. exe, HeidiSQL ou outros. 
-   Se você não tiver certeza de como se conectar, consulte [usar o MySQL Workbench para se conectar e consultar dados](./connect-workbench.md)
+2. Utilize a conta de administração e a palavra-passe para se ligar ao seu servidor de base de dados. Utilize a sua ferramenta de cliente preferida, como mySQL Workbench, mysql.exe, HeidiSQL, ou outros. 
+   Se não tiver a certeza de como se conectar, consulte [Use MySQL Workbench para ligar e consultar dados](./connect-workbench.md)
 
-3. Edite e execute o código SQL a seguir. Substitua o valor do espaço reservado `db_user` pelo seu novo nome de usuário pretendido e o valor de espaço reservado `testdb` com seu próprio nome de banco de dados.
+3. Editar e executar o seguinte código SQL. Substitua o valor do espaço reservado `db_user` pelo seu novo nome de utilizador pretendido e o valor do espaço reservado `testdb` pelo seu próprio nome de base de dados.
 
-   Essa sintaxe de código SQL cria um novo banco de dados chamado TestDB para fins de exemplo. Em seguida, ele cria um novo usuário no banco de dados do Azure para o serviço MariaDB e concede a todos os privilégios para o novo esquema de banco de dados (TestDB.\*) para esse usuário. 
+   Esta sintaxe de código sql cria uma nova base de dados chamada testdb, por exemplo. Em seguida, cria um novo utilizador na Base de Dados Azure para o serviço MariaDB, e concede todos os privilégios à nova base de dados (testdb.\*) para esse utilizador. 
 
    ```sql
    CREATE DATABASE testdb;
@@ -68,21 +68,21 @@ Depois que o banco de dados do Azure para o servidor MariaDB for criado, você p
    FLUSH PRIVILEGES;
    ```
 
-4. Verifique as concessões no banco de dados.
+4. Verifique os subsídios dentro da base de dados.
    ```sql
    USE testdb;
    
    SHOW GRANTS FOR 'db_user'@'%';
    ```
 
-5. Faça logon no servidor, especificando o banco de dados designado, usando o novo nome de usuário e senha. Este exemplo mostra a linha de comando do MySQL. Com esse comando, será solicitada a senha para o nome de usuário. Substitua seu próprio nome do servidor, nome do banco de dados e nome de usuário.
+5. Inicie sessão no servidor, especificando a base de dados designada, utilizando o novo nome de utilizador e palavra-passe. Este exemplo mostra a linha de comando mysql. Com este comando, é solicitado a palavra-passe para o nome de utilizador. Substitua o nome do seu próprio servidor, nome da base de dados e nome do utilizador.
 
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-   Para obter mais informações sobre o gerenciamento de contas de usuário, consulte a documentação do MariaDB para [Gerenciamento de contas de usuário](https://mariadb.com/kb/en/library/user-account-management/), sintaxe de [concessão](https://mariadb.com/kb/en/library/grant/)e [privilégios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+   Para obter mais informações sobre a gestão da conta de utilizador, consulte a documentação mariaDB para gestão da [conta utilizador,](https://mariadb.com/kb/en/library/user-account-management/) [GRANT Syntax](https://mariadb.com/kb/en/library/grant/)e [Privileges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Passos seguintes
-Abra o firewall para os endereços IP dos computadores dos novos usuários para permitir que eles se conectem: [criar e gerenciar as regras de firewall do banco de dados do Azure para MariaDB usando o portal do Azure](howto-manage-firewall-portal.md)  
+Abra a firewall para os endereços IP das máquinas dos novos utilizadores para que possam ligar: Criar e gerir a Base de Dados Azure para as regras de [firewall MariaDB utilizando o portal Azure](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

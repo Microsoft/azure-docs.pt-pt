@@ -1,18 +1,18 @@
 ---
-title: Perguntas frequentes sobre discos de VM Linux IaaS do Azure
-description: Perguntas frequentes sobre discos de VM Linux do Azure IaaS e discos Premium (gerenciados e não gerenciados)
+title: Perguntas frequentes sobre discos
+description: Perguntas frequentes sobre discos VM Azure IaaS Linux e discos premium (geridos e não geridos)
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e862fee0dd9056bb0e4e7c263938f1af4d134f01
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d4f814647aeaaf3ab66e746360ce7656a22a4520
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359971"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946091"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre discos de VM IaaS do Azure e discos premium geridos e não geridos
+# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos VM Azure IaaS e discos premium geridos e não geridos
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]

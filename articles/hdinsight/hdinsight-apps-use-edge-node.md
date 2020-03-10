@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/27/2020
 ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199012"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386374"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Use nós de borda vazia em clusters Apache Hadoop em HDInsight
 
@@ -65,7 +65,7 @@ Depois de criar um nó de borda, pode ligar-se ao nó de borda usando SSH e exec
 > Se estiver a usar uma tecnologia Apache, poderá encontrar assistência através dos sites de projetos Apache em [https://apache.org](https://apache.org), como o site [Apache Hadoop.](https://hadoop.apache.org/)
 
 > [!IMPORTANT]
-> As imagens Ubuntu ficam disponíveis para a nova criação de cluster HDInsight no prazo de 3 meses após a publicação. A partir de janeiro de 2019, os clusters de corrida (incluindo os nós de borda) **não** são auto-remendados. Os clientes devem usar ações de script ou outros mecanismos para aplicar patch em um cluster em execução.  Para mais informações, consulte [o oss opatching para HDInsight](./hdinsight-os-patching.md).
+> As imagens Ubuntu ficam disponíveis para a nova criação de cluster HDInsight no prazo de 3 meses após a publicação. A partir de janeiro de 2019, os clusters de corrida (incluindo os nós de borda) **não** são auto-remendados. Os clientes devem usar ações de script ou outros mecanismos para remendar um cluster de execução.  Para mais informações, consulte [o oss opatching para HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicione um nó de borda a um cluster existente
 
@@ -82,7 +82,7 @@ Nesta secção, você usa um modelo de Gestor de Recursos para adicionar um nó 
     |Subscrição|Selecione uma subscrição Azure utilizada para criar o cluster.|
     |Grupo de recursos|Selecione o grupo de recursos utilizado para o cluster HDInsight existente.|
     |Localização|Selecione a localização do cluster HDInsight existente.|
-    |Nome do Cluster|Introduza o nome de um cluster HDInsight existente.|
+    |Nome do cluster|Introduza o nome de um cluster HDInsight existente.|
 
 1. Verifique **se concordo com os termos e condições acima indicados,** e depois selecione **Comprar** para criar o nó de borda.
 
@@ -106,7 +106,7 @@ Nesta secção, você usa um modelo de Gestor de Recursos para criar cluster HDI
     |Subscrição|Selecione uma subscrição Azure utilizada para criar o cluster.|
     |Grupo de recursos|Crie um novo grupo de recursos usado para o cluster.|
     |Localização|Selecione uma localização para o grupo de recursos.|
-    |Nome do Cluster|Introduza um nome para o novo cluster criar.|
+    |Nome do cluster|Introduza um nome para o novo cluster criar.|
     |Nome de Utilizador de Início de Sessão do Cluster|Introduza o nome de utilizador Hadoop HTTP.  O nome predefinido é **admin**.|
     |Palavra-passe de Início de Sessão do Cluster|Introduza a senha de utilizador hadoop HTTP.|
     |Nome do utilizador SSH|Introduza o nome de utilizador SSH. O nome padrão é **sshuser**.|

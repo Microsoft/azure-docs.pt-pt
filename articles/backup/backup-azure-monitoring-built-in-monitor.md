@@ -1,63 +1,63 @@
 ---
-title: Monitorar cargas de trabalho protegidas do backup do Azure
-description: Neste artigo, saiba mais sobre os recursos de monitoramento e notificação para cargas de trabalho de backup do Azure usando o portal do Azure.
+title: Monitor Azure Backup trabalhos protegidos
+description: Neste artigo, conheça as capacidades de monitorização e notificação das cargas de trabalho do Azure Backup utilizando o portal Azure.
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172869"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392787"
 ---
-# <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
+# <a name="monitoring-azure-backup-workloads"></a>Monitorização de cargas de trabalho de backup azure
 
-O backup do Azure fornece várias soluções de backup com base no requisito de backup e na topologia de infraestrutura (local versus Azure). Qualquer usuário ou administrador de backup deverá ver o que está acontecendo em todas as soluções e deve ser notificado em cenários importantes. Este artigo detalha os recursos de monitoramento e notificação fornecidos pelo serviço de backup do Azure.
+O Azure Backup fornece múltiplas soluções de backup baseadas na exigência de backup e topologia de infraestrutura (On-premises vs Azure). Qualquer utilizador ou administrador de reserva deve ver o que se passa em todas as soluções e espera-se que seja notificado em cenários importantes. Este artigo detalha as capacidades de monitorização e notificação fornecidas pelo serviço de backup Azure.
 
-## <a name="backup-jobs-in-recovery-services-vault"></a>Trabalhos de backup no cofre dos serviços de recuperação
+## <a name="backup-jobs-in-recovery-services-vault"></a>Backup Jobs no cofre dos Serviços de Recuperação
 
-O backup do Azure fornece recursos de monitoramento e alerta criados para cargas de trabalho protegidas pelo backup do Azure. Nas configurações do cofre dos serviços de recuperação, a seção **monitoramento** fornece trabalhos e alertas internos.
+O Azure Backup fornece capacidades de monitorização e alerta incorporadas para as cargas de trabalho protegidas pelo Azure Backup. Nas definições do cofre dos Serviços de Recuperação, a secção **de Monitorização** fornece empregos e alertas embutidos.
 
-![Monitoramento interno do cofre RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
+![Monitorização incorporada do cofre RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
 
-Os trabalhos são gerados quando as operações, como configurar backup, backup, restaurar, excluir backup e assim por diante, são executadas.
+Os trabalhos são gerados quando são executadas operações como configurar cópias de segurança, cópia de segurança, restaurar, eliminar a cópia de segurança, e assim por diante.
 
-Os trabalhos das seguintes soluções de backup do Azure são mostrados aqui:
+Os postos de trabalho das seguintes soluções Azure Backup são mostrados aqui:
 
 - Cópias de segurança de VMs do Azure
-- Backup de arquivos do Azure
-- Backup de carga de trabalho do Azure, como SQL
+- Backup do Ficheiro Azure
+- Backup de carga de trabalho azure como SQL
 - Agente do Azure Backup (MAB)
 
-Os trabalhos do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos.
+Os trabalhos do System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) não são apresentados.
 
 > [!NOTE]
-> As cargas de trabalho do Azure, como backups SQL em VMs do Azure, têm um grande número de trabalhos de backup. Por exemplo, os backups de log podem ser executados a cada 15 minutos. Portanto, para essas cargas de trabalho de BD, somente as operações disparadas pelo usuário são exibidas. As operações de backup agendadas não são exibidas.
+> As cargas de trabalho azure, como backups SQL dentro de VMs Azure, têm um grande número de trabalhos de backup. Por exemplo, as cópias de segurança de log podem ser executadas por cada 15 minutos. Assim, para tais cargas de trabalho DB, apenas são apresentadas operações acionadas pelo utilizador. As operações de backup programadas NÃO são apresentadas.
 
-## <a name="backup-alerts-in-recovery-services-vault"></a>Alertas de backup no cofre dos serviços de recuperação
+## <a name="backup-alerts-in-recovery-services-vault"></a>Alertas de backup no cofre dos Serviços de Recuperação
 
-Os alertas são principalmente cenários em que os usuários são notificados para que possam executar uma ação relevante. A seção **alertas de backup** mostra alertas gerados pelo serviço de backup do Azure. Esses alertas são definidos pelo serviço e o usuário não pode criar alertas personalizados.
+Os alertas são principalmente cenários em que os utilizadores são notificados para que possam tomar medidas relevantes. A secção **Backup Alerts** mostra alertas gerados pelo serviço de backup Azure. Estes alertas são definidos pelo serviço e o utilizador não pode criar quaisquer alertas.
 
 ### <a name="alert-scenarios"></a>Cenários de alerta
 
-Os cenários a seguir são definidos pelo serviço como cenários de alerta.
+Os seguintes cenários são definidos pelo serviço como cenários alerta.
 
 - Falhas de Cópia de Segurança/Restauro
 - Cópia de segurança concluída com êxito com avisos para o Agente do Azure Backup (MAB)
-- Interromper a proteção com reter dados/parar proteção com excluir dados
+- Parar a proteção com dados de retenção/Parar a proteção com eliminar dados
 
-### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é gerado
+### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é levantado
 
-Há algumas exceções quando um alerta não é gerado em uma falha, eles são:
+Há poucas exceções quando um alerta não é levantado sobre uma falha, são:
 
-- O usuário cancelou explicitamente o trabalho em execução
-- O trabalho falha porque outro trabalho de backup está em andamento (nada para agir aqui, pois acabamos de aguardar a conclusão do trabalho anterior)
-- O trabalho de backup da VM falha porque a VM do Azure com backup não existe mais
+- O utilizador cancelou explicitamente o trabalho de funcionamento
+- O trabalho falha porque outro trabalho de reserva está em andamento (nada para agir aqui, uma vez que temos que esperar que o trabalho anterior termine)
+- O trabalho de backup vM falha porque o Azure VM apoiado já não existe
 
-As exceções acima foram projetadas desde a compreensão de que o resultado dessas operações (basicamente disparados pelo usuário) aparece imediatamente em clientes do portal/PS/CLI. Portanto, o usuário reconhece imediatamente e não precisa de uma notificação.
+As exceções acima referidas são concebidas a partir do entendimento de que o resultado destas operações (principalmente utilizadores desencadeados) aparece imediatamente nos clientes portais/PS/CLI. Por isso, o utilizador está imediatamente ciente e não necessita de notificação.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Os alertas das seguintes soluções de backup do Azure são mostrados aqui
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Os alertas das seguintes soluções de Backup Azure são mostrados aqui
 
 - Cópias de segurança de VMs do Azure
 - Cópias de segurança dos Ficheiros do Azure
@@ -65,43 +65,43 @@ As exceções acima foram projetadas desde a compreensão de que o resultado des
 - Agente do Azure Backup (MAB)
 
 > [!NOTE]
-> Os alertas do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos aqui.
+> Os alertas do System Center Data Protection Manager (SC-DPM), do Microsoft Azure Backup Server (MABS) não são apresentados aqui.
 
-### <a name="alert-types"></a>Tipos de alertas
+### <a name="alert-types"></a>Tipos de alerta
 
-Com base na severidade do alerta, os alertas podem ser definidos em três tipos:
+Com base na gravidade do alerta, os alertas podem ser definidos em três tipos:
 
-- **Crítico**: em princípio, qualquer falha de backup ou recuperação (programada ou disparada pelo usuário) levaria à geração de um alerta e seria exibida como um alerta crítico e também operações destrutivas, como excluir backup.
-- **Aviso**: se a operação de backup for bem sucedido, mas com poucos avisos, elas serão listadas como alertas de aviso.
-- **Informação**: a partir de hoje, nenhum alerta informativo é gerado pelo serviço de backup do Azure.
+- **Crítico**: Em princípio, qualquer falha de backup ou recuperação (programada ou ativada pelo utilizador) levaria à geração de um alerta e seria mostrada como um alerta crítico e também operações destrutivas, tais como eliminar a cópia de segurança.
+- **Aviso**: Se a operação de reserva for bem sucedida, mas com poucos avisos, são listados como alertas de aviso.
+- **Informação**: A partir de hoje, nenhum alerta informativo é gerado pelo serviço de backup Azure.
 
-## <a name="notification-for-backup-alerts"></a>Notificação para alertas de backup
-
-> [!NOTE]
-> A configuração da notificação pode ser feita somente por meio do portal do Azure. Não há suporte para o suporte ao modelo PS/CLI/API REST/Azure Resource Manager.
-
-Depois que um alerta é gerado, os usuários são notificados. O backup do Azure fornece um mecanismo de notificação embutido por email. É possível especificar endereços de email individuais ou listas de distribuição a serem notificadas quando um alerta for gerado. Você também pode escolher se deseja ser notificado para cada alerta individual ou agrupá-lo em um resumo por hora e, em seguida, ser notificado.
-
-![Notificação de email interno do cofre RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
+## <a name="notification-for-backup-alerts"></a>Notificação de Alertas de Backup
 
 > [!NOTE]
-> Os alertas para backups do SQL serão consolidados e o email será enviado somente para a primeira ocorrência. Mas se o alerta for desativado pelo usuário, a próxima ocorrência disparará outro email.
+> A configuração da notificação só pode ser feita através do Portal Azure. O suporte do modelo de modelo ps/CLI/REST API/Azure Resource Manager não é suportado.
 
-Quando a notificação estiver configurada, você receberá um email de boas-vindas ou introdutório. Isso confirma que o backup do Azure pode enviar emails para esses endereços quando um alerta é gerado.<br>
+Uma vez levantado um alerta, os utilizadores são notificados. A Azure Backup fornece um mecanismo de notificação incorporado por e-mail. Pode especificar endereços de e-mail individuais ou listas de distribuição a serem notificados quando um alerta é gerado. Também pode escolher se deve ser notificado para cada alerta individual ou agrupar-se numa digestão de hora a hora e depois ser notificado.
 
-Se a frequência foi definida como um resumo por hora e um alerta foi gerado e resolvido em uma hora, ele não fará parte do próximo resumo por hora.
+![Notificação de e-mail incorporada do Cofre RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
+
+> [!NOTE]
+> Os alertas para backups SQL serão consolidados e o e-mail é enviado apenas para a primeira ocorrência. Mas se o alerta for inativado pelo utilizador, a próxima ocorrência irá desencadear outro e-mail.
+
+Quando a notificação estiver configurada, receberá um e-mail de boas-vindas ou introdutória. Isto confirma que o Azure Backup pode enviar e-mails para estes endereços quando um alerta é levantado.<br>
+
+Se a frequência foi definida para uma digestão de hora a hora e um alerta foi levantado e resolvido dentro de uma hora, não fará parte da próxima digestão horária.
 
 > [!NOTE]
 >
-> - Se uma operação destrutiva, como **parar proteção com dados de exclusão** , for executada, um alerta será gerado e um email será enviado aos proprietários, administradores e coadministradores da assinatura, mesmo que as notificações não estejam configuradas para o cofre do serviço de recuperação.
-> - Para configurar a notificação para trabalhos com êxito, use [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> - Se for executada uma operação destrutiva como a proteção contra o **stop com dados de eliminação,** é levantado um alerta e enviado um e-mail para proprietários de subscrições, administradores e coadministradores, mesmo que as notificações não estejam configuradas para o cofre do Serviço de Recuperação.
+> - Para configurar a notificação para trabalhos bem sucedidos, utilize [o Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
-## <a name="inactivating-alerts"></a>Inativando alertas
+## <a name="inactivating-alerts"></a>Alertas de inativação
 
-Para desativar/resolver um alerta ativo, você pode clicar no item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão ' desativar ' na parte superior. Clicar nesse botão alteraria o status do alerta para ' inactive '. Você também pode desativar um alerta clicando com o botão direito do mouse no item de lista correspondente ao alerta e selecionando ' desativar '.
+Para inativar/resolver um alerta ativo, pode clicar no item da lista correspondente ao alerta que pretende inativar. Isto abre um ecrã que apresenta informações detalhadas sobre o alerta, com um botão 'Inactivate' na parte superior. Clicar neste botão alteraria o estado do alerta para 'Inactivo'. Também pode inativar um alerta clicando à direita no item da lista correspondente a esse alerta e selecionando 'Inactivar'.
 
-![Inativação de alerta do cofre RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+![Inativação de alerta de cofre RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Monitorar cargas de trabalho de backup do Azure usando Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Monitor Azure cargas de trabalho de backup usando O Monitor Azure](backup-azure-monitoring-use-azuremonitor.md)

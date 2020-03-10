@@ -1,74 +1,74 @@
 ---
-title: Usar referências de Key Vault
-description: Saiba como configurar Azure App serviço e Azure Functions para usar referências Azure Key Vault. Torne os segredos do Key Vault disponíveis para o código do aplicativo.
+title: Utilizar referências chave vault
+description: Saiba como configurar o Azure App Service e as Funções Azure para utilizar referências do Cofre chave Azure. Disponibilize os segredos do Cofre chave para o seu código de aplicação.
 author: mattchenderson
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728757"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373792"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências chave vault para serviço de aplicações e funções azure
 
-Este tópico mostra como trabalhar com segredos de Azure Key Vault em seu serviço de aplicativo ou Azure Functions aplicativo sem a necessidade de nenhuma alteração de código. [Azure Key Vault](../key-vault/key-vault-overview.md) é um serviço que fornece gerenciamento de segredos centralizado, com controle total sobre políticas de acesso e histórico de auditoria.
+Este tópico mostra-lhe como trabalhar com segredos do Cofre de Chaves Azure na sua aplicação App Service ou Azure Functions sem exigir alterações de código. [Azure Key Vault](../key-vault/key-vault-overview.md) é um serviço que fornece gestão centralizada de segredos, com total controlo sobre políticas de acesso e histórico de auditoria.
 
-## <a name="granting-your-app-access-to-key-vault"></a>Concedendo acesso ao aplicativo para Key Vault
+## <a name="granting-your-app-access-to-key-vault"></a>Concedendo o acesso da sua aplicação ao Key Vault
 
-Para ler segredos de Key Vault, você precisa ter um cofre criado e dar permissão ao seu aplicativo para acessá-los.
+Para ler segredos do Key Vault, precisa de ter um cofre criado e dar permissão à sua aplicação para aceder ao mesmo.
 
-1. Crie um cofre de chaves seguindo o guia de [início rápido do Key Vault](../key-vault/quick-create-cli.md).
+1. Crie um cofre chave seguindo o [quickstart do Key Vault](../key-vault/quick-create-cli.md).
 
-1. Crie uma [identidade gerenciada atribuída pelo sistema](overview-managed-identity.md) para seu aplicativo.
+1. Crie uma [identidade gerida atribuída](overview-managed-identity.md) ao sistema para a sua aplicação.
 
    > [!NOTE] 
-   > Key Vault referências atualmente só dão suporte a identidades gerenciadas atribuídas pelo sistema. Não é possível usar identidades atribuídas pelo usuário.
+   > Atualmente, as referências chave vault apenas suportam identidades geridas atribuídas pelo sistema. As identidades atribuídas ao utilizador não podem ser utilizadas.
 
-1. Crie uma [política de acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade do aplicativo que você criou anteriormente. Habilite a permissão de segredo "Get" nessa política. Não defina as configurações de "aplicativo autorizado" ou `applicationId`, pois isso não é compatível com uma identidade gerenciada.
+1. Crie uma política de [acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade de aplicação que criou anteriormente. Ative a permissão secreta "Obter" nesta política. Não configure as definições de "aplicação autorizada" ou `applicationId`, uma vez que esta não é compatível com uma identidade gerida.
 
     > [!NOTE]
-    > Key Vault referências não estão atualmente capazes de resolver segredos armazenados em um cofre de chaves com [restrições de rede](../key-vault/key-vault-overview-vnet-service-endpoints.md).
+    > As referências key Vault não são atualmente capazes de resolver segredos armazenados num cofre chave com [restrições](../key-vault/key-vault-overview-vnet-service-endpoints.md)de rede .
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 
-Uma referência de Key Vault é do `@Microsoft.KeyVault({referenceString})`de formulário, em que `{referenceString}` é substituído por uma das seguintes opções:
+Uma referência do Cofre chave é do formulário `@Microsoft.KeyVault({referenceString})`, onde `{referenceString}` é substituído por uma das seguintes opções:
 
 > [!div class="mx-tdBreakAll"]
 > | Cadeia de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o URI completo do plano de dados de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | O **vaultname** deve ter o nome de seu Key Vault recurso. O **segredoname** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
+> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o uri de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | Nome do_cofre= nome do cofre;_ SecretName=_SecretName;_ SecretVersion=_secretVersion_ | O **Nome do Cofre** deve ser o nome do seu recurso Key Vault. O **Nome Secreto** deve ser o nome do segredo alvo. A **Versão Secreta** deve ser a versão do segredo a usar. |
 
-Por exemplo, uma referência completa com a versão seria parecida com a seguinte:
+Por exemplo, uma referência completa com versão seria como o seguinte:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
-Como alternativa
+Alternativamente:
 
 ```
 @Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
 ```
 
 
-## <a name="source-application-settings-from-key-vault"></a>Configurações do aplicativo de origem de Key Vault
+## <a name="source-application-settings-from-key-vault"></a>Definições de aplicação de origem do cofre de chaves
 
-Key Vault referências podem ser usadas como valores para [configurações do aplicativo](configure-common.md#configure-app-settings), permitindo que você mantenha os segredos em Key Vault em vez da configuração do site. As configurações do aplicativo são criptografadas com segurança em repouso, mas se você precisar de recursos de gerenciamento secreto, elas deverão entrar em Key Vault.
+As referências do Cofre chave podem ser usadas como valores para Definições de [Aplicação,](configure-common.md#configure-app-settings)permitindo-lhe guardar segredos no Cofre chave em vez do config do site. As definições de aplicação são encriptadas de forma segura em repouso, mas se precisar de capacidades de gestão secretas, devem entrar no Cofre chave.
 
-Para usar uma referência de Key Vault para uma configuração de aplicativo, defina a referência como o valor da configuração. Seu aplicativo pode referenciar o segredo por meio de sua chave normalmente. Nenhuma alteração de código é necessária.
+Para utilizar uma referência do Cofre chave para uma definição de aplicação, defina a referência como o valor da definição. A sua aplicação pode fazer referência ao segredo através da sua chave como normal. Não são necessárias alterações de código.
 
 > [!TIP]
-> A maioria das configurações de aplicativo usando referências de Key Vault deve ser marcada como configurações de slot, pois você deve ter cofres separados para cada ambiente.
+> A maioria das definições de aplicação utilizando referências chave vault deve ser marcada como configurações de slot, uma vez que deve ter cofres separados para cada ambiente.
 
 ### <a name="azure-resource-manager-deployment"></a>Implementação do Azure Resource Manager
 
-Ao automatizar implantações de recursos por meio de modelos de Azure Resource Manager, talvez seja necessário sequenciar suas dependências em uma ordem específica para fazer com que esse recurso funcione. De observação, você precisará definir as configurações do aplicativo como seu próprio recurso, em vez de usar uma propriedade `siteConfig` na definição do site. Isso ocorre porque o site precisa ser definido primeiro para que a identidade atribuída pelo sistema seja criada com ela e possa ser usada na política de acesso.
+Ao automatizar as implementações de recursos através dos modelos do Gestor de Recursos Do Azure, poderá ser necessário sequenciar as suas dependências de uma determinada ordem para que esta funcionalidade funcione. De notar que terá de definir as definições da sua aplicação como recurso próprio, em vez de utilizar uma propriedade `siteConfig` na definição do site. Isto porque o site precisa de ser definido primeiro para que a identidade atribuída ao sistema seja criada com ele e possa ser usada na política de acesso.
 
-Um exemplo de psuedo-template para um aplicativo de funções pode ser semelhante ao seguinte:
+Um modelo de psuedo exemplo para uma aplicação de função pode parecer o seguinte:
 
 ```json
 {
@@ -172,30 +172,30 @@ Um exemplo de psuedo-template para um aplicativo de funções pode ser semelhant
 ```
 
 > [!NOTE] 
-> Neste exemplo, a implantação do controle do código-fonte depende das configurações do aplicativo. Esse comportamento normalmente é inseguro, pois a atualização da configuração do aplicativo se comporta de forma assíncrona. No entanto, como incluímos a configuração de aplicativo `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, a atualização é síncrona. Isso significa que a implantação do controle do código-fonte só será iniciada quando as configurações do aplicativo tiverem sido totalmente atualizadas.
+> Neste exemplo, a implementação do controlo de origem depende das definições de aplicação. Normalmente, este comportamento é normalmente inseguro, uma vez que a atualização de definição de aplicações se comporta assincronicamente. No entanto, como incluímos a definição de aplicação `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, a atualização é sincronizada. Isto significa que a implementação do controlo de fonte só começará depois de as definições de aplicação terem sido totalmente atualizadas.
 
-## <a name="troubleshooting-key-vault-references"></a>Solucionando problemas de referências de Key Vault
+## <a name="troubleshooting-key-vault-references"></a>Referências do cofre de resolução de problemas
 
-Se uma referência não for resolvida corretamente, o valor de referência será usado em seu lugar. Isso significa que, para as configurações do aplicativo, uma variável de ambiente seria criada cujo valor tem a sintaxe `@Microsoft.KeyVault(...)`. Isso pode fazer com que o aplicativo gere erros, pois estava esperando um segredo de uma determinada estrutura.
+Se uma referência não for resolvida corretamente, o valor de referência será utilizado. Isto significa que, para as definições de aplicação, seria criada uma variável ambiental cujo valor tem a `@Microsoft.KeyVault(...)` sintaxe. Isto pode fazer com que a aplicação lance erros, uma vez que estava à espera de um segredo de uma determinada estrutura.
 
-Normalmente, isso se deve a uma configuração incorreta da [política de acesso de Key Vault](#granting-your-app-access-to-key-vault). No entanto, também pode ser devido a um segredo não mais existente ou a um erro de sintaxe na própria referência.
+Mais comummente, isto deve-se a uma configuração errada da política de acesso do [Cofre Chave.](#granting-your-app-access-to-key-vault) No entanto, também pode ser devido a um segredo que já não existe ou a um erro de sintaxe na própria referência.
 
-Se a sintaxe estiver correta, você poderá exibir outras causas de erro verificando o status atual da resolução no Portal. Navegue até configurações do aplicativo e selecione "Editar" para a referência em questão. Abaixo da configuração de configuração, você deve ver informações de status, incluindo quaisquer erros. A ausência deles implica que a sintaxe de referência é inválida.
+Se a sintaxe estiver correta, pode visualizar outras causas de erro verificando o estado de resolução atual no portal. Navegue para Definições de Aplicação e selecione "Editar" para a referência em questão. Abaixo da configuração de definição, deve ver informações de estado, incluindo quaisquer erros. A ausência destes implica que a sintaxe de referência é inválida.
 
-Você também pode usar um dos detectores internos para obter informações adicionais.
+Também pode usar um dos detetores incorporados para obter informações adicionais.
 
-### <a name="using-the-detector-for-app-service"></a>Usando o detector para o serviço de aplicativo
+### <a name="using-the-detector-for-app-service"></a>Utilização do detetor para o Serviço de Aplicações
 
-1. No portal, navegue até seu aplicativo.
-2. Selecione **Diagnosticar e resolver problemas**.
-3. Escolha **disponibilidade e desempenho** e selecione **aplicativo Web inativo.**
-4. Encontre **Key Vault diagnóstico de configurações do aplicativo** e clique em **mais informações**.
+1. No portal, navegue para a sua aplicação.
+2. **Selecione Diagnosticar e resolver problemas**.
+3. Escolha **disponibilidade e desempenho** e selecione web app para **baixo.**
+4. Encontre definições de **aplicação do cofre chave E** clique em mais **informações**.
 
 
-### <a name="using-the-detector-for-azure-functions"></a>Usando o detector para Azure Functions
+### <a name="using-the-detector-for-azure-functions"></a>Utilização do detetor para funções azure
 
-1. No portal, navegue até seu aplicativo.
-2. Navegue até **recursos da plataforma.**
-3. Selecione **Diagnosticar e resolver problemas**.
-4. Escolha **disponibilidade e desempenho** e selecione **aplicativo de funções ou relatando erros.**
-5. Clique em **Key Vault configurações do aplicativo diagnósticos.**
+1. No portal, navegue para a sua aplicação.
+2. Navegue para **as funcionalidades da Plataforma.**
+3. **Selecione Diagnosticar e resolver problemas**.
+4. Escolha **disponibilidade e desempenho** e selecione app **'Função' para baixo ou erros de reporte.**
+5. Clique em Definições de **aplicação do cofre de chaves Diagnósticos.**

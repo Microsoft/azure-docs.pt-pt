@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f5345a96e333e0f75264880ee18a95c9ab8dd63c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185851"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672295"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FaQ de gestão de dispositivos de diretório ativo Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "77185851"
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>P: Registei o dispositivo recentemente. Por que não consigo ver o dispositivo sob a informação do meu utilizador no portal Azure? Ou porque é que o proprietário do dispositivo está marcado como N/A para o azure ative diretório híbrido (Azure AD) que se juntou a dispositivos?
 
 **A:** Os dispositivos do Windows 10 que são híbridos Azure AD não aparecem em **dispositivos USER**.
-Utilize a vista **De todos os dispositivos** no portal Azure. Também pode utilizar um cmdlet PowerShell [Get-MsolDevice.](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+Utilize a vista **De todos os dispositivos** no portal Azure. Também pode utilizar um cmdlet PowerShell [Get-MsolDevice.](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
 
 Apenas os seguintes dispositivos estão listados nos **dispositivos USER:**
 
@@ -62,7 +62,7 @@ Apenas os seguintes dispositivos estão listados nos **dispositivos USER:**
 - O utilizador desativa o dispositivo a partir do portal My Apps. 
 - Um administrador (ou utilizador) elimina ou desativa o dispositivo no portal Azure ou utilizando o PowerShell
 - Hybrid Azure AD apenas aderiu: Um administrador remove os dispositivos OU fora do âmbito de sincronização, resultando na eliminação dos dispositivos da Azure AD
-- Upgrade Azure AD liga-se à versão 1.4.xx.x. [Compreender o Azure AD Connect 1.4.xx.x e o desaparecimento](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance)do dispositivo .
+- Upgrade Azure AD liga-se à versão 1.4.xx.x. [Compreender o Azure AD Connect 1.4.xx.x e o desaparecimento](/azure/active-directory/hybrid/reference-connect-device-disappearance)do dispositivo .
 
 
 Veja abaixo como estas ações podem ser retificadas.
@@ -119,7 +119,7 @@ Veja abaixo como estas ações podem ser retificadas.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>P: O registo do dispositivo Windows 10 no Azure AD suporta TPMs no modo FIPS?
 
-**A:** O registo do dispositivo Windows 10 apenas suportado por TPM 2.0 compatível com FIPS e não suportado para TPM 1.2. Se os seus dispositivos tiverem TPM 1.2 compatível com FIPS, deve desativá-los antes de prosseguir com a adesão do Azure AD ou a adesão do Hybrid Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Contacte o seu hardware OEM para obter suporte. 
+**A:** O registo do dispositivo Windows 10 apenas suportado por TPM 2.0 compatível com FIPS e não suportado para TPM 1.2. Se os seus dispositivos tiverem TPM 1.2 compatível com FIPS, deve desativá-los antes de prosseguir com a adesão do Azure AD ou a adesão do Hybrid Azure AD. A Microsoft não fornece nenhuma ferramenta para desativar o modo FIPS para TPMs, uma vez que está dependente do fabricante tpm. Contacte o seu hardware OEM para obter suporte. 
 
 ---
 
@@ -128,7 +128,7 @@ Veja abaixo como estas ações podem ser retificadas.
 **A:** Demora até uma hora para que seja aplicada uma revogação a partir do momento em que o dispositivo Azure AD é marcado como desativado.
 
 >[!NOTE] 
->Para dispositivos matriculados, recomendamos que limpe o dispositivo para garantir que os utilizadores não podem aceder aos recursos. Para mais informações, consulte [o que é a inscrição do dispositivo?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune) 
+>Para dispositivos matriculados, recomendamos que limpe o dispositivo para garantir que os utilizadores não podem aceder aos recursos. Para mais informações, consulte [o que é a inscrição do dispositivo?](/intune/deploy-use/enroll-devices-in-microsoft-intune) 
 
 ---
 
@@ -180,13 +180,13 @@ Os utilizadores apagados ou desativados que não tenham assinado anteriormente n
 
 ### <a name="q-my-users-cant-search-printers-from-azure-ad-joined-devices-how-can-i-enable-printing-from-those-devices"></a>P: Os meus utilizadores não podem pesquisar impressoras a partir de dispositivos azure AD. Como posso ativar a impressão a partir desses dispositivos?
 
-**A:** Para implementar impressoras para dispositivos ligados ao Azure AD, consulte [a implementação da Cloud Print híbrida do Windows Server com pré-autenticação](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Precisa de um Windows Server no local para implementar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
+**A:** Para implementar impressoras para dispositivos ligados ao Azure AD, consulte [a implementação da Cloud Print híbrida do Windows Server com pré-autenticação](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Precisa de um Windows Server no local para implementar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
 
 ---
 
 ### <a name="q-how-do-i-connect-to-a-remote-azure-ad-joined-device"></a>P: Como posso ligar-me a um dispositivo de ad ad ida e volta do Azure remoto?
 
-**A:** Consulte A Connect para pc [de diretório ativo azure remoto](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+**A:** Consulte A Connect para pc [de diretório ativo azure remoto](/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
@@ -220,7 +220,7 @@ Este comportamento:
 
 ### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>P: Por que vejo os *Oops... ocorreu um erro!* dialogar quando tento azure AD juntar-se ao meu PC?
 
-**A:** Este erro ocorre quando configura a inscrição do Diretório Ativo Azure com a Intune. Certifique-se de que o utilizador que tentar aderir ao Azure AD tem a licença Intune correta atribuída. Para mais informações, consulte [Configurar a inscrição para dispositivos Windows](https://docs.microsoft.com/intune/windows-enroll).  
+**A:** Este erro ocorre quando configura a inscrição do Diretório Ativo Azure com a Intune. Certifique-se de que o utilizador que tentar aderir ao Azure AD tem a licença Intune correta atribuída. Para mais informações, consulte [Configurar a inscrição para dispositivos Windows](/intune/windows-enroll).  
 
 ---
 
@@ -307,7 +307,7 @@ A adesão da Hybrid Azure AD tem precedência sobre o estado registado pela Azur
 
 **A:** Tome os seguintes passos:
 
-1.  [Criar uma política de conformidade](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+1.  [Criar uma política de conformidade](/intune/compliance-policy-create-mac-os)
 1.  [Defina uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
 
 **Observações:**

@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas Apache Spark no Azure HDInsight
+title: Sufoco de problemas Apache Spark em Azure HDInsight
 description: Obtenha respostas a perguntas comuns sobre como trabalhar com o Apache Spark e o Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,47 +9,47 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894295"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395168"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Spark com o Azure HDInsight
 
-Saiba mais sobre os principais problemas e suas resoluções ao trabalhar com cargas de Apache Spark no [Apache Ambari](https://ambari.apache.org/).
+Conheça os principais problemas e as suas resoluções ao trabalhar com as cargas da Apache Spark em [Apache Ambari.](https://ambari.apache.org/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>Como posso configurar uma aplicação do Apache Spark com o Apache Ambari em clusters?
 
-Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma exceção de `OutofMemoryError` de Apache Spark aplicativo. As etapas a seguir mostram os valores de configuração padrão do Spark no Azure HDInsight:
+Os valores de configuração da faísca podem ser ajustados ajudando a evitar uma aplicação Apache Spark `OutofMemoryError` exceção. Os seguintes passos mostram valores de configuração padrão da Faísca no Azure HDInsight:
 
-1. Faça logon no Ambari em `https://CLUSTERNAME.azurehdidnsight.net` com suas credenciais de cluster. A tela inicial exibe um painel de visão geral. Há pequenas diferenças superficiais entre o HDInsight 3,6 e o 4,0.
+1. Faça login em Ambari em `https://CLUSTERNAME.azurehdidnsight.net` com as suas credenciais de cluster. O ecrã inicial apresenta um painel de visão geral. Existem ligeiras diferenças cosméticas entre hDInsight 3.6 e 4.0.
 
-1. Navegue até **Spark2** **configurações**de > .
+1. Navegue até **Spark2** > **Configs.**
 
     ![Selecione o separador de configurações](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Na lista de configurações, selecione e expanda **personalizado-spark2-padrões**.
+1. Na lista de configurações, selecione e expanda os **padrãos Custom-spark2**.
 
-1. Procure a definição do valor que precisa para ajustar, tal como **spark.executor.memory**. Nesse caso, o valor de **9728m** é muito alto.
+1. Procure a definição de valor que precisa de ajustar, como **spark.executor.memory**. Neste caso, o valor de **9728m** é demasiado elevado.
 
     ![Selecionar as predefinições de spark personalizado](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
-1. Defina o valor para a definição recomendada. O valor **2048m** é recomendada para esta definição.
+1. Defina o valor para a definição recomendada. O valor **de 2048m** é recomendado para esta definição.
 
 1. Guarde o valor e, em seguida, guarde a configuração. Selecione **Guardar**.
 
     ![Altere o valor para 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Escrever uma nota sobre as alterações de configuração e, em seguida, selecione **guardar**.
+    Escreva uma nota sobre as alterações de configuração e, em seguida, selecione **Guardar**.
 
     ![Introduza uma nota sobre as alterações que efetuou](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    Será notificado se quaisquer configurações que necessitam de atenção. Tenha em atenção os itens e, em seguida, selecione **continuar mesmo assim**.
+    Será notificado se quaisquer configurações que necessitam de atenção. Tome nota dos itens e, em seguida, selecione **Proceder de qualquer maneira**.
 
     ![Selecione continuar mesmo assim](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. Sempre que uma configuração é guardada, lhe for pedido para reiniciar o serviço. Selecione **reiniciar**.
+1. Sempre que uma configuração é guardada, lhe for pedido para reiniciar o serviço. Selecione **Reiniciar**.
 
     ![Selecione o reinício](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma ex
 
     ![Rever os processos em execução](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. É possível adicionar configurações. Na lista de configurações, selecione **personalizada-spark2-predefinições**e, em seguida, selecione **Adicionar propriedade**.
+1. É possível adicionar configurações. Na lista de configurações, selecione padrão **seletiva 2- spark2**, e, em seguida, selecione **Adicionar Propriedade**.
 
     ![Selecione Adicionar propriedade](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Defina uma nova propriedade. Pode definir uma propriedade de única através de uma caixa de diálogo de definições específicas, como o tipo de dados. Em alternativa, pode definir várias propriedades, utilizando uma definição por linha.
 
-    Neste exemplo, o **spark.driver.memory** propriedade é definida com um valor de **4g**.
+    Neste exemplo, a propriedade **spark.driver.memory** é definida com um valor de **4g**.
 
     ![Definir a nova propriedade](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -77,7 +77,7 @@ Estas alterações estão em todo o cluster, mas podem ser substituídas ao subm
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Como posso configurar uma aplicação do Apache Spark através de um bloco de notas do Jupyter nos clusters?
 
-A primeira célula do bloco de notas Jupyter, depois do **% % configurar** diretiva, especifique as configurações do Spark no formato JSON válido. Altere os valores reais conforme necessário:
+Na primeira célula do caderno Jupyter, após a diretiva **%%configura,** especifique as configurações spark em formato JSON válido. Altere os valores reais conforme necessário:
 
 ![Adicionar uma configuração](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
@@ -99,18 +99,18 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-[Submissão de tarefas do Apache Spark em clusters do HDInsight](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Submissão de emprego da Apache Spark em clusters HDInsight](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* [Visão geral do gerenciamento de memória do Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
+* Visão geral da [gestão da memória de faíscas.](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 
-* [Depurando o aplicativo Spark em clusters HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Depuração da aplicação Spark em clusters HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligar a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, reveja [como criar um pedido de apoio azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

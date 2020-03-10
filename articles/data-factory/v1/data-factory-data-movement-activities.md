@@ -1,6 +1,6 @@
 ---
-title: Mover dados usando a atividade de cópia
-description: 'Saiba mais sobre a movimentação de dados em pipelines Data Factory: migração de dados entre armazenamentos de nuvem e entre um repositório local e um armazenamento em nuvem. Use a atividade de cópia.'
+title: Mover dados utilizando a Atividade de Cópia
+description: 'Conheça o movimento de dados nos oleodutos data Factory: migração de dados entre lojas de nuvem, e entre uma loja no local e uma loja de nuvem. Utilize a Atividade da Cópia.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,55 +13,55 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931925"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357290"
 ---
-# <a name="move-data-by-using-copy-activity"></a>Mover dados usando a atividade de cópia
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+# <a name="move-data-by-using-copy-activity"></a>Mover dados utilizando a Atividade de Cópia
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](data-factory-data-movement-activities.md)
 > * [Versão 2 (versão atual)](../copy-activity-overview.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [atividade de cópia na v2](../copy-activity-overview.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [a Copy Activity em V2](../copy-activity-overview.md).
 
-## <a name="overview"></a>Visão geral
-No Azure Data Factory, você pode usar a atividade de cópia para copiar dados entre armazenamentos de dados locais e na nuvem. Depois dos dados são copiados, ele pode ser ainda mais transformado e analisado. Também pode utilizar a atividade de cópia para publicar os resultados da análise de business intelligence (BI) e consumo de aplicativo e de transformação.
+## <a name="overview"></a>Descrição geral
+Na Azure Data Factory, pode utilizar a Copy Activity para copiar dados entre as lojas de dados no local e na nuvem. Depois dos dados são copiados, ele pode ser ainda mais transformado e analisado. Também pode utilizar a atividade de cópia para publicar os resultados da análise de business intelligence (BI) e consumo de aplicativo e de transformação.
 
 ![Função de atividade de cópia](media/data-factory-data-movement-activities/copy-activity.png)
 
-A atividade de cópia é alimentada por um serviço seguro, confiável, escalonável e [disponível globalmente](#global). Este artigo fornece detalhes sobre a movimentação de dados no Data Factory e na atividade de cópia.
+A Copy Activity é alimentada por um serviço seguro, fiável, escalável e [globalmente disponível.](#global) Este artigo fornece detalhes sobre o movimento de dados na Data Factory e copy activity.
 
-Primeiro, vamos ver como a migração de dados ocorre entre dois armazenamentos de dados de nuvem e entre um armazenamento de dados local e um armazenamento de dados na nuvem.
+Primeiro, vamos ver como a migração de dados ocorre entre duas lojas de dados em nuvem, e entre uma loja de dados no local e uma loja de dados em nuvem.
 
 > [!NOTE]
-> Para saber mais sobre as atividades em geral, consulte [noções básicas sobre pipelines e atividades](data-factory-create-pipelines.md).
+> Para conhecer as atividades em geral, consulte [a Compreensão de oleodutos e atividades.](data-factory-create-pipelines.md)
 >
 >
 
-### <a name="copy-data-between-two-cloud-data-stores"></a>Copiar dados entre dois armazenamentos de dados em nuvem
-Quando os armazenamentos de dados de origem e de coletor estiverem na nuvem, a atividade de cópia passará pelos seguintes estágios para copiar dados da origem para o coletor. O serviço que alimenta atividade de cópia:
+### <a name="copy-data-between-two-cloud-data-stores"></a>Copiar dados entre duas lojas de dados em nuvem
+Quando as lojas de dados de origem e pia estão na nuvem, a Copy Activity passa pelas seguintes fases para copiar dados da fonte para o lavatório. O serviço que alimenta atividade de cópia:
 
-1. Lê dados do armazenamento de dados de origem.
-2. Executa serialização/desserialização, compactação/descompactação, mapeamento de coluna e conversão de tipo. Ele faz essas operações com base nas configurações do conjunto de dados de entrada, o conjunto de dados de saída e a atividade de cópia.
-3. Grava dados no armazenamento de dados de destino.
+1. Lê os dados da loja de dados de origem.
+2. Realiza a serialização/desserialização, compressão/descompressão, mapeamento de colunas e conversão de tipo. Ele faz essas operações com base nas configurações do conjunto de dados de entrada, o conjunto de dados de saída e a atividade de cópia.
+3. Escreve dados para a loja de dados de destino.
 
-O serviço escolhe automaticamente a região ideal para executar a movimentação de dados. Essa região geralmente é a mais próxima do armazenamento de dados do coletor.
+O serviço escolhe automaticamente a região ideal para realizar o movimento de dados. Esta região é geralmente a mais próxima da loja de dados do lavatório.
 
-![Cópia da nuvem para a nuvem](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
+![Cópia cloud-to-cloud](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
 
-### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copiar dados entre um armazenamento de dados local e um armazenamento de dados na nuvem
-Para mover dados com segurança entre um armazenamento de dados local e um armazenamento de dados de nuvem, instale Gerenciamento de Dados gateway no computador local. Gerenciamento de Dados gateway é um agente que permite a movimentação e o processamento de dados híbridos. Você pode instalá-lo no mesmo computador que o armazenamento de dados em si ou em um computador separado que tenha acesso ao armazenamento de dados.
+### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copiar dados entre uma loja de dados no local e uma loja de dados em nuvem
+Para mover de forma segura os dados entre uma loja de dados no local e uma loja de dados em nuvem, instale o Portal de Gestão de Dados na sua máquina no local. Data Management Gateway é um agente que permite o movimento e processamento de dados híbridos. Pode instalá-lo na mesma máquina que a própria loja de dados, ou numa máquina separada que tenha acesso ao armazenamento de dados.
 
-Nesse cenário, Gerenciamento de Dados gateway executa a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e a conversão de tipo. Os dados não fluem pelo serviço de Azure Data Factory. Em vez disso, Gerenciamento de Dados gateway grava diretamente os dados no armazenamento de destino.
+Neste cenário, o Portal de Gestão de Dados realiza a serialização/desserialização, compressão/descompressão, mapeamento de colunas e conversão de tipo. Os dados não fluem através do serviço Azure Data Factory. Em vez disso, o Portal de Gestão de Dados escreve diretamente os dados para a loja de destino.
 
-![Cópia local para nuvem](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
+![Cópia no local-para-nuvem](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
-Confira [mover dados entre armazenamentos de dados locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter uma introdução e instruções. Consulte [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) para obter informações detalhadas sobre este agente.
+Consulte [os dados entre as instalações e as lojas de dados em nuvem](data-factory-move-data-between-onprem-and-cloud.md) para uma introdução e passagem. Consulte o Portal de [Gestão](data-factory-data-management-gateway.md) de Dados para obter informações detalhadas sobre este agente.
 
-Você também pode mover dados de/para armazenamentos de dados com suporte hospedados em VMs (máquinas virtuais) IaaS do Azure usando Gerenciamento de Dados gateway. Nesse caso, você pode instalar Gerenciamento de Dados gateway na mesma VM que o armazenamento de dados em si ou em uma VM separada que tenha acesso ao armazenamento de dados.
+Também pode mover dados de/para lojas de dados suportadas que estão hospedadas em máquinas virtuais Azure IaaS (VMs) utilizando gateway de gestão de dados. Neste caso, pode instalar o Portal de Gestão de Dados no mesmo VM que a própria loja de dados, ou num VM separado que tenha acesso à loja de dados.
 
 ## <a name="supported-data-stores-and-formats"></a>Formatos e arquivos de dados suportados
 A Atividade de Cópia no Data Factory copia os dados de um arquivo de dados de origem para um arquivo de dados sink. O Data Factory suporta os arquivos de dados seguintes. Os dados de qualquer origem podem ser escritos em qualquer sink. Clique num arquivo de dados para saber como copiar dados de e para esse arquivo.
@@ -75,9 +75,9 @@ A Atividade de Cópia no Data Factory copia os dados de um arquivo de dados de o
 > Os arquivos de dados com * podem estar no local ou no Azure IaaS e requerem a instalação do [Data Management Gateway](data-factory-data-management-gateway.md) num computador no local/Azure IaaS.
 
 ### <a name="supported-file-formats"></a>Formatos de ficheiros suportados
-Você pode usar a atividade de cópia para **copiar arquivos no estado em que se encontram** entre dois armazenamentos de dados baseados em arquivo, você pode ignorar a [seção de formato](data-factory-create-datasets.md) nas definições de conjunto de dado de entrada e saída. Os dados são copiados com eficiência sem nenhuma serialização/desserialização.
+Pode utilizar a Copy Activity para **copiar ficheiros como está** entre duas lojas de dados baseadas em ficheiros, pode ignorar a secção de [formato](data-factory-create-datasets.md) nas definições de conjunto de dados de entrada e saída. Os dados são copiados de forma eficiente sem qualquer serialização/desserialização.
 
-A atividade de cópia também lê e grava em arquivos em formatos especificados: **texto, JSON, Avro, Orc e parquet**, e o codec de compactação **gzip, deflate, BZIP2 e ZipDeflate** têm suporte. Ver [formatos de ficheiro e de compressão suportados](data-factory-supported-file-and-compression-formats.md) com detalhes.
+A Atividade de Cópia também lê e escreve para ficheiros em formatos especificados: **Texto, JSON, Avro, ORC e Parquet,** e o código de compressão **GZip, Deflate, BZip2 e ZipDeflate** são suportados. Consulte [formatos de ficheiros suportados e compressão](data-factory-supported-file-and-compression-formats.md) com detalhes.
 
 Por exemplo, pode efetuar as seguintes atividades de cópia:
 
@@ -86,13 +86,13 @@ Por exemplo, pode efetuar as seguintes atividades de cópia:
 * Copiar arquivos compactados de sistema de ficheiros no local e, em seguida, descomprimir terra para o Azure Data Lake Store.
 * Copiar dados em formato compactado texto (CSV) de GZip do Blob do Azure e escrever para a base de dados do Azure SQL.
 
-## <a name="global"></a>Movimentação de dados disponível globalmente
-Azure Data Factory está disponível apenas nas regiões oeste dos EUA, leste dos EUA e Europa Setentrional. No entanto, o serviço que alimenta a atividade de cópia está disponível globalmente nas seguintes regiões e regiões geográficas. A topologia globalmente disponível garante que o movimento de dados eficiente que normalmente evita saltos entre regiões. Ver [serviços por região](https://azure.microsoft.com/regions/#services) para disponibilidade do Data Factory e o movimento de dados numa região.
+## <a name="global"></a>Movimento de dados globalmente disponível
+A Azure Data Factory está disponível apenas nas regiões oeste dos EUA, Leste dos EUA e Norte da Europa. No entanto, o serviço que alimenta a Copy Activity está disponível globalmente nas seguintes regiões e geografias. A topologia globalmente disponível garante que o movimento de dados eficiente que normalmente evita saltos entre regiões. Consulte [serviços por região](https://azure.microsoft.com/regions/#services) para a disponibilidade de Data Factory e Data Movement numa região.
 
-### <a name="copy-data-between-cloud-data-stores"></a>Copiar dados entre armazenamentos de dados de nuvem
-Quando os armazenamentos de dados de origem e de coletor estiverem na nuvem, Data Factory usará uma implantação de serviço na região mais próxima do coletor na mesma geografia para mover os dados. Veja os mapeamentos na tabela seguinte:
+### <a name="copy-data-between-cloud-data-stores"></a>Copiar dados entre lojas de dados em nuvem
+Quando as lojas de dados de origem e pia estão na nuvem, a Data Factory utiliza uma implantação de serviços na região mais próxima da pia na mesma geografia para mover os dados. Veja os mapeamentos na tabela seguinte:
 
-| Geografia dos armazenamentos de dados de destino | Região do armazenamento de dados de destino | Região usada para movimentação de dados |
+| Geografia das lojas de dados de destino | Região da loja de dados de destino | Região utilizada para o movimento de dados |
 |:--- |:--- |:--- |
 | Estados Unidos | E.U.A. Leste | E.U.A. Leste |
 | &nbsp; | E.U.A. Leste 2 | E.U.A. Leste 2 |
@@ -101,7 +101,7 @@ Quando os armazenamentos de dados de origem e de coletor estiverem na nuvem, Dat
 | &nbsp; | E.U.A. Centro-Sul | E.U.A. Centro-Sul |
 | &nbsp; | E.U.A. Centro-Oeste | E.U.A. Centro-Oeste |
 | &nbsp; | E.U.A. Oeste | E.U.A. Oeste |
-| &nbsp; | E.U.A. Oeste 2 | E.U.A. Oeste 2 |
+| &nbsp; | E.U.A.Oeste 2 | E.U.A.Oeste 2 |
 | Canadá | Leste do Canadá | Canadá Central |
 | &nbsp; | Canadá Central | Canadá Central |
 | Brasil | Sul do Brasil | Sul do Brasil |
@@ -121,29 +121,29 @@ Quando os armazenamentos de dados de origem e de coletor estiverem na nuvem, Dat
 | Coreia | Coreia do Sul Central | Coreia do Sul Central |
 | &nbsp; | Sul da Coreia do Sul | Coreia do Sul Central |
 
-Como alternativa, você pode indicar explicitamente a região do serviço de Data Factory a ser usada para executar a cópia especificando `executionLocation` Propriedade em `typeProperties`atividade de cópia. Os valores com suporte para essa propriedade são listados na **região acima usada para a coluna de movimentação de dados** . Observe que seus dados passam por essa região durante a cópia. Por exemplo, para copiar entre os repositórios do Azure na Coreia, você pode especificar `"executionLocation": "Japan East"` para rotear pela região do Japão (consulte [exemplo de JSON](#by-using-json-scripts) como referência).
+Em alternativa, pode indicar explicitamente a região do serviço Data Factory a ser utilizado para executar a cópia especificando `executionLocation` propriedade no âmbito da Atividade de Cópia `typeProperties`. Os valores suportados para esta propriedade estão listados na região acima utilizada para coluna de movimento de **dados.** Note que os seus dados passam por aquela região sobre o fio durante a cópia. Por exemplo, para copiar entre lojas Azure na Coreia, pode especificar `"executionLocation": "Japan East"` para percorrer a região do Japão (ver [a amostra JSON](#by-using-json-scripts) como referência).
 
 > [!NOTE]
-> Se a região do armazenamento de dados de destino não estiver na lista anterior ou não for detectável, por padrão, a atividade de cópia falhará em vez de passar por uma região alternativa, a menos que `executionLocation` seja especificado. A lista de regiões com suporte será expandida ao longo do tempo.
+> Se a região da loja de dados de destino não estiver na lista anterior ou indetetável, por padrão a Atividade de Cópia falha em vez de passar por uma região alternativa, a menos que seja especificado `executionLocation`. A lista da região apoiada será alargada ao longo do tempo.
 >
 
-### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copiar dados entre um armazenamento de dados local e um armazenamento de dados na nuvem
-Quando os dados estão sendo copiados entre o local (ou as máquinas virtuais/IaaS do Azure) e os repositórios de nuvem, [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) executa a movimentação de dados em um computador local ou em uma máquina virtual. Os dados não fluem pelo serviço na nuvem, a menos que você use o recurso de [cópia em etapas](data-factory-copy-activity-performance.md#staged-copy) . Nesse caso, os dados fluem pelo armazenamento de BLOBs do Azure de preparo antes de serem gravados no armazenamento de dados do coletor.
+### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copiar dados entre uma loja de dados no local e uma loja de dados em nuvem
+Quando os dados estão a ser copiados entre as instalações (ou máquinas virtuais Azure/IaaS) e as lojas cloud, o [Data Management Gateway](data-factory-data-management-gateway.md) realiza o movimento de dados numa máquina ou máquina virtual no local. Os dados não fluem através do serviço na nuvem, a menos que utilize a capacidade de [cópia encenada.](data-factory-copy-activity-performance.md#staged-copy) Neste caso, os dados fluem através da encenação do armazenamento Da Blob antes de ser escrito na loja de dados do lavatório.
 
-## <a name="create-a-pipeline-with-copy-activity"></a>Criar um pipeline com a atividade de cópia
-Você pode criar um pipeline com a atividade de cópia de duas maneiras:
+## <a name="create-a-pipeline-with-copy-activity"></a>Criar um pipeline com Atividade de Cópia
+Pode criar um pipeline com Copy Activity de várias formas:
 
-### <a name="by-using-the-copy-wizard"></a>Usando o assistente de cópia
-O assistente de cópia Data Factory ajuda a criar um pipeline com a atividade de cópia. Esse pipeline permite copiar dados de fontes com suporte para destinos *sem gravar* definições de JSON para serviços vinculados, conjuntos de dados e pipelines. Consulte [Data Factory assistente de cópia](data-factory-copy-wizard.md) para obter detalhes sobre o assistente.  
+### <a name="by-using-the-copy-wizard"></a>Ao usar o Assistente de Cópia
+O Assistente de Cópia da Fábrica de Dados ajuda-o a criar um pipeline com a Atividade de Cópia. Este pipeline permite-lhe copiar dados de fontes suportadas para destinos sem escrever definições *jSON* para serviços, conjuntos de dados e oleodutos ligados. Consulte o [Assistente de Cópia](data-factory-copy-wizard.md) da Fábrica de Dados para obter detalhes sobre o assistente.  
 
 ### <a name="by-using-json-scripts"></a>Usando scripts JSON
-Você pode usar o editor de Data Factory no Visual Studio ou Azure PowerShell para criar uma definição de JSON para um pipeline (usando a atividade de cópia). Em seguida, você pode implantá-lo para criar o pipeline no Data Factory. Confira [tutorial: usar a atividade de cópia em um pipeline de Azure data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter um tutorial com instruções detalhadas.    
+Pode utilizar o Data Factory Editor no Visual Studio, ou azure PowerShell para criar uma definição JSON para um pipeline (utilizando a Copy Activity). Em seguida, pode implantá-lo para criar o oleoduto na Fábrica de Dados. Consulte [Tutorial: Utilize a Atividade de Cópia num oleoduto Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para um tutorial com instruções passo a passo.    
 
-As propriedades JSON (como nome, descrição, tabelas de entrada e saída e políticas) estão disponíveis para todos os tipos de atividades. As propriedades que estão disponíveis na seção `typeProperties` da atividade variam de acordo com cada tipo de atividade.
+As propriedades jSON (tais como nome, descrição, tabelas de entrada e saída, e políticas) estão disponíveis para todos os tipos de atividades. As propriedades disponíveis na secção `typeProperties` da atividade variam com cada tipo de atividade.
 
-Para a atividade de cópia, a seção `typeProperties` varia dependendo dos tipos de fontes e coletores. Clique em uma fonte/coletor na seção [fontes e coletores com suporte](#supported-data-stores-and-formats) para saber mais sobre as propriedades de tipo às quais a atividade de cópia dá suporte para esse armazenamento de dados.
+No que diz matéria de cópia, a secção `typeProperties` varia consoante os tipos de fontes e pias. Clique numa secção de fonte/pia na secção de [fontes suportadas e pias](#supported-data-stores-and-formats) para saber sobre propriedades de tipo que a Copy Activity suporta para essa loja de dados.
 
-Aqui está uma definição de JSON de exemplo:
+Aqui está uma definição JSON de amostra:
 
 ```json
 {
@@ -186,30 +186,30 @@ Aqui está uma definição de JSON de exemplo:
   }
 }
 ```
-O agendamento definido no conjunto de resultados de saída determina quando a atividade é executada (por exemplo: **diária**, frequência como **dia**e intervalo como **1**). A atividade copia dados de um DataSet de entrada (**origem**) para um conjunto de dados de saída (**coletor**).
+O calendário definido no conjunto de dados de saída determina quando a atividade funciona (por exemplo: **diariamente,** frequência como **dia**, e intervalo como **1**). A atividade copia dados de um conjunto de dados de entrada **(fonte)** para um conjunto de dados de saída **(pia).**
 
-Você pode especificar mais de um conjunto de dados de entrada para a atividade de cópia. Eles são usados para verificar as dependências antes da execução da atividade. No entanto, somente os dados do primeiro DataSet são copiados para o conjunto do dados de destino. Para obter mais informações, consulte [agendamento e execução](data-factory-scheduling-and-execution.md).  
+Pode especificar mais de um conjunto de dados de entrada para copy activity. São utilizados para verificar as dependências antes da atividade ser executada. No entanto, apenas os dados do primeiro conjunto de dados são copiados para o conjunto de dados de destino. Para mais informações, consulte [Agendamento e execução](data-factory-scheduling-and-execution.md).  
 
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
-Consulte a [guia de sintonização de desempenho de atividade de cópia e](data-factory-copy-activity-performance.md), que descreve os principais fatores que afetam o desempenho de movimento de dados (atividade de cópia) no Azure Data Factory. Também o desempenho observado durante o teste interno de lista e descreve várias formas de otimizar o desempenho de atividade de cópia.
+Consulte o guia de [desempenho e afinação](data-factory-copy-activity-performance.md)da Atividade de Cópia, que descreve factores-chave que afetam o desempenho do movimento de dados (Copy Activity) na Fábrica de Dados Azure. Também o desempenho observado durante o teste interno de lista e descreve várias formas de otimizar o desempenho de atividade de cópia.
 
 ## <a name="fault-tolerance"></a>Tolerância a falhas
-Por padrão, a atividade de cópia interromperá a cópia de dados e retornará uma falha quando encontrar dados incompatíveis entre a origem e o coletor; Embora você possa configurar explicitamente para ignorar e registrar as linhas incompatíveis e copiar apenas os dados compatíveis para que a cópia seja bem-sucedida. Consulte a [tolerância a falhas de atividade de cópia](data-factory-copy-activity-fault-tolerance.md) em mais detalhes.
+Por predefinição, a atividade de cópia deixará de copiar dados e devolverá a falha quando encontrar dados incompatíveis entre fonte e sumidouro; enquanto pode configurar explicitamente para saltar e registar as linhas incompatíveis e apenas copiar esses dados compatíveis para que a cópia tenha sido bem sucedida. Consulte a tolerância à falha da [Atividade de Cópia](data-factory-copy-activity-fault-tolerance.md) em mais detalhes.
 
 ## <a name="security-considerations"></a>Considerações de segurança
-Veja as [considerações de segurança](data-factory-data-movement-security-considerations.md), que descrevem a infraestrutura de segurança que os serviços de movimentação de dados em Azure data Factory usados para proteger seus dados.
+Consulte as [considerações de Segurança](data-factory-data-movement-security-considerations.md), que descreve a infraestrutura de segurança que os serviços de movimento de dados na Azure Data Factory utilizam para proteger os seus dados.
 
 ## <a name="scheduling-and-sequential-copy"></a>Agendamento e cópia sequencial
-Consulte [agendamento e execução](data-factory-scheduling-and-execution.md) para obter informações detalhadas sobre como funciona o agendamento e a execução no data Factory. É possível executar várias operações de cópia uma após a outra, de maneira sequencial/ordenada. Consulte a seção [copiar sequencialmente](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) .
+Consulte [o Agendamento e execução](data-factory-scheduling-and-execution.md) para obter informações detalhadas sobre como funciona o agendamento e execução na Data Factory. É possível executar várias operações de cópia uma após a outra de forma sequencial/ordenada. Consulte a secção [Copy sequencialmente.](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)
 
 ## <a name="type-conversions"></a>Conversões de tipos
-Armazenamentos de dados diferentes têm sistemas de tipos nativos diferentes. A atividade de cópia executa conversões automáticas de tipos de origem em tipos de coletor com a seguinte abordagem de duas etapas:
+Diferentes lojas de dados têm diferentes sistemas de tipo nativo. A Atividade de Cópia executa conversões automáticas de tipos de tipo de origem para tipos de sink com a seguinte abordagem de dois passos:
 
-1. Converter de tipos de origem nativos em um tipo .NET.
-2. Converter de um tipo .NET em um tipo de coletor nativo.
+1. Converter de tipos de origem nativa para um tipo .NET.
+2. Converta de um tipo .NET para um tipo de pia nativa.
 
-O mapeamento de um sistema de tipos nativo para um tipo .NET para um armazenamento de dados está no respectivo artigo de armazenamento de dados. (Clique no link específico na tabela armazenamentos de dados com suporte). Você pode usar esses mapeamentos para determinar os tipos apropriados ao criar suas tabelas, de modo que a atividade de cópia execute as conversões corretas.
+O mapeamento de um sistema de tipo nativo para um tipo .NET para uma loja de dados está no respetivo artigo da loja de dados. (Clique no link específico na tabela de lojas de dados suportados). Pode utilizar estes mapeamentos para determinar os tipos apropriados enquanto cria as suas tabelas, de modo a que a Copy Activity realize as conversões certas.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para saber mais sobre a atividade de cópia, consulte [copiar dados do armazenamento de BLOBs do Azure para o banco de dados SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-* Para saber mais sobre como mover dados de um armazenamento de dados local para um armazenamento de dados de nuvem, consulte [mover dados do local para armazenamentos de dados na nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+* Para saber mais sobre a Atividade de Cópia, consulte [os dados da Cópia do armazenamento do Azure Blob para a Base de Dados Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Para saber sobre a mudança de dados de uma loja de dados no local para uma loja de dados em nuvem, consulte [mover dados do local para lojas de dados em nuvem](data-factory-move-data-between-onprem-and-cloud.md).

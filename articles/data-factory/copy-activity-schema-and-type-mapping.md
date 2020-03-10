@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423643"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386830"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 
@@ -295,7 +295,7 @@ Data Factory suporta os seguintes tipos de dados provisórios: Pode especificar 
 * Int32
 * Int64
 * Único
-* Cadeia
+* String
 * Timespan
 
 ## <a name="next-steps"></a>Passos seguintes

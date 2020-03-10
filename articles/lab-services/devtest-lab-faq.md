@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre Azure DevTest Labs | Microsoft Docs
+title: Azure DevTest Labs FAQ Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre o Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,101 +15,101 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760526"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380944"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
-Obtenha respostas para algumas das perguntas mais comuns sobre Azure DevTest Labs.
+Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
 
-## <a name="blog-post"></a>Postagem no blog
-Nosso blog da equipe do DevTest Labs foi desativado em 20 de março de 2019. 
+## <a name="blog-post"></a>Post de blog
+O nosso blog da DevTest Labs Team foi retirado a partir de 20 de março de 2019. 
 
-### <a name="where-can-i-track-feature-updates-from-now-on"></a>Onde posso rastrear as atualizações de recurso de agora em diante?
-De agora em diante, lançaremos atualizações de recursos e postagens de blog informativas no blog do Azure e nas atualizações do Azure. Essas Postagens de blog também serão vinculadas à nossa documentação sempre que necessário.
+### <a name="where-can-i-track-feature-updates-from-now-on"></a>Onde posso rastrear as atualizações de funcionalidades a partir de agora?
+A partir de agora, vamos publicar atualizações de funcionalidades e publicações de blogs informativos no blog do Azure e atualizações do Azure. Estas publicações de blog também se ligarão à nossa documentação sempre que necessário.
 
-Assine o [blog do Azure do DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) e [as atualizações do DevTest Labs do Azure](https://azure.microsoft.com/updates/?product=devtest-lab) para se manter informado sobre os novos recursos no DevTest Labs.
+Subscreva as atualizações [do DevTest Labs Azure Blog](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) e [DevTest Labs Azure](https://azure.microsoft.com/updates/?product=devtest-lab) para se manter informado sobre novas funcionalidades nos Laboratórios DevTest.
 
-### <a name="what-happens-to-the-existing-blog-posts"></a>O que acontece com as postagens de blog existentes?
-No momento, estamos trabalhando para migrar Postagens de blog existentes (excluindo atualizações de interrupção) para nossa [documentação do DevTest Labs](devtest-lab-overview.md). Quando o blog do MSDN for preterido, ele será redirecionado para a visão geral da documentação do DevTest Labs. Depois de Redirecionado, você pode pesquisar o artigo que está procurando no título ' Filtrar por '. Ainda não migramos todas as postagens, mas elas devem ser feitas pelo final deste mês. 
+### <a name="what-happens-to-the-existing-blog-posts"></a>O que acontece com as publicações de blogs existentes?
+Estamos neste momento a trabalhar na migração de posts de blogs existentes (excluindo atualizações de falhas) para a documentação da [Nossa DevTest Labs.](devtest-lab-overview.md) Quando o blog da MSDN for depreciado, será redirecionado para a visão geral da documentação para a DevTest Labs. Uma vez redirecionado, pode pesquisar o artigo que procura no título 'Filter by'. Ainda não emigrámos todos os postos, mas devemos estar prontos até ao final deste mês. 
 
 
-### <a name="where-do-i-see-outage-updates"></a>Onde posso ver as atualizações de interrupção?
-Lançaremos atualizações de interrupção usando nosso identificador do Twitter a partir de agora em diante. Siga-nos no Twitter para obter atualizações mais recentes sobre interrupções e bugs conhecidos.
+### <a name="where-do-i-see-outage-updates"></a>Onde vejo atualizações de interrupções?
+Vamos publicar atualizações de outage usando o nosso cabo do Twitter a partir de agora. Siga-nos no Twitter para obter as últimas atualizações sobre interrupções e bugs conhecidos.
 
 ### <a name="twitter"></a>Twitter
-Nosso identificador do Twitter: [@azlabservices](https://twitter.com/azlabservices)
+A nossa alça no Twitter: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="general"></a>Geral
-### <a name="what-if-my-question-isnt-answered-here"></a>E se minha pergunta não for respondida aqui?
-Se sua pergunta não estiver listada aqui, informe-nos, para que possamos ajudá-lo a encontrar uma resposta.
+### <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
+Se a sua pergunta não estiver listada aqui, avise-nos, para que possamos ajudá-lo a encontrar uma resposta.
 
-- Poste uma pergunta no final das perguntas frequentes.
-- Para alcançar um público mais amplo, poste uma pergunta no [fórum Azure DEVTEST Labs MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Envolva-se com a equipe de Azure DevTest Labs e outros membros da Comunidade.
-- Para solicitações de recursos, envie suas solicitações e ideias para [Azure DevTest Labs a voz do usuário](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+- Poste uma pergunta no final desta FAQ.
+- Para chegar a um público mais vasto, publique uma pergunta no [fórum Azure DevTest Labs MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Envolva-se com a equipa azure DevTest Labs e outros membros da comunidade.
+- Para pedidos de funcionalidades, envie os seus pedidos e ideias para a Voz do Utilizador do [Azure DevTest Labs](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
-### <a name="what-is-a-microsoft-account"></a>O que é um conta Microsoft?
-Uma conta Microsoft é uma conta que você usa para quase tudo o que faz com os dispositivos e serviços da Microsoft. É um endereço de email e senha que você usa para entrar no Skype, Outlook.com, OneDrive, Windows Phone, Azure e Xbox Live. Uma única conta significa que seus arquivos, fotos, contatos e configurações podem seguir você em qualquer dispositivo.
+### <a name="what-is-a-microsoft-account"></a>O que é uma conta microsoft?
+Uma conta Microsoft é uma conta que utiliza para quase tudo o que faz com dispositivos e serviços da Microsoft. É um endereço de e-mail e senha que usas para assinar no Skype, Outlook.com, OneDrive, Windows phone, Azure e Xbox Live. Uma única conta significa que os seus ficheiros, fotos, contactos e definições podem segui-lo em qualquer dispositivo.
 
 > [!NOTE]
-> Um conta Microsoft usado para ser chamado de Windows Live ID.
+> Uma conta da Microsoft costumava ser chamada de ID do Windows Live.
 
-### <a name="why-should-i-use-azure-devtest-labs"></a>Por que devo usar Azure DevTest Labs?
-Azure DevTest Labs pode economizar tempo e dinheiro da equipe. Os desenvolvedores podem criar seus próprios ambientes usando várias bases diferentes. Eles também podem usar artefatos para implantar e configurar aplicativos rapidamente. Usando imagens e fórmulas personalizadas, você pode salvar máquinas virtuais (VMs) como modelos e reproduzi-las facilmente em toda a equipe. O DevTest Labs também oferece várias políticas configuráveis que os administradores de laboratório podem usar para reduzir o desperdício e gerenciar os ambientes de uma equipe. Essas políticas incluem desligamento automático, limite de custo, máximo de VMs por usuário e tamanho máximo da VM. Para obter uma explicação mais detalhada sobre o DevTest Labs, consulte a [visão geral](devtest-lab-overview.md) ou o [vídeo introdutório](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
+### <a name="why-should-i-use-azure-devtest-labs"></a>Por que devo usar laboratórios Azure DevTest?
+A Azure DevTest Labs pode poupar tempo e dinheiro à sua equipa. Os desenvolvedores podem criar os seus próprios ambientes usando várias bases diferentes. Também podem usar artefactos para implementar e configurar rapidamente aplicações. Ao utilizar imagens e fórmulas personalizadas, pode guardar máquinas virtuais (VMs) como modelos e reproduzi-las facilmente em toda a equipa. A DevTest Labs também oferece várias políticas configuráveis que os administradores de laboratório podem usar para reduzir o desperdício e gerir os ambientes de uma equipa. Estas políticas incluem a paragem automática, o limiar de custos, os VMs máximos por utilizador e o tamanho máximo de VM. Para obter uma explicação mais aprofundada da DevTest Labs, consulte a [visão geral](devtest-lab-overview.md) ou o [vídeo introdutório](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
 
-### <a name="what-does-worry-free-self-service-mean"></a>O que significa "autoatendimento sem preocupações"?
-O autoatendimento sem preocupações significa que os desenvolvedores e testadores criam seus próprios ambientes, conforme necessário. Os administradores têm a segurança de saber que o DevTest Labs pode ajudar a definir o acesso apropriado, minimizar os custos de desperdício e controle. Os administradores podem especificar quais tamanhos de VM são permitidos, o número máximo de VMs e quando as VMs são iniciadas e desligadas. O DevTest Labs também facilita o monitoramento de custos e a definição de alertas, para ajudá-lo a se manter informado sobre como os recursos de laboratório estão sendo usados.
+### <a name="what-does-worry-free-self-service-mean"></a>O que significa "autosserviço sem preocupações"?
+O autosserviço sem preocupações significa que os desenvolvedores e testadores criam os seus próprios ambientes conforme necessário. Os administradores têm a segurança de saber que a DevTest Labs pode ajudar a definir o acesso adequado, minimizar os custos de resíduos e de controlo. Os administradores podem especificar quais os tamanhos de VM permitidos, o número máximo de VMs e quando os VMs são iniciados e desligados. A DevTest Labs também facilita a monitorização de custos e alertas, para ajudá-lo a manter-se atento à forma como os recursos de laboratório estão a ser usados.
 
-### <a name="how-can-i-use-devtest-labs"></a>Como posso usar o DevTest Labs?
-O DevTest Labs é útil sempre que você precisa de ambientes de desenvolvimento ou teste e deseja reproduzi-los rapidamente ou gerenciá-los usando políticas de economia de custos.
-Aqui estão alguns cenários que nossos clientes usam DevTest Labs para:
+### <a name="how-can-i-use-devtest-labs"></a>Como posso usar os Laboratórios DevTest?
+O DevTest Labs é útil sempre que necessitar de ambientes de dev ou teste, e quer reproduzi-los rapidamente, ou geri-los usando políticas de poupança de custos.
+Aqui estão alguns cenários que os nossos clientes usam DevTest Labs para:
 
-- Gerencie ambientes de desenvolvimento e teste em um único lugar. Use políticas para reduzir custos e criar imagens personalizadas para compartilhar compilações na equipe.
-- Desenvolva um aplicativo usando imagens personalizadas para salvar o estado do disco em todos os estágios de desenvolvimento.
-- Acompanhe o custo em relação ao progresso.
+- Gerencie ambientes de dev e teste num só local. Use políticas para reduzir custos e criar imagens personalizadas para partilhar construções em toda a equipa.
+- Desenvolver uma aplicação utilizando imagens personalizadas para salvar o estado do disco em todas as fases de desenvolvimento.
+- Acompanhar o custo em relação ao progresso.
 - Crie ambientes de teste em massa para testes de garantia de qualidade.
-- Use artefatos e fórmulas para configurar e reproduzir facilmente um aplicativo em vários ambientes.
-- Distribua VMs para hackathons (desenvolvimento colaborativo ou trabalho de teste) e, em seguida, Desprovisione-as facilmente quando o evento terminar.
+- Utilize artefactos e fórmulas para configurar e reproduzir facilmente uma aplicação em vários ambientes.
+- Distribua VMs para hackathons (trabalho colaborativo ou trabalho de teste), e, em seguida, facilmente os desprovisionie quando o evento terminar.
 
-### <a name="how-am-i-billed-for-devtest-labs"></a>Como sou cobrado pelo DevTest Labs?
-O DevTest Labs é um serviço gratuito. Criar laboratórios e configurar políticas, modelos e artefatos no DevTest Labs é gratuito. Você paga apenas pelos recursos do Azure usados em seus laboratórios, como VMs, contas de armazenamento e redes virtuais. Para obter mais informações sobre o custo dos recursos de laboratório, consulte [preços de Azure DevTest Labs](https://azure.microsoft.com/pricing/details/devtest-lab/).
+### <a name="how-am-i-billed-for-devtest-labs"></a>Como é que eu estou a cobrar pelos Laboratórios DevTest?
+A DevTest Labs é um serviço gratuito. Criar laboratórios e configurar políticas, modelos e artefactos em DevTest Labs é gratuito. Paga-se apenas pelos recursos azure utilizados nos seus laboratórios, como VMs, contas de armazenamento e redes virtuais. Para obter mais informações sobre o custo dos recursos laboratoriais, consulte o preço dos [Laboratórios Azure DevTest.](https://azure.microsoft.com/pricing/details/devtest-lab/)
 
 ## <a name="security"></a>Segurança
 
-### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os diferentes níveis de segurança no DevTest Labs?
-O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em função). Para saber como funciona o Access, ele ajuda a aprender as diferenças entre uma permissão, uma função e um escopo, conforme definido pelo RBAC.
+### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os diferentes níveis de segurança nos Laboratórios DevTest?
+O acesso à segurança é determinado pelo Controlo de Acesso baseado em Funções (RBAC). Para aprender como funciona o acesso, ajuda a aprender as diferenças entre uma permissão, um papel e um âmbito, conforme definido pelo RBAC.
 
-- **Permissão**: uma permissão é um acesso definido a uma ação específica. Por exemplo, uma permissão pode ser acesso de leitura a todas as VMs.
-- **Função**: uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, um usuário com uma função de proprietário de assinatura tem acesso a todos os recursos em uma assinatura.
-- **Escopo**: um escopo é um nível dentro da hierarquia de um recurso do Azure. Por exemplo, um escopo pode ser um grupo de recursos, um único laboratório ou toda a assinatura.
+- **Permissão**: Uma permissão é um acesso definido a uma ação específica. Por exemplo, uma permissão pode ser lida acesso a todos os VMs.
+- **Função**: Um conjunto de permissões que podem ser agruparadas e atribuídas a um utilizador. Por exemplo, um utilizador com uma função de proprietário de subscrição tem acesso a todos os recursos dentro de uma subscrição.
+- **Âmbito**: Um âmbito é um nível dentro da hierarquia de um recurso Azure. Por exemplo, um âmbito pode ser um grupo de recursos, um único laboratório, ou toda a subscrição.
 
-Dentro do escopo do DevTest Labs, há dois tipos de funções que definem permissões de usuário:
+No âmbito da DevTest Labs, existem dois tipos de funções que definem as permissões dos utilizadores:
 
-- **Proprietário do laboratório**: um proprietário do laboratório tem acesso a todos os recursos do laboratório. Um proprietário de laboratório pode modificar políticas, ler e gravar em qualquer VM, alterar a rede virtual e assim por diante.
-- **Usuário do laboratório**: um usuário de laboratório pode exibir todos os recursos de laboratório, como VMS, políticas e redes virtuais. No entanto, um usuário de laboratório não pode modificar políticas ou VMs que foram criadas por outros usuários.
+- **Dono**de laboratório: Um dono de laboratório tem acesso a todos os recursos do laboratório. Um dono de laboratório pode modificar políticas, ler e escrever a quaisquer VMs, alterar a rede virtual, e assim por diante.
+- **Utilizador de laboratório**: Um utilizador de laboratório pode ver todos os recursos de laboratório, tais como VMs, políticas e redes virtuais. No entanto, um utilizador de laboratório não pode modificar políticas ou quaisquer VMs que tenham sido criados por outros utilizadores.
 
-Você também pode criar funções personalizadas no DevTest Labs. Para saber como criar funções personalizadas no DevTest Labs, consulte [conceder permissões de usuário para políticas de laboratório específicas](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+Também pode criar papéis personalizados em DevTest Labs. Para aprender a criar papéis personalizados em DevTest Labs, consulte [as permissões](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)dos utilizadores do Grant para políticas específicas de laboratório.
 
-Como os escopos são hierárquicos, quando um usuário tem permissões em um determinado escopo, o usuário recebe automaticamente essas permissões em cada escopo de nível inferior no escopo. Por exemplo, se um usuário receber a função de proprietário da assinatura, o usuário terá acesso a todos os recursos em uma assinatura. Esses recursos incluem VMs, redes virtuais e laboratórios. Um proprietário de assinatura herda automaticamente a função de proprietário do laboratório. No entanto, o oposto não é verdadeiro. Um proprietário de laboratório tem acesso a um laboratório, que é um escopo inferior ao nível de assinatura. Portanto, um proprietário de laboratório não pode ver VMs, redes virtuais ou quaisquer outros recursos que estejam fora do laboratório.
+Como os âmbitos são hierárquicos, quando um utilizador tem permissões num determinado âmbito, o utilizador recebe automaticamente essas permissões em todos os âmbitos de nível inferior no âmbito. Por exemplo, se um utilizador for atribuído ao papel de proprietário de subscrição, o utilizador tem acesso a todos os recursos numa subscrição. Estes recursos incluem VMs, redes virtuais e laboratórios. Um proprietário de subscrição herda automaticamente o papel de dono de laboratório. No entanto, o contrário não é verdade. Um dono de laboratório tem acesso a um laboratório, que é um âmbito inferior ao nível de subscrição. Então, um dono de laboratório não pode ver VMs, redes virtuais ou quaisquer outros recursos que estejam fora do laboratório.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Como fazer definir o controle de acesso baseado em função para meus ambientes do DevTest Labs para garantir que ele possa ser controlado, enquanto os desenvolvedores/testes podem fazer seu trabalho?
-Há um padrão amplo, no entanto, os detalhes dependem de sua organização.
+### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Como posso definir o controlo de acesso baseado em papéis para os meus ambientes DevTest Labs para garantir que as TI podem governar enquanto os desenvolvedores/testes podem fazer o seu trabalho?
+Há um padrão amplo, no entanto o detalhe depende da sua organização.
 
-A ti central deve ter apenas o que é necessário e permitir que as equipes de projeto e de aplicativo tenham o nível de controle necessário. Normalmente, isso significa que a ti central possui a assinatura e manipula funções de ti essenciais, como configurações de rede. O conjunto de **proprietários** de uma assinatura deve ser pequeno. Esses proprietários podem indicar proprietários adicionais quando há uma necessidade ou aplicar políticas de nível de assinatura, por exemplo, "nenhum IP público".
+As TI centrais devem possuir apenas o necessário e permitir que as equipas de projeto e aplicação tenham o nível de controlo necessário. Normalmente, significa que o centro de TI é dono da subscrição e lida com funções de TI fundamentais, tais como configurações de networking. O conjunto de **proprietários** para uma subscrição deve ser pequeno. Estes proprietários podem nomear proprietários adicionais quando há necessidade, ou aplicar políticas de nível de subscrição, por exemplo "No PUBLIC IP".
 
-Pode haver um subconjunto de usuários que exigem acesso em uma assinatura, como o suporte a nível 1 ou nível 2. Nesse caso, é recomendável conceder a esses usuários o acesso de **colaborador** para que eles possam gerenciar os recursos, mas não fornecer acesso ao usuário ou ajustar políticas.
+Pode haver um subconjunto de utilizadores que requerem acesso através de uma subscrição, como suporte tier1 ou tier 2. Neste caso, recomendamos que dê a estes utilizadores o acesso ao **contribuinte** para que possam gerir os recursos, mas não fornecer acesso ao utilizador ou ajustar políticas.
 
-O recurso DevTest Labs deve ser de propriedade dos proprietários que estão próximos da equipe de projeto/aplicativo. É porque eles entendem seus requisitos para computadores e o software necessário. Na maioria das organizações, o proprietário desse recurso do DevTest Labs normalmente é o líder de projeto/desenvolvimento. Esse proprietário pode gerenciar usuários e políticas no ambiente de laboratório e pode gerenciar todas as VMs no ambiente do DevTest Labs.
+O recurso DevTest Labs deve ser propriedade de proprietários próximos da equipa de projeto/aplicação. É porque compreendem os seus requisitos para máquinas e software necessário. Na maioria das organizações, o proprietário deste recurso DevTest Labs é comumente o líder de projeto/desenvolvimento. Este proprietário pode gerir utilizadores e políticas dentro do ambiente de laboratório e pode gerir todos os VMs no ambiente DevTest Labs.
 
-Os membros da equipe do projeto/aplicativo devem ser adicionados à função **usuários do DevTest Labs** . Esses usuários podem criar máquinas virtuais (em linha com o laboratório e as políticas de nível de assinatura). Eles também podem gerenciar suas próprias máquinas virtuais. Eles não podem gerenciar máquinas virtuais que pertencem a outros usuários.
+Os membros da equipa de projeto/aplicação devem ser adicionados à função **de Utilizadores de DevTest Labs.** Estes utilizadores podem criar máquinas virtuais (em linha com as políticas de laboratório e nível de subscrição). Também podem gerir as suas próprias máquinas virtuais. Não conseguem gerir máquinas virtuais que pertencem a outros utilizadores.
 
-Para obter mais informações, consulte [Azure Enterprise Scaffold – documentação de governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
+Para mais informações, consulte [o andaime da empresa Azure – documentação prescritiva de governação por subscrição.](/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
 
-### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>Como fazer criar uma função para permitir que os usuários façam uma tarefa específica?
-Para obter um artigo abrangente sobre como criar funções personalizadas e atribuir permissões a uma função, consulte [conceder permissões de usuário para políticas de laboratório específicas](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Aqui está um exemplo de um script que cria a função **usuário avançado do DevTest Labs**, que tem permissão para iniciar e parar todas as VMs no laboratório:
+### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>Como posso criar um papel que permita aos utilizadores fazeruma tarefa específica?
+Para um artigo abrangente sobre como criar papéis personalizados e atribuir permissões a um papel, consulte [as permissões dos utilizadores](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)do Grant para políticas específicas do laboratório . Aqui está um exemplo de um script que cria o papel **DevTest Labs Advanced User,** que tem permissão para iniciar e parar todos os VMs no laboratório:
 
 
 ```powershell
@@ -125,102 +125,102 @@ $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/actio
 $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef  
 ```
 
-### <a name="how-can-an-organization-ensure-corporate-security-policies-are-in-place"></a>Como uma organização pode garantir que as políticas de segurança corporativas estejam em vigor?
-Uma organização pode conseguir isso fazendo as seguintes ações:
+### <a name="how-can-an-organization-ensure-corporate-security-policies-are-in-place"></a>Como pode uma organização garantir que as políticas de segurança corporativa estão em vigor?
+Uma organização pode alcançá-lo fazendo as seguintes ações:
 
-- Desenvolver e publicar uma política de segurança abrangente. A política articula as regras de uso aceitável associado ao software usando os ativos de nuvem. Ele também define o que claramente viola a política.
-- Desenvolva uma imagem personalizada, artefatos personalizados e um processo de implantação que permita a orquestração dentro do realm de segurança definido com o Active Directory. Essa abordagem impõe o limite corporativo e define um conjunto comum de controles ambientais. Esses controles no ambiente que um desenvolvedor pode considerar ao desenvolver e seguir um ciclo de vida de desenvolvimento seguro como parte de seu processo geral. O objetivo também é fornecer um ambiente que não seja excessivamente restritivo que possa atrapalhar o desenvolvimento, mas um conjunto razoável de controles. As diretivas de grupo na UO (unidade organizacional) que contém máquinas virtuais de laboratório podem ser um subconjunto do total de políticas de grupo encontradas na produção. Como alternativa, eles podem ser um conjunto adicional para atenuar corretamente quaisquer riscos identificados.
+- Desenvolver e publicar uma política de segurança abrangente. A política articula as regras de uso aceitável associadas ao software de utilização, ativos em nuvem. Define também o que viola claramente a política.
+- Desenvolver uma imagem personalizada, artefactos personalizados e um processo de implantação que permita a orquestração dentro do reino de segurança que é definido com diretório ativo. Esta abordagem impõe a fronteira das empresas e estabelece um conjunto comum de controlos ambientais. Estes controlos contra o ambiente que um desenvolvedor pode considerar à medida que se desenvolvem e seguem um ciclo de vida seguro para o desenvolvimento como parte do seu processo global. O objetivo também é proporcionar um ambiente que não seja excessivamente restritivo que possa dificultar o desenvolvimento, mas um conjunto razoável de controlos. As políticas do grupo na unidade de organização (OU) que contém máquinas virtuais de laboratório podem ser um subconjunto das políticas totais de grupo que são encontradas na produção. Em alternativa, podem ser um conjunto adicional para mitigar adequadamente quaisquer riscos identificados.
 
-### <a name="how-can-an-organization-ensure-data-integrity-to-ensure-that-remoting-developers-cant-remove-code-or-introduce-malware-or-unapproved-software"></a>Como uma organização pode garantir a integridade dos dados para garantir que os desenvolvedores de comunicação remota não possam remover código ou introduzir malware ou software não aprovado?
-Há várias camadas de controle para atenuar a ameaça de consultores externos, prestadores de contrato ou funcionários que são de comunicação remota para colaborar no DevTest Labs.
+### <a name="how-can-an-organization-ensure-data-integrity-to-ensure-that-remoting-developers-cant-remove-code-or-introduce-malware-or-unapproved-software"></a>Como pode uma organização garantir a integridade dos dados para garantir que os desenvolvedores em remo não podem remover código ou introduzir malware ou software não aprovado?
+Existem várias camadas de controlo para mitigar a ameaça de consultores externos, empreiteiros ou funcionários que estão a colaborar na DevTest Labs.
 
-Conforme mencionado anteriormente, a primeira etapa deve ter uma política de uso aceitável, rascunho e definida que descreve claramente as consequências quando alguém viola a política.
+Como já foi referido, o primeiro passo deve ter uma política de utilização aceitável elaborada e definida que delineie claramente as consequências quando alguém viola a política.
 
-A primeira camada de controles para acesso remoto é aplicar uma política de acesso remoto por meio de uma conexão VPN que não está conectada diretamente ao laboratório.
+A primeira camada de controlos para acesso remoto é aplicar uma política de acesso remoto através de uma ligação VPN que não esteja diretamente ligada ao laboratório.
 
-A segunda camada de controles é aplicar um conjunto de objetos de diretiva de grupo que impeçam a cópia e a colagem da área de trabalho remota. Uma política de rede pode ser implementada para não permitir serviços de saída do ambiente, como serviços FTP e RDP do ambiente. O roteamento definido pelo usuário pode forçar todo o tráfego de rede do Azure de volta para o local, mas o roteamento não pôde considerar todas as URLs que possam permitir o carregamento de dados, a menos que sejam controlados por meio de um proxy para verificar o conteúdo e as sessões. Os IPs públicos podem ser restritos na rede virtual que dá suporte ao DevTest Labs para não permitir a ponte de um recurso de rede externa.
+A segunda camada de controlos é aplicar um conjunto de objetos de política de grupo que impedem a cópia e a pasta através de ambiente seletiva remota. Poderia ser implementada uma política de rede para não permitir serviços de saída do ambiente, como serviços FTP e RDP fora do ambiente. O encaminhamento definido pelo utilizador poderia forçar todo o tráfego da rede Azure de volta ao local, mas o encaminhamento não poderia explicar todos os URLs que poderiam permitir o upload de dados a menos que fosse controlado através de um proxy para digitalizar conteúdo e sessões. Os IPs públicos poderiam ser restringidos dentro da rede virtual que suporta a DevTest Labs para não permitir a ponte de um recurso de rede externo.
 
-Por fim, o mesmo tipo de restrições precisa ser aplicado em toda a organização, o que consideraria todos os possíveis métodos de mídia removível ou URLs externas que poderiam aceitar uma postagem de conteúdo. Consulte seu profissional de segurança para examinar e implementar uma política de segurança. Para obter mais recomendações, consulte [Microsoft Cyber Security](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs).
+Em última análise, o mesmo tipo de restrições deve ser aplicada em toda a organização, o que explicaria todos os métodos possíveis de meios amovíveis ou URLs externos que pudessem aceitar um post de conteúdo. Consulte o seu profissional de segurança para rever e implementar uma política de segurança. Para mais recomendações, consulte [a Microsoft Cyber Security](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs).
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Como fazer criar um laboratório de um modelo do Resource Manager?
-Oferecemos um [repositório GitHub de modelos de Azure Resource Manager de laboratório](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) que você pode implantar como estão ou modificar para criar modelos personalizados para seus laboratórios. Cada modelo tem um link para implantar o laboratório como ele está em sua própria assinatura do Azure. Ou, você pode personalizar o modelo e [implantá-lo usando o PowerShell ou o CLI do Azure](../azure-resource-manager/templates/deploy-powershell.md).
+### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Como posso criar um laboratório a partir de um modelo de Gestor de Recursos?
+Oferecemos um [repositório GitHub de modelos](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) do Gestor de Recursos do Laboratório Azure que você pode implementar como está ou modificar para criar modelos personalizados para seus laboratórios. Cada modelo tem um link para implantar o laboratório como está na sua própria subscrição Azure. Ou, pode personalizar o modelo e [implementar utilizando powerShell ou Azure CLI](../azure-resource-manager/templates/deploy-powershell.md).
 
 
-### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>Posso ter todas as máquinas virtuais a serem criadas em um grupo de recursos comum, em vez de ter cada computador em seu próprio grupo de recursos?
-Sim, como proprietário de um laboratório, você pode deixar que o laboratório manipule a alocação do grupo de recursos para você ou tenha todas as máquinas virtuais criadas em um grupo de recursos comum que você especificar.
+### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>Posso ter todas as máquinas virtuais para serem criadas num grupo comum de recursos, em vez de ter cada máquina no seu próprio grupo de recursos?
+Sim, como dono de laboratório, pode deixar o laboratório lidar com a atribuição de recursos para si ou ter todas as máquinas virtuais criadas num grupo comum de recursos que especifice.
 
 Cenário de grupo de recursos separado:
--   O DevTest Labs cria um novo grupo de recursos para cada máquina virtual IP pública/privada que você gira
--   O DevTest Labs cria um grupo de recursos para máquinas IP compartilhadas que pertencem ao mesmo tamanho.
+-   A DevTest Labs cria um novo grupo de recursos para cada máquina virtual IP pública/privada que você gira
+-   A DevTest Labs cria um grupo de recursos para máquinas IP partilhadas que pertencem ao mesmo tamanho.
 
 Cenário de grupo de recursos comuns:
--   Todas as máquinas virtuais são giradas no grupo de recursos comum que você especificar. Saiba mais sobre [a alocação de grupo de recursos para o laboratório](https://aka.ms/RGControl).
+-   Todas as máquinas virtuais são fiadas no grupo de recursos comuns que especifica. Saiba mais alocação de [grupo de recursos para o laboratório.](https://aka.ms/RGControl)
 
-### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Como fazer manter uma Convenção de nomenclatura em meu ambiente do DevTest Labs?
-Talvez você queira estender as atuais convenções de nomenclatura corporativa para operações do Azure e torná-las consistentes em todo o ambiente do DevTest Labs. Ao implantar o DevTest Labs, recomendamos que você tenha políticas de início específicas. Você implanta essas políticas por um script central e modelos JSON para impor a consistência. As políticas de nomenclatura podem ser implementadas por meio de políticas do Azure aplicadas no nível da assinatura. Para obter exemplos de JSON para Azure Policy, consulte [Azure Policy exemplos](../governance/policy/samples/index.md).
+### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Como mantenho uma convenção de nomeação no meu ambiente de Laboratórios DevTest?
+Você pode querer estender as convenções de nomeação da empresa atual para operações Azure e torná-las consistentes em todo o ambiente DevTest Labs. Ao implementar o DevTest Labs, recomendamos que tenha políticas de início específicas. Você implementa estas políticas através de um script central e modelos JSON para impor a consistência. As políticas de nomeação podem ser implementadas através de políticas azure aplicadas ao nível da subscrição. Para obter amostras json para a Política Azure, consulte [as amostras da Política Azure](../governance/policy/samples/index.md).
 
-### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Quantos laboratórios posso criar na mesma assinatura?
-Não há um limite específico para o número de laboratórios que podem ser criados por assinatura. No entanto, a quantidade de recursos usados por assinatura é limitada. Você pode ler sobre os [limites e cotas para assinaturas do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Quantos laboratórios posso criar sob a mesma subscrição?
+Não há um limite específico no número de laboratórios que podem ser criados por subscrição. No entanto, a quantidade de recursos utilizados por subscrição é limitada. Pode ler sobre os [limites e quotas para as assinaturas Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e [como aumentar estes limites.](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)
 
 
-### <a name="how-many-vms-can-i-create-per-lab"></a>Quantas VMs posso criar por laboratório?
-Não há nenhum limite específico para o número de VMs que podem ser criadas por laboratório. No entanto, os recursos (núcleos de VM, endereços IP públicos e assim por diante) que são usados são limitados por assinatura. Você pode ler sobre os [limites e cotas para assinaturas do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+### <a name="how-many-vms-can-i-create-per-lab"></a>Quantos VMs posso criar por laboratório?
+Não existe um limite específico para o número de VMs que podem ser criados por laboratório. No entanto, os recursos (núcleos VM, endereços IP públicos, e assim por diante) que são utilizados são limitados por subscrição. Pode ler sobre os [limites e quotas para as assinaturas Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e [como aumentar estes limites.](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)
 
-### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>Como fazer determinar a taxa de usuários por laboratório e o número total de laboratórios necessários em uma organização?
-Recomendamos que as unidades de negócios e os grupos de desenvolvimento associados ao mesmo projeto de desenvolvimento estejam associados ao mesmo laboratório. Ele permite que os mesmos tipos de políticas, imagens e políticas de desligamento sejam aplicados a ambos os grupos.
+### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>Como determino a proporção de utilizadores por laboratório e o número total de laboratórios que são necessários em toda uma organização?
+Recomendamos que unidades de negócio e grupos de desenvolvimento associados ao mesmo projeto de desenvolvimento estejam associados ao mesmo laboratório. Permite que sejam aplicadas aos dois grupos os mesmos tipos de políticas, imagens e políticas de encerramento.
 
-Talvez você também precise considerar os limites geográficos. Por exemplo, os desenvolvedores no leste do Norte Estados Unidos (EUA) podem usar um laboratório provisionado no leste dos EUA 2. Além de desenvolvedores em Dallas, Texas e Denver, a Colorado pode ser direcionada para usar um recurso no centro-sul dos EUA. Se houver um esforço colaborativo com terceiros externos, eles poderão ser atribuídos a um laboratório que não é usado por desenvolvedores internos.
+Também pode ter de considerar os limites geográficos. Por exemplo, os desenvolvedores no Nordeste dos Estados Unidos (EUA) podem usar um laboratório aprovisionado no Leste dos EUA. E, desenvolvedores em Dallas, Texas, e Denver, Colorado podem ser direcionados para usar um recurso na Central Sul dos EUA. Se houver um esforço colaborativo com um terceiro externo, eles podem ser atribuídos a um laboratório que não é usado por desenvolvedores internos.
 
-Você também pode usar um laboratório para um projeto específico dentro de Azure DevOps Projects. Em seguida, aplique a segurança por meio de um grupo de Azure Active Directory especificado, que permite o acesso a ambos os conjuntos de recursos. A rede virtual atribuída ao laboratório pode ser outro limite para consolidar usuários.
+Você também pode usar um laboratório para um projeto específico dentro do Projeto Azure DevOps. Em seguida, aplica a segurança através de um determinado grupo de DirectórioActivo Azure, que permite o acesso a ambos os conjuntos de recursos. A rede virtual atribuída ao laboratório pode ser outro limite para consolidar os utilizadores.
 
-### <a name="how-can-we-prevent-the-deletion-of-resources-within-a-lab"></a>Como podemos impedir a exclusão de recursos em um laboratório?
-Recomendamos que você defina as permissões adequadas no nível de laboratório para que somente usuários autorizados possam excluir recursos ou alterar políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **usuários do DevTest Labs** . O desenvolvedor líder ou o líder da infra-estrutura deve ser o **proprietário do DevTest Labs**. Recomendamos que você tenha apenas dois proprietários de laboratório. Essa política se estende até o repositório de códigos para evitar corrupção. Os usuários do laboratório têm direitos para usar recursos, mas não podem atualizar as políticas de laboratório. Consulte o seguinte artigo que lista as funções e os direitos que cada grupo interno tem dentro de um laboratório: [Adicionar proprietários e usuários no Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+### <a name="how-can-we-prevent-the-deletion-of-resources-within-a-lab"></a>Como podemos impedir a supressão de recursos dentro de um laboratório?
+Recomendamos que estabeleça permissões adequadas ao nível do laboratório para que apenas os utilizadores autorizados possam eliminar recursos ou alterar as políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **DevTest Labs Users.** O promotor principal ou o chumbo da infraestrutura devem ser o **Proprietário de Laboratórios DevTest.** Recomendamos que só tenha dois donos de laboratório. Esta política estende-se ao repositório de códigos para evitar a corrupção. Os utilizadores de laboratório têm direito suster recursos, mas não conseguem atualizar as políticas do laboratório. Consulte o seguinte artigo que lista as funções e direitos que cada grupo incorporado tem dentro de um laboratório: [Adicione proprietários e utilizadores em Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
-### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Como fazer compartilhar um link direto para o meu laboratório?
+### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Como partilho uma ligação direta com o meu laboratório?
 
-1. No [portal do Azure](https://portal.azure.com), vá para o laboratório.
-2. Copie a **URL do laboratório** do seu navegador e compartilhe-a com os usuários do laboratório.
+1. No [portal Azure,](https://portal.azure.com)vá ao laboratório.
+2. Copie o URL do **laboratório** do seu navegador e, em seguida, partilhe-o com os seus utilizadores do laboratório.
 
 > [!NOTE]
-> Se um usuário de laboratório for um usuário externo que tem um conta Microsoft, mas que não é membro da instância Active Directory da sua organização, o usuário poderá ver uma mensagem de erro ao tentar acessar o link compartilhado. Se um usuário externo vir uma mensagem de erro, peça ao usuário para selecionar primeiro seu nome no canto superior direito do portal do Azure. Em seguida, na seção diretório do menu, o usuário pode selecionar o diretório onde o laboratório existe.
+> Se um utilizador de laboratório for um utilizador externo que tenha uma conta Microsoft, mas que não seja membro da instância de Diretório Ativo da sua organização, o utilizador poderá ver uma mensagem de erro quando tentar aceder ao link partilhado. Se um utilizador externo vir uma mensagem de erro, peça ao utilizador para primeiro selecionar o seu nome no canto superior direito do portal Azure. Em seguida, na secção de Diretório do menu, o utilizador pode selecionar o diretório onde o laboratório existe.
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas virtuais
 
-### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Por que não consigo ver as VMs na página de máquinas virtuais que vejo no DevTest Labs?
-Ao criar uma VM no DevTest Labs, você terá permissão para acessar essa VM. Você pode exibir a VM na página laboratórios e na página **máquinas virtuais** . Os usuários atribuídos à função de **proprietário do DevTest Labs** podem ver todas as VMs que foram criadas no laboratório na página **todas as máquinas virtuais** do laboratório. No entanto, os usuários que têm a função de **usuário do DevTest Labs** não recebem automaticamente o acesso de leitura aos recursos da VM que outros usuários criaram. Portanto, essas VMs não são exibidas na página **máquinas virtuais** .
-
-
-### <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Como fazer criar várias VMs do mesmo modelo de uma só vez?
-Você tem duas opções para criar simultaneamente várias VMs do mesmo modelo:
-
-- Você pode usar a [extensão de tarefas do Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
-- Você pode [gerar um modelo do Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) enquanto estiver criando uma VM e [implantar o modelo do Resource Manager do Windows PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
-- Você também pode especificar mais de uma instância de um computador a ser criada durante a criação da máquina virtual. Para saber mais sobre como criar várias instâncias de máquinas virtuais, confira o documento sobre como [criar uma máquina virtual de laboratório](devtest-lab-add-vm.md).
-
-### <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Como fazer mover minhas VMs do Azure existentes para meu laboratório do DevTest Labs?
-Para copiar suas VMs existentes para o DevTest Labs:
-
-1.  Copie o arquivo VHD da VM existente usando um script do [Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyAzVHDFromVMToLab.ps1).
-2.  Crie a [imagem personalizada](devtest-lab-create-template.md) dentro de seu laboratório do DevTest Labs.
-3.  Crie uma VM no laboratório a partir de sua imagem personalizada.
-
-### <a name="can-i-attach-multiple-disks-to-my-vms"></a>Posso anexar vários discos a minhas VMs?
-
-Sim, você pode anexar vários discos a suas VMs.
-
-### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do sistema operacional Windows para o meu teste, preciso comprar uma assinatura do MSDN?
-Para usar as imagens do sistema operacional Windows Client (Windows 7 ou uma versão posterior) para seu desenvolvimento ou teste no Azure, execute uma das seguintes etapas:
-
-- [Compre uma assinatura do MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
-- Se você tiver um Enterprise Agreement, crie uma assinatura do Azure com a [oferta de desenvolvimento/teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p).
-
-Para obter mais informações sobre os créditos do Azure para cada oferta do MSDN, consulte [crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Por que não vejo VMs na página de Máquinas Virtuais que vejo nos Laboratórios DevTest?
+Quando crias um VM nos Laboratórios DevTest, é-te dada permissão para acederes a esse VM. Pode ver o VM tanto na página dos laboratórios como na página das **Máquinas Virtuais.** Os utilizadores atribuídos à função **de Proprietário de Laboratórios DevTest** podem ver todos os VMs que foram criados em laboratório na página **All Virtual Machines** do laboratório. No entanto, os utilizadores que possuam a função **DevTest Labs User** não têm acesso de leitura automática aos recursos VM que outros utilizadores criaram. Assim, esses VMs não são exibidos na página **de Máquinas Virtuais.**
 
 
-### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Como fazer automatizar o processo de exclusão de todas as VMs em meu laboratório?
-Como proprietário de um laboratório, você pode excluir VMs do seu laboratório no portal do Azure. Você também pode excluir todas as VMs em seu laboratório usando um script do PowerShell. No exemplo a seguir, no comentário **valores a serem alterados** , modifique os valores de parâmetro. Você pode recuperar os valores SubscriptionId, labResourceGroup e labName do painel de laboratório no portal do Azure.
+### <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Como posso criar vários VMs do mesmo modelo ao mesmo tempo?
+Você tem duas opções para criar simultaneamente vários VMs a partir do mesmo modelo:
+
+- Pode utilizar a extensão de [tarefas Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
+- Você pode [gerar um modelo de Gestor](devtest-lab-add-vm.md#save-azure-resource-manager-template) de Recursos enquanto você está criando um VM, e implementar o modelo de Gestor de Recursos a partir do Windows [PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+- Também pode especificar mais de um caso de uma máquina a ser criada durante a criação de máquinas virtuais. Para saber mais sobre a criação de múltiplas instâncias de máquinas virtuais, consulte o médico na criação de uma máquina virtual de [laboratório.](devtest-lab-add-vm.md)
+
+### <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Como posso mover os meus VMs Azure existentes para o meu laboratório de Laboratórios DevTest?
+Para copiar os seus VMs existentes para DevTest Labs:
+
+1.  Copie o ficheiro VHD do vM existente utilizando um [script Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyAzVHDFromVMToLab.ps1).
+2.  Crie a [imagem personalizada](devtest-lab-create-template.md) dentro do laboratório de DevTest Labs.
+3.  Crie um VM no laboratório a partir da sua imagem personalizada.
+
+### <a name="can-i-attach-multiple-disks-to-my-vms"></a>Posso ligar vários discos aos meus VMs?
+
+Sim, pode anexar vários discos aos seus VMs.
+
+### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do Windows OS para os meus testes, tenho de comprar uma subscrição MSDN?
+Para utilizar imagens do Cliente Windows (Windows 7 ou uma versão posterior) para o seu desenvolvimento ou teste no Azure, tome uma das seguintes etapas:
+
+- [Compre uma subscrição MSDN.](https://www.visualstudio.com/products/how-to-buy-vs)
+- Se tiver um Acordo de Empresa, crie uma subscrição Azure com a [oferta Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p).
+
+Para obter mais informações sobre os créditos Azure para cada oferta da MSDN, consulte o [crédito Mensal Azure para assinantes do Estúdio Visual.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+
+
+### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Como automatizar o processo de apagar todos os VMs do meu laboratório?
+Como dono de laboratório, pode eliminar vMs do seu laboratório no portal Azure. Também pode eliminar todos os VMs do seu laboratório usando um script PowerShell. No exemplo seguinte, sob os **valores para alterar** comentários, modificar os valores do parâmetro. Você pode recuperar os valores de subscriçãoId, labResourceGroup e labName do painel de laboratório no portal Azure.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -254,153 +254,153 @@ foreach($labVM in $labVMs)
 
 ## <a name="environments"></a>Ambientes
 
-### <a name="how-can-i-use-resource-manager-templates-in-my-devtest-labs-environment"></a>Como posso usar modelos do Resource Manager em meu ambiente do DevTest Labs?
-Você implanta seus modelos do Resource Manager em um ambiente do DevTest Labs usando as etapas mencionadas no artigo [ambientes do DevTest Labs](devtest-lab-test-env.md) . Basicamente, você verifica os modelos do Resource Manager em um repositório git (Azure Repos ou GitHub) e adiciona um [repositório privado para seus modelos](devtest-lab-test-env.md) ao laboratório. Esse cenário pode não ser útil se você estiver usando o DevTest Labs para hospedar máquinas de desenvolvimento, mas pode ser útil se você estiver criando um ambiente de preparo, que é representativo da produção.
+### <a name="how-can-i-use-resource-manager-templates-in-my-devtest-labs-environment"></a>Como posso usar modelos de Gestor de Recursos no meu Ambiente de Laboratórios DevTest?
+Você implementa os seus modelos de Gestor de Recursos em um ambiente DevTest Labs usando passos mencionados na funcionalidade Ambientes no artigo [DevTest Labs.](devtest-lab-test-env.md) Basicamente, você verifica os seus modelos de Gestor de Recursos num Repositório Git (ou Azure Repos ou GitHub), e adiciona um [repositório privado para os seus modelos](devtest-lab-test-env.md) ao laboratório. Este cenário pode não ser útil se estiver a usar o DevTest Labs para hospedar máquinas de desenvolvimento, mas pode ser útil se estiver a construir um ambiente de encenação, que é representativo da produção.
 
-Também vale a pena observar que o número de máquinas virtuais por laboratório ou opção por usuário limita apenas o número de máquinas criadas nativamente no laboratório em si e não por nenhum ambiente (modelos do Resource Manager).
+Também vale a pena notar que o número de máquinas virtuais por laboratório ou por opção de utilizador apenas limita o número de máquinas criadas de forma nativa no próprio laboratório, e não por quaisquer ambientes (modelos de Gestor de Recursos).
 
 ## <a name="custom-images"></a>Imagens Personalizadas
 
-### <a name="how-can-i-set-up-an-easily-repeatable-process-to-bring-my-custom-organizational-images-into-a-devtest-labs-environment"></a>Como posso configurar um processo facilmente reproduzível para trazer minhas imagens organizacionais personalizadas em um ambiente do DevTest Labs?
-Consulte este [vídeo no padrão de fábrica de imagens](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4). Esse cenário é um cenário avançado, e os scripts fornecidos são apenas scripts de exemplo. Se forem necessárias alterações, você precisará gerenciar e manter os scripts usados em seu ambiente.
+### <a name="how-can-i-set-up-an-easily-repeatable-process-to-bring-my-custom-organizational-images-into-a-devtest-labs-environment"></a>Como posso configurar um processo facilmente repetível para trazer as minhas imagens organizacionais personalizadas para um ambiente de Laboratórios DevTest?
+Veja este [vídeo no padrão image Factory](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4). Este cenário é um cenário avançado, e os scripts fornecidos são apenas scripts de amostra. Se forem necessárias alterações, é necessário gerir e manter os scripts utilizados no seu ambiente.
 
-Para obter informações detalhadas sobre como criar uma fábrica de imagens, consulte [criar uma fábrica de imagens Personalizada no Azure DevTest Labs](image-factory-create.md).
+Para obter informações detalhadas sobre a criação de uma fábrica de imagem, consulte Criar uma fábrica de [imagem personalizada em Azure DevTest Labs](image-factory-create.md).
 
 ### <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Qual é a diferença entre uma imagem personalizada e uma fórmula?
-Uma imagem personalizada é uma imagem gerenciada. Uma fórmula é uma imagem que você pode definir com configurações adicionais e, em seguida, salvar e reproduzir. Uma imagem personalizada pode ser preferível se você quiser criar rapidamente vários ambientes usando a mesma imagem básica e imutável. Uma fórmula poderá ser melhor se você quiser reproduzir a configuração da VM com os bits mais recentes, como parte de uma rede virtual ou sub-rede, ou como uma VM de um tamanho específico. Para obter uma explicação mais detalhada, consulte comparando [imagens e fórmulas personalizadas no DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
+Uma imagem personalizada é uma imagem gerida. Uma fórmula é uma imagem que pode configurar com configurações adicionais e, em seguida, poupar e reproduzir. Uma imagem personalizada pode ser preferível se quiser criar rapidamente vários ambientes usando a mesma imagem básica e imutável. Uma fórmula pode ser melhor se quiser reproduzir a configuração do seu VM com as partes mais recentes, como parte de uma rede virtual ou subnet, ou como um VM de um tamanho específico. Para obter uma explicação mais aprofundada, consulte [Comparar imagens e fórmulas personalizadas em DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
 
-### <a name="when-should-i-use-a-formula-vs-custom-image"></a>Quando devo usar uma fórmula versus uma imagem personalizada?
-Normalmente, o fator decisivo nesse cenário é o custo e a reutilização. Se você tiver um cenário em que muitos usuários/laboratórios exigem uma imagem com muitos softwares sobre a imagem base, você pode reduzir os custos criando uma imagem personalizada. Isso significa que a imagem é criada uma vez. Ele reduz o tempo de configuração da máquina virtual e o custo incorrido devido à máquina virtual em execução quando a instalação ocorre.
+### <a name="when-should-i-use-a-formula-vs-custom-image"></a>Quando devo usar uma fórmula vs. imagem personalizada?
+Tipicamente, o fator decisivo neste cenário é o custo e a reutilização. Se tiver um cenário em que muitos utilizadores/laboratórios necessitem de uma imagem com muito software em cima da imagem base, então poderia reduzir custos criando uma imagem personalizada. Significa que a imagem é criada uma vez. Reduz o tempo de configuração da máquina virtual e o custo incorrido devido ao funcionamento da máquina virtual quando ocorre a configuração.
 
-No entanto, um fator adicional a ser observado é a frequência das alterações no pacote de software. Se você executar compilações diárias e exigir que o software esteja nas máquinas virtuais de seus usuários, considere usar uma fórmula em vez de uma imagem personalizada.
+No entanto, um fator adicional a notar é a frequência de alterações no seu pacote de software. Se executar diariamente as construções e exigir que esse software esteja nas máquinas virtuais dos seus utilizadores, considere usar uma fórmula em vez de uma imagem personalizada.
 
-Para obter uma explicação mais detalhada, consulte comparando [imagens e fórmulas personalizadas](devtest-lab-comparing-vm-base-image-types.md) no DevTest Labs.
+Para obter uma explicação mais aprofundada, consulte [Comparar imagens e fórmulas personalizadas](devtest-lab-comparing-vm-base-image-types.md) em DevTest Labs.
 
-### <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Como fazer automatizar o processo de carregamento de arquivos VHD para criar imagens personalizadas?
+### <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Como automatizar o processo de upload de ficheiros VHD para criar imagens personalizadas?
 
-Para automatizar o carregamento de arquivos VHD para criar imagens personalizadas, você tem duas opções:
+Para automatizar o upload de ficheiros VHD para criar imagens personalizadas, tem duas opções:
 
-- Use [AzCopy](../storage/common/storage-use-azcopy-v10.md) para copiar ou carregar arquivos VHD na conta de armazenamento associada ao laboratório.
-- Use [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md). Gerenciador de Armazenamento é um aplicativo autônomo que é executado no Windows, no OS X e no Linux.
+- Utilize o [AzCopy](../storage/common/storage-use-azcopy-v10.md) para copiar ou carregar ficheiros VHD para a conta de armazenamento que está associada ao laboratório.
+- Utilize o Explorador de [Armazenamento Azure.](../vs-azure-tools-storage-manage-with-storage-explorer.md) Storage Explorer é uma aplicação autónoma que funciona no Windows, OS X e Linux.
 
-Para localizar a conta de armazenamento de destino associada ao seu laboratório:
+Para encontrar a conta de armazenamento de destino que está associada ao seu laboratório:
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2.  No menu à esquerda, selecione **grupos de recursos**.
-3.  Localize e selecione o grupo de recursos associado ao seu laboratório.
-4.  Em **visão geral**, selecione uma das contas de armazenamento.
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com).
+2.  No menu esquerdo, selecione **Grupos de Recursos**.
+3.  Encontre e selecione o grupo de recursos que está associado ao seu laboratório.
+4.  Em **resumo,** selecione uma das contas de armazenamento.
 5.  Selecione **Blobs**.
-6.  Procure por carregamentos na lista. Se não houver nenhum, retorne para a etapa 4 e tente outra conta de armazenamento.
-7.  Use a **URL** como o destino no comando AzCopy.
+6.  Procure uploads na lista. Se não existir, volte ao passo 4 e tente outra conta de armazenamento.
+7.  Utilize o **URL** como destino no seu comando AzCopy.
 
-Quando devo usar uma imagem do Azure Marketplace versus minha própria imagem organizacional personalizada?
+Quando devo usar uma imagem do Azure Marketplace vs. a minha própria imagem organizacional personalizada?
 
-### <a name="when-should-i-use-an-azure-marketplace-image-vs-my-own-custom-organizational-image"></a>Quando devo usar uma imagem do Azure Marketplace versus minha própria imagem organizacional personalizada?
-O Azure Marketplace deve ser usado por padrão, a menos que você tenha preocupações específicas ou requisitos organizacionais. Alguns exemplos comuns incluem;
+### <a name="when-should-i-use-an-azure-marketplace-image-vs-my-own-custom-organizational-image"></a>Quando devo usar uma imagem do Azure Marketplace vs. a minha própria imagem organizacional personalizada?
+O Azure Marketplace deve ser utilizado por defeito, a menos que tenha preocupações específicas ou requisitos organizacionais. Alguns exemplos comuns incluem;
 
-- Configuração de software complexo que exige que um aplicativo seja incluído como parte da imagem base.
-- A instalação e a configuração de um aplicativo podem levar muitas horas, o que não é um uso eficiente do tempo de computação a ser adicionado em uma imagem do Azure Marketplace.
-- Os desenvolvedores e testadores precisam acessar uma máquina virtual rapidamente e desejam minimizar o tempo de configuração de uma nova máquina virtual.
-- Condições de conformidade ou regulatórias (por exemplo, políticas de segurança) que devem estar em vigor para todos os computadores.
-- O uso de imagens personalizadas não deve ser considerado levemente. Elas apresentam complexidade extra, já que você deve gerenciar arquivos VHD para essas imagens base subjacentes. Você também precisa corrigir rotineiramente essas imagens base com atualizações de software. Essas atualizações incluem novas atualizações de sistema operacional (SO) e todas as atualizações ou alterações de configuração necessárias para o próprio pacote de software.
+- Configuração complexa de software que requer que uma aplicação seja incluída como parte da imagem base.
+- A instalação e configuração de uma aplicação podem demorar muitas horas, o que não é um uso eficiente do tempo de computação a ser adicionado numa imagem do Azure Marketplace.
+- Os desenvolvedores e testadores requerem acesso a uma máquina virtual rapidamente, e querem minimizar o tempo de configuração de uma nova máquina virtual.
+- Conformidade ou condições regulamentares (por exemplo, políticas de segurança) que devem estar em vigor para todas as máquinas.
+- O uso de imagens personalizadas não deve ser considerado de ânimo leve. Introduzem uma complexidade extra, já que agora deve gerir ficheiros VHD para as imagens base subjacentes. Também precisa de remendar rotineiramente essas imagens base com atualizações de software. Estas atualizações incluem novas atualizações do sistema operativo (OS) e quaisquer atualizações ou alterações de configuração necessárias para o próprio pacote de software.
 
 ## <a name="artifacts"></a>Artefactos
 
-### <a name="what-are-artifacts"></a>O que são artefatos?
-Os artefatos são elementos personalizáveis que você pode usar para implantar seus bits mais recentes ou implantar suas ferramentas de desenvolvimento em uma VM. Anexe artefatos à sua VM ao criar a VM. Depois que a VM é provisionada, os artefatos implantam e configuram sua VM. Vários artefatos pré-existentes estão disponíveis em nosso [repositório GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Você também pode [criar seus próprios artefatos](devtest-lab-artifact-author.md).
+### <a name="what-are-artifacts"></a>O que são artefactos?
+Os artefactos são elementos personalizáveis que pode usar para implementar as suas últimas partes ou implementar as suas ferramentas de dev para um VM. Prenda artefactos ao seu VM quando criar o VM. Após o fornecimento do VM, os artefactos implantam e configuram o seu VM. Vários artefactos pré-existentes estão disponíveis no nosso [repositório público GitHub.](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) Também pode [ser autor dos seus próprios artefactos.](devtest-lab-artifact-author.md)
 
-### <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Meu artefato falhou durante a criação da VM. Como fazer solucionar problemas?
-Para saber como obter logs para seu artefato com falha, consulte [como diagnosticar falhas de artefato no DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
+### <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>O meu artefacto falhou durante a criação da VM. Como posso resolver isto?
+Para aprender a obter registos para o seu artefacto falhado, veja como diagnosticar falhas de [artefactos em DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
 
-### <a name="when-should-an-organization-use-a-public-artifact-repository-vs-private-artifact-repository-in-devtest-labs"></a>Quando uma organização deve usar um repositório de artefato público versus um repositório de artefato privado no DevTest Labs?
-O [repositório público de artefatos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) fornece um conjunto inicial de pacotes de software que são usados com mais frequência. Isso ajuda na implantação rápida sem a necessidade de investir tempo para reproduzir ferramentas de desenvolvimento e suplementos comuns. Você pode optar por implantar seu próprio repositório privado. Você pode usar um repositório público e um privado em paralelo. Você também pode optar por desabilitar o repositório público. Os critérios para implantar um repositório privado devem ser orientados pelas perguntas e considerações a seguir:
+### <a name="when-should-an-organization-use-a-public-artifact-repository-vs-private-artifact-repository-in-devtest-labs"></a>Quando deve uma organização usar um repositório de artefactos públicos vs. repositório de artefactos privados em DevTest Labs?
+O [repositório de artefactos públicos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) fornece um conjunto inicial de pacotes de software que são mais utilizados. Ajuda na rápida implantação sem ter de investir tempo para reproduzir ferramentas e add-ins comuns. Pode optar por implantar o seu próprio repositório privado. Você pode usar um rescrito público e privado em paralelo. Pode também optar por desativar o repositório público. Os critérios para a implantação de um repositório privado devem ser orientados pelas seguintes perguntas e considerações:
 
-- A organização tem a necessidade de ter software licenciado corporativo como parte de sua oferta do DevTest Labs? Se a resposta for sim, um repositório privado deverá ser criado.
-- A organização desenvolve software personalizado que fornece uma operação específica, que é necessária como parte do processo geral de provisionamento? Se a resposta for sim, um repositório privado deverá ser implantado.
-- Se a política de governança da organização exigir isolamento e os repositórios externos não estiverem sob o gerenciamento de configuração direta pela organização, um repositório de artefatos privado deverá ser implantado. Como parte desse processo, uma cópia inicial do repositório público pode ser copiada e integrada com o repositório privado. Em seguida, o repositório público pode ser desabilitado para que ninguém na organização possa acessá-lo mais. Essa abordagem força todos os usuários na organização a terem apenas um único repositório que é aprovado pela organização e minimizam a descompasso de configuração.
+- A organização tem a obrigação de ter software licenciado corporativo como parte da oferta da DevTest Labs? Se a resposta for sim, então deve ser criado um repositório privado.
+- A organização desenvolve software personalizado que fornece uma operação específica, que é necessária como parte do processo global de provisionamento? Se a resposta for sim, então um repositório privado deve ser implementado.
+- Se a política de governação da organização requer isolamento, e os repositórios externos não estão sob gestão de configuração direta pela organização, um repositório de artefactos privados deve ser implementado. Como parte deste processo, uma cópia inicial do repositório público pode ser copiada e integrada com o repositório privado. Depois, o repositório público pode ser desativado para que ninguém dentro da organização possa mais acessá-lo. Esta abordagem obriga todos os utilizadores dentro da organização a ter apenas um único repositório que é aprovado pela organização e minimizar a deriva de configuração.
 
 
-### <a name="should-an-organization-plan-for-a-single-repository-or-allow-multiple-repositories"></a>Uma organização deve planejar um único repositório ou permitir vários repositórios?
-Como parte da estratégia geral de gerenciamento de configuração e governança da sua organização, recomendamos que você use um repositório centralizado. Quando você usa vários repositórios, eles podem se tornar silos de software não gerenciado no decorrer do tempo. Com um repositório central, várias equipes podem consumir artefatos desse repositório para seus projetos. Ela impõe a padronização, a segurança, a facilidade de gerenciamento e elimina a duplicação de esforços. Como parte da centralização, as seguintes ações são práticas recomendadas para gerenciamento e sustentabilidade de longo prazo:
+### <a name="should-an-organization-plan-for-a-single-repository-or-allow-multiple-repositories"></a>Deve uma organização planear um único repositório ou permitir múltiplos repositórios?
+Como parte da estratégia global de governação e gestão de configurações da sua organização, recomendamos que utilize um repositório centralizado. Quando se utiliza vários repositórios, podem tornar-se silos de software não gerido ao longo do tempo. Com um repositório central, várias equipas podem consumir artefactos deste repositório para os seus projetos. Impõe normalização, segurança, facilidade de gestão e elimina a duplicação de esforços. Como parte da centralização, as seguintes ações são práticas recomendadas para a gestão e sustentabilidade a longo prazo:
 
-- Associe o Azure Repos com o mesmo locatário Azure Active Directory que a assinatura do Azure está usando para autenticação e autorização.
-- Crie um grupo chamado `All DevTest Labs Developers` em Azure Active Directory que seja gerenciado centralmente. Qualquer desenvolvedor que contribui para o desenvolvimento de artefatos deve ser colocado nesse grupo.
-- O mesmo grupo de Azure Active Directory pode ser usado para fornecer acesso ao repositório de Azure Repos e ao laboratório.
-- Em Azure Repos, a ramificação ou a bifurcação devem ser usadas para separar um repositório no desenvolvimento do repositório de produção primário. O conteúdo é adicionado somente ao Branch mestre com uma solicitação pull após uma revisão de código adequada. Depois que o revisor de código aprovar a alteração, um desenvolvedor líder, responsável pela manutenção do Branch mestre, mesclará o código atualizado.
+- Associe o Azure Repos ao mesmo inquilino do Azure Ative Directory que a assinatura Azure está a utilizar para autenticação e autorização.
+- Crie um grupo chamado `All DevTest Labs Developers` no Diretório Ativo Azure que seja gerido centralmente. Qualquer desenvolvedor que contribua para o desenvolvimento de artefactos deve ser colocado neste grupo.
+- O mesmo grupo azure Ative Diretório pode ser usado para fornecer acesso ao repositório Azure Repos e ao laboratório.
+- Em Azure Repos, a ramificação ou a forrking devem ser utilizadas para separar um repositório em desenvolvimento do repositório de produção primário. O conteúdo só é adicionado ao ramo principal com um pedido de puxão após uma revisão adequada do código. Uma vez que o revisor de código aprova a alteração, um desenvolvedor principal, responsável pela manutenção da sucursal principal, funde o código atualizado.
 
-## <a name="cicd-integration"></a>Integração de CI/CD
+## <a name="cicd-integration"></a>Integração CI/CD
 
-### <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>O DevTest Labs se integra ao meu CI/CD ferramentas?
-Se você estiver usando o Azure DevOps, poderá usar uma [extensão de tarefas do DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) para automatizar seu pipeline de lançamento no DevTest Labs. Algumas das tarefas que você pode fazer com essa extensão incluem:
+### <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>A DevTest Labs integra-se com a minha cadeia de ferramentas CI/CD?
+Se estiver a usar O Azure DevOps, pode utilizar uma [extensão de Tarefas DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) para automatizar o seu pipeline de libertação nos Laboratórios DevTest. Algumas das tarefas que pode fazer com esta extensão incluem:
 
-- Crie e implante uma VM automaticamente. Você também pode configurar a VM com a compilação mais recente usando as tarefas de cópia de arquivo do Azure ou Azure DevOps Services do PowerShell.
-- Capture automaticamente o estado de uma VM após o teste para reproduzir um bug na mesma VM para uma investigação mais aprofundada.
-- Exclua a VM no final do pipeline de lançamento, quando ela não for mais necessária.
+- Criar e implementar um VM automaticamente. Também pode configurar o VM com a mais recente construção utilizando tarefas Azure File Copy ou PowerShell Azure DevOps Services.
+- Capture automaticamente o estado de um VM após testes para reproduzir um bug no mesmo VM para uma investigação mais aprofundada.
+- Elimine o VM no final do gasoduto de libertação, quando já não for necessário.
 
-As postagens de blog a seguir oferecem orientações e informações sobre como usar a extensão Azure DevOps Services:
+As seguintes publicações de blog oferecem orientação e informações sobre a utilização da extensão dos Serviços Azure DevOps:
 
-- [DevTest Labs e a extensão DevOps do Azure](integrate-environments-devops-pipeline.md)
-- [Implantar uma nova VM em um laboratório existente do DevTest Labs do Azure DevOps Services](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-- [Usando o gerenciamento de versão Azure DevOps Services para implantações contínuas no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+- [DevTest Labs e a extensão Azure DevOps](integrate-environments-devops-pipeline.md)
+- [Implemente um novo VM num laboratório existente da DevTest Labs da Azure DevOps Services](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+- [Utilização da gestão de lançamento da Azure DevOps Services para implementações contínuas na DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-Para outros cadeias de CI (integração contínua)/Continuous, você pode obter os mesmos cenários implantando [modelos de Azure Resource Manager](https://azure.microsoft.com/resources/templates/) usando [cmdlets Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [SDKs .net](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Você também pode usar [APIs REST para o DevTest Labs](https://aka.ms/dtlrestapis) para integrar com seu ferramentas.
+Para outras cadeias de ferramentas de integração contínua (CI)/entrega contínua (CD), pode alcançar os mesmos cenários implantando modelos de [Gestor de Recursos Azure](https://azure.microsoft.com/resources/templates/) utilizando [cmdlets Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Também pode utilizar [APIs REST para DevTest Labs](https://aka.ms/dtlrestapis) para integrar com o seu sistema de ferramentas.
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 
-### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para meu ambiente do DevTest Labs versus usar uma rede virtual existente?
-Se suas VMs precisarem interagir com a infraestrutura existente, considere usar uma rede virtual existente dentro do ambiente do DevTest Labs. Se você usar o ExpressRoute, talvez queira minimizar a quantidade de VNets/sub-redes para não fragmentar o espaço de endereço IP que é atribuído para uso nas assinaturas.
+### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para o meu ambiente DevTest Labs vs. usando uma rede virtual existente?
+Se os seus VMs precisam interagir com a infraestrutura existente, então considere usar uma rede virtual existente dentro do seu ambiente DevTest Labs. Se utilizar o ExpressRoute, poderá querer minimizar a quantidade de VNets/Subnets para que não fragmente o seu espaço de endereço IP que seja atribuído para utilização nas subscrições.
 
-Considere usar o padrão de emparelhamento VNet aqui ([modelo hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) também. Essa abordagem permite a comunicação de vnet/sub-rede entre assinaturas. Caso contrário, cada ambiente do DevTest Labs poderia ter sua própria rede virtual.
+Considere usar o padrão de observação VNet aqui ([modelo hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) também. Esta abordagem permite a comunicação vnet/subnet através de subscrições. Caso contrário, cada ambiente da DevTest Labs poderia ter a sua própria rede virtual.
 
-Há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser gerado para 100.
+Existem [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) para o número de redes virtuais por subscrição. O valor padrão é de 50, embora este limite possa ser aumentado para 100.
 
-### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>Quando devo usar um IP compartilhado vs. IP público vs. IP privado?
+### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>Quando devo usar um IP partilhado vs. IP público vs. IP privado?
 
-Se você usar uma VPN site a site ou uma rota expressa, considere usar IPs privados para que seus computadores possam ser acessados por meio de sua rede interna e inacessíveis via Internet pública.
-
-> [!NOTE]
-> Os proprietários de laboratório podem alterar essa política de sub-rede para garantir que ninguém crie acidentalmente endereços IP públicos para suas VMs. O proprietário da assinatura deve criar uma política de assinatura impedindo que IPs públicos sejam criados.
-
-Ao usar IPs públicos compartilhados, as máquinas virtuais em um laboratório compartilham um endereço IP público. Essa abordagem pode ser útil quando você precisa evitar a violação dos limites em endereços IP públicos para uma determinada assinatura.
-
-### <a name="how-do-i-ensure-that-development-and-test-virtual-machines-are-unable-to-reach-the-public-internet-are-there-any-recommended-patterns-to-set-up-network-configuration"></a>Como fazer garantir que as máquinas virtuais de desenvolvimento e teste não sejam capazes de alcançar a Internet pública? Há padrões recomendados para definir a configuração de rede?
-
-Sim. Há dois aspectos a serem considerados – tráfego de entrada e de saída.
-
-- **Tráfego de entrada** – se a máquina virtual não tiver um endereço IP público, ela não poderá ser acessada pela Internet. Uma abordagem comum é garantir que uma política de nível de assinatura esteja definida, de modo que nenhum usuário possa criar um endereço IP público.
-- **Tráfego de saída** – se você quiser impedir que máquinas virtuais acessem a Internet pública diretamente e forçar o tráfego por meio de um firewall corporativo, você pode rotear o tráfego local por meio de rota expressa ou VPN, usando o roteamento forçado.
+Se utilizar uma VPN ou Rota Expresso de site-a-site, considere utilizar iPs privados para que as suas máquinas estejam acessíveis através da sua rede interna e inacessíveis através da internet pública.
 
 > [!NOTE]
-> Se você tiver um servidor proxy que bloqueia o tráfego sem configurações de proxy, não se esqueça de adicionar exceções à conta de armazenamento do artefato do laboratório.
+> Os donos de laboratóriopodem alterar esta política de sub-rede para garantir que ninguém cria acidentalmente endereços IP públicos para os seus VMs. O proprietário da subscrição deve criar uma política de subscrição que impeça a criação de IPs públicos.
 
-Você também pode usar grupos de segurança de rede para máquinas virtuais ou sub-redes. Esta etapa adiciona uma camada adicional de proteção para permitir/bloquear o tráfego.
+Ao usar iPs públicos partilhados, as máquinas virtuais de um laboratório partilham um endereço IP público. Esta abordagem pode ser útil quando precisa evitar violar os limites dos endereços IP públicos para uma determinada subscrição.
+
+### <a name="how-do-i-ensure-that-development-and-test-virtual-machines-are-unable-to-reach-the-public-internet-are-there-any-recommended-patterns-to-set-up-network-configuration"></a>Como posso garantir que o desenvolvimento e o teste das máquinas virtuais não conseguem chegar à internet pública? Existem padrões recomendados para configurar a configuração da rede?
+
+Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
+
+- **Tráfego de entrada** – Se a máquina virtual não tiver um endereço IP público, então não pode ser contactado pela internet. Uma abordagem comum é garantir que seja definida uma política de nível de subscrição, de modo a que nenhum utilizador possa criar um endereço IP público.
+- **Tráfego de saída** – Se pretender evitar que as máquinas virtuais acedam diretamente à internet pública e force o tráfego através de uma firewall corporativa, então pode encaminhar o tráfego no local através de rota expressa ou VPN, utilizando o encaminhamento forçado.
+
+> [!NOTE]
+> Se tiver um servidor proxy que bloqueie o tráfego sem configurações de procuração, não se esqueça de adicionar exceções à conta de armazenamento de artefactos do laboratório.
+
+Também pode utilizar grupos de segurança de rede para máquinas virtuais ou subredes. Este passo adiciona uma camada adicional de proteção para permitir/bloquear o tráfego.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Por que minha rede virtual existente não está salvando corretamente?
-Uma possibilidade é que seu nome de rede virtual contenha pontos. Nesse caso, tente remover os períodos ou substituí-los por hifens. Em seguida, tente salvar a rede virtual novamente.
+### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Porque é que a minha rede virtual não está a poupar corretamente?
+Uma possibilidade é que o seu nome de rede virtual contenha períodos. Em caso afirmativo, tente remover os períodos ou substituí-los por hífenes. Então, tente novamente salvar a rede virtual.
 
-### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Por que obtenho um erro "recurso pai não encontrado" ao provisionar uma VM do PowerShell?
-Quando um recurso é pai de outro recurso, o recurso pai deve existir antes de você criar o recurso filho. Se o recurso pai não existir, você verá uma mensagem **ParentResourceNotFound** . Se você não especificar uma dependência no recurso pai, o recurso filho poderá ser implantado antes do pai.
+### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Porque é que recebo um erro de "recurso dos pais não encontrado" quando proto um VM da PowerShell?
+Quando um recurso é pai de outro recurso, o recurso-mãe deve existir antes de criar o recurso para a criança. Se o recurso-mãe não existir, vê uma mensagem **ParentResourceNotFound.** Se não especificar uma dependência do recurso-mãe, o recurso da criança pode ser implantado antes do progenitor.
 
-As VMs são recursos filho em um laboratório em um grupo de recursos. Quando você usa modelos do Resource Manager para implantar VMs usando o PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [solucionar erros comuns de implantação do Azure](../azure-resource-manager/templates/common-deployment-errors.md).
+VMs são recursos infantis sob um laboratório de um grupo de recursos. Quando utiliza os modelos do Gestor de Recursos para implementar VMs utilizando o PowerShell, o nome do grupo de recursos fornecido no script PowerShell deve ser o nome do grupo de recursos do laboratório. Para mais informações, consulte os erros comuns de implantação do [Azure.](../azure-resource-manager/templates/common-deployment-errors.md)
 
-### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações de erro se uma implantação de VM falhar?
-Os erros de implantação de VM são capturados nos logs de atividade. Você pode encontrar os logs de atividade da VM do laboratório em **logs de auditoria** ou **diagnóstico de máquina virtual** no menu de recursos na página VM do laboratório (a página aparece depois que você seleciona a VM na lista minhas máquinas virtuais).
+### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações de erro se uma implementação vm falhar?
+Os erros de implementação da VM são capturados em registos de atividade. Pode encontrar registos de atividade de VM de laboratório em **registos** de auditoria ou diagnósticos de **máquinas virtuais** no menu de recursos na página VM do laboratório (a página aparece depois de selecionar o VM da lista das minhas máquinas virtuais).
 
-Às vezes, o erro de implantação ocorre antes do início da implantação da VM. Um exemplo é quando o limite de assinatura para um recurso que foi criado com a VM é excedido. Nesse caso, os detalhes do erro são capturados nos logs de atividade de nível de laboratório. Os logs de atividade estão localizados na parte inferior das definições de **configuração e políticas** . Para obter mais informações sobre como usar logs de atividade no Azure, consulte [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/management/view-activity-logs.md).
+Por vezes, o erro de implantação ocorre antes do início da implantação da VM. Um exemplo é quando o limite de subscrição de um recurso criado com o VM é excedido. Neste caso, os detalhes do erro são capturados nos registos de atividade ao nível do laboratório. Os registos de atividade estão localizados na parte inferior das definições de **Configuração e políticas.** Para obter mais informações sobre a utilização de registos de atividade sintetizá-lo em Azure, consulte os registos de [atividade do View para auditar ações sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
 
-### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>Por que obtenho o erro "o local não está disponível para o tipo de recurso" ao tentar criar um laboratório?
-Você poderá ver uma mensagem de erro semelhante à seguinte quando tentar criar um laboratório:
+### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>Porque é que eu tenho um erro de "localização não está disponível para o tipo de recurso" quando tento criar um laboratório?
+Pode ver uma mensagem de erro semelhante à seguinte quando tentar criar um laboratório:
 
 ```
 The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
 ```
 
-Você pode resolver esse erro executando uma das seguintes etapas:
+Pode resolver este erro tomando um dos seguintes passos:
 
-#### <a name="option-1"></a>Opção 1
-Verifique a disponibilidade do tipo de recurso nas regiões do Azure na página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) . Se o tipo de recurso não estiver disponível em uma determinada região, o DevTest Labs não oferecerá suporte à criação de um laboratório nessa região. Selecione outra região ao criar seu laboratório.
+#### <a name="option-1"></a>opção 1
+Verifique a disponibilidade do tipo de recursos nas regiões do Azure nos Produtos disponíveis por página da [região.](https://azure.microsoft.com/global-infrastructure/services/) Se o tipo de recursos não estiver disponível numa determinada região, a DevTest Labs não apoia a criação de um laboratório naquela região. Selecione outra região ao criar o seu laboratório.
 
 #### <a name="option-2"></a>Opção 2
-Se o tipo de recurso estiver disponível em sua região, verifique se ele está registrado com sua assinatura. Isso pode ser feito no nível do proprietário da assinatura, conforme mostrado neste [artigo](../azure-resource-manager/management/resource-providers-and-types.md).
+Se o tipo de recursos estiver disponível na sua região, verifique se está registado na sua subscrição. Pode ser feito ao nível do proprietário da subscrição, como mostra [este artigo.](../azure-resource-manager/management/resource-providers-and-types.md)

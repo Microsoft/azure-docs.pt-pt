@@ -17,11 +17,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 2d9e5d051f101288b8528b47fa88b4783a040950
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775151"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377318"
 ---
 # <a name="protected-web-api-app-registration"></a>API da web protegida: Registo de aplicativos
 
@@ -90,7 +90,7 @@ Os âmbitos também aparecem na janela de consentimento que é apresentada aos u
     - Selecione **o nome** do ecrã de consentimento do utilizador e introduza o Access **TodoListService como utilizador**.
     - Selecione **a descrição do consentimento** do utilizador e **introduza a API Web TodoListService como utilizador**.
     - Mantenha o valor **do Estado** definido para **Ativado**.
- 1. Selecione **Adicionar escopo**.
+ 1. **Selecione Adicionar âmbito**.
 
 ### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Se a sua Web API for chamada por uma aplicação daemon
 

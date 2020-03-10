@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468597"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394557"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e recuperação de desastres para o seu dispositivo da série StorSimple 8000
 
@@ -108,19 +108,19 @@ Se estiver a planear falhas no teste ou a testar falhas, recomendamos que teste 
 
 P. **O que acontece se o DR falhar ou tiver sucesso parcial?**
 
-R. Se o DR falhar, recomendamos que tente de novo. O segundo dispositivo está ciente do progresso do primeiro trabalho e começa a partir daí.
+A. Se o DR falhar, recomendamos que tente de novo. O segundo dispositivo está ciente do progresso do primeiro trabalho e começa a partir daí.
 
 P. **Posso apagar um dispositivo enquanto o dispositivo falha?**
 
-R. Não é possível apagar um dispositivo enquanto um DR estiver em curso. Só pode eliminar o seu dispositivo depois de o DR estar completo. Pode monitorizar o progresso do trabalho falhado do dispositivo na lâmina **Jobs.**
+A. Não é possível apagar um dispositivo enquanto um DR estiver em curso. Só pode eliminar o seu dispositivo depois de o DR estar completo. Pode monitorizar o progresso do trabalho falhado do dispositivo na lâmina **Jobs.**
 
 P. **Quando é que a recolha de lixo começa no dispositivo de origem para que os dados locais sobre o dispositivo de origem sejam eliminados?**
 
-R. A recolha de lixo só está ativada no dispositivo de origem depois de o dispositivo estar completamente limpo. A limpeza inclui a limpeza de objetos que falharam no dispositivo de origem, tais como volumes, objetos de reserva (não dados), contentores de volume e políticas.
+A. A recolha de lixo só está ativada no dispositivo de origem depois de o dispositivo estar completamente limpo. A limpeza inclui a limpeza de objetos que falharam no dispositivo de origem, tais como volumes, objetos de reserva (não dados), contentores de volume e políticas.
 
 P. **O que acontece se o trabalho de exclusão associado aos contentores de volume no dispositivo de origem falhar?**
 
-R.  Se o trabalho de exclusão falhar, pode eliminar manualmente os recipientes de volume. Na lâmina **dos Dispositivos,** selecione o seu dispositivo de origem e clique em **recipientes volume**. Selecione os recipientes de volume que falhou e na parte inferior da lâmina, clique em **Apagar**. Depois de ter eliminado todos os recipientes de volume falhados no dispositivo de origem, pode iniciar o reinicializador. Para mais informações, vá a [Eliminar um recipiente](storsimple-8000-manage-volume-containers.md#delete-a-volume-container)de volume .
+A.  Se o trabalho de exclusão falhar, pode eliminar manualmente os recipientes de volume. Na lâmina **dos Dispositivos,** selecione o seu dispositivo de origem e clique em **recipientes volume**. Selecione os recipientes de volume que falhou e na parte inferior da lâmina, clique em **Apagar**. Depois de ter eliminado todos os recipientes de volume falhados no dispositivo de origem, pode iniciar o reinicializador. Para mais informações, vá a [Eliminar um recipiente](storsimple-8000-manage-volume-containers.md#delete-a-volume-container)de volume .
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Recuperação de desastres de continuidade de negócios (BCDR)
 

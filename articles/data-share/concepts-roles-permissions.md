@@ -7,11 +7,11 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087170"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386873"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -32,10 +32,10 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 | |  |  |
 |---|---|---|
 |**Tipo de loja de dados**|**Loja de Dados de Fonte do Fornecedor de Dados**|**Data Consumer Target Data Store**|
-|Armazenamento de Blobs do Azure| Leitor de dados de blob de armazenamento | Contribuinte de dados blob de armazenamento
+|Armazenamento de Blobs do Azure| Leitor de dados blob de armazenamento | Contribuinte de dados blob de armazenamento
 |Lago de Dados Azure Gen1 | Proprietário | Não Suportado
-|Lago de Dados Azure Gen2 | Leitor de dados de blob de armazenamento | Contribuinte de dados blob de armazenamento
-|Servidor Azure SQL | Colaborador do BD SQL | Colaborador do BD SQL
+|Lago de Dados Azure Gen2 | Leitor de dados blob de armazenamento | Contribuinte de dados blob de armazenamento
+|Servidor Azure SQL | Contribuinte SQL DB | Contribuinte SQL DB
 |Azure Data Explorer Cluster | Contribuinte | Contribuinte
 |
 

@@ -1,7 +1,7 @@
 ---
 title: Importação e ingestão de dados em índices de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Popular e carregar dados em um índice no Azure Pesquisa Cognitiva de fontes de dados externas.
+description: Povoe e carregue dados para um índice em Pesquisa Cognitiva Azure a partir de fontes de dados externas.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,24 +9,24 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113787"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379622"
 ---
-# <a name="data-import-overview---azure-cognitive-search"></a>Visão geral de importação de dados-Azure Pesquisa Cognitiva
+# <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Pesquisa Cognitiva Azure
 
-No Azure Pesquisa Cognitiva, as consultas são executadas em seu conteúdo carregado e salvo em um [índice de pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para popular um índice: *enviar por push* seus dados para o índice programaticamente ou apontar um [indexador pesquisa cognitiva do Azure](search-indexer-overview.md) em uma fonte de dados com suporte para efetuar *pull* dos dados.
+Na Pesquisa Cognitiva Azure, as consultas executam sobre o seu conteúdo carregado e guardado num índice de [pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para a população de um índice: *empurre* os seus dados para o índice programáticamente, ou aponte um [indexador](search-indexer-overview.md) de Pesquisa Cognitiva Azure numa fonte de dados suportada para *puxar* os dados.
 
-Com qualquer abordagem, o objetivo é *carregar dados* de uma fonte de dados externa em um índice de pesquisa cognitiva do Azure. O Azure Pesquisa Cognitiva permitirá que você crie um índice vazio, mas até que você envie por Push ou extraia dados para ele, ele não será passível de consulta.
+Com qualquer uma das abordagems, o objetivo é *carregar dados* de uma fonte externa de dados para um índice de Pesquisa Cognitiva Azure. A Pesquisa Cognitiva Azure permitir-lhe-á criar um índice vazio, mas até empurrar ou puxar dados para dentro dele, não é questionável.
 
 ## <a name="pushing-data-to-an-index"></a>Enviar dados para um índice
-O modelo de push, usado para enviar seus dados por meio de programação para o Azure Pesquisa Cognitiva, é a abordagem mais flexível. Em primeiro lugar, não tem restrições quanto ao tipo de origem de dados. Qualquer conjunto de post de documentos JSON pode ser enviado por push para um índice de Pesquisa Cognitiva do Azure, pressupondo que cada documento no conjunto de um tenha campos de mapeamento para campos definidos no seu esquema de índice. Em segundo lugar, não tem restrições relativamente à frequência de execução. Pode enviar alterações para os índices tantas vezes quanto quiser. Para aplicações com requisitos de latência muito baixos (por exemplo, se quiser que as operações de pesquisa estejam sincronizadas com bases de dados de inventário dinâmicas), o modelo de envio é a única opção.
+O modelo push, usado para enviar os seus dados programáticamente para a Pesquisa Cognitiva Azure, é a abordagem mais flexível. Em primeiro lugar, não tem restrições quanto ao tipo de origem de dados. Qualquer conjunto de dados composto por documentos JSON pode ser empurrado para um índice de Pesquisa Cognitiva Azure, assumindo que cada documento no conjunto de dados tem campos de mapeamento de campos definidos no seu esquema de índice. Em segundo lugar, não tem restrições relativamente à frequência de execução. Pode enviar alterações para os índices tantas vezes quanto quiser. Para aplicações com requisitos de latência muito baixos (por exemplo, se quiser que as operações de pesquisa estejam sincronizadas com bases de dados de inventário dinâmicas), o modelo de envio é a única opção.
 
-Esta abordagem é mais flexível do que o modelo de extração, pois pode carregar documentos individualmente ou em lotes (até 1000 por lote ou 16 MB, consoante o limite que ocorrer primeiro). O modelo de push também permite que você carregue documentos no Azure Pesquisa Cognitiva, independentemente de onde estão seus dados.
+Esta abordagem é mais flexível do que o modelo de extração, pois pode carregar documentos individualmente ou em lotes (até 1000 por lote ou 16 MB, consoante o limite que ocorrer primeiro). O modelo push também permite fazer o upload de documentos para a Pesquisa Cognitiva Azure, independentemente do local onde os seus dados se encontra.
 
-### <a name="how-to-push-data-to-an-azure-cognitive-search-index"></a>Como enviar dados por push a um índice de Pesquisa Cognitiva do Azure
+### <a name="how-to-push-data-to-an-azure-cognitive-search-index"></a>Como empurrar dados para um índice de pesquisa cognitiva Azure
 
 Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para um índice:
 
@@ -35,28 +35,28 @@ Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para u
 
 Atualmente não existe qualquer suporte de ferramentas para o envio de dados através do portal.
 
-Para obter uma introdução a cada metodologia, consulte [início rápido: criar um índice de pesquisa cognitiva do Azure usando o PowerShell](search-create-index-rest-api.md) ou [ C# o início rápido: criar um índice de pesquisa cognitiva do Azure usando o SDK do .net](search-get-started-dotnet.md).
+Para uma introdução a cada metodologia, consulte [Quickstart: Crie um índice de pesquisa cognitiva Azure utilizando powerShell](search-create-index-rest-api.md) ou [ C# Quickstart: Crie um índice de pesquisa cognitiva azure utilizando .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Ações de indexação: upload, mesclagem, mergeOrUpload, excluir
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Ações de indexação: upload, fusão, fusãoOrUpload, excluir
 
-Você pode controlar o tipo de ação de indexação em uma base por documento, especificando se o documento deve ser carregado de forma completa, mesclado com o conteúdo do documento existente ou excluído.
+Pode controlar o tipo de ação de indexação numa base por documento, especificando se o documento deve ser carregado na totalidade, fundido com conteúdo de documento existente, ou eliminado.
 
-Na API REST, emita solicitações HTTP POST com corpos de solicitação JSON para a URL do ponto de extremidade do índice de Pesquisa Cognitiva do Azure. Cada objeto JSON na matriz "value" contém a chave do documento e especifica se uma ação de indexação adiciona, atualiza ou exclui o conteúdo do documento. Para obter um exemplo de código, consulte [carregar documentos](search-get-started-dotnet.md#load-documents).
+Na API REST, emita pedidos HTTP POST com organismos de pedido jSON para o URL final do seu índice de pesquisa cognitiva Azure. Cada objeto JSON na matriz de "valor" contém a chave do documento e especifica se uma ação de indexação adiciona, atualiza ou elimina conteúdo documental. Para um exemplo de código, consulte [os documentos de carga](search-get-started-dotnet.md#load-documents).
 
-No SDK do .NET, empacote seus dados em um objeto `IndexBatch`. Um `IndexBatch` encapsula uma coleção de objetos `IndexAction`, cada um contendo um documento e uma propriedade que informa ao Azure Pesquisa Cognitiva qual ação executar nesse documento. Para obter um exemplo de código, consulte o guia de [ C# início rápido](search-get-started-dotnet.md).
+No .NET SDK, embaas os seus dados num objeto `IndexBatch`. Um `IndexBatch` engloba uma coleção de objetos `IndexAction`, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a realizar nesse documento. Para um exemplo de código, consulte o [ C# Quickstart](search-get-started-dotnet.md).
 
 
 | @search.action | Descrição | Campos necessários para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Um ação `upload` é semelhante a um "upsert" onde o documento será inserido se for novo e atualizado/substituído se já existir. |chave, juntamente com quaisquer outros campos que pretende definir |Quando atualizar/substituir um documento existente, qualquer campo que não está especificado no pedido terá o respetivo campo definido como `null`. Isto ocorre mesmo quando o campo foi anteriormente definido para um valor não nulo. |
-| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No SDK do .NET, isso inclui campos do tipo `DataType.Collection(DataType.String)`. Na API REST, isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
+| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No SDK .NET, isto inclui campos de tipo `DataType.Collection(DataType.String)`. Na API REST, isto inclui campos de tipo `Collection(Edm.String)`. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Esta ação tem o mesmo comportamento de `merge` caso um documento com a chave especificada já exista no índice. Se o documento não existir, tem um comportamento semelhante `upload` a um novo documento. |chave, juntamente com quaisquer outros campos que pretende definir |- |
 | `delete` |Remove o documento especificado do índice. |apenas chave |Quaisquer campos que especificar diferentes do campo de chave serão ignorados. Se pretender remover um campo individual de um documento, utilize `merge` em vez disso e simplesmente defina o campo explicitamente como nulo. |
 
 ## <a name="decide-which-indexing-action-to-use"></a>Decidir a ação de indexação a utilizar
-Para importar dados usando o SDK do .NET, (carregar, mesclar, excluir e mergeOrUpload). Dependendo das ações que escolher abaixo, apenas determinados campos tem de ser incluídos para cada documento:
+Para importar dados utilizando o .NET SDK (carregar, fundir, eliminar e fundir OrUpload). Dependendo das ações que escolher abaixo, apenas determinados campos tem de ser incluídos para cada documento:
 
 
 ### <a name="formulate-your-query"></a>Formular a consulta
@@ -70,30 +70,30 @@ O formato para o POST é o mesmo, contudo, apenas com a versão de API nos parâ
 
 
 ## <a name="pulling-data-into-an-index"></a>Extrair dados para um índice
-O modelo de extração pesquisa uma origem de dados suportada e carrega automaticamente os dados para o seu índice. No Azure Pesquisa Cognitiva, esse recurso é implementado por meio de *indexadores*, atualmente disponíveis para essas plataformas:
+O modelo de extração pesquisa uma origem de dados suportada e carrega automaticamente os dados para o seu índice. Na Pesquisa Cognitiva Azure, esta capacidade é implementada através de *indexadores*, atualmente disponíveis para estas plataformas:
 
 + [Armazenamento de blobs](search-howto-indexing-azure-blob-storage.md)
 + [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
-+ [BD do Cosmos para o Azure](https://aka.ms/documentdb-search-indexer)
++ [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Base de Dados SQL do Azure e SQL Server em VMs do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Os indexadores ligam índices a uma origem de dados (geralmente, uma tabela, vista ou estrutura equivalente) e mapeiam os campos da origem para os campos equivalentes nos índices. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado para o índice especificado. Todos os indexadores suportam o agendamento, de modo a que possa especificar a frequência com que os dados devem ser atualizados. A maioria dos indexadores disponibilizam o registo de alterações, se as origens de dados o suportarem. Os indexadores, através do registo de alterações e eliminações aos documentos existentes, além do reconhecimento de novos documentos, suprimem a gestão ativa dos dados no índice. 
 
 
-### <a name="how-to-pull-data-into-an-azure-cognitive-search-index"></a>Como efetuar pull de dados em um índice de Pesquisa Cognitiva do Azure
+### <a name="how-to-pull-data-into-an-azure-cognitive-search-index"></a>Como puxar dados para um índice de pesquisa cognitiva Azure
 
 A funcionalidade de indexador está exposta no [portal do Azure](search-import-data-portal.md), na [API REST](/rest/api/searchservice/Indexer-operations) e no [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
 
-Uma vantagem de usar o portal é que o Azure Pesquisa Cognitiva normalmente pode gerar um esquema de índice padrão para você lendo os metadados do conjunto de fonte de origem. Pode modificar o índice gerado até o índice ser processado, após o qual as únicas edições ao esquema permitidas são as que não requerem nova indexação. Se as alterações que quiser fazer influenciarem o esquema diretamente, terá de recriar o índice. 
+Uma vantagem para usar o portal é que a Pesquisa Cognitiva Azure pode geralmente gerar um esquema de índice padrão para si, lendo os metadados do conjunto de dados de origem. Pode modificar o índice gerado até o índice ser processado, após o qual as únicas edições ao esquema permitidas são as que não requerem nova indexação. Se as alterações que quiser fazer influenciarem o esquema diretamente, terá de recriar o índice. 
 
-## <a name="verify-data-import-with-search-explorer"></a>Verificar a importação de dados com o Search Explorer
+## <a name="verify-data-import-with-search-explorer"></a>Verificar a importação de dados com o explorador de pesquisa
 
-Uma maneira rápida de executar uma verificação preliminar no carregamento do documento é usar o **Search Explorer** no Portal. O explorador permite-lhe consultar índices sem ter de escrever qualquer código. A experiência de pesquisa baseia-se em predefinições, como a [sintaxe simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) e o [parâmetro de consulta searchMode](/rest/api/searchservice/search-documents) predefinido. Os resultados são devolvidos em JSON, de modo a que possa inspecionar todo o documento.
+Uma forma rápida de efetuar uma verificação preliminar no upload do documento é utilizar o **explorador de pesquisa** no portal. O explorador permite-lhe consultar índices sem ter de escrever qualquer código. A experiência de pesquisa baseia-se em predefinições, como a [sintaxe simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) e o [parâmetro de consulta searchMode](/rest/api/searchservice/search-documents) predefinido. Os resultados são devolvidos em JSON, de modo a que possa inspecionar todo o documento.
 
 > [!TIP]
-> Vários [exemplos de código do Azure pesquisa cognitiva](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de valores inseridos ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando você executa o indexador pré-configurado na fonte de dados de exemplo, um índice é criado e carregado com documentos que podem ser consultados no Search Explorer ou pelo código que você escreve.
+> Numerosas amostras de código de [pesquisa cognitiva Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executa o indexador pré-configurado na fonte de dados da amostra, é criado e carregado com documentos que podem ser consultados no explorador de Pesquisa ou por código que escreve.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Instruções do portal: criar, carregar e consultar índices](search-get-started-portal.md)

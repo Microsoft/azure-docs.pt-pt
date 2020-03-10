@@ -1,6 +1,6 @@
 ---
-title: Assistente de segurança de funções do Azure AD no PIM-Azure Active Directory | Microsoft Docs
-description: Descreve o assistente de segurança que você pode usar para converter atribuições de função com privilégios permanentes do Azure AD para qualificado usando Azure AD Privileged Identity Management (PIM).
+title: Azure AD roles assistente de segurança em PIM - Azure Ative Directory [ Azure Ative Directory ] Microsoft Docs
+description: Descreve o assistente de segurança que pode usar para converter atribuições de funções azure privilegiadas permanentes para elegível usando a Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,59 +15,59 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847036"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375454"
 ---
-# <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Assistente de segurança de funções do Azure AD no Privileged Identity Management
+# <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Azure AD funções assistente de segurança na Gestão de Identidade Privilegiada
 
-Se você for a primeira pessoa a usar Privileged Identity Management (PIM) em sua organização do Azure Active Directory (Azure AD), verá um assistente para começar. O assistente ajuda você a entender os riscos de segurança de identidades com privilégios e a usar Privileged Identity Management para reduzir esses riscos. Você não precisa fazer alterações nas atribuições de função existentes no assistente, se preferir fazer isso mais tarde.
+Se é a primeira pessoa a utilizar a Privileged Identity Management (PIM) na sua organização Azure Ative Directory (Azure AD),é-lhe apresentado um assistente para começar. O assistente ajuda-o a compreender os riscos de segurança de identidades privilegiadas e como usar a Gestão de Identidade Privilegiada para reduzir esses riscos. Não precisa de fazer alterações nas atribuições de papéis existentes no assistente, se preferir fazê-lo mais tarde.
 
-## <a name="wizard-overview"></a>Visão geral do assistente
+## <a name="wizard-overview"></a>Visão geral do feiticeiro
 
-Antes que sua organização comece a usar Privileged Identity Management, todas as atribuições de função são permanentes: os usuários sempre estarão nessas funções, mesmo que não precisem atualmente de seus privilégios. A primeira etapa do assistente mostra uma lista de funções com altos privilégios e quantos usuários estão atualmente nessas funções. Você pode analisar uma função específica para saber mais sobre os usuários se um ou mais deles não forem familiares.
+Antes de a sua organização começar a utilizar a Gestão de Identidade Privilegiada, todas as atribuições de funções são permanentes: os utilizadores estão sempre nestas funções mesmo que não necessitem atualmente dos seus privilégios. O primeiro passo do assistente mostra-lhe uma lista de papéis privilegiados e quantos utilizadores estão atualmente nessas funções. Pode perfurar um papel particular para saber mais sobre os utilizadores se um ou mais deles não estiverem familiarizados.
 
-A segunda etapa do assistente oferece a oportunidade de alterar as atribuições de função do administrador.  
+O segundo passo do assistente dá-lhe a oportunidade de alterar as atribuições de funções do administrador.  
 
 > [!WARNING]
-> É importante que você tenha pelo menos um administrador global e mais de um administrador de função com privilégios com uma conta organizacional (não um conta Microsoft). Se houver apenas um administrador de função com privilégios, a organização não poderá gerenciar Privileged Identity Management se essa conta for excluída.
-> Além disso, mantenha as atribuições de função permanentes se um usuário tiver um conta Microsoft (em outras palavras, uma conta que use para entrar nos serviços da Microsoft, como o Skype e o Outlook.com). Se você planeja exigir a autenticação multifator para ativação para essa função, esse usuário será bloqueado.
+> É importante que tenha pelo menos um administrador global, e mais de um administrador privilegiado com uma conta organizacional (não uma conta Microsoft). Se houver apenas um administrador privilegiado, a organização não pode gerir a Gestão de Identidade Privilegiada se essa conta for eliminada.
+> Além disso, mantenha as atribuições de funções permanentes se um utilizador tiver uma conta Microsoft (por outras palavras, uma conta que usam para iniciar sessão em serviços da Microsoft como o Skype e Outlook.com). Se pretender exigir a autenticação de vários fatores para a ativação dessa função, esse utilizador ficará bloqueado.
 
 ## <a name="run-the-wizard"></a>Executar o assistente
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Selecione **funções do Azure ad** e, em seguida, selecione **Assistente**.
+1. Selecione **funções AD Azure** e, em seguida, selecione **Wizard**.
 
-    ![Funções do Azure AD – página do assistente mostrando as 3 etapas para executar o assistente](./media/pim-security-wizard/wizard-start.png)
+    ![Funções Azure AD - Página do feiticeiro mostrando os 3 passos para executar o assistente](./media/pim-security-wizard/wizard-start.png)
 
-1. Selecione **1 descobrir funções com privilégios**.
+1. Selecione **1 Descubra funções privilegiadas**.
 
-1. Examine a lista de funções com privilégios para ver quais usuários são permanentes ou qualificados.
+1. Reveja a lista de funções privilegiadas para ver quais os utilizadores permanentes ou elegíveis.
 
-    ![Descobrir funções privilegiadas – painel de funções mostrando membros permanentes e qualificados](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Descubra papéis privilegiados - Painel de papéis mostrando membros permanentes e elegíveis](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
-1. Selecione **Avançar** para selecionar os usuários ou grupos que você deseja tornar qualificados.
+1. Selecione **Next** para selecionar os utilizadores ou grupos que pretende tornar elegíveis.
 
-    ![Converter Membros em uma página qualificada com opções para selecionar membros que você deseja tornar qualificados para funções](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Converta os membros em página elegível com opções para selecionar membros que pretende tornar elegíveis para funções](./media/pim-security-wizard/convert-members-eligible.png)
 
-1. Depois de selecionar os usuários ou grupos, selecione **Avançar**.
+1. Depois de ter selecionado os utilizadores ou grupos, selecione **Next**.
 
-    ![Página examinar alterações mostrando Membros com atribuições de função permanentes que serão convertidas](./media/pim-security-wizard/review-changes.png)
+    ![Rever altera página mostrando membros com atribuições de funções permanentes que serão convertidos](./media/pim-security-wizard/review-changes.png)
 
-1. Selecione **OK** para converter as atribuições permanentes para qualificado.
+1. Selecione **OK** para converter as atribuições permanentes em elegíveis.
 
-    Quando a conversão for concluída, você verá uma notificação.
+    Quando a conversão estiver concluída, verá uma notificação.
 
-    ![Notificação mostrando o status de uma conversão](./media/pim-security-wizard/notification-completion.png)
+    ![Notificação que mostre o estado de uma conversão](./media/pim-security-wizard/notification-completion.png)
 
-Se precisar converter outras atribuições de função com privilégios para qualificado, você poderá executar o assistente novamente. Se você quiser usar a interface Privileged Identity Management em vez do assistente, consulte [atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md).
+Se precisar converter outras atribuições privilegiadas para elegível, pode voltar a dirigir o assistente. Se pretender utilizar a interface privilegiada de Gestão de Identidade em vez do assistente, consulte [as funções de AD De Atribuição Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [Conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md)
+- [Atribuir funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
+- [Conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada](pim-how-to-give-access-to-pim.md)

@@ -1,6 +1,6 @@
 ---
-title: Solucionando problemas de erros de inicialização do BitLocker em uma VM do Azure | Microsoft Docs
-description: Saiba como solucionar problemas de erros de inicialização do BitLocker em uma VM do Azure
+title: Problemas de resolução de erros de arranque bitLocker num Azure VM / Microsoft Docs
+description: Saiba como resolver erros de arranque do BitLocker num VM Azure
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,43 +13,43 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749664"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382675"
 ---
-# <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
+# <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque bitLocker num VM Azure
 
- Este artigo descreve os erros do BitLocker que você pode enfrentar ao iniciar uma VM (máquina virtual) do Windows no Microsoft Azure.
+ Este artigo descreve erros do BitLocker que poderá experimentar quando iniciar uma máquina virtual do Windows (VM) no Microsoft Azure.
 
  
 
 ## <a name="symptom"></a>Sintoma
 
- Uma VM do Windows não é iniciada. Ao verificar as capturas de tela na janela de [diagnóstico de inicialização](../windows/boot-diagnostics.md) , você verá uma das seguintes mensagens de erro:
+ Um VM windows não começa. Quando verificar as imagens na janela de [diagnóstico](../windows/boot-diagnostics.md) boot, consulte uma das seguintes mensagens de erro:
 
-- Conecte o driver USB que tem a chave do BitLocker
+- Ligue o controlador USB que tem a tecla BitLocker
 
-- Você está bloqueado! Insira a chave de recuperação para começar novamente (layout do teclado: EUA) as informações de entrada erradas foram inseridas muitas vezes, portanto, o computador foi bloqueado para proteger sua privacidade. Para recuperar a chave de recuperação, acesse https://windows.microsoft.com/recoverykeyfaq de outro PC ou dispositivo móvel. Caso você precise dela, a ID da chave é XXXXXXX. Ou então, você pode redefinir seu computador.
+- Está trancado fora! Introduza a chave de recuperação para recomeçar (Layout de Teclado: EUA) A informação de entrada errada foi introduzida demasiadas vezes, pelo que o seu PC foi bloqueado para proteger a sua privacidade. Para recuperar a chave de recuperação, vá para https://windows.microsoft.com/recoverykeyfaq a partir de outro pc ou dispositivo móvel. Caso precise, a chave é XXXXXXX. Ou pode repor o seu PC.
 
-- Digite a senha para desbloquear esta unidade [] Pressione a tecla Insert para ver a senha ao digitar.
-- Insira sua chave de recuperação carregue sua chave de recuperação de um dispositivo USB.
+- Introduza a palavra-passe para desbloquear esta unidade [ ] Prima a Tecla de inserção para ver a palavra-passe à medida que escreve.
+- Introduza a sua chave de recuperação Carregue a sua chave de recuperação a partir de um dispositivo USB.
 
 ## <a name="cause"></a>Causa
 
-Esse problema pode ocorrer se a VM não puder localizar o arquivo de chave de recuperação do BitLocker (BEK) para descriptografar o disco criptografado.
+Este problema pode ocorrer se o VM não conseguir localizar o ficheiro BitLocker Recovery Key (BEK) para desencriptar o disco encriptado.
 
 ## <a name="solution"></a>Solução
 
-Para resolver esse problema, pare e desaloque a VM e, em seguida, reinicie-a. Essa operação força a VM a recuperar o arquivo BEK do Azure Key Vault e, em seguida, colocá-lo no disco criptografado. 
+Para resolver este problema, pare e desaloque o VM e, em seguida, reinicie-o. Esta operação obriga o VM a recuperar o ficheiro BEK do Cofre de Chaves Azure e, em seguida, colocá-lo no disco encriptado. 
 
-Se esse método não resolver o problema, siga estas etapas para restaurar o arquivo BEK manualmente:
+Se este método não resolver o problema, siga estes passos para restaurar manualmente o ficheiro BEK:
 
-1. Tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [snapshot a Disk](../windows/snapshot-copy-managed-disk.md).
-2. [Anexe o disco do sistema a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o comando [Manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) na etapa 7, o recurso **criptografia de unidade de disco BitLocker** deve ser habilitado na VM de recuperação.
+1. Tire uma foto do disco do sistema do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
+2. [Fixe o disco do sistema a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação . Para executar o comando [de gestão-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) no passo 7, a **função de encriptação bitLocker Drive** deve ser ativada no VM de recuperação.
 
-    Ao anexar um disco gerenciado, você pode receber uma mensagem de erro "contém configurações de criptografia e, portanto, não pode ser usada como um disco de dados". Nessa situação, execute o seguinte script para tentar anexar o disco novamente:
+    Quando anexa um disco gerido, pode receber uma mensagem de erro "contém definições de encriptação e, portanto, não pode ser usada como um disco de dados". Nesta situação, execute o seguinte script para tentar novamente anexar o disco:
 
     ```Powershell
     $rgName = "myResourceGroup"
@@ -67,17 +67,17 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
 
     Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
-     Não é possível anexar um disco gerenciado a uma VM que foi restaurada de uma imagem de BLOB.
+     Não é possível anexar um disco gerido a um VM que foi restaurado a partir de uma imagem blob.
 
-3. Depois que o disco for anexado, faça uma conexão de área de trabalho remota para a VM de recuperação para que você possa executar alguns scripts de Azure PowerShell. Verifique se você tem a [versão mais recente do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) instalada na VM de recuperação.
+3. Depois de o disco ser ligado, faça uma ligação remota ao ambiente de trabalho com o VM de recuperação para que possa executar alguns scripts Azure PowerShell. Certifique-se de que tem a [versão mais recente do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) instalada no VM de recuperação.
 
-4. Abra uma sessão de Azure PowerShell com privilégios elevados (executar como administrador). Execute os seguintes comandos para entrar na assinatura do Azure:
+4. Abra uma sessão elevada da Azure PowerShell (Executar como administrador). Executar os seguintes comandos para iniciar sessão na subscrição do Azure:
 
     ```Powershell
     Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
-5. Execute o script a seguir para verificar o nome do arquivo BEK:
+5. Executar o seguinte script para verificar o nome do ficheiro BEK:
 
     ```powershell
     $vmName = "myVM"
@@ -90,7 +90,7 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
 
-    A seguir está um exemplo da saída. Localize o nome do arquivo BEK para o disco anexado. Nesse caso, presumimos que a letra da unidade do disco anexado é F e o arquivo BEK é EF7B2F5A-50C6-4637-9F13-7F599C12F85C. Bek.
+    Segue-se a amostra da saída. Localize o nome do ficheiro BEK para o disco anexo. Neste caso, assumimos que a letra de unidade do disco em anexo é F, e o ficheiro BEK é EF7B2F5A-50C6-4637-9F13-7F599C12F85C. Bek, BEK.
 
     ```
     Created             Content Type Volume DiskEncryptionKeyFileName               
@@ -101,13 +101,13 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
     4/7/2018 7:26:26 PM Wrapped BEK  H:\    5745719F-4886-4940-9B51-C98AFABE5305.BEK
     ```
 
-    Se você vir dois volumes duplicados, o volume que tem o carimbo de data/hora mais recente será o arquivo BEK atual usado pela VM de recuperação.
+    Se vir dois volumes duplicados, o volume que tem o mais recente carimbo de tempo é o ficheiro BEK atual que é utilizado pelo VM de recuperação.
 
-    Se o valor do **tipo de conteúdo** for **encapsulado Bek**, vá para os [cenários de Kek (chave de criptografia de chave)](#key-encryption-key-scenario).
+    Se o valor do **Tipo** de Conteúdo estiver embrulhado EM **BEK,** vá aos cenários da [Chave de Encriptação (KEK).](#key-encryption-key-scenario)
 
-    Agora que você tem o nome do arquivo BEK para a unidade, você precisa criar o nome de arquivo-segredo. Arquivo BEK para desbloquear a unidade.
+    Agora que tem o nome do ficheiro BEK para a unidade, tem de criar o nome secreto do ficheiro. Ficheiro BEK para desbloquear a unidade.
 
-6.  Baixe o arquivo BEK no disco de recuperação. O exemplo a seguir salva o arquivo BEK na pasta C:\BEK. Verifique se o caminho de `C:\BEK\` existe antes de executar os scripts.
+6.  Descarregue o ficheiro BEK para o disco de recuperação. A amostra que se segue guarda o ficheiro BEK na pasta C:\BEK. Certifique-se de que o caminho `C:\BEK\` existe antes de executar os scripts.
 
     ```powershell
     $vault = "myKeyVault"
@@ -119,34 +119,34 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Para desbloquear o disco anexado usando o arquivo BEK, execute o comando a seguir.
+7.  Para desbloquear o disco anexado utilizando o ficheiro BEK, execute o seguinte comando.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
-    Neste exemplo, o disco do sistema operacional anexado é a unidade F. Certifique-se de usar a letra da unidade correta. 
+    Nesta amostra, o disco OS anexado é a unidade F. Certifique-se de que utiliza a letra de acionamento correta. 
 
-8. Depois que o disco for desbloqueado com êxito usando a chave BEK, desanexe o disco da VM de recuperação e recrie a VM usando esse novo disco do sistema operacional.
+8. Depois de o disco ter sido desbloqueado com sucesso utilizando a tecla BEK, retire o disco do VM de recuperação e, em seguida, recrie o VM utilizando este novo disco OS.
 
     > [!NOTE]
-    > Não há suporte para alternar o disco do sistema operacional para VMs que usam criptografia de disco.
+    > A troca de Discos OS não é suportada para VMs utilizando encriptação de disco.
 
-9. Se a nova VM ainda não puder ser inicializada normalmente, tente uma das etapas a seguir depois de desbloquear a unidade:
+9. Se o novo VM ainda não conseguir arrancar normalmente, experimente um dos seguintes passos depois de desbloquear a unidade:
 
-    - Suspenda a proteção para desativar temporariamente o BitLocker executando o seguinte:
+    - Suspender a proteção para desligar temporariamente o BitLocker OFF executando o seguinte:
 
                     manage-bde -protectors -disable F: -rc 0
            
-    - Descriptografar completamente a unidade. Para tal, execute o seguinte comando:
+    - Desencriptar completamente a unidade. Para tal, execute o seguinte comando:
 
                     manage-bde -off F:
 
-### <a name="key-encryption-key-scenario"></a>Cenário de chave de criptografia de chave
+### <a name="key-encryption-key-scenario"></a>Cenário chave de encriptação
 
-Para um cenário de chave de criptografia de chave, siga estas etapas:
+Para um cenário chave de encriptação, siga estes passos:
 
-1. Verifique se a conta de usuário conectada requer a permissão "desencapsulada" nas políticas de acesso de Key Vault no **usuário | Permissões de chave | Operações criptográficas | Desencapsular chave**.
-2. Salve o script a seguir em um. Arquivo PS1:
+1. Certifique-se de que a conta de utilizador sessão requer a permissão "desembrulhada" nas políticas de acesso ao cofre chave no **UTILIZADOR. Principais permissões. Operações Criptográficas. Chave de desembrulhar**.
+2. Guarde o seguinte guião para um . Arquivo PS1:
 
     ```powershell
     #Set the Parameters for the script
@@ -232,61 +232,61 @@ Para um cenário de chave de criptografia de chave, siga estas etapas:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Defina os parâmetros. O script processará o segredo KEK para criar a chave BEK e, em seguida, o salvará em uma pasta local na VM de recuperação. Se você receber erros ao executar o script, consulte a seção [solução de problemas de script](#script-troubleshooting) .
+3. Defina os parâmetros. O script processará o segredo KEK para criar a chave BEK e, em seguida, guardá-lo-á para uma pasta local no VM de recuperação. Se receber erros ao executar o script, consulte a secção de resolução de problemas do [script.](#script-troubleshooting)
 
-4. Você verá a seguinte saída quando o script começar:
+4. Vê a seguinte saída quando o script começa:
 
         GAC    Version        Location                                                                              
         ---    -------        --------                                                                              
         False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
         False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
-    Quando o script for concluído, você verá a seguinte saída:
+    Quando o guião termina, vê a seguinte saída:
 
         VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
         version=2015-06-01 with -1-byte payload
         VERBOSE: received 360-byte response of content type application/json; charset=utf-8
 
 
-5. Para desbloquear o disco anexado usando o arquivo BEK, execute o seguinte comando:
+5. Para desbloquear o disco anexado utilizando o ficheiro BEK, execute o seguinte comando:
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
-    Neste exemplo, o disco do sistema operacional anexado é a unidade F. Certifique-se de usar a letra da unidade correta. 
+    Nesta amostra, o disco OS anexado é a unidade F. Certifique-se de que utiliza a letra de acionamento correta. 
 
-6. Depois que o disco for desbloqueado com êxito usando a chave BEK, desanexe o disco da VM de recuperação e recrie a VM usando esse novo disco do sistema operacional. 
+6. Depois de o disco ter sido desbloqueado com sucesso utilizando a tecla BEK, retire o disco do VM de recuperação e, em seguida, recrie o VM utilizando este novo disco OS. 
 
     > [!NOTE]
-    > Não há suporte para alternar o disco do sistema operacional para VMs que usam criptografia de disco.
+    > A troca de Discos OS não é suportada para VMs utilizando encriptação de disco.
 
-7. Se a nova VM ainda não puder ser inicializada normalmente, tente uma das etapas a seguir depois de desbloquear a unidade:
+7. Se o novo VM ainda não conseguir arrancar normalmente, experimente um dos seguintes passos depois de desbloquear a unidade:
 
-    - Suspenda a proteção para desativar temporariamente o BitLocker executando o seguinte comando:
+    - Suspender a proteção para desligar temporariamente o BitLocker OFF executando o seguinte comando:
 
              manage-bde -protectors -disable F: -rc 0
            
-    - Descriptografar completamente a unidade. Para tal, execute o seguinte comando:
+    - Desencriptar completamente a unidade. Para tal, execute o seguinte comando:
 
                     manage-bde -off F:
-## <a name="script-troubleshooting"></a>Solução de problemas de script
+## <a name="script-troubleshooting"></a>Resolução de problemas do guião
 
-**Erro: não foi possível carregar o arquivo ou o assembly**
+**Erro: Não podia carregar ficheiro ou montagem**
 
-Esse erro ocorre porque os caminhos dos assemblies da ADAL estão errados. Se o módulo AZ for instalado apenas para o usuário atual, os assemblies de ADAL estarão localizados em `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+Este erro ocorre porque os caminhos das Assembléias ADAL estão errados. Se o módulo AZ estiver apenas instalado para o utilizador atual, os Conjuntos ADAL estarão localizados em `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
 
-Você também pode pesquisar `Az.Accounts` pasta para localizar o caminho correto.
+Também pode procurar `Az.Accounts` pasta para encontrar o caminho correto.
 
 **Erro: Get-AzKeyVaultSecret ou Get-AzKeyVaultSecret não é reconhecido como o nome de um cmdlet**
 
-Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois comandos para `Get-AzureKeyVaultSecret` e `Get-AzureKeyVaultSecret`.
+Se estiver a utilizar o antigo módulo AZ PowerShell, tem de alterar os dois comandos para `Get-AzureKeyVaultSecret` e `Get-AzureKeyVaultSecret`.
 
-**Exemplos de parâmetros**
+**Amostras de parâmetros**
 
-| Parâmetros  | Exemplo de valor  |Comentários   |
+| Parâmetros  | Amostra de valor  |Comentários   |
 |---|---|---|
-|  $keyVaultName | myKeyVault2112852926  | O nome do cofre de chaves que armazena a chave |
-|$kekName   |MyKey   | O nome da chave usada para criptografar a VM|
-|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | O nome do segredo da chave da VM|
-|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |O caminho para gravar o arquivo BEK.|
-|$adTenant  |contoso.onmicrosoft.com   | FQDN ou GUID do seu Azure Active Directory que hospeda o cofre de chaves |
+|  $keyVaultName | myKeyVault212852926  | O nome do cofre chave que armazena a chave |
+|$kekName   |mykey   | O nome da chave que é usada para encriptar o VM|
+|$secretName   |7eb4f531-5FBA-4970-8E2D-C11fD6B0C69D  | O nome do segredo da chave VM|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |O caminho para escrever o ficheiro BEK.|
+|$adTenant  |contoso.onmicrosoft.com   | FQDN ou GUID do seu Diretório Ativo Azure que acolhe o cofre chave |

@@ -1,6 +1,6 @@
 ---
-title: Atribuir endereços IP públicos após o failover com Azure Site Recovery
-description: Descreve como configurar endereços IP públicos com Azure Site Recovery e o Gerenciador de tráfego do Azure para recuperação de desastres e migração
+title: Atribuir endereços IP públicos após falha com recuperação do site azure
+description: Descreve como configurar endereços IP públicos com a Recuperação do Site Azure e o Gestor de Tráfego azure para recuperação e migração de desastres
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,51 +9,51 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396989"
 ---
-# <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após o failover
+# <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após a falha
 
 Os endereços IP públicos permitem que os recursos da Internet comuniquem com os recursos do Azure à entrada. Os endereços IP públicos também permitem que os recursos do Azure comuniquem com a Internet à saída, bem como com serviços do Azure destinados ao público com um endereço IP atribuído ao recurso.
-- Comunicação de entrada da Internet para o recurso, como VMS (máquinas virtuais) do Azure, gateways de Aplicativo Azure, balanceadores de carga do Azure, gateways de VPN do Azure e outros. Você ainda poderá se comunicar com alguns recursos, como VMs, da Internet, se uma VM não tiver um endereço IP público atribuído a ela, desde que a VM faça parte de um pool de back-end do balanceador de carga e o balanceador de carga receba um endereço IP público.
-- Conectividade de saída para a Internet usando um endereço IP previsível. Por exemplo, uma máquina virtual pode comunicar a saída à Internet sem um endereço IP público atribuído a ela, mas seu endereço é o endereço de rede traduzido pelo Azure para um endereço público imprevisível, por padrão. A atribuição de um endereço IP público a um recurso permite que você saiba qual endereço IP é usado para a conexão de saída. Embora previsível, o endereço pode ser alterado, dependendo do método de atribuição escolhido. Para obter mais informações, consulte [criar um endereço IP público](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address). Para saber mais sobre as conexões de saída dos recursos do Azure, confira [entender as conexões de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Comunicação de entrada da Internet para o recurso, tais como Máquinas Virtuais Azure (VM), Gateways de Aplicação Azure, Equilíbrios de Carga Azure, Gateways VPN Azure, entre outros. Ainda pode comunicar com alguns recursos, como VMs, a partir da Internet, se um VM não tiver um endereço IP público atribuído a ele, desde que o VM faça parte de um pool de back-end do equilibrador de carga, e o equilibrador de carga seja atribuído a um endereço IP público.
+- Conectividade de saída para a Internet usando um endereço IP previsível. Por exemplo, uma máquina virtual pode comunicar a saída para a Internet sem um endereço IP público atribuído à sua, mas o seu endereço é endereço de rede traduzido pelo Azure para um endereço público imprevisível, por padrão. Atribuir um endereço IP público a um recurso permite-lhe saber qual o endereço IP utilizado para a ligação de saída. Embora previsível, o endereço pode mudar, dependendo do método de atribuição escolhido. Para mais informações, consulte [Para obter informações](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)sobre o qual é o endereço IP. Para saber mais sobre as ligações de saída dos recursos azure, consulte [compreender as ligações de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-No Azure Resource Manager, um endereço IP público é um recurso que tem suas próprias propriedades. Alguns dos recursos aos quais pode associar um recurso de endereço IP público são:
+No Azure Resource Manager, um endereço IP público é um recurso que tem propriedades próprias. Alguns dos recursos aos quais pode associar um recurso de endereço IP público são:
 
 * Interfaces de rede de máquina virtual
 * Balanceadores de carga com acesso à Internet
 * Gateways de VPN
 * Gateways de aplicação
 
-Este artigo descreve como você pode usar endereços IP públicos com Site Recovery.
+Este artigo descreve como pode utilizar endereços IP públicos com recuperação do site.
 
-## <a name="public-ip-address-assignment-using-recovery-plan"></a>Atribuição de endereço IP público usando o plano de recuperação
+## <a name="public-ip-address-assignment-using-recovery-plan"></a>Atribuição de endereços IP públicos usando plano de recuperação
 
-O endereço IP público do aplicativo de produção **não pode ser retido no failover**. As cargas de trabalho trazidas como parte do processo de failover devem ser atribuídas a um recurso de IP público do Azure disponível na região de destino. Essa etapa pode ser feita manualmente ou automatizada com planos de recuperação. Um plano de recuperação reúne computadores em grupos de recuperação. Ele ajuda a definir um processo de recuperação sistemático. Você pode usar um plano de recuperação para impor a ordem e automatizar as ações necessárias em cada etapa, usando runbooks de automação do Azure para failover para o Azure ou scripts.
+O endereço IP público do pedido de produção não pode ser mantido no caso da **falha.** As cargas de trabalho criadas no âmbito do processo de failover devem ser atribuídas a um recurso IP público azure disponível na região-alvo. Este passo pode ser feito manualmente ou é automatizado com planos de recuperação. Um plano de recuperação reúne máquinas em grupos de recuperação. Ajuda-o a definir um processo de recuperação sistemática. Você pode usar um plano de recuperação para impor a ordem, e automatizar as ações necessárias em cada passo, usando livros de execução Azure Automation para failover para Azure, ou scripts.
 
 A configuração é a seguinte:
-- Crie um [plano de recuperação](../site-recovery/site-recovery-create-recovery-plans.md#create-a-recovery-plan) e agrupe suas cargas de trabalho conforme necessário no plano.
-- Personalize o plano adicionando uma etapa para anexar um endereço IP público usando scripts de [runbooks de automação do Azure](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan) à VM com failover.
+- Crie um plano de [recuperação](../site-recovery/site-recovery-create-recovery-plans.md#create-a-recovery-plan) e agroupa as suas cargas de trabalho conforme necessário no plano.
+- Personalize o plano adicionando um passo para anexar um endereço IP público utilizando scripts de livros de [execução Da Automatização Azure](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan) ao vM falhado.
 
  
-## <a name="public-endpoint-switching-with-dns-level-routing"></a>Comutação de ponto de extremidade público com roteamento de nível de DNS
+## <a name="public-endpoint-switching-with-dns-level-routing"></a>Troca de ponto sintetário com encaminhamento de nível DNS
 
-O Gerenciador de tráfego do Azure permite o roteamento de nível de DNS entre pontos de extremidade e pode ajudar a [conduzir seus RTOs](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) para um cenário de recuperação de desastres. 
+O Azure Traffic Manager permite o encaminhamento de nível DNS entre pontos finais e pode ajudar a [descer os seus RTOs](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) para um cenário de DR. 
 
-Leia mais sobre cenários de failover com o Gerenciador de tráfego:
-1. [Failover local para o Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) com o Gerenciador de tráfego 
-2. [Failover do Azure para o Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) com o Gerenciador de tráfego 
+Leia mais sobre cenários de failover com Traffic Manager:
+1. [No local para Azure falha](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) com Gestor de Tráfego 
+2. [Azure para Azure falha](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) com Gestor de Tráfego 
 
 A configuração é a seguinte:
-- Criar um [perfil do Gerenciador de tráfego](../traffic-manager/traffic-manager-create-profile.md).
-- Utilizando o método de roteamento de **prioridade** , crie dois pontos de extremidade – **primário** para origem e **failover** para o Azure. O **primário** é atribuído à prioridade 1 e o **failover** é atribuído à prioridade 2.
-- O ponto de extremidade **primário** pode ser [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) ou [externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) , dependendo se o seu ambiente de origem está dentro ou fora do Azure.
-- O ponto de extremidade de **failover** é criado como um ponto de extremidade **do Azure** . Use um **endereço IP público estático** , pois ele será um ponto de extremidade voltado para o Gerenciador de tráfego no evento de desastre.
+- Criar um [perfil de Gestor de Tráfego.](../traffic-manager/traffic-manager-create-profile.md)
+- Utilizando o método de encaminhamento **prioritário,** crie dois pontos finais – **Primário** para fonte e **Failover** para Azure. **A Primária** é atribuída prioridade 1 e **a Failover** é atribuída prioridade 2.
+- O ponto final **primário** pode ser [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) ou [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) dependendo se o seu ambiente de origem está dentro ou fora de Azure.
+- O ponto final **failover** é criado como um ponto final **Azure.** Utilize um **endereço IP público estático,** uma vez que este será um ponto final externo virado para o Gestor de Tráfego no evento de desastre.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre o [Gerenciador de tráfego com o Azure site Recovery](../site-recovery/concepts-traffic-manager-with-site-recovery.md)
-- Saiba mais sobre os [métodos de roteamento](../traffic-manager/traffic-manager-routing-methods.md)do Traffic Manager.
-- Saiba mais sobre os [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover de aplicativos.
+- Saiba mais sobre [o Gestor de Tráfego com recuperação do site Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md)
+- Saiba mais sobre os métodos de [encaminhamento](../traffic-manager/traffic-manager-routing-methods.md)do Gestor de Tráfego.
+- Saiba mais sobre [os planos](site-recovery-create-recovery-plans.md) de recuperação para automatizar falha na aplicação.

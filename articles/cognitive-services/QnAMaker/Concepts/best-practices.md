@@ -4,11 +4,11 @@ description: Utilize estas melhores práticas para melhorar a sua base de dados 
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370094"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389260"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
@@ -118,7 +118,7 @@ Embora exista algum apoio para sinónimos na língua inglesa, use alterações d
 
 |Original word|Sinónimos|
 |--|--|
-|Comprar|comprar<br>net-banking<br>banca NET|
+|Comprar|purchase<br>net-banking<br>banca NET|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Utilizar palavras diferentes para diferenciar perguntas
 O algoritmo de classificação do QnA Maker, que combina com uma consulta do utilizador com uma pergunta na base de conhecimentos, funciona melhor se cada pergunta abordar uma necessidade diferente. Repetição da mesma palavra definido entre perguntas reduz a probabilidade de que a resposta certa é escolhida para uma consulta de determinado usuário com essas palavras.

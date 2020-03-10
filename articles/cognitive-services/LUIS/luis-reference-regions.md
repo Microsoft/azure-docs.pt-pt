@@ -4,11 +4,11 @@ description: A região especificada no portal Azure é a mesma onde irá publica
 ms.topic: reference
 ms.date: 11/19/2019
 ms.openlocfilehash: 097f3078b54b014dc646d144f3532e20236a9e4f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273416"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393800"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Regiões de autoria e publicação e as chaves associadas
 

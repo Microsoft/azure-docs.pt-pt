@@ -11,11 +11,11 @@ ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 02/07/2020
 ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083115"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382377"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
 
@@ -214,7 +214,7 @@ Durante a criação do agente de tarefa, um esquema, tabelas e uma função cham
 
 |Nome da função  |permissões de esquema "jobs"  |permissões de esquema "jobs_internal"  |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECIONAR     |    Nenhuma     |
+|**jobs_reader**     |    SELECIONAR     |    Nenhum     |
 
 > [!IMPORTANT]
 > Considere as implicações de segurança antes de conceder acesso à *Base de dados da tarefa* como um administrador da base de dados. Um utilizador mal intencionado com permissões para criar ou editar tarefas podia criar ou editar uma tarefa que utilize uma credencial armazenada para ligar a uma base de dados sob o controlo do utilizador mal intencionado, o que podia permitir que o utilizador mal intencionado determinasse a palavra-passe da credencial.

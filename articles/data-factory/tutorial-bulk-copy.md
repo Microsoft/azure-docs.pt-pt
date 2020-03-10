@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 4ab467c0dc5014ec6c8a543fe7e8ecc136dfa02d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439510"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388691"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 
@@ -37,7 +37,7 @@ Este tutorial utiliza o Azure PowerShell. Para saber mais sobre como utilizar ou
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
 Neste cenário, temos várias tabelas na Base de Dados SQL do Azure que queremos copiar para o SQL Data Warehouse. Segue-se a sequência lógica de passos no fluxo de trabalho que ocorre nos pipelines:
 
-![Fluxo de Trabalho](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
+![Fluxo de trabalho](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
 
 * O primeiro pipeline procura a lista de tabelas que têm de ser copiadas para os arquivos de dados de sink.  Em alternativa, pode manter uma tabela de metadados que apresenta uma lista de todas as tabelas a copiar para o arquivo de dados de sink. Em seguida, o pipeline aciona outro pipeline, que itera cada tabela na base de dados e executa a operação de cópia de dados.
 * O segundo pipeline executa a cópia real. Aceita a lista de tabelas como um parâmetro. Para cada tabela na lista, copie a tabela específica na Base de Dados SQL do Azure para a tabela correspondente no SQL Data Warehouse, utilizando [cópia faseada através do Armazenamento de blobs e do PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para um melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
@@ -92,7 +92,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Execute o cmdlet **set-AzDataFactoryV2** para criar um data Factory. Substitua os marcadores de posição pelos seus próprios valores antes de executar o comando. 
+2. Executar o **Set-AzDataFactoryV2** cmdlet para criar uma fábrica de dados. Substitua os marcadores de posição pelos seus próprios valores antes de executar o comando. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
@@ -136,7 +136,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
 
 2. No **Azure PowerShell**, mude para a pasta **ADFv2TutorialBulkCopy**.
 
-3. Execute o cmdlet **set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService**. 
+3. Executar o **set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -170,7 +170,7 @@ Neste tutorial, vai criar três serviços ligados para blob de origem, sink e te
     }
     ```
 
-2. Para criar o serviço vinculado: **AzureSqlDWLinkedService**, execute o cmdlet **set-AzDataFactoryV2LinkedService** .
+2. Para criar o serviço ligado: **AzureSqlDWLinkedService,** executar o **Set-AzDataFactoryV2LinkedService** cmdlet.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -206,7 +206,7 @@ Neste tutorial, vai utilizar o armazenamento de Blobs do Azure como área de tes
     }
     ```
 
-2. Para criar o serviço vinculado: **AzureStorageLinkedService**, execute o cmdlet **set-AzDataFactoryV2LinkedService** .
+2. Para criar o serviço ligado: **AzureStorageLinkedService,** executar o **set-AzDataFactoryV2LinkedService** cmdlet.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -245,7 +245,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de os: **AzureSqlDatabaseDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
+2. Para criar o conjunto de dados: **AzureSqlDatabaseDataset,** executar o **set-AzDataFactoryV2Dataset** cmdlet.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -289,7 +289,7 @@ Neste tutorial, vai criar conjuntos de dados de origem e sink, que especificam a
     }
     ```
 
-2. Para criar o conjunto de os: **AzureSqlDWDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
+2. Para criar o conjunto de dados: **AzureSqlDWDataset,** executar o **set-AzDataFactoryV2Dataset** cmdlet.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -381,7 +381,7 @@ Este pipeline aceita uma lista de tabelas como parâmetro. Para cada tabela na l
     }
     ```
 
-2. Para criar o pipeline: **IterateAndCopySQLTables**, execute o cmdlet **set-AzDataFactoryV2Pipeline** .
+2. Para criar o pipeline: **IterateAndCopySQLTables**, Executar o **set-AzDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -457,7 +457,7 @@ Este pipeline executa dois passos:
     }
     ```
 
-2. Para criar o pipeline: **GetTableListAndTriggerCopyData**, execute o cmdlet **set-AzDataFactoryV2Pipeline** .
+2. Para criar o pipeline: **GetTableListAndTriggerCopyData**, Executar o **set-AzDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
@@ -586,4 +586,4 @@ Neste tutorial, executou os passos seguintes:
 
 Avance para o tutorial seguinte para saber como copiar dados de forma incremental de uma origem para um destino:
 > [!div class="nextstepaction"]
->[Copiar dados de forma incremental](tutorial-incremental-copy-powershell.md)
+>[Copiar dados incrementalmente](tutorial-incremental-copy-powershell.md)

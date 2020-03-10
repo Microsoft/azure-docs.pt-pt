@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 95625894d0eb603ae9a37c96c91d01f3720346b1
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920217"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932756"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -578,16 +578,16 @@ Todas as [funções](../../../azure-resource-manager/templates/template-function
 - resourceId()
 - variáveis()
 
-As seguintes funções estão disponíveis para utilização numa regra de política, mas diferem da utilização num modelo de Gestor de Recursos Azure:
+A seguinte função está disponível para ser utilizada numa regra de política, mas difere da utilização num modelo de Gestor de Recursos Azure:
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **dataTempo**: [Obrigatório] string - String in the Universal ISO 8601 DateTime formato 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **númeroOfDaysToAdd**: [Obrigatório] inteiro - Número de dias para adicionar
 - `utcNow()` - Ao contrário de um modelo de Gestor de Recursos, este pode ser usado fora do padrãoValue.
   - Devolve uma corda que está definida para a data e hora atuais no formato DataTime universal 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 As seguintes funções só estão disponíveis nas regras políticas:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **dataTempo**: [Obrigatório] string - String in the Universal ISO 8601 DateTime formato 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **númeroOfDaysToAdd**: [Obrigatório] inteiro - Número de dias para adicionar
 - `field(fieldName)`
   - **nome**de campo : [Obrigatório] string - Nome do [campo](#fields) para recuperar
   - Devolve o valor desse campo a partir do recurso que está a ser avaliado pela condição Se

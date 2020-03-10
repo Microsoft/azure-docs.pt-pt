@@ -1,6 +1,6 @@
 ---
 title: Defina um novo tipo de dispositivo IoT no Azure IoT Central [ Central] Microsoft Docs
-description: Este tutorial mostra-lhe, como construtor, como criar um novo modelo de dispositivo Azure IoT na sua aplicação Azure IoT Central. Você define a telemetria, o estado, as propriedades e os comandos para seu tipo.
+description: Este tutorial mostra-lhe, como construtor, como criar um novo modelo de dispositivo Azure IoT na sua aplicação Azure IoT Central. Define a telemetria, estado, propriedades e comandos para o seu tipo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 2313c347e3836b6fa9d6055f99c258624e44c51f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023791"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386161"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo IoT na sua aplicação Azure IoT Central
 
@@ -40,7 +40,7 @@ Como construtor, tem várias opções para criar modelos de dispositivos:
 
 - Desenhe o modelo do dispositivo na IoT Central e, em seguida, implemente o seu modelo de capacidade de dispositivo no código do seu dispositivo.
 - Importar um modelo de capacidade de dispositivo do Catálogo de [dispositivos Azure Certified para ioT](https://aka.ms/iotdevcat). Em seguida, adicione quaisquer propriedades na nuvem, personalizações e dashboards as suas necessidades de aplicação IoT Central.
-- Crie um modelo de capacidade de dispositivo utilizando o Código do Estúdio Visual. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de capacidade do dispositivo para a sua aplicação IoT Central e, em seguida, adicione quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita.
+- Crie um modelo de capacidade de dispositivo utilizando o Código do Estúdio Visual. Implemente o código do seu dispositivo a partir do modelo. Importe manualmente o modelo de capacidade do dispositivo para a sua aplicação IoT Central e, em seguida, adicione quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita.
 - Crie um modelo de capacidade de dispositivo utilizando o Código do Estúdio Visual. Implemente o código do seu dispositivo a partir do modelo e ligue o seu dispositivo real à sua aplicação IoT Central utilizando uma ligação de primeira dispositivo. A IoT Central encontra e importa o modelo de capacidade do dispositivo do repositório público para si. Em seguida, pode adicionar quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central precisa para o modelo do dispositivo.
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Criar um modelo de dispositivo a partir do catálogo do dispositivo
@@ -172,7 +172,7 @@ Se ainda não publicou a interface, pode editar as capacidades definidas pela in
 
 Também pode exportar a interface como um ficheiro JSON se quiser reutilizá-la noutro modelo de capacidade.
 
-## <a name="add-cloud-properties"></a>Adicionar propriedades de nuvem
+## <a name="add-cloud-properties"></a>Adicione propriedades da nuvem
 
 Utilize propriedades na nuvem para armazenar informações sobre dispositivos na IoT Central. As propriedades da nuvem nunca são enviadas para um dispositivo. Por exemplo, pode utilizar propriedades na nuvem para armazenar o nome do cliente que instalou o dispositivo, ou a última data de serviço do dispositivo.
 
@@ -187,15 +187,15 @@ A tabela seguinte mostra as definições de configuração para uma propriedade 
 
 ## <a name="add-customizations"></a>Adicionar personalizações
 
-Utilize personalizações quando necessitar de modificar uma interface importada ou adicionar funcionalidades específicas do IoT a uma capacidade. Você só pode personalizar campos que não interrompem a compatibilidade de interface. Por exemplo, pode:
+Utilize personalizações quando necessitar de modificar uma interface importada ou adicionar funcionalidades específicas do IoT a uma capacidade. Só pode personalizar campos que não quebrem a compatibilidade da interface. Pode, por exemplo:
 
-- Personalize o nome de exibição e as unidades de um recurso.
-- Adicione uma cor padrão a ser usada quando o valor for exibido em um gráfico.
-- Especifique os valores iniciais, mínimos e máximos para uma propriedade.
+- Personalize o nome do visor e as unidades de uma capacidade.
+- Adicione uma cor predefinida para usar quando o valor aparece num gráfico.
+- Especificar valores iniciais, mínimos e máximos para um imóvel.
 
-Você não pode personalizar o nome da funcionalidade ou o tipo de funcionalidade. Se houver alterações que não pode fazer na secção **Personalizar,** terá de ver o modelo e interface do dispositivo para modificar a capacidade.
+Não é possível personalizar o nome ou o tipo de capacidade. Se houver alterações que não pode fazer na secção **Personalizar,** terá de ver o modelo e interface do dispositivo para modificar a capacidade.
 
-### <a name="generate-default-views"></a>Gerar exibições padrão
+### <a name="generate-default-views"></a>Gerar vistas padrão
 
 Gerar vistas padrão é uma forma rápida de visualizar as informações importantes do dispositivo. Tem até três visualizações predefinidas geradas para o seu modelo de dispositivo:
 
@@ -259,10 +259,10 @@ Depois de publicar um modelo de dispositivo, um operador pode ir à página **de
 Neste tutorial, ficou a saber como:
 
 * Crie um novo modelo de dispositivo IoT.
-* Criar propriedades de nuvem.
+* Criar propriedades em nuvem.
 * Criar personalizações.
 * Defina uma visualização para a telemetria do dispositivo.
-* Publique seu modelo de dispositivo.
+* Publique o modelo do seu dispositivo.
 
 Em seguida, pode:
 

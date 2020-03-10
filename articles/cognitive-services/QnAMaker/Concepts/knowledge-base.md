@@ -4,19 +4,19 @@ description: Uma base de conhecimento do QnA Maker consiste num conjunto de conj
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843370"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389165"
 ---
-# <a name="importing-from-data-sources"></a>Importação de fontes de dados
+# <a name="importing-from-data-sources"></a>Importar a partir de origens de dados
 
 Uma base de conhecimento consiste em conjuntos de perguntas e respostas trazidos por URLs e ficheiros públicos.
 
 ## <a name="data-source-locations"></a>Localizações de origem de dados
 
-O conteúdo é trazido para uma base de conhecimento a partir de uma fonte de dados. Os locais de fonte de dados são **URLs ou arquivos públicos**, que não exigem autenticação.
+O conteúdo é trazido para uma base de conhecimento a partir de uma fonte de dados. As localizações de fonte de dados são **URLs ou ficheiros públicos,** que não requerem autenticação.
 
 [Os ficheiros SharePoint,](../how-to/add-sharepoint-datasources.md)protegidos com autenticação, são a exceção. Os recursos do SharePoint devem ser ficheiros, não páginas web. Se o URL terminar com uma extensão web, como . ASPX, não importará para a QnA Maker a partir do SharePoint.
 
@@ -28,7 +28,7 @@ O conjunto de conteúdos Chit chat QnA é oferecido como uma fonte completa de d
 
 Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um ficheiro `.tsv` estruturado que contenha perguntas e respostas. Esta informação ajuda o QnA Maker a agrupar os conjuntos de resposta a perguntas e a atribuí-los a uma determinada fonte de dados.
 
-| Pergunta  | Resposta  | Origem| Metadados (1 chave: 1 valor) |
+| Pergunta  | Resposta  | Origem| Metadados (1 tecla: 1 valor) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
@@ -61,9 +61,9 @@ Se não tem a certeza de como representar o seu QnA definido no ficheiro `.tsv`,
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Ciclo de vida do desenvolvimento de uma base de dados de conhecimento](./development-lifecycle-knowledge-base.md)
+> [Ciclo de vida de desenvolvimento de uma base de conhecimento](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 Use a referência QnA Maker [Markdown](../reference-markdown-format.md) para ajudá-lo a formatar as suas respostas.
 

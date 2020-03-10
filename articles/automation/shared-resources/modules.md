@@ -9,11 +9,11 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e300bc0f29808215673407d21b65fe329e50ad45
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930430"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372315"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerir módulos em Automação Azure
 
@@ -50,7 +50,7 @@ No portal Azure, navegue para a sua Conta de Automação e selecione **Módulos*
 
 Os módulos da galeria PowerShell podem ser importados diretamente da [PowerShell Gallery](https://www.powershellgallery.com) ou da sua Conta de Automação.
 
-Para importar um módulo da Galeria PowerShell, vá a https://www.powershellgallery.com e procure o módulo que pretende importar. Clique em **Implementar para Automatização Azure** no separador **Automação Azure** em opções de **instalação**. Essa ação abre a portal do Azure. Na página **Import,** selecione a sua Conta de Automação e clique **EM OK**.
+Para importar um módulo da Galeria PowerShell, vá a https://www.powershellgallery.com e procure o módulo que pretende importar. Clique em **Implementar para Automatização Azure** no separador **Automação Azure** em opções de **instalação**. Esta ação abre o portal Azure. Na página **Import,** selecione a sua Conta de Automação e clique **EM OK**.
 
 ![Módulo de importação da PowerShell Gallery](../media/modules/powershell-gallery.png)
 

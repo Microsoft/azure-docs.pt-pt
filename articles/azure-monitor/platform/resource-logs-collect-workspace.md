@@ -8,11 +8,11 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659004"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391052"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Colete registos de plataforma Azure no espaço de trabalho do Log Analytics no Monitor Azure
 [Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem. Este artigo descreve a recolha de registos de recursos num espaço de trabalho do Log Analytics que permite analisá-lo com outros dados de monitorização recolhidos em Registos de Monitores Do Azure utilizando consultas de registo poderosas e também para alavancar outras funcionalidades do Monitor de Azure, como alertas e alertas e visualizações. 

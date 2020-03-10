@@ -12,11 +12,11 @@ ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ms.openlocfilehash: 3cc5cb68f430ac8e5070b9c8c4a1aa0c28639311
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197781"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393636"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do cofre de chaves Azure
 

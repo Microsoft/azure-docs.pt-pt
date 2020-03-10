@@ -1,7 +1,7 @@
 ---
 title: Referência da Pesquisa de Respostas do Projeto
 titlesuffix: Azure Cognitive Services
-description: Referência para ponto de extremidade de pesquisa de resposta do projeto.
+description: Referência para ponto final de pesquisa de resposta ao projeto.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -12,279 +12,279 @@ ms.date: 04/13/2018
 ms.author: rosh
 ROBOTS: NOINDEX
 ms.openlocfilehash: 28449435479aef0d6a1d8aee3e53de1a78f401b3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705338"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396794"
 ---
-# <a name="project-answer-search-v7-reference"></a>Referência do projeto pesquisa de resposta v7
+# <a name="project-answer-search-v7-reference"></a>Referência de pesquisa de resposta ao projeto v7
 
-O SearchAPI de resposta do Bing usa um parâmetro de `searchResponse` consulta `answerType`e retorna `entities`um com: `facts` ou. 
+Bing Answer SearchAPI pega num parâmetro de consulta e devolve um `searchResponse` com `answerType`: `facts` ou `entities`. 
 
-Os aplicativos que usam a API de pesquisa de resposta enviam solicitações ao ponto de extremidade com uma URL para visualização em um parâmetro de consulta.  A solicitação deve incluir o `q=searchTerm` parâmetro e o cabeçalho *OCP-APIM-Subscription-Key* .   
+As aplicações que utilizam a API de Pesquisa de Resposta enviam pedidos para o ponto final com um URL para pré-visualizar num parâmetro de consulta.  O pedido deve incluir o parâmetro `q=searchTerm` e o *cabeçalho Ocp-Apim-Subscription-Key.*   
 
-A resposta JSON pode ser analisada para fatos e entidades que contêm detalhes sobre o objeto de pesquisa.
+A resposta da JSON pode ser analisada por factos e entidades que contenham detalhes sobre o objeto de pesquisa.
 
 ## <a name="endpoint"></a>Ponto Final
-Para solicitar resultados da pesquisa de resposta, envie uma solicitação para o ponto de extremidade a seguir. Use os cabeçalhos e os parâmetros de URL para definir outras especificações.
+Para solicitar resultados de Pesquisa de Resposta, envie um pedido para o seguinte ponto final. Utilize os cabeçalhos e os parâmetros url para definir especificações adicionais.
 
-GET do ponto de extremidade: 
+Ponto final GET: 
 ```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>&subscription-key=0123456789ABCDEF&mkt=en-us
 
 ```
 
-A solicitação deve usar o protocolo HTTPS e incluir o seguinte parâmetro de consulta:
--  `q=<URL>`-A consulta que identifica o objeto de pesquisa
+O pedido deve utilizar o protocolo HTTPS e incluir o seguinte parâmetro de consulta:
+-  `q=<URL>` - A consulta que identifica o objeto de pesquisa
 
-Para obter exemplos que mostram como fazer solicitações [ C# , consulte Guia](c-sharp-quickstart.md) de início rápido ou [Java](java-quickstart.md). 
+Por exemplo, que mostram como fazer pedidos, ver [ C# quickstart](c-sharp-quickstart.md) ou [Java quickstart](java-quickstart.md). 
 
-As seções a seguir fornecem detalhes técnicos sobre os objetos de resposta, os parâmetros de consulta e os cabeçalhos que afetam os resultados da pesquisa. 
+As seguintes secções fornecem detalhes técnicos sobre os objetos de resposta, parâmetros de consulta e cabeçalhos que afetam os resultados da pesquisa. 
   
-Para obter informações sobre os cabeçalhos que as solicitações devem incluir, consulte [cabeçalhos](#headers).  
+Para obter informações sobre cabeçalhos que os pedidos devem incluir, consulte [Cabeçalhos](#headers).  
   
-Para obter informações sobre parâmetros de consulta que as solicitações devem incluir, consulte [parâmetros de consulta](#query-parameters).  
+Para obter informações sobre parâmetros de consulta que os pedidos devem incluir, consulte [os parâmetros de consulta](#query-parameters).  
   
 Para obter informações sobre os objetos JSON que a resposta inclui, consulte [objetos de resposta](#response-objects).
 
-O comprimento máximo da URL de consulta é de 2.048 caracteres. Para garantir que o comprimento da URL não exceda o limite, o comprimento máximo dos parâmetros de consulta deve ter menos de 1.500 caracteres. Se a URL exceder 2.048 caracteres, o servidor retornará 404 não encontrado.  
+O comprimento máximo de URL de consulta é de 2.048 caracteres. Para garantir que o comprimento do URL não exceda o limite, o comprimento máximo dos seus parâmetros de consulta deve ser inferior a 1.500 caracteres. Se o URL exceder 2.048 caracteres, o servidor retorna 404 Não encontrados.  
 
-Para obter informações sobre o uso permitido e a exibição de resultados, consulte [requisitos de uso e exibição](use-display-requirements.md). 
+Para obter informações sobre a utilização e exibição permitidas de resultados, consulte os requisitos de [utilização e visualização](use-display-requirements.md). 
 
 > [!NOTE]
-> Alguns cabeçalhos de solicitação que são significativos para outras APIs de pesquisa não afetam a visualização da URL
-> - Pragma – o chamador não tem controle sobre se a visualização da URL usa o cache
-> - Cache-Control – o chamador não tem controle sobre se a visualização da URL usa o cache
-> - Agente do usuário
+> Alguns cabeçalhos de pedido que são significativos para outras APIs de pesquisa não afetam a pré-visualização de URL
+> - Pragma – o chamador não tem controlo sobre se a pré-visualização de URL utiliza cache
+> - Cache-Control – o chamador não tem controlo sobre se a pré-visualização de URL utiliza cache
+> - Agente-utilizador
 > 
-> Além disso, alguns parâmetros não são significativos no momento para a API de visualização de URL, mas podem ser usados no futuro para melhorar a globalização. 
+> Além disso, alguns parâmetros não são atualmente significativos para a API de pré-visualização de URL, mas podem ser usados no futuro para uma melhor globalização. 
  
 ## <a name="headers"></a>Cabeçalhos  
-A seguir estão os cabeçalhos que uma solicitação e uma resposta podem incluir.  
+Seguem-se os cabeçalhos que um pedido e resposta podem incluir.  
   
 |Cabeçalho|Descrição|  
 |------------|-----------------|  
-|Aceitar|Cabeçalho de pedido opcional.<br /><br /> O tipo de mídia padrão é Application/JSON. Para especificar que a resposta use [JSON-LD](https://json-ld.org/), defina o cabeçalho Accept como Application/LD + JSON.|  
-|<a name="acceptlanguage" />Accept-Language|Cabeçalho de pedido opcional.<br /><br /> Uma lista separada por vírgulas dos idiomas que vão ser utilizados nas cadeias da interface de utilizador. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, veja [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este cabeçalho e o parâmetro de consulta [setLang](#setlang) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> Se você definir esse cabeçalho, também deverá especificar o parâmetro de consulta CC. Para determinar o mercado do qual devolver resultados, o Bing utiliza o primeiro idioma suportado que encontra na lista e combina-o com o valor do parâmetro `cc`. Se a lista não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido ou utiliza um mercado agregado ou predefinido para devolver os resultados. Para determinar o mercado que o Bing utiliza, veja o cabeçalho BingAPIs-Market.<br /><br /> Utilize este cabeçalho o parâmetro de consulta `cc` apenas se especificar vários idiomas. Caso contrário, utilize os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|  
+|Aceitar|Cabeçalho de pedido opcional.<br /><br /> O tipo de mídia padrão é aplicação/json. Para especificar que a utilização da resposta [JSON-LD,](https://json-ld.org/)coloque o cabeçalho Aceitar para aplicação/ld+json.|  
+|<a name="acceptlanguage" />Accept-Language|Cabeçalho de pedido opcional.<br /><br /> Uma lista separada por vírgulas dos idiomas que vão ser utilizados nas cadeias da interface de utilizador. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, veja [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este cabeçalho e o parâmetro de consulta [setLang](#setlang) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> Se definir este cabeçalho, também deve especificar o parâmetro de consulta cc. Para determinar o mercado do qual devolver resultados, o Bing utiliza o primeiro idioma suportado que encontra na lista e combina-o com o valor do parâmetro `cc`. Se a lista não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido ou utiliza um mercado agregado ou predefinido para devolver os resultados. Para determinar o mercado que o Bing utiliza, veja o cabeçalho BingAPIs-Market.<br /><br /> Utilize este cabeçalho o parâmetro de consulta `cc` apenas se especificar vários idiomas. Caso contrário, utilize os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|  
 |<a name="market" />BingAPIs-Market|O cabeçalho da resposta.<br /><br /> O mercado que o pedido utiliza. O formato é \<languageCode\>-\<códigodeidioma\>. Por exemplo: en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|O cabeçalho da resposta.<br /><br /> O ID da entrada de registo que contém os detalhes do pedido. Quando ocorrer um erro, capture este ID. Se não conseguir determinar nem resolver o problema, inclua o ID juntamente com as outras informações que enviar à equipa de suporte.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Cabeçalho de pedido obrigatório.<br /><br /> A chave de subscrição que recebeu quando se inscreveu neste serviço nos [Serviços Cognitivos](https://www.microsoft.com/cognitive-services/).|  
 |<a name="pragma" />Pragma|Cabeçalho de pedido opcional<br /><br /> Por predefinição, o Bing devolve conteúdo em cache, se disponível. Para impedir que o Bing devolva conteúdo em cache, defina o cabeçalho Pragma como no-cache (por exemplo, Pragma: no-cache).
 |<a name="useragent" />User-Agent|Cabeçalho de pedido opcional.<br /><br /> O agente de utilizador que origina o pedido. O Bing utiliza o agente de utilizador para proporcionar uma experiência otimizada aos utilizadores de dispositivos móveis. Embora seja opcional, recomenda-se que especifique sempre este cabeçalho.<br /><br /> O agente de utilizador deve ser a mesma cadeia que qualquer browser geralmente utilizado envia. Para obter informações sobre os agentes de utilizador, veja [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Pode ver exemplos de cadeias de agente de utilizador abaixo:<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; like Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML; like Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|Cabeçalho de pedido e resposta opcional.<br /><br /> O Bing utiliza este cabeçalho para proporcionar um comportamento consistente nas chamada à API do Bing aos utilizadores. O Bing lança, muitas vezes, funcionalidades e melhorias novas e utiliza o ID de cliente como uma chave para atribuir tráfego aos diferentes lançamentos. Se não utilizar o mesmo ID de cliente para um utilizador em vários pedidos, o Bing poderá atribuir esse utilizador a vários lançamentos sobrepostos. A atribuição a vários lançamentos sobrepostos pode provocar uma experiência de utilizador inconsistente. Por exemplo, se a atribuição de lançamento do segundo pedido for diferente da do primeiro, a experiência poderá ser inesperada. Além disso, o Bing pode utilizar o ID de cliente para personalizar os resultados da Web o histórico de pesquisas desse ID, proporcionando uma experiência mais rica ao utilizador.<br /><br /> O Bing também utiliza este cabeçalho para ajudar a melhorar as classificações dos resultados ao analisar a atividade gerada por um ID de cliente. As melhorias à relevância ajudam a que as APIs do Bing devolvam resultados com melhor qualidade, o que, por sua vez, origina taxas de cliques mais altas para o consumidor da API.<br /><br /> **FUNDAMENTAL** Embora opcional, você deve considerar esse cabeçalho necessário. Persistir o ID de cliente em vários pedidos para a mesma combinação de utilizador final e dispositivo permite 1) que o consumidor da API receba uma experiência de utilizador consistente e 2) taxas de cliques mais altas, através de resultados com melhor qualidade das APIs do Bing.<br /><br /> As regras abaixo são as regras de utilização básicas aplicáveis a este cabeçalho.<br /><ul><li>Cada utilizador que utilize a sua aplicação no dispositivo tem de ter um ID de cliente exclusivo e gerado pelo Bing.<br /><br/>Se não incluir este cabeçalho no pedido, o Bing gera um ID e devolve-o no cabeçalho da resposta X-MSEdge-ClientID. O único momento em que NÃO deve incluir este cabeçalho num pedido é na primeira vez que o utilizador utiliza a sua aplicação nesse dispositivo.<br /><br/></li><li>Utilize o ID de cliente para cada pedido da API do Bing que a sua aplicação fizer para este utilizador no dispositivo.<br /><br/></li><li>**SEGURA** Você deve garantir que essa ID do cliente não seja vinculável a nenhuma informação da conta de usuário do authenticatable.</li><br/><li>Persista o ID de cliente. Para persistir o ID numa aplicação de browser, utilize um cookie HTTP persistente para garantir que esse ID é utilizado em todas as sessões. Não utilize um cookie de sessão. Relativamente a outras aplicações, como aplicações móveis, utilize o armazenamento persistente do dispositivo para persistir o ID.<br /><br/>Da próxima vez que o utilizador utilizar a aplicação nesse dispositivo, recebe o ID de cliente que foi persistido.</li></ul><br /> **NOTA:** As respostas do Bing podem ou não incluir esse cabeçalho. Se a resposta incluir este cabeçalho, capture o ID de cliente e utilize-o em todos os pedidos do Bing subsequentes do utilizador nesse dispositivo.<br /><br /> **NOTA:** Se você incluir o X-MSEdge-ClientID, não deverá incluir cookies na solicitação.|  
-|<a name="clientip" />X-MSEdge-ClientIP|Cabeçalho de pedido opcional.<br /><br /> O endereço IPv4 ou IPv6 do dispositivo cliente. O endereço IP é utilizado para detetar a localização do utilizador. O Bing utiliza as informações de localização para determinar o comportamento do safesearch.<br /><br /> **NOTA:** Embora seja opcional, é recomendável sempre especificar esse cabeçalho e o cabeçalho X-Search-Location.<br /><br /> Não ofusque a morada (por exemplo, ao alterar o último octeto para 0). Ofuscar a morada faz com que a localização não esteja perto da localização efetiva do dispositivo, o que pode fazer com que o Bing sirva resultados errados.|  
-|<a name="location" />X-Search-Location|Cabeçalho de pedido opcional.<br /><br /> Uma lista separada por ponto e vírgula de pares de chaves/valores que descreve a localização geográfica do cliente. O Bing utiliza as informações de localização para determinar o comportamento do safesearch e para devolver conteúdos locais relevantes. Indique o par chave/valor como \<chave\>:\<valor\>. As chaves seguintes são as chaves utilizadas para especificar a localização do utilizador.<br /><br /><ul><li>Lat&mdash;a latitude do local do cliente, em graus. Tem de ser igual ou superior a -90,0 e inferior ou igual a +90,0. Os valores negativos indicam latitudes no hemisfério sul e os positivos latitudes no hemisfério norte.<br /><br /></li><li>longa&mdash;a longitude do local do cliente, em graus. Tem de ser igual ou superior a -180.0 e inferior ou igual a +180.0. Os valores negativos indicam longitudes a ocidente e os positivos a oriente.<br /><br /></li><li>retorne&mdash; o raio, em metros, que especifica a precisão horizontal das coordenadas. Transmita o valor que o serviço de localização do dispositivo devolve. Os valores mais comuns podem ser 22 m para GPS/Wi-Fi, 380 m para triangulação de antenas e 18 000 m para pesquisa de IP inversa.<br /><br /></li><li>TS&mdash; carimbo de data/hora em UNIX do UTC de quando o cliente estava no local. (o carimbo de data/hora é o número de segundos desde 1 de janeiro de 1970.)<br /><br /></li><li>head&mdash;Optional. O cabeçalho relativo do cliente ou a direção de deslocamento. Especifique a direção de deslocamento em graus, de 0 a 360, a contar no sentido dos ponteiros do relógio em relação ao norte verdadeiro. Especifique esta chave apenas se a chave `sp` não for zero.<br /><br /></li><li>SP&mdash; a velocidade horizontal (velocidade), em metros por segundo, que o dispositivo cliente está viajando.<br /><br /></li><li>Alt&mdash; a altitude do dispositivo cliente, em metros.<br /><br /></li><li>are&mdash;Optional. O raio, em metros, que especifica a exatidão vertical das coordenadas. O padrão RADIUS é de 50 quilômetros. Especifique esta chave apenas se especificar a chave `alt`.<br /><br /></li></ul> **NOTA:** Embora essas chaves sejam opcionais, quanto mais informações você fornecer, mais precisas serão os resultados da localização.<br /><br /> **NOTA:** É recomendável sempre especificar a localização geográfica do usuário. Especificar a localização é particularmente importante se o endereço IP do cliente não refletir, com precisão, a localização física do utilizador (por exemplo, se este utilizar VPN). Para obter os melhores resultados, deve incluir este cabeçalho e o cabeçalho X-MSEdge-ClientIP, mas deve incluir este cabeçalho, no mínimo.|
+|<a name="clientid" />X-MSEdge-ClientID|Cabeçalho de pedido e resposta opcional.<br /><br /> O Bing utiliza este cabeçalho para proporcionar um comportamento consistente nas chamada à API do Bing aos utilizadores. O Bing lança, muitas vezes, funcionalidades e melhorias novas e utiliza o ID de cliente como uma chave para atribuir tráfego aos diferentes lançamentos. Se não utilizar o mesmo ID de cliente para um utilizador em vários pedidos, o Bing poderá atribuir esse utilizador a vários lançamentos sobrepostos. A atribuição a vários lançamentos sobrepostos pode provocar uma experiência de utilizador inconsistente. Por exemplo, se a atribuição de lançamento do segundo pedido for diferente da do primeiro, a experiência poderá ser inesperada. Além disso, o Bing pode utilizar o ID de cliente para personalizar os resultados da Web o histórico de pesquisas desse ID, proporcionando uma experiência mais rica ao utilizador.<br /><br /> O Bing também utiliza este cabeçalho para ajudar a melhorar as classificações dos resultados ao analisar a atividade gerada por um ID de cliente. As melhorias à relevância ajudam a que as APIs do Bing devolvam resultados com melhor qualidade, o que, por sua vez, origina taxas de cliques mais altas para o consumidor da API.<br /><br /> **IMPORTANTE:** embora seja opcional, deve ver este cabeçalho como obrigatório. Persistir o ID de cliente em vários pedidos para a mesma combinação de utilizador final e dispositivo permite 1) que o consumidor da API receba uma experiência de utilizador consistente e 2) taxas de cliques mais altas, através de resultados com melhor qualidade das APIs do Bing.<br /><br /> As regras abaixo são as regras de utilização básicas aplicáveis a este cabeçalho.<br /><ul><li>Cada utilizador que utilize a sua aplicação no dispositivo tem de ter um ID de cliente exclusivo e gerado pelo Bing.<br /><br/>Se não incluir este cabeçalho no pedido, o Bing gera um ID e devolve-o no cabeçalho da resposta X-MSEdge-ClientID. O único momento em que NÃO deve incluir este cabeçalho num pedido é na primeira vez que o utilizador utiliza a sua aplicação nesse dispositivo.<br /><br/></li><li>Utilize o ID de cliente para cada pedido da API do Bing que a sua aplicação fizer para este utilizador no dispositivo.<br /><br/></li><li>**ATENÇÃO:** Deve certificar-se de que este ID do Cliente não é vinculado a qualquer informação autenticada da conta de utilizador.</li><br/><li>Persista o ID de cliente. Para persistir o ID numa aplicação de browser, utilize um cookie HTTP persistente para garantir que esse ID é utilizado em todas as sessões. Não utilize um cookie de sessão. Relativamente a outras aplicações, como aplicações móveis, utilize o armazenamento persistente do dispositivo para persistir o ID.<br /><br/>Da próxima vez que o utilizador utilizar a aplicação nesse dispositivo, recebe o ID de cliente que foi persistido.</li></ul><br /> **NOTA:** as respostas do Bing podem incluir ou não este cabeçalho. Se a resposta incluir este cabeçalho, capture o ID de cliente e utilize-o em todos os pedidos do Bing subsequentes do utilizador nesse dispositivo.<br /><br /> **NOTA:** se incluir X-MSEdge-ClientID, não pode incluir cookies no pedido.|  
+|<a name="clientip" />X-MSEdge-ClientIP|Cabeçalho de pedido opcional.<br /><br /> O endereço IPv4 ou IPv6 do dispositivo cliente. O endereço IP é utilizado para detetar a localização do utilizador. O Bing utiliza as informações de localização para determinar o comportamento do safesearch.<br /><br /> **NOTA:** embora seja opcional, recomenda-se que especifique sempre este cabeçalho e o cabeçalho X-Search-Location.<br /><br /> Não ofusque a morada (por exemplo, ao alterar o último octeto para 0). Ofuscar a morada faz com que a localização não esteja perto da localização efetiva do dispositivo, o que pode fazer com que o Bing sirva resultados errados.|  
+|<a name="location" />X-Search-Location|Cabeçalho de pedido opcional.<br /><br /> Uma lista separada por ponto e vírgula de pares de chaves/valores que descreve a localização geográfica do cliente. O Bing utiliza as informações de localização para determinar o comportamento do safesearch e para devolver conteúdos locais relevantes. Indique o par chave/valor como \<chave\>:\<valor\>. As chaves seguintes são as chaves utilizadas para especificar a localização do utilizador.<br /><br /><ul><li>Lat&mdash;A latitude da localização do cliente, em graus. Tem de ser igual ou superior a -90,0 e inferior ou igual a +90,0. Os valores negativos indicam latitudes no hemisfério sul e os positivos latitudes no hemisfério norte.<br /><br /></li><li>longo&mdash;A longitude da localização do cliente, em graus. Tem de ser igual ou superior a -180.0 e inferior ou igual a +180.0. Os valores negativos indicam longitudes a ocidente e os positivos a oriente.<br /><br /></li><li>re&mdash; O raio, em metros, que especifica a precisão horizontal das coordenadas. Transmita o valor que o serviço de localização do dispositivo devolve. Os valores mais comuns podem ser 22 m para GPS/Wi-Fi, 380 m para triangulação de antenas e 18 000 m para pesquisa de IP inversa.<br /><br /></li><li>ts&mdash; O carimbo de tempo UTC UNIX de quando o cliente estava no local. (o carimbo de data/hora é o número de segundos desde 1 de janeiro de 1970.)<br /><br /></li><li>head&mdash;Optional. O cabeçalho relativo do cliente ou a direção de deslocamento. Especifique a direção de deslocamento em graus, de 0 a 360, a contar no sentido dos ponteiros do relógio em relação ao norte verdadeiro. Especifique esta chave apenas se a chave `sp` não for zero.<br /><br /></li><li>sp&mdash; A velocidade horizontal (velocidade), em metros por segundo, que o dispositivo cliente está viajando.<br /><br /></li><li>alt&mdash; A altitude do dispositivo cliente, em metros.<br /><br /></li><li>are&mdash;Optional. O raio, em metros, que especifica a exatidão vertical das coordenadas. O raio falha a 50 Km. Especifique esta chave apenas se especificar a chave `alt`.<br /><br /></li></ul> **NOTA:** Embora estas chaves sejam opcionais, quanto mais informações fornecer, mais precisos são os resultados da localização.<br /><br /> **NOTA:** É encorajado a especificar sempre a localização geográfica do utilizador. Especificar a localização é particularmente importante se o endereço IP do cliente não refletir, com precisão, a localização física do utilizador (por exemplo, se este utilizar VPN). Para obter os melhores resultados, deve incluir este cabeçalho e o cabeçalho X-MSEdge-ClientIP, mas deve incluir este cabeçalho, no mínimo.|
 
 > [!NOTE] 
 > Não se esqueça de que os Termos de Utilização requerem conformidade com toda a legislação aplicável, incluindo a relativa à utilização destes cabeçalhos. Por exemplo, em determinadas jurisdições, como a Europa, há requisitos para obter o consentimento do utilizador antes de colocar certos tipos de dispositivos de monitorização nos dispositivos dos utilizadores.
   
 
 ## <a name="query-parameters"></a>Parâmetros de consulta  
-A solicitação pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para os parâmetros necessários. Você deve codificar a URL dos parâmetros de consulta.  
+O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para os parâmetros necessários. Tem de codificar os parâmetros de consulta.  
   
   
-|Nome|Value|Type|Requerido|  
+|Nome|Valor|Tipo|Necessário|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de visualização de URL atualmente dá suporte apenas ao mercado e à linguagem en-US.<br /><br />|Cadeia|Sim|  
-|<a name="query" />q|A URL a ser visualizada|Cadeia|Sim|  
-|<a name="responseformat" />responseFormat|O tipo de mídia a ser usado para a resposta. A seguir estão os valores possíveis que não diferenciam maiúsculas de minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON que a resposta contém, consulte [objetos de resposta](#response-objects).<br /><br />  Se você especificar JsonLd, o corpo da resposta incluirá objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON-LD](https://json-ld.org/).|Cadeia|Não|  
-|<a name="safesearch" />safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Off&mdash;retornar páginas da Web com texto adulto, imagens ou vídeos.<br /><br/></li><li>Páginas&mdash;da Web de retorno moderado com texto adulto, mas não imagens ou vídeos adultos.<br /><br/></li><li>Estrito&mdash;não retornar páginas da Web com texto adulto, imagens ou vídeos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se a solicitação vier de um mercado que a política adulto do Bing exigir `safeSearch` que esteja definida como estrita, o Bing ignorará o `safeSearch` valor e usará estrito.<br/><br/>**NOTA:** Se você usar o `site:` operador de consulta, haverá a chance de que a resposta possa conter conteúdo somente para adultos, `safeSearch` independentemente da definição do parâmetro de consulta. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |Cadeia|Não|  
-|<a name="setlang" />setLang|O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma com o código de idioma ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|Cadeia|Não| 
+|<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pré-visualização de URL atualmente apenas suporta o mercado e a linguagem en-us.<br /><br />|String|Sim|  
+|<a name="query" />q|O URL para pré-visualizar|String|Sim|  
+|<a name="responseformat" />respostaFormat|O tipo de mídia a utilizar para a resposta. Seguem-se os possíveis valores insensíveis aos casos.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON que a resposta contém, consulte [Objetos de Resposta](#response-objects).<br /><br />  Se especificar jsonLd, o corpo de resposta inclui objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON-LD](https://json-ld.org/).|String|Não|  
+|<a name="safesearch" />safeSearch|É um filtro utilizado para filtrar conteúdo para adultos. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Fora&mdash;Devolver páginas web com texto, imagens ou vídeos para adultos.<br /><br/></li><li>Moderar&mdash;Páginas web de retorno com texto adulto, mas não imagens ou vídeos para adultos.<br /><br/></li><li>&mdash;Estritanão devolva páginas web com texto, imagens ou vídeos para adultos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** Se o pedido vier de um mercado que a política de bing para adultos exige que `safeSearch` seja definido para O Rigor, Bing ignora o valor `safeSearch` e usa O Estrito.<br/><br/>**NOTA:** se utilizar o operador de consulta `site:`, existe a possibilidade de a resposta poder conter conteúdos para adultos, independentemente da definição do parâmetro de consulta `safeSearch`. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos. |String|Não|  
+|<a name="setlang" />setLang|O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma com o código de idioma ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|Não| 
 
 
 ## <a name="response-objects"></a>Objetos de resposta  
-O esquema de resposta é um [webpage] ou ErrorResponse, como na API Pesquisa na Web. Se a solicitação falhar, o objeto de nível superior será o objeto [ErrorResponse](#errorresponse) .
+O esquema de resposta é ou uma [WebPage] ou ErrorResponse, como na API de pesquisa web. Se o pedido falhar, o objeto de nível superior é o objeto [ErrorResponse.](#errorresponse)
 
 
-|Objeto|Descrição|  
+|Object|Descrição|  
 |------------|-----------------|  
-|Página da Web|Objeto JSON de nível superior que contém atributos de visualização.|  
-|Facto|Objeto JSON de nível superior que contém fatos.| 
+|[Página Web]|Objeto JSON de nível superior que contém atributos de pré-visualização.|  
+|[Facto]|Objeto JSON de nível superior que contém factos.| 
 |[Entidades|Objeto JSON de nível superior que contém detalhes da entidade.| 
 
   
 ### <a name="error"></a>Erro  
 Define o erro que ocorreu.  
   
-|Elemento|Descrição|Type|  
+|Elemento|Descrição|Tipo|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />auto-completar|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [códigos de erro](#error-codes).|Cadeia|  
-|<a name="error-message" />Mensagem|Uma descrição do erro.|Cadeia|  
-|<a name="error-moredetails" />moreDetails|Uma descrição que fornece informações adicionais sobre o erro.|Cadeia|  
-|<a name="error-parameter" />meter|O parâmetro de consulta na solicitação que causou o erro.|Cadeia|  
-|<a name="error-subcode" />Subcódigo|O código de erro que identifica o erro. Por exemplo, se `code` for InvalidRequest, `subCode` poderá ser ParameterInvalid ou ParameterInvalidValue. |Cadeia|  
-|<a name="error-value" />valor|O valor do parâmetro de consulta que não era válido.|Cadeia|  
+|código <a name="error-code" />|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [Códigos](#error-codes)de Erro .|String|  
+|mensagem <a name="error-message" />|Uma descrição do erro.|String|  
+|<a name="error-moredetails" />maisDetalhes|Uma descrição que fornece informações adicionais sobre o erro.|String|  
+|<a name="error-parameter" />parâmetro|O parâmetro de consulta no pedido que causou o erro.|String|  
+|<a name="error-subcode" />subCódigo|O código de erro que identifica o erro. Por exemplo, se `code` for InvalidRequest, `subCode` pode ser ParameterInvalid ou ParameterInvalidValue. |String|  
+|<a name="error-value" />valor|O valor do parâmetro de consulta que não era válido.|String|  
   
 
-### <a name="errorresponse"></a>ErrorResponse  
-O objeto de nível superior que a resposta inclui quando a solicitação falha.  
+### <a name="errorresponse"></a>Resposta de erro  
+O objeto de alto nível que a resposta inclui quando o pedido falha.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Dica de tipo.|Cadeia|  
-|<a name="errors" />los|Uma lista de erros que descrevem os motivos pelos quais a solicitação falhou.|[Ao](#error)|  
+|_type|Digite a dica.|String|  
+|erros <a name="errors" />|Uma lista de erros que descrevem as razões pelas quais o pedido falhou.|[Erro](#error)|  
 
   
   
 ### <a name="license"></a>Licença  
-Define a licença sob a qual o texto ou a foto podem ser usados.  
+Define a licença sob a qual o texto ou a foto podem ser utilizados.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|name|O nome da licença.|Cadeia|  
-|url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|Cadeia|  
+|nome|O nome da licença.|String|  
+|url|O URL para um site onde o utilizador pode obter mais informações sobre a licença.<br /><br /> Use o nome e o URL para criar uma hiperligação.|String|  
   
 
-### <a name="licenseattribution"></a>LicenseAttribution  
+### <a name="licenseattribution"></a>Atribuição de Licença  
 Define uma regra contratual para atribuição de licença.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Uma dica de tipo, que é definida como LicenseAttribution.|Cadeia|  
-|licença|A licença sob a qual o conteúdo pode ser usado.|[Carteira](#license)|  
-|licenseNotice|A licença a ser exibida ao lado do campo de destino. Por exemplo, "texto sob licença CC por SA".<br /><br /> Use o nome e a URL da licença no `license` campo para criar um hiperlink para o site que descreve os detalhes da licença. Em seguida, substitua o nome da licença `licenseNotice` na cadeia de caracteres (por exemplo, CC por SA) pelo hiperlink que você acabou de criar.|Cadeia|  
-|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra deve ser colocado próximo ao campo ao qual a regra se aplica. Se **for true**, o conteúdo deverá ser colocado em proximidade próximo. Se **for false**ou esse campo não existir, o conteúdo poderá ser colocado no critério do chamador.|Booleano|  
-|targetPropertyName|O nome do campo ao qual a regra se aplica.|Cadeia|  
+|_type|Uma dica tipo, que está definida para a Atribuição de Licenças.|String|  
+|licença|A licença sob a qual o conteúdo pode ser utilizado.|[Licença](#license)|  
+|licenseNotice|A licença para exibir ao lado do campo alvo. Por exemplo, "Texto sob licença CC-BY-SA".<br /><br /> Use o nome da licença e URL no campo `license` para criar uma hiperligação para o site que descreve os detalhes da licença. Em seguida, substitua o nome da licença na cadeia `licenseNotice` (por exemplo, CC-BY-SA) pela hiperligação que acabou de criar.|String|  
+|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra deve ser colocado nas proximidades do campo a que a regra se aplica. Se **for verdade,** o conteúdo deve ser colocado nas proximidades. Se não existir **falso,** ou se este campo não existir, o conteúdo pode ser colocado a critério do autor da chamada.|Booleano|  
+|targetPropertyName|O nome do campo a que a regra se aplica.|String|  
   
 
-### <a name="link"></a>Associar  
-Define os componentes de um hiperlink.  
+### <a name="link"></a>Ligação  
+Define os componentes de uma hiperligação.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Dica de tipo.|Cadeia|  
-|text|O texto de exibição.|Cadeia|  
-|url|UMA URL. Use a URL e o texto de exibição para criar um hiperlink.|Cadeia|  
+|_type|Digite a dica.|String|  
+|texto|O texto do visor.|String|  
+|url|Uma URL. Utilize o URL e o texto de visualização para criar uma hiperligação.|String|  
   
 
-### <a name="linkattribution"></a>LinkAttribution  
-Define uma regra contratual para atribuição de link.  
+### <a name="linkattribution"></a>Atribuição de Ligações  
+Define uma regra contratual para a atribuição de ligações.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Uma dica de tipo, que é definida como LinkAttribution.|Cadeia|  
-|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra deve ser colocado próximo ao campo ao qual a regra se aplica. Se **for true**, o conteúdo deverá ser colocado em proximidade próximo. Se **for false**ou esse campo não existir, o conteúdo poderá ser colocado no critério do chamador.|Booleano|  
-|targetPropertyName|O nome do campo ao qual a regra se aplica.<br /><br /> Se um destino não for especificado, a atribuição se aplicará à entidade como um todo e deverá ser exibida imediatamente após a apresentação da entidade. Se houver várias regras de atribuição de texto e de link que não especificam um destino, você deverá concatena-las e exibi-las usando um rótulo "dados de:". Por exemplo, "dados do provedor de <\> Nome1 &#124; < provedor\>nome2".|Cadeia|  
-|text|O texto de atribuição.|Cadeia|  
-|url|A URL para o site do provedor. Use `text` e URL para criar um hiperlink.|Cadeia|  
+|_type|Uma dica de tipo, que é definida para LinkAttribution.|String|  
+|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra deve ser colocado nas proximidades do campo a que a regra se aplica. Se **for verdade,** o conteúdo deve ser colocado nas proximidades. Se não existir **falso,** ou se este campo não existir, o conteúdo pode ser colocado a critério do autor da chamada.|Booleano|  
+|targetPropertyName|O nome do campo a que a regra se aplica.<br /><br /> Se um alvo não for especificado, a atribuição aplica-se à entidade como um todo e deve ser exibida imediatamente após a apresentação da entidade. Se existirem múltiplas regras de atribuição de texto e ligação que não especifiquem um alvo, deve concatená-las e exibi-las utilizando uma etiqueta "Dados a partir de: " . Por exemplo, "Dados do <provider name1\> &#124; <provider name2\>".|String|  
+|texto|O texto de atribuição.|String|  
+|url|O URL para o site do fornecedor. Utilize `text` e URL para criar hiperligação.|String|  
   
   
-### <a name="mediaattribution"></a>MediaAttribution  
-Define uma regra contratual para a atribuição de mídia.  
+### <a name="mediaattribution"></a>MediaAtribuição  
+Define uma regra contratual para a atribuição dos meios de comunicação social.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Uma dica de tipo, que é definida como MediaAttribution.|Cadeia|  
-|mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra deve ser colocado próximo ao campo ao qual a regra se aplica. Se **for true**, o conteúdo deverá ser colocado em proximidade próximo. Se **for false**ou esse campo não existir, o conteúdo poderá ser colocado no critério do chamador.|Booleano|  
-|targetPropertyName|O nome do campo ao qual a regra se aplica.|Cadeia|  
-|url|A URL que você usa para criar um hiperlink do conteúdo de mídia. Por exemplo, se o destino for uma imagem, você usaria a URL para tornar a imagem clicável.|Cadeia|  
+|_type|Uma dica tipo, que é definida para MediaAttribution.|String|  
+|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra deve ser colocado nas proximidades do campo a que a regra se aplica. Se **for verdade,** o conteúdo deve ser colocado nas proximidades. Se não existir **falso,** ou se este campo não existir, o conteúdo pode ser colocado a critério do autor da chamada.|Booleano|  
+|targetPropertyName|O nome do campo a que a regra se aplica.|String|  
+|url|O URL que utiliza para criar hiperligação do conteúdo dos meios de comunicação. Por exemplo, se o alvo for uma imagem, utilizaria o URL para tornar a imagem clicável.|String|  
   
   
   
 ### <a name="organization"></a>Organização  
-Define um Publicador.  
+Define um editor.  
   
-Observe que um Publicador pode fornecer seu nome ou seu site ou ambos.  
+Note que um editor pode fornecer o seu nome ou o seu website ou ambos.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|name|O nome do editor.|Cadeia|  
-|url|A URL para o site do editor.<br /><br /> Observe que o Publicador pode não fornecer um site.|Cadeia|  
+|nome|O nome da editora.|String|  
+|url|O URL para o site da editora.<br /><br /> Note que a editora pode não fornecer um website.|String|  
   
   
 
-### <a name="webpage"></a>Página da Web  
-Define informações sobre uma página da Web em visualização.  
+### <a name="webpage"></a>Página Web  
+Define informações sobre uma página Web na pré-visualização.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|
-|name|O título da página, não necessariamente o título HTML|Cadeia|
-|url|A URL que foi realmente rastreada (a solicitação pode ter seguido redirecionamentos)|Cadeia|  
-|description|Breve descrição da página e do conteúdo|Cadeia|  
-|isFamilyFriendly|Mais preciso para itens no índice da Web; buscas em tempo real fazem essa detecção com base apenas na URL e não no conteúdo da página|boolean|
-|primaryImageOfPage/contentUrl|A URL para uma imagem representativa a ser incluída na visualização|Cadeia| 
+|nome|O título da página, não necessariamente o título HTML|String|
+|url|O URL que foi realmente rastejado (pedido pode ter seguido redirecionamentos)|String|  
+|descrição|Breve descrição da página e do conteúdo|String|  
+|isFamilyFriendly|Mais preciso para itens no índice web; atreca-se em tempo real fazer esta deteção com base apenas no URL e não no conteúdo da página|boolean|
+|primaryImageOfPage/contentUrl|O URL para uma imagem representativa a incluir na pré-visualização|String| 
   
   
 ### <a name="querycontext"></a>QueryContext  
-Define o contexto de consulta que o Bing usou para a solicitação.  
+Define o contexto de consulta que Bing usou para o pedido.  
   
-|Elemento|Descrição|Type|  
+|Elemento|Descrição|Tipo|  
 |-------------|-----------------|----------|  
-|adultIntent|Um valor booliano que indica se a consulta especificada tem uma intenção de adulto. O valor será **true** se a consulta tiver uma intenção de adulto; caso contrário, **false**.|Booleano|  
-|alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *saling downwind*, a cadeia de caracteres de consulta de substituição será *+ saling downwind*. Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *% 2Bsaling + downwind*.<br /><br /> Esse campo só será incluído se a cadeia de caracteres de consulta original contiver um erro ortográfico.|Cadeia|  
-|alteredQuery|A cadeia de caracteres de consulta usada pelo Bing para executar a consulta. O Bing usa a cadeia de caracteres de consulta alterada se a cadeia de caracteres de consulta original contiver erros de ortografia. Por exemplo, se a cadeia de caracteres `saling downwind`de consulta for, a cadeia de `sailing downwind`caracteres de consulta alterada será.<br /><br /> Esse campo só será incluído se a cadeia de caracteres de consulta original contiver um erro ortográfico.|Cadeia|  
-|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [x-MSEdge-clientip](#clientip) e [x-Search-Location](#location) , poderá ignorar esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes ao meu redor" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "Seattle Weather"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas que não têm reconhecimento de local, como "melhores vendedores".|Booleano|  
-|originalQuery|A cadeia de caracteres de consulta conforme especificado na solicitação.|Cadeia|  
+|adultintent|Um valor booleano que indica se a consulta especificada tem intenção adulta. O valor é **verdadeiro** se a consulta tiver intenção adulta; caso contrário, **falso.**|Booleano|  
+|alterationOverrideQuery|A corda de consulta para usar para forçar Bing a usar a corda original. Por exemplo, se a corda de consulta estiver *a abrandar,* a corda de sobreposição será *+saling downwind*. Lembre-se de codificar a corda de consulta que resulta em *%2Bsaling+downwind*.<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|String|  
+|alteradoQuery|A corda de consulta usada por Bing para realizar a consulta. Bing usa a corda de consulta alterada se a corda de consulta original contivesse erros ortográficos. Por exemplo, se a corda de consulta for `saling downwind`, a corda de consulta alterada será `sailing downwind`.<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|String|  
+|askUserForLocation|Um valor booleano que indica se bing requer a localização do utilizador para fornecer resultados precisos. Se especificou a localização do utilizador utilizando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location,](#location) pode ignorar este campo.<br /><br /> Para consultas conscientes de localização, como "o tempo de hoje" ou "restaurantes perto de mim" que precisam da localização do utilizador para fornecer resultados precisos, este campo está definido para **verdade.**<br /><br /> Para consultas conscientes de localização que incluem a localização (por exemplo, "Seattle weather"), este campo está definido como **falso**. Este campo também está definido como **falso** para consultas que não são conscientes da localização, como "best sellers".|Booleano|  
+|originalQuery|A corda de consulta, conforme especificado no pedido.|String|  
 
-### <a name="identifiable"></a>Identificação
+### <a name="identifiable"></a>Identificável
 
-|Nome|Valor|Type|  
+|Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
-|id|Um identificador de recurso|Cadeia|
+|ID|Um identificador de recursos|String|
  
-### <a name="rankinggroup"></a>De classificação
-Define um grupo de resultados de pesquisa, como a principal.
+### <a name="rankinggroup"></a>RankingGroup
+Define um grupo de resultados de pesquisa, como o mainline.
 
-|Nome|Valor|Type|  
+|Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
-|items|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
+|items|Uma lista de resultados de pesquisa para exibir no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
-Define um item de resultado de pesquisa a ser exibido.
+Define um item de resultado de pesquisa para exibir.
 
-|Nome|Valor|Type|  
+|Nome|Valor|Tipo|  
 |-------------|-----------------|----------|
-|resultIndex|Um índice de base zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Número inteiro|
-|arquivo_de_resposta|A resposta que contém o item a ser exibido. Por exemplo, notícias.<br /><br />Use o tipo para localizar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo valor; caso contrário, ignore-o.|Cadeia|
-|textualIndex|O índice da resposta em textualAnswers a ser exibido.| Inteiro sem sinal|
-|value|A ID que identifica uma resposta a ser exibida ou um item de uma resposta a ser exibida. Se a ID identificar uma resposta, exiba todos os itens da resposta.|Identificação|
+|resultadoÍndice|Um índice de base zero do item na resposta a exibir. Se o item não incluir este campo, exiba todos os itens na resposta. Por exemplo, exibir todos os artigos noticiosos na resposta do Notícias.|Número inteiro|
+|respostaTipo|A resposta que contém o item a exibir. Por exemplo, Notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, utilize o tipo de resposta apenas se este objeto incluir o campo de valor; caso contrário, ignorá-lo.|String|
+|textualIndex|O índice da resposta em textualAnswers para exibir.| Inteiro não assinado|
+|valor|O ID que identifica uma resposta para exibir ou um item de uma resposta para exibir. Se o ID identificar uma resposta, exiba todos os itens da resposta.|Identificável|
 
 ### <a name="rankingresponse"></a>RankingResponse  
-Define onde o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
+Define onde deve ser colocado o conteúdo da página de resultados da pesquisa e em que ordem.  
   
 |Nome|Valor|  
 |----------|-----------|  
-|<a name="ranking-mainline" />principal|Os resultados da pesquisa a serem exibidos na principal.|  
-|<a name="ranking-pole" />Pólo|Os resultados da pesquisa que devem ter o tratamento mais visível (por exemplo, exibido acima da principal e da barra lateral).|  
-|<a name="ranking-sidebar" />forma|Os resultados da pesquisa a serem exibidos na barra lateral.| 
+|<a name="ranking-mainline" />linha principal|Os resultados da pesquisa para exibir na linha principal.|  
+|polo <a name="ranking-pole" />|Os resultados de pesquisa que devem ser oferecidos o tratamento mais visível (por exemplo, apresentados acima da linha principal e da barra lateral).|  
+|<a name="ranking-sidebar" />barra lateral|Os resultados da pesquisa para exibir na barra lateral.| 
 
 
-### <a name="searchresponse"></a>SearchResponse  
-Define o objeto de nível superior que a resposta inclui quando a solicitação é realizada com sucesso.  
+### <a name="searchresponse"></a>Resposta de pesquisa  
+Define o objeto de alto nível que a resposta inclui quando o pedido for bem sucedido.  
   
-Observe que, se o serviço suspeitar de um ataque de negação de serviço, a solicitação terá sucesso (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
+Note que se o serviço suspeitar de um ataque de negação de serviço, o pedido será bem sucedido (o código de estado HTTP é de 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|Nome|Valor|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Digite Hint, que é definida como SearchResponse.|Cadeia|  
-|Página da Web|Um objeto JSON que define a visualização|Cadeia de caracteres|  
+|_type|Digite a dica, que está definida para SearchResponse.|String|  
+|Página Web|Um objeto JSON que define a pré-visualização|string|  
   
   
-### <a name="textattribution"></a>Textatribuition  
-Define uma regra contratual para atribuição de texto sem formatação.  
+### <a name="textattribution"></a>Atribuição de texto  
+Define uma regra contratual para atribuição de texto simples.  
   
-|Nome|Value|Type|  
+|Nome|Valor|Tipo|  
 |----------|-----------|----------|  
-|_type|Uma dica de tipo, que é definida como textatribuition.|Cadeia|  
-|text|O texto de atribuição.<br /><br /> A atribuição de texto se aplica à entidade como um todo e deve ser exibida imediatamente após a apresentação da entidade. Se houver várias regras de atribuição de texto ou de link que não especificam um destino, você deverá concatena-las e exibi-las usando um rótulo "dados de:".|Cadeia| 
+|_type|Uma dica tipo, que é definida para TextAttribution.|String|  
+|texto|O texto de atribuição.<br /><br /> A atribuição de texto aplica-se à entidade como um todo e deve ser exibida imediatamente após a apresentação da entidade. Se existirem múltiplas regras de atribuição de texto ou de ligação que não especifiquem um alvo, deve concatená-las e exibi-las utilizando uma etiqueta "Dados a partir de: " .|String| 
 
 
 ## <a name="error-codes"></a>Códigos de erro
 
-A seguir estão os códigos de status HTTP possíveis que uma solicitação retorna.  
+Seguem-se os possíveis códigos de estado http que um pedido devolve.  
   
 |Código de Estado|Descrição|  
 |-----------------|-----------------|  
 |200|Êxito.|  
-|400|Um dos parâmetros de consulta está ausente ou não é válido.|  
-|401|A chave de assinatura está ausente ou não é válida.|  
-|403|O usuário é autenticado (por exemplo, ele usou uma chave de assinatura válida), mas não tem permissão para o recurso solicitado.<br /><br /> O Bing também poderá retornar esse status se o chamador exceder a cota de consultas por mês.|  
-|410|A solicitação usou HTTP em vez do protocolo HTTPS. HTTPS é o único protocolo com suporte.|  
-|429|O chamador excedeu a cota de consultas por segundo.|  
-|500|Erro de servidor inesperado.|
+|400|Falta um dos parâmetros de consulta ou não é válido.|  
+|401|Falta a chave de subscrição ou não é válida.|  
+|403|O utilizador é autenticado (por exemplo, utilizou uma chave de subscrição válida) mas não tem permissão para o recurso solicitado.<br /><br /> Bing também pode devolver este estatuto se o chamador exceder as suas consultas por mês.|  
+|410|O pedido utilizou HTTP em vez do protocolo HTTPS. HTTPS é o único protocolo suportado.|  
+|429|O chamador excedeu as suas consultas por segunda quota.|  
+|500|Erro inesperado do servidor.|
 
-Se a solicitação falhar, a resposta conterá um objeto [ErrorResponse](#errorresponse) , que contém uma lista de objetos de [erro](#error) que descrevem o que causou o erro. Se o erro estiver relacionado a um parâmetro, o `parameter` campo identificará o parâmetro que é o problema. E se o erro estiver relacionado a um valor de parâmetro, `value` o campo identificará o valor que não é válido.
+Se o pedido falhar, a resposta contém um objeto [ErrorResponse,](#errorresponse) que contém uma lista de objetos [error](#error) que descrevem o que causou o erro. Se o erro estiver relacionado com um parâmetro, o campo `parameter` identifica o parâmetro que é o problema. E se o erro estiver relacionado com um valor de parâmetro, o campo `value` identifica o valor que não é válido.
 
 ```json
 {
@@ -312,19 +312,19 @@ Se a solicitação falhar, a resposta conterá um objeto [ErrorResponse](#errorr
 }
 ```
 
-A seguir estão os valores de código de erro e de suberros possíveis.
+Seguem-se os possíveis códigos de erro e os valores do código de sub-erro.
 
 |Código|Subcódigo|Descrição
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O código de status HTTP é 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retorna InvalidRequest sempre que qualquer parte da solicitação não é válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se você usar o protocolo HTTP em vez de HTTPS, o Bing retornará HttpNotAllowed e o código de status HTTP será 410.
-|RateLimitExceeded|Nenhum subcódigo|O Bing retorna RateLimitExceeded sempre que você excede a cota de consultas por segundo (QPS) ou consultas por mês (QPM).<br/><br/>Se você exceder QPS, o Bing retornará o código de status HTTP 429 e, se você exceder QPM, o Bing retornará 403.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o `Ocp-Apim-Subscription-Key` cabeçalho está ausente ou a chave de assinatura não é válida.<br/><br/>A redundância ocorrerá se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura tiver sido desabilitada ou tiver expirado. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
+|ServerError|UnexpectedError<br/>Erro de Recursos<br/>NotImplemented|O código de estado HTTP é 500.
+|Pedido inválido|Parâmetros desaparecidos<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Devoluções Bing InvalidRequest sempre que qualquer parte do pedido não for válida. Por exemplo, falta um parâmetro necessário ou não é válido um valor de parâmetro.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é de 400.<br/><br/>Se utilizar o protocolo HTTP em vez de HTTPS, bing devolve httpNotAllowed, e o código de estado HTTP é 410.
+|RateLimitExceeded|Sem subcódigos|Bing devolve RateLimitExceeded sempre que excede as suas consultas por segundo (QPS) ou consultas por mês (QPM) quota.<br/><br/>Se exceder o QPS, bing devolve o código de estado HTTP 429, e se exceder o QPM, bing devolve 403.
+|Autorização Inválida|Autorização Faltando<br/>AutorizaçãoRedundy|Bing devolve InvalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, falta o cabeçalho `Ocp-Apim-Subscription-Key` ou a chave de subscrição não é válida.<br/><br/>O despedimento ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de estado HTTP é 401.
+|InsufficientAuthorization|AutorizaçãoDeficiente<br/>Autorizações Caducadas|Bing devolve InsuficienteAutorização quando o chamador não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição tiver sido desativada ou tiver expirado. <br/><br/>Se o erro for insuficiente, o código de estado HTTP é 403.
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido do C#](c-sharp-quickstart.md)
-- [Início Rápido do Java](java-quickstart.md)
-- [Início rápido de Node](node-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início rápido do Java](java-quickstart.md)
+- [Início rápido do Node](node-quickstart.md)
 - [Início Rápido do Python](python-quickstart.md)
 

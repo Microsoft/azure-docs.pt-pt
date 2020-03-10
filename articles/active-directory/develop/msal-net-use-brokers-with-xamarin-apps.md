@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 25b8aa9b5e80720e9543dafce7970404a62b7d1f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132646"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945803"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Autenticador microsoft ou o Portal da Empresa Intune nas aplicações Xamarin
 
@@ -75,12 +75,12 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
     }
     
     else if (!AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url))
-    {               
-         return false;                
+    {                
+         return false;                  
     }
     
     return true;     
-}           
+}            
 ```
 
 Este método é invocado sempre que a aplicação é iniciada. É usado como uma oportunidade para processar a resposta do corretor e completar o processo de autenticação que MSAL.NET iniciado.
@@ -96,20 +96,20 @@ Para configurar a janela do objeto:
 1. Na chamada `AcquireTokenInteractive`, use `.WithParentActivityOrWindow(App.RootViewController)` e, em seguida, passe a referência à janela do objeto que utilizará.
 
     Em `App.cs`:
-    
+
     ```csharp
        public static object RootViewController { get; set; }
     ```
-    
+
     Em `AppDelegate.cs`:
-    
+
     ```csharp
        LoadApplication(new App());
        App.RootViewController = new UIViewController();
     ```
-    
+
     Na chamada `AcquireToken`:
-    
+
     ```csharp
     result = await app.AcquireTokenInteractive(scopes)
                  .WithParentActivityOrWindow(App.RootViewController)
@@ -117,7 +117,7 @@ Para configurar a janela do objeto:
     ```
 
 ### <a name="step-5-register-a-url-scheme"></a>Passo 5: Registar um esquema de URL
-MSAL.NET usa URLs para invocar o corretor e depois devolver a resposta do corretor à sua aplicação. Para terminar a viagem de ida e volta, registe um esquema de URL para a sua aplicação no ficheiro `Info.plist`.
+MSAL.NET usa URLs para invocar o corretor e depois devolver a resposta do corretor à sua aplicação. Para completar a viagem de ida e volta, registe um esquema de URL para a sua aplicação no ficheiro `Info.plist`.
 
 O nome `CFBundleURLSchemes` deve incluir `msauth.` como prefixo. Siga o prefixo com `CFBundleURLName`. 
 
@@ -143,11 +143,12 @@ No esquema de URL, `BundleId` identifica exclusivamente a aplicação: `$"msauth
 ```
 
 ### <a name="step-6-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Passo 6: Adicionar o identificador de corretor à secção LSApplicationQueriesSchemes
+
 A MSAL utiliza `–canOpenURL:` para verificar se o corretor está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que uma aplicação pode consultar. 
 
 Adicione `msauthv2` à secção `LSApplicationQueriesSchemes` do ficheiro `Info.plist`, como no seguinte exemplo:
 
-```XML 
+```XML
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -156,16 +157,19 @@ Adicione `msauthv2` à secção `LSApplicationQueriesSchemes` do ficheiro `Info.
 ```
 
 ### <a name="step-7-register-your-redirect-uri-in-the-application-portal"></a>Passo 7: Registe o seu URI redirecionado no portal de aplicações
+
 Quando utiliza o corretor, o seu URI redirecionado tem um requisito extra. O uri redirecionamento _deve_ ter o seguinte formato:
+
 ```csharp
 $"msauth.{BundleId}://auth"
 ```
 
-Segue-se um exemplo: 
+Segue-se um exemplo:
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
+
 Note que o REdirectURI corresponde ao nome `CFBundleURLSchemes` que incluiu no ficheiro `Info.plist`.
 
 ### <a name="step-8-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Passo 8: Certifique-se de que o URI redirecionado está registado na sua aplicação
@@ -198,9 +202,108 @@ Quando terminar os passos, o URI redirecionado é calculado para si.
 
 ## <a name="brokered-authentication-for-android"></a>Autenticação intermediada para Android
 
-MSAL.NET suporta apenas a plataforma Xamarin.iOS. Ainda não suporta corretores para a plataforma Xamarin.Android.
+### <a name="step-1-enable-broker-support"></a>Passo 1: Ativar suporte ao corretor
 
-A biblioteca nativa MSAL Android já suporta a autenticação intermediada. Para mais informações, consulte [autenticação intermediada no Android](brokered-auth.md).
+O suporte do corretor é ativado numa base por PublicClientApplication. É desativado por defeito. Utilize o parâmetro `WithBroker()` (definido para o verdadeiro por defeito) ao criar o `IPublicClientApplication` através do `PublicClientApplicationBuilder`.
+
+```CSharp
+var app = PublicClientApplicationBuilder
+                .Create(ClientId)
+                .WithBroker()
+                .WithRedirectUri(redirectUriOnAndroid) //(see step 4 below)
+                .Build();
+```
+
+### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Passo 2: Atualizar appDelegate para lidar com o backback
+
+Quando MSAL.NET chama o corretor, o corretor irá, por sua vez, voltar a ligar para a sua aplicação com o método OnActivityResult(). Uma vez que a MSAL aguardará a resposta do corretor, a sua aplicação precisa de encaminhar o resultado para MSAL.NET.
+Isto pode ser conseguido encaminhando o resultado para o `SetAuthenticationContinuationEventArgs(int requestCode, Result resultCode, Intent data)`, substituindo o método OnActivityResult() como mostrado abaixo
+
+```CSharp
+protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+{
+   base.OnActivityResult(requestCode, resultCode, data);
+   AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
+}
+```
+
+Este método é invocado sempre que a aplicação de corretor é lançada e é usada como uma oportunidade para processar a resposta do corretor e completar o processo de autenticação iniciado por MSAL.NET.
+
+### <a name="step-3-set-an-activity"></a>Passo 3: Definir uma atividade
+
+Para que a autenticação intermediada funcione, terá de definir uma atividade para que a MSAL possa enviar e receber a resposta do corretor.
+
+Para isso, terá de fornecer a atividade (normalmente a MainActivity) ao `WithParentActivityOrWindow(object parent)` como objeto-mãe. 
+
+**Por exemplo:**
+
+Na chamada Acquire Token:
+
+```CSharp
+result = await app.AcquireTokenInteractive(scopes)
+             .WithParentActivityOrWindow((Activity)context))
+             .ExecuteAsync();
+```
+
+### <a name="step-4-register-your-redirecturi-in-the-application-portal"></a>Passo 4: Registe o seu RedirectUri no portal de aplicações
+
+A MSAL usa URLs para invocar o corretor e depois voltar à sua aplicação. Para completar essa viagem de ida e volta, precisa de registar um esquema de URL para a sua aplicação. Este Redirect URI precisa de ser registado no portal de registo de aplicações Azure AD como um URI de redirecionamento válido para a sua aplicação.
+
+
+O URI redirecionado necessário para a sua aplicação depende do certificado utilizado para assinar o APK.
+
+```
+Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
+```
+
+A última parte do URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, é a assinatura com a que a APK é assinada, base64 codificada.
+No entanto, durante a fase de desenvolvimento da sua aplicação utilizando o Visual Studio, se estiver a depurar o seu código sem assinar o apk com um certificado específico, o Visual Studio assinará o apk para si para fins de depuração, dando à APK uma assinatura única para o máquina em que é construído. Assim, sempre que construir a sua aplicação numa máquina diferente, terá de atualizar o URI redirecionado no código da aplicação e o registo da aplicação no portal Azure para autenticar com a MSAL. 
+
+Durante a depuração, pode encontrar uma exceção MSAL (ou mensagem de registo) indicando que o URI redirecionado fornecido está incorreto. **Esta exceção também lhe fornecerá o URI redirecionado que deve utilizar** com a máquina atual em que está a depurar. Pode utilizar este URI redirecionado para continuar a desenvolver-se por enquanto.
+
+Assim que estiver pronto para finalizar o seu código, certifique-se de atualizar o URI redirecionado no código e no registo da aplicação no portal Azure para utilizar a assinatura do certificado com o qual irá assinar a APK.
+
+Na prática, isto significa que você tem que registar um URI redirecionado para cada membro da equipa, além de um URI redirecionado para a versão de produção assinada da APK.
+
+Também pode calcular esta assinatura por si mesmo, semelhante à forma como a MSAL o faz: 
+
+```CSharp
+   private string GetRedirectUriForBroker()
+   {
+      string packageName = Application.Context.PackageName;
+      string signatureDigest = this.GetCurrentSignatureForPackage(packageName);
+      if (!string.IsNullOrEmpty(signatureDigest))
+      {
+            return string.Format(CultureInfo.InvariantCulture, "{0}://{1}/{2}", RedirectUriScheme,
+               packageName.ToLowerInvariant(), signatureDigest);
+      }
+
+      return string.Empty;
+   }
+
+   private string GetCurrentSignatureForPackage(string packageName)
+   {
+            PackageInfo info = Application.Context.PackageManager.GetPackageInfo(packageName,
+               PackageInfoFlags.Signatures);
+            if (info != null && info.Signatures != null && info.Signatures.Count > 0)
+            {
+               // First available signature. Applications can be signed with multiple signatures.
+               // The order of Signatures is not guaranteed.
+               Signature signature = info.Signatures[0];
+               MessageDigest md = MessageDigest.GetInstance("SHA");
+               md.Update(signature.ToByteArray());
+               return Convert.ToBase64String(md.Digest(), Base64FormattingOptions.None);
+               // Server side needs to register all other tags. ADAL will
+               // send one of them.
+            }
+   }
+```
+
+Também tem a opção de adquirir a assinatura para o seu pacote utilizando o teclado com os seguintes comandos:
+
+Para janelas: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
+
+Para Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
 
 ## <a name="next-steps"></a>Passos seguintes
 

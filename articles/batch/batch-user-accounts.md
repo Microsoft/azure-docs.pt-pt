@@ -15,93 +15,93 @@ ms.date: 11/18/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022788"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388375"
 ---
 > [!NOTE] 
-> As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
+> As contas de utilizador discutidas neste artigo são diferentes das contas dos utilizadores utilizadas para o Protocolo de Ambiente de Trabalho Remoto (RDP) ou Secure Shell (SSH), por razões de segurança. 
 >
-> Para se conectar a um nó que executa a configuração de máquina virtual do Linux via SSH, consulte [usar o área de trabalho remota para uma VM do Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para se conectar a nós que executam o Windows via RDP, consulte [conectar-se a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Para se conectar a um nó que executa a configuração do serviço de nuvem via RDP, consulte [habilitar conexão de área de trabalho remota para uma função nos serviços de nuvem do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Para ligar a um nó que executa a configuração da máquina virtual Linux via SSH, consulte [Use Remote Desktop a um Linux VM em Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar aos nós que executam o Windows via RDP, consulte [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Para ligar a um nó que executa a configuração do serviço em nuvem via RDP, consulte [enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 
 
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no lote
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas sob contas de utilizador em Lote
 
-Uma tarefa no lote do Azure sempre é executada em uma conta de usuário. Por padrão, as tarefas são executadas em contas de usuário padrão, sem permissões de administrador. Essas configurações de conta de usuário padrão geralmente são suficientes. Para determinados cenários, no entanto, é útil ser capaz de configurar a conta de usuário sob a qual você deseja que uma tarefa seja executada. Este artigo aborda os tipos de contas de usuário e como você pode configurá-las para seu cenário.
+Uma tarefa no Lote Azure é sempre realizada sob uma conta de utilizador. Por predefinição, as tarefas são executadas sob as contas de utilizador padrão, sem permissões de administrador. Estas definições de conta de utilizador predefinidas são normalmente suficientes. Para certos cenários, no entanto, é útil ser capaz de configurar a conta de utilizador sob a qual pretende que uma tarefa seja executada. Este artigo discute os tipos de contas de utilizador e como as pode configurar para o seu cenário.
 
-## <a name="types-of-user-accounts"></a>Tipos de contas de usuário
+## <a name="types-of-user-accounts"></a>Tipos de contas de utilizador
 
-O lote do Azure fornece dois tipos de contas de usuário para executar tarefas:
+O Azure Batch fornece dois tipos de contas de utilizador para tarefas de execução:
 
-- **Contas de usuário automático.** As contas de usuário automático são contas de usuário internas que são criadas automaticamente pelo serviço de lote. Por padrão, as tarefas são executadas em uma conta de usuário automático. Você pode configurar a especificação de usuário automático para uma tarefa a fim de indicar sob qual conta de usuário automático uma tarefa deve ser executada. A especificação de usuário automático permite que você especifique o nível de elevação e o escopo da conta de usuário automático que executará a tarefa. 
+- **Contas de utilizador automático.** As contas de utilizador automático são contas de utilizador incorporadas que são criadas automaticamente pelo serviço Batch. Por predefinição, as tarefas são executadas sob uma conta de utilizador automático. Pode configurar a especificação do utilizador automático para uma tarefa que indique em que conta de utilizador automático uma tarefa deve ser executada. A especificação de utilizador automático permite especificar o nível de elevação e o âmbito da conta de utilizador automático que executará a tarefa. 
 
-- **Uma conta de usuário nomeada.** Você pode especificar uma ou mais contas de usuário nomeadas para um pool ao criar o pool. Cada conta de usuário é criada em cada nó do pool. Além do nome da conta, você especifica a senha da conta do usuário, o nível de elevação e, para pools do Linux, a chave privada SSH. Ao adicionar uma tarefa, você pode especificar a conta de usuário nomeada na qual essa tarefa deve ser executada.
+- **Uma conta de utilizador nomeada.** Pode especificar uma ou mais contas de utilizador nomeadas para uma piscina quando criar a piscina. Cada conta de utilizador é criada em cada nó da piscina. Além do nome da conta, especifica a palavra-passe da conta de utilizador, o nível de elevação e, para as piscinas Linux, a chave privada SSH. Quando adicionar uma tarefa, pode especificar a conta de utilizador indicada sob a qual essa tarefa deve ser executada.
 
 > [!IMPORTANT] 
-> O serviço de lote versão 2017-01-01.4.0 introduz uma alteração significativa que exige que você atualize seu código para chamar essa versão. Se você estiver migrando o código de uma versão mais antiga do lote, observe que a propriedade **runElevated** não tem mais suporte na API REST ou nas bibliotecas de cliente do lote. Use a nova propriedade **UserIdentity** de uma tarefa para especificar o nível de elevação. Consulte a seção intitulada [atualizar seu código para a biblioteca de cliente do lote mais recente](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas para atualizar o código do lote se você estiver usando uma das bibliotecas de cliente.
+> A versão de serviço do Batch 2017-01-01.4.0 introduz uma alteração de rutura que requer que atualize o seu código para ligar para essa versão. Se estiver a migrar código de uma versão mais antiga do Batch, note que a propriedade **runElevated** já não é suportada nas bibliotecas de clientes REST API ou Batch. Utilize a nova propriedade **userIdentity** de uma tarefa para especificar o nível de elevação. Consulte a secção intitulada [Update your code to the latest Batch client library](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas para atualizar o seu código de lote se estiver a utilizar uma das bibliotecas do cliente.
 >
 >
 
-## <a name="user-account-access-to-files-and-directories"></a>Acesso de conta de usuário a arquivos e diretórios
+## <a name="user-account-access-to-files-and-directories"></a>Acesso à conta de utilizador a ficheiros e diretórios
 
-Uma conta de usuário automático e uma conta de usuário nomeado têm acesso de leitura/gravação ao diretório de trabalho da tarefa, diretório compartilhado e diretório de tarefas de várias instâncias. Ambos os tipos de contas têm acesso de leitura aos diretórios de inicialização e de preparação de trabalho.
+Tanto uma conta de utilizador automático como uma conta de utilizador nomeada têm acesso a leitura/escrita ao diretório de trabalho da tarefa, ao diretório partilhado e ao diretório de tarefas de várias instâncias. Ambos os tipos de contas leram acesso às direções de arranque e preparação de emprego.
 
-Se uma tarefa for executada na mesma conta que foi usada para executar uma tarefa de inicialização, a tarefa terá acesso de leitura/gravação ao diretório de tarefa inicial. Da mesma forma, se uma tarefa for executada na mesma conta que foi usada para executar uma tarefa de preparação de trabalho, a tarefa terá acesso de leitura/gravação ao diretório da tarefa de preparação do trabalho. Se uma tarefa for executada em uma conta diferente da tarefa inicial ou da tarefa de preparação do trabalho, a tarefa terá apenas acesso de leitura ao respectivo diretório.
+Se uma tarefa for submetida à mesma conta que foi utilizada para executar uma tarefa inicial, a tarefa tem acesso de leitura-escrita ao diretório de tarefas inpartidas. Da mesma forma, se uma tarefa for submetida à mesma conta que foi utilizada para executar uma tarefa de preparação de emprego, a tarefa tem acesso de leitura-escrita ao diretório de tarefas de preparação de emprego. Se uma tarefa for submetida a uma conta diferente da tarefa inicial ou da tarefa de preparação do trabalho, a tarefa só leu o acesso ao respetivo diretório.
 
-Para obter mais informações sobre como acessar arquivos e diretórios de uma tarefa, consulte [desenvolver soluções de computação paralela em larga escala com o lote](batch-api-basics.md#files-and-directories).
+Para obter mais informações sobre o acesso a ficheiros e diretórios a partir de uma tarefa, consulte Desenvolver soluções de [computação paralela em larga escala com o Batch](batch-api-basics.md#files-and-directories).
 
 ## <a name="elevated-access-for-tasks"></a>Acesso elevado para tarefas 
 
-O nível de elevação da conta do usuário indica se uma tarefa é executada com acesso elevado. Uma conta de usuário automático e uma conta de usuário nomeado podem ser executadas com acesso elevado. As duas opções para o nível de elevação são:
+O nível de elevação da conta de utilizador indica se uma tarefa funciona com acesso elevado. Tanto uma conta de utilizador automático como uma conta de utilizador nomeada podem ser executadas com acesso elevado. As duas opções para o nível de elevação são:
 
-- Não **administrador:** A tarefa é executada como usuário padrão sem acesso elevado. O nível de elevação padrão para uma conta de usuário do lote é sempre não **administrador**.
-- **Administrador:** A tarefa é executada como um usuário com acesso elevado e opera com permissões de administrador completo. 
+- **Não Admin:** A tarefa funciona como um utilizador padrão sem acesso elevado. O nível de elevação padrão para uma conta de utilizador do Lote é sempre **NonAdmin**.
+- **Administrador:** A tarefa funciona como um utilizador com acesso elevado e opera com permissões completas do Administrador. 
 
-## <a name="auto-user-accounts"></a>Contas de usuário automático
+## <a name="auto-user-accounts"></a>Contas de utilizador automático
 
-Por padrão, as tarefas são executadas no lote em uma conta de usuário automático, como um usuário padrão sem acesso elevado e com o escopo da tarefa. Quando a especificação de usuário automático é configurada para o escopo da tarefa, o serviço de lote cria uma conta de usuário automático somente para essa tarefa.
+Por predefinição, as tarefas são executadas no Batch sob uma conta de utilizador automático, como um utilizador padrão sem acesso elevado, e com âmbito de tarefa. Quando a especificação do utilizador automático estiver configurada para o âmbito de tarefas, o serviço Batch cria uma conta de utilizador automático apenas para essa tarefa.
 
-A alternativa ao escopo da tarefa é o escopo do pool. Quando a especificação de usuário automático para uma tarefa é configurada para o escopo do pool, a tarefa é executada em uma conta de usuário automático que está disponível para qualquer tarefa no pool. Para obter mais informações sobre o escopo do pool, consulte a seção executar uma tarefa como o usuário automático com escopo de pool.   
+A alternativa ao âmbito de tarefa é o âmbito da piscina. Quando a especificação de utilizador automático para uma tarefa é configurada para o âmbito do pool, a tarefa é executado sob uma conta de utilizador automático que está disponível para qualquer tarefa na piscina. Para obter mais informações sobre o âmbito do pool, consulte a secção intitulada Executar uma tarefa como o utilizador automático com âmbito de piscina.   
 
-O escopo padrão é diferente em nós do Windows e Linux:
+O âmbito padrão é diferente nos nódosos Windows e Linux:
 
-- Em nós do Windows, as tarefas são executadas em escopo da tarefa por padrão.
-- Os nós do Linux sempre são executados sob o escopo do pool.
+- Nos nós do Windows, as tarefas são executadas sob âmbito de tarefa por padrão.
+- Os nódoslinos linux sempre correm sob o âmbito da piscina.
 
-Há quatro configurações possíveis para a especificação de usuário automático, cada uma correspondendo a uma conta de usuário automático exclusiva:
+Existem quatro configurações possíveis para a especificação de utilizador automático, cada uma das quais corresponde a uma conta única de utilizador automático:
 
-- Acesso não administrador com escopo de tarefa (a especificação de usuário automático padrão)
-- Acesso de administrador (elevado) com escopo de tarefa
-- Acesso não administrador com escopo de pool
-- Acesso de administrador com escopo de pool
+- Acesso não administrativo com âmbito de tarefa (especificação predefinida do utilizador automático)
+- Acesso administrativo (elevado) com âmbito de tarefa
+- Acesso não administrativo com âmbito de piscina
+- Acesso à administração com âmbito de piscina
 
 > [!IMPORTANT] 
-> As tarefas em execução no escopo da tarefa não têm acesso de fato a outras tarefas em um nó. No entanto, um usuário mal-intencionado com acesso à conta pode contornar essa restrição enviando uma tarefa que é executada com privilégios de administrador e acessa outros diretórios de tarefas. Um usuário mal-intencionado também pode usar RDP ou SSH para se conectar a um nó. É importante proteger o acesso às chaves de conta do lote para evitar esse cenário. Se você suspeitar que sua conta pode ter sido comprometida, certifique-se de regenerar suas chaves.
+> As tarefas que executam o âmbito de tarefa não têm acesso de facto a outras tarefas num nó. No entanto, um utilizador malicioso com acesso à conta poderia contornar esta restrição, apresentando uma tarefa que corre com privilégios de administrador e acede a outros diretórios de tarefas. Um utilizador malicioso também poderia usar RDP ou SSH para ligar a um nó. É importante proteger o acesso às chaves da sua conta Batch para evitar tal cenário. Se suspeitar que a sua conta pode ter sido comprometida, certifique-se de regenerar as chaves.
 >
 >
 
-### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Executar uma tarefa como um usuário automático com acesso elevado
+### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Executar uma tarefa como auto-utilizador com acesso elevado
 
-Você pode configurar a especificação de usuário automático para privilégios de administrador quando precisar executar uma tarefa com acesso elevado. Por exemplo, uma tarefa de início pode precisar de acesso elevado para instalar o software no nó.
+Pode configurar a especificação de utilizador automático para privilégios de administrador quando necessitar de executar uma tarefa com acesso elevado. Por exemplo, uma tarefa inicial pode necessitar de acesso elevado para instalar software no nó.
 
 > [!NOTE] 
-> Em geral, é melhor usar acesso elevado somente quando necessário. As práticas recomendadas recomendam conceder o privilégio mínimo necessário para atingir o resultado desejado. Por exemplo, se uma tarefa inicial instalar o software para o usuário atual, em vez de para todos os usuários, você poderá evitar a concessão de acesso elevado a tarefas. Você pode configurar a especificação de usuário automático para o escopo do pool e o acesso não administrador para todas as tarefas que precisam ser executadas na mesma conta, incluindo a tarefa inicial. 
+> Em geral, o melhor é usar acesso elevado apenas quando necessário. As melhores práticas recomendam a concessão do privilégio mínimo necessário para alcançar o resultado desejado. Por exemplo, se uma tarefa inicial instalar software para o utilizador atual, em vez de para todos os utilizadores, poderá evitar conceder acesso elevado a tarefas. Pode configurar a especificação de utilizador automático para o âmbito do pool e acesso não administrativo para todas as tarefas que precisam de ser executadas sob a mesma conta, incluindo a tarefa de início. 
 >
 >
 
-Os trechos de código a seguir mostram como configurar a especificação de usuário automático. Os exemplos definem o nível de elevação como `Admin` e o escopo como `Task`. O escopo da tarefa é a configuração padrão, mas está incluído aqui para fins de exemplo.
+Os seguintes fragmentos de código mostram como configurar a especificação de utilizador automático. Os exemplos fixam o nível de elevação para `Admin` e o âmbito para `Task`. O âmbito de tarefa é a definição padrão, mas está incluído aqui por uma questão de exemplo.
 
 #### <a name="batch-net"></a>.NET do Batch
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
-#### <a name="batch-java"></a>Java do lote
+#### <a name="batch-java"></a>Lote Java
 
 ```java
 taskToAdd.withId(taskId)
@@ -126,46 +126,46 @@ task = batchmodels.TaskAddParameter(
 batch_client.task.add(job_id=jobid, task=task)
 ```
 
-### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Executar uma tarefa como um usuário automático com escopo de pool
+### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Executar uma tarefa como um utilizador automático com âmbito de piscina
 
-Quando um nó é provisionado, duas contas de usuário automático em todo o pool são criadas em cada nó no pool, uma com acesso elevado e outra sem acesso elevado. Definir o escopo do usuário automático para o escopo de pool para uma determinada tarefa executa a tarefa em uma dessas duas contas de usuário automático em todo o pool. 
+Quando um nó é provisionado, duas contas de auto-utilizador em toda a piscina são criadas em cada nó na piscina, uma com acesso elevado e outra sem acesso elevado. A definição do âmbito do utilizador automático para a margem de manobra para uma determinada tarefa executa a tarefa sob uma destas duas contas de utilizador automático em toda a piscina. 
 
-Quando você especifica o escopo do pool para o usuário automático, todas as tarefas executadas com acesso de administrador são executadas sob a mesma conta de usuário automático em todo o pool. Da mesma forma, as tarefas executadas sem permissões de administrador também são executadas em uma única conta de usuário automático em todo o pool. 
+Quando especifica o âmbito do pool para o utilizador automático, todas as tarefas que funcionam com o acesso do administrador são executadas na mesma conta de utilizador automático em toda a piscina. Da mesma forma, as tarefas que funcionam sem permissões de administrador também são executadas sob uma única conta de utilizador automático em toda a piscina. 
 
 > [!NOTE] 
-> As duas contas de usuário automático em todo o pool são contas separadas. As tarefas em execução na conta administrativa em todo o pool não podem compartilhar dados com tarefas em execução na conta padrão e vice-versa. 
+> As duas contas de utilizador automático em toda a piscina são contas separadas. As tarefas que executam sob a conta administrativa em toda a piscina não podem partilhar dados com tarefas em execução sob a conta padrão, e vice-versa. 
 >
 >
 
-A vantagem de ser executada na mesma conta de usuário automático é que as tarefas podem compartilhar dados com outras tarefas em execução no mesmo nó.
+A vantagem de executar sob a mesma conta de utilizador automático é que as tarefas são capazes de partilhar dados com outras tarefas que executam no mesmo nó.
 
-O compartilhamento de segredos entre tarefas é um cenário em que a execução de tarefas em uma das duas contas de usuário automático em todo o pool é útil. Por exemplo, suponha que uma tarefa inicial precise provisionar um segredo no nó que outras tarefas podem usar. Você pode usar a API de proteção de dados do Windows (DPAPI), mas ela requer privilégios de administrador. Em vez disso, você pode proteger o segredo no nível do usuário. As tarefas em execução na mesma conta de usuário podem acessar o segredo sem acesso elevado.
+Partilhar segredos entre tarefas é um cenário em que executar tarefas sob uma das duas contas de auto-utilizador em toda a piscina é útil. Por exemplo, suponha que uma tarefa inicial precisa fornecer um segredo sobre o nó que outras tarefas podem usar. Pode utilizar a API de Proteção de Dados do Windows (DPAPI), mas requer privilégios de administrador. Em vez disso, pode proteger o segredo ao nível do utilizador. As tarefas que executam na mesma conta de utilizador podem aceder ao segredo sem acesso elevado.
 
-Outro cenário em que você talvez queira executar tarefas em uma conta de usuário automático com escopo de pool é um compartilhamento de arquivos MPI (interface de transmissão de mensagens). Um compartilhamento de arquivos MPI é útil quando os nós na tarefa MPI precisam trabalhar nos mesmos dados de arquivo. O nó de cabeçalho cria um compartilhamento de arquivos que os nós filho podem acessar se estiverem em execução na mesma conta de usuário automático. 
+Outro cenário em que poderá querer executar tarefas sob uma conta de utilizador automático com âmbito de piscina é uma partilha de ficheiros de Interface de Passagem de Mensagem (MPI). Uma partilha de ficheiros MPI é útil quando os nódosos na tarefa MPI precisam de trabalhar nos mesmos dados de ficheiros. O nó da cabeça cria uma partilha de ficheiros a que os nódosos da criança podem aceder se estiverem a funcionar sob a mesma conta de utilizador automático. 
 
-O trecho de código a seguir define o escopo do usuário automático para o escopo de pool para uma tarefa no .NET do lote. O nível de elevação é omitido, portanto, a tarefa é executada na conta de usuário automático de todo o pool padrão.
+O seguinte código de corte define o âmbito do utilizador automático para a margem de manobra de piscina para uma tarefa no Lote .NET. O nível de elevação é omitido, pelo que a tarefa é executado sob a conta de utilizador automático padrão em todo o pool.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
 ```
 
-## <a name="named-user-accounts"></a>Contas de usuário nomeado
+## <a name="named-user-accounts"></a>Contas de utilizador nomeadas
 
-Você pode definir contas de usuário nomeadas ao criar um pool. Uma conta de usuário nomeado tem um nome e uma senha que você fornece. Você pode especificar o nível de elevação para uma conta de usuário nomeado. Para nós do Linux, você também pode fornecer uma chave privada SSH.
+Pode definir contas de utilizador nomeadas quando criar uma piscina. Uma conta de utilizador nomeada tem um nome e senha que fornece. Pode especificar o nível de elevação de uma conta de utilizador nomeada. Para nós Linux, você também pode fornecer uma chave privada SSH.
 
-Existe uma conta de usuário nomeada em todos os nós no pool e está disponível para todas as tarefas em execução nesses nós. Você pode definir qualquer número de usuários nomeados para um pool. Ao adicionar uma tarefa ou coleção de tarefas, você pode especificar que a tarefa seja executada em uma das contas de usuário nomeadas definidas no pool.
+Uma conta de utilizador nomeada existe em todos os nós da piscina e está disponível para todas as tarefas em execução nesses nós. Você pode definir qualquer número de utilizadores nomeados para uma piscina. Ao adicionar uma tarefa ou recolha de tarefas, pode especificar que a tarefa é submetida a uma das contas de utilizador nomeadas definidas na piscina.
 
-Uma conta de usuário nomeada é útil quando você deseja executar todas as tarefas em um trabalho na mesma conta de usuário, mas isolá-las de tarefas em execução em outros trabalhos ao mesmo tempo. Por exemplo, você pode criar um usuário nomeado para cada trabalho e executar as tarefas de cada trabalho sob essa conta de usuário nomeada. Cada trabalho pode compartilhar um segredo com suas próprias tarefas, mas não com tarefas em execução em outros trabalhos.
+Uma conta de utilizador nomeada é útil quando pretende executar todas as tarefas num trabalho sob a mesma conta de utilizador, mas isolá-las de tarefas que executam outros postos de trabalho ao mesmo tempo. Por exemplo, pode criar um utilizador nomeado para cada trabalho e executar as tarefas de cada trabalho sob a conta de utilizador nomeada. Cada trabalho pode então partilhar um segredo com as suas próprias tarefas, mas não com tarefas a funcionar noutros postos de trabalho.
 
-Você também pode usar uma conta de usuário nomeada para executar uma tarefa que define permissões em recursos externos, como compartilhamentos de arquivos. Com uma conta de usuário nomeada, você controla a identidade do usuário e pode usar essa identidade de usuário para definir permissões.  
+Também pode utilizar uma conta de utilizador nomeada para executar uma tarefa que define permissões em recursos externos, tais como partilhas de ficheiros. Com uma conta de utilizador nomeada, controla a identidade do utilizador e pode utilizar essa identidade de utilizador para definir permissões.  
 
-As contas de usuário nomeados permitem o SSH sem senha entre os nós do Linux. Você pode usar uma conta de usuário nomeado com nós do Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para obter mais informações sobre tarefas de várias instâncias, consulte [usar tarefas de instância de várias\-para executar aplicativos MPI](batch-mpi.md).
+As contas de utilizador nomeadas permitem sSH sem palavra-passe entre nós Linux. Pode utilizar uma conta de utilizador com nódosos Linux que precisam de executar tarefas de várias instâncias. Cada nó na piscina pode executar tarefas sob uma conta de utilizador definida em toda a piscina. Para obter mais informações sobre tarefas de várias instâncias, consulte [Utilize tarefas de várias\-instâncias para executar aplicações de MPI](batch-mpi.md).
 
-### <a name="create-named-user-accounts"></a>Criar contas de usuário nomeadas
+### <a name="create-named-user-accounts"></a>Criar contas de utilizador nomeadas
 
-Para criar contas de usuário nomeadas no lote, adicione uma coleção de contas de usuário ao pool. Os trechos de código a seguir mostram como criar contas de usuário nomeados em .NET, Java e Python. Esses trechos de código mostram como criar contas nomeadas de administrador e não administrador em um pool. Os exemplos criam pools usando a configuração do serviço de nuvem, mas você usa a mesma abordagem ao criar um pool do Windows ou Linux usando a configuração da máquina virtual.
+Para criar contas de utilizador nomeadas no Batch, adicione uma coleção de contas de utilizador à piscina. Os seguintes códigos mostram como criar contas de utilizador nomeadas em .NET, Java e Python. Estes fragmentos de código mostram como criar contas nomeadas por administração e não administradores numa piscina. Os exemplos criam piscinas utilizando a configuração do serviço em nuvem, mas você usa a mesma abordagem ao criar uma piscina Windows ou Linux usando a configuração da máquina virtual.
 
-#### <a name="batch-net-example-windows"></a>Exemplo de .NET do lote (Windows)
+#### <a name="batch-net-example-windows"></a>Exemplo de lote .NET (Windows)
 
 ```csharp
 CloudPool pool = null;
@@ -189,7 +189,7 @@ pool.UserAccounts = new List<UserAccount>
 await pool.CommitAsync();
 ```
 
-#### <a name="batch-net-example-linux"></a>Exemplo de .NET do lote (Linux)
+#### <a name="batch-net-example-linux"></a>Lote .NET exemplo (Linux)
 
 ```csharp
 CloudPool pool = null;
@@ -254,7 +254,7 @@ await pool.CommitAsync();
 ```
 
 
-#### <a name="batch-java-example"></a>Exemplo de Java do lote
+#### <a name="batch-java-example"></a>Exemplo de Java lote
 
 ```java
 List<UserAccount> userList = new ArrayList<>();
@@ -269,7 +269,7 @@ PoolAddParameter addParameter = new PoolAddParameter()
 batchClient.poolOperations().createPool(addParameter);
 ```
 
-#### <a name="batch-python-example"></a>Exemplo de Python do lote
+#### <a name="batch-python-example"></a>Exemplo de Python de lote
 
 ```python
 users = [
@@ -293,40 +293,40 @@ pool = batchmodels.PoolAddParameter(
 batch_client.pool.add(pool)
 ```
 
-### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Executar uma tarefa em uma conta de usuário nomeado com acesso elevado
+### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Executar uma tarefa sob uma conta de utilizador nomeada com acesso elevado
 
-Para executar uma tarefa como um usuário elevado, defina a propriedade **UserIdentity** da tarefa como uma conta de usuário nomeada que foi criada com sua propriedade **ElevationLevel** definida como `Admin`.
+Para executar uma tarefa como utilizador elevado, detete a propriedade **UserIdentity** da tarefa para uma conta de utilizador nomeada que foi criada com a sua propriedade **ElevationLevel** definida para `Admin`.
 
-Este trecho de código especifica que a tarefa deve ser executada em uma conta de usuário nomeada. Essa conta de usuário nomeada foi definida no pool quando o pool foi criado. Nesse caso, a conta de usuário nomeado foi criada com permissões de administrador:
+Este código de corte especifica que a tarefa deve ser executada sob uma conta de utilizador nomeada. Esta conta de utilizador nomeada foi definida na piscina quando a piscina foi criada. Neste caso, a conta de utilizador nomeada foi criada com permissões de administração:
 
 ```csharp
 CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
 task.UserIdentity = new UserIdentity(AdminUserAccountName);
 ```
 
-## <a name="update-your-code-to-the-latest-batch-client-library"></a>Atualizar seu código para a biblioteca de cliente do lote mais recente
+## <a name="update-your-code-to-the-latest-batch-client-library"></a>Atualize o seu código para a mais recente biblioteca de clientes do Batch
 
-O serviço de lote versão 2017-01-01.4.0 introduz uma alteração significativa, substituindo a propriedade **runElevated** disponível em versões anteriores pela propriedade **UserIdentity** . As tabelas a seguir fornecem um mapeamento simples que você pode usar para atualizar seu código de versões anteriores das bibliotecas de cliente.
+A versão de serviço do Batch 2017-01-01.4.0 introduz uma alteração de rutura, substituindo a propriedade **runElevated** disponível em versões anteriores pela propriedade **userIdentity.** As tabelas seguintes fornecem um simples mapeamento que pode utilizar para atualizar o seu código a partir de versões anteriores das bibliotecas de clientes.
 
 ### <a name="batch-net"></a>.NET do Batch
 
-| Se seu código usar...                  | Atualize-o para...                                                                                                 |
+| Se o seu código for...                  | Atualize-o para...                                                                                                 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` não especificado | Nenhuma atualização necessária                                                                                               |
+| `CloudTask.RunElevated` não especificados | Nenhuma atualização necessária                                                                                               |
 
-### <a name="batch-java"></a>Java do lote
+### <a name="batch-java"></a>Lote Java
 
-| Se seu código usar...                      | Atualize-o para...                                                                                                                       |
+| Se o seu código for...                      | Atualize-o para...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` não especificado | Nenhuma atualização necessária                                                                                                                     |
+| `CloudTask.withRunElevated` não especificados | Nenhuma atualização necessária                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
-| Se seu código usar...                      | Atualize-o para...                                                                                                                       |
+| Se o seu código for...                      | Atualize-o para...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
@@ -335,4 +335,4 @@ O serviço de lote versão 2017-01-01.4.0 introduz uma alteração significativa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma visão geral detalhada do lote, consulte [desenvolver soluções de computação paralela em larga escala com o lote](batch-api-basics.md).
+* Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).

@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do MongoDB
-description: Saiba como copiar dados do Mongo DB para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
+description: Saiba como copiar dados do Mongo DB para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: a7bb74c09b45429a160a3ec481c23073575cfe3c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892512"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394270"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB usando o Azure Data Factory
+# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados da MongoDB utilizando a Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um banco de dados MongoDB. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de uma base de dados mongoDB. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 >[!IMPORTANT]
->Versão do ADF esta nova versão do conector do MongoDB que fornece melhor suporte nativo do MongoDB. Se você estiver usando o conector do MongoDB anterior em sua solução com suporte no estado em que se encontra para compatibilidade com versões anteriores, consulte o artigo [conector do MongoDB (Herdado)](connector-mongodb-legacy.md) .
+>A ADF lança esta nova versão do conector MongoDB que fornece um melhor suporte nativo mongoDB. Se estiver a utilizar o conector MongoDB anterior na sua solução, que é suportado como é para retrocompatibilidade, consulte o artigo do [conector MongoDB (legado).](connector-mongodb-legacy.md)
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Você pode copiar dados de um banco de dados MongoDB para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da base de dados do MongoDB para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, esse conector do MongoDB dá suporte **a versões de até 3,4**.
+Especificamente, este conector MongoDB suporta **versões até 3.4**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,18 +40,18 @@ Especificamente, esse conector do MongoDB dá suporte **a versões de até 3,4**
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector do MongoDB.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector MongoDB.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
+As seguintes propriedades são suportadas para o serviço ligado ao MongoDB:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade Type deve ser definida como: **MongoDbV2** |Sim |
-| connectionString |Especifique a cadeia de conexão do MongoDB, por exemplo, `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte o [manual do MongoDB na cadeia de conexão](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br /> Você também pode colocar uma senha em Azure Key Vault e efetuar pull do `password` configuração fora da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
-| base de dados | Nome do banco de dados que você deseja acessar. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| tipo |A propriedade tipo deve ser definida para: **MongoDbV2** |Sim |
+| connectionString |Especifique a cadeia de ligação MongoDB, por exemplo, `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte o [manual mongoDB sobre](https://docs.mongodb.com/manual/reference/connection-string/) a cadeia de ligação para obter mais detalhes. <br/><br /> Também pode colocar uma palavra-passe no Cofre de Chaves Azure e retirar a configuração   `password`da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
+| base de dados | Nome da base de dados a que pretende aceder. | Sim |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
 
@@ -74,12 +74,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados e serviços ligados](concepts-datasets-linked-services.md). As propriedades a seguir têm suporte para o conjunto de conjuntos do MongoDB:
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets e serviços ligados.](concepts-datasets-linked-services.md) As seguintes propriedades são suportadas para dataset MongoDB:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **MongoDbV2Collection** | Sim |
-| collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **MongoDbV2Collection** | Sim |
+| collectionName |Nome da coleção na base de dados mongoDB. |Sim |
 
 **Exemplo:**
 
@@ -102,24 +102,24 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem do MongoDB.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte mongoDB.
 
 ### <a name="mongodb-as-source"></a>MongoDB como fonte
 
-As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **MongoDbV2Source** | Sim |
-| filter | Especifica o filtro de seleção usando operadores de consulta. Para retornar todos os documentos em uma coleção, omita esse parâmetro ou passe um documento vazio ({}). | Não |
-| cursorMethods.project | Especifica os campos a serem retornados nos documentos para projeção. Para retornar todos os campos nos documentos correspondentes, omita esse parâmetro. | Não |
-| cursorMethods.sort | Especifica a ordem na qual a consulta retorna documentos correspondentes. Consulte [cursor. Sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
-| cursorMethods.limit | Especifica o número máximo de documentos que o servidor retorna. Consulte [cursor. Limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não |
-| cursorMethods.skip | Especifica o número de documentos a serem ignorados e de onde o MongoDB começa a retornar os resultados. Consulte [cursor. Skip ()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Não |
-| batchSize | Especifica o número de documentos a serem retornados em cada lote da instância de resposta do MongoDB. Na maioria dos casos, modificar o tamanho do lote não afetará o usuário ou o aplicativo. Cosmos DB limita que cada lote não pode exceder 40 MB de tamanho, que é a soma do tamanho do batchSize do número de documentos, portanto, diminua esse valor se o tamanho do documento for grande. | Não<br/>(o padrão é **100**) |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbV2Source** | Sim |
+| filter | Especifica o filtro de seleção utilizando operadores de consulta. Para devolver todos os documentos numa coleção, omita este parâmetro ou passe um documento vazio ({}). | Não |
+| cursorMethods.project | Especifica os campos para devolver nos documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
+| cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
+| cursorMethods.limit | Especifica o número máximo de documentos que o servidor devolve. Consulte [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não |
+| cursorMethods.skip | Especifica o número de documentos a saltar e de onde o MongoDB começa a devolver resultados. Consulte [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Não |
+| batchSize | Especifica o número de documentos a devolver em cada lote da resposta da instância MongoDB. Na maioria dos casos, modificar o tamanho do lote não afetará o utilizador ou a aplicação. Os limites de DB cosmos de cada lote não podem exceder 40MB de tamanho, que é a soma do tamanho do loteTamanho do tamanho dos documentos, por isso diminua este valor se o tamanho do documento for grande. | Não<br/>(o padrão é **100)** |
 
 >[!TIP]
->O ADF dá suporte ao consumo de documento BSON no **modo estrito**. Verifique se a consulta de filtro está no modo estrito, em vez do modo Shell. Mais descrição pode ser encontrada no [manual do MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+>Suporte ADF consumindo documento BSON em **modo rígido**. Certifique-se de que a consulta do filtro está no modo Estrito em vez do modo Shell. Mais descrição pode ser encontrada no [manual do MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Exemplo:**
 
@@ -159,13 +159,13 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 ]
 ```
 
-## <a name="export-json-documents-as-is"></a>Exportar documentos JSON como estão
+## <a name="export-json-documents-as-is"></a>Exportar documentos JSON as-is
 
-Você pode usar este conector do MongoDB para exportar documentos JSON no estado em que se encontram de uma coleção do MongoDB para vários repositórios baseados em arquivo ou para Azure Cosmos DB. Para obter essa cópia independente de esquema, ignore a seção "estrutura" (também chamada de *esquema*) no conjunto de dados e no mapeamento de esquema na atividade de cópia.
+Você pode usar este conector MongoDB para exportar documentos JSON como é de uma coleção MongoDB para várias lojas baseadas em arquivos ou para Azure Cosmos DB. Para obter tal cópia schema-agnóstica, ignore a secção "estrutura" (também chamada *de esquema*) no conjunto de dados e no mapeamento de esquemas na atividade de cópia.
 
-## <a name="schema-mapping"></a>Mapeamento de esquema
+## <a name="schema-mapping"></a>Mapeamento de schema
 
-Para copiar dados do MongoDB para o coletor de tabela, consulte [mapeamento de esquema](copy-activity-schema-and-type-mapping.md#schema-mapping).
+Para copiar dados do MongoDB para a pia tabular, consulte o [mapeamento de esquemas](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).
