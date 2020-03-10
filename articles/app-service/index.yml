@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 02/26/2020
-  ms.openlocfilehash: 0480bd65f8a7d22f8732cd0ffde7fd3835334d69
-  ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+  ms.openlocfilehash: 059769a3a78ffc9df5bfd5916c075b3d3a622e79
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/29/2020
-  ms.locfileid: "78191185"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78944382"
 landingContent:
 - title: Acerca do Serviço de Aplicações
   linkLists:
@@ -121,7 +121,7 @@ landingContent:
     - text: Criar ligações híbridas no local
       url: app-service-hybrid-connections.md
     - text: Balanceamento de carga com o Gestor de Tráfego
-      url: web-sites-traffic-manager-custom-domain-name.md
+      url: configure-domain-traffic-manager.md
     - text: Criar uma cópia de segurança da aplicação nos Blobs de Armazenamento
       url: manage-backup.md
 - title: Mais recursos

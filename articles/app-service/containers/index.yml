@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 02/26/2020
-  ms.openlocfilehash: dfaea2e99aa67d13fc737294219e557fb624a5ec
-  ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+  ms.openlocfilehash: 4253afe9091672d8659a0aaac072b0ca28ec2981
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/29/2020
-  ms.locfileid: "78191253"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78944074"
 landingContent:
 - title: Acerca do Serviço de Aplicações no Linux
   linkLists:
@@ -127,7 +127,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Balanceamento de carga com o Gestor de Tráfego
-      url: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      url: ../configure-domain-traffic-manager.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - text: Criar uma cópia de segurança da aplicação nos Blobs de Armazenamento
       url: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - title: Mais recursos

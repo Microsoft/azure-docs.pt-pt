@@ -393,6 +393,7 @@
           href: media-services-deliver-asset-download.md
         - name: Cenário de Transmissão de Ativação Pós-falha
           href: media-services-implement-failover.md
+          displayName: 'HA, high availability'
     - name: Consumir
       items:
         - name: Reproduzir multimédia com leitores existentes

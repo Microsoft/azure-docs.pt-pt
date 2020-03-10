@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 256bae142cad43325f96871c377eaa53660ffafe
-  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+  ms.openlocfilehash: 5311b4c8bafbd525ae69d6778e92dc99ae2d4d7d
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/06/2020
-  ms.locfileid: "78673523"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943085"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -347,7 +347,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/power-bi.svg
     azureCategories:
     - analytics
-    url: power-bi-embedded/index.md
+    url: https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded
   - title: R Server para HDInsight
     summary: Análise preditiva, machine learning e modelação estatística para macrodados
     imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
@@ -460,7 +460,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
     azureCategories:
     - compute
-    url: cloud-services/index.md
+    url: cloud-services/index.yml
   - title: Container Instances
     summary: Execute facilmente contentores no Azure sem gerir servidores
     imageSrc: https://static.docs.com/ui/media/product/azure/container-instances.svg
