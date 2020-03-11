@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas no System State Backup p
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: f311de435d813cb0e6f8a2c3d932e05d695603f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583304"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969583"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
 
@@ -137,7 +137,7 @@ Se o trabalho falhar, indica um problema wsb que resultaria na falha dos backups
 
 | Sintoma | Resolução
 | -- | --
-| - O agente MARS falha com a mensagem de erro: A cópia de segurança falhou, uma vez que o volume de cópia de sombra não podia crescer devido a um espaço de disco insuficiente em volumes que continham ficheiros do sistema <br/><br/> - Na sequência do registo de erros/advertências presentes nos registos de eventos do sistema volsnap: "Não havia espaço suficiente no volume C: para aumentar o armazenamento de cópias-sombra para cópias-sombra de C: devido a esta falha todas as cópias-sombra do volume C: correm o risco de ser eliminadas" | - Liberte espaço no volume realçado no registo do evento para que haja espaço suficiente para que as cópias sombra cresçam enquanto a cópia de reserva está em andamento <br/><br/> - Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço utilizado para a cópia da sombra. Para mais informações, consulte este [artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| - O agente MARS falha com a mensagem de erro: A cópia de segurança falhou, uma vez que o volume de cópia de sombra não podia crescer devido a um espaço de disco insuficiente em volumes que continham ficheiros do sistema <br/><br/> - Na sequência do registo de erros/advertências presentes nos registos de eventos do sistema volsnap: "Não havia espaço suficiente no volume C: para aumentar o armazenamento de cópias-sombra para cópias-sombra de C: devido a esta falha todas as cópias-sombra do volume C: correm o risco de ser eliminadas" | - Liberte espaço no volume realçado no registo do evento para que haja espaço suficiente para que as cópias sombra cresçam enquanto a cópia de reserva está em andamento <br/><br/> - Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço utilizado para a cópia da sombra. Para mais informações, consulte este [artigo](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partição EFI bloqueada
 

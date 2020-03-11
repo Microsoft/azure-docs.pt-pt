@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a621165210702e075f15fb61bd615e157f997fe1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944216"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078858"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de Diretório Ativo Azure numa política personalizada azure Ative Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78944216"
 
 O Azure Ative Directory B2C (Azure AD B2C) presta suporte à gestão de utilizadores do Diretório Ativo Azure. Este artigo descreve as especificidades de um perfil técnico para interagir com um fornecedor de sinistros que suporta este protocolo padronizado.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
 O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -64,13 +64,13 @@ Para ler, atualizar ou eliminar uma conta de utilizador existente, a alegação 
 
 Para criar uma nova conta de utilizador, a alegação de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signNames.emailAddress**, ou **signInNames.userName**. Para uma conta federada: a **alternativaSecurityId**.
 
-O elemento InputClaimsTransformations pode conter uma coleção de elementos de transformação de créditos de entrada que são usados para modificar a reclamação de entrada ou gerar um novo.
+O elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) pode conter uma coleção de elementos de transformação de créditos de entrada que são usados para modificar a reclamação de entrada ou gerar um novo.
 
 ## <a name="outputclaims"></a>OutputClaims
 
 O elemento **OutputClaims** contém uma lista de reclamações devolvidas pelo perfil técnico da AD Azure. Poderá ter de mapear o nome da reclamação definida na sua política para o nome definido no Diretório Ativo Azure. Também pode incluir reclamações que não são devolvidas pelo Diretório Ativo Azure, desde que detetete o `DefaultValue` atributo.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
+O elemento [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 Por exemplo, o perfil técnico **AAD-UserWriteUseLogonEmail** cria uma conta local e devolve as seguintes reclamações:
 
@@ -92,7 +92,7 @@ Por exemplo, o perfil técnico **AAD-UserWriteUseLogonEmail** cria uma conta loc
 
 ## <a name="persistedclaims"></a>Reclamações Persistidas
 
-O elemento **PersistedClaims** contém todos os valores que devem ser persponiados pela Azure AD com possíveis informações de mapeamento entre um tipo de reclamação já definido na secção ClaimsSchema na política e no nome de atributo azure AD.
+O elemento **PersistedClaims** contém todos os valores que devem ser persponiados pela Azure AD com possíveis informações de mapeamento entre um tipo de reclamação já definido na secção [ClaimsSchema](claimsschema.md) na política e no nome de atributo azure AD.
 
 O perfil técnico **AAD-UserWriteUseLogonEmail,** que cria uma nova conta local, persiste na sequência de reclamações:
 
@@ -121,11 +121,9 @@ O nome da reclamação é o nome do atributo AD Azure, a menos que seja especifi
 
 ## <a name="azure-ad-technical-provider-operations"></a>Operações de prestador técnico da Azure AD
 
-### <a name="read"></a>Ler
+### <a name="read"></a>Leitura
 
-A operação **Read** lê dados sobre uma única conta de utilizador. Para ler os dados dos utilizadores, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName,** **signInNames** (qualquer tipo, nome do utilizador e conta baseada em e-mail) ou **segurança ida em alternativa**.
-
-O perfil técnico seguinte lê dados sobre uma conta de utilizador utilizando o objectid do utilizador:
+A operação **Read** lê dados sobre uma única conta de utilizador. O perfil técnico seguinte lê dados sobre uma conta de utilizador utilizando o objectid do utilizador:
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -153,11 +151,9 @@ O perfil técnico seguinte lê dados sobre uma conta de utilizador utilizando o 
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Escrever
+### <a name="write"></a>Escrita
 
-A operação **Write** cria ou atualiza uma única conta de utilizador. Para escrever uma conta de utilizador, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName**, **signNames.emailAddress**, ou **alternativaSecurityId**.
-
-O perfil técnico seguinte cria uma nova conta social:
+A operação **Write** cria ou atualiza uma única conta de utilizador. O perfil técnico seguinte cria uma nova conta social:
 
 ```XML
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -197,9 +193,7 @@ O perfil técnico seguinte cria uma nova conta social:
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-A operação **DeleteClaims** iliba as informações de uma lista de reclamações fornecidas. Para eliminar informações de reclamações, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId,** **userPrincipalName**, **signNames.emailAddress** ou **alternativeSecurityId**.
-
-O perfil técnico seguinte elimina as reclamações:
+A operação **DeleteClaims** iliba as informações de uma lista de reclamações fornecidas. O perfil técnico seguinte elimina as reclamações:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
@@ -220,9 +214,7 @@ O perfil técnico seguinte elimina as reclamações:
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-A operação **DeleteClaimsPrincipal** elimina uma única conta de utilizador do diretório. Para eliminar uma conta de utilizador, é necessário fornecer uma chave como uma alegação de entrada, tais como **objectId**, **userPrincipalName**, **signNames.emailAddress** ou **alternativeSecurityId**.
-
-O perfil técnico seguinte elimina uma conta de utilizador do diretório utilizando o nome principal do utilizador:
+A operação **DeleteClaimsPrincipal** elimina uma única conta de utilizador do diretório. O perfil técnico seguinte elimina uma conta de utilizador do diretório utilizando o nome principal do utilizador:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
@@ -253,16 +245,30 @@ O perfil técnico seguinte elimina uma conta de utilizador social utilizando **a
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Required | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | A operação a ser realizada. Valores possíveis: `Read`, `Write`, `DeleteClaims`ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Levante um erro se o objeto do utilizador não existir no diretório. Valores possíveis: `true` ou `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Não | Se for levantado um erro (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. O valor pode ser [localizado.](localization.md)|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Levante um erro se o objeto do utilizador já existir. Valores possíveis: `true` ou `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Não | Se for levantado um erro (ver RaiseErrorIfClaimsPrincipalAlreadyExists aatribuição), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador já existir. O valor pode ser [localizado.](localization.md)|
 | ApplicationObjectId | Não | O identificador de objeto de aplicação para atributos de extensão. Valor: ObjectId de uma aplicação. Para mais informações, consulte [Use atributos personalizados numa política](custom-policy-custom-attributes.md)de edição de perfil personalizado. |
 | ClientId | Não | O cliente identifica o inquilino como terceiro. Para mais informações, consulte [Use atributos personalizados numa política de edição de perfil personalizado](custom-policy-custom-attributes.md) |
 | Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
+
+### <a name="error-messages"></a>Mensagens de erro
+ 
+As seguintes definições podem ser utilizadas para configurar a mensagem de erro apresentada após a falha. Os metadados devem ser configurados no perfil técnico [autoafirmado.](self-asserted-technical-profile.md) As mensagens de erro podem ser [localizadas.](localization.md)
+
+| Atributo | Necessário | Descrição |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalAlreadyExists | Não | Se for levantado um erro (ver RaiseErrorIfClaimsPrincipalAlreadyExists aatribuição), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador já existir. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Não | Se for levantado um erro (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao utilizador se o objeto do utilizador não existir. |
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+Consulte o seguinte artigo, por exemplo, utilizando o perfil técnico da AD Azure:
+
+- [Adicione reclamações e personalize a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](custom-policy-configure-user-input.md)
 
 
 

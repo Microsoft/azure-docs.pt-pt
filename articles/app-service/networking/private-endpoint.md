@@ -1,6 +1,6 @@
 ---
-title: Ligue-se em privado a uma Web App e proteja a exfiltração de dados usando o Azure Private Endpoint
-description: Ligue-se em privado a uma Web App e proteja a exfiltração de dados usando o Azure Private Endpoint
+title: Ligue-se em privado a uma Aplicação Web usando o Ponto Final Privado do Azure
+description: Ligue-se em privado a uma Aplicação Web usando o Ponto Final Privado do Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
@@ -8,24 +8,23 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: aa1fd341e60a71ad1ffbb535120e63db5a8bfd0b
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 893a7a2c7483fccc3bbc7bd198929f65917457b3
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851246"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036939"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para aplicação web azure (pré-visualização)
 
-Pode utilizar o Private Endpoint para a sua Web App Azure para permitir que os clientes localizados na sua rede privada tenham acesso seguro à app sobre private link. O Private Endpoint utiliza um endereço IP do seu espaço de endereço Azure VNet. O tráfego de rede entre o cliente na sua rede privada e a Web App atravessa o Vnet e um Link Privado na rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública. Com o Private Endpoint, pode desativar os fluxos de rede de saída da subnet com O NSG e eliminar o risco de fuga de dados.
+Pode utilizar o Private Endpoint para a sua Web App Azure para permitir que os clientes localizados na sua rede privada tenham acesso seguro à app sobre private link. O Private Endpoint utiliza um endereço IP do seu espaço de endereço Azure VNet. O tráfego de rede entre o cliente na sua rede privada e a Web App atravessa o Vnet e um Link Privado na rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública.
 
 Utilizar o Private Endpoint para a sua Web App permite-lhe:
 
 - Proteja a sua Aplicação Web configurando o Ponto Final do Serviço, eliminando a exposição pública
-- Aumente a segurança para o Vnet, permitindo-lhe bloquear a exfiltração de dados do Vnet
 - Ligue-se de forma segura à Web App a partir de redes no local que se ligam ao Vnet utilizando um peering privado VPN ou ExpressRoute.
 
-Se necessitar apenas de uma ligação segura entre o vnet e a sua Aplicação Web, o Ponto Final do Serviço é a solução mais simples. Se precisar de proteger contra a exfiltração de dados ou o acesso à rota a partir do local, o Private Endpoint é a solução.
+Se necessitar apenas de uma ligação segura entre o vnet e a sua Aplicação Web, o Ponto Final do Serviço é a solução mais simples. Se também precisa de chegar à aplicação web a partir do local através de um portal Azure, um Vnet regionalmente com um par ou um Vnet globalmente peered, Private Endpoint é a solução.  
 
 Para mais informações sobre o [Ponto Final do Serviço][serviceendpoint]
 
@@ -36,20 +35,24 @@ Ao criar um Ponto Final Privado para a sua Web App, proporciona uma conectividad
 A ligação entre o Ponto Final Privado e a Web App utiliza um [link privado][privatelink]seguro . O ponto final privado só é utilizado para os fluxos de entrada para a sua Web App. Os fluxos de saída não utilizarão este Ponto Final Privado, mas pode injetar fluxos de saída para a sua rede numa subrede diferente através da funcionalidade de [integração Vnet][vnetintegrationfeature].
 
 A Subnet onde liga o Private Endpoint pode ter outros recursos, não precisa de uma Subnet vazia dedicada.
+Pode implementar private endpoint numa região diferente da Web App. 
+
 > [!Note]
 >A funcionalidade de integração Vnet não pode usar a mesma sub-rede que o Private Endpoint, esta é uma limitação da funcionalidade de integração Vnet
 
 Do ponto de vista da segurança:
 
 - Quando ativa o Ponto Final do Serviço para a sua Web App, desativa todos os acessos públicos
-- Você pode ativar vários pontos finais privados em outros Vnets e Subnets
+- Você pode ativar vários pontos finais privados em outros Vnets e Subnets, incluindo Vnets em outras regiões
+- O endereço IP do ponto final privado NIC deve ser dinâmico, mas permanecerá o mesmo até eliminar o Ponto Final Privado
 - O NIC do Private Endpoint não pode ter um NSG associado
-- A Subnet que acolhe o Private Endpoint pode ter um NSG associado, mas você deve desativar a aplicação das políticas de rede para o Private Endpoint ver [este artigo] [disablesecuritype]. Como resultado, não é possível filtrar por nenhum NSG o acesso ao seu Ponto Final Privado.
+- A Subnet que acolhe o Private Endpoint pode ter um NSG associado, mas você deve desativar a aplicação das políticas de rede para o Private Endpoint ver [este artigo][disablesecuritype]. Como resultado, não pode filtrar por qualquer NSG o acesso ao seu Ponto Final Privado
 - Quando ativa o Private Endpoint para a sua Web App, a configuração de [restrições][accessrestrictions] de acesso da Aplicação Web não é avaliada.
+- Pode reduzir o risco de exfiltração de dados da vnet removendo todas as regras do NSG onde o destino é a marca de serviços internet ou Azure. Mas adicionar um Ponto Final do Serviço de Aplicações Web na sua subnet, permitirá que chegue a qualquer Web App hospedada no mesmo carimbo e exposta à Internet.
 
-Private Endpoint for Web App está disponível para standard de nível, PremiumV2 e Isolado com uma ASE externa.
+Private Endpoint for Web App está disponível para o nível PremiumV2, e isolado com uma ASE externa.
 
-Nos registos da Web http da sua Web App, irá descobrir que estamos cientes da fonte do cliente IP. Implementámos o protocolo TCP Proxy, reencaminhando para a Web App o IP do cliente. Para obter mais informações, consulte [este artigo][tcpproxy].
+Nos registos da Web http da sua Web App, encontrará o IP de origem do cliente. Implementámos o protocolo TCP Proxy, encaminhando para a Web App a propriedade IP do cliente. Para obter mais informações, consulte [este artigo][tcpproxy].
 
 ![Visão geral global][1]
 

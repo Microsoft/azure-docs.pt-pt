@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716907"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037526"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Utilizar o Docker Compose para implementar vários contentores
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como implantar vários contentores dos Serviços Cognitiv
 
 > [Docker Compose](https://docs.docker.com/compose/) é uma ferramenta para definir e executar aplicações Docker multi-contentores. Em Composição, utiliza um ficheiro YAML para configurar os serviços da sua aplicação. Em seguida, cria e inicia todos os serviços a partir da sua configuração executando um único comando.
 
-Pode ser útil orquestrar várias imagens de contentores num único computador hospedeiro. Neste artigo, vamos reunir os recipientes Recognise Text e Form Recogniser.
+Pode ser útil orquestrar várias imagens de contentores num único computador hospedeiro. Neste artigo, vamos reunir os recipientes de Leitura e Reconhecimento de Formulários.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
   * **Formulário Recurso reconhecível** apenas com f0 ou nível de preços Standard.
   * **Recursos dos Serviços Cognitivos** com o nível de preços S0.
 
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registro de contêiner
+## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
 
 Complete e submeta o formulário de pedido de pedidos de recipientes de discurso de [serviços cognitivos.](https://aka.ms/speechcontainerspreview/) 
 
@@ -70,11 +70,11 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
     environment:
       eula: accept
-      apikey: # < Your recognize text API key >
-      billing: # < Your recognize text billing URL >
+      apikey: # < Your computer vision API key >
+      billing: # < Your computer vision billing URL >
     ports:
       - "5021:5000"
 ```
@@ -87,9 +87,9 @@ services:
 Um ficheiro Docker Compose permite a gestão de todas as etapas do ciclo de vida de um serviço definido: serviços de arranque, paragem e reconstrução; visualizar o estado do serviço; e streaming de log. Abra uma interface de linha de comando a partir do diretório do projeto (onde está localizado o ficheiro docker-compose.yaml).
 
 > [!NOTE]
-> Para evitar erros, certifique-se de que a máquina hospedeira partilha corretamente as unidades com o Motor Docker. Por exemplo, se a e:\visualização pública for usada como um diretório no ficheiro docker-compose.yaml, partilhe a unidade E com o Docker.
+> Para evitar erros, certifique-se de que a máquina hospedeira partilha corretamente as unidades com o Motor Docker. Por exemplo, se *a e:\visualização pública* for usada como um diretório no ficheiro *docker-compose.yaml,* partilhe a unidade **E** com o Docker.
 
-A partir da interface da linha de comando, execute o seguinte comando para iniciar (ou reiniciar) todos os serviços definidos no ficheiro docker-compose.yaml:
+A partir da interface da linha de comando, execute o seguinte comando para iniciar (ou reiniciar) todos os serviços definidos no ficheiro *docker-compose.yaml:*
 
 ```console
 docker-compose up
@@ -113,8 +113,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:)...
-latest: Pulling from microsoft/cognitive-services-recognize-text
+Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
+latest: Pulling from microsoft/cognitive-services-read
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -167,22 +167,16 @@ Aqui está um exemplo de saída:
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
 2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
+4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>Testar o recipiente de texto reconhecer
+### <a name="test-containers"></a>Recipientes de ensaio
 
-Abra um navegador na máquina anfitriã e vá ao **local de acolhimento** utilizando a porta especificada a partir do ficheiro docker-compose.yaml, como http://localhost:5021/swagger/index.html. Pode utilizar a função "Try It" na API para testar o ponto final do Texto Reconhecido.
-
-![Reconhecer recipiente de texto](media/recognize-text-swagger-page.png)
-
-### <a name="test-the-form-recognizer-container"></a>Testar o recipiente de reconhecimento de formulários
-
-Abra um navegador na máquina anfitriã e vá ao **local de acolhimento** utilizando a porta especificada a partir do ficheiro docker-compose.yaml, como http://localhost:5010/swagger/index.html. Pode utilizar a função "Try It" na API para testar o ponto final do Reconhecimento de Formulários.
+Abra um navegador na máquina anfitriã e vá ao **local de acolhimento** utilizando a porta especificada a partir do ficheiro *docker-compose.yaml,* como http://localhost:5021/swagger/index.html. Por exemplo, pode utilizar a função **Try It** na API para testar o ponto final do Reconhecimento de Formulários. Ambas as páginas de swagger de contentores devem estar disponíveis e testááveis.
 
 ![Recipiente de reconhecimento de formulário](media/form-recognizer-swagger-page.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Recipientes de Serviços Cognitivos](../cognitive-services-container-support.md)

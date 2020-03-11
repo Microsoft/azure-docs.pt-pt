@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 03/04/2020
-  ms.openlocfilehash: 0ea805d87db78d0a7fadad0a07e01e9387d568a5
-  ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+  ms.date: 03/09/2020
+  ms.openlocfilehash: f05b14039f5b83b4f214d7fa479a3ab809e859c6
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2020
-  ms.locfileid: "78299249"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943239"
 landingContent:
 - title: Acerca de modelos do ARM
   linkLists:
@@ -33,8 +33,6 @@ landingContent:
       url: deployment-modes.md
     - text: Modelos ligados
       url: linked-templates.md
-    - text: Implementação ao nível da subscrição
-      url: deploy-to-subscription.md
   - linkListType: video
     links:
     - text: Novidades
@@ -85,26 +83,26 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Com o PowerShell
+    - text: PowerShell
       url: deploy-powershell.md
-    - text: Com a CLI
+    - text: CLI do Azure
       url: deploy-cli.md
-    - text: Com o portal
+    - text: Portal
       url: deploy-portal.md
-    - text: Com a API REST
+    - text: API REST
       url: deploy-rest.md
     - text: Implementação de Hipóteses
       url: template-deploy-what-if.md
-    - text: Ver histórico de implementações
-      url: deployment-history.md
-- title: Gerir modelos
+- title: Implementações no âmbito
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Exportar modelos
-      url: export-template-portal.md
-    - text: CI/CD
-      url: add-template-to-azure-pipelines.md
+    - text: Subscrição
+      url: deploy-to-subscription.md
+    - text: Grupo de gestão
+      url: deploy-to-management-group.md
+    - text: Inquilino
+      url: deploy-to-tenant.md
 - title: Explorar conteúdo de referência
   linkLists:
   - linkListType: reference
@@ -123,3 +121,13 @@ landingContent:
       url: /java/api/com.microsoft.azure.management.resources
     - text: Python
       url: /python/api/overview/azure/resources?view=azure-python
+- title: Gerir modelos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportar modelos
+      url: export-template-portal.md
+    - text: CI/CD
+      url: add-template-to-azure-pipelines.md
+    - text: Ver histórico de implementações
+      url: deployment-history.md

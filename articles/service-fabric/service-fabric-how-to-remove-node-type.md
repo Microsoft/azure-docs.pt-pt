@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661981"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969411"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó de tecido de serviço
 Este artigo descreve como escalar um cluster de tecido de serviço Azure removendo um tipo de nó existente de um cluster. Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede, nas quais os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamado de nó. Os conjuntos de escala de máquinas virtuais são um recurso de computação Azure que utiliza para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó definido num cluster Azure é [configurado como um conjunto](service-fabric-cluster-nodetypes.md)de escala separado . Cada tipo de nó pode então ser gerido separadamente. Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizontalmente removendo um tipo de nó (conjunto de escala de máquina virtual) e todos os seus nós.  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a decorrer no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
@@ -31,7 +31,7 @@ Service Fabric "orquestra" alterações e atualizações subjacentes para que os
 
 Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente. O Serviço Fabric não prende nenhuma atualização de conjunto de nóesbronze, pelo que todos os VMs descem imediatamente. Se tivesse algo audabil izado nesses nós, os dados estão perdidos. Mesmo que fosse apátrida, todos os nós do Tecido de Serviço participam no ringue, para que um bairro inteiro possa estar perdido, o que pode desestabilizar o aglomerado em si.
 
-## <a name="remove-a-non-primary-node-type"></a>Remover um tipo de nó não primário
+## <a name="remove-a-node-type"></a>Remover um tipo de nó
 
 1. Por favor, cuide destes pré-requisitos antes de iniciar o processo.
 
@@ -122,7 +122,7 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     - Localize o modelo do Gestor de Recursos Azure utilizado para a implantação.
     - Encontre a secção relacionada com o tipo de nó na secção Tecido de Serviço.
     - Retire a secção correspondente ao tipo de nó.
-    - Para aglomerados de prata e maior durabilidade, atualize o recurso de cluster no modelo e configure as políticas de saúde para ignorar a saúde da aplicação do tecido:/Sistema, adicionando `applicationDeltaHealthPolicies` conforme indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de saúde. 
+    - Apenas para aglomerados de prata e maior durabilidade, atualize o recurso de cluster no modelo e configure as políticas de saúde para ignorar a saúde da aplicação do tecido:/Sistema, adicionando `applicationDeltaHealthPolicies` em `properties` de recursos de cluster, conforme indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de saúde. 
  
  
      ```json
@@ -158,7 +158,7 @@ Ao remover um nó tipo que é Bronze, todos os nós do nó descem imediatamente.
     },
     ```
 
-    Implemente o modelo modificado do Gestor de Recursos Azure. ** Este passo vai demorar um pouco, geralmente até duas horas. Esta atualização irá alterar as definições para o Serviço de Infraestruturas, pelo que é necessário um reinício do nó. Neste caso, `forceRestart` é ignorado. 
+    - Implemente o modelo modificado do Gestor de Recursos Azure. ** Este passo vai demorar um pouco, geralmente até duas horas. Esta atualização irá alterar as definições para o Serviço de Infraestruturas, pelo que é necessário um reinício do nó. Neste caso, `forceRestart` é ignorado. 
     O parâmetro `upgradeReplicaSetCheckTimeout` especifica o tempo máximo que o Tecido de Serviço espera que uma partição esteja em estado seguro, se não já em estado seguro. Uma vez que as verificações de segurança passam para todas as divisórias num nó, o Tecido de Serviço procede com a atualização do nó.
     O valor do parâmetro `upgradeTimeout` pode ser reduzido para 6 horas, mas para a segurança máxima devem ser utilizadas 12 horas.
 

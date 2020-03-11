@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/03/2020
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: MT
+ms.openlocfilehash: 661b4dd5364e9c823f9a77ac175c9a8eca03b8a5
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78299266"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968972"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral do Azure Media Services v3
 
@@ -31,7 +31,7 @@ Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lh
 Os Serviços de Media v3 SDKs baseiam-se na [Especificação OpenAPI (Swagger)](https://aka.ms/ams-v3-rest-sdk)dos Media Services V3 .
 
 > [!NOTE]
-> Atualmente, não é possível utilizar o portal Azure para gerir os recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
+> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, Privacidade e Segurança
 

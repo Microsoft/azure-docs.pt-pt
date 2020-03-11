@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: b366262ce7849658eb84444d873956c25ab38804
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: af7bfe74d8df177650cea76a9bed7b0d7311f87e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78244666"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969003"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming ao vivo com Azure Media Services v3
 
@@ -33,7 +33,7 @@ A Azure Media Services permite-lhe entregar eventos ao vivo aos seus clientes na
 Este artigo dá uma visão geral e orientação de streaming ao vivo com os Media Services e ligações a outros artigos relevantes.
  
 > [!NOTE]
-> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
+> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
 
 ## <a name="dynamic-packaging"></a>Embalagem Dinâmica
 
@@ -125,5 +125,6 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Início rápido de streaming ao vivo] (live-events-wirecast-quickstart.md.
 * [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
 * [Orientação de migração para a mudança dos Serviços de Media v2 para v3](migrate-from-v2-to-v3.md)

@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9098457cc8fd39ba2b815b1e93d9442570d95c17
-  ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+  ms.openlocfilehash: e885abcd997a4764090c5e8c8ce7ad14c0963220
+  ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/10/2020
-  ms.locfileid: "79082987"
+  ms.lasthandoff: 03/11/2020
+  ms.locfileid: "79086713"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -655,13 +655,6 @@ productDirectory:
     - developer-tools
     - devops
     url: https://docs.microsoft.com/azure/devops/pipelines/
-  - title: Developer tool integrations
-    summary: Utilize as ferramentas de desenvolvimento que conhece, incluindo Eclipse, IntelliJ e Maven, no Azure
-    imageSrc: https://docs.microsoft.com/media/common/i_extensions.svg
-    azureCategories:
-    - developer-tools
-    - devops
-    url: integrations/index.yml
   - title: Visual Studio
     summary: Ambiente poderoso e flexível para desenvolver aplicações na cloud
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 390655e3caab89425fe3c8623928c584f8bd3324
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933165"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037170"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementar um modelo de machine learning com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -123,4 +123,4 @@ Após os acabamentos de implementação, pode testar o seu ponto final em tempo 
 Neste tutorial, aprendeu os passos-chave na forma de criar, implantar e consumir um modelo de machine learning no designer. Para saber mais sobre como pode usar o designer para resolver outros tipos de problemas, consulte os nossos outros pipelines de amostra.
 
 > [!div class="nextstepaction"]
-> [Amostra de classificação de risco de crédito](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Amostras de designer](samples-designer.md)

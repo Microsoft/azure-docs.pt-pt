@@ -45,10 +45,6 @@
           href: how-to-automatic-language-detection.md
         - name: Utilizar formatos de entrada de áudio comprimido
           href: how-to-use-codec-compressed-audio-input-streams.md
-        - name: Utilizar formatos de entrada de áudio comprimido (iOS)
-          href: how-to-use-codec-compressed-audio-input-streams-ios.md
-        - name: Utilizar formatos de entrada de áudio comprimido (Android)
-          href: how-to-use-codec-compressed-audio-input-streams-android.md
     - name: Personalização
       items:
         - name: Preparar dados
@@ -63,6 +59,10 @@
           href: how-to-custom-speech-deploy-model.md
         - name: criar transcrições humanas
           href: how-to-custom-speech-human-labeled-transcriptions.md
+        - name: Diretrizes de nomenclatura de palavras-chave personalizadas
+          href: speech-devices-sdk-kws-guidelines.md
+        - name: Deteção de palavras-chave personalizadas
+          href: speech-devices-sdk-create-kws.md
     - name: Referência
       items:
         - name: APIs do SDK de voz
@@ -156,10 +156,6 @@
               href: how-to-custom-voice-create-voice.md
             - name: Gravar amostras de voz
               href: record-custom-voice-samples.md
-            - name: Diretrizes de nomenclatura de palavras-chave personalizadas
-              href: speech-devices-sdk-kws-guidelines.md
-            - name: Deteção de palavras-chave personalizadas
-              href: speech-devices-sdk-create-kws.md
         - name: Criação de Conteúdo de Áudio
           items:
             - name: Criação de Conteúdo de Áudio
@@ -413,6 +409,12 @@
           items:
             - name: FAQ dos assistentes de voz
               href: faq-voice-assistants.md
+    - name: Palavra-chave personalizada
+      items:
+        - name: Diretrizes de nomenclatura de palavras-chave personalizadas
+          href: speech-devices-sdk-kws-guidelines.md
+        - name: Deteção de palavras-chave personalizadas
+          href: speech-devices-sdk-create-kws.md
 - name: Alojamento
   expanded: false
   items:

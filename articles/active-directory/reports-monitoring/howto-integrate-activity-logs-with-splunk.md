@@ -1,6 +1,6 @@
 ---
-title: Integrar o Splunk usando o Azure Monitor | Microsoft Docs
-description: Saiba como integrar logs de Azure Active Directory com o SumoLogic usando Azure Monitor
+title: Integrar o Splunk utilizando o Monitor Azure [ Monitor Azul] Microsoft Docs
+description: Saiba como integrar registos de Diretórios Ativos Azure com a SumoLogic utilizando o Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,43 +13,45 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/13/2019
+ms.date: 03/10/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7da3a545847382f8fed192a6ec4fe2ac75bb8b35
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2eda3643a7b1a341c7ed664dbfea933145f1f927
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014399"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968700"
 ---
-# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Como integrar logs de Azure Active Directory com o Splunk usando Azure Monitor
+# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Como: Integrar registos de Diretórios Ativos Azure com Splunk utilizando o Monitor Azure
 
-Neste artigo, você aprenderá a integrar os logs do Azure Active Directory (Azure AD) ao Splunk usando Azure Monitor. Primeiro, você roteia os logs para um hub de eventos do Azure e, em seguida, integra o Hub de eventos ao Splunk.
+Neste artigo, aprende-se a integrar os registos de Logigem Ativa azure (Azure AD) com a Splunk utilizando o Azure Monitor. Você primeiro encaminha os registos para um centro de eventos Azure, e depois integra o centro de eventos com splunk.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar esta funcionalidade, precisa de:
-* Um hub de eventos do Azure que contém logs de atividade do Azure AD. Saiba como [transmitir seus logs de atividade para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
-* O complemento de Azure Monitor para Splunk. [Baixe e configure sua instância do Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md).
 
-## <a name="integrate-azure-active-directory-logs"></a>Integrar logs de Azure Active Directory 
+- Um centro de eventos Azure que contém registos de atividade da Azure AD. Aprenda a transmitir os seus registos de [atividade para um centro de eventos.](quickstart-azure-monitor-stream-logs-to-event-hub.md) 
 
-1. Abra sua instância do Splunk e selecione **Resumo de dados**.
+-  O [Microsoft Azure Add on for Splunk](https://splunkbase.splunk.com/app/3757/). 
 
-    ![O botão "Resumo de dados"](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
+## <a name="integrate-azure-active-directory-logs"></a>Integrar registos de Diretório Ativo Azure 
 
-2. Selecione a guia **sourcetypes** e, em seguida, selecione **Amal: aadal: Audit**
+1. Abra a sua instância Splunk e selecione **Data Sumário**.
 
-    ![A guia SourceType de Resumo de dados](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+    ![O botão "Resumo de Dados"](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-    Os logs de atividade do Azure AD são mostrados na figura a seguir:
+2. Selecione o separador **Sourcetypes** e, em seguida, selecione **amal: aadal:audit**
+
+    ![O separador Fontes Sumárias de Dados](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+
+    Os registos de atividade da AD Azure são apresentados na seguinte figura:
 
     ![Registos de atividade](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
 
 > [!NOTE]
-> Se você não puder instalar um complemento em sua instância do Splunk (por exemplo, se estiver usando um proxy ou em execução no Splunk Cloud), você poderá encaminhar esses eventos para o coletor de eventos HTTP Splunk. Para fazer isso, use essa [função do Azure](https://github.com/Microsoft/AzureFunctionforSplunkVS), que é disparada por novas mensagens no Hub de eventos. 
+> Se não conseguir instalar um addon na sua instância Splunk (por exemplo, se estiver a utilizar um proxy ou a correr na Nuvem Splunk), pode encaminhar estes eventos para o Splunk HTTP Event Collector. Para tal, utilize esta [função Azure](https://github.com/Microsoft/AzureFunctionforSplunkVS), que é desencadeada por novas mensagens no centro do evento. 
 >
 
 ## <a name="next-steps"></a>Passos seguintes

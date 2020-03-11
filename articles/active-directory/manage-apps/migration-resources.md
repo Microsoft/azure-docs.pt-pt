@@ -1,6 +1,6 @@
 ---
-title: Recursos para a migração de aplicações para o Azure Active Directory | Documentos da Microsoft
-description: Recursos para ajudar a migrar o acesso à aplicação e a autenticação para o Azure Active Directory (Azure AD).
+title: Recursos para aplicações migratórias para o Diretório Ativo do Azure Microsoft Docs
+description: Recursos para ajudá-lo a migrar o acesso e autenticação da aplicação para o Azure Ative Directory (Azure AD).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,30 +8,30 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/19/2018
+ms.date: 02/29/2020
 ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39704b25c26998e16ca8080c4e44dd1adf6965c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b30469858a5dd83f7f5f707f74466302b3000510
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108222"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968731"
 ---
-# <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para a migração de aplicativos para o Azure Active Directory
+# <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para candidaturas migratórias para o Diretório Ativo do Azure
 
-Recursos para ajudar a migrar o acesso à aplicação e a autenticação para o Azure Active Directory (Azure AD). Este breve inquérito (https://aka.ms/AppsMigrationFeedback) para fornecer comentários nas suas aplicações de migrar de experiência para o Azure AD (incluindo bloqueadores de migração, precisa de ferramentas / orientação ou motivos para reter o IDP no local). 
+Recursos para ajudá-lo a migrar o acesso e autenticação da aplicação para o Azure Ative Directory (Azure AD). Faça este pequeno levantamento (https://aka.ms/AppsMigrationFeedback) para fornecer feedback sobre a sua experiência migrando aplicações para a AD Azure (incluindo bloqueadores para migração, necessidade de ferramentas/orientação ou razões para manter o seu IDP no local). 
 
-| Resource  | Descrição  |
+| Recurso  | Descrição  |
 |:-----------|:-------------|
-|[Migrar seus aplicativos para o Azure AD](https://aka.ms/migrateapps/whitepaper) | Este white paper apresenta as vantagens da migração e descreve como planear a migração em quatro fases, claramente descritos: deteção, classificação, migração e gerenciamento contínuo. Vai ser orientado ao longo como pensar sobre o processo e dividir seu projeto em partes de fácil compreensão. Ao longo do documento são links para recursos importantes que ajudarão ao longo do caminho. |
-|[Guia de soluções: Migrar aplicações dos serviços de Federação do Active Directory (AD FS) para o Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Este guia de soluções descreve as mesmas quatro fases de planejamento e a execução de um projeto de migração de aplicação descrito num nível mais alto o White Paper de migração. Neste guia, aprenderá como aplicar essas fases para o objetivo específico de mover uma aplicação de Azure Directory Federated Services (AD FS) para o Azure AD.|
-| [Ferramenta: Script de preparação de migração de serviços de Federação do Active Directory](https://aka.ms/migrateapps/adfstools) | Este é um script pode executar no seu servidor de serviços de Federação do Active Directory (AD FS) no local para determinar a preparação dos aplicativos para a migração para o Azure AD.|
-| [Plano de implantação: Migrar do AD FS para sincronização de hash de palavra-passe](https://aka.ms/ADFSTOPHSDPDownload) | Com a sincronização de hash de palavra-passe, os hashes de palavras-passe do utilizador são sincronizados do Active Directory no local para o Azure AD. Isso permite que o Azure AD para autenticar os utilizadores sem a interação com o Active Directory no local.| 
-| [Plano de implantação: Migrar do AD FS para autenticação pass-through](https://aka.ms/ADFSTOPTADPDownload)|Autenticação pass-through do Azure AD ajuda os utilizadores que inicie sessão no local e aplicações baseadas na cloud com a mesma palavra-passe. Esta funcionalidade fornece os seus utilizadores com uma melhor experiência, uma vez que eles têm um menos palavra-passe para se lembrar. Também reduz os custos de suporte técnico de TI vez que os usuários têm menos probabilidade de esquecer como iniciar sessão, quando apenas precisarem de Lembre-se de uma palavra-passe. Quando as pessoas iniciam sessão com o Azure AD, esta funcionalidade valida as respetivas palavras-passe diretamente no seu Active Directory no local.|
-| [Plano de implantação: Ativar o início de sessão único para uma aplicação SaaS com o Azure AD](https://aka.ms/SSODPDownload) | Única início de sessão (SSO) ajuda a que aceder a todas as aplicações e recursos de que precisa para fazer negócio, ao iniciar sessão apenas uma vez, com uma conta de utilizador único. Por exemplo, após um utilizador tem sessão iniciada, o utilizador pode mover da Microsoft Office, ao SalesForce, a caixa sem autenticação (por exemplo, escrever uma palavra-passe) uma segunda vez. 
-| [Plano de implantação: Alargamento das aplicações para o Azure AD com o Proxy de aplicações](https://aka.ms/AppProxyDPDownload)| Fornecer acesso a partir de computadores portáteis de funcionários e outros dispositivos para locais aplicativos sempre envolveu redes privadas virtuais (VPNs) ou desmilitarizada zonas (DMZs). Estas soluções não só são complexas e difíceis de proteger, como também são caras em termos de configuração e gestão. Proxy de aplicações do Azure AD torna mais fácil para aceder a aplicações no local. |
-| [Planos de implantação](../fundamentals/active-directory-deployment-plans.md) | Encontre mais planos de implementação para a implementação de recursos, como a autenticação Multifator, acesso condicional, aprovisionamento de utilizadores, SSO totalmente integrado, reposição de palavra-passe self-service e muito mais! |
+|[Migrando as suas apps para o Azure AD](https://aka.ms/migrateapps/whitepaper) | Este livro branco apresenta os benefícios da migração e descreve como planear a migração em quatro fases claramente delineadas: descoberta, classificação, migração e gestão contínua. Você será guiado através de como pensar sobre o processo e dividir o seu projeto em pedaços fáceis de consumir. Ao longo do documento estão ligações a recursos importantes que o ajudarão ao longo do caminho. |
+|[Guia de soluções: Aplicações migratórias dos Serviços da Federação de Diretórios Ativos (AD FS) para a Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Este guia de soluções percorre-o através das mesmas quatro fases de planeamento e execução de um projeto de migração de aplicações descrito a um nível mais elevado no livro branco da migração. Neste guia, você aprenderá a aplicar essas fases ao objetivo específico de mover uma aplicação de Azure Directy Federated Services (AD FS) para Azure AD.|
+| [Ferramenta: Roteiro de prontidão de migração de serviços da Federação de Serviços de Diretório Ativo](https://aka.ms/migrateapps/adfstools) | Este é um script que pode executar no seu servidor ative directory federation services (AD FS) para determinar a prontidão de apps para migração para AD Azure.|
+| [Plano de implementação: Migrar de AD FS para sincronização de hash de senha](https://aka.ms/ADFSTOPHSDPDownload) | Com a sincronização de hash de palavra-passe, as hashes das palavras-passe dos utilizadores são sincronizadas de diretório ativo no local para Azure AD. Isto permite que a AD Azure autentique os utilizadores sem interagir com o Diretório Ativo no local.| 
+| [Plano de implantação: Migrar da AD FS para a autenticação pass-through](https://aka.ms/ADFSTOPTADPDownload)|A autenticação pass-through azure AD ajuda os utilizadores a iniciar em simultâneo aplicações no local e na nuvem utilizando a mesma palavra-passe. Esta funcionalidade proporciona aos seus utilizadores uma melhor experiência, uma vez que têm menos uma senha para recordar. Também reduz os custos de helpdesk de TI porque os utilizadores são menos propensos a esquecer como iniciar sessão quando só precisam de se lembrar de uma palavra-passe. Quando as pessoas iniciam sessão com o Azure AD, esta funcionalidade valida as respetivas palavras-passe diretamente no seu Active Directory no local.|
+| [Plano de implementação: Permitir um único sign-on para uma aplicação SaaS com AD Azure](https://aka.ms/SSODPDownload) | O único registo (SSO) ajuda-o a aceder a todas as aplicações e recursos necessários para fazer negócios, ao mesmo tempo que assina apenas uma vez, utilizando uma única conta de utilizador. Por exemplo, depois de um utilizador ter assinado, o utilizador pode passar do Microsoft Office, para O SalesForce, para o Box sem autenticar (por exemplo, digitar uma palavra-passe) uma segunda vez. 
+| [Plano de implementação: Alargamento de apps a AD Azure com Procuração de Aplicações](https://aka.ms/AppProxyDPDownload)| O acesso dos portáteis dos funcionários e de outros dispositivos a aplicações no local envolveu tradicionalmente redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). Estas soluções não só são complexas e difíceis de proteger, como também são caras em termos de configuração e gestão. A Procuração de Aplicações Azure AD facilita o acesso às aplicações no local. |
+| [Planos de implantação](../fundamentals/active-directory-deployment-plans.md) | Encontre mais planos de implementação para funcionalidades de implementação como autenticação multi-Factor, Acesso Condicional, fornecimento de utilizadores, SSO sem emenda, reset de senha de autosserviço, e muito mais! |
 
 

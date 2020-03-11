@@ -1,287 +1,287 @@
 ---
-title: Avaliar servidores usando dados de servidor importados com a avaliação de servidor de migrações para Azure
-description: Descreve como avaliar servidores locais para migração para o Azure com a avaliação de servidor de migrações para Azure usando dados importados.
+title: Avaliar servidores utilizando dados do servidor importados com avaliação do servidor migratório Azure
+description: Descreve como avaliar os servidores no local para migração para Azure com a Avaliação do Servidor Migratório Azure utilizando dados importados.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 060399952545c903fec8ecf08d99e438883c9fd1
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902544"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079867"
 ---
-# <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores usando dados importados
+# <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
-Este artigo explica como avaliar servidores locais com a ferramenta [migrações para Azure: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) , importando os metadados do servidor em formato CSV (valores separados por vírgula). Esse método de avaliação não exige que você configure o dispositivo de migrações para Azure para criar uma avaliação. É útil se:
+Este artigo explica como avaliar os servidores no local com a ferramenta De avaliação do [servidor Azure Migração,](migrate-services-overview.md#azure-migrate-server-assessment-tool) importando metadados do servidor em formato de valores separados em vírem (CSV). Este método de avaliação não requer que você crie o aparelho Migratório Azure para criar uma avaliação. É útil se:
 
-- Você deseja criar uma avaliação rápida e inicial antes de implantar o dispositivo.
-- Você não pode implantar o dispositivo de migrações para Azure em sua organização.
-- Você não pode compartilhar credenciais que permitam o acesso a servidores locais.
-- As restrições de segurança impedem que você colete e envie dados coletados pelo dispositivo para o Azure. Você pode controlar os dados que compartilha em um arquivo importado. Além disso, grande parte dos dados (por exemplo, fornecimento de endereços IP) é opcional.
+- Pretende criar uma avaliação rápida e inicial antes de utilizar o aparelho.
+- Não pode implantar o aparelho Azure Migrate na sua organização.
+- Não pode partilhar credenciais que permitem o acesso aos servidores no local.
+- As restrições de segurança impedem-no de recolher e enviar dados recolhidos pelo aparelho para o Azure. Pode controlar os dados que partilha num ficheiro importado. Além disso, grande parte dos dados (por exemplo, fornecer endereços IP) é opcional.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Lembre-se destes pontos:
+Esteja atento a estes pontos:
 
-- Você pode adicionar até um máximo de 20.000 servidores em um único arquivo CSV.
-- Você pode adicionar até 20.000 servidores em um projeto de migrações para Azure usando CSV.
-- Você pode carregar informações do servidor para a avaliação do servidor várias vezes usando CSV.
-- A coleta de informações do aplicativo é útil para avaliar seu ambiente local para migração. No entanto, a avaliação do servidor não executa atualmente a avaliação no nível do aplicativo ou leva os aplicativos em conta ao criar uma avaliação.
+- Pode adicionar um máximo de 20.000 servidores num único ficheiro CSV.
+- Pode adicionar até 20.000 servidores num projeto Azure Migrate utilizando cSV.
+- Pode enviar várias vezes as informações do servidor para a Avaliação do Servidor utilizando o CSV.
+- Recolher informações sobre aplicações é útil na avaliação do seu ambiente no local para migração. No entanto, a Avaliação do Servidor não realiza atualmente a avaliação do nível de aplicação ou tem em conta as aplicações ao criar uma avaliação.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Configure um projeto de migrações para Azure.
-> * Preencha um arquivo CSV com as informações do servidor.
-> * Importe o arquivo para adicionar informações do servidor à avaliação do servidor.
-> * Crie e revise uma avaliação.
+> * Criar um projeto Azure Migrate.
+> * Preencha um ficheiro CSV com informações do servidor.
+> * Importe o ficheiro para adicionar informações do servidor à Avaliação do Servidor.
+> * Criar e rever uma avaliação.
 
 > [!NOTE]
-> Os tutoriais mostram o caminho de implantação mais simples para um cenário, para que você possa configurar rapidamente uma prova de conceito. Os tutoriais usam as opções padrão sempre que possível e não mostram todas as configurações e caminhos possíveis. Para obter instruções detalhadas, examine os guias de instruções.
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário, para que possa rapidamente configurar uma prova de conceito. Os tutoriais usam opções padrão sempre que possível, e não mostram todas as configurações e caminhos possíveis. Para obter instruções detalhadas, reveja os guias como fazer.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>Definir permissões do Azure para migrações para Azure
+## <a name="set-azure-permissions-for-azure-migrate"></a>Definir permissões azure para Azure Migrate
 
-Sua conta do Azure precisa de permissões para criar um projeto de migrações para Azure.
+A sua conta Azure precisa de permissões para criar um projeto Azure Migrate.
 
-1. No portal do Azure, abra a assinatura e selecione **controle de acesso (iam)** .
-2. Em **verificar acesso**, localize a conta relevante e, em seguida, selecione-a para exibir permissões.
-3. Verifique se você tem permissões de **colaborador** ou **proprietário** .
-    - Se você acabou de criar uma conta gratuita do Azure, você é o proprietário da sua assinatura.
-    - Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir a função.
+1. No portal Azure, abra a subscrição e selecione controlo de **acesso (IAM)** .
+2. No **Check access,** encontre a conta relevante e, em seguida, selecione-a para visualizar permissões.
+3. Certifique-se de que tem permissões **de Contribuinte** ou **Proprietário.**
+    - Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição.
+    - Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
 
-## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto de migrações para Azure
+## <a name="set-up-an-azure-migrate-project"></a>Criar um projeto Azure Migrate
 
-Para configurar um novo projeto de migrações para Azure:
+Para criar um novo projeto Azure Migrate:
 
-1. No portal do Azure, em **todos os serviços**, pesquise **migrações para Azure**.
+1. No portal Azure, em **Todos os serviços,** procure **o Azure Migrate.**
 2. Em **Serviços**, selecione **Azure Migrate**.
-3. Em **visão geral**, em **descobrir, avaliar e migrar servidores**, selecione **avaliar e migrar servidores**.
+3. Em **visão geral**, em **Discover, avalie e emigra os servidores,** selecione **avaliar e migrar servidores**.
 
-    ![Descobrir e avaliar servidores](./media/tutorial-assess-import/assess-migrate.png)
+    ![Descubra e avalie servidores](./media/tutorial-assess-import/assess-migrate.png)
 
-4. Em **introdução**, selecione **Adicionar ferramentas**.
+4. Em **Início,** selecione **Adicionar ferramentas**.
 5. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
-6. Em **detalhes do projeto**, especifique o nome do projeto e a geografia em que você deseja criar o projeto. Para mais informações:
+6. Em DETALHES DO **PROJETO,** especifique o nome do projeto e a geografia em que pretende criar o projeto. Para obter mais informações:
 
-    - Examine as [geografias com suporte](migrate-support-matrix.md#supported-geographies). A geografia do projeto só é utilizada para armazenar os metadados recolhidos das VMs no local.
+    - Rever [geografias apoiadas.](migrate-support-matrix.md#supported-geographies) A geografia do projeto só é utilizada para armazenar os metadados recolhidos das VMs no local.
     - Pode selecionar qualquer região de destino ao executar uma migração.
 
-    ![Criar um projeto de migrações para Azure](./media/tutorial-assess-import/migrate-project.png)
+    ![Criar um projeto Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
 7. Selecione **Seguinte**.
-8. Em **selecionar ferramenta de avaliação**, selecione **migrações para Azure: avaliação do servidor** > **Avançar**.
+8. Na **ferramenta de avaliação Select**, selecione **Azure Migrate: Avaliação do servidor** > **Seguinte**.
 
-    ![Criar uma avaliação de migrações para Azure](./media/tutorial-assess-import/assessment-tool.png)
+    ![Criar uma avaliação de Migração Azure](./media/tutorial-assess-import/assessment-tool.png)
 
 9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por agora** > **Seguinte**.
-10. Em **examinar + adicionar ferramentas**, examine as configurações e, em seguida, selecione **Adicionar ferramentas**.
-11. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado. Em seguida, você será levado para a página do projeto. Se não vir o projeto, poderá aceder ao mesmo em **Servidores** no dashboard do Azure Migrate.
+10. Em **Rever + adicionar ferramentas,** reveja as definições e, em seguida, selecione Adicionar **ferramentas**.
+11. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado. Em seguida, será levado para a página do projeto. Se não vir o projeto, poderá aceder ao mesmo em **Servidores** no dashboard do Azure Migrate.
 
 ## <a name="prepare-the-csv"></a>Preparar o CSV
 
-Baixe o modelo CSV e adicione informações do servidor a ele.
+Descarregue o modelo CSV e adicione informações do servidor.
 
 ### <a name="download-the-template"></a>Transferir o modelo
 
-1. Em **metas de migração** > **servidores** > **migrações para Azure: avaliação do servidor**, selecione **descobrir**.
-2. Em **descobrir máquinas**, selecione **importar usando CSV**.
-3. Selecione **baixar** para baixar o modelo CSV. Como alternativa, você pode [baixá-lo diretamente](https://go.microsoft.com/fwlink/?linkid=2109031).
+1. Em **Objetivos de migração** > **servidores** > **Azure Migrate: Avaliação do servidor**, selecione **Discover**.
+2. Nas **máquinas Discover,** selecione **Importar utilizando CSV**.
+3. Selecione **Baixar** para descarregar o modelo CSV. Em alternativa, pode [descarregá-lo diretamente](https://go.microsoft.com/fwlink/?linkid=2109031).
 
-    ![Baixar modelo CSV](./media/tutorial-assess-import/download-template.png)
+    ![Descarregue o modelo CSV](./media/tutorial-assess-import/download-template.png)
 
 ### <a name="add-server-information"></a>Adicionar informações do servidor
 
-Coletar dados do servidor e adicioná-los ao arquivo CSV.
+Recolha os dados do servidor e adicione-os ao ficheiro CSV.
 
-- Para coletar dados, você pode exportá-los de ferramentas usadas para o gerenciamento de servidor local, como VMware vSphere ou o banco de dados de gerenciamento de configuração (CMDB).
-- Para examinar os dados de exemplo, baixe nosso [arquivo de exemplo](https://go.microsoft.com/fwlink/?linkid=2108405).
+- Para recolher dados, pode exportá-lo a partir de ferramentas que utiliza para a gestão de servidores no local, como vSphere VMware ou a sua base de dados de gestão de configuração (CMDB).
+- Para rever os dados da amostra, descarregue o nosso [ficheiro de exemplo.](https://go.microsoft.com/fwlink/?linkid=2108405)
 
-A tabela a seguir resume os campos de arquivo para preencher:
+A tabela seguinte resume os campos de arquivo para preencher:
 
 **Nome do campo** | **Obrigatório** | **Detalhes**
 --- | --- | ---
-**Nome do servidor** | Sim | É recomendável especificar o FQDN (nome de domínio totalmente qualificado).
+**Nome do servidor** | Sim | Recomendamos especificar o nome de domínio totalmente qualificado (FQDN).
 **Endereço IP** | Não | Endereço do servidor.
-**Núcleos** | Sim | Número de núcleos de processador alocados para o servidor.
-**Memória** | Sim | Total de RAM, em MB, alocada para o servidor.
-**Nome do so** | Sim | Sistema operacional do servidor.
-**Versão do SO** | Não | Versão do sistema operacional do servidor.
-**Número de discos** | Não | Não será necessário se detalhes de disco individuais forem fornecidos.
-**Tamanho do disco 1**  | Não | Tamanho máximo do disco, em GB.<br/>Você pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Você pode adicionar até oito discos.
-**Operações de leitura de disco 1** | Não | Operações de leitura de disco por segundo.
-**Operações de gravação do disco 1** | Não | Operações de gravação de disco por segundo.
-**Taxa de transferência de leitura do disco 1** | Não | Dados lidos do disco por segundo, em MB por segundo.
-**Taxa de transferência de gravação do disco 1** | Não | Dados gravados no disco por segundo, em MB por segundo.
-**Porcentagem de utilização da CPU** | Não | Porcentagem da CPU usada.
-**Porcentagem de utilização da memória** | Não | Porcentagem de RAM usada.
-**Total de operações de leitura de discos** | Não | Operações de leitura de disco por segundo.
-**Total de operações de gravação de discos** | Não | Operações de gravação de disco por segundo.
-**Taxa de transferência de leitura do total de discos** | Não | Dados lidos do disco, em MB por segundo.
-**Taxa de transferência de gravação total de discos** | Não | Dados gravados no disco, em MB por segundo.
-**Rede na taxa de transferência** | Não | Dados recebidos pelo servidor, em MB por segundo.
-**Taxa de transferência de saída da rede** | Não | Dados transmitidos pelo servidor, em MB por segundo.
-**Tipo de firmware** | Não | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
-**Tipo de servidor** | Não | Os valores podem ser "físico" ou "virtual".
-**Visor** | Não | Hipervisor no qual um computador está em execução. <br/> Os valores podem ser "VMware", "Hyper-V", "Xen", "AWS", "GCP" ou "other".
-**Número de versão do hipervisor** | Não | Versão do hipervisor.
-**ID da máquina virtual** | Não | Identificador de VM. Esse é o valor de **InstanceUUid** para uma VM VMware vCenter ou a **ID de VM do Hyper-v** para o Hyper-v.
-**ID do Virtual Machine Manager** | Não | Esse é o valor de **InstanceUUid** para o VMware vCenter. Ele não é necessário para o Hyper-V.
+**Núcleos** | Sim | Número de núcleos de processador atribuídos ao servidor.
+**Memória** | Sim | RAM total, em MB, atribuído ao servidor.
+**Nome os** | Sim | Sistema operativo do servidor. <br/> Os nomes do sistema operativo que correspondam ou contêm os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
+**Versão do SO** | Não | Versão do sistema operativo do servidor.
+**Número de discos** | Não | Não é necessário se forem fornecidos detalhes individuais do disco.
+**Tamanho do disco 1**  | Não | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Pode adicionar até oito discos.
+**Disque1 leitura de operações** | Não | O disco lê operações por segundo.
+**Disque 1 write ops** | Não | Operações de escrita de disco por segundo.
+**Entrada de leitura do disco 1** | Não | Os dados são lidos a partir do disco por segundo, em MB por segundo.
+**Entrada de escrita de disco 1** | Não | Dados escritos ao disco por segundo, em MB por segundo.
+**Percentagem de utilização do CPU** | Não | Percentagem de CPU utilizada.
+**Percentagem de utilização da memória** | Não | Percentagem de RAM usada.
+**Total de discos de leitura ops** | Não | Operações de leitura de disco por segundo.
+**Total de discos escrevem operações** | Não | Operações de escrita de disco por segundo.
+**Total de discos lidos através de produção** | Não | Os dados são lidos a partir do disco, em MB por segundo.
+**Total de discos escrevem a produção** | Não | Dados escritos em disco, em MB por segundo.
+**Entrada em rede** | Não | Dados recebidos pelo servidor, em MB por segundo.
+**Entrada de rede out** | Não | Dados transmitidos pelo servidor, em MB por segundo.
+**Tipo firmware** | Não | Firmware de servidor. Os valores podem ser "BIOS" ou "UEFI".
+**Tipo de servidor** | Não | Os valores podem ser "Físicos" ou "Virtuais".
+**Hipervisor** | Não | Hipervisor em que uma máquina está a funcionar. <br/> Os valores podem ser "VMware", "Hyper-V", "Xen", "AWS", "GCP" ou "Outros".
+**Número da versão hypervisor** | Não | Versão hipervisora.
+**Id da máquina virtual** | Não | Identificador VM. Este é o valor **De CasoUUid** para um VMware vCenter VM, ou o **ID VM Hyper-V** para Hyper-V.
+**ID do gestor de máquinas virtuais** | Não | Este é o valor **De CasoUUid** para VMWare vCenter. Não é necessário para o Hyper-V.
 **Endereço MAC**| Não | Endereço MAC do servidor.
-**ID DO BIOS** | Não | ID do BIOS do servidor.
-**ID do servidor personalizado** | Não | ID de servidor local e exclusiva localmente. <br/> Útil para acompanhar o servidor importado pela ID local.
-**Nome do aplicativo 1** | Não | Nome da carga de trabalho em execução no servidor.<br/>Você pode adicionar detalhes para mais aplicativos [adicionando colunas](#add-multiple-applications) no modelo. Você pode adicionar até cinco aplicativos.
-**Tipo de aplicativo 1** | Não | Tipo de carga de trabalho em execução no servidor
-**Versão do aplicativo 1** | Não | Versão da carga de trabalho em execução no servidor.
-**Expiração da licença do aplicativo 1** | Não | Expiração de licença da carga de trabalho (se aplicável).
-**Unidade de negócios** | Não | Unidade de negócios à qual o servidor pertence.
-**Proprietário da empresa** | Não | Proprietário da unidade de negócios.
-**Nome do aplicativo de negócios** | Não | Nome do aplicativo ao qual o aplicativo pertence.
+**BIOS ID** | Não | ID BIOS do servidor.
+**ID do servidor personalizado** | Não | Identificação do servidor local e única no local. <br/> Útil para rastrear o servidor importado por identificação local.
+**Nome da aplicação 1** | Não | Nome da carga de trabalho a funcionar no servidor.<br/>Pode adicionar detalhes para mais aplicações [adicionando colunas](#add-multiple-applications) no modelo. Pode somar cinco aplicações.
+**Aplicação 1 tipo** | Não | Tipo de carga de trabalho em execução no servidor
+**Versão da aplicação 1** | Não | Versão da carga de trabalho em execução no servidor.
+**Pedido 1 licença expiração** | Não | Caducidade da carga de trabalho (se aplicável).
+**Unidade de negócio** | Não | Unidade de negócios a que o servidor pertence.
+**Empresário** | Não | Dono de unidade de negócios.
+**Nome da aplicação de negócios** | Não | Nome da aplicação a que pertence a aplicação.
 **Localização** | Não | Datacenter no qual o servidor está localizado.
-**Data de descomissionamento do servidor** | Não | Data de descomissionamento do servidor físico ou do servidor físico subjacente do servidor virtual.
+**Data de desmantelamento do servidor** | Não | Data de desativação do servidor físico ou do servidor físico subjacente do servidor virtual.
 
-### <a name="add-operating-systems"></a>Adicionar os sistemas operacionais
+### <a name="add-operating-systems"></a>Adicionar sistemas operativos
 
-A avaliação reconhece nomes específicos do sistema operacional. Qualquer nome especificado deve corresponder exatamente a uma das cadeias de caracteres na [lista de nomes com suporte](#supported-operating-system-names).
+A avaliação reconhece nomes específicos do sistema operativo. Qualquer nome que especifique deve coincidir exatamente com uma das cordas da lista de [nomes suportados](#supported-operating-system-names).
 
-### <a name="add-multiple-disks"></a>Adicionar vários discos
+### <a name="add-multiple-disks"></a>Adicione vários discos
 
-O modelo fornece campos padrão para o primeiro disco. Você pode adicionar colunas semelhantes para até oito discos.
+O modelo fornece campos padrão para o primeiro disco. Pode adicionar colunas semelhantes para até oito discos.
 
 Por exemplo, para especificar todos os campos para um segundo disco, adicione estas colunas:
 
-- Tamanho do disco 2
-- Operações de leitura de disco 2
-- Operações de gravação de disco 2
-- Taxa de transferência de leitura do disco 2
-- Taxa de transferência de gravação do disco 2
+- Disco 2 tamanho
+- Disquei2 leitura de operações
+- Disque 2 write ops
+- Entrada de leitura do disco 2
+- Disque 2 escrever a entrada
 
-### <a name="add-multiple-applications"></a>Adicionar vários aplicativos
+### <a name="add-multiple-applications"></a>Adicionar várias aplicações
 
-O modelo fornece campos para um único aplicativo. Você pode adicionar colunas semelhantes para até cinco aplicativos.  
+O modelo fornece campos para uma única aplicação. Pode adicionar colunas semelhantes para até cinco aplicações.  
 
-Por exemplo, para especificar todos os campos para um segundo aplicativo, adicione estas colunas:
+Por exemplo, para especificar todos os campos para uma segunda aplicação, adicione estas colunas:
 
-- Nome do aplicativo 2
-- Tipo de aplicativo 2
-- Versão do aplicativo 2
-- Expiração da licença do aplicativo 2
+- Nome da aplicação 2
+- Aplicação 2 tipo
+- Versão da aplicação 2
+- Pedido 2 licença caducidade
 
 > [!NOTE]
-> As informações do aplicativo são úteis para avaliar seu ambiente local para migração. No entanto, a avaliação do servidor de migrações para Azure não executa atualmente a avaliação no nível do aplicativo ou leva os aplicativos em conta ao criar uma avaliação.
+> A informação da aplicação é útil na avaliação do seu ambiente no local para migração. No entanto, a Avaliação do Servidor De Migração Azure não realiza atualmente a avaliação do nível de aplicações ou tem em conta as aplicações ao criar uma avaliação.
 
 ## <a name="import-the-server-information"></a>Importar as informações do servidor
 
-Depois de adicionar informações ao modelo CSV, importe os servidores para a avaliação do servidor.
+Depois de adicionar informações ao modelo CSV, importe os servidores para a Avaliação do Servidor.
 
-1. Em migrações para Azure, em **descobrir máquinas**, vá para o modelo concluído.
-2. Selecione **Import** (Importar).
-3. O status de importação é mostrado.
-    - Se os avisos aparecerem no status, você poderá corrigi-los ou continuar sem solucioná-los.
-    - Para melhorar a precisão da avaliação, melhore as informações do servidor como sugeridas em avisos.
-    - Para exibir e corrigir avisos, selecione **baixar detalhes do aviso. CSV**. Esta operação baixa o CSV com avisos incluídos. Examine os avisos e corrija os problemas conforme necessário.
-    - Se forem exibidos erros no status para que o status da importação seja **falhado**, você deverá corrigir esses erros para poder continuar com a importação:
-        1. Baixe o CSV, que agora inclui detalhes do erro.
-        1. Examine e resolva os erros conforme necessário. 
-        1. Carregue o arquivo modificado novamente.
-4. Quando o status da importação for **concluído**, as informações do servidor foram importadas.
+1. Em Azure Migrate, em **Máquinas Discover,** vá ao modelo completo.
+2. Selecione **Import**.
+3. O estado de importação é demonstrado.
+    - Se os avisos aparecerem no estado, pode corrigi-los ou continuar sem os abordar.
+    - Para melhorar a precisão da avaliação, melhore a informação do servidor conforme sugerido nos avisos.
+    - Para visualizar e corrigir avisos, selecione detalhes de **aviso de descarregamento . CSV.** Esta operação descarrega o CSV com avisos incluídos. Reveja os avisos e corrija as questões conforme necessário.
+    - Se surgirem erros no estado de modo a que o estado de importação seja **falhado,** deve corrigir esses erros antes de poder continuar com a importação:
+        1. Descarregue o CSV, que agora inclui detalhes de erro.
+        1. Reveja e aborde os erros conforme necessário. 
+        1. Faça o upload do ficheiro modificado novamente.
+4. Quando o estado de importação estiver **concluído,** as informações do servidor foram importadas.
 
 ## <a name="update-server-information"></a>Atualizar informações do servidor
 
-Você pode atualizar as informações de um servidor importando os dados para o servidor novamente com o mesmo **nome de servidor**. Não é possível modificar o campo **nome do servidor** . Atualmente, não há suporte para a exclusão de servidores.
+Pode atualizar as informações para um servidor importando novamente os dados para o servidor com o mesmo **nome de Servidor**. Não pode modificar o campo de nome do **Servidor.** Atualmente, os servidores de desminagem não são suportados.
 
-## <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
+## <a name="verify-servers-in-the-portal"></a>Verifique os servidores no portal
 
-Para verificar se os servidores aparecem no portal do Azure após a descoberta:
+Para verificar se os servidores aparecem no portal Azure após a descoberta:
 
-1. Abra o painel migrações para Azure.
-2. Na página **migrar do Azure-servidores** > **migrações para Azure: avaliação do servidor** , selecione o ícone que exibe a contagem de **servidores descobertos**.
-3. Selecione a guia **com base na importação** .
+1. Abra o painel de migração Azure.
+2. Na **página Azure Migrate - Servers** > **Azure Migrate: Server Assessment,** selecione o ícone que apresenta a contagem para **servidores descobertos**.
+3. Selecione o separador **baseado em Importação.**
 
-## <a name="set-up-and-run-an-assessment"></a>Configurar e executar uma avaliação
+## <a name="set-up-and-run-an-assessment"></a>Configurar e fazer uma avaliação
 
-Você pode criar dois tipos de avaliações usando a avaliação do servidor.
+Pode criar dois tipos de avaliações utilizando a Avaliação do Servidor.
 
 **Tipo de avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado em desempenho** | Avaliações baseadas em valores de dados de desempenho especificados. | **Tamanho de VM recomendado**: com base nos dados de uso de CPU e memória.<br/><br/> **Tipo de disco recomendado (disco gerenciado Standard ou Premium)** : com base no IOPS (entrada/saída por segundo) e na taxa de transferência dos discos locais.
-**Como local** | Avaliações com base no dimensionamento local. | **Tamanho de VM recomendado**: com base no tamanho do servidor especificado.<br/><br> **Tipo de disco recomendado**: com base na configuração de tipo de armazenamento que você selecionar para a avaliação.
+**Baseado no desempenho** | Avaliações baseadas em valores de dados de desempenho especificados. | **Tamanho VM recomendado**: Baseado em CPU e dados de utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido por série ou premium)** : Baseado na entrada/saída por segundo (IOPS) e na entrada dos discos no local.
+**Como no local** | Avaliações baseadas no dimensionamento no local. | **Tamanho VM recomendado**: Com base no tamanho do servidor especificado.<br/><br> **Tipo**de disco recomendado : Com base na definição do tipo de armazenamento selecionada para a avaliação.
 
-Para executar uma avaliação:
+Para efazer uma avaliação:
 
-1. Examine as [práticas recomendadas](best-practices-assessment.md) para a criação de avaliações.
-2. Na guia **servidores** , no bloco **migrações para Azure: avaliação do servidor** , selecione **avaliar**.
+1. Reveja as [melhores práticas](best-practices-assessment.md) para a criação de avaliações.
+2. No separador **Servidores,** no **azulejo Azure Migrate: Server Assessment,** selecione **Avaliar**.
 
     ![Avaliar](./media/tutorial-assess-physical/assess.png)
 
-3. Em **avaliar servidores**, especifique um nome para a avaliação.
-4. Em **origem da descoberta**, selecione **computadores adicionados por meio de importar para migrações para Azure**.
-5. Selecione **Exibir tudo** para examinar as propriedades de avaliação.
+3. Em **avaliar os servidores,** especifique um nome para a avaliação.
+4. Na **fonte Discovery,** selecione **Máquinas adicionadas através da importação para o Azure Migrate**.
+5. Selecione **Ver tudo** para rever as propriedades de avaliação.
 
-    ![Propriedades da avaliação](./media/tutorial-assess-physical/view-all.png)
+    ![Propriedades de avaliação](./media/tutorial-assess-physical/view-all.png)
 
-6. Em **selecionar ou criar um grupo**, selecione **criar novo**e especifique um nome de grupo. Um grupo reúne uma ou mais VMs juntas para avaliação.
-7. Em **Adicionar computadores ao grupo**, selecione os servidores a serem adicionados ao grupo.
-8. Selecione **criar avaliação** para criar o grupo e, em seguida, execute a avaliação.
+6. Em **Selecionar ou criar um grupo,** selecione Criar **Novo**e especifique um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
+7. Em **Adicionar máquinas ao grupo,** selecione servidores para adicionar ao grupo.
+8. Selecione **Criar avaliação** para criar o grupo e, em seguida, executar a avaliação.
 
     ![Criar uma avaliação](./media/tutorial-assess-physical/assessment-create.png)
 
-9. Após a criação da avaliação, exiba-a em **servidores** > **migrações para Azure:** **avaliações de > de**avaliação do servidor.
-10. Selecione **Exportar avaliação** para baixá-lo como um arquivo do Microsoft Excel.
+9. Após a criação da avaliação, veja-a nos **Servidores** > **Azure Migrate: Avaliação** do servidor > **Avaliações**.
+10. Selecione **avaliação de Exportação** para descarregá-lo como um ficheiro Microsoft Excel.
 
-## <a name="review-an-assessment"></a>Examinar uma avaliação
+## <a name="review-an-assessment"></a>Rever uma avaliação
 
 Uma avaliação descreve:
 
-- **Preparação do Azure**: se os servidores são adequados para a migração para o Azure.
-- **Estimativa de custo mensal**: custos estimados de computação mensal e armazenamento para executar os servidores no Azure.
-- **Estimativa de custo de armazenamento mensal**: custos estimados para armazenamento em disco após a migração.
+- **Prontidão azure**: Se os servidores são adequados para migração para Azure.
+- **Estimativa mensal de custos**: Estimativa mensal de cálculo e armazenamento para executar os servidores em Azure.
+- **Estimativa mensal**do custo do armazenamento : Custos estimados para armazenamento de disco após migração.
 
-### <a name="view-an-assessment"></a>Exibir uma avaliação
+### <a name="view-an-assessment"></a>Ver uma avaliação
 
-1. Em **metas de migração** > **servidores**, selecione **avaliações** em **migrações para Azure: avaliação do servidor**.
-2. Em **avaliações**, selecione uma avaliação para abri-la.
+1. Nos **objetivos de migração** > **Servidores**, selecione **Avaliações** em **Azure Migrate: Server Assessment**.
+2. Em **Avaliações,** selecione uma avaliação para abri-la.
 
     ![Resumo da avaliação](./media/tutorial-assess-physical/assessment-summary.png)
 
-### <a name="review-azure-readiness"></a>Examinar a preparação do Azure
+### <a name="review-azure-readiness"></a>Rever a prontidão do Azure
 
-1. Na **preparação do Azure**, determine se os servidores estão prontos para a migração para o Azure.
-2. Examine o status:
-    - **Pronto para o Azure**: as migrações para Azure recomendam um tamanho de VM e estimativas de custo para VMs na avaliação.
-    - **Pronto com condições**: mostra problemas e correção sugerida.
-    - **Não está pronto para o Azure**: mostra problemas e correção sugerida.
-    - **Preparação desconhecida**: as migrações para Azure não podem avaliar a preparação, devido a problemas de disponibilidade de dados.
+1. Na **prontidão do Azure,** determine se os servidores estão prontos para a migração para O Azure.
+2. Reveja o estado:
+    - **Pronto para Azure**: A Azure Migrate recomenda uma estimativa de tamanho VM e custos para os VMs na avaliação.
+    - **Pronto com condições**: Mostra problemas e sugeriu reparação.
+    - **Não está pronto para O Azure:** Mostra problemas e sugeriu reparação.
+    - **Prontidão desconhecida**: O Azure Migrate não pode avaliar a prontidão, devido a problemas de disponibilidade de dados.
 
-3. Selecione um status de **preparação do Azure** . Você pode exibir os detalhes de preparação do servidor e fazer uma busca detalhada para ver os detalhes do servidor, incluindo as configurações de computação, armazenamento e rede.
+3. Selecione um estado de **prontidão Azure.** Pode visualizar detalhes de prontidão do servidor e perfurar para ver detalhes do servidor, incluindo definições de computação, armazenamento e rede.
 
-### <a name="review-cost-details"></a>Examinar detalhes de custo
+### <a name="review-cost-details"></a>Analisar detalhes de custos
 
-Essa exibição mostra o custo estimado de computação e armazenamento de VMs em execução no Azure. Pode:
+Esta visão mostra o cálculo estimado e o custo de armazenamento de vMs de funcionamento em Azure. Pode:
 
-- Examine os custos mensais de computação e armazenamento. Os custos são agregados para todos os servidores no grupo avaliado.
+- Reveja os custos mensais de cálculo e armazenamento. Os custos são agregados para todos os servidores do grupo avaliado.
 
-    - As estimativas de custo são baseadas nas recomendações de tamanho para um computador e seus discos e propriedades.
-    - Os custos mensais estimados para computação e armazenamento são mostrados.
-    - A estimativa de custo é para executar os servidores locais como VMs de IaaS (infraestrutura como serviço). A avaliação do servidor não considera os custos de plataforma como serviço (PaaS) ou software como serviço (SaaS).
+    - As estimativas de custos baseiam-se nas recomendações de tamanho para uma máquina, e nos seus discos e propriedades.
+    - Os custos mensais estimados para a computação e armazenamento são apresentados.
+    - A estimativa de custos é para executar os servidores no local como VMs de infra-estrutura-como-um-serviço (IaaS). A Avaliação do Servidor não considera os custos da plataforma como um serviço (PaaS) ou do software-as-a-service (SaaS).
 
-- Revisar estimativas de custo de armazenamento mensal. Essa exibição mostra os custos de armazenamento agregados para o grupo avaliado, divididos entre diferentes tipos de discos de armazenamento.
-- Faça uma busca detalhada para ver os detalhes de VMs específicas.
+- Reveja as estimativas mensais de custos de armazenamento. Esta vista mostra os custos de armazenamento agregados para o grupo avaliado, divididos entre diferentes tipos de discos de armazenamento.
+- Faça um furo para ver detalhes para VMs específicos.
 
 > [!NOTE]
-> As classificações de confiança não são atribuídas a avaliações de servidores importados para a avaliação do servidor usando CSV.
+> As classificações de confiança não são atribuídas a avaliações de servidores importados para a Avaliação do Servidor utilizando o CSV.
 
-## <a name="supported-operating-system-names"></a>Nomes de sistema operacional com suporte
+## <a name="supported-operating-system-names"></a>Nomes de sistema operativo suportado
 
 <!-- BEGIN A - H -->
 
 :::row:::
    :::column span="2":::
-      **A-H**
+      **A - H**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -297,7 +297,7 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
 :::row:::
    :::column span="":::
       CentOS<br/>
-      CentOS 4/5
+      Centos 4/5
    :::column-end:::
    :::column span="":::
       CoreOS Linux
@@ -320,7 +320,7 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
 
 :::row:::
    :::column span="2":::
-      **I-R**
+      **I - R**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -339,8 +339,8 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
    :::column span="":::
       Oracle Linux<br/>
        Oracle Linux 4/5<br/>
-      Oracle Solaris 10<br/>
-       Oracle Solaris 11
+      Oráculo Solaris 10<br/>
+       Oráculo Solaris 11
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -348,10 +348,10 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
       Red Hat Enterprise Linux 2<br/>
       Red Hat Enterprise Linux 3<br/>
       Red Hat Enterprise Linux 4<br/>
-      Red Hat Enterprise Linux 5<br/>
-      Red Hat Enterprise Linux 6<br/>
-      Red Hat Enterprise Linux 7<br/>
-      Red Hat Fedora
+      Empresa de Chapéu Vermelho Linux 5<br/>
+      Empresa de Chapéu Vermelho Linux 6<br/>
+      Empresa de Chapéu Vermelho Linux 7<br/>
+      Chapéu Vermelho Fedora
    :::column-end:::
 :::row-end:::
 
@@ -359,7 +359,7 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
 
 :::row:::
    :::column span="2":::
-      **S-T**
+      **S - T**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -369,14 +369,14 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
       SCO UnixWare 7
    :::column-end:::
    :::column span="":::
-      Serenity sistemas eComStation 1<br/>
+      Serenity Systems eComStation 1<br/>
       Serenity Systems eComStation 2
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      Sun Microsystems Solaris 8<br/>
-      Sun Microsystems Solaris 9
+      Solaris 8<br/>
+      Solarsolar solaris 9
    :::column-end:::
    :::column span="":::
       SUSE Linux Enterprise 10<br/>
@@ -384,14 +384,14 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
       SUSE Linux Enterprise 12<br/>
       SUSE Linux Enterprise 8/9<br/>
       SUSE Linux Enterprise 11<br/>
-      SUSE openSUSE
+      SUSE abre SUSE
    :::column-end:::
 :::row-end:::
 
 <!-- BEGIN U - Z -->
 :::row:::
    :::column span="2":::
-      **U-Z**
+      **U - Z**
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -406,7 +406,7 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
 :::row-end:::
 :::row:::
    :::column span="":::
-      Windows 10<br/>
+      Windows 10<br/>
       Windows 2000<br/>
       Windows 3<br/>
       Windows 7<br/>
@@ -419,12 +419,12 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
    :::column-end:::
    :::column span="":::
       Windows Server 2008<br/>
-      Windows Server 2008 R2<br/>
+      Windows Server 2008 R2<br/>
       Windows Server 2012<br/>
       Windows Server 2012 R2<br/>
       Windows Server 2016<br/>
       Windows Server 2019<br/>
-      Limite do Windows Server<br/>
+      Limiar do servidor do Windows<br/>
       Windows Vista<br/>
       Windows Web Server 2008 R2<br/>
       Windows XP Professional
@@ -436,7 +436,7 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
 Neste tutorial:
 
 > [!div class="checklist"]
-> * Servidores importados para migrações para Azure: avaliação de servidor usando CSV.
-> * Criado e revisado uma avaliação.
+> * Servidores importados para Azure Migrate: Avaliação do servidor utilizando CSV.
+> * Criou e reviu uma avaliação.
 
-Agora, [implante um dispositivo](./migrate-appliance.md) para obter avaliações mais precisas e reúna servidores em grupos para uma avaliação mais profunda usando a [análise de dependência](./concepts-dependency-visualization.md).
+Agora, [implante um aparelho](./migrate-appliance.md) para avaliações mais precisas e junte os servidores em grupos para uma avaliação mais profunda utilizando a análise da [dependência](./concepts-dependency-visualization.md).

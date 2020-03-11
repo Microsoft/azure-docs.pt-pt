@@ -1,46 +1,38 @@
 ---
-title: Usar Cloud-init para definir o nome do host para uma VM do Linux no Azure
-description: Como usar Cloud-init para personalizar uma VM do Linux durante a criação com o CLI do Azure
-services: virtual-machines-linux
-documentationcenter: ''
+title: Use cloud-init para definir o nome de anfitrião para um VM Linux
+description: Como usar cloud-init para personalizar um VM Linux durante a criação com o Azure CLI
 author: rickstercdn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: adac9dc41aaba7ce6bfd9f01917d647174b41282
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 631b8ef83d5fbf10ec401df7432b23238f2ae2e6
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036720"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969175"
 ---
-# <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Usar Cloud-init para definir o nome do host para uma VM do Linux no Azure
-Este artigo mostra como usar [Cloud-init](https://cloudinit.readthedocs.io) para configurar um nome de host específico em uma VM (máquina virtual) ou VMSS (conjuntos de dimensionamento de máquinas virtuais) no tempo de provisionamento no Azure. Esses scripts de Cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações sobre como a Cloud-init funciona nativamente no Azure e o distribuições do Linux com suporte, consulte [visão geral de Cloud-init](using-cloud-init.md)
+# <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Use cloud-init para definir o nome de anfitrião para um Linux VM em Azure
+Este artigo mostra-lhe como usar [cloud-init](https://cloudinit.readthedocs.io) para configurar um nome de anfitrião específico em uma máquina virtual (VM) ou conjuntos de escala de máquina virtual (VMSS) no tempo de provisionamento em Azure. Estes scripts de cloud-init funcionam na primeira bota uma vez que os recursos foram aprovisionados pelo Azure. Para mais informações sobre como o cloud-init funciona nativamente em Azure e os distros linux suportados, consulte a [visão geral cloud-init](using-cloud-init.md)
 
-## <a name="set-the-hostname-with-cloud-init"></a>Definir o nome do host com Cloud-init
-Por padrão, o hostname é o mesmo que o nome da VM quando você cria uma nova máquina virtual no Azure.  Para executar um script Cloud-init para alterar esse nome de host padrão ao criar uma VM no Azure com [AZ VM Create](/cli/azure/vm), especifique o arquivo Cloud-init com a opção `--custom-data`.  
+## <a name="set-the-hostname-with-cloud-init"></a>Detete o nome de anfitrião com cloud-init
+Por padrão, o nome de anfitrião é o mesmo que o nome VM quando se cria uma nova máquina virtual em Azure.  Para executar um script de cloud-init para alterar este nome de anfitrião padrão quando criar um VM em Azure com [az vm criar](/cli/azure/vm), especifique o ficheiro cloud-init com o `--custom-data` switch.  
 
-Para ver o processo de atualização em ação, crie um arquivo em seu shell atual chamado *cloud_init_hostname. txt* e cole a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell não em seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_hostname.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para usar o editor do **nano** . Certifique-se de que todo o arquivo Cloud-init seja copiado corretamente, especialmente a primeira linha.  
+Para ver o processo de atualização em ação, crie um ficheiro na sua concha atual chamado *cloud_init_hostname.txt* e cola a seguinte configuração. Para este exemplo, crie o ficheiro na Cloud Shell e não na sua máquina local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor cloud_init_hostname.txt` para criar o ficheiro e ver uma lista dos editores disponíveis. Escolha #1 para usar o **editor nano.** Certifique-se de que todo o ficheiro cloud-init é copiado corretamente, especialmente a primeira linha.  
 
 ```yaml
 #cloud-config
 hostname: myhostname
 ```
 
-Antes de implantar essa imagem, você precisa criar um grupo de recursos com o comando [AZ Group Create](/cli/azure/group) . Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de implementar esta imagem, precisa criar um grupo de recursos com o [grupo AZ criar](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie uma VM com [AZ VM Create](/cli/azure/vm) e especifique o arquivo Cloud-init com `--custom-data cloud_init_hostname.txt` da seguinte maneira:
+Agora, crie um VM com [az vm criar](/cli/azure/vm) e especificar o ficheiro cloud-init com `--custom-data cloud_init_hostname.txt` seguinte:
 
 ```azurecli-interactive 
 az vm create \
@@ -51,28 +43,28 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-Depois de criada, a CLI do Azure mostra informações sobre a VM. Use o `publicIpAddress` para SSH para sua VM. Insira seu próprio endereço da seguinte maneira:
+Uma vez criado, o Azure CLI mostra informações sobre o VM. Utilize o `publicIpAddress` para SSH para o seu VM. Insira o seu próprio endereço da seguinte forma:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Para ver o nome da VM, use o comando `hostname` da seguinte maneira:
+Para ver o nome VM, utilize o comando `hostname` da seguinte forma:
 
 ```bash
 hostname
 ```
 
-A VM deve relatar o nome do host como esse valor definido no arquivo Cloud-init, conforme mostrado na seguinte saída de exemplo:
+O VM deve reportar o nome de anfitrião como esse valor definido no ficheiro cloud-init, como mostra a seguinte saída de exemplo:
 
 ```bash
 myhostname
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter exemplos adicionais de inicialização em nuvem de alterações de configuração, consulte o seguinte:
+Para obter exemplos adicionais de alterações de configuração, consulte o seguinte:
  
-- [Adicionar um usuário Linux adicional a uma VM](cloudinit-add-user.md)
-- [Executar um Gerenciador de pacotes para atualizar os pacotes existentes na primeira inicialização](cloudinit-update-vm.md)
-- [Alterar nome de host local da VM](cloudinit-update-vm-hostname.md) 
-- [Instalar um pacote de aplicativos, atualizar arquivos de configuração e inserir chaves](tutorial-automate-vm-deployment.md)
+- [Adicione um utilizador linux adicional a um VM](cloudinit-add-user.md)
+- [Executar um gestor de pacotes para atualizar os pacotes existentes na primeira bota](cloudinit-update-vm.md)
+- [Alterar o nome de anfitrião local VM](cloudinit-update-vm-hostname.md) 
+- [Instale um pacote de aplicação, atualize ficheiros de configuração e injete chaves](tutorial-automate-vm-deployment.md)

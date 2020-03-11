@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9815ff08296b38c39e732c08619042659504462
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 775ff6b3ba003bed22ccd5a42cb4da005c4dbb69
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892920"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082252"
 ---
 # <a name="what-is-risk"></a>O que é o risco?
 
@@ -30,18 +30,18 @@ A Proteção de Identidade proporciona às organizações o acesso a recursos po
 
 Existem dois tipos de risco **User** e **Sign-in** e dois tipos de deteção ou cálculo em **tempo real** e **offline**.
 
-### <a name="user-risk"></a>Risco do utilizador»
+### <a name="user-risk"></a>Risco do utilizador
 
 Um risco de utilizador representa a probabilidade de uma determinada identidade ou conta estar comprometida. 
 
 Estes riscos são calculados offline usando fontes de inteligência de ameaças internas e externas da Microsoft, incluindo investigadores de segurança, profissionais da aplicação da lei, equipas de segurança na Microsoft e outras fontes fidedignas.
-''
-| Deteção de riscos | Descrição'on |
+
+| Deteção de riscos | Descrição |
 | --- | --- |
 | Credenciais vazadas | Este tipo de deteção de risco indica que as credenciais válidas do utilizador foram vazadas. Quando os cibercriminosos comprometem senhas válidas de utilizadores legítimos, muitas vezes partilham essas credenciais. Esta partilha é normalmente feita publicando publicamente na dark web, sites de pastas, ou negociando e vendendo as credenciais no mercado negro. Quando o serviço de credenciais da Microsoft vaza do serviço adquire credenciais de utilizador a partir da dark web, sites de pasta ou outras fontes, são verificados contra as credenciais válidas dos utilizadores da AD Azure para encontrar correspondências válidas. |
 | Inteligência de ameaça da AD Azure | Este tipo de deteção de risco indica a atividade do utilizador que é incomum para o utilizador dado ou é consistente com padrões de ataque conhecidos baseados nas fontes internas e externas de inteligência de ameaça da Microsoft. |
 
-### <a name="sign-in-risk"></a>Risco de inscrição»
+### <a name="sign-in-risk"></a>Risco de inscrição
 
 Um risco de entrada representa a probabilidade de um determinado pedido de autenticação não ser autorizado pelo proprietário da identidade. 
 
@@ -68,4 +68,4 @@ Estes riscos podem ser calculados em tempo real ou calculados offline usando fon
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 
-- [Visão geral da segurança](concept-identity-protection-security-overview.md) ""'
+- [Descrição geral da segurança](concept-identity-protection-security-overview.md)

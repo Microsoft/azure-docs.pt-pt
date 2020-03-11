@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: bb3a18af89b0baa532309ac76905aa5550af98e5
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 817ff90c10a29d7db7037d89f3c3d51e7f997175
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78398184"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037178"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
@@ -33,8 +33,7 @@ Com conjuntos de dados de Aprendizagem automática Azure, pode:
 * Partilhe dados e colabore com outros utilizadores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-Para criar e trabalhar com conjuntos de dados, precisa de:
+' Para criar e trabalhar com conjuntos de dados, você precisa:
 
 * Uma subscrição do Azure. Se não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
@@ -44,6 +43,16 @@ Para criar e trabalhar com conjuntos de dados, precisa de:
 
 > [!NOTE]
 > Algumas classes de conjuntos de dados têm dependências no pacote [de dataprep de dados em azureml.](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) Para os utilizadores do Linux, estas aulas são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+
+## <a name="compute-size-guidance"></a>Orientação do tamanho do cálculo
+
+Ao criar um conjunto de dados, reveja o seu poder de processamento de cálculo e o tamanho dos seus dados na memória. O tamanho dos seus dados no armazenamento não é o mesmo que o tamanho dos dados num quadro de dados. Por exemplo, os dados em ficheiros CSV podem expandir até 10x num dataframe, para que um ficheiro CSV de 1 GB possa tornar-se de 10 GB num quadro de dados. 
+
+O principal fator é a dimensão do conjunto de dados na memória, ou seja, como um dataframe. Recomendamos que o seu tamanho de computação e a sua potência de processamento contenham 2x do tamanho de RAM. Portanto, se o seu dataframe for de 10GB, pretende um alvo computacional com mais de 20 GB de RAM para garantir que o dataframe pode encaixar-se confortável na memória e ser processado. Se os seus dados forem comprimidos, pode expandir-se ainda mais; 20 GB de dados relativamente escassos armazenados em formato parquet comprimido pode expandir-se para ~800 GB na memória. Uma vez que os ficheiros Parquet armazenam dados num formato coluna, se necessitar apenas de metade das colunas, então só precisa de carregar ~400 GB na memória.
+ 
+Se estivera a usar Pandas, não há razão para ter mais de 1 vCPU, já que é tudo o que vai usar. Você pode facilmente paralelizar a muitos vCPUs em um único conjunto de computação de Machine Learning Azure exemplo/nó via Modin e Dask/Ray, e escalar para um grande cluster, se necessário, simplesmente mudando `import pandas as pd` para `import modin.pandas as pd`. 
+ 
+Se não conseguir obter um virtual suficientemente grande para os dados, tem duas opções: usar uma estrutura como Spark ou Dask para realizar o processamento dos dados 'fora de memória', ou seja, o dataframe é carregado na divisória DERAM por partição e processado, sendo o resultado final a ser recolhtido ed no final. Se isto for demasiado lento, o Spark ou o Dask permitem-lhe escalar para um cluster que ainda pode ser utilizado interativamente. 
 
 ## <a name="dataset-types"></a>Tipos de conjuntode dados
 
@@ -57,9 +66,9 @@ Para saber mais sobre as próximas alterações da API, consulte [dataset API ch
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Ao criar um conjunto de dados, cria-se uma referência à localização da fonte de dados, juntamente com uma cópia dos seus metadados. Como os dados permanecem na sua localização existente, não incorre em nenhum custo extra de armazenamento. Pode criar conjuntos de dados `TabularDataset` e `FileDataset` utilizando o Python SDK ou https://ml.azure.com.
+Ao criar um conjunto de dados, cria-se uma referência à localização da fonte de dados, juntamente com uma cópia dos seus metadados. Como os dados permanecem na sua localização existente, não incorre em nenhum custo extra de armazenamento. Pode criar conjuntos de dados `TabularDataset` e `FileDataset` utilizando o Python SDK ou em https://ml.azure.com.
 
-Para que os dados sejam acessíveis pelo Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em lojas de [dados Azure](how-to-access-data.md) ou URLs web públicos.
+Para que os dados sejam acessíveis pelo Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em lojas de [dados Azure](how-to-access-data.md) ou URLs web públicos. 
 
 ### <a name="use-the-sdk"></a>Use o SDK
 
@@ -70,7 +79,6 @@ Para criar conjuntos de dados a partir de uma [datastore Azure](how-to-access-da
 2. Criar o conjunto de dados referenciando caminhos na loja de dados.
 > [!Note]
 > Pode criar um conjunto de dados a partir de múltiplos caminhos em várias lojas de dados. Não existe um limite rígido no número de ficheiros ou tamanho de dados a partir do dia. No entanto, para cada trajetória de dados, alguns pedidos serão enviados para o serviço de armazenamento para verificar se aponta para um ficheiro ou uma pasta. Esta sobrecarga pode levar a desempenho ou falha degradada. Um conjunto de dados que referencia uma pasta com 1000 ficheiros no interior é considerado referenciando uma via de dados. Recomendamos a criação de dataset referenciando menos de 100 caminhos nas lojas de dados para um desempenho ótimo.
-
 
 #### <a name="create-a-tabulardataset"></a>Criar um Conjunto TabularDataset
 

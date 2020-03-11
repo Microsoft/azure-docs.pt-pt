@@ -1,19 +1,19 @@
 ---
 title: Modificar um conjunto de escala de máquina virtual Azure
 description: Saiba como modificar e atualizar uma escala de máquina virtual Azure com as APIs REST, Azure PowerShell e Azure CLI
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 02/14/2018
-ms.author: manayar
-ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.author: mimckitt
+ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390461"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082064"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de escala de máquina virtual
 
@@ -311,7 +311,7 @@ Para atualizar os VMexistentes, deve fazer uma "atualização manual" de cada VM
 >[!NOTE]
 > Serviço Os clusters de tecido só podem utilizar o modo *Automático,* mas a atualização é manuseada de forma diferente. Para mais informações, consulte as atualizações da [aplicação Service Fabric.](../service-fabric/service-fabric-application-upgrade.md)
 
-Há um tipo de modificação nas propriedades definidas à escala global que não segue a política de upgrade. As alterações ao conjunto de escala SEm Perfil (como nome de utilizador administrativo e palavra-passe) só podem ser alteradas na versão API *2017-12-01* ou posterior. Estas alterações aplicam-se apenas aos VMs criados após a alteração do modelo de conjunto de escala. Para que os VMexistentes estejam atualizados, é necessário fazer uma "reimagem" de cada VM existente. Pode fazer esta reimagem via:
+Há um tipo de modificação nas propriedades definidas à escala global que não segue a política de upgrade. As alterações ao conjunto de escala Os e Data disk Perfil (como nome de utilizador e palavra-passe) só podem ser alteradas na versão API *2017-12-01* ou posterior. Estas alterações aplicam-se apenas aos VMs criados após a alteração do modelo de conjunto de escala. Para que os VMexistentes estejam atualizados, é necessário fazer uma "reimagem" de cada VM existente. Pode fazer esta reimagem via:
 
 - REST API com [conjuntos de escalas/reimagem compute/virtualmachinescaleda](/rest/api/compute/virtualmachinescalesets/reimage) da seguinte forma:
 

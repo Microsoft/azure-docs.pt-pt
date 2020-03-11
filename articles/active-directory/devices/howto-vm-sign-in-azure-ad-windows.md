@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8fe33f78b96dbfe780c94fbddfc5c8821148279
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672598"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080082"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inscreva-se na máquina virtual do Windows em Azure utilizando a autenticação do Diretório Ativo Azure (Pré-visualização)
 
@@ -152,6 +152,7 @@ Agora que criou o VM, precisa de configurar a política Azure RBAC para determin
 
 > [!NOTE]
 > Para permitir que um utilizador inicie sessão no VM sobre RDP, deve atribuir o Login do Administrador da Máquina Virtual ou a função de Login de Utilizador de Máquina Virtual. Um utilizador Azure com as funções de Proprietário ou Colaborador atribuídas a um VM não tem automaticamente privilégios de iniciar sessão no VM sobre RDP. Isto é para proporcionar uma separação auditada entre o conjunto de pessoas que controlam máquinas virtuais contra o conjunto de pessoas que podem aceder a máquinas virtuais.
+
 Existem várias formas de configurar atribuições de funções para VM:
 
 - Utilizando a experiência Azure AD Portal
@@ -194,7 +195,7 @@ Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos
 - [Gerir o acesso aos recursos Azure utilizando o RBAC e o Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [Manage access to Azure resources using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 - [Gerencie o acesso aos recursos Azure utilizando o RBAC e o Azure PowerShell.](/azure/role-based-access-control/role-assignments-powershell)
-'
+
 ## <a name="using-conditional-access"></a>Utilização de acesso condicional
 
 Pode impor políticas de Acesso Condicional, tais como a autenticação de vários fatores ou a verificação de risco de entrada do utilizador antes de autorizar o acesso aos VMs do Windows em Azure que estão habilitados com o registo de AD Azure. Para aplicar a política de Acesso Condicional, deve selecionar a aplicação "Azure Windows VM Sign-In" a partir das aplicações ou opções de atribuição de ações na nuvem e, em seguida, utilizar o risco de entrada como condição e/ou exigir a autenticação de vários fatores como controlo de acesso de subvenção. 
@@ -363,4 +364,5 @@ Se ainda não implementou o Windows Hello for Business e se isso não for uma op
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou reporte problemas que o utilizam no fórum de [feedback da AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para mais informações sobre o Diretório Ativo azure, consulte [o What is Azure Ative Directory](/azure/active-directory/fundamentals/active-directory-whatis) '
+
+Para mais informações sobre o Diretório Ativo azure, consulte [o What is Azure Ative Directory](/azure/active-directory/fundamentals/active-directory-whatis)

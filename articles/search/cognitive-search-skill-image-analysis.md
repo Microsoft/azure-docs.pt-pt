@@ -8,21 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840507"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080189"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
 
 A habilidade **de Análise** de Imagem extrai um conjunto rico de características visuais com base no conteúdo da imagem. Por exemplo, você pode gerar uma legenda a partir de uma imagem, gerar tags ou identificar celebridades e marcos. Esta habilidade utiliza os modelos de machine learning fornecidos pela [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. 
 
 > [!NOTE]
-> Pequenos volumes (menos de 20 transações) podem ser executados gratuitamente na Pesquisa Cognitiva Azure, mas cargas de trabalho maiores requerem a anexação de [um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
+> Pequenos volumes (menos de 20 transações) podem ser executados gratuitamente na Pesquisa Cognitiva Azure, mas cargas de trabalho maiores requerem a anexação de [um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -35,14 +35,14 @@ Os parâmetros são sensíveis aos casos.
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | defaultLanguageCode   |  Uma corda indicando a linguagem para voltar. O serviço devolve o reconhecimento numa linguagem especificada. Se este parâmetro não for especificado, o valor predefinido é "en". <br/><br/>As línguas apoiadas são: <br/>*en* - Inglês (padrão) <br/> *es* - Espanhol <br/> *ja* - Japonês <br/> *pt* - Português <br/> *zh* - Chinês simplificado|
-| recursos visuais |  Uma série de cordas que indicam os tipos de características visuais para regressar. Os tipos de funcionalidades visuais válidos incluem:  <ul><li>*adulto* - deteta se a imagem é de natureza pornográfica (retrata nudez ou um ato sexual), ou é sangrenta (retrata violência extrema ou sangue). Também é detetado conteúdo sexualmente sugestivo (aka conteúdo picante).</li><li>*marcas* - deteta várias marcas dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual das *marcas* só está disponível em inglês.</li><li> *categorias* - categoriza o conteúdo da imagem de acordo com uma taxonomia definida na [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)cognitive Services Computer Vision . </li><li> *cor* - determina a cor do sotaque, a cor dominante, e se uma imagem é preto e branco.</li><li>*descrição* - descreve o conteúdo da imagem com uma frase completa em línguas apoiadas.</li><li>*faces* - deteta se os rostos estão presentes. Se presente, gera coordenadas, sexo e idade.</li><li>  *imagemType* - deteta se a imagem é clip art ou um desenho de linha.</li><li>  *objetos* - deteta vários objetos dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual *dos objetos* só está disponível em inglês.</li><li> *tags* - marca a imagem com uma lista detalhada de palavras relacionadas com o conteúdo da imagem.</li></ul> Os nomes das características visuais são sensíveis aos casos.|
+| recursos visuais |  Uma série de cordas que indicam os tipos de características visuais para regressar. Os tipos de funcionalidades visuais válidos incluem:  <ul><li>*adulto* - deteta se a imagem é de natureza pornográfica (retrata nudez ou um ato sexual), ou é sangrenta (retrata violência extrema ou sangue). Também é detetado conteúdo sexualmente sugestivo (aka conteúdo picante).</li><li>*marcas* - deteta várias marcas dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual das *marcas* só está disponível em inglês.</li><li> *categorias* - categoriza o conteúdo da imagem de acordo com uma taxonomia definida na [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)cognitive Services Computer Vision . </li><li>*descrição* - descreve o conteúdo da imagem com uma frase completa em línguas apoiadas.</li><li>*faces* - deteta se os rostos estão presentes. Se presente, gera coordenadas, sexo e idade.</li><li> *objetos* - deteta vários objetos dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual *dos objetos* só está disponível em inglês.</li><li> *tags* - marca a imagem com uma lista detalhada de palavras relacionadas com o conteúdo da imagem.</li></ul> Os nomes das características visuais são sensíveis aos casos. Note que as funcionalidades visuais *de cor* e *imagemType* foram depreciadas, mas esta funcionalidade ainda pode ser acedida através de uma [habilidade personalizada](https://go.microsoft.com/fwlink/?linkid=2121117).|
 | details   | Uma série de cordas indicando quais detalhes específicos de domínio para devolver. Os tipos de funcionalidades visuais válidos incluem: <ul><li>*celebridades* - identifica celebridades se detetadas na imagem.</li><li>*marcos* - identifica marcos se detetados na imagem. </li></ul> |
 
-## <a name="skill-inputs"></a>Entradas de habilidades
+## <a name="skill-inputs"></a>Inputs de habilidade
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| imagem         | Tipo complexo. Atualmente, apenas funciona com o campo "/documento/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` se fixa num valor diferente do ```none```. Consulte a [amostra](#sample-output) para mais informações.|
+| image         | Tipo complexo. Atualmente, apenas funciona com o campo "/documento/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` se fixa num valor diferente do ```none```. Consulte a [amostra](#sample-output) para mais informações.|
 
 
 
@@ -470,20 +470,6 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
             ]
           }
         ],
-        "color": {
-          "dominantColorForeground": "Brown",
-          "dominantColorBackground": "Brown",
-          "dominantColors": [
-            "Brown",
-            "Black"
-          ],
-          "accentColor": "873B59",
-          "isBwImg": false
-        },
-        "imageType": {
-          "clipArtType": 0,
-          "lineDrawingType": 0
-        },
         "objects": [
           {
             "rectangle": {
@@ -543,8 +529,8 @@ Se tiver o erro semelhante ao `"One or more skills are invalid. Details: Error i
             ]
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
 + [Criar Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

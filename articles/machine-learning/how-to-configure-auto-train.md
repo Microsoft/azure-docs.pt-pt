@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7018100c830f22c3ed5e924b5096911b1f8135cb
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942341"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081833"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configure experiências automatizadas de ML em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,8 +130,8 @@ Utilize um conjunto de dados de validação personalizado se a divisão aleatór
 ## <a name="compute-to-run-experiment"></a>Computação para executar a experimentação
 
 Em seguida, determine onde será preparado o modelo. Uma experimentação de preparação de aprendizagem automática, pode executar as seguintes opções de computação:
-*   Seu computador local, como uma área de trabalho local ou computador portátil – em geral, quando tem pequeno conjunto de dados e estiver na fase de exploração.
-*   Uma máquina remota na nuvem – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) é um serviço gerido que permite a capacidade de treinar modelos de aprendizagem automática em clusters de máquinas virtuais Azure.
+*    Seu computador local, como uma área de trabalho local ou computador portátil – em geral, quando tem pequeno conjunto de dados e estiver na fase de exploração.
+*    Uma máquina remota na nuvem – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) é um serviço gerido que permite a capacidade de treinar modelos de aprendizagem automática em clusters de máquinas virtuais Azure.
 
     Consulte este [site gitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) por exemplo de cadernos com alvos de computação local e remota.
 
@@ -147,7 +147,7 @@ Existem várias opções que pode utilizar para configurar seu automatizada expe
 
 Alguns exemplos incluem:
 
-1.  Experiência de classificação utilizando AUC ponderada como a métrica primária com intervalos de tempo de experimentação definidos para 30 minutos e 2 dobras de validação cruzada.
+1.    Experiência de classificação utilizando AUC ponderada como a métrica primária com intervalos de tempo de experimentação definidos para 30 minutos e 2 dobras de validação cruzada.
 
     ```python
     automl_classifier=AutoMLConfig(
@@ -159,7 +159,7 @@ Alguns exemplos incluem:
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Abaixo está um exemplo de uma experiência de regressão definida para terminar após 60 minutos com cinco dobras cruzadas de validação.
+2.    Abaixo está um exemplo de uma experiência de regressão definida para terminar após 60 minutos com cinco dobras cruzadas de validação.
 
     ```python
     automl_regressor = AutoMLConfig(
@@ -521,7 +521,7 @@ Veja como obter amostras [de](how-to-machine-learning-interpretability-automl.md
 
 Para obter informações gerais sobre como as explicações do modelo e a importância da funcionalidade podem ser ativadas noutras áreas do SDK fora da aprendizagem automática de máquinas, consulte [o](how-to-machine-learning-interpretability.md) artigo conceptual sobre a interpretação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

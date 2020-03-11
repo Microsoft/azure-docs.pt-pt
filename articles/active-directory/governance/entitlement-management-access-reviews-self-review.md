@@ -1,6 +1,6 @@
 ---
-title: Revisão automática de um pacote de acesso no gerenciamento de direitos do Azure AD
-description: Saiba como examinar o acesso do usuário de pacotes de acesso de gerenciamento de direitos em Azure Active Directory revisões de acesso (versão prévia).
+title: Auto-revisão de um pacote de acesso na gestão de direitos da AD Azure
+description: Saiba como rever o acesso dos utilizadores aos pacotes de acesso à gestão de direitos em avaliações de acesso ao Diretório Ativo do Azure (Pré-visualização).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,50 +16,50 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89a346f48856ea33ae5e27e3537f53dfa1ca3ae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608816"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967761"
 ---
-# <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Revisão automática de um pacote de acesso no gerenciamento de direitos do Azure AD
+# <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Auto-revisão de um pacote de acesso na gestão de direitos da AD Azure
 
-O gerenciamento de direitos do Azure AD simplifica o modo como as empresas gerenciam o acesso a grupos, aplicativos e sites do SharePoint. Este artigo descreve como um usuário faz uma autorevisão de seus pacotes de acesso atribuídos.
+A gestão de direitos da Azure AD simplifica a forma como as empresas gerem o acesso a grupos, aplicações e sites SharePoint. Este artigo descreve como um utilizador faz uma auto-revisão do seu ou pacote de acesso atribuído.
 
-## <a name="open-the-access-review"></a>Abrir a revisão de acesso
+## <a name="open-the-access-review"></a>Abra a revisão de acesso
 
-Para fazer uma revisão de acesso, você deve primeiro abrir a revisão de acesso. Use o procedimento a seguir para localizar e abrir a revisão de acesso:
+Para fazer uma revisão de acesso, primeiro deve abrir a revisão de acesso. Utilize o seguinte procedimento para encontrar e abrir a revisão de acesso:
 
-1. Você pode receber um email da Microsoft que solicita que você examine o acesso. Localize o email para abrir a revisão de acesso. Aqui está um exemplo de um email solicitando uma revisão do acesso: 
+1. Pode receber um e-mail da Microsoft que lhe pede para rever o acesso. Localize o e-mail para abrir a revisão de acesso. Aqui está um exemplo de um e-mail solicitando uma revisão do acesso: 
     
-    ![Email de revisor de revisão de acesso](./media/entitlement-management-access-reviews-review-access/self-review-reviewer-email.png)
+    ![Access review self-reviewer email](./media/entitlement-management-access-reviews-review-access/self-review-reviewer-email.png)
 
-1. Clique no link **examinar acesso** .
+1. Clique no link de **acesso Rever.**
 
-1. Você também pode ir diretamente para https://myaccess.microsoft.com para localizar suas revisões de acesso pendentes se não receber um email.
+1. Também pode ir diretamente ao https://myaccess.microsoft.com para encontrar as suas avaliações de acesso pendentes se não receber um e-mail.  (Para o Governo dos EUA, use `https://myaccess.microsoft.us` em vez disso.)
 
-1. Clique em **revisões de acesso** na barra de navegação à esquerda para ver uma lista de revisões de acesso pendentes atribuídas a você.
+1. Clique em comentários de **Acesso** na barra de navegação esquerda para ver uma lista de avaliações de acesso pendentes atribuídas a si.
 
 
-1.  Clique na revisão que você gostaria de começar.
+1.  Clique na avaliação que gostaria de começar.
 
-## <a name="perform-the-access-review"></a>Executar a revisão de acesso
+## <a name="perform-the-access-review"></a>Realizar a revisão de acesso
 
-Depois de abrir a revisão de acesso, você poderá ver seu acesso. Use o procedimento a seguir para fazer a revisão de acesso:
+Assim que abrir a revisão de acesso, poderá ver o seu acesso. Utilize o seguinte procedimento para efazer a revisão de acesso:
 
-1.  Decida se você ainda precisa de acesso ao pacote de acesso. Por exemplo, o projeto no qual você está trabalhando não está completo, portanto, você ainda precisa de acesso para continuar trabalhando no projeto.
+1.  Decida se ainda precisa de acesso ao pacote de acesso. Por exemplo, o projeto em que está a trabalhar não está completo, por isso ainda precisa de acesso para continuar a trabalhar no projeto.
 
-1.  Clique em **Sim** para manter seu acesso ou clique em **não** para remover o acesso.
+1.  Clique em **Sim** para manter o seu acesso ou clique **em Não** para remover o seu acesso.
     >[!NOTE]
-    >Se você tiver declarado que não precisa mais de acesso, não será removido do pacote de acesso imediatamente. Você será removido do pacote do Access quando a revisão terminar ou se um administrador parar a revisão.
+    >Se afirmou que já não precisa de acesso, não foi imediatamente removido do pacote de acesso. Será removido do pacote de acesso quando a revisão terminar ou se um administrador parar a revisão.
 
-1.  Se você clicou em **Sim**, talvez seja necessário incluir uma instrução de justificativa na caixa **motivo** .
+1.  Se clicar em **Sim,** poderá ter de incluir uma declaração de justificação na caixa **Reason.**
 
-1.  Clique em **Enviar**.
+1.  Clique em **Submeter**.
 
-Você pode retornar à revisão se mudar de ideia e decidir alterar sua resposta antes do final da revisão.
+Pode voltar à revisão se mudar de ideia si e decidir mudar a sua resposta antes do final da revisão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Examinar o acesso aos pacotes do Access](entitlement-management-access-reviews-review-access.md) 
+- [Rever o acesso aos pacotes de acesso](entitlement-management-access-reviews-review-access.md) 

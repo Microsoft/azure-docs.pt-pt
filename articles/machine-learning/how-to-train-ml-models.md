@@ -1,7 +1,7 @@
 ---
-title: Treinar modelos ML com estimadores
+title: Treine modelos ML com estimadores
 titleSuffix: Azure Machine Learning
-description: Saiba como executar um único nó e treinamento distribuído de aprendizado de máquina tradicional e modelos de aprendizado profundo usando Azure Machine Learning classe de estimador
+description: Aprenda a realizar um nó único e a formação distribuída de modelos tradicionais de aprendizagem automática e de aprendizagem profunda utilizando a classe Azure Machine Learning Estimator
 ms.author: maxluk
 author: maxluk
 services: machine-learning
@@ -9,36 +9,36 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 11/08/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942227"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078487"
 ---
-# <a name="train-models-with-azure-machine-learning-using-estimator"></a>Treinar modelos com Azure Machine Learning usando o estimador
+# <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modelos de trem com Machine Learning Azure usando estimador
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Com o Azure Machine Learning, você pode enviar facilmente seu script de treinamento para [vários destinos de computação](how-to-set-up-training-targets.md#compute-targets-for-training), usando um [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) e um [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Esse padrão oferece muita flexibilidade e controle máximo.
+Com o Azure Machine Learning, pode facilmente submeter o seu script de treino a [vários alvos de computação,](how-to-set-up-training-targets.md#compute-targets-for-training)utilizando um [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) e um [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Esse padrão dá-lhe muita flexibilidade e controlo máximo.
 
-Para facilitar o treinamento do modelo de aprendizado profundo, o SDK do Python Azure Machine Learning fornece uma abstração alternativa de nível superior, a classe estimadora, que permite aos usuários construir facilmente configurações de execução. Você pode criar e usar um [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar o script de treinamento usando qualquer estrutura de aprendizado que escolher (como scikit-learn) em qualquer destino de computação escolhido, seja seu computador local, uma única VM no Azure ou um cluster de GPU no Azure. Para as tarefas PyTorch, TensorFlow e Chainer, Azure Machine Learning também fornece os respectivos estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar o uso dessas estruturas.
+Para facilitar a formação de modelos de aprendizagem profunda, o Azure Machine Learning Python SDK fornece uma abstração alternativa de alto nível, a classe estimador, que permite aos utilizadores construir facilmente configurações de execução. Você pode criar e usar um [Estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para submeter script de treino usando qualquer quadro de aprendizagem que você escolher (como scikit-learn) em qualquer alvo computacional que você escolher, seja a sua máquina local, um único VM em Azure, ou um cluster GPU em Azure. Para as tarefas PyTorch, TensorFlow e Chainer, o Azure Machine Learning também fornece os respetivos estimativas [PyTorch,](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar a utilização destas estruturas.
 
 ## <a name="train-with-an-estimator"></a>Preparar com um avaliador que esteja
 
-Depois de criar a sua [área de trabalho](concept-workspace.md) e configure a sua [ambiente de desenvolvimento](how-to-configure-environment.md), preparar um modelo no Azure Machine Learning envolve os seguintes passos:  
-1. Criar um [destino de computação remota](how-to-set-up-training-targets.md) (Observação Você também pode usar o computador local como destino de computação)
-2. Carregar seus [dados de treinamento](how-to-access-data.md) no repositório de armazenamento (opcional)
-3. Criar sua [script de treinamento](tutorial-train-models-with-aml.md#create-a-training-script)
-4. Criar um `Estimator` objeto
-5. Enviar o estimador para um objeto de experimento no espaço de trabalho
+Uma vez criado o seu espaço de [trabalho](concept-workspace.md) e configurando o seu ambiente de [desenvolvimento,](how-to-configure-environment.md)treinar um modelo em Azure Machine Learning envolve os seguintes passos:  
+1. Crie um [alvo de computação remota](how-to-set-up-training-targets.md) (nota que também pode usar o computador local como alvo de computação)
+2. Faça upload dos seus dados de [formação](how-to-access-data.md) para datastore (Opcional)
+3. Crie o seu [roteiro de treino](tutorial-train-models-with-aml.md#create-a-training-script)
+4. Criar um objeto `Estimator`
+5. Submeta o estimador a um objeto de experiência sob o espaço de trabalho
 
-Este artigo se concentra nas etapas 4 e 5. Para obter passos 1 a 3, veja a [treinar um tutorial de modelo](tutorial-train-models-with-aml.md) para obter um exemplo.
+Este artigo se concentra nas etapas 4 e 5. Para os passos 1-3, consulte o [comboio um tutorial modelo,](tutorial-train-models-with-aml.md) por exemplo.
 
 ### <a name="single-node-training"></a>Treinamento de nó único
 
-Utilize um `Estimator` para um treinamento de nó único executar no cálculo remoto no Azure para um scikit-saiba modelo. Deverá ter já criado seu [destino de computação](how-to-set-up-training-targets.md#amlcompute) objeto `compute_target` e a sua [arquivo de dados](how-to-access-data.md) objeto `ds`.
+Utilize um `Estimator` para uma corrida de treino de um único nó em computação remota em Azure para um modelo de aprendizagem de ficção. Já deve ter criado o seu [objeto-alvo de cálculo](how-to-set-up-training-targets.md#amlcompute) `compute_target` e o seu objeto [FileDataset](how-to-create-register-datasets.md) `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -56,19 +56,19 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
                    conda_packages=['scikit-learn'])
 ```
 
-Este fragmento de código especifica os parâmetros seguintes para o `Estimator` construtor.
+Este fragmento de código especifica os seguintes parâmetros ao construtor `Estimator`.
 
 Parâmetro | Descrição
 --|--
-`source_directory`| Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Essa pasta é copiada do computador local para a computação remota.
-`script_params`| Dicionário que especifica os argumentos de linha de comando a serem passados para o script de treinamento `entry_script`, na forma de pares de `<command-line argument, value>`. Para especificar um sinalizador detalhado em `script_params`, use `<command-line argument, "">`.
-`compute_target`| O destino de computação remota no qual o script de treinamento será executado, nesse caso, um cluster Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Observe que, embora o cluster AmlCompute seja o destino comumente usado, também é possível escolher outros tipos de destino de computação, como VMs do Azure ou mesmo computador local.)
-`entry_script`| Caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Esse arquivo e os arquivos adicionais dos quais ele depende devem estar localizados nessa pasta.
+`source_directory`| Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada da sua máquina local para a computação remota.
+`script_params`| Dicionário especificando os argumentos da linha de comando para passar para o seu roteiro de treino `entry_script`, na forma de pares `<command-line argument, value>`. Para especificar uma bandeira verbosa em `script_params`, use `<command-line argument, "">`.
+`compute_target`| O objetivo da computação remota é que o seu script de treino irá funcionar, neste caso um cluster Azure Machine Learning Compute[(AmlCompute).](how-to-set-up-training-targets.md#amlcompute) (Note que, embora o cluster AmlCompute seja o alvo comumente utilizado, também é possível escolher outros tipos de alvo de cálculo, como os VMs Azure ou mesmo o computador local.)
+`entry_script`| Filepath (em relação ao `source_directory`) do script de treino a ser executado na computação remota. Este ficheiro, e quaisquer ficheiros adicionais de que dependa, devem estar localizados nesta pasta.
 `conda_packages`| Lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento.  
 
-O construtor tem outro parâmetro chamado `pip_packages` que você usa para qualquer pacote de Pip necessário.
+O construtor tem outro parâmetro chamado `pip_packages` que você usa para quaisquer pacotes de pip necessários.
 
-Agora que criou sua `Estimator` objeto, submeter a tarefa de preparação para ser executado na computação remota com uma chamada para o `submit` funcionar no seu [experimentação](concept-azure-machine-learning-architecture.md#experiments) objeto `experiment`. 
+Agora que criou o seu `Estimator` objeto, submeta o trabalho de treino a ser executado na computação remota com uma chamada para a função `submit` no seu objeto [experimento](concept-azure-machine-learning-architecture.md#experiments) `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -76,23 +76,23 @@ print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
-> **Pastas especiais** duas pastas, *produz* e *registos*, receber tratamento especial do Azure Machine Learning. Durante o treinamento, quando gravar arquivos em pastas denominadas *produz* e *registos* que são relativos ao diretório raiz (`./outputs` e `./logs`, respectivamente), os ficheiros serão automaticamente carregar para o seu histórico de execução para que tenha acesso aos mesmos, uma vez concluída a execução.
+> **Pastas Especiais** Duas pastas, *saídas* e *registos,* recebem tratamento especial pela Azure Machine Learning. Durante o treino, quando escreve ficheiros para pastas *nomeadas saídas* e *registos relativos* ao diretório raiz (`./outputs` e `./logs`, respectivamente), os ficheiros serão automaticamente enviados para o seu histórico de execução para que tenha acesso a eles assim que a sua execução estiver concluída.
 >
-> Para criar artefactos durante o treinamento (por exemplo, ficheiros de modelo, os pontos de verificação, arquivos de dados ou imagens plotadas) para escrever o `./outputs` pasta.
+> Para criar artefactos durante o treino (como ficheiros de modelos, pontos de verificação, ficheiros de dados ou imagens traçadas) escreva-os na pasta `./outputs`.
 >
-> Da mesma forma, você pode gravar quaisquer logs de seu treinamento executados na pasta `./logs`. Para utilizar o Azure Machine Learning [TensorBoard integração](https://aka.ms/aml-notebook-tb) certificar-se de que escreve os registos de TensorBoard para esta pasta. Embora a execução está em curso, poderá iniciar TensorBoard e transmitir em fluxo estes registos.  Mais tarde, também poderá restaurar os registos a partir de qualquer uma das suas execuções anteriores.
+> Da mesma forma, pode escrever quaisquer registos desde o seu treino até à pasta `./logs`. Para utilizar a [integração tensorBoard](https://aka.ms/aml-notebook-tb) da Azure Machine Learning, certifique-se de que escreve os seus registos TensorBoard para esta pasta. Embora a execução está em curso, poderá iniciar TensorBoard e transmitir em fluxo estes registos.  Mais tarde, também poderá restaurar os registos a partir de qualquer uma das suas execuções anteriores.
 >
-> Por exemplo, para transferir um ficheiro escrito para o *produz* pasta no seu computador local após seu treinamento remoto, execute: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
+> Por exemplo, para descarregar um ficheiro escrito na pasta de *saídas* para a sua máquina local após a sua execução de treino remoto: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
 ### <a name="distributed-training-and-custom-docker-images"></a>Formação distribuída e imagens personalizadas do Docker
 
-Existem dois cenários de formação adicionais que podem ser executadas com o `Estimator`:
+Existem dois cenários de treino adicionais que pode realizar com o `Estimator`:
 * Com uma imagem personalizada do Docker
 * Formação distribuída num cluster com vários nó
 
-O código a seguir mostra como realizar o treinamento distribuído para um modelo Keras. Além disso, em vez de usar as imagens de Azure Machine Learning padrão, ele especifica uma imagem personalizada do Docker do Hub do Docker `continuumio/miniconda` para treinamento.
+O código que se segue mostra como realizar treino distribuído para um modelo Keras. Além disso, em vez de utilizar as imagens padrão de Aprendizagem automática de Máquinas Azure, especifica uma imagem personalizada do Docker Hub `continuumio/miniconda` para treino.
 
-Deverá ter já criado seu [destino de computação](how-to-set-up-training-targets.md#amlcompute) objeto `compute_target`. Criar o avaliador da seguinte forma:
+Já devia ter criado o seu [objeto-alvo de cálculo](how-to-set-up-training-targets.md#amlcompute) `compute_target`. Criar o avaliador da seguinte forma:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -108,14 +108,14 @@ estimator = Estimator(source_directory='./my-keras-proj',
                       custom_docker_image='continuumio/miniconda')
 ```
 
-O código acima expõe os seguintes novos parâmetros para o `Estimator` construtor:
+O código acima expõe os seguintes novos parâmetros ao construtor `Estimator`:
 
 Parâmetro | Descrição | Predefinição
 --|--|--
-`custom_docker_image`| Nome da imagem que pretende utilizar. Forneça apenas as imagens disponíveis nos repositórios de docker público (no caso este Docker Hub). Para usar uma imagem de um repositório do Docker privado, use o parâmetro `environment_definition` do Construtor em vez disso. [Consulte o exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_image`| Nome da imagem que pretende utilizar. Forneça apenas as imagens disponíveis nos repositórios de docker público (no caso este Docker Hub). Para utilizar uma imagem de um repositório privado de estivadores, utilize o parâmetro de `environment_definition` do construtor. [Ver exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Número de nós a utilizar para a tarefa de preparação. | `1`
-`process_count_per_node`| Número de processos (ou "funcionários") para executar em cada nó. Neste caso, utilize o `2` GPUs disponíveis em cada nó.| `1`
-`distributed_training`| Objeto [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) para iniciar o treinamento distribuído usando o back-end MPI.  | `None`
+`process_count_per_node`| Número de processos (ou "funcionários") para executar em cada nó. Neste caso, utiliza as GPUs `2` disponíveis em cada nó.| `1`
+`distributed_training`| [Objeto DE CONFIGURAÇÃO MPI](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) Para lançamento de treino distribuído utilizando o backend MPI.  | `None`
 
 
 Por fim, submeta a tarefa de preparação:
@@ -124,38 +124,38 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
-## <a name="registering-a-model"></a>Registrando um modelo
+## <a name="registering-a-model"></a>Registar um modelo
 
-Depois de treinar o modelo, você poderá salvá-lo e registrá-lo em seu espaço de trabalho. O registro de modelo permite que você armazene e versione seus modelos em seu espaço de trabalho para simplificar o [Gerenciamento e a implantação de modelos](concept-model-management-and-deployment.md).
+Depois de ter treinado o modelo, pode economizar e registá-lo no seu espaço de trabalho. O registo do modelo permite-lhe armazenar e verver os seus modelos no seu espaço de trabalho para simplificar a [gestão e implementação](concept-model-management-and-deployment.md)de modelos.
 
-Executar o código a seguir registrará o modelo em seu espaço de trabalho e o disponibilizará para referência por nome em contextos de computação remota ou scripts de implantação. Consulte [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) nos docs de referência para obter mais informações e parâmetros adicionais.
+A execução do seguinte código registará o modelo no seu espaço de trabalho e disponibilizá-lo-á para referência por nome em contextos de computação remota ou scripts de implementação. Consulte [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) nos médicos de referência para obter mais informações e parâmetros adicionais.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)
 ```
 
-## <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
+## <a name="github-tracking-and-integration"></a>Rastreio e integração gitHub
 
-Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Para obter mais informações, consulte [integração do git para Azure Machine Learning](concept-train-model-git-integration.md).
+Quando se inicia uma corrida de formação onde o diretório de origem é um repositório local de Git, a informação sobre o repositório é armazenada na história da execução. Para mais informações, consulte a [integração de Git para Azure Machine Learning.](concept-train-model-git-integration.md)
 
 ## <a name="examples"></a>Exemplos
-Para um notebook que mostra as noções básicas de um padrão estimador, consulte:
-* [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
+Para um caderno que mostre o básico de um padrão estimador, consulte:
+* [como-usar-azureml/formação-com-aprendizagem profunda/como-usar-estimador](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Para um bloco de anotações que treina um modelo scikit usando o estimador, consulte:
-* [tutoriais/img-classificação-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+Para um caderno que treina um modelo de aprendizagem de ficção através do estimador, consulte:
+* [tutoriais/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Para blocos de anotações em modelos de treinamento usando avaliadores específicos da estrutura de aprendizado profundo, consulte:
+Para os cadernos sobre modelos de formação utilizando estimativas específicas de quadro profundo de aprendizagem, consulte:
 
-* [instruções-uso do-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
+* [como-usar-azureml/ml-quadros](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Executar a métrica durante o treinamento do Roteiro](how-to-track-experiments.md)
-* [Utilizar modelos de PyTorch](how-to-train-pytorch.md)
-* [Utilizar modelos do TensorFlow](how-to-train-tensorflow.md)
-* [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
-* [Implementar um modelo preparado](how-to-deploy-and-where.md)
-* [Criar e gerenciar ambientes de treinamento e implantação](how-to-use-environments.md)
+* [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
+* [Modelos PyTorch de trem](how-to-train-pytorch.md)
+* [Modelos TensorFlow do comboio](how-to-train-tensorflow.md)
+* [Hiperparâmetros de melodia](how-to-tune-hyperparameters.md)
+* [Implementar um modelo treinado](how-to-deploy-and-where.md)
+* [Criar e gerir ambientes para formação e implantação](how-to-use-environments.md)

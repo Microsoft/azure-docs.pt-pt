@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d0491a5178331c53248d9c764d9ff1c6a6970683
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 3de4baa4eafe26cff18d9b1bcfb59398439994b0
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425787"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969777"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Cofre chave para Windows
 
@@ -77,7 +77,7 @@ O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão
 | linkOnRenovação | false | boolean |
 | certificateStoreLocation  | Máquina Local | string |
 | necessárioInitialSync | true | boolean |
-| certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
+| certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cordas
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
@@ -101,6 +101,7 @@ A configuração JSON para uma extensão virtual da máquina deve ser aninhada d
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+        "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,

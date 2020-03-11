@@ -1,42 +1,35 @@
 ---
-title: Mover arquivos de e para VMs Linux do Azure com o SCP
-description: Mova arquivos de e para uma VM do Linux com segurança no Azure usando o SCP e um par de chaves SSH.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Mover ficheiros de e para VMs Azure Linux com SCP
+description: Mova os ficheiros de e para um Linux VM em Azure utilizando sCP e um par de chaves SSH.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: d78a8e59a55718048df2022cec75c7a2b56f1a6b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a0837790b70de42073338bf085ee0f3976b866f6
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036588"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969609"
 ---
-# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mover arquivos de e para uma VM do Linux usando o SCP
+# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mova ficheiros de e para um VM Linux usando SCP
 
-Este artigo mostra como mover arquivos de sua estação de trabalho para uma VM Linux do Azure ou de uma VM Linux do Azure para sua estação de trabalho, usando a cópia segura (SCP). Mover arquivos entre a estação de trabalho e uma VM Linux, de modo rápido e seguro, é essencial para gerenciar sua infraestrutura do Azure. 
+Este artigo mostra como mover ficheiros da sua estação de trabalho para um VM Azure Linux, ou de um VM Azure Linux até à sua estação de trabalho, utilizando secure Copy (SCP). Mover ficheiros entre a sua estação de trabalho e um VM Linux, de forma rápida e segura, é fundamental para gerir a sua infraestrutura Azure. 
 
-Para este artigo, você precisa de uma VM Linux implantada no Azure usando [arquivos de chave SSH pública e privada](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você também precisa de um cliente SCP para seu computador local. Ele é criado com base no SSH e incluído no shell bash padrão da maioria dos computadores Linux e Mac e em alguns shells do Windows.
+Para este artigo, é necessário um VM Linux implantado em Azure utilizando [ficheiros de chaves públicas e privadas SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Também precisa de um cliente SCP para o seu computador local. É construído em cima de SSH e incluído na concha padrão bash da maioria dos computadores Linux e Mac e algumas conchas do Windows.
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
-Copiar um arquivo para a VM Linux
+Copie um ficheiro até ao Linux VM
 
 ```bash
 scp file azureuser@azurehost:directory/targetfile
 ```
 
-Copiar um arquivo da VM Linux
+Copie um ficheiro do Linux VM
 
 ```bash
 scp azureuser@azurehost:directory/file targetfile
@@ -44,36 +37,36 @@ scp azureuser@azurehost:directory/file targetfile
 
 ## <a name="detailed-walkthrough"></a>Instruções detalhadas
 
-Como exemplos, movemos um arquivo de configuração do Azure para uma VM do Linux e obtemos um diretório de arquivos de log, usando as chaves SCP e SSH.   
+Como exemplos, movemos um ficheiro de configuração Azure até um VM Linux e retiramos um diretório de ficheiros de registo, ambos utilizando teclas SCP e SSH.   
 
 ## <a name="ssh-key-pair-authentication"></a>Autenticação do par de chaves SSH
 
-O SCP usa SSH para a camada de transporte. O SSH manipula a autenticação no host de destino e move o arquivo em um túnel criptografado fornecido por padrão com o SSH. Para autenticação SSH, nomes de acessadores e senhas podem ser usados. No entanto, a autenticação SSH pública e a chave privada são recomendadas como uma prática recomendada de segurança. Depois que o SSH tiver autenticado a conexão, o SCP começará a copiar o arquivo. Usando uma `~/.ssh/config` corretamente configurada e as chaves públicas e privadas do SSH, a conexão do SCP pode ser estabelecida usando apenas um nome de servidor (ou endereço IP). Se você tiver apenas uma chave SSH, o SCP a procurará no diretório `~/.ssh/` e a usará por padrão para fazer logon na VM.
+O SCP utiliza SSH para a camada de transporte. O SSH trata da autenticação no anfitrião do destino e move o ficheiro num túnel encriptado fornecido por padrão com SSH. Para a autenticação SSH, podem ser utilizados nomes de utilizador e palavras-passe. No entanto, a autenticação de chaves públicas e privadas ssh é recomendada como uma melhor prática de segurança. Uma vez que o SSH tenha autenticado a ligação, o SCP começa a copiar o ficheiro. Utilizando uma `~/.ssh/config` e chaves públicas e privadas corretamente configuradas, a ligação SCP pode ser estabelecida apenas utilizando um nome de servidor (ou endereço IP). Se tiver apenas uma chave SSH, a SCP procura-a no diretório `~/.ssh/` e utiliza-a por defeito para iniciar sessão no VM.
 
-Para obter mais informações sobre como configurar suas chaves `~/.ssh/config` e SSH pública e privada, consulte [criar chaves SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações sobre a configuração das suas chaves públicas e privadas `~/.ssh/config` e SSH, consulte [As teclas Create SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="scp-a-file-to-a-linux-vm"></a>SCP um arquivo para uma VM do Linux
+## <a name="scp-a-file-to-a-linux-vm"></a>SCP um ficheiro para um Linux VM
 
-Para o primeiro exemplo, copiamos um arquivo de configuração do Azure para uma VM do Linux que é usada para implantar a automação. Como esse arquivo contém as credenciais da API do Azure, que incluem segredos, a segurança é importante. O túnel criptografado fornecido pelo SSH protege o conteúdo do arquivo.
+Para o primeiro exemplo, copiamos um ficheiro de configuração Azure até um VM Linux que é usado para implementar automação. Como este ficheiro contém credenciais Azure API, que incluem segredos, a segurança é importante. O túnel encriptado fornecido pelo SSH protege o conteúdo do ficheiro.
 
-O comando a seguir copia o arquivo local *. Azure/config* para uma VM do Azure com o FQDN *MyServer.eastus.cloudapp.Azure.com*. O nome de usuário administrador na VM do Azure é *azureuser*. O arquivo é direcionado para o diretório */Home/azureuser/* . Substitua seus próprios valores neste comando.
+O comando seguinte copia o ficheiro *local .azure/config* para um Azure VM com *myserver.eastus.cloudapp.azure.com*FQDN . O nome de utilizador administrativo do Azure VM é *azureuser*. O ficheiro é direcionado para o */home/azureuser/diretório.* Substitua os seus próprios valores neste comando.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
 ```
 
-## <a name="scp-a-directory-from-a-linux-vm"></a>SCP um diretório de uma VM do Linux
+## <a name="scp-a-directory-from-a-linux-vm"></a>SCP um diretório de um Linux VM
 
-Para este exemplo, copiamos um diretório de arquivos de log da VM do Linux para sua estação de trabalho. Um arquivo de log pode ou não conter dados confidenciais ou secretos. No entanto, o uso do SCP garante que o conteúdo dos arquivos de log seja criptografado. Usar o SCP para transferir os arquivos é a maneira mais fácil de obter o diretório de log e os arquivos para sua estação de trabalho enquanto também está em segurança.
+Para este exemplo, copiamos um diretório de ficheiros de registo do VM Linux até à sua estação de trabalho. Um ficheiro de registo pode ou não conter dados sensíveis ou secretos. No entanto, a utilização do SCP garante que o conteúdo dos ficheiros de registo está encriptado. Usar o SCP para transferir os ficheiros é a forma mais fácil de levar o diretório de registo e os ficheiros para a sua estação de trabalho, estando também seguro.
 
-O comando a seguir copia os arquivos no diretório */Home/azureuser/logs/* na VM do Azure para o diretório/tmp local:
+Os seguintes ficheiros de cópias de comando no */home/azureuser/logs/ diretório* no Azure VM para o diretório local /tmp:
 
 ```bash
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-O sinalizador `-r` CLI instrui o SCP a copiar recursivamente os arquivos e diretórios do ponto do diretório listado no comando.  Observe também que a sintaxe de linha de comando é semelhante a um comando de cópia `cp`.
+A bandeira `-r` instrui a SCP a copiar recursivamente os ficheiros e diretórios a partir do ponto do diretório listado no comando.  Note também que a sintaxe da linha de comando é semelhante a um comando de cópia `cp`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerenciar usuários, SSH e verificar ou reparar discos em VMs Linux do Azure usando a extensão VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Gerir utilizadores, SSH, e verificar ou reparar discos em VMs Azure Linux utilizando a extensão VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

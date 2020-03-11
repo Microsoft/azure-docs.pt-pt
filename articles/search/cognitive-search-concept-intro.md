@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a4dd3247a9931de3ae2c699bdf7800407695c86
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586755"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080216"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução à IA na Pesquisa Cognitiva Azure
 
@@ -21,7 +21,7 @@ O enriquecimento de IA é uma capacidade da indexação da Pesquisa Cognitiva Az
 
 + **As** competências de processamento de linguagem natural incluem reconhecimento de [entidades,](cognitive-search-skill-entity-recognition.md) [deteção de linguagem,](cognitive-search-skill-language-detection.md)extração de [frases-chave,](cognitive-search-skill-keyphrases.md)manipulação de texto, [deteção de sentimentos](cognitive-search-skill-sentiment.md)e [deteção de PII.](cognitive-search-skill-pii-detection.md) Com estas habilidades, o texto não estruturado pode assumir novas formas, mapeadas como campos pesquisáveis e filtrantes num índice.
 
-+ **As** habilidades de processamento de imagem incluem reconhecimento ótico de [caracteres (OCR)](cognitive-search-skill-ocr.md) e identificação de [características visuais](cognitive-search-skill-image-analysis.md), tais como deteção facial, interpretação de imagem, reconhecimento de imagem (pessoas famosas e marcos) ou atributos como cores ou orientação de imagem. Pode criar representações de texto de conteúdos de imagem, pesquisáveis utilizando todas as capacidades de consulta da Pesquisa Cognitiva Azure.
++ **As** habilidades de processamento de imagem incluem reconhecimento ótico de [caracteres (OCR)](cognitive-search-skill-ocr.md) e identificação de [características visuais](cognitive-search-skill-image-analysis.md), tais como deteção facial, interpretação de imagem, reconhecimento de imagem (pessoas famosas e marcos) ou atributos como orientação de imagem. Pode criar representações de texto de conteúdos de imagem, pesquisáveis utilizando todas as capacidades de consulta da Pesquisa Cognitiva Azure.
 
 ![Diagrama de gasoduto de enriquecimento](./media/cognitive-search-intro/cogsearch-architecture.png "visão geral do gasoduto de enriquecimento")
 

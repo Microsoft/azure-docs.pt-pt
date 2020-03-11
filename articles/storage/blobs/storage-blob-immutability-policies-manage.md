@@ -1,6 +1,6 @@
 ---
-title: Definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs-armazenamento do Azure
-description: Saiba como usar o suporte de WORM (gravar uma vez, ler muitos) para armazenamento de BLOB (objeto) para armazenar dados em um estado não apagável e não modificável para um intervalo especificado.
+title: Definir e gerir políticas de imutabilidade para armazenamento blob - Armazenamento Azure
+description: Aprenda a usar o suporte WORM (Write Once, Read Many) para armazenamento blob (objeto) para armazenar dados num estado não apagamento e não modificável para um intervalo especificado.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,74 +8,74 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903492"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970106"
 ---
-# <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs
+# <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Definir e gerir políticas de imutabilidade para armazenamento blob
 
-O armazenamento imutável para o armazenamento de BLOBs do Azure permite que os usuários armazenem objetos de dados críticos para os negócios em um estado de WORM (gravar uma vez, ler muitos). Esse estado torna os dados não apagáveis e não modificáveis para um intervalo especificado pelo usuário. Durante a duração do intervalo de retenção, os BLOBs podem ser criados e lidos, mas não podem ser modificados ou excluídos. O armazenamento imutável está disponível para contas de armazenamento de BLOBs V2 e de uso geral em todas as regiões do Azure.
+O armazenamento imutável para armazenamento De Blob Azure permite que os utilizadores armazenem objetos de dados críticos do negócio num estado WORM (Write Once, Read Many). Este estado torna os dados não apagamentos e não modificáveis para um intervalo especificado pelo utilizador. Durante a duração do intervalo de retenção, as bolhas podem ser criadas e lidas, mas não podem ser modificadas ou eliminadas. O armazenamento imutável está disponível para contas de armazenamento v2 e Blob em todas as regiões de Azure.
 
-Este artigo mostra como definir e gerenciar políticas de imutabilidade e isenções legais para dados no armazenamento de BLOBs usando o portal do Azure, o PowerShell ou o CLI do Azure. Para obter mais informações sobre armazenamento imutável, consulte [armazenar dados de blob críticos para os negócios com armazenamento imutável](storage-blob-immutable-storage.md).
+Este artigo mostra como definir e gerir políticas de imutabilidade e detém dados no armazenamento blob usando o portal Azure, PowerShell ou Azure CLI. Para obter mais informações sobre o armazenamento imutável, consulte os [dados críticos do negócio da loja com armazenamento imutável](storage-blob-immutable-storage.md).
 
-## <a name="set-retention-policies-and-legal-holds"></a>Definir políticas de retenção e isenções legais
+## <a name="set-retention-policies-and-legal-holds"></a>Definir políticas de retenção e detenção legal
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Crie um novo contentor ou selecione um contentor existente para armazenar os blobs que precisam de ser mantidos no estado imutável. O contêiner deve estar em uma conta de armazenamento de BLOBs v2 ou de uso geral.
+1. Crie um novo contentor ou selecione um contentor existente para armazenar os blobs que precisam de ser mantidos no estado imutável. O recipiente deve estar numa conta de armazenamento v2 ou Blob.
 
-2. Selecione **política de acesso** nas configurações do contêiner. Em seguida, selecione **Adicionar política** em **armazenamento de BLOBs imutável**.
+2. Selecione **a política** de acesso nas definições do recipiente. Em seguida, **selecione Adicionar a política** sob armazenamento de bolhas **imutáveis**.
 
-    ![Configurações de contêiner no portal](media/storage-blob-immutability-policies-manage/portal-image-1.png)
+    ![Definições do recipiente no portal](media/storage-blob-immutability-policies-manage/portal-image-1.png)
 
-3. Para habilitar a retenção baseada em tempo, selecione **retenção baseada em tempo** no menu suspenso.
+3. Para permitir a retenção baseada no tempo, selecione **a retenção baseada no tempo** a partir do menu suspenso.
 
-    !["Retenção baseada em tempo" selecionada em "tipo de política"](media/storage-blob-immutability-policies-manage/portal-image-2.png)
+    !["Retenção baseada no tempo" selecionada em "Tipo de política"](media/storage-blob-immutability-policies-manage/portal-image-2.png)
 
-4. Insira o intervalo de retenção em dias (os valores aceitáveis são de 1 a 146000 dias).
+4. Introduza o intervalo de retenção em dias (os valores aceitáveis são de 1 a 146000 dias).
 
-    ![Caixa "atualizar o período de retenção para"](media/storage-blob-immutability-policies-manage/portal-image-5-retention-interval.png)
+    ![Caixa "Atualizar período de retenção para"](media/storage-blob-immutability-policies-manage/portal-image-5-retention-interval.png)
 
-    O estado inicial da política é desbloqueado, permitindo que você teste o recurso e faça alterações na política antes de bloqueá-lo. O bloqueio da política é essencial para conformidade com regulamentos, como SEC 17a-4.
+    O estado inicial da apólice está desbloqueado, permitindo-lhe testar a funcionalidade e fazer alterações na política antes de a bloquear. O bloqueio da política é essencial para o cumprimento de regulamentos como o SEC 17a-4.
 
-5. Bloquear a política. Clique com o botão direito do mouse nas reticências ( **...** ) e o menu a seguir aparecerá com ações adicionais:
+5. Bloqueie a apólice. Clique na elipse direita ( **...** ), e o seguinte menu aparece com ações adicionais:
 
     !["Política de bloqueio" no menu](media/storage-blob-immutability-policies-manage/portal-image-4-lock-policy.png)
 
-6. Selecione **Bloquear política** e confirmar o bloqueio. A política agora está bloqueada e não pode ser excluída, somente as extensões do intervalo de retenção serão permitidas. Não são permitidas exclusões e substituições de BLOB. 
+6. Selecione **'Lock Policy'** e confirme o bloqueio. A política está agora bloqueada e não pode ser suprimida, só serão permitidas prorrogações do intervalo de retenção. Não são permitidas as exclusões e substituições de blob. 
 
-    ![Confirmar "política de bloqueio" no menu](media/storage-blob-immutability-policies-manage/portal-image-5-lock-policy.png)
+    ![Confirme "Política de bloqueio" no menu](media/storage-blob-immutability-policies-manage/portal-image-5-lock-policy.png)
 
-7. Para habilitar as isenções legais, selecione **Adicionar política**. Selecione **reter legal** no menu suspenso.
+7. Para permitir a devidação legal, selecione **Adicionar Política**. Selecione **Legal hold** a partir do menu suspenso.
 
-    !["Retenção legal" no menu em "tipo de política"](media/storage-blob-immutability-policies-manage/portal-image-legal-hold-selection-7.png)
+    !["Legal hold" no menu em "Tipo de Política"](media/storage-blob-immutability-policies-manage/portal-image-legal-hold-selection-7.png)
 
-8. Crie uma retenção legal com uma ou mais marcas.
+8. Crie um porão legal com uma ou mais etiquetas.
 
-    ![Caixa "nome da marca" sob o tipo de política](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
+    ![Caixa de "tag name" sob o tipo de política](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. Para limpar uma retenção legal, remova a marca de identificador de retenção legal aplicada.
+9. Para limpar um porão legal, remova a etiqueta de identificação legal aplicada.
 
-### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-O recurso está incluído nos seguintes grupos de comandos: `az storage container immutability-policy` e `az storage container legal-hold`. Execute `-h` neles para ver os comandos.
+A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Passa `-h` eles para verem os comandos.
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-O módulo AZ. Storage dá suporte ao armazenamento imutável.  Para habilitar o recurso, siga estas etapas:
+O módulo Az.Storage suporta armazenamento imutável.  Para ativar a funcionalidade, siga estes passos:
 
-1. Verifique se você tem a versão mais recente do PowerShellGet instalada: `Install-Module PowerShellGet –Repository PSGallery –Force`.
-2. Remova qualquer instalação anterior do Azure PowerShell.
-3. Instalar o Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
+1. Certifique-se de que tem a versão mais recente do PowerShellGet instalada: `Install-Module PowerShellGet –Repository PSGallery –Force`.
+2. Remova qualquer instalação anterior da Azure PowerShell.
+3. Instale o Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-O exemplo de script do PowerShell a seguir é para referência. Esse script cria uma nova conta de armazenamento e um contêiner. Em seguida, ele mostra como definir e limpar as isenções legais, criar e bloquear uma política de retenção baseada em tempo (também conhecida como uma política de imutabilidade) e estender o intervalo de retenção.
+O seguinte script PowerShell é para referência. Este script cria uma nova conta de armazenamento e recipiente. Mostra-lhe então como definir e limpar os apoios legais, criar e bloquear uma política de retenção baseada no tempo (também conhecida como uma política de imutabilidade) e alargar o intervalo de retenção.
 
-Primeiro, crie uma conta de armazenamento do Azure:
+Primeiro, crie uma conta de Armazenamento Azure:
 
 ```powershell
 $resourceGroup = "<Enter your resource group>"
@@ -104,7 +104,7 @@ Get-AzStorageContainer -Context $account.Context
 Remove-AzStorageContainer -Name $container -Context $account.Context
 ```
 
-Definir e limpar as isenções legais:
+Definir e limpar os deters legais:
 
 ```powershell
 # Set a legal hold
@@ -116,10 +116,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Criar ou atualizar políticas de imutabilidade:
+Criar ou atualizar políticas de imutabilidade baseadas no tempo:
 
 ```powershell
-# Create an immutablity policy
+# Create a time-based immutablity policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -132,7 +132,7 @@ Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container
 ```
 
-Bloquear políticas de imutabilidade (adicione `-Force` para ignorar o prompt):
+Bloqueie as políticas de imutabilidade (adicione `-Force` para descartar o pedido):
 
 ```powershell
 # Lock immutability policies
@@ -143,7 +143,7 @@ Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     -Etag $policy.Etag
 ```
 
-Estender políticas de imutabilidade:
+Alargar as políticas de imutabilidade:
 
 ```powershell
 # Extend immutability policies
@@ -154,7 +154,7 @@ Set-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 ```
 
-Remover uma política de imutabilidade desbloqueada (adicionar `-Force` para ignorar o prompt):
+Remova uma política de imutabilidade desbloqueada (adicione `-Force` para descartar o pedido):
 
 ```powershell
 # Remove an unlocked immutability policy
@@ -166,20 +166,26 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ---
 
-## <a name="enabling-allow-protected-append-blobs-writes"></a>Habilitando o permitir gravações de blobs de acréscimo protegidos
+## <a name="enabling-allow-protected-append-blobs-writes"></a>Permitir permitir a aplicação de bolhas de apêndice protegidos escreve
 
-Neste momento, você só pode acessar a configuração de `allowProtectedAppendWrites` para políticas de retenção baseadas em tempo por meio deste [link do portal](https://aka.ms/immutableappendblobs)específico. 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-> [!IMPORTANT] 
->  A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível no momento e visível somente nas seguintes regiões:
-> - E.U.A. Leste
-> - E.U.A. Centro-Sul
-> - E.U.A. Oeste 2
->
-> Para obter mais informações, consulte [permitir gravações de blobs de acréscimo protegidos](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+![Permitir escritos adicionais de apêndice](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
-![Permitir gravações adicionais de acréscimo](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+A funcionalidade está incluída nos seguintes grupos de comando: `az storage container immutability-policy` e `az storage container legal-hold`. Passa `-h` eles para verem os comandos.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```powershell
+# Create an immutablity policy with appends allowed
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
+```
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Armazene dados de blob críticos para os negócios com armazenamento imutável](storage-blob-immutable-storage.md)
+[Armazenar dados de blob críticos de negócios com armazenamento imutável](storage-blob-immutable-storage.md)

@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365436"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967890"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob críticos de negócios com armazenamento imutável
 
@@ -68,7 +68,7 @@ Recomenda-se apenas uma política de retenção baseada no tempo desbloqueada pa
 Os seguintes limites aplicam-se às políticas de retenção:
 
 - Para uma conta de armazenamento, o número máximo de contentores com políticas imutáveis com tempo fechado é de 10.000.
-- O intervalo mínimo de retenção é um dia. O máximo é de 146.000 dias (400 anos).
+- O intervalo mínimo de retenção é de 1 dia. O máximo é de 146.000 dias (400 anos).
 - Para um recipiente, o número máximo de edimas para estender um intervalo de retenção para políticas imutáveis com base no tempo bloqueada é 5.
 - Para um contentor, um máximo de sete registos de auditoria da política de retenção baseados no tempo são mantidos para uma política bloqueada.
 
@@ -84,15 +84,7 @@ Por exemplo, suponha que um utilizador cria uma política de retenção baseada 
 
 As políticas de retenção baseadas no tempo desbloqueadas permitem que a definição de `allowProtectedAppendWrites` seja ativada e desativada a qualquer momento. Uma vez bloqueada a política de retenção baseada no tempo, a definição de `allowProtectedAppendWrites` não pode ser alterada.
 
-As políticas legais de detenção não podem permitir que `allowProtectedAppendWrites` e não permitam que novos blocos sejam anexados para anexar bolhas. Se um porão legal for aplicado a uma política de retenção baseada no tempo com `allowProtectedAppendWrites` ativado, a API do *Bloco de Aplicação* falhará até que a detenção legal seja levantada.
-
-> [!IMPORTANT] 
-> As bolhas de apêndice protegidas permitem que as definições de retenção baseadas no tempo estão atualmente disponíveis nas seguintes regiões:
-> - E.U.A. Leste
-> - E.U.A. Centro-Sul
-> - E.U.A.Oeste 2
->
-> Neste momento, aconselhamos vivamente que não permita `allowProtectedAppendWrites` em nenhuma outra região além das especificadas, pois pode causar falhas intermitentes e afetar o cumprimento das bolhas de apêndice. Para obter mais informações sobre como definir e bloquear políticas de retenção baseadas no tempo, consulte A Habilitação permitir que as bolhas de [apêndice protegidos escrevam](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+As políticas legais de detenção não podem permitir `allowProtectedAppendWrites` e quaisquer deveres legais anularão a propriedade "allowProtectedAppendWrites". Se um porão legal for aplicado a uma política de retenção baseada no tempo com `allowProtectedAppendWrites` ativado, a API do *Bloco de Aplicação* falhará até que a detenção legal seja levantada.
 
 ## <a name="legal-holds"></a>Retenções legais
 
@@ -140,7 +132,7 @@ Não, pode utilizar armazenamento imutável com quaisquer contas v1 de uso geral
 
 **Posso aplicar uma política de retenção legal e baseada no tempo?**
 
-Sim, um contentor pode ter um porão legal e uma política de retenção baseada no tempo ao mesmo tempo. Todas as bolhas nesse contentor permanecem no estado imutável até que todos os deteres legais sejam limpos, mesmo que o seu período de retenção efetiva tenha expirado. Inversamente, uma bolha permanece num estado imutável até que o prazo de retenção efetiva expire, apesar de todos os deters legais terem sido ilibados.
+Sim, um contentor pode ter uma posição legal e uma política de retenção baseada no tempo ao mesmo tempo; no entanto, a definição de "permitirAprotecção de AppendWrites" não se aplicará até que a detenção legal seja desmarcada. Todas as bolhas nesse contentor permanecem no estado imutável até que todos os deteres legais sejam limpos, mesmo que o seu período de retenção efetiva tenha expirado. Inversamente, uma bolha permanece num estado imutável até que o prazo de retenção efetiva expire, apesar de todos os deters legais terem sido ilibados. 
 
 **As políticas legais são apenas para processos judiciais ou existem outros cenários de utilização?**
 
@@ -164,7 +156,7 @@ Sim, pode utilizar o comando set Blob Tier para mover dados através dos níveis
 
 **O que acontece se eu não conseguir pagar e o meu intervalo de retenção não tiver expirado?**
 
-Em caso de não pagamento, as políticas normais de retenção de dados serão aplicadas conforme estipulado nos termos e condições do seu contrato com a Microsoft.
+Em caso de não pagamento, as políticas normais de retenção de dados serão aplicadas conforme estipulado nos termos e condições do seu contrato com a Microsoft. Para obter informações gerais, consulte a [gestão de dados na Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **Oferecem um período de avaliação gratuita ou de tolerância para experimentar a funcionalidade?**
 

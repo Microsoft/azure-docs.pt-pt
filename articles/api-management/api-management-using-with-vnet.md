@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c5a1aaac0edea1e5ab2e6cdf35f91f61eed23db5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 62e8c174cd10a003657093b805291e003a9ede1b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374963"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968115"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Azure API Management com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Visão geral da rede virtual Azure](../virtual-network/virtual-networks-overview.md).
@@ -113,16 +113,16 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 | * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente à API Management                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para portal Azure e Powershell         | Externa e Interna  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | **Dependência do armazenamento azure**                             | Externa e Interna  |
-| * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Diretório Ativo Azure (se aplicável)                   | Externa e Interna  |
+| * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Diretório Ativo Azure](api-management-howto-aad.md) (se aplicável)                   | Externa e Interna  |
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso a pontos finais Azure SQL**                           | Externa e Interna  |
-| * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência para log to event hub política e agente de monitorização | Externa e Interna  |
-| * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência da partilha de ficheiros Azure para o GIT                      | Externa e Interna  |
+| * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência para [log to event hub política](api-management-howto-log-event-hubs.md) e agente de monitorização | Externa e Interna  |
+| * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência da partilha de ficheiros Azure para [o GIT](api-management-configuration-repository-git.md)                      | Externa e Interna  |
 | * / 1886                     | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Necessário para publicar o estado de saúde à Saúde dos Recursos          | Externa e Interna  |
-| * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar Registos e Métricas de Diagnóstico                        | Externa e Interna  |
+| * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [Registos e Métricas](api-management-howto-use-azure-monitor.md) de Diagnóstico                       | Externa e Interna  |
 | * / 25                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue-se ao Relé SMTP para envio de e-mails                    | Externa e Interna  |
 | * / 587                      | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue-se ao Relé SMTP para envio de e-mails                    | Externa e Interna  |
 | * / 25028                    | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue-se ao Relé SMTP para envio de e-mails                    | Externa e Interna  |
-| * / 6381 - 6383              | Entrada e saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Azure Cache for Redis Instances between RoleInstances          | Externa e Interna  |
+| * / 6381 - 6383              | Entrada e saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Aceder ao Serviço Redis para políticas [de limite](api-management-access-restriction-policies.md#LimitCallRateByKey) de tarifas entre máquinas         | Externa e Interna  |
 | * / *                        | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Equilibrador de carga de infraestrutura Azure                          | Externa e Interna  |
 
 >[!IMPORTANT]
@@ -136,9 +136,12 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 
     | Ambiente Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net(**novo)**</li><li>prod.warmpath.msftcloudes.com a**ser depreciado**</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com onde está eastus2.warm.ingestion.msftcloudes.com `East US 2`</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net(**novo)**</li><li>prod.warmpath.msftcloudes.com a**ser depreciado**</li><li>shoebox2.metrics.microsoftmetrics.com</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod3-black.prod3.metrics.microsoftmetrics.com</li><li>prod3-black.prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod3-red.prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3-red.prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com onde está eastus2.warm.ingestion.msftcloudes.com `East US 2`</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com</li><li>shoebox2.metrics.nsatc.net a**ser depreciado**</li><li>prod3.metrics.microsoftmetrics.com(**novo)**</li><li>prod3.metrics.nsatc.net a**ser depreciado**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+
+>[!IMPORTANT]
+> A mudança de clusters acima com a zona dns **.nsatc.net** para **.microsoftmetrics.com** é principalmente uma Mudança dNS. O endereço IP do cluster não se alterará.
 
 + **Relé SMTP**: Conectividade de rede de saída para o Relé SMTP, que se resolve sob o `smtpi-co1.msn.com`hospedeiro , `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 

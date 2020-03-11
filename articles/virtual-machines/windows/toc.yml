@@ -337,7 +337,8 @@
               href: spot-portal.md
             - name: PowerShell
               href: spot-powershell.md
-            - name: Modelo
+            - name: Modelo ARM
+              displayName: Azure Resource Manager
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Códigos de erro
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -349,16 +350,17 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Utilizar um modelo com C#'
+        - name: 'Utilizar o modelo do Resource Manager com C#'
           href: csharp-template.md
+          displayName: Azure Resource Manager
         - name: Criar VM com Chef
           href: ../../chef/chef-automation.md
         - name: Utilizar Java
           href: java.md
         - name: Utilizar Python
           href: python.md
-        - name: Utilizar um modelo
-          displayName: 'Azure Resource Manager template, ARM'
+        - name: Utilizar o modelo do Resource Manager
+          displayName: Azure Resource Manager template
           href: ps-template.md
         - name: Ligar a uma VM
           href: connect-logon.md
@@ -473,7 +475,8 @@
           href: change-drive-letter.md
         - name: Alterar o conjunto de disponibilidade
           href: change-availability-set.md
-        - name: Transferir modelo
+        - name: Exportar o modelo do Resource Manager
+          displayName: Azure Resource Manager
           href: download-template.md
         - name: Agente da VM do Azure
           href: ../extensions/agent-windows.md
@@ -543,7 +546,8 @@
               href: image-builder-gallery-update-image-version.md
             - name: Armazenar scripts
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Referência de modelo
+            - name: Referência do modelo do Resource Manager
+              displayName: Azure Resource Manager
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Resolução de problemas
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
@@ -620,7 +624,8 @@
               href: attach-managed-disk-portal.md
         - name: Desligar um disco
           href: detach-disk.md
-        - name: Implementar discos com modelo
+        - name: Implementar discos com o modelo do Resource Manager
+          displayName: Azure Resource Manager
           href: using-managed-disks-template-deployments.md
         - name: Ativar discos partilhados
           href: disks-shared-enable.md
@@ -690,6 +695,7 @@
         - name: PowerShell
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: Modelo do Azure Resource Manager
+          displayName: ARM
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: REST
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
@@ -743,7 +749,8 @@
       href: /azure/templates/microsoft.compute/allversions
 - name: Recursos
   items:
-    - name: Modelos de autor
+    - name: Modelos do Resource Manager de autor
+      displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Desenvolva as suas competências com o Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines

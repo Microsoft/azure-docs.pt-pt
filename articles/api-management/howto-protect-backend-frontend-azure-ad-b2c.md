@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: daf38baf9daff5fd192091be977a996c9bd5cfc2
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539867"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967638"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteja o backend da SPA com o OAuth 2.0, o Diretório Ativo Azure B2C e a Azure API Management
 
 Este cenário mostra-lhe como configurar a sua instância de Gestão API Azure para proteger uma API.
-Usaremos o protocolo OpenID Connect com o Azure AD B2C, juntamente com a API Management para garantir um backend de funções Azure usando a EasyAuth.
+Usaremos o protocolo OAuth 2.0 com o Azure AD B2C, ao lado da API Management para garantir um backend de funções Azure usando a EasyAuth.
 
 ## <a name="aims"></a>Objetivos
 Vamos ver como a API Management pode ser usada num cenário simplificado com funções Azure e Azure AD B2C. Irá criar uma aplicação JavaScript (JS) chamando uma API, que assina em utilizadores com Azure AD B2C. Em seguida, você usará as funcionalidades de política validada-jwt da API Management para proteger a API Backend.
@@ -66,11 +66,11 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
    * O Cliente Frontend.
    * A API função backend.
    * [Opcional] O portal de desenvolvimento da API Management (a menos que esteja a gerir a Azure API Management no nível de consumo, mais sobre este cenário mais tarde).
-1. Definir WebApp / Web API e permitir fluxo implícito para sim
+1. Definir WebApp / Web API para todas as 3 aplicações e definir 'Permitir fluxo implícito' para sim apenas para o Cliente Frontend.
 1. Agora detete o App ID URI, escolha algo único e relevante para o serviço que está sendo criado.
 1. Utilize os espaços reservados para os urls de resposta por enquanto, como https://localhost, atualizaremos esses urls mais tarde.
 1. Clique em 'Criar', e depois repita os passos 2-5 para cada uma das três aplicações acima, registando o AppID URI, nome e ID de aplicação para posterior utilização para as três aplicações.
-1. Abra a API backend a partir da lista de aplicações e selecione o separador *Keys* (em geral) e, em seguida, clique em 'Generate Key' para gerar uma tecla auth
+1. Abra a Aplicação do Portal de Desenvolvimento de Gestão da API a partir da lista de aplicações e selecione o separador *Keys* (em geral) e, em seguida, clique em 'Gerar Chave' para gerar uma chave auth
 1. Ao clicar em guardar, grave a chave em algum lugar seguro para posterior utilização - note que este lugar é a única hipótese que você terá de visualizar e copiar esta chave.
 1. Selecione agora o separador *de âmbitos publicados* (sob acesso API)
 1. Crie e nomeie uma margem para a sua API função e grave o Scope e povoou o Valor total do âmbito e, em seguida, clique em 'Guardar'.
@@ -85,7 +85,7 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
 1. Em seguida, selecione "Fluxos de utilizador (Políticas)" e clique em "Novo fluxo de utilizador"
 1. Escolha o tipo de fluxo do utilizador 'Inscreva-se e inscreva-se'
 1. Dê um nome à apólice e grave-o para mais tarde.
-1. Em seguida, em 'Fornecedores de identidade', verifique 'User ID sign up' e clique OK. 
+1. Em seguida, em 'Fornecedores de identidade', verifique 'User ID sign up' (isto pode dizer 'E-mail inscreva-se') e clique OK. 
 1. Em 'Atributos e reclamações do utilizador', clique em 'Mostrar Mais...' em seguida, escolha as opções de reclamação que deseja que os seus utilizadores entrem e tenham devolvido no token. Verifique pelo menos 'Display Name' e 'Email Address' para recolher e devolver, e clique em 'OK', em seguida, clique em 'Criar'.
 1. Selecione a política que criou na lista e, em seguida, clique no botão 'Executar o fluxo do utilizador'.
 1. Esta ação abrirá a lâmina de fluxo do utilizador de execução, selecionará a aplicação frontend e gravará o endereço do domínio b2clogin.com que é mostrado sob o dropdown para 'Select domain'.
@@ -98,6 +98,7 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
    > Se quiser clicar no botão 'Executar o fluxo do utilizador' aqui (para passar pelo sinal de inscrição ou iniciar o processo) e sentir o que fará na prática, mas o passo de reorientação no final falhará uma vez que a aplicação ainda não foi implementada.
 
 ## <a name="build-the-function-api"></a>Construir a função API
+1. Volte para o seu inquilino AD Azure padrão no portal Azure para que possamos configurar itens na sua subscrição novamente 
 1. Vá à lâmina de Aplicações de Funções do portal Azure, abra a sua aplicação de função vazia e, em seguida, crie uma nova função in-Portal 'Webhook + API' através do arranque rápido.
 1. Colhe o código da amostra a partir de baixo para Run.csx sobre o código existente que aparece.
 
@@ -156,15 +157,16 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
 1. Em seguida, selecione o separador 'Funcionalidades da Plataforma' e selecione 'Autenticação / Autorização'.
 1. Ligue a função de autenticação do serviço de aplicações.
 1. Em 'Fornecedores de Autenticação' escolha 'Azure Ative Directory', e escolha 'Advanced' do interruptor Modo de Gestão.
-1. Colar o ID de aplicação da API (de Azure AD B2C na caixa 'ID do cliente')
+1. Colar o ID de aplicação da Backend Function API (de Azure AD B2C na caixa 'ID do cliente')
 1. Colar o ponto final de configuração de id aberto bem conhecido a partir do signup ou iniciar a política na caixa URL emitente (gravámos esta configuração anteriormente).
-1. Adicione as três (ou duas pessoas se utilizar o modelo de consumo de Gestão API) iDs que gravou anteriormente para as aplicações Azure AD B2C nas audiências de token permitidas, esta definição indica à EasyAuth quais os valores de reclamação da AUD que são permitidos nas fichas recebidas.
-1. Selecione OK e, em seguida, clique em Guardar.
+1. Selecione OK.
+1. Detete a Ação a tomar quando o pedido não for autenticado para "Iniciar sessão com o Diretório Ativo Azure", em seguida, clique em Guardar.
 
    > [!NOTE]
-   > Agora a sua API função está implantada e deve lançar 401 ou 403 erros para pedidos não autorizados, e deve devolver dados quando um pedido válido é apresentado.
-   > Mas ainda não temos segurança IP, se você tem uma chave válida você pode chamá-lo de qualquer lugar - idealmente queremos forçar todos os pedidos a vir através da API Management.
-   > Além disso, se estiver a utilizar o nível de consumo de Gestão API, não poderá efetuar este bloqueio por VIP, uma vez que não existe um IP estático dedicado para esse nível, terá de confiar no método de bloquear as suas chamadas API através da chave de função secreta partilhada , por isso os passos 11-14 não serão possíveis.
+   > Agora a sua API função é implementada e deve lançar 401 respostas se a chave correta não for fornecida, e deve devolver os dados quando um pedido válido for apresentado.
+   > Adicionou segurança adicional em profundidade na EasyAuth, configurando a opção 'Login With Azure AD' para lidar com pedidos não autenticados. Esteja ciente de que isso irá alterar o comportamento de pedido não autorizado entre a App de Funções Backend e o Frontend SPA, uma vez que a EasyAuth emitirá um redirecionamento 302 para a AAD em vez de uma resposta não autorizada 401, corrigiremos isso usando a API Management mais tarde.
+   > Ainda não temos nenhuma segurança IP aplicada, se você tem uma chave válida e token OAuth2, qualquer um pode chamá-lo de qualquer lugar - idealmente queremos forçar todos os pedidos a vir através da API Management.
+   > Se estiver a utilizar o nível de consumo de Gestão API, não poderá efetuar este bloqueio por VIP, uma vez que não existe um IP estático dedicado para esse nível, terá de confiar no método de bloquear as suas chamadas API através da chave de função secreta partilhada , por isso os passos 11-13 não serão possíveis.
 
 1. Feche a lâmina 'Autenticação / Autorização' 
 1. Selecione 'Networking' e, em seguida, selecione 'Restrições de acesso'
@@ -172,13 +174,13 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
 1. Se quiser continuar a interagir com o portal de funções e a realizar os passos opcionais abaixo, deve adicionar o seu próprio endereço IP público ou gama CIDR também aqui.
 1. Uma vez que há uma entrada permitida na lista, Azure adiciona uma regra implícita de negação para bloquear todos os outros endereços. 
 
-Você precisará adicionar blocos de endereços formatados CIDR ao painel de restrições IP. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx/32.
+Você precisará adicionar blocos de endereços formatados CIDR ao painel de restrições IP. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx.
 
    > [!NOTE]
    > Agora a sua API função não deve ser chamada de outro lugar que não seja através da gestão da API, ou do seu endereço.
-
+   
 ## <a name="import-the-function-app-definition"></a>Importar a definição de aplicação de função
-1. Abra a lâmina do portal de gestão DaPi e selecione a sua instância de Gestão API.
+1. Abra a *lâmina de Gestão API*e abra *a sua instância.*
 1. Selecione a lâmina APIs da secção de Gestão API da sua instância.
 1. A partir do painel 'Adicionar um Novo API', escolha 'Function App', e, em seguida, selecione 'Full' a partir do topo do popup.
 1. Clique em Navegar, escolha a aplicação de funções que está a hospedar a API no seu interior e clique em selecionar.
@@ -186,13 +188,13 @@ Você precisará adicionar blocos de endereços formatados CIDR ao painel de res
 1. Certifique-se de que grava o URL base para posterior utilização e, em seguida, clique em criar.
 
 ## <a name="configure-oauth2-for-api-management"></a>Configure Oauth2 para Gestão de API
-1. Volte para o seu inquilino AD Azure padrão no portal Azure para que possamos configurar itens na sua subscrição novamente e abrir a *lâmina de Gestão API,* em seguida, abra *a sua instância*.
+
 1. Em seguida, Selecione a lâmina Oauth 2.0 do Separador de Segurança e clique em 'Adicionar'
 1. Dê valores para *o nome* e *descrição* do ponto final de Oauth adicionado (estes valores aparecerão no próximo passo como ponto final oAuth2).
 1. Pode introduzir qualquer valor no URL da página de registo do Cliente, uma vez que este valor não será utilizado.
-1. Verifique o tipo de Concessão *Implícita auth* E desmarque opcionalmente o tipo de concessão do código de autorização.
+1. Verifique o tipo de Concessão *Implícita auth* e deixe verificado o tipo de concessão de código de autorização verificado.
 1. Mova-se para os campos *de ponto* final de Autorização e *Token,* e introduza os valores capturados a partir do conhecido documento de configuração xml anteriormente.
-1. Percorra para baixo e monte um *parâmetro adicional* do corpo chamado "recurso" com o ID do cliente api função do registo da App Azure AD B2C
+1. Percorra para baixo e monte um *parâmetro adicional* do corpo chamado "recurso" com o ID do cliente API da Função Backend a partir do registo da App Azure AD B2C
 1. Selecione 'Credenciais de cliente', detete o ID do Cliente para o ID da aplicação da consola Developer - ignore este passo se utilizar o modelo de gestão api de consumo.
 1. Desloque o Segredo do Cliente à chave que gravou anteriormente - ignore este passo se utilizar o modelo de gestão api de consumo.
 1. Por último, registe agora a redirect_uri da concessão de código auth da API Management para posterior utilização.
@@ -242,7 +244,6 @@ Você precisará adicionar blocos de endereços formatados CIDR ao painel de res
    ```
 1. Editar o url openid-config para combinar com o seu conhecido ponto final Azure AD AD B2C para o signo ou assinar na política.
 1. Editar o valor da reclamação para corresponder ao ID de aplicação válido, também conhecido como ID do cliente para a aplicação API de backend e guardar.
-1. Selecione a operação api abaixo das "All APIs"
 
    > [!NOTE]
    > Agora, a gestão da API é capaz de responder aos pedidos de origem cruzada para aplicações JS SPA, e irá realizar estrangulamento, limitação de taxas e pré-validação do símbolo jWT auth sendo passado antes de reencaminhar o pedido para a API função.

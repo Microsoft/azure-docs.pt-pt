@@ -1,19 +1,19 @@
 ---
-title: Solucionar problemas de implantação e descoberta do dispositivo de migração do Azure
-description: Obtenha ajuda com a implantação do dispositivo de migrações para Azure e a descoberta de máquinas.
+title: Implantação e descoberta de aparelhos migratórios Azure
+description: Obtenha ajuda na implementação do aparelho Azure Migrate e na descoberta de máquinas.
 author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3e25f55d82ba146f9076e38faf1e399c5228d947
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048695"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080395"
 ---
-# <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
+# <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Problemas de resolução do aparelho e descoberta do Azure Migrate
 
 Este artigo ajuda-o a resolver problemas ao implantar o aparelho [Azure Migrate](migrate-services-overview.md) e a utilizar o aparelho para descobrir máquinas no local.
 
@@ -23,144 +23,157 @@ Este artigo ajuda-o a resolver problemas ao implantar o aparelho [Azure Migrate]
 [Reveja](migrate-appliance.md) os requisitos de suporte do aparelho.
 
 
-## <a name="invalid-ovf-manifest-entry"></a>"Entrada de manifesto OVF inválida"
+## <a name="invalid-ovf-manifest-entry"></a>"Entrada manifesto OVF inválida"
 
-Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada de manifesto OVF inválida", faça o seguinte:
+Se receber o erro "O ficheiro manifesto fornecido é inválido: entrada manifesto OVF inválida", faça o seguinte:
 
-1. Verifique se o arquivo OVA do dispositivo de migração do Azure foi baixado corretamente verificando seu valor de hash. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se o valor de hash não corresponder, baixe o arquivo OVA novamente e repita a implantação.
-2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
-3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
+1. Verifique se o ficheiro OVA do eletrodoméstico Azure é descarregado corretamente verificando o seu valor de haxixe. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se o valor do haxixe não corresponder, baixe novamente o ficheiro OVA e volte a tentar a implementação.
+2. Se a implementação ainda falhar, e estiver a usar o cliente VMware vSphere para implementar o ficheiro OVF, tente implementá-lo através do cliente web vSphere. Se a implementação ainda falhar, tente utilizar um navegador web diferente.
+3. Se estiver a utilizar o cliente web da vSphere e a tentar implementá-lo no vCenter Server 6.5 ou 6.7, tente implementar o OVA diretamente no hospedeiro ESXi:
    - Ligue-se diretamente ao anfitrião ESXi (em vez de vCenter Server) com o cliente web (https://<*host IP Address*>/ui).
-   - No **inventário**de > **em casa,** selecione **File** > Implementar **modelo OVF**. Navegue até o OVA e conclua a implantação.
-4. Se a implantação ainda falhar, entre em contato com o suporte para migrações para Azure.
+   - No **inventário**de > **em casa,** selecione **File** > Implementar **modelo OVF**. Navegue no OVA e complete a implementação.
+4. Se a implantação ainda falhar, contacte o suporte da Migração Azure.
 
-## <a name="cant-connect-to-the-internet"></a>Não é possível conectar à Internet
+## <a name="cant-connect-to-the-internet"></a>Não se pode ligar à internet
 
-Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
+Isto pode acontecer se a máquina do aparelho estiver atrás de um proxy.
 
-- Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
+- Certifique-se de fornecer as credenciais de autorização se o representante precisar delas.
 - Se estiver a utilizar um representante de firewall baseado em URL para controlar a conectividade de saída, adicione [estes URLs](migrate-appliance.md#url-access) a uma lista de autorizações.
 - Se estiver a utilizar um representante de interceção para se ligar à internet, importe o certificado de procuração para o VM do aparelho utilizando [estes passos](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-##  <a name="datetime-synchronization-error"></a>Erro de sincronização de data/hora
+##  <a name="datetime-synchronization-error"></a>Erro de sincronização data/hora
 
-Um erro sobre a sincronização de data e hora (802) indica que o relógio do servidor pode estar fora de sincronização com a hora atual em mais de cinco minutos. Altere a hora do relógio na VM do coletor para corresponder à hora atual:
+Um erro sobre a sincronização da data e da hora (802) indica que o relógio do servidor pode estar fora de sincronização com o tempo atual em mais de cinco minutos. Altere o tempo de tempo no VM do coletor para corresponder ao tempo atual:
 
-1. Abra um prompt de comando de administrador na VM.
+1. Abra um pedido de comando administrativo no VM.
 2. Para verificar o fuso horário, corra **w32tm /tz**.
 3. Para sincronizar o tempo, executar **w32tm /resincronização**.
 
 
-## <a name="unabletoconnecttoserver"></a>UnableToConnectToServer
+## <a name="unabletoconnecttoserver"></a>"UnableToConnectToServer"
 
 Se tiver este erro de ligação, poderá não conseguir ligar-se ao vCenter *Server Servername*.com:9443. Os detalhes do erro indicam que não há ponto final a ouvir o nome de*servidor*https://.com:9443/sdk que pode aceitar a mensagem.
 
-- Verifique se você está executando a versão mais recente do dispositivo. Se não estiver, atualize o aparelho para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
-- Se o problema ainda ocorrer na versão mais recente, o dispositivo poderá não conseguir resolver o nome de vCenter Server especificado ou a porta especificada poderá estar errada. Por padrão, se a porta não for especificada, o coletor tentará se conectar ao número da porta 443.
+- Verifique se está a executar a versão mais recente do aparelho. Se não estiver, atualize o aparelho para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Se o problema ainda ocorrer na versão mais recente, o aparelho poderá não conseguir resolver o nome de servidor de vCenter especificado, ou a porta especificada pode estar errada. Por defeito, se a porta não for especificada, o coletor tentará ligar-se à porta número 443.
 
     1. Ping *Servername*.com do aparelho.
-    2. Se a etapa 1 falhar, tente se conectar ao servidor do vCenter usando o endereço IP.
-    3. Identifique o número da porta correto para se conectar ao vCenter Server.
-    4. Verifique se vCenter Server está em execução.
+    2. Se o passo 1 falhar, tente ligar-se ao servidor vCenter utilizando o endereço IP.
+    3. Identifique o número de porta correto para ligar ao VCenter Server.
+    4. Verifique se o VCenter Server está a funcionar.
 
 
-## <a name="error-6005260039-appliance-might-not-be-registered"></a>Erro 60052/60039: o dispositivo pode não estar registrado
+## <a name="error-6005260039-appliance-might-not-be-registered"></a>Erro 60052/60039: O aparelho pode não estar registado
 
-- O erro 60052, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" ocorrerá se a conta do Azure usada para registrar o dispositivo não tiver permissões suficientes.
-    - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
+- Erro 60052: "O aparelho pode não ser registado com sucesso no projeto Azure Migrate" ocorre se a conta Azure utilizada para registar o aparelho não tiver permissões insuficientes.
+    - Certifique-se de que a conta de utilizador Azure utilizada para registar o aparelho tem, pelo menos, permissões contributivas na subscrição.
     - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões necessárias do Azure.
-- O erro 60039, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" pode ocorrer se o registro falhar porque o projeto de migrações para Azure usado para registrar o dispositivo não foi encontrado.
-    - No portal do Azure e verifique se o projeto existe no grupo de recursos.
-    - Se o projeto não existir, crie um novo projeto de migrações para Azure em seu grupo de recursos e registre o dispositivo novamente. [Aprenda a](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) criar um novo projeto.
+- Erro 60039: "O aparelho pode não ser registado com sucesso no projeto Azure Migrate" pode ocorrer se o registo falhar porque o projeto Azure Migrate utilizado para o registo do aparelho não pode ser encontrado.
+    - No portal Azure e verificar se o projeto existe no grupo de recursos.
+    - Se o projeto não existir, crie um novo projeto Azure Migrate no seu grupo de recursos e registe o aparelho novamente. [Aprenda a](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) criar um novo projeto.
 
-## <a name="error-6003060031-key-vault-management-operation-failed"></a>Erro 60030/60031: falha na operação de gerenciamento de Key Vault
+## <a name="error-6003060031-key-vault-management-operation-failed"></a>Erro 60030/60031: Operação de gestão do cofre falhou
 
-Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciamento de Azure Key Vault", faça o seguinte:
-- Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
-- Verifique se a conta tem acesso ao cofre de chaves especificado na mensagem de erro e repita a operação.
+Se receber o erro 60030 ou 60031, "Uma operação de gestão do Cofre chave Azure falhou", faça o seguinte:
+- Certifique-se de que a conta de utilizador Azure utilizada para registar o aparelho tem, pelo menos, permissões contributivas na subscrição.
+- Certifique-se de que a conta tem acesso ao cofre da chave especificado na mensagem de erro e, em seguida, tente novamente a operação.
 - Se o problema persistir, contacte o suporte da Microsoft.
 - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões necessárias do Azure.
 
-## <a name="error-60028-discovery-couldnt-be-initiated"></a>Erro 60028: não foi possível iniciar a descoberta
+## <a name="error-60028-discovery-couldnt-be-initiated"></a>Erro 60028: Descoberta não pôde ser iniciada
 
-Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operação falhou para a lista especificada de hosts ou clusters "indica que a descoberta não pôde ser iniciada nos hosts listados no erro devido a um problema no acesso ou na recuperação de informações da VM. O restante dos hosts foi adicionado com êxito.
+Erro 60028: "A descoberta não pôde ser iniciada por causa de um erro. A operação falhou na lista especificada de anfitriões ou clusters" indica que a descoberta não poderia ser iniciada nos anfitriões listados no erro devido a um problema no acesso ou recuperação de informações vm. Os restantes anfitriões foram adicionados com sucesso.
 
 - Adicione novamente os anfitriões listados no erro, utilizando a opção Adicionar o **anfitrião.**
 - Se houver um erro de validação, reveja a orientação de reparação para corrigir os erros e, em seguida, tente a opção **Salvar e reinicie** a descoberta novamente.
 
-## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: falha na operação do Azure AD 
-Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Efetue uma das seguintes ações:
+## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: Operação da AD Azure falhou 
+Erro 60025: "Uma operação da AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação Azure AD" ocorre quando a conta de utilizador azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Efetue uma das seguintes ações:
 
-- Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
-- Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.
-- Exclua o grupo de recursos criado anteriormente para o projeto de migrações para Azure. Crie outro grupo de recursos para iniciar novamente.
+- Certifique-se de que a conta do utilizador que inicia a descoberta é a mesma utilizada para registar o aparelho.
+- Forneça permissões de acesso à aplicação Azure Ative Directory à conta do utilizador para a qual a operação de descoberta está a falhar.
+- Elimine o grupo de recursos anteriormente criado para o projeto Azure Migrate. Crie outro grupo de recursos para recomeçar.
 - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as permissões de aplicação do Azure Ative Directory.
 
 
-## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Erro 50004: não é possível conectar-se ao host ou cluster
+## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Erro 50004: Não pode ligar-se ao hospedeiro ou ao cluster
 
-Erro 50004: "não é possível se conectar a um host ou cluster porque o nome do servidor não pode ser resolvido. Código de erro WinRM: 0x803381B9 "poderá ocorrer se o serviço DNS do Azure para o dispositivo não puder resolver o cluster ou o nome do host fornecido.
+Erro 50004: "Não pode ligar-se a um hospedeiro ou cluster porque o nome do servidor não pode ser resolvido. Código de erro WinRM: 0x803381B9" pode ocorrer se o serviço Azure DNS para o aparelho não conseguir resolver o cluster ou o nome do hospedeiro que forneceu.
 
-- Se você vir esse erro no cluster, o FQDN do cluster.
-- Você também pode ver esse erro para hosts em um cluster. Isso indica que o dispositivo pode se conectar ao cluster, mas o cluster retorna nomes de host que não são FQDNs. Para resolver esse erro, atualize o arquivo de hosts no dispositivo adicionando um mapeamento do endereço IP e nomes de host:
+- Se vir este erro no cluster, cluster FQDN.
+- Também pode ver este erro para os anfitriões num aglomerado. Isto indica que o aparelho pode ligar-se ao cluster, mas o cluster devolve nomes hospedeiros que não são FQDNs. Para resolver este erro, atualize o ficheiro dos anfitriões no aparelho adicionando um mapeamento do endereço IP e nomes do anfitrião:
     1. Abra o bloco de notas como administrador.
-    2. Abra o arquivo C:\Windows\System32\Drivers\etc\hosts.
-    3. Adicione o endereço IP e o nome do host em uma linha. Repita para cada host ou cluster em que você vê esse erro.
+    2. Abra o ficheiro C:\Windows\System32\Drivers\etc\hosts.
+    3. Adicione o endereço IP e o nome do anfitrião em sequência. Repita para cada hospedeiro ou aglomerado onde vê este erro.
     4. Guarde e feche o ficheiro de anfitriões.
-    5. Verifique se o dispositivo pode se conectar aos hosts, usando o aplicativo de gerenciamento de dispositivo. Após 30 minutos, você deverá ver as informações mais recentes para esses hosts na portal do Azure.
+    5. Verifique se o aparelho pode ligar-se aos anfitriões, utilizando a aplicação de gestão de aparelhos. Após 30 minutos, deverá ver as últimas informações para estes anfitriões no portal Azure.
 
-## <a name="discovered-vms-not-in-portal"></a>VMs descobertas não estão no portal
+## <a name="discovered-vms-not-in-portal"></a>VMs descobertos não no portal
 
-Se o estado da descoberta for "descoberta em andamento", mas ainda não estiver vendo as VMs no portal, aguarde alguns minutos:
-- Leva cerca de 15 minutos para uma VM VMware.
-- Leva cerca de dois minutos para cada host adicionado para a descoberta de VM do Hyper-V.
+Se o estado de descoberta é "Discovery em progresso", mas ainda não veja os VMs no portal, espere alguns minutos:
+- Leva cerca de 15 minutos para um VMware VM .
+- Leva cerca de dois minutos para cada anfitrião adicionado para a descoberta de Hyper-V VM.
 
 Se esperar e o estado não mudar, selecione **Refresh** no separador **Servidores.** Isto deve mostrar a contagem dos servidores descobertos em Azure Migrate: Server Assessment e Azure Migrate: Server Migration.
 
-Se isso não funcionar e você estiver descobrindo servidores VMware:
+Se isto não funcionar e estiver a descobrir servidores VMware:
 
-- Verifique se a conta do vCenter especificada tem permissões definidas corretamente, com acesso a pelo menos uma VM.
-- As migrações para Azure não poderão descobrir VMs do VMware se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. [Saiba mais](tutorial-assess-vmware.md#set-the-scope-of-discovery) sobre a descoberta de scoping.
+- Verifique se a conta vCenter que especificou tem permissões definidas corretamente, com acesso a pelo menos um VM.
+- O Azure Migrate não consegue descobrir VMware VMs se a conta vCenter tiver acesso concedido ao nível da pasta VCenter VM. [Saiba mais](tutorial-assess-vmware.md#set-the-scope-of-discovery) sobre a descoberta de scoping.
 
-## <a name="vm-data-not-in-portal"></a>Dados da VM não estão no portal
+## <a name="vm-data-not-in-portal"></a>Dados vM não no portal
 
 Se os VM saem descobertos não aparecem no portal ou se os dados vm estão desatualizados, aguarde alguns minutos. Leva até 30 minutos para que as alterações nos dados de configuração VM descobertos apareçam no portal. Pode levar algumas horas para que as alterações nos dados da aplicação apareçam. Se não houver dados depois deste tempo, tente refrescar,como se segue
 
 1. Nos **servidores** > Avaliação do **Servidor Migrador Azure,** selecione **visão geral**.
 2. Em **'Gerir',** selecione **Agent Health**.
 3. Selecione **Agente Refresh**.
-4. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
+4. Aguarde a operação de atualização. Agora deve ver informações atualizadas.
 
-## <a name="deleted-vms-appear-in-portal"></a>VMs excluídas aparecem no portal
+## <a name="deleted-vms-appear-in-portal"></a>VMs apagados aparecem no portal
 
-Se você excluir VMs e elas ainda aparecerem no portal, aguarde 30 minutos. Se eles ainda aparecerem, atualize conforme descrito acima.
+Se apagar os VMs e eles ainda aparecerem no portal, aguarde 30 minutos. Se ainda aparecerem, afree-se como acima descrito.
 
-## <a name="common-app-discovery-errors"></a>Erros comuns do App Discovery
+## <a name="common-app-discovery-errors"></a>Erros comuns de descoberta de aplicativos
 
-As migrações para Azure dão suporte à descoberta de aplicativos, funções e recursos usando migrações para Azure: avaliação do servidor. Atualmente, o app Discovery tem suporte apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e passos para a criação de apps.
+A Azure Migrate apoia a descoberta de aplicações, funções e funcionalidades, utilizando o Azure Migrate: Server Assessment. A descoberta de aplicativos é atualmente suportada apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e passos para a criação de apps.
 
-Erros típicos de descoberta de aplicativo são resumidos na tabela. 
+Erros típicos de descoberta de aplicativos são resumidos na tabela. 
 
 **Erro** | **Motivo** | **Ação**
 --- | --- | --- | ---
-10000: "não é possível descobrir os aplicativos instalados no servidor". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
-10001: "não é possível recuperar os aplicativos instalados no servidor". | Erro interno-alguns arquivos ausentes no dispositivo. | Contacte o Suporte da Microsoft.
-10002: "não é possível recuperar os aplicativos instalados no servidor". | O agente de descoberta no dispositivo pode não estar funcionando corretamente. | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-10003 "não foi possível recuperar os aplicativos instalados no servidor". | O agente de descoberta no dispositivo pode não estar funcionando corretamente. | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-10004: "não é possível descobrir os aplicativos instalados para < computadores > Windows/Linux". |  As credenciais para acessar < máquinas > Windows/Linux não foram fornecidas no dispositivo.| Adicione uma credencial ao dispositivo que tem acesso ao < computadores > Windows/Linux.
-10005: "não é possível acessar o servidor local". | As credenciais de acesso podem estar erradas. | Atualize as credenciais do dispositivo Verifique se você pode acessar o computador relevante com eles. 
-10006: "não é possível acessar o servidor local". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux.|  Use a descoberta de aplicativos somente para Windows/Linux.
-9000/9001/9002: "não é possível descobrir os aplicativos instalados no servidor". | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Instale/reinstale as ferramentas do VMware no computador relevante e verifique se ela está em execução.
-9003: não é possível descobrir os aplicativos instalados no servidor ". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
-9004: "não é possível descobrir os aplicativos instalados no servidor". | Isso pode acontecer se a VM estiver desligada. | Para descoberta, verifique se a VM está ativada.
-9005: "não é possível descobrir os aplicativos instalados na VM. | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
-9006/9007: "não é possível recuperar os aplicativos instalados no servidor". | O agente de descoberta no dispositivo pode não estar funcionando corretamente. | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-9008: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
-9009: "não é possível recuperar os aplicativos instalados no servidor". | Pode ocorrer se as configurações de UAC (controle de conta de usuário) do Windows no servidor forem restritivas e impedir a descoberta de aplicativos instalados. | Procure configurações de ' controle de conta de usuário ' no servidor e defina a configuração do UAC no servidor para um dos dois níveis inferiores.
-9010: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
-8084: "Incapaz de descobrir aplicações devido a erro de VMware: <Exception from VMware>" | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer se uma exceção for lançada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Procure a mensagem na [documentação vMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga os passos a corrigir. Se você não puder corrigir, entre em contato com o suporte da Microsoft.
-9012: "Incapaz de descobrir as aplicações instaladas no servidor" | O problema pode ocorrer devido a um erro interno.  | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-9013: "Incapaz de descobrir as aplicações instaladas no servidor" | Um novo perfil temporário é criado cada vez que há login no VM.  | Certifique-se de que não é criado um perfil temporário para o utilizador convidado fornecido.
+10000: "Incapaz de descobrir as aplicações instaladas no servidor". | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
+10001: "Incapaz de recuperar as aplicações instaladas no servidor". | Erro interno - alguns ficheiros em falta no aparelho. | Contacte o Suporte da Microsoft.
+10002: "Incapaz de recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
+10003 "Incapaz de recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
+10004: "Incapaz de descobrir aplicações instaladas para máquinas <Windows/Linux&gt." |  Credenciais de acesso <Windows/Linux> as máquinas não foram fornecidas no aparelho.| Adicione uma credencial ao aparelho que tenha acesso às máquinas <Windows/Linux>
+10005: "Incapaz de aceder ao servidor no local". | As credenciais de acesso podem estar erradas. | Atualize as credenciais do aparelho certifique-se de que pode aceder à máquina relevante com elas. 
+10006: "Incapaz de aceder ao servidor no local". | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux.|  Utilize apenas a descoberta de aplicativos para Windows/Linux.
+10007: "Incapaz de processar os metadados recuperados" | Este erro interno ocorreu enquanto tentava desserializar a JSON | Entrar em contato com o Suporte da Microsoft para uma resolução
+9000/9001/9002: "Incapaz de descobrir as aplicações instaladas no servidor". | As ferramentas VMware podem não ser instaladas ou corrompidas. | Instale/volte a instalar as ferramentas VMware na máquina relevante e verifique se está a funcionar.
+9003: Incapaz de descobrir as aplicações instaladas no servidor". | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
+9004: "Incapaz de descobrir as aplicações instaladas no servidor". | Isto pode acontecer se o VM estiver desligado. | Para ser descoberto, certifique-se de que o VM está ligado.
+9005: "Incapaz de descobrir as aplicações instaladas no VM. | Isto pode ocorrer se o sistema operativo da máquina não for Windows ou Linux. | Utilize apenas a descoberta de aplicativos para Windows/Linux.
+9006/9007: "Incapaz de recuperar as aplicações instaladas no servidor". | O agente de descoberta do aparelho pode não estar a funcionar corretamente. | Se o problema não se resolver dentro de 24 horas, contacte o suporte.
+9008: "Incapaz de recuperar as aplicações instaladas no servidor". | Pode ser um erro interno.  | Tf o problema não se resolve dentro de 24 horas, suporte de contato.
+9009: "Incapaz de recuperar as aplicações instaladas no servidor". | Pode ocorrer se as definições de Controlo de Conta de Utilizador do Windows (UAC) no servidor forem restritivas e impedir a descoberta de aplicações instaladas. | Procure as definições de 'Controlo de Conta de Utilizador' no servidor e configure a definição do UAC no servidor para um dos dois níveis mais baixos.
+9010: "Incapaz de recuperar as aplicações instaladas no servidor". | Pode ser um erro interno.  | Tf o problema não se resolve dentro de 24 horas, suporte de contato.
+9011: "File to download from guest is not found on the guest VM" | O problema pode ocorrer devido a um erro interno. | A questão deve ser resolvida automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+9012: "O conteúdo do ficheiro do resultado está vazio." | O problema pode ocorrer devido a um erro interno. | A questão deve ser resolvida automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
+9013: "É criado um novo perfil temporário para cada login no VMware VM" | Um novo perfil temporário é criado para cada login no VM | Certifique-se de que o nome de utilizador fornecido nas credenciais VM do hóspede está no formato UPN.
+9015: "Incapaz de ligar aos VMware VMs devido a privilégios insuficientes no vCenter" | A função de Operações de Hóspedes não está ativada na conta de utilizador vCenter | Certifique-se de que a função de Operações de Hóspedes está ativada na conta de utilizador vCenter.
+9016: "Incapaz de ligar aos VMware VMs como o agente de operações convidado está fora de dados" | As ferramentas VMware não estão corretamente instaladas ou não estão atualizadas. | Certifique-se de que as ferramentas VMware estão corretamente instaladas e atualizadas.
+9017: "Ficheiro com metadados descobertos não é encontrado no VM." | O problema pode ocorrer devido a um erro interno. | Contacte o Microsoft Support para obter uma resolução.
+9018: "PowerShell não está instalado nos VMs convidados." | A PowerShell não está disponível no VM convidado. | Instale a PowerShell no VM convidado.
+9019: "Incapaz de descobrir devido a falhas na operação VM convidadas" | A operação de hóspedes vMware falhou no VM. | Certifique-se de que as credenciais VM são válidas e o nome de utilizador fornecido nas credenciais VM do hóspede está no formato UPN.
+9020: "A autorização de criação de ficheiros é negada." | A função associada ao utilizador ou à política do grupo é restringir o utilizador a criar o ficheiro na pasta | Verifique se o utilizador convidado fornecido criou permissão para o ficheiro na pasta. Consulte **notificações** na Avaliação do Servidor para o nome da pasta.
+9021: "O ficheiro criar permissão é negado na pasta System Temp Path." | A versão da ferramenta VMware no VM não é suportada | Atualize a sua versão de ferramenta VMware acima de 10.2.0.
+9022: "O acesso ao objeto WMI é negado." | A função associada ao utilizador ou à política do grupo está a restringir o utilizador a aceder ao objeto WMI. | Contacte o Suporte da Microsoft.
+9023: "SystemRoot ambiente valor variável está vazio." | Não é conhecido | Contacte o Suporte da Microsoft.
+9024: "O valor variável do ambiente temp está vazio." | Não é conhecido | Contacte o Suporte da Microsoft.
+9025: "PowerShell é corrupto nos VMs convidados." | Não é conhecido | Reinstale a PowerShell no VM de hóspedes e verifique se a PowerShell pode ser executada no VM de hóspedes.
+8084: "Incapaz de descobrir aplicações devido a erro de VMware: <Exception from VMware>" | O aparelho Azure Migrate utiliza APIs VMware para descobrir aplicações. Este problema pode acontecer se uma exceção for lançada pelo vCenter Server enquanto tenta descobrir aplicações. A mensagem de falha da VMware é exibida na mensagem de erro mostrada no portal. | Procure a mensagem na [documentação vMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga os passos a corrigir. Se não conseguir reparar, contacte o suporte da Microsoft.
 
 
 

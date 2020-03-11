@@ -8,12 +8,12 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: f19e4e34b2ec8cebc9e1841f277f26fba941bb89
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: bb78536326885e043279de1ff77e6e8efcd95193
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673707"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037142"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Ligue-se em privado a uma Aplicação Web utilizando o Ponto Final Privado do Azure (Pré-visualização)
 
@@ -73,6 +73,9 @@ Mantenha as definições predefinidas.
 ## <a name="create-your-web-app-and-private-endpoint"></a>Crie a sua Web App e endpoint privado
 
 Nesta secção, irá criar uma Web App privada utilizando um Ponto Final Privado para a si.
+
+> [!Note]
+>A funcionalidade Private Endpoint só está disponível para Premium V2 e Isolado com ASE SKU externo
 
 ### <a name="web-app"></a>Aplicação Web
 

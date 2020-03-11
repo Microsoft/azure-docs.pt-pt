@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1549a26022b8d593412a666228b07f05272d640c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946008"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968067"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir o uso e os custos para insights de aplicação
 
@@ -125,7 +125,6 @@ dependencies
 | render barchart  
 ```
 
-
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visualização de insights de aplicação na sua conta Azure
 
 O Azure fornece uma grande quantidade de funcionalidades úteis no hub [Azure Cost Management + Billing.](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Por exemplo, a funcionalidade "Análise de Custos" permite-lhe visualizar os seus gastos com recursos Azure. A adição de um filtro por tipo de recurso (ao microsoft.insights/componentes para Insights de Aplicação) permitirá acompanhar os seus gastos.
@@ -174,6 +173,14 @@ Para alterar a tampa diária, na secção **Configure** do seu recurso Applicati
 ![Ajuste a tampa diária de volume de telemetria](./media/pricing/pricing-003.png)
 
 Para [alterar a tampa diária via Azure Resource Manager,](../../azure-monitor/app/powershell.md)a propriedade a mudar é a `dailyQuota`.  Via Azure Resource Manager também pode definir o `dailyQuotaResetTime` e o `warningThreshold`da tampa diária.
+
+### <a name="create-alerts-for-the-daily-cap"></a>Criar alertas para o Daily Cap
+
+A Aplicação Insights Daily Cap cria um evento na atividade Azure kog quando os volumes de dados ingeridos atingem o nível de aviso ou o nível de tampa diária.  Pode [criar um alerta com base nestes eventos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal)de registo de atividade. Os nomes de sinal para estes eventos são:
+
+* Aplicativo Insights componente limiar de aviso diário da tampa atingido
+
+* Aplicação Insights componente diária tampa alcançada
 
 ## <a name="sampling"></a>Amostragem
 [A amostragem](../../azure-monitor/app/sampling.md) é um método para reduzir a taxa a que a telemetria é enviada para a sua aplicação, mantendo ao mesmo tempo a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Também mantém as contagens de eventos corretas.

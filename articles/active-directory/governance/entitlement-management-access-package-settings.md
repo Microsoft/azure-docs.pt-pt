@@ -1,6 +1,6 @@
 ---
-title: Compartilhar link para solicitar um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
-description: Saiba como compartilhar o link para solicitar um pacote de acesso em Azure Active Directory gerenciamento de direitos.
+title: Link de partilha para solicitar um pacote de acesso na gestão de direitos da Azure AD - Azure Ative Directory
+description: Saiba como partilhar link para solicitar um pacote de acesso na gestão de direitos do Diretório Ativo azure.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,38 +16,38 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174412"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968753"
 ---
-# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Compartilhar link para solicitar um pacote de acesso no gerenciamento de direitos do Azure AD
+# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Link de partilha para solicitar um pacote de acesso na gestão de direitos da AD Azure
 
-A maioria dos usuários em seu diretório pode entrar no portal meu acesso e ver automaticamente uma lista de pacotes de acesso que eles podem solicitar. No entanto, para usuários externos de parceiros comerciais que ainda não estão em seu diretório, você precisará enviar um link que eles possam usar para solicitar um pacote de acesso. 
+A maioria dos utilizadores do seu diretório pode iniciar sessão no portal My Access e ver automaticamente uma lista de pacotes de acesso que podem solicitar. No entanto, para utilizadores parceiros de negócios externos que ainda não estejam no seu diretório, terá de enviar-lhes um link que possam usar para solicitar um pacote de acesso. 
 
-Desde que o catálogo do pacote de acesso esteja [habilitado para usuários externos](entitlement-management-catalog-create.md) e você tenha uma [política para o diretório do usuário externo](entitlement-management-access-package-request-policy.md), o usuário externo poderá usar o link meu portal de acesso para solicitar o pacote de acesso.
+Enquanto o catálogo do pacote de acesso estiver [ativado para utilizadores externos](entitlement-management-catalog-create.md) e tiver uma [política para o diretório do utilizador externo,](entitlement-management-access-package-request-policy.md)o utilizador externo pode utilizar o link do portal My Access para solicitar o pacote de acesso.
 
-## <a name="share-link-to-request-an-access-package"></a>Compartilhar link para solicitar um pacote de acesso
+## <a name="share-link-to-request-an-access-package"></a>Partilhar link para solicitar um pacote de acesso
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Na página Visão geral, copie o **link meu portal de acesso**.
+1. Na página 'Visão Geral', copie o **link do portal My Access**.
 
-    ![Visão geral do pacote de acesso – link meu portal de acesso](./media/entitlement-management-shared/my-access-portal-link.png)
+    ![Visão geral do pacote de acesso - My Access portal link](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    É importante que você copie todo o link meu portal de acesso ao enviá-lo para um parceiro comercial interno. Isso garante que o parceiro terá acesso ao portal do seu diretório para fazer sua solicitação. O link começa com `myaccess`, inclui uma dica de diretório e termina com uma ID de pacote de acesso.
+    É importante que copie todo o link do portal My Access ao enviá-lo a um parceiro de negócios interno. Isto garante que o parceiro terá acesso ao portal do seu diretório para fazer o seu pedido. O link começa com `myaccess`, inclui uma dica de diretório, e termina com um id de pacote de acesso.  (Para o Governo dos EUA, o domínio no portal My Access será `myaccess.microsoft.us`.)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
-1. Envie um email para o parceiro comercial externo. Eles podem compartilhar o link com seus usuários para solicitar o pacote de acesso.
+1. Envie um e-mail ou envie o link para o seu parceiro de negócios externo. Podem partilhar o link com os seus utilizadores para solicitar o pacote de acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
-- [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)
+- [Aprovar ou negar pedidos de acesso](entitlement-management-request-approve.md)

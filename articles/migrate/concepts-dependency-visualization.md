@@ -3,12 +3,12 @@ title: Visualização de dependência no Azure Migrate
 description: Fornece uma visão geral dos cálculos de avaliação no serviço de avaliação do servidor em Azure Migrate
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: f24656d02e19f422ff26e6b06d1631a9128dff43
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd069ed98fa34fd6f281c98a061925f96c7bb2cd
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362206"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082636"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -55,7 +55,7 @@ Existem duas opções para implementar a visualização da dependência:
 **Sistemas operativos suportados** | Reveja os [sistemas operativos](migrate-support-matrix-vmware.md#agentless-dependency-visualization) suportados para visualização sem agente.
 **VMs** | **Ferramentas VMware**: As ferramentas VMware devem ser instaladas e em funcionamento em VMs que pretende analisar.<br/><br/> **Conta**: No aparelho Azure Migrate, é necessário adicionar uma conta de utilizador que possa ser utilizada para aceder a VMs para análise.<br/><br/> **VMs do Windows**: A conta de utilizador tem de ser um administrador local ou de domínio na máquina.<br/><br/> **VMs Linux**: O privilégio de raiz é exigido na conta. Alternadamente, a conta de utilizador requer estas duas capacidades em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. | [Saiba mais sobre](migrate-appliance.md) o aparelho Azure Migrate.
 **VMware** | **vCenter**: O aparelho necessita de uma conta vCenter Server com acesso apenas de leitura, e privilégios habilitados para Máquinas Virtuais > Operações de Hóspedes.<br/><br/> **ANFITRIÕES ESXi**: Em ESXi acolhe VMs em execução que pretende analisar, o aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443.
-**Dados recolhidos** |  A visualização da dependência sem agente funciona capturando dados de ligação TCP a partir de máquinas para as quais está ativado. Após o início da descoberta da dependência, o aparelho recolhe estes dados a partir de máquinas através de sondagens a cada cinco minutos:<br/> - Ligações TCP.<br/> - Nomes de processos que têm ligações ativas.<br/> - Nomes de aplicações instaladas que executam o processo com ligações ativas.<br/> - O número de ligações detetadas em todos os intervalos de votação.
+**Dados recolhidos** |  A análise da dependência sem agente funciona capturando dados de ligação TCP de máquinas em que está ativado. Após a descoberta da dependência, o aparelho recolhe dados de ligação TCP a cada 5 minutos dos VMs dos hóspedes. Estes dados são recolhidos a partir de VMs convidados através do VCenter Server utilizando APIs vSphere. Os dados recolhidos são processados no aparelho para deduzir informações de dependência e enviados para o Azure Migrate a cada 6 horas. Os seguintes dados são recolhidos de cada máquina: <br/> - Nomes de processos que têm ligações ativas.<br/> - Nomes de aplicações que executam o processo com ligações ativas.<br/> - Porta de destino nas ligações ativas.
 
 
 ## <a name="next-steps"></a>Passos seguintes

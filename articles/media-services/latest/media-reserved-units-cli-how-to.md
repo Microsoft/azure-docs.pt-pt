@@ -11,47 +11,45 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 13fa733417558ab8be9ff1e5a9f1e484fb40f445
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9f0a7425fc09d391828a748832f662f02c6022cf
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102936"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970790"
 ---
 # <a name="scaling-media-processing"></a>Dimensionar processamento de multimédia
 
-Serviços de multimédia do Azure permite-lhe dimensionar o processamento de multimédia na sua conta através da gestão de unidades reservadas de multimédia (MRUs). MRUs determinam a velocidade com que suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2**ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. 
+Os Serviços de Multimédia do Azure permitem-lhe dimensionar o processamento de multimédia na sua conta através da gestão de Unidades Reservadas de Multimédia (MRUs). As MrUs determinam a rapidez com que as suas tarefas de processamento de meios de comunicação são processadas. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. 
 
-Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com unidades reservadas. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, cinco tarefas de mídia serão executadas simultaneamente, desde que haja tarefas a serem processadas. As tarefas restantes aguardarão na fila e serão selecionadas para o processamento sequencialmente quando uma tarefa em execução for concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, o tempo de espera entre a conclusão de uma tarefa e a próxima começando dependerá da disponibilidade dos recursos no sistema.
+Além de especificar o tipo de unidade reservado, pode especificar para fornecer a sua conta com unidades reservadas. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, então cinco tarefas de mídia estarão em execução simultaneamente, desde que existam tarefas a serem processadas. As restantes tarefas vão esperar na fila e serão apanhadas para processamento sequencialmente quando uma tarefa de execução terminar. Se uma conta não tiver unidades reservadas, as tarefas serão recolhidas sequencialmente. Neste caso, o tempo de espera entre uma tarefa de conclusão e a próxima a partir dependerá da disponibilidade de recursos no sistema.
 
-## <a name="choosing-between-different-reserved-unit-types"></a>Escolhendo entre diferentes tipos de unidade reservada
+## <a name="choosing-between-different-reserved-unit-types"></a>Escolha entre diferentes tipos de unidades reservadas
 
-A tabela a seguir ajuda você a tomar uma decisão ao escolher entre diferentes velocidades de codificação. Ele também fornece alguns casos de benchmark em [um vídeo que você pode baixar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para executar seus próprios testes:
+A tabela seguinte ajuda-o a tomar uma decisão ao escolher entre diferentes velocidades de codificação. Também fornece alguns casos de referência [num vídeo que pode descarregar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para realizar os seus próprios testes:
 
-|Tipo de RU|Cenário|Resultados de exemplo para o [vídeo de 8 min 1080p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|Tipo RU|Cenário|Exemplo resultados para o vídeo de [7 min 1080p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codificação de taxa de bits única. <br/>Arquivos em SD ou abaixo das resoluções, não diferenciando tempo, baixo custo.|A codificação para o arquivo MP4 de resolução SD de taxa de bits única usando "H264 taxa de bits única SD 16x9" leva cerca de 7 minutos.|
-| **S2**|Taxa de bits única e codificação de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com a predefinição "H264 taxa de bits única 720p" leva cerca de 6 minutos.<br/><br/>A codificação com a predefinição "H264 taxas de bits múltiplas 720p" leva cerca de 12 minutos.|
-| **S3**|Taxa de bits única e codificação de taxa de bits múltipla.<br/>Vídeos completos de resolução de HD e 4K. Codificação de retorno sensível à hora e mais rápida.|A codificação com a predefinição "H264 taxa de bits única 1080p" leva aproximadamente 3 minutos.<br/><br/>A codificação com a predefinição "H264 taxas de bits múltiplas 1080p" leva aproximadamente 8 minutos.|
+| **S1**|Codificação única. <br/>Ficheiros em SD ou abaixo de resoluções, não sensíveis ao tempo, baixo custo.|A codificação para um ficheiro MP4 de resolução sd única de bitrate utilizando "H264 Single Bitrate SD 16x9" demora cerca de 7 minutos.|
+| **S2**|Codificação de bitrate único e múltiplo bitrate.<br/>Utilização normal tanto para codificação de SD como HD.|A codificação com predefinição "H264 Single Bitrate 720p" demora cerca de 6 minutos.<br/><br/>A codificação com predefinição "H264 Multiple Bitrate 720p" demora cerca de 12 minutos.|
+| **S3**|Codificação de bitrate único e múltiplo bitrate.<br/>Vídeos completos de resolução de HD e 4K. Sensível ao tempo, uma reviravolta mais rápida.|A codificação com predefinição "H264 Single Bitrate 1080p" demora aproximadamente 3 minutos.<br/><br/>A codificação com predefinição "H264 Multiple Bitrate 1080p" demora aproximadamente 8 minutos.|
 
 ## <a name="considerations"></a>Considerações
 
-* Para a análise de áudio e os trabalhos de análise de vídeo disparados pelos serviços de mídia V3 ou Video Indexer, o tipo de unidade S3 é altamente recomendado.
-* Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, as tarefas de codificação terão o mesmo desempenho que com o RUs S1. No entanto, não há nenhum limite superior ao tempo que suas tarefas podem gastar em estado enfileirado e a qualquer momento, no máximo uma tarefa será executada.
+* Para os trabalhos de Análise de Áudio e Análise de Vídeo que são desencadeados por Media Services v3 ou Video Indexer, o tipo de unidade S3 é altamente recomendado.
+* Se utilizar a piscina partilhada, isto é, sem unidades reservadas, então as suas tarefas codificadas têm o mesmo desempenho que com as RUs S1. No entanto, não existe um limite superior ao tempo que as suas Tarefas podem passar em estado de fila, e em qualquer momento, no máximo, apenas uma Tarefa estará em execução.
 
-O restante do artigo mostra como usar a [CLI do Media Services V3](https://aka.ms/ams-v3-cli-ref) para dimensionar o MRUs.
+O resto do artigo mostra como usar os [Serviços de Media v3 CLI](https://aka.ms/ams-v3-cli-ref) para escalar as MrUs.
 
 > [!NOTE]
-> Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
->
-> No momento, você não pode usar o portal do Azure para gerenciar outros recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
+> Para as tarefas de Análise de áudio e de Análise de vídeo acionadas por Serviços de Multimédia v3 ou Video Indexer, é altamente recomendado que aprovisione a sua conta com 10 MRUs de S3. Se precisar de mais de 10 MrUs S3, abra um bilhete de apoio utilizando o [portal Azure](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Criar uma conta de Media Services](create-account-cli-how-to.md).
+[Criar uma conta de Media Services.](create-account-cli-how-to.md)
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -59,7 +57,7 @@ O restante do artigo mostra como usar a [CLI do Media Services V3](https://aka.m
 
 Execute o comando `mru`.
 
-O seguinte procedimento [mru de contas do az ams](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) comando conjuntos de unidades reservadas de multimédia "amsaccount" conta utilizando o **contagem** e **tipo** parâmetros.
+A [conta az ams](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) seguinte si põe unidades reservadas de mídia na conta "amsaccount" utilizando os parâmetros **de contagem** e **tipo.**
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -67,7 +65,7 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>Faturação
 
-Você é cobrado com base em quantos minutos as unidades reservadas de mídia são provisionadas em sua conta. Isso ocorre independentemente de qualquer trabalho em execução em sua conta. Para obter uma explicação detalhada, consulte a secção de FAQ do [preços de serviços de multimédia](https://azure.microsoft.com/pricing/details/media-services/) página.   
+É cobrado com base no número de minutos que as Unidades Reservadas de Mídia estão aprovisionadas na sua conta. Isto ocorre independentemente de existirem algum Jobs a funcionar na sua conta. Para obter uma explicação detalhada, consulte a secção DE PERGUNTAS FAQ da página [de preços dos Serviços de Media.](https://azure.microsoft.com/pricing/details/media-services/)   
 
 ## <a name="next-step"></a>Passo seguinte
 

@@ -1,77 +1,69 @@
 ---
-title: Criar uma máquina virtual Linux com a API REST do Azure
-description: Saiba como criar uma máquina virtual do Linux no Azure que usa Managed Disks e autenticação SSH com a API REST do Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Crie um VM Linux com a API REST
+description: Aprenda a criar uma máquina virtual Linux em Azure que utilize discos geridos e autenticação SSH com API Bluee REST.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: c1010bf4bde01920449e9252de563d79bfc61997
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036434"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970278"
 ---
-# <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual Linux que usa a autenticação SSH com a API REST
+# <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
 
-Uma VM (máquina virtual) do Linux no Azure consiste em vários recursos, como discos e interfaces de rede, e define parâmetros como localização, tamanho, imagem do sistema operacional e configurações de autenticação.
+Uma máquina virtual Linux (VM) em Azure é composta por vários recursos, tais como discos e interfaces de rede e define parâmetros como localização, tamanho e imagem do sistema operativo e configurações de autenticação.
 
-Você pode criar uma VM do Linux por meio do portal do Azure, CLI do Azure 2,0, muitos SDKs do Azure, modelos de Azure Resource Manager e muitas ferramentas de terceiros, como Ansible ou Terraform. Todas essas ferramentas, por fim, usam a API REST para criar a VM do Linux.
+Você pode criar um Linux VM através do portal Azure, Azure CLI 2.0, muitos SDKs Azure, modelos de Gestor de Recursos Azure e muitas ferramentas de terceiros como Ansible ou Terraform. Todas estas ferramentas acabam por utilizar a API REST para criar o VM Linux.
 
-Este artigo mostra como usar a API REST para criar uma VM Linux que executa o Ubuntu 18, 4-LTS com discos gerenciados e a autenticação SSH.
+Este artigo mostra-lhe como usar a API REST para criar um Linux VM executando Ubuntu 18.04-LTS com discos geridos e autenticação SSH.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de criar e enviar a solicitação, será necessário:
+Antes de criar e submeter o pedido, necessitará:
 
-* O `{subscription-id}` para sua assinatura
-  * Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
-* Um `{resourceGroupName}` que você criou antes do tempo
+* O `{subscription-id}` para a sua subscrição
+  * Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
+* Um `{resourceGroupName}` que criaste com antecedência.
 * Uma [interface de rede virtual](../../virtual-network/virtual-network-network-interface.md) no mesmo grupo de recursos
-* Um par de chaves SSH (você pode [gerar um novo](mac-create-ssh-keys.md) se não tiver um)
+* Um par de chaves SSH (pode [gerar um novo](mac-create-ssh-keys.md) se não tiver um)
 
-## <a name="request-basics"></a>Noções básicas de solicitação
+## <a name="request-basics"></a>Solicitar fundamentos
 
-Para criar ou atualizar uma máquina virtual, use a seguinte operação *Put* :
+Para criar ou atualizar uma máquina virtual, utilize a seguinte operação *PUT:*
 
 ``` http
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-Além dos parâmetros `{subscription-id}` e `{resourceGroupName}`, você precisará especificar o `{vmName}` (`api-version` é opcional, mas este artigo foi testado com `api-version=2017-12-01`)
+Além dos parâmetros `{subscription-id}` e `{resourceGroupName}`, terá de especificar o `{vmName}` (`api-version` é opcional, mas este artigo foi testado com `api-version=2017-12-01`)
 
 Os seguintes cabeçalhos são obrigatórios:
 
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
 | *Content-Type:*  | Necessário. Definido como `application/json`. |
-| *Authorization:* | Necessário. Definido com um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+| *Authorization:* | Necessário. Definido como um `Bearer`token de acesso [ ](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
-Para obter informações gerais sobre como trabalhar com solicitações da API REST, consulte [componentes de uma solicitação/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+Para obter informações gerais sobre o trabalho com pedidos da API REST, consulte [Componentes de um pedido/resposta REST API](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
-## <a name="create-the-request-body"></a>Criar o corpo da solicitação
+## <a name="create-the-request-body"></a>Criar o corpo de pedido
 
-As seguintes definições comuns são usadas para criar um corpo de solicitação:
+As seguintes definições comuns são utilizadas para construir um organismo de pedido:
 
 | Nome                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | localização                   | Verdadeiro     | string                                                                              | Localização do recurso. |
 | nome                       |          | string                                                                              | Nome para a máquina virtual. |
-| properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as configurações de hardware para a máquina virtual. |
-| properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as configurações de armazenamento para os discos de máquina virtual. |
-| properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as configurações do sistema operacional para a máquina virtual. |
-| properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Especifica as interfaces de rede da máquina virtual. |
+| properties.hardwareProfile |          | [HardwarePerfil](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
+| properties.storageProfile  |          | [Perfil de armazenamento](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento dos discos de máquina virtual. |
+| properties.osProfile       |          | [Perfil osso](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições do sistema operativo para a máquina virtual. |
+| properties.networkProfile  |          | [Perfil de rede](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Especifica as interfaces de rede da máquina virtual. |
 
-Um corpo de solicitação de exemplo está abaixo. Certifique-se de especificar o nome da VM nos parâmetros `{computerName}` e `{name}`, o nome da interface de rede que você criou em `networkInterfaces`, seu nome de usuário em `adminUsername` e `path`e a parte *pública* do seu par de chaves SSH (localizada em, por exemplo, `~/.ssh/id_rsa.pub`) no `keyData`. Outros parâmetros que talvez você queira modificar incluem `location` e `vmSize`.  
+Um corpo de pedido de exemplo está abaixo. Certifique-se de especificar o nome VM nos parâmetros `{computerName}` e `{name}`, o nome da interface de rede que criou sob `networkInterfaces`, o seu nome de utilizador em `adminUsername` e `path`, e a parte *pública* do seu par de chaves SSH (localizado, por exemplo, em `~/.ssh/id_rsa.pub`) em `keyData`. Outros parâmetros que você deseja modificar incluem `location` e `vmSize`.  
 
 ```json
 {
@@ -126,22 +118,22 @@ Um corpo de solicitação de exemplo está abaixo. Certifique-se de especificar 
 }
 ```
 
-Para obter uma lista completa das definições disponíveis no corpo da solicitação, consulte [máquinas virtuais criar ou atualizar definições do corpo da solicitação](/rest/api/compute/virtualmachines/createorupdate#definitions).
+Para obter uma lista completa das definições disponíveis no organismo de pedido, consulte as [máquinas virtuais criar ou atualizar as definições do corpo](/rest/api/compute/virtualmachines/createorupdate#definitions)de pedidos .
 
-## <a name="sending-the-request"></a>Enviando a solicitação
+## <a name="sending-the-request"></a>Envio do pedido
 
-Você pode usar o cliente de sua preferência para enviar essa solicitação HTTP. Você também pode usar uma [ferramenta no navegador](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) clicando no botão **experimentar** .
+Pode utilizar o cliente da sua preferência para enviar este pedido HTTP. Também pode utilizar uma [ferramenta no navegador](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) clicando no botão **Experimente.**
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>Respostas
 
-Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
+Existem duas respostas bem sucedidas para a operação criar ou atualizar uma máquina virtual:
 
 | Nome        | Tipo                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
-| 201 criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |
+| 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |
 
-Uma resposta condensada *201 criada* do corpo da solicitação de exemplo anterior que cria uma VM mostra que um *vmId* foi atribuído e o *provisioningState* está *criando*:
+Uma resposta condensada *de 201 Criada* pelo organismo de pedido de exemplo anterior que cria um VM mostra que foi atribuído um *vmId* e o Estado de *provisionamento* está *a criar:*
 
 ```json
 {
@@ -150,13 +142,13 @@ Uma resposta condensada *201 criada* do corpo da solicitação de exemplo anteri
 }
 ```
 
-Para obter mais informações sobre as respostas da API REST, consulte [processar a mensagem de resposta](/rest/api/azure/#process-the-response-message).
+Para obter mais informações sobre as respostas da API REST, consulte [Processe a mensagem de resposta](/rest/api/azure/#process-the-response-message).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre as APIs REST do Azure ou outras ferramentas de gerenciamento, como CLI do Azure ou Azure PowerShell, consulte o seguinte:
+Para obter mais informações sobre as APIs do Azure REST ou outras ferramentas de gestão, como o Azure CLI ou o Azure PowerShell, consulte o seguinte:
 
-- [API REST do provedor de computação do Azure](/rest/api/compute/)
+- [Fornecedor de computação Azure REST API](/rest/api/compute/)
 - [Introdução à API REST do Azure](/rest/api/azure/)
 - [CLI do Azure](/cli/azure/)
 - [Módulo Azure PowerShell](/powershell/azure/overview)

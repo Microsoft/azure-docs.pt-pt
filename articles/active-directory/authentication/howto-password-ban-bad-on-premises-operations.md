@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c0b0c6ec68c818f107c7e3e3241e4acc0edb7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671722"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082106"
 ---
-# <a name="enable-on-premises-azure-active-password-protection"></a>Ativar no local a proteção de senhaativa azure
+# <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local a Proteção de Palavras-passe de Diretório Ativo Azure
 
 Os utilizadores geralmente criam senhas que usam palavras locais comuns, como uma escola, equipe de esportes ou pessoa famosa. Estas palavras-passe são fáceis de adivinhar, e fracas contra ataques baseados no dicionário. Para impor senhas fortes na sua organização, a Azure Ative Directory (Azure AD) Password Protection fornece uma lista de senhas proibidas global e personalizada. Um pedido de alteração de senha falha se houver uma correspondência nesta lista de senhas proibidas.
 

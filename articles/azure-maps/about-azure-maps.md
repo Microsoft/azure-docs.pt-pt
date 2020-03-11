@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 411ffb9c05b0f6b4d8b7d37a11d0838c8734ec5e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443746"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079800"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
@@ -170,6 +170,8 @@ Além disso, o Azure Maps oferece um conveniente controlo de [mapas JavaScript](
 Aceder aos serviços do Azure Maps é uma questão de ir ao [portal Azure](https://portal.azure.com) e criar uma conta Azure Maps.
 
 O Azure Maps utiliza um esquema de autenticação baseado em chave. A sua conta vem com duas chaves já geradas para si, use qualquer uma das teclas. Comece a integrar estas capacidades de localização na sua aplicação e faça pedidos aos serviços do Azure Maps.
+
+Nota - O Azure Maps partilha consultas de endereço/localização fornecidas pelo cliente ("Consultas") com tomTom de terceiros para efeitos de funcionalidade de mapeamento. As consultas não estão ligadas a nenhum cliente ou utilizador final quando partilhadas com o TomTom e não podem ser usadas para identificar indivíduos. A Microsoft encontra-se neste momento em processo de adição do TomTom à Lista de Subempreiteiros de Serviços Online. Note que os Serviços de Mobilidade e Meteorologia que incluem integração com moovit e AccuWeather estão atualmente na [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="supported-regions"></a>Regiões suportadas
 

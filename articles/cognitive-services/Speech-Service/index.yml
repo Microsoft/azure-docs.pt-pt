@@ -11,14 +11,14 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 02/11/2020
+  ms.date: 03/04/2020
   ms.author: dapine
-  ms.openlocfilehash: 26979b2d9ffdd80676ca9162b30ae17db20b1129
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 0071d4da31e4739ccf53e9570bc7d0ed61c01bc4
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77563028"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943324"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -38,14 +38,14 @@ conceptualContent:
   - title: Conversão de voz em texto
     links:
     - itemType: quickstart
-      text: Reconhecer a voz com entrada do microfone
+      text: Reconhecer voz a partir de um microfone
       url: quickstarts/speech-to-text-from-microphone.md
     - itemType: quickstart
-      text: Reconhecer a voz a partir de um ficheiro de áudio
-      url: quickstarts/speech-to-text-from-file.md
-    - itemType: quickstart
-      text: Reconhecer a voz armazenada no armazenamento de blobs
-      url: quickstarts/from-blob.md
+      text: Reconhecer voz no modo de lote
+      url: batch-transcription.md
+    - itemType: how-to-guide
+      text: Personalizar o reconhecimento de voz para as suas aplicações
+      url: how-to-custom-speech.md
     footerLink:
       text: Ver mais
       url: index-speech-to-text.yml
@@ -58,8 +58,8 @@ conceptualContent:
       text: Sintetizar a voz num ficheiro de áudio
       url: quickstarts/text-to-speech-audio-file.md
     - itemType: quickstart
-      text: Sintetizar a voz com áudio de formato longo
-      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+      text: Personalizar a síntese de voz para as suas aplicações
+      url: how-to-custom-voice.md
     footerLink:
       text: Ver mais
       url: index-text-to-speech.yml
@@ -153,7 +153,7 @@ conceptualContent:
       text: Migrar da Voz do Bing
       url: how-to-migrate-from-bing-speech.md
     - itemType: how-to-guide
-      text: Migrar do serviço de Voz Personalizada
+      text: Migrar do serviço de Discurso Personalizado
       url: how-to-migrate-from-custom-speech-service.md
     - itemType: how-to-guide
       text: Migrar da API de Tradução de Voz

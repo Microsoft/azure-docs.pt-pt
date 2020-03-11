@@ -7,17 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, chapéu vermelho, cli
-ms.openlocfilehash: 81f8edb42be1f73692062d36440890ef5a1e7c9a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3c336a1fbfb9f991ff824e8deafe84f3d899771d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899311"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082834"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Criar, aceder e gerir um Cluster OpenShift 4.3 do Chapéu Vermelho Azure
 
 > [!IMPORTANT]
-> O Azure Red Hat OpenShift (ARO) 4.3 é oferecido em pré-visualização. As funcionalidades de pré-visualização são autosserviço e são fornecidas como estão disponíveis e estão excluídas do acordo de nível de serviço (SLA) e da garantia limitada. Portanto, as características não são destinadas ao uso da produção.
+> Por favor, note que o Azure Red Hat OpenShift 4.3 está atualmente disponível apenas em pré-visualização privada no Leste dos EUA. A aceitação de pré-visualização privada é apenas por convite. Certifique-se de registar a sua subscrição antes de tentar ativar esta funcionalidade: Registo de [pré-visualização privada Do Chapéu Vermelho Azure OpenShift](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> As funcionalidades de pré-visualização são autosserviço e são fornecidas como estão disponíveis e estão excluídas do acordo de nível de serviço (SLA) e da garantia limitada. Portanto, as características não são destinadas ao uso da produção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

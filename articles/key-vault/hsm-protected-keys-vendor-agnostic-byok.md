@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 08a4330f4a786deca8ddb2f1c6803b29152e7f50
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207035"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080133"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importar chaves protegidas por HSM para o Key Vault (pré-visualização)
 
@@ -58,9 +58,11 @@ A tabela a seguir enumera os pré-requisitos para a utilização do BYOK no Cofr
 
 ## <a name="supported-hsms"></a>HSMs suportados
 
-|Nome do fornecedor HSM|Modelos HSM suportados|Mais informações|
-|---|---|---|
-|Rio Thales|Família SafeNet Luna HSM 7 com versão de firmware 7.3 ou posterior| [Ferramenta e documentação SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Nome do vendedor|Tipo de fornecedor|Modelos HSM suportados|Mais informações|
+|---|---|---|---|
+|Rio Thales|Fabricante|Família SafeNet Luna HSM 7 com versão de firmware 7.3 ou posterior| [Ferramenta e documentação SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|HSM como serviço|Serviço de Gestão de Chaves Auto-Defendedores (SDKMS)|[Exportação de chaves SDKMS para fornecedores de nuvem para BYOK - Cofre chave Azure](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+
 
 > [!NOTE]
 > Para importar chaves protegidas por HSM da família nCipher nShield de HSMs, utilize o [procedimento BYOK legado](hsm-protected-keys-legacy.md).

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: d7f9527aa5aa3353dc9087f4bcc5f3a5fb241637
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184558"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082902"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Cofre-Chave
 
@@ -31,10 +31,19 @@ Esta funcionalidade não está disponível para o Azure China 21Vianet.
 
 A transferência de chaves protegidas por HSM para o Cofre chave é suportada através de dois métodos diferentes dependendo dos HSMs que utiliza. Utilize a tabela abaixo para determinar qual o método que deve ser utilizado para que os seus HSMs gerem e, em seguida, transfira as suas próprias chaves protegidas por HSM para usar com o Cofre de Chaves Azure. 
 
-|Nome do fornecedor HSM|Modelos HSM suportados|Método de transferência hsm-chave suportado|
-|---|---|---|
-|Rio Thales|<ul><li>Família SafeNet Luna HSM 7 com versão 7.3 ou mais recente</li></ul>| [Utilize o novo método BYOK (pré-visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|nCipher|<ul><li>nShield família de HSMs</li></ul>|[Use o método BYOK legado](hsm-protected-keys-legacy.md)|
+|Nome do fornecedor|Tipo de fornecedor|Modelos HSM suportados|Método de transferência hsm-chave suportado|
+|---|---|---|---|
+|nCipher|Fabricante|<ul><li>nShield família de HSMs</li></ul>|[Use o método BYOK legado](hsm-protected-keys-legacy.md)|
+|Rio Thales|Fabricante|<ul><li>Família SafeNet Luna HSM 7 com versão 7.3 ou mais recente</li></ul>| [Utilize o novo método BYOK (pré-visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM como serviço|<ul><li>Serviço de Gestão de Chaves Auto-Defendedores (SDKMS)</li></ul>|[Utilize o novo método BYOK (pré-visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
+
+
+
+
+
+
+
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

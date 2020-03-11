@@ -1,7 +1,7 @@
 ---
-title: Onde salvar & gravar arquivos de teste
+title: Onde guardar e escrever ficheiros de experiências
 titleSuffix: Azure Machine Learning
-description: Saiba onde salvar seus arquivos de entrada de experimento e onde gravar arquivos de saída para evitar erros de limitação de armazenamento e latência de experimento.
+description: Saiba onde guardar os ficheiros de entrada da sua experiência e onde escrever ficheiros de saída para evitar erros de limitação de armazenamento e latência de experimentar.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,70 +11,70 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 197e93946a52303f312912e4ebd2487f8c1360b2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/10/2020
+ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536736"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078443"
 ---
-# <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
+# <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde guardar e escrever ficheiros para experiências de Aprendizagem automática de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprende onde salvar arquivos de entrada e onde gravar arquivos de saída de seus experimentos para evitar erros de limite de armazenamento e latência de experimento.
+Neste artigo, você aprende onde guardar ficheiros de entrada e onde escrever ficheiros de saída das suas experiências para evitar erros de limite de armazenamento e latência de experiências.
 
-Ao iniciar o treinamento é executado em um [destino de computação](how-to-set-up-training-targets.md), eles são isolados de ambientes externos. A finalidade desse design é garantir a reprodução e a portabilidade do experimento. Se você executar o mesmo script duas vezes, no mesmo destino de computação ou em outro, você receberá os mesmos resultados. Com esse design, você pode tratar destinos de computação como recursos de computação sem monitoração de estado, cada um sem afinidade com os trabalhos em execução após a conclusão.
+Ao lançar em [funcionamento](how-to-set-up-training-targets.md)de formação num alvo de cálculo, estão isolados de ambientes externos. O objetivo deste desenho é garantir a reprodutibilidade e a portabilidade da experiência. Se executar o mesmo guião duas vezes, no mesmo ou noutro alvo de computação, receberá os mesmos resultados. Com este design, você pode tratar os alvos da computação como recursos de computação apátridas, cada um não tendo nenhuma afinidade com os trabalhos que estão a funcionar após o seu fim.
 
-## <a name="where-to-save-input-files"></a>Onde salvar arquivos de entrada
+## <a name="where-to-save-input-files"></a>Onde guardar ficheiros de entrada
 
-Antes de poder iniciar um experimento em um destino de computação ou em seu computador local, você deve garantir que os arquivos necessários estejam disponíveis para esse destino de computação, como arquivos de dependência e arquivos de dados que seu código precisa executar.
+Antes de iniciar uma experiência num alvo de cálculo ou na sua máquina local, deve certificar-se de que os ficheiros necessários estão disponíveis para esse alvo de cálculo, como ficheiros de dependência e ficheiros de dados que o seu código precisa de executar.
 
-Azure Machine Learning executa scripts de treinamento copiando a pasta de script inteira para o contexto de computação de destino e, em seguida, tira um instantâneo. O limite de armazenamento para instantâneos de experimentação é 300 MB e/ou 2000 ficheiros.
+O Azure Machine Learning executa scripts de treino copiando toda a pasta do script para o contexto da computação-alvo e, em seguida, tira uma foto. O limite de armazenamento para fotografias de experiências é de 300 MB e/ou 2000 ficheiros.
 
-Por esse motivo, recomendamos:
+Por esta razão, recomendamos:
 
-* **Armazenando seus arquivos em um [repositório](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)de Azure Machine Learning de armazenamento.** Isso evita problemas de latência de experimento e tem as vantagens de acessar dados de um destino de computação remoto, o que significa que a autenticação e a montagem são gerenciadas pelo Azure Machine Learning. Saiba mais sobre como especificar um armazenamento de dados como seu diretório de origem e carregar arquivos em seu repositório de dados no artigo [Access Data from the datastores](how-to-access-data.md) .
+* **Armazenar os seus ficheiros numa loja de [dados](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)Azure Machine Learning .** Isto evita problemas de latência de experiências, e tem as vantagens de aceder a dados de um alvo de computação remota, o que significa que a autenticação e montagem são geridas pela Azure Machine Learning. Saiba mais sobre especificar uma loja de dados como o seu diretório de origem e o upload de ficheiros para a sua loja de dados nos dados do Acesso a partir do artigo [Datastores.](how-to-access-data.md)
 
-* **Se você precisar apenas de alguns arquivos de dados e scripts de dependência e não puder usar um datastore,** Coloque os arquivos no mesmo diretório de pasta que o script de treinamento. Especifique essa pasta como seu `source_directory` diretamente no script de treinamento ou no código que chama seu script de treinamento.
+* **Se necessitar apenas de alguns ficheiros** de dados e scripts de dependência e não puder utilizar uma loja de dados, coloque os ficheiros no mesmo diretório de pastas que o seu script de treino. Especifique esta pasta como a sua `source_directory` diretamente no seu script de treino, ou no código que chama o seu script de treino.
 
 <a name="limits"></a>
 
-### <a name="storage-limits-of-experiment-snapshots"></a>Limites de armazenamento de instantâneos de teste
+### <a name="storage-limits-of-experiment-snapshots"></a>Limites de armazenamento de instantâneos de experiência
 
-Para experimentos, Azure Machine Learning automaticamente faz um instantâneo de teste do seu código com base no diretório que você sugere ao configurar a execução. Isso tem um limite total de 300 MB e/ou 2000 arquivos. Se esse limite for excedido, você verá o seguinte erro:
+Para experiências, o Azure Machine Learning faz automaticamente uma imagem do seu código com base no diretório que sugere quando configura a execução. Isto tem um limite total de 300 MB e/ou 2000 ficheiros. Se ultrapassar este limite, verá o seguinte erro:
 
 ```Python
 While attempting to take snapshot of .
 Your total snapshot size exceeds the limit of 300.0 MB
 ```
 
-Para resolver esse erro, armazene seus arquivos de teste em um repositório de armazenamento. Se você não pode usar um armazenamento de datastore, a tabela abaixo oferece possíveis soluções alternativas.
+Para resolver este erro, guarde os seus ficheiros de experiência numa loja de dados. Se não puder utilizar uma loja de dados, a tabela abaixo oferece possíveis soluções alternativas.
 
-Descrição do experimento&nbsp;|Solução de limite de armazenamento
+A descrição do&nbsp;de experimentação|Solução limite de armazenamento
 ---|---
-Menos de 2000 arquivos & não podem usar um repositório de armazenamento| Substituir o limite de tamanho do instantâneo por <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Isso pode levar vários minutos, dependendo do número e do tamanho dos arquivos.
-Deve usar um diretório de script específico| Faça um arquivo de `.amlignore` para excluir arquivos de seu instantâneo de experimento que não fazem parte do código-fonte. Adicione os nomes de arquivos ao arquivo de `.amlignore` e coloque-o no mesmo diretório que o script de treinamento. O arquivo de `.amlignore` usa a mesma [sintaxe e padrões](https://git-scm.com/docs/gitignore) que um arquivo de `.gitignore`.
-Pipeline|Usar um subdiretório diferente para cada etapa
-Jupyter Notebooks| Crie um arquivo de `.amlignore` ou mova o bloco de anotações para um subdiretório novo, vazio e execute o código novamente.
+Menos de 2000 ficheiros e não podem usar uma loja de dados| Limite de tamanho de instantâneo de sobreposição com <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Isto pode demorar vários minutos dependendo do número e tamanho dos ficheiros.
+Deve usar o diretório de script específico| Faça um ficheiro `.amlignore` para excluir ficheiros do seu instantâneo de experiência que não façam parte do código fonte. Adicione os nomes de ficheiros ao ficheiro `.amlignore` e coloque-os no mesmo diretório que o seu script de treino. O ficheiro `.amlignore` usa a mesma [sintaxe e padrões](https://git-scm.com/docs/gitignore) que um ficheiro `.gitignore`.
+Pipeline|Use um subdiretório diferente para cada passo
+Jupyter Notebooks| Crie um ficheiro `.amlignore` ou mude o seu caderno para um novo, vazio, subdiretório e volte a executar o seu código.
 
-## <a name="where-to-write-files"></a>Onde gravar arquivos
+## <a name="where-to-write-files"></a>Onde escrever ficheiros
 
-Devido ao isolamento de experimentos de treinamento, as alterações nos arquivos que ocorrem durante as execuções não são necessariamente mantidas fora do seu ambiente. Se o seu script modificar os arquivos locais para computar, as alterações não serão persistidas para a próxima execução de experimento e não serão propagadas novamente para o computador cliente automaticamente. Portanto, as alterações feitas durante o primeiro experimento são executadas e não devem afetar as do segundo.
+Devido ao isolamento das experiências de treino, as alterações aos ficheiros que acontecem durante as corridas não são necessariamente persistidas fora do seu ambiente. Se o seu script modificar os ficheiros locais para calcular, as alterações não são persistidas para a sua próxima experiência, e não são propagadas automaticamente para a máquina do cliente. Portanto, as mudanças feitas durante a primeira experiência não afetam e não devem afetar as da segunda.
 
-Ao escrever alterações, é recomendável gravar arquivos em um repositório de armazenamento Azure Machine Learning. Confira [acessar dados de seus armazenamentos](how-to-access-data.md).
+Ao escrever alterações, recomendamos escrever ficheiros para uma loja de dados Azure Machine Learning. Consulte [os dados de Acesso das suas lojas de dados](how-to-access-data.md).
 
-Se você não precisar de um repositório de armazenamento, grave arquivos na pasta `./outputs` e/ou `./logs`.
+Se não necessitar de uma loja de dados, escreva ficheiros para a pasta `./outputs` e/ou `./logs`.
 
 >[!Important]
-> Duas pastas, *saídas* e *logs*, recebem tratamento especial por Azure Machine Learning. Durante o treinamento, quando você grava arquivos em pastas`./outputs` e`./logs`, os arquivos serão carregados automaticamente no seu histórico de execução, para que você tenha acesso a eles quando a execução for concluída.
+> Duas pastas, *saídas* e *registos,* recebem tratamento especial pela Azure Machine Learning. Durante o treino, quando escreve ficheiros para`./outputs` e`./logs` pastas, os ficheiros serão automaticamente enviados para o seu histórico de execução, de modo a que tenha acesso aos mesmos assim que a sua execução estiver concluída.
 
-* **Para saída como mensagens de status ou resultados de pontuação,** grave arquivos na pasta `./outputs`, para que eles sejam persistidos como artefatos no histórico de execução. Lembre-se do número e do tamanho dos arquivos gravados nessa pasta, uma vez que a latência pode ocorrer quando o conteúdo é carregado para o histórico de execução. Se a latência for uma preocupação, é recomendável gravar arquivos em um repositório de armazenamento.
+* **Para saídas como mensagens de estado ou resultados de pontuação,** escreva ficheiros para a pasta `./outputs`, para que sejam persistidas como artefactos na história da execução. Esteja atento ao número e tamanho dos ficheiros escritos nesta pasta, pois pode ocorrer latência quando o conteúdo é carregado para executar o histórico. Se a latência for uma preocupação, recomenda-se escrever ficheiros para uma loja de dados.
 
-* **Para salvar o arquivo gravado como logs no histórico de execuções,** grave arquivos na pasta `./logs`. Os logs são carregados em tempo real, portanto, esse método é adequado para streaming de atualizações dinâmicas de uma execução remota.
+* **Para guardar ficheiros escritos como registos no histórico de execução,** escreva ficheiros para `./logs` pasta. Os registos são carregados em tempo real, por isso este método é adequado para transmitir atualizações ao vivo a partir de uma execução remota.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como [acessar os dados de seus armazenamentos](how-to-access-data.md).
+* Saiba mais sobre [o acesso a dados das suas lojas de dados.](how-to-access-data.md)
 
-* Saiba mais sobre [como configurar metas de treinamento](how-to-set-up-training-targets.md).
+* Saiba mais sobre [como configurar alvos de treino](how-to-set-up-training-targets.md).

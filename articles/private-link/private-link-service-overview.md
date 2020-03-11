@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587418"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082970"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
 
@@ -112,7 +112,7 @@ Detalhes personalizados da TLV:
 |  |4        |UINT32 (4 bytes) que representam o LINKID do ponto final privado. Codificado em formato endiano.|
 
  > [!NOTE]
- > O prestador de serviços é responsável por se certificar de que o serviço por detrás do equilibrador de carga padrão está configurado para analisar o cabeçalho do protocolo de procuração de acordo com a [especificação](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando o protocolo de procuração é ativado no serviço de ligação privada. O pedido falhará se a definição do protocolo proxy estiver ativada no serviço de ligação privada e o serviço não estiver configurado para analisar o cabeçalho. Da mesma forma, o pedido falhará se o serviço estiver à espera de um cabeçalho de protocolo de procuração enquanto a definição não estiver ativada no serviço de ligação privada. Uma vez ativada a definição do protocolo proxy, o cabeçalho do protocolo proxy também será incluído em sondas de saúde HTTP/TCP do hospedeiro às máquinas virtuais de backend, mesmo que não haja informações do cliente no cabeçalho. 
+ > O prestador de serviços é responsável por se certificar de que o serviço por detrás do equilibrador de carga padrão está configurado para analisar o cabeçalho do protocolo de procuração de acordo com a [especificação](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando o protocolo de procuração é ativado no serviço de ligação privada. O pedido falhará se a definição do protocolo proxy estiver ativada no serviço de ligação privada, mas o serviço do prestador de serviços não está configurado para analisar o cabeçalho. Da mesma forma, o pedido falhará se o serviço do prestador de serviços estiver à espera de um cabeçalho de protocolo de procuração enquanto a definição não estiver ativada no serviço de ligação privada. Uma vez ativada a definição do protocolo proxy, o cabeçalho do protocolo proxy também será incluído em sondas de saúde HTTP/TCP do hospedeiro às máquinas virtuais de backend, mesmo que não haja informações do cliente no cabeçalho. 
 
 ## <a name="limitations"></a>Limitações
 

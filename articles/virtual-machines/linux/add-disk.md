@@ -1,27 +1,19 @@
 ---
 title: Adicione um disco de dados ao Linux VM utilizando o Azure CLI
 description: Aprenda a adicionar um disco de dados persistente ao seu VM Linux com o Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: rogarana
-ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 5d7ec2cbbc5cc1bf8bdc87d7f82a965b3bc8c267
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: a80a1fe21ba0b40aebf9e426e3d49f499c2d2a21
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363649"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967903"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente ao seu VM para que possa preservar os seus dados - mesmo que o seu VM seja reprovisionado devido à manutenção ou redimensionamento.
@@ -236,11 +228,11 @@ Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume,
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para garantir que o seu VM Linux está configurado corretamente, reveja as recomendações de desempenho da [máquina Linux.](optimization.md)
 * Expanda a sua capacidade de armazenamento adicionando discos adicionais e [configure raid](configure-raid.md) para um desempenho adicional.

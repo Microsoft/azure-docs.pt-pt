@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367029"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração de Diretório Ativo Azure com SharePoint no local
 
@@ -271,7 +271,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 10. Configure o AzureCP na exploração do SharePoint no local ou uma solução alternativa de fornecedor de sinistros personalizados.  Neste exemplo, estamos a utilizar o AzureCP.
 
     > [!NOTE]
-    > Por favor, note que o AzureCP não é um produto da Microsoft ou suportado pelo Suporte Técnico da Microsoft. Descarregue, instale e configure o AzureCP na quinta sharePoint no local por https://yvand.github.io/AzureCP/ 
+    > Por favor, note que o AzureCP não é um produto da Microsoft ou suportado pelo Suporte Técnico da Microsoft. Descarregue, instale e configure o AzureCP na quinta sharePoint no local por [https://yvand.github.io/AzureCP/](https://yvand.github.io/AzureCP/) 
 
 11. Conceder acesso ao Grupo de Segurança do **Diretório Ativo Azure no sharePoint** no local -- Os grupos devem ter acesso à aplicação no SharePoint no local.  Utilize os seguintes passos para definir as permissões para aceder à aplicação web.
 

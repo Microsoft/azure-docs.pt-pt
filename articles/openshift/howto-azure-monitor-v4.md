@@ -6,17 +6,20 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.openlocfilehash: 1a372ef12ef7b0afb06ed3c540daaee5e38c3374
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a784fc070400995c56d16a3bc264d589bcb1f64e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899168"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082851"
 ---
 # <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Integração do Azure Monitor para o Azure Red Hat OpenShift 4.3
 
-> [!IMPORTANT]
-> O Azure Red Hat OpenShift 4.3 é oferecido em pré-visualização. As funcionalidades de pré-visualização são autosserviço e são fornecidas como estão disponíveis e estão excluídas do acordo de nível de serviço (SLA) e da garantia limitada. Portanto, as características não são destinadas ao uso da produção. 
+> [!IMPORTANT] 
+> Por favor, note que o Azure Red Hat OpenShift 4.3 está atualmente disponível apenas em pré-visualização privada no Leste dos EUA. A aceitação de pré-visualização privada é apenas por convite. Certifique-se de registar a sua subscrição antes de tentar ativar esta funcionalidade: Registo de [pré-visualização privada Do Chapéu Vermelho Azure OpenShift](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> As funcionalidades de pré-visualização são autosserviço e são fornecidas como estão disponíveis e estão excluídas do acordo de nível de serviço (SLA) e da garantia limitada. Portanto, as características não são destinadas ao uso da produção.
 
 Este artigo descreve como permitir a pré-visualização privada do Monitor Azure para contentores para clusters OpenShift 4.3 hospedados on-prem ou em qualquer ambiente de nuvem. As mesmas instruções aplicam-se também para ativar a monitorização dos clusters OpenShift (ARO) 4.3 do chapéu vermelho azure.  
 

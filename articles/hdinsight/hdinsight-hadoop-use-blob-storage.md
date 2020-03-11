@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192630"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037248"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
@@ -25,11 +25,11 @@ Neste artigo, ficará a saber como o Armazenamento do Azure funciona com cluster
 > [!IMPORTANT]  
 > O tipo de conta de armazenamento **BlobStorage** só pode ser usado como armazenamento secundário para clusters HDInsight.
 
-| Tipo de conta de armazenamento | Serviços suportados | Níveis de desempenho suportados | Níveis de acesso suportados |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (general-purpose v2)  | Blobs     | Standard                    | Hot, Cool, Archive\*   |
-| Armazenamento (v1 de uso geral)   | Blobs     | Standard                    | N/D                    |
-| BlobStorage                    | Blobs     | Standard                    | Hot, Cool, Archive\*   |
+| Tipo de conta de armazenamento | Serviços suportados | Níveis de desempenho suportados |Níveis de desempenho não suportados| Níveis de acesso suportados |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2 (general-purpose v2)  | Blobs     | Standard                    |Premium| Hot, Cool, Archive\*   |
+| Armazenamento (v1 de uso geral)   | Blobs     | Standard                    |Premium| N/D                    |
+| BlobStorage                    | Blobs     | Standard                    |Premium| Hot, Cool, Archive\*   |
 
 Não recomendamos que utilize o recipiente de blob predefinido para armazenar dados de negócio. Eliminar o contentor de blobs predefinido depois de cada utilização para reduzir o custo de armazenamento é uma prática recomendada. O recipiente predefinido contém registos de aplicação e sistema. Certifique-se de que obtém os registos antes de eliminar o contentor.
 

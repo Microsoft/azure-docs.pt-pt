@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Plataforma de identidades da Microsoft (anteriormente, Azure Active Directory para programadores)
-summary: A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Permite aos programadores criar aplicações que iniciam sessão em todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, como o Microsoft Graph, ou APIs criadas pelos programadores. É uma plataforma completa constituída por um serviço de autenticação compatível com a norma de OAuth 2.0 e OpenID Connect, bibliotecas de código aberto, registos e configurações de aplicação, documentação de referência e conceitual robusta, "exemplos de guias de introdução", exemplos de código, tutoriais e manuais de instruções.
+title: Documentação da plataforma de identidade da Microsoft
+summary: A plataforma de identidade da Microsoft permite aos programadores criar aplicações que iniciam sessão em todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, como o Microsoft Graph, ou APIs criadas por si. É uma plataforma completa constituída por um serviço de autenticação compatível com a norma OAuth 2.0 e OpenID Connect, bibliotecas open-source, registos e configurações de aplicação, documentação de referência e conceitual avançada, inícios rápidos, exemplos de código, tutoriais e guias de procedimentos.
 metadata:
   ms.topic: landing-page
   ms.date: 06/22/2019
@@ -9,21 +9,21 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: ea67860d851e9228ca14c6e53c4831f8d6f34f17
-  ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+  ms.openlocfilehash: edc613b275d996ac8ef8ed4470529153fdcfbecb
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/13/2020
-  ms.locfileid: "77194543"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943465"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
   - linkListType: overview
     links:
-    - text: Evolução da plataforma de identidade da Microsoft
-      url: about-microsoft-identity-platform.md
     - text: Plataforma de identidade da Microsoft (v2.0)
       url: v2-overview.md
+    - text: Evolução da plataforma de identidade da Microsoft
+      url: about-microsoft-identity-platform.md
     - text: Azure Active Directory para programadores (v1.0)
       url: ../azuread-dev/v1-overview.md
   - linkListType: concept

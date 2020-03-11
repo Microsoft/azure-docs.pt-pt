@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661299"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080313"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -279,6 +279,9 @@ Ao conceber a infraestrutura para SAP em Azure, deve estar ciente de alguns requ
 Os limites de produção dos [Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) por 1 TiB de quota de volume são:
 - Premium Storage Tier - 64 MiB/s  
 - Ultra Storage Tier - 128 MiB/s  
+
+> [!IMPORTANT]
+> Independentemente da capacidade que desloque num único volume NFS, espera-se que o planalto atinja a largura de banda de 1,2-1,4 GB/seg alavancada por um consumidor numa máquina virtual. Isto tem a ver com a arquitetura subjacente da oferta da ANF e os limites de sessão linux relacionados em torno do NFS. Os números de desempenho e de desempenho, tal como documentados no artigo, foram realizados resultados de testes de [referência de desempenho para Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) contra um volume NFS partilhado com vários VMs de clientes e como resultado com várias sessões. Este cenário é diferente do cenário que medimos no SAP. Quando medimos a entrada de um único VM contra um volume NFS. hospedado na ANF.
 
 Para satisfazer os requisitos mínimos de entrada de dados e registo sapeianos e, de acordo com as diretrizes para `/hana/shared`, os tamanhos recomendados seriam:
 

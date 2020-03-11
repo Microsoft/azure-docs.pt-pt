@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d383acae83f0f42f9c16fcb5d4ea7efbdf2b5f8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493978"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967793"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Enable Azure Ative Diretório auto-service password repor reescrita para um ambiente no local
 
@@ -42,6 +42,7 @@ Para completar este tutorial, necessita dos seguintes recursos e privilégios:
     * Se necessário, complete o tutorial anterior para ativar o [Azure AD SSPR](tutorial-enable-sspr.md).
 * Um ambiente AD DS existente no local configurado com uma versão atual do Azure AD Connect.
     * Se necessário, configure o Azure AD Connect utilizando as definições [Express](../hybrid/how-to-connect-install-express.md) ou [Custom.](../hybrid/how-to-connect-install-custom.md)
+    * Para utilizar a Palavra-passe Writeback, os seus Controladores de Domínio devem ser do Windows Server 2008 R2 ou posteriormente.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configure permissões de conta para Azure AD Connect
 
@@ -121,7 +122,7 @@ Para permitir a reescrita da palavra-passe no SSPR, complete os seguintes passos
 
 Se já não pretender utilizar a funcionalidade de redação sspr que configuracomo parte deste tutorial, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory**, selecione **reset de palavra-passe**e, em seguida, escolha a **integração no local**.
 1. Detete a opção de **escrever palavras-passe para o seu diretório no local?**
 1. Definir a opção para permitir que os utilizadores **desbloqueiem contas sem reajustar a sua palavra-passe?**

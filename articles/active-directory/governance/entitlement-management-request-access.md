@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 4b1ccde2f1f92237978ab4e68acaa26393bbb9d8
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376720"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967863"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso na gestão de direitos da AD Azure
 
@@ -35,7 +35,7 @@ O primeiro passo é iniciar sessão no portal My Access onde pode solicitar aces
 
 **Papel pré-requisito:** Requestor
 
-1. Procure um e-mail ou uma mensagem do projeto ou gestor de negócios com quem está a trabalhar. O e-mail deve incluir um link para o pacote de acesso a que terá acesso. O link começa com `myaccess`, inclui uma dica de diretório, e termina com um id de pacote de acesso.
+1. Procure um e-mail ou uma mensagem do projeto ou gestor de negócios com quem está a trabalhar. O e-mail deve incluir um link para o pacote de acesso a que terá acesso. O link começa com `myaccess`, inclui uma dica de diretório, e termina com um id de pacote de acesso.  (Para o Governo dos EUA, o domínio pode ser `https://myaccess.microsoft.us` em vez disso.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -121,7 +121,7 @@ Se submeter um pedido de acesso e o pedido ainda estiver no estado **de aprovaç
 
 1. Clique no **histórico de pedido** para confirmar que o pedido foi cancelado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Aprovar ou negar pedidos de acesso](entitlement-management-request-approve.md)
 - [Processo de pedido e notificações de e-mail](entitlement-management-process.md)

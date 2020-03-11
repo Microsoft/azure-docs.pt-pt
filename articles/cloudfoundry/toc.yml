@@ -1,6 +1,6 @@
-- name: Documentação da Cloud Foundry
-  href: index.md
-- name: Inícios rápidos
+- name: Documentação do Cloud Foundry
+  href: index.yml
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Modelo do marketplace

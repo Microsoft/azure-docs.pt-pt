@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/28/2020
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: ffbac18b3172dd0cd3d430bae5060be0a8d1bb21
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393487"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082402"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para a mudança dos Serviços de Media v2 para v3
 
@@ -31,7 +31,7 @@ Este artigo descreve as alterações introduzidas no Azure Media Services v3, mo
 Se tiver um serviço de vídeo desenvolvido hoje em cima do [legado Media Services v2 APIs,](../previous/media-services-overview.md)deve rever as seguintes diretrizes e considerações antes de migrar para as APIs v3. Existem muitos benefícios e novas funcionalidades na API v3 que melhoram a experiência e as capacidades do desenvolvedor dos Media Services. No entanto, tal como foi chamado na secção [Questões Conhecidas](#known-issues) deste artigo, existem também algumas limitações devido a alterações entre as versões API. Esta página será mantida à medida que a equipa de Media Services faz melhorias contínuas nas APIs v3 e aborda as lacunas entre as versões. 
 
 > [!NOTE]
-> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
+> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir os V3 [Live Events,](live-events-outputs-concept.md)visualizar (não gerir) [os Ativos](assets-concept.md)v3, obter informações sobre o acesso a APIs. Para mais detalhes, consulte [as FAQs.](frequently-asked-questions.md#can-i-use-the-azure-portal-to-manage-v3-resources) 
 
 ## <a name="benefits-of-media-services-v3"></a>Benefícios dos Serviços de Media v3
   
@@ -131,7 +131,13 @@ A tabela que se segue mostra as diferenças de código entre v2 e v3 para cenár
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize o [REST API,](https://aka.ms/ams-v3-rest-sdk)CLI ou um dos SDKs suportados.
+*  Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
+
+    * gerir os Media Services v3 [Eventos Ao Vivo,](live-events-outputs-concept.md) 
+    * vista (não gerir) [v3 Ativos,](assets-concept.md) 
+    * [obtenha informações sobre o acesso a APIs.](access-api-portal.md) 
+
+Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
 * Você precisa fornecer Media Reserved Units (MRUs) na sua conta para controlar a conmoeda e desempenho dos seus Empregos, particularmente aqueles que envolvam Análise de Vídeo ou Áudio. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Pode gerir as MrUs utilizando o [CLI 2.0 para media services v3,](media-reserved-units-cli-how-to.md)utilizando o [portal Azure,](../previous/media-services-portal-scale-media-processing.md)ou utilizando as [APIs v2](../previous/media-services-dotnet-encoding-units.md). Você precisa fornecer MRUs, quer esteja usando Media Services v2 ou v3 APIs.
 * As entidades de Serviços de Media criadas com a V3 API não podem ser geridas pela API v2.  
 * Nem todas as entidades da API V2 aparecem automaticamente na API V3.  Seguem-se exemplos de entidades nas duas versões que são incompatíveis:  

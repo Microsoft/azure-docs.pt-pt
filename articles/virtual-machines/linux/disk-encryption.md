@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 48935dc74d6d22bcafa31afebbdfcb829e122815
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 495bdcfb619ff17a4a4b074fa673c5d2fb185730
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399246"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970535"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação lateral do servidor de discos geridos pelo Azure
 

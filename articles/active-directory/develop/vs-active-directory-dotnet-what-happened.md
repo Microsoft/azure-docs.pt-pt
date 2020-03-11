@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 0f426e7a87204acd4be6529f7dd11a954f23491a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ac38adba4ca0d978dd48a546bed1b1faf4fe40fe
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159476"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036962"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto MVC (serviço conectado visual Studio Azure Ative Directory)?
 
@@ -24,13 +24,13 @@ ms.locfileid: "77159476"
 > - [Introdução](vs-active-directory-dotnet-getting-started.md)
 > - [O que aconteceu](vs-active-directory-dotnet-what-happened.md)
 
-Este artigo identifica as alterações exatas feitas ao projeto mVC ASP.NET da Am ASP.NET ao adicionar o serviço ligado ao [Azure Ative Directory utilizando o Visual Studio](vs-active-directory-add-connected-service.md).
+Este artigo identifica as alterações exatas feitas a um projeto ASP.NET MVC ao adicionar o serviço ligado ao [Azure Ative Directory utilizando o Visual Studio](vs-active-directory-add-connected-service.md).
 
 Para obter informações sobre o trabalho com o serviço conectado, consulte [Getting Started](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Referências adicionais
 
-Afeta o ficheiro do projeto *.NET referências) e `packages.config` (referências NuGet).
+Afeta o ficheiro do projeto (referências*.NET) e `packages.config` (referências NuGet).
 
 | Tipo | Referência |
 | --- | --- |

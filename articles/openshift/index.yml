@@ -1,37 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Serviço Azure Red Hat OpenShift
+### YamlMime:Landing
+title: Documentação do Azure Red Hat OpenShift
+summary: O Azure Red Hat OpenShift fornece clusters do Kubernetes de um inquilino e com elevada disponibilidade no Azure, suportados pela Red Hat e pela Microsoft.
 metadata:
-  title: 'Documentação do Serviço Azure Red Hat OpenShift – Tutoriais, Referência da API'
-  meta.description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
-  services: container-service
-  author: tylermsft
+  title: Documentação do Azure Red Hat OpenShift
+  description: O Microsoft Azure Red Hat OpenShift permite-lhe implementar rapidamente um cluster Red Hat OpenShift pronto para produção no Azure. Aprenda como usar o Azure Red Hat OpenShift com estes tutoriais e manuais de instruções.
   ms.service: container-service
+  services: container-service
   ms.topic: landing-page
-  ms.date: 05-06-2019
-  ms.author: twhitney
-abstract:
-  description: 'O Azure Red Hat OpenShift fornece clusters do Kubernetes de um inquilino e com elevada disponibilidade no Azure, suportados pela Red Hat e pela Microsoft.'
-sections:
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: Saiba como criar e gerir um cluster do Azure Red Hat OpenShift.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/openshift/tutorial-create-cluster">Criar um cluster do Azure Red Hat OpenShift</a>
-          - html: <a href="/azure/openshift/tutorial-scale-cluster">Dimensionar um cluster do Azure Red Hat OpenShift</a>
-          - html: <a href="/azure/openshift/tutorial-delete-cluster">Eliminar um cluster do Azure Red Hat OpenShift</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de comandos
-            html: <p><a href="/cli/azure/openshift">CLI do Azure</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/openshift">API REST</a></p>
-          - title: Documentação do Red Hat
-            html: '<p><a href="https://docs.openshift.com/aro/welcome/index.html">Documentação do Red Hat OpenShift</a></p>'
+  author: jimzim
+  ms.author: jzim
+  ms.date: 03/06/2020
+  ms.openlocfilehash: ec40ff9af0b2c09db32e40536009cd0db684f030
+  ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/10/2020
+  ms.locfileid: "79037048"
+landingContent:
+- title: Acerca do Azure Red Hat OpenShift
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Red Hat OpenShift?
+      url: intro-openshift.md
+- title: Introdução
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar um cluster do Azure Red Hat OpenShift
+      url: tutorial-create-cluster.md
+    - text: Dimensionar um cluster do Azure Red Hat OpenShift
+      url: tutorial-scale-cluster.md
+    - text: Eliminar um cluster do Azure Red Hat OpenShift
+      url: tutorial-delete-cluster.md
+- title: Configurar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar o seu ambiente de desenvolvimento do Azure Red Hat OpenShift
+      url: howto-setup-environment.md
+    - text: Criar um inquilino do Azure AD
+      url: howto-create-tenant.md
+    - text: Criar um objeto e utilizador de aplicação do Azure AD
+      url: howto-aad-app-configuration.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI do Azure
+      url: /cli/azure/openshift
+    - text: API REST
+      url: /rest/api/openshift
+    - text: Documentação do Red Hat OpenShift
+      url: https://docs.openshift.com/aro/welcome/index.html

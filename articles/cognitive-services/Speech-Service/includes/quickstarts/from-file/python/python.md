@@ -1,20 +1,15 @@
 ---
-title: 'Quickstart: Reconhecer o discurso de um ficheiro áudio, Python - Serviço de fala'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
 author: IEvangelist
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/30/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: b326f7ebcec3c371839d9bccb95e8bedf9768f1c
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925636"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082040"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

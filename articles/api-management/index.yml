@@ -1,56 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação da Gestão de API
+summary: Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Mostra-lhe como criar e gerir gateways de API modernos para serviços de back-end existentes alojados em qualquer lado.
 metadata:
-  title: 'Documentação da Gestão de API do Azure - Tutoriais, Referência da API | Microsoft Docs'
-  description: 'Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.'
+  title: Documentação da Gestão de API
+  description: Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Mostra-lhe como criar e gerir gateways de API modernos para serviços de back-end existentes alojados em qualquer lado.
   services: api-management
-  author: georgewallace
-  manager: gwallace
   ms.service: api-management
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  author: georgewallace
   ms.author: gwallace
-abstract:
-  description: 'Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.'
-sections:
-  - title: Inícios rápidos de 5 minutos
-    items:
-      - type: paragraph
-        text: Criar uma instância da Gestão de API.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Criar uma instância - Portal
-            href: /azure/api-management/get-started-create-service-instance
-          - image:
-              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
-            text: Criar uma instância - PowerShell
-            href: /azure/api-management/powershell-create-service-instance
-  - title: Tutoriais passo-a-passo
-    items:
-      - type: paragraph
-        text: Saiba como gerir a Gestão de API.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/api-management/import-and-publish">Importar e publicar a sua primeira API</a>
-          - html: <a href="/azure/api-management/api-management-howto-add-products">Criar e publicar um produto</a>
-          - html: <a href="/azure/api-management/mock-api-responses">Respostas de API de teste</a>
-          - html: <a href="/azure/api-management/transform-api">Transformar e proteger a sua API</a>
-          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Monitorizar as APIs publicadas</a>
-          - html: <a href="/azure/api-management/api-management-howto-api-inspector">Depurar as suas APIs com o rastreio de pedidos</a>
-          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Utilize revisões para efetuar alterações sem interrupções de forma segura</a>
-          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publicar várias versões da sua API</a>
-          - html: <a href="/azure/api-management/api-management-customize-styles">Personalizar o estilo das páginas de portal do Programador</a>
-  - title: Amostras
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/api-management/policy-samples">Política</a>
-          - html: <a href="/azure/api-management/powershell-samples">O Azure PowerShell</a>
-          - html: '<a href="https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration">Arquitetura de Referência</a>'
+  ms.date: 03/08/2020
+  ms.openlocfilehash: 2ed84dfdfcabafe7222b8cb64a853ed04e2335a2
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78944172"
+landingContent:
+- title: Acerca da Gestão de API
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a API Management?
+      url: api-management-key-concepts.md
+    - text: Disponibilidade de funcionalidades
+      url: api-management-features.md
+- title: Criar uma instância
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Portal do Azure
+      url: get-started-create-service-instance.md
+    - text: Azure PowerShell
+      url: powershell-create-service-instance.md
+- title: Gerir a Gestão de API
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1. Importar e publicar a sua primeira API
+      url: import-and-publish.md
+    - text: 2. Criar e publicar um produto
+      url: api-management-howto-add-products.md
+    - text: 3. Simular respostas de API
+      url: mock-api-responses.md
+    - text: 4. Transformar e proteger a sua API
+      url: transform-api.md
+    - text: 5. Monitorizar as APIs publicadas
+      url: api-management-howto-use-azure-monitor.md
+    - text: 6. Depurar as suas APIs com o rastreio de pedidos
+      url: api-management-howto-api-inspector.md
+    - text: 7. Utilizar revisões para efetuar alterações sem interrupções de forma segura
+      url: api-management-get-started-revise-api.md
+    - text: 8. Publicar várias versões da sua API
+      url: api-management-get-started-publish-versions.md
+    - text: 9. Personalizar o estilo das páginas de portal do Programador
+      url: api-management-customize-styles.md
+- title: Amostras
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Política
+      url: policy-samples.md
+    - text: Azure PowerShell
+      url: powershell-samples.md
+- title: Arquitetura
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Integração enterprise básica
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration

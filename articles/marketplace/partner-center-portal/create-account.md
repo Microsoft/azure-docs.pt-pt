@@ -1,182 +1,182 @@
 ---
-title: Criar uma conta do Marketplace comercial no Partner Center
-description: Saiba como criar uma conta do Marketplace comercial no Partner Center.
-author: ChJenk
+title: Criar uma conta de Marketplace Comercial no Partner Center
+description: Saiba como criar uma conta de Marketplace Comercial no Partner Center.
+author: qianw211
 manager: evansma
-ms.author: v-chjen
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 09/26/2019
-ms.openlocfilehash: df857fb938ade329a971578ac206f16f1357d7e5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 03/10/2020
+ms.openlocfilehash: 59f37585dfea08e9343cf052f680fd6e9531852b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838763"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968831"
 ---
-# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta do Marketplace comercial no Partner Center
+# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de Marketplace Comercial no Partner Center
 
-Para publicar suas ofertas no [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou no [AppSource](https://appsource.microsoft.com/), você precisará criar uma conta no programa do Marketplace comercial no Partner Center. Neste artigo, abordaremos como criar uma conta do Partner Center e como adicionar novos Publicadores ao programa comercial Marketplace.
+Para publicar as suas ofertas no [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [AppSource,](https://appsource.microsoft.com/)terá de criar uma conta no programa Mercado Comercial no Partner Center. Neste artigo, vamos cobrir como criar uma conta Partner Center e como adicionar novas editoras ao programa Mercado Comercial.
 
 >[!IMPORTANT]
->Se você tiver uma conta no [portal do Cloud Partner (CPP)](https://cloudpartner.azure.com) que foi movida para o Partner Center, não será necessário criar uma nova conta. Consulte [Publicadores mudando de CPP](#publishers-moving-from-cpp) para obter mais informações.
+>Se tem uma conta no Portal do [Parceiro cloud (CPP)](https://cloudpartner.azure.com) que foi transferida para partner Center, não precisa de criar uma nova conta. Consulte [editores que se deslocam do CPP](#publishers-moving-from-cpp) para obter mais informações.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para criar uma conta no Partner Center, verifique se você tem:
+Para criar uma conta no Partner Center, certifique-se de que tem:
 
-- Autoridade para assinar contratos legais em nome de sua empresa.
-- O nome de negócios legal, endereço e contato principal da sua empresa (isso pode ser você).
+- Autoridade para assinar acordos legais em nome da sua empresa.
+- O nome, endereço e contacto jurídico da sua empresa (este pode ser você).
 
-Verificaremos essas informações durante o processo de criação da conta.
+Vamos verificar esta informação durante o processo de criação de conta.
 
-Há duas maneiras de criar uma conta:
+Há duas formas de criar uma conta:
 
-- Se você for novo no Partner Center e não tiver uma conta de rede da Microsoft, crie sua conta usando [criar uma conta usando a página de registro do Partner Center](#create-an-account-using-the-partner-center-enrollment-page).
-- Se você já estiver inscrito no Microsoft Partner Network, crie uma conta diretamente do Partner Center usando [criar uma conta usando os registros existentes do Microsoft Partner Center](#create-an-account-using-existing-microsoft-partner-center-enrollments).
+- Se é novo no Partner Center e não tem uma Conta de Rede Microsoft, crie a sua conta usando criar uma conta utilizando a página de [inscrição do Partner Center](#create-an-account-using-the-partner-center-enrollment-page).
+- Se já está inscrito na Microsoft Partner Network, crie uma conta diretamente do Partner Center utilizando [a Create uma conta utilizando as matrículas existentes do Microsoft Partner Center.](#create-an-account-using-existing-microsoft-partner-center-enrollments)
 
-## <a name="create-an-account-using-the-partner-center-enrollment-page"></a>Criar uma conta usando a página de registro do Partner Center
+## <a name="create-an-account-using-the-partner-center-enrollment-page"></a>Criar uma conta utilizando a página de inscrição do Partner Center
 
-Use esse método se você for novo no Partner Center e não estiver registrado no Microsoft Partner Network. Esta seção aborda como criar uma nova conta do Partner Center, incluindo como:
+Utilize este método se for novo no Partner Center e não estiver inscrito na Microsoft Partner Network. Esta secção abrange como criar uma nova conta partner center, incluindo como:
 
-- [Registre-se na página de registro do Partner Center](#register-on-the-partner-center-enrollment-page)
-- [Entrar com uma conta corporativa](#sign-in-with-a-work-account)
-- [Concordar com os termos e condições](#agree-to-terms-and-conditions)
-- [Forneça seu perfil do Publicador](#provide-your-publisher-profile)
-
->[!IMPORTANT]
->Se você tiver uma conta no [portal do Cloud Partner (CPP)](https://cloudpartner.azure.com) que foi movida para o Partner Center, não será necessário criar uma nova conta. Consulte [Publicadores mudando de CPP](#publishers-moving-from-cpp) para obter mais informações.
-
-### <a name="register-on-the-partner-center-enrollment-page"></a>Registre-se na página de registro do Partner Center
-
-Examine as informações na página [**Bem-vindo ao registro do Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) e registre-se para obter uma conta.
-
-### <a name="sign-in-with-a-work-account"></a>Entrar com uma conta corporativa
-
-Entre com uma conta de trabalho para que você possa vincular o domínio da conta de email de trabalho da sua empresa à sua nova conta do Partner Center. Ao associar essas contas, os funcionários da empresa podem entrar no Partner Center com seus nomes de usuário e senhas de conta corporativa.
-
->[!NOTE]
->Para verificar se sua empresa já tem uma conta corporativa, como criar uma nova conta corporativa ou como configurar várias contas corporativas para usar com o Partner Center, visite [a conta corporativa corporativa e o Partner Center](./company-work-accounts.md).
-
-### <a name="agree-to-terms-and-conditions"></a>Concordar com os termos e condições
-
-Você precisará concordar com os termos e condições no [contrato de Microsoft Marketplace editor](https://go.microsoft.com/fwlink/?LinkID=699560).
-
-### <a name="provide-your-publisher-profile"></a>Forneça seu perfil do Publicador
-
-Seu perfil de editor inclui o nome da sua empresa e a ID do MPN. Se você ainda não tiver feito isso, será necessário ingressar no [Microsoft Partner Network](https://partner.microsoft.com/commercial). Depois de ingressar no Microsoft Partner Network, você será fornecido com uma ID MPN.
-
-Crie uma ID de editor. Sua ID de editor identifica exclusivamente sua empresa e suas ofertas no Marketplace e no AppSource.
-
-Depois de confirmar as informações de perfil do editor, concorde com os termos e condições e crie sua conta do Partner Center selecionando **aceitar e continuar**.
+- [Registe-se na página de inscrição do Partner Center](#register-on-the-partner-center-enrollment-page)
+- [Inscreva-se com uma conta de trabalho](#sign-in-with-a-work-account)
+- [Concordo com os termos e condições](#agree-to-terms-and-conditions)
+- [Forneça o seu perfil de editor](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->*Você deve estar autorizado a agir em nome da sua empresa para aceitar esses termos.*
+>Se tem uma conta no Portal do [Parceiro cloud (CPP)](https://cloudpartner.azure.com) que foi transferida para partner Center, não precisa de criar uma nova conta. Consulte [editores que se deslocam do CPP](#publishers-moving-from-cpp) para obter mais informações.
 
-Depois de registrado, você será levado para a página de visão geral do Marketplace comercial. O **Marketplace comercial** é exibido na barra de navegação à esquerda. Se você selecionar **configurações** > **configurações de parceiro** > **programas**, verá que o Marketplace comercial está listado como registrado.
+### <a name="register-on-the-partner-center-enrollment-page"></a>Registe-se na página de inscrição do Partner Center
 
-Obrigado por criar uma conta do Marketplace comercial no Partner Center! Para obter ajuda, consulte [visão geral do Marketplace comercial](./commercial-marketplace-overview.md). Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao programa comercial Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Reveja as informações na página de inscrição do [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) e, em seguida, registe-se para uma conta.
 
-## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Criar uma conta usando registros existentes do Microsoft Partner Center
+### <a name="sign-in-with-a-work-account"></a>Inscreva-se com uma conta de trabalho
 
-Use esta seção para criar uma conta do Marketplace comercial se você já tiver um registro no Microsoft Partner Center.
+Inscreva-se numa conta de trabalho para que possa ligar o domínio da conta de email de trabalho da sua empresa à sua nova conta partner Center. Associando estas contas, os colaboradores da sua empresa podem inscrever-se no Partner Center com os nomes de utilizador e palavras-passe da sua conta de trabalho.
 
-Há dois tipos de registros existentes que você pode usar para configurar sua conta do Marketplace comercial. Escolha aquele que se aplica a você:
+>[!NOTE]
+>Para verificar se a sua empresa já tem uma conta de trabalho, como criar uma nova conta de trabalho, ou como configurar várias contas de trabalho para usar com o Partner Center, visite a sua conta de [trabalho da empresa e o Partner Center.](./company-work-accounts.md)
 
-- Se você tiver um registro de Microsoft Partner Network existente, crie sua conta usando [o registrado no Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
-- Se você tiver um registro de programa de desenvolvedor existente, crie sua conta usando o [registrado em um programa de desenvolvedor](#enrolled-in-a-developer-program).
+### <a name="agree-to-terms-and-conditions"></a>Concordar com termos e condições
 
-Para ambos os métodos, você usará estas etapas:
+Terá de concordar com os termos e condições no Acordo de [Editores](https://go.microsoft.com/fwlink/?LinkID=699560)do Microsoft Marketplace .
 
-- Entrar no Partner Center usando suas credenciais existentes
-- Insira suas informações de perfil de publicação
+### <a name="provide-your-publisher-profile"></a>Forneça o seu perfil de editor
 
-Certifique-se de ter as informações da sua conta à mão.
+O seu perfil de editor inclui o nome da sua empresa e identificação mpn. Se ainda não o fez, terá de se juntar à [Microsoft Partner Network](https://partner.microsoft.com/commercial). Depois de aderir à Microsoft Partner Network, receberá um ID MPN.
+
+Crie uma identificação da Editora. O seu ID editor identifica exclusivamente a sua empresa e as suas ofertas no Marketplace e appSource.
+
+Depois de confirmar as informações sobre o perfil da sua editora, concorde com os termos e condições e crie a sua conta Partner Center selecionando **Aceitar e continuar**.
 
 >[!IMPORTANT]
->Se você tiver uma conta no [portal do Cloud Partner (CPP)](https://cloudpartner.azure.com/) que foi movida para o Partner Center, não será necessário criar uma nova conta. Consulte [Publicadores mudando de CPP](#publishers-moving-from-cpp) para obter mais informações.
+>*Deve ser autorizado a agir em nome da sua empresa para aceitar estes termos.*
 
-### <a name="enrolled-in-the-microsoft-partner-network"></a>Registrado no Microsoft Partner Network
+Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar **Definições** > **Definições** de Parceiro > **Programas,** verá que o Mercado Comercial está listado como registado.
 
-Se você já estiver inscrito no Microsoft Partner Network, use esta seção para criar sua conta diretamente do Partner Center.
+Obrigado por criar uma conta de Marketplace Comercial no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
-Entre no [Partner Center](https://partner.microsoft.com/) com sua conta de Microsoft Partner Network para que você vincule o domínio de conta de email de trabalho da sua empresa à sua nova conta do Partner Center. Ao associar essas contas, os funcionários da empresa podem entrar no Partner Center com seus nomes de acesso e senhas de conta corporativa.
+## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Criar uma conta utilizando as matrículas existentes do Microsoft Partner Center
+
+Utilize esta secção para criar uma conta de Marketplace Comercial se já tiver uma inscrição no Microsoft Partner Center.
+
+Existem dois tipos de matrículas existentes que pode utilizar para configurar a sua conta de Mercado Comercial. Escolha o que lhe aplica:
+
+- Se tiver uma inscrição existente na Microsoft Partner Network, crie a sua conta utilizando [a Rede de Parceiros da Microsoft](#enrolled-in-the-microsoft-partner-network).
+- Se tiver uma inscrição no programa de programadores existente, crie a sua conta utilizando o Inscrito num programa de [programação](#enrolled-in-a-developer-program).
+
+Para ambos os métodos, você usará estes passos:
+
+- Inscreva-se no Partner Center usando as suas credenciais existentes
+- Insira as informações do seu perfil de publicação
+
+Certifique-se de que a informação da sua conta está à mão.
+
+>[!IMPORTANT]
+>Se tem uma conta no Portal do [Parceiro cloud (CPP)](https://cloudpartner.azure.com/) que foi transferida para partner Center, não precisa de criar uma nova conta. Consulte [editores que se deslocam do CPP](#publishers-moving-from-cpp) para obter mais informações.
+
+### <a name="enrolled-in-the-microsoft-partner-network"></a>Inscrito na Rede de Parceiros da Microsoft
+
+Se já está inscrito na Microsoft Partner Network, utilize esta secção para criar a sua conta diretamente a partir do Partner Center.
+
+Inscreva-se no [Partner Center](https://partner.microsoft.com/) com a sua conta Microsoft Partner Network para ligar o domínio da conta de email de trabalho da sua empresa à sua nova conta Partner Center. Associando estas contas, os colaboradores da sua empresa podem inscrever-se no Partner Center com os seus nomes de utilizador e palavras-passe da conta de trabalho.
 
 >[!NOTE]
->Para verificar se sua empresa já tem uma conta de trabalho do Partner Center, como criar uma nova conta corporativa ou como configurar várias contas corporativas para usar com o Partner Center, visite [a conta corporativa corporativa e o Partner Center](./company-work-accounts.md).
+>Para verificar se a sua empresa já tem uma conta de trabalho do Partner Center, como criar uma nova conta de trabalho, ou como configurar várias contas de trabalho para usar com o Partner Center, visite a sua conta de [trabalho da empresa e o Partner Center.](./company-work-accounts.md)
 
-Depois de entrar, use as etapas a seguir para concluir a configuração da sua conta.
+Depois de iniciar sessão, utilize os seguintes passos para terminar a configuração da sua conta.
 
 >[!NOTE]
-> Você deve ter um **administrador de conta** ou uma função de **administrador global** para entrar no Microsoft Partner Network.
+> Deve ter um administrador de **conta** ou um papel **de administrador global** para iniciar sessão na Microsoft Partner Network.
 
-1. No [Partner Center](https://partner.microsoft.com/), selecione **configurações** > **configurações de parceiro** > programas ** > introdução**.
-2. Microsoft Partner Network detecta sua assinatura e exibe a página de perfil do Publicador para inserir o nome da sua empresa e a ID do MPN.
-3. Leia os termos e condições no [contrato do Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione **aceitar e continue** para concluir o registro.
+1. Do [Partner Center,](https://partner.microsoft.com/)selecione **Definições** > Definições de **parceiro > ** **programas** > **começar**.
+2. A Microsoft Partner Network deteta a sua subscrição e exibe a página de perfil da editora para que introduza o nome da sua empresa e o ID MPN.
+3. Leia os termos e condições no Acordo de Editor estivado da [Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione Aceitar e **continuar** a completar a sua inscrição.
 
     >[!IMPORTANT]
-    >*Você deve estar autorizado a agir em nome da sua empresa para aceitar esses termos.*
+    >*Deve ser autorizado a agir em nome da sua empresa para aceitar estes termos.*
 
-Depois de registrado, você será levado para a página de visão geral do Marketplace comercial. O **Marketplace comercial** é exibido na barra de navegação à esquerda. Se você selecionar **configurações** > **configurações de parceiro** > **programas**, verá que o Marketplace comercial está listado como registrado.
+Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar **Definições** > **Definições** de Parceiro > **Programas,** verá que o Mercado Comercial está listado como registado.
 
-Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte [visão geral do Marketplace comercial](./commercial-marketplace-overview.md). Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao programa comercial Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
-### <a name="enrolled-in-a-developer-program"></a>Registrado em um programa de desenvolvedor
+### <a name="enrolled-in-a-developer-program"></a>Matriculado num programa de programação
 
-Se você já estiver inscrito em um programa de desenvolvedor do Partner Center, use esta seção para criar sua conta diretamente do Partner Center.
+Se já está inscrito num programa de desenvolvimento do Partner Center, utilize esta secção para criar a sua conta diretamente do Partner Center.
 
 >[!NOTE]
->Para se inscrever no Marketplace comercial na mesma conta em que você está conectado, você precisa ter registrado no Partner Center usando uma conta da empresa. Se você se inscreveu com uma conta individual, seu registro do Marketplace comercial aparecerá em uma nova conta.
+>Para se inscrever no Mercado Comercial na mesma conta em que está inscrito, precisa de se ter registado no Partner Center através de uma conta da Empresa. Se se inscreveu numa conta Individual, a sua inscrição no Mercado Comercial aparecerá sob uma nova conta.
 >
->Contas individuais são para desenvolvedores únicos que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa fornecem acesso para enviar aplicativos com funcionalidade adicional. Exigimos maior verificação para contas da empresa depois de se registrar para confirmar que você está autorizado a configurar a conta para sua empresa. Essa verificação pode levar de alguns dias a algumas semanas e, muitas vezes, inclui um telefonema para sua empresa. Os dois tipos de contas permitem que você envie aplicativos, suplementos e serviços. Para obter mais informações, consulte [tipos de conta, locais e taxas](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+>As contas individuais são para desenvolvedores individuais que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa dão-lhe acesso para submeter apps com funcionalidade adicional. Exigimos uma maior verificação das contas da empresa depois de se registar para confirmar que está autorizado a configurar a conta para a sua empresa. Esta verificação pode demorar de alguns dias a algumas semanas, e muitas vezes inclui um telefonema para a sua empresa. Ambos os tipos de contas permitem-lhe submeter apps, add-ins e serviços. Para mais informações, consulte [tipos de conta, locais e taxas.](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)
 
-Entre no [Partner Center](https://partner.microsoft.com/) com sua conta do Microsoft Partner Center para se registrar no programa do Marketplace comercial na mesma conta. Ao inscrever-se no Marketplace comercial usando a mesma conta, você pode ver os registros do programa existente e o Marketplace comercial no menu de navegação à esquerda do Partner Center.
+Assine no [Partner Center](https://partner.microsoft.com/) com a sua conta Microsoft Partner Center para se inscrever no programa Mercado Comercial na mesma conta. Ao inscrever-se no Mercado Comercial utilizando a mesma conta, pode ver tanto as suas inscrições de programas existentes como o Mercado Comercial no menu de navegação à esquerda do Partner Center.
 
-Depois de entrar, use as seguintes etapas para concluir a configuração da sua conta:
+Depois de iniciar sessão, utilize os seguintes passos para terminar a configuração da sua conta:
 
-1. No Partner Center, selecione **configurações** > **configurações do desenvolvedor** > **programas** > **comece**e insira seu endereço de email de trabalho.
-2. Preencha os detalhes na página de perfil do Publicador.
-3. Leia os termos e condições no [contrato do Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione **aceitar e continue** para concluir o registro.
+1. Do Partner Center, selecione **Definições** > **Definições** de **Desenvolvedores** > Programas > **Começar**e introduza o seu endereço de e-mail de trabalho.
+2. Complete os detalhes na página de perfil da editora.
+3. Leia os termos e condições no Acordo de Editor estivado da [Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione Aceitar e **continuar** a completar a sua inscrição.
 
     >[!Important]
-    >*Você deve estar autorizado a agir em nome da sua empresa para aceitar esses termos.*
+    >*Deve ser autorizado a agir em nome da sua empresa para aceitar estes termos.*
 
-Depois de registrado, você será levado para a página de visão geral do Marketplace comercial. O **Marketplace comercial** é exibido na barra de navegação à esquerda. Se você selecionar **configurações** > **configurações do desenvolvedor** > **programas**, verá que o Marketplace comercial está listado como registrado.
+Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar **Definições** > **Definições** de Desenvolvimento > **Programas,** verá que o Mercado Comercial está listado como registado.
 
-Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte [visão geral do Marketplace comercial](./commercial-marketplace-overview.md). Para obter ajuda com a adição de publicadores, consulte [Adicionar novos Publicadores ao programa comercial Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
-## <a name="publishers-moving-from-cpp"></a>Publicadores mudando de CPP
+## <a name="publishers-moving-from-cpp"></a>Editores que se deslocam do CPP
 
-Se sua conta tiver sido migrada do [portal do Cloud Partner (CPP)](https://cloudpartner.azure.com), você não precisará criar uma nova conta do Partner Center. Você deve ter recebido um link personalizado para sua nova conta do Partner Center por email e em uma notificação de banner depois de fazer logon na sua conta de CPP existente.
+Se a sua conta tiver sido migrada do Portal do [Parceiro cloud (CPP),](https://cloudpartner.azure.com)não precisa de criar uma nova conta de Partner Center. Você deveria ter recebido um link personalizado para a sua nova conta Partner Center em e-mail, e em uma notificação de banner após iniciar sessão na sua conta CPP existente.
 
-Depois de habilitar sua nova conta do Partner Center visitando este link personalizado, você pode retornar à sua conta visitando o painel do [Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
+Assim que tiver ativado a sua nova conta partner center visitando este link personalizado, pode voltar à sua conta visitando o [dashboard do Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
 
-As informações do contrato de publicação e do perfil da empresa serão migradas para sua nova conta do Partner Center, juntamente com as informações de perfil de pagamento da conta previamente configuradas, contas de usuário e permissões e ofertas ativas associadas à sua conta de CPP.
+O acordo de publicação e as informações sobre o perfil da empresa serão migrados para a sua nova conta Partner Center, juntamente com quaisquer informações de perfil de pagamento de conta previamente configuradas, contas de utilizador e permissões, e ofertas ativas associadas à sua conta CPP.
 
-Depois que as informações da conta forem movidas do CPP para o Partner Center, você não usará mais o CPP para fazer atualizações de conta ou gerenciar usuários, permissões e cobrança. Por um período limitado, as atualizações de conta feitas no Partner Center serão automaticamente atualizadas em sua conta de CPP somente leitura até que o portal de CPP seja eventualmente preterido.
+Depois de a informação da sua conta ser transferida do CPP para o Partner Center, deixará de utilizar o CPP para fazer atualizações de conta, ou gerir utilizadores, permissões e faturação. Por um período limitado, quaisquer atualizações de conta que efaça no Partner Center serão automaticamente atualizadas na sua conta de CPP apenas de leitura até que o portal CPP seja eventualmente depreciado.
 
-## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicionar novos Publicadores ao programa comercial Marketplace
+## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicione novos editores ao programa Mercado Comercial
 
-Uma organização pode ter vários Publicadores associados a uma conta comercial do Marketplace. Um usuário existente pode adicionar mais Publicadores depois de fazer logon no Partner Center selecionando **configurações de conta** > **Publicadores** > **Adicionar Publicador**.
+Uma organização pode ter vários editores associados a uma conta de Mercado Comercial. Um utilizador existente pode adicionar mais Editores depois de iniciar sessão no Partner Center selecionando **definições** de conta > **Editores** > **Adicionar Editor**.
 
 >[!NOTE]
->Antes de adicionar um novo Publicador, examine os Publicadores existentes fazendo logon no Partner Center e selecionando **configurações de conta** > **editores** para ver uma lista de Publicadores existentes.
+>Antes de adicionar uma nova editora, reveja os seus editores existentes, iniciando sessão no Partner Center e selecionando **Definições** de Conta > **Editoras** para ver uma lista de editores existentes.
 
-Outro usuário do mesmo Azure Active Directory locatário pode adicionar um novo Publicador seguindo as etapas abaixo:
+Outro utilizador do mesmo inquilino do Azure Ative Directory pode adicionar um novo editor seguindo os passos abaixo:
 
-1. Iniciar o fluxo de inscrição no [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
-2. Selecione **entrar com uma conta de trabalho** e insira seu endereço de email de trabalho.
-3. Selecione o botão **Adicionar Publicador** .
-4. Escolha a ID de MPN que você deseja associar ao Publicador.
-5. Atualize os **detalhes do Publicador** no formulário.
+1. Inicie o fluxo de inscrição no [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+2. Selecione **Iniciar sessão com uma conta** de trabalho e insira o seu endereço de e-mail de trabalho.
+3. Selecione o botão **Adicionar Editor.**
+4. Escolha o ID MPN que pretende associar à editora.
+5. Atualize os detalhes da **editora** no formulário.
 
-   1. **Nome do editor**: o nome que será exibido no Azure Marketplace ou AppSource com a oferta.
-   1. **PublisherID**: um identificador usado pelo Partner Center para identificar exclusivamente seu editor. O padrão desse campo é mapeado para um `PublisherID` exclusivo e existente no sistema, que não pode ser reutilizado e, portanto, esse campo precisa ser atualizado.
-   1. **Informações de contato**: Atualize as informações de contato quando necessário.
+   1. **Nome da editora**: O nome que será exibido no Azure Marketplace ou appSource com a oferta.
+   1. **PublisherID**: Um identificador utilizado pelo Partner Center para identificar exclusivamente o seu editor. O padrão para este campo mapeia para um `PublisherID` existente e único no sistema, que não pode ser reutilizado, e, portanto, este campo precisa de ser atualizado.
+   1. **Informações de contacto**: Atualize as informações de contacto quando necessário.
 
-Depois de concluir o processo, você pode gerenciar seu Publicador recém-criado acessando o programa do **Marketplace comercial** listado no menu de navegação à esquerda. Se você não vir o programa **comercial do Marketplace** , atualize a página. O novo editor aparecerá na lista **editores** .
+Depois de concluir o processo, pode gerir o seu editor recém-criado indo para o programa **Mercado Comercial** listado no menu de navegação à esquerda. Se não vir o programa **Mercado Comercial,** refresque a página. A nova editora aparecerá na lista de **Editores.**
 
 ## <a name="next-step"></a>Passo seguinte
 
-- [Gerenciar sua conta do Marketplace comercial no Partner Center](./manage-account.md)
+- [Gerencie a sua conta de Mercado Comercial no Partner Center](./manage-account.md)

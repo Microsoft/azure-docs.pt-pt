@@ -3,13 +3,13 @@ title: Restringir o tráfego de saída no serviço kubernetes do Azure (AKS)
 description: Saiba quais portas e endereços são necessários para controlar o tráfego de saída no serviço de kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/21/2020
-ms.openlocfilehash: b40415fa78b48d506800049e72c864fb3cab3e29
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.date: 03/10/2020
+ms.openlocfilehash: 2cd7aeea272d22615d3ba3d3db6acc2c84d22cca
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946403"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080179"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída para nós de cluster no serviço de kubernetes do Azure (AKS)
 
@@ -65,7 +65,7 @@ As seguintes regras de FQDN/aplicativo são necessárias:
 
 - Global do Azure
 
-| FQDN                       | Port      | Utilização      |
+| FQDN                       | Porta      | Utilização      |
 |----------------------------|-----------|----------|
 | *.hcp.\<localização\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Este endereço é necessário para comunicação do servidor Node <> API. Substitua *\<localização\>* com a região onde o seu cluster AKS está implantado. |
 | *.tun.\<localização\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Este endereço é necessário para comunicação do servidor Node <> API. Substitua *\<localização\>* com a região onde o seu cluster AKS está implantado. |
@@ -80,7 +80,7 @@ As seguintes regras de FQDN/aplicativo são necessárias:
 
 - Azure China 21Vianet
 
-| FQDN                       | Port      | Utilização      |
+| FQDN                       | Porta      | Utilização      |
 |----------------------------|-----------|----------|
 | *.hcp.\<localização\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Este endereço é necessário para comunicação do servidor Node <> API. Substitua *\<localização\>* com a região onde o seu cluster AKS está implantado. |
 | *.tun.\<localização\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Este endereço é necessário para comunicação do servidor Node <> API. Substitua *\<localização\>* com a região onde o seu cluster AKS está implantado. |
@@ -95,7 +95,7 @@ As seguintes regras de FQDN/aplicativo são necessárias:
 
 - Azure Government
 
-| FQDN                       | Port      | Utilização      |
+| FQDN                       | Porta      | Utilização      |
 |----------------------------|-----------|----------|
 | *.hcp. localização\<\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Este endereço é necessário para comunicação do servidor Node <> API. Substitua *\<localização\>* com a região onde o seu cluster AKS está implantado. |
 | *.tun. localização\<\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | Este endereço é necessário para comunicação do servidor Node <> API. Substitua *\<localização\>* com a região onde o seu cluster AKS está implantado. |
@@ -114,7 +114,7 @@ As seguintes regras de rede/portas de saída são opcionais para um cluster AKS:
 
 As seguintes regras de FQDN/aplicativo são recomendadas para que os clusters AKS funcionem corretamente:
 
-| FQDN                                    | Port      | Utilização      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | Esse endereço permite que os nós de cluster do Linux baixem as atualizações e os patches de segurança necessários. |
 
@@ -122,7 +122,7 @@ As seguintes regras de FQDN/aplicativo são recomendadas para que os clusters AK
 
 As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que têm a GPU habilitada:
 
-| FQDN                                    | Port      | Utilização      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | nvidia.github.io | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
 | us.download.nvidia.com | HTTPS:443 | Esse endereço é usado para a instalação e operação corretas do driver em nós baseados em GPU. |
@@ -132,7 +132,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que t
 
 As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que têm o Azure Monitor para contêineres habilitados:
 
-| FQDN                                    | Port      | Utilização      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | dc.services.visualstudio.com | HTTPS:443    | Isso é para métricas corretas e monitoramento de telemetria usando Azure Monitor. |
 | *.ods.opinsights.azure.com    | HTTPS:443    | Isso é usado pelo Azure Monitor para ingerir dados do log Analytics. |
@@ -144,7 +144,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que t
 
 As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que têm o Azure Dev Spaces habilitado:
 
-| FQDN                                    | Port      | Utilização      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Este endereço é usado para extrair as imagens do Linux Alpine e outras Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Esse endereço é usado para efetuar pull de imagens Helm/gaveta |
@@ -158,7 +158,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que t
 
 As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que têm o Azure Policy habilitado.
 
-| FQDN                                    | Port      | Utilização      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Esse endereço é usado para a operação correta de Azure Policy. (atualmente em visualização em AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir a operação correta de Azure Policy. (atualmente em visualização em AKS) |
@@ -172,14 +172,14 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que t
 
 As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS baseados no Windows Server:
 
-| FQDN                                    | Port      | Utilização      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Para instalar binários relacionados ao Windows |
 | mp.microsoft.com,<span></span>www.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Para instalar binários relacionados ao Windows |
 | kms.core.windows.net | TCP: 1688 | Para instalar binários relacionados ao Windows |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu quais portas e endereços permitir se você restringir o tráfego de saída para o cluster. Você também pode definir como o próprio pods pode se comunicar e quais restrições eles têm dentro do cluster. Para obter mais informações, consulte [O tráfego seguro entre cápsulas utilizando políticas][network-policy]de rede no AKS .
 

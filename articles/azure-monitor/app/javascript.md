@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 600ca893e6d6b81fe24626a99cc1f6de80efb3e8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368273"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082124"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -51,11 +51,11 @@ Se a sua aplicação não utilizar o npm, pode instrumentar diretamente as suas 
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(n){var o={config:n,initialize:!0},t=document,e=window,i="script";setTimeout(function(){var e=t.createElement(i);e.src=n.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",t.getElementsByTagName(i)[0].parentNode.appendChild(e)});try{o.cookie=t.cookie}catch(e){}function a(n){o[n]=function(){var e=arguments;o.queue.push(function(){o[n].apply(o,e)})}}o.queue=[],o.version=2;for(var s=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];s.length;)a("track"+s.pop());var r="Track",c=r+"Page";a("start"+c),a("stop"+c);var u=r+"Event";if(a("start"+u),a("stop"+u),a("addTelemetryInitializer"),a("setAuthenticatedUserContext"),a("clearAuthenticatedUserContext"),a("flush"),o.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===n.disableExceptionTracking||n.extensionConfig&&n.extensionConfig.ApplicationInsightsAnalytics&&!0===n.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){a("_"+(s="onerror"));var p=e[s];e[s]=function(e,n,t,i,a){var r=p&&p(e,n,t,i,a);return!0!==r&&o["_"+s]({message:e,url:n,lineNumber:t,columnNumber:i,error:a}),r},n.autoExceptionInstrumented=!0}return o}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
-);window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+);(window[aiName]=aisdk).queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -95,6 +95,7 @@ appInsights.trackTrace({message: 'This message will use a telemetry initializer'
 appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this is executed
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
+
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de tal forma que podem ser indefinidos a falsos. Todos os campos são opcionais, exceto para `instrumentationKey`.
 
@@ -155,7 +156,7 @@ Atualmente, oferecemos um [plugin React](#react-extensions) separado que pode in
 
 ## <a name="explore-browserclient-side-data"></a>Explore os dados do lado do navegador/cliente
 
-Os dados do lado do navegador/cliente podem ser vistos indo para **Métricas** e adicionando métricas individuais em que está interessado: 
+Os dados do lado do navegador/cliente podem ser vistos indo para **Métricas** e adicionando métricas individuais em que está interessado:
 
 ![](./media/javascript/page-view-load-time.png)
 
@@ -165,7 +166,7 @@ Selecione **Browser** e, em seguida, escolha **Falhas** ou **Desempenho**.
 
 ![](./media/javascript/browser.png)
 
-### <a name="performance"></a>Desempenho 
+### <a name="performance"></a>Desempenho
 
 ![](./media/javascript/performance-operations.png)
 
@@ -173,7 +174,7 @@ Selecione **Browser** e, em seguida, escolha **Falhas** ou **Desempenho**.
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Análise 
+### <a name="analytics"></a>Análise
 
 Para consultar a sua telemetria recolhida pelo JavaScript SDK, selecione o botão **'Ver em Registos ( Analytics).** Ao adicionar uma declaração `where` de `client_Type == "Browser"`, apenas verá dados do SDK JavaScript e qualquer telemetria do lado do servidor recolhida por outros SDKs será excluída.
  
@@ -194,7 +195,14 @@ dataset
 
 ### <a name="source-map-support"></a>Suporte do mapa de origem
 
-A pilha de chamadas minificada da sua telemetria de exceção pode ser desminificada no portal Azure. Todas as integrações existentes no painel Dedetalhes de Exceção trabalharão com a nova pilha de chamadas não minizada. Arrastar e largar mapa de origem não miniminante suporta todos os JS SDKs existentes e futuros (+Node.JS), pelo que não precisa de atualizar a sua versão SDK. Para ver a sua pilha de chamadas não minizada,
+A pilha de chamadas minificada da sua telemetria de exceção pode ser desminificada no portal Azure. Todas as integrações existentes no painel Dedetalhes de Exceção trabalharão com a nova pilha de chamadas não minizada.
+
+#### <a name="link-to-blob-storage-account"></a>Link para a conta de armazenamento Blob
+
+Pode ligar o seu recurso Application Insights ao seu próprio recipiente de armazenamento Azure Blob a pilhas de chamadas automaticamente inministíveis. Para começar, consulte o [suporte automático do mapa de origem.](./source-map-support.md)
+
+### <a name="drag-and-drop"></a>Arrastar e largar
+
 1. Selecione um item de Telemetria de Exceção no portal Azure para ver os seus "detalhes de transação de ponta a ponta"
 2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve coincidir com o ficheiro de origem de uma armação de pilha, mas sufixo com `.map`
 3. Arraste e largue os mapas de origem na pilha de chamadas no portal Azure ![](https://i.imgur.com/Efue9nU.gif)
@@ -211,7 +219,7 @@ Esta versão vem com o número mínimo de funcionalidades e funcionalidades e co
 
 Para exemplos runnáveis, consulte [Amostras JavaScript SDK](https://github.com/topics/applicationinsights-js-demo) de Aplicação Insights
 
-## <a name="upgrading-from-the-old-version-of-application-insights"></a>Upgrade a partir da versão antiga de Insights de Aplicação
+## <a name="upgrading-from-the-old-version-of-application-insights"></a>Upgrade a partir da versão antiga de Application Insights
 
 Alterações de rutura na versão SDK V2:
 - Para permitir melhores assinaturas de API, algumas das chamadas DaPI, como trackPageView e trackException, foram atualizadas. A execução no Internet Explorer 8 e versões anteriores do navegador não são suportadas.

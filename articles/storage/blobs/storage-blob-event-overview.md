@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 78ec5b6d330f03d78dcb4e798b23d588fd93398e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387182"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082000"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagindo a eventos de armazenamento blob
 
@@ -33,7 +33,10 @@ Se quiser experimentar isto agora, veja qualquer um destes artigos de arranque r
 |PowerShell    |[Quickstart: Eventos de armazenamento de rotas para ponto final web com PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |CLI do Azure    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
-Se a sua conta tiver um espaço de nome hierárquico, este tutorial irá mostrar-lhe como ligar uma subscrição da Rede de Eventos, uma Função Azure e um [Trabalho](https://docs.azuredatabricks.net/user-guide/jobs.html) em Tijolos de Dados Azure: [Tutorial: Use eventos azure Data Lake Storage Gen2 para atualizar uma tabela Databricks Delta](data-lake-storage-events.md).
+Para ver exemplos aprofundados de reagir a eventos de armazenamento blob utilizando funções Azure, consulte estes artigos:
+
+- [Tutorial: Utilize eventos azure data lake storage Gen2 para atualizar uma tabela Delta databricks](data-lake-storage-events.md).
+- [Tutorial: Automatizar imagens carregadas usando a Grelha de Eventos](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
 > Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2)** e integração de eventos de suporte **blobStorage.** **O armazenamento (propósito genral v1)** *não* suporta a integração com a Grelha de Eventos.
@@ -93,7 +96,8 @@ As aplicações que lidam com eventos de armazenamento blob devem seguir algumas
 > [!div class="checklist"]
 > * Como várias subscrições podem ser configuradas para direcionar eventos para o mesmo manipulador de eventos, é importante não assumir que os eventos são de uma determinada fonte, mas para verificar o tópico da mensagem para garantir que vem da conta de armazenamento que você está esperando.
 > * Da mesma forma, verifique se o eventoType é um que está preparado para processar, e não assuma que todos os eventos que receber serão os tipos que espera.
-> * Como as mensagens podem chegar fora de ordem e depois de algum atraso, use os campos de etag para entender se a sua informação sobre objetos ainda está atualizada.  Além disso, utilize os campos de sequenciadores para entender a ordem dos acontecimentos em qualquer objeto em particular.
+> * Como as mensagens podem chegar após algum atraso, use os campos de etag para entender se a sua informação sobre objetos ainda está atualizada. Para aprender a usar o campo de etag, consulte [Gerir a moeda no armazenamento blob](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Como as mensagens podem chegar fora de ordem, use os campos de sequenciadores para entender a ordem dos eventos em qualquer objeto em particular. O campo de sequênciar é um valor de cadeia que representa a sequência lógica de eventos para qualquer nome blob em particular. Pode usar a comparação padrão de cordas para entender a sequência relativa de dois eventos com o mesmo nome blob.
 > * Utilize o campo blobType para entender que tipo de operações são permitidas na bolha e quais os tipos de biblioteca do cliente que deve usar para aceder à bolha. Os valores válidos são `BlockBlob` ou `PageBlob`. 
 > * Utilize o campo de url com os construtores `CloudBlockBlob` e `CloudAppendBlob` para aceder à bolha.
 > * Ignore campos que não entende. Esta prática ajudará a mantê-lo resiliente a novas funcionalidades que poderão ser adicionadas no futuro.

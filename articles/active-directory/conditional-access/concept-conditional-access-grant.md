@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09a720be10b09e11adc8acdc8ab26a06870311b0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: HT
+ms.openlocfilehash: 0716c2d4475bb538c06b9a591521fbdcfc0c80e4
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893126"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968089"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
 
@@ -67,7 +67,7 @@ As organizações podem optar por utilizar a identidade do dispositivo como part
 
 As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas seja feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
-Esta definição aplica-se às seguintes aplicações de clientes:
+Esta definição aplica-se às seguintes aplicações iOS e Android:
 
 - Proteção de Informação do Microsoft Azure
 - Reservas da Microsoft
@@ -80,6 +80,7 @@ Esta definição aplica-se às seguintes aplicações de clientes:
 - Faturação da Microsoft
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

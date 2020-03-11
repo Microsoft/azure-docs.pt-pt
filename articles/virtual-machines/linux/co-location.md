@@ -1,21 +1,16 @@
 ---
-title: Co-localizar VMs Linux Azure
+title: Co-localizar VMs Linux
 description: Saiba como a co-localização dos recursos da Azure VM pode melhorar a latência.
-services: virtual-machines-linux
-author: cynthn
-manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: c90e70900c019340cacc169325155ac74cf7807c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d2fd8a2cd7dac7b1d3c78691c84a861d924005ce
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380621"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967914"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Co-localizar recursos para uma latência melhorada
 

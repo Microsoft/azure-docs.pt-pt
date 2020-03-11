@@ -1,27 +1,19 @@
 ---
-title: Tamanhos de vCPU restritos do Azure – Linux
-description: Lista os tamanhos de VM que são capazes de ter uma contagem de vCPU restrita.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Tamanhos de vCPU limitados
+description: Lista os tamanhos Vm que são capazes de ter uma contagem de VCPU restrita.
 author: jonbeck7
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: f4bb48bb4225d8ce19f577a7e4156aaa46ee065a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4b481d3ef61a0b7e52d3b4c4855634ec3efa0158
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036645"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969711"
 ---
-# <a name="constrained-vcpu-capable-vm-sizes"></a>Tamanhos de VM compatíveis com vCPU restritos
+# <a name="constrained-vcpu-capable-vm-sizes"></a>Tamanhos vCPU limitados capazes
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-constrained-vcpu.md)]
@@ -35,5 +27,5 @@ ms.locfileid: "74036645"
 - [Computação de elevado desempenho](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.
+Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.
 

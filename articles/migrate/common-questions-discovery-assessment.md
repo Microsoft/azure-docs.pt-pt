@@ -3,12 +3,12 @@ title: Descoberta, avaliação e análise de dependência FAQ
 description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7733213f78452b3f35b835eec847ec837138b8e5
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: e46d1e6ee1dd404e6e040eb394e89dd86a3d4d8e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932606"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082204"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -68,6 +68,12 @@ Quando se cria uma avaliação em Azure, dependendo da duração do desempenho e
 Por exemplo, se fixar a duração do desempenho para um dia e o valor percentil para o percentil 95, o Azure Migrate classifica os pontos de amostra de 15 minutos enviados pelo colecionador para o último dia em ordem ascendente. Escolhe o 95º valor por cento como a utilização eficaz.
 
 A utilização do valor percentil 95 garante que os forasteiros são ignorados. Outliers podem ser incluídos se o seu Azure Migrate usar o percentil 99. Para escolher o pico de utilização para o período sem perder nenhum outliers, coloque Azure Migrate para usar o percentil 99.
+
+## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>Como é que as avaliações baseadas na importação são diferentes das avaliações com a fonte de descoberta como aparelho?
+
+As avaliações baseadas em importações são avaliações criadas com máquinas importadas para a Migração Azure utilizando um ficheiro CSV. Apenas quatro campos são obrigatórios para importar: nome do servidor, núcleos, memória e sistema operativo. Aqui estão algumas coisas a notar: 
+ - Os critérios de prontidão são menos rigorosos nas avaliações baseadas na importação do parâmetro do tipo de arranque. Se o tipo de arranque não for fornecido, presume-se que a máquina tem o tipo de arranque BIOS e a máquina não está marcada como **Ready Condicional .** Em avaliações com a fonte de descoberta como aparelho, a prontidão é marcada como **Condicionadamente Pronta** se o tipo de arranque estiver em falta. Esta diferença no cálculo da prontidão deve-se ao facto de os utilizadores poderem não ter toda a informação sobre as máquinas nas fases iniciais do planeamento migratório quando são feitas avaliações baseadas em importações. 
+ - As avaliações de importação baseadas no desempenho utilizam o valor de utilização fornecido pelo utilizador para cálculos de tamanho suver. Uma vez que o valor de utilização é fornecido pelo utilizador, o histórico de **desempenho** e as opções de **utilização percentil** são desativadas nas propriedades de avaliação. Em avaliações com a fonte de descoberta como aparelho, o valor percentil escolhido é extraído dos dados de desempenho recolhidos pelo aparelho.
 
 ## <a name="what-is-dependency-visualization"></a>O que é a visualização da dependência?
 

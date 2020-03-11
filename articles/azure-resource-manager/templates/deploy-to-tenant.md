@@ -3,12 +3,12 @@ title: Desloque recursos para o inquilino
 description: Descreve como implementar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: 64090f1a0bac4b2b5f18d8dec14be0c3b051ac17
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942748"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968885"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -70,7 +70,7 @@ Para a Azure PowerShell, utilize [new-azTenantDeployment](/powershell/module/az.
 ```azurepowershell-interactive
 New-AzTenantDeployment `
   -Location "West US" `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```
 
 Para rest API, use [Implementações - Criar ou atualizar no âmbito](/rest/api/resources/deployments/createorupdateattenantscope)do inquilino .
@@ -172,7 +172,7 @@ O [seguinte modelo](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou ao nível do grupo de [gestão.](deploy-to-management-group.md)

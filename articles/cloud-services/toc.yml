@@ -1,5 +1,5 @@
 - name: Documentação dos Serviços Cloud
-  href: index.md
+  href: index.yml
 - name: Descrição geral
   items:
     - name: O que são os Serviços Cloud?

@@ -251,8 +251,8 @@
       items:
         - name: Utilizar a CLI
           href: create-cli-complete.md
-        - name: Utilizar um modelo
-          displayName: 'Azure Resource Manager, ARM'
+        - name: Utilizar um modelo do Resource Manager
+          displayName: Azure Resource Manager
           href: create-ssh-secured-vm-from-template.md
         - name: Utilizar a API REST
           href: create-vm-rest-api.md
@@ -270,8 +270,9 @@
               href: spot-cli.md
             - name: Portal
               href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
-            - name: Modelo
+            - name: Modelo ARM
               href: spot-template.md
+              displayName: Azure Resource Manager
             - name: Códigos de erro
               href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
     - name: Migrar de Clássico para o Azure Resource Manager
@@ -462,8 +463,9 @@
               href: image-builder-overview.md
             - name: Utilizar a CLI do Azure
               href: image-builder.md
-            - name: Referência de modelo
+            - name: Referência do modelo do Resource Manager
               href: image-builder-json.md
+              displayName: 'ARM,Resource Manager'
             - name: Criar para galerias de imagens
               href: image-builder-gallery.md
             - name: Atualizar uma imagem existente
@@ -631,7 +633,7 @@
               href: attach-disk-portal.md
         - name: Desligar um disco
           href: detach-disk.md
-        - name: Implementar discos com modelo
+        - name: Implementar discos com o modelo do Resource Manager
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
         - name: Ativar discos partilhados
@@ -757,9 +759,10 @@
       href: /rest/api/compute
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.compute/allversions
+      displayName: ARM
 - name: Recursos
   items:
-    - name: Modelos de autor
+    - name: Modelo do Resource Manager de autor
       displayName: 'Azure Resource Manager, ARM'
       href: /azure/azure-resource-manager/
     - name: Desenvolva as suas competências com o Microsoft Learn

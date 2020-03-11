@@ -2,16 +2,16 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: b260bf8afc33972875a05c773e503edf0b5634fd
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: fe895bc3c3a46c7b6ed9ccd34e3b1201152e4f5d
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942712"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037285"
 ---
-O formato de streaming de áudio padrão é WAV (16 KHz, 16-bits e mono PCM). Fora do WAV /PCM, são suportados os seguintes formatos de entrada comprimido saciou:
+O formato de streaming de áudio padrão é WAV (16 KHz, 16-bits e mono PCM). Fora do WAV /PCM, são também suportados os seguintes formatos de entrada comprimido saciou:
 
 - MP3
 - OPUS/OGG

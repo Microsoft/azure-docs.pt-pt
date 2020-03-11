@@ -5,14 +5,14 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 03/10/2020
 ms.author: kumud
-ms.openlocfilehash: dc2cb6545093e8ab70d18014a5fd9d0e7d36f8b7
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3469daa8b81b20d5d0052a23ce3236fc4fde75de
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122391"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082948"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Estatísticas de latência de ida e volta da rede Azure
 
@@ -22,9 +22,9 @@ O Azure monitoriza continuamente a latência (velocidade) das áreas centrais da
 
 As medições de latência são recolhidas junto de agentes da ThousandEyes, alojados em regiões de nuvem azure em todo o mundo, que enviam continuamente sondas de rede entre si em intervalos de 1 minuto. As estatísticas mensais de latência são derivadas da média das amostras recolhidas para o mês.
 
-## <a name="january-2020-round-trip-latency-figures"></a>Janeiro de 2020 números de latência de ida e volta
+## <a name="february-2020-round-trip-latency-figures"></a>Fevereiro de 2020 números de latência de ida e volta
 
-Os tempos médios mensais de ida e volta entre as regiões de Azure nos últimos 31 dias (que terminam em 31 de janeiro de 2020) são apresentados abaixo. As seguintes medições são alimentadas pela [ThousandEyes](https://thousandeyes.com).
+Os tempos médios mensais de ida e volta entre as regiões de Azure nos últimos 29 dias (que terminam em 29 de fevereiro de 2020) são apresentados abaixo. As seguintes medições são alimentadas pela [ThousandEyes](https://thousandeyes.com).
 
 [![estatísticas de latência inter-região azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

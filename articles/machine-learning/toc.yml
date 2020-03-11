@@ -79,6 +79,8 @@
       href: sample-designer-datasets.md
     - name: Exemplos de MLOps ponto a ponto
       href: 'https://github.com/microsoft/MLOps'
+    - name: Pipelines de estruturador
+      href: samples-designer.md
 - name: Conceitos
   items:
     - name: Área de trabalho
@@ -216,30 +218,6 @@
           href: how-to-cicd-data-ingestion.md
     - name: Preparar modelos
       items:
-        - name: Utilizar o estruturador
-          displayName: sample designer experiments
-          items:
-            - name: Prever o preço
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-basic.md
-            - name: Prever o preço (avançado)
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-            - name: Prever receita
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-predict-income.md
-            - name: Prever o risco do crédito (avançado)
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-            - name: Prever alterações
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-churn.md
-            - name: Prever atrasos de voos
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-flight-delay.md
-            - name: Classificação de textos
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-text-classification.md
         - name: Utilizar avaliadores para ML
           items:
             - name: Criar avaliadores em formação

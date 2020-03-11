@@ -1,50 +1,50 @@
 ---
-title: 'Quickstart: Text Analytics v3 biblioteca de clientes para Node.js  Microsoft Docs'
-description: Inicie-se com a biblioteca de clientes v3 Text Analytics para Node.js.
+title: 'Início Rápido: Biblioteca de cliente de Análise de Texto v3 para Node.js | Microsoft Docs'
+description: Comece a utilizar a biblioteca de cliente de Análise de Texto v3 para Node.js.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/26/2020
+ms.date: 03/06/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 9f4c5e8d491bcff420e354657ff7302a22cd7583
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.openlocfilehash: 4ce2da3070105f6e098373108164b6f590d423c6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78155439"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925866"
 ---
 <a name="HOLTop"></a>
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-[v3 Documentação de referência](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | pacote [v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[Documentação de referência v3](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [Código fonte da Biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Pacote v3 (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Exemplos v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-[v2 Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [v2 Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | pacote [v2 (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [amostras v2](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[Documentação de referência v2](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Código fonte da Biblioteca v2](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Pacote v2 (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [Exemplos v2](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ---
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [Node.js.](https://nodejs.org/)
-* Assim que tiver a sua assinatura Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Criar <span class="docon docon-navigate-external x-hidden-focus"></span> um recurso De Análise de Texto"  target="_blank">criar um recurso De SMAnalytics</a> no portal Azure para obter a sua chave e ponto final. 
-    * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API textanalytics. Vais fazer isto mais tarde, no início.
-    * Você pode usar o nível de preços gratuitos para experimentar o serviço, e atualizar mais tarde para um nível pago para produção.
+* Subscrição do Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* A versão atual do [Node.js](https://nodejs.org/).
+* Assim que tiver a sua subscrição do Azure, pode <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Criar um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto final. 
+    * Necessitará da chave e do ponto final do recurso criado para ligar a sua aplicação à API de Análise de Texto. Fará isto mais adiante no início rápido.
+    * Pode utilizar o escalão de preço gratuito para experimentar o serviço e atualizar mais tarde para um escalão pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
 ### <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
 > [!NOTE]
-> Também pode executar esta versão da biblioteca de clientes Text Analytics [no seu navegador.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
+> Também pode executar esta versão da biblioteca de cliente de Análise de Texto [no seu browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
-Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue para ela. 
+Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para a sua aplicação e navegue para a mesma. 
 
 ```console
 mkdir myapp && cd myapp
@@ -55,11 +55,11 @@ Execute o comando `npm init` para criar uma aplicação de nó com um ficheiro `
 ```console
 npm init
 ```
-### <a name="install-the-client-library"></a>Instale a biblioteca do cliente
+### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Instale os pacotes `@azure/ai-text-analytics` NPM:
+Instale os pacotes NPM `@azure/ai-text-analytics`:
 
 ```console
 npm install --save @azure/ai-text-analytics
@@ -67,7 +67,7 @@ npm install --save @azure/ai-text-analytics
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Instale os pacotes `@azure/cognitiveservices-textanalytics` NPM:
+Instale os pacotes NPM `@azure/cognitiveservices-textanalytics`:
 
 ```console
 npm install --save @azure/cognitiveservices-textanalytics
@@ -99,7 +99,7 @@ const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cog
 ```
 ---
 
-Crie variáveis para o ponto final e chave azure do seu recurso.
+Crie variáveis para o ponto final e a chave do Azure do seu recurso.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
@@ -110,22 +110,22 @@ const endpoint = `<paste-your-text-analytics-endpoint-here>`;
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente Text Analytics é um objeto `TextAnalyticsClient` que autentica o Azure usando a sua chave. O cliente fornece vários métodos para analisar texto, como uma única corda, ou um lote.
+O cliente de Análise de Texto é um objeto `TextAnalyticsClient` que faz a autenticação no Azure com a sua chave. O cliente fornece vários métodos para analisar o texto, como uma única cadeia ou um lote.
 
-O texto é enviado para a API como uma lista de `documents`, que são `dictionary` objetos que contêm uma combinação de `id`, `text`, e `language` atributos dependendo do método utilizado. O atributo `text` armazena o texto a analisar na origem `language`, e o `id` pode ser qualquer valor. 
+O texto é enviado para a API como uma lista de `documents`, que são objetos `dictionary` com uma combinação de atributos `id`, `text` e `language` consoante o método utilizado. O atributo `text` armazena o texto a analisar no `language`, de origem e o `id` pode ser qualquer valor. 
 
 O objeto de resposta é uma lista que contém as informações de análise de cada documento. 
 
 ## <a name="code-examples"></a>Exemplos de código
 
-* [Autenticação do Cliente](#client-authentication)
+* [Autenticação de Cliente](#client-authentication)
 * [Análise de Sentimentos](#sentiment-analysis) 
-* [Deteção de linguagem](#language-detection)
-* [Reconhecimento de Entidade Nomeada](#named-entity-recognition-ner)
-* [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Deteção de idioma](#language-detection)
+* [Reconhecimento de entidades nomeadas](#named-entity-recognition-ner)
+* [Associação de entidades](#entity-linking)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
-## <a name="client-authentication"></a>Autenticação de Ciente
+## <a name="client-authentication"></a>Autenticação de Cliente
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
@@ -137,7 +137,7 @@ const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new TextAnalytics
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie um novo objeto [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) com `credentials` e `endpoint` como parâmetro.
+Crie um novo objeto [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) com `credentials` e `endpoint` como parâmetros.
 
 [!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
 
@@ -147,7 +147,7 @@ Crie um novo objeto [TextAnalyticsClient](https://docs.microsoft.com/javascript/
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma série de cordas que contenham o documento que pretende analisar. Ligue para o método `analyzeSentiment()` do cliente e pegue o objeto `SentimentBatchResult` devolvido. Iterar através da lista de resultados, e imprimir o ID de cada documento, sentimento de nível de documento com pontuações de confiança. Para cada documento, o resultado contém sentimento de nível de frase juntamente com compensações, comprimento e pontuações de confiança.
+Crie uma matriz de cadeias com o documento que quer analisar. Chame o método `analyzeSentiment()` do cliente e obtenha o objeto `SentimentBatchResult` devolvido. Itere através da lista de resultados e imprima o ID de cada documento, sentimento ao nível do documento com classificações de confiança. Para cada documento, o resultado contém o sentimento ao nível da frase juntamente com desvios, comprimento e classificações de confiança.
 
 ```javascript
 async function sentimentAnalysis(client){
@@ -174,7 +174,7 @@ async function sentimentAnalysis(client){
 sentimentAnalysis(textAnalyticsClient)
 ```
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -196,11 +196,11 @@ ID: 0
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma lista de objetos dicionários, contendo os documentos que pretende analisar. Ligue para o método de [sentimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) do cliente e obtenha o [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult)devolvido. Iterar através da lista de resultados, e imprimir a identificação de cada documento e a pontuação de sentimento. Uma pontuação mais próxima de 0 indica um sentimento negativo, enquanto uma pontuação mais próxima de 1 indica um sentimento positivo.
+Crie uma lista de objetos de dicionário, com os documentos que quer analisar. Chame o método [sentiment()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) do cliente e obtenha o objeto [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult) devolvido. Itere através da lista de resultados e imprima o ID de cada documento e classificação de confiança. Uma classificação próxima de 0 indica um sentimento negativo, enquanto que uma classificação próxima de 1 indica um sentimento positivo.
 
 [!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -217,7 +217,7 @@ Execute o seu código com `node index.js` na janela da consola.
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma série de cordas que contenham o documento que pretende analisar. Ligue para o método de `detectLanguage()` do cliente e obtenha o `DetectLanguageResultCollection`devolvido. Em seguida, iterar através dos resultados, e imprimir o ID de cada documento com a respetiva língua primária.
+Crie uma matriz de cadeias com o documento que quer analisar. Chame o método `detectLanguage()` do cliente e obtenha o objeto `DetectLanguageResultCollection` devolvido. Em seguida, itere através dos resultados e imprima o ID de cada documento com a respetiva linguagem primária.
 
 ```javascript
 async function languageDetection(client) {
@@ -235,7 +235,7 @@ async function languageDetection(client) {
 languageDetection(textAnalyticsClient);
 ```
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -246,11 +246,11 @@ ID: 0
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma lista de objetos dicionários que contenham os seus documentos. Ligue para o método de deteção do [clienteLanguage()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) e obtenha o [idioma devolvidoBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Em seguida, iterar através dos resultados, e imprimir a identificação de cada documento, e a linguagem.
+Crie uma lista de objetos de dicionário com os seus documentos. Chame o método [detectLanguage()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) do cliente e obtenha o objeto [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult) devolvido. Em seguida, itere através dos resultados e imprima o ID de cada documento e linguagem.
 
 [!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -262,16 +262,16 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ---
 
-## <a name="named-entity-recognition-ner"></a>Reconhecimento de Entidades Nomeada (NER)
+## <a name="named-entity-recognition-ner"></a>Reconhecimento de Entidades Nomeadas (NER)
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 > [!NOTE]
 > Na versão `3.0-preview`:
-> * O NER inclui métodos separados para detetar informações pessoais. 
-> * A ligação de entidades é um pedido separado do NER.
+> * o NER inclui métodos separados para detetar informações pessoais. 
+> * A associação de entidades é um pedido separado do NER.
 
-Crie uma série de cordas que contenham o documento que pretende analisar. Ligue para o método `recognizeEntities()` do cliente e obtenha o objeto `RecognizeEntitiesResult`. Iterar através da lista de resultados, e imprimir o nome da entidade, tipo, subtipo, offset, comprimento e pontuação.
+Crie uma matriz de cadeias com o documento que quer analisar. Chame o método `recognizeEntities()` do cliente e obtenha o objeto `RecognizeEntitiesResult`. Itere através da lista de resultados e imprima o nome da entidade, tipo, subtipo, desvio, comprimento e classificação.
 
 ```javascript
 async function entityRecognition(client){
@@ -293,7 +293,7 @@ async function entityRecognition(client){
 entityRecognition(textAnalyticsClient);
 ```
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -321,9 +321,9 @@ Document ID: 1
         Name: Seattle   Category: Location      Subcategory: GPE
 ```
 
-## <a name="using-ner-to-detect-personal-information"></a>Utilização do NER para detetar informações pessoais
+## <a name="using-ner-to-detect-personal-information"></a>Utilizar o NER para detetar informações pessoais
 
-Crie uma série de cordas que contenham o documento que pretende analisar. Ligue para o método `recognizePiiEntities()` do cliente e obtenha o objeto `EntitiesBatchResult`. Iterar através da lista de resultados, e imprimir o nome da entidade, tipo, subtipo, offset, comprimento e pontuação.
+Crie uma matriz de cadeias com o documento que quer analisar. Chame o método `recognizePiiEntities()` do cliente e obtenha o objeto `EntitiesBatchResult`. Itere através da lista de resultados e imprima o nome da entidade, tipo, subtipo, desvio, comprimento e classificação.
 
 
 ```javascript
@@ -345,7 +345,7 @@ async function entityPiiRecognition(client){
 entityPiiRecognition(textAnalyticsClient);
 ```
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -357,7 +357,7 @@ Document ID: 0
 
 ## <a name="entity-linking"></a>Ligar à Entidade
 
-Crie uma série de cordas que contenham o documento que pretende analisar. Ligue para o método `recognizeLinkedEntities()` do cliente e obtenha o objeto `RecognizeLinkedEntitiesResult`. Iterar através da lista de resultados, e imprimir o nome da entidade, ID, fonte de dados, url e fósforos. Todos os objetos da matriz de `matches` conterão offset, comprimento e pontuação para essa partida.
+Crie uma matriz de cadeias com o documento que quer analisar. Chame o método `recognizeLinkedEntities()` do cliente e obtenha o objeto `RecognizeLinkedEntitiesResult`. Itere através da lista de resultados e imprima o nome da entidade, ID, origem de dados, URL e correspondências. Cada objeto na matriz `matches` conterá o desvio, comprimento e classificação dessa correspondência.
 
 ```javascript
 async function linkedEntityRecognition(client){
@@ -382,7 +382,7 @@ async function linkedEntityRecognition(client){
 linkedEntityRecognition(textAnalyticsClient);
 ```
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -421,13 +421,13 @@ Document ID: 0
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 > [!NOTE]
-> Na versão 2.1, a ligação da entidade está incluída na resposta NER.
+> Na versão 2.1, a associação de entidades está incluída na resposta do NER.
 
-Crie uma lista de objetos, contendo os seus documentos. Ligue para o método () das [entidades](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) do cliente e obtenha o objeto [EntidadesBatchResult.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) Iterar através da lista de resultados, e imprimir a identificação de cada documento. Para cada entidade detetada, imprima o seu nome na Wikipédia, o tipo e os subtipos (se existir) bem como as localizações no texto original.
+Crie uma lista de objetos com os seus documentos. Chame o método [entities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) do cliente e obtenha o objeto [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult). Itere através da lista de resultados e imprima o ID de cada documento. Para cada entidade detetada, imprima o nome na Wikipédia, o tipo e os subtipos (se existirem), bem como as localizações no texto original.
 
 [!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -465,7 +465,7 @@ Document ID: 2
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Crie uma série de cordas que contenham o documento que pretende analisar. Ligue para o método `extractKeyPhrases()` do cliente e pegue o objeto `ExtractKeyPhrasesResult` devolvido. Iterar através dos resultados e imprimir o ID de cada documento, e quaisquer frases-chave detetadas.
+Crie uma matriz de cadeias com o documento que quer analisar. Chame o método `extractKeyPhrases()` do cliente e obtenha o objeto `ExtractKeyPhrasesResult` devolvido. Itere através dos resultados e imprima o ID de cada documento e quaisquer expressões-chave detetadas.
 
 ```javascript
 async function keyPhraseExtraction(client){
@@ -483,7 +483,7 @@ async function keyPhraseExtraction(client){
 keyPhraseExtraction(textAnalyticsClient);
 ```
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -494,11 +494,11 @@ ID: 0
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
-Crie uma lista de objetos, contendo os seus documentos. Ligue para o método [chavePhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) do cliente e obtenha o objeto [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) devolvido. Iterar através dos resultados e imprimir o ID de cada documento, e quaisquer frases-chave detetadas.
+Crie uma lista de objetos com os seus documentos. Chame o método [keyPhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) do cliente e obtenha o objeto [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) devolvido. Itere através dos resultados e imprima o ID de cada documento e quaisquer expressões-chave detetadas.
 
 [!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
 
-Execute o seu código com `node index.js` na janela da consola.
+Execute o código com `node index.js` na janela da consola.
 
 ### <a name="output"></a>Saída
 
@@ -515,7 +515,7 @@ Execute o seu código com `node index.js` na janela da consola.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Faça o pedido com o comando `node` no seu ficheiro de arranque rápido.
+Execute a aplicação com o comando `node` no seu ficheiro de início rápido.
 
 ```console
 node index.js

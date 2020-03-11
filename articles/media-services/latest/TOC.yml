@@ -7,6 +7,11 @@
     - name: Novidades nos Serviços de Multimédia
       displayName: release notes
       href: release-notes.md
+- name: Guias de Início Rápido
+  items:
+    - name: Evento em direto com o portal e Wirecast
+      displayName: 'live, event, portal, wirecast'
+      href: live-events-wirecast-quickstart.md
 - name: Tutoriais
   expanded: true
   items:
@@ -189,10 +194,10 @@
     - name: Elevada disponibilidade
       items:
         - name: Codificação
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: Transmissão em Fluxo
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
     - name: Guia de migração de v2 para v3
       href: migrate-from-v2-to-v3.md

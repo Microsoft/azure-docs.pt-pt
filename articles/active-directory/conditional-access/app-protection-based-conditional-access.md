@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d8cdb32e04f9ba1274291430ac230107f3150c6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298382"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080063"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Exigir a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com acesso condicional
 
@@ -30,6 +30,9 @@ Este artigo apresenta dois cenários para configurar políticas de Acesso Condic
 No Acesso Condicional, estas aplicações de clientes são conhecidas por estarem protegidas com uma política de proteção de aplicações. Mais informações sobre políticas de proteção de apps podem ser encontradas no artigo, visão geral das políticas de proteção de [aplicações](/intune/apps/app-protection-policy)
 
 Para obter uma lista de aplicações de clientes elegíveis, consulte o requisito da política de proteção de [aplicações](concept-conditional-access-grant.md).
+
+> [!NOTE]
+>    A cláusula ou cláusula é usada dentro da política para permitir que os utilizadores utilizem aplicações que suportem a política de proteção de **aplicações Require** ou exijam controlos de subvenção **de aplicações de clientes aprovados.** Para obter mais informações sobre quais as aplicações que suportam o controlo de concessão de subsídios de proteção de **aplicações,** consulte a exigência da política de proteção de [aplicações](concept-conditional-access-grant.md).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: As aplicações do Office 365 exigem aplicações aprovadas com políticas de proteção de aplicações
 
@@ -56,7 +59,7 @@ As organizações devem completar as seguintes etapas de forma a exigir a utiliz
 1. Sob **os controlos de acesso** > **Grant,** selecione as seguintes opções:
    - **Exigir aplicação de cliente aprovada**
    - **Exigir política de proteção de aplicativos (pré-visualização)**
-   - **Exigir todos os controlos selecionados**
+   - **Requerer um dos controlos selecionados**
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
@@ -75,7 +78,7 @@ Para a política de Acesso Condicional neste passo, configure os seguintes compo
    1. **Aplicativos para clientes (pré-visualização)** :
       1. Definir **Configurar** para **Sim**.
       1. Selecione **aplicações móveis e clientes de desktop** e clientes Exchange **ActiveSync.**
-1. Sob **controlos de acesso** > **Grant**, selecione **Grant access**, **Requerer aplicação de cliente aprovada**, e selecione **Select**.
+1. Sob **os controlos de acesso** > **Grant**, selecione **Grant access**, Exija a política de proteção de **aplicações**, e selecione **Select**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
@@ -108,7 +111,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 1. Sob **os controlos de acesso** > **Grant,** selecione as seguintes opções:
    - **Exigir aplicação de cliente aprovada**
    - **Exigir política de proteção de aplicativos (pré-visualização)**
-   - **Exigir todos os controlos selecionados**
+   - **Requerer um dos controlos selecionados**
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar e ativar a sua política.
 
@@ -125,7 +128,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
    1. **Aplicativos para clientes (pré-visualização)** :
       1. Definir **Configurar** para **Sim**.
       1. Selecione **aplicações móveis e clientes de desktop** e clientes Exchange **ActiveSync.**
-1. Sob **controlos de acesso** > **Grant**, selecione **Grant access**, **Requerer aplicação de cliente aprovada**, e selecione **Select**.
+1. Sob **os controlos de acesso** > **Grant**, selecione **Grant access**, Exija a política de proteção de **aplicações**, e selecione **Select**.
 1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
 1. Selecione **Criar** para criar e ativar a sua política.
 

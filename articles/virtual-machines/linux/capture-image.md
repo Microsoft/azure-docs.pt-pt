@@ -1,30 +1,19 @@
 ---
-title: Capture uma imagem de um Linux VM em Azure usando o Azure CLI
+title: Capture uma imagem de um VM Linux usando O ClI Azure
 description: Capture uma imagem de um VM Azure para usar para implantações em massa utilizando o Azure CLI.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78675696"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967915"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou VHD
-
-<!-- generalize, image - extended version of the tutorial-->
 
 Para criar várias cópias de uma máquina virtual (VM) para utilização em Azure, capture uma imagem do VM ou do VHD osS. Para criar uma imagem para implementação, terá de remover informações pessoais da conta. Nos seguintes passos, você desprovisiona um VM existente, desaloca-lo e criar uma imagem. Pode utilizar esta imagem para criar VMs em qualquer grupo de recursos dentro da sua subscrição.
 

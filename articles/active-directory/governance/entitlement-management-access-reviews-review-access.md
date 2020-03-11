@@ -1,6 +1,6 @@
 ---
-title: Examinar o acesso de um pacote de acesso no gerenciamento de direitos do Azure AD
-description: Saiba como concluir uma revisão de acesso de pacotes de acesso de gerenciamento de direitos em revisões de Azure Active Directory acesso (versão prévia).
+title: Rever o acesso a um pacote de acesso na gestão de direitos da AD Azure
+description: Saiba como concluir uma revisão de acesso aos pacotes de acesso à gestão de direitos em avaliações de acesso ao Diretório Ativo do Azure (Pré-visualização).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,91 +16,91 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78a69301ab2ae637531f8643d9d57a8b44b563f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608933"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968735"
 ---
-# <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Examinar o acesso de um pacote de acesso no gerenciamento de direitos do Azure AD
+# <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Rever o acesso a um pacote de acesso na gestão de direitos da AD Azure
 
-O gerenciamento de direitos do Azure AD simplifica o modo como as empresas gerenciam o acesso a grupos, aplicativos e sites do SharePoint. Este artigo descreve como executar revisões de acesso para outros usuários atribuídos a um pacote do Access como um revisor designado.
+A gestão de direitos da Azure AD simplifica a forma como as empresas gerem o acesso a grupos, aplicações e sites SharePoint. Este artigo descreve como realizar avaliações de acesso para outros utilizadores que são atribuídos a um pacote de acesso como revisor designado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para examinar as atribuições de pacote do acesso ativo dos usuários, você deve atender aos pré-requisitos para fazer uma revisão de acesso:
+Para rever as atribuições de pacotes de acesso ativo dos utilizadores, deve cumprir os pré-requisitos para então uma revisão de acesso:
 - Azure AD Premium P2
 - Administrador global
-- Administrador de usuário designado, proprietário do catálogo ou Gerenciador de pacotes de acesso
+- Administrador de utilizador designado, proprietário do catálogo ou gestor de pacotes de acesso
 
-Para obter mais informações, consulte [requisitos de licença](entitlement-management-overview.md#license-requirements).
+Para mais informações, consulte [os requisitos da Licença.](entitlement-management-overview.md#license-requirements)
 
 
-## <a name="open-the-access-review"></a>Abrir a revisão de acesso
+## <a name="open-the-access-review"></a>Abra a revisão de acesso
 
-Use as seguintes etapas para localizar e abrir a revisão de acesso:
+Utilize os seguintes passos para encontrar e abrir a revisão de acesso:
 
-1. Você pode receber um email da Microsoft que solicita que você examine o acesso. Localize o email para abrir a revisão de acesso. Aqui está um email de exemplo para revisar o acesso:
+1. Pode receber um e-mail da Microsoft que lhe pede para rever o acesso. Localize o e-mail para abrir a revisão de acesso. Aqui está um e-mail de exemplo para rever o acesso:
     
-    ![Email do revisor de revisão de acesso](./media/entitlement-management-access-reviews-review-access/review-access-reviewer-email.png)
+    ![Access review reviewer email](./media/entitlement-management-access-reviews-review-access/review-access-reviewer-email.png)
 
-1. Clique no link **examinar acesso do usuário** para abrir a revisão de acesso. 
+1. Clique no link de acesso ao **utilizador da Rever** para abrir a revisão de acesso. 
 
-1. Se você não tiver o email, poderá encontrar suas revisões de acesso pendentes navegando diretamente para https://myaccess.microsoft.com.
+1. Se não tiver o e-mail, pode encontrar as suas avaliações de acesso pendentes navegando diretamente para https://myaccess.microsoft.com.  (Para o Governo dos EUA, use `https://myaccess.microsoft.us` em vez disso.)
 
-1. Clique em **revisões de acesso** na barra de navegação à esquerda para ver uma lista de revisões de acesso pendentes atribuídas a você.
+1. Clique em comentários de **Acesso** na barra de navegação esquerda para ver uma lista de avaliações de acesso pendentes atribuídas a si.
     
-    ![Selecionar revisões de acesso no meu acesso](./media/entitlement-management-access-reviews-review-access/review-access-myaccess-select-access-review.png)
+    ![Selecione avaliações de acesso no My Access](./media/entitlement-management-access-reviews-review-access/review-access-myaccess-select-access-review.png)
 
-1. Clique na revisão que você gostaria de começar.
+1. Clique na avaliação que gostaria de começar.
     
     ![Selecione a revisão de acesso](./media/entitlement-management-access-reviews-review-access/review-access-select-access-review.png)
 
-## <a name="perform-the-access-review"></a>Executar a revisão de acesso
+## <a name="perform-the-access-review"></a>Realizar a revisão de acesso
 
-Depois de abrir a revisão de acesso, você verá os nomes dos usuários para os quais você precisa examinar. Há duas maneiras de aprovar ou negar o acesso:
-- Você pode aprovar ou negar manualmente o acesso para um ou mais usuários
-- Você pode aceitar as recomendações do sistema
+Assim que abrir a revisão de acesso, verá os nomes dos utilizadores para os quais precisa de rever. Há duas formas de aprovar ou negar o acesso:
+- Pode aprovar manualmente ou negar o acesso a um ou mais utilizadores
+- Pode aceitar as recomendações do sistema
 
-### <a name="manually-approve-or-deny-access-for-one-or-more-users"></a>Aprovar ou negar manualmente o acesso para um ou mais usuários
-1. Examine a lista de usuários e determine quais usuários precisam continuar a ter acesso.
+### <a name="manually-approve-or-deny-access-for-one-or-more-users"></a>Aprovar manualmente ou negar o acesso a um ou mais utilizadores
+1. Reveja a lista de utilizadores e determine quais os utilizadores que precisam de continuar a ter acesso.
 
-    ![Lista de usuários a serem examinados](./media/entitlement-management-access-reviews-review-access/review-access-list-of-users.png)
+    ![Lista de utilizadores a rever](./media/entitlement-management-access-reviews-review-access/review-access-list-of-users.png)
 
-1. Para aprovar ou negar o acesso, selecione o botão de opção à esquerda do nome do usuário.
+1. Para aprovar ou negar o acesso, selecione o botão de rádio à esquerda do nome do utilizador.
 
-1. Selecione **aprovar** ou **negar** na barra acima dos nomes de usuário.
+1. Selecione **Aprovar** ou **Negar** na barra acima dos nomes dos utilizadores.
 
-    ![Selecionar o usuário](./media/entitlement-management-access-reviews-review-access/review-access-select-users.png)
+    ![Selecione o utilizador](./media/entitlement-management-access-reviews-review-access/review-access-select-users.png)
 
-1. Se você não tiver certeza, poderá clicar no botão **não saber** .
+1. Se não tiver a certeza, pode clicar no botão **"Não Sei".**
 
-    Se você fizer essa seleção, o usuário manterá o acesso e essa seleção entrará nos logs de auditoria. O log mostra todos os outros revisores que você ainda concluiu a revisão.
+    Se fizer esta seleção, o utilizador mantém o acesso, e esta seleção vai nos registos de auditoria. O registo mostra quaisquer outros revisores que ainda tenha concluído a revisão.
 
-1. Talvez seja necessário fornecer um motivo para sua decisão. Digite um motivo e clique em **Enviar**.
+1. Pode ser obrigado a fornecer uma razão para a sua decisão. Digite uma razão e clique em **Submeter**.
 
-    ![Aprovar ou negar acesso](./media/entitlement-management-access-reviews-review-access/review-access-decision-approve.png)
+    ![Aprovar ou negar o acesso](./media/entitlement-management-access-reviews-review-access/review-access-decision-approve.png)
 
-1. Você pode alterar sua decisão a qualquer momento antes do final da revisão. Para fazer isso, selecione o usuário na lista e altere a decisão. Por exemplo, você pode aprovar o acesso para um usuário que você negou anteriormente.
+1. Pode alterar a sua decisão a qualquer momento antes do final da revisão. Para isso, selecione o utilizador da lista e altere a decisão. Por exemplo, pode aprovar o acesso a um utilizador que negou anteriormente.
 
-Se houver vários revisores, a última resposta enviada será registrada. Considere um exemplo em que um administrador designa dois revisores – Alice e Bob. Alice abre a revisão primeiro e aprova o acesso. Antes de a revisão terminar, Bob abre a revisão e nega o acesso. Nesse caso, a última decisão de acesso de negação é registrada.
+Se houver vários revisores, a última resposta submetida é gravada. Considere um exemplo onde um administrador designa dois revisores - Alice e Bob. Alice abre a revisão primeiro e aprova o acesso. Antes que a revisão termine, Bob abre a revisão e nega o acesso. Neste caso, a última decisão de acesso é registada.
 
 >[!NOTE]
->Se um usuário tiver acesso negado, ele não será removido do pacote de acesso imediatamente. O usuário será removido do pacote de acesso quando a revisão terminar ou um administrador terminar a revisão.
+>Se um utilizador não tiver acesso, não é removido do pacote de acesso imediatamente. O utilizador será removido do pacote de acesso quando a revisão terminar, ou um administrador termina a revisão.
 
-### <a name="approve-or-deny-access-using-the-system-generated-recommendations"></a>Aprovar ou negar o acesso usando as recomendações geradas pelo sistema
+### <a name="approve-or-deny-access-using-the-system-generated-recommendations"></a>Aprovar ou negar o acesso utilizando as recomendações geradas pelo sistema
 
-Para revisar o acesso a vários usuários mais rapidamente, você pode usar as recomendações geradas pelo sistema, aceitando as recomendações com um único clique. As recomendações são geradas com base na atividade de entrada do usuário.
+Para rever o acesso a vários utilizadores mais rapidamente, pode utilizar as recomendações geradas pelo sistema, aceitando as recomendações com um único clique. As recomendações são geradas com base na atividade de inscrição do utilizador.
 
-1.  Na barra na parte superior da página, clique em **aceitar recomendações**.
+1.  No bar no topo da página, clique em **Aceitar recomendações.**
     
-    ![Selecionar aceitar recomendações](./media/entitlement-management-access-reviews-review-access/review-access-use-recommendations.png)
+    ![Selecione Aceitar recomendações](./media/entitlement-management-access-reviews-review-access/review-access-use-recommendations.png)
     
-    Você verá um resumo das ações recomendadas.
+    Verá um resumo das ações recomendadas.
 
-1.  Clique em **Enviar** para aceitar as recomendações.
+1.  Clique em **Submeter** para aceitar as recomendações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Revisão automática de pacotes do Access](entitlement-management-access-reviews-self-review.md)
+- [Auto-revisão dos pacotes de acesso](entitlement-management-access-reviews-self-review.md)

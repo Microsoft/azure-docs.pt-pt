@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1cac52dcee91e57a22b6d18595b067de888aba73
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365447"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082075"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Começar com a auditoria da base de dados SQL
 
@@ -255,12 +255,6 @@ Em produção, é provável que refresque periodicamente as suas chaves de armaz
 - A auditoria da Base de Dados Azure SQL está otimizada para disponibilidade e desempenho. Durante a atividade muito elevada, a Base de Dados Azure SQL permite que as operações prossigam e não possam registar alguns eventos auditados.
 
 - Para configurar auditoriaivel imutável na conta de armazenamento, consulte Permitir que as bolhas de [apêndice protegidos escrevam](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Por favor, note que o nome do recipiente para Auditoria é **sqldbauditlogs**.
-
-    > [!IMPORTANT]
-    > As bolhas de apêndice protegidas permitem que as definições de retenção baseadas no tempo se definam e são visíveis apenas nas seguintes regiões:
-    > - E.U.A. Leste
-    > - E.U.A. Centro-Sul
-    > - E.U.A.Oeste 2
 
 
 ## <a id="subheading-7"></a>Gerir a auditoria do Servidor E Base de Dados Azure SQL utilizando o Azure PowerShell

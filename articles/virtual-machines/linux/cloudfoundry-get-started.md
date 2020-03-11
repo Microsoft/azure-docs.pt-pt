@@ -1,69 +1,61 @@
 ---
-title: Introdução com Cloud Foundry no Microsoft Azure
-description: Executar Cloud Foundry OSS ou Pivotal no Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
+title: Começando com cloud foundry no Microsoft Azure
+description: Executar o OSS ou a Funddição de Nuvem Pivotal no Microsoft Azure
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 447550d2f6bca570869c9fa93724e4dbaba02132
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ba0b4a636d8f785f1c169e4066c9cf6d25ba81db
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036811"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970058"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
-O Cloud Foundry é uma plataforma como serviço (PaaS) de código aberto que permite criar, implementar e utilizar aplicações de 12 fatores programadas em diferentes linguagens e arquiteturas. Este documento descreve as opções que você tem para executar o Cloud Foundry no Azure e como você pode começar.
+O Cloud Foundry é uma plataforma como serviço (PaaS) de código aberto que permite criar, implementar e utilizar aplicações de 12 fatores programadas em diferentes linguagens e arquiteturas. Este documento descreve as opções que tem para executar cloud foundry no Azure e como pode começar.
 
-## <a name="cloud-foundry-offerings"></a>Ofertas de Cloud Foundry
+## <a name="cloud-foundry-offerings"></a>Ofertas de Foundry cloud
 
-Há duas formas de Cloud Foundry disponíveis para serem executadas no Azure: Cloud Foundry de código-fonte aberto (OSS CF) e PCF (Cloud Foundry dinâmico). O CF do OSS é uma versão totalmente de [código aberto](https://github.com/cloudfoundry) do Cloud Foundry gerenciado pelo Cloud Foundry Foundation. A Cloud Foundry dinâmica é uma distribuição empresarial de Cloud Foundry da Pivotal Software Inc. Vamos examinar algumas das diferenças entre as duas ofertas.
+Existem duas formas de Cloud Foundry disponíveis para funcionar em Azure: cloud foundry de código aberto (OSS CF) e Fundição de Nuvem Pivotal (PCF). OSS CF é uma versão inteiramente [aberta](https://github.com/cloudfoundry) da Cloud Foundry gerida pela Cloud Foundry Foundation. Pivotal Cloud Foundry é uma distribuição empresarial da Cloud Foundry da Pivotal Software Inc. Olhamos para algumas das diferenças entre as duas ofertas.
 
-### <a name="open-source-cloud-foundry"></a>Cloud Foundry de código-fonte aberto
+### <a name="open-source-cloud-foundry"></a>Fundição de nuvem de código aberto
 
-Você pode implantar o OSS Cloud Foundry no Azure implantando primeiro um diretor de BOSH e, em seguida, implantando Cloud Foundry, usando as [instruções fornecidas no GitHub](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md). Para saber mais sobre como usar o CF do OSS, consulte a [documentação](https://docs.cloudfoundry.org/) fornecida pelo Cloud Foundry Foundation.
+Pode implantar a OSS Cloud Foundry no Azure, implantando primeiro um diretor BOSH e, em seguida, implantando a Cloud Foundry, utilizando as [instruções fornecidas no GitHub](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md). Para saber mais sobre a utilização do OSS CF, consulte a [documentação](https://docs.cloudfoundry.org/) fornecida pela Cloud Foundry Foundation.
 
-A Microsoft fornece suporte de melhor esforço para o CF OSS por meio dos seguintes canais de comunidade:
+A Microsoft fornece o melhor suporte para o OSS CF através dos seguintes canais comunitários:
 
-- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slackhttpsslackcloudfoundryorg"></a>Bosh-canal Azure-CPI na [margem de atraso Cloud Foundry](https://slack.cloudfoundry.org/)
-- [lista de endereçamento do CF-Bosh](https://lists.cloudfoundry.org/pipermail/cf-bosh)
-- Problemas do GitHub para o [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) e o [Service Broker](https://github.com/Azure/meta-azure-service-broker/issues)
+- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slack"></a>canal bosh-azure-cpi na [Cloud Foundry Slack](https://slack.cloudfoundry.org/)
+- [lista de correspondência cf-bosh](https://lists.cloudfoundry.org/pipermail/cf-bosh)
+- Problemas gitHub para o [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) e corretor de [serviços](https://github.com/Azure/meta-azure-service-broker/issues)
 
 >[!NOTE]
-> O nível de suporte para os recursos do Azure, como as máquinas virtuais em que você executa Cloud Foundry, é baseado em seu contrato de suporte do Azure. O suporte da comunidade de melhor esforço se aplica apenas aos componentes específicos do Cloud Foundry.
+> O nível de suporte para os seus recursos Azure, como as máquinas virtuais onde gere a Cloud Foundry, baseia-se no seu acordo de suporte Azure. O apoio comunitário de melhor esforço aplica-se apenas aos componentes específicos da Cloud Foundry.
 
-### <a name="pivotal-cloud-foundry"></a>Pivotal Cloud Foundry
+### <a name="pivotal-cloud-foundry"></a>Fundaria de Nuvem Pivotal
 
-A Cloud Foundry dinâmica inclui a mesma plataforma principal que a distribuição de OSS, juntamente com um conjunto de ferramentas de gerenciamento de propriedade e suporte empresarial. Para executar o PCF no Azure, você deve adquirir uma licença da Pivotal. A oferta de PCF do Azure Marketplace inclui uma licença de avaliação de 90 dias.
+A Pivotal Cloud Foundry inclui a mesma plataforma central que a distribuição do OSS, juntamente com um conjunto de ferramentas de gestão proprietária e suporte empresarial. Para executar pcf no Azure, você deve adquirir uma licença da Pivotal. A oferta de PCF do mercado Azure inclui uma licença experimental de 90 dias.
 
-As ferramentas incluem o [pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), um aplicativo Web que simplifica a implantação e o gerenciamento de um Cloud Foundry Foundation e do [Pivotal apps Manager](https://docs.pivotal.io/pivotalcf/console/), um aplicativo Web para gerenciar usuários e aplicativos.
+As ferramentas incluem [o Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), uma aplicação web que simplifica a implementação e gestão de uma fundação Cloud Foundry, e [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), uma aplicação web para gestão de utilizadores e aplicações.
 
-Além dos canais de suporte listados para o CF do OSS acima, uma licença PCF o autoriza a entrar em contato com a dinamização para obter suporte. A Microsoft e a Pivotal também habilitaram o suporte a fluxos de trabalho que permitem que você entre em contato com uma das partes para obter assistência e que sua consulta seja roteada adequadamente dependendo de onde está o problema.
+Além dos canais de suporte listados para o OSS CF acima, uma licença PCF dá-lhe direito a contactar a Pivotal para obter suporte. A Microsoft e a Pivotal também permitiram suporte saem que lhe permitem contactar qualquer uma das partes para obter assistência e ter o seu inquérito encaminhado adequadamente dependendo do local onde o problema está.
 
-## <a name="azure-service-broker"></a>Service Broker do Azure
+## <a name="azure-service-broker"></a>Corretor de Serviços Azure
 
-Cloud Foundry incentiva a metodologia ["aplicativo de doze fatores"](https://12factor.net/) , que promove uma separação limpa de processos de aplicativos sem estado e serviços de backup com estado. Os [agentes de serviço](https://docs.cloudfoundry.org/services/api.html) oferecem uma maneira consistente de provisionar e ligar serviços de backup a aplicativos. O [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker) fornece alguns dos principais serviços do Azure por meio desse canal, incluindo o armazenamento do Azure e o SQL do Azure.
+A Cloud Foundry encoraja a metodologia ["app de doze fatores",](https://12factor.net/) que promove uma separação limpa dos processos de aplicação apátridas e dos serviços de apoio apátridas. [Os corretores](https://docs.cloudfoundry.org/services/api.html) de serviços oferecem uma forma consistente de fornecer e ligar serviços de apoio a aplicações. O corretor de [serviços Azure](https://github.com/Azure/meta-azure-service-broker) fornece alguns dos principais serviços Azure através deste canal, incluindo o armazenamento Azure e o Azure SQL.
 
-Se você estiver usando a Cloud Foundry dinâmica, o Service Broker também estará [disponível como um bloco](https://docs.pivotal.io/azure-sb/installing.html) da rede dinâmica.
+Se estiver a utilizar a Pivotal Cloud Foundry, o corretor de serviços também está [disponível como azulejo](https://docs.pivotal.io/azure-sb/installing.html) da Rede Pivotal.
 
 ## <a name="related-resources"></a>Recursos relacionados
 
-### <a name="azure-devops-services-plugin"></a>Plug-in Azure DevOps Services
+### <a name="azure-devops-services-plugin"></a>Plugin azure DevOps Services
 
-Cloud Foundry é adequado para o desenvolvimento de software ágil, incluindo o uso de CI (integração contínua) e o CD (entrega contínua). Se você usar Azure DevOps Services para gerenciar seus projetos e desejar configurar um pipeline de CI/CD direcionado Cloud Foundry, você poderá usar a [extensão de Build de Azure DevOps Services Cloud Foundry](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). O plug-in torna simples configurar e automatizar implantações para Cloud Foundry, seja em execução no Azure ou em outro ambiente.
+A Cloud Foundry é adequada ao desenvolvimento ágil do software, incluindo o uso de integração contínua (CI) e entrega contínua (CD). Se utilizar os Serviços Azure DevOps para gerir os seus projetos e quiser configurar um pipeline CI/CD direcionado para a Cloud Foundry, pode utilizar a extensão de construção de cloud foundry de [serviços Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). O plugin torna simples configurar e automatizar implementações para cloud foundry, seja em execução em Azure ou em outro ambiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implantar Cloud Foundry dinâmicos do Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-- [Implantar um aplicativo para Cloud Foundry no Azure](./cloudfoundry-deploy-your-first-app.md)
+- [Implementar a fundação de nuvem fundamental do Mercado Azure](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Implementar uma aplicação para Cloud Foundry em Azure](./cloudfoundry-deploy-your-first-app.md)

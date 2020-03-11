@@ -9,12 +9,12 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.date: 03/03/2020
-ms.openlocfilehash: 7c5087a15210dff7c2a51aa5af38b8f7c26e28cc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 943e23aa9d83df33bbe636ce7aee62e6e5a2950e
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673471"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037308"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-designer-preview"></a>Utilize os conjuntos de dados da amostra no designer de machine learning Azure (pré-visualização)
 
@@ -44,4 +44,4 @@ Os conjuntos de dados da amostra estão disponíveis na categoria **Datasets**-*
 
 * Conheça o básico da análise preditiva e da aprendizagem automática com [tutorial: Preveja](tutorial-designer-automobile-price-train-score.md) o preço do automóvel com o designer
 
-* Utilizar módulo [de dados de importação](./algorithm-module-reference/import-data.md) para importar conjuntos de dados de amostras
+* Aprenda a modificar as amostras de [designer existentes](samples-designer.md) para adaptá-las às suas necessidades.

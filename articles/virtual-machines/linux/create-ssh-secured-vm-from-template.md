@@ -1,48 +1,38 @@
 ---
-title: Criar uma VM do Linux no Azure por meio de um modelo
-description: Como usar o CLI do Azure para criar uma VM do Linux com base em um modelo do Resource Manager
-services: virtual-machines-linux
-documentationcenter: ''
+title: Crie um Linux VM em Azure a partir de um modelo
+description: Como usar o Azure CLI para criar um VM Linux a partir de um modelo de Gestor de Recursos
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf440542e8b16231514447ddcddca081b4b89368
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 581eadc60835b758f67ae616d4413800f1d6d718
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979059"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969517"
 ---
-# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos de Azure Resource Manager
+# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos de Gestor de Recursos Azure
 
-Saiba como criar uma VM (máquina virtual) do Linux usando um modelo de Azure Resource Manager e o CLI do Azure do Azure cloud Shell. Para criar uma máquina virtual do Windows, consulte [criar uma máquina virtual do Windows a partir de um modelo do Resource Manager](../windows/ps-template.md).
+Aprenda a criar uma máquina virtual Linux (VM) utilizando um modelo de Gestor de Recursos Azure e o Azure CLI da concha Azure Cloud. Para criar uma máquina virtual do Windows, consulte [Criar uma máquina virtual do Windows a partir de um modelo de Gestor de Recursos](../windows/ps-template.md).
 
-## <a name="templates-overview"></a>Visão geral de modelos
+## <a name="templates-overview"></a>Visão geral dos modelos
 
-Os modelos de Azure Resource Manager são arquivos JSON que definem a infraestrutura e a configuração de sua solução do Azure. Ao utilizar um modelo, pode implementar repetidamente a solução durante o ciclo de vida da mesma e ter a confiança de que os recursos são implementados num estado consistente. Para saber mais sobre o formato do modelo e como construí-lo, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Para ver a sintaxe JSON para tipos de recursos, consulte [Define resources in Azure Resource Manager templates (Definir recursos nos modelos do Azure Resource Manager)](/azure/templates/microsoft.compute/allversions).
+Os modelos do Gestor de Recursos Azure são ficheiros JSON que definem a infraestrutura e configuração da sua solução Azure. Ao utilizar um modelo, pode implementar repetidamente a solução durante o ciclo de vida da mesma e ter a confiança de que os recursos são implementados num estado consistente. Para saber mais sobre o formato do modelo e como o constrói, consulte [Quickstart: Crie e implemente modelos](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)do Gestor de Recursos Azure utilizando o portal Azure . Para ver a sintaxe JSON para tipos de recursos, consulte [Define resources in Azure Resource Manager templates (Definir recursos nos modelos do Azure Resource Manager)](/azure/templates/microsoft.compute/allversions).
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-A criação de uma máquina virtual do Azure geralmente inclui duas etapas:
+A criação de uma máquina virtual Azure geralmente inclui dois passos:
 
 1. Crie um grupo de recursos. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual.
 1. Cria uma máquina virtual.
 
-O exemplo a seguir cria uma VM a partir de um [modelo de início rápido do Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Somente a autenticação SSH é permitida para essa implantação. Quando solicitado, forneça o valor da sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa. pub*. Se você precisar criar um par de chaves SSH, consulte [como criar e usar um par de chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md). Aqui está uma cópia do modelo:
+O exemplo seguinte cria um VM a partir de um [modelo Azure Quickstart](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Apenas é permitida a autenticação SSH para esta implementação. Quando solicitado, forneça o valor da sua própria chave pública SSH, como o conteúdo de *~/.ssh/id_rsa.pub*. Se precisar de criar um par de chaves SSH, consulte como criar e utilizar um par de [chaves SSH para VMs Linux em Azure](mac-create-ssh-keys.md). Aqui está uma cópia do modelo:
 
 [!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
 
-Para executar o script da CLI, selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
+Para executar o script CLI, selecione **Experimente-o** para abrir a concha Azure Cloud. Para colar o script, clique na concha e, em seguida, selecione **Pasta:**
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -60,19 +50,19 @@ az group deployment create --resource-group $resourceGroupName --template-uri ht
 az vm show --resource-group $resourceGroupName --name "$projectName-vm" --show-details --query publicIps --output tsv
 ```
 
-O último comando CLI do Azure mostra o endereço IP público da VM recém-criada. Você precisa do endereço IP público para se conectar à máquina virtual. Consulte a próxima seção deste artigo.
+O último comando Azure CLI mostra o endereço IP público do VM recém-criado. Precisa do endereço IP público para ligar à máquina virtual. Veja a próxima secção deste artigo.
 
-No exemplo anterior, você especificou um modelo armazenado no GitHub. Você também pode baixar ou criar um modelo e especificar o caminho local com o parâmetro `--template-file`.
+No exemplo anterior, especificou um modelo armazenado no GitHub. Também pode descarregar ou criar um modelo e especificar o caminho local com o parâmetro `--template-file`.
 
-Seguem-se alguns recursos adicionais:
+Aqui estão alguns recursos adicionais:
 
-- Para saber como desenvolver modelos do Resource Manager, consulte a [documentação do Azure Resource Manager](/azure/azure-resource-manager/).
-- Para ver os esquemas de máquina virtual do Azure, consulte [referência de modelo do Azure](/azure/templates/microsoft.compute/allversions).
-- Para ver mais exemplos de modelo de máquina virtual, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+- Para aprender a desenvolver modelos de Gestor de Recursos, consulte a [documentação do Gestor de Recursos do Azure.](/azure/azure-resource-manager/)
+- Para ver os esquemas de máquinas virtuais Azure, consulte a referência do [modelo Azure](/azure/templates/microsoft.compute/allversions).
+- Para ver mais amostras de modelos de máquinas virtuais, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
 
-Em seguida, você pode SSH para sua VM como de costume. Forneça seu próprio endereço IP público do comando anterior:
+Em seguida, pode sSH para o seu VM normalmente. Forneça-lhe o seu próprio endereço IP público a partir do comando anterior:
 
 ```bash
 ssh <adminUsername>@<ipAddress>
@@ -80,12 +70,12 @@ ssh <adminUsername>@<ipAddress>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste exemplo, você criou uma VM do Linux básica. Para obter mais modelos do Resource Manager que incluem estruturas de aplicativo ou criar ambientes mais complexos, procure os [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+Neste exemplo, criou um VM Linux básico. Para mais modelos de Gestor de Recursos que incluam estruturas de aplicação ou criam ambientes mais complexos, navegue nos [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
-Para saber mais sobre como criar modelos, exiba a sintaxe e as propriedades JSON para os tipos de recursos implantados:
+Para saber mais sobre a criação de modelos, consulte a sintaxe jSON e propriedades para os tipos de recursos que implementou:
 
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft.Network/publicIPAddresss](/azure/templates/microsoft.network/publicipaddresses)
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
