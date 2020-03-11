@@ -8,18 +8,18 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905499"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933791"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
 Cópias dados de origem para um local de destino.
 
-## <a name="synopsis"></a>Resumo
+## <a name="synopsis"></a>Sinopse
 
 Cópias dados de origem para um local de destino. As instruções suportadas são:
 
@@ -37,21 +37,21 @@ Consulte os exemplos para mais informações.
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Começar com a AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Segurança
+## <a name="advanced"></a>Avançada
 
 A AzCopy deteta automaticamente o tipo de conteúdo dos ficheiros ao ser carregado a partir do disco local, com base na extensão ou conteúdo do ficheiro (se não for especificada nenhuma extensão).
 
 A mesa de lookup incorporada é pequena, mas no Unix, é aumentada pelos ficheiros mímicas do sistema local, se disponível sob um ou mais destes nomes:
 
-- /etc/mime.types
+- /etc/mímica.tipos
 - /etc/apache2/mime.types
-- /etc/apache/mime.types
+- /etc/apache/mime.type
 
-No Windows, os tipos de MIME são extraídos do registro. Esta característica pode ser desligada com a ajuda de uma bandeira. Por favor, consulte a secção da bandeira.
+No Windows, os tipos MIME são extraídos do registo. Esta característica pode ser desligada com a ajuda de uma bandeira. Por favor, consulte a secção da bandeira.
 
 Se definir uma variável ambiental utilizando a linha de comando, essa variável será legível no histórico da sua linha de comando. Considere limpar variáveis que contenham credenciais do histórico da sua linha de comando. Para evitar que as variáveis apareçam na sua história, pode utilizar um script para solicitar ao utilizador as suas credenciais e definir a variável ambiental.
 
@@ -75,7 +75,7 @@ Faça upload de um único ficheiro utilizando um token SAS:
 
 Faça upload de um único ficheiro utilizando uma ficha SAS e tubagens (apenas bolhas de bloco):
   
-- gato "/path/to/file.txt" [ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
+- gato "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]? [SAS]"
 
 Faça upload de um diretório inteiro usando um token SAS:
   
@@ -147,37 +147,37 @@ Copie todos os recipientes, diretórios e blobs blobs da conta de armazenamento 
 
 Copie um único objeto para blob Storage da Amazon Web Services (AWS) S3 usando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
   
-- azcopy cp "https://s3.amazonaws.com/ [balde]/[objeto]" "https://[destaccount].blob.core.windows.net/[contentor]/[path/to/blob]? [SAS]"
+- azcopy cp "https://s3.amazonaws.com/[balde]/[objeto]" "https://[destaccount].blob.core.windows.net/[contentor]/[path/to/blob]? [SAS]"
 
 Copie um diretório inteiro para blob Storage da AWS S3 utilizando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3.amazonaws.com/ [balde]/[pasta]" "https://[destaccount].blob.core.windows.net/[contentor]/[path/to/diretório]? [SAS]" --recursivo=verdadeiro
+- azcopy cp "https://s3.amazonaws.com/[balde]/[pasta]" "https://[destaccount].blob.core.windows.net/[contentor]/[path/to/diretório]? [SAS]" --recursivo=verdadeiro
 
 Por favor, consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para entender melhor o espaço reservado [pasta].
 
 Copie todos os baldes para Blob Storage da Amazon Web Services (AWS) utilizando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3.amazonaws.com/ " "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
+- azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
 
 Copie todos os baldes para Blob Storage de uma região da Amazon Web Services (AWS) utilizando uma chave de acesso e um token SAS. Em primeiro lugar, definir a variável ambiental AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3- [região].amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
+- azcopy cp "https://s3-[região].amazonaws.com/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
 
 Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do balde. Tal como os exemplos anteriores, vai precisar de uma chave de acesso e um símbolo SAS. Certifique-se de que a variável ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a fonte AWS S3.
 
-- azcopy cp "https://s3.amazonaws.com/ [bucket*name]/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
+- azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net? [SAS]" --recursivo=verdadeiro
 
 ## <a name="options"></a>Opções
 
 **--cadeia do tipo blob** Define o tipo de bolha no destino. Isto é utilizado para o upload de bolhas e para copiar entre contas (predefinido 'Detecte'). Os valores válidos incluem 'Detect', 'BlockBlob', 'PageBlob' e 'AppendBlob'. Ao copiar entre contas, um valor de 'Detect' faz com que a AzCopy utilize o tipo de bolha de origem para determinar o tipo de bolha de destino. Ao carregar um ficheiro, 'Detect' determina se o ficheiro é um VHD ou um ficheiro VHDX baseado na extensão do ficheiro. Se o ficheiro for éter um ficheiro VHD ou VHDX, a AzCopy trata o ficheiro como uma bolha de página. (padrão "Detetar")
 
-**-bloco-blob-tier** bloco de bloqueio de bloco sinuoso bloco de bloqueio para Armazenamento Azure usando este nível de blob. (padrão "Nenhum")
+**-block-blob-tier** string Upload block blobs diretamente para o [nível de acesso](../blobs/storage-blob-storage-tiers.md) à sua escolha. (padrão 'Nenhum'). Os valores válidos incluem 'Nenhum', 'Hot', 'Cool' e 'Archive'. Se 'Nenhum' ou nenhum nível for passado, a bolha herdará o nível da conta de armazenamento.
 
-**--bloco-tamanho mb** flutuante Utilize este tamanho de bloco (especificado no MiB) ao fazer o upload para o Armazenamento Azure e descarregar a partir do Armazenamento Azure. O valor predefinido é calculado automaticamente com base no tamanho do ficheiro. Frações decimais são permitidas (por exemplo: 0,25).
+**--bloco-tamanho mb** flutuante Utilize este tamanho de bloco (especificado no MiB) ao fazer o upload para o Armazenamento Azure e descarregar a partir do Armazenamento Azure. O valor predefinido é calculado automaticamente com base no tamanho do ficheiro. São permitidas frações decimais (por exemplo: 0,25).
 
 **--cadeia de controlo de cache** Derem o cabeçalho do controlo de cache. Devolvido no download.
 
-**-check-length**                         Verifique o comprimento de um ficheiro no destino após a transferência. Se houver um desfasamento entre fonte e destino, a transferência é marcada como falhada. (padrão true)
+**-check-length**                         Verifique o comprimento de um ficheiro no destino após a transferência. Se houver um desfasamento entre fonte e destino, a transferência é marcada como falhada. (por defeito verdadeiro)
 
 **-check-md5** string Especifica como os hashes MD5 devem ser validados estritamente ao descarregar. Só disponível no momento do download. Opções disponíveis: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (padrão "FailIfDifferent")
 
@@ -191,11 +191,11 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **--descomprimir**                           Descomprime automaticamente os ficheiros ao descarregar, se a codificação de conteúdos indicar que estão comprimidos. Os valores suportados de codificação de conteúdos são "gzip" e "esvaziar". Não são necessárias extensões de ficheiros de '.gz'/'.gzip' ou '.zz', mas serão removidas se estiverem presentes.
 
-**--excluir-atribui** a cadeia (apenas ao Windows) Excluir ficheiros cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
+**--excluir-atribui** a cadeia (apenas ao Windows) Excluir ficheiros cujos atributos correspondem à lista de atributos. Por exemplo: A; S; R
 
 **-excluir-blob-tipo** cadeia Opcionalmente especifica o tipo de blob (BlockBlob/ PageBlob/ AppendBlob) para excluir ao copiar bolhas do recipiente ou da conta. A utilização desta bandeira não é aplicável à cópia de dados do serviço não azure ao serviço. Mais de uma bolha deve ser separada por ";".
 
-**-excluir-caminho** de corda Exclua estes caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/File. pdf). Quando usado em combinação com passagem de conta, os caminhos não incluem o nome do contêiner.
+**-excluir-caminho** de corda Exclua estes caminhos ao copiar. Esta opção não suporta caracteres wildcard (*). Verifica prefixo relativo do caminho (por exemplo: myFolder;myFolder/subDirName/file.pdf). Quando utilizados em combinação com a transversala de conta, os caminhos não incluem o nome do recipiente.
 
 **-excluir a** cadeia de padrão Exclua estes ficheiros ao copiar. Esta opção suporta caracteres wildcard (*)
 
@@ -205,13 +205,13 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **-h, -ajuda** para copiar
 
-**--incluir alinha-atributos** (apenas windows) Inclua ficheiros cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
+**--incluir alinha-atributos** (apenas windows) Inclua ficheiros cujos atributos correspondem à lista de atributos. Por exemplo: A; S; R
 
-**--incluir a** corda do caminho Inclua apenas estes caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica prefixo relativo do caminho (por exemplo: myFolder;myFolder/subDirName/file.pdf).
+**--incluir a** corda do caminho Inclua apenas estes caminhos ao copiar. Esta opção não suporta caracteres wildcard (*). Verifica prefixo relativo do caminho (por exemplo: myFolder;myFolder/subDirName/file.pdf).
 
 **-incluir** a cadeia de padrões Inclua apenas estes ficheiros ao copiar. Esta opção suporta caracteres wildcard (*). Separe os ficheiros utilizando um ';'.
 
-**--cadeia de log-level** Defina a verbosidade do registo, níveis disponíveis: INFO (todos os pedidos/respostas), AVISO (respostas lentas), ERROR (apenas pedidos falhados) e NENHUM (sem registos de saída). (padrão "INFO")
+**--cadeia de log-level** Defina a verbosidade do registo, níveis disponíveis: INFO (todos os pedidos/respostas), AVISO (respostas lentas), ERROR (apenas pedidos falhados) e NENHUM (sem registos de saída). ("INFO" padrão)
 
 **--linha de metadados** Upload para Armazenamento Azure com estes pares de valor-chave como metadados.
 
@@ -223,7 +223,7 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **--preservar-último tempo modificado**          Só disponível quando o destino é o sistema de ficheiros.
 
-**-put-md5**                             Crie um haxixe MD5 de cada ficheiro e guarde o haxixe como propriedade Content-MD5 da bolha de destino ou ficheiro. (Por padrão, o hash não é criado.) Disponível somente ao carregar.
+**-put-md5**                             Crie um haxixe MD5 de cada ficheiro e guarde o haxixe como propriedade Content-MD5 da bolha de destino ou ficheiro. (Por padrão, o hash NÃO é criado.) Só disponível no momento do upload.
 
 **-recursivo**                            Procure sub-directórios de forma recorrente ao carregar do sistema de ficheiros local.
 
@@ -231,16 +231,16 @@ Copie um subconjunto de baldes utilizando um símbolo wildcard (*) no nome do ba
 
 **-s2s-handle-invalid-metadata** string Especifica como as chaves de metadados inválidas são manuseadas. Opções disponíveis: ExcluiIfInválido, FailIfInvalid, RenameIfInvalid. (predefinido "ExcluirIfInválido")
 
-**-s2s-preserve-access-tier**             Preservar o nível de acesso durante o serviço à cópia de serviço. Consulte o [armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino suporta a definição do nível de acesso. Nos casos em que o nível de acesso de definição não é suportado, utilize o s2sPreserveAccessTier=falso para contornar o nível de acesso de cópia. (padrão true)
+**-s2s-preserve-access-tier**             Preservar o nível de acesso durante o serviço à cópia de serviço. Consulte o [armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino suporta a definição do nível de acesso. Nos casos em que o nível de acesso de definição não é suportado, utilize o s2sPreserveAccessTier=falso para contornar o nível de acesso de cópia. (por defeito verdadeiro)
 
-**-s2s-preserve-properties**              Preservar propriedades completas durante o serviço à cópia de serviço. Para a fonte de ficheiros não única da AWS S3 e Azure File, a operação da lista não devolve propriedades completas de objetos e ficheiros. Para preservar propriedades completas, a AzCopy precisa enviar um pedido adicional por objeto ou ficheiro. (padrão true)
+**-s2s-preserve-properties**              Preservar propriedades completas durante o serviço à cópia de serviço. Para a fonte de ficheiros não única da AWS S3 e Azure File, a operação da lista não devolve propriedades completas de objetos e ficheiros. Para preservar propriedades completas, a AzCopy precisa enviar um pedido adicional por objeto ou ficheiro. (por defeito verdadeiro)
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
-**--cap-mbps uint32**      Cobre a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.
+**--cap-mbps uint32**      Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.
 
-**-formato** de cadeia do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor predefinido é "texto". ("texto por defeito")
+**-formato** de cadeia do tipo de saída da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto". ("texto por defeito")
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)
