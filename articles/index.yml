@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 5311b4c8bafbd525ae69d6778e92dc99ae2d4d7d
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: 9098457cc8fd39ba2b815b1e93d9442570d95c17
+  ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943085"
+  ms.lasthandoff: 03/10/2020
+  ms.locfileid: "79082987"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -662,12 +662,6 @@ productDirectory:
     - developer-tools
     - devops
     url: integrations/index.yml
-  - title: SDKs
-    summary: Obtenha os SDKs e as ferramentas de linha de comandos de que precisa
-    imageSrc: https://docs.microsoft.com/media/common/i_tools.svg
-    azureCategories:
-    - developer-tools
-    url: sdks/index.yml
   - title: Visual Studio
     summary: Ambiente poderoso e flexível para desenvolver aplicações na cloud
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
