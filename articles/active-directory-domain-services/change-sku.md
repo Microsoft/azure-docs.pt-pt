@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b65310569e95173b88dd0aa0dfe1dbacd86cc8fc
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614229"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126699"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Altere o SKU para um domínio gerido pelos Serviços de Domínio Azure existentes
 
-No Azure Ative Directory Domain Services (Azure AD DS), o desempenho e as funcionalidades disponíveis baseiam-se no tipo SKU. Estas diferenças de características incluem a frequência de backup ou o número máximo de fundos florestais de saída de ida (atualmente em pré-visualização). Selecione um SKU quando criar o domínio gerido e pode mudar as SKUs à medida que o seu negócio precisa de ser alterado após a implementação do domínio gerido. As alterações nos requisitos empresariais podem incluir a necessidade de backups mais frequentes ou de criar fundos florestais adicionais. Para obter mais informações sobre os limites e preços das diferentes SKUs, consulte os [conceitos Azure AD DS SKU][concepts-sku] e as páginas de [preços da AD DS Azure.][pricing]
+No Azure Ative Directory Domain Services (Azure AD DS), o desempenho e as funcionalidades disponíveis baseiam-se no tipo SKU. Estas diferenças de características incluem a frequência de backup ou o número máximo de fundos florestais de saída de ida (atualmente em pré-visualização). Selecione um SKU quando criar o domínio gerido e pode mudar as SKUs para cima ou para baixo à medida que o seu negócio precisa de ser alterado após a implementação do domínio gerido. As alterações nos requisitos empresariais podem incluir a necessidade de backups mais frequentes ou de criar fundos florestais adicionais. Para obter mais informações sobre os limites e preços das diferentes SKUs, consulte os [conceitos Azure AD DS SKU][concepts-sku] e as páginas de [preços da AD DS Azure.][pricing]
 
 Este artigo mostra-lhe como mudar o SKU para um domínio gerido azure DS existente usando o portal Azure.
 
@@ -36,9 +36,12 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 ## <a name="sku-change-limitations"></a>Limitações de mudança sku
 
-Existem algumas limitações para a operação de mudança de SKU se você usar uma floresta de recursos (atualmente em pré-visualização) e criou fundos florestais de saída única de Azure AD DS para um ambiente AD DS no local. O *Premium* e *as Enterprise* SKUs definem um limite no número de fundos que pode criar. Não pode mudar para um SKU com um limite máximo mais baixo do que o que configurado atualmente.
+Pode alterar SKUs para cima ou para baixo depois de o domínio gerido pelo Azure AD DS ter sido implantado. No entanto, se utilizar uma floresta de recursos (atualmente em pré-visualização) e tiver criado fundos florestais de saída única de Azure AD DS para um ambiente AD DS no local, existem algumas limitações para a operação de mudança de SKU. O *Premium* e *as Enterprise* SKUs definem um limite no número de fundos que pode criar. Não pode mudar para um SKU com um limite máximo mais baixo do que o que configurado atualmente.
 
-Por exemplo, se criou dois fundos florestais no *Premium* SKU, não pode mudar para o *SKU Padrão.* O *Standard* SKU não apoia os fundos florestais. Ou, se criou sete fundos no *Premium* SKU, não pode mudar para o *Enterprise* SKU. A *Enterprise* SKU suporta um máximo de cinco fundos.
+Por exemplo:
+
+* Se criou dois fundos florestais no *Premium* SKU, não pode mudar para o *Standard* SKU. O *Standard* SKU não apoia os fundos florestais.
+* Ou, se criou sete fundos no *Premium* SKU, não pode mudar para o *Enterprise* SKU. A *Enterprise* SKU suporta um máximo de cinco fundos.
 
 Para obter mais informações sobre estes limites, consulte as [funcionalidades e limites do Azure AD DS SKU][concepts-sku].
 

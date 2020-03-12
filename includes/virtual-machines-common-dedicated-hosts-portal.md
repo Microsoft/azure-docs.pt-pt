@@ -5,20 +5,20 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/09/2020
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e7a814c1607b15e3af0e76a5ae6dfad1594a3b3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 427117fe47294a1db1fa8d3fa1e46ee1efb91b4d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474216"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129433"
 ---
 ## <a name="limitations"></a>Limitações
 
 - Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
-- A versão inicial suporta a seguinte série VM: DSv3, ESv3, FSv2, LSv2 e MSv2. 
+- Os tamanhos e tipos de hardware disponíveis para anfitriões dedicados variam por região. Consulte a [página](https://aka.ms/ADHPricing) de preços do anfitrião para saber mais.
 
 ## <a name="create-a-host-group"></a>Criar um grupo de anfitriões
 
@@ -36,8 +36,6 @@ Neste exemplo, criaremos um grupo de anfitriões utilizando 1 zona de disponibil
 1. Abra o [portal](https://portal.azure.com)Azure.
 1. Selecione **Criar um recurso** no canto superior esquerdo.
 1. Procure o **grupo anfitrião** e, em seguida, selecione **Grupos de Anfitriões** a partir dos resultados.
-
-    ![Grupos de acolhimento pesquisam resultado.](./media/virtual-machines-common-dedicated-hosts-portal/host-group.png)
 1. Na página grupos de **anfitriões,** selecione **Criar**.
 1. Selecione a subscrição que gostaria de utilizar e, em seguida, selecione **Criar novo** para criar um novo grupo de recursos.
 1. Digite *o myDedicatedHostsRG* como **nome** e, em seguida, selecione **OK**.
@@ -46,8 +44,6 @@ Neste exemplo, criaremos um grupo de anfitriões utilizando 1 zona de disponibil
 1. Para **A Zona de Disponibilidade,** selecione **1**.
 1. Para **a contagem de domínio seletiva,** selecione **2**.
 1. Selecione **Review + crie** e, em seguida, aguarde a validação.
-
-    ![Configurações do grupo anfitrião](./media/virtual-machines-common-dedicated-hosts-portal/host-group-settings.png)
 1. Assim que vir a **mensagem de validação passada,** selecione **Criar** para criar o grupo anfitrião.
 
 Só deve levar alguns momentos para criar o grupo anfitrião.
@@ -62,16 +58,12 @@ Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será
 
 1. Selecione **Criar um recurso** no canto superior esquerdo.
 1. Procure um **anfitrião dedicado** e, em seguida, selecione **anfitriões dedicados** a partir dos resultados.
-
-    ![Grupos de acolhimento pesquisam resultado.](./media/virtual-machines-common-dedicated-hosts-portal/host.png)
 1. Na página **Anfitriões Dedicados,** selecione **Criar**.
 1. Selecione a subscrição que deseja utilizar.
 1. Selecione *myDedicatedHostsRG* como o **grupo Derecursos**.
 1. Em **caso de detalhes**, escreva o meu *Anfitrião* para o **Nome** e selecione *East US* para a localização.
-1. No **perfil de Hardware**, selecione *a família Standard Es3 - Tipo 1* para a família **Size,** selecione *myHostGrup* para o **grupo Anfitrião** e, em seguida, selecione *1* para o **domínio Fault**. Deixe os incumprimentos para o resto dos campos.
+1. No **perfil de Hardware**, selecione *a família Standard Es3 - Tipo 1* para a família **Size,** selecione *myHostGroup* para o **grupo Anfitrião** e, em seguida, selecione *1* para o **domínio Fault**. Deixe os incumprimentos para o resto dos campos.
 1. Quando terminar, selecione **Review + crie** e aguarde a validação.
-
-    ![Configurações do anfitrião](./media/virtual-machines-common-dedicated-hosts-portal/host-settings.png)
 1. Assim que vir a **mensagem de validação passada,** selecione **Criar** para criar o anfitrião.
 
 

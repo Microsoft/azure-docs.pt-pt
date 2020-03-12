@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.author: helohr
-ms.openlocfilehash: aba2202f0d33609400588e379a4ed3bb9bb798d9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 3bf9ea6c68e4cbbe721705639e6c6416c0e93c9d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367522"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128247"
 ---
 # <a name="connect-with-the-ios-client"></a>Ligar ao cliente de iOS
 

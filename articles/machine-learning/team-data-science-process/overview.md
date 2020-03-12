@@ -7,22 +7,22 @@ manager: marktab
 editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
-ms.topic: article
+ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e9d98f03b2c97245517e3fbb6d7dc7624cfb724d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721392"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79088074"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
-O Team Data Science Process (TDSP) é uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de Análise Preditiva e aplicações inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e o aprendizado da equipe, sugerindo como as funções de equipe funcionam melhor em conjunto. O TDSP inclui práticas recomendadas e estruturas da Microsoft e de outros líderes do setor para ajudar na implementação bem-sucedida de iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
+O Team Data Science Process (TDSP) é uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de Análise Preditiva e aplicações inteligentes com eficiência. A TDSP ajuda a melhorar a colaboração e a aprendizagem da equipa, sugerindo como os papéis da equipa funcionam melhor em conjunto. A TDSP inclui as melhores práticas e estruturas da Microsoft e de outros líderes do setor para ajudar a implementar com sucesso iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
 
-Este artigo fornece uma visão geral do TDSP e seus principais componentes. Fornecemos uma descrição genérica do processo aqui que pode ser implementada com diferentes tipos de ferramentas. Uma descrição mais detalhada das tarefas de projetos e funções envolvidas no ciclo de vida do processo é fornecida no adicionais tópicos ligados. Também são disponibilizadas orientações sobre como implementar o TDSP usando um conjunto específico de ferramentas da Microsoft e a infraestrutura que usamos para implementar o TDSP em nossas equipas.
+Este artigo fornece uma visão geral do TDSP e seus principais componentes. Fornecemos uma descrição genérica do processo aqui que pode ser implementado com diferentes tipos de ferramentas. Uma descrição mais detalhada das tarefas de projetos e funções envolvidas no ciclo de vida do processo é fornecida no adicionais tópicos ligados. Também são disponibilizadas orientações sobre como implementar o TDSP usando um conjunto específico de ferramentas da Microsoft e a infraestrutura que usamos para implementar o TDSP em nossas equipas.
 
 ## <a name="key-components-of-the-tdsp"></a>Os principais componentes do TDSP
 
@@ -86,7 +86,7 @@ A estrutura do diretório pode ser clonada a partir do [GitHub.](https://github.
 TDSP fornece recomendações para a gestão de análise partilhado e a infraestrutura de armazenamento, tais como:
 
 - sistemas de ficheiros de cloud para armazenar conjuntos de dados 
-- DWDataMart
+- bases de dados
 - clusters de grandes volumes de dados (Hadoop ou Spark) 
 - serviço de Machine learning 
 
@@ -99,9 +99,9 @@ Eis um exemplo de uma equipe de trabalhar em vários projetos e partilha vários
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto
 
-Introduzir processos na maioria das organizações é um desafio. Ferramentas fornecidas para implementar a ajuda de processo e o ciclo de vida da ciência de dados mais baixo, as barreiras para e aumentar a consistência da adoção. TDSP fornece um conjunto inicial de ferramentas e scripts para promover a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas das tarefas comuns do ciclo de vida de ciência de dados, como a exploração e modelação de linha de base dados. Existe uma estrutura bem definida fornecida para indivíduos contribuir partilhadas ferramentas e utilitários para o repositório de código compartilhado de sua equipe. Estes recursos, em seguida, podem ser aproveitados por outros projetos dentro da Equipe ou a organização. Também planeja TDSP ativar as contribuições de ferramentas e utilitários para a Comunidade inteira. Os utilitários TDSP podem ser clonados a partir do [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Introduzir processos na maioria das organizações é um desafio. Ferramentas fornecidas para implementar a ajuda de processo e o ciclo de vida da ciência de dados mais baixo, as barreiras para e aumentar a consistência da adoção. TDSP fornece um conjunto inicial de ferramentas e scripts para promover a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas das tarefas comuns do ciclo de vida de ciência de dados, como a exploração e modelação de linha de base dados. Existe uma estrutura bem definida para que os indivíduos contribuam com ferramentas e utilidades partilhadas para o repositório de código partilhado da sua equipa. Estes recursos, em seguida, podem ser aproveitados por outros projetos dentro da Equipe ou a organização. Também planeja TDSP ativar as contribuições de ferramentas e utilitários para a Comunidade inteira. Os utilitários TDSP podem ser clonados a partir do [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Processo de Ciência de [Dados da Equipa: Funções e tarefas](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Delineia as principais funções de pessoal e as suas tarefas associadas para uma equipa de ciência de dados que normaliza este processo. 

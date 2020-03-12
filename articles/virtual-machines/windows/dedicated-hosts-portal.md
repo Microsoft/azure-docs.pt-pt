@@ -1,50 +1,64 @@
 ---
-title: Implantar hosts dedicados do Azure usando o portal do Azure
-description: Implante VMs em hosts dedicados usando o portal do Azure.
-services: virtual-machines-windows
+title: Implementar anfitriões dedicados azure usando o portal
+description: Implementar VMs para anfitriões dedicados usando o portal.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833924"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086937"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implementar VMs para anfitriões dedicados usando o portal
 
-Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
+Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hosts.md) azure para hospedar as suas máquinas virtuais (VMs). 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-1. Na **nova** página, em **popular**, selecione **Windows Server 2016 datacenter**.
-1. Na guia **noções básicas** , em **detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, selecione *MyDedicatedHostsRG* como o **grupo de recursos**. 
+1. Na **página Nova,** em **Popular**, selecione **Windows Server 2016 Datacenter**.
+1. No separador **Basics,** sob os detalhes do **Projeto,** certifique-se de que a subscrição correta é selecionada e, em seguida, selecione *myDedicatedHostsRG* como o **grupo Recursos**. 
 1. Em **Detalhes da instância**, escreva *aminhaVM* para o **Nome da máquina virtual** e selecione *E.U.A. Leste* para a **Localização**.
-1. Em **Opções de disponibilidade** selecionar **zona de disponibilidade**, selecione *1* na lista suspensa.
-1. Para o tamanho, selecione **alterar tamanho**. Na lista de tamanhos disponíveis, escolha um da série Esv3, como **Standard E2 v3**. Talvez seja necessário limpar o filtro para ver todos os tamanhos disponíveis.
+1. Nas **opções de disponibilidade** selecione Zona de **disponibilidade**, selecione *1* a partir do drop-down.
+1. Para o tamanho, selecione **Tamanho de mudança**. Na lista de tamanhos disponíveis, escolha um da série Esv3, como **o Standard E2s v3**. Pode ser necessário limpar o filtro para ver todos os tamanhos disponíveis.
 1. Em **Conta de administrador**, forneça um nome de utilizador, como *utilizadordoazure*, e uma palavra-passe. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
-1. Em **regras de porta de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** na lista suspensa.
-1. Na parte superior da página, selecione a guia **avançado** e, na seção **host** , selecione *myhost* Group para o **grupo de hosts** e *myhost* para o **host**. 
-    ![selecionar grupo de hosts e host](./media/dedicated-hosts-portal/advanced.png)
+1. De acordo com as regras da **porta de entrada,** escolha **permitir portas selecionadas** e, em seguida, selecionar **RDP (3389)** a partir da queda.
+1. No topo da página, selecione o separador **Avançado** e na secção **Anfitrião,** selecione *myHostGroup* para **host group** e *myHost* for the **Host**. 
+    ![Selecione grupo anfitrião e acolhe](./media/dedicated-hosts-portal/advanced.png)
 1. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
-1. Quando você vir a mensagem a validação foi aprovada, selecione **criar**.
+1. Quando vir a mensagem que a validação passou, selecione **Criar**.
 
+## <a name="add-an-existing-vm"></a>Adicione um VM existente 
+
+Você pode adicionar um VM de saída a um anfitrião dedicado, mas o VM deve primeiro ser Stop\Deallocated. Antes de mover um VM para um anfitrião dedicado, certifique-se de que a configuração VM é suportada:
+
+- O tamanho VM deve ser do mesmo tamanho que o hospedeiro dedicado. Por exemplo, se o seu anfitrião dedicado for DSv3, então o tamanho VM pode ser Standard_D4s_v3, mas não poderia ser um Standard_A4_v2. 
+- O VM precisa de ser localizado na mesma região que o anfitrião dedicado.
+- O VM não pode fazer parte de um grupo de colocação de proximidade. Retire o VM do grupo de colocação de proximidade antes de o transferir para um hospedeiro dedicado. Para mais informações, consulte [Move a VM de um grupo de colocação de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- O VM não pode estar num conjunto de disponibilidade.
+- Se o VM estiver numa zona de disponibilidade, deve ser a mesma zona de disponibilidade que o grupo anfitrião. As definições da zona de disponibilidade para o VM e o grupo anfitrião devem corresponder.
+
+Mova o VM para um hospedeiro dedicado usando o [portal](https://portal.azure.com).
+
+1. Abra a página para o VM.
+1. Selecione **Stop** para parar\deslocar o VM.
+1. **Selecione Configuração** a partir do menu esquerdo.
+1. Selecione um grupo de anfitriões e um anfitrião dos menus suspensos.
+1. Quando terminar, selecione **Guardar** no topo da página.
+1. Depois de adicionado o VM ao anfitrião, selecione **a visão geral** do menu esquerdo.
+1. No topo da página, selecione **Iniciar** a reiniciar o VM.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) . 
+- Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md) 
 
-- Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
+- Há um modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa tanto zonas como domínios de falha para a máxima resiliência numa região.
 
-- Você também pode implantar um host dedicado usando o [Azure PowerShell](dedicated-hosts-powershell.md).
+- Também pode implantar um hospedeiro dedicado utilizando [o Azure PowerShell.](dedicated-hosts-powershell.md)

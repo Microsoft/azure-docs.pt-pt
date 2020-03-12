@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes dos serviços de mídia do Azure v3 | Microsoft Docs
-description: Este artigo fornece respostas para as perguntas frequentes dos serviços de mídia do Azure v3.
+title: Azure Media Services v3 frequentemente fez perguntas Microsoft Docs
+description: Este artigo dá respostas à Azure Media Services v3 frequentemente colocadas perguntas.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,91 +9,99 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977731"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086790"
 ---
-# <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
+# <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Media v3 frequentemente questionados
 
-Este artigo fornece respostas para as perguntas frequentes dos serviços de mídia do Azure (AMS) v3.
+Este artigo dá respostas à Azure Media Services (AMS) v3 frequentemente colocadas perguntas.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quais funções do Azure podem executar ações nos recursos dos serviços de mídia do Azure? 
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Que funções o Azure pode desempenhar ações sobre os recursos da Azure Media Services? 
 
-Consulte [RBAC (controle de acesso baseado em função) para contas de serviços de mídia](rbac-overview.md).
+Consulte [o controlo de acesso baseado em funções (RBAC) para as contas dos Serviços de Media](rbac-overview.md).
 
-### <a name="how-do-i-configure-media-reserved-units"></a>Como fazer configurar unidades reservadas de mídia?
+### <a name="how-do-you-stream-to-apple-ios-devices"></a>Como é que transmite para dispositivos apple iOS?
 
-Para as tarefas de Análise de áudio e de Análise de vídeo acionadas por Serviços de Multimédia v3 ou Video Indexer, é altamente recomendado que aprovisione a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
+Certifique-se de que tem "(formato=m3u8-aapl)" no final do seu percurso (após a parte "/manifesto" do URL) para dizer ao servidor de origem de streaming para devolver conteúdo hls para consumo em dispositivos nativos apple iOS (para mais detalhes, ver [conteúdo de entrega).](dynamic-packaging-overview.md)
 
-Para obter detalhes, consulte [escala de processamento de mídia com a CLI](media-reserved-units-cli-how-to.md).
+### <a name="how-do-i-configure-media-reserved-units"></a>Como configurar unidades reservadas aos media?
+
+Para as tarefas de Análise de áudio e de Análise de vídeo acionadas por Serviços de Multimédia v3 ou Video Indexer, é altamente recomendado que aprovisione a sua conta com 10 MRUs de S3. Se precisar de mais de 10 MrUs S3, abra um bilhete de apoio utilizando o [portal Azure](https://portal.azure.com/).
+
+Para mais detalhes, consulte [o processamento de meios de escala com cli](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual é o método recomendado para processar vídeos?
 
-Use [transformações](https://docs.microsoft.com/rest/api/media/transforms) para configurar tarefas comuns para codificação ou análise de vídeos. Cada **transformação** descreve uma receita ou um fluxo de trabalho de tarefas para processar seus arquivos de vídeo ou áudio. Um [trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real aos serviços de mídia para aplicar a **transformação** a um determinado conteúdo de áudio ou vídeo de entrada. Depois que a transformação tiver sido criada, você poderá enviar trabalhos usando as APIs dos serviços de mídia ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
+Utilize [transformes](https://docs.microsoft.com/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada **Transform** descreve uma receita, ou um fluxo de trabalho de tarefas para processar os seus ficheiros de vídeo ou áudio. A [Job](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real aos Serviços de Media para aplicar a **Transform** a um determinado conteúdo de vídeo ou áudio de entrada. Uma vez criada a Transform, pode submeter postos de trabalho utilizando APIs de Serviços de Media, ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
+
+### <a name="i-uploaded-encoded-and-published-a-video-what-would-be-the-reason-the-video-does-not-play-when-i-try-to-stream-it"></a>Carreguei, codificado e publiquei um vídeo. Qual seria a razão pela qual o vídeo não toca quando tento transmiti-lo?
+
+Uma das razões mais comuns é que não tens o ponto final de streaming a partir do qual estás a tentar jogar no estado de Running.
 
 ### <a name="how-does-pagination-work"></a>Como funciona a paginação?
 
-Ao usar a paginação, você sempre deve usar o link seguinte para enumerar a coleção e não depender de um tamanho de página específico. Para obter detalhes e exemplos, consulte [filtragem, ordenação, paginação](entities-overview.md).
+Ao utilizar a paginação, deve sempre utilizar o próximo link para enumerar a recolha e não depender de um determinado tamanho da página. Para mais detalhes e exemplos, consulte [Filtragem, encomenda, paging](entities-overview.md).
 
-### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais recursos ainda não estão disponíveis nos serviços de mídia do Azure v3?
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais as funcionalidades que ainda não estão disponíveis no Azure Media Services v3?
 
-Para obter detalhes, confira [lacunas de recursos em relação às APIs v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+Para mais detalhes, consulte [lacunas de funcionalidades relativas a APIs v2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
-### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de mover uma conta de serviços de mídia entre assinaturas?  
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de movimentação de uma conta de Media Services entre subscrições?  
 
-Para obter detalhes, consulte [movendo uma conta dos serviços de mídia entre assinaturas](media-services-account-concept.md).
+Para mais detalhes, consulte [Mover uma conta de Media Services entre subscrições](media-services-account-concept.md).
 
 ## <a name="live-streaming"></a>Transmissão em direto 
 
-###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>Como inserir quebras/vídeos e slates de imagem durante a transmissão ao vivo?
+###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>Como inserir quebras/vídeos e ardósias de imagem durante o live stream?
 
-A codificação ativa dos serviços de mídia v3 ainda não dá suporte à inserção de slates de vídeo ou imagem durante a transmissão ao vivo. 
+A codificação ao vivo do Media Services v3 ainda não suporta a inserção de imagens de vídeo ou imagem durante o live stream. 
 
-Você pode usar um [codificador local ao vivo](recommended-on-premises-live-encoders.md) para alternar o vídeo de origem. Muitos aplicativos fornecem a capacidade de alternar fontes, incluindo o Telestream Wirecast, o switch Studio (no iOS), o OBS Studio (aplicativo gratuito) e muito mais.
+Pode utilizar um [codificador ao vivo no local](recommended-on-premises-live-encoders.md) para mudar o vídeo de origem. Muitas aplicações fornecem capacidade para mudar fontes, incluindo Telestream Wirecast, Switcher Studio (no iOS), OBS Studio (app gratuita) e muito mais.
 
 ## <a name="content-protection"></a>Proteção de conteúdo
 
-### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>Devo usar uma criptografia de chave não criptografada AES-128 ou um sistema DRM?
+### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>Devo usar uma encriptação de chave aES-128 ou um sistema DEDRM?
 
-Os clientes freqüentemente se questionam sobre se deve utilizar encriptação AES ou um sistema DRM. A principal diferença entre os dois sistemas é que, com a criptografia AES, a chave de conteúdo é transmitida ao cliente via TLS para que a chave seja criptografada em trânsito, mas sem nenhuma criptografia adicional ("em claro"). Como resultado, a chave usada para descriptografar o conteúdo é acessível ao Player do cliente e pode ser exibida em um rastreamento de rede no cliente em texto sem formatação. Uma criptografia de chave não criptografada AES-128 é adequada para casos de uso em que o visualizador é uma parte confiável (por exemplo, criptografar vídeos corporativos distribuídos em uma empresa para serem exibidos por funcionários).
+Os clientes freqüentemente se questionam sobre se deve utilizar encriptação AES ou um sistema DRM. A principal diferença entre os dois sistemas é que com a encriptação AES a chave de conteúdo é transmitida ao cliente através de TLS para que a chave seja encriptada em trânsito, mas sem qualquer encriptação adicional ("na clara"). Como resultado, a chave usada para desencriptar o conteúdo é acessível ao leitor cliente e pode ser visualizada num traço de rede no cliente em texto simples. Uma encriptação clara da chave AES-128 é adequada para casos de utilização em que o espectador é uma parte de confiança (por exemplo, encriptar vídeos corporativos distribuídos dentro de uma empresa para ser visto pelos colaboradores).
 
-Os sistemas DRM, como PlayReady, Widevine e FairPlay, fornecem um nível adicional de criptografia na chave usada para descriptografar o conteúdo em comparação com uma chave de limpeza AES-128. A chave de conteúdo é criptografada para uma chave protegida pelo tempo de execução do DRM em um adicional para qualquer criptografia de nível de transporte fornecida pelo TLS. Além disso, a desencriptação é tratada num ambiente seguro ao nível do sistema operativo, onde é mais difícil para um utilizador mal intencionado a ataques. Para casos de utilização em que o Visualizador pode não ser um confiável e requerem o nível mais elevado de segurança, recomenda-se DRM.
+Sistemas DRM como PlayReady, Widevine e FairPlay fornecem um nível adicional de encriptação na chave usada para desencriptar o conteúdo em comparação com uma chave clara AES-128. A chave de conteúdo é encriptada para uma chave protegida pelo tempo de execução da DRM em adicional a qualquer encriptação de nível de transporte fornecida pelo TLS. Além disso, a desencriptação é tratada num ambiente seguro ao nível do sistema operativo, onde é mais difícil para um utilizador mal intencionado a ataques. Para casos de utilização em que o Visualizador pode não ser um confiável e requerem o nível mais elevado de segurança, recomenda-se DRM.
 
-### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Como mostrar um vídeo somente para usuários que têm uma permissão específica, sem usar o Azure AD?
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Como mostrar um vídeo apenas a utilizadores que tenham uma permissão específica, sem utilizar o Azure AD?
 
-Você não precisa usar nenhum provedor de token específico (como o Azure AD). Você pode criar seu próprio provedor de [JWT](https://jwt.io/) (chamado STS, Secure token Service), usando a criptografia de chave assimétrica. Em seu STS personalizado, você pode adicionar declarações com base em sua lógica de negócios.
+Não é necessário utilizar nenhum fornecedor de fichas específico (como o Azure AD). Pode criar o seu próprio fornecedor [JWT](https://jwt.io/) (o chamado STS, Secure Token Service), utilizando encriptação de chave assimétrica. No seu STS personalizado, pode adicionar reclamações com base na sua lógica de negócio.
 
-Verifique se o emissor, o público e as reivindicações todas correspondem exatamente entre o que está no JWT e o ContentKeyPolicyRestriction usado em ContentKeyPolicy.
+Certifique-se de que o emitente, o público e as alegações correspondem exatamente entre o que está em JWT e a Restrição de Política de Conteúdo usada no ContentKeyPolicy.
 
-Para obter mais informações, consulte [proteger seu conteúdo usando a criptografia dinâmica dos serviços de mídia](content-protection-overview.md).
+Para mais informações, consulte [Proteja o seu conteúdo utilizando encriptação dinâmica dos Media Services](content-protection-overview.md).
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Como e onde obter JWT token antes de o utilizar para a licença de pedido ou a chave?
 
-1. Para produção, você precisa ter um STS (serviços de token de segurança) (serviço Web) que emite um token JWT após uma solicitação HTTPS. Para teste, poderia usar o código mostrado na **GetTokenAsync** método definido na [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Leitor terá de fazer um pedido, após um utilizador é autenticado, para o STS para esse token e atribua-a como o valor do token. Pode utilizar o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/).
+1. Para produção, é necessário ter um Serviço De Token Seguro (STS) (serviço web) que emite um símbolo JWT a quando um pedido HTTPS. Para o teste, pode utilizar o código mostrado no método **GetTokenAsync** definido em [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Leitor terá de fazer um pedido, após um utilizador é autenticado, para o STS para esse token e atribua-a como o valor do token. Pode utilizar a API do [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Para obter um exemplo de execução do STS, com a chave simétrica e assimétrica, consulte [ https://aka.ms/jwt ](https://aka.ms/jwt). 
-* Para obter um exemplo de um player com base no leitor de multimédia do Azure com esse token JWT, consulte [ https://aka.ms/amtest ](https://aka.ms/amtest) (expandir a ligação de "player_settings" para ver a entrada de token).
+* Para um exemplo de execução de STS, com chave simétrica e assimétrica, consulte [https://aka.ms/jwt](https://aka.ms/jwt). 
+* Para um exemplo de um jogador baseado no Azure Media Player usando tal token JWT, consulte [https://aka.ms/amtest](https://aka.ms/amtest) (expandir a ligação "player_settings" para ver a entrada simbólica).
 
 ### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Como autorizar pedidos para transmitir vídeos em fluxo com encriptação AES?
 
 A abordagem correta é tirar partido do STS (serviço Token seguro):
 
-No STS, dependendo do perfil do usuário, adicione declarações diferentes (como "usuário Premium", "usuário básico", "usuário de avaliação gratuita"). Com afirmações diferentes num JWT, o utilizador pode ver o conteúdo diferente. Obviamente, para conteúdo diferente/recurso, o ContentKeyPolicyRestriction terá o RequiredClaims correspondente.
+No STS, dependendo do perfil do utilizador, adicione diferentes reclamações (como "Utilizador Premium", "Utilizador Básico", "Utilizador de EnsaioGratuito"). Com afirmações diferentes num JWT, o utilizador pode ver o conteúdo diferente. Obviamente, para conteúdo diferente/recurso, o ContentKeyPolicyRestriction terá o RequiredClaims correspondente.
 
-Use as APIs dos serviços de mídia do Azure para configurar a entrega de licença/chave e criptografar seus ativos (conforme mostrado neste [exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+Utilize apIs de Serviços de Mídia Azure para configurar a entrega de licença/chave e encriptar os seus ativos (como mostrado [nesta amostra).](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [Descrição geral da proteção de conteúdo](content-protection-overview.md)
-- [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
+- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) (Design de um sistema de proteção de conteúdo multi-DRM com controlo de acesso)
 
 ### <a name="http-or-https"></a>HTTP ou HTTPS?
 A aplicação de leitor de ASP.NET MVC tem de suportar o seguinte:
@@ -110,7 +118,7 @@ A aplicação de leitor ASP.NET utiliza HTTPS como melhor prática, para que o l
 
 ### <a name="what-about-live-streaming"></a>E quanto ao vivo de transmissão em fluxo?
 
-Pode utilizar exatamente o mesmo design e implementação para proteger a transmissão em fluxo em direto nos serviços de multimédia ao tratar o elemento associado um programa como um ativo VOD. Para fornecer uma proteção de vários DRM do conteúdo ao vivo, aplique a mesma configuração/processamento ao ativo como se fosse um ativo VOD antes de associar o ativo à saída dinâmica.
+Pode utilizar exatamente o mesmo design e implementação para proteger a transmissão em fluxo em direto nos serviços de multimédia ao tratar o elemento associado um programa como um ativo VOD. Para fornecer uma proteção multi-DRM do conteúdo ao vivo, aplique a mesma configuração/processamento ao Ativo como se fosse um ativo VOD antes de associar o Ativo à Saída Ao Vivo.
 
 ### <a name="what-about-license-servers-outside-media-services"></a>E os servidores de licença fora dos serviços de multimédia?
 
@@ -120,24 +128,30 @@ Muitas vezes, os clientes investiram num farm de servidores de licença em seu p
 * Já não terá de configurar o serviço de entrega de licença nos serviços de multimédia. Tem de fornecer a licença de aquisição URLs (para o PlayReady, Widevine e FairPlay) ao configurar ContentKeyPolicies.
 
 > [!NOTE]
-> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+> A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="media-services-v2-vs-v3"></a>Serviços de mídia V2 vs v3 
+## <a name="media-services-v2-vs-v3"></a>Serviços de Media v2 vs v3 
 
-### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Posso usar o portal do Azure para gerenciar recursos v3?
+### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Posso usar o portal Azure para gerir os recursos v3?
 
-Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
+Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
 
-### <a name="is-there-an-assetfile-concept-in-v3"></a>Há um conceito de Assetfile em v3?
+* gerir os Media Services v3 [Eventos Ao Vivo,](live-events-outputs-concept.md) 
+* vista (não gerir) [v3 Ativos,](assets-concept.md) 
+* [obtenha informações sobre o acesso a APIs.](access-api-portal.md) 
 
-Os AssetFiles foram removidos da API do AMS para separar os serviços de mídia da dependência do SDK de armazenamento. Agora, o armazenamento, não os serviços de mídia, mantém as informações que pertencem ao armazenamento. 
+Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
 
-Para obter mais informações, consulte [migrar para os serviços de mídia v3](migrate-from-v2-to-v3.md).
+### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito AssetFile em v3?
 
-### <a name="where-did-client-side-storage-encryption-go"></a>Onde a criptografia de armazenamento do lado do cliente está em trânsito?
+Os AssetFiles foram removidos da AmS API para separar os Serviços de Media da dependência do SDK de armazenamento. Agora, o Armazenamento, não os Serviços de Media, guarda a informação que pertence ao Armazenamento. 
 
-Agora é recomendável usar a criptografia de armazenamento do lado do servidor (que está ativada por padrão). Para obter mais informações, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Para mais informações, consulte [Migrate to Media Services v3](media-services-v2-vs-v3.md).
+
+### <a name="where-did-client-side-storage-encryption-go"></a>Para onde foi a encriptação de armazenamento do lado do cliente?
+
+É agora recomendado utilizar a encriptação de armazenamento do lado do servidor (que está ligado por padrão). Para mais informações, consulte a Encriptação do Serviço de [Armazenamento Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Visão geral dos serviços de mídia v3](media-services-overview.md)
+[Visão geral do Media Services v3](media-services-overview.md)

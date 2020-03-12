@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 49a63be8e8ac3752006d531f4541cb3c2904c3e3
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+manager: lizross
+ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539625"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127876"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 

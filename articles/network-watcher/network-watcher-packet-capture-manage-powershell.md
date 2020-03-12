@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: e76193a635ee723e13ea4a8a23f668b6e3d1cbb0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 06263f85f7d6ad6cc80724baab01124833498739
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840881"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129650"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerir capturas de pacotes com o Azure Network Watcher usando powerShell
 
@@ -52,13 +52,13 @@ Este artigo assume que tem os seguintes recursos:
 
 ## <a name="install-vm-extension"></a>Instalar a extensão de VM
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 O exemplo seguinte recupera as informações de extensão necessárias para executar o `Set-AzVMExtension` cmdlet. Este cmdlet instala o agente de captura de pacotes na máquina virtual do hóspede.
 
@@ -89,7 +89,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK   
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Para garantir a instalação do agente, passe a `Get-AzVMExtension` cmdlet e passe-lhe o nome da máquina virtual e o nome de extensão.
 
@@ -123,15 +123,15 @@ ForceUpdateTag          :
 
 Uma vez concluídos os passos anteriores, o agente de captura do pacote é instalado na máquina virtual.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 O próximo passo é recuperar a instância do Observador da Rede. Esta variável é passada para o `New-AzNetworkWatcherPacketCapture` cmdlet no passo 4.
 
 ```powershell
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzResource -ResourceType "Microsoft.Network/networkWatchers" | Where {$_.Location -eq "WestCentralUS" }
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Recuperar uma conta de armazenamento. Esta conta de armazenamento é usada para armazenar o ficheiro de captura do pacote.
 
@@ -139,7 +139,7 @@ Recuperar uma conta de armazenamento. Esta conta de armazenamento é usada para 
 $storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Os filtros podem ser utilizados para limitar os dados armazenados pela captura do pacote. O exemplo seguinte configura dois filtros.  Um filtro recolhe tráfego de TCP de saída apenas a partir do IP local 10.0.0.3 para os portos de destino 20, 80 e 443.  O segundo filtro recolhe apenas o tráfego uDP.
 
@@ -268,7 +268,7 @@ Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCapt
 
 Uma vez concluída a sua sessão de captura de pacotes, o ficheiro de captura pode ser enviado para armazenamento de bolhas ou para um ficheiro local no VM. A localização de armazenamento da captura do pacote é definida na criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados numa conta de armazenamento é o Microsoft Azure Storage Explorer, que pode ser descarregado aqui: https://storageexplorer.com/
 
-Se uma conta de armazenamento for especificada, os arquivos de captura de pacote serão salvos em uma conta de armazenamento no seguinte local:
+Se for especificada uma conta de armazenamento, os ficheiros de captura de pacotes são guardados numa conta de armazenamento no seguinte local:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap

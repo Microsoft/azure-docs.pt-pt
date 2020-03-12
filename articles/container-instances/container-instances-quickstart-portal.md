@@ -1,26 +1,21 @@
 ---
-title: Guia de início rápido – implantar o contêiner do Docker na instância do contêiner-Portal
-description: Neste guia de início rápido, você usa o portal do Azure para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Quickstart - Desloque o contentor Docker para a instância do contentor - Portal
+description: Neste arranque rápido, você usa o portal Azure para implementar rapidamente uma aplicação web contentorizada que funciona em um caso isolado de contentores Azure
 ms.topic: quickstart
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 03/09/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533533"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087956"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: implantar uma instância de contêiner no Azure usando o portal do Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Quickstart: Implementar uma instância de contentores em Azure utilizando o portal Azure
 
-Use as instâncias de contêiner do Azure para executar contêineres do Docker sem servidor no Azure com simplicidade e velocidade. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisar de uma plataforma de orquestração de contêiner completa, como o serviço kubernetes do Azure.
+Utilize instâncias de contentores Azure para executar recipientes Docker sem servidor em Azure com simplicidade e velocidade. Implemente uma aplicação para um contentor a pedido quando não precisar de uma plataforma de orquestração de contentores completa como o Serviço Azure Kubernetes.
 
-Neste guia de início rápido, você usa o portal do Azure para implantar um contêiner do Docker isolado e tornar seu aplicativo disponível com um FQDN (nome de domínio totalmente qualificado). Depois de configurar algumas definições e implementar o contentor, pode navegar para a aplicação em execução:
+Neste arranque rápido, utiliza o portal Azure para implantar um recipiente Docker isolado e disponibilizar a sua aplicação com um nome de domínio totalmente qualificado (FQDN). Depois de configurar algumas definições e implementar o contentor, pode navegar para a aplicação em execução:
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][aci-portal-07]
 
@@ -36,29 +31,30 @@ Selecione **Criar um recurso** > **Contentores** >  **Container Instances**.
 
 ![Começar a criar uma nova instância do contentor no portal do Azure][aci-portal-01]
 
-Na página **noções básicas** , insira os valores a seguir nas caixas de texto **grupo de recursos**, **nome do contêiner**e imagem de **contêiner** . Deixe os outros valores nas predefinições e, em seguida, selecione **OK**.
+Na página Basics, introduza os **seguintes valores** no **grupo Recurso**, nome **do contentor**e caixas de texto de **imagem contentor.** Deixe os outros valores nas predefinições e, em seguida, selecione **OK**.
 
 * Grupo de recursos: **Criar novo** > `myresourcegroup`
 * Nome do contentor: `mycontainer`
-* Imagem de contentor: `mcr.microsoft.com/azuredocs/aci-helloworld`
+* Fonte de imagem: **Imagens Quickstart**
+* Imagem do recipiente: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
-Para este guia de início rápido, use a configuração de **tipo de imagem** padrão **pública** para implantar a imagem pública do Microsoft `aci-helloworld`. Esta imagem do Linux empacota um pequeno aplicativo Web escrito em node. js que serve a uma página HTML estática.
+Para este arranque rápido, utilize definições predefinidas para implementar a imagem `aci-helloworld` microsoft pública. Esta amostra de imagem Linux embala uma pequena aplicação web escrita no Node.js que serve uma página html estática. Também pode trazer as suas próprias imagens de contentores armazenadas no Registo de Contentores Azure, NoT O Hub ou outros registos.
 
-Na página **rede** , especifique um **rótulo de nome DNS** para seu contêiner. O nome deve ser exclusivo na região do Azure em que você cria a instância de contêiner. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
+Na página **de Networking,** especifique uma **etiqueta de nome DNS** para o seu recipiente. O nome deve ser único dentro da região de Azure, onde se cria a instância do contentor. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
-![Configurar uma nova instância do contentor no portal do Azure][aci-portal-04]
+![Configurar as definições de rede para uma nova instância de contentores no portal Azure][aci-portal-04]
 
-Deixe as outras configurações em seus padrões e selecione **revisar + criar**.
+Deixe as outras definições nas suas definições e, em seguida, selecione **Rever + criar**.
 
-Quando a validação estiver concluída, é apresentado um resumo das definições de contentor. Selecione **criar** para enviar sua solicitação de implantação de contêiner.
+Quando a validação estiver concluída, é apresentado um resumo das definições de contentor. Selecione **Criar** para submeter o seu pedido de implantação do recipiente.
 
 ![Resumo das definições para uma nova instância do contentor no portal do Azure][aci-portal-05]
 
-Quando inicia a implementação, é apresentado uma notificação que indica que a implementação está em curso. É apresentada outra notificação quando o grupo de contentores tiver sido implementado.
+Quando a implementação começa, uma notificação parece indicar que a implementação está em andamento. É apresentada outra notificação quando o grupo de contentores tiver sido implementado.
 
-Abra a visão geral do grupo de contêineres navegando até **grupos de recursos** > **myresource** Group > **MyContainer**. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
+Abra a visão geral para o grupo de contentores navegando para **Grupos de Recursos** > **myresourcegroup** > **mycontainer**. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
 
 ![Descrição geral do grupo de contentores no portal do Azure][aci-portal-06]
 
@@ -88,7 +84,7 @@ Selecione **Sim** quando caixa de diálogo de confirmação for apresentada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou uma instância de contêiner do Azure a partir de uma imagem pública da Microsoft. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
+Neste arranque rápido, criou um contentor Azure a partir de uma imagem pública da Microsoft. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)

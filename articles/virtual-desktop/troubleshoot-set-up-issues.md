@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 438c391febc28a716c681aa81b3f42c155b720eb
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367225"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127442"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 

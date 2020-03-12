@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672100"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086276"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para a escala de cafés de computação em uma piscina de lote
 
@@ -128,7 +128,7 @@ Você pode obter o valor destas variáveis definidas pelo serviço para fazer aj
 | $NetworkInBytes |O número de bytes de entrada. |
 | $NetworkOutBytes |O número de bytes de saída. |
 | $SampleNodeCount |A contagem de nódosos de computação. |
-| $ActiveTasks |O número de tarefas que estão prontas a executar, mas que ainda não estão a executar. A contagem de $ActiveTasks inclui todas as tarefas que estão no estado ativo e cujas dependências foram satisfeitas. Quaisquer tarefas que estejam no estado ativo, mas cujas dependências não foram satisfeitas, estão excluídas da contagem $ActiveTasks.|
+| $ActiveTasks |O número de tarefas que estão prontas a executar, mas que ainda não estão a executar. A contagem de $ActiveTasks inclui todas as tarefas que estão no estado ativo e cujas dependências foram satisfeitas. Quaisquer tarefas que estejam no estado ativo, mas cujas dependências não foram satisfeitas, estão excluídas da contagem $ActiveTasks. Para uma tarefa em várias instâncias, $ActiveTasks incluirá o número de instâncias definidas na tarefa.|
 | $RunningTasks |O número de tarefas em estado de execução. |
 | $PendingTasks |A soma dos $ActiveTasks e $RunningTasks. |
 | $SucceededTasks |O número de tarefas que terminaram com sucesso. |

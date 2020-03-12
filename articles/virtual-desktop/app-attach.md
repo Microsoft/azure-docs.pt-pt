@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 5db60160540fc59465e13bd2e68680f49ee0aa2b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+manager: lizross
+ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470892"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128329"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -420,7 +421,7 @@ $methodName = "AddLicenseMethod"
 $parentID = "./Vendor/MSFT/EnterpriseModernAppManagement/AppLicenses/StoreLicenses"
 
 #TODO - Update $contentID with the ContentID value from the unencoded license file (.xml)
-$contentID = "{‘ContentID’_in_unencoded_license_file}"
+$contentID = "{'ContentID'_in_unencoded_license_file}"
 
 #TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
 $licenseBlob = "{Entire_String_in_encoded_license_file}"

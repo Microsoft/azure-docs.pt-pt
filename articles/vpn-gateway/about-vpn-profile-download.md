@@ -1,26 +1,26 @@
 ---
-title: 'Gateway de VPN do Azure: sobre perfis de cliente VPN P2S'
-description: Isso ajuda você a trabalhar com o arquivo de perfil do cliente
+title: 'Azure VPN Gateway: Sobre os perfis de clientes P2S VPN'
+description: Isto ajuda-o a trabalhar com o ficheiro de perfil do cliente
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5386cace7191be60534f0d2fbf4a85b592d1ecdd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 762f62fa0901672c447da42f416e5b003e7419b2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151634"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127308"
 ---
-# <a name="about-p2s-vpn-client-profiles"></a>Sobre perfis de cliente VPN P2S
+# <a name="about-p2s-vpn-client-profiles"></a>Sobre os perfis de clientes P2S VPN
 
-O arquivo de perfil baixado contém informações necessárias para configurar uma conexão VPN. Este artigo o ajudará a obter e entender as informações necessárias para um perfil de cliente VPN.
+O ficheiro de perfil descarregado contém informações necessárias para configurar uma ligação VPN. Este artigo irá ajudá-lo a obter e entender as informações necessárias para um perfil de cliente VPN.
 
-## <a name="1-download-the-file"></a>1. baixar o arquivo
+## <a name="1-download-the-file"></a>1. Descarregue o ficheiro
 
-Execute os comandos a seguir. Copie a URL do resultado para o navegador para baixar o arquivo zip do perfil.
+Executar os seguintes comandos. Copie o URL de resultados para o seu navegador para descarregar o ficheiro zip do perfil.
 
 ```azurepowershell-interactive
 $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
@@ -28,17 +28,17 @@ $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauth
 $PROFILE.VpnProfileSASUrl
 ```
 
-## <a name="2-extract-the-zip-file"></a>2. Extraia o arquivo zip
+## <a name="2-extract-the-zip-file"></a>2. Extrair o ficheiro zip
 
-Extraia o ficheiro zip. O arquivo contém as seguintes pastas:
+Extraia o ficheiro zip. O ficheiro contém as seguintes pastas:
 
 * AzureVPN
-* Genérica
-* OpenVPN (se você tiver habilitado as configurações de autenticação do OpenVPN e do Azure AD no gateway. Consulte [criar um locatário](openvpn-azure-ad-tenant.md).)
+* Genérico
+* OpenVPN (Se ativar as definições de autenticação OpenVPN e Azure AD no gateway. Ver [Criar um inquilino](openvpn-azure-ad-tenant.md).)
 
-## <a name="3-retrieve-information"></a>3. recuperar informações
+## <a name="3-retrieve-information"></a>3. Recuperar informações
 
-Na pasta **AzureVPN** , navegue até o arquivo ***azurevpnconfig. xml*** e abra-o com o bloco de notas. Anote o texto entre as marcas a seguir.
+Na pasta **AzureVPN,** navegue para o ficheiro ***azurevpnconfig.xml*** e abra-o com o Bloco de Notas. Tome nota do texto entre as seguintes etiquetas.
 
 ```
 <audience>          </audience>
@@ -50,22 +50,22 @@ Na pasta **AzureVPN** , navegue até o arquivo ***azurevpnconfig. xml*** e abra-
 
 ## <a name="profile-details"></a>Detalhes do perfil
 
-Ao adicionar uma conexão, use as informações coletadas na etapa anterior para a página de detalhes do perfil. Os campos correspondem às seguintes informações:
+Quando adicionar uma ligação, utilize as informações recolhidas no passo anterior para a página de detalhes do perfil. Os campos correspondem às seguintes informações:
 
-   * **Público-alvo:** Identifica o recurso de destinatário para o qual o token se destina
-   * **Emissor:** Identifica o serviço de token de segurança (STS) que emitiu o token, bem como o locatário do Azure AD
-   * **Locatário:** Contém um identificador exclusivo e imutável do locatário do diretório que emitiu o token
-   * **FQDN:** O FQDN (nome de domínio totalmente qualificado) no gateway de VPN do Azure
-   * **ServerSecret:** A chave pré-compartilhada de gateway de VPN
+   * **Público:** Identifica o recurso recetor para o que o símbolo destina-se
+   * **Emitente:** Identifica o Serviço de Token de Segurança (STS) que emitia o símbolo, bem como o inquilino da AD Azure
+   * **Inquilino:** Contém um identificador imutável e único do inquilino do diretório que emitiu o símbolo
+   * **FQDN:** O nome de domínio totalmente qualificado (FQDN) no gateway Azure VPN
+   * **ServerSecret:** A chave pré-partilhada de gateway VPN
 
 ## <a name="folder-contents"></a>Conteúdo da pasta
 
-* A **pasta OpenVPN** contém o perfil *ovpn* que precisa ser modificado para incluir a chave e o certificado. Para obter mais informações, consulte [configurar clientes do OpenVPN para o gateway de VPN do Azure](vpn-gateway-howto-openvpn-clients.md#windows).
+* A **pasta OpenVPN** contém o perfil *ovpn* que precisa de ser modificado para incluir a chave e o certificado. Para mais informações, consulte [os clientes Configure OpenVPN para Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). Esta pasta não estará presente no ficheiro zip se a autenticação da AD Azure for selecionada no gateway VPN. Em vez disso, o azurevpnconfig.xml estará na pasta AzureVPN.
 
-* A **pasta genérico** contém o certificado do servidor público e o arquivo VpnSettings. xml. O arquivo VpnSettings. xml contém as informações necessárias para configurar um cliente genérico.
+* A **pasta genérica** contém o certificado de servidor público e o ficheiro VpnSettings.xml. O ficheiro VpnSettings.xml contém informações necessárias para configurar um cliente genérico.
 
-* O arquivo zip baixado também pode conter pastas **WindowsAmd64** e **WindowsX86** . Essas pastas contêm o instalador para SSTP e IKEv2 para clientes Windows. Você precisa de direitos de administrador no cliente para instalá-los.
+* O ficheiro zip descarregado também pode conter as pastas **WindowsAmd64** e **WindowsX86.** Estas pastas contêm o instalador para clientes SSTP e IKEv2 para clientes Windows. Precisa de direitos administrativos sobre o cliente para instalá-los.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre ponto a site, consulte [sobre ponto a site](point-to-site-about.md).
+Para mais informações sobre o ponto-a-local, consulte [o ponto-a-local](point-to-site-about.md).

@@ -1,42 +1,42 @@
 ---
-title: Autenticar saída de blob com identidade gerenciada Azure Stream Analytics
-description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure.
+title: Produção de bolha autenticada com Identidade Gerida Azure Stream Analytics
+description: Este artigo descreve como usar identidades geridas para autenticar o seu trabalho de Azure Stream Analytics à saída de armazenamento Do Blob Azure.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 03/11/2020
+ms.openlocfilehash: 13f48a9e0bc3ed8f8c4d5f1b7da4b6c03f54cdf8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664313"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129967"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure (versão prévia)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Use identidade gerida para autenticar o seu trabalho azure stream analytics para a saída de Armazenamento Azure Blob
 
-A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para o armazenamento de BLOBs do Azure está disponível para Azure Stream Analytics como uma visualização. Isso dá aos trabalhos de Stream Analytics acesso direto a uma conta de armazenamento em vez de usar uma cadeia de conexão. Além da segurança aprimorada, esse recurso também permite que você grave dados em uma conta de armazenamento em uma rede virtual (VNET) no Azure.
+[A autenticação de identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para saída para o armazenamento De Blob Azure dá aos trabalhos stream Analytics acesso direto a uma conta de armazenamento em vez de usar uma cadeia de ligação. Além de uma maior segurança, esta funcionalidade também permite escrever dados numa conta de armazenamento numa Rede Virtual (VNET) dentro do Azure.
 
-Este artigo mostra como habilitar a identidade gerenciada para as saídas de blob de um trabalho de Stream Analytics por meio do portal do Azure e de uma implantação de Azure Resource Manager.
+Este artigo mostra-lhe como ativar a Identidade Gerida para a saída blob(s) de um trabalho de Stream Analytics através do portal Azure e através de uma implementação do Gestor de Recursos Azure.
 
-## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Criar o trabalho de Stream Analytics usando o portal do Azure
+## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Crie o trabalho stream analytics usando o portal Azure
 
-1. Crie um novo trabalho de Stream Analytics ou abra um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizada em **Configurar**. Certifique-se de que "usar identidade gerenciada atribuída pelo sistema" esteja selecionado e, em seguida, clique no botão **salvar** na parte inferior da tela.
+1. Crie um novo trabalho stream analytics ou abra um emprego existente no portal Azure. A partir da barra de menu seletiva do lado esquerdo do ecrã, selecione **Identidade Gerida** localizada em **Configuração**. Certifique-se de que "Use a Identidade Gerida atribuída pelo sistema" e, em seguida, clique no botão **Guardar** na parte inferior do ecrã.
 
-   ![Configurar Stream Analytics identidade gerenciada](./media/common/stream-analytics-enable-managed-identity.png)
+   ![Identidade gerida por Configure Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. Na janela Propriedades de saída do coletor de saída do armazenamento de BLOBs do Azure, selecione a lista suspensa modo de autenticação e escolha **identidade gerenciada**. Para obter informações sobre outras propriedades de saída, consulte [entender as saídas de Azure Stream Analytics](./stream-analytics-define-outputs.md). Quando tiver terminado, clique em **salvar**.
+2. Na janela de propriedades de saída do depósito do Azure Blob, selecione o modo de autenticação drop-down e escolha **Identidade Gerida**. Para obter informações sobre as outras propriedades de saída, consulte [as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md). Quando terminar, clique em **Guardar**.
 
-   ![Configurar a saída do armazenamento de BLOBs do Azure](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+   ![Configure saída de armazenamento De Blob Azure](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 
-3. Agora que o trabalho foi criado, consulte a seção [fornecer a Stream Analytics o acesso ao trabalho para sua conta de armazenamento](#give-the-stream-analytics-job-access-to-your-storage-account) deste artigo.
+3. Agora que o trabalho é criado, consulte o acesso ao [trabalho do Give the Stream Analytics à sua](#give-the-stream-analytics-job-access-to-your-storage-account) secção de conta de armazenamento deste artigo.
 
 ## <a name="azure-resource-manager-deployment"></a>Implementação do Azure Resource Manager
 
-O uso de Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Os exemplos a seguir usam o CLI do Azure.
+A utilização do Gestor de Recursos Azure permite-lhe automatizar totalmente a implementação do seu trabalho em Stream Analytics. Pode implementar modelos de Gestor de Recursos utilizando o Azure PowerShell ou o [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Os exemplos abaixo utilizam o Azure CLI.
 
 
-1. Você pode criar um recurso **Microsoft. StreamAnalytics/streamingjobs** com uma identidade gerenciada, incluindo a seguinte propriedade na seção de recursos do seu modelo do Resource Manager:
+1. Pode criar um recurso **Microsoft.StreamAnalytics/streamingjobs** com uma Identidade Gerida, incluindo a seguinte propriedade na secção de recursos do seu modelo de Gestor de Recursos:
 
     ```json
     "Identity": {
@@ -44,7 +44,7 @@ O uso de Azure Resource Manager permite automatizar totalmente a implantação d
     },
     ```
 
-   Essa propriedade informa Azure Resource Manager para criar e gerenciar a identidade de seu trabalho de Stream Analytics. Veja abaixo um exemplo de modelo do Resource Manager que implanta um trabalho de Stream Analytics com identidade gerenciada habilitada e um coletor de saída de BLOB que usa identidade gerenciada:
+   Esta propriedade diz ao Azure Resource Manager para criar e gerir a identidade para o seu trabalho de Stream Analytics. Abaixo está um modelo de Gestor de Recursos de exemplo que implementa um trabalho de Stream Analytics com identidade gerida ativada e um lavatório de saída Blob que usa identidade gerida:
 
     ```json
     {
@@ -95,19 +95,19 @@ O uso de Azure Resource Manager permite automatizar totalmente a implantação d
     }
     ```
 
-    O trabalho acima pode ser implantado para o grupo de recursos de **exemplo** usando o comando a seguir CLI do Azure:
+    O trabalho acima pode ser implantado para o grupo de recursos **ExemploGroup** utilizando o comando CLI do Azure abaixo:
 
     ```azurecli
     az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
-2. Depois que o trabalho for criado, você poderá usar Azure Resource Manager para recuperar a definição completa do trabalho.
+2. Após a criação do trabalho, pode utilizar o Gestor de Recursos Azure para recuperar a definição completa do trabalho.
 
     ```azurecli
     az resource show --ids /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.StreamAnalytics/StreamingJobs/{RESOURCE_NAME}
     ```
 
-    O comando acima retornará uma resposta como a seguinte:
+    O comando acima devolverá uma resposta como a seguinte:
 
     ```json
     {
@@ -146,96 +146,96 @@ O uso de Azure Resource Manager permite automatizar totalmente a implantação d
     }
     ```
 
-   Anote a entidade de **segurança** da definição do trabalho, que identifica a identidade gerenciada do trabalho dentro do Azure Active Directory e será usada na próxima etapa para conceder ao Stream Analytics acesso ao trabalho para a conta de armazenamento.
+   Tome nota do **principado da** definição do trabalho, que identifica a Identidade Gerida do seu trabalho dentro do Diretório Ativo Azure e será utilizado no próximo passo para conceder o acesso ao emprego da Stream Analytics na conta de armazenamento.
 
-3. Agora que o trabalho foi criado, consulte a seção [fornecer a Stream Analytics o acesso ao trabalho para sua conta de armazenamento](#give-the-stream-analytics-job-access-to-your-storage-account) deste artigo.
+3. Agora que o trabalho é criado, consulte o acesso ao [trabalho do Give the Stream Analytics à sua](#give-the-stream-analytics-job-access-to-your-storage-account) secção de conta de armazenamento deste artigo.
 
 
-## <a name="give-the-stream-analytics-job-access-to-your-storage-account"></a>Dê ao Stream Analytics acesso ao trabalho para sua conta de armazenamento
+## <a name="give-the-stream-analytics-job-access-to-your-storage-account"></a>Dê ao stream Analytics acesso ao emprego na sua conta de armazenamento
 
-Há dois níveis de acesso que você pode escolher para dar seu Stream Analytics trabalho:
+Existem dois níveis de acesso que pode optar por dar o seu trabalho de Streaming Analytics:
 
-1. **Acesso em nível de contêiner:** essa opção fornece o acesso de trabalho a um contêiner existente específico.
-2. **Acesso no nível da conta:** essa opção fornece ao trabalho acesso geral à conta de armazenamento, incluindo a capacidade de criar novos contêineres.
+1. Acesso ao **nível do contentor:** esta opção dá ao trabalho acesso a um recipiente específico existente.
+2. Acesso ao **nível da conta:** esta opção dá ao trabalho acesso geral à conta de armazenamento, incluindo a capacidade de criar novos contentores.
 
-A menos que você precise do trabalho para criar contêineres em seu nome, escolha o **acesso em nível de contêiner** , pois essa opção concederá ao trabalho o nível mínimo de acesso necessário. As duas opções são explicadas abaixo para o portal do Azure e a linha de comando.
+A menos que necessite do trabalho para criar contentores em seu nome, deve escolher o acesso ao **nível do Contentor,** uma vez que esta opção concederá ao trabalho o nível mínimo de acesso necessário. Ambas as opções são explicadas abaixo para o portal Azure e a linha de comando.
 
-### <a name="grant-access-via-the-azure-portal"></a>Conceder acesso por meio do portal do Azure
+### <a name="grant-access-via-the-azure-portal"></a>Conceder acesso através do portal Azure
 
-#### <a name="container-level-access"></a>Acesso em nível de contêiner
+#### <a name="container-level-access"></a>Acesso ao nível do contentor
 
-1. Navegue até o painel de configuração do contêiner em sua conta de armazenamento.
+1. Navegue para o painel de configuração do recipiente dentro da sua conta de armazenamento.
 
-2. Selecione **controle de acesso (iam)** no lado esquerdo.
+2. Selecione **Control de Acesso (IAM)** no lado esquerdo.
 
-3. Na seção "adicionar uma atribuição de função", clique em **Adicionar**.
+3. Na secção "Adicionar uma atribuição de funções", clique em **adicionar**.
 
-4. No painel atribuição de função:
+4. No painel de atribuição de papéis:
 
-    1. Defina a **função** como "colaborador de dados de blob de armazenamento"
-    2. Certifique-se de que a lista suspensa **atribuir acesso ao** está definida como "usuário, grupo ou entidade de serviço do Azure AD".
+    1. Definir a **função** de "Contribuinte de Dados blob de armazenamento"
+    2. Certifique-se de que o **acesso atribuído ao** dropdown está definido para "Utilizador, grupo ou diretor de serviço Azure AD".
     3. Digite o nome do seu trabalho de Stream Analytics no campo de pesquisa.
-    4. Selecione seu trabalho de Stream Analytics e clique em **salvar**.
+    4. Selecione o seu trabalho de Analytics stream e clique em **Guardar**.
 
-   ![Conceder acesso ao contêiner](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
+   ![Acesso ao contentor de concessão](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
 
-#### <a name="account-level-access"></a>Acesso no nível da conta
+#### <a name="account-level-access"></a>Acesso ao nível da conta
 
 1. Navegue até à sua conta de armazenamento.
 
-2. Selecione **controle de acesso (iam)** no lado esquerdo.
+2. Selecione **Control de Acesso (IAM)** no lado esquerdo.
 
-3. Na seção "adicionar uma atribuição de função", clique em **Adicionar**.
+3. Na secção "Adicionar uma atribuição de funções", clique em **adicionar**.
 
-4. No painel atribuição de função:
+4. No painel de atribuição de papéis:
 
-    1. Defina a **função** como "colaborador de dados de blob de armazenamento"
-    2. Certifique-se de que a lista suspensa **atribuir acesso ao** está definida como "usuário, grupo ou entidade de serviço do Azure AD".
+    1. Definir a **função** de "Contribuinte de Dados blob de armazenamento"
+    2. Certifique-se de que o **acesso atribuído ao** dropdown está definido para "Utilizador, grupo ou diretor de serviço Azure AD".
     3. Digite o nome do seu trabalho de Stream Analytics no campo de pesquisa.
-    4. Selecione seu trabalho de Stream Analytics e clique em **salvar**.
+    4. Selecione o seu trabalho de Analytics stream e clique em **Guardar**.
 
-   ![Conceder acesso à conta](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
+   ![Acesso à conta de concessão](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
 
-### <a name="grant-access-via-the-command-line"></a>Conceder acesso por meio da linha de comando
+### <a name="grant-access-via-the-command-line"></a>Conceder acesso através da linha de comando
 
-#### <a name="container-level-access"></a>Acesso em nível de contêiner
+#### <a name="container-level-access"></a>Acesso ao nível do contentor
 
-Para conceder acesso a um contêiner específico, execute o seguinte comando usando o CLI do Azure:
+Para dar acesso a um recipiente específico, execute o seguinte comando utilizando o Azure CLI:
 
    ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
    ```
 
-#### <a name="account-level-access"></a>Acesso no nível da conta
+#### <a name="account-level-access"></a>Acesso ao nível da conta
 
-Para conceder acesso à conta inteira, execute o seguinte comando usando o CLI do Azure:
+Para dar acesso a toda a conta, execute o seguinte comando utilizando o Azure CLI:
 
    ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
    ```
 
-## <a name="enable-vnet-access"></a>Habilitar o acesso à VNET
+## <a name="enable-vnet-access"></a>Ativar o acesso vNET
 
-Ao configurar os **firewalls e as redes virtuais**da sua conta de armazenamento, você pode opcionalmente permitir o tráfego de rede de outros serviços confiáveis da Microsoft. Quando Stream Analytics autentica usando identidade gerenciada, ele fornece uma prova de que a solicitação é originada de um serviço confiável. Abaixo estão as instruções para habilitar essa exceção de acesso VNET.
+Ao configurar as **Firewalls e redes virtuais**da sua conta de armazenamento, pode opcionalmente permitir o tráfego de rede a partir de outros serviços confiáveis da Microsoft. Quando o Stream Analytics autentica usando a Identidade Gerida, fornece a prova de que o pedido é originário de um serviço de confiança. Abaixo estão as instruções para ativar esta exceção de acesso VNET.
 
-1.  Navegue até o painel "firewalls e redes virtuais" no painel de configuração da conta de armazenamento.
-2.  Verifique se a opção "permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento" está habilitada.
-3.  Se você o tiver habilitado, clique em **salvar**.
+1.  Navegue para o painel "Firewalls e redes virtuais" dentro do painel de configuração da conta de armazenamento.
+2.  Certifique-se de que a opção "Permitir que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento".
+3.  Se o ativar, clique em **Guardar**.
 
-   ![Habilitar o acesso à VNET](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+   ![Ativar o acesso vNET](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 
 ## <a name="limitations"></a>Limitações
-Abaixo estão as limitações atuais deste recurso:
+Abaixo estão as limitações atuais desta funcionalidade:
 
-1. Contas de armazenamento do Azure clássicas.
+1. Contas clássicas de Armazenamento Azure.
 
-2. Contas do Azure sem Azure Active Directory.
+2. Contas Azure sem Diretório Ativo Azure.
 
-3. Não há suporte para acesso multilocatário. A entidade de serviço criada para um determinado trabalho de Stream Analytics deve residir no mesmo locatário de Azure Active Directory no qual o trabalho foi criado e não pode ser usada com um recurso que reside em um locatário de Azure Active Directory diferente.
+3. O acesso a vários inquilinos não é suportado. O diretor de serviço criado para um determinado trabalho stream analytics deve residir no mesmo inquilino azure Ative Directory em que o trabalho foi criado, e não pode ser usado com um recurso que reside em um inquilino azure Ative Directory diferente.
 
-4. Não há suporte para a [identidade atribuída ao usuário](../active-directory/managed-identities-azure-resources/overview.md) . Isso significa que o usuário não é capaz de inserir sua própria entidade de serviço a ser usada por seus Stream Analytics trabalho. A entidade de serviço deve ser gerada pelo Azure Stream Analytics.
+4. [A Identidade Atribuída](../active-directory/managed-identities-azure-resources/overview.md) ao Utilizador não é suportada. Isto significa que o utilizador não pode entrar no seu próprio serviço principal para ser utilizado pelo seu trabalho stream analytics. O diretor de serviço deve ser gerado pelo Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Entender as saídas de Azure Stream Analytics](./stream-analytics-define-outputs.md)
-* [Azure Stream Analytics o particionamento de saída de blob personalizado](./stream-analytics-custom-path-patterns-blob-storage-output.md)
+* [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)
+* [Partição de saída de blob personalizada Azure Stream Analytics](./stream-analytics-custom-path-patterns-blob-storage-output.md)

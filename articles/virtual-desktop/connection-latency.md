@@ -1,31 +1,32 @@
 ---
-title: Latência de conexão de usuário da área de trabalho virtual do Windows – Azure
-description: Latência de conexão para usuários da área de trabalho virtual do Windows.
+title: Latência de ligação ao utilizador do Windows Virtual Desktop - Azure
+description: Latência de ligação para utilizadores de Ambiente de Trabalho Virtual windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
-ms.openlocfilehash: 7ef35bdf6c7470d425826d7a30755cc216e69158
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+manager: lizross
+ms.openlocfilehash: a4210947d771768943775a3e62c2558fa2883bd5
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164721"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128188"
 ---
-# <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinar a latência de conexão de usuário na área de trabalho virtual do Windows
+# <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determine a latência da ligação do utilizador no Windows Virtual Desktop
 
-A área de trabalho virtual do Windows está disponível globalmente. Os administradores podem criar máquinas virtuais (VMs) em qualquer região do Azure que desejarem. A latência de conexão irá variar dependendo do local dos usuários e das máquinas virtuais. Os serviços de área de trabalho virtual do Windows serão continuamente distribuídos para novas regiões para melhorar a latência. 
+O Windows Virtual Desktop está globalmente disponível. Os administradores podem criar máquinas virtuais (VMs) em qualquer região azure que queiram. A latência de ligação variará consoante a localização dos utilizadores e das máquinas virtuais. Os serviços de Desktop Virtual windows serão continuamente lançados para novas geografias para melhorar a latência. 
  
-A [ferramenta estimador de experiência de área de trabalho virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/) pode ajudá-lo a determinar o melhor local para otimizar a latência de suas VMs. Recomendamos que você use a ferramenta a cada dois ou três meses para garantir que o local ideal não seja alterado à medida que a área de trabalho virtual do Windows se acumula em novas áreas. 
+A ferramenta Estimativa de Experiência de Ambiente de [Trabalho Virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/) pode ajudá-lo a determinar a melhor localização para otimizar a latência dos seus VMs. Recomendamos que utilize a ferramenta de dois em dois a três meses para se certificar de que a localização ideal não mudou à medida que o Windows Virtual Desktop avança para novas áreas. 
 
 ## <a name="azure-traffic-manager"></a>Traffic Manager do Azure
 
-A área de trabalho virtual do Windows usa o Gerenciador de tráfego do Azure, que verifica o local do servidor DNS do usuário para encontrar a instância mais próxima do serviço de área de trabalho virtual do Windows. Recomendamos que os administradores examinem o local do servidor DNS do usuário antes de escolher o local para as VMs.
+O Windows Virtual Desktop utiliza o Gestor de Tráfego Azure, que verifica a localização do servidor DNS do utilizador para encontrar a instância de serviço de ambiente de trabalho virtual do Windows mais próxima. Recomendamos que os administradores revejam a localização do servidor DNS do utilizador antes de escolher a localização para os VMs.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para verificar o melhor local para obter a latência ideal, consulte a [ferramenta estimador de experiência de área de trabalho virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/).
-- Para os planos de preços, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- Para começar a usar sua implantação de área de trabalho virtual do Windows, confira [nosso tutorial](tenant-setup-azure-active-directory.md).
+- Para verificar a melhor localização para obter uma latência ideal, consulte a ferramenta Estimativa de Experiência de Ambiente de [Trabalho Virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+- Para planos de preços, consulte os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+- Para começar com a implementação do Windows Virtual Desktop, confira [o nosso tutorial.](tenant-setup-azure-active-directory.md)

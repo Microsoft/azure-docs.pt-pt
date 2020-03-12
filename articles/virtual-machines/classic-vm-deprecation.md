@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 9f3fd59fa040ab46a5fc4ef8272a17cba4c631b8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 764567bffd2a08ebb5beb17e3063998848b3f110
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925777"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127328"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrar os seus recursos IaaS para o Gestor de Recursos Azure até 1 de março de 2023 
 
@@ -23,7 +23,7 @@ Em 2014, lançámos o IaaS no Azure Resource Manager, e temos vindo a melhorar a
 
 Hoje, cerca de 90% dos VMs iaas estão usando O Gestor de Recursos Azure. Se utilizar os recursos do IaaS através do Gestor de Serviços Azure (ASM), comece a planear a sua migração agora e complete-a até 1 de março de 2023 para tirar partido do Gestor de [Recursos Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/)
 
-Os VMs clássicos seguirão a [Política moderna](https://support.microsoft.com/help/30881/modern-lifecycle-policy) de ciclo de vida para a depreciação.
+Os VMs clássicos seguirão a [Política moderna](https://support.microsoft.com/help/30881/modern-lifecycle-policy) de ciclo de vida para a reforma.
 
 ## <a name="how-does-this-affect-me"></a>Como é que isto me afeta? 
 

@@ -5,20 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246222"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129432"
 ---
 ## <a name="limitations"></a>Limitações
 
 - Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
-- As seguintes séries VM são suportadas: DSv3, ESv3 e FSv2. 
 
 ## <a name="benefits"></a>Benefícios 
 
@@ -101,17 +100,15 @@ Para mais informações, consulte [o preço do Anfitrião Dedicado Azure.](https
 
 Você também pode economizar em custos com uma [instância reservada de anfitriões dedicados Azure.](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
  
-## <a name="vm-families-and-hardware-generations"></a>Famílias VM e gerações de hardware
+## <a name="sizes-and-hardware-generations"></a>Tamanhos e gerações de hardware
 
-Um SKU é definido para um hospedeiro e representa a série e tipo de tamanho VM. Pode misturar vários VMs de diferentes tamanhos dentro de um único hospedeiro, desde que sejam da mesma série de tamanhos. O tipo é a geração de hardware atualmente disponível na região.
+Um SKU é definido para um hospedeiro e representa a série e tipo de tamanho VM. Pode misturar vários VMs de diferentes tamanhos dentro de um único hospedeiro, desde que sejam da mesma série de tamanhos. 
 
-Diferentes `types` para a mesma série VM serão de diferentes fornecedores de CPU e têm diferentes gerações de CPU e número de núcleos.
+O *tipo* é a geração de hardware. Diferentes tipos de hardware para a mesma série VM serão de diferentes fornecedores de CPU e têm diferentes gerações de CPU e número de núcleos. 
 
-Consulte a [página](https://aka.ms/ADHPricing) de preços do anfitrião para saber mais.
+Os tamanhos e tipos de hardware variam por região. Consulte a [página](https://aka.ms/ADHPricing) de preços do anfitrião para saber mais.
 
-Anfitriões dedicados apoiam os seguintes tipos de anfitriões SKU:: DSv3_Type1 e ESv3_Type1
 
- 
 ## <a name="host-life-cycle"></a>Ciclo de vida de hospedeiro
 
 

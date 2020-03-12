@@ -105,8 +105,10 @@
           href: logic-apps-diagnosing-failures.md
     - name: Aceder às redes virtuais do Azure
       items:
-        - name: Ligar às redes virtuais com ambientes de serviço de integração
+        - name: Criar ambiente de serviço de integração - Portal do Azure
           href: connect-virtual-network-vnet-isolated-environment.md
+        - name: Criar ambiente de serviço de integração - API REST
+          href: create-integration-service-environment-rest-api.md
         - name: Configurar o acesso para vários ambientes de serviço de integração
           href: connect-virtual-network-vnet-set-up-single-ip-address.md
         - name: Adicionar recursos a ambientes de serviço de integração

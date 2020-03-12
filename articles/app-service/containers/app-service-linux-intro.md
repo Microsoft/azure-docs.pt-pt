@@ -1,6 +1,6 @@
 ---
-title: Executar código em contêineres padrão do Linux
-description: Azure App serviço pode executar seu código em contêineres do Linux pré-criados. Descubra como você pode executar seus aplicativos Web do Linux no Azure.
+title: Executar código em recipientes linux padrão
+description: O Azure App Service pode executar o seu código em recipientes Linux pré-construídos. Descubra como pode executar as suas aplicações web Linux no Azure.
 keywords: serviço de aplicações do azure, linux, oss
 author: msangapu-msft
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
@@ -8,20 +8,20 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 381f1486f13907aa52558029789e49bc4e5c4961
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 65352b8f8f85f5e7a2e25ae99d5ca3368ad78711
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687620"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126526"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
-[Azure app serviço](../overview.md) é uma plataforma de computação totalmente gerenciada que é otimizada para hospedar sites e aplicativos Web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas.
+[O Azure App Service](../overview.md) é uma plataforma computacional totalmente gerida que está otimizada para hospedar websites e aplicações web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas.
 
-## <a name="languages"></a>Idiomas
+## <a name="languages"></a>Linguagens
 
-O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas para aumentar a produtividade do programador. Os idiomas incluem: node. js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para exibir os idiomas mais recentes e as versões com suporte. Se o runtime pedido pela sua aplicação não for suportado nas imagens incorporadas, existem instruções sobre como [criar a sua própria imagem do Docker](tutorial-custom-docker-image.md) para implementar a Aplicação Web para Contentores.
+O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas para aumentar a produtividade do programador. As línguas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para ver as últimas línguas e versões suportadas. Se o runtime pedido pela sua aplicação não for suportado nas imagens incorporadas, existem instruções sobre como [criar a sua própria imagem do Docker](tutorial-custom-docker-image.md) para implementar a Aplicação Web para Contentores.
 
 ## <a name="deployments"></a>Implementações
 
@@ -54,18 +54,18 @@ Verifique o [Dashboard de Estado do Azure](https://azure.microsoft.com/status).
 
 O portal do Azure mostra apenas as funcionalidades que funcionam atualmente para a Aplicação Web para Contentores. À medida que ativamos mais funcionalidades, estas tornam-se visíveis no portal.
 
-O serviço de aplicativo no Linux só tem suporte com planos de serviço de aplicativo [gratuito, básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/) . Você não pode criar um aplicativo Web do Linux em um plano do serviço de aplicativo que já hospeda aplicativos Web não Linux.  
+O Serviço de Aplicações no Linux só é suportado com planos de serviço de aplicação [Gratuito, Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem um nível [Partilhado.](https://azure.microsoft.com/pricing/details/app-service/plans/) Não é possível criar uma Aplicação Web Linux num plano de Serviço de Aplicações que já acolhe aplicações web não linux.  
 
-Com base em uma limitação atual, para o mesmo grupo de recursos, você não pode misturar aplicativos Windows e Linux na mesma região.
+Com base numa limitação atual, para o mesmo grupo de recursos não é possível misturar aplicações Windows e Linux na mesma região.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 > [!NOTE]
-> Há um novo recurso de registro em log integrado com o [monitoramento do Azure (versão prévia)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
+> Há uma nova capacidade integrada de exploração madeireira com [a Monitorização Azure (pré-visualização)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
 >
 >
 
-Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registrar o `stdout` e `stderr` do contêiner, você precisa habilitar o **log do aplicativo** nos **logs do serviço de aplicativo**. A configuração entra em vigor imediatamente. O serviço de aplicativo detecta a alteração e reinicia o contêiner automaticamente.
+Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registar o `stdout` e `stderr` a partir do seu recipiente, é necessário ativar o **registo de registos de serviços** de aplicações em termos de serviços de **aplicações**. A regulação entra em vigor imediatamente. O Serviço de Aplicações deteta a alteração e reinicia automaticamente o recipiente.
 
 Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
 
@@ -79,19 +79,19 @@ Os artigos seguintes ajudam-no a começar a utilizar o Serviço de Aplicações 
 * [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
-* [Python](quickstart-python.md)
+* [python](quickstart-python.md)
 * [Ruby](quickstart-ruby.md)
 * [Go](quickstart-docker-go.md)
 * [Aplicação com vários contentores](quickstart-multi-container.md)
 
-Para obter mais informações sobre o serviço de aplicativo no Linux, consulte:
+Para mais informações sobre o Serviço de Aplicações no Linux, consulte:
 
 * [FAQ do Serviço de Aplicações para Linux](app-service-linux-faq.md)
 * [Suporte SSH para o Serviço de Aplicações no Linux](app-service-linux-ssh-support.md)
 * [Configurar ambientes de teste no Serviço de Aplicações](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implementação contínua do Hub do Docker](app-service-linux-ci-cd.md)
 
-Pode publicar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Pode publicar perguntas e problemas no [nosso fórum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

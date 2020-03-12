@@ -8,8 +8,10 @@
       href: provision-sql-server-linux-virtual-machine.md
 - name: Tutoriais
   items:
-    - name: Configurar um Grupo de Disponibilidade de VM do RHEL do Azure com STONITH
+    - name: Configurar um grupo de disponibilidade de VMs do RHEL do Azure com STONITH
       href: sql-server-linux-rhel-ha-stonith-tutorial.md
+    - name: Configurar o serviço de escuta do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure
+      href: sql-server-linux-rhel-ha-listener-tutorial.md
 - name: Referência
   items:
     - name: CLI do Azure

@@ -1,57 +1,57 @@
 ---
-title: Limpar marcas e manifestos
-description: Use um comando de limpeza para excluir várias marcas e manifestos de um registro de contêiner do Azure com base na idade e em um filtro de marca e, opcionalmente, agende operações de limpeza.
+title: Purgar etiquetas e manifestos
+description: Utilize um comando de purga para eliminar várias tags e manifestos de um registo de contentores Azure baseado na idade e num filtro de etiquetas, e agendar opcionalmente operações de purga.
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f9d86b628bdd0ce0db3067b02a47517d8aadcba3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923113"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087329"
 ---
-# <a name="automatically-purge-images-from-an-azure-container-registry"></a>Limpar automaticamente as imagens de um registro de contêiner do Azure
+# <a name="automatically-purge-images-from-an-azure-container-registry"></a>Expurgar automaticamente imagens de um registo de contentores Do Idee
 
-Quando você usa um registro de contêiner do Azure como parte de um fluxo de trabalho de desenvolvimento, o registro pode ser rapidamente preenchido com imagens ou outros artefatos que não são necessários após um curto período. Talvez você queira excluir todas as marcas que são mais antigas que uma determinada duração ou corresponder a um filtro de nome especificado. Para excluir vários artefatos rapidamente, este artigo apresenta o comando `acr purge` que você pode executar como uma tarefa de ACR sob demanda ou [agendada](container-registry-tasks-scheduled.md) . 
+Quando se utiliza um registo de contentores Azure como parte de um fluxo de trabalho de desenvolvimento, o registo pode rapidamente encher-se de imagens ou outros artefactos que não são necessários após um curto período de tempo. É possível que deva eliminar todas as etiquetas mais antigas do que uma certa duração ou corresponder a um filtro de nome especificado. Para eliminar rapidamente vários artefactos, este artigo introduz o comando `acr purge` que pode executar como uma Tarefa ACR a pedido ou [programada.](container-registry-tasks-scheduled.md) 
 
-O comando `acr purge` está atualmente distribuído em uma imagem de contêiner pública (`mcr.microsoft.com/acr/acr-cli:0.1`), criada a partir do código-fonte no repositório [ACR-CLI](https://github.com/Azure/acr-cli) no github.
+O comando `acr purge` é atualmente distribuído numa imagem de contentor público (`mcr.microsoft.com/acr/acr-cli:0.1`), construída a partir do código fonte no repo [acr-cli](https://github.com/Azure/acr-cli) no GitHub.
 
-Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos de tarefa ACR neste artigo. Se você quiser usá-lo localmente, a versão 2.0.69 ou posterior será necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install]. 
+Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para executar os exemplos de tarefas ACR neste artigo. Se quiser usá-lo localmente, a versão 2.0.69 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install]. 
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 > [!WARNING]
-> Use o comando `acr purge` com cuidado-os dados da imagem excluída são irrecuperáveis. Se você tiver sistemas que extraem imagens por Resumo do manifesto (em oposição ao nome da imagem), você não deve limpar imagens não marcadas. A exclusão de imagens não marcadas impedirá que esses sistemas extraiam as imagens do registro. Em vez de efetuar pull por manifesto, considere a adoção de um esquema de *marcação exclusivo* , uma [prática](container-registry-image-tag-version.md)recomendada.
+> Utilize o comando `acr purge` com dados de imagem apagados por precaução. Se tiver sistemas que puxem imagens por uma digestão manifesta (em oposição ao nome da imagem), não deve expurgar imagens não marcadas. A apagar imagens não marcadas impedirá que esses sistemas retirem as imagens do seu registo. Em vez de puxar por manifesto, considere a adoção de um esquema *de marcação único,* uma [melhor prática recomendada.](container-registry-image-tag-version.md)
 
-Se você quiser excluir as marcas de imagem única ou os manifestos usando comandos CLI do Azure, consulte [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
+Se pretender eliminar etiquetas de imagem únicas ou manifestos utilizando comandos Azure CLI, consulte Apagar imagens de contentores no Registo de [Contentores Azure](container-registry-delete.md).
 
-## <a name="use-the-purge-command"></a>Usar o comando de limpeza
+## <a name="use-the-purge-command"></a>Use o comando de purga
 
-O comando de contêiner `acr purge` exclui imagens por marca em um repositório que corresponde a um filtro de nome e que são mais antigos do que uma duração especificada. Por padrão, somente referências de marca são excluídas, não os [manifestos](container-registry-concepts.md#manifest) subjacentes e os dados da camada. O comando tem uma opção para também excluir manifestos. 
+O comando do contentor `acr purge` elimina as imagens por etiqueta num repositório que corresponda a um filtro de nome e que seja superior a uma duração especificada. Por predefinição, apenas são eliminadas as referências de etiquetas, não os [manifestos subjacentes](container-registry-concepts.md#manifest) e os dados da camada. O comando tem a opção de apagar também manifestos. 
 
 > [!NOTE]
-> `acr purge` não exclui uma marca de imagem ou repositório em que o atributo `write-enabled` está definido como `false`. Para obter informações, consulte [bloquear uma imagem de contêiner em um registro de contêiner do Azure](container-registry-image-lock.md).
+> `acr purge` não apaga uma etiqueta de imagem ou um repositório em que o atributo `write-enabled` está definido para `false`. Para obter informações, consulte Bloqueie uma imagem de contentor num registo de [contentores Azure](container-registry-image-lock.md).
 
-`acr purge` é projetado para ser executado como um comando de contêiner em uma [tarefa ACR](container-registry-tasks-overview.md), para que ele seja autenticado automaticamente com o registro em que a tarefa é executada e executa ações ali. Os exemplos de tarefas neste artigo usam o [alias](container-registry-tasks-reference-yaml.md#aliases) de comando `acr purge` no lugar de um comando de imagem de contêiner totalmente qualificado.
+`acr purge` foi concebido para funcionar como um comando de contentores numa [Tarefa ACR,](container-registry-tasks-overview.md)de modo a autenticar automaticamente com o registo onde a tarefa funciona e executa as suas ações. Os exemplos de tarefa neste artigo utilizam o [pseudónimo](container-registry-tasks-reference-yaml.md#aliases) de comando `acr purge` no lugar de um comando de imagem de contentor totalmente qualificado.
 
-No mínimo, especifique o seguinte ao executar `acr purge`:
+No mínimo, especifique o seguinte quando executar `acr purge`:
 
-* `--filter`-um repositório e uma *expressão regular* para filtrar as marcas no repositório. Exemplos: `--filter "hello-world:.*"` corresponde a todas as marcas no repositório de `hello-world` e `--filter "hello-world:^1.*"` corresponde a marcas que começam com `1`. Passe vários parâmetros `--filter` para limpar vários repositórios.
-* `--ago`-uma [cadeia de caracteres de duração](https://golang.org/pkg/time/) em estilo de frente para indicar uma duração além da qual as imagens são excluídas. A duração consiste em uma sequência de um ou mais números decimais, cada um com um sufixo de unidade. As unidades de tempo válidas incluem "d" para dias, "h" para horas e "m" para minutos. Por exemplo, `--ago 2d3h6m` seleciona todas as imagens filtradas última modificação mais de 2 dias, 3 horas e 6 minutos atrás e `--ago 1.5h` seleciona as imagens pela última modificação há mais de 1,5 horas.
+* `--filter` - Um repositório e uma *expressão regular* para filtrar etiquetas no repositório. Exemplos: `--filter "hello-world:.*"` corresponde a todas as etiquetas do repositório `hello-world`, e `--filter "hello-world:^1.*"` etiquetas partidas a começar com `1`. Passe vários parâmetros `--filter` para expurgar vários repositórios.
+* `--ago` - Uma cadeia de [duração](https://golang.org/pkg/time/) do estilo Go para indicar uma duração para além da qual as imagens são apagadas. A duração consiste numa sequência de um ou mais números decimais, cada um com um sufixo unitário. As unidades de tempo válidas incluem "d" durante dias, "h" durante horas e "m" durante minutos. Por exemplo, `--ago 2d3h6m` seleciona todas as imagens filtradas pela última vez modificadas há mais de 2 dias, 3 horas e 6 minutos, e `--ago 1.5h` seleciona imagens modificadas há mais de 1,5 horas.
 
-`acr purge` dá suporte a vários parâmetros opcionais. Os dois seguintes são usados em exemplos neste artigo:
+`acr purge` suporta vários parâmetros opcionais. Os dois seguintes são utilizados em exemplos neste artigo:
 
-* `--untagged`-especifica que os manifestos que não têm marcas associadas (*manifestos não marcados*) são excluídos.
-* `--dry-run`-especifica que nenhum dado é excluído, mas a saída é a mesma que se o comando for executado sem esse sinalizador. Esse parâmetro é útil para testar um comando de limpeza para garantir que ele não exclua inadvertidamente os dados que você pretende preservar.
+* `--untagged` - Os manifestos que não têm etiquetas associadas *(manifestos não marcados)* são eliminados.
+* `--dry-run` - Especifica que não são eliminados dados, mas a saída é a mesma que se o comando for executado sem esta bandeira. Este parâmetro é útil para testar um comando de purga para se certificar de que não apaga inadvertidamente os dados que pretende preservar.
 
-Para parâmetros adicionais, execute `acr purge --help`. 
+Para parâmetros adicionais, corra `acr purge --help`. 
 
-o `acr purge` dá suporte a outros recursos de comandos de tarefas ACR, incluindo a [execução de variáveis](container-registry-tasks-reference-yaml.md#run-variables) e logs de [execução de tarefas](container-registry-tasks-overview.md#view-task-logs) que são transmitidos e também salvos para recuperação posterior.
+`acr purge` suporta outras funcionalidades dos comandos aCR Tasks, incluindo variáveis de execução e [registos](container-registry-tasks-reference-yaml.md#run-variables) de execução de [tarefas](container-registry-tasks-logs.md) que são transmitidos e também guardados para posterior recuperação.
 
-### <a name="run-in-an-on-demand-task"></a>Executar em uma tarefa sob demanda
+### <a name="run-in-an-on-demand-task"></a>Executar uma tarefa a pedido
 
-O exemplo a seguir usa o comando [AZ ACR Run][az-acr-run] para executar o comando `acr purge` sob demanda. Este exemplo exclui todas as marcas de imagem e os manifestos no repositório `hello-world` no *myregistry* que foram modificados há mais de 1 dia. O comando de contêiner é passado usando uma variável de ambiente. A tarefa é executada sem um contexto de origem.
+O exemplo seguinte usa o comando [de corrida az acr][az-acr-run] para executar o comando `acr purge` a pedido. Este exemplo elimina todas as etiquetas de imagem e manifestações no `hello-world` repositório no *meu registo* que foram modificados há mais de 1 dia. O comando do recipiente é passado usando uma variável ambiental. A tarefa funciona sem um contexto de origem.
 
 ```azurecli
 # Environment variable for container command line
@@ -66,7 +66,7 @@ az acr run \
 
 ### <a name="run-in-a-scheduled-task"></a>Executar em uma tarefa agendada
 
-O exemplo a seguir usa o comando [AZ ACR Task Create][az-acr-task-create] para criar uma [tarefa ACR agendada](container-registry-tasks-scheduled.md)diariamente. A tarefa limpa as marcas modificadas há mais de 7 dias no repositório `hello-world`. O comando de contêiner é passado usando uma variável de ambiente. A tarefa é executada sem um contexto de origem.
+O exemplo seguinte utiliza a [tarefa az acr criar][az-acr-task-create] comando para criar uma [tarefa ACR diária agendada](container-registry-tasks-scheduled.md). A tarefa purga etiquetas modificadas há mais de 7 dias no repositório `hello-world`. O comando do recipiente é passado usando uma variável ambiental. A tarefa funciona sem um contexto de origem.
 
 ```azurecli
 # Environment variable for container command line
@@ -80,13 +80,13 @@ az acr task create --name purgeTask \
   --context /dev/null
 ```
 
-Execute o comando [AZ ACR Task show][az-acr-task-show] para ver que o gatilho do temporizador está configurado.
+Executar o comando de [show de tarefas az acr][az-acr-task-show] para ver se o gatilho do temporizador está configurado.
 
-### <a name="purge-large-numbers-of-tags-and-manifests"></a>Limpar grandes números de marcas e manifestos
+### <a name="purge-large-numbers-of-tags-and-manifests"></a>Expurgar um grande número de tags e manifestos
 
-A limpeza de um grande número de marcas e manifestos pode levar vários minutos ou mais. Para limpar milhares de marcas e manifestos, o comando pode precisar ser executado por mais tempo do que a hora de tempo limite padrão de 600 segundos para uma tarefa sob demanda ou 3600 segundos para uma tarefa agendada. Se o tempo limite for excedido, apenas um subconjunto de marcas e manifestos será excluído. Para garantir que uma limpeza em larga escala seja concluída, passe o parâmetro `--timeout` para aumentar o valor. 
+A purga de um grande número de etiquetas e manifestos pode demorar vários minutos ou mais. Para expurgar milhares de tags e manifestos, o comando pode ter de ser executado mais tempo do que o tempo de tempo de 600 segundos para uma tarefa a pedido, ou 3600 segundos para uma tarefa programada. Se o tempo limite for ultrapassado, apenas um subconjunto de etiquetas e manifestos é eliminado. Para garantir que uma purga em larga escala esteja completa, passe o parâmetro `--timeout` para aumentar o valor. 
 
-Por exemplo, a seguinte tarefa sob demanda define um tempo limite de 3600 segundos (1 hora):
+Por exemplo, a seguinte tarefa a pedido define um tempo de tempo de 3600 segundos (1 hora):
 
 ```azurecli
 # Environment variable for container command line
@@ -100,15 +100,15 @@ az acr run \
   /dev/null
 ```
 
-## <a name="example-scheduled-purge-of-multiple-repositories-in-a-registry"></a>Exemplo: limpeza agendada de vários repositórios em um registro
+## <a name="example-scheduled-purge-of-multiple-repositories-in-a-registry"></a>Exemplo: Purga programada de múltiplos repositórios num registo
 
-Este exemplo percorre o uso de `acr purge` para limpar periodicamente vários repositórios em um registro. Por exemplo, você pode ter um pipeline de desenvolvimento que envia imagens por push para os repositórios `samples/devimage1` e `samples/devimage2`. Você importa periodicamente as imagens de desenvolvimento para um repositório de produção para suas implantações, de modo que você não precisa mais das imagens de desenvolvimento. Em uma base semanal, você limpa os repositórios `samples/devimage1` e `samples/devimage2`, em preparação para o trabalho da próxima semana.
+Este exemplo passa pelo uso de `acr purge` para limpar periodicamente vários repositórios num registo. Por exemplo, você pode ter um pipeline de desenvolvimento que empurra as imagens para o `samples/devimage1` e `samples/devimage2` repositórios. Importa periodicamente imagens de desenvolvimento num repositório de produção para as suas implementações, para que já não precise das imagens de desenvolvimento. Semanalmente, expurga-se os `samples/devimage1` e os `samples/devimage2` repositórios, em preparação para o trabalho da próxima semana.
 
-### <a name="preview-the-purge"></a>Visualizar a limpeza
+### <a name="preview-the-purge"></a>Pré-visualizar a purga
 
-Antes de excluir dados, é recomendável executar uma tarefa de limpeza sob demanda usando o parâmetro `--dry-run`. Essa opção permite que você veja as marcas e os manifestos que o comando limpará, sem remover nenhum dado. 
+Antes de eliminar os dados, recomendamos executar uma tarefa de purga a pedido utilizando o parâmetro `--dry-run`. Esta opção permite-lhe ver as etiquetas e manifesta que o comando irá purgar, sem remover quaisquer dados. 
 
-No exemplo a seguir, o filtro em cada repositório seleciona todas as marcas. O parâmetro `--ago 0d` corresponde a imagens de todas as idades nos repositórios que correspondem aos filtros. Modifique os critérios de seleção conforme necessário para seu cenário. O parâmetro `--untagged` indica que os manifestos são excluídos, além das marcas. O comando de contêiner é passado para o comando [AZ ACR Run][az-acr-run] usando uma variável de ambiente.
+No exemplo seguinte, o filtro em cada repositório seleciona todas as etiquetas. O parâmetro `--ago 0d` corresponde a imagens de todas as idades nos repositórios que combinam com os filtros. Modifique os critérios de seleção conforme necessário para o seu cenário. O parâmetro `--untagged` indica apagar manifestos para além das etiquetas. O comando do contentor é passado para o comando [de corrida az acr][az-acr-run] usando uma variável ambiental.
 
 ```azurecli
 # Environment variable for container command line
@@ -122,7 +122,7 @@ az acr run \
   /dev/null
 ```
 
-Examine a saída do comando para ver as marcas e os manifestos que correspondem aos parâmetros de seleção. Como o comando é executado com `--dry-run`, nenhum dado é excluído.
+Reveja a saída de comando para ver as etiquetas e manifestos que correspondem aos parâmetros de seleção. Como o comando é executado com `--dry-run`, nenhum dado é eliminado.
 
 Resultado do exemplo:
 
@@ -146,9 +146,9 @@ Number of deleted manifests: 4
 [...]
 ```
 
-### <a name="schedule-the-purge"></a>Agendar a limpeza
+### <a name="schedule-the-purge"></a>Agende a purga
 
-Depois de verificar a execução seca, crie uma tarefa agendada para automatizar a limpeza. O exemplo a seguir agenda uma tarefa semanal em domingo às 1:00 UTC para executar o comando de limpeza anterior:
+Depois de verificar a corrida a seco, crie uma tarefa programada para automatizar a purga. O exemplo seguinte marca uma tarefa semanal no domingo às 1:00 UTC para executar o comando de purga anterior:
 
 ```azurecli
 # Environment variable for container command line
@@ -163,13 +163,13 @@ az acr task create --name weeklyPurgeTask \
   --context /dev/null
 ```
 
-Execute o comando [AZ ACR Task show][az-acr-task-show] para ver que o gatilho do temporizador está configurado.
+Executar o comando de [show de tarefas az acr][az-acr-task-show] para ver se o gatilho do temporizador está configurado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre outras opções para [excluir dados de imagem](container-registry-delete.md) no registro de contêiner do Azure.
+Saiba mais sobre outras opções para [eliminar dados](container-registry-delete.md) de imagem no Registo de Contentores Do Azure.
 
-Para obter mais informações sobre o armazenamento de imagens, consulte [contêiner de armazenamento de imagens no registro de contêiner do Azure](container-registry-storage.md).
+Para obter mais informações sobre o armazenamento de imagem, consulte o armazenamento de [imagem do contentor no Registo de Contentores Azure](container-registry-storage.md).
 
 <!-- LINKS - External -->
 

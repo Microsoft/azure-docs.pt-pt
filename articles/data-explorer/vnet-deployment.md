@@ -1,5 +1,5 @@
 ---
-title: Implemente o Azure Data Explorer na sua Rede Virtual (Pré-visualização)
+title: Implemente o Azure Data Explorer na sua Rede Virtual
 description: Saiba como implantar o Azure Data Explorer na sua Rede Virtual
 author: basaba
 ms.author: basaba
@@ -7,14 +7,14 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e845b44c51b7611cd3f23f8b33e6576aced2d6ca
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 5a2731e26ba4f371177cf2ae649f0695f27e6304
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851462"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096763"
 ---
-# <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Implemente o Azure Data Explorer na sua Rede Virtual (Pré-visualização)
+# <a name="deploy-azure-data-explorer-into-your-virtual-network"></a>Implemente o Azure Data Explorer na sua Rede Virtual
 
 Este artigo explica os recursos que estão presentes quando se implanta um cluster Azure Data Explorer numa Rede Virtual Azure personalizada. Esta informação irá ajudá-lo a implantar um cluster numa subrede na sua Rede Virtual (VNet). Para obter mais informações sobre redes virtuais Azure, consulte o que é a [Rede Virtual Azure?](/azure/virtual-network/virtual-networks-overview)
 
@@ -25,9 +25,6 @@ O Azure Data Explorer suporta a implementação de um cluster numa subrede na su
 * Aplique as regras do Grupo de Segurança da [Rede](/azure/virtual-network/security-overview) (NSG) sobre o tráfego de cluster do Azure Data Explorer.
 * Ligue a sua rede no local à subnet do cluster Azure Data Explorer.
 * Proteja as suas fontes de ligação de dados ( Hub de[Eventos](/azure/event-hubs/event-hubs-about) e Grelha de [Eventos)](/azure/event-grid/overview)com [pontos finais](/azure/virtual-network/virtual-network-service-endpoints-overview)de serviço .
-
-> [!NOTE]
-> A integração e implementação da Rede Virtual está em modo de pré-visualização. Para ativar esta funcionalidade, abra um bilhete de [apoio.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
 ## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>Aceda ao seu cluster Azure Data Explorer no seu VNet
 
@@ -65,7 +62,7 @@ O número total de endereços IP:
 A implementação do cluster Azure Data Explorer na sua subnet permite-lhe configurar ligações de dados com [o Event Hub](/azure/event-hubs/event-hubs-about) ou a Event [Grid,](/azure/event-grid/overview) limitando os recursos subjacentes à subnet do Azure Data Explorer.
 
 > [!NOTE]
-> Ao utilizar a configuração eventGrid com [armazenamento](/azure/storage/common/storage-introduction) e [Event Hub], a conta de armazenamento utilizada na subscrição pode ser bloqueada com pontos finais de serviço para a subnet do Azure Data Explorer, permitindo serviços de plataforma Azure fidedignos na [configuração](/azure/storage/common/storage-network-security)da firewall, mas o Event Hub não consegue ativar o Service Endpoint uma vez que não suporta serviços de plataforma Azure fidedignos. [](/azure/event-hubs/event-hubs-service-endpoints)
+> Ao utilizar a configuração eventGrid com [armazenamento](/azure/storage/common/storage-introduction) e [Event Hub], a conta de armazenamento utilizada na subscrição pode ser bloqueada com pontos finais de serviço para a subnet do Azure Data Explorer, permitindo serviços de plataforma Azure fidedignos na [configuração](/azure/storage/common/storage-network-security)da firewall, mas o Event Hub não consegue ativar o Service Endpoint uma vez que não suporta serviços de plataforma Azure fidedignos. [Azure platform services](/azure/event-hubs/event-hubs-service-endpoints)
 
 ## <a name="dependencies-for-vnet-deployment"></a>Dependências para implantação vnet
 

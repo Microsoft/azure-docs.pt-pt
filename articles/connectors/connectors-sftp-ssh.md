@@ -8,12 +8,12 @@ ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851514"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128408"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere os ficheiros SFTP utilizando aplicações lógicas SSH e Azure
 
@@ -55,9 +55,6 @@ Para as diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secç�
   | **Arquivo de renome** | Não aplicável | Não aplicável |
   | **Atualizar ficheiro** | Não | Não aplicável |
   ||||
-
-  > [!NOTE]
-  > Para fazer o upload de ficheiros grandes, precisa de ler e escrever permissões para a pasta raiz no seu servidor SFTP.
 
 * Os gatilhos SFTP-SSH não suportam o corte da mensagem. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros superiores a 15 MB, siga este padrão em vez disso:
 

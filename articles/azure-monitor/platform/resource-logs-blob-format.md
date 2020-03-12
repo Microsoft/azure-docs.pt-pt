@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659140"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096772"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Prepare-se para a alteração do formato para os registos da plataforma Azure Monitor arquivados numa conta de armazenamento
 
 > [!WARNING]
-> Se estiver a enviar [registos ou métricas](resource-logs-collect-storage.md) de recursos do Azure para uma conta de armazenamento utilizando configurações de diagnóstico ou registos de atividade para uma conta de armazenamento utilizando perfis de [registo,](activity-log-export.md)o formato dos dados na conta de armazenamento mudou para Linhas JSON em 1 de novembro de 2018. As instruções abaixo descrevem o impacto e como atualizar a sua ferramenta para lidar com o novo formato.
+> Se estiver a enviar [registos ou métricas](resource-logs-collect-storage.md) de recursos do Azure para uma conta de armazenamento utilizando configurações de diagnóstico ou registos de atividade para uma conta de armazenamento utilizando perfis de [registo,](resource-logs-collect-storage.md)o formato dos dados na conta de armazenamento mudou para Linhas JSON em 1 de novembro de 2018. As instruções abaixo descrevem o impacto e como atualizar a sua ferramenta para lidar com o novo formato.
 >
 
 ## <a name="what-changed"></a>O que mudou

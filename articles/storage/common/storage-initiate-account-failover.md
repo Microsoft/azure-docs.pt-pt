@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157725"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128340"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar uma falha na conta de armazenamento (pré-visualização)
 
@@ -29,9 +29,8 @@ Este artigo mostra como iniciar uma falha na conta para a sua conta de armazenam
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder executar uma falha na conta de armazenamento, certifique-se de que realizou os seguintes passos:
+Antes de poder executar uma falha na conta de armazenamento, certifique-se de que realizou o seguinte passo:
 
-- Registe-se na pré-visualização do failover da conta. Para obter informações sobre como se registar, consulte [sobre a pré-visualização](storage-disaster-recovery-guidance.md#about-the-preview).
 - Certifique-se de que a sua conta de armazenamento está configurada para utilizar armazenamento geo-redundante (GRS) ou armazenamento geo-redundante de acesso de leitura (RA-GRS). Para obter mais informações sobre o armazenamento geo-redundante, consulte a [redundância do Armazenamento Azure.](storage-redundancy.md)
 
 ## <a name="important-implications-of-account-failover"></a>Implicações importantes da falha da conta
@@ -44,7 +43,7 @@ Após o failover, o seu tipo de conta de armazenamento é automaticamente conver
 
 Depois de reativar o GRS para a sua conta de armazenamento, a Microsoft começa a replicar os dados da sua conta para a nova região secundária. O tempo de replicação depende da quantidade de dados que estão a ser replicados.  
 
-## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+## <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para iniciar uma falha de conta no portal Azure, siga estes passos:
 
@@ -60,7 +59,7 @@ Para iniciar uma falha de conta no portal Azure, siga estes passos:
 
     ![Screenshot mostrando diálogo de confirmação para uma falha de conta](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para utilizar o PowerShell para iniciar uma falha na conta, tem primeiro de instalar o módulo de pré-visualização 6.0.1. Siga estes passos para instalar o módulo:
 
@@ -97,7 +96,7 @@ Para iniciar uma falha de conta a partir da PowerShell, execute o seguinte coman
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para utilizar o Azure CLI para iniciar uma falha de conta, execute os seguintes comandos:
 

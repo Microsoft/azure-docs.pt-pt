@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: f712d1be76a9bb3dc4856b9f1fa7c7b805296dea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970759"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127691"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementar VMs para anfitriões dedicados usando o Azure CLI
  
@@ -24,7 +24,7 @@ Certifique-se de que instalou a versão 2.0.70 do Azure CLI ou posteriormente, e
 ## <a name="limitations"></a>Limitações
 
 - Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
-- A versão inicial suporta a seguinte série VM: DSv3, ESv3, FSv2, LSv2 e MSv2. 
+- Os tamanhos e tipos de hardware disponíveis para anfitriões dedicados variam por região. Consulte a [página](https://aka.ms/ADHPricing) de preços do anfitrião para saber mais.
  
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos 
@@ -77,7 +77,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Criar um hospedeiro 
 
-Agora vamos criar um anfitrião dedicado no grupo anfitrião. Além de um nome para o anfitrião, é necessário fornecer o SKU para o anfitrião. Host SKU captura a série VM suportada, bem como a geração de hardware para o seu anfitrião dedicado.  Os seguintes valores sKU são apoiados: DSv3_Type1 e ESv3_Type1.
+Agora vamos criar um anfitrião dedicado no grupo anfitrião. Além de um nome para o anfitrião, é necessário fornecer o SKU para o anfitrião. Host SKU captura a série VM suportada, bem como a geração de hardware para o seu anfitrião dedicado.  
 
 Para obter mais informações sobre o anfitrião SKUs e preços, consulte [o preço do Anfitrião Dedicado Azure.](https://aka.ms/ADHPricing)
 

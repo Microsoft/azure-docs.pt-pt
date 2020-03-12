@@ -10,17 +10,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ce32343faefbcf2484ec0b1b39f752654a2d8514
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b04941a5799955097fbd54ad9bdf50eccb87541
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303618"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087905"
 ---
-# <a name="assets-in-azure-media-services"></a>Ativos em Serviços De Mídia Azure
+# <a name="assets-in-azure-media-services-v3"></a>Ativos em Azure Media Services v3
 
 Na Azure Media Services, um [Ativo](https://docs.microsoft.com/rest/api/media/assets) é um conceito central. É onde você insere os meios de comunicação (por exemplo, através de upload ou ingestão ao vivo), meios de saída (a partir de uma saída de trabalho) e publica meios de (para streaming). 
 
@@ -39,37 +39,6 @@ Os nomes do ativo devem ser únicos. Os nomes de recursos v3 da Media Services (
 ### <a name="blobs"></a>Blobs
 
 Os nomes dos ficheiros/bolhas dentro de um ativo devem seguir os requisitos de [nome blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) e os requisitos de [nome NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). A razão para estes requisitos é que os ficheiros podem ser copiados do armazenamento de blob para um disco NTFS local para processamento.
-
-## <a name="map-v3-asset-properties-to-v2"></a>Mapa v3 propriedades de ativos para v2
-
-A tabela seguinte mostra como as propriedades do [Ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)no mapa v3 para as propriedades do Ativo em v2.
-
-|propriedades v3|propriedades v2|
-|---|---|
-|`id` - (único) o caminho completo do Gestor de Recursos Azure, veja exemplos em [Ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|`name` - (único) ver convenções de [nomeação](media-services-apis-overview.md#naming-conventions) ||
-|`alternateId`|`AlternateId`|
-|`assetId`|`Id` - valor (único) começa com o prefixo `nb:cid:UUID:`.|
-|`created`|`Created`|
-|`description`|`Name`|
-|`lastModified`|`LastModified`|
-|`storageAccountName`|`StorageAccountName`|
-|`storageEncryptionFormat`| `Options` (opções de criação)|
-|`type`||
-
-## <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
-
-Para proteger os seus ativos inativos, os recursos devem ser encriptados pela encriptação do lado do armazenamento. A tabela seguinte mostra como a encriptação do lado do armazenamento funciona nos serviços de multimédia:
-
-|Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
-|---|---|---|---|
-|Encriptação de armazenamento dos serviços de multimédia|Encriptação AES-256, chave gerida pela Media Services.|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
-|[Encriptação do serviço de armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado|Suportado|
-|[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault.|Não suportado|Não suportado|
-
-<sup>1</sup> Enquanto os Serviços de Media suportam o manuseamento de conteúdos na clara/sem qualquer forma de encriptação, não é recomendado fazê-lo.
-
-<sup>2</sup> Nos Serviços de Media v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para retrocompatibilidade quando os seus Ativos foram criados com Media Services v2. O que significa que a V3 trabalha com os ativos encriptados de armazenamento existentes, mas não permite a criação de novos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

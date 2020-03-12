@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
-ms.openlocfilehash: 354ee312099902372863ce2ea636d2f9f9943d5c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+manager: lizross
+ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566429"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127889"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
@@ -76,13 +77,13 @@ Siga as instruções em [Create a host pool utilizando o Azure Marketplace](./cr
 
 Todos os valores desta secção devem corresponder ao que forneceu quando criou pela primeira vez os VMs de hospedada e anfitrião da sessão, com exceção dos utilizadores de ambientes de *trabalho Predefinidos:*
 
-1.  Para *Subscrição,* selecione a subscrição onde criou pela primeira vez o pool anfitrião.
-2.  Para o *grupo Resource,* selecione o mesmo grupo de recursos onde estão localizados os VMs hospedeiros de anfitrião da sessão de hospedas existentes.
-3.  Para *a Região,* selecione a mesma região onde estão localizadas as VMs anfitriãs da sessão de acolhimento existentes.
-4.  Para *o nome Hostpool,* insira o nome da piscina hospedeira existente.
-5.  Para *o tipo desktop,* selecione o tipo de ambiente de trabalho que corresponde à piscina de anfitriões existente.
-6.  Para *utilizadores de ambientede trabalho Predefinidos,* introduza uma lista separada da vírvia de quaisquer utilizadores adicionais que pretenda inscrever-se nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho após o Azure Marketplace oferecer acabamentos. Por exemplo, se quiser atribuir user3@contoso.com e user4@contoso.com acesso, insira user3@contoso.com,user4@contoso.com.
-7.  Selecione **Seguinte: Configurar**a máquina virtual .
+1.    Para *Subscrição,* selecione a subscrição onde criou pela primeira vez o pool anfitrião.
+2.    Para o *grupo Resource,* selecione o mesmo grupo de recursos onde estão localizados os VMs hospedeiros de anfitrião da sessão de hospedas existentes.
+3.    Para *a Região,* selecione a mesma região onde estão localizadas as VMs anfitriãs da sessão de acolhimento existentes.
+4.    Para *o nome Hostpool,* insira o nome da piscina hospedeira existente.
+5.    Para *o tipo desktop,* selecione o tipo de ambiente de trabalho que corresponde à piscina de anfitriões existente.
+6.    Para *utilizadores de ambientede trabalho Predefinidos,* introduza uma lista separada da vírvia de quaisquer utilizadores adicionais que pretenda inscrever-se nos clientes do Windows Virtual Desktop e aceda a um ambiente de trabalho após o Azure Marketplace oferecer acabamentos. Por exemplo, se quiser atribuir user3@contoso.com e user4@contoso.com acesso, insira user3@contoso.com,user4@contoso.com.
+7.    Selecione **Seguinte: Configurar**a máquina virtual .
 
 >[!NOTE]
 >Com exceção dos utilizadores de ambientes de *trabalho Predefinidos,* todos os campos devem corresponder exatamente ao que foi configurado na piscina de anfitriões existente. Se houver um desfasamento que resultará numa nova piscina de anfitriões.

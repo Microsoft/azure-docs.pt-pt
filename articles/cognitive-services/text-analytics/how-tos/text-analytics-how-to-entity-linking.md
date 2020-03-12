@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942632"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117500"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto
 
@@ -86,7 +86,7 @@ Ligação de entidades
 | Pessoa        | N/A\*         | "Jeff", "Bill Gates"     |
 | Localização      | N/A\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/A\*         | "Microsoft"   |
-| Quantidade      | Número        | "6", "six"     |
+| Quantidade      | Number        | "6", "six"     |
 | Quantidade      | Percentagem    | "50%", "cinquenta por cento"|
 | Quantidade      | Ordinal       | "2º", "segundo"     |
 | Quantidade      | Idade           | "90 dias de idade", "30 anos"    |
@@ -94,14 +94,14 @@ Ligação de entidades
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | N/A\*         | "18:30 H 4 de fevereiro de 2012"      |
-| DateTime      | Date          | "2 de maio de 2017", "05/02/2017"   |
+| DateTime      | Data          | "2 de maio de 2017", "05/02/2017"   |
 | DateTime      | Hora          | "8:00", "8:00"  |
 | DateTime      | DataRange     | "2 de maio a 5 de maio"    |
 | DateTime      | Intervalo de tempo     | "18h00 às 19h"     |
-| DateTime      | Duration      | "1 minuto e 45 segundos"   |
+| DateTime      | Duração      | "1 minuto e 45 segundos"   |
 | DateTime      | Definir           | "todas as terças-feiras"     |
 | do IdP           | N/A\*         | "https:\//www.bing.com"    |
-| E-mail         | N/A\*         | "support@contoso.com" |
+| Email         | N/A\*         | "support@contoso.com" |
 | Número de telefone dos EUA  | N/A\*         | (apenas números de telefone dos EUA) "(312) 555-0176" |
 | Endereço IP    | N/A\*         | "10.0.0.100" |
 
@@ -290,7 +290,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para entidades que ligam o 
 * Os pedidos POST são enviados para um ou mais pontos finais, utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 * A saída de resposta, que consiste em entidades ligadas (incluindo pontuações de confiança, compensações e ligações web, para cada id de documento) pode ser utilizada em qualquer aplicação
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição Geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)

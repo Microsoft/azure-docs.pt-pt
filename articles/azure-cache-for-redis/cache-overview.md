@@ -1,77 +1,76 @@
 ---
 title: O que é a Cache do Azure para Redis?
-description: Saiba o que é o cache do Azure para Redis e usos comuns, incluindo armazenamento em cache, cache de conteúdo, cache de sessão de usuário, serviço de enfileiramento de trabalhos e mensagens e transações distribuídas.
+description: Saiba mais sobre o Azure Cache para redis para permitir o cache-aside, o cache-caching, o cache da sessão do utilizador, a fila de trabalho e mensagens, e transações distribuídas.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.custom: mvc
-ms.date: 03/26/2018
-ms.openlocfilehash: 5224be999ff8ff52c2f52568a504095dc5962398
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/11/2020
+ms.openlocfilehash: 38936000e426d560237295105b5456429d9ae16d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433424"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126360"
 ---
-# <a name="azure-cache-for-redis-description"></a>Descrição do cache do Azure para Redis
+# <a name="azure-cache-for-redis-description"></a>Azure Cache para a descrição de Redis
 
-O cache do Azure para Redis é baseado no popular software [Redis](https://redis.io/). Normalmente, é utilizada como uma cache para melhorar o desempenho e a escalabilidade dos sistemas que dependem bastante de arquivos de dados de back-end. O desempenho é melhorado ao copiar temporariamente os dados acedidos com mais frequência para o armazenamento rápido localizado próximo da aplicação. Com o [cache do Azure para Redis](https://redis.io/), esse armazenamento rápido está localizado na memória com o cache do Azure para Redis em vez de ser carregado do disco por um banco de dados.
+O Azure Cache for Redis fornece uma loja de dados em memória baseada no software de código aberto [Redis](https://redis.io/). Quando usado como cache, redis melhora o desempenho e escalabilidade de sistemas que dependem fortemente de lojas de dados de backend. O desempenho é melhorado copiando dados frequentemente acedidos a armazenamento rápido localizado perto da aplicação. Com Azure Cache para Redis, este armazenamento rápido está localizado na memória em vez de ser carregado do disco por uma base de dados.
 
-O cache do Azure para Redis também pode ser usado como um armazenamento de estrutura de dados na memória, um banco de dado não relacional distribuído e um agente de mensagem. O desempenho da aplicação é melhorado ao tirar partido do desempenho da latência baixa e do alto débito do motor de Redis.
+O Azure Cache para Redis pode ser usado como uma loja de estrutura de dados na memória, uma base de dados não relacional distribuída e um corretor de mensagens. O desempenho da aplicação é melhorado ao tirar partido do desempenho da latência baixa e do alto débito do motor de Redis.
 
-O cache do Azure para Redis fornece acesso a um cache Redis seguro e dedicado. O cache do Azure para Redis é gerenciado pela Microsoft, hospedado no Azure e acessível a qualquer aplicativo dentro ou fora do Azure.
+Azure Cache para Redis dá acesso a uma cache Redis segura e dedicada. O Azure Cache for Redis é gerido pela Microsoft, hospedado dentro do Azure, e acessível a qualquer aplicação dentro ou fora do Azure.
 
-## <a name="using-azure-cache-for-redis"></a>Usando o cache do Azure para Redis
+## <a name="using-azure-cache-for-redis"></a>Usando cache azure para redis
 
-Há muitos padrões comuns em que o cache do Azure para Redis é usado para dar suporte à arquitetura do aplicativo ou melhorar o desempenho do aplicativo. Alguns dos mais comuns incluem o seguinte:
+Azure Cache for Redis melhora o desempenho da aplicação apoiando padrões comuns de arquitetura de aplicação. Alguns dos mais comuns incluem o seguinte:
 
 | Padrão      | Descrição                                        |
 | ------------ | -------------------------------------------------- |
-| [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Uma vez que uma base de dados pode ser grande, o carregamento de uma base de dados completa numa cache não é uma abordagem recomendada. É comum utilizar o padrão [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) para carregar os itens de dados para a cache apenas quando necessários. Quando o sistema realiza alterações aos dados de back-end, este também pode a qualquer momento atualizar a cache, que é distribuída com outros clientes. Além disso, o sistema pode definir uma validade para os itens de dados ou utilizar uma política de expulsão para fazer com que as atualizações de dados sejam recarregadas para a cache.|
-| [Colocação em Cache de Conteúdos](cache-aspnet-output-cache-provider.md) | A maioria das páginas da Web é gerada a partir de modelos com cabeçalhos, rodapés, barras de ferramentas, menus, etc. Elas não são realmente alteradas com frequência e não devem ser geradas dinamicamente. Usar um cache na memória, como o cache do Azure para Redis, dará aos seus servidores Web acesso rápido a esse tipo de conteúdo estático em comparação com os armazenamentos de back-end. Este padrão reduz o tempo de processamento e a carga do servidor que seria precisa para gerar conteúdos dinamicamente. Tal permite que os servidores Web sejam mais reativos e pode permitir reduzir o número de servidores necessários para processar as cargas. O cache do Azure para Redis fornece o provedor de cache de saída Redis para ajudar a dar suporte a esse padrão com ASP.NET.|
-| [Colocação em cache da sessão de utilizador](cache-aspnet-session-state-provider.md) | Este padrão é normalmente utilizado com carrinhos de compras e outras informações do tipo de histórico do utilizador que uma aplicação Web possa querer associar aos cookies de utilizador. Armazenar demasiada informação num cookie pode ter um impacto negativo no desempenho, uma vez que o tamanho deste cresce à medida que é transmitido e validado com cada pedido. Uma solução típica passa por utilizar o cookie como uma chave para consultar dados numa base de dados de back-end. O uso de um cache na memória, como o cache do Azure para Redis, para associar informações a um usuário é muito mais rápido do que interagir com um banco de dados relacional completo. |
-| Colocação em fila de tarefas e mensagens | Quando as aplicações recebem pedidos, muitas vezes, as operações associadas ao pedido demoram mais tempo a executar. Uma prática comum é o diferimento de operações mais longas em execução ao adicionar as mesmas numa fila, sendo estas processadas mais tarde e possivelmente por outro servidor. Este método de diferimento do trabalho é denominado colocação em fila de tarefas. Existem muitos componentes de software concebidos para suportar as filas de tarefas. O cache do Azure para Redis também atende a essa finalidade como uma fila distribuída.|
-| Transações distribuídas | Um requisito comum das aplicações é a sua capacidade para executar uma série de comandos num arquivo de dados de back-end como uma única operação (atómica). Todos os comandos têm de ser realizados com êxito, caso contrário, devem ser todos revertidos para o estado inicial. O cache do Azure para Redis dá suporte à execução de um lote de comandos como uma única operação na forma de [Transações](https://redis.io/topics/transactions). |
+| [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | As bases de dados são muitas vezes demasiado grandes para serem carregadas diretamente numa cache. É comum utilizar o padrão de [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) para carregar dados na cache apenas se necessário. Quando o sistema faz alterações aos dados, o sistema também pode atualizar a cache, que é depois distribuída a outros clientes. Além disso, o sistema pode definir uma expiração de dados, ou usar uma política de despejo para desencadear atualizações de dados para a cache.|
+| [Colocação em Cache de Conteúdos](cache-aspnet-output-cache-provider.md) | Muitas páginas web são geradas a partir de modelos que usam conteúdo estático, tais como cabeçalhos, rodapés, banners. Estes itens estáticos não devem mudar com frequência. A utilização de uma cache na memória proporciona um acesso rápido ao conteúdo estático em comparação com as reservas de dados de backend. Este padrão reduz o tempo de processamento e a carga do servidor, permitindo que os servidores web sejam mais responsivos. Pode permitir-lhe reduzir o número de servidores necessários para lidar com cargas. O Azure Cache for Redis fornece ao Redis Output Cache Provider para suportar este padrão com ASP.NET.|
+| [Colocação em cache da sessão de utilizador](cache-aspnet-session-state-provider.md) | Este padrão é comumente usado com carrinhos de compras e outros dados do histórico do utilizador que uma aplicação web pode querer associar com cookies de utilizador. Armazenar demasiada informação num cookie pode ter um impacto negativo no desempenho, uma vez que o tamanho deste cresce à medida que é transmitido e validado com cada pedido. Uma solução típica utiliza o cookie como chave para consultar os dados numa base de dados. Usar uma cache em memória, como O Cache Azure para redis, para associar informações a um utilizador é muito mais rápido do que interagir com uma base de dados relacional completa. |
+| Colocação em fila de tarefas e mensagens | As aplicações muitas vezes adicionam tarefas a uma fila quando as operações associadas ao pedido demoram tempo a executar. As operações de execução mais longas são em fila para serem processadas em sequência, muitas vezes por outro servidor.  Este método de diferimento do trabalho é denominado colocação em fila de tarefas. O Azure Cache para redis fornece uma fila distribuída para ativar este padrão na sua aplicação.|
+| Transações distribuídas | As aplicações exigem, por vezes, uma série de comandos contra uma loja de dados de backend para executar como uma única operação atómica. Todos os comandos têm de ser realizados com êxito, caso contrário, devem ser todos revertidos para o estado inicial. O Azure Cache para redis suporta a execução de um lote de comandos como uma [única transação](https://redis.io/topics/transactions). |
 
-## <a name="azure-cache-for-redis-offerings"></a>Cache do Azure para ofertas do Redis
+## <a name="azure-cache-for-redis-offerings"></a>Azure Cache para ofertas redis
 
-O cache do Azure para Redis está disponível nas seguintes camadas:
+Azure Cache for Redis está disponível nos seguintes níveis:
 
 | Escalão | Descrição |
 |---|---|
-Basic | Uma cache de nó único. Este escalão suporta vários tamanhos de memória (250 MB a 53 GB). É um escalão ideal para desenvolvimento/teste e cargas de trabalho não críticas. O escalão Básico não tem nenhum contrato de nível de serviço (SLA) |
-| Padrão | Uma cache replicada numa configuração primária/secundária de dois nós gerida pela Microsoft, com um SLA de elevada disponibilidade (99,9%) |
-| Premium | A camada Premium é a camada pronta para a empresa. As Caches de escalão Premium suportam mais funcionalidades e têm um maior débito com menores latências. As Caches no escalão Premium são implementadas em hardware mais poderoso e fornecem um melhor desempenho comparativamente aos Escalões Básico ou Standard. Essa vantagem significa que a taxa de transferência para um cache do mesmo tamanho será maior em relação ao Premium em comparação com a camada Standard. |
+Básica | Uma cache de nó único. Este nível suporta múltiplos tamanhos de memória (250 MB - 53 GB)e é ideal para trabalhos de desenvolvimento/teste e cargas de trabalho não críticas. O escalão Básico não tem nenhum contrato de nível de serviço (SLA) |
+| Standard | Uma cache replicada numa configuração primária/secundária de dois nós gerida pelo Azure com um SLA de alta disponibilidade (99,9%) |
+| Premium | O nível Premium é o nível pronto para a Enterprise. As Caches de escalão Premium suportam mais funcionalidades e têm um maior débito com menores latências. As Caches no escalão Premium são implementadas em hardware mais poderoso e fornecem um melhor desempenho comparativamente aos Escalões Básico ou Standard. Esta vantagem significa que a entrada para uma cache do mesmo tamanho será maior em Premium em comparação com o nível Standard. |
 
 > [!TIP]
-> Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches Premium, consulte [perguntas frequentes sobre o cache do Azure para Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+> Para obter mais informações sobre tamanho, entrada e largura de banda com caches premium, consulte [Azure Cache para Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 >
 
-Pode dimensionar a sua cache para um escalão superior depois de esta ter sido criada. A diminuição para um escalão inferior não é suportada. Para obter instruções de dimensionamento passo a passo, consulte [como dimensionar o cache do Azure para Redis](cache-how-to-scale.md) e [como automatizar uma operação de dimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+Pode escalar o seu cache para um nível mais alto depois de ter sido criado. A diminuição para um escalão inferior não é suportada. Para obter instruções de escala passo a passo, consulte Como escalar o [Cache Azure para Redis](cache-how-to-scale.md) e [como automatizar uma operação](cache-how-to-scale.md#how-to-automate-a-scaling-operation)de escala .
 
 ### <a name="feature-comparison"></a>Comparação de funcionalidades
 
-A página de [preços do cache do Azure para Redis](https://azure.microsoft.com/pricing/details/cache/) fornece uma comparação detalhada de cada camada. A tabela seguinte ajuda a descrever algumas das funcionalidades suportadas pelo escalão:
+A página [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) fornece uma comparação detalhada de cada nível. A tabela seguinte ajuda a descrever algumas das funcionalidades suportadas pelo escalão:
 
-| Descrição da Funcionalidade | Premium | Padrão | Basic |
+| Descrição da Funcionalidade | Premium | Standard | Básica |
 | ------------------- | :-----: | :------: | :---: |
 | [Contrato de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistência de dados de Redis](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Cluster de Redis](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Segurança através de regras da Firewall](cache-configure.md#firewall) |✔|✔|✔|
-| Encriptação de dados em circulação |✔|✔|✔|
+| Encriptação em trânsito |✔|✔|✔|
 | [Segurança e isolamento otimizados com VNet](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Importação/Exportação](cache-how-to-import-export-data.md) |✔|-|-|
-| [Atualizações agendadas](cache-administration.md#schedule-updates) |✔|✔|✔|
+| [Atualizações programadas](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [Georreplicação](cache-how-to-geo-replication.md) |✔|-|-|
 | [Reiniciar](cache-administration.md#reboot) |✔|✔|✔|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Guia de [início rápido do aplicativo Web ASP.net](cache-web-app-howto.md) Crie um aplicativo Web ASP.NET simples que usa um cache do Azure para Redis.
-* [Início rápido do .net](cache-dotnet-how-to-use-azure-redis-cache.md) Crie um aplicativo .NET que usa um cache do Azure para Redis.
-* [Início rápido do .NET Core](cache-dotnet-core-quickstart.md) Crie um aplicativo .NET Core que usa um cache do Azure para Redis.
-* [Início rápido do node. js](cache-nodejs-get-started.md) Crie um aplicativo node. js simples que usa um cache do Azure para Redis.
-* [Início rápido do Java](cache-java-get-started.md) Crie um aplicativo Java simples que usa um cache do Azure para Redis.
-* [Início rápido do Python](cache-python-get-started.md) Crie um aplicativo Python que usa um cache do Azure para Redis.
+* [ASP.NET Web App Quickstart](cache-web-app-howto.md) Crie uma aplicação web simples ASP.NET que utilize um Azure Cache para Redis.
+* [.NET Quickstart](cache-dotnet-how-to-use-azure-redis-cache.md) Crie uma aplicação .NET que utilize um Azure Cache para Redis.
+* [.NET Core Quickstart](cache-dotnet-core-quickstart.md) Crie uma aplicação .NET Core que utilize um Azure Cache para Redis.
+* [Node.js Quickstart](cache-nodejs-get-started.md) Crie uma aplicação simples noNode.js que usa um Azure Cache para Redis.
+* [Java Quickstart](cache-java-get-started.md) Crie uma simples aplicação Java que utilize um Azure Cache para Redis.
+* [Python Quickstart](cache-python-get-started.md) Crie uma aplicação Python que utilize um Azure Cache para Redis.

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561838"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087940"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutorial: Ligar, configurar, ativar portal da caixa de dados Azure
 
@@ -92,6 +92,11 @@ O seu painel de instrumentos apresenta as várias definições necessárias para
    2. Em **Autenticação,** selecione **Nenhum** ou **NTLM**.
    3. Se estiver a utilizar a autenticação, introduza um **nome de utilizador** e **palavra-passe**.
    4. Para validar e aplicar as definições configuradas de procuração web, selecione **Aplicar**.
+
+   > [!NOTE]
+   > Os ficheiros proxy-auto config (PAC) não são suportados. Um ficheiro PAC define como os navegadores web e outros agentes de utilizador podem escolher automaticamente o servidor proxy apropriado (método de acesso) para obter um determinado URL.
+   > Os proxies que tentam intercetar e ler todo o tráfego (depois resignar tudo com a sua própria certificação) não são compatíveis, uma vez que o certificado do representante não é de confiança.
+   > Os proxies tipicamente transparentes funcionam bem com o Portal da Caixa de Dados Azure.
 
 4. (Opcional) No painel esquerdo, selecione **as definições**de tempo e, em seguida, configure o fuso horário e os servidores NTP primários e secundários para o seu dispositivo. 
 

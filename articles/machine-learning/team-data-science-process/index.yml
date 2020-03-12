@@ -1,37 +1,41 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Processo de Ciência de Dados de Equipa
+summary: Aprenda a utilizar o Processo de Ciência de Dados de Equipa, uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de análise preditiva e aplicações inteligentes.
 metadata:
   title: Documentação do Processo de Ciência de Dados de Equipa
-  description: Aprenda a utilizar o Processo de Ciência de Dados de Equipa é uma metodologia de ciência de dados ágil e iterativa que visa fornecer soluções de análise preditiva e aplicações inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e a aprendizagem em equipa. Contém uma seleção das melhores práticas e estruturas da Microsoft e de outras empresas do setor para facilitar a implementação de iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
-  services: machine-learning
-  author: marktab
+  description: Aprenda a utilizar o Processo de Ciência de Dados de Equipa, uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de análise preditiva e aplicações inteligentes.
   ms.service: machine-learning
   ms.subservice: team-data-science-process
   ms.topic: landing-page
-  ms.date: 01/10/2020
+  author: marktab
   ms.author: marktab
-abstract:
-  description: O Processo de Ciência de Dados de Equipa é uma metodologia de ciência de dados ágil e iterativa que visa fornecer soluções de análise preditiva e aplicações inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e a aprendizagem em equipa. Contém uma seleção das melhores práticas e estruturas da Microsoft e de outras empresas do setor para facilitar a implementação de iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Saiba mais sobre o Processo de Ciência de Dados de Equipa:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="overview">Descrição geral</a>
-          - html: <a href="lifecycle">Ciclo de vida</a>
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como utilizar o Processo de Ciência de Dados de Equipa em vários cenários:'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="walkthroughs-spark">Spark com PySpark e Scala</a>
-          - html: <a href="walkthroughs-hdinsight-hadoop">Hive com o HDInsight Hadoop</a>
-          - html: <a href="walkthroughs-azure-data-lake">U-SQL com o Azure Data Lake</a>
-          - html: '<a href="walkthroughs-sql-server">R, Python e T-SQL com o SQL Server</a>'
-          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL e Python com o SQL DW</a>
+  ms.date: 03/10/2020
+  ms.openlocfilehash: 5090cbcf6c177b99f4932eb77647520c3602a832
+  ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/11/2020
+  ms.locfileid: "79087387"
+landingContent:
+- title: Saiba mais sobre o processo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Processo de Ciência de Dados de Equipa?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Ciclo de vida do processo
+      url: lifecycle.md
+    - text: Noções sobre empresas
+      url: lifecycle-business-understanding.md
+    - text: Aquisição de dados
+      url: lifecycle-data.md
+- title: Planear e desenvolver um projeto
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planeamento do projeto
+      url: team-data-science-process-project-templates.md
+    - text: Desenvolvimento ágil
+      url: agile-development.md

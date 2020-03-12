@@ -1,17 +1,17 @@
 ---
-title: Recolher registo de atividade do Azure com definições de diagnóstico (pré-visualização) - Monitor Azure / Microsoft Docs
+title: Recolher registo de atividade seleção azure com configurações de diagnóstico - Monitor Azure / Microsoft Docs
 description: Utilize configurações de diagnóstico para retransmitir registos da Atividade Azure para registos do Monitor Azure, armazenamento Azure ou Hubs de Eventos Azure.
 author: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: fcf7eef269c9fa8b62217fb64ed792aece1fce4e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 6d4c724c7cfb4c1779f0fc6592a7e61e060755b9
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670343"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096906"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Atualização à recolha e exportação de registos da Atividade Azure
 O [registo da Atividade Azure](platform-logs-overview.md) é um registo de [plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de subscrição que ocorreram no Azure. O método para enviar entradas de registo de atividade para [um centro de eventos ou uma conta](activity-log-export.md) de armazenamento ou para um espaço de trabalho log [Analytics](activity-log-collect.md) mudou para usar [configurações de diagnóstico](diagnostic-settings.md). Este artigo descreve a diferença entre os métodos e como limpar as definições do legado na preparação para mudar para configurações de diagnóstico.

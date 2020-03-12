@@ -9,12 +9,12 @@ ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132081"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096604"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Definir tempo limite de inatividade ao nível do diretório
 
@@ -24,7 +24,7 @@ A definição de tempo limite de inatividade ajuda a proteger os seus recursos d
 
 Se é administrador global e pretende impor um intervalo de tempo inativo para todos os utilizadores do portal Azure, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Definições** a partir do cabeçalho de página global.
 3. Selecione o intervalo de tempo de nível de **diretório configurar**o texto de link .
 
@@ -43,7 +43,7 @@ Para confirmar que a política de tempo limite de inatividade é definida corret
 A definição entra em vigor para novas sessões. Não se aplica imediatamente a nenhum utilizador que já tenha assinado.
 
 > [!NOTE]
-> Se um administrador tiver configurado uma definição de tempo de tempo de nível de diretório, os utilizadores podem anular a apólice e definir a sua própria duração inativa de inscrição. No entanto, o utilizador deve escolher um intervalo de tempo inferior ao definido ao nível do diretório.
+> Se um Administrador Global tiver configurado uma definição de tempo de tempo de nível de diretório, os utilizadores podem anular a apólice e definir a sua própria duração de inscrição inativa. No entanto, o utilizador deve escolher um intervalo de tempo inferior ao definido ao nível do diretório pelo Administrador Global.
 >
 
 ## <a name="next-steps"></a>Passos seguintes

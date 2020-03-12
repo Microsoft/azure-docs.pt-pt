@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: f88d8681bbb1cfc9482e84c467bbd514aed41764
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+manager: lizross
+ms.openlocfilehash: 2078869aef5964b30723d8b6854c4b15f0423205
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945244"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127533"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando a Automação Azure
 
@@ -177,9 +178,9 @@ Finalmente, terá de criar a App Lógica Azure e configurar um calendário de ex
 
      $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
 
-     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you'd like to scale"
 
-     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
 
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
 
@@ -205,7 +206,7 @@ Finalmente, terá de criar a App Lógica Azure e configurar um calendário de ex
 
      $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
 
-     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
      .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
        -AADTenantID $aadTenantId `

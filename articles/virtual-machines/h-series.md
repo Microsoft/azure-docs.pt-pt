@@ -5,14 +5,14 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 02/04/2020
+ms.date: 03/10/2020
 ms.author: lahugh
-ms.openlocfilehash: 6654506a1e53165ef0891ba0de32a7937c21c904
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: a71b7b7de6f6039106b43576847675f48de803c8
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164819"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79088071"
 ---
 # <a name="h-series"></a>Série H
 
@@ -40,6 +40,52 @@ Atualizações de preservação da memória: não suportadas
 <sup>1</sup> Para aplicações DEMPI, a rede de backend dedicada RDMA é ativada pela rede FDR InfiniBand.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+
+## <a name="supported-os-images-linux"></a>Imagens de Os Suportadas (Linux)
+ 
+O Azure Marketplace tem muitas distribuições Linux que suportam a conectividade RDMA:
+  
+* **HPC baseado em CentOS** - Para VMs não-SR-IOV habilitados, versão baseada em CentOS 6.5 HPC ou uma versão posterior, até 7.5 são adequados. Para VMs da série H, as versões 7.1 a 7.5 são recomendadas. Os controladores RDMA e intel MPI 5.1 estão instalados no VM.
+  Para vMs SR-IOV, o CentOS-HPC 7.6 vem otimizado e pré-carregado com os controladores RDMA e vários pacotes DEMPI instalados.
+  Para outras imagens RHEL/CentOS VM, adicione a extensão InfiniBandLinux para ativar a InfiniBand. Esta extensão Linux VM instala os controladores Mellanox OFED (em VMs SR-IOV) para conectividade RDMA. O seguinte cmdlet PowerShell instala a versão mais recente (versão 1.0) da extensão InfiniBandDriverLinux num VM com capacidade para RDMA existente. O VM com capacidade rdma é nomeado *myVM* e é implantado no grupo de recursos chamado *myResourceGroup* na região *dos EUA Ocidentais* da seguinte forma:
+
+  ```powershell
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  ```
+  Alternativamente, as extensões VM podem ser incluídas nos modelos do Gestor de Recursos Azure para uma fácil implantação com o seguinte elemento JSON:
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverLinux",
+  "typeHandlerVersion": "1.0",
+  } 
+  ```
+  
+  O comando seguinte instala a mais recente extensão infiniBandDriverLinux em todos os VMs capazes de RDMA num conjunto de escala virtual existente chamado *myVMSS* implantado no grupo de recursos chamado *myResourceGroup*:
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+  
+  > [!NOTE]
+  > Nas imagens HPC baseadas no CentOS, as atualizações de kernel são desativadas no ficheiro de configuração **yum.** Isto porque os condutores de RDMA linux são distribuídos como um pacote RPM, e as atualizações do condutor podem não funcionar se o núcleo for atualizado.
+  >
+  
+
+* **SUSE Linux Enterprise Server** - SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 e SLES 15. Os controladores RDMA são instalados e os pacotes de MPI intel são distribuídos no VM. Instale MPI executando o seguinte comando:
+
+  ```bash
+  sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+  ```
+  
+* **Ubuntu** - Ubuntu Server 16.04 LTS, 18.04 LTS. Configure os condutores de RDMA no VM e registe-se com a Intel para descarregar mpi intel:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../includes/virtual-machines-common-ubuntu-rdma.md)]  
+
+  Para obter mais detalhes sobre a habilitação da InfiniBand, configuração de MPI, consulte [Enable InfiniBand](/workloads/hpc/enable-infiniband.md).
 
 ## <a name="other-sizes"></a>Outros tamanhos
 

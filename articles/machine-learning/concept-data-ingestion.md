@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303125"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086893"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados em Aprendizagem automática azure
 
@@ -26,7 +26,7 @@ Neste artigo, você aprende os prós e contras das seguintes opções de ingest�
 
 A ingestão de dados é o processo em que os dados não estruturados são extraídos de uma ou múltiplas fontes e, em seguida, preparados para treinar modelos de aprendizagem automática. Também é intensivo em tempo, especialmente se feito manualmente, e se você tiver grandes quantidades de dados de várias fontes. Automatizar este esforço liberta recursos e garante que os seus modelos utilizam os dados mais recentes e aplicáveis.
 
-Recomendamos que avalie inicialmente a utilização da Azure Data Factory (ADF), uma vez que foi especificamente construída para extrair, carregar e transformar dados. Se não conseguir cumprir os seus requisitos utilizando a ADF, pode utilizar o Python SDK para desenvolver uma solução de código personalizada, ou utilizar a ADF e o Python SDK em conjunto para criar um fluxo de trabalho global de ingestão de dados que satisfaça as suas necessidades.
+A Azure Data Factory (ADF) foi especificamente construída para extrair, carregar e transformar dados, no entanto o Python SDK permite-lhe desenvolver uma solução de código personalizada para tarefas básicas de ingestão de dados. Se nenhum dos dois é o que precisa, também pode usar a ADF e o Python SDK em conjunto para criar um fluxo de trabalho global de ingestão de dados que satisfaça as suas necessidades. 
 
 ## <a name="use-azure-data-factory"></a>Utilize o Azure Data Factory
 
@@ -52,6 +52,8 @@ Estes passos e o diagrama seguinte ilustram o fluxo de trabalho de ingestão de 
 
 
     ![Ingestão de dados da ADF](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+Saiba como construir um pipeline de ingestão de dados para machine learning com a [Azure Data Factory](how-to-data-ingest-adf.md).
 
 ## <a name="use-the-python-sdk"></a>Use o Python SDK 
 

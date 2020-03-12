@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081833"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127209"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configure experiências automatizadas de ML em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Opções de configuração disponíveis no automatizada de machine learning:
 * Explorar métricas de modelo
 * Registe e implemente o modelo
 
-Se preferir uma experiência sem código, também pode [criar as suas experiências automatizadas](how-to-create-portal-experiments.md)de aprendizagem automática em estúdio de Machine Learning.
+Se preferir uma experiência sem código, também pode [criar as suas experiências automatizadas](how-to-use-automated-ml-for-ml-models.md)de aprendizagem automática em estúdio de Machine Learning.
 
 ## <a name="select-your-experiment-type"></a>Selecione o tipo de experimentação
 
@@ -174,7 +174,7 @@ Alguns exemplos incluem:
 
 Os três diferentes valores de parâmetro sétero `task` (o terceiro tipo de tarefa é `forecasting`, e usa um conjunto de algoritmos semelhante si `regression` tarefas) determinam a lista de modelos a aplicar. Utilize os parâmetros `whitelist` ou `blacklist` para modificar ainda mais as iterações com os modelos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada na [Classe SupportEdModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) para ([Classificação,](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification) [Previsão](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)e [Regressão).](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)
 
-O serivce de validação automatizado do ML exigirá que `experiment_timeout_minutes` seja fixado para um tempo mínimo de 15 minutos, a fim de ajudar a evitar falhas no tempo de tempo.
+O serviço de validação automatizado do ML exigirá que `experiment_timeout_minutes` ser fixado para um tempo mínimo de 15 minutos, a fim de ajudar a evitar falhas no tempo de tempo.
 
 ### <a name="primary-metric"></a>Métrica primária
 A métrica primária determina a métrica a ser usada durante o treino do modelo para otimização. As métricas disponíveis que pode selecionar são determinadas pelo tipo de tarefa que escolher, e a tabela seguinte mostra métricas primárias válidas para cada tipo de tarefa.
@@ -191,7 +191,7 @@ Conheça as definições específicas destas métricas em [Compreender os result
 
 ### <a name="data-featurization"></a>Característica de dados
 
-Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são [automaticamente dimensionados e normalizados](concept-automated-ml.md#preprocess) para ajudar *certos* algoritmos sensíveis a funcionalidades que estão em escalas diferentes.  No entanto, também pode permitir uma funcionalidade adicional, como a imputação de valores em falta, codificação e transformações. [Saiba mais sobre o que está incluído.](how-to-create-portal-experiments.md#featurization)
+Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são [automaticamente dimensionados e normalizados](concept-automated-ml.md#preprocess) para ajudar *certos* algoritmos sensíveis a funcionalidades que estão em escalas diferentes.  No entanto, também pode permitir uma funcionalidade adicional, como a imputação de valores em falta, codificação e transformações. [Saiba mais sobre o que está incluído.](how-to-use-automated-ml-for-ml-models.md#featurization)
 
 Ao configurar as suas experiências, pode ativar a configuração avançada `featurization`. A tabela seguinte mostra as configurações aceites para a caracterização na [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -199,7 +199,7 @@ Ao configurar as suas experiências, pode ativar a configuração avançada `fea
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que deve ser utilizado um passo de caracterização personalizado. [Aprenda a personalizar a caracterização.](how-to-configure-auto-train.md#customize-feature-engineering)|
 |`"featurization": 'off'`| Indica que o passo de caracterização não deve ser feito automaticamente.|
-|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, os [guarda-costas de dados e os passos](how-to-create-portal-experiments.md#advanced-featurization-options) de caracterização são executados automaticamente.|
+|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, os [guarda-costas de dados e os passos](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) de caracterização são executados automaticamente.|
 
 > [!NOTE]
 > Os passos automatizados de funcionalidade de aprendizagem automática (normalização de recursos, manuseamento de dados em falta, conversão de texto em numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, os mesmos passos de caracterização aplicados durante o treino são aplicados automaticamente aos seus dados de entrada.

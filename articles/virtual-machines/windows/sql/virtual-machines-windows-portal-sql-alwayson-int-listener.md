@@ -15,11 +15,11 @@ ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394515"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096329"
 ---
 # <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Configure um balancer de carga para um grupo de disponibilidade em VMs de servidor Estivado Azure
 Este artigo explica como criar um balancer de carga para um grupo de disponibilidade SQL Server Always On em máquinas virtuais Azure que estão a funcionar com o Gestor de Recursos Azure. Um grupo de disponibilidade requer um equilíbrio de carga quando as instâncias do SQL Server estão em máquinas virtuais Azure. O equilibrista de carga armazena o endereço IP para o ouvinte do grupo de disponibilidade. Se um grupo de disponibilidade abrange várias regiões, cada região precisa de um equilibrador de carga.

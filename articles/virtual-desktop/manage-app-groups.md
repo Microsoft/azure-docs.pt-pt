@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 8469b54afe01d9ee42dda8cf99f2f0125a4a1982
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 9a9d92ea525c6b5a64fdf7cc74babdce6a97f923
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367312"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127806"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutorial: Gerir grupos de aplicativos para windows virtual desktop
 

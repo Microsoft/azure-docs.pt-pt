@@ -6,16 +6,19 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 7b9ce8be4ffc306417dd836e28127641f6100321
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899194"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127278"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicione recursos ao seu ambiente de serviço de integração (ISE) em Aplicações Lógicas Azure
 
 Depois de criar um ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)adicione recursos como aplicações lógicas, contas de integração e conectores para que possam aceder aos recursos na sua rede virtual Azure. Por exemplo, os conectores ISE geridos que ficam disponíveis depois de criar o seu ISE não aparecem automaticamente no Logic App Designer. Antes de poder utilizar estes conectores ISE, tem de adicionar e implantar manualmente [esses conectores no ISE](#add-ise-connectors-environment) para que apareçam no Logic App Designer.
+
+> [!IMPORTANT]
+> Para que as aplicações lógicas e as contas de integração trabalhem em conjunto num ISE, ambos devem usar o *mesmo ISE* que a sua localização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

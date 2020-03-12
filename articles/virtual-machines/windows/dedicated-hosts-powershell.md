@@ -1,23 +1,18 @@
 ---
 title: Implementar anfitriões dedicados azure usando o Azure PowerShell
 description: Implemente VMs para anfitriões dedicados usando o Azure PowerShell.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 5cd82635f3aec2cca251e122aadf96f70d377c8a
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 30d15970b00a81ab85cdb85d2c0a27ee23ed1b92
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190525"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130321"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementar VMs para anfitriões dedicados usando o Azure PowerShell
 
@@ -28,7 +23,7 @@ Certifique-se de que instalou a versão 2.8.0 do Azure PowerShell ou mais tarde,
 ## <a name="limitations"></a>Limitações
 
 - Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
-- As seguintes séries VM são suportadas: DSv3, ESv3 e FSv2. 
+- Os tamanhos e tipos de hardware disponíveis para anfitriões dedicados variam por região. Consulte a [página](https://aka.ms/ADHPricing) de preços do anfitrião para saber mais.
 
 ## <a name="create-a-host-group"></a>Criar um grupo de anfitriões
 
@@ -57,7 +52,6 @@ $hostGroup = New-AzHostGroup `
 ## <a name="create-a-host"></a>Criar um hospedeiro
 
 Agora vamos criar um anfitrião dedicado no grupo anfitrião. Além de um nome para o anfitrião, é necessário fornecer o SKU para o anfitrião. Host SKU captura a série VM suportada, bem como a geração de hardware para o seu anfitrião dedicado.
-
 
 Para obter mais informações sobre o anfitrião SKUs e preços, consulte [o preço do Anfitrião Dedicado Azure.](https://aka.ms/ADHPricing)
 

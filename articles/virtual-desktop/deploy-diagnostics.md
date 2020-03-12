@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: helohr
-ms.openlocfilehash: 9e42ff0ec5b44dca743d2ec1470c2eef655b9436
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+manager: lizross
+ms.openlocfilehash: 9392855f98dbee2badbe87bb4a0bf11bf2fc073e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273109"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128021"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 

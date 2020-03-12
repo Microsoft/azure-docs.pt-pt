@@ -1,62 +1,63 @@
 ---
-title: Ferramenta de gerenciamento de área de trabalho virtual do Windows-Azure
-description: Como solucionar problemas com a ferramenta de gerenciamento de área de trabalho virtual do Windows.
+title: Ferramenta de gestão de ambiente de trabalho virtual Windows - Azure
+description: Como resolver problemas com a ferramenta de gestão do Ambiente de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: dd9fd135536fc2cb222b908f3d61c1d1430e65b0
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+manager: lizross
+ms.openlocfilehash: 9d07ba42e83d9eec071ab047e9e1e92bac1f1411
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905618"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127481"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Solucionar problemas da ferramenta de gerenciamento de área de trabalho virtual do Windows
+# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Resolução de problemas da ferramenta de gestão do Windows Virtual Desktop
 
-Este artigo descreve problemas que podem ocorrer durante a implantação da ferramenta de gerenciamento de área de trabalho virtual do Windows e como corrigi-las.
+Este artigo descreve problemas que podem ocorrer ao implementar a ferramenta de gestão do Ambiente de Trabalho Virtual do Windows e como corrigi-los.
 
-## <a name="error-management-tool-services-configured-but-automated-setup-fails"></a>Erro: serviços da ferramenta de gerenciamento configurados, mas a instalação automatizada falha
+## <a name="error-management-tool-services-configured-but-automated-setup-fails"></a>Erro: Serviços de ferramentas de gestão configurados mas configuração automatizada falha
 
-Quando você configurar os serviços para a ferramenta de gerenciamento com êxito, mas a instalação automatizada falhar, você verá esta mensagem de erro:
+Quando configurar com sucesso os serviços para a ferramenta de gestão, mas a configuração automatizada falha, verá esta mensagem de erro:
 
 ```console
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n "status": "Failed",\r\n "error": {\r\n "code": "ResourceDeploymentFailure",\r\n "message": "The resource operation completed with terminal provisioning state 'Failed'."\r\n }\r\n}"}]}
 ```
 
-Isso geralmente significa uma das duas coisas a seguir:
+Isto geralmente significa uma das duas coisas seguintes:
 
-- O usuário tem permissões de proprietário em sua assinatura e administrador global no nível do locatário, mas eles não podem entrar no Azure.
-- As configurações de conta do usuário têm a autenticação multifator habilitada.
+- O utilizador tem permissões de proprietários na sua subscrição e administração global a nível de inquilinos, mas não podem assinar no Azure.
+- As definições de conta do utilizador têm a autenticação multifactor ativada.
 
-Para corrigir isso:
+Para corrigir isto:
 
-1. Verifique se o usuário criado para o Azure Active Directory nome principal do usuário tem o nível de assinatura "colaborador".
-2. Entre no portal do <. Azure. com > com a conta de UPN para verificar as configurações da conta e se certificar de que a autenticação multifator não esteja ativada. Se ele estiver ativado, desative-o.
-3. Visite a página de consentimento da área de trabalho virtual do Windows e verifique se os aplicativos cliente e servidor têm consentimento.
-4. Examine o tutorial [implantar ferramenta de gerenciamento](manage-resources-using-ui.md) se o problema continuar e reimplantar a ferramenta.
+1. Certifique-se de que o utilizador que criou para o Nome Principal do Utilizador do Diretório Ativo Azure tem o nível de subscrição "Contributor".
+2. Inscreva-se em <portal.azure.com> com a conta UPN para verificar as definições da conta e certificar-se de que a autenticação de vários fatores não está em vigor. Se estiver ligado, desligue.
+3. Visite a página de Consentimento virtual do Windows e certifique-se de que as aplicações do servidor e do cliente têm consentimento.
+4. Reveja o tutorial de [ferramentas de gestão](manage-resources-using-ui.md) se o problema continuar e recolocar a ferramenta.
 
-## <a name="error-job-with-specified-id-already-exists"></a>Erro: o trabalho com a ID especificada já existe
+## <a name="error-job-with-specified-id-already-exists"></a>Erro: Já existe trabalho com ID especificado
 
-Se o usuário vir a mensagem de erro "o trabalho com a ID especificada já existe", é porque não forneceu um nome exclusivo no parâmetro "nome do aplicativo" ao implantar o modelo.
+Se o utilizador vir a mensagem de erro "Job with specific ID already existy", é porque não forneceu um nome único no parâmetro "Nome de aplicação" ao implementar o modelo.
 
-Para corrigir isso, reimplante a ferramenta de gerenciamento com o parâmetro "nome do aplicativo" preenchido.
+Para corrigir isto, reimplante a ferramenta de gestão com o parâmetro "Nome de aplicação" preenchido.
 
-## <a name="delayed-consent-prompt-when-opening-management-tool"></a>Prompt de consentimento atrasado ao abrir a ferramenta de gerenciamento
+## <a name="delayed-consent-prompt-when-opening-management-tool"></a>Pedido de consentimento atrasado ao abrir ferramenta de gestão
 
-Quando você implanta a ferramenta de gerenciamento, a solicitação de consentimento pode não abrir imediatamente. Isso significa que o serviço de aplicativo Web do Azure está demorando mais do que o normal para carregar. O prompt deve aparecer depois que a Web do Azure terminar de ser carregada.
+Quando implementar a ferramenta de gestão, o pedido de consentimento pode não ser aberto imediatamente. Isto significa que o serviço de aplicações Azure Web está a demorar mais tempo do que o habitual para carregar. A solicitação deve aparecer depois de o Azure Web estar a fazer o carregamento.
 
-## <a name="the-user-cant-deploy-the-management-tool-in-the-east-us-region"></a>O usuário não pode implantar a ferramenta de gerenciamento na região leste dos EUA
+## <a name="the-user-cant-deploy-the-management-tool-in-the-east-us-region"></a>O utilizador não pode implementar a ferramenta de gestão na região leste dos EUA
 
-Se um cliente definir a região para o leste dos EUA, ele não poderá implantar a ferramenta de gerenciamento.
+Se um cliente definir a região para os EUA Orientais, não pode implementar a ferramenta de gestão.
 
-Para corrigir isso, implante a ferramenta de gerenciamento em uma região diferente. Reimplantar a ferramenta em uma região diferente não deve afetar a experiência do usuário.
+Para corrigir isto, implemente a ferramenta de gestão numa região diferente. A recolocação da ferramenta numa região diferente não deve afetar a experiência do utilizador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre as faixas de escalonamento em [visão geral, comentários e suporte da solução de problemas](troubleshoot-set-up-overview.md).
-- Saiba como relatar problemas com as ferramentas de área de trabalho virtual do Windows em [modelos ARM para serviços de área de trabalho remota](https://github.com/Azure/RDS-Templates/blob/master/README.md).
-- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
-- Para saber como implantar a ferramenta de gerenciamento, consulte [implantar uma ferramenta de gerenciamento](manage-resources-using-ui.md).
+- Aprenda sobre faixas de escalada na [visão geral, feedback e suporte](troubleshoot-set-up-overview.md)de resolução de problemas.
+- Saiba como relatar problemas com ferramentas de ambiente de trabalho virtual do Windows nos [modelos ARM para serviços de ambiente](https://github.com/Azure/RDS-Templates/blob/master/README.md)de trabalho remotos .
+- Para uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte a [visão geral, feedback e suporte](troubleshoot-set-up-overview.md)de Resolução de Problemas.
+- Para aprender a implementar a ferramenta de gestão, consulte [implementar uma ferramenta de gestão](manage-resources-using-ui.md).

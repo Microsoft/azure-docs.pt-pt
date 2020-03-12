@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: de875ca9db9716e59c3c6efc0d7fb34e31f0c1d2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 99d52077d84ab8a9495f92d9c75fb742ff988ba8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367538"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128271"
 ---
 # <a name="connect-with-the-android-client"></a>Ligar ao cliente Android
 

@@ -3,12 +3,12 @@ title: Execute as suas Funções Azure a partir de um pacote
 description: Faça com que as Funções Azure executem as suas funções montando um ficheiro de pacote de implementação que contenha os ficheiros do projeto da aplicação de funções.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921118"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087021"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Execute as suas Funções Azure a partir de um ficheiro de pacote
 
@@ -91,6 +91,7 @@ Consulte os seguintes artigos para obter mais informações.
 - Os formatos de alcatrão e gzip não são suportados.
 - Esta funcionalidade não se compõe com cache local.
 - Para um melhor desempenho a frio, utilize a opção Zip local (`WEBSITE_RUN_FROM_PACKAGE`=1).
+- Run From Package é incompatível com a opção de personalização de implementação (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`), o passo de construção será ignorado durante a implementação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

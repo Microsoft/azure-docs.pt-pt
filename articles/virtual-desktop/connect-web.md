@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 9c738c5b7f233ffa34296eed67eb0f5497f737fc
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+manager: lizross
+ms.openlocfilehash: f508cac23d997b7595fcc7a4606608aa2dc15fc6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206678"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128228"
 ---
 # <a name="connect-with-the-web-client"></a>Ligar com o cliente web
 

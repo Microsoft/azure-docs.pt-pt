@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654438"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096223"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de Monitor de Desempenho de Rede FAQ
 
@@ -183,7 +183,7 @@ Um salto não pode responder a uma rota de rastreio em um ou mais dos cenários 
 * Os dispositivos de rede não permitem ICMP_TTL_EXCEEDED tráfego.
 * Uma firewall está a bloquear a resposta ICMP_TTL_EXCEEDED do dispositivo de rede.
 
-Quando um dos pontos finais se encontra em Azure, a traceroute aparece em lúpulo não identificado, uma vez que a ndrastructure azure não revela identidade para rastrear a rota. 
+Quando um dos pontos finais se encontra em Azure, a traceroute aparece em lúpulo não identificado, uma vez que a Infraestrutura Azure não revela identidade para rastrear a rota. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Recebo alertas para testes pouco saudáveis, mas não vejo os valores elevados no gráfico de perda e latência da NPM. Como posso verificar o que não é saudável?
 O NPM levanta um alerta se o fim da latência entre a fonte e o destino cruzar o limiar para qualquer caminho entre eles. Algumas redes têm múltiplos caminhos que ligam a mesma fonte e destino. NPM levanta um alerta é que qualquer caminho não é saudável. A perda e latência observada nos gráficos é o valor médio para todos os caminhos, pelo que pode não mostrar o valor exato de um único caminho. Para entender onde o limiar foi violado, procure a coluna "SubType" no alerta. Se o problema for causado por um caminho, o valor subTipo será NetworkPath (para testes de Monitor de Desempenho), EndpointPath (para testes de Monitor de Conectividade de Serviço) e ExpressRoutePath (para testes expressRotue Monitor). 

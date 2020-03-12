@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+manager: lizross
+ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471776"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127765"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -86,15 +87,15 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ser:
 >[!NOTE]
 >Se precisar de uma subscrição Azure, pode [inscrever-se para um teste gratuito de um mês.](https://azure.microsoft.com/free/) Se estiver a utilizar a versão gratuita do Azure, deverá utilizar os Serviços de Domínio Azure AD para manter o diretório Ativo do Windows Server em sintonia com o Diretório Ativo do Azure.
 
-As máquinas virtuais do Azure que você cria para a área de trabalho virtual do Windows devem ter acesso às seguintes URLs:
+As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter acesso aos seguintes URLs:
 
 |Endereço|Porta de saída|Objetivo|
 |---|---|---|
 |*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|
-|*.blob.core.windows.net|Porta TCP 443|Agente, atualizações de pilha de SXS e tráfego de agente|
-|*.core.windows.net|Porta TCP 443|Tráfego do agente|
-|*.servicebus.windows.net|Porta TCP 443|Tráfego do agente|
-|prod.warmpath.msftcloudes.com|Porta TCP 443|Tráfego do agente|
+|*.blob.core.windows.net|Porta TCP 443|Agente, atualizações de pilha sXS, e tráfego de agente|
+|*.core.windows.net|Porta TCP 443|Tráfego de agente|
+|*.servicebus.windows.net|Porta TCP 443|Tráfego de agente|
+|prod.warmpath.msftcloudes.com|Porta TCP 443|Tráfego de agente|
 |catalogartifact.azureedge.net|Porta TCP 443|Azure Marketplace|
 |kms.core.windows.net|Porta TCP 1688|Ativação do Windows 10|
 
@@ -104,11 +105,11 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 >[!NOTE]
 >O Windows Virtual Desktop atualmente não tem uma lista de intervalos de endereços IP que pode whitelist para permitir o tráfego de rede. Só apoiamos urLs específicos de whitelisting neste momento.
 >
->Você deve usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se você preferir não usar * para o tráfego relacionado ao agente, veja como encontrar as URLs sem curingas:
+>Deve utilizar o caracteres wildcard (*) para URLs que envolvam tráfego de serviço. Se preferir não usar * para tráfego relacionado com agentes, eis como encontrar os URLs sem wildcards:
 >
->1. Registre suas máquinas virtuais no pool de hosts da área de trabalho virtual do Windows.
+>1. Registe as suas máquinas virtuais na piscina de anfitriões do Windows Virtual Desktop.
 >2. Abra **o espectador do Evento** e navegue para **registos do Windows** > **Aplicação** > **WVD-Agent** e procure o ID do evento 3702.
->3. Lista de permissões as URLs encontradas na ID do evento 3702. As URLs em ID de evento 3702 são específicas da região. Você precisará repetir o processo de lista de permissões com as URLs relevantes para cada região em que você deseja implantar suas máquinas virtuais.
+>3. Whitelist os URLs que encontra no âmbito do Id 3702 do Evento. Os URLs ao abrigo do Id do evento 3702 são específicos da região. Terá de repetir o processo de listagem de whitelisting com os URLs relevantes para cada região onde pretende implantar as suas máquinas virtuais.
 
 O Windows Virtual Desktop compreende os desktops e aplicações do Windows que entrega aos utilizadores e a solução de gestão, que é hospedada como um serviço no Azure pela Microsoft. Os desktops e aplicações podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gestão e dados para estes VMs residem nos Estados Unidos. Isto pode resultar na transferência de dados para os Estados Unidos.
 

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-ms.openlocfilehash: 8c062c1ce8e938ac426a10c41161eb7e28f3dcba
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 2834ba924fa9c29d955c38fbaeb45ab23e5c4e9b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368763"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127707"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
 
@@ -48,7 +49,7 @@ Recomendamos que crie alertas de serviço para os seguintes tipos de eventos de 
 
 Para configurar alertas de serviço:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Service Health.**
 3. Utilize as instruções em Criar alertas de registo de [atividade sonantes em notificações](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) de serviço para configurar os seus alertas e notificações.
 

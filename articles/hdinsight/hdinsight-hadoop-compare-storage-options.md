@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 72534225acffa176d248901f363100955e36c6f6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/10/2020
+ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898920"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095542"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare opções de armazenamento para uso com clusters Azure HDInsight
 
@@ -46,7 +46,6 @@ Você pode criar um cluster usando diferentes combinações de serviços para ar
 |---|---|---|---|
 | 3.6 e 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
 | 3.6 e 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Armazenamento do Data Lake Ger2 | Não |
-| 3.6 e 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Armazenamento do Data Lake Ger1 | Sim |
 | 3.6 e 4.0 | Data Lake Storage Gen2* | Armazenamento do Data Lake Ger2 | Sim |
 | 3.6 e 4.0 | Data Lake Storage Gen2* | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
 | 3.6 e 4.0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | Não |
@@ -54,6 +53,7 @@ Você pode criar um cluster usando diferentes combinações de serviços para ar
 | 3.6 | Armazenamento do Data Lake Ger1 | Objetivo Geral V1 , Propósito Geral V2, BlobStorage (Bloco blobs) | Sim |
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | Não |
 | 4.0 | Armazenamento do Data Lake Ger1 | Qualquer | Não |
+| 4.0 | Finalidade Geral V1 , Propósito Geral V2 | Armazenamento do Data Lake Ger1 | Não |
 
 *=Esta pode ser uma ou múltiplas contas de Data Lake Storage Gen2, desde que todas estejam configuradas para usar a mesma identidade gerida para acesso ao cluster.
 

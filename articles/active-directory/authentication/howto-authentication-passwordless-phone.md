@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227061"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126696"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
 
@@ -62,7 +62,7 @@ As funcionalidades de registo dos métodos de autenticação sem palavras-passe 
 1. No **Microsoft Authenticator,** escolha ativar o **registo do telefone** no menu de entrega da conta
 1. Siga as instruções na aplicação para terminar a inscrição para o acesso ao telefone sem palavras-passe. 
 
-As organizações podem apontar os seus utilizadores para o artigo [Iniciar sessão com o seu telemóvel, e não a sua palavra-passe](../user-help/microsoft-authenticator-app-phone-signin-faq.md) para mais assistência na aplicação Microsoft Authenticator e ativar o registo do telefone.
+As organizações podem apontar os seus utilizadores para o artigo [Iniciar sessão com o seu telemóvel, e não a sua palavra-passe](../user-help/microsoft-authenticator-app-phone-signin-faq.md) para mais assistência na aplicação Microsoft Authenticator e ativar o registo do telefone. Para aplicar estas definições, poderá ter de iniciar sessão e voltar a entrar no inquilino. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Inscreva-se com credenciais sem palavras-passe
 

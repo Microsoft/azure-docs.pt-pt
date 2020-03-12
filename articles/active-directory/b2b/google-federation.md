@@ -1,133 +1,132 @@
 ---
-title: Adicionar o Google como um provedor de identidade para B2B-Azure AD
-description: Federar com o Google para permitir que os usuários convidados entrem em seus aplicativos do Azure AD com sua própria conta do gmail
+title: Adicione o Google como fornecedor de identidade para B2B - Azure AD
+description: Federate com o Google para permitir que os utilizadores convidados acedam às suas aplicações Azure AD com a sua própria conta Gmail
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/1/2019
+ms.date: 03/05/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272881"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126652"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como um provedor de identidade para usuários convidados B2B
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicione o Google como fornecedor de identidade para utilizadores convidados B2B
 
-Ao configurar a Federação com o Google, você pode permitir que os usuários convidados entrem em seus aplicativos compartilhados e recursos com suas próprias contas do Gmail, sem precisar criar contas da Microsoft (MSAs). 
+Ao configurar a federação com o Google, pode permitir que os utilizadores convidados inscrevam as suas aplicações e recursos partilhados com as suas próprias contas gmail, sem ter de criar contas da Microsoft (MSAs). 
 
 > [!NOTE]
-> O Google Federation foi projetado especificamente para usuários do gmail. Para federar com domínios do G Suite, use o [recurso de Federação direta](direct-federation.md).
+> A federação da Google foi concebida especificamente para utilizadores do Gmail. Para federar com os domínios G Suite, use a [função de federação direta](direct-federation.md).
 
-## <a name="what-is-the-experience-for-the-google-user"></a>Qual é a experiência para o usuário do Google?
-Quando você envia um convite para um usuário do Google Gmail, o usuário convidado deve acessar seus aplicativos ou recursos compartilhados usando um link que inclui o contexto do locatário. Sua experiência varia dependendo se elas já estão conectadas ao Google:
-  - Se o usuário convidado não estiver conectado ao Google, será solicitado que ele entre no Google.
-  - Se o usuário convidado já estiver conectado ao Google, ele será solicitado a escolher a conta que deseja usar. Eles devem escolher a conta usada para convidá-los.
+## <a name="what-is-the-experience-for-the-google-user"></a>Qual é a experiência para o utilizador do Google?
+Ao enviar um convite a um utilizador do Google Gmail, o utilizador convidado deve aceder às suas aplicações ou recursos partilhados utilizando um link que inclua o contexto do inquilino. A sua experiência varia consoante já estejam inscritas no Google:
+  - Se o utilizador convidado não estiver inscrito no Google, é solicitado que entre no Google.
+  - Se o utilizador convidado já estiver inscrito no Google, serão solicitados a escolher a conta que pretendem utilizar. Devem escolher a conta que usou para convidá-los.
 
-Se o usuário convidado vir um erro de "cabeçalho muito longo", ele poderá tentar limpar seus cookies ou abrir uma janela particular ou Incognito e tentar entrar novamente.
+Se o utilizador hóspede vir um erro de "cabeçalho demasiado longo", pode tentar limpar os seus cookies, ou pode abrir uma janela privada ou incógnita e tentar iniciar sessão novamente.
 
-![Captura de tela mostrando a página de entrada do Google](media/google-federation/google-sign-in.png)
+![Screenshot mostrando o sinal do Google na página](media/google-federation/google-sign-in.png)
 
 ## <a name="limitations"></a>Limitações
 
-As equipes dão suporte total aos usuários convidados do Google em todos os dispositivos. Os usuários do Google podem entrar em equipes de um ponto de extremidade comum, como `https://teams.microsoft.com`.
+As equipas suportam totalmente os utilizadores convidados do Google em todos os dispositivos. Os utilizadores do Google podem iniciar sessão em Equipas a partir de um ponto final comum, como `https://teams.microsoft.com`.
 
-Os pontos de extremidade comuns de outros aplicativos podem não dar suporte a usuários do Google. Os usuários convidados do Google devem entrar usando um link que inclui suas informações de locatário. Veja a seguir exemplos:
+Os pontos finais comuns de outras aplicações podem não suportar os utilizadores do Google. Os utilizadores convidados do Google devem iniciar sessão utilizando um link que inclua informações do seu inquilino. Eis alguns exemplos:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
-   Se os usuários convidados do Google tentarem usar um link como `https://myapps.microsoft.com` ou `https://portal.azure.com`, eles receberão um erro.
+   Se os utilizadores do Google tentarem utilizar um link como `https://myapps.microsoft.com` ou `https://portal.azure.com`, terão um erro.
 
-Você também pode conceder aos usuários convidados do Google um link direto para um aplicativo ou recurso, contanto que esse link inclua as informações de seu locatário, por exemplo `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
+Também pode dar aos utilizadores do Google um link direto para uma aplicação ou recurso, desde que este link inclua informações do seu inquilino, por exemplo `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
-## <a name="step-1-configure-a-google-developer-project"></a>Etapa 1: configurar um projeto de desenvolvedor do Google
-Primeiro, crie um novo projeto no console de desenvolvedores do Google para obter uma ID do cliente e um segredo do cliente que você pode adicionar posteriormente ao Azure AD. 
-1. Vá para as APIs do Google em https://console.developers.google.come entre com sua conta do Google. Recomendamos que você use uma conta compartilhada do Google da equipe.
-2. Criar um novo projeto: no painel, selecione **criar projeto**e, em seguida, selecione **criar**. Na página novo projeto, insira um **nome de projeto**e, em seguida, selecione **criar**.
+## <a name="step-1-configure-a-google-developer-project"></a>Passo 1: Configure um projeto de desenvolvimento da Google
+Em primeiro lugar, crie um novo projeto na Consola do Google Developers para obter um ID de cliente e um segredo de cliente que poderá adicionar mais tarde ao Azure AD. 
+1. Vá às APIs do Google na https://console.developers.google.come inscreva-se na sua conta google. Recomendamos que utilize uma conta partilhada do Google.
+2. Criar um novo projeto: No Dashboard, selecione **Criar Projeto,** e depois selecione **Criar**. Na página New Project, introduza um Nome de **Projeto**e, em seguida, selecione **Criar**.
    
-   ![Captura de tela mostrando uma nova página de projeto para o Google](media/google-federation/google-new-project.png)
+   ![Screenshot mostrando uma nova página de projeto para o Google](media/google-federation/google-new-project.png)
 
-3. Verifique se o novo projeto está selecionado no menu projeto. Em seguida, abra o menu no canto superior esquerdo e selecione **APIs & serviços** > **credenciais**.
+3. Certifique-se de que o seu novo projeto está selecionado no menu do projeto. Em seguida, em **apis & Services,** selecione **OAuth consent screen**.
 
-   ![Captura de tela mostrando a opção de credenciais da API do Google](media/google-federation/google-api.png)
- 
-4. Escolha a guia de **tela de consentimento do OAuth** e insira um nome de **aplicativo**. (Deixe as outras configurações.)
+4. Selecione **External**, e, em seguida, selecione **Criar**. 
+5. No ecrã de **consentimento da OAuth,** introduza um **nome de aplicação**. (Deixe as outras definições.)
 
-   ![Captura de tela mostrando a opção de ecrã de consentimento do Google OAuth](media/google-federation/google-oauth-consent-screen.png)
+   ![Screenshot mostrando a opção de ecrã de consentimento do Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
-5. Role até a seção **domínios autorizados** e insira microsoftonline.com.
+6. Percorra a secção de **domínios autorizados** e introduza microsoftonline.com.
 
-   ![Captura de tela mostrando a seção domínios autorizados](media/google-federation/google-oauth-authorized-domains.png)
+   ![Screenshot mostrando a secção de domínios autorizados](media/google-federation/google-oauth-authorized-domains.png)
 
-6. Selecione **Guardar**.
+7. Selecione **Guardar**.
 
-7. Escolha a guia **credenciais** . No menu **criar credenciais** , escolha **ID do cliente OAuth**.
+8. Escolha **credenciais**. No menu **de credenciais Criar,** escolha **ID do cliente OAuth**.
 
-   ![Captura de tela mostrando a opção criar credenciais do Google APIs](media/google-federation/google-api-credentials.png)
+   ![Screenshot mostrando as APIs do Google criar a opção de credenciais](media/google-federation/google-api-credentials.png)
 
-8. Em **tipo de aplicativo**, escolha **aplicativo Web**e, em **URIs de redirecionamento autorizados**, insira os seguintes URIs:
+9. No **tipo de aplicação,** escolha **a aplicação Web,** e depois em **URIs de redirecionamento autorizado,** introduza as seguintes URIs:
    - `https://login.microsoftonline.com` 
-   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(onde `<directory id>` é a ID do diretório)
+   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(onde `<directory id>` é o seu ID de diretório)
    
      > [!NOTE]
-     > Para localizar a ID do diretório, vá para https://portal.azure.come, em **Azure Active Directory**, escolha **Propriedades** e copie a **ID do diretório**.
+     > Para encontrar o seu ID de diretório, vá a https://portal.azure.com, e sob **o Diretório Ativo Azure,** escolha **Propriedades** e copie o ID do **Diretório**.
 
-   ![Captura de tela mostrando a seção de URIs de redirecionamento autorizados](media/google-federation/google-create-oauth-client-id.png)
+   ![Screenshot mostrando a secção de REdirecionamento autorizado de URIs](media/google-federation/google-create-oauth-client-id.png)
 
-9. Selecione **Criar**. Copie a ID do cliente e o segredo do cliente, que você usará ao adicionar o provedor de identidade no portal do AD do Azure.
+10. Selecione **Criar**. Copie o ID do cliente e o segredo do cliente, que utilizará quando adicionar o fornecedor de identidade no portal Azure AD.
 
-   ![Captura de tela mostrando a ID do cliente OAuth e o segredo do cliente](media/google-federation/google-auth-client-id-secret.png)
+   ![Screenshot mostrando o ID do cliente OAuth e segredo do cliente](media/google-federation/google-auth-client-id-secret.png)
 
-## <a name="step-2-configure-google-federation-in-azure-ad"></a>Etapa 2: configurar a Federação do Google no Azure AD 
-Agora você definirá a ID do cliente do Google e o segredo do cliente, seja inserindo-o no portal do AD do Azure ou usando o PowerShell. Certifique-se de testar sua configuração do Google Federation convidando-se usando um endereço do Gmail e tentando resgatar o convite com sua conta convidada do Google. 
+## <a name="step-2-configure-google-federation-in-azure-ad"></a>Passo 2: Configure a federação do Google em Azure AD 
+Agora irá definir o id do cliente da Google e o segredo do cliente, quer introduzindo-o no portal Azure AD ou utilizando o PowerShell. Certifique-se de testar a sua configuração da federação do Google convidando-se a usar um endereço Gmail e tentando resgatar o convite com a sua conta convidada do Google. 
 
-#### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Para configurar o Google Federation no portal do Azure AD 
+#### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Para configurar a federação do Google no portal Azure AD 
 1. Aceda ao [Portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
-2. Selecione **relações organizacionais**.
-3. Selecione **provedores de identidade**e, em seguida, clique no botão **Google** .
-4. Insira um nome. Em seguida, insira a ID do cliente e o segredo do cliente obtidos anteriormente. Selecione **Guardar**. 
+2. **Selecione Relações Organizacionais**.
+3. Selecione **fornecedores de Identidade**e, em seguida, clique no botão **Google.**
+4. Insira um nome. Em seguida, insira a identificação do cliente e o segredo do cliente que obteve anteriormente. Selecione **Guardar**. 
 
-   ![Captura de tela mostrando a página Adicionar provedor de identidade do Google](media/google-federation/google-identity-provider.png)
+   ![Screenshot mostrando a página do fornecedor de identidade do Google Adicionar](media/google-federation/google-identity-provider.png)
 
-#### <a name="to-configure-google-federation-by-using-powershell"></a>Para configurar o Google Federation usando o PowerShell
-1. Instale a versão mais recente do módulo do Azure AD PowerShell para Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. Execute o seguinte comando: `Connect-AzureAD`.
-3. No prompt de entrada, entre com a conta de administrador global gerenciada.  
+#### <a name="to-configure-google-federation-by-using-powershell"></a>Para configurar a federação da Google usando o PowerShell
+1. Instale a versão mais recente do Azure AD PowerShell para módulo gráfico[(AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+2. Executar o seguinte comando: `Connect-AzureAD`.
+3. No momento de início de sessão, inscreva-se na conta gerida do Administrador Global.  
 4. Execute o seguinte comando: 
    
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Use a ID do cliente e o segredo do cliente do aplicativo criado em "etapa 1: configurar um projeto de desenvolvedor do Google". Para obter mais informações, consulte o artigo [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) . 
+   > Utilize o id do cliente e o segredo do cliente a partir da app que criou em "Step 1: Configure um projeto de desenvolvimento da Google". Para mais informações, consulte o artigo [New-AzureADMSIdentityProvider.](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 
  
-## <a name="how-do-i-remove-google-federation"></a>Como fazer remover o Google Federation?
-Você pode excluir a configuração do Google Federation. Se você fizer isso, os usuários convidados do Google que já tiverem resgatado seu convite não poderão entrar, mas você poderá conceder a eles acesso a seus recursos novamente, excluindo-os do diretório e convidando-os novamente. 
+## <a name="how-do-i-remove-google-federation"></a>Como posso remover a federação do Google?
+Pode eliminar a configuração da federação do Google. Se o fizer, os utilizadores convidados do Google que já resgataram o seu convite não poderão inscrever-se, mas poderá dar-lhes acesso aos seus recursos novamente, apagando-os do diretório e reconvidando-os. 
  
-### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Para excluir o Google Federation no portal do AD do Azure: 
+### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Para eliminar a federação do Google no portal Azure AD: 
 1. Aceda ao [Portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
-2. Selecione **relações organizacionais**.
-3. Selecione **provedores de identidade**.
-4. Na linha do **Google** , selecione o menu de contexto ( **...** ) e, em seguida, selecione **excluir**. 
+2. **Selecione Relações Organizacionais**.
+3. Selecione **fornecedores de identidade**.
+4. Na linha **Google,** selecione o menu de contexto **(...** ) e, em seguida, selecione **Delete**. 
    
-   ![Captura de tela mostrando a opção Excluir para o provedor de identidade social](media/google-federation/google-social-identity-providers.png)
+   ![Screenshot mostrando a opção Delete para o fornecedor de identidade social](media/google-federation/google-social-identity-providers.png)
 
-1. Selecione **Sim** para confirmar a exclusão. 
+1. Selecione **Sim** para confirmar a eliminação. 
 
-### <a name="to-delete-google-federation-by-using-powershell"></a>Para excluir o Google Federation usando o PowerShell: 
-1. Instale a versão mais recente do módulo do Azure AD PowerShell para Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+### <a name="to-delete-google-federation-by-using-powershell"></a>Para eliminar a federação da Google utilizando o PowerShell: 
+1. Instale a versão mais recente do Azure AD PowerShell para módulo gráfico[(AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Execute `Connect-AzureAD`.  
-4. No prompt de logon, entre com a conta de administrador global gerenciada.  
+4. No início de sessão em pronta, inicie sessão com a conta de Administrador Global gerida.  
 5. Introduza o seguinte comando:
 
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Para obter mais informações, consulte [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Para mais informações, consulte [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 

@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 661b4dd5364e9c823f9a77ac175c9a8eca03b8a5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: HT
+ms.openlocfilehash: 7e4a242c1f81a504872dae6399683483c836daf2
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968972"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086898"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral do Azure Media Services v3
 
@@ -31,7 +31,9 @@ Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lh
 Os Serviços de Media v3 SDKs baseiam-se na [Especificação OpenAPI (Swagger)](https://aka.ms/ams-v3-rest-sdk)dos Media Services V3 .
 
 > [!NOTE]
-> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir o V3 [Live Events,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, Transforms and Jobs), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados .
+> Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para: gerir os Media Services v3 [Live Events,](live-events-outputs-concept.md)ver (não gerir) [os Ativos](assets-concept.md)v3, [obter informações sobre o acesso a APIs](access-api-portal.md). Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, Privacidade e Segurança
 

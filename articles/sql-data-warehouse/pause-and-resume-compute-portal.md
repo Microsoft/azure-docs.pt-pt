@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Pause & resume compute - Portal Azure '
+title: Pausa e retomar a computação na piscina SYnapse SQL através do portal Azure
 description: Utilize o portal Azure para parar a computação para a piscina SQL para economizar custos. Retome a computação quando estiver pronto para utilizar o armazém de dados.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,18 +11,16 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 49684e6844c2d9f58e9b750b12991428218e4426
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3a131c1ebbf2a69f1c738cbc3421635406500d3c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200648"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130357"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Quickstart: Pausa e retoma a computação na piscina Azure Synapse Analytics SQL no portal Azure
+# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Quickstart: Pausa e retoma a computação na piscina Synapse SQL através do portal Azure
 
-Utilize o portal Azure para parar a computação para a piscina SQL para economizar custos. [Retome](sql-data-warehouse-manage-compute-overview.md) a computação quando estiver pronto para utilizar o armazém de dados.
-
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Pode utilizar o portal Azure para parar e retomar os recursos de computação do synapse SQL (data warehouse). Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -34,9 +32,11 @@ Use [Create and Connect - portal](create-data-warehouse-portal.md) para criar um
 
 ## <a name="pause-compute"></a>Computação de pausa
 
-Para poupar custos, pode parar e retomar os recursos de computação a pedido. Por exemplo, se não utilizar a base de dados durante a noite e aos fins de semana, pode fazer uma pausa durante esses tempos e retomá-la durante o dia. Não será cobrado pelos recursos da computação enquanto a base de dados estiver em pausa. No entanto, continuará a ser cobrado para armazenamento. 
+Para reduzir custos, pode parar e retomar os recursos de computação a pedido. Por exemplo, se não utilizar a base de dados durante a noite e aos fins de semana, pode fazer uma pausa durante esses tempos e retomá-la durante o dia. 
+>[!NOTE]
+>Não será cobrado pelos recursos da computação enquanto a base de dados estiver em pausa. No entanto, continuará a ser cobrado para armazenamento. 
 
-Siga estes passos para fazer uma pausa numa piscina SQL.
+Siga estes passos para fazer uma pausa numa piscina SQL:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página de navegação esquerda do portal Azure.
@@ -80,7 +80,7 @@ Siga estes passos para retomar a piscina SQL.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Está a ser cobrado pelas unidades de armazém de dados e pelos dados armazenados no seu armazém de dados. Estes recursos de computação e armazenamento são faturados em separado. 
+Está a ser cobrado pelas unidades de armazém de dados e pelos dados armazenados na sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado. 
 
 - Se quiser manter os dados armazenados, faça uma pausa no cálculo.
 - Se quiser remover futuras tarifas, pode eliminar a piscina SQL. 
@@ -95,14 +95,15 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 2. Para remover a piscina SQL para que não seja cobrado para computação ou armazenamento, clique **em Eliminar**.
 
-3. Para remover o servidor SQL que criou, clique **em sqlpoolservername.database.windows.net**, e, em seguida, clique em **Eliminar**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
+3. Para remover o servidor SQL que criou, clique **em sqlpoolservername.database.windows.net**, e, em seguida, clique em **Eliminar**.  
 
-4. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
+   > [!CAUTION]
+   > Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
+
+5. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Fez agora uma pausa e retomou a computação para a sua piscina SQL. Para os próximos passos continuam no tutorial para carregar dados.
+Fez agora uma pausa e retomou a computação para a sua piscina SQL. Continue para o próximo artigo para saber mais sobre como [carregar dados em pool SQL](load-data-from-azure-blob-storage-using-polybase.md). Para obter informações adicionais sobre a gestão das capacidades computacionais, consulte o artigo de visão geral da [computação Manage.](sql-data-warehouse-manage-compute-overview.md) 
 
-> [!div class="nextstepaction"]
-> [Carregue os dados no pool SQL](load-data-from-azure-blob-storage-using-polybase.md)

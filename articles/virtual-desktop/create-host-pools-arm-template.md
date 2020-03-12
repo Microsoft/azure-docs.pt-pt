@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 5b07416f785ad263b4dbb9a0d249cb6022c01b13
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: f61319a1d2a5d5599a4745979f3c5abc0a713ac7
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367479"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128129"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
 

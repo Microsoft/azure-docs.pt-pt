@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 0838edb03c4868548f3d09f14d71ec7016e670a4
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368827"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127789"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementar uma ferramenta de gestão com a PowerShell
 

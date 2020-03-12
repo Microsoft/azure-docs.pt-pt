@@ -1,41 +1,42 @@
 ---
-title: Balanceamento de carga do pool de hosts da área de trabalho virtual do Windows-Azure
-description: Métodos de balanceamento de carga do pool de hosts para um ambiente de área de trabalho virtual do Windows.
+title: Windows Virtual Desktop anfitrião de pool balance-balance - Azure
+description: Métodos de equilíbrio de carga de piscina anfitrião para um ambiente de ambiente de trabalho virtual windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4838a11c3ff54c902e823dcf93ba610f123407a8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+manager: lizross
+ms.openlocfilehash: 193821ed0df09b87f19e45a82ca42026405a0dc4
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606825"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127868"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga do agrupamento de anfitriões
 
-A área de trabalho virtual do Windows dá suporte a dois métodos de balanceamento de carga. Cada método determina qual host de sessão hospedará a sessão de um usuário quando se conectar a um recurso em um pool de hosts.
+O Windows Virtual Desktop suporta dois métodos de equilíbrio de carga. Cada método determina qual o anfitrião da sessão que irá acolher a sessão de um utilizador quando se ligar a um recurso numa piscina de anfitriões.
 
-Os seguintes métodos de balanceamento de carga estão disponíveis na área de trabalho virtual do Windows:
+Os seguintes métodos de equilíbrio de carga estão disponíveis no Windows Virtual Desktop:
 
-- O balanceamento de carga em primeiro lugar permite que você distribua uniformemente as sessões de usuário nos hosts de sessão em um pool de hosts.
-- O balanceamento de carga antes da profundidade permite saturar um host de sessão com sessões de usuário em um pool de hosts. Depois que a primeira sessão atingir seu limite de limite de sessão, o balanceador de carga direcionará todas as novas conexões de usuário para o próximo host de sessão no pool de hosts até atingir seu limite e assim por diante.
+- O equilíbrio de carga de primeira largura permite-lhe distribuir as sessões de utilizador uniformemente através dos anfitriões da sessão numa piscina de anfitriões.
+- O equilíbrio de carga de primeira profundidade permite-lhe saturar um anfitrião de sessão com sessões de utilizador numa piscina de anfitriões. Uma vez que a primeira sessão atinge o seu limite de sessão, o equilibrador de carga direciona quaisquer novas ligações do utilizador para o anfitrião da próxima sessão na piscina anfitriã até atingir o seu limite, e assim por diante.
 
-Cada pool de hosts só pode configurar um tipo de balanceamento de carga específico para ele. No entanto, ambos os métodos de balanceamento de carga compartilham os seguintes comportamentos, independentemente do pool de hosts em que estão:
+Cada piscina hospedeira só pode configurar um tipo de equilíbrio de carga específico. No entanto, ambos os métodos de equilíbrio de carga partilham os seguintes comportamentos, independentemente da piscina de acolhimento em que se encontram:
 
-- Se um usuário já tiver uma sessão no pool de hosts e estiver se reconectando a essa sessão, o balanceador de carga irá redirecioná-las com êxito para o host de sessão com a sessão existente. Esse comportamento se aplica mesmo se a propriedade AllowNewConnections do host da sessão estiver definida como false.
-- Se um usuário ainda não tiver uma sessão no pool de hosts, o balanceador de carga não considerará os hosts de sessão cuja propriedade AllowNewConnections está definida como false durante o balanceamento de carga.
+- Se um utilizador já tiver uma sessão na piscina anfitriã e estiver a reconectar-se com essa sessão, o equilibrista de carga irá redirecioná-los com sucesso para o anfitrião da sessão com a sessão existente. Este comportamento aplica-se mesmo que a propriedade do anfitrião da sessão AllowNewConnections esteja definida como Falsa.
+- Se um utilizador ainda não tiver uma sessão na piscina anfitriã, então o equilibrista de carga não considerará os anfitriões da sessão cuja propriedade AllowNewConnections está definida como Falsa durante o equilíbrio de carga.
 
-## <a name="breadth-first-load-balancing-method"></a>Método de balanceamento de carga da primeira amplitude
+## <a name="breadth-first-load-balancing-method"></a>Método de equilíbrio de carga de primeira amplitude
 
-O método de balanceamento de carga da primeira amplitude permite distribuir conexões de usuário para otimizar esse cenário. Esse método é ideal para organizações que desejam fornecer a melhor experiência para os usuários que se conectam ao ambiente de área de trabalho virtual em pool.
+O método de equilíbrio de carga de primeira amplitude permite-lhe distribuir as ligações do utilizador para otimizar para este cenário. Este método é ideal para organizações que desejam proporcionar a melhor experiência para os utilizadores conectarem-se ao seu ambiente de trabalho virtual pooled.
 
-O método amplitude-First consulta primeiro os hosts de sessão que permitem novas conexões. O método seleciona o host da sessão com o menor número de sessões. Se houver um vínculo, o método selecionará o primeiro host de sessão na consulta.
+A primeira sessão de consultas do método amplitude-primeiro apresenta que permitem novas ligações. O método seleciona então o anfitrião da sessão com o menor número de sessões. Se houver um empate, o método seleciona o anfitrião da primeira sessão na consulta.
 
-## <a name="depth-first-load-balancing-method"></a>Método de balanceamento de carga da primeira profundidade
+## <a name="depth-first-load-balancing-method"></a>Método de equilíbrio de carga de primeira profundidade
 
-O método de balanceamento de carga de profundidade primeiro permite saturar um host de sessão por vez para otimizar esse cenário. Esse método é ideal para organizações econômicas que desejam um controle mais granular sobre o número de máquinas virtuais alocadas para um pool de hosts.
+O método de equilíbrio de carga de primeira profundidade permite-lhe saturar um anfitrião de uma sessão de cada vez para otimizar para este cenário. Este método é ideal para organizações conscientes de custos que querem um maior controlo granular sobre o número de máquinas virtuais que alocaram para uma piscina hospedeira.
 
-O método depth-first primeiro consulta os hosts de sessão que permitem novas conexões e que não passaram por seu limite máximo de sessão. O método seleciona o host da sessão com o número mais alto de sessões. Se houver um vínculo, o método selecionará o primeiro host de sessão na consulta.
+A primeira sessão de consultas de profundidade primeiro método acolhe que permitem novas ligações e não ultrapassaram o seu limite máximo de sessão. O método seleciona então o anfitrião da sessão com o maior número de sessões. Se houver um empate, o método seleciona o anfitrião da primeira sessão na consulta.

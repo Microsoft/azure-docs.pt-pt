@@ -1,48 +1,49 @@
 ---
-title: Máquinas virtuais do Windows 7 Windows desktop virtual-Azure
-description: Como resolver problemas de VMs (máquinas virtuais) do Windows 7 em um ambiente de área de trabalho virtual do Windows.
+title: Máquinas virtuais Windows 7 Windows Virtual Desktop - Azure
+description: Como resolver problemas para máquinas virtuais do Windows 7 (VMs) num ambiente de ambiente de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: ee641a694371ffd3fbc691a05edac707e37e959d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+manager: lizross
+ms.openlocfilehash: a2ff3f6fa9896e45ecd6ab40d40d46a046edf1cb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607332"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127385"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Resolução de problemas das máquinas virtuais do Windows 7 no Windows Virtual Desktop
 
-Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
+Utilize este artigo para resolver problemas que está a ter ao configurar as máquinas virtuais do Windows Virtual Desktop (VMs).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-O Windows 7 em áreas de trabalho virtuais do Windows não oferece suporte aos seguintes recursos:
+O Windows 7 nos Desktops Virtuais do Windows não suporta as seguintes funcionalidades:
 
-- Aplicativos virtualizados (RemoteApps)
-- Redirecionamento de fuso horário
-- Dimensionamento automático de DPI
+- Aplicações virtualizadas (Aplicações Remotas)
+- Redireção do fuso horário
+- Escala automática de DPI
 
-A área de trabalho virtual do Windows só pode virtualizar áreas de trabalho completas para o Windows 7.
+O Windows Virtual Desktop só pode virtualizar desktops completos para o Windows 7.
 
-Embora não haja suporte para o dimensionamento automático de DPI, você pode alterar manualmente a resolução em sua máquina virtual clicando com o botão direito do mouse no ícone no cliente Área de Trabalho Remota e selecionando **resolução**.
+Embora a escala automática de DPI não seja suportada, pode alterar manualmente a resolução na sua máquina virtual clicando corretamente no ícone no cliente Remote Desktop e selecionando **Resolução**.
 
-## <a name="error-cant-access-the-remote-desktop-user-group"></a>Erro: não é possível acessar o grupo de usuários Área de Trabalho Remota
+## <a name="error-cant-access-the-remote-desktop-user-group"></a>Erro: Não pode aceder ao grupo de utilizadores de ambiente de trabalho remoto
 
-Se a área de trabalho virtual do Windows não conseguir localizar você ou as credenciais de seus usuários no grupo Área de Trabalho Remota usuário, você poderá ver uma das seguintes mensagens de erro:
+Se o Windows Virtual Desktop não conseguir encontrar as credenciais dos seus utilizadores no grupo utilizador remote Desktop, poderá ver uma das seguintes mensagens de erro:
 
-- "Este usuário não é membro do grupo de usuários do Área de Trabalho Remota"
-- "Você deve receber permissões para entrar por meio do Serviços de Área de Trabalho Remota"
+- "Este utilizador não é membro do grupo de utilizadores de ambiente de trabalho remoto"
+- "Deve ser-lhe concedida permissão para iniciar sessão através dos Serviços de Ambiente de Trabalho Remoto"
 
-Para corrigir esse erro, adicione o usuário ao grupo de usuários Área de Trabalho Remota:
+Para corrigir este erro, adicione o utilizador ao grupo utilizador remote Desktop User:
 
 1. Abra o portal do Azure.
-2. Selecione a máquina virtual na qual você viu a mensagem de erro.
-3. Selecione **executar um comando**.
-4. Execute o seguinte comando com `<username>` substituído pelo nome do usuário que você deseja adicionar:
+2. Selecione a máquina virtual em que viu a mensagem de erro.
+3. Selecione **Executar um comando**.
+4. Execute o seguinte comando com `<username>` substituído pelo nome do utilizador que pretende adicionar:
    
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add

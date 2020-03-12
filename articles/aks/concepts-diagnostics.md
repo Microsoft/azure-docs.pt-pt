@@ -6,16 +6,18 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596186"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126600"
 ---
-# <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Visão geral do Serviço Azure Kubernetes (AKS)
+# <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Visão geral do serviço Azure Kubernetes (pré-visualização)
 
 Problemas de resolução de problemas O serviço Azure Kubernetes Service (AKS) é uma parte importante da manutenção do seu cluster, especialmente se o seu cluster estiver a executar cargas de trabalho críticas de missão. A AKS Diagnostics é uma experiência inteligente e auto-diagnóstico que o ajuda a identificar e resolver problemas no seu cluster. O AKS Diagnostics é nativo da nuvem, e você pode usá-lo sem configuração extra ou custo de faturação.
+
+Esta funcionalidade está agora em pré-visualização pública.
 
 ## <a name="open-aks-diagnostics"></a>Diagnósticos AKS abertos
 

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 673c20355e9ad4abf2c8318b3eb2ebbcc36ed8fd
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367500"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128241"
 ---
 # <a name="connect-with-the-macos-client"></a>Ligar ao cliente de macOS
 

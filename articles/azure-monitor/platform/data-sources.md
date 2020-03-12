@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: b2ec9fd70d1eb64c5968de0312941bfbc98d3033
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2a5d1178bd6dbd6f7cfdd2ec2af17b78836a38d7
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670530"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096729"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitorização do Monitor Azure
 O Azure Monitor baseia-se numa [plataforma comum](data-platform.md) de dados de monitorização que inclui [Registos](data-platform-logs.md) e [Métricas.](data-platform-metrics.md) A recolha de dados nesta plataforma permite que dados de vários recursos sejam analisados em conjunto utilizando um conjunto comum de ferramentas no Monitor Azure. Os dados de monitorização também podem ser enviados para outros locais para suportar determinados cenários, e alguns recursos podem escrever para outros locais antes de poderem ser recolhidos em Registos ou Métricas.
@@ -72,8 +72,8 @@ O [registo da Atividade Azure](platform-logs-overview.md) inclui registos de sa�
 |:---|:---|
 | Registo de atividades | O registo de Atividades é recolhido na sua própria loja de dados que pode visualizar a partir do menu Do Monitor Do Azure ou usar para criar alertas de registo de Atividade. | [Consulta do log de atividade no portal Azure](activity-log-view.md#azure-portal) |
 | Registos do Azure Monitor | Configure os Registos do Monitor Azure para recolher o registo de atividade para analisá-lo com outros dados de monitorização. | [Recolher e analisar registos de atividade do Azure no espaço de trabalho do Log Analytics no Monitor Azure](activity-log-collect.md) |
-| Storage do Azure | Exportar o registo de atividade para o Armazenamento Azure para arquivamento. | [Registo de Atividade seleção de Arquivo](activity-log-export.md#archive-activity-log)  |
-| Hubs de Eventos | Transmita o registo de atividade para outros locais usando Hubs de Eventos | [Registo de atividade de fluxo para O Centro](activity-log-export.md#stream-activity-log-to-event-hub)de Eventos . |
+| Storage do Azure | Exportar o registo de atividade para o Armazenamento Azure para arquivamento. | [Registo de Atividade seleção de Arquivo](resource-logs-collect-storage.md)  |
+| Hubs de Eventos | Transmita o registo de atividade para outros locais usando Hubs de Eventos | [Registo de atividade de fluxo para O Centro](resource-logs-stream-event-hubs.md)de Eventos . |
 
 ### <a name="azure-service-health"></a>Azure Service Health
 A [Azure Service Health](../../service-health/service-health-overview.md) fornece informações sobre a saúde dos serviços Azure na sua subscrição em que a sua aplicação e recursos dependem.

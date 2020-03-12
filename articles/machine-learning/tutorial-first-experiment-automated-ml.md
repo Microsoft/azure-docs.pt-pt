@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 84d539f35919293522f05abdeabeca936138c140
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081629"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129691"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de Máquinas Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -221,8 +221,8 @@ Neste tutorial automatizado de machine learning, utilizou a interface ML automat
 > [Consumir um serviço web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
-+ Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo de [resultados automatizados](how-to-understand-automated-ml.md#classification) de machine learning.+ Saiba mais sobre [a caracterização](how-to-create-portal-experiments.md#featurization).
-+ Saiba mais sobre [o perfil de dados.](how-to-create-portal-experiments.md#profile)
++ Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo de [resultados automatizados](how-to-understand-automated-ml.md#classification) de machine learning.+ Saiba mais sobre [a caracterização](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Saiba mais sobre [o perfil de dados.](how-to-use-automated-ml-for-ml-models.md#profile)
 
 
 >[!NOTE]

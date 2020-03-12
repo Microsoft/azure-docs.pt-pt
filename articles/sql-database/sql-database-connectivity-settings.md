@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8d40dd09144bddc41347947c0123988530f93f90
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d18fdee85bd0fbabe68fe9890c4a2dc74366041d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945416"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096660"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de conectividade Azure SQL
 > [!NOTE]
@@ -77,49 +77,6 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ```
 
-## <a name="minimal-tls-version"></a>Versão Mínima de TLS 
-A versão TLS mínima permite ao cliente controlar a versão de [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) para o seu Servidor Azure SQL.
-
-Recomendamos que a definição da versão TLS mínima seja de 1.2. Para clientes com aplicações que dependam da versão mais antiga do TLS, recomendamos a definição da versão TLS mínima de acordo com os requisitos das suas aplicações. Para clientes que dependem de aplicações para se conectarem usando uma ligação não encriptada, recomendamos que não estabeleça qualquer versão TLS mínima. Para obter informações adicionais, consulte as [considerações de TLS para](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)a conectividade da Base de Dados SQL .
-
-Depois de definir a versão TLS mínima, as tentativas de login de clientes que estão a utilizar uma versão TLS menos do que a versão TLS Mínima do servidor falharão com o seguinte erro:
-
-```output
-Error 47072
-Login failed with invalid TLS version
-```
-
-## <a name="set-minimal-tls-version-via-powershell"></a>Definir versão TLS mínima via PowerShell
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
-
-O seguinte script PowerShell mostra como `Get` e `Set` a propriedade **versão TLS Mínima** ao nível lógico do servidor:
-
-```powershell
-#Get the Public Network Access property
-(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
-
-# Update Public Network Access to Disabled
-$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
-
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
-```
-
-## <a name="set-minimal-tls-version-via-azure-cli"></a>Definir versão TLS mínima via Azure CLI
-> [!IMPORTANT]
-> Todos os scripts desta secção requerem [O ClI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de festa
-O seguinte script CLI mostra como alterar a definição de **versão TLS mínima** numa concha de bash:
-
-```azurecli-interactive
-# Get current setting for Minimal TLS Version
-az sql server show -n sql-server-name -g sql-server-group --query "minimalTlsVersion"
-
-# Update setting for Minimal TLS Version
-az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVersion="1.2"
-```
 
 ## <a name="connection-policy"></a>Política de ligação
 A política de [ligação](sql-database-connectivity-architecture.md#connection-policy) determina como os clientes se ligam ao Servidor SQL Azure. 
@@ -180,7 +137,7 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
 - Para obter informações sobre como alterar a política de ligação da Base de Dados Azure SQL para um servidor de base de dados Azure SQL, consulte a [política de conn.](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)
 

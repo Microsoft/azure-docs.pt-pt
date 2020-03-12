@@ -4,12 +4,12 @@ description: Saiba como proteger o seu cluster utilizando uma gama de endereços
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 80a8504e42eda966554d0151f54668015cf7ee83
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596714"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126616"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando gamas de endereços IP autorizadas no Serviço Azure Kubernetes (AKS)
 
@@ -59,6 +59,8 @@ az aks create \
 > - O endereço IP público firewall
 > - Qualquer gama que represente redes que você vai administrar o cluster de
 > - Se estiver a utilizar espaços Azure Dev no seu cluster AKS, tem de permitir [gamas adicionais baseadas na sua região.][dev-spaces-ranges]
+
+> O limite superior para o número de gamas IP que pode especificar é de 3500. 
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Especifique os IPs de saída para o equilibrador de carga SKU padrão
 

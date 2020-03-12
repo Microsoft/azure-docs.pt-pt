@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 165e87b47deca2b7f175ec07b5c615ac25db0dd2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+manager: lizross
+ms.openlocfilehash: 71ba24784dee7771acbe19bf0261c7dc02478b24
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251755"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127529"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop
 

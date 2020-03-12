@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424988"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096412"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingest blobs no Azure Data Explorer ao subscrever notificações da Rede de Eventos
 
@@ -56,7 +56,7 @@ Neste artigo, você aprende como definir uma subscrição [azure Event Grid,](/a
 
 1. Selecione o separador **Filtros** se pretender rastrear ficheiros a partir de um recipiente específico. Detete os filtros para as notificações da seguinte forma:
     * **Assunto Começa Com** o campo é o prefixo *literal* do recipiente de bolhas. À medida que o padrão aplicado *é iniciado,* pode abranger vários recipientes. Não são permitidos wildcards.
-     Deve ser definido da seguinte forma: *`/blobServices/default/containers/`* [prefixo do recipiente]
+     Deve *must* ser definido da seguinte forma: *`/blobServices/default/containers/`* [prefixo do recipiente]
     * **O assunto termina com** o campo é o sufixo *literal* da bolha. Não são permitidos wildcards.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Criar uma tabela de destino no Azure Data Explorer
@@ -118,7 +118,7 @@ Agora ligue-se à Grelha de Eventos do Azure Data Explorer, de modo a que os dad
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opções de compressão suportadas: Zip e GZip |
+    | Formato de dados | *JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW e TXT. Opções de compressão suportadas: Zip e GZip |
     | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**.|
     | | |
     
@@ -150,13 +150,32 @@ Guarde os dados num ficheiro e carregue-os com este script:
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Para obter o melhor desempenho de ingestão, deve ser comunicada a dimensão *descomprimido* das bolhas comprimidos submetidas para ingestão. Dado que as notificações da Rede de Eventos contêm apenas detalhes básicos, as informações de tamanho devem ser explicitamente comunicadas. As informações de tamanho não comprimido podem ser fornecidas definindo a propriedade `rawSizeBytes` nos metadados blob com o tamanho de dados *não comprimido* em bytes.
+
+### <a name="ingestion-properties"></a>Propriedades de ingestão
+
+Pode especificar as propriedades de [Ingestion](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) da ingestão de bolhas através dos metadados blob.
+
+Estas propriedades podem ser definidas:
+
+|**Propriedade** | **Descrição do imóvel**|
+|---|---|
+| `rawSizeBytes` | Tamanho dos dados brutos (não comprimidos). Para a Avro/ORC/Parquet, este é o tamanho antes da aplicação da compressão específica do formato.|
+| `kustoTable` |  Nome da tabela-alvo existente. Sobrepõe-se ao `Table` colocado na lâmina `Data Connection`. |
+| `kustoDataFormat` |  Formato de dados. Sobrepõe-se ao `Data format` colocado na lâmina `Data Connection`. |
+| `kustoIngestionMappingReference` |  Nome do mapeamento de ingestão existente a ser utilizado. Sobrepõe-se ao `Column mapping` colocado na lâmina `Data Connection`.|
+| `kustoIgnoreFirstRecord` | Se for programado para `true`, Kusto ignora a primeira linha da bolha. Utilize em dados de formato tabular (CSV, TSV ou similar) para ignorar os cabeçalhos. |
+| `kustoExtentTags` | Etiquetas [representativas](/azure/kusto/management/extents-overview#extent-tagging) de cordas que serão anexadas à extensão resultante. |
+| `kustoCreationTime` |  Substitui [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) para a bolha, formatada como uma corda ISO 8601. Utilize para recheio. |
 
 > [!NOTE]
 > O Azure Data Explorer não apaga as bolhas pós ingestão.

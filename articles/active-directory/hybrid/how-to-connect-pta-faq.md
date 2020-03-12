@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484422"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096055"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem por passe por diretório ativo azure: Perguntas frequentes
 
@@ -44,7 +44,7 @@ Não. A Autenticação Pass-through só está disponível na instância mundial 
 Sim. Todas as capacidades de Acesso Condicional, incluindo a Autenticação Multi-Factor Azure, trabalham com a Autenticação Pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A autenticação pass-through suporta "ID alternativo" como nome de utilizador, em vez de "userPrincipalName"?
-Em certa medida, a Autenticação Pass-through suporta o ID alternativo como nome de utilizador quando configurado no Azure AD Connect. Como pré-requisito, o Azure AD Connect precisa de sincronizar o diretório ativo `UserPrincipalName` no local atribuído ao Azure AD. Isto faz com que a `UserPrincipalName` no local a d.A. e azure aD se torne idêntica. Se quiser utilizar outro atributo para sincronizar a partir do local a d.C., como a UPN para a AD Azure, terá de utilizar a sincronização de Hash password ou a AD FS. Para mais informações, consulte a [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todos os pedidos do Office 365 apoiam `Alternate ID`. Consulte a declaração de suporte de documentação da aplicação específica.
+O signo utilizando um valor não UPN, como um e-mail alternativo, está atualmente a ser testado em pré-visualização privada para autenticação pass-through (PTA) e sincronização de hash password (PHS).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de palavra-passe funciona como um recuo para a Autenticação Pass-through?
 
@@ -174,7 +174,7 @@ Os inquilinos criados após 15 de junho de 2015 têm o comportamento padrão de 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários suportados e quais não são.
 - [Início rápido](how-to-connect-pta-quick-start.md): Levantar-se e correr na Autenticação de Passagem De AD Azure.
 - [Migrar de AD FS para a Autenticação Pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - Um guia detalhado para migrar de AD FS (ou outras tecnologias da federação) para a Autenticação Pass-through.

@@ -3,12 +3,12 @@ title: Descrição geral das Tarefas do ACR
 description: Uma introdução às Tarefas ACR, um conjunto de funcionalidades no Registo de Contentores Azure que fornece construção de imagem de contentores, gestão e remendos seguros e automatizados na nuvem.
 ms.topic: article
 ms.date: 01/22/2020
-ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615957"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087282"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar construções e manutenção de contentores com Tarefas ACR
 
@@ -124,15 +124,11 @@ Por padrão, a ACR Tasks constrói imagens para o Sistema Linux OS e para a arqu
 | Linux | amd64<br/>braço<br/>arm64<br/>386 |
 | Windows | amd64 |
 
-## <a name="view-task-logs"></a>Ver registos de tarefas
+## <a name="view-task-output"></a>Ver resultado das tarefas
 
-Cada execução de tarefa gera saída de registo que pode inspecionar para determinar se os passos de tarefa foram executados com sucesso. Se utilizar o comando de execução [az acr](/cli/azure/acr#az-acr-build), [az acr,](/cli/azure/acr#az-acr-run)ou [az acr](/cli/azure/acr/task#az-acr-task-run) task run para desencadear a tarefa, a saída de log para o executo de tarefas é transmitida para a consola e também armazenada para posterior recuperação. Quando uma tarefa é automaticamente desencadeada, por exemplo por um compromisso de código fonte ou por uma atualização de imagem base, os registos de tarefas são armazenados apenas. Consulte os registos para uma execução de tarefa no portal Azure ou utilize o comando de registos de [tarefas az acr.](/cli/azure/acr/task#az-acr-task-logs)
+Cada execução de tarefa gera saída de registo que pode inspecionar para determinar se os passos de tarefa foram executados com sucesso. Quando aciona rumicamente uma tarefa, a saída de log para o execução de tarefas é transmitida para a consola e também armazenada para posterior recuperação. Quando uma tarefa é automaticamente desencadeada, por exemplo por um compromisso de código fonte ou por uma atualização de imagem base, os registos de tarefas são armazenados apenas. Veja os registos de execução no portal Azure ou utilize o comando de registos de [tarefas az acr.](/cli/azure/acr/task#az-acr-task-logs)
 
-Por predefinição, os dados e registos de tarefas executados num registo são retidos durante 30 dias e, em seguida, purgados automaticamente. Se pretender arquivar os dados para uma execução de tarefa, ative o arquivamento utilizando o comando de [atualização de tarefas az acr.](/cli/azure/acr/task#az-acr-task-update-run) O exemplo seguinte permite o arquivamento da execução de *tarefas cf11* no registo *do registo .*
-
-```azurecli
-az acr task update-run --registry myregistry --run-id cf11 --no-archive false
-```
+Veja mais sobre [visualização e gestão de registos](container-registry-tasks-logs.md)de tarefas .
 
 ## <a name="next-steps"></a>Passos seguintes
 
