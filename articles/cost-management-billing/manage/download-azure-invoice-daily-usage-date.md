@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: af2184d7faa2ace8ed1043eaf2aaec0d525bc937
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200868"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79125637"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Transferir ou ver os dados da utilização diária e da faturação do Azure
 

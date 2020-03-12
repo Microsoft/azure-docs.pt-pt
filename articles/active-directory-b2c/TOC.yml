@@ -182,9 +182,13 @@
             - name: Personalizar a IU
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
+            - name: Personalizar idioma
+              href: custom-policy-localization.md
             - name: E-mail personalizado
               href: custom-email.md
               displayName: verification
+            - name: Desativar a verificação do e-mail
+              href: custom-policy-disable-email-verification.md
             - name: Ativar JavaScript
               href: javascript-samples.md
             - name: Complexidade da palavra-passe
