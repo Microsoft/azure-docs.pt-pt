@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b3cd858653d54ae622758d218bb887d94bceb697
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378131"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086401"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integre a sua infraestrutura de NPS existente com autenticação de vários fatores Azure
 
@@ -250,9 +250,9 @@ Pode optar por criar esta chave e defini-la como FALSE enquanto os seus utilizad
 
 ### <a name="nps-extension-health-check-script"></a>Script de verificação de saúde de extensão NPS
 
-O seguinte script está disponível na Galeria TechNet para executar passos básicos de verificação de saúde ao resolver problemas a extensão NPS.
+O seguinte script está disponível para executar passos básicos de verificação de saúde ao resolver problemas a extensão NPS.
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -334,6 +334,8 @@ Recomenda-se que as suites de cifra mais antigas e fracas sejam desativadas ou r
 No artigo Podem ser encontradas orientações adicionais de resolução de problemas e possíveis soluções no artigo [Resolver mensagens de erro da extensão NPS para autenticação multi-factor Azure](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Passos seguintes
+
+- [Visão geral e configuração do Servidor de Política de Rede no Servidor do Windows](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
 
 - Configure iDs alternativos para login ou configure uma lista de exceções para IPs que não devam realizar verificação em duas etapas em opções avançadas de [configuração para a extensão NPS para autenticação de vários fatores](howto-mfa-nps-extension-advanced.md)
 

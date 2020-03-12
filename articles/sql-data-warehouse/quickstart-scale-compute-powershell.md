@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Scale compute - PowerShell '
-description: Calcular em escala em piscina SQL em PowerShell. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+title: Computação em escala para piscina Synapse SQL (Azure PowerShell)
+description: Pode escalar a computação para piscina Synapse SQL (armazém de dados) utilizando o Azure PowerShell.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5952f17c83b778e8713488b5c53c9f210c84a146
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 2b8aef37e9e7a3022ffc799bba80e8944330b8f1
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390498"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129561"
 ---
-# <a name="quickstart-scale-compute-in-in-azure-synapse-analytics-sql-pool-using-azure-powershell"></a>Quickstart: Scale compute in in Azure Synapse Analytics SQL pool usando Azure PowerShell
+# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Scale compute for Synapse SQL pool com Azure PowerShell
 
-Calcular em escala na piscina SQL utilizando o Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+Pode escalar a computação para piscina Synapse SQL (armazém de dados) utilizando o Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos. 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

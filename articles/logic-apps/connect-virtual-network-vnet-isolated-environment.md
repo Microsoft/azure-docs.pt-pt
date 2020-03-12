@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 66c257f940d4345f333aacf95f8efc9051a9566c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/12/2020
+ms.openlocfilehash: fedc1f6ce8fbaeaf0d2cae3a1b04169192868e61
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358874"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127052"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligue-se a redes virtuais Azure a partir de Aplicações Lógicas Azure utilizando um ambiente de serviço de integração (ISE)
 
@@ -24,20 +24,25 @@ Quando cria um ISE, o Azure *injeta* esse ISE na sua rede virtual Azure, que dep
 > [!IMPORTANT]
 > Para que as aplicações lógicas e as contas de integração trabalhem em conjunto num ISE, ambos devem usar o *mesmo ISE* que a sua localização.
 
-Um ISE aumentou os limites na duração do percurso, retenção de armazenamento, saída, tempos de pedido e resposta http, tamanhos de mensagens e pedidos de conector personalizados. Para mais informações, consulte [Limites e configuração para Aplicações Lógicas Azure](logic-apps-limits-and-config.md). Para saber mais sobre o ISEs, consulte [o Acesso aos recursos da Rede Virtual Azure a partir de Aplicações Lógicas Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+Um ISE aumentou os limites na duração do percurso, retenção de armazenamento, saída, tempos de pedido e resposta http, tamanhos de mensagens e pedidos de conector personalizados. Para mais informações, consulte [Limites e configuração para Aplicações Lógicas Azure](../logic-apps/logic-apps-limits-and-config.md). Para saber mais sobre o ISEs, consulte [o Acesso aos recursos da Rede Virtual Azure a partir de Aplicações Lógicas Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-Este artigo mostra-lhe como completar estas tarefas:
+Este artigo mostra-lhe como completar estas tarefas utilizando o portal Azure:
 
 * Ative o acesso ao seu ISE.
 * Crie o seu ISE.
 * Adicione capacidade extra ao seu ISE.
 
-> [!IMPORTANT]
-> Aplicativos lógicos, gatilhos incorporados, ações incorporadas e conectores que funcionam no seu ISE usam um plano de preços diferente do plano de preços baseado no consumo. Para saber como funcionam os preços e a faturação para os ISEs, consulte o modelo de preços das [Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Para preços, consulte [preços de Apps Lógicas.](../logic-apps/logic-apps-pricing.md)
+Também pode criar um ISE utilizando as Aplicações Lógicas REST API, incluindo a configuração de chaves geridas pelo cliente:
+
+* [Criar um ambiente de serviço de integração (ISE) utilizando as Aplicações Lógicas REST API](../logic-apps/create-integration-service-environment-rest-api.md)
+* [Configurar chaves geridas pelo cliente para encriptar dados em repouso para ISEs](../logic-apps/customer-managed-keys-integration-service-environment.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+
+  > [!IMPORTANT]
+  > Aplicativos lógicos, gatilhos incorporados, ações incorporadas e conectores que funcionam no seu ISE usam um plano de preços diferente do plano de preços baseado no consumo. Para saber como funcionam os preços e a faturação para os ISEs, consulte o modelo de preços das [Aplicações Lógicas.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Para preços, consulte [preços de Apps Lógicas.](../logic-apps/logic-apps-pricing.md)
 
 * Uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) Se não tiver uma rede virtual, aprenda a [criar uma rede virtual Azure.](../virtual-network/quick-create-portal.md)
 
@@ -58,7 +63,7 @@ Este artigo mostra-lhe como completar estas tarefas:
 * Se pretender utilizar servidores DNS personalizados para a sua rede virtual Azure, [instale esses servidores seguindo estes passos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar o seu ISE para a sua rede virtual. Para obter mais informações sobre a gestão das definições do servidor DNS, consulte [Criar, alterar ou eliminar uma rede virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
   > [!NOTE]
-  > Se alterar as definições do servidor DNS ou do servidor DNS, tem de reiniciar o ISE para que o ISE possa recolher essas alterações. Para mais informações, consulte [Reiniciar o seu ISE](#restart-ISE).
+  > Se alterar as definições do servidor DNS ou do servidor DNS, tem de reiniciar o ISE para que o ISE possa recolher essas alterações. Para mais informações, consulte [Reiniciar o seu ISE](../logic-apps/ise-manage-integration-service-environment.md#restart-ISE).
 
 <a name="enable-access"></a>
 
@@ -84,7 +89,7 @@ Para garantir que o seu ISE está acessível e que as aplicações lógicas em q
 
 ### <a name="network-ports-used-by-your-ise"></a>Portas de rede utilizadas pelo seu ISE
 
-Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e onde essas portas são utilizadas. As [etiquetas](../virtual-network/security-overview.md#service-tags) de serviço do Gestor de Recursos representam um grupo de prefixos de endereçoIP que ajudam a minimizar a complexidade ao criar regras de segurança.
+Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e onde essas portas são utilizadas. Para ajudar a reduzir a complexidade quando cria regras de segurança, as [etiquetas](../virtual-network/service-tags-overview.md) de serviço na tabela representam grupos de prefixos de endereçoIP para um serviço Azure específico.
 
 > [!IMPORTANT]
 > As portas de origem são efémeras, por isso certifique-se de que as define para `*` para todas as regras. Sempre que se nota, ise interno e ISE externo referem-se ao [ponto final que é selecionado na criação do ISE.](connect-virtual-network-vnet-isolated-environment.md#create-environment) Para mais informações, consulte [o acesso ao Ponto Final](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
@@ -92,11 +97,11 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 | Objetivo | Direção | Portas de destino | Etiqueta de serviço de origem | Etiqueta do serviço de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Comunicação intersubnet dentro da sua rede virtual | Entrada e saída | * | O espaço de endereço para a rede virtual que tem as subnets do ISE | O espaço de endereço para a rede virtual que tem as subnets do ISE | Necessário para que o tráfego flua *entre* as subredes da sua rede virtual. <p><p>**Importante**: Para que o tráfego flua entre os *componentes* de cada sub-rede, certifique-se de que abre todas as portas dentro de cada sub-rede. |
-| Comunicação à sua aplicação lógica | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet | VirtualNetwork | O endereço IP de origem para o computador ou serviço que liga para qualquer pedido de gatilhos ou webhooks na sua aplicação lógica. <p><p>**Importante**: Fechar ou bloquear esta porta impede chamadas http para aplicações lógicas que tenham gatilhos de pedido. |
-| História de execução de aplicativológico | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet | VirtualNetwork | O endereço IP de origem para o computador ou serviço de onde pretende ver o histórico de execução da sua aplicação lógica. <p><p>**Importante**: Embora fechar ou bloquear esta porta não o impeça de ver o histórico de execução, não pode ver as inputs e saídas para cada passo na história da execução. |
-| Logic Apps Designer - propriedades dinâmicas | Entrada | 454 | Ver coluna **de notas** para endereços IP para permitir | VirtualNetwork | Os pedidos provêm dos endereços IP de acesso de ponto final de [acesso](../logic-apps/logic-apps-limits-and-config.md#inbound) às Aplicações Lógicas para aquela região. |
+| Comunicação à sua aplicação lógica | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet <br>(ver coluna **de notas)** | VirtualNetwork | Em vez de utilizar a etiqueta do serviço de **Internet,** pode especificar o endereço IP de origem para o computador ou serviço que liga para quaisquer gatilhos de pedido ou webhooks na sua aplicação lógica. <p><p>**Importante**: Fechar ou bloquear esta porta impede chamadas http para aplicações lógicas que tenham gatilhos de pedido. |
+| História de execução de aplicativológico | Entrada | 443 | ISE interno: <br>VirtualNetwork <p><p>ISE externa: <br>Internet <br>(ver coluna **de notas)** | VirtualNetwork | Em vez de utilizar a etiqueta do serviço de **Internet,** pode especificar o endereço IP de origem para o computador ou serviço de onde pretende ver o histórico de execução da sua aplicação lógica. <p><p>**Importante**: Embora fechar ou bloquear esta porta não o impeça de ver o histórico de execução, não pode ver as inputs e saídas para cada passo na história da execução. |
+| Logic Apps Designer - propriedades dinâmicas | Entrada | 454 | LogicAppsManagement | VirtualNetwork | Os pedidos provêm dos endereços IP de acesso de ponto final de [acesso](../logic-apps/logic-apps-limits-and-config.md#inbound) às Aplicações Lógicas para aquela região. |
 | Implantação do conector | Entrada | 454 | Ligadores Azure | VirtualNetwork | Necessário para a implantação e atualização dos conectores. Fechar ou bloquear esta porta faz com que as implementações do ISE falhem e impeça atualizações ou correções do conector. |
-| Verificação de saúde da rede | Entrada | 454 | Ver coluna **de notas** para endereços IP para permitir | VirtualNetwork | Os pedidos provêm do ponto final de acesso das Aplicações Lógicas para endereços IP de [entrada](../logic-apps/logic-apps-limits-and-config.md#inbound) e [saída](../logic-apps/logic-apps-limits-and-config.md#outbound) para aquela região. |
+| Verificação de saúde da rede | Entrada | 454 | LogicApps | VirtualNetwork | Os pedidos provêm do ponto final de acesso das Aplicações Lógicas para endereços IP de [entrada](../logic-apps/logic-apps-limits-and-config.md#inbound) e [saída](../logic-apps/logic-apps-limits-and-config.md#outbound) para aquela região. |
 | Dependência da Gestão de Serviços de Aplicações | Entrada | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | Comunicação do Gestor de Tráfego Azure | Entrada | ISE Interno: 454 <p><p>ISE externa: 443 | AzureTrafficManager | VirtualNetwork | |
 | Gestão API - ponto final de gestão | Entrada | 3443 | Gestão API | VirtualNetwork | |
@@ -128,14 +133,14 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
    ![Fornecer detalhes ambientais](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Propriedade | Required | Valor | Descrição |
+   | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Subscrição** | Sim | <*Azure-subscription-name*> | A subscrição Azure para usar para o seu ambiente |
    | **Grupo de recursos** | Sim | <> de nome de *grupo azure-recursos* | Um novo ou já existente grupo de recursos Azure onde você quer criar o seu ambiente |
    | **Nome do ambiente do serviço de integração** | Sim | < *> de nome ambiente* | O seu nome ISE, que pode conter apenas letras, números, hífenes (`-`), sublinha (`_`) e períodos (`.`). |
    | **Localização** | Sim | <> de *datacenter-região* | A região do datacenter azure onde implantar o seu ambiente |
    | **SKU** | Sim | **Premium** ou **Desenvolvedor (Sem SLA)** | O ISE SKU para criar e usar. Para obter diferenças entre estas UsS, consulte [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Esta opção está disponível apenas na criação do ISE e não pode ser alterada mais tarde. |
-   | **Capacidade adicional** | Premium: <br>Sim <p><p>Desenvolvedor: <br>Não aplicável | Premium: <br>0 a 10 <p><p>Desenvolvedor: <br>Não aplicável | O número de unidades de processamento adicionais a utilizar para este recurso ISE. Para aumentar a capacidade após a criação, consulte [adicionar capacidade ISE](#add-capacity). |
+   | **Capacidade adicional** | Premium: <br>Sim <p><p>Desenvolvedor: <br>Não aplicável | Premium: <br>0 a 10 <p><p>Desenvolvedor: <br>Não aplicável | O número de unidades de processamento adicionais a utilizar para este recurso ISE. Para aumentar a capacidade após a criação, consulte [adicionar capacidade ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
    | **Ponto final de acesso** | Sim | **Interna** ou **Externa** | O tipo de pontos finais de acesso a utilizar para o seu ISE. Estes pontos finais determinam se o pedido ou webhook dispara em aplicações lógicas no seu ISE pode receber chamadas de fora da sua rede virtual. <p><p>A sua seleção também afeta a forma como pode ver e aceder a inputs e saídas na sua aplicação lógica corre o histórico. Para mais informações, consulte [o acesso ao ponto final do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Esta opção está disponível apenas na criação do ISE e não pode ser alterada mais tarde. |
    | **Rede virtual** | Sim | <> de nome de *rede virtual Azure* | A rede virtual Azure onde pretende injetar o seu ambiente para que as aplicações lógicas nesse ambiente possam aceder à sua rede virtual. Se não tiver uma rede, [crie primeiro uma rede virtual Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: *Só* pode efetuar esta injeção quando criar o seu ISE. |
    | **Sub-redes** | Sim | <> *da lista de recursos da sub-rede* | Um ISE requer quatro subredes *vazias* para criar e implantar recursos no seu ambiente. Para criar cada sub-rede, [siga os passos por baixo desta tabela](#create-subnet). |
@@ -216,89 +221,14 @@ Esta tabela descreve as portas da sua rede virtual Azure que o seu ISE utiliza e
 
 1. Para verificar a saúde da rede para o seu ISE, consulte Gerir o seu ambiente de serviço de [integração.](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
 
-1. Para começar a criar aplicações lógicas e outros artefactos no seu ISE, consulte [Adicionar artefactos aos ambientes de serviço de integração.](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+1. Para começar a criar aplicações lógicas e outros artefactos no seu ISE, consulte Adicionar recursos aos ambientes de [serviço de integração.](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 
    > [!IMPORTANT]
    > Os conectores ISE geridos que ficam disponíveis depois de criar o seu ISE não aparecem automaticamente no conector no Logic App Designer. Antes de poder utilizar estes conectores ISE, tem de adicionar manualmente [esses conectores ao ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) para que apareçam no Logic App Designer.
 
-<a name="add-capacity"></a>
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="add-ise-capacity"></a>Adicionar capacidade ise
-
-A unidade base Premium ISE tem capacidade fixa, por isso, se precisar de mais energia, pode adicionar mais unidades de escala, seja durante a criação ou depois. O Developer SKU não inclui a capacidade de adicionar unidades de escala.
-
-1. No portal Azure, encontre o seu ISE.
-
-1. Para rever as métricas de utilização e desempenho do seu ISE, no menu ISE, selecione **Visão Geral**.
-
-   ![Ver utilização para ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
-
-1. Em **Definições,** **selecione Scale out**. No painel **Configure,** selecione a partir destas opções:
-
-   * [**Escala manual**](#manual-scale): Escala com base no número de unidades de processamento que pretende utilizar.
-   * [**Escala automática personalizada**](#custom-autoscale): Escala com base nas métricas de desempenho selecionando de vários critérios e especificando as condições de limiar para o cumprimento desse critério.
-
-   ![Selecione o tipo de escala que deseja](./media/connect-virtual-network-vnet-isolated-environment/select-scale-out-options.png)
-
-<a name="manual-scale"></a>
-
-### <a name="manual-scale"></a>Escala manual
-
-1. Depois de selecionar **a escala Manual**, para capacidade **adicional,** selecione o número de unidades de escala que pretende utilizar.
-
-   ![Selecione o tipo de escala que deseja](./media/connect-virtual-network-vnet-isolated-environment/select-manual-scale-out-units.png)
-
-1. Quando tiver terminado, selecione **Guardar**.
-
-<a name="custom-autoscale"></a>
-
-### <a name="custom-autoscale"></a>Escala automática personalizada
-
-1. Depois de selecionar **a escala automática Personalizada**, para o nome de definição de escala **automática,** forneça um nome para a sua definição e opcionalmente, selecione o grupo de recursos Azure onde a definição pertence.
-
-   ![Forneça nome para definição de escala automática e selecione grupo de recursos](./media/connect-virtual-network-vnet-isolated-environment/select-custom-autoscale.png)
-
-1. Para a condição **predefinida,** selecione **a escala com base numa métrica** ou escala para uma contagem de **instâncias específicas**.
-
-   * Se escolher com base em instâncias, insira o número para as unidades de processamento, que é um valor de 0 a 10.
-
-   * Se escolher com base em métricas, siga estes passos:
-
-     1. Na secção **Regras,** selecione **Adicionar uma regra**.
-
-     1. No painel de **regras scale,** estabeleça os seus critérios e medidas a tomar quando a regra disparar.
-
-     1. Por **exemplo, limites,** especifique estes valores:
-
-        * **Mínimo**: O número mínimo de unidades de transformação a utilizar
-        * **Máximo**: O número máximo de unidades de processamento a utilizar
-        * **Predefinido**: Se ocorrerem problemas durante a leitura das métricas de recursos, e a capacidade atual estiver abaixo da capacidade padrão, a autoscalcificação dimensiona-se para o número padrão de unidades de processamento. No entanto, se a capacidade atual exceder a capacidade padrão, a autoescalação não entra em escala.
-
-1. Para adicionar outra condição, **selecione Adicionar condição de escala**.
-
-1. Quando terminar as definições de escala automática, guarde as alterações.
-
-<a name="restart-ISE"></a>
-
-## <a name="restart-ise"></a>Reiniciar ise
-
-Se alterar as definições do servidor DNS ou do servidor DNS, tem de reiniciar o ISE para que o ISE possa recolher essas alterações. Reiniciar um Premium SKU ISE não resulta em tempo de paragem devido a redundância e componentes que reiniciam um de cada vez durante a reciclagem. No entanto, um Developer SKU ISE experimenta tempo de inatividade porque não existe redundância. Para mais informações, consulte [ise SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
-
-1. No [portal Azure,](https://portal.azure.com)vá ao seu ambiente de serviço de integração.
-
-1. No menu ISE, selecione **Visão Geral**. Na barra de ferramentas Overview, **Restart**.
-
-   ![Reiniciar o ambiente do serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
-
-## <a name="delete-ise"></a>Eliminar ise
-
-Antes de eliminar um ISE de que já não precisa ou um grupo de recursos Azure que contenha um ISE, verifique se não tem políticas ou fechaduras no grupo de recursos Azure que contenha esses recursos ou na sua rede virtual Azure porque estes itens podem bloquear a eliminação.
-
-Depois de eliminar o ise, poderá ter de esperar até 9 horas antes de tentar eliminar a rede virtual do Azure ou subredes.
-
-## <a name="next-steps"></a>Passos Seguintes
-
-* [Adicione artefactos aos ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
-* [Verifique a saúde da rede para obter ambientes de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
+* [Adicionar recursos aos ambientes de serviçode integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Gerir ambientes de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
 * Saiba mais sobre [a Rede Virtual Azure](../virtual-network/virtual-networks-overview.md)
 * Conheça a [integração de redes virtuais para serviços Azure](../virtual-network/virtual-network-for-azure-services.md)

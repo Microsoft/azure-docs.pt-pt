@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364535"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129450"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -87,11 +87,11 @@ Pode combinar os dois modelos. É permitido o fornecimento de entrada na base de
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Atualizar a entrada numa base de dados ou num contentor
 
-Depois de criar um recipiente Azure Cosmos ou uma base de dados, pode atualizar a entrada prevista. Não existe um limite para a entrada máxima prevista que possa configurar na base de dados ou no recipiente. O rendimento mínimo previsto depende dos seguintes fatores: 
+Depois de criar um recipiente Azure Cosmos ou uma base de dados, pode atualizar a entrada prevista. Não existe um limite para a entrada máxima prevista que possa configurar na base de dados ou no recipiente. O [rendimento mínimo previsto](concepts-limits.md#storage-and-throughput) depende dos seguintes fatores: 
 
 * O tamanho máximo de dados que já armazena no recipiente
 * A entrada máxima que alguma vez fornecer no recipiente
-* O número máximo de contentores Azure Cosmos que alguma vez cria numa base de dados com entrada partilhada. 
+* O número atual de contentores Azure Cosmos que você tem numa base de dados com entrada partilhada. 
 
 Pode recuperar a entrada mínima de um recipiente ou de uma base de dados programáticamente utilizando os SDKs ou visualizar o valor no portal Azure. Ao utilizar o .NET SDK, o [método DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite-lhe escalar o valor de execução provisionado. Ao utilizar o Java SDK, o método [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) permite-lhe escalar o valor de entrada provisionado. 
 

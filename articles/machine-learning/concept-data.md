@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
-ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2af1e87ce7b17183ae09fb02b2652a04f585e84
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396207"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129287"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Acesso a dados em Aprendizagem automática Azure
 
@@ -83,7 +83,7 @@ Com conjuntos de dados, você pode realizar uma série de tarefas de machine lea
 
 + [Modelos de aprendizagem automática de comboios.](how-to-train-with-datasets.md)
 + Consumir conjuntos de dados em 
-     + [experiências ml automatizadas](how-to-create-portal-experiments.md)
+     + [experiências ml automatizadas](how-to-use-automated-ml-for-ml-models.md)
      + o [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
 + Aceder a conjuntos de dados para pontuação com inferência de lote em gasodutos de [aprendizagem automática](how-to-create-your-first-pipeline.md).
 + Criar um projeto de rotulagem de [dados.](#label)

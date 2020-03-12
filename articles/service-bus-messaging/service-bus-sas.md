@@ -1,6 +1,6 @@
 ---
-title: Controle de acesso do barramento de serviço do Azure com assinaturas de acesso compartilhado
-description: Visão geral do controle de acesso do barramento de serviço usando as assinaturas de acesso compartilhado visão geral, detalhes sobre a autorização SAS com o barramento de serviço do Azure.
+title: Controlo de acesso a ônibus de serviço Azure com assinaturas de acesso partilhado
+description: Visão geral do controlo de acesso de ônibus de serviço usando visão geral de Assinaturas de Acesso Partilhada, detalhes sobre a autorização da SAS com o Ônibus de Serviço Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,109 +14,109 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
-ms.translationtype: MT
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121748"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117161"
 ---
-# <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do barramento de serviço com assinaturas de acesso compartilhado
+# <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso partilhado
 
-As SAS ( *assinaturas de acesso compartilhado* ) são o mecanismo de segurança principal para mensagens do barramento de serviço. Este artigo discute a SAS, como elas funcionam e como usá-las de forma independente da plataforma.
+*As Assinaturas* de Acesso Partilhado (SAS) são o principal mecanismo de segurança para as mensagens de autocarro de serviço. Este artigo discute a SAS, como funcionam e como usá-los de forma agnóstica de plataforma.
 
-A SAS protege o acesso ao barramento de serviço com base nas regras de autorização. Eles são configurados em um namespace ou em uma entidade de mensagens (retransmissão, fila ou tópico). Uma regra de autorização tem um nome, está associada a direitos específicos e transporta um par de chaves de criptografia. Você usa o nome e a chave da regra por meio do SDK do barramento de serviço ou em seu próprio código para gerar um token SAS. Um cliente pode passar o token para o barramento de serviço para provar a autorização para a operação solicitada.
+A SAS guarda o acesso ao Ônibus de serviço com base nas regras de autorização. Estes são configurados quer num espaço de nome, quer numa entidade de mensagens (retransmissão, fila ou tópico). Uma regra de autorização tem um nome, está associada a direitos específicos, e carrega um par de chaves criptográficas. Você usa o nome e a chave da regra através do Service Bus SDK ou no seu próprio código para gerar um token SAS. Um cliente pode então passar o símbolo ao Service Bus para provar a autorização para a operação solicitada.
 
 > [!NOTE]
-> O barramento de serviço do Azure dá suporte à autorização de acesso a um namespace do barramento de serviço e suas entidades usando o Azure Active Directory (AD do Azure). A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais.
+> A Azure Service Bus suporta a autorização de acesso a um espaço de nome de autocarro de serviço e às suas entidades utilizando o Azure Ative Directory (Azure AD). Autorizar utilizadores ou aplicações utilizando o token OAuth 2.0 devolvido pela Azure AD proporciona uma segurança e facilidade de utilização superiores sobre assinaturas de acesso partilhado (SAS). Com a AD Azure, não há necessidade de armazenar os tokens no seu código e arriscar potenciais vulnerabilidades de segurança.
 >
-> A Microsoft recomenda usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. Para obter mais informações, veja os artigos seguintes:
-> - [Autentique e autorize um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure](authenticate-application.md).
-> - [Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure](service-bus-managed-service-identity.md)
+> A Microsoft recomenda a utilização do Azure AD com as suas aplicações Azure Service Bus, quando possível. Para obter mais informações, veja os artigos seguintes:
+> - [Autenticar e autorizar uma aplicação com o Azure Ative Directory para aceder às entidades azure service bus.](authenticate-application.md)
+> - [Autenticar uma identidade gerida com o Diretório Ativo Azure para aceder aos recursos do Azure Service Bus](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>Visão geral da SAS
 
-As assinaturas de acesso compartilhado são um mecanismo de autorização baseado em declarações usando tokens simples. Usando a SAS, as chaves nunca são passadas na conexão. As chaves são usadas para assinar criptograficamente informações que podem ser verificadas posteriormente pelo serviço. A SAS pode ser usada de forma semelhante a um esquema de nome de usuário e senha, em que o cliente está em posse imediata de um nome de regra de autorização e uma chave correspondente. A SAS também pode ser usada de forma semelhante a um modelo de segurança federado, em que o cliente recebe um token de acesso assinado e limitado de um serviço de token de segurança sem nunca receber a posse da chave de assinatura.
+As Assinaturas de Acesso Partilhado são um mecanismo de autorização baseado em sinistros utilizando fichas simples. Utilizando sas, as chaves nunca são passadas no fio. As chaves são usadas para assinar criptograficamente informações que podem ser verificadas posteriormente pelo serviço. O SAS pode ser utilizado de forma semelhante a um esquema de nome de utilizador e palavra-passe quando o cliente se encontra na posse imediata de um nome de regra de autorização e de uma chave correspondente. A SAS também pode ser usada semelhante a um modelo de segurança federado, onde o cliente recebe um sinal de acesso limitado e assinado a partir de um serviço de fichas de segurança sem nunca entrar na posse da chave de assinatura.
 
-A autenticação SAS no barramento de serviço é configurada com [regras de autorização de acesso compartilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nomeadas que têm direitos de acesso associados e um par de chaves de criptografia primárias e secundárias. As chaves são valores de 256 bits na representação base64. Você pode configurar regras no nível de namespace, nas [retransmissões](../service-bus-relay/relay-what-is-it.md), [filas](service-bus-messaging-overview.md#queues)e [Tópicos](service-bus-messaging-overview.md#topics)do barramento de serviço.
+A autenticação SAS no Bus de Serviço é configurada com as chamadas Regras de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com direitos de acesso associados, e um par de chaves criptográficas primárias e secundárias. As chaves são valores de 256 bits na representação base64. Pode configurar regras ao nível do espaço de nome, em [retransmissores](../service-bus-relay/relay-what-is-it.md)de ônibus de serviço, [filas](service-bus-messaging-overview.md#queues)e [tópicos.](service-bus-messaging-overview.md#topics)
 
-O token de [assinatura de acesso compartilhado](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) contém o nome da regra de autorização escolhida, o URI do recurso que deve ser acessado, um instante de expiração e uma assinatura de criptografia HMAC-SHA256 computada nesses campos usando a chave de criptografia primária ou secundária da regra de autorização escolhida.
+O token [Signature de Acesso Partilhado](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) contém o nome da regra de autorização escolhida, o URI do recurso a que deve ser acedido, um instante de validade, e uma assinatura criptográfica HMAC-SHA256 computada sobre estes campos utilizando a chave criptográfica primária ou secundária da regra de autorização escolhida.
 
-## <a name="shared-access-authorization-policies"></a>Políticas de autorização de acesso compartilhado
+## <a name="shared-access-authorization-policies"></a>Políticas de autorização de acesso partilhado
 
-Cada namespace do barramento de serviço e cada entidade do barramento de serviço tem uma política de autorização de acesso compartilhado composta por regras. A política no nível de namespace se aplica a todas as entidades dentro do namespace, independentemente de sua configuração de política individual.
+Cada espaço de nome de ônibus de serviço e cada entidade de ônibus de serviço tem uma política de autorização de acesso partilhado composta por regras. A política a nível do espaço de nome aplica-se a todas as entidades dentro do espaço de nome, independentemente da sua configuração política individual.
 
-Para cada regra de política de autorização, você decide três partes de informações: **nome**, **escopo**e **direitos**. O **nome** é exatamente isso; um nome exclusivo dentro desse escopo. O escopo é fácil o suficiente: é o URI do recurso em questão. Para um namespace do barramento de serviço, o escopo é o FQDN (nome de domínio totalmente qualificado), como `https://<yournamespace>.servicebus.windows.net/`.
+Para cada regra da política de autorização, você decide sobre três peças de informação: **nome,** **âmbito,** e **direitos**. O **nome** é apenas isso; um nome único dentro desse âmbito. O âmbito é fácil o suficiente: é o URI do recurso em questão. Para um espaço de nome do Ônibus de serviço, o âmbito é o nome de domínio totalmente qualificado (FQDN), como `https://<yournamespace>.servicebus.windows.net/`.
 
-Os direitos conferidos pela regra de política podem ser uma combinação de:
+Os direitos conferidos pela regra política podem ser uma combinação de:
 
-* ' Send '-confere o direito de enviar mensagens para a entidade
-* ' Escutar '-confere o direito de escutar (retransmissão) ou recebimento (fila, assinaturas) e todos os tratamentos de mensagens relacionados
-* ' Gerenciar '-confere o direito de gerenciar a topologia do namespace, incluindo a criação e a exclusão de entidades
+* 'Enviar' - Confere o direito de enviar mensagens à entidade
+* 'Ouvir' - Confere o direito de ouvir (retransmissão) ou receber (fila, subscrições) e todo o manuseamento de mensagens relacionadas
+* 'Gerir' - Confere o direito de gerir a topologia do espaço de nome, incluindo a criação e a eliminar entidades
 
-O direito ' Gerenciar ' inclui os direitos ' enviar ' e ' receber '.
+O direito de "Gerir" inclui os direitos de "Enviar" e "Receber".
 
-Uma política de namespace ou de entidade pode conter até 12 regras de autorização de acesso compartilhado, fornecendo espaço para três conjuntos de regras, cada um cobrindo os direitos básicos e a combinação de enviar e escutar. Esse limite sublinha que o repositório de políticas SAS não pretende ser um armazenamento de conta de serviço ou de usuário. Se seu aplicativo precisar conceder acesso ao barramento de serviço com base em identidades de usuário ou de serviço, ele deverá implementar um serviço de token de segurança que emite tokens SAS após uma verificação de autenticação e acesso.
+Um espaço de nome ou política de entidades pode manter até 12 regras de Autorização de Acesso Partilhado, proporcionando espaço para três conjuntos de regras, cada uma abrangendo os direitos básicos e a combinação de Enviar e Ouvir. Este limite sublinha que a loja de política SAS não se destina a ser uma loja de conta de utilizador ou de serviço. Se a sua aplicação necessitar de conceder acesso ao Service Bus com base em identidades de utilizador ou de serviço, deverá implementar um serviço de token de segurança que emita tokens SAS após uma verificação de autenticação e acesso.
 
-Uma regra de autorização recebe uma *chave primária* e uma *chave secundária*. Essas são chaves criptograficamente fortes. Não perca-os ou vazando-os, eles estarão sempre disponíveis no [portal do Azure][Azure portal]. Você pode usar qualquer uma das chaves geradas e pode gerá-las novamente a qualquer momento. Se você regenerar ou alterar uma chave na política, todos os tokens emitidos anteriormente com base nessa chave se tornarão inválidos instantaneamente. No entanto, as conexões em andamento criadas com base nesses tokens continuarão a funcionar até que o token expire.
+É atribuída uma regra de autorização a uma *chave primária* e uma *chave secundária.* Estas são chaves criptograficamente fortes. Não os perca saquendo- estarão sempre disponíveis no [portal Azure.][Azure portal] Podes usar qualquer uma das chaves geradas, e podes regenera-las a qualquer momento. Se regenerar ou alterar uma chave na política, todos os tokens anteriormente emitidos com base nessa tecla tornam-se instantaneamente inválidos. No entanto, as ligações em curso criadas com base nesses tokens continuarão a funcionar até que o token expire.
 
-Quando você cria um namespace do barramento de serviço, uma regra de política chamada **RootManageSharedAccessKey** é criada automaticamente para o namespace. Esta política tem permissões de gerenciamento para o namespace inteiro. É recomendável que você trate essa regra como uma conta **raiz** administrativa e não a use em seu aplicativo. Você pode criar regras de política adicionais na guia **Configurar** para o namespace no portal, por meio do Powershell ou CLI do Azure.
+Quando cria um espaço de nome de autocarro de serviço, uma regra de política chamada **RootManageSharedAccessKey** é criada automaticamente para o espaço de nome. Esta política tem permissões de gestão para todo o espaço de nome. Recomenda-se que trate esta regra como uma conta **de raiz** administrativa e não a use na sua aplicação. Pode criar regras de política adicionais no separador **Configure** para o espaço de nome no portal, via Powershell ou Azure CLI.
 
-## <a name="configuration-for-shared-access-signature-authentication"></a>Configuração da autenticação de assinatura de acesso compartilhado
+## <a name="configuration-for-shared-access-signature-authentication"></a>Configuração para autenticação de assinatura de acesso partilhado
 
-Você pode configurar a regra [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em namespaces, filas ou tópicos do barramento de serviço. Não há suporte para a configuração de um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em uma assinatura do barramento de serviço no momento, mas você pode usar regras configuradas em um namespace ou tópico para proteger o acesso a assinaturas. Para obter um exemplo funcional que ilustre esse procedimento, consulte o exemplo [usando a autenticação SAS (assinatura de acesso compartilhado) com assinaturas do barramento de serviço](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
+Pode configurar a regra [sharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em espaços de nomes de ônibus de serviço, filas ou tópicos. Configurar uma Regra de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) numa subscrição de ônibus de serviço não é suportado atualmente, mas pode usar regras configuradas num espaço de nome ou tópico para garantir o acesso a subscrições. Para obter uma amostra de trabalho que ilustra este procedimento, consulte a autenticação de Assinatura de [Acesso Partilhado (SAS) com](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) amostra de Assinaturas de Autocarros de Serviço.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-Nesta figura, as regras de autorização *manageRuleNS*, *sendRuleNS*e *listenRuleNS* se aplicam à fila Q1 e ao tópico T1, enquanto *listenRuleQ* e *sendRuleQ* aplicam-se somente à fila Q1 e *sendRuleT* aplica-se somente ao tópico T1.
+Neste valor, as regras de *autorização ruleNS*de gestão , *sendRuleNS*e *listenRuleNS* aplicam-se tanto à fila Q1 como ao tópico T1, enquanto *ouveRuleQ* e *sendRuleQ* aplicam-se apenas à fila Q1 e *o envio RuleT* aplica-se apenas ao tópico T1.
 
-## <a name="generate-a-shared-access-signature-token"></a>Gerar um token de assinatura de acesso compartilhado
+## <a name="generate-a-shared-access-signature-token"></a>Gerar um símbolo de assinatura de acesso partilhado
 
-Qualquer cliente que tenha acesso ao nome de um nome de regra de autorização e uma de suas chaves de assinatura pode gerar um token SAS. O token é gerado pela criação de uma cadeia de caracteres no seguinte formato:
+Qualquer cliente que tenha acesso ao nome de uma regra de autorização e uma das suas chaves de assinatura pode gerar um token SAS. O símbolo é gerado através da criação de uma corda no seguinte formato:
 
 ```
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* instantâneo de expiração de **`se`** tokens. Inteiro refletindo segundos desde a época `00:00:00 UTC` em 1 de janeiro de 1970 (época do UNIX) quando o token expira.
-* **`skn`** -nome da regra de autorização.
-* **`sr`** -URI do recurso que está sendo acessado.
-* assinatura **`sig`** .
+* **`se`** - Token expira instantaneamente. Inteiro refletindo segundos desde que a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o símbolo expira.
+* **`skn`** - Nome da regra de autorização.
+* **`sr`** - URI do recurso a ser acedido.
+* **`sig`** - Assinatura.
 
-O `signature-string` é o hash SHA-256 calculado sobre o URI de recurso (**escopo** , conforme descrito na seção anterior) e a representação de cadeia de caracteres do instantâneo de expiração do token, separados por LF.
+O `signature-string` é o hash SHA-256 computado sobre o recurso URI **(âmbito** descrito na secção anterior) e a representação de cordas do instante de validade do símbolo, separado por LF.
 
-A computação de hash é semelhante ao seguinte pseudocódigo e retorna um valor de hash de 256 bits/32 bytes.
+A computação de hash parece semelhante ao seguinte código pseudo e devolve um valor hash de 256 bits/32 byte.
 
 ```
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-O token contém os valores sem hash para que o destinatário possa recalcular o hash com os mesmos parâmetros, verificando se o emissor está em posse de uma chave de assinatura válida.
+O símbolo contém os valores não hashed para que o destinatário possa recomputar o hash com os mesmos parâmetros, verificando que o emitente está na posse de uma chave de assinatura válida.
 
-O URI de recurso é o URI completo do recurso do barramento de serviço ao qual o acesso é reivindicado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`; ou seja, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+O recurso URI é o URI completo do recurso Service Bus a que o acesso é reclamado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`; isto é, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**O URI deve ser [codificado por percentual](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**O URI deve ser codificado por [cento.](https://msdn.microsoft.com/library/4fkewx0t.aspx)**
 
-A regra de autorização de acesso compartilhado usada para assinatura deve ser configurada na entidade especificada por esse URI ou por um de seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
+A regra de autorização de acesso partilhado utilizada para a assinatura deve ser configurada na entidade especificada por este URI, ou por um dos seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 
-Um token SAS é válido para todos os recursos prefixados com o `<resourceURI>` usado na `signature-string`.
+Um token SAS é válido para todos os recursos pré-fixados com o `<resourceURI>` utilizado na `signature-string`.
 
-## <a name="regenerating-keys"></a>Regenerando chaves
+## <a name="regenerating-keys"></a>Chaves regeneradoras
 
-É recomendável que você regenere periodicamente as chaves usadas no objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . Os slots de chave primária e secundária existem para que você possa girar as chaves gradualmente. Se seu aplicativo geralmente usa a chave primária, você pode copiar a chave primária para o slot de chave secundária e, em seguida, regenerar a chave primária. O novo valor de chave primária pode então ser configurado nos aplicativos cliente, que têm acesso contínuo usando a antiga chave primária no slot secundário. Depois que todos os clientes forem atualizados, você poderá regenerar a chave secundária para finalmente desativar a chave primária antiga.
+Recomenda-se que regenera periodicamente as teclas utilizadas no objeto [SharedAccessAuthorizationRule.](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) As ranhuras-chave primárias e secundárias existem para que possa rodar as teclas gradualmente. Se a sua aplicação utilizar geralmente a chave principal, pode copiar a chave primária para a ranhura da chave secundária e, em seguida, regenerar a chave primária. O novo valor principal principal pode então ser configurado nas aplicações do cliente, que têm acesso continuado usando a antiga chave primária na ranhura secundária. Uma vez atualizados todos os clientes, pode regenerar a chave secundária para finalmente retirar a antiga chave primária.
 
-Se você souber ou suspeitar que uma chave está comprometida e precisar revogar as chaves, poderá regenerar o [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) e o [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), substituindo-os por novas chaves. Este procedimento invalida todos os tokens assinados com as chaves antigas.
+Se souber ou suspeitar que uma chave está comprometida e tiver de revogar as teclas, pode regenerar tanto a [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) como a [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de uma Regra de Autorização de [Acesso Partilhado,](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)substituindo-as por novas teclas. Este procedimento invalida todas as fichas assinadas com as chaves antigas.
 
-## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticação de assinatura de acesso compartilhado com o barramento de serviço
+## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticação de assinatura de acesso partilhado com ônibus de serviço
 
-Os cenários descritos a seguir incluem a configuração de regras de autorização, a geração de tokens SAS e a autorização do cliente.
+Os cenários descritos como os seguintes incluem a configuração de regras de autorização, geração de tokens SAS e autorização do cliente.
 
-Para obter um exemplo funcional completo de um aplicativo do barramento de serviço que ilustra a configuração e usa a autorização de SAS, consulte [autenticação de assinatura de acesso compartilhado com o barramento de serviço](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Um exemplo relacionado que ilustra o uso de regras de autorização SAS configuradas em namespaces ou tópicos para proteger assinaturas do barramento de serviço está disponível aqui: [usando a autenticação SAS (assinatura de acesso compartilhado) com assinaturas do barramento de serviço](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Para obter uma amostra completa de uma aplicação service Bus que ilustra a configuração e utiliza a autorização SAS, consulte [a autenticação De Assinatura](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)de Acesso Partilhado com o Bus de Serviço . Uma amostra relacionada que ilustra o uso de regras de autorização SAS configuradas em espaços de nome ou tópicos para garantir subscrições de ônibus de serviço está disponível aqui: Usando a autenticação de Assinatura de [Acesso Partilhado (SAS) com assinaturas](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)de ônibus de serviço .
 
-## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Acessar regras de autorização de acesso compartilhado em uma entidade
+## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Regras de Autorização de Acesso Partilhado de Acesso a uma entidade
 
-Com as bibliotecas de .NET Framework do barramento de serviço, você pode acessar um objeto [Microsoft. ServiceBus. Messaging. SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurado em uma fila ou um tópico do barramento de serviço por meio da coleção [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) no [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription)correspondente.
+Com o Service Bus .NET Framework libraries, pode aceder a um objeto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) configurado numa fila de ônibus de serviço ou tópico através da recolha [de AutorizaçõesRegras](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) na correspondente [Descrição](/dotnet/api/microsoft.servicebus.messaging.queuedescription) da Fila ou [TópicoDescrição](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
 
-O código a seguir mostra como adicionar regras de autorização para uma fila.
+O código seguinte mostra como adicionar regras de autorização para uma fila.
 
 ```csharp
 // Create an instance of NamespaceManager for the operation
@@ -147,9 +147,9 @@ qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoQManageKey",
 nsm.CreateQueue(qd);
 ```
 
-## <a name="use-shared-access-signature-authorization"></a>Usar autorização de assinatura de acesso compartilhado
+## <a name="use-shared-access-signature-authorization"></a>Utilizar autorização de assinatura de acesso partilhado
 
-Os aplicativos que usam o SDK do .NET do Azure com as bibliotecas .NET do barramento de serviço podem usar a autorização SAS por meio da classe [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) . O código a seguir ilustra o uso do provedor de token para enviar mensagens para uma fila do barramento de serviço. Alternativa ao uso mostrado aqui, você também pode passar um token emitido anteriormente para o método de fábrica do provedor de token.
+As aplicações que utilizam o Azure .NET SDK com o Bus de Serviço .NET bibliotecas podem utilizar a autorização SAS através da classe [SharedAccessSignatureTokenProvider.](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) O código que se segue ilustra a utilização do fornecedor simbólico para enviar mensagens para uma fila de autocarros de serviço. Alternativa ao uso mostrado aqui, também pode passar um token previamente emitido para o método de fábrica do fornecedor de token.
 
 ```csharp
 Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
@@ -164,15 +164,15 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-Você também pode usar o provedor de token diretamente para emitir tokens para passar para outros clientes.
+Também pode utilizar o fornecedor simbólico diretamente para emitir fichas para passar para outros clientes.
 
-As cadeias de conexão podem incluir um nome de regra (*SharedAccessKeyName*) e uma chave de regra (*SharedAccessKey*) ou um token emitido anteriormente (*SharedAccessSignature*). Quando estão presentes na cadeia de conexão passada para qualquer Construtor ou método de fábrica que aceita uma cadeia de conexão, o provedor de token SAS é automaticamente criado e populado.
+As cordas de ligação podem incluir um nome de regra *(SharedAccessKeyName*) e a chave de regras *(SharedAccessKey*) ou um token anteriormente emitido *(SharedAccessSignature*). Quando estes estão presentes na cadeia de ligação passado a qualquer construtor ou método de fábrica que aceite uma cadeia de ligação, o fornecedor de fichas SAS é automaticamente criado e povoado.
 
-Observe que para usar a autorização SAS com retransmissões do barramento de serviço, você pode usar chaves SAS configuradas no namespace do barramento de serviço. Se você criar explicitamente uma retransmissão no namespace ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) com um objeto [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), poderá definir as regras de SAS apenas para essa retransmissão. Para usar a autorização SAS com assinaturas do barramento de serviço, você pode usar chaves SAS configuradas em um namespace do barramento de serviço ou em um tópico.
+Note que para utilizar a autorização SAS com retransmissores de ônibus de serviço, pode utilizar chaves SAS configuradas no espaço de nome do Ônibus de serviço. Se criar explicitamente um retransmissor no objeto[namespace (NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) com uma [Descrição relé),](/dotnet/api/microsoft.servicebus.messaging.relaydescription)pode definir as regras SAS apenas para esse retransmissor. Para utilizar a autorização SAS com subscrições de Ônibus de serviço, pode utilizar chaves SAS configuradas num espaço de nome de autocarro de serviço ou num tópico.
 
-## <a name="use-the-shared-access-signature-at-http-level"></a>Usar a assinatura de acesso compartilhado (no nível de HTTP)
+## <a name="use-the-shared-access-signature-at-http-level"></a>Utilize a Assinatura de Acesso Partilhado (ao nível HTTP)
 
-Agora que você sabe como criar assinaturas de acesso compartilhado para todas as entidades no barramento de serviço, você está pronto para executar um HTTP POST:
+Agora que sabe como criar Assinaturas de Acesso Partilhado para qualquer entidade em Service Bus, está pronto para realizar um POST HTTP:
 
 ```http
 POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
@@ -181,17 +181,17 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ```
 
-Lembre-se de que isso funciona para tudo. Você pode criar SAS para uma fila, tópico ou assinatura.
+Lembre-se, isto funciona para tudo. Pode criar SAS para uma fila, tópico ou subscrição.
 
-Se você fornecer a um remetente ou cliente um token SAS, eles não terão a chave diretamente e não poderão reverter o hash para obtê-lo. Dessa forma, você tem controle sobre o que eles podem acessar e por quanto tempo. Uma coisa importante a ser lembrada é que, se você alterar a chave primária na política, qualquer assinatura de acesso compartilhado criada a partir dela será invalidada.
+Se você dá a um remetente ou cliente um token SAS, eles não têm a chave diretamente, e eles não podem reverter o hash para obtê-lo. Como tal, tens controlo sobre o que eles podem aceder, e por quanto tempo. Uma coisa importante a lembrar é que se mudar a chave primária da política, quaisquer Assinaturas de Acesso Partilhada criadas a partir dela são invalidadas.
 
-## <a name="use-the-shared-access-signature-at-amqp-level"></a>Usar a assinatura de acesso compartilhado (no nível de AMQP)
+## <a name="use-the-shared-access-signature-at-amqp-level"></a>Utilize a Assinatura de Acesso Partilhado (ao nível AMQP)
 
-Na seção anterior, você viu como usar o token SAS com uma solicitação HTTP POST para enviar dados para o barramento de serviço. Como você sabe, é possível acessar o barramento de serviço usando o Advanced Message Queuing Protocol (AMQP), que é o protocolo preferencial a ser usado por motivos de desempenho, em muitos cenários. O uso do token SAS com AMQP é descrito no documento [AMQP de segurança baseada em declarações versão 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está em rascunho funcional desde 2013, mas bem suportada pelo Azure hoje.
+Na secção anterior, viu como utilizar o token SAS com um pedido HTTP POST para o envio de dados para o Ônibus de Serviço. Como sabe, pode aceder ao Service Bus utilizando o Protocolo de Fila de Mensagens Avançadas (AMQP) que é o protocolo preferido para usar por razões de desempenho, em muitos cenários. O uso simbólico da SAS com AMQP é descrito no documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está em projeto de trabalho desde 2013, mas bem apoiado pela Azure hoje.
 
-Antes de começar a enviar dados para o barramento de serviço, o Publicador deve enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **$CBS** (você pode vê-lo como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O Publicador deve especificar o campo **ReplyTo** dentro da mensagem AMQP; Esse é o nó no qual o serviço responde ao Publicador com o resultado da validação do token (um padrão simples de solicitação/resposta entre o Publicador e o serviço). Esse nó de resposta é criado imediatamente, "falando sobre a criação dinâmica do nó remoto", conforme descrito pela especificação AMQP 1,0. Depois de verificar se o token SAS é válido, o Publicador pode avançar e começar a enviar dados para o serviço.
+Antes de começar a enviar dados para o Service Bus, a editora deve enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **$cbs** (pode vê-lo como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **AnswerTo** dentro da mensagem AMQP; este é o nó em que o serviço responde à editora com o resultado da validação simbólica (um simples padrão de pedido/resposta entre o editor e o serviço). Este nó de resposta é criado "on the fly", falando sobre a "criação dinâmica do nó remoto", conforme descrito pela especificação AMQP 1.0. Depois de verificar se o token SAS é válido, a editora pode avançar e começar a enviar dados para o serviço.
 
-As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.net Lite](https://github.com/Azure/amqpnetlite) . Isso é útil se você não pode usar o SDK oficial do barramento de serviço (por exemplo, em WinRT, .NET Compact Framework, .NET micro Framework e mono) desenvolvendo em C\#. É claro que essa biblioteca é útil para ajudar a entender como a segurança baseada em declarações funciona no nível de AMQP, como você viu como ela funciona no nível de HTTP (com uma solicitação HTTP POST e o token SAS enviado dentro do cabeçalho "Authorization"). Se você não precisar desse conhecimento profundo sobre o AMQP, poderá usar o SDK oficial do barramento de serviço com .NET Framework aplicativos, o que fará isso para você.
+Os seguintes passos mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.NET Lite.](https://github.com/Azure/amqpnetlite) Isto é útil se não puder utilizar o SDK oficial do bus de serviço (por exemplo, no WinRT, .NET Compact Framework, .NET Micro Framework e Mono) em C\#. É claro que esta biblioteca é útil para ajudar a entender como funciona a segurança baseada em sinistros ao nível da AMQP, como viu como funciona a nível HTTP (com um pedido HTTP POST e o token SAS enviado dentro do cabeçalho "Autorização"). Se não precisar de conhecimentos tão profundos sobre a AMQP, pode utilizar o Service Bus SDK oficial com aplicações .NET Framework, que o farão por si.
 
 ### <a name="c35"></a>C&#35;
 
@@ -244,66 +244,66 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-O método `PutCbsToken()` recebe a *conexão* (instância de classe de conexão AMQP, conforme fornecido pela [biblioteca AMQP do .net Lite](https://github.com/Azure/amqpnetlite)) que representa a conexão TCP com o serviço e o parâmetro *SASTOKEN* que é o token SAS a ser enviado.
+O método `PutCbsToken()` recebe a *ligação* (instância de classe de ligação AMQP fornecida pela [biblioteca AMQP .NET Lite)](https://github.com/Azure/amqpnetlite)que representa a ligação TCP ao serviço e ao parâmetro *sasToken* que é o símbolo SAS a enviar.
 
 > [!NOTE]
-> É importante que a conexão seja criada com o **mecanismo de autenticação SASL definido como anônimo** (e não o padrão sem formatação com nome de usuário e senha usados quando você não precisa enviar o token SAS).
+> É importante que a ligação seja criada com o mecanismo de **autenticação SASL definido para ANONYMOUS** (e não a PLAIN padrão com nome de utilizador e palavra-passe usado quando não precisa enviar o token SAS).
 >
 >
 
-Em seguida, o Publicador cria dois links AMQP para enviar o token SAS e receber a resposta (o resultado de validação do token) do serviço.
+Em seguida, a editora cria dois links AMQP para o envio do token SAS e recebendo a resposta (o resultado da validação do token) do serviço.
 
-A mensagem AMQP contém um conjunto de propriedades e mais informações do que uma mensagem simples. O token SAS é o corpo da mensagem (usando seu construtor). A propriedade **"ReplyTo"** é definida como o nome do nó para receber o resultado da validação no link do destinatário (você pode alterar seu nome, se desejar, e ele será criado dinamicamente pelo serviço). As três últimas Propriedades de aplicativo/personalizadas são usadas pelo serviço para indicar que tipo de operação ele deve executar. Conforme descrito pela especificação de rascunho do CBS, ele deve ser o **nome da operação** ("Put-token"), o **tipo de token** (nesse caso, um `servicebus.windows.net:sastoken`) e o **"nome" do público** ao qual o token se aplica (a entidade inteira).
+A mensagem AMQP contém um conjunto de propriedades, e mais informações do que uma simples mensagem. O símbolo SAS é o corpo da mensagem (utilizando o seu construtor). A propriedade **"AnswerTo"** está definida no nome do nó para receber o resultado da validação no link do recetor (pode alterar o seu nome se quiser, e será criada dinamicamente pelo serviço). As três últimas propriedades de aplicação/costume são utilizadas pelo serviço para indicar que tipo de operação tem para executar. Tal como descrito pelo projeto de especificação da CBS, devem ser o nome de **funcionamento** ("put-token"), o **tipo de ficha** (neste caso, um `servicebus.windows.net:sastoken`) e o **"nome" do público** a que o símbolo se aplica (toda a entidade).
 
-Depois de enviar o token SAS no link do remetente, o Publicador deve ler a resposta no link do destinatário. A resposta é uma mensagem AMQP simples com uma propriedade de aplicativo chamada **"status-código"** que pode conter os mesmos valores de um código de status http.
+Depois de enviar o token SAS no link do remetente, o editor deve ler a resposta no link recetor. A resposta é uma simples mensagem AMQP com uma propriedade de aplicação chamada **"status-code"** que pode conter os mesmos valores que um código de estado HTTP.
 
-## <a name="rights-required-for-service-bus-operations"></a>Direitos necessários para operações do barramento de serviço
+## <a name="rights-required-for-service-bus-operations"></a>Direitos necessários para operações de ônibus de serviço
 
-A tabela a seguir mostra os direitos de acesso necessários para várias operações nos recursos do barramento de serviço.
+A tabela que se segue mostra os direitos de acesso necessários para várias operações nos recursos da Service Bus.
 
-| Operação | Declaração necessária | Escopo da declaração |
+| Operação | Reclamação necessária | Âmbito de reclamação |
 | --- | --- | --- |
-| **Namespace** | | |
-| Configurar a regra de autorização em um namespace |Gerir |Qualquer endereço de namespace |
-| **Registro de serviço** | | |
-| Enumerar políticas privadas |Gerir |Qualquer endereço de namespace |
-| Começar a escutar em um namespace |Escutar |Qualquer endereço de namespace |
-| Enviar mensagens para um ouvinte em um namespace |Enviar |Qualquer endereço de namespace |
+| **Espaço de nome** | | |
+| Configure regra de autorização em um espaço de nome |Gerir |Qualquer endereço espaço de nome |
+| **Registo de Serviços** | | |
+| Enumerar políticas privadas |Gerir |Qualquer endereço espaço de nome |
+| Comece a ouvir em um espaço de nome |Escutar |Qualquer endereço espaço de nome |
+| Envie mensagens a um ouvinte num espaço de nome |Enviar |Qualquer endereço espaço de nome |
 | **Fila** | | |
-| Criar uma fila |Gerir |Qualquer endereço de namespace |
+| Criar uma fila |Gerir |Qualquer endereço espaço de nome |
 | Eliminar uma fila |Gerir |Qualquer endereço de fila válido |
-| Enumerar filas |Gerir |/$Resources/Queues |
-| Obter a descrição da fila |Gerir |Qualquer endereço de fila válido |
-| Configurar a regra de autorização para uma fila |Gerir |Qualquer endereço de fila válido |
+| Enumerar filas |Gerir |/$Resources/Filas |
+| Obtenha a descrição da fila |Gerir |Qualquer endereço de fila válido |
+| Configure a regra de autorização para uma fila |Gerir |Qualquer endereço de fila válido |
 | Enviar para a fila |Enviar |Qualquer endereço de fila válido |
 | Receber mensagens de uma fila |Escutar |Qualquer endereço de fila válido |
-| Abandonar ou concluir as mensagens depois de receber a mensagem no modo de bloqueio de pico |Escutar |Qualquer endereço de fila válido |
-| Adiar uma mensagem para recuperação posterior |Escutar |Qualquer endereço de fila válido |
-| Mensagem de mensagens mortas |Escutar |Qualquer endereço de fila válido |
+| Abandone ou complete mensagens depois de receber a mensagem no modo de bloqueio de peek |Escutar |Qualquer endereço de fila válido |
+| Adique uma mensagem para a recuperação posterior |Escutar |Qualquer endereço de fila válido |
+| Deadletter uma mensagem |Escutar |Qualquer endereço de fila válido |
 | Obter o estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
-| Definir o estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
-| Agendar uma mensagem para entrega posterior; por exemplo, [ScheduleMessageAsync ()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escutar | Qualquer endereço de fila válido
+| Desmarque o estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
+| Agende uma mensagem para posterior entrega; por exemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escutar | Qualquer endereço de fila válido
 | **Tópico** | | |
-| Criar um tópico |Gerir |Qualquer endereço de namespace |
-| Excluir um tópico |Gerir |Qualquer endereço de tópico válido |
-| Enumerar tópicos |Gerir |/$Resources/topics |
-| Obter a descrição do tópico |Gerir |Qualquer endereço de tópico válido |
+| Criar um tópico |Gerir |Qualquer endereço espaço de nome |
+| Apagar um tópico |Gerir |Qualquer endereço de tópico válido |
+| Temas enumerados |Gerir |/$Resources/Tópicos |
+| Obtenha a descrição do tópico |Gerir |Qualquer endereço de tópico válido |
 | Configurar a regra de autorização para um tópico |Gerir |Qualquer endereço de tópico válido |
 | Enviar para o tópico |Enviar |Qualquer endereço de tópico válido |
 | **Subscrição** | | |
-| Criar uma subscrição |Gerir |Qualquer endereço de namespace |
+| Criar uma subscrição |Gerir |Qualquer endereço espaço de nome |
 | Eliminar subscrição |Gerir |../myTopic/subscriptions/mySubscription |
 | Enumerar assinaturas |Gerir |../myTopic/subscrições |
-| Obter descrição da assinatura |Gerir |../myTopic/subscriptions/mySubscription |
-| Abandonar ou concluir as mensagens depois de receber a mensagem no modo de bloqueio de pico |Escutar |../myTopic/subscriptions/mySubscription |
-| Adiar uma mensagem para recuperação posterior |Escutar |../myTopic/subscriptions/mySubscription |
-| Mensagem de mensagens mortas |Escutar |../myTopic/subscriptions/mySubscription |
-| Obter o estado associado a uma sessão de tópico |Escutar |../myTopic/subscriptions/mySubscription |
-| Definir o estado associado a uma sessão de tópico |Escutar |../myTopic/subscriptions/mySubscription |
+| Obtenha descrição da subscrição |Gerir |../myTopic/subscriptions/mySubscription |
+| Abandone ou complete mensagens depois de receber a mensagem no modo de bloqueio de peek |Escutar |../myTopic/subscriptions/mySubscription |
+| Adique uma mensagem para a recuperação posterior |Escutar |../myTopic/subscriptions/mySubscription |
+| Deadletter uma mensagem |Escutar |../myTopic/subscriptions/mySubscription |
+| Obter o estado associado a uma sessão de tópicos |Escutar |../myTopic/subscriptions/mySubscription |
+| Definir o estado associado a uma sessão de tópicos |Escutar |../myTopic/subscriptions/mySubscription |
 | **Regras** | | |
 | Criar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
 | Eliminar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
-| Enumerar regras |Gerenciar ou escutar |../myTopic/subscriptions/mySubscription/Rules
+| Regras enumeradas |Gerir ou ouvir |../myTopic/subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358796"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126875"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para aplicações lógicas azure
 
@@ -64,7 +64,7 @@ Um ambiente de serviço de [ *integração* (ISE)](../logic-apps/connect-virtual
 
   Para obter mais informações sobre os limites da conta de integração, consulte [os limites e configuração das Aplicações Lógicas.](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) Você pode aprender mais sobre os níveis de conta de [integração e seu modelo](#integration-accounts) de preços mais tarde neste tópico.
 
-Se escolher o Premium ISE SKU, a unidade base tem capacidade fixa. Se precisar de mais entrada, pode [adicionar mais unidades](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)de escala, seja durante a criação ou depois. O Developer ISE SKU não tem a capacidade de adicionar unidades de maior escala. Aplicações lógicas que funcionam num ISE não incorrem em custos de retenção de dados.
+Se escolher o Premium ISE SKU, a unidade base tem capacidade fixa. Se precisar de mais entrada, pode [adicionar mais unidades](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)de escala, seja durante a criação ou depois. O Developer ISE SKU não tem a capacidade de adicionar unidades de maior escala. Aplicações lógicas que funcionam num ISE não incorrem em custos de retenção de dados.
 
 Para preços, consulte [preços de Apps Lógicas.](https://azure.microsoft.com/pricing/details/logic-apps)
 
@@ -162,7 +162,7 @@ Para ajudá-lo a monitorizar o consumo de armazenamento da sua aplicação lógi
 
 1. No painel de ação da **aplicação Logic,** encontre os tamanhos para as inputs e saídas dessa ação aparecerem respectivamente sob a ligação de **inputs** e **saídas**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre as aplicações da Lógica Azure](logic-apps-overview.md)
 * [Criar a sua primeira aplicação lógica](quickstart-create-first-logic-app-workflow.md)

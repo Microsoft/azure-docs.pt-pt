@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 025ea1e23b3587d333ecfcda27f80fcedad66ed5
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355275"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096165"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com Aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -182,8 +182,6 @@ Para implementar o modelo como um serviço, precisa dos seguintes componentes:
     >   Uma alternativa que pode funcionar para o seu cenário é a previsão do [lote,](how-to-use-parallel-run-step.md)que fornece acesso a lojas de dados durante a pontuação.
 
 * **Configuração**de inferência . A configuração de inferência especifica a configuração do ambiente, script de entrada e outros componentes necessários para executar o modelo como um serviço.
-
-Uma vez que tenha os componentes necessários, pode perfilar o serviço que será criado como resultado da implementação do seu modelo para compreender os seus requisitos de CPU e memória.
 
 ### <a id="script"></a>1. Defina o seu roteiro de entrada e dependências
 
@@ -522,82 +520,6 @@ Neste exemplo, a configuração especifica as seguintes definições:
 
 Para obter informações sobre a utilização de uma imagem personalizada do Docker com uma configuração de inferência, consulte [como implementar um modelo utilizando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
-### <a id="profilemodel"></a>3. Perfile o seu modelo para determinar a utilização de recursos
-
-Depois de ter registado o seu modelo e preparado os outros componentes necessários para a sua implantação, pode determinar o CPU e a memória de que o serviço implantado necessitará. O perfil testa o serviço que executa o seu modelo e devolve informações como o uso do CPU, o uso da memória e a latência de resposta. Também fornece uma recomendação para o CPU e memória com base na utilização de recursos.
-
-Para perfilar o seu modelo, necessitará:
-* Um modelo registado.
-* Uma configuração de inferência baseada no seu script de entrada e definição de ambiente de inferência.
-* Um conjunto de dados tabular de coluna única, onde cada linha contém uma sequência que representa dados de pedido de amostra.
-
-> [!IMPORTANT]
-> Neste momento apenas apoiamos o perfil de serviços que esperam que os seus dados de pedido sejam uma cadeia, por exemplo: json serializado de cordas, texto, imagem serializada de cordas, etc. O conteúdo de cada linha do conjunto de dados (cadeia) será colocado no corpo do pedido HTTP e enviado para o serviço encapsulando o modelo de pontuação.
-
-Abaixo está um exemplo de como pode construir um conjunto de dados de entrada para perfilar um serviço que espera que os seus dados de pedido de entrada contenham json serializado. Neste caso, criámos um conjunto de dados baseado em cem casos do mesmo conteúdo de dados de pedidos. Em cenários do mundo real sugerimos que você use conjuntos de dados maiores contendo várias entradas, especialmente se o seu modelo de utilização/comportamento de recursos é dependente de entrada.
-
-```python
-import json
-from azureml.core import Datastore
-from azureml.core.dataset import Dataset
-from azureml.data import dataset_type_definitions
-
-input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                       [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
-# create a string that can be utf-8 encoded and
-# put in the body of the request
-serialized_input_json = json.dumps(input_json)
-dataset_content = []
-for i in range(100):
-    dataset_content.append(serialized_input_json)
-dataset_content = '\n'.join(dataset_content)
-file_name = 'sample_request_data.txt'
-f = open(file_name, 'w')
-f.write(dataset_content)
-f.close()
-
-# upload the txt file created above to the Datastore and create a dataset from it
-data_store = Datastore.get_default(ws)
-data_store.upload_files(['./' + file_name], target_path='sample_request_data')
-datastore_path = [(data_store, 'sample_request_data' +'/' + file_name)]
-sample_request_data = Dataset.Tabular.from_delimited_files(
-    datastore_path, separator='\n',
-    infer_column_types=True,
-    header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
-sample_request_data = sample_request_data.register(workspace=ws,
-                                                   name='sample_request_data',
-                                                   create_new_version=True)
-```
-
-Assim que tiver o conjunto de dados que contém dados de pedido de amostra, crie uma configuração de inferência. A configuração da inferência baseia-se no score.py e na definição de ambiente. O exemplo que se segue demonstra como criar a configuração da inferência e executar perfis:
-
-```python
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.dataset import Dataset
-
-
-model = Model(ws, id=model_id)
-inference_config = InferenceConfig(entry_script='path-to-score.py',
-                                   environment=myenv)
-input_dataset = Dataset.get_by_name(workspace=ws, name='sample_request_data')
-profile = Model.profile(ws,
-            'unique_name',
-            [model],
-            inference_config,
-            input_dataset=input_dataset)
-
-profile.wait_for_completion(True)
-
-# see the result
-details = profile.get_details()
-```
-
-O seguinte comando demonstra como perfilar um modelo utilizando o CLI:
-
-```azurecli-interactive
-az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
-```
-
 ## <a name="deploy-to-target"></a>Desdobre para o alvo
 
 A implementação utiliza a configuração de configuração de inferência para implementar os modelos. O processo de implantação é semelhante independentemente do objetivo do cálculo. A implantação para AKS é ligeiramente diferente porque deve fornecer uma referência ao cluster AKS.
@@ -618,7 +540,7 @@ A tabela seguinte fornece um exemplo de criação de uma configuração de imple
 
 | Destino de computação | Exemplo de configuração de implementação |
 | ----- | ----- |
-| Localização | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -670,7 +592,7 @@ A tabela seguinte descreve os diferentes estados de serviço:
 | Estado de serviço web | Descrição | Estado final?
 | ----- | ----- | ----- |
 | Transição | O serviço está em fase de implantação. | Não |
-| Estado de funcionamento incorreto | O serviço foi acionado, mas está inacessível.  | Não |
+| Danificado | O serviço foi acionado, mas está inacessível.  | Não |
 | Inescalável | O serviço não pode ser implementado neste momento por falta de recursos. | Não |
 | Falhou | O serviço falhou na sua implantação devido a um erro ou a um acidente. | Sim |
 | Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |

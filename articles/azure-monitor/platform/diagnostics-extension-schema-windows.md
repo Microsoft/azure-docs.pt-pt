@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 3adf4b59c0605859ada75577c083094541815984
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384145"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129041"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos da computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacionais.
@@ -506,7 +506,7 @@ O *PublicConfig* e o *PrivateConfig* são separados porque na maioria dos casos 
 ```
 
 > [!NOTE]
-> A definição de pia do Monitor De figo Público Azure tem duas propriedades, *Principado e* *Secreto.* Estes são necessários apenas para VMs clássicos e serviços de Nuvem Clássica. Estas propriedades não devem ser utilizadas para outros recursos.
+> A definição privada de sumidouro do Monitor De figo Azure tem duas propriedades, *Principado e* *Secreto.* Estes são necessários apenas para VMs clássicos e serviços de Nuvem Clássica. Estas propriedades não devem ser utilizadas para outros recursos.
 
 
 ```json

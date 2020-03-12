@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 817ff90c10a29d7db7037d89f3c3d51e7f997175
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 778f6b8d133ddb21f918d65a9d8aecd8b2205b08
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037178"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127191"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
@@ -209,7 +209,7 @@ Para criar um conjunto de dados no estúdio:
 1. **Selecione Tabular** ou **File** para o tipo Dataset.
 1. Selecione **Next** para abrir o formulário de seleção de **Datastore e ficheiros.** Neste formulário, selecione onde manter o seu conjunto de dados após a criação, bem como selecione quais os ficheiros de dados a utilizar para o seu conjunto de dados. 
 1. Selecione **Próximo** para preencher as **Definições e pré-visualização** e **formas Schema;** são povoados inteligentemente com base no tipo de ficheiro e pode configurar ainda mais o seu conjunto de dados antes da criação nestes formulários. 
-1. Selecione **Next** para rever o formulário **confirmar detalhes.** Verifique as suas seleções e crie um perfil de dados opcional para o seu conjunto de dados. Saiba mais sobre [o perfil de dados.](how-to-create-portal-experiments.md#profile) 
+1. Selecione **Next** para rever o formulário **confirmar detalhes.** Verifique as suas seleções e crie um perfil de dados opcional para o seu conjunto de dados. Saiba mais sobre [o perfil de dados.](how-to-use-automated-ml-for-ml-models.md#profile) 
 1. Selecione **Criar** para completar a sua criação de conjunto de dados.
 
 ## <a name="register-datasets"></a>Registar conjuntos de dados

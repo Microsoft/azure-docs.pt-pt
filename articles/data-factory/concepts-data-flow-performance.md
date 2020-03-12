@@ -6,19 +6,22 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
-ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: 1a6b50456a5dc3ff89fe7b513f406dc68bd2401e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381954"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128874"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
 Mapeamento de Fluxos de Dados em Azure Data Factory fornecem uma interface sem código para projetar, implementar e orquestrar transformações de dados em escala. Se não estiver familiarizado com os fluxos de dados de mapeamento, consulte a visão geral do fluxo de dados de [mapeamento](concepts-data-flow-overview.md).
 
 Ao conceber e testar fluxos de dados do ADF UX, certifique-se de ligar o modo de depuração para executar os seus fluxos de dados em tempo real sem esperar que um cluster se aqueça. Para mais informações, consulte [debug mode](concepts-data-flow-debug-mode.md).
+
+Este vídeo mostra alguns timings de amostra que transformam dados com fluxos de dados:
+> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw]
 
 ## <a name="monitoring-data-flow-performance"></a>Monitorização do desempenho do fluxo de dados
 
@@ -146,7 +149,7 @@ Gerir o desempenho de juntas no fluxo de dados é uma operação muito comum que
 
 Outra otimização de Join é construir as suas juntas de forma a evitar a tendência da Spark para implementar juntas cruzadas. Por exemplo, quando incluir valores literais nas suas condições de adesão, a Spark pode ver isso como um requisito para executar primeiro um produto cartesiano completo, em seguida, filtrar os valores unidos. Mas se garantir que tem valores de coluna em ambos os lados da sua condição de união, pode evitar este produto cartesiano induzido pela Spark e melhorar o desempenho das suas juntas e fluxos de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte outros artigos do Fluxo de Dados relacionados com o desempenho:
 

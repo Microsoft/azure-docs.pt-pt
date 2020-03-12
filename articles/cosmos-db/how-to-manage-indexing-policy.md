@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 171542c89b900eb8bf282156c79303a1deb5a5f7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364524"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129344"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação em Azure Cosmos DB
 
@@ -19,7 +19,7 @@ No Azure Cosmos DB, os dados são indexados seguindo as políticas de [indexaç�
 
 ## <a name="indexing-policy-examples"></a>Exemplos de política de indexação
 
-Eis alguns exemplos de políticas de indexação mostradas no seu formato JSON, que é como são expostas no portal Azure. Os mesmos parâmetros podem ser definidos através do Azure CLI ou de qualquer SDK.
+Eis alguns exemplos de políticas de indexação mostradas no [seu formato JSON](index-policy.md#include-exclude-paths), que é como são expostas no portal Azure. Os mesmos parâmetros podem ser definidos através do Azure CLI ou de qualquer SDK.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Política de opt-out para excluir seletivamente alguns caminhos imobiliários
 
@@ -153,7 +153,7 @@ Esta política de indexação é equivalente à abaixo da qual se define manualm
     ],
     "excludedPaths": [
         {
-            "path": "/\"_etag\"/?"
+            "path": "/_etag/?"
         }
     ],
     "spatialIndexes": [

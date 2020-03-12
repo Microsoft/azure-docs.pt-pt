@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: azure-government
 ms.date: 12/11/2019
 ms.author: gsacavdm
-ms.openlocfilehash: b6f395964c286aca1bc8a1c190edeea00ba6e15c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 38eb44e6355ddcb5ac78f5d8bb2008ea5a0f0cdf
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362262"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127929"
 ---
 # <a name="azure-government-monitoring--management"></a>Monitorização do Governo Azure + Gestão
 Este artigo descreve as variações e considerações dos serviços de monitorização e gestão para o ambiente do Governo Azure.
@@ -179,6 +179,9 @@ Os recursos atualmente suportados na experiência de alertas de segunda geraçã
 - Microsoft.Web/sites
 - Microsoft.Web/sites/slots
 
+> [!NOTE]
+> **Atualmente, não**é suportado o apoio de regras de alerta métrico seleções em máquinas virtuais. Este artigo será atualizado assim que esta funcionalidade estiver disponível.
+
 Ainda pode utilizar [alertas clássicos](../azure-monitor/platform/alerts-classic.overview.md) para recursos ainda não disponíveis na segunda geração de alertas. 
 
 Ao utilizar chamadas PowerShell/ARM/Rest para criar alertas métricos, terá de definir a "Localização" do alerta métrico para "USGov Virginia" ou "USGov Iowa". Um exemplo da definição está abaixo:
@@ -190,6 +193,7 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup
 ```
 
 Para obter mais informações sobre a utilização do PowerShell, consulte [documentação pública](../azure-monitor/platform/powershell-quickstart-samples.md).
+
 
 ## <a name="application-insights"></a>Application Insights
 

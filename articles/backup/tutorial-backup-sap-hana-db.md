@@ -3,12 +3,12 @@ title: Tutorial - Back up Bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução em Azure VM para um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 6273b4d5745b3c13b48622cde842c0222a47c5d4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 435668dedc7efa33fd5fbfeea8671f05d070a385
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382454"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129314"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Back up Bases de dados SAP HANA em um VM Azure
 
@@ -96,7 +96,23 @@ Executar o script de pré-registo executa as seguintes funções:
 
 * Instala ou atualiza quaisquer pacotes necessários exigidos pelo agente de backup Azure na sua distribuição.
 * Realiza verificações de conectividade de rede de saída com servidores de backup Azure e serviços dependentes como o Azure Ative Directory e o Azure Storage.
-* Inicia sessão no seu sistema HANA utilizando a chave do utilizador listada como parte dos [pré-requisitos](#prerequisites). Esta chave é utilizada para criar um utilizador de backup (AZUREWLBACKUPHANAUSER) no sistema HANA e pode ser eliminada após o script de pré-registo ser executado com sucesso. Este utilizador de backup (AZUREWLBACKUPHANAUSERUSER) permitirá ao agente de backup descobrir, fazer cópias de segurança e restaurar bases de dados no seu sistema HANA.
+* Inicia sessão no seu sistema HANA utilizando a chave do utilizador listada como parte dos [pré-requisitos](#prerequisites). A chave do utilizador é utilizada para criar um utilizador de backup (AZUREWLBACKUPHANAUSER) no sistema HANA e a chave do utilizador pode ser eliminada após o script de pré-registo ser executado com sucesso.
+* É atribuído ao AZUREWLBACKUPHANAUSERESTAS Estas funções e permissões necessárias:
+  * BASE DE DADOS ADMIN: criar novas bases de dados durante a restauração.
+  * CATÁLOGO LEIA: para ler o catálogo de cópias de segurança.
+  * SAP_INTERNAL_HANA_SUPPORT: aceder a algumas mesas privadas.
+* O script adiciona uma chave para **hdbuserstore** para AZUREWLBACKUPHANAUSER PARA o plug-in HANA para lidar com todas as operações (consultas de base de dados, restaurar operações, configurar e executar backup).
+
+Para confirmar a criação da chave, execute o comando HDBSQL na máquina HANA com credenciais SIDADM:
+
+```hdbsql
+hdbuserstore list
+```
+
+A saída de comando deve apresentar a tecla {SID}{DBNAME} com o utilizador apresentado como AZUREWLBACKUPHANAUSER.
+
+>[!NOTE]
+> Certifique-se de que dispõe de um conjunto único de ficheiros SSFS em `/usr/sap/{SID}/home/.hdb/`. Só deve haver uma pasta neste caminho.
 
 ## <a name="create-a-recovery-service-vault"></a>Criar um cofre de serviço de recuperação
 

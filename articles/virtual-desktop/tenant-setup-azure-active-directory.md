@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 600b0f598c54b5db154fd488aebf26a6fcdc0b1d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+manager: lizross
+ms.openlocfilehash: 6a70e52771828de6cc9fad7998097d70c28a64fd
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925078"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127425"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop
 

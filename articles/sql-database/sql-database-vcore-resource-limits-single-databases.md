@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 01/22/2020
-ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: a8f62a24ff2c6571b5267fdbf4f23bd9e05ee499
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359834"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128514"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bases de dados únicas utilizando o modelo de compra vCore
 
@@ -102,6 +102,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |
 |Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -126,6 +127,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|224|256|288|320|512|768|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |
 |Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|1400|1600|1800|2000|3200|4800|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -154,6 +156,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|64|128|192|256|320|384|448|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |105 |
 |Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|200|400|600|800|1000|1200|1400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -180,6 +183,7 @@ O nível de [computação sem servidor](sql-database-serverless.md) está atualm
 |Tamanho dos dados máximos tempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |IOPS de dados max *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Taxa de registo máxima (MBps)|105 |105 |105 |105 |105 |105 |105 |
 |Latência de e/s (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Trabalhadores simultâneos max (pedidos)|1600|1800|2000|2400|3200|4000|8000|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|

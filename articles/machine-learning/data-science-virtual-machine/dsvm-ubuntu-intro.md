@@ -4,16 +4,16 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma Máquina Virtual de Ciência de Dados para linux (Ubuntu) para fazer análise e machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: quickstart
-ms.date: 12/31/2019
-ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: f7629b4724e85f93a8dfe3e37ac2b2155288d235
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360649"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129575"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -29,7 +29,7 @@ Por favor, note que as contas gratuitas do Azure não suportam a gpu ativada pel
 Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência de Dados Ubuntu 18.04:
 
 1. Vá ao [portal Azure](https://portal.azure.com) Poderá ser solicitado a fazer sessão na sua conta Azure se ainda não tiver assinado.
-1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine- Ubuntu 18.04 Preview".
+1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine- Ubuntu 18.04"
 
 1. Na janela seguinte, selecione **Criar**.
 
@@ -118,13 +118,14 @@ O Ubuntu DSVM gere o [JupyterHub,](https://github.com/jupyterhub/jupyterhub)um s
       ![](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png) de endereço IP da máquina Ubuntu
 
    1. A partir da sua máquina local, abra um navegador web e navegue para https:\//your-vm-ip:8000, substituindo "your-vm-ip" pelo endereço IP que tomou nota anteriormente.
+   1. O seu navegador provavelmente impedirá que abra a página diretamente, informando-lhe que existe um erro de certificado. O DSVM está a fornecer segurança através de um certificado auto-assinado. A maioria dos navegadores permitirá clicar depois deste aviso. Muitos navegadores continuarão a fornecer algum tipo de aviso visual sobre o certificado durante toda a sua sessão Web.
    1. Introduza o nome de utilizador e a palavra-passe que usou para criar o VM e faça o seu insto. 
 
       ![Insira o login de Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
    1. Navegue nos muitos cadernos de amostras disponíveis.
 
-JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inscreva-se no JupyterHub e, em seguida, navegue para o URL https:\//your-vm-ip:8000/user/your-username/lab, substituindo "o seu nome de utilizador" pelo nome de utilizador que escolheu ao configurar o VM.
+JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inscreva-se no JupyterHub e, em seguida, navegue para o URL https:\//your-vm-ip:8000/user/your-username/lab, substituindo "o seu nome de utilizador" pelo nome de utilizador que escolheu ao configurar o VM. Mais uma vez, poderá ser inicialmente impedido de aceder ao site devido a um erro de certificado.
 
 Pode definir o JupyterLab como o servidor de portátil predefinido adicionando esta linha a `/etc/jupyterhub/jupyterhub_config.py`:
 
@@ -132,7 +133,7 @@ Pode definir o JupyterLab como o servidor de portátil predefinido adicionando e
 c.Spawner.default_url = '/lab'
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Eis como pode continuar a sua aprendizagem e a exploração:
 

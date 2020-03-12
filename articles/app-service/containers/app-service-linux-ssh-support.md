@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ddf011724f72a8a5eaf4e6398c28b28fffa5bfac
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373926"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128672"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte sSH para serviço de aplicações Azure em Linux
 
@@ -113,7 +113,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode publicar perguntas e preocupações no [fórum Azure.](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)
+Pode publicar perguntas e preocupações no [fórum Azure.](https://docs.microsoft.com/answers/topics/azure-webapps.html)
 
 Para mais informações sobre a Web App para contentores, consulte:
 

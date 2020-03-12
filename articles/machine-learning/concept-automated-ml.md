@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396410"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127189"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -95,9 +95,9 @@ Em todas as experiências automatizadas de aprendizagem automática de máquinas
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pré-processamento avançado: caracterização opcional
 
-Estão também disponíveis pré-processamento e funcionalidades avançados adicionais, tais como guarda-dados, codificação e transformações. [Saiba mais sobre o que está incluído.](how-to-create-portal-experiments.md#featurization) Ativar esta definição com:
+Estão também disponíveis pré-processamento e funcionalidades avançados adicionais, tais como guarda-dados, codificação e transformações. [Saiba mais sobre o que está incluído.](how-to-use-automated-ml-for-ml-models.md#featurization) Ativar esta definição com:
 
-+ Estúdio Azure Machine Learning: Ativar **a funcionalidade automática** na secção de **configuração adicional do View** com estes [passos](how-to-create-portal-experiments.md#create-and-run-experiment).
++ Estúdio Azure Machine Learning: Ativar **a funcionalidade automática** na secção de **configuração adicional do View** com estes [passos](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 + Python SDK: Especificar `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para a [aula de`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
@@ -153,7 +153,7 @@ O modelo **C** representa um caso claro de excesso de adaptação; a precisão d
 
 ## <a name="classification--regression"></a>Classificação e regressão
 
-Classificação e regressão são os tipos mais comuns de tarefas de aprendizagem automática. Ambos são tipos de aprendizagem supervisionada em que os modelos aprendem usando dados de formação, e aplicam essas aprendizagens a novos dados. O Azure Machine Learning oferece recursos especificamente para estas tarefas, tais como recursos de texto de rede neural profunda para classificação. Saiba mais sobre [opções de recursos.](how-to-create-portal-experiments.md#featurization) 
+Classificação e regressão são os tipos mais comuns de tarefas de aprendizagem automática. Ambos são tipos de aprendizagem supervisionada em que os modelos aprendem usando dados de formação, e aplicam essas aprendizagens a novos dados. O Azure Machine Learning oferece recursos especificamente para estas tarefas, tais como recursos de texto de rede neural profunda para classificação. Saiba mais sobre [opções de recursos.](how-to-use-automated-ml-for-ml-models.md#featurization) 
 
 O principal objetivo dos modelos de classificação é prever em que categorias novos dados se basearão nas aprendizagens a partir dos seus dados de formação. Exemplos comuns de classificação incluem deteção de fraudes, reconhecimento de caligrafia e deteção de objetos.  Saiba mais e veja um exemplo de [classificação com machine learning automatizado.](tutorial-train-models-with-aml.md)
 
@@ -286,7 +286,7 @@ Veja exemplos e aprenda a construir modelos usando machine learning automatizado
 + Siga o [Tutorial: Treine automaticamente um modelo de regressão com Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configure as definições para a experiência de treino automático:
-  + No estúdio Azure Machine Learning, [utilize estes passos.](how-to-create-portal-experiments.md)
+  + No estúdio Azure Machine Learning, [utilize estes passos.](how-to-use-automated-ml-for-ml-models.md)
   + Com o Python SDK, [use estes passos.](how-to-configure-auto-train.md)
 
 + Aprenda a treinar automaticamente utilizando dados da série time, [use estes passos](how-to-auto-train-forecast.md).

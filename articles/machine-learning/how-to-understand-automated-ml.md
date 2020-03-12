@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: 69cf79f8258f85f2fb5e787f91aa843837d0a3a1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393362"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129674"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Compreender resultados automatizados de aprendizagem automática
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Saiba mais sobre:
 * Crie uma experiência para a sua corrida automatizada de machine learning, seja com o SDK, quer no estúdio Azure Machine Learning.
 
     * Use o SDK para construir um modelo de [classificação](how-to-auto-train-remote.md) ou modelo de [regressão](tutorial-auto-train-models.md)
-    * Utilize o [estúdio Azure Machine Learning](how-to-create-portal-experiments.md) para criar um modelo de classificação ou regressão, carregando os dados apropriados.
+    * Utilize o [estúdio Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md) para criar um modelo de classificação ou regressão, carregando os dados apropriados.
 
 ## <a name="view-the-run"></a>Ver a corrida
 
@@ -89,7 +89,7 @@ balanced_accuracy|Precisão equilibrada é a média aritmética de remoção par
 f1_score_macro|F1 pontuação é a média harmônica de precisão e lembre-se. Macro é a média aritmética da pontuação de F1 para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "macro"|
 f1_score_micro|F1 pontuação é a média harmônica de precisão e lembre-se. A micro é calculada globalmente contando os verdadeiros positivos, falsos negativos e falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "micro"|
 f1_score_weighted|F1 pontuação é a média harmônica de precisão e lembre-se. Média ponderada pela frequência de classe de pontuação F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "ponderado"|
-log_loss|Esta é a função de perda utilizada regressão logística de (multinomial) e extensões do mesmo como redes neurais, definidas como a probabilidade de registo de negativa das etiquetas verdadeiras tendo em conta as previsões de um classificador probabilístico. Para uma única amostra com rótulo verdadeiro em {0,1} e probabilidade estimada yp que yt =&#124;1, a perda de tronco é -log P(yt yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhum|
+log_loss|Esta é a função de perda utilizada na regressão logística (multinomial) e extensões dela, tais como redes neurais, definidas como a probabilidade negativa de log-probabilidade dos verdadeiros rótulos dadas as previsões de um classificador probabilístico. Para uma única amostra com rótulo verdadeiro em {0,1} e probabilidade estimada yp que yt =&#124;1, a perda de tronco é -log P(yt yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhum|
 norm_macro_recall|Normalizado Macro Lembre-se de é lembrar de Macro normalizados de modo a que o desempenho aleatório tem uma pontuação igual a 0 e desempenho perfeito tem uma pontuação de 1. Isto é conseguido por norm_macro_recall := (recall_score_macro - R)/1 - R), onde R é o valor esperado de recall_score_macro para previsões aleatórias (isto é, R=0,5 para classificação binária e R=(1/C) para problemas de classificação da classe C).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "macro" |
 precision_score_macro|A precisão é a percentagem de elementos positivamente previstos que estão corretamente rotulados. Macro é a média aritmética de precisão para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "macro"|
 precision_score_micro|A precisão é a percentagem de elementos positivamente previstos que estão corretamente rotulados. A micro é calculada globalmente contando os verdadeiros positivos e falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "micro"|
@@ -190,7 +190,7 @@ Utilize o gráfico de quadro de ganhos cumulativos para ajudar a escolher o limi
 ### <a name="calibration-chart"></a>Gráfico de calibração
 
 #### <a name="what-is-a-calibration-chart"></a>O que é um gráfico de calibração?
-Um desenho de calibragem é utilizado para apresentar a confiança de um modelo preditivo. Ele faz isso ao mostrar a relação entre a probabilidade prevista e a probabilidade real, em que "probabilidade" representa a probabilidade de que uma instância específica pertence alguns da etiqueta.
+Um desenho de calibragem é utilizado para apresentar a confiança de um modelo preditivo. Fá-lo mostrando a relação entre a probabilidade prevista e a probabilidade real, onde a "probabilidade" representa a probabilidade de uma determinada instância pertencer a algum rótulo.
 #### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>O que o ML automatizado faz com o gráfico de calibração?
 Para todos os problemas de classificação, pode rever a linha de calibração para cada classe num determinado modelo preditivo, média de macro e micro-média.
 

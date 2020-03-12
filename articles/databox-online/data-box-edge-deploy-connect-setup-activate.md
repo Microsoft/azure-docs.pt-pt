@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384683"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128843"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Ligar, configurar e ativar borda de caixa de dados Azure 
 
@@ -101,6 +101,11 @@ O seu painel de instrumentos apresenta as várias definições necessárias para
    c. Se estiver a utilizar a autenticação, introduza um nome de utilizador e uma senha.
 
    d. Para validar e aplicar as definições configuradas de procuração web, selecione **Aplicar as definições**.
+   
+   > [!NOTE]
+   > Os ficheiros proxy-auto config (PAC) não são suportados. Um ficheiro PAC define como os navegadores web e outros agentes de utilizador podem escolher automaticamente o servidor proxy apropriado (método de acesso) para obter um determinado URL.
+   > Os proxies que tentam intercetar e ler todo o tráfego (depois resignar tudo com a sua própria certificação) não são compatíveis, uma vez que o certificado do representante não é de confiança.
+   > Os proxies tipicamente transparentes funcionam bem com o Azure Data Box Edge.
 
 4. (Opcional) No painel esquerdo, selecione **as definições**de tempo e, em seguida, configure o fuso horário e os servidores NTP primários e secundários para o seu dispositivo.  
     Os servidores NTP são necessários porque o seu dispositivo deve sincronizar o tempo para que possa autenticar com os seus fornecedores de serviços na nuvem.

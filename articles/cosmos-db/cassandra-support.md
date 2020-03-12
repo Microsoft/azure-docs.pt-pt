@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 0a2ace3f73379cff0b9289a8cebb10cb7930348d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623424"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129474"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
@@ -145,6 +145,8 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 
 * CRIAR ESPAÇO CHAVE (As definições de replicação para este comando são ignoradas)
 * CREATE TABLE 
+* ÍNDICE DE CRIAÇÃO (sem especificar o nome do índice e índices congelados completos ainda não suportados)
+* PERMITIR A FILTRAGEM
 * ALTER TABLE 
 * USE 
 * INSERT 

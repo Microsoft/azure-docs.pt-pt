@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
-ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.date: 3/11/2020
+ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131957"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129512"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor
 
@@ -148,6 +148,10 @@ Se uma base de dados sem servidor for interrompida, o primeiro login retomará a
 ### <a name="latency"></a>Latência
 
 A latência para reretomar automaticamente e fazer uma pausa automática numa base de dados sem servidores é geralmente ordem de 1 minuto para reretomar automaticamente e 1-10 minutos para fazer uma pausa automática.
+
+### <a name="customer-managed-transparent-data-encryption-byok"></a>Encriptação de dados transparente gerida pelo cliente (BYOK)
+
+Se utilizar [encriptação transparente](transparent-data-encryption-byok-azure-sql.md) de dados (BYOK) e a base de dados sem servidores for em pausa automática quando ocorrer a eliminação ou revogação da chave, a base de dados permanece no estado de pausa automática.  Neste caso, quando se retoma a próxima tentativa, a base de dados permanece interrompida até que o seu estado transite para inacessível após aproximadamente 10 minutos ou menos.  Uma vez que a base de dados se torna inacessível, o processo de recuperação é o mesmo que para as bases de dados de cálculo provisionadas.  Se a base de dados sem servidor estiver on-line quando ocorrer a eliminação ou revogação da chave, a base de dados também fica inacessível após aproximadamente 10 minutos ou menos da mesma forma que com as bases de dados de cálculo provisionadas.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Embarque em nível de computação sem servidor
 

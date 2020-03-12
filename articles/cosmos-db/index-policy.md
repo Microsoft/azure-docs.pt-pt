@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 86dbcee7150adacd0e961dbe07cf66ad117d2041
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386972"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128947"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação em Azure Cosmos DB
 
@@ -34,7 +34,7 @@ O Azure Cosmos DB suporta dois modos de indexação:
 
 Por predefinição, a política de indexação está definida para `automatic`. É conseguido definindo a propriedade `automatic` na política de indexação para `true`. A definição desta propriedade para `true` permite ao Azure CosmosDB indexar automaticamente os documentos à medida que são escritos.
 
-## <a name="including-and-excluding-property-paths"></a>Incluindo e excluindo caminhos imobiliários
+## <a id="include-exclude-paths"></a>Incluindo e excluindo caminhos imobiliários
 
 Uma política de indexação personalizada pode especificar caminhos de propriedade que estão explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos indexados, pode baixar a quantidade de armazenamento utilizado pelo seu recipiente e melhorar a latência das operações de escrita. Estes caminhos são definidos seguindo o método descrito na secção de visão geral de [indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
 
@@ -75,7 +75,7 @@ Qualquer política de indexação tem de incluir o caminho raiz `/*` como um cam
 
 - Para caminhos com caracteres regulares que incluem: caracteres alfanuméricos e _ (sublinhado), não é preciso escapar à corda do caminho em torno de citações duplas (por exemplo, "/path/?"). Para caminhos com outros personagens especiais, você precisa escapar da corda do caminho em torno de citações duplas (por exemplo, "/\"caminho-abc\"/?). Se espera personagens especiais no seu caminho, pode escapar de todos os caminhos por segurança. Funcionalmente, não faz diferença se escapares de todos os caminhos vs apenas aqueles que têm personagens especiais.
 
-- A propriedade do sistema "etag" está excluída da indexação por padrão, a menos que o etag seja adicionado à trajetória incluída para indexação.
+- A propriedade do sistema "_etag" está excluída da indexação por padrão, a menos que o etag seja adicionado à trajetória incluída para indexação.
 
 Ao incluir e excluir caminhos, poderá encontrar os seguintes atributos:
 

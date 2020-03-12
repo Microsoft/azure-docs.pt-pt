@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899363"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127608"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Procuração inversa no Tecido de Serviço Azure
 A procuração inversa incorporada no Tecido de Serviço Azure ajuda os microserviços a funcionar num cluster de Tecidode Serviço a descobrir e a comunicar com outros serviços que têm pontos finais em http.

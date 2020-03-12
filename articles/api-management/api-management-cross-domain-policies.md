@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375076"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126540"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -127,7 +127,7 @@ Este exemplo demonstra como apoiar pedidos de pré-voo, como aqueles com cabeça
 |cors|Elemento de raiz.|Sim|N/D|
 |origens permitidas|Contém elementos `origin` que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins` pode conter um único elemento `origin` que especifica `*` permitir qualquer origem, ou um ou mais elementos `origin` que contenham um URI.|Sim|N/D|
 |origem|O valor pode ser `*` permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Sim|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
-|métodos permitidos|Este elemento é necessário se forem permitidos métodos que não o GET ou o POST. Contém `method` elementos que especificam os verbos HTTP suportados.|Não|Se esta secção não estiver presente, o GET e o POST são suportados.|
+|métodos permitidos|Este elemento é necessário se forem permitidos métodos que não o GET ou o POST. Contém `method` elementos que especificam os verbos HTTP suportados. O valor `*` indica todos os métodos.|Não|Se esta secção não estiver presente, o GET e o POST são suportados.|
 |método|Especifica um verbo HTTP.|Pelo menos um elemento `method` é necessário se a secção `allowed-methods` estiver presente.|N/D|
 |cabeçalhos permitidos|Este elemento contém elementos `header` especificando os nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/D|
 |expose-headers|Este elemento contém elementos `header` especificando nomes dos cabeçalhos que serão acessíveis pelo cliente.|Não|N/D|

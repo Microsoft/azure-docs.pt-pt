@@ -3,12 +3,12 @@ title: Tipos de recursos suportados através da Saúde dos Recursos Azure  Micro
 description: Tipos de recursos suportados através da saúde dos recursos azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: ec194287e8a8e06d3bb14c4b202cc2f11063d1dd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925940"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128570"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos do Azure
 Abaixo está uma lista completa de todos os controlos executados através da saúde dos recursos por tipos de recursos.
@@ -188,6 +188,11 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |Cheques Executados|
 |---|
 |<ul><li>Os clientes que experimentam erros gerados pelo utilizador service bus?</li><li>Os utilizadores estão a sofrer um aumento de erros transitórios devido a uma atualização do espaço de nome do Service Bus?</li></ul>|
+
+## <a name="microsoftservicefabricclusters"></a>Microsoft.ServiceFabric/clusters
+|Cheques Executados|
+|---|
+|<ul><li>O cluster service Fabric está a funcionar?</li><li>O cluster Service Fabric pode ser gerido através do Gestor de Recursos Azure?</li></ul>|
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/managedInstances/bases de dados
 |Cheques Executados|
