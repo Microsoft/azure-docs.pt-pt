@@ -8,12 +8,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 01/24/2019
-  ms.openlocfilehash: 3ece86e6c44f616553bdc5a73d6f56baae46961f
-  ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+  ms.openlocfilehash: c12ec346a23d8da703c1c0d89e9cccdf5f84cce5
+  ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/28/2020
-  ms.locfileid: "76773908"
+  ms.lasthandoff: 03/11/2020
+  ms.locfileid: "79117198"
 highlightedContent:
   items:
   - title: O que é o Cost Management + Faturação?
@@ -21,7 +21,7 @@ highlightedContent:
     url: cost-management-billing-overview.md
   - title: Analise os custos e crie orçamentos
     itemType: learn
-    url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/
+    url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/?WT.mc_id=costmanagementcontent_docsazurebilling_-inproduct-learn
   - title: Melhores práticas do Cost Management
     itemType: concept
     url: ./costs/cost-mgt-best-practices.md
