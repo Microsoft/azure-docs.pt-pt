@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d9cf78f3cc5399a9e974cd9b4f0b3f24c80dacce
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943645"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214127"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Linha de base de segurança azure para base de dados Azure SQL
 
@@ -238,13 +238,12 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 Além disso, pode transmitir telemetria de diagnóstico SQL Azure para o Azure SQL Analytics, uma solução em nuvem que monitoriza o desempenho de bases de dados Azure SQL, piscinas elásticas e instâncias geridas em escala e em várias subscrições. Pode ajudá-lo a recolher e visualizar as métricas de desempenho da Base de Dados Azure SQL, e tem inteligência incorporada para resolução de problemas de desempenho.
 
-
 Como configurar a auditoria para a sua Base de Dados Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-Como recolher registos e métricas da plataforma com o Monitor Azure:
+Como recolher métricas e registos de recursos com o Monitor Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
@@ -575,7 +574,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 **Responsabilidade**: Cliente
 
-## <a name="data-protection"></a>Proteção de dados
+## <a name="data-protection"></a>Proteção de Dados
 
 *Para mais informações, consulte [Controlo de Segurança: Proteção de Dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
@@ -1348,7 +1347,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Microsoft 
 
 **Responsabilidade**: Partilhado
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver o [Benchmark de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

@@ -10,11 +10,11 @@ ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204771"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240731"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -76,7 +76,7 @@ Para obter mais informações, aceda a [Proteção de dados e segurança do Azur
 
 | Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
-| Peso                                                  | < 1 kg por caixa. Até 5 discos na caixa de                |
+| Peso                                                  | < 1 kg por caixa. Até 5 discos na caixa                |
 | Dimensões                                              | Disco - SSD de 2,5" |            
 | Cabos                                                  | 1 cabo USB 3.1 por disco|
 | Capacidade de armazenamento por encomenda                              | 40 TB (~ 35 TB utilizáveis)|
@@ -89,14 +89,14 @@ Para obter mais informações, aceda a [Proteção de dados e segurança do Azur
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Para informações sobre a disponibilidade de região, aceda a [produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Disco de caixa de dados também podem ser implementado na Cloud do Azure Government. Para obter mais informações, consulte [o que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+Para obter informações sobre a disponibilidade da região, vá aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) O Disco de Caixa de Dados também pode ser implantado na Nuvem do Governo Azure. Para mais informações, veja o que é o [Governo de Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
 
 ## <a name="pricing"></a>Preços
 
-Para informações sobre preços, aceda a [página de preços](https://azure.microsoft.com/pricing/details/databox/disk/).
+Para obter informações sobre preços, vá à [página de Preços](https://azure.microsoft.com/pricing/details/databox/disk/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [Requisitos do Data Box Disk](data-box-disk-system-requirements.md).
 - Compreenda os [Limites do Data Box Disk](data-box-disk-limits.md).

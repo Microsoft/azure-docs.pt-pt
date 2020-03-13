@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 1d9f148351e4ce12d6f6bcd699cdd74e94ba09ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358104"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276910"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium de Funções Azure
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` por um nome para o seu plano único no grupo de recursos. Especifique um [`<REGION>`suportado. ](#regions) Para criar um plano Premium que suporte o Linux, inclua a opção `--is-linux`.
+Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` por um nome para o seu plano único no grupo de recursos. Especifique um [`<REGION>`suportado. ](https://azure.microsoft.com/global-infrastructure/services/?products=functions) Para criar um plano Premium que suporte o Linux, inclua a opção `--is-linux`.
 
 Com o plano criado, pode utilizar o [az functionapp criar](/cli/azure/functionapp#az-functionapp-create) para criar a sua aplicação de função. No portal, tanto o plano como a app são criados ao mesmo tempo. Para um exemplo de um script Completo Do ClI Azure, consulte [Criar uma aplicação de função num plano Premium](scripts/functions-cli-create-premium-plan.md).
 
@@ -99,44 +99,42 @@ Correr numa máquina com mais memória nem sempre significa que a sua aplicaçã
 
 Por exemplo, uma aplicação de função JavaScript é limitada pelo limite de memória padrão no Node.js. Para aumentar este limite de memória fixo, adicione a definição da aplicação `languageWorkers:node:arguments` com um valor de `--max-old-space-size=<max memory in MB>`.
 
-## <a name="regions"></a>Regiões
+## <a name="region-max-scale-out"></a>Região Max Scale out
 
-Abaixo estão as regiões atualmente apoiadas para cada SO.
+Abaixo estão os valores de escala máxima atualmente suportados para um único plano em cada região e configuração de OS. Para solicitar um aumento, por favor, abra um bilhete de apoio.
+
+Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
 |Região| Windows | Linux |
 |--| -- | -- |
-|Austrália Central| ✔<sup>1</sup> | |
-|Austrália Central 2| ✔<sup>1</sup> | |
-|Leste da Austrália| ✔ | ✔<sup>1</sup> |
-|Austrália Sudeste | ✔ | ✔<sup>1</sup> |
-|Sul do Brasil| <sup>✔ 2</sup> | ✔<sup>1</sup> |
-|Canadá Central| ✔ | ✔<sup>1</sup> |
-|E.U.A. Central| ✔ | ✔<sup>1</sup> |
-|Ásia Leste| ✔ | ✔<sup>1</sup> |
-|E.U.A. Leste | ✔ | ✔<sup>1</sup> |
-|E.U.A. Leste 2| ✔ | ✔<sup>1</sup> |
-|França Central| ✔ | ✔<sup>1</sup> |
-|Alemanha West Central| ✔ | |
-|Leste do Japão| ✔ | ✔<sup>1</sup> |
-|Oeste do Japão| ✔ | ✔<sup>1</sup> |
-|Coreia do Sul Central| ✔ | ✔<sup>1</sup> |
-|E.U.A. Centro-Norte| ✔ | ✔<sup>1</sup> |
-|Europa do Norte| ✔ | ✔<sup>1</sup> |
-|Noruega Leste| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|E.U.A. Centro-Sul| ✔ | ✔<sup>1</sup> |
-|Sul da Índia | ✔ | |
-|Ásia Sudeste| ✔ | ✔<sup>1</sup> |
-|Sul do Reino Unido| ✔ | ✔<sup>1</sup> |
-|Oeste do Reino Unido| ✔ | ✔<sup>1</sup> |
-|Europa Ocidental| ✔ | ✔<sup>1</sup> |
-|Oeste da Índia| ✔ | ✔<sup>1</sup> |
-|E.U.A. Centro-Oeste| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|E.U.A. Oeste| ✔ | ✔<sup>1</sup> |
-|E.U.A.Oeste 2| ✔ | ✔<sup>1</sup> |
-
-<sup>1</sup> Escala máxima limitada a 20 instâncias.  
-<sup>2</sup> Escala máxima limitada a 60 casos.
-
+|Austrália Central| 20 | Não disponível |
+|Austrália Central 2| 20 | Não disponível |
+|Leste da Austrália| 100 | 20 |
+|Austrália Sudeste | 100 | 20 |
+|Sul do Brasil| 60 | 20 |
+|Canadá Central| 100 | 20 |
+|E.U.A. Central| 100 | 20 |
+|Ásia Leste| 100 | 20 |
+|E.U.A. Leste | 100 | 20 |
+|E.U.A. Leste 2| 100 | 20 |
+|França Central| 100 | 20 |
+|Alemanha West Central| 100 | Não disponível |
+|Leste do Japão| 100 | 20 |
+|Oeste do Japão| 100 | 20 |
+|Coreia do Sul Central| 100 | 20 |
+|E.U.A. Centro-Norte| 100 | 20 |
+|Europa do Norte| 100 | 20 |
+|Noruega Leste| 20 | 20 |
+|E.U.A. Centro-Sul| 100 | 20 |
+|Sul da Índia | 100 | Não disponível |
+|Ásia Sudeste| 100 | 20 |
+|Sul do Reino Unido| 100 | 20 |
+|Oeste do Reino Unido| 100 | 20 |
+|Europa Ocidental| 100 | 20 |
+|Oeste da Índia| 100 | 20 |
+|E.U.A. Centro-Oeste| 20 | 20 |
+|E.U.A. Oeste| 100 | 20 |
+|E.U.A.Oeste 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Passos seguintes
 

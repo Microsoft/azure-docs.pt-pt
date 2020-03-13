@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
 ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388991"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239323"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Avaliar VMware VMs utilizando a avaliação do servidor migratório Azure
 

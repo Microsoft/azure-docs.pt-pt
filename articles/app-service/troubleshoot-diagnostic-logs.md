@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356183"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280472"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar diagnósticos de login para apps no Serviço de Aplicações Azure
 ## <a name="overview"></a>Descrição geral
@@ -26,9 +26,9 @@ Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI par
 |Tipo|Plataforma|Localização|Descrição|
 |-|-|-|-|
 | Registo de aplicação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações e/ou blobs de armazenamento Azure | Regista mensagens geradas pelo seu código de aplicação. As mensagens podem ser geradas pelo quadro web que escolher, ou pelo seu código de aplicação diretamente utilizando o padrão padrão de registo da sua língua. Cada mensagem é atribuída uma das seguintes categorias: **Crítico,** **Erro,** **Aviso,** **Informação,** **Depuração**e **Rastreio**. Pode selecionar a verbosa que pretende que a exploração madeireira seja definindo o nível de gravidade quando ativa o registo da aplicação.|
-| Registo de servidor web| Portal do | Sistema de ficheiros do Serviço de Aplicações ou blobs de armazenamento Azure| Raw HTTP solicita mandam dados no [formato de ficheiro de registo alargado W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de registo inclui dados como o método HTTP, o recurso URI, o IP do cliente, a porta cliente, o agente utilizador, o código de resposta, e assim por diante. |
-| Mensagens de erro detalhadas| Portal do | Sistema de ficheiros do Serviço de Aplicações | Cópias das páginas de erro *.htm* que teriam sido enviadas para o navegador cliente. Por razões de segurança, as páginas de erro detalhadas não devem ser enviadas aos clientes em produção, mas o Serviço de Aplicações pode guardar a página de erro sempre que ocorrer um erro de aplicação que tenha código HTTP 400 ou superior. A página pode conter informações que podem ajudar a determinar por que o servidor devolve o código de erro. |
-| Rastreio de pedido falhado | Portal do | Sistema de ficheiros do Serviço de Aplicações | Informações detalhadas sobre pedidos falhados, incluindo um vestígio dos componentes IIS utilizados para processar o pedido e o tempo decorrido em cada componente. É útil se quiser melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada pedido falhado, que contém o ficheiro de registo XML, e a folha de estilo XSL para visualizar o ficheiro de registo com. |
+| Registo de servidor web| Windows | Sistema de ficheiros do Serviço de Aplicações ou blobs de armazenamento Azure| Raw HTTP solicita mandam dados no [formato de ficheiro de registo alargado W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de registo inclui dados como o método HTTP, o recurso URI, o IP do cliente, a porta cliente, o agente utilizador, o código de resposta, e assim por diante. |
+| Mensagens de erro detalhadas| Windows | Sistema de ficheiros do Serviço de Aplicações | Cópias das páginas de erro *.htm* que teriam sido enviadas para o navegador cliente. Por razões de segurança, as páginas de erro detalhadas não devem ser enviadas aos clientes em produção, mas o Serviço de Aplicações pode guardar a página de erro sempre que ocorrer um erro de aplicação que tenha código HTTP 400 ou superior. A página pode conter informações que podem ajudar a determinar por que o servidor devolve o código de erro. |
+| Rastreio de pedido falhado | Windows | Sistema de ficheiros do Serviço de Aplicações | Informações detalhadas sobre pedidos falhados, incluindo um vestígio dos componentes IIS utilizados para processar o pedido e o tempo decorrido em cada componente. É útil se quiser melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada pedido falhado, que contém o ficheiro de registo XML, e a folha de estilo XSL para visualizar o ficheiro de registo com. |
 | Exploração madeireira de implantação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações | Faça logs para quando publica conteúdo numa aplicação. O registo de implantação ocorre automaticamente e não existem configurações configuráveis para o registo de implantação. Ajuda-te a determinar porque é que um destacamento falhou. Por exemplo, se utilizar um script de [implementação personalizado,](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)poderá utilizar o registo de implementação para determinar porque é que o script está a falhar. |
 
 > [!NOTE]
@@ -163,7 +163,7 @@ Para aplicações Linux/contentor, o ficheiro ZIP contém registos de saída de 
 
 Para aplicações Windows, o ficheiro ZIP contém o conteúdo do diretório *D:\Home\LogFiles* no sistema de ficheiros do Serviço de Aplicações. Tem a seguinte estrutura:
 
-| Tipo de log | Active | Descrição |
+| Tipo de log | Diretório | Descrição |
 |-|-|-|
 | **Registos de aplicação** |*/Ficheiros de Registo/Aplicação/* | Contém um ou mais ficheiros de texto. O formato das mensagens de registo depende do fornecedor de registo que utiliza. |
 | **Vestígios de pedido falhados** | */LogFiles/W3SVC##########* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |

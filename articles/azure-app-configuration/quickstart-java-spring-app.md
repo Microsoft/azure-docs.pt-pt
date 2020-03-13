@@ -10,12 +10,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 2521adfda731c06c879f5cfeb6283567228bf664
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7b89696e60189a8ab2585f8511be32ddaa89e826
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919367"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216783"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Crie uma app Java Spring com configuração de aplicações azure
 
@@ -185,7 +185,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou uma nova loja de configuração de aplicações e utilizou-a com uma aplicação Java Spring. Para mais informações, consulte [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/). Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
+Neste arranque rápido, criou uma nova loja de configuração de aplicações e utilizou-a com uma aplicação Java Spring. Para mais informações, consulte [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/). Para aprender como permitir que a sua aplicação Java Spring refresque dinamicamente as configurações de configuração, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)
+> [Ativar a configuração dinâmica](./enable-dynamic-configuration-java-spring-app.md)

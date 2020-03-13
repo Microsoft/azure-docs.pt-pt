@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 736b128e5207e58220afa69b4cf5dc4e8fea4a26
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268762"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140812"
 ---
 # <a name="enter-data-manually-module"></a>Introduza manualmente o módulo de dados
 
@@ -62,13 +62,13 @@ Este módulo pode ser útil em cenários como estes:
   
     -   **ARFF**: Colar num ficheiro de formato ARFF existente. Se estiver a digitar os valores diretamente, certifique-se de adicionar o cabeçalho opcional e os campos de atributos necessários no início dos dados. 
     
-        Por exemplo, as seguintes linhas de cabeçalho e atributos poderiam ser adicionadas a uma lista simples. A direção da coluna seria `SampleText`.
+        Por exemplo, as seguintes linhas de cabeçalho e atributos poderiam ser adicionadas a uma lista simples. A direção da coluna seria `SampleText`. Note que o tipo de corda não é suportado.
     
         ```text
-        % Title: SampleText.ARFF  
-        % Source: Enter Data module  
-        @ATTRIBUTE SampleText STRING  
-        @DATA  
+        % Title: SampleText.ARFF
+        % Source: Enter Data module
+        @ATTRIBUTE SampleText NUMERIC
+        @DATA
         \<type first data row here>  
         ```
 

@@ -1,15 +1,15 @@
 ---
 title: Criar um membro do Serviço Azure Blockchain - Portal Azure
 description: Crie um membro do Serviço Azure Blockchain para um consórcio blockchain utilizando o portal Azure.
-ms.date: 01/23/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 03cd4be1228fcf6a501203e6efb40a8b45c30d0c
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.reviewer: ravastra
+ms.openlocfilehash: 3c468633a193d78fb1c017a756ee372c6feefb12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760781"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203666"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Quickstart: Criar um membro blockchain azure blockchain Service usando o portal Azure
 
@@ -17,11 +17,11 @@ Neste arranque rápido, você implementa um novo membro blockchain e consórcio 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-blockchain-member"></a>Crie um membro de blockchain
+## <a name="create-a-blockchain-member"></a>Criar um membro blockchain
 
 Um membro do Azure Blockchain Service é um nó blockchain numa rede privada de blockchain de consórcio. Ao fornecer um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 1. Selecione **Blockchain** > **Azure Blockchain Service (pré-visualização)** .
 
@@ -36,7 +36,7 @@ Um membro do Azure Blockchain Service é um nó blockchain numa rede privada de 
     Consórcio | Para um novo consórcio, insira um nome único. Se aderir a um consórcio através de um convite, escolha o consórcio a que se vai juntar. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
     Nome | Escolha um nome único para o membro do Serviço Azure Blockchain. O nome do membro blockchain só pode conter letras minúsculas e números. O primeiro caráter tem de ser uma letra. O valor deve ter entre 2 e 20 caracteres de comprimento.
     Senha de conta de membro | A palavra-passe da conta membro é usada para encriptar a chave privada da conta Ethereum que é criada para o seu membro. Utiliza a conta membro e a palavra-passe da conta membro para a gestão do consórcio.
-    Preços | A configuração do nó e o custo do seu novo serviço. Selecione o link **Alterar** para escolher entre os níveis **Standard** e **Basic.**
+    Preços | A configuração do nó e o custo do seu novo serviço. Selecione o link **Alterar** para escolher entre os níveis **Standard** e **Basic.** Utilizar o nível *Básico* é para desenvolvimento, teste e prova de conceitos. Utilize o nível *Standard* para implementações de qualidade de produção.
     Senha do nó | A palavra-passe para o nó de transação padrão do membro. Utilize a palavra-passe para autenticação básica quando ligar ao ponto final de transação padrão do membro blockchain.
 
 1. Selecione **Rever + criar** para validar as suas definições. Selecione **Criar** para fornecer o serviço. O fornecimento demora cerca de 10 minutos.
@@ -53,8 +53,8 @@ Pode utilizar o membro que criou para o próximo quickstart ou tutorial. Quando 
 
 Para eliminar o grupo de recursos:
 
-1. No portal do Azure, navegue até o **grupo de recursos** no painel de navegação esquerdo e selecione o grupo de recursos que deseja excluir.
-2. Selecione **Eliminar grupo de recursos**. Verifique a exclusão inserindo o nome do grupo de recursos e selecione **excluir**.
+1. No portal Azure, navegue para o **grupo Recurso** no painel de navegação à esquerda e selecione o grupo de recursos que pretende eliminar.
+2. Selecione **Eliminar grupo de recursos**. Verifique a eliminação inserindo o nome do grupo de recursos e selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

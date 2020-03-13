@@ -15,20 +15,19 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e812e1b03637a3ecd7a45f02664c4e3547f1aef1
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129903"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138982"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com gitHub
 
 Neste tutorial, você vai aprender a integrar o GitHub com o Azure Ative Directory (Azure AD). Quando integrar o GitHub com o Azure AD, pode:
 
-* Controlo em Azure AD que tem acesso ao GitHub.
-* Ative que os seus utilizadores sejam automaticamente inscritos no GitHub com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Controle em Azure AD que tem acesso à sua GitHub Enterprise Cloud Organization.
+* Gerencie o acesso à sua GitHub Enterprise Cloud Organization numa localização central - o portal Azure.
 
 Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -45,7 +44,7 @@ Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de tes
 
 * GitHub suporta **SP** iniciado SSO
 
-* GitHub suporta fornecimento [ **automatizado** de utilizadores](github-provisioning-tutorial.md)
+* GitHub suporta fornecimento [ **automatizado** de utilizadores (convites da organização)](github-provisioning-tutorial.md)
 * Assim que configurar o GitHub, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>Adicionando GitHub da galeria

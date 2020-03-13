@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 49e61a7677007c52d1a584c4b49ccaadc3a02df3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d9f67250a232d4666e4655f83e9bdc7622754331
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669595"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136745"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é Rastreio Distribuído?
 
@@ -38,7 +38,7 @@ Os SDKs de Insights de Aplicação para .NET, .NET Core, Java, Node.js e JavaScr
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
-* [Python (pré-visualização)](opencensus-python.md)
+* [python](opencensus-python.md)
 
 Com a aplicação adequada Insights SDK instalada e configurada, a informação de rastreio é recolhida automaticamente para quadros populares, bibliotecas e tecnologias por auto-coleccionadores de dependência sdK. A lista completa de tecnologias suportadas está disponível na documentação de [recolha automática dependency.](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)
 
@@ -48,7 +48,7 @@ Com a aplicação adequada Insights SDK instalada e configurada, a informação 
 
 Além dos SDKs de Insights de Aplicação, a Application Insights também suporta o rastreio distribuído através do [OpenCensus](https://opencensus.io/). OpenCensus é uma distribuição única de bibliotecas de código aberto, fornecedor-agnóstico, para fornecer recolha de métricas e rastreio distribuído para serviços. Também permite à comunidade de código aberto permitir rastreios distribuídos com tecnologias populares como Redis, Memcached ou MongoDB. A [Microsoft colabora no OpenCensus com vários outros parceiros de monitorização e nuvem.](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/)
 
-[Python (pré-visualização)](opencensus-python.md) 
+[python](opencensus-python.md) 
 
 O site OpenCensus mantém documentação de referência da API para [Python](https://opencensus.io/api/python/trace/usage.html) e [Go,](https://godoc.org/go.opencensus.io)bem como vários guias diferentes para a utilização do OpenCensus. 
 

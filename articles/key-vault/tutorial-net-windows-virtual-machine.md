@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 9d3e9484fc6726241ff9bc1eafc56fce92d711cd
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 625b1a40543af8024bb3506bb02151d435c89a57
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198104"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79134396"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Use o Cofre de Chaves Azure com uma máquina virtual Windows em .NET
 
@@ -36,13 +36,13 @@ Este tutorial mostra-lhe como:
 
 Antes de começar, leia [os conceitos básicos do Key Vault.](basic-concepts.md) 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
-  * Este tutorial requer que você dirija o Azure CLI localmente. Tem de ter a versão 2.0.4 do Azure CLI ou posteriormente instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Este tutorial requer que você dirija o Azure CLI localmente. Tem de ter a versão 2.0.4 do Azure CLI ou posteriormente instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="about-managed-service-identity"></a>Sobre a Identidade de Serviço Gerida
 

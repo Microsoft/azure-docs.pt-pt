@@ -1,6 +1,6 @@
 ---
-title: Visão geral do toque da rede virtual do Azure | Microsoft Docs
-description: Saiba mais sobre o toque da rede virtual. O toque de rede virtual fornece uma cópia profunda do tráfego de rede da máquina virtual que pode ser transmitida para um coletor de pacotes.
+title: Visão geral da rede virtual Azure TAP  Microsoft Docs
+description: Conheça a rede virtual TAP. A rede virtual TAP fornece-lhe uma cópia profunda do tráfego de rede de máquinas virtuais que pode ser transmitido para um colecionador de pacotes.
 services: virtual-network
 documentationcenter: na
 author: karthikananth
@@ -16,60 +16,60 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373235"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279614"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 
-O TAP (ponto de acesso ao terminal) da rede virtual do Azure permite transmitir continuamente o tráfego de rede da máquina virtual para uma ferramenta de análise ou coletor de pacotes de rede. O coletor ou a ferramenta de análise é fornecida por um parceiro de [solução de virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/) . Para obter uma lista de soluções de parceiros que são validadas para trabalhar com o toque de rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
+A rede virtual Azure TAP (Terminal Access Point) permite-lhe transmitir continuamente o tráfego da sua rede virtual de máquinas para uma ferramenta de coleção de pacotes de rede ou de análise. A ferramenta de coleção ou análise é fornecida por um parceiro de aparelho virtual de [rede.](https://azure.microsoft.com/solutions/network-appliances/) Para obter uma lista de soluções parceiras validadas para trabalhar com a rede virtual TAP, consulte [soluções parceiras.](#virtual-network-tap-partner-solutions)
 
 > [!IMPORTANT]
-> O toque de rede virtual está atualmente em visualização em todas as regiões do Azure. Para usar o toque de rede virtual, você deve se registrar na versão prévia enviando um email para <azurevnettap@microsoft.com> com sua ID de assinatura. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+> A rede virtual TAP encontra-se atualmente em pré-visualização em todas as regiões do Azure. Para utilizar a rede virtual TAP, tem de se inscrever na pré-visualização enviando um e-mail para <azurevnettap@microsoft.com> com o seu ID de subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não poderá utilizar a capacidade até receber um e-mail de confirmação. Esta pré-visualização é fornecida sem um acordo de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [Termos De Utilização Suplementares para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) do Microsoft Azure para obter mais detalhes.
 
-## <a name="virtual-network-tap-partner-solutions"></a>Redes virtuais toque em soluções de parceiros
+## <a name="virtual-network-tap-partner-solutions"></a>Soluções de parceiros tap de rede virtual
 
-### <a name="network-packet-brokers"></a>Agentes de pacotes de rede
+### <a name="network-packet-brokers"></a>Corretores de pacotes de rede
 
-- [Grande malha de monitoramento grande de switch](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
+- [Tecido de monitorização big switch grande](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
-- [Nubeva prisms](https://www.nubeva.com/azurevtap)
+- [Prismas de Nubeva](https://www.nubeva.com/azurevtap)
 
-### <a name="security-analytics-networkapplication-performance-management"></a>Análise de segurança, gerenciamento de desempenho de aplicativos/rede
+### <a name="security-analytics-networkapplication-performance-management"></a>Análise de segurança, gestão de desempenho de rede/aplicação
 
-- [Segurança de ativação](https://awakesecurity.com/technology-partners/microsoft-azure/)
-- [Nuvem do Cisco Stealthwatch](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Segurança Acordada](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Nuvem de stealthwatch cisco](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com/en/azure/)
-- [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
-- [Fidelis segurança cibernética](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
-- [LANGuardian NetFort](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
-- [VSTREAM do NetScout]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
+- [ExtraHop Reveal (x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
+- [Cibersegurança fidelis](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Rio Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
+- [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
-- [Plataforma RSA nettestemunha®](https://www.rsa.com/azure)
-- [Vectra cognito](https://vectra.ai/microsoftazure)
+- [Plataforma RSA NetWitness®](https://www.rsa.com/azure)
+- [Vectra Cognito](https://vectra.ai/microsoftazure)
 
-A imagem a seguir mostra como o toque da rede virtual funciona. Você pode adicionar uma configuração de toque em um [adaptador de rede](virtual-network-network-interface.md) que está anexado a uma máquina virtual implantada em sua rede virtual. O destino é um endereço IP de rede virtual na mesma rede virtual que a interface de rede monitorada ou uma rede [virtual emparelhada](virtual-network-peering-overview.md) . A solução do coletor para o toque da rede virtual pode ser implantada por trás de um balanceador de carga interno do Azure para alta disponibilidade. Para avaliar as opções de implantação para a solução individual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
+A imagem que se segue mostra como funciona a rede virtual TAP. Pode adicionar uma configuração TAP numa interface de [rede](virtual-network-network-interface.md) que está ligada a uma máquina virtual implantada na sua rede virtual. O destino é um endereço IP de rede virtual na mesma rede virtual que a interface de rede monitorizada ou uma rede [virtual peered.](virtual-network-peering-overview.md) A solução de coleção para rede virtual TAP pode ser implantada por trás de um equilíbrio de Carga Interna Azure para alta disponibilidade. Para avaliar as opções de implementação para solução individual, consulte [soluções parceiras.](#virtual-network-tap-partner-solutions)
 
-![Como o toque da rede virtual funciona](./media/virtual-network-tap/architecture.png)
+![Como funciona a rede virtual TAP](./media/virtual-network-tap/architecture.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de criar um toque de rede virtual, você deve ter recebido um email de confirmação que você está inscrito na versão prévia e ter uma ou mais máquinas virtuais criadas usando [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implantação e uma solução de parceiro para agregar o tráfego de toque na mesma região do Azure. Se você não tiver uma solução de parceiro em sua rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions) para implantar uma. Você pode usar o mesmo recurso de toque de rede virtual para agregar o tráfego de várias interfaces de rede na mesma assinatura ou em assinaturas diferentes. Se as interfaces de rede monitoradas estiverem em assinaturas diferentes, as assinaturas deverão ser associadas ao mesmo locatário Azure Active Directory. Além disso, as interfaces de rede monitoradas e o ponto de extremidade de destino para agregar o tráfego de toque podem estar em redes virtuais emparelhadas na mesma região. Se você estiver usando esse modelo de implantação, verifique se o [emparelhamento de rede virtual](virtual-network-peering-overview.md) está habilitado antes de configurar o toque da rede virtual.
+Antes de criar uma rede virtual TAP, deve ter recebido um correio de confirmação que está matriculado na pré-visualização, e ter uma ou mais máquinas virtuais criadas utilizando o modelo de implementação do Gestor de [Recursos Azure](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e uma solução parceira para agregar o tráfego da TAP na mesma região azul. Se não tiver uma solução parceira na sua rede virtual, consulte soluções de [parceiropara](#virtual-network-tap-partner-solutions) implementar uma. Pode utilizar o mesmo recurso TAP da rede virtual para agregar o tráfego de várias interfaces de rede nas mesmas ou diferentes subscrições. Se as interfaces de rede monitorizadas estiverem em assinaturas diferentes, as subscrições devem ser associadas ao mesmo inquilino do Diretório Ativo Azure. Além disso, as interfaces de rede monitorizadas e o ponto final de destino para agregação do tráfego da TAP podem estar em redes virtuais espreitadas na mesma região. Se estiver a utilizar este modelo de implementação, certifique-se de que o [epeering de rede virtual](virtual-network-peering-overview.md) está ativado antes de configurar a rede virtual TAP.
 
 ## <a name="permissions"></a>Permissões
 
-As contas usadas para aplicar a configuração TAP em interfaces de rede devem ser atribuídas à função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe as ações necessárias da tabela a seguir:
+As contas que utiliza para aplicar a configuração TAP nas interfaces de rede devem ser atribuídas à função de contribuinte da [rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que lhe seja atribuída as ações necessárias a partir do quadro seguinte:
 
 | Ação | Nome |
 |---|---|
-| Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e excluir um recurso de toque de rede virtual |
-| Microsoft.Network/networkInterfaces/read | Necessário para ler o recurso de interface de rede no qual o toque será configurado |
-| Microsoft.Network/tapConfigurations/* | Necessário para criar, atualizar, ler e excluir a configuração de toque em uma interface de rede |
+| Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e eliminar um recurso TAP de rede virtual |
+| Microsoft.Network/networkInterfaces/read | Necessário para ler o recurso de interface de rede em que a TAP será configurada |
+| Microsoft.Network/tapConfigurations/* | Necessário para criar, atualizar, ler e eliminar a configuração TAP numa interface de rede |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [criar um toque de rede virtual](tutorial-tap-virtual-network-cli.md).
+- Saiba como [criar uma rede virtual TAP.](tutorial-tap-virtual-network-cli.md)

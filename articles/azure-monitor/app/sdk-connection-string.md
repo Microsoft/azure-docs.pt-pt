@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ad56f1f15936bc3f3f1ac75396352206f68e7a61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7b049c04913d3415074f46b9d90ec34be874a2da
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671482"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136711"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
 
@@ -276,4 +276,4 @@ Introdução no momento de programação com:
 * [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python (pré-visualização)](../../azure-monitor/app/opencensus-python.md)
+* [python](../../azure-monitor/app/opencensus-python.md)

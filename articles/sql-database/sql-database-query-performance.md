@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight
-description: O monitoramento de desempenho de consulta identifica a maioria das consultas de consumo de CPU para um banco de dados SQL do Azure.
+description: A monitorização do desempenho da consulta identifica as consultas mais consumistas e de longa duração do CPU para bases de dados individuais e agrofadas na base de dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,242 +10,243 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/03/2019
-ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: f5998fde6659715de4fcb533cb0f41a8939b1c48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821239"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214048"
 ---
-# <a name="query-performance-insight-for-azure-sql-database"></a>Análise de Desempenho de Consultas para o banco de dados SQL do Azure
+# <a name="query-performance-insight-for-azure-sql-database"></a>Consulta Performance Insight para Base de Dados SQL Azure
 
-O gerenciamento e o ajuste do desempenho de bancos de dados relacionais leva conhecimentos e tempo. Análise de Desempenho de Consultas faz parte da linha de produtos de desempenho inteligente do banco de dados SQL do Azure. Ele ajuda você a gastar menos tempo Solucionando problemas de desempenho do banco de dados fornecendo:
+Consulta Performance Insight fornece análise seleção inteligente de consultas para bases de dados individuais e reunidas. Ajuda a identificar as principais consultas de consumo de recursos e de longa duração na sua carga de trabalho. Isto ajuda-o a encontrar as consultas para otimizar para melhorar o desempenho global da carga de trabalho e utilizar eficientemente o recurso que está a pagar. Consulta Performance Insight ajuda-o a gastar menos tempo a resolver o desempenho da base de dados, fornecendo:
 
-* Informações mais aprofundadas sobre o consumo de seu recurso de bancos de dados (DTU).
-* Detalhes sobre as principais consultas de banco de dados por CPU, duração e contagem de execução (possíveis candidatos de ajuste para melhorias de desempenho).
-* A capacidade de fazer uma busca detalhada em detalhes de uma consulta, para exibir o texto da consulta e o histórico da utilização de recursos.
-* Anotações que mostram recomendações de desempenho de [Assistente do banco de dados SQL](sql-database-advisor.md).
+* Informação mais profunda sobre o consumo de recursos (DTU) das suas bases de dados
+* Detalhes sobre as consultas de base de dados de topo por CPU, duração e contagem de execução (potenciais candidatos a afinação para melhorias de desempenho)
+* A capacidade de aprofundar detalhes de uma consulta, para ver o texto de consulta e a história da utilização de recursos
+* Anotações que mostram recomendações de desempenho de [consultores](sql-database-advisor.md) de base de dados
 
 ![Query Performance Insight](./media/sql-database-query-performance/opening-title.png)
 
-> [!TIP]
-> Para o monitoramento de desempenho básico com o banco de dados SQL do Azure, recomendamos Análise de Desempenho de Consultas. Observe as limitações de produto publicadas neste artigo. Para o monitoramento avançado do desempenho do banco de dados em escala, recomendamos [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md). Ele tem inteligência interna para solução de problemas de desempenho automatizado. Para ajustar automaticamente alguns dos problemas de desempenho de banco de dados mais comuns, recomendamos o [ajuste automático](sql-database-automatic-tuning.md).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Análise de Desempenho de Consultas requer que [repositório de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esteja ativa no seu banco de dados. Ele é habilitado automaticamente para todos os bancos de dados SQL do Azure por padrão. Se Repositório de Consultas não estiver em execução, o portal do Azure solicitará que você o habilite.
+Consulta Performance Insight requer que a [Consulta Store](https://msdn.microsoft.com/library/dn817826.aspx) esteja ativa na sua base de dados. É ativado automaticamente para todas as bases de dados Azure SQL por padrão. Se a Loja de Consultas não estiver a funcionar, o portal Azure irá pedir-lhe para o ativar.
 
 > [!NOTE]
-> Se a mensagem "Repositório de Consultas não estiver configurada corretamente neste banco de dados" for exibida no portal, consulte [otimizando a configuração de repositório de consultas](#optimize-the-query-store-configuration-for-query-performance-insight).
->
+> Se a mensagem "Consulta Store não estiver corretamente configurada nesta base de dados" aparece no portal, consulte [otimizar a configuração da Loja de Consultas](#optimize-the-query-store-configuration).
 
 ## <a name="permissions"></a>Permissões
 
-Você precisa das seguintes permissões de [controle de acesso baseado em função](../role-based-access-control/overview.md) para usar análise de desempenho de consultas:
+Precisa das seguintes permissões [de controlo de acesso baseadas em funções](../role-based-access-control/overview.md) para utilizar a Query Performance Insight:
 
-* As permissões **leitor**, **proprietário**, **colaborador**, **colaborador de BD SQL**ou **SQL Server colaborador** são necessárias para exibir as principais consultas e os gráficos de consumo de recursos.
-* As permissões de colaborador **proprietário**, **colaborador**, colaborador do **banco de BD SQL**ou **SQL Server** são necessárias para exibir o texto da consulta.
+* **O leitor**, **proprietário,** **colaborador,** **Contribuinte SQL DB,** ou permissões **do Contribuinte do Servidor SQL** são necessárias para visualizar as principais consultas e gráficos que consomem recursos.
+* **Proprietário**, **Contribuinte,** **Contribuinte Db SQL**ou Permissões Do Colaborador do **Servidor SQL** são necessárias para ver texto de consulta.
 
 ## <a name="use-query-performance-insight"></a>Utilizar o Query Performance Insight
 
-Análise de Desempenho de Consultas é fácil de usar:
+Consulta Performance Insight é fácil de usar:
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e localize um banco de dados que você deseja examinar.
-2. No menu do lado esquerdo, abra o > de **desempenho inteligente** **análise de desempenho de consultas**.
+1. Abra o [portal Azure](https://portal.azure.com/) e encontre uma base de dados que pretende examinar.
+2. A partir do menu do lado esquerdo, abra **o Desempenho Inteligente** > **Query Performance Insight**.
   
-   ![Análise de Desempenho de Consultas no menu](./media/sql-database-query-performance/tile.png)
+   ![Consulta Performance Insight no menu](./media/sql-database-query-performance/tile.png)
 
-3. Na primeira guia, examine a lista de principais consultas que consomem recursos.
-4. Selecione uma consulta individual para exibir seus detalhes.
-5. Abra o **desempenho inteligente** > **recomendações de desempenho** e verifique se há recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho internas, consulte [Assistente do banco de dados SQL](sql-database-advisor.md).
-6. Use controles deslizantes ou ícones de zoom para alterar o intervalo observado.
+3. No primeiro separador, reveja a lista das principais consultas que consomem recursos.
+4. Selecione uma consulta individual para ver os seus detalhes.
+5. Open **Intelligent Performance** > As **recomendações** de desempenho e verifique se existem recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho incorporadas, consulte O Consultor de Base de [Dados SQL](sql-database-advisor.md).
+6. Utilize sliders ou ícones de zoom para alterar o intervalo observado.
 
-   ![Painel de desempenho](./media/sql-database-query-performance/performance.png)
+   ![Painel de instrumentos de desempenho](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> Para que o banco de dados SQL processe as informações em Análise de Desempenho de Consultas, Repositório de Consultas precisa capturar algumas horas. Se o banco de dados não tiver nenhuma atividade ou se Repositório de Consultas não estava ativo durante um determinado período, os gráficos estarão vazios quando Análise de Desempenho de Consultas exibir esse intervalo de tempo. Você pode habilitar Repositório de Consultas a qualquer momento se ela não estiver em execução. Para obter mais informações, consulte [práticas recomendadas com repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+> Para que a Base de Dados SQL forneça a informação no Query Performance Insight, a Consulta Store precisa de capturar algumas horas de dados. Se a base de dados não tiver atividade ou se a Consulta Store não estiver ativa durante um determinado período, os gráficos ficarão vazios quando a Consulta Performance Insight apresentar essa gama de tempo. Pode ativar a Consulta Store a qualquer momento se não estiver a funcionar. Para mais informações, consulte [as melhores práticas com a Consulta Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+>
 
-## <a name="review-top-cpu-consuming-queries"></a>Examinar as principais consultas que consomem a CPU
+Para recomendações de desempenho na base de dados, selecione [Recomendações](sql-database-advisor.md) na lâmina de navegação De query Performance Insight.
 
-Por padrão, Análise de Desempenho de Consultas mostra as cinco principais consultas que consomem a CPU quando você a abre pela primeira vez.
+![O separador recomendações](./media/sql-database-query-performance/ia.png)
 
-1. Marque ou desmarque as consultas individuais para incluí-las ou excluí-las do gráfico usando as caixas de seleção.
+## <a name="review-top-cpu-consuming-queries"></a>Rever as principais consultas que consomem CPU
 
-    A linha superior mostra a porcentagem de DTU geral para o banco de dados. As barras mostram a porcentagem de CPU que as consultas selecionadas consumiram durante o intervalo selecionado. Por exemplo, se a **semana passada** for selecionada, cada barra representará um único dia.
+Por padrão, a Query Performance Insight mostra as cinco principais consultas que consomem CPU quando a abrepela primeira vez.
 
-    ![Principais consultas](./media/sql-database-query-performance/top-queries.png)
+1. Selecione ou limpe consultas individuais para incluí-las ou excluí-las do gráfico utilizando caixas de verificação.
+
+   A linha de cima mostra a percentagem global de DTU para a base de dados. As barras mostram a percentagem de CPU que as consultas selecionadas consumidas durante o intervalo selecionado. Por exemplo, se **a semana passada** for selecionada, cada bar representa um único dia.
+
+   ![Principais consultas](./media/sql-database-query-performance/top-queries.png)
 
    > [!IMPORTANT]
-   > A linha de DTU mostrada é agregada a um valor de consumo máximo em períodos de uma hora. Ele é destinado a uma comparação de alto nível somente com estatísticas de execução de consulta. Em alguns casos, a utilização de DTU pode parecer muito alta em comparação com as consultas executadas, mas esse pode não ser o caso.
+   > A linha DTU mostrada é agregada a um valor máximo de consumo em períodos de uma hora. Destina-se a uma comparação de alto nível apenas com estatísticas de execução de consultas. Em alguns casos, a utilização do DTU pode parecer demasiado elevada em comparação com consultas executadas, mas este pode não ser o caso.
    >
-   > Por exemplo, se uma consulta esgotou DTU para 100% por apenas alguns minutos, a linha de DTU em Análise de Desempenho de Consultas mostrará a hora de consumo inteira como 100% (a consequência do valor máximo agregado).
+   > Por exemplo, se uma consulta fornou o DTU a 100% apenas por alguns minutos, a linha DTU em Consulta Performance Insight mostrará toda a hora de consumo como 100% (a consequência do valor agregado máximo).
    >
-   > Para uma comparação mais refinada (até um minuto), considere criar um gráfico de utilização de DTU personalizado:
+   > Para uma comparação mais fina (até um minuto), considere criar um gráfico de utilização dTU personalizado:
    >
-   > 1. No portal do Azure, selecione **banco de dados SQL do Azure** > **monitoramento**.
+   > 1. No portal Azure, **selecione Azure SQL Database** > **Monitorização**.
    > 2. Selecione **Métricas**.
-   > 3. Selecione **+ Adicionar gráfico**.
-   > 4. Selecione a porcentagem de DTU no gráfico.
-   > 5. Além disso, selecione **últimas 24 horas** no menu superior esquerdo e altere-o para um minuto.
+   > 3. Selecione **+Adicionar gráfico**.
+   > 4. Selecione a percentagem de DTU na tabela.
+   > 5. Além disso, selecione **Last 24 horas** no menu superior esquerdo e mude-o para um minuto.
    >
-   > Use o gráfico de DTU personalizado com um nível mais preciso de detalhes para comparar com o gráfico de execução de consulta.
+   > Utilize o gráfico dTU personalizado com um nível de detalhes mais fino para comparar com o gráfico de execução de consulta.
 
-   A grade inferior mostra informações agregadas para as consultas visíveis:
+   A grelha inferior mostra informações agregadas para as consultas visíveis:
 
-   * ID da consulta, que é um identificador exclusivo para a consulta no banco de dados.
+   * Consulta ID, que é um identificador único para a consulta na base de dados.
    * CPU por consulta durante um intervalo observável, que depende da função de agregação.
    * Duração por consulta, que também depende da função de agregação.
    * Número total de execuções para uma consulta específica.
 
-2. Se os dados ficarem obsoletos, selecione o botão **Atualizar** .
+2. Se os seus dados ficarem velhos, selecione o botão **Refresh.**
 
-3. Use os controles deslizantes e os botões de zoom para alterar o intervalo de observação e investigar os picos de consumo:
+3. Utilize sliders e botões de zoom para alterar o intervalo de observação e investigar picos de consumo:
 
-   ![Controles deslizantes e botões de zoom para alterar o intervalo](./media/sql-database-query-performance/zoom.png)
+   ![Deslizadores e botões de zoom para alterar o intervalo](./media/sql-database-query-performance/zoom.png)
 
-4. Opcionalmente, você pode selecionar a guia **personalizada** para personalizar a exibição para:
+4. Opcionalmente, pode selecionar o separador **Custom** para personalizar a vista para:
 
    * Métrica (CPU, duração, contagem de execução).
-   * Intervalo de tempo (últimas 24 horas, semana passada ou mês passado).
+   * Intervalo de tempo (últimas 24 horas, semana passada, ou mês passado).
    * Número de consultas.
    * Função de agregação.
   
-   ![Guia personalizada](./media/sql-database-query-performance/custom-tab.png)
+   ![Separador personalizado](./media/sql-database-query-performance/custom-tab.png)
   
-5. Selecione o botão **ir >** para ver a exibição personalizada.
+5. Selecione o botão **Go >** para ver a vista personalizada.
 
    > [!IMPORTANT]
-   > Análise de Desempenho de Consultas é limitado a exibir as principais consultas de consumo de 5-20, dependendo da sua seleção. Seu banco de dados pode executar muitas outras consultas além das principais mostradas, e essas consultas não serão incluídas no gráfico.
+   > A Consulta Performance Insight limita-se a apresentar as consultas de 5 a 20 melhores, dependendo da sua seleção. A sua base de dados pode executar muitas mais consultas para além das principais mostradas, e estas consultas não serão incluídas na tabela.
    >
-   > Pode existir um tipo de carga de trabalho de banco de dados no qual muitas consultas menores, além das principais mostradas, são executadas com frequência e usam a maioria de DTU. Essas consultas não aparecem no gráfico de desempenho.
+   > Pode existir um tipo de carga de trabalho de base de dados em que muitas consultas menores, para além das mais notadas, funcionam frequentemente e utilizam a maioria do DTU. Estas consultas não aparecem na tabela de desempenho.
    >
-   > Por exemplo, uma consulta pode ter consumido uma quantidade substancial de DTU por um tempo, embora seu consumo total no período observado seja menor do que as outras consultas de alto consumo. Nesse caso, a utilização de recursos dessa consulta não apareceria no gráfico.
+   > Por exemplo, uma consulta poderia ter consumido uma quantidade substancial de DTU durante algum tempo, embora o seu consumo total no período observado seja inferior às outras consultas de maior consumo. Neste caso, a utilização de recursos desta consulta não constaria da tabela.
    >
-   > Se você precisar entender as principais execuções de consulta além das limitações de Análise de Desempenho de Consultas, considere o uso de [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md) para monitoramento e solução de problemas avançados de desempenho de banco de dados.
+   > Se precisar de compreender as execuções de topo para além das limitações da Query Performance Insight, considere utilizar o [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) para monitorização avançada de desempenho na base de dados e resolução de problemas.
    >
 
-## <a name="view-individual-query-details"></a>Exibir detalhes da consulta individual
+## <a name="view-individual-query-details"></a>Ver detalhes de consulta individual
 
-Para exibir detalhes da consulta:
+Para ver detalhes da consulta:
 
-1. Selecione qualquer consulta na lista de principais consultas.
+1. Selecione qualquer consulta na lista de consultas de topo.
 
-    ![Lista de principais consultas](./media/sql-database-query-performance/details.png)
+    ![Lista de consultas de topo](./media/sql-database-query-performance/details.png)
 
-   Uma exibição detalhada é aberta. Ele mostra o consumo de CPU, a duração e a contagem de execução ao longo do tempo.
+   Abre-se uma vista detalhada. Mostra o consumo, duração e contagem de execução da CPU ao longo do tempo.
 
-2. Selecione os recursos do gráfico para obter detalhes.
+2. Selecione as funcionalidades do gráfico para mais detalhes.
 
-   * O gráfico superior mostra uma linha com a porcentagem de DTU geral do banco de dados. As barras são a porcentagem de CPU consumida pela consulta selecionada.
+   * O gráfico superior mostra uma linha com a percentagem de DTU da base de dados global. As barras são a percentagem de CPU que a consulta selecionada consumiu.
    * O segundo gráfico mostra a duração total da consulta selecionada.
    * O gráfico inferior mostra o número total de execuções pela consulta selecionada.
 
-   ![Detalhes da consulta](./media/sql-database-query-performance/query-details.png)
+   ![Detalhes de consulta](./media/sql-database-query-performance/query-details.png)
 
-3. Opcionalmente, use controles deslizantes, use botões de zoom ou selecione **configurações** para personalizar como os dados de consulta são exibidos ou para escolher um intervalo de tempo diferente.
+3. Opcionalmente, use sliders, use botões de zoom ou selecione **Definições** para personalizar a forma como os dados de consulta são apresentados, ou para escolher um intervalo de tempo diferente.
 
    > [!IMPORTANT]
-   > Análise de Desempenho de Consultas não captura nenhuma consulta DDL. Em alguns casos, ele pode não capturar todas as consultas ad hoc.
+   > Consulta Performance Insight não captura quaisquer consultas DDL. Em alguns casos, pode não capturar todas as consultas ad hoc.
    >
 
-## <a name="review-top-queries-per-duration"></a>Examinar as principais consultas por duração
+## <a name="review-top-queries-per-duration"></a>Rever as principais consultas por duração
 
-Duas métricas no Análise de Desempenho de Consultas podem ajudá-lo a encontrar gargalos potenciais: duração e contagem de execução.
+Duas métricas em Query Performance Insight podem ajudá-lo a encontrar potenciais estrangulamentos: duração e contagem de execução.
 
-Consultas de execução longa têm o maior potencial para bloquear recursos por mais tempo, bloqueando outros usuários e limitando a escalabilidade. Eles também são os melhores candidatos para otimização.
+As consultas de longa duração têm o maior potencial para bloquear recursos por mais tempo, bloqueando outros utilizadores e limitando a escalabilidade. São também os melhores candidatos à otimização.
 
-Para identificar consultas de execução longa:
+Para identificar consultas de longa duração:
 
-1. Abra a guia **personalizado** em análise de desempenho de consultas para o banco de dados selecionado.
-2. Altere as métricas para **duração**.
+1. Abra o separador **Custom** no Query Performance Insight para a base de dados selecionada.
+2. Altere as métricas para a **duração**.
 3. Selecione o número de consultas e o intervalo de observação.
 4. Selecione a função de agregação:
 
-   * **Sum** adiciona todo o tempo de execução de consulta para todo o intervalo de observação.
-   * **Max** localiza consultas nas quais o tempo de execução era máximo para todo o intervalo de observação.
-   * **AVG** localiza o tempo médio de execução de todas as execuções de consulta e mostra as principais para essas médias.
+   * **Soma** adiciona todo o tempo de execução de consulta para todo o intervalo de observação.
+   * **Max** encontra consultas em que o tempo de execução foi máximo para todo o intervalo de observação.
+   * **Avg** encontra o tempo médio de execução de todas as execuções de consulta e mostra-lhe os melhores para estas médias.
 
    ![Duração da consulta](./media/sql-database-query-performance/top-duration.png)
 
-5. Selecione o botão **ir >** para ver a exibição personalizada.
+5. Selecione o botão **Go >** para ver a vista personalizada.
 
    > [!IMPORTANT]
-   > O ajuste da exibição de consulta não atualiza a linha de DTU. A linha DTU sempre mostra o valor de consumo máximo para o intervalo.
+   > Ajustar a vista de consulta não atualiza a linha DTU. A linha DTU mostra sempre o valor máximo de consumo para o intervalo.
    >
-   > Para entender o consumo de DTU do banco de dados com mais detalhes (até um minuto), considere criar um gráfico personalizado na portal do Azure:
+   > Para compreender o consumo de DTU da base de dados com mais detalhes (até um minuto), considere criar um gráfico personalizado no portal Azure:
    >
-   > 1. Selecione o **monitoramento**de > **do banco de dados SQL do Azure** .
+   > 1. Selecione Base de **Dados Azure SQL** > **Monitorização**.
    > 2. Selecione **Métricas**.
-   > 3. Selecione **+ Adicionar gráfico**.
-   > 4. Selecione a porcentagem de DTU no gráfico.
-   > 5. Além disso, selecione **últimas 24 horas** no menu superior esquerdo e altere-o para um minuto.
+   > 3. Selecione **+Adicionar gráfico**.
+   > 4. Selecione a percentagem de DTU na tabela.
+   > 5. Além disso, selecione **Last 24 horas** no menu superior esquerdo e mude-o para um minuto.
    >
-   > Recomendamos que você use o gráfico de DTU personalizado para comparar com o gráfico de desempenho de consulta.
+   > Recomendamos que utilize o gráfico dTU personalizado para comparar com o gráfico de desempenho da consulta.
    >
 
-## <a name="review-top-queries-per-execution-count"></a>Examinar as principais consultas por contagem de execução
+## <a name="review-top-queries-per-execution-count"></a>Rever as principais consultas por contagem de execução
 
-Um aplicativo de usuário que usa o banco de dados pode ficar lento, mesmo que um grande número de execuções possa não estar afetando o próprio banco de dados e o uso de recursos seja baixo.
+Uma aplicação do utilizador que utiliza a base de dados pode ficar lenta, mesmo que um elevado número de execuções possa não estar a afetar a própria base de dados e o uso de recursos seja baixo.
 
-Em alguns casos, uma contagem de execução alta pode levar a mais viagens de ida e volta da rede. Viagens de ida e volta afetam o desempenho. Eles estão sujeitos à latência de rede e à latência de servidor downstream.
+Em alguns casos, uma alta contagem de execuções pode levar a mais viagens de ida e volta em rede. As viagens de ida e volta afetam o desempenho. Estão sujeitos a latência de rede e à latência do servidor a jusante.
 
-Por exemplo, muitos sites controlados por dados acessam muito o banco de dado para cada solicitação de usuário. Embora o pool de conexões ajude, o aumento do tráfego de rede e da carga de processamento no servidor de banco de dados pode reduzir o desempenho. Em geral, mantenha as viagens de ida e volta no mínimo.
+Por exemplo, muitos sites baseados em dados acedem fortemente à base de dados para cada pedido do utilizador. Embora o agrupamento de ligações ajude, o aumento do tráfego de rede e a carga de processamento no servidor de base de dados podem abrandar o desempenho. Em geral, mantenha as viagens de ida e volta ao mínimo.
 
-Para identificar consultas executadas com frequência ("informativas"):
+Identificar consultas frequentemente executadas ("chatty") ):
 
-1. Abra a guia **personalizado** em análise de desempenho de consultas para o banco de dados selecionado.
-2. Altere as métricas para **contagem de execução**.
+1. Abra o separador **Custom** no Query Performance Insight para a base de dados selecionada.
+2. Mude as métricas para a **contagem de execução.**
 3. Selecione o número de consultas e o intervalo de observação.
-4. Selecione o botão **ir >** para ver a exibição personalizada.
+4. Selecione o botão **Go >** para ver a vista personalizada.
 
    ![Contagem de execução de consulta](./media/sql-database-query-performance/top-execution.png)
 
-## <a name="understand-performance-tuning-annotations"></a>Entender as anotações de ajuste de desempenho
+## <a name="understand-performance-tuning-annotations"></a>Compreender anotações de anotação de afinação de desempenho
 
-Ao explorar sua carga de trabalho em Análise de Desempenho de Consultas, você pode observar ícones com uma linha vertical sobre o gráfico.
+Ao explorar a sua carga de trabalho no Query Performance Insight, poderá notar ícones com uma linha vertical em cima da tabela.
 
-Esses ícones são anotações. Eles mostram recomendações de desempenho de [Assistente do banco de dados SQL](sql-database-advisor.md). Ao passar o mouse sobre uma anotação, você pode obter informações resumidas sobre recomendações de desempenho.
+Estes ícones são anotações. Mostram recomendações de desempenho do [SQL Database Advisor](sql-database-advisor.md). Ao pairar sobre uma anotação, você pode obter informações resumidas sobre recomendações de desempenho.
 
    ![Anotação de consulta](./media/sql-database-query-performance/annotation.png)
 
-Se você quiser entender mais ou aplicar a recomendação do Advisor, selecione o ícone para abrir detalhes da ação recomendada. Se essa for uma recomendação ativa, você poderá aplicá-la imediatamente no Portal.
+Se quiser compreender mais ou aplicar a recomendação do consultor, selecione o ícone para abrir detalhes da ação recomendada. Se esta for uma recomendação ativa, pode aplicá-la imediatamente ao portal.
 
-   ![Detalhes da anotação da consulta](./media/sql-database-query-performance/annotation-details.png)
+   ![Detalhes de anotação de consulta](./media/sql-database-query-performance/annotation-details.png)
 
-Em alguns casos, devido ao nível de zoom, é possível que as anotações próximas umas às outras sejam recolhidas em uma única anotação. Análise de Desempenho de Consultas representa isso como um ícone de anotação de grupo. A seleção do ícone de anotação de grupo abre uma nova folha que lista as anotações.
+Em alguns casos, devido ao nível de zoom, é possível que anotações próximas umas das outras sejam colapsadas numa única anotação. Consulta Performance Insight representa isto como um ícone de anotação em grupo. A seleção do ícone de anotação em grupo abre uma nova lâmina que lista as anotações.
 
-Correlacionar consultas e ações de ajuste de desempenho pode ajudá-lo a entender melhor sua carga de trabalho.
+Relacionar consultas e ações de afinação de desempenho pode ajudá-lo a entender melhor a sua carga de trabalho.
 
-## <a name="optimize-the-query-store-configuration-for-query-performance-insight"></a>Otimizar a configuração de Repositório de Consultas para Análise de Desempenho de Consultas
+## <a name="optimize-the-query-store-configuration"></a>Otimizar a configuração da Loja de Consultas
 
-Ao usar Análise de Desempenho de Consultas, você poderá ver as seguintes Repositório de Consultas mensagens de erro:
+Ao utilizar o Query Performance Insight, poderá ver as seguintes mensagens de erro da Consulta Store:
 
-* "Repositório de Consultas não está configurado corretamente neste banco de dados. Clique aqui para saber mais. "
-* "Repositório de Consultas não está configurado corretamente neste banco de dados. Clique aqui para alterar as configurações. "
+* "A Consulta Store não está devidamente configurada nesta base de dados. Clique aqui para saber mais."
+* "A Consulta Store não está devidamente configurada nesta base de dados. Clique aqui para alterar definições."
 
-Essas mensagens geralmente aparecem quando Repositório de Consultas não pode coletar novos dados.
+Estas mensagens geralmente aparecem quando a Consulta Store não consegue recolher novos dados.
 
-O primeiro caso ocorre quando Repositório de Consultas está no estado somente leitura e os parâmetros são definidos de forma ideal. Você pode corrigir isso aumentando o tamanho do armazenamento de dados ou desmarcando Repositório de Consultas. (Se você limpar Repositório de Consultas, todas as telemetrias coletadas anteriormente serão perdidas.)
+O primeiro caso acontece quando a Consulta Store está no estado de leitura e os parâmetros são definidos da melhor forma. Pode corrigi-lo aumentando o tamanho da loja de dados, ou limpando a Query Store. (Se limpar a Consulta Store, perder-se-á toda a telemetria previamente recolhida.)
 
-   ![Detalhes do Repositório de Consultas](./media/sql-database-query-performance/qds-off.png)
+   ![Detalhes da Loja de Consultas](./media/sql-database-query-performance/qds-off.png)
 
-O segundo caso ocorre quando Repositório de Consultas não está habilitado ou os parâmetros não são definidos de forma ideal. Você pode alterar a política de retenção e captura e também habilitar Repositório de Consultas, executando os comandos a seguir fornecidos no [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou no portal do Azure.
+O segundo caso acontece quando a Consulta Store não está ativada, ou os parâmetros não estão definidos da melhor forma. Pode alterar a política de retenção e captura, e também ativar a Query Store, executando os seguintes comandos fornecidos pelo [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou pelo portal Azure.
 
 ### <a name="recommended-retention-and-capture-policy"></a>Política de retenção e captura recomendada
 
-Há dois tipos de políticas de retenção:
+Existem dois tipos de políticas de retenção:
 
-* **Baseado em tamanho**: se essa política for definida como **automática**, ela limpará os dados automaticamente quando o tamanho máximo for atingido.
-* **Baseado em tempo**: por padrão, essa política é definida como 30 dias. Se Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias.
+* **Baseado no tamanho**: Se esta política for definida para **AUTO,** limpará automaticamente os dados quando for atingido o tamanho máximo.
+* **Baseado**no tempo : Por defeito, esta política é definida para 30 dias. Se a Loja de Consultas ficar sem espaço, eliminará informações de consulta com mais de 30 dias.
 
-Você pode definir a política de captura para:
+Pode definir a política de captura para:
 
-* **Todos**: repositório de consultas captura todas as consultas.
-* **Automático**: repositório de consultas ignora consultas e consultas incomuns com duração de compilação e execução insignificante. Os limites para contagem de execução, duração da compilação e duração do tempo de execução são determinados internamente. Essa é a opção padrão.
-* **Nenhum**: repositório de consultas interrompe a captura de novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
+* **Tudo:** A Consulta Store capta todas as consultas.
+* **Auto**: A Consulta Store ignora consultas e consultas pouco frequentes com duração de compilação e execução insignificantes. Os limiares para a contagem de execução, a duração da compilação e a duração do tempo de funcionação são determinados internamente. Esta é a opção padrão.
+* **Nenhuma**: A Consulta Store deixa de capturar novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são recolhidas.
 
-É recomendável definir todas as políticas para **automático** e a política de limpeza para 30 dias executando os comandos a seguir do [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal do Azure. (Substitua `YourDB` pelo nome do banco de dados.)
+Recomendamos definir todas as políticas para **auto** e a política de limpeza para 30 dias executando os seguintes comandos da [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal Azure. (Substitua `YourDB` pelo nome da base de dados.)
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -258,32 +259,22 @@ Você pode definir a política de captura para:
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Aumente o tamanho de Repositório de Consultas conectando-se a um banco de dados por meio do [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal do Azure e executando a consulta a seguir. (Substitua `YourDB` pelo nome do banco de dados.)
+Aumente o tamanho da Consulta Store ligando-se a uma base de dados através de [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal Azure e executando a seguinte consulta. (Substitua `YourDB` pelo nome da base de dados.)
 
-```T-SQL
+```SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
 
-A aplicação dessas configurações eventualmente fará Repositório de Consultas coletar telemetria para novas consultas. Se precisar de Repositório de Consultas estar funcionando imediatamente, você pode optar por limpar Repositório de Consultas executando a consulta a seguir por meio do SSMS ou do portal do Azure. (Substitua `YourDB` pelo nome do banco de dados.)
+Aplicar estas definições irá eventualmente fazer com que a Query Store recolha telemetria para novas consultas. Se necessitar de Query Store para estar operacional imediatamente, pode optar opcionalmente por limpar a Consulta Store executando a seguinte consulta através do SSMS ou do portal Azure. (Substitua `YourDB` pelo nome da base de dados.)
 
 > [!NOTE]
-> A execução da consulta a seguir excluirá toda a telemetria monitorada anteriormente coletada em Repositório de Consultas.
+> A execução da seguinte consulta eliminará todas as telemetrias monitorizadas previamente recolhidas na Query Store.
 
 ```SQL
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="summary"></a>Resumo
-
-Análise de Desempenho de Consultas ajuda a entender o impacto da carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você aprenderá sobre as consultas que mais consomem em seu banco de dados e encontrará consultas a serem otimizadas antes de se tornarem um problema.
-
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter recomendações de desempenho de banco de dados, selecione [recomendações](sql-database-advisor.md) na folha de navegação análise de desempenho de consultas.
-
-    ![A guia recomendações](./media/sql-database-query-performance/ia.png)
-
-* Considere habilitar o [ajuste automático](sql-database-automatic-tuning.md) para problemas comuns de desempenho do banco de dados.
-* Saiba como [Intelligent insights](sql-database-intelligent-insights.md) pode ajudar a solucionar problemas de desempenho de banco de dados automaticamente.
-* Considere o uso de [análise de SQL do Azure]( ../azure-monitor/insights/azure-sql.md) para o monitoramento avançado de desempenho de uma grande frota de bancos de dados SQL, pools elásticos e instâncias gerenciadas com inteligência interna.
+Considere utilizar o [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) para monitorização avançada do desempenho de uma grande frota de bases de dados individuais e agrofadas, piscinas elásticas, instâncias geridas e bases de dados de instâncias.

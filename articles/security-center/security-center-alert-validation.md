@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 10ea15168d61d5e73aff976ef641e07b6327dbca
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604579"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140002"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alerta (ficheiro de teste EICAR) no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -75,8 +75,7 @@ Para mais informações sobre a integração do Serviço Azure Kubernetes e do C
 ## <a name="next-steps"></a>Passos seguintes
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:
 
+* [Validação da deteção de ameaças do cofre de chaves azure no Centro de Segurança Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Gestão e resposta a alertas](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) de segurança no Azure Security Center - Saiba como gerir os alertas e responda a incidentes de segurança no Centro de Segurança.
 * [Monitorização da saúde de segurança no Azure Security Center](security-center-monitoring.md) - Saiba como monitorizar a saúde dos seus recursos Azure.
 * [Compreender alertas de segurança no Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) - Conheça os diferentes tipos de alertas de segurança.
-* Guia de resolução de [problemas do Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) - Aprenda a resolver problemas comuns no Centro de Segurança.
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) - Encontre posts de blog sobre segurança e conformidade do Azure.

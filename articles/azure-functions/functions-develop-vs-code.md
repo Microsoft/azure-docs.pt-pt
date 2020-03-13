@@ -3,12 +3,12 @@ title: Desenvolver funções Azure utilizando o Código do Estúdio Visual
 description: Aprenda a desenvolver e testar funções Azure utilizando a extensão de Funções Azure para Código de Estúdio Visual.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484796"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277170"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções Azure utilizando o Código do Estúdio Visual
 
@@ -20,7 +20,7 @@ A extensão das Funções Azure proporciona estes benefícios:
 * Publique o seu projeto Funções Azure diretamente para o Azure.
 * Escreva as suas funções em várias línguas enquanto aproveita os benefícios do Código do Estúdio Visual.
 
-A extensão pode ser usada com os seguintes idiomas, que têm suporte do tempo de execução Azure Functions a partir da versão 2. x:
+A extensão pode ser utilizada com as seguintes línguas, que são suportadas pelo tempo de funcionamento das Funções Azure a partir da versão 2.x:
 
 * [C#compilado](functions-dotnet-class-library.md)
 * <sup>*do</sup> [ C# guião](functions-reference-csharp.md)
@@ -256,7 +256,7 @@ Os seguintes passos publicam o seu projeto numa nova app de funções criada com
     | Selecione um tempo de execução para a sua nova aplicação | A sua linguagem de projeto | O prazo deve corresponder ao projeto que está a publicar. |
     | Selecione um grupo de recursos para novos recursos | Criar novo grupo de recursos | No próximo pedido, digite um nome de grupo de recursos, como `myResourceGroup`, e, em seguida, selecione entrar. Também pode selecionar um grupo de recursos existente. |
     | Selecione uma conta de armazenamento | Criar nova conta de armazenamento | Na próxima solicitação, digite um nome globalmente único para a nova conta de armazenamento utilizada pela sua aplicação de função e, em seguida, selecione Enter. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Também pode selecionar uma conta existente. |
-    | Selecione uma localização para novos recursos | Região | Selecione uma localização numa [região](https://azure.microsoft.com/regions/) próxima ou perto de outros serviços a que as suas funções acedem. |
+    | Selecione uma localização para novos recursos | . | Selecione uma localização numa [região](https://azure.microsoft.com/regions/) próxima ou perto de outros serviços a que as suas funções acedem. |
 
     Uma notificação aparece após a criação da sua aplicação de função e o pacote de implementação é aplicado. Selecione **Ver Output** nesta notificação para visualizar os resultados da criação e implementação, incluindo os recursos Azure que criou.
 
@@ -297,9 +297,9 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
 * Instale os requisitos específicos para a linguagem escolhida:
 
-    | Linguagem | Requisito |
+    | Idioma | Requisito |
     | -------- | --------- |
-    | **C#** | [C#extensão](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI ferramentas](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C#extensão](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI ferramentas](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger para extensão java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/) <sup>*</sup> |  
     | **python** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
@@ -446,7 +446,7 @@ A extensão Funções Azure fornece uma interface gráfica útil na área para i
 | **Ver comprometer-se no GitHub** | Mostra-lhe o mais recente compromisso numa implementação específica quando a sua aplicação de funções está ligada a um repositório. |
 | **Ver Registos de Implementação** | Mostra-lhe os registos para uma implementação específica da aplicação de funções em Azure. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as Ferramentas Nucleares das Funções Azure, consulte [Trabalhar com ferramentas nucleares de funções azure](functions-run-local.md).
 

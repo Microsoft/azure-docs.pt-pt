@@ -11,11 +11,11 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
 ms.openlocfilehash: a2af1e87ce7b17183ae09fb02b2652a04f585e84
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129287"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270267"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Acesso a dados em Aprendizagem automática Azure
 

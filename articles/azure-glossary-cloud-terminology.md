@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357666"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276481"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário Microsoft Azure: Um dicionário de terminologia em nuvem na plataforma Azure
 
@@ -90,7 +90,7 @@ Consulte a página de detalhes da [oferta do Azure](https://azure.microsoft.com/
 ## <a name="portal"></a>portal
 O portal web seguro usado para implantar e gerir serviços Azure.
 
-## <a name="region"></a>Região
+## <a name="region"></a>.
 Uma área dentro de um geo que não atravessa as fronteiras nacionais e contém um ou mais datacenters. Os preços, os serviços regionais e os tipos de oferta estão expostos ao nível da região. Uma região é tipicamente emparelhada com outra região, que pode estar a várias centenas de milhas de distância. Os pares regionais podem ser usados como um mecanismo para a recuperação de desastres e cenários de alta disponibilidade. Também referido como *localização.*  
 Ver [Regiões de Azure](best-practices-availability-paired-regions.md)
 

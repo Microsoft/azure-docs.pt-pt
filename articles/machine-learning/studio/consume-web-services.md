@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 6ecf5ba01b03ab899fec96b8ecd282a29e5ce3e0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: de395f7167f0ab7d7c6429c14d5efce46831b576
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168909"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218242"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço web Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Assim que implementar um modelo de aprendizagem automática Azure (clássico) como um serviço Web, pode utilizar uma API REST para enviar dados e obter previsões. Pode enviar os dados em tempo real ou no modo de lote.
 

@@ -1,31 +1,31 @@
 ---
-title: Filtragem geográfica em um domínio para o serviço de porta frontal do Azure
+title: Geofiltração em um domínio para serviço de porta frontal Azure
 description: Neste artigo, vai conhecer a política de filtragem geográfica para o Azure Front Door Service
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: eb91dfd5d774e591d3c3c3964668dcc626086181
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c49892f97d9c15efcaecccb6133c67133e81c87
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512577"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137565"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é filtragem geográfica em um domínio para a porta frontal do Azure?
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é geofiltração num domínio para a Porta frontal do Azure?
 
-Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, talvez você queira restringir o acesso aos seus aplicativos Web por país/região. O serviço WAF (firewall do aplicativo Web) na front door permite que você defina uma política usando regras de acesso personalizadas para um caminho específico em seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões especificados. 
+Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, poderá querer restringir o acesso às suas aplicações web por país/região. O serviço de firewall de aplicações web (WAF) na Porta frontal permite-lhe definir uma política utilizando regras de acesso personalizadas para um caminho específico no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
 
-Uma política WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geográfica, a variável é REMOTE_ADDR, o operador é GeoMatch e o valor é o código de país de duas letras de interesse. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
+Uma política waf geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geográfica, a variável é REMOTE_ADDR, o operador é GeoMatch e o valor é o código de país de duas letras de interesse. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
 
-Você pode configurar uma política de filtragem geográfica para sua porta frontal usando [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) ou usando nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Pode configurar uma política de geofiltração para a sua Porta Frontal utilizando o portal Azure, [o Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) ou o nosso [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Referência de código do país
+## <a name="country-code-reference"></a>Referência do código do país
 
-|Indicativo do país | Nome do país |
+|Indicativo de país | Nome do país |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emirados Árabes Unidos|
@@ -48,7 +48,7 @@ Você pode configurar uma política de filtragem geográfica para sua porta fron
 | BH | Barém|
 | BI | Burundi|
 | BJ | Benim|
-| BL | São Bartolomeu|
+| BL | São Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Bolívia|
 | BR | Brasil|
@@ -61,7 +61,7 @@ Você pode configurar uma política de filtragem geográfica para sua porta fron
 | CD | República Democrática do Congo|
 | CF | República Centro-Africana|
 | CH | Suíça|
-| CI | Costa do Marfim (Côte d’Ivoire)|
+| CI | Costa do Marfim|
 | CL | Chile|
 | CM | Camarões|
 | CN | China|
@@ -132,11 +132,11 @@ Você pode configurar uma política de filtragem geográfica para sua porta fron
 | MA | Marrocos|
 | MD | Moldova, República da|
 | MG | Madagáscar|
-| MK | Nordeste da Macedônia|
+| MK | Macedónia do Norte|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongólia|
-| MO | Rae de Macau|
+| MO | RAE de Macau|
 | MQ | Martinica|
 | MR | Mauritânia|
 | MT | Malta|

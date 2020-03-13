@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: ede607191604fbedd4b36523fae18ef1a7a5a2e0
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925118"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278795"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída de livro de execução e mensagens na Automação Azure
 

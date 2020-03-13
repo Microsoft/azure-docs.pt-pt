@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381176"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247296"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorize, receba e envie eventos com Hubs de Eventos Azure e Aplicações Lógicas Azure
 
@@ -74,7 +74,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    ![Propriedades do acionador](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Propriedade | Required | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome do Hub do Evento** | Sim | O nome para o Hub de Eventos que você quer monitorizar |
    | **Tipo de Conteúdo** | Não | O tipo de conteúdo do evento. A predefinição é `application/octet-stream`. |
@@ -86,13 +86,13 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    **Propriedades adicionais**
 
-   | Propriedade | Required | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Esquema de conteúdo** | Não | O esquema de conteúdo jSON para os eventos para ler a partir do Event Hub. Por exemplo, se especificar o esquema de conteúdo, pode desencadear a aplicação lógica apenas para aqueles eventos que correspondam ao esquema. |
    | **Chave mínima de partição** | Não | Introduza o ID mínimo de [partição](../event-hubs/event-hubs-features.md#partitions) para ler. Por padrão, todas as divisórias são lidas. |
    | **Chave máxima de partição** | Não | Introduza o ID máximo [de partição](../event-hubs/event-hubs-features.md#partitions) para ler. Por padrão, todas as divisórias são lidas. |
    | **Time zone** (Fuso horário) | Não | Aplica-se apenas quando especifica um tempo de início porque este gatilho não aceita a compensação utc. Selecione o fuso horário que pretende aplicar. <p>Para mais informações, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com aplicações lógicas azure](../connectors/connectors-native-recurrence.md). |
-   | **Start time** (Hora de início) | Não | Proporcionar um tempo de início neste formato: <p>YYYY-MM-DDThh:mm:ss se selecionar um fuso horário<p>\- ou -<p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário<p>Para mais informações, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com aplicações lógicas azure](../connectors/connectors-native-recurrence.md). |
+   | **Start time** (Hora de início) | Não | Proporcionar um tempo de início neste formato: <p>YYYY-MM-DDThh:mm:ss se selecionar um fuso horário<p>-ou-<p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário<p>Para mais informações, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com aplicações lógicas azure](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Quando terminar, na barra de ferramentas de design, escolha **Save**.
@@ -130,7 +130,7 @@ Da lista de ações, selecione esta ação: **Enviar evento - Hubs de Eventos**
 
    ![Selecione o nome do Event Hub e forneça conteúdo do evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Propriedade | Required | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome do Hub do Evento** | Sim | O Hub do Evento onde pretende enviar o evento |
    | **Conteúdo** | Não | O conteúdo do evento que pretende enviar |
@@ -152,7 +152,7 @@ Da lista de ações, selecione esta ação: **Enviar evento - Hubs de Eventos**
 
 1. Quando for solicitado informações sobre ligação, forneça estes detalhes:
 
-   | Propriedade | Required | Valor | Descrição |
+   | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome da Ligação** | Sim | < *> de nome de ligação* | O nome a criar para a sua ligação |
    | **Espaço de nome de Hubs de Eventos** | Sim | <espaço *de nome de centros de eventos*> | Selecione o espaço de nome seletiva do Event Hubs que pretende utilizar. |
@@ -178,6 +178,6 @@ Para detalhes técnicos, tais como gatilhos, ações e limites, conforme descrit
 > [!NOTE]
 > Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

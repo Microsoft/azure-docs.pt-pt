@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 0bb4157ff77ef57f377ba0c6a08bfe8529f663f4
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 618bc5719e3629d37567d8ac77594e7734f82a09
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169283"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204431"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Serviço Azure Batch para trabalhos do Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Processamento do Machine Learning Batch Pool fornece dimensionamento gerida pelo cliente para o serviço de execução de lote do Azure Machine Learning. O processamento de batch de clássico para aprendizagem ocorre num ambiente multi-inquilino, o que limita o número de tarefas simultâneas pode enviar e tarefas são colocados em fila numa base first-in-first-out. Essa incerteza significa que não é possível prever com precisão quando a tarefa será executada.
 
@@ -111,4 +113,4 @@ Recomendamos que consultar o estado da tarefa para determinar quando conclusão 
 
 | **Utilizar o processamento de piscina de lote quando**    | **Use o processamento clássico do lote quando**  |
 |---|---|
-|Tem de executar um grande número de tarefas<br>Ou<br/>Precisa saber que as tarefas serão executadas imediatamente<br/>Ou<br/>Precisa de débito garantido. Por exemplo, terá de executar um número de tarefas num determinado intervalo de tempo e quer aumentar horizontalmente os recursos de computação para satisfazer as necessidades.    | Estiver a executar apenas algumas tarefas<br/>E<br/> Não precisa de trabalhos para execução imediatamente |
+|Tem de executar um grande número de tarefas<br>Ou<br/>Precisa saber que as tarefas serão executadas imediatamente<br/>Ou<br/>Precisa de débito garantido. Por exemplo, terá de executar um número de tarefas num determinado intervalo de tempo e quer aumentar horizontalmente os recursos de computação para satisfazer as necessidades.    | Estiver a executar apenas algumas tarefas<br/>E<br/> Não precisa dos empregos para funcionar imediatamente. |

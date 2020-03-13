@@ -10,11 +10,11 @@ ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: 179a6181efdc6c31d50d3b5b3f708fd9149dadd3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384726"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239015"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Prepare-se para implantar borda de caixa de dados Azure  
 
@@ -158,7 +158,7 @@ Depois de o recurso Data Box Edge estar a funcionar, terá de obter a chave de a
 > - A chave de ativação expira três dias após a sua geração.
 > - Se a chave tiver expirado, gere uma nova chave. A chave mais antiga não é válida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Edge, como:
 

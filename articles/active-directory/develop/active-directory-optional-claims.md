@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300073"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136522"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer reclamações opcionais à sua aplicação Azure AD
 
@@ -85,10 +85,10 @@ Estas reclamações estão sempre incluídas em fichas v1.0 Azure AD, mas não i
 | `pwd_exp`     | Tempo de validade da palavra-passe        | A data em que a palavra-passe expira. |       |
 | `pwd_url`     | Alterar URL de palavra-passe             | Um URL que o utilizador pode visitar para alterar a sua palavra-passe.   |   |
 | `in_corp`     | Dentro da Rede Corporativa        | Sinaliza se o cliente está a fazer login na rede corporativa. Se não estiverem, a reclamação não está incluída.   |  Baseado nas definições [de IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
-| `nickname`    | apelido                        | Um nome adicional para o utilizador. A alcunha é separada do primeiro ou último nome. | 
-| `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto do utilizador. <br>"family_name":"Miller" | Suportado em MSA e Azure AD   |
-| `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD  |
-| `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para dados chave. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configurar a reclamação. |
+| `nickname`    | apelido                        | Um nome adicional para o utilizador. A alcunha é separada do primeiro ou último nome. Requer o alcance `profile`.| 
+| `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto do utilizador. <br>"family_name":"Miller" | Apoiado em MSA e Azure AD. Requer o alcance `profile`.   |
+| `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do utilizador, conforme definido no objeto do utilizador.<br>"given_name": "Frank"                   | Suportado em MSA e Azure AD.  Requer o alcance `profile`. |
+| `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador durável para o utilizador e não deve ser utilizado para dados chave. | Consulte [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para configurar a reclamação. Requer o alcance `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de reclamações opcionais
 
@@ -117,12 +117,13 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
         }
     ```
 
-Este objeto OptionalClaims faz com que o token de ID devolvido ao cliente inclua outro upn com a informação adicional de inquilino de casa e inquilino de recursos. A `upn` reclamação só é alterada no símbolo se o utilizador for hóspede no inquilino (que utiliza um IDP diferente para autenticação). 
+Este objeto OptionalClaims faz com que o token de ID devolvido ao cliente inclua uma reclamação upn com o inquilino adicional e informações de inquilino de recursos. A `upn` reclamação só é alterada no símbolo se o utilizador for hóspede no inquilino (que utiliza um IDP diferente para autenticação). 
 
 ## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
 
 > [!IMPORTANT]
 > As fichas de acesso são **sempre** geradas usando o manifesto do recurso, não o cliente.  Assim, no pedido `...scope=https://graph.microsoft.com/user.read...` o recurso é a API do Microsoft Graph.  Assim, o token de acesso é criado usando o manifesto Microsoft Graph API, e não o manifesto do cliente.  Alterar o manifesto para a sua aplicação nunca fará com que os tokens para que a API do Microsoft Graph pareça diferente.  Para validar que as alterações `accessToken` estão em vigor, solicite um sinal para a sua aplicação e não outra aplicação.  
+
 
 Pode configurar reclamações opcionais para a sua aplicação através do UI ou do manifesto de aplicação.
 
@@ -207,7 +208,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 | `additionalProperties` | Coleção (Edm.String) | Propriedades adicionais da reclamação. Se existir uma propriedade nesta coleção, modifica o comportamento da reclamação opcional especificada na propriedade do nome.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurar pedidos opcionais de extensão de diretório
 
-Além do conjunto de reclamações opcionais padrão, também pode configurar fichas para incluir extensões. Esta funcionalidade é útil para anexar informações adicionais do utilizador que a sua aplicação pode utilizar – por exemplo, um identificador adicional ou uma opção de configuração importante que o utilizador definiu. Veja a parte inferior desta página, por exemplo.
+Além do conjunto de reclamações opcionais padrão, também pode configurar fichas para incluir extensões. Para mais informações, consulte [a documentação de extensão do Microsoft GraphProperty](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) - note que o esquema e as extensões abertas não são suportados por reclamações opcionais, apenas as extensões de diretório de estilo AAD-Graph. Esta funcionalidade é útil para anexar informações adicionais do utilizador que a sua aplicação pode utilizar – por exemplo, um identificador adicional ou uma opção de configuração importante que o utilizador definiu. Veja a parte inferior desta página, por exemplo.
 
 > [!NOTE]
 > - As extensões de esquema de diretório são uma funcionalidade só para a AD Azure, pelo que se o manifesto da sua aplicação solicitar uma extensão personalizada e um utilizador da MSA entrar na sua aplicação, estas extensões não serão devolvidas.
@@ -269,7 +270,7 @@ Esta secção cobre as opções de configuração sob pedidos opcionais para alt
    Se pretender que os grupos no token contenham os atributos do grupo AD nas instalações na secção de reclamações opcionais especifiquem a que tipo token reclamação opcional deve ser aplicada, o nome da reclamação opcional solicitada e quaisquer propriedades adicionais desejadas.  Vários tipos de fichas podem ser listados:
 
    - idToken para o token id OIDC
-   - acessoToken para o token de acesso OAuth/OIDC
+   - acessoToken para o token de acesso OAuth
    - Saml2Token para fichas SAML.
 
    > [!NOTE]

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 65465c6897853617f7f33a989f97d01fb0518a5e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c1b4390282f6d54178365714b1e2e665b4cf061
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304423"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136505"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
@@ -57,4 +57,4 @@ Quando completar o arranque rápido, tem uma aplicação pronta a funcionar. Par
 
 O Microsoft Graph Explorer é uma ferramenta baseada na Web que pode supor para construir e testar pedidos usando APIs do Microsoft Graph. Pode aceder ao Microsoft Graph Explorer em: `https://developer.microsoft.com/graph/graph-explorer`.
 
-O carteiro é uma ferramenta que também pode usar para construir e testar pedidos utilizando as APIs do Microsoft Graph. Você pode baixar O Carteiro em: `https://www.getpostman.com/`. Para interagir com o Microsoft Graph em Postman, utiliza a coleção Microsoft Graph no Postman. Para mais informações, consulte [Use Postman com a Microsoft Graph API](https://docs.microsoft.comgraph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+O carteiro é uma ferramenta que também pode usar para construir e testar pedidos utilizando as APIs do Microsoft Graph. Você pode baixar O Carteiro em: `https://www.getpostman.com/`. Para interagir com o Microsoft Graph em Postman, utiliza a coleção Microsoft Graph no Postman. Para mais informações, consulte [Use Postman com a Microsoft Graph API](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

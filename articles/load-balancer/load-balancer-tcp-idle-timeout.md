@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
 ms.openlocfilehash: 39cd5b5d6e9d6007994ccc29732186ec6a8bdc2e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381031"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284138"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configure as definições de tempo de tempo inativa do TCP para o Equilíbrio de Carga Sinuoso Azure
 
@@ -61,7 +61,7 @@ Para definir o tempo inativo para um equilibrador de carga, o 'IdleTimeoutInMinu
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
 $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral do equilíbrio de carga interna](load-balancer-internal-overview.md)
 

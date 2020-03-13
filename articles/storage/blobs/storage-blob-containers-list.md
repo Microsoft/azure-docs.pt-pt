@@ -1,6 +1,6 @@
 ---
-title: Listar contêineres de blob com .NET-armazenamento do Azure
-description: Saiba como listar contêineres de BLOB em sua conta de armazenamento do Azure usando a biblioteca de cliente .NET.
+title: Lista de recipientes blob com .NET - Armazenamento Azure
+description: Saiba como listar os recipientes blob na sua conta de Armazenamento Azure utilizando a biblioteca de clientes .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,45 +8,45 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ac8fe2e5bf1c338fa67619a675225eb80256c3f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690996"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135909"
 ---
-# <a name="list-blob-containers-with-net"></a>Listar contêineres de blob com .NET
+# <a name="list-blob-containers-with-net"></a>Listar recipientes blob com .NET
 
-Ao listar os contêineres em uma conta de armazenamento do Azure do seu código, você pode especificar várias opções para gerenciar como os resultados são retornados do armazenamento do Azure. Este artigo mostra como listar contêineres usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).  
+Quando lista os contentores numa conta de Armazenamento Azure a partir do seu código, pode especificar várias opções para gerir a forma como os resultados são devolvidos do Armazenamento Azure. Este artigo mostra como listar contentores utilizando a [biblioteca de clientes azure storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
-## <a name="understand-container-listing-options"></a>Entender as opções de listagem de contêiner
+## <a name="understand-container-listing-options"></a>Compreender as opções de listagem de contentores
 
-Para listar os contêineres em sua conta de armazenamento, chame um dos seguintes métodos:
+Para listar os contentores na sua conta de armazenamento, ligue para um dos seguintes métodos:
 
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
 
-As sobrecargas para esses métodos fornecem opções adicionais para o gerenciamento de como os contêineres são retornados pela operação de listagem. Essas opções são descritas nas seções a seguir.
+As sobrecargas para estes métodos fornecem opções adicionais para gerir a forma como os contentores são devolvidos pela operação de listagem. Estas opções são descritas nas seguintes secções.
 
-### <a name="manage-how-many-results-are-returned"></a>Gerenciar quantos resultados são retornados
+### <a name="manage-how-many-results-are-returned"></a>Gerir quantos resultados são devolvidos
 
-Por padrão, uma operação de listagem retorna até 5000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero para o parâmetro `maxresults` ao chamar um dos métodos **ListContainerSegmented** .
+Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez. Para devolver um conjunto menor de resultados, forneça um valor não zero para o parâmetro `maxresults` ao ligar para um dos métodos **Segmentados listContainer.**
 
-Se sua conta de armazenamento contiver mais de 5000 contêineres ou se você tiver especificado um valor para `maxresults` de modo que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com a lista de contêineres. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do armazenamento do Azure.
+Se a sua conta de armazenamento contiver mais de 5000 contentores, ou se tiver especificado um valor para `maxresults` de modo a que a operação de cotação deredere um subconjunto de contentores na conta de armazenamento, então o Armazenamento Azure devolve um símbolo de *continuação* com a lista de contentores. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Armazenamento Azure.
 
-Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, o conjunto de resultados é concluído. Se o token de continuação não for nulo, chame **ListContainersSegmented** ou **ListContainersSegmentedAsync** novamente, passando o token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
+No seu código, verifique o valor do símbolo de continuação para determinar se é nulo. Quando o sinal de continuação é nulo, então o conjunto de resultados está completo. Se o token de continuação não for nulo, ligue novamente para **listContainersSegmented** ou **ListContainersSegmentedAsync,** passando no token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
-### <a name="filter-results-with-a-prefix"></a>Filtrar resultados com um prefixo
+### <a name="filter-results-with-a-prefix"></a>Resultados do filtro com prefixo
 
-Para filtrar a lista de contêineres, especifique uma cadeia de caracteres para o parâmetro `prefix`. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. Em seguida, o armazenamento do Azure retorna somente os contêineres cujos nomes começam com esse prefixo.
+Para filtrar a lista de recipientes, especifique uma corda para o parâmetro `prefix`. A cadeia de prefixo pode incluir um ou mais caracteres. O Azure Storage devolve apenas os contentores cujos nomes começam com esse prefixo.
 
-### <a name="return-metadata"></a>Retornar metadados
+### <a name="return-metadata"></a>Devolver metadados
 
-Para retornar metadados de contêiner com os resultados, especifique o valor de **metadados** para a enumeração [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . O armazenamento do Azure inclui metadados com cada contêiner retornado, portanto, você também não precisa chamar um dos métodos **fetchattributes** para recuperar os metadados do contêiner.
+Para devolver metadados do recipiente com os resultados, especifique o valor **metadados** para a enumeração [De Listagem de Contentores.](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) O Azure Storage inclui metadados com cada recipiente devolvido, pelo que não precisa de chamar também um dos métodos **FetchApara** recuperar os metadados do recipiente.
 
-## <a name="example-list-containers"></a>Exemplo: listar contêineres
+## <a name="example-list-containers"></a>Exemplo: Lista de contentores
 
-O exemplo a seguir lista de forma assíncrona os contêineres em uma conta de armazenamento que começam com um prefixo especificado. O exemplo lista os contêineres em incrementos de 5 resultados por vez e usa o token de continuação para obter o próximo segmento de resultados. O exemplo também retorna metadados de contêiner com os resultados.
+O exemplo seguinte lista os recipientes numa conta de armazenamento que começa com um prefixo especificado. O exemplo lista os contentores em incrementos de 5 resultados de cada vez, e usa o token de continuação para obter o próximo segmento de resultados. O exemplo também devolve metadados de contentores com os resultados.
 
 ```csharp
 private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
@@ -98,7 +98,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-[Listar contêineres](/rest/api/storageservices/list-containers2)
-[enumerando recursos de blob](/rest/api/storageservices/enumerating-blob-resources)
+[Lista de contentores](/rest/api/storageservices/list-containers2)
+[enumerando recursos blob](/rest/api/storageservices/enumerating-blob-resources)

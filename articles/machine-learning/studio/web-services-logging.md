@@ -1,6 +1,6 @@
 ---
-title: Log do serviço Web-Azure Machine Learning Studio (clássico) | Microsoft Docs
-description: Saiba como habilitar o registro em log para serviços da Web Machine Learning Studio (clássico). O registo fornece informações adicionais para ajudar a resolver problemas relacionados com as APIs.
+title: Exploração madeireira de serviço web - Azure Machine Learning Studio (clássico) Microsoft Docs
+description: Saiba como ativar o loglogging para serviços web machine learning studio (clássicos). O registo fornece informações adicionais para ajudar a resolver problemas relacionados com as APIs.
 services: machine-learning
 author: xiaoharper
 ms.custom: seodec18
@@ -11,59 +11,62 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427399"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217852"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitar o registro em log para serviços Web Azure Machine Learning Studio (clássico)
-Este documento fornece informações sobre o recurso de log dos serviços Web Machine Learning Studio (clássico). O registro em log fornece informações adicionais, além de apenas um número de erro e uma mensagem, que podem ajudá-lo a solucionar suas chamadas para as APIs de Machine Learning Studio (clássicas).  
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Ativar a exploração de serviços web Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+Este documento fornece informações sobre a capacidade de registo de serviços web do Machine Learning Studio (clássico). O registo fornece informações adicionais, além de apenas um número de erro e uma mensagem, que podem ajudá-lo a resolver as suas chamadas para o Machine Learning Studio (clássico) APIs.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Como ativar o registo de um serviço Web
 
-Você habilita o registro em log no portal de [Serviços Web Azure Machine Learning Studio (clássico)](https://services.azureml.net) . 
+Permite a exploração de registo sessão a partir do portal [de Serviços Web Azure Machine Learning Studio (clássico).](https://services.azureml.net) 
 
-1. Entre no portal de serviços Web Azure Machine Learning Studio (clássico) em [https://services.azureml.net](https://services.azureml.net). Para um serviço Web clássico, você também pode acessar o portal clicando em **nova experiência de serviços Web** na página de serviços Web Machine Learning Studio (clássico) no Studio (clássico).
+1. Inscreva-se no portal azure machine learning studio (clássico) web services no [https://services.azureml.net](https://services.azureml.net). Para um serviço web Clássico, você também pode chegar ao portal clicando em **New Web Services Experience** na página de Serviços Web Machine Learning Studio (clássico) em Studio (clássico).
 
    ![Nova ligação de experiência de serviços da Web](./media/web-services-logging/new-web-services-experience-link.png)
 
-2. Na barra de menus superior, clique em **serviços Web** para um novo serviço web ou clique em **serviços Web clássicos** para um clássico de serviço web.
+2. Na barra de menu superior, clique em **Web Services** para um novo serviço web ou clique em **Serviços Web Clássicos** para um serviço web clássico.
 
    ![Selecione o novo ou clássico serviços da web](./media/web-services-logging/select-web-service.png)
 
 3. Para um novo serviço web, clique no nome de serviço da web. Para um serviço web clássico, clique no nome de serviço da web e, em seguida, na página seguinte, clique o ponto final adequado.
 
-4. Na barra de menus superior, clique em **configurar**.
+4. Na barra de menu superior, clique **em Configurar**.
 
-5. Definir o **Enable Logging** a opção de *erro* (para iniciar sessão apenas erros) ou *todos os* (para o registo completo).
+5. Detete a opção **Ativar** o registo ao *Erro* (para registar apenas erros) ou *Tudo* (para o registo completo).
 
    ![Selecione o nível de registo](./media/web-services-logging/enable-logging.png)
 
 6. Clique em **Guardar**.
 
-7. Para serviços da web clássico, criar os **ml-diagnostics** contentor.
+7. Para os serviços web clássicos, crie o recipiente **de diagnóstico ml.**
 
-   Todos os registos de serviço da web são mantidos num contentor de Blobs com o nome **ml-diagnostics** na conta de armazenamento associada ao serviço web. Para novos serviços web, este contentor é criado na primeira vez que aceder ao serviço web. Para serviços da web clássico, terá de criar o contentor se ainda não exista. 
+   Todos os registos de serviço web são guardados num recipiente de blob denominado **ml-diagnósticos** na conta de armazenamento associada ao serviço web. Para novos serviços web, este contentor é criado na primeira vez que aceder ao serviço web. Para serviços da web clássico, terá de criar o contentor se ainda não exista. 
 
-   1. Na [portal do Azure](https://portal.azure.com), vá para a conta de armazenamento associada ao serviço web.
+   1. No [portal Azure,](https://portal.azure.com)vá à conta de armazenamento associada ao serviço web.
 
    2. Em **Serviço Blob**, clique em **Contentores**.
 
-   3. Se o contentor **ml-diagnostics** não existir, clique em **+ contentor**, dê o contentor a. o nome "ml-diagnostics" e selecione o **acessar tipo** como "Blob". Clique em **OK**.
+   3. Se o recipiente **ml-diagnóstico** não existir, clique em **+Contentor,** dê ao recipiente o nome "ml-diagnósticos", e selecione o **tipo de Acesso** como "Blob". Clique em **OK**.
 
-      ![Criar um novo contêiner para armazenar seus logs de diagnóstico](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Crie um novo recipiente para armazenar os seus registos de diagnóstico](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> Para um serviço Web clássico, o painel de serviços Web no Machine Learning Studio (clássico) também tem uma opção para habilitar o registro em log. No entanto, uma vez que o registo é agora gerenciado através do portal de serviços da Web, terá de ativar o registo através do portal conforme descrito neste artigo. Se você já tiver habilitado o log no Studio (clássico), no portal de serviços Web, desabilite o registro em log e habilite-o novamente.
+> Para um serviço web Clássico, o Painel de Serviços Web no Machine Learning Studio (clássico) também tem um interruptor para ativar a exploração madeireira. No entanto, uma vez que o registo é agora gerenciado através do portal de serviços da Web, terá de ativar o registo através do portal conforme descrito neste artigo. Se já permitiu a exploração madeireira no Studio (clássico), então no Portal dos Serviços Web, desative o registo e ative-o novamente.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Os efeitos de ativar o registo
-Quando o registo está ativado, os diagnósticos e erros do ponto de final de serviço da web estiver conectados a **ml-diagnostics** contentor de BLOBs na conta de armazenamento do Azure que está associado ao espaço de trabalho do utilizador. Este contentor armazena todas as informações de diagnóstico para todos os web pontos finais de serviço para todas as áreas de trabalho associados a esta conta de armazenamento.
+Quando o registo está ativado, os diagnósticos e erros do ponto final do serviço web são registados no recipiente blob **ml-diagnóstico na** Conta de Armazenamento Azure ligada ao espaço de trabalho do utilizador. Este contentor armazena todas as informações de diagnóstico para todos os web pontos finais de serviço para todas as áreas de trabalho associados a esta conta de armazenamento.
 
-Os registos podem ser exibidos em qualquer uma das várias ferramentas disponíveis para explorar uma conta de armazenamento do Azure. O mais fácil pode ser navegar para a conta de armazenamento no portal do Azure, clique em **contentores**e, em seguida, clique em contentor **ml-diagnostics**.  
+Os registos podem ser exibidos em qualquer uma das várias ferramentas disponíveis para explorar uma conta de armazenamento do Azure. O mais fácil pode ser navegar para a conta de armazenamento no portal Azure, clicar em **Contentores,** e, em seguida, clicar no recipiente **ml-diagnósticos**.  
 
 ## <a name="log-blob-detail-information"></a>Informações de detalhe de blob de registo
 Cada blob no contentor contém as informações de diagnóstico do exatamente uma das seguintes ações:
@@ -78,9 +81,9 @@ O nome de cada blob tem um prefixo da seguinte forma:
 `{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
 
-Em que _tipo de registo_ é um dos seguintes valores:  
+Quando o _tipo de Registo_ é um dos seguintes valores:  
 
-* batch  
+* lote  
 * pontuação/pedidos  
 * pontuação/init  
 

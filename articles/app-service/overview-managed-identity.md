@@ -7,11 +7,11 @@ ms.date: 03/04/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.openlocfilehash: 6e3169f2bfcba0a02af1490f875cbab8a14d02f6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365533"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280030"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -257,7 +257,7 @@ O **MSI_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solic
 > |-----|-----|-----|
 > |resource|Consulta|O recurso AAD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.|
 > |api-version|Consulta|A versão da API simbólica a ser utilizada. "2017-09-01" é atualmente a única versão suportada.|
-> |secret|Cabeçalho|O valor da variável ambiente MSI_SECRET. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação de pedido do lado do servidor (SSRF).|
+> |segredo|Cabeçalho|O valor da variável ambiente MSI_SECRET. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação de pedido do lado do servidor (SSRF).|
 > |clientid|Consulta|(Opcional, a menos que para o utilizador atribuído) A identificação da identidade atribuída ao utilizador a utilizar. Se omitida, a identidade atribuída ao sistema é utilizada.|
 
 > [!IMPORTANT]
@@ -428,7 +428,7 @@ A remoção de uma identidade atribuída ao sistema desta forma também a elimin
 > [!NOTE]
 > Há também uma definição de aplicação que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de fichas local. No entanto, deixa a identidade no lugar, e a ferramenta ainda mostrará a identidade gerida como "on" ou "habilitada". Como resultado, não é recomendada a utilização desta definição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Access SQL Database de forma segura usando uma identidade gerida](app-service-web-tutorial-connect-msi.md)

@@ -4,11 +4,11 @@ description: Documentação de referência para o ficheiro host.json funções a
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357608"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277001"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 

@@ -1,6 +1,6 @@
 ---
-title: Criar ou excluir um contêiner de blob com .NET-armazenamento do Azure
-description: Saiba como criar ou excluir um contêiner de BLOB em sua conta de armazenamento do Azure usando a biblioteca de cliente .NET.
+title: Criar ou eliminar um recipiente de bolha com .NET - Armazenamento Azure
+description: Aprenda a criar ou apagar um recipiente de blob na sua conta de Armazenamento Azure utilizando a biblioteca de clientes .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,45 +8,45 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372215"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135943"
 ---
-# <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Criar ou excluir um contêiner no armazenamento do Azure com o .NET
+# <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Criar ou eliminar um recipiente no Armazenamento Azure com .NET
 
-Os BLOBs no armazenamento do Azure são organizados em contêineres. Antes de carregar um blob, você deve primeiro criar um contêiner. Este artigo mostra como criar e excluir contêineres com a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).
+As bolhas no Armazenamento Azure estão organizadas em contentores. Antes de poder fazer o upload de uma bolha, primeiro deve criar um recipiente. Este artigo mostra como criar e apagar contentores com a [biblioteca de clientes azure storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="name-a-container"></a>Nomear um contêiner
+## <a name="name-a-container"></a>Nomeie um recipiente
 
-Um nome de contêiner deve ser um nome DNS válido, pois ele faz parte do URI exclusivo usado para endereçar o contêiner ou seus BLOBs. Siga estas regras ao nomear um contêiner:
+Um nome de recipiente deve ser um nome DNS válido, uma vez que faz parte do URI único utilizado para dirigir o recipiente ou as suas bolhas. Siga estas regras ao nomear um recipiente:
 
-- Os nomes de contêiner podem ter entre 3 e 63 caracteres de comprimento.
-- Os nomes de contêiner devem começar com uma letra ou número e podem conter apenas letras minúsculas, números e o caractere de traço (-).
-- Dois ou mais caracteres de traço consecutivos não são permitidos em nomes de contêineres.
+- Os nomes dos contentores podem ter entre 3 e 63 caracteres de comprimento.
+- Os nomes do recipiente devem começar com uma letra ou número, e podem conter apenas letras minúsculas, números e o carácter do traço (-)
+- Dois ou mais caracteres consecutivos de traços não são permitidos em nomes de contentores.
 
-O URI para um contêiner está neste formato:
+O URI para um recipiente está neste formato:
 
 `https://myaccount.blob.core.windows.net/mycontainer`
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Para criar um contêiner, chame um dos seguintes métodos:
+Para criar um recipiente, ligue para um dos seguintes métodos:
 
 - [Criar](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
-- [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
+- [Criarifnotexist](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
 
-Os métodos **Create** e **createasync** lançam uma exceção se já existir um contêiner com o mesmo nome.
+Os métodos **Create** and **CreateAsync** lançam uma exceção se um recipiente com o mesmo nome já existir.
 
-Os métodos **CreateIfNotExists** e **CreateIfNotExistsAsync** retornam um valor booliano que indica se o contêiner foi criado. Se já existir um contêiner com o mesmo nome, esses métodos retornarão **false** para indicar que um novo contêiner não foi criado.
+Os métodos **CreateIfNotExists** e **CreateIfNotExistsAsync** devolvem um valor booleano indicando se o recipiente foi criado. Se um recipiente com o mesmo nome já existir, então estes métodos retornam **Falsos** para indicar que um novo recipiente não foi criado.
 
-Os contêineres são criados imediatamente abaixo da conta de armazenamento. Não é possível aninhar um contêiner abaixo de outro.
+Os recipientes são criados imediatamente abaixo da conta de armazenamento. Não é possível nidificar um contentor debaixo do outro.
 
-O exemplo a seguir cria um contêiner de forma assíncrona:
+O exemplo seguinte cria um recipiente assincronicamente:
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
@@ -79,15 +79,15 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
 }
 ```
 
-## <a name="create-the-root-container"></a>Criar o contêiner raiz
+## <a name="create-the-root-container"></a>Criar o recipiente de raiz
 
-Um contêiner raiz serve como um contêiner padrão para sua conta de armazenamento. Cada conta de armazenamento pode ter um contêiner raiz, que deve ser nomeado *$root.* . Você deve criar explicitamente ou excluir o contêiner raiz.
+Um recipiente de raiz serve como recipiente padrão para a sua conta de armazenamento. Cada conta de armazenamento pode ter um recipiente de raiz, que deve ser denominado *$root.* . . Deve criar ou eliminar explicitamente o recipiente de raiz.
 
-Você pode fazer referência a um blob armazenado no contêiner raiz sem incluir o nome do contêiner raiz. O contêiner raiz permite que você referencie um blob no nível superior da hierarquia da conta de armazenamento. Por exemplo, você pode fazer referência a um blob que reside no contêiner raiz da seguinte maneira:
+Pode fazer referência a uma bolha armazenada no recipiente de raiz sem incluir o nome do recipiente de raiz. O recipiente de raiz permite-lhe fazer referência a uma bolha no nível superior da hierarquia da conta de armazenamento. Por exemplo, pode fazer referência a uma bolha que reside no recipiente de raiz da seguinte forma:
 
 `https://myaccount.blob.core.windows.net/default.html`
 
-O exemplo a seguir cria o contêiner raiz de forma síncrona:
+O exemplo seguinte cria o recipiente de raiz sincronizadamente:
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -117,20 +117,20 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 ## <a name="delete-a-container"></a>Eliminar um contentor
 
-Para excluir um contêiner no .NET, use um dos seguintes métodos:
+Para eliminar um recipiente em .NET, utilize um dos seguintes métodos:
 
 - [Eliminar](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
-- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
-- [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
+- [Eliminarifexista](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
+- [Eliminar IfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
 
-Os métodos **delete** e **DeleteAsync** geram uma exceção se o contêiner não existir.
+Os métodos **Delete** e **DeleteAsync** atiram uma exceção se o recipiente não existir.
 
-Os métodos **DeleteIfExists** e **DeleteIfExistsAsync** retornam um valor booliano que indica se o contêiner foi excluído. Se o contêiner especificado não existir, esses métodos retornarão **false** para indicar que o contêiner não foi excluído.
+Os métodos **DeleteIfExists** e **DeleteIfExistsAsync** devolvem um valor booleano indicando se o recipiente foi eliminado. Se o recipiente especificado não existir, estes métodos retornam **falsos** para indicar que o recipiente não foi apagado.
 
-Depois de excluir um contêiner, você não pode criar um contêiner com o mesmo nome por pelo menos 30 segundos e possivelmente mais longo. Enquanto o contêiner está sendo excluído, uma tentativa de criar um contêiner com o mesmo nome falhará com o código de erro HTTP 409 (conflito). Qualquer outra operação no contêiner ou nos BLOBs que ele contém falhará com o código de erro HTTP 404 (não encontrado) enquanto o contêiner está sendo excluído.
+Depois de apagar um recipiente, não pode criar um recipiente com o mesmo nome durante pelo menos 30 segundos, e possivelmente mais tempo. Enquanto o recipiente está a ser apagado, uma tentativa de criar um recipiente com o mesmo nome falhará com o código de erro HTTP 409 (Conflito). Quaisquer outras operações no recipiente ou nas bolhas que contém falharão com o código de erro HTTP 404 (Não Encontrado) enquanto o recipiente estiver a ser eliminado.
 
-O exemplo a seguir exclui o contêiner especificado e manipula a exceção se o contêiner não existir:
+O seguinte exemplo elimina o recipiente especificado e trata da exceção se o recipiente não existir:
 
 ```csharp
 private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient, string containerName)
@@ -153,7 +153,7 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 }
 ```
 
-O exemplo a seguir mostra como excluir todos os contêineres que começam com um prefixo especificado. O exemplo interromperá a concessão se houver uma concessão existente no contêiner.
+O exemplo que se segue mostra como eliminar todos os recipientes que começam com um prefixo especificado. O exemplo quebra o arrendamento se houver um arrendamento existente no contentor.
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [Criar operação de contêiner](/rest/api/storageservices/create-container)
+- [Criar operação de contentores](/rest/api/storageservices/create-container)
 - [Operação Eliminar Contentor](/rest/api/storageservices/delete-container)

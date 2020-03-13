@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 03/04/2020
 ms.custom: mvc
 ms.openlocfilehash: 347f2fbc0f12aa775c42dbb14a4625dc509a20ed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373099"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239659"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerencie atualizações e patches para os seus VMs Azure
 

@@ -4,11 +4,11 @@ description: Monitorizar as aplicações do Núcleo net/.NET Framework non-HTTP 
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.openlocfilehash: 2d4b3a38b059d603c96fc9267b44707ed32c8c1d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362150"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275662"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Informações de aplicação para aplicações de serviço ao trabalhador (aplicações não HTTP)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8ba01ea8a443c4f8a3a8e7b911dcc605ee61ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 149718dcd325ef6bd6a6754ba100ffdc34be0a07
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967695"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136419"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a SignalFx
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a integrar o SignalFx com o Azure Ative Directo
 * Permitir que os seus utilizadores sejam automaticamente inscritos no SignalFx com as suas contas Azure AD; e
 * Gerencie as suas contas num local (portal Azure).
 
-Para saber mais sobre a integração de aplicações saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicações saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ Utilize estas instruções para adicionar a aplicação SignalFx à sua lista de
 1. Selecione **aplicações Enterprise**e, em seguida, selecione **Todas as aplicações**.
 1. Selecione **Nova aplicação**.
 1. No Add da secção **galeria,** na caixa de pesquisa, introduza e selecione **SignalFx**.
-    * Poderá ter de esperar alguns minutos para que o pedido seja adicionado ao seu inquilino.
+     * Poderá ter de esperar alguns minutos para que o pedido seja adicionado ao seu inquilino.
 1. Deixe o portal Azure aberto e, em seguida, abra um novo separador web.    
 
 ## <a name="step-2-begin-signalfx-sso-configuration"></a>Passo 2: Iniciar a configuração SignalFx SSO
@@ -175,7 +175,7 @@ Reveja as seguintes informações sobre como testar o SSO, bem como as expectati
 
 - [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

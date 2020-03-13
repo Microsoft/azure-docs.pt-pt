@@ -4,11 +4,11 @@ description: Saiba como criar uma política azure de configuração de hóspedes
 ms.date: 12/16/2019
 ms.topic: how-to
 ms.openlocfilehash: 8bd769b61ed87c9ded45ceca11586cfe105740c9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387247"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264586"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de hóspedes
 

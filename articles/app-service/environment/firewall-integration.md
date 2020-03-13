@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391816"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243864"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloquear um ambiente de serviço de aplicações
 

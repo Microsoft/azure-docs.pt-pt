@@ -9,11 +9,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 7b7a3a0a87996358436df9f7ee4a266574c0b7db
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385526"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283345"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a sua conta de Mercado Comercial no Partner Center
 
@@ -59,7 +59,7 @@ Na secção de dados da Conta, pode ver informações básicas, como o tipo de *
 
 Na secção de IDs da Editora, pode ver o seu **ID Symantec,** ID do **vendedor,** **ID do utilizador,** **ID MPN**e **inquilinos da AD Azure**. Estes valores são atribuídos pela Microsoft para identificar exclusivamente a sua conta de desenvolvedor e não podem ser editados.
 
-### <a name="contact-info"></a>Informação de contacto
+### <a name="contact-info"></a>Informações de contacto
 
 Na secção de informações de Contacto, pode ver o nome de **exibição**do Editor, **informações** de contacto do Vendedor (nome de contacto, e-mail, número de telefone e endereço para o vendedor da empresa) e o **aprovador** da Empresa (nome, e-mail e número de telefone do indivíduo com autoridade para aprovar decisões para a empresa).
 
@@ -352,6 +352,6 @@ A secção de **Acordos** do Partner Center (em Definições de **Conta)** permi
 
 **As ações necessárias** podem aparecer no topo desta página se houver atualizações de acordo que precisem da sua atenção. Para aceitar um acordo atualizado, leia primeiro a versão do Acordo vinculado e, em seguida, **selecione aceitar o acordo**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma nova oferta SaaS](./create-new-saas-offer.md)

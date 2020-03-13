@@ -7,11 +7,11 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367663"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276130"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -45,11 +45,11 @@ Pode analisar a telemetria resultante executando uma consulta:
 
 Nos resultados, note que todos os artigos de telemetria partilham a raiz `operation_Id`. Quando uma chamada do Ajax é feita a partir da página, um novo ID único (`qJSXU`) é atribuído à telemetria de dependência, e o ID da páginaView é usado como `operation_ParentId`. O pedido do servidor utiliza então o ID do Ajax como `operation_ParentId`.
 
-| ItemType   | nome                      | ID           | operation_ParentId | operation_Id |
+| artigoType   | nome                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | páginaVer   | Página de stock                |              | Rio STYz               | Rio STYz         |
 | dependência | GET /Casa/Stock           | qJSXU        | Rio STYz               | Rio STYz         |
-| request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | Rio STYz         |
+| pedido    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | Rio STYz         |
 | dependência | GET /api/stock/valor      | bBrf2L7mm2g= | KqKwlrSt9PA=       | Rio STYz         |
 
 Quando a chamada `GET /api/stock/value` é feita para um serviço externo, você precisa saber a identidade desse servidor para que possa definir o campo `dependency.target` adequadamente. Quando o serviço externo não suporta a monitorização, `target` é definido para o nome de anfitrião do serviço (por exemplo, `stock-prices-api.com`). Mas se o serviço se identificar devolvendo um cabeçalho HTTP predefinido, `target` contém a identidade de serviço que permite que a Application Insights construa um traço distribuído consultando a telemetria desse serviço.

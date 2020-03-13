@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e83ecb3888ed4b19933233f3ab511d1e86fb37af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721579"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136995"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa em Pesquisa Cognitiva Azure
 Este artigo fornece orientações sobre como implementar elementos padrão de uma página de resultados de pesquisa, tais como contagem total, recuperação de documentos, ordenar ordens e navegação. As opções relacionadas com a página que contribuem com dados ou informações para os resultados da sua pesquisa são especificadas através dos pedidos do Documento de [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviados para o seu serviço de Pesquisa Cognitiva Azure. 
@@ -25,7 +25,7 @@ Para gerar rapidamente uma página de pesquisa para o seu cliente, explore estas
 + Utilize o gerador de [aplicação](search-create-app-portal.md) no portal para criar uma página HTML com uma barra de pesquisa, navegação faceada e área de resultados.
 + Siga a [Create a C# sua primeira aplicação em](tutorial-csharp-create-first-app.md) tutorial para criar um cliente funcional.
 
-Várias amostras de código incluem uma interface frontal web, que você pode encontrar aqui: [new York City Jobs demo app](https://azjobsdemo.azurewebsites.net/), Código de amostra [JavaScript com um site de demonstração ao vivo](https://github.com/liamca/azure-search-javascript-samples), e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Várias amostras de código incluem uma interface frontal web, que você pode encontrar aqui: [new York City Jobs demo app](https://aka.ms/azjobsdemo), Código de amostra [JavaScript com um site de demonstração ao vivo](https://github.com/liamca/azure-search-javascript-samples), e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Um pedido válido inclui uma série de elementos, tais como um URL de serviço e caminho, verbo HTTP, `api-version`, e assim por diante. Para a brevidade, aparamos os exemplos para destacar apenas a sintaxe que é relevante para a paginação. Para mais informações sobre a sintaxe de pedido, consulte [AFP](https://docs.microsoft.com/rest/api/searchservice)
@@ -123,7 +123,7 @@ Pode enviar um filtro com ou sem expressão de pesquisa. Por exemplo, o seguinte
 
 Consulte documentos de [pesquisa (API de pesquisa cognitiva azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter mais informações sobre `$filter` expressões.
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Veja Também
 
 - [API de pesquisa cognitiva azure](https://docs.microsoft.com/rest/api/searchservice)
 - [Operações indexadas](https://docs.microsoft.com/rest/api/searchservice/Index-operations)

@@ -12,11 +12,11 @@ ms.reviewer: nibaccam
 ms.date: 02/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: 36d622bf2873b7e629a0f6abeecded33e32898f5
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082654"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283735"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Dados de acesso nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]

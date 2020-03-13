@@ -4,11 +4,11 @@ description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 09/29/2019
 ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368044"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276000"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
 
@@ -38,7 +38,7 @@ Os SDKs de Insights de Aplicação estão disponíveis para uma série de tipos 
 ## <a name="what-data-does-it-collect"></a>Que dados recolhe?
 Existem três fontes de dados:
 
-* O SDK, que integra com a sua app em desenvolvimento ou [em tempo de execução.](../../azure-monitor/app/monitor-performance-live-website-now.md) [](../../azure-monitor/app/asp-net.md) Existem diferentes SDKs para diferentes tipos de aplicações. Há também um [SDK para páginas web](../../azure-monitor/app/javascript.md), que se carrega no navegador do utilizador final juntamente com a página.
+* O SDK, que integra com a sua app em desenvolvimento ou [em tempo de execução.](../../azure-monitor/app/monitor-performance-live-website-now.md) [in development](../../azure-monitor/app/asp-net.md) Existem diferentes SDKs para diferentes tipos de aplicações. Há também um [SDK para páginas web](../../azure-monitor/app/javascript.md), que se carrega no navegador do utilizador final juntamente com a página.
   
   * Cada SDK tem uma série de [módulos,](../../azure-monitor/app/configuration-with-applicationinsights-config.md)que utilizam diferentes técnicas para recolher diferentes tipos de telemetria.
   * Se instalar o SDK em desenvolvimento, pode utilizar a sua API para enviar a sua própria telemetria, além dos módulos padrão. Esta telemetria personalizada pode incluir todos os dados que pretenda enviar.

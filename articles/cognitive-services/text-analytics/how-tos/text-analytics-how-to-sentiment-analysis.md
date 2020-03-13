@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/10/2020
+ms.date: 03/09/2020
 ms.author: aahi
-ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197475"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203462"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar o sentimento utilizando a API de Análise de Texto
 
@@ -160,7 +160,7 @@ A API de Análise de Texto é apátrida. Não são armazenados dados na sua cont
 
 O analisador de sentimentos classifica o texto como predominantemente positivo ou negativo. Atribui uma pontuação na gama de 0 a 1. Os valores próximos de 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma corda não pode ser analisada por sentimento ou não tem sentimento, a pontuação é sempre 0,5 exatamente. Por exemplo, se passar por uma cadeia de carateres em espanhol com um código de idioma em inglês, a pontuação é 0,5.
 
-O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite a JSON ou guardar a saída para um ficheiro no sistema local. Em seguida, importe a produção para uma aplicação que pode usar para classificar, pesquisar e manipular os dados.
+O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite a JSON ou guardar a saída para um ficheiro no sistema local. Em seguida, importe a produção para uma aplicação que pode usar para classificar, pesquisar e manipular os dados. Devido ao suporte multilingual e emoji, a resposta pode conter compensações de texto. Veja [como processar compensações](../concepts/text-offsets.md) para mais informações.
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 

@@ -14,11 +14,11 @@ ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
 ms.openlocfilehash: 21e35afc72aa9824baa1076abe0e767ce4935c28
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391106"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279705"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>

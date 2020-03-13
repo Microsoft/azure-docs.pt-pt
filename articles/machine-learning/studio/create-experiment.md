@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: ebde02d222502c58536269243343b21271f19269
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168860"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204567"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência em ciência de dados no Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -59,7 +61,7 @@ Eis como obter o conjunto de dados na sua experimentação.
 
     ![Mude o nome da experimentação](./media/create-experiment/rename-experiment.png)
 
-1. À esquerda da tela da experimentação existe uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados denominado **Dados do preço automóvel (bruto)** . Arraste este conjunto de dados para a tela da experimentação.
+1. À esquerda da tela da experimentação existe uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados denominado **Dados de preços de automóveis (não processados)** . Arraste este conjunto de dados para a tela da experimentação.
 
     ![Encontre o conjunto de dados do automóvel e arraste-o para a tela de experiência](./media/create-experiment/type-automobile.png)
 
@@ -130,7 +132,7 @@ Agora que os dados foram apagados, estamos prontos para especificar quais as fun
 
 ## <a name="define-features"></a>Definir funcionalidades
 
-No Machine Learning, as *funcionalidades* são propriedades mensuráveis individuais de algo que lhe interessa. No nosso conjunto de dados, cada linha representa um automóvel e cada coluna é uma funcionalidade desse automóvel.
+No machine learning, *as características* são propriedades individuais mensuráveis de algo que lhe interessa. No nosso conjunto de dados, cada linha representa um automóvel e cada coluna é uma funcionalidade desse automóvel.
 
 Encontrar um bom conjunto de funcionalidades para criar um modelo preditivo requer experimentação e conhecimentos sobre o problema que pretende resolver. Algumas funcionalidades são melhores para prever num destino do que outras. Algumas características têm uma forte correlação com outras características e podem ser removidas. Por exemplo, city-mpg e highway-mpg estão intimamente relacionados, pelo que podemos manter um e remover o outro sem afetar a predição significativamente.
 

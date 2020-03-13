@@ -3,12 +3,12 @@ title: Configurar link privado
 description: Criar um ponto final privado num registo de contentores e permitir um link privado numa rede virtual local
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: b7dcf2d1eb1a77ea8b9660318ed2a7d4ec183b42
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 57c2a59ad8b16c39c7c577173feae68dcb263277
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128396"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203360"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configure Link Privado Azure para um registo de contentores Azure 
 
@@ -28,7 +28,14 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Para utilizar os passos Do CLI Azure neste artigo, recomenda-se a versão 2.2.0 do Azure CLI. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli]. Ou correr em [Azure Cloud Shell.](../cloud-shell/quickstart.md)
-* Se ainda não tiver um registo de contentores, crie um (nível Premium necessário) e empurre uma imagem de amostra como `hello-world` do Docker Hub. Por exemplo, utilize o [portal Azure][quickstart-portal] ou o [Azure CLI][quickstart-cli] para criar um registo. 
+* Se ainda não tiver um registo de contentores, crie um (nível Premium necessário) e empurre uma imagem de amostra como `hello-world` do Docker Hub. Por exemplo, utilize o [portal Azure][quickstart-portal] ou o [Azure CLI][quickstart-cli] para criar um registo.
+* Se pretender configurar o acesso ao registo utilizando um link privado numa subscrição azure diferente, tem de registar o fornecedor de recursos para o Registo de Contentores Azure nessa subscrição. Por exemplo:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of private link>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 Os exemplos do Azure CLI neste artigo utilizam as seguintes variáveis ambientais. Substitua os valores adequados ao seu ambiente. Todos os exemplos são formatados para a concha bash:
 

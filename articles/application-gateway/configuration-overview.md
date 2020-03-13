@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: f42be2a3075d313a490703562761a5df13542c85
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373618"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279224"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 
@@ -340,7 +340,7 @@ Por exemplo, se *www.contoso.com* for especificado na definição de nome do **A
 
 ## <a name="back-end-pool"></a>Conjunto back-end
 
-Pode apontar um pool de back-end para quatro tipos de membros de backend: uma máquina virtual específica, um conjunto de escala de máquina virtual, um endereço IP/FQDN ou um serviço de aplicações. Cada piscina de back-end pode apontar para vários membros do mesmo tipo. Apontar para membros de diferentes tipos na mesma piscina de back-end não é suportado.
+Pode apontar um pool de back-end para quatro tipos de membros de backend: uma máquina virtual específica, um conjunto de escala de máquina virtual, um endereço IP/FQDN ou um serviço de aplicações. 
 
 Depois de criar uma piscina de back-end, deve associá-la a uma ou mais regras de encaminhamento de pedidos. Também deve configurar sondas de saúde para cada piscina de fundo na sua porta de entrada de aplicação. Quando uma condição de regra de encaminhamento de pedidos é satisfeita, o gateway da aplicação encaminha o tráfego para os servidores saudáveis (conforme determinado pelas sondas de saúde) no conjunto de back-end correspondente.
 

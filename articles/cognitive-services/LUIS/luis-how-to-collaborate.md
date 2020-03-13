@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390095"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219887"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicione colaboradores à sua app
 
@@ -94,7 +94,7 @@ Se o administrador inquilino apenas quer que certos utilizadores utilizem o LUIS
 Saiba mais sobre os utilizadores de diretórios ativos do Azure e o consentimento: 
 * [Restrinja a sua aplicação](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a um conjunto de utilizadores
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o seu ciclo de vida da aplicação.
 * Compreenda os conceitos, incluindo o [recurso de autoria](luis-concept-keys.md#authoring-key) e os [contribuintes](luis-concept-keys.md#contributions-from-other-authors) desse recurso.

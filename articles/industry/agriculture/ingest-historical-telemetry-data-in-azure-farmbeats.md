@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0d220d1d88d9d761d9f0eba6187abefb372681be
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: MT
+ms.openlocfilehash: 80d8f176d3a4af82a6b93e1af430d914c47bfff6
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131888"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137361"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -20,7 +20,7 @@ A ingestão de dados históricos a partir de recursos da Internet of Things (IoT
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de prosseguir com este artigo, verifique se você instalou o FarmBeats e coletou os dados históricos de seus dispositivos IoT.
+Antes de avançar com este artigo, certifique-se de que instalou FarmBeats e recolheu dados históricos dos seus dispositivos IoT.
 Também precisa de permitir o acesso ao parceiro, conforme mencionado nos seguintes passos.
 
 ## <a name="enable-partner-access"></a>Ativar o acesso ao parceiro
@@ -43,7 +43,7 @@ Siga estes passos.
 
 3. Clique no Registo de Aplicações que foi criado como parte da sua implementação farmBeats. Terá o mesmo nome que o seu FarmBeats Datahub.
 
-4. Clique em "Expor um API" -> Clique em "Adicionar uma aplicação de cliente" e insira **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verifique "Autorizar o Scope". Isso dará acesso ao CLI do Azure (Cloud Shell) para executar as etapas a seguir.
+4. Clique em "Expor um API" -> Clique em "Adicionar uma aplicação de cliente" e insira **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verifique "Autorizar o Scope". Isto dará acesso ao Azure CLI (Cloud Shell) para realizar os passos abaixo.
 
 5. Abra o Cloud Shell. Esta opção está disponível na barra de ferramentas no canto superior direito do portal Azure.
 
@@ -283,6 +283,22 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
 \"description\": \"Test Device 123\"}" *
 ```
+
+Abaixo está um código de amostra em Python. Por favor, note que o token de acesso usado nesta amostra é o mesmo que recebemos durante a autenticação
+
+```python
+import requests
+import json
+
+# Got access token - Calling the Device Model API
+headers = {
+    "Authorization": "Bearer " + access_token,
+    "Content-Type" : "application/json"
+    }
+payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
+response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
+```
+
 
 > [!NOTE]
 > As APIs devolvem iDs únicos para cada instância criada. Deve reter as identificações para enviar as mensagens de telemetria correspondentes.

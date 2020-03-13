@@ -4,11 +4,11 @@ description: Descreve como as definições políticas são usadas para estabelec
 ms.date: 02/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: 95625894d0eb603ae9a37c96c91d01f3720346b1
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932756"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280732"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 

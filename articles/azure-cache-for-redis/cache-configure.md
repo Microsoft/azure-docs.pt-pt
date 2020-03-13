@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357499"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278743"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache Azure para redis
 Este tópico descreve as configurações disponíveis para os seus casos Azure Cache para Redis. Este tópico também cobre a configuração padrão do servidor Redis para os casos de Azure Cache para redis.

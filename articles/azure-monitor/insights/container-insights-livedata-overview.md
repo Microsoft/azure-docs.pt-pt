@@ -1,118 +1,118 @@
 ---
-title: Exibir dados dinâmicos (versão prévia) com Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve a exibição em tempo real de logs de kubernetes, eventos e métricas de Pod sem usar kubectl em Azure Monitor para contêineres.
+title: Ver Dados Ao Vivo (pré-visualização) com o Monitor Azure para contentores / Microsoft Docs
+description: Este artigo descreve a visão em tempo real de registos, eventos e métricas de cápsulas kubernetes sem usar kubectl no Monitor Azure para recipientes.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404762"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216554"
 ---
-# <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como exibir logs de kubernetes, eventos e métricas de pod em tempo real
+# <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como ver registos, eventos e métricas de cápsulas kubernetes em tempo real
 
-Azure Monitor para contêineres inclui o recurso de dados dinâmicos (versão prévia), que é um recurso de diagnóstico avançado que permite o acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas Pod. Ele expõe acesso direto a `kubectl logs -c`, `kubectl get` eventos e `kubectl top pods`. Um painel de console mostra os logs, eventos e métricas gerados pelo mecanismo de contêiner para auxiliar ainda mais na solução de problemas em tempo real.
+O Monitor Azure para contentores inclui a funcionalidade Live Data (pré-visualização), que é uma funcionalidade avançada de diagnóstico que lhe permite aceder diretamente aos registos de contentores do Serviço Azure Kubernetes (AKS) (stdout/stderror), eventos e métricas de pod. Expõe o acesso direto a `kubectl logs -c`, eventos `kubectl get` e `kubectl top pods`. Um painel de consolamostra os registos, eventos e métricas gerados pelo motor do contentor para ajudar ainda mais em problemas de resolução de problemas em tempo real.
 
-Este artigo fornece uma visão geral detalhada e ajuda você a entender como usar esse recurso. 
-
->[!NOTE]
->Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não têm suporte com esse recurso. Esse recurso depende diretamente do acesso à API kubernetes por meio de um servidor proxy do seu navegador. Habilitar a segurança de rede para bloquear a API do kubernetes desse proxy bloqueará esse tráfego. 
+Este artigo fornece uma visão geral detalhada e ajuda-o a entender como usar esta funcionalidade. 
 
 >[!NOTE]
->Esse recurso está disponível em todas as regiões do Azure, incluindo o Azure China. No momento, ele não está disponível no Azure no governo dos EUA.
+>Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não são suportados com esta funcionalidade. Esta funcionalidade baseia-se no acesso direto à API Kubernetes através de um servidor proxy a partir do seu navegador. Permitir a segurança em rede para bloquear a API kubernetes deste proxy bloqueará este tráfego. 
 
-Para obter ajuda sobre como configurar ou solucionar problemas do recurso de dados dinâmicos (versão prévia), examine nosso [Guia de instalação](container-insights-livedata-setup.md). Esse recurso acessa diretamente a API do kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+>[!NOTE]
+>Esta funcionalidade está disponível em todas as regiões do Azure, incluindo a Azure China. Atualmente, não está disponível no Governo dos EUA.
 
-## <a name="live-data-preview-functionality-overview"></a>Visão geral da funcionalidade de dados dinâmicos (visualização)
+Para ajudar a configurar ou resolver problemas com a funcionalidade Dados Ao Vivo (pré-visualização), reveja o nosso guia de [configuração](container-insights-livedata-setup.md). Esta funcionalidade acede diretamente à API kubernetes, e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-### <a name="search"></a>Search
+## <a name="live-data-preview-functionality-overview"></a>Visão geral da funcionalidade De Dados Ao Vivo (pré-visualização)
 
-![Exemplo de filtro do painel do console de dados dinâmicos](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
+### <a name="search"></a>Pesquisa
 
-O recurso de dados dinâmicos (versão prévia) inclui a funcionalidade de pesquisa. No campo de **pesquisa** , você pode filtrar os resultados digitando uma palavra-chave ou termo e quaisquer resultados correspondentes são realçados para permitir uma revisão rápida. Ao exibir eventos, você pode limitar os resultados usando o **filtro** Pill encontrado à direita da barra de pesquisa. Dependendo do recurso que você selecionou, o Pill lista um pod, um namespace ou um cluster do qual escolher.  
+![Exemplo de filtro de filtro de consola de dados ao vivo](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
-### <a name="scroll-lock-and-pause"></a>Scroll Lock e Pause 
+A funcionalidade Dados Ao Vivo (pré-visualização) inclui funcionalidade de pesquisa. No campo **De pesquisa,** pode filtrar os resultados digitando uma palavra-chave ou termo e quaisquer resultados correspondentes são destacados para permitir uma revisão rápida. Ao visualizar eventos, pode ainda limitar os resultados utilizando a pílula **filter** encontrada à direita da barra de pesquisa. Dependendo do recurso que selecionou, a pílula lista um Pod, Namespace ou cluster para escolher.  
 
-Para suspender o AutoScroll e controlar o comportamento do painel, permitindo que você role manualmente os novos dados lidos, você pode usar a opção de **rolagem** . Para reabilitar o AutoScroll, basta selecionar a opção de **rolagem** novamente. Você também pode pausar a recuperação de dados de log ou de evento selecionando a opção **Pause** e, quando estiver pronto para retomar, basta selecionar **reproduzir**.  
+### <a name="scroll-lock-and-pause"></a>Bloqueio de pergaminho e pausa 
 
-![Painel de console de dados dinâmicos pausar exibição dinâmica](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+Para suspender o autoscroll e controlar o comportamento do painel, permitindo-lhe percorrer manualmente a nova leitura de dados, pode utilizar a opção **Scroll.** Para reativar o autoscroll, basta selecionar novamente a opção **Scroll.** Também pode interromper a recuperação de dados de registo ou evento selecionando a opção **Pausa** e, quando estiver pronto para retomar, basta selecionar **Reproduzir**.  
+
+![Live Data consola painel pausa vista ao vivo](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
 
 >[!IMPORTANT]
->É recomendável suspender ou pausar o AutoScroll por um curto período de tempo, enquanto soluciona um problema. Essas solicitações podem afetar a disponibilidade e a limitação da API kubernetes no cluster. 
+>Recomendamos apenas suspender ou fazer uma pausa no autoscroll por um curto período de tempo enquanto resoluta problemas. Estes pedidos podem afetar a disponibilidade e o estrangulamento da API kubernetes no seu cluster. 
 
 >[!IMPORTANT]
->Nenhum dado é armazenado permanentemente durante a operação deste recurso. Todas as informações capturadas durante a sessão são excluídas quando você fecha o navegador ou navega para fora dela. Os dados permanecem presentes apenas para visualização dentro da janela de cinco minutos do recurso de métricas; todas as métricas com mais de cinco minutos também são excluídas. O buffer de dados dinâmicos (visualização) consulta dentro dos limites de uso de memória razoáveis (precisa ser mais específico aqui, o que é razoável?). 
+>Nenhum dado é armazenado permanentemente durante o funcionamento desta funcionalidade. Todas as informações captadas durante a sessão são eliminadas quando fecha o seu navegador ou navega para longe dele. Os dados só permanecem presentes para visualização dentro da janela de cinco minutos da funcionalidade métrica; as métricas com mais de cinco minutos também são eliminadas. As consultas tampão de dados ao vivo (pré-visualização) dentro de limites razoáveis de utilização da memória (precisam de ser mais específicos aqui, o que é razoável?). 
 
 ## <a name="view-logs"></a>Ver registos
 
-Você pode exibir dados de log em tempo real à medida que eles são gerados pelo mecanismo de contêiner do modo de exibição **nós**, **controladores**e **contêineres** . Para exibir dados de log, execute as etapas a seguir.
+Pode visualizar os dados de registo em tempo real à medida que são gerados pelo motor do contentor a partir da vista **Nódosos,** **Controladores**e **Contentores.** Para visualizar os dados de registo, execute os seguintes passos.
 
-1. Na portal do Azure, navegue até o grupo de recursos de cluster AKS e selecione o recurso AKS.
+1. No portal Azure, navegue para o grupo de recursos de cluster AKS e selecione o seu recurso AKS.
 
-2. No painel do cluster AKS, em **monitoramento** no lado esquerdo, escolha **insights**. 
+2. No painel de cluster AKS, sob **monitorização** do lado esquerdo, escolha **Insights**. 
 
-3. Selecione a guia **nós**, **controladores**ou **contêineres** .
+3. Selecione os **nós,** **controladores**ou **recipientes.**
 
-4. Selecione um objeto na grade de desempenho e, no painel Propriedades, localizado no lado direito, selecione **exibir dados dinâmicos (visualização)** opção. Se o cluster AKS estiver configurado com logon único usando o Azure AD, você será solicitado a autenticar no primeiro uso durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
+4. Selecione um objeto da grelha de desempenho e, no painel de propriedades encontrado no lado direito, selecione **ver dados ao vivo (pré-visualização).** Se o cluster AKS estiver configurado com um único sinal de utilização utilizando o Azure AD, é solicitado que autenticar na primeira utilização durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
 
     >[!NOTE]
-    >Ao exibir os dados do seu espaço de trabalho do Log Analytics selecionando a opção **Exibir no Analytics** no painel Propriedades, os resultados da pesquisa de log mostrarão potencialmente **nós**, **conjuntos de daemon**, **conjuntos de réplicas**, **trabalhos**, **trabalhos cron**, **pods**e **contêineres** que talvez não existam mais. A tentativa de pesquisar logs de um contêiner que não está disponível em `kubectl` também falhará aqui. Examine o recurso [Exibir no Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre como exibir logs históricos, eventos e métricas.  
+    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que não esteja disponível em `kubectl` também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
 
-Após a autenticação bem-sucedida, o painel de console dados dinâmicos (versão prévia) será exibido abaixo da grade de dados de desempenho, na qual é possível exibir dados de log em um fluxo contínuo. Se o indicador de status de busca mostrar uma marca de seleção verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começam a transmitir para o console.  
+Depois de autenticar com sucesso, o painel de consolas Live Data (pré-visualização) aparecerá abaixo da grelha de dados de desempenho onde poderá ver os dados de registo num fluxo contínuo. Se o indicador de estado de busca mostrar uma marca de verificação verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começa a transmitir para a sua consola.  
 
-![Opção Propriedades do nó exibição de dados do painel](./media/container-insights-livedata-overview/node-properties-pane.png)  
+![As propriedades do nó painel de dados opção de dados](./media/container-insights-livedata-overview/node-properties-pane.png)  
 
-O título do painel mostra o nome do pod com o qual o contêiner é agrupado.
+O título do painel mostra o nome da vagem com a aquecida pelo recipiente.
 
 ## <a name="view-events"></a>Ver eventos
 
-Você pode exibir dados de eventos em tempo real à medida que eles são gerados pelo mecanismo de contêiner do modo de exibição **nós**, **controladores**, **contêineres**e **implantações (visualização)** quando um contêiner, Pod, nó, réplicaset, daemonset, trabalho, CronJob ou implantação é selecionado. Para exibir eventos, execute as etapas a seguir.
+Pode visualizar os dados do evento em tempo real à medida que são gerados pelo motor do contentor a partir da vista **Nódosos,** **Controladores,** **Contentores**e **Implementações (pré-visualização)** quando é selecionado um contentor, uma cápsula, nó, ReplicaSet, DaemonSet, trabalho, CronJob ou Deployment. Para visualizar os eventos, execute os seguintes passos.
 
-1. Na portal do Azure, navegue até o grupo de recursos de cluster AKS e selecione o recurso AKS.
+1. No portal Azure, navegue para o grupo de recursos de cluster AKS e selecione o seu recurso AKS.
 
-2. No painel do cluster AKS, em **monitoramento** no lado esquerdo, escolha **insights**. 
+2. No painel de cluster AKS, sob **monitorização** do lado esquerdo, escolha **Insights**. 
 
-3. Selecione a guia **nós**, **controladores**, **contêineres**ou **implantações (visualização)** .
+3. Selecione os **nós,** **controladores,** **contentores**ou **abades (pré-visualização).**
 
-4. Selecione um objeto na grade de desempenho e, no painel Propriedades, localizado no lado direito, selecione **exibir dados dinâmicos (visualização)** opção. Se o cluster AKS estiver configurado com logon único usando o Azure AD, você será solicitado a autenticar no primeiro uso durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
+4. Selecione um objeto da grelha de desempenho e, no painel de propriedades encontrado no lado direito, selecione **ver dados ao vivo (pré-visualização).** Se o cluster AKS estiver configurado com um único sinal de utilização utilizando o Azure AD, é solicitado que autenticar na primeira utilização durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
 
     >[!NOTE]
-    >Ao exibir os dados do seu espaço de trabalho do Log Analytics selecionando a opção **Exibir no Analytics** no painel Propriedades, os resultados da pesquisa de log mostrarão potencialmente **nós**, **conjuntos de daemon**, **conjuntos de réplicas**, **trabalhos**, **trabalhos cron**, **pods**e **contêineres** que talvez não existam mais. A tentativa de pesquisar logs de um contêiner que não está disponível em `kubectl` também falhará aqui. Examine o recurso [Exibir no Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre como exibir logs históricos, eventos e métricas.  
+    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que não esteja disponível em `kubectl` também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
 
-Após a autenticação bem-sucedida, o painel de console dados dinâmicos (versão prévia) aparecerá abaixo da grade de dados de desempenho. Se o indicador de status de busca mostrar uma marca de seleção verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começam a transmitir para o console. 
+Depois de autenticar com sucesso, o painel de consolas Live Data (pré-visualização) aparecerá abaixo da grelha de dados de desempenho. Se o indicador de estado de busca mostrar uma marca de verificação verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começa a transmitir para a sua consola. 
     
-Se o objeto selecionado era um contêiner, selecione a opção **eventos** no painel. Se você selecionou um nó, Pod ou controlador, a exibição de eventos será selecionada automaticamente. 
+Se o objeto selecionado ser um recipiente, selecione a opção **Eventos** no painel. Se selecionar um Nó, Pod ou controlador, os eventos de visualização são automaticamente selecionados. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![Propriedades do controlador painel de eventos](./media/container-insights-livedata-overview/controller-properties-live-event.png)  
 
-O título do painel mostra o nome do pod com o qual o contêiner é agrupado.
+O título do painel mostra o nome do Pod com o que o recipiente está agrupado.
 
 ### <a name="filter-events"></a>Filtrar eventos 
 
-Ao exibir eventos, você pode limitar os resultados usando o **filtro** Pill encontrado à direita da barra de pesquisa. Dependendo do recurso que você selecionou, o Pill lista um pod, um namespace ou um cluster do qual escolher.  
+Ao visualizar eventos, pode ainda limitar os resultados utilizando a pílula **filter** encontrada à direita da barra de pesquisa. Dependendo do recurso que selecionou, a pílula lista um Pod, Namespace ou cluster para escolher.  
 
 ## <a name="view-metrics"></a>Ver métricas 
 
-Você pode exibir dados de métrica em tempo real à medida que eles são gerados pelo mecanismo de contêiner do modo de exibição **nós** ou **controladores** somente quando um **Pod** é selecionado. Para exibir as métricas, execute as etapas a seguir.
+Pode visualizar dados métricos em tempo real à medida que são gerados pelo motor do recipiente a partir da vista **Nódosos** ou **Controladores** apenas quando um **Pod** é selecionado. Para visualizar as métricas, execute os seguintes passos.
 
-1. Na portal do Azure, navegue até o grupo de recursos de cluster AKS e selecione o recurso AKS.
+1. No portal Azure, navegue para o grupo de recursos de cluster AKS e selecione o seu recurso AKS.
 
-2. No painel do cluster AKS, em **monitoramento** no lado esquerdo, escolha **insights**. 
+2. No painel de cluster AKS, sob **monitorização** do lado esquerdo, escolha **Insights**. 
 
-3. Selecione a guia **nós** ou **controladores** .
+3. Selecione o separador **Nós** ou **controladores.**
 
-4. Selecione um objeto **Pod** na grade desempenho e, no painel Propriedades, localizado no lado direito, selecione **exibir dados dinâmicos (visualização)** opção. Se o cluster AKS estiver configurado com logon único usando o Azure AD, você será solicitado a autenticar no primeiro uso durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
+4. Selecione um objeto **Pod** a partir da grelha de desempenho e no painel de propriedades encontrado no lado direito, selecione **Ver dados ao vivo (pré-visualização).** Se o cluster AKS estiver configurado com um único sinal de utilização utilizando o Azure AD, é solicitado que autenticar na primeira utilização durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
 
     >[!NOTE]
-    >Ao exibir os dados do seu espaço de trabalho do Log Analytics selecionando a opção **Exibir no Analytics** no painel Propriedades, os resultados da pesquisa de log mostrarão potencialmente **nós**, **conjuntos de daemon**, **conjuntos de réplicas**, **trabalhos**, **trabalhos cron**, **pods**e **contêineres** que talvez não existam mais. A tentativa de pesquisar logs de um contêiner que não está disponível em `kubectl` também falhará aqui. Examine o recurso [Exibir no Analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre como exibir logs históricos, eventos e métricas.  
+    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que não esteja disponível em `kubectl` também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
 
-Após a autenticação bem-sucedida, o painel de console dados dinâmicos (versão prévia) aparecerá abaixo da grade de dados de desempenho. Os dados de métrica são recuperados e começam a transmitir para o console para apresentação nos dois gráficos. O título do painel mostra o nome do pod com o qual o contêiner é agrupado.
+Depois de autenticar com sucesso, o painel de consolas Live Data (pré-visualização) aparecerá abaixo da grelha de dados de desempenho. Os dados métricos são recuperados e começam a transmitir para a sua consola para apresentação nos dois gráficos. O título do painel mostra o nome da vagem com a aquecida pelo recipiente.
 
-![Exibir exemplo de métricas de Pod](./media/container-insights-livedata-overview/pod-properties-live-metrics.png)  
+![Ver exemplo de métricas de Pod](./media/container-insights-livedata-overview/pod-properties-live-metrics.png)  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para continuar a aprender a utilizar o Azure Monitor e monitorizar outros aspectos do seu cluster do AKS, veja [estado de funcionamento do serviço de Kubernetes do Azure de modo de exibição](container-insights-analyze.md).
+- Para continuar a aprender a usar o Monitor Azure e monitorizar outros aspetos do seu cluster AKS, consulte a saúde do [Serviço View Azure Kubernetes](container-insights-analyze.md).
 
-- Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para criar alertas, visualizações ou executar análise adicional de seus clusters.
+- Veja [exemplos](container-insights-log-search.md#search-logs-to-analyze-data) de consultas de registo para ver consultas e exemplos pré-definidos para criar alertas, visualizações ou realizar uma análise mais aprofundada dos seus clusters.

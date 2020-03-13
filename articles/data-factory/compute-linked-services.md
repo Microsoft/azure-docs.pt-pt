@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 4545a75cc2082c21dcb87986eba819ebe39adf7b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388377"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246347"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computacionais suportados pela Azure Data Factory
 Este artigo explica diferentes ambientes de cálculo que pode usar para processar ou transformar dados. Também fornece detalhes sobre diferentes configurações (on-demand vs. bring your own) suportadas pela Data Factory ao configurar serviços ligados que ligam estes ambientes computacionais a uma fábrica de dados Azure.

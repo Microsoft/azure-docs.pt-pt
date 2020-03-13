@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b51016b1b73b51cd1f1ec827f05fc9a93dd4cb38
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: eb62883859a3efeb1c05deb38d8a40fba76e9cdf
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650712"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137925"
 ---
 # <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
 
 Quando lista bolhas do seu código, pode especificar várias opções para gerir a forma como os resultados são devolvidos do Armazenamento Azure. Pode especificar o número de resultados a devolver em cada conjunto de resultados e, em seguida, recuperar os conjuntos seguintes. Pode especificar um prefixo para devolver bolhas cujos nomes começam com esse carácter ou corda. E pode listar bolhas numa estrutura plana de listagem, ou hierárquica. Uma listagem hierárquica devolve bolhas como se estivessem organizadas em pastas. 
 
-Este artigo mostra como listar bolhas usando a [biblioteca de clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).  
+Este artigo mostra como listar bolhas usando a [biblioteca de clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-blob-listing-options"></a>Compreender as opções de listagem de blob
 

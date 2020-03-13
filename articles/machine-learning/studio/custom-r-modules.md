@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 35046d33a85eaed913454f188f2a4526715526a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168786"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218172"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Defina módulos R personalizados para o Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este tópico descreve como autoria e implementa um Estúdio R personalizado (clássico). Ele explica o que são módulos R personalizados e os ficheiros que são utilizados para defini-las. Ela ilustra como construir os ficheiros que definem um módulo e como registar o módulo para a implementação numa área de trabalho do Machine Learning. Os elementos e atributos usados na definição do módulo personalizado, em seguida, são descritos mais detalhadamente. Como utilizar a funcionalidade de auxiliar e de ficheiros e de várias saídas também é abordado. 
 
@@ -200,7 +202,7 @@ Por exemplo, se pretender modificar o módulo **Custom Add Rows** para a saída 
     </Ports> 
 
 
-E retornar a lista de objetos numa lista na ordem correta em "CustomAddRows.R":
+E devolva a lista de objetos numa lista na ordem correta em 'CustomAddRows.R':
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -286,14 +288,14 @@ Um parâmetro de módulo é definido utilizando o elemento da criança **Arg** d
     * Numeric
     * Booleano
     * Categórico
-    * Cadeia
+    * String
     * Etiqueta
     * Funcionalidade
     * Classificação
     * Todos
   * **predefinição** - As seleções de predefinição válidas para o apanhador de colunas incluem: 
     
-    * Nenhuma
+    * Nenhum
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -333,11 +335,11 @@ Um parâmetro de módulo é definido utilizando o elemento da criança **Arg** d
 Qualquer ficheiro que é colocado no seu ficheiro ZIP do módulo personalizado vai estar disponível para utilização durante o tempo de execução. Qualquer estruturas de diretório presentes são preservadas. Isto significa que o fornecimento de ficheiros funciona da mesma forma local e na execução do Azure Machine Learning Studio (clássico). 
 
 > [!NOTE]
-> Tenha em atenção que todos os ficheiros são extraídos para o diretório de 'src' pelo que devem ter todos os caminhos ' src /' prefixo.
+> Note que todos os ficheiros são extraídos para o diretório 'src', pelo que todos os caminhos devem ter prefixo 'src/'.
 > 
 > 
 
-Por exemplo, digamos que queira remover quaisquer linhas do conjunto de dados e também de remover quaisquer linhas duplicadas, antes de gerá-lo em CustomAddRows e que já criou uma função de R que faz isso num arquivo RemoveDupNARows.R:
+Por exemplo, diga que pretende remover quaisquer linhas com NAs do conjunto de dados, e também remover quaisquer linhas duplicadas, antes de as colocar em CustomAddRows, e já escreveu uma função R que faz isso num ficheiro RemoveDupNARows.R:
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -359,7 +361,7 @@ Podem obter o ficheiro auxiliar RemoveDupNARows.R na função CustomAddRows:
         return (dataset)
     }
 
-Em seguida, carregue um ficheiro zip que contém 'CustomAddRows.R', 'CustomAddRows.xml' e 'RemoveDupNARows.R' como um módulo R personalizado.
+Em seguida, faça upload de um ficheiro zip contendo 'CustomAddRows.R', 'CustomAddRows.xml', e 'RemoveDupNARows.R' como um módulo R personalizado.
 
 ## <a name="execution-environment"></a>Ambiente de execução
 O ambiente de execução do script R utiliza a mesma versão de R que o módulo **Execute R Script** e pode utilizar os mesmos pacotes predefinidos. Também pode adicionar pacotes de R adicionais ao módulo personalizado ao incluí-los do pacote zip do módulo personalizado. Basta carregá-los no seu script R como faria no seu próprio ambiente de R. 

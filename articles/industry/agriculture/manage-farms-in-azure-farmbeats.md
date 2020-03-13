@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385157"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271723"
 ---
 # <a name="manage-farms"></a>Gerir terrenos agrícolas
 
@@ -77,6 +77,6 @@ A página **Farms** apresenta uma lista de quintas criadas. Utilize os seguintes
     > Quando se elimina uma quinta, os dispositivos e mapas associados à quinta não são apagados. Qualquer informação agrícola associada ao dispositivo e mapas não será relevante. Pode continuar a ver dispositivos, telemetria e mapas do serviço FarmBeats.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou a sua quinta, aprenda a obter dados de [sensores](get-sensor-data-from-sensor-partner.md) fluindo para a sua fazenda.

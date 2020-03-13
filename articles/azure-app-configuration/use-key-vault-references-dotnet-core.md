@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f89d9d87a8ee7954709e8753a84e9eba5fc1e9d7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116614"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216785"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências chave vault em uma aplicação ASP.NET Core
 
@@ -82,7 +82,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência chave vault à configuração da aplicação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Explorador de **Configuração**.
 
@@ -110,7 +110,6 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -125,7 +124,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 1. Adicione variáveis ambientais para armazenar os valores do *clienteId,* *clientSecret,* e *tenantId*.
 
-    #### <a name="windows-command-prompttabcmd"></a>[Pedido de comando windows](#tab/cmd)
+    #### <a name="windows-command-prompt"></a>[Pedido de comando windows](#tab/cmd)
 
     ```cmd
     setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
@@ -133,7 +132,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
     setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```PowerShell
     $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -141,7 +140,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
     $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="bashtabbash"></a>[Estação Bash](#tab/bash)
+    #### <a name="bash"></a>[Estação Bash](#tab/bash)
 
     ```bash
     export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -174,7 +173,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 1. Atualize o método `CreateWebHostBuilder` para utilizar a Configuração da App, ligando para o método `config.AddAzureAppConfiguration`. Inclua a opção `ConfigureKeyVault` e passe as credenciais corretas para o seu Cofre chave.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -195,7 +194,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>

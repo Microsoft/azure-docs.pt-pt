@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3ec965318da1361454b4a6bb78ed7147562b5fea
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195000"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138523"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 
@@ -50,9 +50,9 @@ A Azure AD também fornece o Azure Ative Directory B2C para que as organizaçõe
 
 Os tokens de segurança contêm informações sobre utilizadores e aplicações. A Azure AD utiliza fichas baseadas em JSON (JWTs) que contêm reclamações.
 
-Uma reclamação fornece afirmações sobre uma entidade, como uma [aplicação de cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) ou proprietário de [recursos,](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner)a outra entidade, como um servidor de [recursos).](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server)
+Uma reclamação fornece afirmações sobre uma entidade, como uma [aplicação de cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) ou proprietário de [recursos,](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner)a outra entidade, como um servidor de [recursos.](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server)
 
-As alegações são pares de nome/valor que transmitem factos sobre o assunto simbólico. Por exemplo, uma reclamação pode conter factos sobre o diretor de segurança que foi autenticado pelo servidor de [autorização).](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server) As alegações presentes num dado sinal ão de penderá de muitas coisas, incluindo o tipo de ficha, o tipo de credencial usada para autenticar o sujeito, a configuração da aplicação, e assim por diante.
+As alegações são pares de nome/valor que transmitem factos sobre o assunto simbólico. Por exemplo, uma reclamação pode conter factos sobre o diretor de segurança que foi autenticado pelo servidor de [autorização](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server). As alegações presentes num dado sinal ão de penderá de muitas coisas, incluindo o tipo de ficha, o tipo de credencial usada para autenticar o sujeito, a configuração da aplicação, e assim por diante.
 
 As aplicações podem utilizar reclamações para várias tarefas, tais como:
 

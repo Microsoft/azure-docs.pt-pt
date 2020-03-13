@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 7246a072c1bf2253b822fca53b0b69700c66221d
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565272"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208236"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
 
@@ -26,7 +26,7 @@ Introduzimos três funções azure incorporadas para a concessão de permissões
 - **Arquivo de armazenamento Dados SMB Share Colaborador Elevado** permite ler, escrever, excluir e modificar permissões NTFS em ações de ficheiros de armazenamento Azure sobre SMB.
 
 > [!IMPORTANT]
-> O controlo administrativo total de uma parte de ficheiro, incluindo a capacidade de atribuir uma função a uma identidade, requer a utilização da chave da conta de armazenamento. O controlo administrativo não é suportado com credenciais da AD Azure.
+> O controlo administrativo total de uma parte de ficheiro, incluindo a capacidade de apropriação de um ficheiro, requer a utilização da chave da conta de armazenamento. O controlo administrativo não é suportado com credenciais da AD Azure.
 
 Pode utilizar o portal Azure, PowerShell ou Azure CLI para atribuir as funções incorporadas à identidade Azure AD de um utilizador para a concessão de permissões de nível de partilha.
 

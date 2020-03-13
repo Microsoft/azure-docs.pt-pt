@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 804aeee112d060c411a4e37b5d19e4766307b0a0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169171"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217942"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retree e implante um modelo de aprendizagem automática
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 A reconversão é uma forma de garantir que os modelos de aprendizagem automática se mantenham precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostra como retreinar e implementar um modelo de machine learning como um novo serviço web em Studio (clássico). Se procura retreinar um serviço web clássico, [veja este artigo como fazer.](retrain-classic-web-service.md)
 

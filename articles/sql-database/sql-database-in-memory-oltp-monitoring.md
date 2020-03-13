@@ -1,9 +1,9 @@
 ---
-title: Monitorar o armazenamento na memória XTP
-description: Estimar e monitorar o uso de armazenamento na memória de XTP, capacidade; resolver o erro de capacidade 41823
+title: Monitor armazenamento de memória xtp
+description: Estimar e monitorizar o uso de armazenamento de memória xTP, capacidade; resolver erro de capacidade 41823
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,53 +11,53 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: d67a6d151f65252faab40f8f7289fe9e884eff17
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22ff83b1ccd009624082e45073123a45006df70f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689809"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209444"
 ---
-# <a name="monitor-in-memory-oltp-storage"></a>Monitorar o armazenamento OLTP na memória
+# <a name="monitor-in-memory-oltp-storage"></a>Monitor armazenamento OLTP em memória
 
-Ao usar o [OLTP na memória](sql-database-in-memory.md), os dados em tabelas com otimização de memória e variáveis de tabela residem no armazenamento OLTP na memória. Cada camada de serviço Premium e Comercialmente Crítico tem um tamanho máximo de armazenamento OLTP na memória. Confira [limites de recursos baseados em DTU-banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [limites de recursos baseados em DTU-pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em VCORE-bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em VCORE-pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+Ao utilizar [o OLTP in-memory](sql-database-in-memory.md), os dados em tabelas otimizadas de memória e variáveis de mesa residem no armazenamento OLTP in-Memory. Cada nível de serviço Premium e Business Critical tem um tamanho máximo de armazenamento OLTP em Memória. Ver [limites de recursos baseados em DTU - base](sql-database-dtu-resource-limits-single-databases.md)de dados única, [limites de recursos baseados em DTU - piscinas elásticas](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em vCore - bases](sql-database-vcore-resource-limits-single-databases.md) de dados únicas e [limites de recursos baseados em vCore - piscinas elásticas](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Quando esse limite for excedido, as operações de inserção e atualização poderão começar a falhar com o erro 41823 para bancos de dados individuais e o erro 41840 para pools elásticos. Nesse ponto, você precisa excluir dados para recuperar memória ou atualizar a camada de serviço ou o tamanho de computação do seu banco de dados.
+Uma vez ultrapassado este limite, as operações de inserção e atualização podem começar a falhar com o erro 41823 para bases de dados individuais e erro 41840 para piscinas elásticas. Nessa altura, é necessário eliminar dados para recuperar a memória, ou atualizar o nível de serviço ou calcular o tamanho da sua base de dados.
 
-## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinar se os dados se ajustam no limite de armazenamento OLTP na memória
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determine se os dados se enquadram na tampa de armazenamento OLTP em memória
 
-Determine os limites de armazenamento das diferentes camadas de serviço. Confira [limites de recursos baseados em DTU-banco de dados individual](sql-database-dtu-resource-limits-single-databases.md), [limites de recursos baseados em DTU-pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em VCORE-bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos baseados em VCORE-pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+Determine as tampas de armazenamento dos diferentes níveis de serviço. Ver [limites de recursos baseados em DTU - base](sql-database-dtu-resource-limits-single-databases.md)de dados única, [limites de recursos baseados em DTU - piscinas elásticas](sql-database-dtu-resource-limits-elastic-pools.md),[limites de recursos baseados em vCore - bases](sql-database-vcore-resource-limits-single-databases.md) de dados únicas e [limites de recursos baseados em vCore - piscinas elásticas](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Estimar os requisitos de memória para uma tabela com otimização de memória funciona da mesma maneira para SQL Server como faz no banco de dados SQL do Azure. Reserve alguns minutos para examinar esse artigo no [msdn](https://msdn.microsoft.com/library/dn282389.aspx).
+Estimar os requisitos de memória para uma tabela otimizada pela memória funciona da mesma forma para o Servidor SQL como na Base de Dados Azure SQL. Dere uns minutos para rever o artigo sobre a [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
-Linhas variáveis de tabela e tabela, bem como índices, contam para o tamanho máximo dos dados do usuário. Além disso, ALTER TABLE precisa de espaço suficiente para criar uma nova versão da tabela inteira e seus índices.
+As linhas variáveis de tabela e mesa, bem como os índices, contam para o tamanho máximo dos dados dos utilizadores. Além disso, a ALTER TABLE necessita de espaço suficiente para criar uma nova versão de toda a tabela e dos seus índices.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
-Você pode monitorar o uso de armazenamento na memória como uma porcentagem do limite de armazenamento para o tamanho de computação no [portal do Azure](https://portal.azure.com/): 
+Pode monitorizar o armazenamento em memória em percentagem da tampa de armazenamento para o seu tamanho de computação no [portal Azure:](https://portal.azure.com/) 
 
-1. Na folha banco de dados, localize a caixa utilização de recursos e clique em Editar.
-2. Selecione a `In-Memory OLTP Storage percentage`métrica.
-3. Para adicionar um alerta, clique na caixa utilização de recursos para abrir a folha métrica e clique em adicionar alerta.
+1. Na lâmina base de dados, localize a caixa de utilização do Recurso e clique em Editar.
+2. Selecione o `In-Memory OLTP Storage percentage`métrico .
+3. Para adicionar um alerta, clique na caixa de utilização de recursos para abrir a lâmina Métrica e, em seguida, clique em Adicionar alerta.
 
-Ou use a consulta a seguir para mostrar a utilização de armazenamento na memória:
+Ou utilize a seguinte consulta para mostrar a utilização do armazenamento em memória:
 
 ```sql
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 ```
 
-## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Corrigir situações de armazenamento OLTP fora de memória-erros 41823 e 41840
+## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Corrigir situações de armazenamento oLTP fora de memória - Erros 41823 e 41840
 
-Atingir o limite de armazenamento OLTP na memória em seu banco de dados resulta em falha nas operações INSERT, UPDATE, ALTER e CREATE com a mensagem de erro 41823 (para bancos de dados individuais) ou o erro 41840 (para pools elásticos). Os dois erros fazem com que a transação ativa seja anulada.
+Bater na tampa de armazenamento OLTP em memória na sua base de dados resulta em operações INSERT, UPDATE, ALTER e CREATE falhando com a mensagem de erro 41823 (para bases de dados únicas) ou erro 41840 (para piscinas elásticas). Ambos os erros fazem com que a transação ativa aborte.
 
-As mensagens de erro 41823 e 41840 indicam que as tabelas com otimização de memória e as variáveis de tabela no banco de dados ou pool atingiram o tamanho máximo de armazenamento OLTP na memória.
+As mensagens de erro 41823 e 41840 indicam que as tabelas otimizadas pela memória e as variáveis de mesa na base de dados ou piscina atingiram o tamanho máximo de armazenamento OLTP em Memória.
 
-Para resolver esse erro, seja:
+Para resolver este erro, também:
 
-* Excluir dados das tabelas com otimização de memória, o que pode descarregar os dados em tabelas tradicionais baseadas em disco; or
-* Atualize a camada de serviço para uma com armazenamento de memória suficiente para os dados que você precisa manter em tabelas com otimização de memória.
+* Eliminar dados das tabelas otimizadas pela memória, potencialmente descarregando os dados para tabelas tradicionais baseadas em discos; ou,
+* Atualize o nível de serviço para um com armazenamento suficiente na memória para os dados que precisa de guardar em tabelas otimizadas pela memória.
 
 > [!NOTE] 
-> Em casos raros, os erros 41823 e 41840 podem ser transitórios, ou seja, o armazenamento OLTP disponível na memória é suficiente e repetir a operação é realizada com sucesso. Portanto, recomendamos monitorar o armazenamento OLTP em memória geral disponível e tentar novamente quando encontrar o erro 41823 ou 41840 pela primeira vez. Para obter mais informações sobre a lógica de repetição, consulte [detecção de conflitos e lógica de repetição com OLTP na memória](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> Em casos raros, os erros 41823 e 41840 podem ser transitórios, o que significa que há armazenamento oLTP suficiente disponível em Memória, e tentar a operação tem sucesso. Recomendamos, portanto, monitorizar o armazenamento geral disponível em Memória OLTP e retentar quando encontrar o erro 41823 ou 41840. Para obter mais informações sobre a lógica de retry, consulte a Lógica de [Deteção de Conflitos e Retry com OLTP in-memory](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter diretrizes de monitoramento, consulte [monitorando o banco de dados SQL do Azure usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md).
+Para obter orientação de monitorização, consulte [monitorizar a Base de Dados Azure SQL utilizando pontos](sql-database-monitoring-with-dmvs.md)de vista dinâmicos de gestão .

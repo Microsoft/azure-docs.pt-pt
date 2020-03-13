@@ -14,11 +14,11 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 3837b2af31ddab3c35abf877a74f980bd34e933d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355904"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280225"
 ---
 # <a name="network-security-groups"></a>Grupos de segurança de rede
 <a name="network-security-groups"></a>
@@ -34,9 +34,9 @@ Os grupos de segurança de rede contêm zero ou tantas regras conforme pretender
 |Propriedade  |Explicação  |
 |---------|---------|
 |Nome|Um nome exclusivo no grupo de segurança de rede.|
-|Priority | Um número entre 100 e 4096. As regras são processadas por ordem de prioridade, sendo os números mais baixos processados antes dos mais elevados, uma vez que têm uma prioridade superior. Quando o tráfego corresponder a uma regra, o processamento para. Como resultado, qualquer regra que exista com prioridades inferiores (números mais elevados) e que tenham os mesmos atributos das regras com prioridades superiores não é processada.|
+|Prioridade | Um número entre 100 e 4096. As regras são processadas por ordem de prioridade, sendo os números mais baixos processados antes dos mais elevados, uma vez que têm uma prioridade superior. Quando o tráfego corresponder a uma regra, o processamento para. Como resultado, qualquer regra que exista com prioridades inferiores (números mais elevados) e que tenham os mesmos atributos das regras com prioridades superiores não é processada.|
 |Origem ou destino| Qualquer endereço IP ou um endereço IP individual, um bloco CIDR (Classless Inter-domain Routing) (por exemplo, 10.0.0.0/24), [etiqueta de serviço](service-tags-overview.md) ou [grupo de segurança de aplicações](#application-security-groups). Se especificar um endereço para um recurso do Azure, indique o endereço IP privado atribuído ao mesmo. Os grupos de segurança de rede são processados depois de o Azure traduzir um endereço IP público num privado para tráfego de entrada e antes de traduzir um endereço IP privado num público para tráfego de saída. Saiba mais sobre os [endereços IP](virtual-network-ip-addresses-overview-arm.md) do Azure. Especificar um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos de endereços IP (não pode indicar etiquetas de serviço ou grupos de aplicações) numa regra é denominada [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede gerados através do modelo de implementação do Resource Manager. Não pode especificar vários endereços IP nem intervalos de endereços IP em grupos de segurança de rede criados com o modelo de implementação clássica. Saiba mais sobre os [modelos de implementação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocol     | TCP, UDP, ICMP ou Any.|
+|Protocolo     | TCP, UDP, ICMP ou Any.|
 |Direção| Indica se a regra se aplica a tráfego de entrada ou de saída.|
 |Intervalo de portas     |Pode especificar uma porta individual ou um intervalo de portas. Por exemplo, pode indicar 80 ou 10000-10005. Especificar intervalos permite-lhe criar menos regras de segurança. As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede gerados através do modelo de implementação do Resource Manager. Não pode especificar várias portas nem intervalos de portas na mesma regra de segurança em grupos de segurança de rede criados com o modelo de implementação clássica.   |
 |Ação     | Permitir ou negar        |
@@ -54,41 +54,41 @@ O Azure cria as seguintes regras predefinidas em cada grupo de segurança de red
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priority|Origem|Portas de origem|Destination|Portas de destino|Protocol|Acesso|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Any|Permitir|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualquer|Permitir|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priority|Origem|Portas de origem|Destination|Portas de destino|Protocol|Acesso|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Any|Permitir|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualquer|Permitir|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priority|Origem|Portas de origem|Destination|Portas de destino|Protocol|Acesso|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Any|Negar|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Qualquer|Negar|
 
 #### <a name="outbound"></a>Saída
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priority|Origem|Portas de origem| Destination | Portas de destino | Protocol | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Permitir |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualquer | Permitir |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priority|Origem|Portas de origem| Destination | Portas de destino | Protocol | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Any | Permitir |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualquer | Permitir |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priority|Origem|Portas de origem| Destination | Portas de destino | Protocol | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Negar |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Qualquer | Negar |
 
 Nas colunas **Source** (Origem) e **Destination** (Destino), *VirtualNetwork*, *AzureLoadBalancer* e *Internet* são [etiquetas de serviço](service-tags-overview.md) e não endereços IP. Na coluna do protocolo, **qualquer** engloba TCP, UDP e ICMP. Ao criar uma regra, pode especificar TCP, UDP, ICMP ou Any. *0.0.0.0/0* nas colunas **Source** e **Destination** representa todos os endereços. Clientes como o portal Azure, O ClI Azure ou powerShell podem usar * ou qualquer outro para esta expressão.
  
@@ -168,6 +168,6 @@ Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md
 
   Se o Azure lhe permitir enviar e-mails através da porta 25, a Microsoft não pode garantir que os fornecedores de e-mail aceitarão e-mails enviados a partir da sua máquina virtual. Se um fornecedor específico rejeitar e-mails da sua máquina virtual, trabalhe diretamente com o fornecedor para resolver quaisquer problemas relacionados com a entrega de mensagens ou com a filtragem de spam, ou tem de utilizar um serviço de reencaminhamento de SMTP autenticado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia o artigo [Create a network security group](tutorial-filter-network-traffic.md) (Criar um grupo de segurança de rede).

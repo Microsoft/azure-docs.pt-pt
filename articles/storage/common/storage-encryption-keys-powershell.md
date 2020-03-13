@@ -1,33 +1,33 @@
 ---
-title: Usar o PowerShell para configurar chaves gerenciadas pelo cliente
+title: Utilize o PowerShell para configurar as chaves geridas pelo cliente
 titleSuffix: Azure Storage
-description: Saiba como usar o PowerShell para configurar chaves gerenciadas pelo cliente para a criptografia de armazenamento do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
+description: Aprenda a usar o PowerShell para configurar as chaves geridas pelo cliente para encriptação de Armazenamento Azure. As chaves geridas pelo cliente permitem criar, rodar, desativar e revogar os controlos de acesso.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2019
+ms.date: 03/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 77324dff7e3f34574f36aa3bb775aed6a945a3bd
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: d7e4843bfbd622ad99cad4d9048e91a0cb49b1c1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665287"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136249"
 ---
-# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o PowerShell
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando a PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o PowerShell. Para saber como criar um cofre de chaves usando CLI do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o PowerShell](../../key-vault/quick-create-powershell.md).
+Este artigo mostra como configurar um Cofre de Chave Azure com chaves geridas pelo cliente usando o PowerShell. Para aprender a criar um cofre chave usando o Azure CLI, consulte [Quickstart: set and retrieve a secret from Azure Key Vault usando powerShell](../../key-vault/quick-create-powershell.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Atribuir uma identidade à conta de armazenamento
 
-Para habilitar chaves gerenciadas pelo cliente para sua conta de armazenamento, primeiro atribua uma identidade gerenciada atribuída pelo sistema à conta de armazenamento. Você usará essa identidade gerenciada para conceder permissões de conta de armazenamento para acessar o cofre de chaves.
+Para ativar as chaves geridas pelo cliente para a sua conta de armazenamento, primeiro atribua uma identidade gerida atribuída pelo sistema à conta de armazenamento. Vaiusar esta identidade gerida para conceder permissões à conta de armazenamento para aceder ao cofre chave.
 
-Para atribuir uma identidade gerenciada usando o PowerShell, chame [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores.
+Para atribuir uma identidade gerida utilizando powerShell, ligue para [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios.
 
 ```powershell
 $storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -35,13 +35,13 @@ $storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -AssignIdentity
 ```
 
-Para obter mais informações sobre como configurar identidades gerenciadas atribuídas pelo sistema com o PowerShell, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md).
+Para obter mais informações sobre a configuração de identidades geridas atribuídas pelo sistema com a PowerShell, consulte [as identidades geridas pela Configure para os recursos Azure num Azure VM utilizando powerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md).
 
-## <a name="create-a-new-key-vault"></a>Criar um novo cofre de chaves
+## <a name="create-a-new-key-vault"></a>Criar um novo cofre chave
 
-Para criar um novo cofre de chaves usando o PowerShell, chame [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). O cofre de chaves que você usa para armazenar chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure deve ter duas configurações de proteção de chave habilitadas, **exclusão reversível** e **não limpar**.
+Para criar um novo cofre de chaves usando powerShell, ligue para [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). O cofre chave que utiliza para armazenar chaves geridas pelo cliente para encriptação de armazenamento azure deve ter duas definições de proteção chave ativadas, **Soft Delete** e **Não Purgar**.
 
-Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores.
+Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
@@ -51,13 +51,13 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Para saber como habilitar a **exclusão reversível** e **não limpar** em um cofre de chaves existente com o PowerShell, consulte as seções intituladas **habilitar a exclusão reversível** e **habilitar a proteção de limpeza** em [como usar a exclusão reversível com o PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+Para aprender a ativar o **Soft Delete** e **não purgar** num cofre de chaves existente com a PowerShell, consulte as secções intituladas **Enableing soft-delete** e **Enableing Purge Protection** in How to use [soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
 
-## <a name="configure-the-key-vault-access-policy"></a>Configurar a política de acesso do cofre de chaves
+## <a name="configure-the-key-vault-access-policy"></a>Configure a política de acesso ao cofre chave
 
-Em seguida, configure a política de acesso para o cofre de chaves para que a conta de armazenamento tenha permissões para acessá-la. Nesta etapa, você usará a identidade gerenciada que você atribuiu anteriormente à conta de armazenamento.
+Em seguida, configure a política de acesso para o cofre chave para que a conta de armazenamento tenha permissões para acessá-lo. Neste passo, utilizará a identidade gerida que anteriormente atribuiu à conta de armazenamento.
 
-Para definir a política de acesso para o cofre de chaves, chame [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores e usar as variáveis definidas nos exemplos anteriores.
+Para definir a política de acesso para o cofre chave, ligue para [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy `
@@ -68,17 +68,17 @@ Set-AzKeyVaultAccessPolicy `
 
 ## <a name="create-a-new-key"></a>Criar uma chave nova
 
-Em seguida, crie uma nova chave no cofre de chaves. Para criar uma nova chave, chame [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores e usar as variáveis definidas nos exemplos anteriores.
+Em seguida, crie uma nova chave no cofre chave. Para criar uma nova tecla, ligue para [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar a criptografia com chaves gerenciadas pelo cliente
+## <a name="configure-encryption-with-customer-managed-keys"></a>Configure encriptação com chaves geridas pelo cliente
 
-Por padrão, a criptografia de armazenamento do Azure usa chaves gerenciadas pela Microsoft. Nesta etapa, configure sua conta de armazenamento do Azure para usar chaves gerenciadas pelo cliente e especifique a chave a ser associada à conta de armazenamento.
+Por padrão, a encriptação do Armazenamento Azure utiliza chaves geridas pela Microsoft. Neste passo, configure a sua conta de Armazenamento Azure para utilizar as chaves geridas pelo cliente e especificar a chave para associar à conta de armazenamento.
 
-Chame [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as configurações de criptografia da conta de armazenamento, conforme mostrado no exemplo a seguir. Inclua a opção **-KeyvaultEncryption** para habilitar chaves gerenciadas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores e usar as variáveis definidas nos exemplos anteriores.
+Ligue para o [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento, como mostra o exemplo seguinte. Inclua a opção **-KeyvaultEncryption** para ativar as chaves geridas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -89,17 +89,26 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Atualizar a versão de chave
+## <a name="update-the-key-version"></a>Atualizar a versão chave
 
-Ao criar uma nova versão de uma chave, você precisará atualizar a conta de armazenamento para usar a nova versão. Primeiro, chame [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, chame [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as configurações de criptografia da conta de armazenamento para usar a nova versão da chave, conforme mostrado na seção anterior.
+Quando criar uma nova versão de uma chave, terá de atualizar a conta de armazenamento para utilizar a nova versão. Primeiro, ligue para [get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, ligue para [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão da chave, como mostrado na secção anterior.
 
-## <a name="use-a-different-key"></a>Usar uma chave diferente
+## <a name="use-a-different-key"></a>Use uma chave diferente
 
-Para alterar a chave usada para a criptografia de armazenamento do Azure, chame [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) conforme mostrado em [Configurar criptografia com chaves gerenciadas pelo cliente](#configure-encryption-with-customer-managed-keys) e forneça o novo nome e versão da chave. Se a nova chave estiver em um cofre de chaves diferente, atualize também o URI do cofre de chaves.
+Para alterar a chave utilizada para encriptação de Armazenamento Azure, ligue para [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) como mostrado na [encriptação Configure com chaves geridas pelo cliente](#configure-encryption-with-customer-managed-keys) e forneça o novo nome e versão chave. Se a nova chave estiver num cofre diferente, também atualize o cofre de chaves URI.
 
-## <a name="disable-customer-managed-keys"></a>Desabilitar chaves gerenciadas pelo cliente
+## <a name="revoke-customer-managed-keys"></a>Revogar as chaves geridas pelo cliente
 
-Quando você desabilita chaves gerenciadas pelo cliente, sua conta de armazenamento é criptografada com chaves gerenciadas pela Microsoft. Para desabilitar as chaves gerenciadas pelo cliente, chame [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) com a opção `-StorageEncryption`, conforme mostrado no exemplo a seguir. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores e usar as variáveis definidas nos exemplos anteriores.
+Se acredita que uma chave pode ter sido comprometida, pode revogar as chaves geridas pelo cliente removendo a política de acesso ao cofre chave. Para revogar uma chave gerida pelo cliente, ligue para o comando [Remove-AzKeyVaultAccessPolicy,](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) como mostra o seguinte exemplo. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
+
+```powershell
+Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+```
+
+## <a name="disable-customer-managed-keys"></a>Desativar as chaves geridas pelo cliente
+
+Quando desativa as chaves geridas pelo cliente, a sua conta de armazenamento é novamente encriptada com chaves geridas pela Microsoft. Para desativar as chaves geridas pelo cliente, ligue para [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) com a opção `-StorageEncryption`, como mostra o seguinte exemplo. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -109,5 +118,5 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
-- [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [Encriptação azure storage para dados em repouso](storage-service-encryption.md)
+- [O que é o Cofre chave Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

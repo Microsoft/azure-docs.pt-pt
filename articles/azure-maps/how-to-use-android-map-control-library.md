@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca4051e56f7d51ac7ac5fbe534cb8fc536d64a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b43169b59425e97b0aa614eb64a5c86c20179a8d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368690"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136821"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Começando com Azure Maps Android SDK
 
@@ -107,7 +107,7 @@ O próximo passo na construção da sua aplicação é instalar o Azure Maps And
     
     * adicionar importações para o Azure Maps SDK
     * definir as suas informações de autenticação do Azure Maps
-    * Obtenha a instância de controlo do mapa no método **onCreate**
+    * obter a instância de controlo do mapa no método **onCreate**
 
     Definir as informações de autenticação na classe `AzureMaps` globalmente utilizando os métodos `setSubscriptionKey` ou `setAadProperties` faz com que não tenha de adicionar as suas informações de autenticação em todas as vistas. 
 
@@ -273,7 +273,7 @@ Uma lista completa de línguas apoiadas e pontos de vista regionais é documenta
 Saiba como adicionar dados sobrepostos no mapa:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de símbolo a um mapa Android](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+> [Adicione uma camada de símbolo a um mapa Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Adicione formas a um mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

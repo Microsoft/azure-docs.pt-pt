@@ -7,11 +7,11 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
 ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358942"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283995"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instale no local gateway de dados para aplicações da Lógica Azure
 
@@ -265,7 +265,7 @@ Para mais informações, consulte estes tópicos:
 * [Resolução de problemas na porta de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
 * [Monitorizar e otimizar o desempenho do gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligar-se a dados no local a partir de aplicações lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Características de integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)
