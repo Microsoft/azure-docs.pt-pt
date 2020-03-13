@@ -68,6 +68,8 @@
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
         - name: Criar um plano de continuidade de negócio
           href: How-To/business-continuity-plan.md
+        - name: Colaborar
+          href: How-To/collaborate-knowledge-base.md
     - name: Gerir base de dados de conhecimento
       items:
         - name: Criar uma base de dados de conhecimento
@@ -79,8 +81,6 @@
         - name: Migrar para uma nova base de dados de conhecimento
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Colaborar
-          href: How-To/collaborate-knowledge-base.md
         - name: Teste
           href: How-To/test-knowledge-base.md
     - name: Gerir conjuntos de Perguntas e Respostas
