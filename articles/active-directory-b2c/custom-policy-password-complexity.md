@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.openlocfilehash: af6a7611381cbf7a251e65969d156f4c40d71843
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189145"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126766"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configure a complexidade da palavra-passe utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -26,109 +26,131 @@ No Azure Ative Directory B2C (Azure AD B2C), pode configurar os requisitos de co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete os passos em [Get started com políticas personalizadas no Diretório Ativo B2C](custom-policy-get-started.md).
+Conclua as etapas em introdução [às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada de trabalho para inscrever-se e entrar com contas locais.
+
 
 ## <a name="add-the-elements"></a>Adicione os elementos
 
-1. Copie o ficheiro *SignUpOrSignIn.xml* que descarregou com o pacote de arranque e nomeie-o *SingUpOrSignInPasswordComplexity.xml*.
-2. Abra o ficheiro *SingUpOrSignInPasswordComplexity.xml* e altere o **PolicyId** e o **PublicPolicyUri** para um novo nome de política. Por exemplo, *B2C_1A_signup_signin_password_complexity.*
-3. Adicione os seguintes elementos **ClaimType** com identificadores de `newPassword` e `reenterPassword`:
+Para configurar a complexidade da palavra-passe, sobrepor-se aos tipos de `newPassword` e `reenterPassword` [de reclamação](claimsschema.md) com referência a [validações predicadas](predicates.md#predicatevalidations). O elemento PredicadoValidaum agrupa um conjunto de predicados para formar uma validação de entrada do utilizador que pode ser aplicada a um tipo de reclamação. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+
+1. Procure o elemento [BuildingBlocks](buildingblocks.md) . Se o elemento não existir, adicione-o.
+1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
+1. Adicione as `newPassword` e `reenterPassword` reclamações ao elemento **ClaimsSchema.**
 
     ```XML
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    <ClaimType Id="newPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
+    <ClaimType Id="reenterPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
     ```
 
-4. [Os predicados](predicates.md) têm tipos de métodos de `IsLengthRange` ou `MatchesRegex`. O tipo `MatchesRegex` é usado para combinar com uma expressão regular. O tipo `IsLengthRange` tem um comprimento mínimo e máximo de corda. Adicione um elemento **Predicado** ao elemento **BuildingBlocks** se não existir com os seguintes elementos **Predicados:**
+1. [Predicados](predicates.md) define uma validação básica para verificar o valor de um tipo de reclamação e devolve verdadeiro ou falso. A validação é feita utilizando um elemento de método especificado, e um conjunto de parâmetros relevantes para o método. Adicione os seguintes predicados ao elemento **BuildingBlocks,** imediatamente após o fecho do elemento `</ClaimsSchema>`:
 
     ```XML
     <Predicates>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
+      <Predicate Id="LengthRange" Method="IsLengthRange">
+        <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+          <Parameter Id="Minimum">6</Parameter>
+          <Parameter Id="Maximum">64</Parameter>
         </Parameters>
       </Predicate>
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
+      <Predicate Id="Lowercase" Method="IncludesCharacters">
+        <UserHelpText>a lowercase letter</UserHelpText>
         <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
+          <Parameter Id="CharacterSet">a-z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Uppercase" Method="IncludesCharacters">
+        <UserHelpText>an uppercase letter</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">A-Z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Number" Method="IncludesCharacters">
+        <UserHelpText>a digit</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">0-9</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Symbol" Method="IncludesCharacters">
+        <UserHelpText>a symbol</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
     ```
 
-5. Cada elemento **de validação** de entrada é construído utilizando os elementos **Predicados** definidos. Este elemento permite-lhe realizar agregações booleanas semelhantes a `and` e `or`. Adicione um elemento **De Validação** de Entrada ao elemento **BuildingBlocks** se não existir com o seguinte elemento **de validação** de entrada:
+1. Adicione as seguintes validações predicadas ao elemento **BuildingBlocks,** imediatamente após o fecho do elemento `</Predicates>`:
 
     ```XML
-    <InputValidations>
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-    </InputValidations>
+    <PredicateValidations>
+      <PredicateValidation Id="CustomPassword">
+        <PredicateGroups>
+          <PredicateGroup Id="LengthGroup">
+            <PredicateReferences MatchAtLeast="1">
+              <PredicateReference Id="LengthRange" />
+            </PredicateReferences>
+          </PredicateGroup>
+          <PredicateGroup Id="CharacterClasses">
+            <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+            <PredicateReferences MatchAtLeast="3">
+              <PredicateReference Id="Lowercase" />
+              <PredicateReference Id="Uppercase" />
+              <PredicateReference Id="Number" />
+              <PredicateReference Id="Symbol" />
+            </PredicateReferences>
+          </PredicateGroup>
+        </PredicateGroups>
+      </PredicateValidation>
+    </PredicateValidations>
     ```
 
-6. Certifique-se de que o perfil técnico **PolicyProfile** contém os seguintes elementos:
+1. Os seguintes perfis técnicos são [perfis técnicos ative diretórios,](active-directory-technical-profile.md)que lêem e escrevem dados para o Azure Ative Directory. Anular estes perfis técnicos no ficheiro de extensão. Utilize `PersistedClaims` para desativar a política de senhas fortes. Encontre o elemento **ClaimsProviders.**  Adicione os seguintes prestadores de reclamações da seguinte forma:
 
     ```XML
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="OpenIdConnect"/>
-        <InputClaims>
-          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-        </InputClaims>
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName"/>
-          <OutputClaim ClaimTypeReferenceId="givenName"/>
-          <OutputClaim ClaimTypeReferenceId="surname"/>
-          <OutputClaim ClaimTypeReferenceId="email"/>
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="sub"/>
-      </TechnicalProfile>
-    </RelyingParty>
+    <ClaimsProvider>
+      <DisplayName>Azure Active Directory</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+        <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
     ```
 
-7. Guarde o ficheiro político.
+1. Guarde o ficheiro político.
 
 ## <a name="test-your-policy"></a>Teste a sua política
 
-Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure AD B2C seja devolvido à `https://jwt.ms` para poder rever as reclamações nele.
-
 ### <a name="upload-the-files"></a>Faça upload dos ficheiros
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Selecione Quadro de **Experiência de Identidade**.
 5. Na página Políticas Personalizadas, clique na **Política de Upload**.
-6. **Selecione Sobrepor a apólice se ela existir,** e depois procurar e selecionar o ficheiro *SingUpOrSignInPasswordComplexity.xml.*
+6. **Selecione Sobrepor a apólice se ela existir**, e depois procurar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
 7. Clique em **Carregar**.
 
 ### <a name="run-the-policy"></a>Executar a política
 
-1. Abre a política que mudaste. Por exemplo, *B2C_1A_signup_signin_password_complexity.*
+1. Abra a política de inscrição ou inscrição. Por exemplo, *B2C_1A_signup_signin.*
 2. Para **Aplicação,** selecione a sua aplicação que registou anteriormente. Para ver o símbolo, o **URL de resposta** deve mostrar `https://jwt.ms`.
 3. Clique em **Executar agora**.
 4. **Selecione Iniciar sessão agora,** insira um endereço de e-mail e introduza uma nova senha. É apresentada orientação sobre restrições de senha. Termine de introduzir as informações do utilizador e, em seguida, clique em **Criar**. Devia ver o conteúdo do símbolo que foi devolvido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como configurar a alteração da [palavra-passe utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-password-change.md).
-
-
+- - Saiba mais sobre os [elementos Predicados](predicates.md) e [Predicados Validações](predicates.md#predicatevalidations) na referência IEF.
