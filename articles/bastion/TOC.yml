@@ -4,6 +4,10 @@
   items:
     - name: Sobre o Azure Bastion
       href: bastion-overview.md
+- name: Guias de Início Rápido
+  items:
+    - name: Criar um anfitrião do Bastion a partir das definições de VM
+      href: quickstart-host-portal.md
 - name: Guias de procedimentos
   items:
     - name: Criar um anfitrião do Bastion

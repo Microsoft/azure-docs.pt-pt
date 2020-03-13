@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dbf3531f84d218543b0ab1fb2199a66bdbde2926
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514430"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117248"
 ---
 ::: zone target = "docs"
 
@@ -100,7 +100,7 @@ Execute os seguintes passos para ligar os cabos do dispositivo.
 
 Num dos nós do dispositivo, execute os passos a seguir para ligar o cabo à rede.
 
-1. Utilize um cabo de rede CAT 6 RJ-45 (cabo azul na imagem) para ligar o computador anfitrião à porta de gestão de 1 Gbps.
+1. Utilize um cabo de rede CAT 6 RJ-45 (cabo na parte superior direita na imagem, anexado para ligar o MGMT) para ligar o computador anfitrião à porta de gestão de 1 Gbps.
 2. Utilize um cabo QSFP+ (fibra ou cobre) para ligar, pelo menos, uma interface de rede de 40 Gbps (em vez da de 1 Gbps) para os dados. Se estiver a utilizar um comutador de 10 Gbps, utilize um cabo SFP+ com um adaptador QSFP+ para SFP+ (o adaptador QSA) para ligar a interface de rede de 40 Gbps para os dados.
 
     ![Portas do Data Box Heavy com os cabos ligados](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)

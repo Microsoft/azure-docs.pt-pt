@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: SDK
       items:
-        - name: 'Utilizar C#'
-          href: quickstarts/entity-sdk-csharp-quickstart.md
-        - name: Com Node.js
-          href: quickstarts/entity-sdk-node-quickstart.md
-        - name: Utilizar o Python
-          href: quickstarts/entity-sdk-python-quickstart.md
-        - name: Utilizar o Java
-          href: quickstarts/entity-sdk-java-quickstart.md
+        - name: Bibliotecas de cliente da Pesquisa de Entidades do Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: Criar uma aplicação web de página única

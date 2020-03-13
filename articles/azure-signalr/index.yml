@@ -1,82 +1,56 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação do Serviço Azure SignalR
+### YamlMime:Landing
+title: Documentação do Azure SignalR Service
+summary: O Serviço Azure SignalR é um serviço gerido do Azure que ajuda os programadores a facilmente criar aplicações web com funcionalidades em tempo real.
 metadata:
-  title: Documentação - Azure SignalR Service
+  title: Documentação do Azure SignalR Service
   description: Crie e dimensione aplicações Web em tempo real facilmente no modo sem servidor ou de servidor. Baseado no WebSocket com suporte para um vasto leque de linguagens e arquiteturas.
-  services: azure-signalr
-  author: v-chmccl
-  manager: wesmc
   ms.service: signalr
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 09/12/2018
+  author: v-chmccl
   ms.author: wesmc
-abstract:
-  description: O Serviço Azure SignalR é um serviço gerido do Azure que ajuda os programadores a facilmente criar aplicações web com funcionalidades em tempo real.
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: 'Aprenda a desenvolver a sua primeira aplicação web com o Serviço Azure SignalR para comunicações em tempo real:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
-            text: Núcleo de ASP.NET
-            href: /azure/azure-signalr/signalr-quickstart-dotnet-core
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NET.svg'
-            text: ASP.NET
-            href: /azure/azure-signalr/signalr-quickstart-dotnet
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
-            text: JavaScript
-            href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Csharp.svg'
-            text: 'C#'
-            href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/logo_java.svg'
-            text: Java
-            href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/logo_python.svg'
-            text: Python
-            href: /azure/azure-signalr/signalr-quickstart-azure-functions-python
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_REST.svg'
-            text: API REST
-            href: /azure/azure-signalr/signalr-quickstart-rest-api
-  - title: Tutoriais passo-a-passo
-    items:
-      - type: paragraph
-        text: Aprenda a criar aplicações do Serviço Azure SignalR
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Integrar o Serviço do Azure SignalR com o ASP.NET Core Identity</a>
-          - html: <a href="/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions">Criar uma Aplicação sem Servidor em Tempo Real com a Autenticação</a>
-  - title: Amostras
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/aspnet/AzureSignalR-samples">Exemplos de Código do Azure SignalR</a>'
-          - html: <a href="/azure/azure-signalr/signalr-cli-samples">CLI do Azure</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="signalr-reference-cli.md">CLI do Azure</a></p>
-          - title: Linguagens
-            html: |
-              <p><a href="https://docs.microsoft.com/aspnet/core">SDK do servidor ASP.NET Core</a></p> <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Enlaces das Funções do Azure</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">Cliente JavaScript</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">Cliente .NET Standard</a></p> <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Cliente Java</a></p>
-          - title: REST
-            html: '<p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">API REST</a></p>'
+  ms.date: 03/11/2020
+  ms.openlocfilehash: db405e7405fc96779aebc9074fa19302f3b4ba1b
+  ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/12/2020
+  ms.locfileid: "79137942"
+landingContent:
+- title: Sobre o serviço Azure SignalR
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure SignalR Service?
+      url: signalr-overview.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core - C#
+      url: signalr-quickstart-dotnet-core.md
+    - text: ASP.NET - C#
+      url: signalr-quickstart-dotnet.md
+    - text: Funções do Azure - JavaScript
+      url: signalr-quickstart-azure-functions-javascript.md
+    - text: Funções do Azure - C#
+      url: signalr-quickstart-azure-functions-csharp.md
+    - text: Funções do Azure - Java
+      url: signalr-quickstart-azure-functions-java.md
+    - text: Funções do Azure - Python
+      url: signalr-quickstart-azure-functions-python.md
+    - text: API REST
+      url: signalr-quickstart-rest-api.md
+- title: Criar aplicações do Azure SignalR Service
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Integrar o Serviço do Azure SignalR no ASP.NET Core Identity
+      url: signalr-concept-authenticate-oauth.md
+    - text: Criar uma Aplicação sem Servidor em Tempo Real com a Autenticação
+      url: signalr-tutorial-authenticate-azure-functions.md
+  - linkListType: sample
+    links:
+    - text: Exemplos de Código do Azure SignalR
+      url: https://github.com/aspnet/AzureSignalR-samples
+    - text: CLI do Azure
+      url: signalr-reference-cli.md

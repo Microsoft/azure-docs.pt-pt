@@ -8,16 +8,16 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 1c6f03663a7487e814272c6296f6e7862c65c806
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769894"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970127"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>O que é o Azure Cost Management e a Faturação?
 
-Com os produtos e os serviços do Azure, paga apenas o que utiliza. Os recursos do Azure são-lhe cobrados à medida que os cria e os utiliza. Utilize as funcionalidades Azure Cost Management e Faturação para realizar tarefas administrativas de faturação e para gerir o acesso de faturação aos custos. Também pode utilizar as funcionalidades para monitorizar e controlar as despesas do Azure e para otimizar a utilização dos recursos do Azure.
+Com os produtos e os serviços do Azure, paga apenas o que utiliza. Os recursos do Azure são-lhe cobrados à medida que os cria e os utiliza. Utilize as funcionalidades Azure Cost Management e Faturação para realizar tarefas administrativas de faturação e para gerir o acesso de faturação aos custos. Também pode utilizar as funcionalidades para monitorizar e controlar as despesas do Azure e otimizar a utilização dos recursos do Azure.
 
 ## <a name="understand-azure-billing"></a>Compreender a Faturação do Azure
 

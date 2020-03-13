@@ -10,13 +10,13 @@ metadata:
   ms.collection: performance
   author: CarlRabeler
   ms.author: carlrab
-  ms.date: 01/25/2020
-  ms.openlocfilehash: 9ef3980b61f60deaa929c932cecc093a82025cbd
-  ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+  ms.date: 03/10/2020
+  ms.openlocfilehash: 43f74ea126ab7e028b39a86e2eb1edad4cae41a2
+  ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/26/2020
-  ms.locfileid: "76756628"
+  ms.lasthandoff: 03/13/2020
+  ms.locfileid: "79208899"
 landingContent:
 - title: Sobre a monitorização e a otimização do desempenho
   linkLists:
@@ -28,14 +28,20 @@ landingContent:
     links:
     - text: Manual de Procedimentos sobre a Monitorização da Base de Dados do Microsoft Azure
       url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
-- title: Recolher métricas e registos
+- title: Recomendações de desempenho inteligente
   linkLists:
   - linkListType: concept
     links:
-    - text: Métricas e registos de diagnóstico
-      url: sql-database-metrics-diag-logging.md
-    - text: Compreender o registo de diagnóstico de desempenho
-      url: sql-database-intelligent-insights-use-diagnostics-log.md
+    - text: Recomendações de otimização do Assistente da Base de Dados SQL
+      url: sql-database-advisor.md
+    - text: Ajuste automático
+      url: sql-database-automatic-tuning.md
+    - text: Query Performance Insight
+      url: sql-database-query-performance.md
+  - linkListType: video
+    links:
+    - text: Ajuste automático
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 - title: Limites de recursos
   linkLists:
   - linkListType: concept
@@ -52,50 +58,46 @@ landingContent:
       url: sql-database-managed-instance-resource-limits.md
     - text: Limites de recursos de conjuntos de instância gerida
       url: sql-database-instance-pools.md#instance-pools-resource-limitations
-- title: Introdução - Portal do Azure
+- title: Análise de desempenho inteligente
   linkLists:
   - linkListType: overview
     links:
-    - text: Monitorização e optimização com IA
-      url: sql-database-performance.md
+    - text: Intelligent Insights com IA
+      url: sql-database-intelligent-insights.md
   - linkListType: concept
     links:
-    - text: Recomendações de otimização do Assistente da Base de Dados SQL
-      url: sql-database-advisor.md
-    - text: Query Performance Insight
-      url: sql-database-query-performance.md
+    - text: Métricas e registos de diagnóstico
+      url: sql-database-metrics-diag-logging.md
+    - text: Compreender o registo de diagnóstico de desempenho
+      url: sql-database-intelligent-insights-use-diagnostics-log.md
     - text: Análise de SQL do Azure
       url: ../azure-monitor/insights/azure-sql.md
-    - text: Informações Inteligentes
-      url: sql-database-intelligent-insights.md
     - text: Padrões de desempenho detetáveis
       url: sql-database-intelligent-insights-troubleshoot-performance.md
-    - text: Ajuste automático
-      url: sql-database-automatic-tuning.md
+    - text: Processamento de consultas inteligentes
+      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
   - linkListType: video
     links:
     - text: Informações Inteligentes
       url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
-    - text: Ajuste automático
-      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 - title: Otimização manual do desempenho
   linkLists:
   - linkListType: overview
     links:
-    - text: Guia de otimização manual do desempenho
-      url: sql-database-performance-guidance.md
+    - text: identificar problemas de desempenho de consultas
+      url: sql-database-identify-query-performance-issues.md
   - linkListType: concept
     links:
+    - text: Monitorize através de DMVs
+      url: sql-database-monitoring-with-dmvs.md
+    - text: Otimização de aplicações e bases de dados
+      url: sql-database-performance-guidance.md
     - text: Utilizar o Arquivo de Consultas
       url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
-    - text: Utilizar DMVs
-      url: sql-database-monitoring-with-dmvs.md
     - text: Utilizar eventos expandidos
       url: sql-database-xevent-db-diff-from-svr.md
     - text: Diagnóstico de desempenho do Hyperscale
       url: sql-database-hyperscale-performance-diagnostics.md
-    - text: Processamento de consultas inteligentes
-      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
 - title: Dimensionar recursos
   linkLists:
   - linkListType: overview

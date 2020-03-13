@@ -161,6 +161,9 @@
         - name: Dados da galeria
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
+        - name: Transferir blocos de notas
+          displayName: export
+          href: download-notebooks-data.md
 - name: Referência
   items:
     - name: Referência de algoritmos e módulos

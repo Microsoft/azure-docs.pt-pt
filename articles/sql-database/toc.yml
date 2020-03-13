@@ -71,13 +71,9 @@
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
         - name: Melhores práticas de segurança
           href: sql-database-security-best-practice.md
-        - name: Gestão de acesso
-          items:
-            - name: Controlo de acesso
-              href: sql-database-control-access.md
-            - name: Inícios de sessão e utilizadores
-              href: sql-database-manage-logins.md
-        - name: Autenticação
+        - name: 'Inícios de sessão, contas de utilizador, funções e permissões'
+          href: sql-database-manage-logins.md
+        - name: Autenticação do Azure AD
           href: sql-database-aad-authentication.md
           items:
             - name: Configurar a autenticação do Azure AD
@@ -86,6 +82,8 @@
               href: sql-database-ssms-mfa-authentication.md
             - name: Configurar a autenticação multifator
               href: sql-database-ssms-mfa-authentication-configure.md
+            - name: Acesso Condicional
+              href: sql-database-conditional-access.md
         - name: Proteção de dados
           items:
             - name: Encriptação de Dados Transparente (TDE)
@@ -108,12 +106,12 @@
                   href: sql-database-always-encrypted.md
                 - name: Utilizar o Azure Key Vault
                   href: sql-database-always-encrypted-azure-key-vault.md
-        - name: 'Monitorização, registos e auditoria'
+        - name: Auditoria
           items:
-            - name: Auditoria
-              items:
-                - name: Introdução à auditoria da Base de Dados SQL
-                  href: sql-database-auditing.md
+            - name: Introdução à auditoria da Base de Dados SQL
+              href: sql-database-auditing.md
+            - name: Formato do Registo de Auditoria
+              href: sql-database-audit-log-format.md
         - name: Gestão de segurança
           items:
             - name: Segurança de dados avançada
@@ -140,18 +138,12 @@
                   href: sql-database-vnet-service-endpoint-rule-powershell.md
             - name: Ligação Privada
               href: sql-database-private-endpoint-overview.md
-            - name: Formato do Registo de Auditoria
-              href: sql-database-audit-log-format.md
-            - name: Acesso Condicional
-              href: sql-database-conditional-access.md
         - name: Segurança da instância gerida
           items:
             - name: Pontos finais públicos seguros
               href: sql-database-managed-instance-public-endpoint-securely.md
             - name: Auditoria de instância gerida
               href: sql-database-managed-instance-auditing.md
-        - name: Linha de base de segurança
-          href: security-baseline.md
     - name: Ligar e consultar
       href: sql-database-connect-query.md
       items:
@@ -240,36 +232,40 @@
           href: sql-database-monitoring-tuning-index.yml
         - name: Descrição geral da monitorização e desempenho
           href: sql-database-monitor-tune-overview.md
-        - name: Monitorização de desempenho
+        - name: Assistentes de bases de dados e Query Performance Insight
           items:
-            - name: Monitorização do Análise de SQL do Azure
-              href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql'
-            - name: Registos de telemetria de diagnóstico
-              href: sql-database-metrics-diag-logging.md
-        - name: Desempenho inteligente
-          items:
-            - name: Ajuste automático
-              href: sql-database-automatic-tuning.md
-            - name: Informações inteligentes sobre o desempenho
-              href: sql-database-intelligent-insights.md
-            - name: Ações e recomendações de otimização
-              href: sql-database-performance.md
             - name: Recomendações de desempenho do assistente da base de dados
               href: sql-database-advisor.md
-        - name: Monitorizar e otimizar bases de dados
+            - name: Query Performance Insight
+              href: sql-database-query-performance.md
+        - name: Ajuste automático
+          href: sql-database-automatic-tuning.md
+        - name: Intelligent Insights e SQL Analytics
           items:
-            - name: Ajuste manual
+            - name: Informações inteligentes sobre o desempenho
+              href: sql-database-intelligent-insights.md
+            - name: Registos de telemetria de diagnóstico
+              href: sql-database-metrics-diag-logging.md
+            - name: Utilizar registo de diagnóstico do Intelligent Insights
+              href: sql-database-intelligent-insights-use-diagnostics-log.md
+            - name: Resolução de problemas de desempenho com o Intelligent Insights
+              href: sql-database-intelligent-insights-troubleshoot-performance.md
+            - name: Análise de SQL
+              href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql'
+        - name: Monitorização e otimização manuais
+          items:
+            - name: identificar problemas de desempenho de consultas
+              href: sql-database-identify-query-performance-issues.md
+            - name: Orientação de otimização de aplicações e bases de dados
               href: sql-database-performance-guidance.md
             - name: Utilizar DMVs para monitorizar o desempenho
               href: sql-database-monitoring-with-dmvs.md
-            - name: Utilizar o Arquivo de consultas para monitorizar o desempenho
-              href: sql-database-operate-query-store.md
-            - name: Resolução de problemas de desempenho com o Intelligent Insights
-              href: sql-database-intelligent-insights-troubleshoot-performance.md
-            - name: Utilizar registo de diagnóstico do Intelligent Insights
-              href: sql-database-intelligent-insights-use-diagnostics-log.md
             - name: Monitorizar o espaço OLTP dentro da memória
               href: sql-database-in-memory-oltp-monitoring.md
+            - name: Diagnóstico de desempenho do Hyperscale
+              href: sql-database-hyperscale-performance-diagnostics.md
+            - name: Gestão de recursos em conjuntos elásticos densos
+              href: sql-database-elastic-pool-resource-management.md
             - name: Eventos expandidos
               items:
                 - name: Eventos expandidos
@@ -278,10 +274,6 @@
                   href: sql-database-xevent-code-event-file.md
                 - name: Eventos expandidos - memória intermédia em anel
                   href: sql-database-xevent-code-ring-buffer.md
-        - name: Diagnóstico de desempenho do Hyperscale
-          href: sql-database-hyperscale-performance-diagnostics.md
-        - name: Gestão de recursos em conjuntos elásticos densos
-          href: sql-database-elastic-pool-resource-management.md
     - name: Escalabilidade
       items:
         - name: Documentação de escalabilidade
@@ -538,8 +530,6 @@
               href: sql-database-resource-limits-database-server.md
             - name: Arquitetura de conectividade
               href: sql-database-connectivity-architecture.md
-            - name: Definições de conectividade
-              href: sql-database-connectivity-settings.md
         - name: Sincronização de dados
           items:
             - name: Agente de Sincronização de Dados
@@ -552,10 +542,6 @@
               href: sql-database-best-practices-data-sync.md
             - name: Resolver problemas de Sincronização de Dados
               href: sql-database-troubleshoot-data-sync.md
-        - name: Monitorização de desempenho
-          items:
-            - name: Query Performance Insight
-              href: sql-database-query-performance.md
         - name: Diferenças do T-SQL
           href: sql-database-transact-sql-information.md
         - name: Funcionalidades
@@ -739,7 +725,7 @@
           items:
             - name: Publicador de MI para subscritor de MI
               href: replication-with-sql-database-managed-instance.md
-            - name: 'Publicador de MI, distribuidor de MI, Subscritor do SQL'
+            - name: 'Publicador de MI, distribuidor de MI, subscritor do SQL'
               href: sql-database-managed-instance-configure-replication-tutorial.md
     - name: Conceitos
       items:
