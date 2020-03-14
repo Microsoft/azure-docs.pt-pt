@@ -8,11 +8,11 @@ ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 63b6783a2f36d5bc9e84ce8291e7025b27359b6c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362136"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241095"
 ---
 # <a name="whats-new-in-azure-migrate"></a>O que há de novo em Azure Migrate
 
@@ -64,7 +64,7 @@ A versão atual do Azure Migrate fornece uma série de novas funcionalidades:
 - **Data Box**: Importar grandes quantidades de dados offline para O Azure utilizando a Caixa de Dados Azure em Migração Azure.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.

@@ -17,11 +17,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e9468c0a0f6844c7522ff43761cf58f4beea27e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897368"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261583"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -51,7 +51,7 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Conectividade de saída para os pontos finais de serviço do Azure
 
- Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída estiver bloqueada utilizando firewalls, certifique-se de que os seguintes URLs não estão bloqueados por padrão. Não desabilite o monitoramento de segurança ou a inspeção dessas URLs, mas permita que você tenha outro tráfego de Internet. Permitem a comunicação com os pontos finais do serviço Azure AD Connect Health. Saiba como verificar a [conectividade de saída com a Conectividade Test-AzureADConnectHealth](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída estiver bloqueada utilizando firewalls, certifique-se de que os seguintes URLs não estão bloqueados por padrão. Não desative a monitorização ou inspeção de segurança destes URLs, mas deixe-os como faria com outros tráfegos de internet. Permitem a comunicação com os pontos finais do serviço Azure AD Connect Health. Saiba como verificar a [conectividade de saída com a Conectividade Test-AzureADConnectHealth](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Ambiente de Domínio | Pontos finais do serviço do Azure necessários |
 | --- | --- |
@@ -72,7 +72,7 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
     * [Transfira o Agente do Azure AD Connect Health para AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Veja a instruções de instalação](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
-## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalar o Agente do Azure AD Connect Health para AD FS
+## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalar o agente do Azure AD Connect Health para o AD FS
 
 > [!NOTE]
 > O servidor do AD FS deve ser diferente do seu servidor de Sincronização. Não instale o agente do AD FS para o seu Servidor de sincronização.
@@ -373,7 +373,7 @@ Se o agente não conseguir enviar dados para o serviço do Azure AD Connect Heal
 O parâmetro de função toma atualmente os seguintes valores:
 
 * ADFS
-* Sincronizar
+* Sync
 * AD DS
 
 > [!NOTE]
@@ -381,12 +381,12 @@ O parâmetro de função toma atualmente os seguintes valores:
 >
 >
 
-## <a name="related-links"></a>Hiperligações relacionadas
+## <a name="related-links"></a>Ligações relacionadas
 
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Azure AD Connect Health Operations (Operações do Azure AD Connect Health)](how-to-connect-health-operations.md)
+* [Operações do Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
-* [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ (FAQ do Azure AD Connect Health)](reference-connect-health-faq.md)
 * [Histórico das Versões do Azure AD Connect Health](reference-connect-health-version-history.md)

@@ -16,11 +16,11 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 892cdeea20780c90ce325e8be9b7b91fee0d9fad
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378384"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264053"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -190,7 +190,7 @@ Se um dos quatro eventos acima ocorrer e a aplicação-alvo não suportar elimin
 
 Se vir um atributo IsSoftDeleted nos seus mapeamentos de atributos, é utilizado para determinar o estado do utilizador e se envia um pedido de atualização com ativo = falso para apagar suavemente o utilizador. 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 [Planeie uma implementação automática de fornecimento de utilizadores](../app-provisioning/plan-auto-user-provisioning.md)
 

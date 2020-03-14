@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374731"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266341"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualize o seu perfil e informações sobre contas no portal My Apps
 
@@ -138,7 +138,7 @@ Pode optar por assinar por todos os lugares em que está inscrito para usar o se
 
 2. Na caixa de confirmação **sign out em todo o lado,** selecione **Sim** para confirmar que pretende assinar fora de todas as suas sessões e dispositivos. Selecione **Não** se mudar de ideia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de terminar as suas atualizações na página **perfil,** pode:
 

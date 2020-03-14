@@ -8,12 +8,12 @@ keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêin
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d3eaa3869c79852d1e598cae76e1dac81c08cdc2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245036"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137976"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Quickstart: Debug e iterate em Kubernetes: Visual Studio & .NET Core - Azure Dev Spaces
 
@@ -94,7 +94,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-No exemplo acima, o URL público é http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue para o URL público do seu serviço e interaja com o serviço que funciona no seu espaço de dev.
+No exemplo acima, o URL público é http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. 
+
+Selecione **Debug** e **comece a depurar**. Após alguns segundos, o seu serviço começará e o Visual Studio abrirá um navegador com o URL público do serviço. Se um navegador não abrir automaticamente, navegue para o URL público do seu serviço num browser e interaja com o serviço que funciona no seu espaço de dev.
 
 Este processo pode ter desativado o acesso público ao seu serviço. Para permitir o acesso do público, pode atualizar o valor de [ingresso nos *valores.yaml*][ingress-update].
 
@@ -106,7 +108,7 @@ Se o Visual Studio ainda estiver ligado ao seu espaço de dev, clique no botão 
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-Guarde as suas alterações e inicie o seu serviço utilizando **o Azure Dev Spaces** a partir da definição de lançamento. Abra o URL público do seu serviço num browser e clique em *Cerca*de . Observe que a sua mensagem atualizada aparece.
+Guarde as suas alterações e selecione **Debug** **e comece a depurar**. Após alguns segundos, o seu serviço começará e o Visual Studio abrirá um navegador com o URL público do serviço. Se um navegador não abrir automaticamente, navegue o URL público do seu serviço num browser e clique em *About*. Observe que a sua mensagem atualizada aparece.
 
 Em vez de reconstruir e reimplantar uma nova imagem de recipiente cada vez que são feitas edições de código, a Azure Dev Spaces recompila gradualmente o código dentro do recipiente existente para fornecer um ciclo de edição/depuração mais rápido.
 

@@ -5,11 +5,11 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361204"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221086"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com intenções e entidades
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, aplicação ou bot de bate-papo para tomar medidas. As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON.
@@ -73,7 +73,7 @@ Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
+|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|
 |Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -135,7 +135,7 @@ Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 Os objetivos são ordenados da mais alta pontuação mais baixa.
 
-|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|Classificação|
+|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|Classificação|
 |--|--|--|--|:--|
 |Intenção|String|.intent intenções [0]|"GetStoreInfo"|0.984749258|
 |Intenção|String|.intent intenções [1]|"None"|0.0168218873|
@@ -196,7 +196,7 @@ Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-|Domain|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
+|Domain|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|--|
 |Serviços Públicos|Intenção|String|.intent intenções [0]|"<b>Serviços públicos</b>. ShowNext"|
 |Comunicação|Intenção|String|.intent intenções [1]|<b>Comunicação.</b> Início"|

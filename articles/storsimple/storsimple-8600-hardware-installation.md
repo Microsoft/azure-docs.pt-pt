@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365890"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254758"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar e cabo o seu dispositivo StorSimple 8600
 
@@ -211,11 +211,11 @@ Para suportar esta falha do controlador redundante, é necessário cabo da rede 
 
 | Etiqueta | Descrição |
 | --- | --- |
-| Uma |LAN com acesso à Internet |
+| A |LAN com acesso à Internet |
 | B |Controlador 0 |
-| C |PCM 0 |
+| C |PCM 0 |
 | D |Controlador 1 |
-| E |PCM 1 |
+| E |PCM 1 |
 | F |Controlador EBOD 0 |
 | G |Controlador EBOD 1 |
 | H, I |Anfitriões (por exemplo, servidores de ficheiros) |
@@ -262,6 +262,6 @@ Execute os seguintes passos para cabo a sua porta de série.
 
 Completou a cablagem do seu dispositivo para alimentação, acesso à rede e ligação em série. O próximo passo é configurar o software no seu dispositivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Está agora pronto para [implementar e configurar o seu dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
 

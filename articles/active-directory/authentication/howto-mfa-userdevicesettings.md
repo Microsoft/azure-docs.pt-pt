@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378021"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263715"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerir as definições do utilizador com autenticação de multi-factor azure na nuvem
 
@@ -55,7 +55,7 @@ Esta definição elimina todas as palavras-passe da aplicação que um utilizado
 7. Clique em **Guardar**.
 8. Clique **perto**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Obtenha mais informações sobre como [configurar as definições de autenticação multi-factor do Azure](howto-mfa-mfasettings.md)
 - Se os seus utilizadores precisarem de ajuda, aponte-os para o guia do [Utilizador para verificação em duas etapas](../user-help/multi-factor-authentication-end-user.md)

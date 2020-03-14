@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 7e4586a5fba91fbc7432aa352b9608be728e8654
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382708"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267030"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Pré-visualização: As atualizações de controlo de controlo de controlo de manutenção com o Controlo de Manutenção e a PowerShell Azure
 
@@ -256,5 +256,5 @@ Remove-AzMaintenanceConfiguration `
    -Name $config.Name
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais, consulte [Manutenção e atualizações.](maintenance-and-updates.md)

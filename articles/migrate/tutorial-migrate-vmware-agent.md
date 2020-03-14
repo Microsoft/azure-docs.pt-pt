@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 03/09/2020
 ms.custom: MVC
 ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945518"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238441"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMs migratórios para Azure (baseado em agente)
 

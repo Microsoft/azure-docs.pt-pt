@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd9e41418eac670bd1cb52be40dbd25c17af6fac
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360077"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255694"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure?
 
@@ -68,7 +68,7 @@ A Base de Dados SQL oferece os seguintes modelos de compra:
 A Base de Dados Azure SQL oferece três níveis de serviço que são projetados para diferentes tipos de aplicações:
 - Modelo de serviço Geral [Objetivo/Standard](sql-database-service-tier-general-purpose.md) concebido para cargas de trabalho comuns. Oferece opções de cálculo e armazenamento equilibradas orientadas para o orçamento.
 - Nível de serviço [Business Critical/Premium](sql-database-service-tier-business-critical.md) projetado para aplicações OLTP com elevada taxa de transação e Menor Latência Em/O. Oferece a maior resiliência às falhas usando várias réplicas isoladas.
-- [Nível](sql-database-service-tier-hyperscale.md) de serviço de hiperescala projetado para uma base de dados OLTP muito grande e a capacidade de armazenamento em escala automática e computação em escala fluidamente. 
+- [Nível](sql-database-service-tier-hyperscale.md) de serviço de hiperescala projetado para uma base de dados OLTP muito grande e a capacidade de armazenamento em escala automática e computação em escala fluidamente.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 
@@ -76,7 +76,7 @@ Para muitas empresas e aplicações, ser capaz de criar bases de dados individua
 
    ![Gráfico que mostra piscinas elásticas em edições básicas, standard e premium](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Com os conjuntos elásticos, não tem de se concentrar em ajustar o desempenho da base de dados à medida que a procura pelos recursos flutua. As bases de dados de conjunto consomem os recursos de desempenho do conjunto elástico conforme necessário. As bases de dados de conjunto consomem os limites do conjunto, mas não os excedem, pelo que os seus custos se mantêm previsíveis, mesmo que a utilização das bases de dados não.
+Com piscinas elásticas, não precisa de se concentrar em ligar para cima e para baixo o desempenho da base de dados, uma vez que a procura de recursos flutua. As bases de dados de conjunto consomem os recursos de desempenho do conjunto elástico conforme necessário. As bases de dados reunidas consomem mas não excedem os limites da piscina, pelo que o seu custo permanece previsível mesmo que o uso individual de bases de dados não o faça.
 
 Pode adicionar e remover bases de [dados para a piscina,](sql-database-elastic-pool-manage-portal.md)dimensionando a sua aplicação de um punhado de bases de dados para milhares, tudo dentro de um orçamento que controla. Também pode controlar os recursos mínimos e máximos disponíveis para bases de dados na piscina, para garantir que nenhuma base de dados na piscina utilize todos os recursos da piscina, e que cada base de dados reunida tem uma quantidade mínima garantida de recursos. Para saber mais sobre padrões de design para software como um serviço (SaaS) aplicações que usam piscinas elásticas, consulte padrões de [design para aplicações SaaS multi-inquilinos com Base de Dados SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
@@ -95,7 +95,7 @@ A Base de Dados Azure SQL fornece funcionalidades avançadas de monitorização 
  - As capacidades de monitorização incorporadas fornecidas pela versão mais recente do Motor de Base de Dados do Servidor SQL. Permitem-lhe encontrar insights de desempenho em tempo real. 
  - Capacidades de monitorização paaS fornecidas pelo Azure que lhe permitem monitorizar e resolver problemas com um grande número de casos de bases de dados.
 
-[A Consulta Store](sql-database-operate-query-store.md), uma funcionalidade de monitorização incorporada do SQL Server, regista o desempenho das suas consultas em tempo real e permite identificar os potenciais problemas de desempenho e os consumidores de recursos de topo. A finação automática e as recomendações fornecem conselhos sobre as consultas com o desempenho regredido e índices em falta ou duplicados. A sintonização automática na Base de Dados SQL permite-lhe aplicar manualmente as scripts que podem corrigir os problemas, ou deixar a Base de Dados SQL aplicar a correção. A Base de Dados SQL também pode testar e verificar se a correção proporciona algum benefício, e reter ou reverter a mudança dependendo do resultado. Além da Query Store e das capacidades de afinação automática, pode utilizar [DMVs padrão e XEvent](sql-database-monitoring-with-dmvs.md) para monitorizar o desempenho da carga de trabalho.
+[A Consulta Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), uma funcionalidade de monitorização incorporada do SQL Server, regista o desempenho das suas consultas em tempo real e permite identificar os potenciais problemas de desempenho e os consumidores de recursos de topo. A finação automática e as recomendações fornecem conselhos sobre as consultas com o desempenho regredido e índices em falta ou duplicados. A sintonização automática na Base de Dados SQL permite-lhe aplicar manualmente as scripts que podem corrigir os problemas, ou deixar a Base de Dados SQL aplicar a correção. A Base de Dados SQL também pode testar e verificar se a correção proporciona algum benefício, e reter ou reverter a mudança dependendo do resultado. Além da Query Store e das capacidades de afinação automática, pode utilizar [DMVs padrão e XEvent](sql-database-monitoring-with-dmvs.md) para monitorizar o desempenho da carga de trabalho.
 
 O Azure fornece ferramentas [de monitorização](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) de desempenho incorporadas, combinadas com classificações de desempenho, que lhe permitem monitorizar o estado de milhares de bases de dados. Utilizando estas ferramentas, pode avaliar rapidamente o impacto da escala para cima ou para baixo, com base nas suas necessidades de desempenho atuais ou projetadas. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
@@ -157,7 +157,7 @@ Dois aspetos de afinação automática estão disponíveis na Base de [Dados SQL
 
 ### <a name="adaptive-query-processing"></a>Processamento de consultas adaptável
 
-Pode utilizar o processamento de [consultas adaptáveis,](/sql/relational-databases/performance/intelligent-query-processing)incluindo a execução intercalada para funções de tabela multi-statement, feedback de concessão de memória do modo de lote e uniões adaptáveis do modo de lote. Todas estas funcionalidades de processamento de consultas adaptativo aplica técnicas de “aprendizagem e adaptação” semelhantes, o que ajuda a ir ainda mais longe na resolução de problemas de desempenho relacionados com questões de otimização de consultas historicamente complicadas.
+Pode utilizar o processamento de [consultas adaptáveis,](/sql/relational-databases/performance/intelligent-query-processing)incluindo a execução intercalada para funções de tabela multi-statement, feedback de concessão de memória do modo de lote e uniões adaptáveis do modo de lote. Cada uma destas funcionalidades de processamento de consultas adaptáveis aplica técnicas semelhantes de "aprender e adaptar", ajudando a resolver ainda mais problemas de desempenho relacionados com problemas de otimização de consultas historicamente intrigantes.
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
@@ -256,7 +256,7 @@ Os clientes da Base de Dados SQL têm os seguintes direitos associados ao Benef�
 - [Feedback](https://aka.ms/sqlfeedback): Reportar bugs e solicitar recurso.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuta o servidor SQL.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para comparações de custos e calculadoras relativas a bases de dados individuais e piscinas elásticas.
 - Veja estes quickstarts para começar:

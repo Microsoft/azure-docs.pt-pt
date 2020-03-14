@@ -4,11 +4,11 @@ description: Delineie uma linha de comando para sobrepor o ponto de entrada numa
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365164"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247127"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Delineie a linha de comando numa instância de contentorpara anular o funcionamento da linha de comando padrão
 
@@ -26,7 +26,7 @@ Tal como definir [variáveis ambientais](container-instances-environment-variabl
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
   |Alpino     |   `/bin/sh`      |
-  |Portal do     |    `cmd`     |
+  |Windows     |    `cmd`     |
 
   Siga as convenções da concha para combinar vários comandos para correr em sequência.
 
@@ -52,7 +52,7 @@ A sintaxe da linha de comando varia consoante a API Azure ou a ferramenta utiliz
 
 ### <a name="examples"></a>Exemplos
 
-|    |  CLI do Azure   | vários inquilinos | Modelo | 
+|    |  CLI do Azure   | Portal | Modelo | 
 | ---- | ---- | --- | --- |
 | Comando único | `--command-line "python myscript.py arg1 arg2"` | **Sobreposição de comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Múltiplos comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Sobreposição de comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
@@ -110,7 +110,7 @@ Saída:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Cenários baseados em tarefas, como o processamento de lotes um grande conjunto de dados com vários contentores, podem beneficiar de linhas de comando personalizadas no tempo de execução. Para obter mais informações sobre a execução de contentores baseados em [tarefas, consulte executar tarefas contentorizadas com políticas](container-instances-restart-policy.md)de reinício .
 

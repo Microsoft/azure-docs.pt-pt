@@ -16,11 +16,11 @@ ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74966b60cc058837ed8b211961e2bb8a9a2e70f8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375919"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261531"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Catálogo de alerta de saúde azure ative Connect 
 

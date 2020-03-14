@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9e6d2d6cf602bca74c8899586eef0a8108fde3c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893263"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263338"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 

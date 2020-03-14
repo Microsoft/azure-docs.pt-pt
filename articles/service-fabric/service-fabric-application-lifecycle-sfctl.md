@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382944"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259074"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerir uma aplicação Azure Service Fabric utilizando o Tecido de Serviço Azure CLI (sfctl)
 
@@ -162,7 +162,7 @@ Quando uma atualização da aplicação está em andamento, o estado pode ser re
 
 Finalmente, se uma atualização estiver em andamento e precisar de ser cancelada, pode utilizar o `sfctl application upgrade-rollback` para reverter a atualização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Básicos CLI de tecido de serviço](service-fabric-cli.md)
 * [Começando com tecido de serviço em Linux](service-fabric-get-started-linux.md)

@@ -17,12 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 650e5fb5d0b2c5522a70944991e9e49037c3b4fa
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 94cddf097f2a9e51f061909f6bdd3dcd82f18bfe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226947"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262532"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicação para plataforma de identidade Microsoft
 
@@ -43,7 +43,7 @@ Para mais detalhes, saiba [como registar uma aplicação](quickstart-register-ap
 
 Após a sua registo, a aplicação comunica com a plataforma de identidade da Microsoft enviando pedidos para o ponto final. Fornecemos quadros e bibliotecas de código aberto que tratam dos detalhes destes pedidos. Também tem a opção de implementar a lógica de autenticação por si mesmo, criando pedidos para estes pontos finais:
 
-```
+```HTTP
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
@@ -62,7 +62,7 @@ Para ver este cenário em ação, experimente uma das amostras de código de apl
 
 Para aplicações web (.NET, PHP, Java, Ruby, Python, Node) a que o utilizador acede através de um browser, pode utilizar o [OpenID Connect](active-directory-v2-protocols.md) para iniciar sessão do utilizador. No OpenID Connect, a aplicação web recebe um token ID. Um token de identificação é um símbolo de segurança que verifica a identidade do utilizador e fornece informações sobre o utilizador sob a forma de reclamações:
 
-```
+```JSON
 // Partial raw ID token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
@@ -91,7 +91,7 @@ Além de um simples sessão, uma aplicação de servidor web pode precisar de ac
 
 Pode utilizar o ponto final da plataforma de identidade da Microsoft para garantir serviços web, como a API Web RESTful da sua aplicação. As APIs web podem ser implementadas em inúmeras plataformas e idiomas. Também podem ser implementados utilizando gatilhos HTTP em funções Azure. Em vez de tokens de ID e cookies de sessão, um API web usa um token de acesso OAuth 2.0 para proteger os seus dados e autenticar pedidos de entrada. O autor de uma API web anexa um sinal de acesso no cabeçalho de autorização de um pedido HTTP, como este:
 
-```
+```HTTP
 GET /api/items HTTP/1.1
 Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
@@ -121,7 +121,7 @@ Neste fluxo, a aplicação recebe um código de autorização a partir do ponto 
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
 
-As aplicações que têm processos de longa duração ou que operam sem interação com um utilizador também precisam de uma forma de aceder a recursos seguros, como as APIs web. Estas aplicações podem autenticar e obter fichas utilizando a identidade da aplicação, em vez da identidade delegada de um utilizador, com o fluxo de credenciais de cliente OAuth 2.0. Pode provar a identidade da aplicação usando um segredo ou certificado do cliente. Para mais informações, consulte [Autenticação na plataforma de identidade da Microsoft em aplicações daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
+As aplicações que têm processos de longa duração ou que operam sem interação com um utilizador também precisam de uma forma de aceder a recursos seguros, como as APIs web. Estas aplicações podem autenticar e obter fichas utilizando a identidade da aplicação, em vez da identidade delegada de um utilizador, com o fluxo de credenciais de cliente OAuth 2.0. Pode provar a identidade da aplicação usando um segredo ou certificado do cliente. Para mais informações, consulte a [aplicação de consola .NET Core Daemon utilizando](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)a plataforma de identidade da Microsoft .
 
 Neste fluxo, a aplicação interage diretamente com o ponto final `/token` para obter acesso:
 

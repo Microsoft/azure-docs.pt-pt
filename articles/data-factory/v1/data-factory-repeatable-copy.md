@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361475"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281148"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetível na Fábrica de Dados Azure
 
@@ -147,7 +147,7 @@ A Azure Data Factory povoa esta coluna de acordo com a sua necessidade de garant
 
 Semelhante ao mecanismo 1, a Copy Activity limpa automaticamente os dados da fatia dada a partir da tabela SQL de destino. Em seguida, insere dados da fonte na tabela de destino. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Reveja os seguintes artigos de conector que para exemplos completos da JSON: 
 
 - [Base de Dados SQL do Azure](data-factory-azure-sql-connector.md)

@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
 ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381297"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274063"
 ---
-# <a name="register-for-azure-netapp-files"></a>Registo de Ficheiros Azure NetApp
+# <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
 
 > [!IMPORTANT] 
 > Antes de registar o fornecedor de recursos Do Azure NetApp Files, deve ter recebido um e-mail da equipa de Ficheiros Azure NetApp confirmando que lhe foi concedido acesso ao serviço. 
@@ -94,6 +94,6 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
       ![Microsoft.NetApp registado](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma conta NetApp](azure-netapp-files-create-netapp-account.md)

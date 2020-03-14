@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d5e8250a75cc26d4b9843875f71325e163ef23b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c327629f0c5e88520a8bb0b9c4ff68e6edc00c35
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943563"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137344"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET gerir uma fila
 
@@ -25,7 +25,7 @@ Neste arranque rápido, aprende-se a utilizar a versão 11 da biblioteca de clie
 
 Em seguida, transfira e instale o .NET Core 2.0 referente ao seu sistema operativo. Se estiver a executar o Windows, pode instalar o Visual Studio e utilizar o .NET Framework, se preferir. Também pode optar por instalar um editor para utilizar com o sistema operativo.
 
-### <a name="windows"></a>Portal do
+### <a name="windows"></a>Windows
 
 - Instale o [.NET Core para Windows](https://www.microsoft.com/net/download/windows) ou o [.NET Framework](https://www.microsoft.com/net/download/windows) (incluído no Visual Studio para Windows)
 - Instale o [Visual Studio para Windows](https://www.visualstudio.com/). Se estiver a utilizar o .NET Core, instalar o Visual Studio é opcional.  
@@ -62,7 +62,7 @@ Para executar a aplicação, tem de indicar a cadeia de ligação da sua conta d
 
 Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambiente no computador local que está a executar a aplicação. Para definir a variável de ambiente, abra uma janela da consola e siga as instruções relevantes para o seu sistema operativo. Substitua `<yourconnectionstring>` pela cadeia de ligação real:
 
-### <a name="windows"></a>Portal do
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -92,7 +92,7 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 A aplicação da amostra cria uma fila e adiciona-lhe uma mensagem. A aplicação primeiro espreita a mensagem sem a retirar da fila, depois recupera a mensagem e elimina-a da fila.
 
-### <a name="windows"></a>Portal do
+### <a name="windows"></a>Windows
 
 Se estiver a utilizar o Visual Studio como editor, pode premir **F5** para executar. 
 
@@ -262,7 +262,7 @@ Consulte estes recursos adicionais para o desenvolvimento .NET com as filas Azur
 
 ### <a name="binaries-and-source-code"></a>Binários e código fonte
 
-- Descarregue os pacotes NuGet para a versão mais recente da biblioteca de [clientes azure storage para .NET](/dotnet/api/overview/azure/storage/client)
+- Descarregue os pacotes NuGet para a versão mais recente da biblioteca de [clientes azure storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
     - [Comum](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Filas](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Veja o [código fonte da biblioteca de cliente .NET](https://github.com/Azure/azure-storage-net) no GitHub.
@@ -272,7 +272,7 @@ Consulte estes recursos adicionais para o desenvolvimento .NET com as filas Azur
 - Consulte a [Referência da API de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) para obter mais informações sobre a biblioteca de cliente .NET.
 - Explore as amostras de armazenamento de [fila escritas](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) utilizando a biblioteca de clientes .NET.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a adicionar mensagens a uma fila, a espreitar mensagens de uma fila e a desfilar e processar mensagens usando .NET. 
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 15e1c3de5392238e9e1dbfd324fe40087950a766
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 0afb0ddb65a4f27463e2bb5c1b9441d248c34415
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380815"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240759"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Quickstart: Criar uma fábrica de dados utilizando a UI da Fábrica de Dados Azure
 
@@ -67,6 +67,10 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 1. Selecione o mosaico **Criar e Monitorizar** para iniciar a aplicação de interface de utilizador (IU) do Azure Data Factory num separador à parte.
    
    ![Home page da fábrica de dados, com o mosaico "Criar e Monitorizar"](./media/doc-common-process/data-factory-home-page.png)
+   
+   > [!NOTE]
+   > Se verificar que o navegador está preso em "Autorizar", limpe os **cookies de terceiros** do Bloco e a caixa de verificação de dados do site. Ou mantê-la selecionada, criar uma exceção para **login.microsoftonline.com**, e depois tentar abrir a app novamente.
+   
 1. Na página **Introdução**, mude para o separador **Criar**, no painel esquerdo. 
 
     ![Página “Vamos começar”](./media/doc-common-process/get-started-page-author-button.png)

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: fe338ca3f25cd606da7f95f6c9437a3cd3dc4e69
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391359"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258281"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida dos Serviços Fiáveis
 > [!div class="op_single_selector"]

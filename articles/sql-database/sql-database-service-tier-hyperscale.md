@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
 ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359781"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255837"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -167,30 +167,30 @@ Se precisar de restaurar um Db de Hiperescala de Base de Dados Azure SQL para ou
 O nível de hiperescala de base de dados Azure SQL está atualmente disponível nas seguintes regiões:
 
 - Leste da Austrália
-- Sudeste da Austrália
+- Austrália Sudeste
 - Sul do Brasil
 - Canadá Central
-- EUA Central
+- E.U.A. Central
 - China Leste 2
 - China Norte 2
-- Ásia Oriental
-- EUA Leste
+- Ásia Leste
+- E.U.A. Leste
 - Leste de Nós 2
 - França Central
 - Leste do Japão
 - Oeste do Japão
 - Coreia do Sul Central
-- Coreia do Sul
-- EUA Centro-Norte
+- Sul da Coreia do Sul
+- E.U.A. Centro-Norte
 - Europa do Norte
 - África do Sul Norte
-- EUA Centro-Sul
-- Sudeste Asiático
-- Reino Unido Sul
-- Reino Unido Oeste
+- E.U.A. Centro-Sul
+- Ásia Sudeste
+- Sul do Reino Unido
+- Oeste do Reino Unido
 - Europa Ocidental
-- EUA Oeste
-- EUA Oeste 2
+- E.U.A. Oeste
+- E.U.A.Oeste 2
 
 Se quiser criar uma base de dados hyperscale numa região que não esteja listada como suportada, pode enviar um pedido de embarque através do portal Azure. Para obter instruções, consulte O pedido aumenta para a Base de [Dados Azure SQL](quota-increase-request.md) para obter instruções. Ao submeter o seu pedido, utilize as seguintes orientações:
 
@@ -221,7 +221,7 @@ Estas são as limitações atuais para o nível de serviço de hiperescala a par
 | Base de Dados Encolher | O DBCC SHRINKDATABASE ou o DBCC SHRINKFILE não são atualmente suportados para bases de dados de hiperescala. |
 | Verificação da integridade da base de dados | O DBCC CHECKDB não é atualmente suportado para bases de dados de hiperescala. Consulte a Integridade dos Dados na Base de [Dados Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) para obter detalhes sobre a gestão da integridade de dados na Base de Dados Azure SQL. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para um FAQ em Hiperescala, consulte [frequentemente perguntas sobre hiperescala](sql-database-service-tier-hyperscale-faq.md).
 - Para obter informações sobre os níveis de serviço, consulte [os níveis de serviço](sql-database-service-tiers.md)

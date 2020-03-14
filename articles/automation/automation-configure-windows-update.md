@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373255"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279029"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configure as definições de atualização do Windows para gestão de atualizações
 

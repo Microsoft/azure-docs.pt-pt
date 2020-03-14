@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.date: 1/24/2020
 ms.author: raiye
 ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344529"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273114"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos do Os do Azure Guest e matriz de compatibilidade sdk
 Fornece-lhe informações atualizadas sobre os mais recentes lançamentos do Os OS do Azure Guest para serviços em nuvem. Esta informação ajuda-o a planear o seu caminho de upgrade antes de um Sistema operativo convidado ser desativado. Se configurar as suas funções para utilizar atualizações *automáticas* do Osdo do Hóspede, conforme descrito nas Definições de Atualização do Osso do [Hóspede do Azure,][Azure Guest OS Update Settings]não é vital que leia esta página.
@@ -116,7 +116,7 @@ O Os convidado de setembro foi lançado.
 >
 
 
-| Cadeia de configuração | Data de lançamento | Data de desativação |
+| Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
 |  WA-GUEST-OS-6.15_202001-01  |  24 de janeiro de 2020  |  Posto 6.17  |  
 | WA-GUEST-OS-6.14_201912-01 | 8 de janeiro de 2020 | Posto 6.16 |  
@@ -144,7 +144,7 @@ O Os convidado de setembro foi lançado.
 >
 
 
-| Cadeia de configuração | Data de lançamento | Data de desativação |
+| Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
 |  WA-GUEST-OS-5.39_202001-01  |  24 de janeiro de 2020  |  Posto 5.41  |  
 | WA-GUEST-OS-5.38_201912-01 | 8 de janeiro de 2020 | Posto 5.40 |  
@@ -169,7 +169,7 @@ O Os convidado de setembro foi lançado.
 
 .NET Quadro instalado: 3.5, 4.5.1, 4.5.2
 
-| Cadeia de configuração | Data de lançamento | Data de desativação |
+| Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
 |  WA-GUEST-OS-4.74_202001-01  |  24 de janeiro de 2020  |  Posto 4.76  |  
 | WA-GUEST-OS-4.73_201912-01 | 8 de janeiro de 2020 | Posto 4.75 |  
@@ -194,7 +194,7 @@ O Os convidado de setembro foi lançado.
 
 .NET Quadro instalado: 3.5, 4.5
 
-| Cadeia de configuração | Data de lançamento | Data de desativação |
+| Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
 |  WA-GUEST-OS-3.81_202001-01  |  24 de janeiro de 2020  |  Posto 3.83  |  
 | WA-GUEST-OS-3.80_201912-01 | 8 de janeiro de 2020 | Posto 3.82 |  
@@ -219,7 +219,7 @@ O Os convidado de setembro foi lançado.
 
 .NET Quadro instalado: 3.5 (inclui 2.0 e 3.0), 4.5
 
-| Cadeia de configuração | Data de lançamento | Data de desativação |
+| Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
 |  WA-GUEST-OS-2.94_202001-01  |  24 de janeiro de 2020  |  Posto 2.96  |  
 | WA-GUEST-OS-2.93_201912-01 | 8 de janeiro de 2020 | Posto 2.95 |  

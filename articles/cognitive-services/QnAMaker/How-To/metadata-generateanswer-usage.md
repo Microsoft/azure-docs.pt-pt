@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
 ms.openlocfilehash: 6a8cbabfd4e47c50d2c2e6f4a23c50a931e645a0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389305"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220646"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API GenerateAnswer e metadados
 

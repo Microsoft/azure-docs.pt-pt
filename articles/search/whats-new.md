@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/10/2020
 ms.openlocfilehash: 3150eed063413d0665adfc104a603f9f2b5755c3
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128878"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241571"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 

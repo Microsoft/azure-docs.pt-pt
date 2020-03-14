@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/05/2020
 ms.openlocfilehash: a4c207cdbe4bbd0fdef5e1da8da0f4b582702308
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932804"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241207"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Quickstart: Criar o cluster Apache Spark em Azure HDInsight usando o modelo de Gestor de Recursos
 

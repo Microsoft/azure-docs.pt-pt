@@ -13,11 +13,11 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
 ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359154"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269071"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conceber serviços disponíveis globalmente utilizando base de dados Azure SQL
 

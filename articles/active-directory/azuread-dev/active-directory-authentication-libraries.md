@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: fd880c98878f1f778047cd2d60b115b857ad0809
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377464"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263624"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticação de diretório ativo Azure
 

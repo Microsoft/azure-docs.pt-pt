@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378082"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263754"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na autenticação multi-factor azure
 
@@ -196,7 +196,7 @@ A tabela a seguir pode ser utilizada para resolver problemas de autenticação d
 | FAILED_AUTH_RESULT_TIMEOUT | Timeout do resultado de Auth | O utilizador demorou muito tempo a completar a tentativa de autenticação multi-factor. |
 | FAILED_AUTHENTICATION_THROTTLED | Autenticação Acelerada | A tentativa de autenticação multi-factor foi acelerada pelo serviço. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [SSPR e Relatórios de Informação sobre o Uso de SSPR e MFA](howto-authentication-methods-usage-insights.md)
 * [Para utilizadores](../user-help/multi-factor-authentication-end-user.md)

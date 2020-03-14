@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387638"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281057"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mova dados do SAP Business Warehouse utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -61,15 +61,15 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao SAP Business Warehouse (BW).
 
-Propriedade | Descrição | Valores permitidos | Required
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-relatórios | Nome do servidor em que reside a instância SAP BW. | Cadeia de caracteres | Sim
+servidor | Nome do servidor em que reside a instância SAP BW. | string | Sim
 systemNumber | Número do sistema do sistema SAP BW. | Número de cimacimal de dois dígitos representado como uma corda. | Sim
 clientId | Identificação do cliente do cliente no sistema SAP W. | Número de cimacimal de três dígitos representado como uma corda. | Sim
-username | Nome do utilizador que tem acesso ao servidor SAP | Cadeia de caracteres | Sim
-palavra-passe | A palavra-passe do utilizador. | Cadeia de caracteres | Sim
-gatewayName | Nome do portal que o serviço Data Factory deve utilizar para ligar à instância SAP BW no local. | Cadeia de caracteres | Sim
-encryptedCredential | A corda credencial encriptada. | Cadeia de caracteres | Não
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
+palavra-passe | A palavra-passe do utilizador. | string | Sim
+gatewayName | Nome do portal que o serviço Data Factory deve utilizar para ligar à instância SAP BW no local. | string | Sim
+encryptedCredential | A corda credencial encriptada. | string | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
@@ -84,9 +84,9 @@ Considerando que as propriedades disponíveis na secção **typeProperties** da 
 
 Quando a fonte na atividade de cópia é do tipo **RelationalSource** (que inclui SAP BW), as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| query | Especifica a consulta MDX para ler os dados da instância SAP BW. | Consulta MDX. | Sim |
+| consulta | Especifica a consulta MDX para ler os dados da instância SAP BW. | Consulta MDX. | Sim |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemplo jSON: Copiar dados do SAP Business Warehouse para O Blob Azure

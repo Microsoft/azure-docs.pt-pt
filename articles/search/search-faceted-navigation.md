@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390344"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283163"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar navegação faceada na Pesquisa Cognitiva Azure
 
@@ -34,7 +34,7 @@ No desenvolvimento da sua aplicação, o código de escrita que constrói consul
 ## <a name="sample-code-and-demo"></a>Código de amostra e demonstração
 Este artigo usa um portal de pesquisa de emprego como exemplo. O exemplo é implementado como uma aplicação ASP.NET MVC.
 
-- Consulte e teste a demonstração de trabalho online na Demo do Portal de Trabalho de [Pesquisa Cognitiva Azure.](http://azjobsdemo.azurewebsites.net/)
+- Consulte e teste a demonstração de trabalho online na Demo do Portal de Trabalho de [Pesquisa Cognitiva Azure.](https://aka.ms/azjobsdemo)
 
 - Descarregue o código do [repo Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -78,7 +78,7 @@ Expressões de pesquisa complexas diminuem o desempenho da consulta. Sempre que 
 Para entender melhor como um filtro adiciona mais precisão, compare uma expressão de pesquisa complexa com uma que inclui uma expressão de filtro:
 
 -   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
--   `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
+-   `GET /indexes/hotel/docs?search=lodging&$filter=City eq 'Seattle' and Parking and Type ne 'motel'`
 
 Ambas as consultas são válidas, mas a segunda é superior se você estiver procurando não-motéis com estacionamento em Seattle.
 -   A primeira consulta baseia-se nessas palavras específicas que são mencionadas ou não mencionadas em campos de cordas como Nome, Descrição e qualquer outro campo que contenha dados pesquisáveis.
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Um parâmetro de consulta facial é definido para um campo e, dependendo do tipo de dados, pode ser paralisado por lista de comma-delimitada que inclui `count:<integer>`, `sort:<>`, `interval:<integer>`e `values:<list>`. Uma lista de valores é suportada para dados numéricos ao configurar intervalos. Consulte documentos de [pesquisa (API de pesquisa cognitiva azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter detalhes de utilização.
 
-Juntamente com as facetas, o pedido formulado pela sua aplicação também deve construir filtros para reduzir o conjunto de documentos candidatos com base numa seleção de valor faceta. Para uma loja de bicicletas, a navegação facetada fornece pistas para questões como *que cores, fabricantes e tipos de bicicletas estão disponíveis?* Filtrar responde a perguntas como *quais bicicletas exatas são vermelhas, bicicletas de montanha, nesta gama de preços?* Quando clica em "Vermelho" para indicar que apenas devem ser mostrados produtos Vermelhos, a próxima consulta que a aplicação envia inclui `$filter=Color eq ‘Red’`.
+Juntamente com as facetas, o pedido formulado pela sua aplicação também deve construir filtros para reduzir o conjunto de documentos candidatos com base numa seleção de valor faceta. Para uma loja de bicicletas, a navegação facetada fornece pistas para questões como *que cores, fabricantes e tipos de bicicletas estão disponíveis?* Filtrar responde a perguntas como *quais bicicletas exatas são vermelhas, bicicletas de montanha, nesta gama de preços?* Quando clica em "Vermelho" para indicar que apenas devem ser mostrados produtos Vermelhos, a próxima consulta que a aplicação envia inclui `$filter=Color eq 'Red'`.
 
 O seguinte código da página `JobsSearch.cs` adiciona o Título de Negócio selecionado ao filtro se selecionar um valor a partir da faceta do Título de Negócio.
 
@@ -371,7 +371,7 @@ Pode encontrar exemplos de filtro na [sintaxe de expressão OData (Pesquisa Cogn
 ## <a name="try-the-demo"></a>Tente a demonstração.
 A Demo do Portal de Trabalho de Pesquisa Cognitiva Azure contém os exemplos referenciados neste artigo.
 
--   Consulte e teste a demonstração de trabalho online na Demo do Portal de Trabalho de [Pesquisa Cognitiva Azure.](https://azjobsdemo.azurewebsites.net/)
+-   Consulte e teste a demonstração de trabalho online na Demo do Portal de Trabalho de [Pesquisa Cognitiva Azure.](https://aka.ms/azjobsdemo)
 
 -   Descarregue o código do [repo Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

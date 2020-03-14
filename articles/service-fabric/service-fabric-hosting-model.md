@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391423"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282396"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem de tecido de serviço Azure
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicações fornecidos pela Azure Service Fabric, e descreve as diferenças entre os modelos **De processo partilhado** e processo **exclusivo.** Descreve como uma aplicação implantada se parece num nó de Tecido de Serviço, e a relação entre réplicas (ou instâncias) do serviço e o processo de hospedamento de serviço.

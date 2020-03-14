@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
-ms.date: 01/20/2020
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 7cf0ff1d64603215a9607f5a25ebc4077f9fa9da
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649794"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270683"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -22,9 +22,6 @@ Para acompanhar o seu impacto através dos compromissos dos clientes e receber r
 > Os clientes também podem ser a bordo quando compram uma oferta de serviços geridos (público ou privado) que publicou no Azure Marketplace. Para mais informações, consulte [a Publicação de Ofertas de Serviços Geridos para o Mercado Azure.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque aqui descrito juntamente com uma oferta publicada no Azure Marketplace.
 
 O processo de embarque requer que sejam tomadas medidas dentro do inquilino do prestador de serviços e do inquilino do cliente. Todos estes passos são descritos neste artigo.
-
-> [!IMPORTANT]
-> Atualmente, não pode embarcar numa subscrição (ou grupo de recursos dentro de uma subscrição) para a gestão de recursos delegados do Azure se a subscrição utilizar os Azure Databricks. Da mesma forma, se uma subscrição foi registada para o embarque com o fornecedor de recursos **Microsoft.ManagedServices,** não será capaz de criar um espaço de trabalho databricks para essa subscrição neste momento.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Reúna detalhes de inquilino e subscrição
 
@@ -98,7 +95,7 @@ Para definir as autorizações, terá de conhecer os valores de ID para cada uti
 az ad group list --query "[?displayName == '<yourGroupName>'].objectId" --output tsv
 
 # To retrieve the objectId for an Azure AD user
-az ad user show --upn-or-object-id "<yourUPN>" –-query "objectId" --output tsv
+az ad user show --id "<yourUPN>" --query "objectId" --output tsv
 
 # To retrieve the objectId for an SPN
 az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output tsv

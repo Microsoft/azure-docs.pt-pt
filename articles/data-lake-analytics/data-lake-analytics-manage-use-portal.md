@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361312"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265704"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerir o Azure Data Lake Analytics utilizando o portal Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -161,7 +161,7 @@ Para ver uma lista de empregos U-SQL que são recorrentes:
 2. Clique em **Insights de Emprego**. O separador "All Jobs" será indefinido, mostrando uma lista de trabalhos de corrida, fila e de fim de emprego.
 3. Clique no separador **Empregos Recorrentes.** Será apresentada uma lista de postos de trabalho recorrentes, juntamente com estatísticas agregadas para cada trabalho recorrente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gerencie o Azure Data Lake Analytics utilizando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)

@@ -12,11 +12,11 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/12/2020
 ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360364"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255655"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de dados transparente sql Azure com chave gerida pelo cliente
 
@@ -193,7 +193,7 @@ Para evitar problemas durante o estabelecimento ou durante a geo-replicação de
 
 Para testar uma falha, siga os passos na visão geral da [geo-replicação ativa](sql-database-geo-replication-overview.md). Deve ser feito regularmente para confirmar as permissões de acesso da SQL a ambos os cofres-chave.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode querer verificar os seguintes scripts de amostra PowerShell para as operações comuns com o TDE gerido pelo cliente:
 

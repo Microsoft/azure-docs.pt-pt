@@ -12,11 +12,11 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 6b3047eb600c3d5808993c3646f718ca25824962
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380756"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269279"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Azure Synapse Analytics isolamento do grupo de trabalho (Pré-visualização)
 

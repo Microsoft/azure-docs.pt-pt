@@ -8,11 +8,11 @@ ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
 ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344057"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269903"
 ---
 # <a name="payout-reporting"></a>Relatórios de pagamento
 
@@ -70,21 +70,21 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 |Descrição    |    Data  | Encomendas/Utilização  | Pagamento |
 |----------|----------|-----------|-------------|
-|Período de encomenda   | 15 de agosto de 2019 - 30 de agosto de 2019 | **Ordens de Atributos correlaçãois** <br> <ul> <li>Rdenouno</li> <li>ClienteId</li> </ul> <br> **Utilização** <br> <ul> <li>ClienteId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> |  |
+|Período de encomenda   | 15 de agosto de 2019 - 30 de agosto de 2019 | **Ordens de Atributos correlaçãois** <br> <ul> <li>Rdenouno</li> <li>clienteId</li> </ul> <br> **Utilização** <br> <ul> <li>clienteId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> |  |
 |Fim do Prazo (mês)   | 30 de agosto de 2019 | | |
 |Data de faturação | 1 de setembro de 2019 | | |
 |Data de Pagamento do Cliente | 1 de setembro de 2019 | | |
-|Período de caução (apenas cartões de crédito, 30 dias) | 1 de setembro de 2019 - 30 set, 2019 | | **Correlação atribui ordens:** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>ClienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Não processado |
+|Período de caução (apenas cartões de crédito, 30 dias) | 1 de setembro de 2019 - 30 set, 2019 | | **Correlação atribui ordens:** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Não processado |
 |Início do Período de Recolha | 1 de setembro de 2019 | | |
 |Fim do Período de Recolha (máximo, 30 dias) | 30 de setembro de 2019 | | |
-|Data de Cálculo do Pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>ClienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** A seguir |
-|Data de Pagamento | 15 out, 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>ClienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Pagamento enviado |
+|Data de Cálculo do Pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** A seguir |
+|Data de Pagamento | 15 out, 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Pagamento enviado |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Acordo de empresa (clientes trimestrais/mensais)
 
 | Descrição |    Data  | Utilização | Pagamento |
 |----------|----------|---------|-----------|
-|Período de encomenda | 15 de agosto de 2019 - 30 de agosto de 2019 | **Correlação atribui ordens** <br> <ul> <li>Rdenouno</li> <li>ClienteId</li> </ul> <br> **Relatório de utilização** <br> <ul> <li>ClienteId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> | |
+|Período de encomenda | 15 de agosto de 2019 - 30 de agosto de 2019 | **Correlação atribui ordens** <br> <ul> <li>Rdenouno</li> <li>clienteId</li> </ul> <br> **Relatório de utilização** <br> <ul> <li>clienteId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> | |
 |Fim do Prazo (trimestre) | 30 de setembro de 2019 | | |
 |Data de faturação | 15 out, 2019 | | |
 |Período de caução (apenas cartões de crédito, 30 dias) | n/d | | |
@@ -93,7 +93,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 |Fim do Período de Recolha (máximo, 90 dias) | 15 de janeiro de 2020 | | |
 |Data de Pagamento do Cliente | 30 de dezembro de 2019 | | |
 |Cálculo do pagamento | 15 de janeiro de 2020 | | |
-|Data de Pagamento | Fev 15, 2020 | | **Para clientes trimestrais** <br> <br> **Relatório de encomendas** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>ClienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** enviado |
+|Data de Pagamento | Fev 15, 2020 | | **Para clientes trimestrais** <br> <br> **Relatório de encomendas** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** enviado |
 
 ## <a name="transaction-history-download-export"></a>Transferência de transferência de histórico de transações
 
@@ -162,7 +162,7 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | taxZipCode       | Vendido ao Cliente Zip                                                                                                                  |
 | Nome do Programa de Licenciamento       |                                                                                                                   |
 | Código do Programa       | Corda para mapear com o nome do programa                                                                                                                   |
-| ganhoAmountInLastPaymentCurrency       | Valor dos ganhos na última moeda de pagamento (campo estará vazio, se não tiverem sido pagos pagamentos prévios)                                                                                                                   |
+| Valor InLastPaymentCurrency       | Valor dos ganhos na última moeda de pagamento (campo estará vazio, se não tiverem sido pagos pagamentos prévios)                                                                                                                   |
 | últimaMoeda de pagamento       | Última moeda de pagamento (campo estará vazio, se não tiver sido pago nenhum pagamento prévio)                                                                                                                   |
 | Assetid       | O identificador único para as encomendas do cliente para o seu serviço de marketplace.  Representa os itens de linha de compra transacionados. Pode haver vários bens.                                                                                                                   |
 | Rdenouno       | refere-se à fatura de um cliente                                                                                                                   |

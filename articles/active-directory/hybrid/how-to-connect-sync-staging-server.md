@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376218"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261024"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de encenação e recuperação de desastres
 Com um servidor em modo de encenação, pode fazer alterações na configuração e pré-visualizar as alterações antes de tornar o servidor ativo. Também permite executar a importação completa e a sincronização completa para verificar se todas as mudanças são esperadas antes de fazer estas alterações no seu ambiente de produção.

@@ -4,11 +4,11 @@ description: Este artigo descreve como pode ver e analisar o desempenho de um cl
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385535"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275480"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o seu desempenho do cluster Kubernetes com o Monitor Azure para contentores
 
@@ -117,7 +117,7 @@ O Azure Monitor para contentores também suporta o explorador de [métricas](../
 
 No explorador de métricas, pode ver métricas de utilização de nó agregados e cápsulas do Monitor Azure para contentores. A tabela que se segue resume os detalhes para ajudá-lo a entender como usar os gráficos métricos para visualizar as métricas do recipiente.
 
-|Espaço de Nomes | Métrica | Descrição | 
+|Espaço de nomes | Métrica | Descrição | 
 |----------|--------|-------------|
 | insights.container/nodes | |
 | | cpuUsageMillicores | Medição agregada da utilização do CPU em todo o cluster. É um núcleo cpu dividido em 1000 unidades (mili = 1000). Usado para determinar o uso de núcleos num recipiente onde muitas aplicações podem estar usando um núcleo.| 
@@ -196,7 +196,7 @@ A informação que é apresentada quando vê o separador **Nós** é descrita na
 | Min&nbsp;%, Avg&nbsp;%, 50º&nbsp;%, 90º&nbsp;%, 95º&nbsp;%, Max&nbsp;%  | Média de percentagem de nó com base no percentil durante o período selecionado. |
 | Min, Avg, 50th, 90th, 95th, Max | Valor real médio dos nódosos com base no percentil durante a duração do tempo selecionado. O valor médio é medido a partir do limite de CPU/Memória definido para um nó. Para cápsulas e contentores, é o valor médio reportado pelo hospedeiro. |
 | Contentores | Número de contentores. |
-| Tempo de atividade | Representa o tempo, uma vez que um nó iniciado ou foi reiniciado. |
+| Período de atividade | Representa o tempo, uma vez que um nó iniciado ou foi reiniciado. |
 | Controlador | Apenas para os contentores e pods. Mostra em que controlador reside. Nem todas as cápsulas estão num controlador, por isso alguns podem exibir **N/A**. | 
 | Tendência Min&nbsp;%, Avg&nbsp;%, 50º&nbsp;%, 90º&nbsp;%, 95º&nbsp;%, Max&nbsp;% | Tendência de gráfico de barras representa a percentagem de métrica de percentil média do controlador. |
 
@@ -226,7 +226,7 @@ A informação que é exibida quando vê os controladores é descrita na tabela 
 | Min, Avg, 50th, 90th, 95th, Max  | Agregação do média da CPU millicore ou memória desempenho do contentor para o percentil selecionado. O valor médio é medido desde o limite de CPU/memória definido para um pod. |
 | Contentores | Número total de contentores para o controlador ou pod. |
 | Reinicia | Agregação da contagem de reinício de contentores. |
-| Tempo de atividade | Representa o tempo desde o início de um contentor. |
+| Período de atividade | Representa o tempo desde o início de um contentor. |
 | Nó | Apenas para os contentores e pods. Mostra em que controlador reside. | 
 | Tendência Min&nbsp;%, Avg&nbsp;%, 50º&nbsp;%, 90º&nbsp;%, 95º&nbsp;%, Max&nbsp;% | Tendência de gráfico de barras representa a métrica de percentil média do controlador. |
 
@@ -264,7 +264,7 @@ A informação que é exibida quando vê os recipientes é descrita na tabela se
 | Pod | Contentor onde reside o pod.| 
 | Nó |  Nó onde reside o contentor. | 
 | Reinicia | Representa o tempo desde o início de um contentor. |
-| Tempo de atividade | Representa o tempo, uma vez que um contentor foi iniciado ou reiniciado. |
+| Período de atividade | Representa o tempo, uma vez que um contentor foi iniciado ou reiniciado. |
 | Tendência Min&nbsp;%, Avg&nbsp;%, 50º&nbsp;%, 90º&nbsp;%, 95º&nbsp;%, Max&nbsp;% | Tendência de gráfico de barras representa a percentagem de métrica de percentil média do contentor. |
 
 Os ícones no campo de estado indicam os estados on-line das cápsulas, conforme descrito na tabela seguinte.

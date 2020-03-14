@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388366"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260582"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
@@ -109,7 +109,7 @@ A tabela seguinte descreve nomes e descrições de propriedades específicas des
 | resourceLinkedService | Serviço Ligado ao Armazenamento Azure na conta de armazenamento onde a aplicação personalizada é armazenada | Não&#42;       |
 | folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - isto é, numa estrutura hierárquica de pastas sob *pastaPath* - a estrutura da pasta é atualmente achatada quando os ficheiros são copiados para o Lote Azure. Ou seja, todos os ficheiros são copiados para uma única pasta sem subpastas. Para contornar este comportamento, considere comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, desapertá-lo com código personalizado no local pretendido. | Não&#42;       |
 | referênciaObjetos      | Uma variedade de serviços e conjuntos de dados ligados existentes. Os serviços e conjuntos de dados referenciados são passados para a aplicação personalizada em formato JSON para que o seu código personalizado possa fazer referência aos recursos da Fábrica de Dados | Não       |
-| Propriedades Estendidas    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada em formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não       |
+| propriedades estendidas    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada em formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não       |
 | retentionTimeInDays | O tempo de retenção dos ficheiros submetidos para atividades personalizadas. O valor padrão é de 30 dias. | Não |
 
 &#42;As propriedades `resourceLinkedService` e `folderPath` devem ser especificadas ou ambas devem ser omitidas.

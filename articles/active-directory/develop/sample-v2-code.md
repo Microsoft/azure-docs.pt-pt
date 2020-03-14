@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f24412aa7e53c52f0fcbf0c266b57db077d41eb1
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: a0ba46abcc6e3b837dc0b13422bdc3d714ed0022
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612042"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262688"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Amostras de código de plataforma de identidade da Microsoft (v2.0 endpoint)
 
@@ -69,7 +69,7 @@ As seguintes amostras ilustram aplicações web que assinam nos utilizadores. Al
 
 As seguintes amostras mostram aplicações públicas de clientes (aplicações de desktop ou mobile) que acedem à API do Microsoft Graph, ou à sua própria API web em nome de um utilizador. Todas estas aplicações de clientes utilizam a Microsoft Authentication Library (MSAL).
 
-| Aplicação do cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph | Chama um ASP.NET Core 2.0 web API |
+| aplicação cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph | Chama um ASP.NET Core 2.0 web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Ambiente de trabalho (WPF)      | ![Esta imagem mostra oC# logótipo .NET/](media/sample-v2-code/logo_NET.png) | [interativo](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-nativo-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Ambiente de trabalho (Consola)   | ![Esta imagem mostra oC# logótipo .NET/ (Desktop)](media/sample-v2-code/logo_NET.png) | [Autenticação Integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -88,7 +88,7 @@ As seguintes amostras mostram aplicações públicas de clientes (aplicações d
 
 As amostras que se seguem mostram uma aplicação que acede à API do Microsoft Graph com a sua própria identidade (sem utilizador).
 
-| Aplicação do cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph |
+| aplicação cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
 | Consola | ![Esta imagem mostra o logótipo .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Credenciais de cliente](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Aplicação Web | ![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Credenciais de cliente](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
@@ -99,7 +99,7 @@ As amostras que se seguem mostram uma aplicação que acede à API do Microsoft 
 
 A amostra seguinte mostra uma aplicação de cliente público a funcionar num dispositivo sem um navegador web. A aplicação pode ser uma ferramenta de linha de comando, uma aplicação em execução no Linux ou Mac, ou uma aplicação IoT. A amostra possui uma aplicação de acesso à API do Microsoft Graph, em nome de um utilizador que se inscreve interativamente noutro dispositivo (como um telemóvel). Esta aplicação de cliente utiliza a Microsoft Authentication Library (MSAL).
 
-| Aplicação do cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph |
+| aplicação cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
 | Ambiente de trabalho (Consola)   | ![Esta imagem mostra oC# logótipo .NET/ (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Fluxo de código do dispositivo](msal-authentication-flows.md#device-code) |[dotnetcore-dispositivocodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
 | Ambiente de trabalho (Consola)   | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png) | [Fluxo de código do dispositivo](msal-authentication-flows.md#device-code) |[ms-identity-java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
@@ -114,6 +114,7 @@ As seguintes amostras mostram como proteger uma API web com o ponto final da pla
 | ![Esta imagem mostra o logótipo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (serviço) de [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (serviço) de [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png) | Web API (serviço) de [ms-identity-java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi) |
+| ![Esta imagem mostra o logótipo Dode.js](media/sample-v2-code/logo_nodejs.png) | Web API (serviço) de [active-directório-javascript-nodejs-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
 
 ## <a name="azure-functions-as-web-apis"></a>Funções Azure como APIs web
 
@@ -133,5 +134,4 @@ Para conhecer [amostras](https://github.com/microsoftgraph/msgraph-community-sam
 ## <a name="see-also"></a>Consulte também
 
 - [Guia de desenvolvedor estoque ativo azure (v1.0)](../azuread-dev/v1-overview.md)
-- [Conceito e referência do gráfico azure AD API](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-- [Biblioteca de Ajudante api gráfico azure API](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Microsoft Graph API conceptual e referência](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)

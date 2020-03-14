@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362428"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268187"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes (FAQ) sobre ficheiros Azure
 [O Azure Files](storage-files-introduction.md) oferece partilhas de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de Mensagens de [Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão da indústria. Pode montar partilhas de ficheiros Azure simultaneamente em implementações em nuvem ou no local de implementações de Windows, Linux e macOS. Também pode cache as partilhas de ficheiros Azure nas máquinas do Windows Server utilizando o Azure File Sync para acesso rápido perto do local onde os dados são utilizados.
@@ -81,6 +81,9 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
   **quero mesmo ver uma funcionalidade específica adicionada aos Ficheiros Azure. Pode adicioná-lo?**  
     A equipa do Azure Files está interessada em ouvir todos os comentários que tiver sobre o nosso serviço. Por favor, vote nos pedidos de funcionalidades no [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Estamos ansiosos para encantar-lhe com muitas novidades.
 
+  **Os Ficheiros Azure suportam o bloqueio de ficheiros?**  
+    Sim, o Azure Files suporta totalmente o bloqueio de ficheiros sMB/Windows, [ver detalhes](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -211,6 +214,11 @@ Posso alavancar a **autenticação Azure Files Azure AD DS ou autenticação de 
 
     Sim, pode ativar a autenticação Azure AD DS ou AD numa partilha de ficheiro gerida pela sincronização de ficheiros Azure. As alterações aos NTFS ACLs de diretório/ficheiro nos servidores de ficheiros locais serão nivelado para Ficheiros Azure e vice-versa.
 
+* <a id="ad-aad-smb-files"></a>
+**Como posso verificar se permiti a autenticação de AD na minha conta de armazenamento e nas informações de domínio da AD?**
+
+    Pode consultar as instruções [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) fornecidas para validar se a Autenticação AD dos Ficheiros Azure estiver ativada na sua conta de armazenamento e recuperar as informações de domínio aD.
+    
 * <a id="encryption-at-rest"></a>
 Como posso garantir que a **minha parte de ficheiro Saqueia está encriptada em repouso?**  
 

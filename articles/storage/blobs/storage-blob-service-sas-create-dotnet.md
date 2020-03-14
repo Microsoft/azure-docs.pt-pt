@@ -1,7 +1,7 @@
 ---
-title: Criar uma SAS de serviço para um contêiner ou BLOB com .NET
+title: Crie um Serviço SAS para um recipiente ou bolha com .NET
 titleSuffix: Azure Storage
-description: Saiba como criar uma assinatura de acesso compartilhado de serviço (SAS) para um contêiner ou BLOB usando a biblioteca de cliente .NET.
+description: Saiba como criar uma assinatura de acesso partilhado de serviço (SAS) para um recipiente ou bolha utilizando a biblioteca de clientes .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,24 +10,24 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0d911d67eeaeae4b48198e95dc3df01e4740dc00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 10045a760d7e0fcb02a754bc9bb52a5ebca970f4
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372079"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137216"
 ---
-# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Criar uma SAS de serviço para um contêiner ou BLOB com .NET
+# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Crie um Serviço SAS para um recipiente ou bolha com .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como usar a chave da conta de armazenamento para criar uma SAS de serviço para um contêiner ou BLOB com a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).
+Este artigo mostra como usar a chave da conta de armazenamento para criar um serviço SAS para um recipiente ou bolha com a [biblioteca de clientes azure storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="create-a-service-sas-for-a-blob-container"></a>Criar uma SAS de serviço para um contêiner de BLOBs
+## <a name="create-a-service-sas-for-a-blob-container"></a>Criar um serviço SAS para um recipiente de bolhas
 
-Para criar uma SAS de serviço para um contêiner, chame o método [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
+Para criar um serviço SAS para um recipiente, ligue para o método [CloudBlobContainer.GetSharedAccessSignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature)
 
-O exemplo de código a seguir cria uma SAS em um contêiner. Se o nome de uma política de acesso armazenada existente for fornecido, essa política será associada à SAS. Se nenhuma política de acesso armazenada for fornecida, o código criará uma SAS ad hoc no contêiner.
+O seguinte exemplo de código cria um SAS num recipiente. Se for fornecido o nome de uma política de acesso armazenada existente, essa política está associada ao SAS. Se não for fornecida uma política de acesso armazenada, o código cria um SAS ad hoc no recipiente.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -69,11 +69,11 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-## <a name="create-a-service-sas-for-a-blob"></a>Criar uma SAS de serviço para um blob
+## <a name="create-a-service-sas-for-a-blob"></a>Criar um serviço SAS para uma bolha
 
-Para criar uma SAS de serviço para um blob, chame o método [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
+Para criar um serviço SAS para uma bolha, ligue para o método [CloudBlob.GetSharedAccessSignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
 
-O exemplo de código a seguir cria uma SAS em um blob. Se o nome de uma política de acesso armazenada existente for fornecido, essa política será associada à SAS. Se nenhuma política de acesso armazenada for fornecida, o código criará uma SAS ad hoc no BLOB.
+O seguinte exemplo de código cria um SAS numa bolha. Se for fornecido o nome de uma política de acesso armazenada existente, essa política está associada ao SAS. Se não for fornecida uma política de acesso armazenada, o código cria um SAS ad hoc na bolha.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -122,5 +122,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md)
+- [Conceder acesso limitado aos recursos de Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas) (Criar uma SAS de serviço)

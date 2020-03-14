@@ -15,11 +15,11 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/14/2019
 ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388564"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260634"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Execute um pacote SSIS com a atividade do Pacote Execute SSIS na Fábrica de Dados Azure
 Este artigo descreve como executar um pacote sQL Server Integration Services (SSIS) num pipeline Azure Data Factory utilizando a atividade do Pacote Execute SSIS. 

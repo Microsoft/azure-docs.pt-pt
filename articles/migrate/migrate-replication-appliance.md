@@ -4,11 +4,11 @@ description: Saiba mais sobre o aparelho de replicação Azure Migrate para migr
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388877"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245866"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
 

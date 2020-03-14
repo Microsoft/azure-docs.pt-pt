@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 4e3435fdaa505a73abf96b9463b061c623c192ad
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381066"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269344"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para Armazém de Dados Azure SQL
 REST APIs para gestão de computação em Armazém de dados Azure Synapse Analytics.

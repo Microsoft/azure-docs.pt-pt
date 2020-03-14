@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382290"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265184"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -118,7 +118,7 @@ As ações de uma função definida pelo utilizador estão sujeitas ao [controlo
 
 É possível que um matcher desencadeie uma função definida pelo utilizador que não tenha atribuições de funções. Neste caso, a função definida pelo utilizador não lê quaisquer dados do gráfico.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre como encaminhar eventos e mensagens de telemetria para outros serviços do Azure, leia [eventos e mensagens da Route.](./concepts-events-routing.md)
 

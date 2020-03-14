@@ -7,11 +7,11 @@ ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397263"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259139"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introdução ao modelo de recurso de tecido de serviço
 

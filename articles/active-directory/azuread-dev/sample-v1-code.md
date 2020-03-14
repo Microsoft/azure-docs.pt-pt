@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 9b4479436077dbad8cf2fb4dc40954194c138981
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377688"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263572"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código de diretório ativo Azure (v1.0 ponto final)
 
@@ -78,7 +78,7 @@ As seguintes amostras ilustram aplicações de clientes públicos (aplicações 
 - Silenciosamente (com autenticação integrada do Windows no Windows, ou nome de utilizador/palavra-passe)
 - Delegando o sessão interativo noutro dispositivo (fluxo de código do dispositivo utilizado em dispositivos que não fornecem controlos web)
 
-Aplicação do cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph | Chama um ASP.NET ou ASP.NET Core 2.x Web API
+aplicação cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph | Chama um ASP.NET ou ASP.NET Core 2.x Web API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 Ambiente de trabalho (WPF)           | ![Esta imagem mostra oC# logótipo .NET/](media/sample-v2-code/logo-net.png)  | Interativo | Parte do [dotnet-nativo-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-nativo-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validação](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
 Móvel (UWP)            | .![Esta imagem mostra oC#.NET/ /UWP](media/sample-v2-code/logo-windows.png)   | Interativo | [dotnet-nativo-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Esta amostra utiliza [WAM,](/windows/uwp/security/web-account-manager)não [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (aplicação UWP usando ADAL.NET para chamar um único inquilino Web API) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (aplicação UWP usando ADAL.NET para chamar uma API Web multi-inquilino)|
@@ -93,7 +93,7 @@ Ambiente de trabalho (Consola)           | ![Esta imagem mostra oC# .NET Core/ l
 
 As seguintes amostras mostram aplicações de desktop ou web que acedem ao Microsoft Graph ou a uma API web sem utilizador (com a identidade da aplicação).
 
-Aplicação do cliente | Plataforma | Fluxo/Concessão | Chama um ASP.NET ou ASP.NET Core 2.0 Web API
+aplicação cliente | Plataforma | Fluxo/Concessão | Chama um ASP.NET ou ASP.NET Core 2.0 Web API
 ------------------ | -------- | ---------- | -------------------- 
 Aplicação Daemon (Consola)          | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/logo-netframework.png) | Credenciais de cliente com segredo de aplicação ou certificado | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificado-credencial](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Aplicação Daemon (Consola)         | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/logo-netcore.png) | Credenciais de cliente com certificado| [dotnetcore-daemon-certificado-credencial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)

@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
 ms.openlocfilehash: bd55f422451df935301245eef3e9dd10f7ab55b1
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945745"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239330"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar máquinas como servidores físicos para O Azure
 
@@ -135,7 +135,7 @@ O primeiro passo da migração é a instalação do aparelho de replicação. Fa
 
     ![Detetar VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-3. Em **Discover machines** > **As suas máquinas estão virtualizadas?**
+3. Em **Discover machines** > **As suas máquinas estão virtualizadas?** **Not virtualized/Other**
 4. Na **região Target,** selecione a região de Azure para a qual pretende migrar as máquinas.
 5. Selecione **Confirmar que a região alvo para a migração é o nome da região**.
 6. Clique em **Criar recursos.** Isto cria um cofre de recuperação de sítios Azure em segundo plano.
@@ -220,14 +220,14 @@ Agora, selecione máquinas para migração.
 
     ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. Em **Replicate**, > **Configurações** de origem >  **As suas máquinas estão virtualizadas?**
+2. Em **Replicate**, > **Configurações** de origem > **Not virtualized/Other** **As suas máquinas estão virtualizadas?**
 3. No **aparelho On-local,** selecione o nome do aparelho Azure Migrate que instalou.
 4. No Servidor de **Processos,** selecione o nome do aparelho de replicação.
 6. Nas **credenciais de hóspedes,** especifice uma conta de administração VM que será usada para a instalação push do serviço mobility. Neste tutorial estamos a instalar manualmente o serviço de Mobilidade, para que possa adicionar qualquer conta de boneco. Em seguida, clique em **Seguinte: Máquinas virtuais**.
 
     ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. Nas **Máquinas Virtuais**, nas **definições de migração de importação de uma avaliação?**
+7. Nas **Máquinas Virtuais**, nas **No, I'll specify the migration settings manually** **definições de migração de importação de uma avaliação?**
 8. Verifique cada VM que queira migrar. Em seguida, clique em **Seguinte: Definições de destino**.
 
     ![Selecione VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)

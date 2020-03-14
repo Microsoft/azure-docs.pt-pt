@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: addc7db2aa2f0f9ba16438d2a31d6c7cc6bfa49e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376735"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261921"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver pedidos de um pacote de acesso na gestão de direitos da AD Azure
 

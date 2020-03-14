@@ -4,11 +4,11 @@ description: Aprenda a evitar problemas de desempenho nas Funções Azure utiliz
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370467"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276455"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações em Funções Azure
 
@@ -132,7 +132,7 @@ O seu código de funcionamento pode utilizar o Fornecedor de Dados de Enquadrame
 > [!TIP]
 > Algumas estruturas de dados, como o Quadro de Entidades, normalmente obtêm cordas de ligação da secção **ConnectionStrings** de um ficheiro de configuração. Neste caso, deve adicionar explicitamente as cadeias de ligação à base de dados SQL à recolha de **cordas de Ligação** das definições da sua aplicação de função e no [ficheiro local.settings.json](functions-run-local.md#local-settings-file) no seu projeto local. Se estiver a criar uma instância de [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) no seu código de funcionamento, deverá armazenar o valor de cadeia de ligação nas definições da **Aplicação** com as suas outras ligações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o porquê de recomendarmos clientes estáticos, consulte [antipadrão](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)de instantânea impróprio .
 

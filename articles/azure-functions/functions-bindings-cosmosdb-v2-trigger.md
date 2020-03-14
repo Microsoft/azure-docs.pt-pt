@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: c006aa8c46864b78ae46aa9c351605cca1d1e425
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606584"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277573"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Gatilho DB Azure Cosmos para funções Azure 2.x
 
@@ -218,8 +218,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | deve ser definido para `cosmosDBTrigger`. |
-|**direção** | n/d | deve ser definido para `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
+|**tipo** | n/d | Deve ser definido para `cosmosDBTrigger`. |
+|**direção** | n/d | Deve ser definido para `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
 |**nome** | n/d | O nome da variável no código de função que representa a lista de documentos com as alterações. |
 |**conexãoStringSetting**|**Definição de cordas de ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta do Azure Cosmos DB a ser monitorizada. |
 |**nome da base de dados**|**Nome da base de dados**  | O nome da base de dados do Azure Cosmos DB com a coleção a ser monitorizada. |
@@ -236,7 +236,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 |**arrendamentoRenewInterval**| **Intervalo de Arrendamento Renovado**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente mantido por uma instância. A predefinição é 17000 (17 segundos).
 |**checkpointFrequência**| **CheckpointFrequência**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo entre pontos de verificação de concessão. O predefinido é sempre posterior a cada chamada de função.
 |**maxItemsPerInvocação**| **MaxItemsPerInvocação**| (Opcional) Quando definido, esta propriedade define o número máximo de itens recebidos por chamada de Função. Se as operações na recolha monitorizada forem realizadas através de procedimentos armazenados, o âmbito de [transação](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) é preservado ao ler itens do Change Feed. Como resultado, o número de itens recebidos pode ser superior ao valor especificado, de modo a que os itens alterados pela mesma transação sejam devolvidos como parte de um lote atómico.
-|**inícioFromBeginning**| **Início do início**| (Opcional) Esta opção diz ao Trigger para ler alterações desde o início do histórico de mudança da coleção em vez de começar no momento atual. A leitura desde o início só funciona na primeira vez que o Gatilho começa, uma vez que nas corridas subsequentes, os postos de controlo já estão armazenados. Definir esta opção para `true` quando há arrendamentos já criados não tem efeito.
+|**inícioFromBeginning**| **Início do início**| (Opcional) Esta opção diz ao Trigger para ler alterações desde o início do histórico de mudança da coleção em vez de começar no momento atual. A leitura desde o início só funciona na primeira vez que o Gatilho começa, uma vez que nas corridas subsequentes, os postos de controlo já estão armazenados. Definir esta opção para `true` quando há arrendamentos já criados não tem efeito. |
+|**preferredLocalizações**| **Localizações Preferenciais**| (Opcional) Define localizações preferenciais (regiões) para contas de base de dados geo-replicadas no serviço Azure Cosmos DB. Os valores devem ser separados pela vírposta. Por exemplo, "Leste dos EUA, Centro-Sul dos EUA, Norte da Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373406"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248986"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Ligue para um webhook com um alerta métrico clássico no Monitor Azure
 
@@ -84,7 +84,7 @@ A operação POST contém a seguinte carga útil e esquema JSON para todos os al
 | threshold |Para alertas métricos | |O valor-limiar a que o alerta é ativado. |
 | janelaTamanho |Para alertas métricos | |O período de tempo que é usado para monitorizar a atividade de alerta com base no limiar. O valor deve ser entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |
 | timeAggregation |Para alertas métricos |Média, último, máximo, mínimo, nenhum, total |Como os dados recolhidos devem ser combinados ao longo do tempo. O valor padrão é Médio. Ver [valores permitidos.](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx) |
-| operator |Para alertas métricos | |O operador que é usado para comparar os dados métricos atuais com o limiar definido. |
+| operador |Para alertas métricos | |O operador que é usado para comparar os dados métricos atuais com o limiar definido. |
 | subscriptionId |S | |O ID de assinatura Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
 | resourceName |S | |O nome do recurso afetado. |

@@ -12,11 +12,11 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
 ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201599"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268785"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a base de dados Azure SQL gerida?
 
@@ -150,7 +150,7 @@ O quadro seguinte resume as operações e as durações globais típicas:
 |Implementação |Primeira instância de outra geração de hardware numa subnet não vazia (por exemplo, primeira instância de Gen 5 numa subnet com instâncias gen 4)|Criação de cluster virtual*|90% das operações terminam em 4 horas|
 |Implementação |Criação em primeira instância de 4 vCores, numa subnet vazia ou não vazia|Criação de cluster virtual**|90% das operações terminam em 4 horas|
 |Implementação |Criação subsequente de instâncias dentro da sub-rede não vazia (2º, 3º, etc. instância)|Redimensionamento de cluster virtual|90% das operações terminam em 2,5 horas|
-|**Atualização** |Mudança de propriedade por exemplo (senha de administração, login AAD, bandeira de benefício híbrido Azure)|N/D|Até 1 minuto|
+|**Atualizar** |Mudança de propriedade por exemplo (senha de administração, login AAD, bandeira de benefício híbrido Azure)|N/D|Até 1 minuto|
 |Atualizar |Por exemplo, a escala de armazenamento para cima/para baixo (nível de serviço de propósito geral)|Anexar ficheiros de base de dados|90% das operações terminam em 5 minutos|
 |Atualizar |Por exemplo, o armazenamento de armazenamento para cima/para baixo (nível de serviço Business Critical)|- Redimensionamento de cluster virtual<br>- Sempre em sementeação de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para sementes todas as bases de dados (220 GB/hora)|
 |Atualizar |Por exemplo, a computação (vCores) a escalonar para cima e para baixo (Propósito Geral)|- Redimensionamento de cluster virtual<br>- Anexação de ficheiros de base de dados|90% das operações terminam em 2,5 horas|
@@ -322,7 +322,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através da Transact 
 
 |Propriedade|Valor|Comentário|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor é o mesmo que na Base de Dados SQL. Isto **não** indica a versão 12 do motor SQL (SQL Server 2014). A instância gerenciada sempre executa a versão mais recente do mecanismo SQL estável, que é igual ou superior à versão RTM mais recente disponível do SQL Server.  |
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor é o mesmo que na Base de Dados SQL. Isto **não** indica a versão 12 do motor SQL (SQL Server 2014). A instância gerida executa sempre a mais recente versão estável do motor SQL, que é igual ou superior à versão RTM mais recente disponível do SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor é o mesmo que na Base de Dados SQL.|
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica de forma única um caso gerido.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:`<instanceName>`.`<dnsPrefix>`.database.windows.net, onde `<instanceName>` é nome fornecido pelo cliente, enquanto `<dnsPrefix>` é autogerada parte do nome que garante a singularidade do nome DNS global ("wcus17662feb998", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|

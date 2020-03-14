@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 18a5e11d2341fb020fc442d2f9ce7c1d44de9d0a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260439"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados na Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -81,7 +81,7 @@ A tabela seguinte descreve propriedades no JSON acima:
 | --- | --- | --- | --- |
 | nome |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Sim |ND |
 | tipo |tipo de conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais detalhes, consulte o [tipo dataset](#Type). |Sim |ND |
-| structure |Esquema do conjunto de dados.<br/><br/>Para mais detalhes, consulte a [estrutura dataset](#Structure). |Não |ND |
+| estrutura |Esquema do conjunto de dados.<br/><br/>Para mais detalhes, consulte a [estrutura dataset](#Structure). |Não |ND |
 | typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, mesa Azure SQL). Para mais detalhes sobre os tipos suportados e suas propriedades, consulte o [tipo dataset](#Type). |Sim |ND |
 | externo | Bandeira booleana para especificar se um conjunto de dados é explicitamente produzido por um gasoduto de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não for produzido pelo gasoduto atual, coloque esta bandeira verdadeiramente. Coloque esta bandeira verdadeirapara o conjunto de dados de entrada da primeira atividade no gasoduto.  |Não |false |
 | availability | Define a janela de processamento (por exemplo, hora ou diária) ou o modelo de corte para a produção de conjuntode dados. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada de fatia de dados. Se a disponibilidade de um conjunto de dados de saída for definida diariamente (frequência - dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para mais detalhes, consulte a disponibilidade do Dataset. <br/><br/>Para mais detalhes sobre o modelo de corte de conjunto de dados, consulte o artigo de [Agendamento e execução.](data-factory-scheduling-and-execution.md) |Sim |ND |

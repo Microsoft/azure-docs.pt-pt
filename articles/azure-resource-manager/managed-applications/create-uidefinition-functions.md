@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380860"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248453"
 ---
 # <a name="createuidefinition-functions"></a>Funções CreateUiDefini
 Esta secção contém as assinaturas para todas as funções suportadas de uma CreateUiDefinition.

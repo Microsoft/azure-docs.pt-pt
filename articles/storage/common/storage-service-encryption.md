@@ -4,17 +4,17 @@ description: O Azure Storage protege os seus dados encriptando-os automaticament
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 86d6a63601036abdde4ee7ae73114566d749feca
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.openlocfilehash: d28a342359114e05545f15624a86a17f7d0d3365
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129998"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268369"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Encriptação azure storage para dados em repouso
 
@@ -65,7 +65,7 @@ Por padrão, a sua conta de armazenamento utiliza chaves de encriptação gerida
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com cofre de chaves Azure
 
-Pode gerir a encriptação do Armazenamento Azure ao nível da conta de armazenamento com as suas próprias chaves. Quando especifica uma chave gerida pelo cliente ao nível da conta de armazenamento, essa chave é usada para proteger e controlar o acesso à chave de encriptação da raiz para a conta de armazenamento que, por sua vez, é usada para encriptar e desencriptar todos os dados blob e ficheiros. As chaves geridas pelo cliente oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
+Pode gerir a encriptação do Armazenamento Azure ao nível da conta de armazenamento com as suas próprias chaves. Quando especifica uma chave gerida pelo cliente ao nível da conta de armazenamento, essa chave é usada para proteger e controlar o acesso à chave de encriptação da raiz para a conta de armazenamento que, por sua vez, é usada para encriptar e desencriptar todos os dados blob e ficheiros. As chaves geridas pelo cliente oferecem uma maior flexibilidade para gerir os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
 
 Você deve usar o Cofre chave Azure para armazenar as suas chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. A conta de armazenamento e o cofre chave devem estar na mesma região e no mesmo inquilino azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](../../key-vault/key-vault-overview.md)
 
@@ -102,7 +102,7 @@ Para aprender a usar chaves geridas pelo cliente com o Cofre chave Azure para en
 
 Para ativar as chaves geridas pelo cliente numa conta de armazenamento, deve utilizar um Cofre de Chave Azure para armazenar as suas chaves. Deve ativar as propriedades **Soft Delete** e **Não purgar** as propriedades no cofre da chave.
 
-Apenas as chaves RSA do tamanho 2048 são suportadas com encriptação de Armazenamento Azure. Para mais informações sobre as chaves, consulte **as chaves key vault** em [chaves, segredos e certificados do Cofre chave Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+Apenas as chaves RSA são suportadas com encriptação de Armazenamento Azure. Para mais informações sobre as chaves, consulte **as chaves key vault** em [chaves, segredos e certificados do Cofre chave Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
 
 ### <a name="rotate-customer-managed-keys"></a>Rode as chaves geridas pelo cliente
 
@@ -112,7 +112,31 @@ Rodar a tecla não desencadeia a reencriptação de dados na conta de armazename
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso às chaves geridas pelo cliente
 
-Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para mais informações, consulte [o Cofre de Chaves Azure PowerShell](/powershell/module/az.keyvault//) ou o Cofre de Chaves [Azure CLI](/cli/azure/keyvault). Revogar o acesso bloqueia efetivamente o acesso a todos os dados da conta de armazenamento, uma vez que a chave de encriptação é inacessível pelo Armazenamento Azure.
+Pode revogar o acesso da conta de armazenamento à chave gerida pelo cliente a qualquer momento. Após a revogação do acesso às chaves geridas pelo cliente, ou depois de a chave ter sido desativada ou eliminada, os clientes não podem ligar para operações que leiam ou escrevam a uma bolha ou aos seus metadados. As tentativas de chamada de qualquer uma das seguintes operações falharão com o código de erro 403 (Proibido) para todos os utilizadores:
+
+- [Lista Blobs,](/rest/api/storageservices/list-blobs)quando chamado com o parâmetro `include=metadata` sobre o pedido URI
+- [Obter Blob](/rest/api/storageservices/get-blob)
+- [Obter Propriedades Blob](/rest/api/storageservices/get-blob-properties)
+- [Obter Metadados Blob](/rest/api/storageservices/get-blob-metadata)
+- [Definir Metadados Blob](/rest/api/storageservices/set-blob-metadata)
+- [Snapshot Blob,](/rest/api/storageservices/snapshot-blob)quando chamado com o cabeçalho de pedido `x-ms-meta-name`
+- [Copy Blob](/rest/api/storageservices/copy-blob)
+- [Copiar Blob de URL](/rest/api/storageservices/copy-blob-from-url)
+- [Definir Camada blob](/rest/api/storageservices/set-blob-tier)
+- [Bloquear](/rest/api/storageservices/put-block)
+- [Colocar bloco a partir de URL](/rest/api/storageservices/put-block-from-url)
+- [Bloco de apêndice](/rest/api/storageservices/append-block)
+- [Bloco de apêndice de URL](/rest/api/storageservices/append-block-from-url)
+- [Coloque Blob](/rest/api/storageservices/put-blob)
+- [Página de colocação](/rest/api/storageservices/put-page)
+- [Colocar página a partir de URL](/rest/api/storageservices/put-page-from-url)
+- [Blob cópia incremental](/rest/api/storageservices/incremental-copy-blob)
+
+Para voltar a ligar para estas operações, restaure o acesso à chave gerida pelo cliente.
+
+Todas as operações de dados que não estejam listadas nesta secção podem prosseguir após a revogação das chaves geridas pelo cliente ou se uma chave for desativada ou eliminada.
+
+Para revogar o acesso às chaves geridas pelo cliente, utilize o [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) ou [o Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
 
 ### <a name="customer-managed-keys-for-azure-managed-disks-preview"></a>Chaves geridas pelo cliente para discos geridos pelo Azure (pré-visualização)
 
@@ -122,11 +146,11 @@ As chaves geridas pelo cliente também estão disponíveis para gerir a encripta
 
 Os clientes que fazem pedidos contra o armazenamento do Blob Azure têm a opção de fornecer uma chave de encriptação num pedido individual. A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento blob. As chaves fornecidas pelo cliente (pré-visualização) podem ser armazenadas no Cofre de Chaves Azure ou noutra loja-chave.
 
-Por exemplo, que mostre como especificar uma chave fornecida pelo cliente a um pedido de armazenamento Blob, consulte Especificar uma chave fornecida pelo cliente a pedido de [armazenamento Blob com .NET](../blobs/storage-blob-customer-provided-key.md). 
+Por exemplo, que mostre como especificar uma chave fornecida pelo cliente a um pedido de armazenamento Blob, consulte Especificar uma chave fornecida pelo cliente a pedido de [armazenamento Blob com .NET](../blobs/storage-blob-customer-provided-key.md).
 
 ### <a name="encrypting-read-and-write-operations"></a>Encriptar as operações de leitura e escrita
 
-Quando uma aplicação de cliente fornece uma chave de encriptação no pedido, o Azure Storage executa encriptação e desencriptação de forma transparente ao ler e escrever dados blob. O Azure Storage escreve um hash SHA-256 da chave de encriptação ao lado do conteúdo da bolha. O haxixe é usado para verificar se todas as operações subsequentes contra a bolha usam a mesma chave de encriptação. 
+Quando uma aplicação de cliente fornece uma chave de encriptação no pedido, o Azure Storage executa encriptação e desencriptação de forma transparente ao ler e escrever dados blob. O Azure Storage escreve um hash SHA-256 da chave de encriptação ao lado do conteúdo da bolha. O haxixe é usado para verificar se todas as operações subsequentes contra a bolha usam a mesma chave de encriptação.
 
 O Azure Storage não armazena nem gere a chave de encriptação que o cliente envia com o pedido. A chave é descartada de forma segura assim que o processo de encriptação ou desencriptação estiver completo.
 

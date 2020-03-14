@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: faea0759f86e9d12530df6c647d903eacdade5c4
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 2192260c3106a6b8d3d3ffd0e063ee945734f308
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228058"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136317"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Java no Azure App Service no Linux
 
@@ -52,19 +52,19 @@ az login
 
 Em seguida, pode configurar a implementação, executar o comando maven no Comando Solicitação e utilizar as configurações predefinidas premindo **ENTER** até obter o aviso **de Confirmação (Y/N)** e, em seguida, prima **'y'** e a configuração está feita. 
 ```cmd
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
 ```
 Um processo de amostra parece:
 
 ```cmd
-~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.8.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.9.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]

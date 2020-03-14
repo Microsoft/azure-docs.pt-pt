@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381987"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284515"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação do dispositivo utilizando certificados X.509 CA
 
@@ -80,7 +80,7 @@ Uma ligação bem sucedida do dispositivo ao IoT Hub completa o processo de aute
 
 Saiba aqui como [completar este passo de ligação](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)do dispositivo .
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [o valor da autenticação X.509 CA](iot-hub-x509ca-concept.md) em IoT.
 

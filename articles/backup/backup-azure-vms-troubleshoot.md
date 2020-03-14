@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver erros encontrados com backup e res
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 8e29061becd9eb82dd04f3ed0db787542b29cbc7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: c087814d74032bfc39310690cb31e258fdb1e41e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363863"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247933"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup em máquinas virtuais Azure
 
@@ -190,7 +190,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | O Agente VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o Agente VM. Em seguida, reiniciar a operação. |Leia mais sobre a instalação do [Agente VM e como validar a instalação](#vm-agent)do Agente VM . |
 | **Código de erro**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensagem de erro**: A operação instantânea falhou devido à falha na criação de um canal de comunicação de rede seguro. | <ol><li> Abra o Editor de Registo executando **regedit.exe** em modo elevado. <li> Identifique todas as versões do .NET Framework presentes no seu sistema. Estão presentes sob a hierarquia da chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Quadro presente na chave de registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:0000000001**. </ol>|
 | **Código de erro**: Falha de instalação do RevvcRedist <br/> **Mensagem de erro**: A operação instantânea C++ falhou devido à falha na instalação visual redistribuível para o Visual Studio 2012. | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2013_x64.<br/>Certifique-se de que o valor chave do registo que permite a instalação do serviço está definido para o valor correto. Ou seja, detete **o** valor inicial em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **mSIEXEC/UNREGISTER** seguido de **MSIEXEC/REGISTER** a partir de um pedido de comando elevado.  |
-
+| **Código de erro**: UserErrorRequestDisallowedByPolicy <BR> **Mensagem de erro**: Uma política inválida está configurada no VM que está a impedir o funcionamento do Snapshot. | Se tiver uma Política Azure que [regule as etiquetas no seu ambiente,](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)considere alterar a política de um [efeito Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) para um [efeito Modificar,](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)ou crie o grupo de recursos manualmente de acordo com o esquema de [nomeação exigido pela Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## <a name="jobs"></a>Tarefas
 
 | Detalhes do erro | Solução |

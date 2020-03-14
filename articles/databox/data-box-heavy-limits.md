@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 76e543a5bec749db55eb77649d2f6e0526f2cb1d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380348"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260101"
 ---
 # <a name="azure-data-box-heavy-limits"></a>Limites pesados da caixa de dados azure
 

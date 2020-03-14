@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: diberry
 ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393751"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219942"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para ativar a aprendizagem ativa, revendo os discursos de ponto final
 Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
@@ -43,6 +43,6 @@ Utilize as declarações a **[eliminar não etiquetadas](https://westus.dev.cogn
 
 Para permitir a aprendizagem ativa, deve registar as consultas dos utilizadores. Isto é conseguido chamando a [consulta de ponto final](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro de corda de `log=true` e valor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [rever](luis-how-to-review-endpoint-utterances.md) as expressões de ponto final

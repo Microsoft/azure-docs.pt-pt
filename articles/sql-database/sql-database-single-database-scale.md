@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 92d6dccec3ce6483072a81c8739b65e81ce2c7fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359943"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268577"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individuais na Base de Dados Azure SQL
 
@@ -106,10 +106,11 @@ else {
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-- O armazenamento pode ser provisionado até ao limite de tamanho máximo utilizando incrementos de 1GB. O armazenamento mínimo de dados configuráveis é de 5 GB
-- O armazenamento de uma única base de dados pode ser provisionado aumentando ou diminuindo o seu tamanho máximo utilizando o [portal Azure,](https://portal.azure.com) [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [O CLI Azure](/cli/azure/sql/db#az-sql-db-update)ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- A Base de Dados SQL atribui automaticamente 30% do armazenamento adicional para os ficheiros de registo e 32GB por vCore para TempDB, mas não excede 384GB. A TempDB está localizada num SSD anexado em todos os níveis de serviço.
-- O preço de armazenamento de uma única base de dados é a soma dos valores de armazenamento de dados e armazenamento de registos multiplicados pelo preço unitário de armazenamento do nível de serviço. O custo do TempDB está incluído no preço vCore. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- O armazenamento pode ser provisionado até ao limite de tamanho máximo de armazenamento de dados utilizando incrementos de 1 GB. O armazenamento mínimo de dados configuráveis é de 1 GB. Consulte as páginas de documentação limite de recursos para [bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [piscinas elásticas](sql-database-vcore-resource-limits-elastic-pools.md) para os limites máximos de armazenamento de dados em cada objetivo de serviço.
+- O armazenamento de dados para uma única base de dados pode ser provisionado aumentando ou diminuindo o seu tamanho máximo utilizando o [portal Azure](https://portal.azure.com), [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [Azure CLI](/cli/azure/sql/db#az-sql-db-update)ou [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). Se o valor máximo de tamanho for especificado em bytes, deve ser um múltiplo de 1 GB (1073741824 bytes).
+- A quantidade de dados que podem ser armazenados nos ficheiros de dados de uma base de dados é limitada pelo tamanho máximo de armazenamento de dados configurado. Além desse armazenamento, a Base de Dados SQL atribui automaticamente mais 30% de armazenamento a ser utilizado para o registo de transações.
+- A Base de Dados SQL atribui automaticamente 32 GB por vCore para a base de dados `tempdb`. `tempdb` está localizado no armazenamento local de SSD em todos os níveis de serviço.
+- O preço de armazenamento de uma única base de dados ou de um pool elástico é a soma dos valores de armazenamento de dados e de armazenamento de registos de transações multiplicados pelo preço unitário de armazenamento do nível de serviço. O custo da `tempdb` está incluído no preço. Para mais detalhes sobre o preço de armazenamento, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).

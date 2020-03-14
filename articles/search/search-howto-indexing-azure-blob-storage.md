@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 32912f0aef91bd4a7c831a82d1e83f00a1e0f131
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379566"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283111"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Armazenamento de Blob Azure com pesquisa cognitiva azure
 
@@ -289,16 +289,56 @@ Também pode continuar a indexar se os erros ocorrerem em qualquer ponto de proc
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Deteção incremental de indexação e eliminação
+
 Quando se cria um indexante de bolha para funcionar num horário, reindexa apenas as bolhas alteradas, conforme determinado pela `LastModified` carimbo temporal da bolha.
 
 > [!NOTE]
 > Não é necessário especificar uma política de deteção de alterações – o indexante incremental está ativado automaticamente para si.
 
-Para apoiar a eliminação de documentos, utilize uma abordagem de "apagar suavemente". Se eliminar as bolhas, os documentos correspondentes não serão removidos do índice de pesquisa. Em vez disso, utilize os seguintes passos:  
+Para apoiar a eliminação de documentos, utilize uma abordagem de "apagar suavemente". Se eliminar as bolhas, os documentos correspondentes não serão removidos do índice de pesquisa.
 
-1. Adicione uma propriedade personalizada de metadados à bolha para indicar ao Azure Cognitive Search que é logicamente eliminado
-2. Configure uma política de deteção de eliminação suave na fonte de dados
-3. Uma vez que o indexante tenha processado a bolha (como mostra o estado indexante API), pode eliminar fisicamente a bolha
+Existem duas formas de implementar a abordagem de eliminação suave. Ambos são descritos abaixo.
+
+### <a name="native-blob-soft-delete-preview"></a>Eliminação macia de bolhas nativas (pré-visualização)
+
+> [!IMPORTANT]
+> O suporte para a eliminação suave de bolhas nativas está na pré-visualização. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview) fornece esta funcionalidade. Atualmente não existe nenhum suporte de Portal ou .NET SDK.
+
+Neste método utilizará a funcionalidade de [eliminação suave de blob nativa](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) oferecida pelo armazenamento Azure Blob. Se a fonte de dados tiver um conjunto de políticas de eliminação suave nativa e o indexante encontrar uma bolha que tenha sido transição para um estado suave apagado, o indexante removerá esse documento do índice.
+
+Utilize os passos seguintes:
+1. Ativar [a eliminação suave nativa para armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Recomendamos definir a política de retenção para um valor muito superior ao seu calendário de intervalos indexado. Desta forma, se houver um problema em execução do indexante ou se tiver um grande número de documentos para indexar, há muito tempo para o indexante processar eventualmente as bolhas apagadas suaves. Os indexadores de pesquisa cognitiva Azure apenas apagarão um documento do índice se processar a bolha enquanto estiver em estado suavemente eliminado.
+1. Configure uma política de deteção de eliminação suave de bolhas nativas na fonte de dados. Um exemplo é mostrado abaixo. Uma vez que esta funcionalidade está em pré-visualização, deve utilizar a pré-visualização REST API.
+1. Executar o indexador ou definir o indexante para executar em um horário. Quando o indexante for executado e processar a bolha, o documento será removido do índice.
+
+    ```
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : null },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+        }
+    }
+    ```
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindexação de bolhas não apagadas
+
+Se eliminar uma bolha do armazenamento Azure Blob com eliminação suave nativa ativada na sua conta de armazenamento, a bolha passará para um estado suave apagado, dando-lhe a opção de desapagar essa bolha dentro do período de retenção. Quando uma fonte de dados da Pesquisa Cognitiva Azure tem uma política de eliminação suave de blob e o indexante processa uma bolha suave apagada, removerá esse documento do índice. Se essa bolha for posteriormente não apagada, o indexante **nem** sempre reindexrá essa bolha. Isto porque o indexante determina quais as bolhas a indexar com base no carimbo de tempo `LastModified` da bolha. Quando uma bolha suave apagada não é apagada, o seu carimbo de tempo `LastModified` não é atualizado, por isso, se o indexante já processou bolhas com `LastModified` selos temporais mais recentes do que a bolha não apagada, não reindexaaaaaa a bolha não apagada. Para se certificar de que uma bolha não apagada é reindexada, deve reguardar os metadados dessa bolha. Não é necessário alterar os metadados, mas reguardar os metadados irá atualizar o carimbo de tempo `LastModified` da bolha para que o indexante saiba que precisa de reindexar esta bolha.
+
+### <a name="soft-delete-using-custom-metadata"></a>Eliminação suave usando metadados personalizados
+
+Neste método, utilizará uma propriedade personalizada de metadados para indicar quando um documento deve ser removido do índice de pesquisa.
+
+Utilize os passos seguintes:
+
+1. Adicione uma propriedade personalizada de metadados à bolha para indicar ao Azure Cognitive Search que é logicamente eliminada.
+1. Configure uma política de deteção de colunas de eliminação suave na fonte de dados. Um exemplo é mostrado abaixo.
+1. Uma vez que o indexante tenha processado a bolha e eliminado o documento do índice, pode eliminar a bolha para armazenamento de Blob Azure.
 
 Por exemplo, a seguinte política considera que uma bolha deve ser eliminada se tiver uma propriedade de metadados `IsDeleted` com o valor `true`:
 
@@ -310,13 +350,17 @@ Por exemplo, a seguinte política considera que uma bolha deve ser eliminada se 
         "name" : "blob-datasource",
         "type" : "azureblob",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "container" : { "name" : "my-container", "query" : null },
         "dataDeletionDetectionPolicy" : {
             "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
             "softDeleteColumnName" : "IsDeleted",
             "softDeleteMarkerValue" : "true"
         }
-    }   
+    }
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindexação de bolhas não apagadas
+
+Se definir uma política de deteção de colunas de eliminação suave na sua fonte de dados, em seguida, adicione a propriedade de metadados personalizado a uma bolha com o valor do marcador e, em seguida, executar o indexante, o indexante removerá esse documento do índice. Se quiser reindexar esse documento, basta alterar o valor de metadados de eliminação suave para essa bolha e reexecutar o indexante.
 
 ## <a name="indexing-large-datasets"></a>Indexação de grandes conjuntos de dados
 

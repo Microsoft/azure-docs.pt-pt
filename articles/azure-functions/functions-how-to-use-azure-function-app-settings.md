@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356473"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276949"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de funções 
 
@@ -37,7 +37,7 @@ Pode navegar para tudo o que precisa para gerir a sua aplicação de funções a
 
 O separador Definições de **Aplicação** mantém as definições utilizadas pela sua aplicação de função. Estas definições são armazenadas encriptadas e deve selecionar **valores do Show** para ver os valores no portal. Também pode aceder às definições de aplicações utilizando o Azure CLI.
 
-### <a name="portal"></a>vários inquilinos
+### <a name="portal"></a>Portal
 
 Para adicionar uma definição no portal, selecione **nova definição** de aplicação e adicione o novo par de valor-chave.
 
@@ -118,7 +118,7 @@ Quando utiliza uma solução de controlo de fonte para desenvolver e manter o c�
 
 Para evitar a execução de código malicioso no cliente, os navegadores modernos bloqueiam pedidos de aplicações web para recursos executados em um domínio separado. [A partilha de recursos de origem cruzada (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) permite que um cabeçalho `Access-Control-Allow-Origin` declare quais as origens permitidas para chamar pontos finais na sua aplicação de função.
 
-#### <a name="portal"></a>vários inquilinos
+#### <a name="portal"></a>Portal
 
 Quando configura ruma a lista de **origens permitidas** para a sua aplicação de função, o cabeçalho `Access-Control-Allow-Origin` é adicionado automaticamente a todas as respostas de pontos finais HTTP na sua aplicação de função. 
 
@@ -143,7 +143,7 @@ Use o comando [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functi
 Quando as funções usam um gatilho HTTP, pode exigir que as chamadas sejam autenticadas primeiro. O App Service suporta a autenticação do Diretório Ativo azure e o início de sessão com fornecedores sociais, como facebook, Microsoft e Twitter. Para mais informações sobre a configuração de fornecedores específicos de autenticação, consulte a visão geral da autenticação do Serviço de [Aplicações Azure](../app-service/overview-authentication-authorization.md). 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + [Configure Definições de serviço de aplicações Azure](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

@@ -13,11 +13,11 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387643"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281252"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Mova dados da Sybase usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -63,14 +63,14 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado à Sybase.
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesSybase** |Sim |
-| relatórios |Nome do servidor Sybase. |Sim |
+| servidor |Nome do servidor Sybase. |Sim |
 | base de dados |Nome da base de dados da Base de Dados Sybase. |Sim |
 | schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizada para ligar à base de dados da Sybase. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
-| username |Especifique o nome do utilizador se estiver a utilizar a autenticação Basic ou Windows. |Não |
+| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Basic ou Windows. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
 | gatewayName |Nome do portal que o serviço Data Factory deve utilizar para ligar à base de dados sybase no local. |Sim |
 
@@ -79,7 +79,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **TypeProperties** para conjunto de dados do tipo **RelationalTable** (que inclui conjunto de dados Sybase) tem as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância base de dados sybase a que o serviço ligado se refere. |Não (se for especificada **a consulta** do **RelationalSource)** |
 
@@ -90,9 +90,9 @@ Considerando que as propriedades disponíveis na secção typeProperties da ativ
 
 Quando a fonte é do tipo **RelationalSource** (que inclui A Base Sybase), as seguintes propriedades estão disponíveis na secção **typeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| query |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Por exemplo: selecione * do MyTable. |Não (se o nome do **conjunto** de **dados** for especificado) |
+| consulta |Use a consulta personalizada para ler dados. |Fio de consulta SQL. Por exemplo: selecione * do MyTable. |Não (se o nome do **conjunto** de **dados** for especificado) |
 
 
 ## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>Exemplo jSON: Copiar dados da Sybase para O Blob Azure

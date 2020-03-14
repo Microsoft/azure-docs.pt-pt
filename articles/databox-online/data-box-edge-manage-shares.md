@@ -1,6 +1,6 @@
 ---
-title: Gestão da partilha Edge de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve como utilizar o portal do Azure para gerir partilhas no seu limite de caixa de dados do Azure.
+title: Azure Data Box Edge gestão de ações [ Azure Data Box Edge gestão de ações ] Microsoft Docs
+description: Descreve como usar o portal Azure para gerir ações no seu Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,23 +8,23 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 73bff460db8428332a92d8deb68bf062ca4134ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759188"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79212932"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Utilizar o portal do Azure para gerir partilhas no seu limite de caixa de dados do Azure
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Utilize o portal Azure para gerir ações no seu Azure Data Box Edge
 
-Este artigo descreve como gerir partilhas no seu limite de caixa de dados do Azure. Pode gerir o limite de caixa de dados do Azure através do portal do Azure ou através do local da interface do Usuário da web. Utilize o portal do Azure para adicionar, eliminar, atualizar partilhas ou sincronizar a chave de armazenamento para a conta de armazenamento associada com as partilhas.
+Este artigo descreve como gerir ações no seu Azure Data Box Edge. Pode gerir o Azure Data Box Edge através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
 
 ## <a name="about-shares"></a>Sobre as partilhas
 
-Para transferir dados para o Azure, terá de criar partilhas no seu limite de caixa de dados do Azure. As partilhas que adicionar ao dispositivo de limite de caixa de dados podem ser partilhas locais ou partilhas que enviar por push dados para a cloud.
+Para transferir dados para o Azure, é necessário criar ações no seu Azure Data Box Edge. As ações que adiciona no dispositivo Data Box Edge podem ser ações locais ou partilhas que empurram dados para a nuvem.
 
- - **Partilhas locais**: Utilize estas partilhas quando pretender que os dados a ser processados localmente no dispositivo.
- - **Partilhas**: Utilize estas partilhas quando pretender que os dados do dispositivo para ser enviado automaticamente para a sua conta de armazenamento na cloud. Todas as cloud as funções, como **Atualize** e **sincronizar as chaves de armazenamento** aplicam-se para as partilhas.
+ - **Ações locais**: Utilize estas ações quando quiser que os dados sejam processados localmente no dispositivo.
+ - **Ações**: Utilize estas ações quando pretender que os dados do dispositivo sejam automaticamente empurrados para a sua conta de armazenamento na nuvem. Todas as funções em nuvem, tais como as chaves de armazenamento **Refresh** e **Sync,** aplicam-se às ações.
 
 Neste artigo, vai aprender a:
 
@@ -39,9 +39,9 @@ Neste artigo, vai aprender a:
 
 Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
-1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **Gateway > partilhas**. Selecione **+ Adicionar partilha** na barra de comandos.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Gateway > Shares**. Selecione **+ Adicione a parte** na barra de comando.
 
-    ![Selecione Adicionar partilha](media/data-box-edge-manage-shares/add-share-1.png)
+    ![Selecione adicionar partilha](media/data-box-edge-manage-shares/add-share-1.png)
 
 2. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha.
     
@@ -51,7 +51,10 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 4. Forneça uma **Conta de armazenamento** onde reside a partilha. É criado um contentor na conta de armazenamento com o nome da partilha, se o contentor ainda não existir. Se o contentor já existir, é utilizado o contentor existente.
 
-5. Na lista pendente, escolha o **serviço de armazenamento** do blob de blocos, BLOBs de páginas ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blobs de blocos no Azure, que, por conseguinte, selecionamos **Blob de blocos**. Se escolher **BLOBs de páginas**, tem de garantir que os dados estão alinhados de 512 bytes. Uso **BLOBs de páginas** para VHD ou VHDX que estão sempre alinhados de 512 bytes.
+5. Na lista de dropdown, escolha o **serviço de Armazenamento** de blocos blob, page blob ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blocos blobs em Azure, daí selecionarmos **block Blob**. Se escolher o **Page Blob,** deve certificar-se de que os seus dados estão alinhados 512 bytes. Utilize a **blob página** para VHDs ou VHDX que estejam sempre 512 bytes alinhados.
+
+   > [!IMPORTANT]
+   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para mais informações, consulte definir e gerir as políticas de [imutabilidade para armazenamento de blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Este passo depende de estar a criar uma partilha SMB ou NFS.
     - **Se criar uma partilha SMB** - no campo **Utilizador local com todos os privilégios**, escolha **Criar novo** ou **Utilizar existente**. Se criar um novo utilizador local, forneça o **nome de utilizador**, a **palavra-passe** e, em seguida, confirme a palavra-passe. Esta ação atribui as permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
@@ -63,15 +66,15 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
         ![Adicionar uma partilha NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Para aceder facilmente às partilhas de módulos de computação do Edge, utilize o ponto de montagem local. Selecione **utilize a partilha com a computação de borda** para que a partilha é montada de automaticamente depois de criado. Quando esta opção está selecionada, o módulo de borda também pode utilizar a computação com o ponto de montagem local.
+7. Para aceder facilmente às partilhas dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a parte com a computação Edge** para que a parte seja montada automaticamente após a sua criação. Quando esta opção é selecionada, o módulo Edge também pode usar a computação com o ponto de montagem local.
 
 8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
 
-## <a name="add-a-local-share"></a>Adicionar uma partilha local
+## <a name="add-a-local-share"></a>Adicione uma parte local
 
-1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **Gateway > partilhas**. Selecione **+ Adicionar partilha** na barra de comandos.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Gateway > Shares**. Selecione **+ Adicione a parte** na barra de comando.
 
-    ![Selecione Adicionar partilha](media/data-box-edge-manage-shares/add-local-share-1.png)
+    ![Selecione adicionar partilha](media/data-box-edge-manage-shares/add-local-share-1.png)
 
 2. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha.
     
@@ -79,68 +82,68 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
-4. Para aceder facilmente às partilhas de módulos de computação do Edge, utilize o ponto de montagem local. Selecione **utilize a partilha com a computação de borda** para que o módulo Edge pode utilizar a computação com o ponto de montagem local.
+4. Para aceder facilmente às partilhas dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a parte com a computação Edge** para que o módulo Edge possa utilizar a computação com o ponto de montagem local.
 
-5. Selecione **configurar como partilhas de locais de borda**. Os dados em partilhas locais permanecerá localmente no dispositivo. Pode processar estes dados localmente.
+5. **Selecione Configure como ações locais edge**. Os dados em ações locais permanecerão localmente no dispositivo. Pode processar estes dados localmente.
 
-6. Na **todos os usuários de locais de privilégio** campo, escolha de entre **criar nova** ou **utilizar existente**.
+6. No campo **de utilizadores locais de privilégio all,** escolha entre **Criar novo** ou **Utilizar existentes**.
 
 7. Selecione **Criar**. 
 
-    ![Criar a partilha local](media/data-box-edge-manage-shares/add-local-share-2.png)
+    ![Criar uma parte local](media/data-box-edge-manage-shares/add-local-share-2.png)
 
-    Verá uma notificação a indicar que a criação de partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
+    Vê uma notificação de que a criação de ações está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
 
-    ![Ver o painel de partilhas de atualizações](media/data-box-edge-manage-shares/add-local-share-3.png)
+    ![Ver atualizações Partilha a lâmina](media/data-box-edge-manage-shares/add-local-share-3.png)
     
-    Selecione a partilha para ver o ponto de montagem local para os módulos de computação do Edge para esse compartilhamento.
+    Selecione a parte para visualizar o ponto de montagem local para os módulos de computação Edge para esta partilha.
 
     ![Ver detalhes da partilha local](media/data-box-edge-manage-shares/add-local-share-4.png)
 
-## <a name="mount-a-share"></a>Montar uma partilha
+## <a name="mount-a-share"></a>Monte uma parte
 
-Se tiver criado uma partilha antes de que configurou a computação no seu dispositivo do Edge de caixa de dados, terá de montar a partilha. Siga os passos seguintes para montar uma partilha.
+Se criou uma parte antes de configurar a computação no seu dispositivo Data Box Edge, terá de montar a parte. Dê os seguintes passos para montar uma parte.
 
 
-1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **Gateway > partilhas**. Na lista das partilhas, selecione a partilha que pretende montar. O **utilizado para computação** coluna mostrará o estado como **desativado** para a partilha selecionada.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Gateway > Shares**. A partir da lista das ações, selecione a parte que pretende montar. A coluna **Utilizada para calcular** mostrará o estado de **desativado** para a parte selecionada.
 
     ![Selecionar partilha](media/data-box-edge-manage-shares/select-share-mount.png)
 
-2. Selecione **montar**.
+2. **Selecione Mount**.
 
-    ![Selecione a montagem](media/data-box-edge-manage-shares/select-mount.png)
+    ![Selecione montagem](media/data-box-edge-manage-shares/select-mount.png)
 
-3. Quando lhe for pedida confirmação, selecione **Sim**. Isto irá montar a partilha.
+3. Quando solicitado para confirmação, selecione **Sim**. Isto vai montar a parte.
 
-    ![Confirmar a montagem](media/data-box-edge-manage-shares/confirm-mount.png)
+    ![Confirmar montagem](media/data-box-edge-manage-shares/confirm-mount.png)
 
-4. Depois da partilha é montada, vá para a lista de partilhas. Verá que o **utilizado para computação** coluna mostra o estado de partilha como **ativado**.
+4. Depois de a parte ser montada, vá à lista de ações. Verá que a coluna **Usada para calcular** mostra o estado da partilha como **Ativado**.
 
-    ![Partilha montada](media/data-box-edge-manage-shares/share-mounted.png)
+    ![Partilhar montado](media/data-box-edge-manage-shares/share-mounted.png)
 
-5. Selecione a partilha novamente para ver o ponto de montagem local para a partilha. Edge de computação módulo utiliza este ponto de montagem local para a partilha.
+5. Selecione novamente a parte para ver o ponto de montagem local para a parte. O módulo de computação de borda utiliza este ponto de montagem local para a partilha.
 
     ![Ponto de montagem local para a partilha](media/data-box-edge-manage-shares/share-mountpoint.png)
 
-## <a name="unmount-a-share"></a>Desmonte uma partilha
+## <a name="unmount-a-share"></a>Desmontar uma parte
 
-Execute os seguintes passos no portal do Azure para desmontar uma partilha.
+Faça os seguintes passos no portal Azure para desmontar uma parte.
 
-1. No portal do Azure, aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **Gateway > partilhas**.
+1. No portal Azure, vá ao seu recurso Data Box Edge e depois vá ao **Gateway > Shares**.
 
     ![Selecionar partilha](media/data-box-edge-manage-shares/select-share-unmount.png)
 
-2. Na lista de partilhas de, selecione a partilha que pretende desmontar. Pretende certificar-se de que a partilha de que desmontar não é utilizada por quaisquer módulos. Se a partilha é utilizada por um módulo, em seguida, irá ver problemas com o módulo correspondente. Selecione **desmontar**.
+2. A partir da lista das ações, selecione a parte que pretende desfazer. Certifique-se de que a partilha que desmonta não é utilizada por nenhum módulo. Se a parte for utilizada por um módulo, então verá problemas com o módulo correspondente. **Selecione Unmount**.
 
     ![Selecione desmontar](media/data-box-edge-manage-shares/select-unmount.png)
 
-3. Quando lhe for pedida confirmação, selecione **Sim**. Isto irá desmontar a partilha.
+3. Quando solicitado para confirmação, selecione **Sim**. Isto vai desmontar a parte.
 
     ![Confirmar desmontar](media/data-box-edge-manage-shares/confirm-unmount.png)
 
-4. Depois da partilha é desmontada, vá para a lista de partilhas. Verá que **utilizado para computação** coluna mostra o estado de partilha como **desativado**.
+4. Depois de a parte ser desmontada, vá à lista de ações. Verá que **a coluna usada para calcular** mostra o estado da partilha como **Desativado**.
 
-    ![Desmontar a partilha](media/data-box-edge-manage-shares/share-unmounted.png)
+    ![Partilhar desmontado](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Eliminar uma partilha
 
@@ -158,34 +161,34 @@ Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
     ![Confirmar eliminação](media/data-box-edge-manage-shares/delete-share-3.png)
 
-A lista de atualizações de partilhas para refletir a eliminação.
+A lista de atualizações de ações para refletir a eliminação.
 
 
 ## <a name="refresh-shares"></a>Atualizar partilhas
 
-O recurso de atualização permite-lhe atualizar os conteúdos de uma partilha. Quando atualiza uma partilha, é iniciada uma pesquisa para localizar todos os objetos do Azure, incluindo os blobs e ficheiros que foram adicionados à cloud desde a última atualização. Esses arquivos adicionais, em seguida, são transferidos para atualizar os conteúdos da partilha no dispositivo.
+A funcionalidade de atualização permite-lhe refrescar o conteúdo de uma parte. Quando atualiza uma partilha, é iniciada uma pesquisa para localizar todos os objetos do Azure, incluindo os blobs e ficheiros que foram adicionados à cloud desde a última atualização. Estes ficheiros adicionais são então descarregados para atualizar o conteúdo da partilha no dispositivo.
 
 > [!IMPORTANT]
-> - Não é possível atualizar partilhas locais.
-> - Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização. 
+> - Não pode refrescar as ações locais.
+> - As permissões e as listas de controlo de acesso (ACLs) não são preservadas através de uma operação de atualização. 
 
 Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 
-1.  No portal do Azure, aceda a **Partilhas**. Selecione e clique na partilha que pretende atualizar.
+1.   No portal do Azure, aceda a **Partilhas**. Selecione e clique na partilha que pretende atualizar.
 
     ![Selecionar partilha](media/data-box-edge-manage-shares/refresh-share-1.png)
 
-2.  Clique em **Atualizar**. 
+2.   Clique em **Atualizar**. 
 
     ![Clicar em atualizar](media/data-box-edge-manage-shares/refresh-share-2.png)
  
-3.  Quando lhe for pedida a confirmação, clique em **Sim**. É iniciada uma tarefa para atualizar os conteúdos da partilha no local.
+3.   Quando lhe for pedida a confirmação, clique em **Sim**. É iniciada uma tarefa para atualizar os conteúdos da partilha no local.
 
     ![Confirmar atualização](media/data-box-edge-manage-shares/refresh-share-3.png)
  
-4.  Enquanto a atualização estiver em curso, a opção de atualização está desativada no menu de contexto. Clique na notificação da tarefa para ver o estado da tarefa de atualização.
+4.   Enquanto a atualização estiver em curso, a opção de atualização está desativada no menu de contexto. Clique na notificação da tarefa para ver o estado da tarefa de atualização.
 
-5.  O tempo de atualização depende do número de ficheiros no contentor do Azure, bem como dos ficheiros no dispositivo. Assim que a atualização tiver sido concluída com êxito, o carimbo de data/hora da partilha é atualizado. Mesmo se a atualização tiver falhas parciais, a operação é considerada como concluída com êxito e o carimbo de data/hora é atualizado. Os registos de erros de atualização também são atualizados.
+5.   O tempo de atualização depende do número de ficheiros no contentor do Azure, bem como dos ficheiros no dispositivo. Assim que a atualização tiver sido concluída com êxito, o carimbo de data/hora da partilha é atualizado. Mesmo se a atualização tiver falhas parciais, a operação é considerada como concluída com êxito e o carimbo de data/hora é atualizado. Os registos de erro de atualização também são atualizados.
 
     ![Carimbo de data/hora atualizado](media/data-box-edge-manage-shares/refresh-share-4.png)
  
@@ -200,11 +203,11 @@ Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso
 
 1. Aceda a **Descrição Geral** no seu recurso. Na lista de partilhas, escolha e clique numa partilha associada à conta de armazenamento que precisa de sincronizar.
 
-    ![Selecione a partilha com a conta de armazenamento relevantes](media/data-box-edge-manage-shares/sync-storage-key-1.png)
+    ![Selecione partilha com conta de armazenamento relevante](media/data-box-edge-manage-shares/sync-storage-key-1.png)
 
 2. Clique em **Sincronizar chave de armazenamento**. Clique em **Sim** quando lhe for pedida a confirmação.
 
-     ![Selecione a sincronizar a chave de armazenamento](media/data-box-edge-manage-shares/sync-storage-key-2.png)
+     ![Selecione chave de armazenamento Sync](media/data-box-edge-manage-shares/sync-storage-key-2.png)
 
 3. Saia da caixa de diálogo depois de a sincronização estar concluída.
 
@@ -212,6 +215,6 @@ Efetue os seguintes passos no portal do Azure para sincronizar a chave de acesso
 > Apenas terá de efetuar este procedimento uma vez para uma conta de armazenamento fornecida. Não precisa de repetir esta ação para todas as partilhas associadas à mesma conta de armazenamento.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir utilizadores através do portal do Azure](data-box-edge-manage-users.md).

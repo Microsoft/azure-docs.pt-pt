@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379057"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221152"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Avaliações de moderação de conteúdos, fluxos de trabalho e empregos
 
@@ -72,7 +72,7 @@ Um trabalho de moderação serve como uma espécie de invólucro para a funciona
 
 Consulte o [guia REST API](./try-review-api-job.md) para começar a usar trabalhos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Teste a [consola Job API](try-review-api-job.md)e utilize as amostras de código REST API. Se estiver familiarizado com o C#Visual Studio e , consulte também o [Arranque Rápido Jobs .NET](moderation-jobs-quickstart-dotnet.md). 
 * Para comentários, inicie-se com a [consola API review](try-review-api-review.md)e utilize as amostras de código REST API. Em seguida, consulte a secção de comentários do [arranque rápido .NET](dotnet-sdk-quickstart.md).

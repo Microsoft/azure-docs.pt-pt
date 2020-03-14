@@ -4,11 +4,11 @@ description: Neste artigo, aprenda a fazer backup de Ficheiros Azure utilizando 
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382510"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273543"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Back up Ficheiros Azure com PowerShell
 

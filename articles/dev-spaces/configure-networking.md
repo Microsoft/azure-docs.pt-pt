@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Descreve os requisitos de networking para executar espaços Azure Dev nos Serviços Azure Kubernetes
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, CNI, kubenet, SDN, rede
 ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389664"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265353"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configure a rede para espaços Azure Dev em diferentes topoologias de rede
 

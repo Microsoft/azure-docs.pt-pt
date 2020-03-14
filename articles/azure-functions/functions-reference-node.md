@@ -4,12 +4,12 @@ description: Compreenda como desenvolver funções utilizando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356068"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276832"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia de desenvolvedores de funções azure JavaScript
 
@@ -128,7 +128,7 @@ A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do
    };
    ```
 
-### <a name="outputs"></a>Resultado
+### <a name="outputs"></a>Saídas
 As saídas (encadernações de `direction === "out"`) podem ser escritas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da encadernação tal como definida na *função.json* corresponde ao nome do membro do objeto escrito na sua função. 
 
 Pode atribuir dados a encadernações de saída de uma das seguintes formas (não combine estes métodos):
@@ -363,6 +363,7 @@ O objeto `context.res` (resposta) tem as seguintes propriedades:
 | _cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
 | _estado_  | O código de estado HTTP da resposta.                     |
+| _cookies_ | Uma variedade de objetos de cookie HTTP que são definidos na resposta. Um objeto de cookie HTTP tem uma `name`, `value`, e outras propriedades de cookies, tais como `maxAge` ou `sameSite`. |
 
 ### <a name="accessing-the-request-and-response"></a>Acesso ao pedido e resposta 
 
@@ -694,9 +695,9 @@ module.exports = async function (context) {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte os seguintes recursos:
+Para obter mais informações, consulte os seguintes recursos:
 
 + [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 + [Referência para programadores das Funções do Azure](functions-reference.md)

@@ -4,11 +4,11 @@ description: Desloque recursos para o Azure com um modelo de Gestor de Recursos 
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.openlocfilehash: d30e685c35f33b6fc5d3872b9287e45190ad5713
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397146"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273712"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token"></a>Implementar um modelo privado do Resource Manager com o token SAS
 

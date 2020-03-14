@@ -1,35 +1,36 @@
 ---
 title: 'Tutorial: oleodutos ML para pontuação de lotes'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você constrói um pipeline de machine learning para executar pontuação de lote em um modelo de classificação de imagem em Azure Machine Learning. Os gasodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na sua experiência - machine learning - em vez de em infraestruturas e automação.
+description: Neste tutorial, você constrói um pipeline de aprendizagem automática para realizar pontuação de lote num modelo de classificação de imagem. O Azure Machine Learning permite-lhe focar-se na aprendizagem automática em vez de infraestruturas e automação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
-ms.reviewer: trbye
-ms.date: 02/10/2020
-ms.openlocfilehash: cb99861a53c6802598cf925121f1821f74e7d76f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.reviewer: laobri
+ms.date: 03/11/2020
+ms.openlocfilehash: bfa39d4a508412322f0caec36d557c3fc6775090
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354952"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238651"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construa um oleoduto azure machine learning para pontuação de lotes
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste tutorial, você usa um oleoduto em Azure Machine Learning para executar um trabalho de pontuação de lote. O exemplo utiliza o modelo de rede neural convolucional [De início-V3 pré-treinado](https://arxiv.org/abs/1512.00567) Tensorflow para classificar imagens não marcadas. Depois de construir e publicar um pipeline, configura um ponto final REST que pode utilizar para acionar o pipeline a partir de qualquer biblioteca HTTP em qualquer plataforma.
+Aprenda a construir um oleoduto em Azure Machine Learning para executar um trabalho de pontuação de lote. Os gasodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na aprendizagem automática em vez de infraestrutura e automação. Depois de construir e publicar um pipeline, configura um ponto final REST que pode utilizar para acionar o pipeline a partir de qualquer biblioteca HTTP em qualquer plataforma. 
 
-Os gasodutos de aprendizagem automática otimizam o seu fluxo de trabalho com velocidade, portabilidade e reutilização, para que possa focar-se na sua experiência - machine learning - em vez de em infraestruturas e automação. [Saiba mais sobre os gasodutos de aprendizagem automática.](concept-ml-pipelines.md)
+O exemplo utiliza um modelo de rede neural convolucional [Inception-V3 pré-treinado](https://arxiv.org/abs/1512.00567) implementado no Tensorflow para classificar imagens não marcadas. [Saiba mais sobre os gasodutos de aprendizagem automática.](concept-ml-pipelines.md)
 
 Neste tutorial, vai concluir as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Configure o espaço de trabalho e descarregue os dados da amostra
-> * Criar objetos de dados para recolher e obter dados
+> * Configurar a área de trabalho 
+> * Descarregue e guarde dados de amostras
+> * Criar objetos conjuntos de dados para recolher e obter dados
 > * Descarregue, prepare e registe o modelo no seu espaço de trabalho
 > * Objetivos de computação de provisão e criar um roteiro de pontuação
 > * Utilize a classe `ParallelRunStep` para pontuação de lote assinizador
@@ -57,7 +58,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-datastore-for-sample-images"></a>Criar uma loja de dados para imagens de amostra
+## <a name="create-a-datastore-for-sample-images"></a>Criar uma loja de dados para imagens de amostra
 
 Na conta `pipelinedata`, obtenha a amostra de dados públicos de avaliação imageNet do `sampledata` recipiente de blob público. Ligue `register_azure_blob_container()` para disponibilizar os dados ao espaço de trabalho com o nome `images_datastore`. Em seguida, detete tede o espaço de trabalho padrão datastore como a loja de dados de saída. Utilize a loja de dados de saída para marcar a saída no pipeline.
 
@@ -73,7 +74,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 def_data_store = ws.get_default_datastore()
 ```
 
-## <a name="create-data-objects"></a>Criar objetos de dados
+## <a name="create-dataset-objects"></a>Criar objetos conjuntos de dados
 
 Ao construir oleodutos, `Dataset` objetos são usados para ler dados de lojas de dados do espaço de trabalho, e `PipelineData` objetos são usados para transferir dados intermédios entre passos de pipeline.
 
@@ -259,7 +260,7 @@ def run(mini_batch):
 > [!TIP]
 > O oleoduto neste tutorial tem apenas um passo, e escreve a saída para um ficheiro. Para gasodutos em várias etapas, também utiliza `ArgumentParser` para definir um diretório para escrever dados de saída para entrada em etapas posteriores. Para um exemplo de passagem de dados entre vários passos de pipeline utilizando o padrão de design `ArgumentParser`, consulte o [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
-## <a name="build-and-run-the-pipeline"></a>Construir e executar o oleoduto
+## <a name="build-the-pipeline"></a>Construir o oleoduto
 
 Antes de executar o oleoduto, crie um objeto que defina o ambiente Python e crie as dependências que o seu `batch_scoring.py` script requer. A principal dependência necessária é a Tensorflow, mas também instala `azureml-defaults` para processos de fundo. Crie um objeto `RunConfiguration` usando as dependências. Além disso, especifique o apoio do Docker e do Docker-GPU.
 
@@ -324,7 +325,7 @@ batch_score_step = ParallelRunStep(
 
 Para uma lista de todas as classes que pode utilizar para diferentes tipos de passos, consulte o [pacote de passos](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
-### <a name="run-the-pipeline"></a>Executar o pipeline
+## <a name="run-the-pipeline"></a>Executar o pipeline
 
 Agora, corre o oleoduto. Em primeiro lugar, crie um objeto `Pipeline` utilizando a referência do espaço de trabalho e o passo do gasoduto que criou. O parâmetro `steps` é uma variedade de passos. Neste caso, só há um passo para marcar lotes. Para construir oleodutos com vários passos, coloque os passos em ordem nesta matriz.
 

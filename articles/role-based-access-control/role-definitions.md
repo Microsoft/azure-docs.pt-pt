@@ -1,6 +1,6 @@
 ---
-title: Entender as definições de função no RBAC para recursos do Azure | Microsoft Docs
-description: Saiba mais sobre as definições de função no RBAC (controle de acesso baseado em função) para o gerenciamento de acesso refinado dos recursos do Azure.
+title: Compreender definições de papel no RBAC para recursos Azure / Microsoft Docs
+description: Conheça as definições de papéis no controlo de acesso baseado em papéis (RBAC) para a gestão de acesso sinuoso dos recursos Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981006"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283228"
 ---
-# <a name="understand-role-definitions-for-azure-resources"></a>Entender as definições de função dos recursos do Azure
+# <a name="understand-role-definitions-for-azure-resources"></a>Compreender definições de papéis para os recursos do Azure
 
-Se você estiver tentando entender como uma função funciona ou se estiver criando sua própria [função personalizada para recursos do Azure](custom-roles.md), é útil entender como as funções são definidas. Este artigo descreve os detalhes das definições de função e fornece alguns exemplos.
+Se está a tentar perceber como funciona um papel ou se está a criar o seu próprio [papel personalizado para os recursos Do Azure,](custom-roles.md)é útil compreender como os papéis são definidos. Este artigo descreve os detalhes das definições de papéis e fornece alguns exemplos.
 
-## <a name="role-definition-structure"></a>Estrutura de definição de função
+## <a name="role-definition-structure"></a>Estrutura de definição de papel
 
-Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Pode também listar as operações que não podem ser efetuadas ou operações relacionadas a dados subjacentes. Uma definição de função tem a seguinte estrutura:
+Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Também pode listar as operações que não podem ser realizadas ou operações relacionadas com dados subjacentes. Uma definição de função tem a seguinte estrutura:
 
 ```
 Name
@@ -42,21 +42,21 @@ NotDataActions []
 AssignableScopes []
 ```
 
-As operações são especificadas com cadeias de caracteres que têm o seguinte formato:
+As operações são especificadas com cordas que têm o seguinte formato:
 
 - `{Company}.{ProviderName}/{resourceType}/{action}`
 
-A parte `{action}` de uma cadeia de caracteres de operação especifica o tipo de operações que você pode executar em um tipo de recurso. Por exemplo, você verá as seguintes subcadeias de caracteres no `{action}`:
+A `{action}` parte de uma cadeia de operação especifica o tipo de operações que pode executar num tipo de recurso. Por exemplo, verá as seguintes subcordas em `{action}`:
 
-| Subcadeia de ação    | Descrição         |
+| Substring de ação    | Descrição         |
 | ------------------- | ------------------- |
-| `*` | O caractere curinga concede acesso a todas as operações que correspondem à cadeia de caracteres. |
-| `read` | Habilita operações de leitura (GET). |
-| `write` | Habilita operações de gravação (PUT ou PATCH). |
-| `action` | Habilita operações personalizadas como reiniciar máquinas virtuais (POST). |
-| `delete` | Habilita operações de exclusão (DELETE). |
+| `*` | O personagem wildcard dá acesso a todas as operações que correspondam à corda. |
+| `read` | Permite a leitura de operações (GET). |
+| `write` | Ativa as operações de escrita (PUT ou PATCH). |
+| `action` | Permite operações personalizadas como reiniciar máquinas virtuais (POST). |
+| `delete` | Ativa eliminar operações (DELETE). |
 
-Aqui está a definição da função [colaborador](built-in-roles.md#contributor) no formato JSON. A operação de caráter universal (`*`) em `Actions` indica que o principal atribuído a esta função pode efetuar todas as ações ou, por outras palavras, pode gerir tudo. Isto inclui ações definidas no futuro, uma vez que o Azure adiciona novos tipos de recursos. As operações em `NotActions` são subtraídas de `Actions`. No caso da função [Contribuidor](built-in-roles.md#contributor), `NotActions` remove a capacidade desta função para gerir o acesso aos recursos e também atribuir acesso aos recursos.
+Aqui está a definição de papel [do Colaborador](built-in-roles.md#contributor) no formato JSON. A operação wildcard (`*`) sob `Actions` indica que o principal designado para esta função pode executar todas as ações, ou por outras palavras, pode gerir tudo. Isto inclui ações definidas no futuro, uma vez que o Azure adiciona novos tipos de recursos. As operações sob `NotActions` são subtraídas de `Actions`. No caso do papel de [Contribuinte,](built-in-roles.md#contributor) `NotActions` elimina a capacidade desta função de gerir o acesso aos recursos e também atribuir acesso aos recursos.
 
 ```json
 {
@@ -80,25 +80,25 @@ Aqui está a definição da função [colaborador](built-in-roles.md#contributor
 }
 ```
 
-## <a name="management-and-data-operations"></a>Operações de gerenciamento e dados
+## <a name="management-and-data-operations"></a>Gestão e operações de dados
 
-O controle de acesso baseado em função para operações de gerenciamento é especificado nas propriedades `Actions` e `NotActions` de uma definição de função. Aqui estão alguns exemplos de operações de gerenciamento no Azure:
+O controlo de acesso baseado em funções para operações de gestão é especificado na `Actions` e `NotActions` propriedades de uma definição de função. Aqui estão alguns exemplos de operações de gestão em Azure:
 
-- Gerenciar o acesso a uma conta de armazenamento
-- Criar, atualizar ou excluir um contêiner de BLOBs
-- Excluir um grupo de recursos e todos os seus recursos
+- Gerir o acesso a uma conta de armazenamento
+- Criar, atualizar ou eliminar um recipiente de bolhas
+- Eliminar um grupo de recursos e todos os seus recursos
 
-O acesso de gerenciamento não é herdado para seus dados desde que o método de autenticação de contêiner esteja definido como "conta de usuário do Azure AD" e não "chave de acesso". Essa separação impede que funções com curingas (`*`) tenham acesso irrestrito aos seus dados. Por exemplo, se um usuário tiver uma função de [leitor](built-in-roles.md#reader) em uma assinatura, ele poderá exibir a conta de armazenamento, mas, por padrão, eles não poderão exibir os dados subjacentes.
+O acesso à gestão não é herdado dos seus dados desde que o método de autenticação do contentor esteja definido como "Conta de Utilizador Azure AD" e não "Chave de Acesso". Esta separação impede que as funções com wildcards (`*`) tenham acesso ilimitado aos seus dados. Por exemplo, se um utilizador tem uma função [de Leitor](built-in-roles.md#reader) numa subscrição, então pode ver a conta de armazenamento, mas por padrão não podem ver os dados subjacentes.
 
-Anteriormente, o controle de acesso baseado em função não era usado para operações de dados. Autorização para operações de dados variadas entre provedores de recursos. O mesmo modelo de autorização de controle de acesso baseado em função usado para operações de gerenciamento foi estendido para operações de dados.
+Anteriormente, o controlo de acesso baseado em funções não era utilizado para operações de dados. A autorização para operações de dados variou entre os fornecedores de recursos. O mesmo modelo de autorização de controlo de acesso baseado em funções utilizado para operações de gestão foi alargado às operações de dados.
 
-Para dar suporte a operações de dados, novas propriedades de dados foram adicionadas à estrutura de definição de função. As operações de dados são especificadas nas propriedades `DataActions` e `NotDataActions`. Ao adicionar essas propriedades de dados, a separação entre gerenciamento e dados é mantida. Tal impede que as atribuições de função atuais com carateres universais (`*`) tenham, de repente, acesso aos dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
+Para apoiar as operações de dados, foram adicionadas novas propriedades de dados à estrutura de definição de funções. As operações de dados são especificadas nas propriedades `DataActions` e `NotDataActions`. Ao adicionar estas propriedades de dados, mantém-se a separação entre gestão e dados. Isto impede que as atribuições de funções atuais com wildcards (`*`) tenham subitamente acesso aos dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
 
-- Ler uma lista de blobs num contentor
-- Escrever um blob de armazenamento num contentor
-- Eliminar uma mensagem numa fila
+- Leia uma lista de bolhas em um recipiente
+- Escreva uma bolha de armazenamento em um recipiente
+- Apagar uma mensagem numa fila
 
-Aqui está a definição da função de [leitor de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-reader) , que inclui operações nas propriedades `Actions` e `DataActions`. Essa função permite que você leia o contêiner de BLOBs e também os dados de blob subjacentes.
+Aqui está a definição de papel do Leitor de [Dados blob](built-in-roles.md#storage-blob-data-reader) de armazenamento, que inclui operações tanto nas propriedades `Actions` como `DataActions`. Esta função permite-lhe ler o recipiente blob e também os dados de blob subjacentes.
 
 ```json
 {
@@ -120,26 +120,26 @@ Aqui está a definição da função de [leitor de dados do blob de armazenament
 }
 ```
 
-Apenas as operações de dados podem ser adicionadas às propriedades `DataActions` e `NotDataActions`. Os provedores de recursos identificam quais operações são operações de dados, definindo a propriedade `isDataAction` como `true`. Para ver uma lista das operações em que `isDataAction` está `true`, consulte [operações do provedor de recursos](resource-provider-operations.md). As funções que não têm operações de dados não precisam ter as propriedades `DataActions` e `NotDataActions` dentro da definição de função.
+Apenas as operações de dados podem ser adicionadas às propriedades `DataActions` e `NotDataActions`. Os fornecedores de recursos identificam quais as operações de dados, fixando o imóvel `isDataAction` para `true`. Para ver uma lista das operações em que `isDataAction` está `true`, consulte [as operações](resource-provider-operations.md)do fornecedor de recursos. As funções que não possuem operações de dados não são obrigadas a ter propriedades `DataActions` e `NotDataActions` dentro da definição de funções.
 
-A autorização para todas as chamadas de API de operação de gerenciamento é tratada pelo Azure Resource Manager. A autorização para chamadas de API de operação de dados é tratada por um provedor de recursos ou Azure Resource Manager.
+A autorização para toda a operação de gestão As chamadas API são tratadas pelo Gestor de Recursos azure. A autorização para a operação de dados as chamadas API são tratadas por um fornecedor de recursos ou por um Gestor de Recursos Azure.
 
 ### <a name="data-operations-example"></a>Exemplo de operações de dados
 
-Para entender melhor como funcionam as operações de gerenciamento e dados, vamos considerar um exemplo específico. Alice recebeu a função de [proprietário](built-in-roles.md#owner) no escopo da assinatura. Bob recebeu a função [colaborador de dados de blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) em um escopo de conta de armazenamento. O diagrama a seguir mostra esse exemplo.
+Para entender melhor como funcionam as operações de gestão e dados, vamos considerar um exemplo específico. Alice foi designada para o papel de [Proprietário](built-in-roles.md#owner) no âmbito da subscrição. Bob foi designado o papel de Contribuinte de [Dados blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) em um âmbito de conta de armazenamento. O diagrama que se segue mostra este exemplo.
 
-![O controle de acesso baseado em função foi estendido para dar suporte a operações de gerenciamento e de dados](./media/role-definitions/rbac-management-data.png)
+![O controlo de acesso baseado em funções foi alargado para apoiar tanto as operações de gestão como de dados](./media/role-definitions/rbac-management-data.png)
 
-A função de [proprietário](built-in-roles.md#owner) para Alice e a função de [colaborador de dados de blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) para Bob têm as seguintes ações:
+O papel [de Proprietário](built-in-roles.md#owner) para Alice e o papel de Colaborador de Dados de [Armazenamento Blob](built-in-roles.md#storage-blob-data-contributor) para Bob têm as seguintes ações:
 
 Proprietário
 
-&nbsp;&nbsp;&nbsp;ações de &nbsp;<br>
+&nbsp;&nbsp;&nbsp;ações &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Colaborador de dados do blob de armazenamento
+Contribuinte de dados blob de armazenamento
 
-&nbsp;&nbsp;&nbsp;ações de &nbsp;<br>
+&nbsp;&nbsp;&nbsp;ações &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
@@ -148,88 +148,88 @@ Colaborador de dados do blob de armazenamento
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Como Alice tem uma ação curinga (`*`) em um escopo de assinatura, suas permissões herdam para permitir que executem todas as ações de gerenciamento. Alice pode ler, gravar e excluir contêineres. No entanto, Alice não pode executar operações de dados sem executar etapas adicionais. Por exemplo, por padrão, Alice não pode ler os BLOBs dentro de um contêiner. Para ler os BLOBs, Alice teria que recuperar as chaves de acesso de armazenamento e usá-las para acessar os BLOBs.
+Uma vez que Alice tem uma ação wildcard (`*`) num âmbito de subscrição, as suas permissões herdam para permitir que realizem todas as ações de gestão. Alice pode ler, escrever e apagar recipientes. No entanto, Alice não pode realizar operações de dados sem tomar medidas adicionais. Por exemplo, por defeito, Alice não consegue ler as bolhas dentro de um recipiente. Para ler as bolhas, Alice teria que recuperar as chaves de acesso ao armazenamento e usá-las para aceder às bolhas.
 
-As permissões de Bob são restritas apenas à `Actions` e `DataActions` especificadas na função [colaborador de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) . Com base na função, Bob pode executar operações de gerenciamento e de dados. Por exemplo, Bob pode ler, gravar e excluir contêineres na conta de armazenamento especificada e também pode ler, gravar e excluir os BLOBs.
+As permissões de Bob são restritas apenas ao `Actions` e `DataActions` especificadas no papel de Contribuinte de [Dados blob](built-in-roles.md#storage-blob-data-contributor) de armazenamento. Com base no papel, bob pode executar operações de gestão e dados. Por exemplo, Bob pode ler, escrever e apagar recipientes na conta de armazenamento especificada e também pode ler, escrever e apagar as bolhas.
 
-Para obter mais informações sobre gerenciamento e segurança do plano de dados para armazenamento, consulte o [Guia de segurança do armazenamento do Azure](../storage/blobs/security-recommendations.md).
+Para obter mais informações sobre gestão e segurança de aviões de dados para armazenamento, consulte o guia de [segurança azure Storage](../storage/blobs/security-recommendations.md).
 
-### <a name="what-tools-support-using-rbac-for-data-operations"></a>Quais ferramentas dão suporte ao uso de RBAC para operações de dados?
+### <a name="what-tools-support-using-rbac-for-data-operations"></a>Que ferramentas suportam a utilização do RBAC para operações de dados?
 
-Para exibir e trabalhar com operações de dados, você deve ter as versões corretas das ferramentas ou dos SDKs:
+Para visualizar e trabalhar com operações de dados, deve ter as versões corretas das ferramentas ou SDKs:
 
 | Ferramenta  | Versão  |
 |---------|---------|
-| [O Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
-| [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
-| [Azure para .NET](/dotnet/azure/) | 2.8.0-Preview ou posterior |
-| [SDK do Azure para Go](/azure/go/azure-sdk-go-install) | 15.0.0 ou posterior |
-| [Azure para Java](/java/azure/) | 1.9.0 ou posterior |
-| [Azure para Python](/azure/python/) | 0.40.0 ou posterior |
-| [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) (Azure SDK para Ruby) | 0.17.1 ou posterior |
+| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou mais tarde |
+| [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou mais tarde |
+| [Azure para .NET](/dotnet/azure/) | 2.8.0 pré-visualização ou posterior |
+| [SDK do Azure para Go](/azure/go/azure-sdk-go-install) | 15.0.0 ou mais tarde |
+| [Azure para Java](/java/azure/) | 1.9.0 ou mais tarde |
+| [Azure para Python](/azure/python/) | 0.40.0 ou mais tarde |
+| [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) (Azure SDK para Ruby) | 0.17.1 ou mais tarde |
 
-Para exibir e usar as operações de dados na API REST, você deve definir o parâmetro de **versão de API** para a seguinte versão ou posterior:
+Para visualizar e utilizar as operações de dados na API REST, deve definir o parâmetro **da versão api** para a seguinte versão ou posteriormente:
 
 - 2018-07-01
 
 ## <a name="actions"></a>Ações
 
-A permissão `Actions` especifica as operações de gerenciamento que a função permite executar. É uma coleção de cadeias de caracteres de operação que identificam operações protegíveis de provedores de recursos do Azure. Aqui estão alguns exemplos de operações de gerenciamento que podem ser usadas em `Actions`.
+A autorização `Actions` especifica as operações de gestão que a função permite ser executadas. Trata-se de uma coleção de cadeias de operação que identificam operações de segurança dos fornecedores de recursos azure. Aqui estão alguns exemplos de operações de gestão que podem ser usadas em `Actions`.
 
 | Cadeia de operação    | Descrição         |
 | ------------------- | ------------------- |
-| `*/read` | Concede acesso a operações de leitura para todos os tipos de recursos de todos os provedores de recursos do Azure.|
-| `Microsoft.Compute/*` | Concede acesso a todas as operações para todos os tipos de recursos no provedor de recursos Microsoft. COMPUTE.|
-| `Microsoft.Network/*/read` | Concede acesso a operações de leitura para todos os tipos de recursos no provedor de recursos Microsoft. Network.|
-| `Microsoft.Compute/virtualMachines/*` | Concede acesso a todas as operações de máquinas virtuais e seus tipos de recursos filho.|
-| `microsoft.web/sites/restart/Action` | Concede acesso para reiniciar um aplicativo Web.|
+| `*/read` | Concede acesso a operações de leitura para todos os tipos de recursos de todos os fornecedores de recursos Azure.|
+| `Microsoft.Compute/*` | Concede acesso a todas as operações para todos os tipos de recursos do fornecedor de recursos Microsoft.Compute.|
+| `Microsoft.Network/*/read` | Concede acesso a operações de leitura para todos os tipos de recursos no fornecedor de recursos Microsoft.Network.|
+| `Microsoft.Compute/virtualMachines/*` | Concede acesso a todas as operações de máquinas virtuais e aos seus tipos de recursos infantis.|
+| `microsoft.web/sites/restart/Action` | Concede acesso a reiniciar uma aplicação web.|
 
-## <a name="notactions"></a>NotActions
+## <a name="notactions"></a>NotAções
 
-A permissão `NotActions` especifica as operações de gerenciamento que são excluídas do `Actions`permitido. Use a permissão `NotActions` se o conjunto de operações que você deseja permitir for definido com mais facilidade, excluindo operações restritas. O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as operações de `NotActions` das operações de `Actions`.
+A autorização `NotActions` especifica as operações de gestão que estão excluídas da `Actions`permitida . Utilize a `NotActions` permissão se o conjunto de operações que pretende permitir for mais facilmente definido excluindo operações restritas. O acesso concedido por uma função (permissões eficazes) é calculado subtraindo as operações `NotActions` das operações `Actions`.
 
 > [!NOTE]
-> Se um usuário recebe uma função que exclui uma operação em `NotActions`e recebe uma segunda função que concede acesso à mesma operação, o usuário tem permissão para executar essa operação. `NotActions` não é uma regra de negação – é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando operações específicas precisam ser excluídas.
+> Se um utilizador for atribuído a uma função que exclua uma operação em `NotActions`, e lhe for atribuída uma segunda função que conceda acesso à mesma operação, o utilizador é autorizado a realizar essa operação. `NotActions` não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações permitidas quando é necessário excluir operações específicas.
 >
 
 ## <a name="dataactions"></a>DataActions
 
-A permissão `DataActions` especifica as operações de dados que a função permite que sejam executadas em seus dados dentro desse objeto. Por exemplo, se um usuário tiver acesso de dados de blob de leitura a uma conta de armazenamento, ele poderá ler os BLOBs dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usadas em `DataActions`.
+A autorização `DataActions` especifica as operações de dados que a função permite ser executada aos seus dados dentro desse objeto. Por exemplo, se um utilizador tiver lido o acesso dos dados blob a uma conta de armazenamento, então pode ler as bolhas dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usadas em `DataActions`.
 
 | Cadeia de operação    | Descrição         |
 | ------------------- | ------------------- |
-| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retorna um BLOB ou uma lista de BLOBs. |
-| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retorna o resultado da gravação de um blob. |
-| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Retorna uma mensagem. |
-| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Retorna uma mensagem ou o resultado da gravação ou exclusão de uma mensagem. |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Devolve uma bolha ou uma lista de bolhas. |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Devolve o resultado de escrever uma bolha. |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Devolve uma mensagem. |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Devolve uma mensagem ou o resultado de escrever ou apagar uma mensagem. |
 
 ## <a name="notdataactions"></a>NotDataActions
 
-A permissão `NotDataActions` especifica as operações de dados que são excluídas do `DataActions`permitido. O acesso concedido por uma função (permissões efetivas) é calculado subtraindo as operações de `NotDataActions` das operações de `DataActions`. Cada provedor de recursos fornece seu respectivo conjunto de APIs para atender às operações de dados.
+A autorização `NotDataActions` especifica as operações de dados que estão excluídas da `DataActions`permitida . O acesso concedido por uma função (permissões eficazes) é calculado subtraindo as operações `NotDataActions` das operações `DataActions`. Cada fornecedor de recursos fornece o seu respetivo conjunto de APIs para cumprir as operações de dados.
 
 > [!NOTE]
-> Se um usuário recebe uma função que exclui uma operação de dados em `NotDataActions`e recebe uma segunda função que concede acesso à mesma operação de dados, o usuário tem permissão para executar essa operação de dados. `NotDataActions` não é uma regra de negação – é simplesmente uma maneira conveniente de criar um conjunto de operações de dados permitidas quando operações de dados específicas precisam ser excluídas.
+> Se um utilizador for atribuído a uma função que exclua uma operação de dados em `NotDataActions`, e lhe for atribuída uma segunda função que conceda acesso à mesma operação de dados, o utilizador é autorizado a executar essa operação de dados. `NotDataActions` não é uma regra de negação – é simplesmente uma forma conveniente de criar um conjunto de operações de dados permitidas quando as operações específicas de dados precisam de ser excluídas.
 >
 
-## <a name="assignablescopes"></a>AssignableScopes
+## <a name="assignablescopes"></a>Scopes Alsinuáveis
 
-A propriedade `AssignableScopes` especifica os escopos (grupos de gerenciamento, assinaturas, grupos de recursos ou recursos) que têm essa definição de função disponível. Você pode tornar a função disponível para atribuição somente nos grupos de gerenciamento, assinaturas ou grupos de recursos que o exigem. Você deve usar pelo menos um grupo de gerenciamento, uma assinatura, um grupo de recursos ou uma ID de recurso.
+O `AssignableScopes` propriedade especifica os âmbitos (grupos de gestão, subscrições, grupos de recursos ou recursos) que têm esta definição de função disponível. Pode disponibilizar o papel para atribuição apenas nos grupos de gestão, subscrições ou grupos de recursos que o exijam. Deve utilizar pelo menos um grupo de gestão, subscrição, grupo de recursos ou ID de recursos.
 
-As funções internas têm `AssignableScopes` definidas para o escopo raiz (`"/"`). O escopo raiz indica que a função está disponível para atribuição em todos os escopos. Entre os exemplos de escopos atribuíveis válidos estão:
+As funções incorporadas têm `AssignableScopes` definidas para o âmbito raiz (`"/"`). O âmbito de raiz indica que o papel está disponível para atribuição em todos os âmbitos. Exemplos de âmbitos atribuídos válidos incluem:
 
-| A função está disponível para atribuição | Exemplo |
+| O papel está disponível para atribuição | Exemplo |
 |----------|---------|
-| Uma assinatura | `"/subscriptions/{subscriptionId1}"` |
+| Uma subscrição | `"/subscriptions/{subscriptionId1}"` |
 | Duas assinaturas | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
 | Grupo de recursos de rede | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
-| Um grupo de gerenciamento | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-| Grupo de gerenciamento e uma assinatura | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
-| Todos os escopos (aplica-se somente a funções internas) | `"/"` |
+| Um grupo de gestão | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+| Grupo de gestão e uma subscrição | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+| Todos os âmbitos (aplicam-se apenas às funções incorporadas) | `"/"` |
 
-Para obter informações sobre `AssignableScopes` para funções personalizadas, consulte [funções personalizadas para recursos do Azure](custom-roles.md).
+Para obter informações sobre `AssignableScopes` para papéis personalizados, consulte [funções personalizadas para os recursos Do Azure.](custom-roles.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas para recursos do Azure)
 * [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
-* [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)
+* [Operações de fornecedor de recursos do Gestor de Recursos Azure](resource-provider-operations.md)

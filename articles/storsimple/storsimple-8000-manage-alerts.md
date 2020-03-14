@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365911"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267823"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir alertas StorSimple
 
@@ -219,7 +219,7 @@ Se a conectividade da nuvem falhar no seu dispositivo de produção StorSimple, 
 |:--- |:--- |:--- |
 | O pacote de criação de apoio falhou. |O StorSimple não conseguiu gerar o pacote. |Tente novamente esta operação. Se o problema persistir, contacte o Microsoft Support. Depois de ter resolvido o problema, limpe este alerta na página de alertas. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [erros StorSimple e problemas](storsimple-8000-troubleshoot-deployment.md)de implementação de dispositivos de resolução de problemas .
 

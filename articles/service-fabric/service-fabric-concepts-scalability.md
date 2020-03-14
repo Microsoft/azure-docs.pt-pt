@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378934"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282565"
 ---
 # <a name="scaling-in-service-fabric"></a>Escala no tecido de serviço
 O Azure Service Fabric facilita a construção de aplicações escaláveis através da gestão dos serviços, divisórias e réplicas nos nós de um cluster. Executar muitas cargas de trabalho no mesmo hardware permite a utilização máxima de recursos, mas também proporciona flexibilidade em termos de como você escolhe escalar as suas cargas de trabalho. Este vídeo do Canal 9 descreve como pode construir aplicações de microserviços escaláveis:

@@ -7,11 +7,11 @@ ms.subservice: process-automation
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: b9808ddc3b61b0055642c5a0f2a82b0dc7553b33
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384854"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278912"
 ---
 # <a name="my-first-powershell-runbook"></a>O meu primeiro runbook do PowerShell
 
@@ -246,7 +246,7 @@ O seu livro de execução começa atualmente a máquina virtual que codificano n
 1. Digite os valores para **VMNAME** e **RESOURCEGROUPNAME** para a máquina virtual que vai iniciar e, em seguida, clique **OK**.<br><br> ![Transmitir Parâmetro](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>
 1. Quando o livro de execução estiver concluído, certifique-se de que a máquina virtual foi iniciada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o PowerShell, incluindo módulos de referência linguística e aprendizagem, consulte os [Docs PowerShell](/powershell/scripting/overview).
 * Para começar com livros gráficos, veja [o meu primeiro livro de corridas gráficos.](automation-first-runbook-graphical.md)

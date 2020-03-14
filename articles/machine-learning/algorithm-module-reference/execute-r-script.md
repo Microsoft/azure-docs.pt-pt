@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 1cf8c208e83950706278e2cff5d13951393eec8f
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037129"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140778"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 
@@ -97,13 +97,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Depois de o gasoduto ser submetido com sucesso, pode visualizar a imagem no painel direito do módulo ![imagem carregada](media/module/upload-image-in-r-script.png)
+Depois de o gasoduto ser submetido com sucesso, pode pré-visualizar a imagem no painel direito do módulo
+
+[!div class="mx-imgBorder"]
+![](media/module/upload-image-in-r-script.png) de imagem carregada
 
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar o Execute R Script
 
 O módulo **Execute R Script** contém um código de amostra que pode utilizar como ponto de partida. Para configurar o módulo **Execute R Script,** forneça um conjunto de inputs e código para executar.
 
-![Módulo R](media/module/upload-image-in-r-script.png)
+![Módulo R](media/module/execute-r-script.png)
 
 Os conjuntos de dados armazenados no designer são automaticamente convertidos para um quadro de dados R quando carregados com este módulo.
 
@@ -123,25 +126,25 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
 
     Para ajudá-lo a começar, a caixa de texto **R Script** é pré-povoada com código de amostra, que pode editar ou substituir.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * O script deve conter uma função chamada `azureml_main`, que é o ponto de entrada deste módulo.
 
@@ -174,9 +177,9 @@ Existem muitas maneiras de estender o seu pipeline usando script R personalizado
 
 O módulo **Execute R Script** suporta ficheiros de script R arbitrários como inputs. Para tal, devem ser enviados para o seu espaço de trabalho como parte do ficheiro ZIP.
 
-1. Para fazer o upload de um ficheiro ZIP contendo código R para o seu espaço de trabalho, clique em **Novo,** clique em **Dataset,** e depois selecione **A partir do ficheiro local** e da opção de ficheiro **Zip.**  
+1. Para fazer o upload de um ficheiro ZIP contendo código R para o seu espaço de trabalho, vá à página de ativos **do Datasets,** clique em **Criar dataset,** e depois selecione **A partir do ficheiro local** e da opção de tipo de dataset **de ficheiro.**  
 
-1. Verifique se o ficheiro zipped está disponível na lista de Conjuntos de **Dados Guardados.**
+1. Verifique se o ficheiro zipped está disponível na lista **My Datasets** na categoria **Datasets** na árvore do módulo esquerdo.
 
 1.  Ligue o conjunto de dados à porta de entrada script **Bundle.**
 

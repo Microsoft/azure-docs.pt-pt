@@ -12,11 +12,11 @@ ms.date: 04/13/2018
 ms.author: rosh
 ROBOTS: NOINDEX
 ms.openlocfilehash: 28449435479aef0d6a1d8aee3e53de1a78f401b3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396794"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220822"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referência de pesquisa de resposta ao projeto v7
 

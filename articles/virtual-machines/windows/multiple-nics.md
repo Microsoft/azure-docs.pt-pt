@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383171"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249987"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Crie e gerencie uma máquina virtual windows que tenha vários NICs
 As máquinas virtuais (VMs) em Azure podem ter vários cartões de interface de rede virtual (NICs) ligados a eles. Um cenário comum é ter subredes diferentes para conectividade frontal e traseira. Pode associar vários NICs num VM a várias subredes, mas essas subredes devem residir na mesma rede virtual (vNet). Este artigo detalha como criar um VM que tem vários NICs ligados a ele. Também aprende a adicionar ou remover NICs de um VM existente. Diferentes tamanhos de [VM](sizes.md) suportam um número variado de NICs, de modo que o tamanho do seu VM em conformidade.

@@ -13,11 +13,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387348"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265860"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para a Oracle no local utilizando a Azure Data Factory
 
@@ -99,7 +99,7 @@ As seguintes secções fornecem detalhes sobre as propriedades jSON que utiliza 
 
 A tabela seguinte descreve elementos JSON específicos do serviço ligado ao Oráculo:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade **tipo** deve ser definida para **OnPremisesOracle**. |Sim |
 | driverType | Especifique qual o controlador a utilizar para copiar dados de ou para uma base de dados da Oracle. Os valores permitidos são **Microsoft** e **ODP** (predefinição). Consulte a [versão suportada e a instalação](#supported-versions-and-installation) para obter detalhes do condutor. | Não |
@@ -150,7 +150,7 @@ As secções de um conjunto de dados FicheiroJSON, tais como estrutura, disponib
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para o conjunto de dados do tipo **OracleTable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Required |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tableName |O nome da tabela na base de dados oracle a que o serviço ligado se refere. |Não (se o **oracleReaderQuery** ou **OracleSource** forespecificado) |
 
@@ -169,7 +169,7 @@ As propriedades disponíveis na secção **tipoPropriedades** da atividade varia
 
 Na Atividade de Cópia, quando a fonte é do tipo **OracleSource,** as seguintes propriedades estão disponíveis na secção **TypeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Use a consulta personalizada para ler dados. |Uma corda de consulta SQL. Por exemplo, "selecione \* do **MyTable".** <br/><br/>Se não especificado, esta declaração sQL é executada: "selecione \* do **MyTable"** |Não<br />(se for especificado **o nome** do conjunto de **dados)** |
 
@@ -177,7 +177,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource,** as seguintes
 
 **A OracleSink** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Required |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |O tempo de espera para a operação de inserção do lote esteja concluído antes de sair. |**tempospan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
 | writeBatchSize |Insere os dados na tabela SQL quando o tamanho do tampão atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
@@ -616,7 +616,7 @@ Quando transfere dados da Oracle, os seguintes mapeamentos são utilizados do ti
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |Número |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 
