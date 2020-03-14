@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 608eaaab9fb1e24b00d2aa2d4bfe393b5f17c9a1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f0fe4ab46bfe5c0c0c2ea67aa2e2694321628be5
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594009"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136368"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e utilizar o Istio no Serviço Azure Kubernetes (AKS)
 
@@ -418,11 +418,11 @@ Para saber como monitorizar a sua aplicação AKS utilizando insights de aplica�
 [istio-install-download]: https://istio.io/docs/setup/kubernetes/download-release/
 [istio-install-istioctl]: https://istio.io/docs/setup/install/istioctl/
 [istio-configuration-profiles]: https://istio.io/docs/setup/additional-setup/config-profiles/
-[istio-control-plane]: https://istio.io/docs/reference/config/istio.operator.v1alpha12.pb/#IstioControlPlane
+[istio-control-plane]: https://istio.io/docs/reference/config/istio.operator.v1alpha1/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
 
 [istio-feature-stages]: https://istio.io/about/feature-stages/
-[istio-feature-sds]: https://istio.io/docs/tasks/security/auth-sds/
+[istio-feature-sds]: https://istio.io/docs/tasks/traffic-management/ingress/secure-ingress-sds/
 [istio-feature-cni]: https://istio.io/docs/setup/additional-setup/cni/
 
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10

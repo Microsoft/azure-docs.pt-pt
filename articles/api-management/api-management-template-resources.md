@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374419"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249506"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos do modelo de gestão da API Azure
 A Azure API Management fornece os seguintes tipos de recursos para utilização nos modelos do portal de desenvolvimento.  
@@ -365,7 +365,7 @@ As seguintes opções de localização são apoiadas:
 |Nome|Texto|  
 |----------|----------|  
 |LinkLabelHomePage|página inicial|  
-|LinkLabelSendUsEmail|enviar-nos um e-mail|  
+|LinkLabelSendUsEmail|Envie-nos um e-mail|  
 |PageTitleNotFound|Desculpe, não conseguimos encontrar a página que procura.|  
 |TextblockPotentialCauseMisspelledUrl|Pode ter escrito mal o URL se o digitou.|  
 |TextblockPotentialCauseOldLink|O link em que clicou pode ser antigo e já não apontar para a localização correta.|  

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.openlocfilehash: 42cef26143eaeb49c4aa80dc5e1b05eb7be943cc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363066"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268460"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Upgrade para uma conta de armazenamento v2 de uso geral
 
@@ -165,6 +165,6 @@ Também pode ser calculado o custo de transferência de dados de georreplicaçã
 > [!NOTE]
 > Para um exemplo mais detalhado sobre o cálculo dos custos para a utilização do nível de acesso ao armazenamento quente ou fresco, dê uma olhada nas FAQ intituladas "O que são os níveis de *acesso Hot and Cool e como devo determinar qual deve usar?".* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta de armazenamento](storage-account-create.md)

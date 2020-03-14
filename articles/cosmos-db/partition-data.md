@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: cbd171e10cc1a8b27de98d9d4d779f345ac5a3ed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371606"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246620"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partição e escala horizontal em Azure Cosmos DB
 
@@ -37,7 +37,7 @@ A entrada prevista para um recipiente é dividida uniformemente entre divisória
 
 Ao contrário das divisórias lógicas, as divisórias físicas são uma implementação interna do sistema. Não se pode controlar o tamanho, colocação ou contagem de divisórias físicas, e não se pode controlar o mapeamento entre divisórias lógicas e divisórias físicas. No entanto, pode controlar o número de divisórias lógicas e a distribuição de dados, carga de trabalho e [entrada, escolhendo a chave de partição lógica certa](partitioning-overview.md#choose-partitionkey).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda sobre escolher uma chave de [partição.](partitioning-overview.md#choose-partitionkey)
 * Saiba mais sobre [a provisão disponibilizada em Azure Cosmos DB](request-units.md).

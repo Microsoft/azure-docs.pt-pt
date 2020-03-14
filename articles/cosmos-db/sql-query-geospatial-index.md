@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 2cf682a404154b9c1bb94680b3adb673892c1c72
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566377"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137908"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Dados geoespaciais indexados com Azure Cosmos DB
 
@@ -25,6 +25,44 @@ Se especificar uma política de indexação que inclui o índice espacial para /
 > Azure Cosmos DB suporta indexação de Pontos, LineStrings, Polígonos e MultiPolygons
 >
 >
+
+## <a name="modifying-geospatial-data-type"></a>Modificação do tipo de dados geoespaciais
+
+No seu recipiente, o `geospatialConfig` especifica como os dados geoespaciais serão indexados. Deve especificar um `geospatialConfig` por recipiente: geografia ou geometria. Se não for especificado, o `geospatialConfig` será indefinido com o tipo de dados de geografia. Quando modificar o `geospatialConfig`, todos os dados geoespaciais existentes no recipiente serão reindexados.
+
+> [!NOTE]
+> A Tualmente, a Azure Cosmos DB suporta modificações no geoespacialConfig no .NET SDK apenas nas versões 3.6 ou superior.
+>
+
+Aqui está um exemplo para modificar o tipo de dados geoespaciais para `geometry`, definindo a propriedade `geospatialConfig` e adicionando uma **Caixa de limitadora:**
+
+```csharp
+    //Retrieve the container's details
+    ContainerResponse containerResponse = await client.GetContainer("db", "spatial").ReadContainerAsync();
+    //Set GeospatialConfig to Geometry
+    GeospatialConfig geospatialConfig = new GeospatialConfig(GeospatialType.Geometry);
+    containerResponse.Resource.GeospatialConfig = geospatialConfig;
+    // Add a spatial index including the required boundingBox
+    SpatialPath spatialPath = new SpatialPath
+            {  
+                Path = "/locations/*",
+                BoundingBox = new BoundingBoxProperties(){
+                    Xmin = 0,
+                    Ymin = 0,
+                    Xmax = 10,
+                    Ymax = 10
+                }
+            };
+    spatialPath.SpatialTypes.Add(SpatialType.Point);
+    spatialPath.SpatialTypes.Add(SpatialType.LineString);
+    spatialPath.SpatialTypes.Add(SpatialType.Polygon);
+    spatialPath.SpatialTypes.Add(SpatialType.MultiPolygon);
+
+    containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+
+    // Update container with changes
+    await client.GetContainer("db", "spatial").ReplaceContainerAsync(containerResponse.Resource);
+```
 
 ## <a name="geography-data-indexing-examples"></a>Exemplos de indexação de dados de geografia
 
@@ -58,11 +96,64 @@ O seguinte snippet JSON mostra uma política de indexação com indexação espa
 
 > [!NOTE]
 > Se a localização do valor GeoJSON dentro do documento é um formato incorreto ou é inválido, em seguida, este será não obter indexado para consultas espaciais. Pode validar valores de localização usando ST_ISVALID e ST_ISVALIDDETAILED.
->
->
->
 
 Também pode [modificar a política de indexação](how-to-manage-indexing-policy.md) utilizando o Azure CLI, PowerShell ou qualquer SDK.
+
+## <a name="geometry-data-indexing-examples"></a>Exemplos de indexação de dados de geometria
+
+Com o tipo de dados de **geometria,** semelhante ao tipo de dados de geografia, deve especificar caminhos e tipos relevantes para indexar. Além disso, deve também especificar uma `boundingBox` dentro da política de indexação para indicar que a área desejada deve ser indexada para esse caminho específico. Cada caminho geoespacial requer o seu próprio`boundingBox`.
+
+A caixa de delimitação é constituída pelas seguintes propriedades:
+
+- **xmin:** a coordenada x indexada mínima
+- **ymin**: a coordenada mínima indexada y
+- **xmax**: a coordenada x indexada máxima
+- **ymax**: a coordenada y indexada máxima
+
+Uma caixa de delimitação é necessária porque os dados geométricos ocupam um plano que pode ser infinito. Índices espaciais, no entanto, requerem um espaço finito. Para o tipo de dados **de geografia,** a Terra é o limite e não é preciso definir uma caixa de delimitação.
+
+Deve criar uma caixa de delimitação que contenha todos (ou a maioria) dos seus dados. Apenas as operações calculadas nos objetos que estão inteiramente dentro da caixa de delimitação poderão utilizar o índice espacial. Não deve tornar a caixa de delimitação significativamente maior do que o necessário, pois isso terá um impacto negativo no desempenho da consulta.
+
+Aqui está uma política de indexação de exemplo que indexa dados de **geometria** com **geoespacialConfig** definido para `geometry`:
+
+```json
+ {
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ],
+    "spatialIndexes": [
+        {
+            "path": "/locations/*",
+            "types": [
+                "Point",
+                "LineString",
+                "Polygon",
+                "MultiPolygon"
+            ],
+            "boundingBox": {
+                "xmin": -10,
+                "ymin": -20,
+                "xmax": 10,
+                "ymax": 20
+            }
+        }
+    ]
+}
+```
+
+A política de indexação acima tem uma **Caixa limitada** de (-10, 10) para coordenadas x e (-20, 20) para coordenadas y. O contentor com a política de indexação acima indexará todos os Pontos, Polígonos, MultiPolygons e LineStrings que estão inteiramente dentro desta região.
+
+> [!NOTE]
+> Se tentar adicionar uma política de indexação com uma **Caixa de limitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **geoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma **Caixa de delimitação**. Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

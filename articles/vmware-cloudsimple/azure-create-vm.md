@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360768"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244696"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Crie uma máquina virtual em Azure usando modelos VM na infraestrutura VMware
 
@@ -74,9 +74,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Item | Descrição |
     | ------------ | ------------- |
     | Nome | Introduza um nome para identificar o disco.  |
-    | Size | Selecione um dos tamanhos disponíveis.  |
+    | Tamanho | Selecione um dos tamanhos disponíveis.  |
     | Controlador SCSI | Selecione um controlador SCSI para o disco.  |
-    | modo | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> - Persistente independente: Todos os dados escritos ao disco são escritos permanentemente.<br> - Independente não persistente: As alterações escritas no disco são descartadas quando se desliga ou reinstala a máquina virtual.  O modo independente não persistente permite reiniciar sempre o VM no mesmo estado. Para mais informações, consulte a [documentação vMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
+    | Modo | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> - Persistente independente: Todos os dados escritos ao disco são escritos permanentemente.<br> - Independente não persistente: As alterações escritas no disco são descartadas quando se desliga ou reinstala a máquina virtual.  O modo independente não persistente permite reiniciar sempre o VM no mesmo estado. Para mais informações, consulte a [documentação vMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
 
 7. Assim que a validação estiver concluída, reveja as definições e clique em **Criar**. Para efazer quaisquer alterações, clique nos separadores na parte superior ou clique.
 

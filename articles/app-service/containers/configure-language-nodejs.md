@@ -5,11 +5,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373934"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252730"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configure uma aplicação Linux Node.js para o Serviço de Aplicações Azure
 

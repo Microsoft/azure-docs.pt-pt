@@ -9,11 +9,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391477"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283371"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -55,7 +55,7 @@ Todas as novas ofertas de aplicações Azure devem incluir uma atribuição de u
 Reveja a seguinte documentação da aplicação Azure, que fornece Quickstarts, Tutoriais e Amostras.
 
 * [Compreender os modelos de gestor de recursos azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-* Inícios rápidos:
+* Guias de Início Rápido:
 
     * [Modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/)
     * [Modelos GitHub Azure Quickstart](https://github.com/azure/azure-quickstart-templates)
@@ -519,6 +519,6 @@ A etapa de **validação manual** no processo de publicação representa uma rev
 
 Se encontrou erros numa ou mais das etapas editoriais, deve corrigi-los e reeditar a sua oferta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

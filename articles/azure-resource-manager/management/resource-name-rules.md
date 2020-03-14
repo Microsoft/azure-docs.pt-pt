@@ -4,11 +4,11 @@ description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391174"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273920"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -239,7 +239,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | Empregos | grupo de recursos | 3-24 | Alfanuméricos, hífenes, sublinhados e períodos. |
+> | empregos | grupo de recursos | 3-24 | Alfanuméricos, hífenes, sublinhados e períodos. |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
@@ -383,7 +383,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | Empregos | grupo de recursos | 2-64 | Alfanuméricos e hífenes.<br><br>Comece com a carta. |
+> | empregos | grupo de recursos | 2-64 | Alfanuméricos e hífenes.<br><br>Comece com a carta. |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
@@ -407,8 +407,8 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | --- | --- | --- | --- |
 > | aglomerados | global | 4-22 | Letras minúsculas e números.<br><br>Comece com a carta. |
 > | /clusters / bases de dados | aglomerado | 1-260 | Alfanuméricos, hífenes, espaços e períodos. |
-> | /clusters / bases de dados / dataConexções | database | 1-40 | Alfanuméricos, hífenes, espaços e períodos. |
-> | /clusters / bases de dados / eventhubconnections | database | 1-40 | Alfanuméricos, hífenes, espaços e períodos. |
+> | /clusters / bases de dados / dataConexções | base de dados | 1-40 | Alfanuméricos, hífenes, espaços e períodos. |
+> | /clusters / bases de dados / eventhubconnections | base de dados | 1-40 | Alfanuméricos, hífenes, espaços e períodos. |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -617,7 +617,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | managedInstances | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. |
 > | servidores | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. |
 > | servidores / bases de dados | servidor | 1-128 | Não pode usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |
-> | servidores / bases de dados / syncGroups | database | 1-150 | Alfanuméricos, hífenes e sublinhados. |
+> | servidores / bases de dados / syncGroups | base de dados | 1-150 | Alfanuméricos, hífenes e sublinhados. |
 > | servidores / elásticosPools | servidor | 1-128 | Não pode usar:<br>`<>*%&:\/?`<br><br>Não pode terminar com período ou espaço. |
 > | servidores / failoverGroups | global | 1-63 | Letras minúsculas, números e hífenes.<br><br>Não pode começar ou terminar com hífen. |
 > | servidores / firewallRules | servidor | 1-128 | Não pode usar:<br>`<>*%&:;\/?`<br><br>Não pode terminar com o período. |

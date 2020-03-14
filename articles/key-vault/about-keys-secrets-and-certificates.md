@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356934"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271736"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -120,6 +120,7 @@ Os módulos criptográficos que o Key Vault utiliza, seja HSM ou software, são 
 -   **ES384** - ECDSA para digeridos sha-384 e chaves criadas com curva P-384. Este algoritmo é descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES512** - ECDSA para digeridos SHA-512 e chaves criadas com curva P-521. Este algoritmo é descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
 
+
 ###  <a name="rsa-algorithms"></a>Algoritmos RSA  
  Os identificadores de algoritmo seguem-se com teclas RSA e RSA-HSM no Cofre chave.  
 
@@ -130,6 +131,9 @@ Os módulos criptográficos que o Key Vault utiliza, seja HSM ou software, são 
 
 #### <a name="signverify"></a>ASSINAR/VERIFICAR
 
+-   **PS256** - RSASSA-PSS usando SHA-256 e MGF1 com SHA-256, como descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS384** - RSASSA-PSS usando SHA-384 e MGF1 com SHA-384, como descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS512** - RSASSA-PSS usando SHA-512 e MGF1 com SHA-512, como descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **RS256** - RSASSA-PKCS-v1_5 usando SHA-256. A aplicação fornecida valor de digestão deve ser calculada com recurso a SHA-256 e deve ter 32 bytes de comprimento.  
 -   **RS384** - RSASSA-PKCS-v1_5 usando SHA-384. A aplicação fornecida valor de digestão deve ser calculada com recurso a SHA-384 e deve ter 48 bytes de comprimento.  
 -   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. A aplicação fornecida valor de digestão deve ser calculada com recurso a SHA-512 e deve ter 64 bytes de comprimento.  
@@ -364,14 +368,14 @@ O quadro seguinte representa o mapeamento da política de utilização chave x50
 
 |**Bandeiras de utilização da chave X509**|**Operações chave do cofre chave**|**Comportamento padrão**|
 |----------|--------|--------|
-|DataEncipherment|encriptar, desencriptar| N/A |
-|Decifração|desencriptação| N/A  |
+|DataEncipherment|encriptar, desencriptar| N/D |
+|Decifração|desencriptação| N/D  |
 |Assinatura Digital|assinar, verificar| Padrão do cofre chave sem uma especificação de utilização no tempo de criação do certificado | 
-|EncipherOnly|encrypt| N/A |
-|KeyCertSign|assinar, verificar|N/A|
+|EncipherOnly|encrypt| N/D |
+|KeyCertSign|assinar, verificar|N/D|
 |KeyEncipherment|wrapKey, desembrulharKey| Padrão do cofre chave sem uma especificação de utilização no tempo de criação do certificado | 
-|Não Repudiação|assinar, verificar| N/A |
-|crlsign|assinar, verificar| N/A |
+|Não Repudiação|assinar, verificar| N/D |
+|crlsign|assinar, verificar| N/D |
 
 ### <a name="certificate-issuer"></a>Emissor do Certificado
 
@@ -474,7 +478,7 @@ As seguintes permissões podem ser utilizadas ao autorizar um utilizador ou um r
 
 Para mais informações, consulte as operações da [conta de armazenamento na referência aadia](/rest/api/keyvault)do cofre de chaves . Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres - Atualizar a Política](/rest/api/keyvault/vaults/updateaccesspolicy)de Acesso .
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Veja Também
 
 - [Autenticação, pedidos e respostas](authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](/azure/key-vault/key-vault-developers-guide)

@@ -9,11 +9,11 @@ ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: dbda73e022ebaad283641ce2f54a5962aeb4cb60
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361703"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264768"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Criar e modificar um peering de um circuito do ExpressRoute com a CLI
 
@@ -326,7 +326,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Passo seguinte, [Ligar uma VNet a um circuito ExpressRoute](howto-linkvnet-cli.md).
 

@@ -8,11 +8,11 @@ ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362389"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268096"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são protegidos localmente no servidor, enquanto todos os outros ficheiros são tiered para Ficheiros Azure com base em definições de política. Quando um ficheiro é nivelado, o filtro de ficheiroS De ficheiros Azure Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem tanto o atributo "offline" como o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS atributo definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -75,8 +75,8 @@ Existem várias formas de verificar se um ficheiro foi tiered para a sua parte d
         | A | Arquivo | Indica que o ficheiro deve ser apoiado por um software de reserva. Este atributo é sempre definido, independentemente de o ficheiro estar nivelado ou armazenado totalmente no disco. |
         | P | Arquivo escasso | Indica que o ficheiro é um ficheiro escasso. Um ficheiro escasso é um tipo de ficheiro especializado que a NTFS oferece para uma utilização eficiente quando o ficheiro no fluxo de disco está praticamente vazio. O Azure File Sync utiliza ficheiros escassos porque um ficheiro é totalmente hierárquico ou parcialmente recuperado. Num ficheiro totalmente niveado, o fluxo de ficheiros é armazenado na nuvem. Num ficheiro parcialmente recordado, essa parte do ficheiro já está no disco. Se um ficheiro for totalmente recolhido para o disco, o Azure File Sync converte-o de um ficheiro escasso para um ficheiro regular. Este atributo só está definido no Windows Server 2016 e mais antigo.|
         | M | Recolha no acesso aos dados | Indica que os dados do ficheiro não estão totalmente presentes no armazenamento local. Ler o ficheiro fará com que pelo menos parte do conteúdo do ficheiro seja recolhido a partir de uma partilha de ficheiros Azure à qual o ponto final do servidor está ligado. Este atributo está apenas definido no Windows Server 2019. |
-        | l | Ponto reparse | Indica que o ficheiro tem um ponto de reparse. Um ponto de reparse é um ponteiro especial para ser usado por um filtro de sistema de ficheiros. O Azure File Sync utiliza pontos reparse para definir para o filtro de ficheiros Do Ficheiro Azure Sync (StorageSync.sys) a localização da nuvem onde o ficheiro está armazenado. Isto suporta um acesso perfeito. Os utilizadores não precisarão de saber que o Azure File Sync está a ser utilizado ou como aceder ao ficheiro na sua partilha de ficheiros Azure. Quando um ficheiro é totalmente recuperado, o Azure File Sync remove o ponto de reparse do ficheiro. |
-        | O | Offline | Indica que parte ou a toda a conteúdo do ficheiro não está armazenado no disco. Quando um ficheiro é totalmente recolhido, o Azure File Sync remove este atributo. |
+        | L | Ponto reparse | Indica que o ficheiro tem um ponto de reparse. Um ponto de reparse é um ponteiro especial para ser usado por um filtro de sistema de ficheiros. O Azure File Sync utiliza pontos reparse para definir para o filtro de ficheiros Do Ficheiro Azure Sync (StorageSync.sys) a localização da nuvem onde o ficheiro está armazenado. Isto suporta um acesso perfeito. Os utilizadores não precisarão de saber que o Azure File Sync está a ser utilizado ou como aceder ao ficheiro na sua partilha de ficheiros Azure. Quando um ficheiro é totalmente recuperado, o Azure File Sync remove o ponto de reparse do ficheiro. |
+        | O | Banda | Indica que parte ou a toda a conteúdo do ficheiro não está armazenado no disco. Quando um ficheiro é totalmente recolhido, o Azure File Sync remove este atributo. |
 
         ![A caixa de diálogo Properties para um ficheiro, com o separador Detalhes selecionado](media/storage-files-faq/azure-file-sync-file-attributes.png)
         

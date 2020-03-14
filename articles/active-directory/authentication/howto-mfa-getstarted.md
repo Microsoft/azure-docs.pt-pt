@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378100"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263884"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implementação de autenticação azure multi-factor baseada na nuvem
 
@@ -228,10 +228,10 @@ Para planear a sua estratégia de política de Acesso Condicional, que determina
 1. No âmbito **dos utilizadores e grupos:**
    * No separador **Incluir,** selecione o botão de rádio **todos os utilizadores**
    * No separador **Excluir,** verifique a caixa para **Utilizadores e grupos** e escolha as suas contas de acesso de emergência.
-   * Clique em **Concluir**.
+   * Clique em **Concluído**.
 1. Em **aplicativos Cloud**, selecione o botão de rádio **all apps cloud.**
    * OPCIONALmente: No separador **Excluir,** escolha aplicações em nuvem para as quais a sua organização não exija MFA.
-   * Clique em **Concluir**.
+   * Clique em **Concluído**.
 1. Em **condições:**
    * OPCIONALmente: Se tiver ativado a Proteção de Identidade Azure, pode optar por avaliar o risco de entrada como parte da apólice.
    * OPCIONALmente: Se tiver configurado locais de confiança ou locais nomeados, pode especificar incluir ou excluir esses locais da apólice.
@@ -355,7 +355,7 @@ A autenticação de vários fatores Azure fornece relatórios através do portal
 
 Encontre soluções para problemas comuns com o Azure MFA no artigo de [autenticação multi-factor de Resolução de Problemas Azure Azure](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no Microsoft Support Center.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [What are authentication methods?](concept-authentication-methods.md) (O que são os métodos de autenticação?)
 * [Ativar o registo convergente para autenticação multi-factor Azure e reposição de senha de autosserviço Azure AD](concept-registration-mfa-sspr-converged.md)

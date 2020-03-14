@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/19/2019
 ms.openlocfilehash: 1cf1695db50e6aee2a5dae24ed5231fdda7c12de
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360903"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239589"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Começar com Log Analytics no Monitor Azure
 

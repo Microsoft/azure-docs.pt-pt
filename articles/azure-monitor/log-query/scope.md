@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
 ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358299"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249597"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Âmbito de consulta de log e intervalo de tempo no Azure Monitor Log Analytics
 Quando executa uma consulta de [log](log-query-overview.md) no [Log Analytics no portal Azure,](get-started-portal.md)o conjunto de dados avaliados pela consulta depende do âmbito e do intervalo de tempo que seleciona. Este artigo descreve o alcance e o intervalo de tempo e como pode definir cada um dependendo dos seus requisitos. Também descreve o comportamento de diferentes tipos de âmbitos.

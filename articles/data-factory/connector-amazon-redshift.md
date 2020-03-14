@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396530"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243591"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados da Amazon Redshift usando a Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -60,7 +60,7 @@ As seguintes propriedades são suportadas para o serviço ligado à Amazon Redsh
 | tipo | A propriedade tipo deve ser definida para: **AmazonRedshift** | Sim |
 | servidor |Endereço IP ou nome anfitrião do servidor Amazon Redshift. |Sim |
 | porta |O número da porta TCP que o servidor Amazon Redshift usa para ouvir as ligações dos clientes. |Não, o padrão é 5439. |
-| database |Nome da base de dados Amazon Redshift. |Sim |
+| base de dados |Nome da base de dados Amazon Redshift. |Sim |
 | o nome de utilizador |Nome do utilizador que tenha acesso à base de dados. |Sim |
 | palavra-passe |Palavra-passe para a conta de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |

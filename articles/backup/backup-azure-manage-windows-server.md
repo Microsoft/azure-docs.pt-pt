@@ -3,12 +3,12 @@ title: Gerir cofres e servidores dos Serviços de Recuperação Azure
 description: Neste artigo, aprenda a usar o painel de visão geral do cofre dos Serviços de Recuperação para monitorizar e gerir os seus cofres de Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b57d6eff5f5dfa2163962a47eee079d7e26257b5
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586449"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136961"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -49,7 +49,7 @@ O painel de **visão geral** do cofre dos Serviços de Recuperação fornece azu
 A secção de Monitorização mostra os resultados de **alertas** de backup pré-definidos e consultas **de backup jobs.** As telhas de monitorização fornecem informações atualizadas sobre:
 
 * Alertas críticos e de alerta para trabalhos de backup (nas últimas 24 horas)
-* Pré-verificação do estado dos VMs Azure - Para obter informações completas sobre o estado de pré-verificação, consulte o blog Backup no estado de [pré-verificação](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)de backup .
+* Verifique o estado dos VMs Azure. Para obter informações completas sobre o estado de pré-verificação, consulte o [Estado de Pré-verificação de Backup](#backup-pre-check-status).
 * Os postos de trabalho em curso e os postos de trabalho que falharam (nas últimas 24 horas).
 
 Os azulejos de utilização fornecem:
@@ -62,6 +62,22 @@ Clique nos azulejos (exceto no Armazenamento de Cópia de Segurança) para abrir
 ![Menu de alertas de backup filtrado para alertas críticos](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
 O menu Backup Alerts, na imagem acima, é filtrado por: O estado é Ativo, a Gravidade é Crítica, e o tempo é das 24 horas anteriores.
+
+### <a name="backup-pre-check-status"></a>Estado de pré-verificação de cópia de segurança
+
+As pré-verificações de backup verifiquem a configuração dos seus VMs para obter problemas que possam afetar negativamente as cópias de segurança. Eles agregam esta informação para que você possa vê-la diretamente a partir do painel de dados do Cofre de Serviços de Recuperação e fornecer recomendações para medidas corretivas para garantir backups consistentes com ficheiros ou aplicações consistentes com sucesso. Não necessitam de infraestruturas e não têm custos adicionais.  
+
+Os pré-controlos de backup funcionam como parte das operações de backup programadas para os seus VMs Azure. Concluem com um dos seguintes Estados:
+
+* **Aprovado**: Este estado indica que a configuração do seu VM deve levar a cópias de segurança bem sucedidas e não é necessário tomar medidas corretivas.
+* **Aviso**: Este estado indica um ou mais problemas na configuração do VM que *podem* levar a falhas de backup. Fornece medidas *recomendadas* para garantir cópias de segurança bem sucedidas. Por exemplo, não ter o mais recente Agente VM instalado pode fazer com que as cópias de segurança falhem intermitentemente. Esta situação proporcionaria um estado de alerta.
+* **Crítico**: Este estado indica um ou mais problemas críticos na configuração do VM que *levarão* a falhas de backup e fornece as medidas *necessárias* para garantir cópias de segurança bem sucedidas. Por exemplo, um problema de rede causado por uma atualização às regras nsg de um VM, fará com que as cópias de segurança falhem, uma vez que impede que o VM se comunique com o serviço de backup Azure. Esta situação proporcionaria um estado crítico.
+
+Siga os passos abaixo para começar a resolver quaisquer problemas reportados pela Backup Pre-Checks para backups VM no seu Cofre de Serviços de Recuperação.
+
+* Selecione o estado de **pré-verificação de backup (VMs Azure)** no painel de instrumentos do Cofre de Serviços de Recuperação.
+* Selecione qualquer VM com um estado de pré-verificação de backup de **críticoou** **aviso**. Esta ação abrirá o painel de **detalhes vm.**
+* Selecione a notificação do painel na parte superior do painel para revelar a descrição do problema de configuração e os passos corretivos.
 
 ## <a name="manage-backup-alerts"></a>Gerir alertas de backup
 
@@ -272,4 +288,3 @@ O azulejo de armazenamento de reserva no painel de instrumentos mostra o armazen
 
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup Azure, consulte a visão geral do [Azure Backup](backup-introduction-to-azure-backup.md)
-

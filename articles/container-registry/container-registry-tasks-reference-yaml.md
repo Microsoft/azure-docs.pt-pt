@@ -4,11 +4,11 @@ description: Referência para a definição de tarefas em YAML para Tarefas ACR,
 ms.topic: article
 ms.date: 10/23/2019
 ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668499"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246984"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência de tarefas ACR: YAML
 

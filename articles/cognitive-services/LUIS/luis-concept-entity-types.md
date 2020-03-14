@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393858"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221031"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades e o seu propósito na LUIS
 
@@ -58,7 +58,7 @@ Considere as seguintes 4 expressões:
 
 |Expressão|Intenção prevista|Entidades extraídas|Explicação|
 |--|--|--|--|
-|Ajuda|Obter ajuda|-|Nada para extrair.|
+|Ajuda|ajuda|-|Nada para extrair.|
 |Enviar algo|enviar Algo|-|Nada para extrair. O modelo não foi treinado para extrair `something` neste contexto, e também não há destinatário.|
 |Envie um presente ao Bob.|enviar Algo|`Bob`, `present`|O modelo foi treinado com a entidade preconstruída [personName,](luis-reference-prebuilt-person.md) que extraiu o nome `Bob`. Uma entidade aprendida por máquinas foi usada para extrair `present`.|
 |Mande ao Bob uma caixa de chocolates.|enviar Algo|`Bob`, `box of chocolates`|Os dois dados importantes, `Bob` e o `box of chocolates`, foram extraídos por entidades.|

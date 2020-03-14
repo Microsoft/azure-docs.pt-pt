@@ -7,11 +7,11 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373349"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274544"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços DE TI
 
@@ -181,8 +181,8 @@ ServiceDeskWorkItemType_s="Incident"
 - Estado
 - Urgência
 - Impacto
-- Priority
-- Escalonamento
+- Prioridade
+- Escalamento
 - Criado por
 - Resolvido Por
 - Fechado por
@@ -213,10 +213,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Tipo
 - Categoria
 - Estado
-- Escalonamento
+- Escalamento
 - Estado do Conflito
 - Urgência
-- Priority
+- Prioridade
 - Risco
 - Impacto
 - Atribuído a
@@ -235,11 +235,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Campo de Log Analytics | Campo ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Número |
+| ServiceDeskId_s| Number |
 | IncidentState_s | Estado |
 | Urgency_s |Urgência |
 | Impact_s |Impacto|
-| Priority_s | Priority |
+| Priority_s | Prioridade |
 | CreatedBy_s | Aberto por |
 | ResolvedBy_s | Resolvido por|
 | ClosedBy_s  | Fechado por |
@@ -257,7 +257,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | Campo ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Número |
+| ServiceDeskId_s| Number |
 | CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
@@ -266,7 +266,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s|  Categoria |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
-| Priority_s| Priority|
+| Priority_s| Prioridade|
 | Risk_s| Risco|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
@@ -302,5 +302,5 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 Para quaisquer dúvidas ou comentários sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Adicione produtos/serviços ITSM ao Conector](../../azure-monitor/platform/itsmc-connections.md)de Gestão de Serviços de TI.

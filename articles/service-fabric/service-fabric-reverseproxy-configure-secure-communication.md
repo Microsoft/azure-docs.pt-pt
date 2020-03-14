@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393246"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282253"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligue-se a um serviço seguro com o proxy inverso
 

@@ -9,11 +9,11 @@ ms.date: 01/23/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fca9fa8a964c6c9d69ffbb3036bd4774e0d1bd34
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381971"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255551"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Azure Storage Explorer para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -106,7 +106,7 @@ Em ambas as categorias, existem três permissões que pode atribuir em ficheiros
 
 Pode gerir permissões em diretórios individuais, bem como ficheiros individuais, que são o que lhe permite um controlo de acesso fino. O processo de gestão de permissões tanto para diretórios como para ficheiros é o mesmo que acima descrito. Clique no ficheiro ou no diretório que pretende gerir as permissões e seguir o mesmo processo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda as listas de controlo de acesso no Data Lake Storage Gen2.
 

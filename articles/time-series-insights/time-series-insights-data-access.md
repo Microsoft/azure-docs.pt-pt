@@ -1,6 +1,6 @@
 ---
-title: Configurar a segurança para conceder acesso a dados-visualização de Azure Time Series Insights | Microsoft Docs
-description: Saiba como configurar a segurança, as permissões e o gerenciamento de políticas de acesso a dados em seu ambiente de Azure Time Series Insights visualização.
+title: Configure segurança para conceder acesso a dados - Pré-visualização de Insights da Série De Tempo Azure / Microsoft Docs
+description: Aprenda a configurar a segurança, permissões e gerir as políticas de acesso a dados no seu ambiente de pré-visualização da Série de Tempo Azure Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,122 +12,122 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894812"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254355"
 ---
-# <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
+# <a name="grant-data-access-to-an-environment"></a>Conceder acesso de dados a um ambiente
 
-Este artigo aborda os dois tipos de políticas de acesso de Azure Time Series Insights visualização.
+Este artigo discute os dois tipos de políticas de acesso de pré-visualização da Série de Tempo Azure Insights.
 
 > [!TIP]
-> Leia [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para Azure Active Directory etapas de registro do aplicativo.
+> Ler Etapas de [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para as etapas de registo da aplicação Azure Ative Directory.
 
-## <a name="sign-in-to-time-series-insights"></a>Entrar no Time Series Insights
+## <a name="sign-in-to-time-series-insights"></a>Inscreva-se na Time Series Insights
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. Localize seu ambiente de Time Series Insights. Insira `Time Series` na caixa de **pesquisa** . Selecione o **ambiente de série temporal** nos resultados da pesquisa.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Localize o seu ambiente time series Insights. Introduza `Time Series` na caixa **de pesquisa.** Selecione **Ambiente de Série seletiva** nos resultados da pesquisa.
 1. Selecione o seu ambiente do Time Series Insights na lista.
 
 ## <a name="grant-data-access"></a>Conceder acesso a dados
 
-Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
+Siga estes passos para conceder acesso aos dados para um utilizador principal.
 
-1. Selecione **políticas de acesso a dados**e, em seguida, selecione **+ Adicionar**.
+1. Selecione Políticas de Acesso a **Dados**e, em seguida, selecione **+ Adicionar**.
 
-    [![selecionar e adicionar uma política de acesso a dados](media/data-access/data-access-select-add-button.png)](media/data-access/data-access-select-add-button.png#lightbox)
+    [![Selecione e adicione uma Política de Acesso a Dados](media/data-access/data-access-select-add-button.png)](media/data-access/data-access-select-add-button.png#lightbox)
 
-1. Escolha **Selecionar usuário**. Procure o nome de usuário ou endereço de email para localizar o usuário que você deseja adicionar. Selecione **selecionar** para confirmar a seleção.
+1. Escolha **Selecionar o utilizador**. Procure o nome do utilizador ou endereço de e-mail para localizar o utilizador que pretende adicionar. **Selecione Selecione** para confirmar a seleção.
 
-    [![selecionar um usuário para adicionar](media/data-access/data-access-select-user-to-confirm.png)](media/data-access/data-access-select-user-to-confirm.png#lightbox)
+    [![Se um utilizador adicionar](media/data-access/data-access-select-user-to-confirm.png)](media/data-access/data-access-select-user-to-confirm.png#lightbox)
 
-1. Escolha **selecionar função**. Escolha a função de acesso apropriada para o usuário:
+1. Escolha **selecione a função**. Escolha a função de acesso adequada para o utilizador:
 
-    * Selecione **colaborador** se desejar permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente.
+    * Selecione **Colaborador** se pretender permitir que o utilizador altere os dados de referência e partilhe consultas e perspetivas guardadas com outros utilizadores do ambiente.
 
-    * Caso contrário, selecione **leitor** para permitir que o usuário consulte dados no ambiente e Salve consultas pessoais e não compartilhadas no ambiente.
+    * Caso contrário, selecione **Reader** para permitir ao utilizador consultar dados no ambiente e guardar consultas pessoais, não partilhadas no ambiente.
 
-   Selecione **OK** para confirmar a escolha da função.
+   Selecione **OK** para confirmar a escolha do papel.
 
-    [![confirmar a função selecionada](media/data-access/data-access-select-a-role.png)](media/data-access/data-access-select-a-role.png#lightbox)
+    [![Confirmar o papel selecionado](media/data-access/data-access-select-a-role.png)](media/data-access/data-access-select-a-role.png#lightbox)
 
-1. Selecione **OK** na página **selecionar função de usuário** .
+1. Selecione **OK** na página **'Função de Utilizador Select'.**
 
-    [![selecione OK na página Selecionar função de usuário](media/data-access/data-access-confirm-user-and-role.png)](media/data-access/data-access-confirm-user-and-role.png#lightbox)
+    [![Selecione OK na página de funções do utilizador selecionado](media/data-access/data-access-confirm-user-and-role.png)](media/data-access/data-access-confirm-user-and-role.png#lightbox)
 
-1. Confirme se a página **políticas de acesso a dados** lista os usuários e as funções para cada usuário.
+1. Confirme que a página Políticas de Acesso a **Dados** lista os utilizadores e as funções para cada utilizador.
 
-    [![verificar os usuários e funções corretos](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
+    [![Verificar os utilizadores e funções corretos](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
 
-## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Fornecer acesso de convidado de outro locatário do Azure AD
+## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Fornecer acesso a hóspedes de outro inquilino da AD Azure
 
-A função `Guest` não é uma função de gerenciamento. É um termo usado para uma conta que é convidada de um locatário para outro. Depois que a conta de convidado é convidada no diretório do locatário, ela pode ter o mesmo controle de acesso aplicado a ela, como qualquer outra conta. Você pode conceder acesso de gerenciamento a um ambiente de Time Series Insights usando a folha de controle de acesso (IAM). Ou você pode conceder acesso aos dados no ambiente por meio da folha políticas de acesso a dados. Para obter mais informações sobre o acesso convidado do locatário do Azure Active Directory (Azure AD), leia [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+O papel `Guest` não é um papel de gestão. É um termo usado para uma conta que é convidada de um inquilino para outro. Depois de a conta de hóspedes ser convidada para o diretório do inquilino, pode ter o mesmo controlo de acesso aplicado a ela como qualquer outra conta. Pode conceder acesso à gestão a um Time Series Insights Environment utilizando a lâmina de Controlo de Acesso (IAM). Ou pode conceder acesso aos dados do ambiente através da lâmina Data Access Policies. Para obter mais informações sobre o acesso dos hóspedes do Azure Ative Directory (Azure AD), leia [add Azure Ative Directory B2B no portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-Siga estas etapas para conceder acesso de convidado a um ambiente de Time Series Insights para um usuário do Azure AD de outro locatário.
+Siga estes passos para dar acesso ao hóspede a um ambiente Time Series Insights a um utilizador da AD Azure de outro inquilino.
 
-1. Selecione **políticas de acesso a dados**e, em seguida, selecione **+ convidar**.
+1. Selecione Políticas de Acesso a **Dados**e, em seguida, selecione **+ Convidar**.
 
-    [![selecionar políticas de acesso a dados e + convidar](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
+    [![Selecione Polícias de Acesso a Dados, em seguida+ Convidar](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
-1. Insira o endereço de email do usuário que você deseja convidar. Este endereço de email deve ser associado ao Azure AD. Opcionalmente, você pode incluir uma mensagem pessoal com o convite.
+1. Insira o endereço de e-mail para o utilizador que pretende convidar. Este endereço de e-mail deve ser associado à Azure AD. Você pode opcionalmente incluir uma mensagem pessoal com o convite.
 
-    [![inserir o endereço de email para localizar o usuário selecionado](media/data-access/data-access-invite-guest-by-email.png)](media/data-access/data-access-invite-guest-by-email.png#lightbox)
+    [![Insira o endereço de e-mail para encontrar o utilizador selecionado](media/data-access/data-access-invite-guest-by-email.png)](media/data-access/data-access-invite-guest-by-email.png#lightbox)
 
-1. Procure a bolha de confirmação que aparece na tela.
+1. Procure a bolha de confirmação que aparece no ecrã.
 
-    [![procure a bolha de confirmação para aparecer](media/data-access/data-access-confirmation-bubble.png)](media/data-access/data-access-confirmation-bubble.png#lightbox)
+    [![Procure a bolha de confirmação para aparecer](media/data-access/data-access-confirmation-bubble.png)](media/data-access/data-access-confirmation-bubble.png#lightbox)
 
-1. Escolha **Selecionar usuário**. Procure o endereço de email do usuário convidado que você convidou para localizar o usuário que deseja adicionar. Em seguida, **selecione** para confirmar a seleção.
+1. Escolha **Selecionar o utilizador**. Procure o endereço de e-mail do utilizador convidado que convidou para localizar o utilizador que pretende adicionar. Em seguida, **selecione** para confirmar a seleção.
 
-    [![selecionar o usuário e confirmar a seleção](media/data-access/data-access-select-invited-person-confirmation.png)](media/data-access/data-access-select-invited-person-confirmation.png#lightbox)
+    [![Selecione o utilizador e confirme a seleção](media/data-access/data-access-select-invited-person-confirmation.png)](media/data-access/data-access-select-invited-person-confirmation.png#lightbox)
 
-1. Escolha **selecionar função**. Escolha a função de acesso apropriada para o usuário convidado:
+1. Escolha **selecione a função**. Escolha a função de acesso adequada para o utilizador convidado:
 
-    * Selecione **colaborador** se desejar permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente.
+    * Selecione **Colaborador** se pretender permitir que o utilizador altere os dados de referência e partilhe consultas e perspetivas guardadas com outros utilizadores do ambiente.
 
-    * Caso contrário, selecione **leitor** para permitir que o usuário consulte dados no ambiente e Salve consultas pessoais e não compartilhadas no ambiente.
+    * Caso contrário, selecione **Reader** para permitir ao utilizador consultar dados no ambiente e guardar consultas pessoais, não partilhadas no ambiente.
 
-   Selecione **OK** para confirmar a escolha da função.
+   Selecione **OK** para confirmar a escolha do papel.
 
-    [![confirmar a opção de função](media/data-access/data-access-select-ok-and-confirm.png)](media/data-access/data-access-select-ok-and-confirm.png#lightbox)
+    [![Confirmar a escolha do papel](media/data-access/data-access-select-ok-and-confirm.png)](media/data-access/data-access-select-ok-and-confirm.png#lightbox)
 
-1. Selecione **OK** na página **selecionar função de usuário** .
+1. Selecione **OK** na página **'Função de Utilizador Select'.**
 
-1. Confirme se a página **políticas de acesso a dados** lista o usuário convidado e as funções para cada usuário convidado.
+1. Confirme que a página Políticas de Acesso a **Dados** lista o utilizador convidado e as funções para cada utilizador convidado.
 
-    [![verificar se os usuários e as funções estão atribuídos corretamente](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
+    [![Verificar se os utilizadores e as funções estão corretamente atribuídos](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
 
-1. Agora, o usuário convidado receberá um email de convite no endereço de email especificado acima. O usuário **convidado selecionará começar a** confirmar sua aceitação e conectar-se à nuvem do Azure.
+1. Agora, o utilizador convidado receberá um e-mail de convite no endereço de e-mail acima especificado. O utilizador convidado irá selecionar **Get Started** para confirmar a sua aceitação e ligação ao Azure Cloud.
 
-    [![convidado seleciona introdução para aceitar](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
+    [![Convidado seleciona Get Started to Accept](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. Depois de **selecionar introdução**, o usuário convidado receberá uma caixa de permissões associada à organização do administrador. Ao conceder permissão selecionando **aceitar**, elas serão conectadas.
+1. Depois de selecionar **Get Started,** o utilizador convidado será apresentado com uma caixa de permissões associada à organização do administrador. Ao conceder permissão selecionando **Aceitar,** serão assinados.
 
-    [![convidado revisa as permissões e aceita](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
+    [![Hóspede analisa permissões e aceita](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
-1. O administrador [compartilha a URL do ambiente](time-series-insights-parameterized-urls.md) com seu convidado.
+1. O administrador [partilha o URL ambiental](time-series-insights-parameterized-urls.md) com o seu convidado.
 
-1. Depois que o usuário convidado estiver conectado ao endereço de email que você usou para convidá-los e aceitar o convite, eles serão direcionados para portal do Azure. 
+1. Depois de o utilizador convidado ser inscrito no endereço de e-mail que usou para convidá-los, e eles aceitarem o convite, eles serão direcionados para o portal Azure. 
 
-1. O convidado agora pode acessar o ambiente compartilhado usando a URL do ambiente fornecida pelo administrador. Eles podem inserir essa URL em seu navegador da Web para acesso imediato.
+1. O hóspede pode agora aceder ao ambiente partilhado utilizando o URL ambiental fornecido pelo administrador. Podem introduzir esse URL no seu navegador web para acesso imediato.
 
-1. O locatário do administrador será exibido para o usuário convidado depois de selecionar o ícone de perfil no canto superior direito do explorador da série temporal.
+1. O inquilino do administrador será apresentado ao utilizador convidado depois de selecionar o seu ícone de perfil no canto superior direito do explorador da Série Time.
 
-    [![seleção de avatar em insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
+    [![seleção do Avatar na insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
 
-    Depois que o usuário convidado selecionar o locatário do administrador, ele terá a capacidade de selecionar o ambiente de Time Series Insights compartilhado. 
+    Depois de o utilizador convidado selecionar o inquilino do administrador, eles terão a capacidade de selecionar o ambiente de Insights da Série De Tempo partilhado. 
     
-    Agora, eles têm todos os recursos associados à função com a qual você os forneceu na **etapa 5**.
+    Eles agora têm todas as capacidades associadas ao papel que lhes forneceu no **passo 5**.
 
-    [![usuário convidado seleciona seu locatário do Azure na lista suspensa](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
+    [![utilizador convidado seleciona o seu inquilino Azure de drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba [como adicionar uma fonte de eventos de hubs de eventos do Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) ao seu ambiente de time Series insights.
+* Saiba como adicionar uma fonte de evento saqueada [pelo Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) ao seu ambiente Time Series Insights.
 
-* Enviar [eventos para a origem do evento](./time-series-insights-send-events.md).
+* Envie [eventos para a fonte do evento.](./time-series-insights-send-events.md)
 
-* Exiba [seu ambiente no time Series insights Preview Explorer](./time-series-insights-update-explorer.md).
+* Veja [o seu ambiente no explorador de pré-visualização](./time-series-insights-update-explorer.md)da Série De Tempo Insights .

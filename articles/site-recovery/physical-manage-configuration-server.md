@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367110"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257787"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação de desastres de servidor físico
 
@@ -32,7 +32,7 @@ A tabela resume os pré-requisitos para a implementação da máquina de servido
 | Espaço livre no disco (cache do servidor de processos) | 600 GB
 | Espaço livre no disco (disco de retenção) | 600 GB|
 | Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
-| Região do sistema operativo | English (US)|
+| Região do sistema operativo | Inglês (EUA)|
 | Versão do VMware vSphere PowerCLI | Não é necessário|
 | Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V |
 | Políticas de grupo| Não permita estas políticas de grupo: <br> - Impedir o acesso ao pedido de comando <br> - Impedir o acesso a ferramentas de edição de registos <br> - Lógica de confiança para anexos de ficheiros <br> - Ativar a execução do guião <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/07/2020
 ms.author: barclayn
 ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389953"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243396"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados azure-at-rest
 
@@ -269,7 +269,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | **Análise**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sim                | -                  | -                  |
 | Hubs de Eventos                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
-| Functions                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
+| Funções                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
 | Apache Kafka no Azure HDInsight  | Sim                | Todos os comprimentos RSA.   | -                  |
@@ -279,7 +279,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Azure Data Factory               | Sim                | Sim                | -                  |
 | Azure Data Lake Store            | Sim                | Sim, RSA 2048-bit  | -                  |
 | **Contentores**                   |                    |                    |                    |
-| Serviço Kubernetes do Azure         | Sim                | Sim                | -                  |
+| Azure Kubernetes Service         | Sim                | Sim                | -                  |
 | Container Instances              | Sim                | Sim                | -                  |
 | Registo de Contentor               | Sim                | Sim                | -                  |
 | **Computação**                      |                    |                    |                    |

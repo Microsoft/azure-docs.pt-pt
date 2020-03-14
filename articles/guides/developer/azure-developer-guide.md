@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598056"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245008"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Inicie guia para desenvolvedores do Azure
+# <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
 ## <a name="what-is-azure"></a>O que é Azure?
 

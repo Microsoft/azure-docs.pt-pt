@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365403"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264937"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de ligação dos Hubs de eventos
 
@@ -55,7 +55,7 @@ Este artigo o orienta através de várias formas de obter a cadeia de ligação.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode utilizar a [Chave De Acesso AzEventHubNameSpaceKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a cadeia de ligação para o nome de política/regra específico, como mostrado abaixo:
+Pode utilizar o [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a cadeia de ligação para o nome de política/regra específico, como mostrado abaixo:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

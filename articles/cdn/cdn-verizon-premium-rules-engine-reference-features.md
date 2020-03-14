@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381823"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247582"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN da Verizon Premium governa características do motor
 
@@ -1079,7 +1079,7 @@ Os seguintes cabeçalhos HTTP estão incluídos na lista predefinida:
 
 **Finalidade:** Determina como o pedido de um cliente HTTP para um ativo de cache de 0 byte é tratado pelos POPs.
 
-Valores válidos são:
+Os valores válidos são:
 
 Valor|Resultado
 --|--
@@ -1268,7 +1268,7 @@ Os parâmetros afetados por esta funcionalidade são:
 - ec_ref_allow
 - ec_ref_deny
 
-Valores válidos são:
+Os valores válidos são:
 
 Valor|Resultado
 ---|----

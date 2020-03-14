@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355659"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248141"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Visão geral dos certificados para os Serviços Azure Cloud
 Os certificados são utilizados em Azure para serviços na nuvem[(certificados](#what-are-service-certificates)de serviço) e para autenticação com a gestão API[(certificados de gestão).](#what-are-management-certificates) Este tópico dá uma visão geral de ambos os tipos de certificados, como [criá-los](#create) e implantá-los para O Azure.
@@ -88,7 +88,7 @@ Há muitas páginas na internet que cobrem como fazê-lo com o IIS. [Aqui](https
 ### <a name="linux"></a>Linux
 [Este](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artigo descreve como criar certificados com SSH.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Faça o upload do seu certificado de serviço para o portal Azure.](cloud-services-configure-ssl-certificate-portal.md)
 
 Faça o upload de um [certificado de Gestão API](../azure-api-management-certs.md) para o portal Azure.

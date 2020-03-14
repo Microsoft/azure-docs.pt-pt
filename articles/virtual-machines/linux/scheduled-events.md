@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 37932a3669dc1ed7f8f3f103db93ee6757a06aad
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: dbea68f5699f26b866d2e22c960c0359bcb3479b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390468"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267199"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs Linux
 
@@ -46,7 +46,7 @@ Com eventos agendados, a sua aplicação pode descobrir quando a manutenção oc
 Eventos Agendados fornece eventos nos seguintes casos de utilização:
 
 - [Plataforma iniciada manutenção](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, VM reboot, migração ao vivo ou atualizações de preservação de memória para hospedeiro)
-- Hardware degradado
+- A máquina virtual está a funcionar com hardware de [anfitrião degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se prevê que falhe em breve
 - Manutenção iniciada pelo utilizador (por exemplo, um utilizador reinicia ou reimplanta um VM)
 - [Spot VM](spot-vms.md) e [Spot escala definir](../../virtual-machine-scale-sets/use-spot.md) despejos de instância.
 
@@ -146,6 +146,9 @@ Cada evento está agendado um tempo mínimo no futuro com base no tipo de evento
 | Voltar a implementar | 10 minutos |
 | Preempt | 30 segundos |
 | Terminar | [Configurar o utilizador:](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications)5 a 15 minutos |
+
+> [!NOTE] 
+> Em alguns casos, o Azure é capaz de prever a falha do hospedeiro devido ao hardware degradado e tentará mitigar a perturbação do seu serviço, agendando uma migração. As máquinas virtuais afetadas receberão um evento agendado com uma `NotBefore` que normalmente é de alguns dias no futuro. O tempo real varia consoante a avaliação prevista do risco de falha. O Azure tenta dar 7 dias de antecedência quando possível, mas o tempo real varia e pode ser menor se a previsão for de que há uma alta probabilidade de o hardware falhar iminentemente. Para minimizar o risco para o seu serviço caso o hardware falhe antes da migração iniciada pelo sistema, recomendamos que se recoloque a sua máquina virtual o mais rapidamente possível.
 
 ### <a name="start-an-event"></a>Iniciar um evento 
 

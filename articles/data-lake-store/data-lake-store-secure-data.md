@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361397"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260309"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Obtenção de dados armazenados em Azure Data Lake Storage Gen1
 A obtenção de dados no Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Tanto o controlo de acesso baseado em funções (RBAC) como as listas de controlo de acesso (ACLs) devem ser definidos para permitir o acesso total aos dados dos utilizadores e dos grupos de segurança.

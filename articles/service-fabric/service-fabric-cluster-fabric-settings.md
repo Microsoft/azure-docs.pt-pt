@@ -4,11 +4,11 @@ description: Este artigo descreve as definições de tecido e as políticas de a
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: 01f8eb861a1fc53ad95a95d7695df8e4b5b8a2ab
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393278"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258840"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do tecido de serviço
 Este artigo descreve as várias definições de tecido para o seu cluster De Tecido de Serviço que pode personalizar. Para clusters hospedados em Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para mais informações, consulte [Atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o ficheiro *ClusterConfig.json* e realizando uma atualização de configuração no seu cluster. Para mais informações, consulte [Atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).

@@ -5,11 +5,11 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357985"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276624"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia de desenvolvedores de funções azure
 Nas Funções Azure, as funções específicas partilham alguns conceitos e componentes técnicos fundamentais, independentemente da linguagem ou da ligação que utilize. Antes de entrar em detalhes de aprendizagem específicos de uma determinada língua ou de ligação, não se esqueça de ler através desta visão geral que se aplica a todos eles.

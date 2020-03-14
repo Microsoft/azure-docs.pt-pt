@@ -1,6 +1,6 @@
 ---
-title: Proteger um banco de dados individual ou em pool
-description: Um tutorial que ensina sobre técnicas e recursos para proteger um banco de dados individual ou em pool no banco de dados SQL do Azure.
+title: Proteja uma única ou agréi de dados
+description: Um tutorial que lhe ensina as técnicas e funcionalidades para garantir uma única ou piscina de base de dados na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,170 +10,170 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818027"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238833"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: proteger um banco de dados individual ou em pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteja uma base de dados única ou reunida
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> - Criar regras de firewall no nível de servidor e de banco de dados
-> - Configurar um administrador do Azure Active Directory (AD)
-> - Gerenciar o acesso do usuário com autenticação SQL, autenticação do Azure AD e cadeias de conexão segura
-> - Habilitar recursos de segurança, como segurança avançada de dados, auditoria, máscara de dados e criptografia
+> - Criar regras de firewall ao nível do servidor e do nível da base de dados
+> - Configure um administrador de Diretório Ativo Azure (AD)
+> - Gerir o acesso ao utilizador com autenticação SQL, autenticação AD Azure e cordas de ligação seguras
+> - Ativar funcionalidades de segurança, tais como segurança avançada de dados, auditoria, mascaramento de dados e encriptação
 
-O banco de dados SQL do Azure protege os dados em um único ou em pool, permitindo que você:
+A Base de Dados Azure SQL assegura dados numa única base de dados ou agrinada, permitindo-lhe:
 
 - Limitar o acesso usando regras de firewall
-- Usar mecanismos de autenticação que exigem identidade
-- Usar a autorização com associações baseadas em função e permissões
-- Habilitar recursos de segurança
+- Utilize mecanismos de autenticação que requerem identidade
+- Utilize a autorização com membros e permissões baseados em papéis
+- Ativar funcionalidades de segurança
 
 > [!NOTE]
-> Um banco de dados SQL do Azure em uma instância gerenciada é protegido usando regras de segurança de rede e pontos de extremidade privados, conforme descrito na arquitetura gerenciada de [conectividade](sql-database-managed-instance-connectivity-architecture.md)e [instância do banco de dados SQL do Azure](sql-database-managed-instance-index.yml) .
+> Uma base de dados Azure SQL sobre uma instância gerida é protegida usando regras de segurança da rede e pontos finais privados, conforme descrito na base de [dados Azure SQL gerida por instância sql](sql-database-managed-instance-index.yml) e [arquitetura de conectividade.](sql-database-managed-instance-connectivity-architecture.md)
 
-Para saber mais, confira os artigos visão geral e [recursos](sql-database-security-overview.md) de [segurança do banco de dados SQL do Azure](/azure/sql-database/sql-database-security-index) .
+Para saber mais, consulte a visão geral de segurança da Base de [Dados Azure SQL](/azure/sql-database/sql-database-security-index) e artigos de [capacidades.](sql-database-security-overview.md)
 
 > [!TIP]
-> O módulo Microsoft Learn a seguir ajuda você a aprender gratuitamente sobre como [proteger seu banco de dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> O seguinte módulo Microsoft Learn ajuda-o a aprender gratuitamente sobre como proteger a [sua base de dados Azure SQL](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
+Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-- Um servidor e banco de dados SQL do Azure
-  - Crie-os com [portal do Azure](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md)ou [PowerShell](sql-database-powershell-samples.md)
+- Um servidor E base de dados Azure SQL
+  - Crie-os com [portal Azure,](sql-database-single-database-get-started.md) [CLI](sql-database-cli-samples.md)ou [PowerShell](sql-database-powershell-samples.md)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Para todas as etapas no tutorial, entre no [portal do Azure](https://portal.azure.com/)
+Para todos os passos no tutorial, inscreva-se no [portal Azure](https://portal.azure.com/)
 
 ## <a name="create-firewall-rules"></a>Criar regras da firewall
 
-Os bancos de dados SQL são protegidos por firewalls no Azure. Por padrão, todas as conexões com o servidor e o banco de dados são rejeitadas. Para saber mais, confira [regras de firewall no nível de banco de dados e nível de servidor do Azure SQL Database](sql-database-firewall-configure.md).
+As bases de dados SQL estão protegidas por firewalls em Azure. Por predefinição, todas as ligações ao servidor e à base de dados são rejeitadas. Para saber mais, consulte as regras de firewall do nível de servidor do [Azure SQL database e](sql-database-firewall-configure.md)do nível de base de dados .
 
-Defina **permitir acesso aos serviços do Azure** como **desativado** para a configuração mais segura. Em seguida, crie um [IP reservado (implantação clássica)](../virtual-network/virtual-networks-reserved-public-ip.md) para o recurso que precisa se conectar, como uma VM do Azure ou um serviço de nuvem, e permita somente o acesso de endereço IP por meio do firewall. Se você estiver usando o modelo de implantação do [Gerenciador de recursos](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) , um endereço IP público dedicado será necessário para cada recurso.
+Definir **Permitir o acesso aos serviços Azure** para **OFF** para a configuração mais segura. Em seguida, crie um [IP reservado (implantação clássica)](../virtual-network/virtual-networks-reserved-public-ip.md) para o recurso que precisa de se conectar, como um VM Azure ou um serviço de nuvem, e apenas permita o acesso do endereço IP através da firewall. Se estiver a utilizar o modelo de implementação do gestor de [recursos,](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) é necessário um endereço IP público dedicado para cada recurso.
 
 > [!NOTE]
-> A Base de Dados SQL comunica através da porta 1433. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 pode não ser permitido pelo firewall da sua rede. Nesse caso, você não pode se conectar ao servidor do banco de dados SQL do Azure, a menos que o administrador Abra a porta 1433.
+> A Base de Dados SQL comunica através da porta 1433. Se estiver a tentar ligar-se a partir de uma rede corporativa, o tráfego de saída sobre a porta 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não pode ligar-se ao servidor de base de dados Azure SQL a menos que o seu administrador abra a porta 1433.
 
-### <a name="set-up-sql-database-server-firewall-rules"></a>Configurar regras de firewall do servidor do banco de dados SQL
+### <a name="set-up-sql-database-server-firewall-rules"></a>Configurar as regras de firewall do servidor de base de dados SQL
 
-As regras de firewall de IP de nível de servidor se aplicam a todos os bancos de dados no mesmo servidor de banco de dados SQL.
+As regras de firewall IP ao nível do servidor aplicam-se a todas as bases de dados dentro do mesmo servidor de base de dados SQL.
 
-Para configurar uma regra de firewall no nível de servidor:
+Para configurar uma regra de firewall ao nível do servidor:
 
-1. Em portal do Azure, selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página **bancos SQL** .
+1. No portal Azure, selecione bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 
     ![regra de firewall do servidor](./media/sql-database-security-tutorial/server-name.png)
 
     > [!NOTE]
-    > Certifique-se de copiar seu nome de servidor totalmente qualificado (como *yourserver.Database.Windows.net*) para uso posterior no tutorial.
+    > Certifique-se de copiar o seu nome de servidor totalmente qualificado (como *yourserver.database.windows.net)* para ser utilizado mais tarde no tutorial.
 
-1. Na página **visão geral** , selecione **definir Firewall do servidor**. A página **configurações de firewall** do servidor de banco de dados é aberta.
+1. Na página **'Visão Geral',** selecione **Definir firewall do servidor**. A página de **definições de Firewall** para o servidor de base de dados abre.
 
-   1. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP atual a uma nova regra de firewall. A regra pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP. Selecione **Guardar**.
+   1. **Selecione Adicionar IP** do cliente na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall. A regra pode abrir a porta 1433 para um único endereço IP ou uma gama de endereços IP. Selecione **Guardar**.
 
       ![configurar regra de firewall do servidor](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-   1. Selecione **OK** e feche a página **configurações de firewall** .
+   1. Selecione **OK** e feche a página de **definições de Firewall.**
 
 Agora, já pode ligar a qualquer base de dados do servidor com o endereço IP ou o intervalo de endereços IP especificado.
 
-### <a name="setup-database-firewall-rules"></a>Regras de firewall de banco de dados de instalação
+### <a name="setup-database-firewall-rules"></a>Configurar regras de firewall de base de dados
 
-As regras de firewall no nível de banco de dados se aplicam somente a bancos de dados individuais. O banco de dados reterá essas regras durante um failover de servidor. As regras de firewall no nível de banco de dados só podem ser configuradas usando instruções Transact-SQL (T-SQL) e somente depois que você tiver configurado uma regra de firewall no nível de servidor.
+As regras de firewall ao nível da base de dados aplicam-se apenas às bases de dados individuais. A base de dados manterá estas regras durante uma falha no servidor. As regras de firewall de nível de base de dados só podem ser configuradas utilizando declarações transact-SQL (T-SQL) e só depois de configurar uma regra de firewall ao nível do servidor.
 
-Para configurar uma regra de firewall no nível de banco de dados:
+Para configurar uma regra de firewall de nível de base de dados:
 
-1. Conecte-se ao banco de dados, por exemplo, usando [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
+1. Ligue-se à base de dados, por exemplo, utilizando o [Estúdio de Gestão de Servidores SQL](./sql-database-connect-query-ssms.md).
 
-1. No Pesquisador de **objetos**, clique com o botão direito do mouse no banco de dados e selecione **nova consulta**.
+1. No **Object Explorer,** clique na base de dados e selecione **New Query**.
 
-1. Na janela de consulta, adicione essa instrução e modifique o endereço IP para seu endereço IP público:
+1. Na janela de consulta, adicione esta declaração e modifique o endereço IP para o seu endereço IP público:
 
     ```sql
     EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
     ```
 
-1. Na barra de ferramentas, selecione **executar** para criar a regra de firewall.
+1. Na barra de ferramentas, selecione **Executar** para criar a regra da firewall.
 
 > [!NOTE]
-> Você também pode criar uma regra de firewall no nível de servidor no SSMS usando o comando [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) , embora você deva estar conectado ao banco de dados *mestre* .
+> Também pode criar uma regra de firewall ao nível do servidor no SSMS utilizando o comando [sp_set_firewall_rule,](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) embora tenha de estar ligado à base de dados *principal.*
 
-## <a name="create-an-azure-ad-admin"></a>Criar um administrador do Azure AD
+## <a name="create-an-azure-ad-admin"></a>Criar um administrador da AD Azure
 
-Verifique se você está usando o domínio gerenciado do Azure Active Directory (AD) apropriado. Para selecionar o domínio do AD, use o canto superior direito do portal do Azure. Esse processo confirma que a mesma assinatura é usada para o Azure AD e o SQL Server hospedando seu banco de dados SQL do Azure ou data warehouse.
+Certifique-se de que está a utilizar o domínio gerido pelo Azure Ative Directory (AD) apropriado. Para selecionar o domínio AD, utilize o canto superior direito do portal Azure. Este processo confirma que a mesma subscrição é utilizada tanto para o Azure AD como para o SQL Server que acolhe a sua base de dados Azure SQL ou armazém de dados.
 
-   ![escolher-AD](./media/sql-database-security-tutorial/8choose-ad.png)
+   ![escolher-anúncio](./media/sql-database-security-tutorial/8choose-ad.png)
 
-Para definir o administrador do Azure AD:
+Para definir o administrador da AD Azure:
 
-1. No portal do Azure, na página **SQL Server** , selecione **Active Directory admin**. Em seguida, selecione **definir administrador**.
+1. No portal Azure, na página do **servidor SQL,** selecione **administração Ative Directory**. Em seguida, selecione **administrador**.
 
     ![selecionar o active directory](./media/sql-database-security-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > Você precisa ser um "administrador da empresa" ou "administrador global" para executar essa tarefa.
+    > Tem de ser um "Administrador da Empresa" ou um "Administrador Global" para executar esta tarefa.
 
-1. Na página **Adicionar Administrador** , pesquise e selecione o usuário ou grupo do AD e escolha **selecionar**. Todos os membros e grupos de seus Active Directory são listados, e as entradas esmaecidas não têm suporte como administradores do Azure AD. Confira [recursos e limitações do Azure ad](sql-database-aad-authentication.md#azure-ad-features-and-limitations).
+1. Na página **de administração Adicionar,** procure e selecione o utilizador ou grupo AD e escolha **Select**. Todos os membros e grupos do seu Diretório Ativo estão listados, e as entradas cinzentas não são suportadas como administradores da AD Azure. Consulte [as funcionalidades e limitações da AD Azure.](sql-database-aad-authentication.md#azure-ad-features-and-limitations)
 
-    ![selecionar administrador](./media/sql-database-security-tutorial/admin-select.png)
+    ![administração selecionada](./media/sql-database-security-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > O RBAC (controle de acesso baseado em função) só se aplica ao portal e não é propagado para SQL Server.
+    > O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao Servidor SQL.
 
-1. Na parte superior da página do **administrador do Active Directory** , selecione **salvar**.
+1. No topo da página de administração do **Diretório Ativo,** selecione **Guardar**.
 
-    O processo de alteração de um administrador pode levar vários minutos. O novo administrador será exibido na caixa **Active Directory admin** .
+    O processo de mudança de administrador pode demorar vários minutos. O novo administrador aparecerá na caixa de administração do **Diretório Ativo.**
 
 > [!NOTE]
-> Ao definir um administrador do Azure AD, o novo nome de administrador (usuário ou grupo) não pode existir como um usuário de autenticação SQL Server no banco de dados *mestre* . Se houver, a instalação falhará e reverterá as alterações, indicando que esse nome de administrador já existe. Como o usuário de autenticação SQL Server não faz parte do Azure AD, qualquer esforço para conectar o usuário usando a autenticação do Azure AD falhará.
+> Ao definir um administrador Azure AD, o novo nome de administrador (utilizador ou grupo) não pode existir como utilizador de autenticação Do Servidor SQL na base de dados *principal.* Se presente, a configuração falhará e reverterá as alterações, indicando que tal nome administrativo já existe. Uma vez que o utilizador de autenticação SQL Server não faz parte do Azure AD, qualquer esforço para ligar o utilizador utilizando a autenticação AD Azure falha.
 
-Para obter informações sobre como configurar o Azure AD, consulte:
+Para obter informações sobre a configuração da AD Azure, consulte:
 
-- [Integre suas identidades locais ao Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
-- [Adicionar seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [O Microsoft Azure agora dá suporte à Federação com o AD do Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
-- [Administrar seu diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md)
-- [Gerenciar o Azure AD usando o PowerShell](/powershell/azure/overview?view=azureadps-2.0)
-- [Portas e protocolos necessários à identidade híbrida](../active-directory/hybrid/reference-connect-ports.md)
+- [Integre as suas identidades no local com a Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Adicione o seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
+- [Microsoft Azure agora suporta federação com AD Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Administrar o seu diretório Azure AD](../active-directory/fundamentals/active-directory-administer.md)
+- [Gerir o Azure AD usando powerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Identidade híbrida exigia portos e protocolos](../active-directory/hybrid/reference-connect-ports.md)
 
-## <a name="manage-database-access"></a>Gerenciar o acesso ao banco de dados
+## <a name="manage-database-access"></a>Gerir o acesso à base de dados
 
-Gerencie o acesso ao banco de dados adicionando usuários ao banco de dados ou permitindo o acesso do usuário com cadeias de conexão seguras. As cadeias de conexão são úteis para aplicativos externos. Para saber mais, consulte [controle de acesso do SQL do Azure](sql-database-control-access.md) e [autenticação do AD](sql-database-aad-authentication.md).
+Gerir o acesso à base de dados adicionando os utilizadores à base de dados ou permitindo o acesso do utilizador com cordas de ligação seguras. As cordas de ligação são úteis para aplicações externas. Para saber mais, consulte [Gerir logins e contas de utilizador](sql-database-manage-logins.md) e [autenticação de Anúncios.](sql-database-aad-authentication.md)
 
-Para adicionar usuários, escolha o tipo de autenticação de banco de dados:
+Para adicionar utilizadores, escolha o tipo de autenticação da base de dados:
 
-- **Autenticação do SQL**, usar um nome de usuário e senha para logons e são válidos somente no contexto de um banco de dados específico no servidor
+- **Aautenticação SQL**, use um nome de utilizador e senha para logins e só é válida no contexto de uma base de dados específica dentro do servidor
 
-- **Autenticação do Azure ad**, usar identidades gerenciadas pelo Azure AD
+- **Autenticação Azure AD,** use identidades geridas pela Azure AD
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
-Para adicionar um usuário com autenticação SQL:
+Para adicionar um utilizador com autenticação SQL:
 
-1. Conecte-se ao banco de dados, por exemplo, usando [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
+1. Ligue-se à base de dados, por exemplo, utilizando o [Estúdio de Gestão de Servidores SQL](./sql-database-connect-query-ssms.md).
 
-1. No Pesquisador de **objetos**, clique com o botão direito do mouse no banco de dados e escolha **nova consulta**.
+1. No **Object Explorer,** clique na base de dados e escolha **New Question**.
 
-1. Na janela de consulta, digite o seguinte comando:
+1. Na janela de consulta, insira o seguinte comando:
 
     ```sql
     CREATE USER ApplicationUser WITH PASSWORD = 'YourStrongPassword1';
     ```
 
-1. Na barra de ferramentas, selecione **executar** para criar o usuário.
+1. Na barra de ferramentas, selecione **Executar** para criar o utilizador.
 
-1. Por predefinição, o utilizador pode ligar à base de dados, mas não tem permissões para ler ou escrever dados. Para conceder essas permissões, execute os seguintes comandos em uma nova janela de consulta:
+1. Por predefinição, o utilizador pode ligar à base de dados, mas não tem permissões para ler ou escrever dados. Para conceder estas permissões, execute os seguintes comandos numa nova janela de consulta:
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER ApplicationUser;
@@ -181,172 +181,172 @@ Para adicionar um usuário com autenticação SQL:
     ```
 
 > [!NOTE]
-> Crie contas que não sejam de administrador no nível de banco de dados, a menos que eles precisem executar tarefas de administrador como criar novos usuários.
+> Crie contas não administradoras ao nível da base de dados, a menos que precisem de executar tarefas de administrador como criar novos utilizadores.
 
 ### <a name="azure-ad-authentication"></a>Autenticação do Azure AD
 
-Azure Active Directory autenticação requer que os usuários do banco de dados sejam criados como contidos. Um usuário de banco de dados independente é mapeado para uma identidade no diretório do Azure AD associado ao banco de dados e não tem logon no banco de dados *mestre* . A identidade do Azure AD pode ser para um usuário individual ou um grupo. Para obter mais informações, consulte [usuários de banco de dados independente, tornar seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx) e examinar o [tutorial do Azure ad](./sql-database-aad-authentication-configure.md) sobre como autenticar usando o Azure AD.
+A autenticação do Diretório Ativo Azure requer que os utilizadores de bases de dados sejam criados conforme contido. Um utilizador de base de dados contido mapeia uma identidade no diretório da AD Azure associado à base de dados e não tem login na base de dados *principal.* A identidade Azure AD pode ser para um utilizador individual ou para um grupo. Para mais informações, consulte os utilizadores de [bases de dados contidos, faça](https://msdn.microsoft.com/library/ff929188.aspx) a sua base de dados portátil e reveja o tutorial da [AD Azure](./sql-database-aad-authentication-configure.md) sobre como autenticar usando o Azure AD.
 
 > [!NOTE]
-> Os usuários do banco de dados (exceto administradores) não podem ser criados usando o portal do Azure. As funções do RBAC do Azure não se propagam para servidores SQL, bancos de dados ou data warehouses. Eles são usados apenas para gerenciar recursos do Azure e não se aplicam a permissões de banco de dados.
+> Os utilizadores de bases de dados (excluindo administradores) não podem ser criados através do portal Azure. As funções Azure RBAC não se propagam a servidores, bases de dados ou armazéns de dados SQL. São utilizados apenas para gerir os recursos do Azure e não se aplicam a permissões de base de dados.
 >
-> Por exemplo, a função *colaborador de SQL Server* não concede acesso para se conectar a um banco de dados ou data warehouse. Essa permissão deve ser concedida no banco de dados usando instruções T-SQL.
+> Por exemplo, a função De Contribuinte do *Servidor SQL* não concede acesso à ligação a uma base de dados ou armazém de dados. Esta permissão deve ser concedida na base de dados utilizando declarações T-SQL.
 
 > [!IMPORTANT]
-> Não há suporte para caracteres especiais como dois-pontos `:` ou e comercial `&` em nomes de usuário nas instruções T-SQL `CREATE LOGIN` e `CREATE USER`.
+> Personagens especiais como `:` do cólon ou `&` não são suportados em nomes de utilizadores nas declarações de `CREATE LOGIN` e `CREATE USER` Da T-SQL.
 
-Para adicionar um usuário com a autenticação do Azure AD:
+Para adicionar um utilizador com autenticação Azure AD:
 
-1. Conecte-se ao seu SQL Server do Azure usando uma conta do Azure AD com pelo menos a permissão *ALTER ANY User* .
+1. Ligue-se ao seu servidor Azure SQL utilizando uma conta AD Azure com pelo menos a permissão *ALTER ANY USER.*
 
-1. No Pesquisador de **objetos**, clique com o botão direito do mouse no banco de dados e selecione **nova consulta**.
+1. No **Object Explorer,** clique na base de dados e selecione **New Query**.
 
-1. Na janela de consulta, insira o comando a seguir e modifique `<Azure_AD_principal_name>` para o nome principal do usuário do Azure AD ou o nome de exibição do grupo do Azure AD:
+1. Na janela de consulta, introduza o seguinte comando e modifique `<Azure_AD_principal_name>` para o nome principal do utilizador DaD Azure ou o nome de exibição do grupo Azure AD:
 
    ```sql
    CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
    ```
 
 > [!NOTE]
-> Os usuários do Azure AD são marcados nos metadados do banco de dados com o tipo `E (EXTERNAL_USER)` e tipo `X (EXTERNAL_GROUPS)` para grupos. Para obter mais informações, consulte [Sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
+> Os utilizadores de AD Azure estão marcados na base de dados de metadados com tipo `E (EXTERNAL_USER)` e tipo `X (EXTERNAL_GROUPS)` para grupos. Para mais informações, consulte [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 
-### <a name="secure-connection-strings"></a>Cadeias de conexão seguras
+### <a name="secure-connection-strings"></a>Cordas de ligação seguras
 
-Para garantir uma conexão segura e criptografada entre o aplicativo cliente e o banco de dados SQL, uma cadeia de conexão deve ser configurada para:
+Para garantir uma ligação segura e encriptada entre a aplicação do cliente e a base de dados SQL, uma cadeia de ligação deve ser configurada para:
 
-- Solicitar uma conexão criptografada
-- Não confiar no certificado do servidor
+- Solicite uma ligação encriptada
+- Não confie no certificado do servidor
 
-A conexão é estabelecida usando TLS (Transport Layer Security) e reduz o risco de um ataque man-in-the-Middle. As cadeias de conexão estão disponíveis por banco de dados e são pré-configuradas para dar suporte a drivers de cliente como ADO.NET, JDBC, ODBC e PHP. Para obter informações sobre a TLS e a conectividade, veja [Considerações sobre a TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+A ligação é estabelecida usando transport layer security (TLS) e reduz o risco de um ataque homem no meio. As cordas de ligação estão disponíveis por base de dados e estão pré-configuradas para apoiar os condutores de clientes como ADO.NET, JDBC, ODBC e PHP. Para obter informações sobre a TLS e a conectividade, veja [Considerações sobre a TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
-Para copiar uma cadeia de conexão segura:
+Para copiar uma cadeia de ligação segura:
 
-1. Em portal do Azure, selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página **bancos SQL** .
+1. No portal Azure, selecione bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 
-1. Na página **visão geral** , selecione **Mostrar cadeias de conexão de banco de dados**.
+1. Na página **'Visão Geral',** selecione Strings de **ligação**de base de dados .
 
-1. Selecione uma guia de driver e copie a cadeia de conexão completa.
+1. Selecione um separador de controlador e copie a cadeia de ligação completa.
 
     ![Cadeia de ligação de ADO.NET](./media/sql-database-security-tutorial/connection.png)
 
-## <a name="enable-security-features"></a>Habilitar recursos de segurança
+## <a name="enable-security-features"></a>Ativar funcionalidades de segurança
 
-O banco de dados SQL do Azure fornece recursos de segurança que são acessados usando o portal do Azure. Esses recursos estão disponíveis tanto para o banco de dados quanto para o servidor, com exceção do mascaramento, que só está disponível no banco de dado. Para saber mais, consulte [segurança de dados avançada](sql-database-advanced-data-security.md), [auditoria](sql-database-auditing.md), [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md)e [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).
+A Base de Dados Azure SQL fornece funcionalidades de segurança que são acedidas através do portal Azure. Estas funcionalidades estão disponíveis tanto para a base de dados como para o servidor, com exceção da máscara de dados, que só está disponível na base de dados. Para saber mais, consulte [A segurança avançada de dados,](sql-database-advanced-data-security.md) [Auditoria,](sql-database-auditing.md)máscara de [dados dinâmicos](sql-database-dynamic-data-masking-get-started.md)e [encriptação transparente de dados.](transparent-data-encryption-azure-sql.md)
 
 ### <a name="advanced-data-security"></a>Segurança de dados avançada
 
-O recurso de segurança de dados avançado detecta possíveis ameaças à medida que elas ocorrem e fornece alertas de segurança em atividades anormais. Os usuários podem explorar esses eventos suspeitos usando o recurso de auditoria e determinar se o evento foi para acessar, violar ou explorar dados no banco de dado. Os usuários também recebem uma visão geral de segurança que inclui uma avaliação de vulnerabilidades e a ferramenta de detecção e classificação de dados.
+A funcionalidade avançada de segurança de dados deteta potenciais ameaças à medida que ocorrem e fornece alertas de segurança sobre atividades anómalas. Os utilizadores podem explorar estes eventos suspeitos usando a funcionalidade de auditoria, e determinar se o evento foi para aceder, violar ou explorar dados na base de dados. Os utilizadores também recebem uma visão geral de segurança que inclui uma avaliação de vulnerabilidade e a ferramenta de descoberta e classificação de dados.
 
 > [!NOTE]
-> Um exemplo de ameaça é a injeção de SQL, um processo em que os invasores injetam SQL mal-intencionado em entradas de aplicativos. Um aplicativo pode executar inadvertidamente o SQL mal-intencionado e permitir que os invasores acessem ou modifiquem dados no banco de dado.
+> Uma ameaça exemplo é a injeção de SQL, um processo em que os atacantes injetam SQL malicioso nas inputs de aplicação. Uma aplicação pode então, sem saber, executar o SQL malicioso e permitir aos atacantes o acesso a violações ou modificações de dados na base de dados.
 
-Para habilitar a segurança de dados avançada:
+Para permitir a segurança avançada de dados:
 
-1. Em portal do Azure, selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página **bancos SQL** .
+1. No portal Azure, selecione bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 
-1. Na página **visão geral** , selecione o link **nome do servidor** . A página servidor de banco de dados será aberta.
+1. Na página **'Visão Geral',** selecione o link de **nome do Servidor.** A página do servidor da base de dados será aberta.
 
-1. Na página **SQL Server** , localize a seção **segurança** e selecione **segurança de dados avançada**.
+1. Na página do **servidor SQL,** encontre a secção **de Segurança** e selecione Advanced **Data Security**.
 
-   1. Selecione **ativado** em **segurança de dados avançada** para habilitar o recurso. Escolha uma conta de armazenamento para salvar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Guardar**.
+   1. Selecione **ON** em Advanced **Data Security** para ativar a funcionalidade. Escolha uma conta de armazenamento para guardar resultados de avaliação de vulnerabilidade. Em seguida, selecione **Guardar**.
 
       ![Painel de navegação](./media/sql-database-security-tutorial/threat-settings.png)
 
-      Você também pode configurar emails para receber alertas de segurança, detalhes de armazenamento e tipos de detecção de ameaças.
+      Também pode configurar e-mails para receber alertas de segurança, detalhes de armazenamento e tipos de deteção de ameaças.
 
-1. Retorne para a página bancos de dados **SQL** do seu banco de dado e selecione **segurança de recursos avançada** na seção **segurança** . Aqui, você encontrará vários indicadores de segurança disponíveis para o banco de dados.
+1. Volte à página de bases de **dados SQL** da sua base de dados e selecione **Advanced Data Security** na secção De **segurança.** Aqui encontrará vários indicadores de segurança disponíveis para a base de dados.
 
-    ![Status da ameaça](./media/sql-database-security-tutorial/threat-status.png)
+    ![Estado de ameaça](./media/sql-database-security-tutorial/threat-status.png)
 
-Se as atividades anômalas forem detectadas, você receberá um email com informações sobre o evento. Isso inclui a natureza da atividade, do banco de dados, do servidor, da hora do evento, das possíveis causas e das ações recomendadas para investigar e atenuar a ameaça em potencial. Se esse email for recebido, selecione o link **log de auditoria do SQL do Azure** para iniciar o portal do Azure e mostrar registros de auditoria relevantes para a hora do evento.
+Se forem detetadas atividades anómalas, recebe um e-mail com informações sobre o evento. Isto inclui a natureza da atividade, base de dados, servidor, tempo de evento, possíveis causas, e ações recomendadas para investigar e mitigar a ameaça potencial. Se esse e-mail for recebido, selecione o link de registo de **auditoria Azure SQL** para lançar o portal Azure e apresentar registos de auditoria relevantes para a hora do evento.
 
    ![Mensagem de e-mail sobre deteção de ameaças](./media/sql-database-security-tutorial/threat-email.png)
 
 ### <a name="auditing"></a>Auditoria
 
-O recurso de auditoria rastreia eventos de banco de dados e grava eventos em um log de auditoria no armazenamento do Azure, Azure Monitor logs ou em um hub de eventos. A auditoria ajuda a manter a conformidade regulatória, a compreender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que podem indicar possíveis violações de segurança.
+A funcionalidade de auditoria rastreia eventos de base de dados e escreve eventos para um registo de auditoria no armazenamento Azure, registos do Monitor Azure ou num centro de eventos. A auditoria ajuda a manter o cumprimento regulamentar, a compreender a atividade da base de dados e a obter informações sobre discrepâncias e anomalias que possam indicar potenciais violações de segurança.
 
-Para habilitar a auditoria:
+Para permitir a auditoria:
 
-1. Em portal do Azure, selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página **bancos SQL** .
+1. No portal Azure, selecione bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 
-1. Na seção **segurança** , selecione **auditoria**.
+1. Na secção **Segurança,** **selecione Auditoria**.
 
-1. Em configurações de **auditoria** , defina os seguintes valores:
+1. De acordo com as definições **de Auditoria,** detete os seguintes valores:
 
-   1. Defina **auditoria** como **ativado**.
+   1. Definir **auditoria** para **ON**.
 
-   1. Selecione o **destino do log de auditoria** como qualquer um dos seguintes:
+   1. Selecione o destino de registo de **auditoria** como qualquer um dos seguintes:
 
-       - **Armazenamento**, uma conta de armazenamento do Azure em que os logs de eventos são salvos e podem ser baixados como arquivos *. xel*
+       - **Armazenamento**, uma conta de armazenamento Azure onde os registos de eventos são guardados e podem ser descarregados como *ficheiros .xel*
 
           > [!TIP]
-          > Use a mesma conta de armazenamento para todos os bancos de dados auditados para obter o máximo da auditoria de modelos de relatório.
+          > Utilize a mesma conta de armazenamento para todas as bases de dados auditadas para obter o máximo de modelos de relatórios de auditoria.
 
-       - **Log Analytics**, que armazena automaticamente eventos para consulta ou análise adicional
+       - **Log Analytics**, que armazena automaticamente eventos para consulta ou análise
 
            > [!NOTE]
-           > Um **espaço de trabalho log Analytics** é necessário para dar suporte a recursos avançados, como análise, regras de alerta personalizadas e exportações do Excel ou Power bi. Sem um espaço de trabalho, somente o editor de consultas está disponível.
+           > Um espaço de **trabalho log Analytics** é necessário para suportar funcionalidades avançadas como análise, regras de alerta personalizados e exportações de Excel ou Power BI. Sem espaço de trabalho, apenas o editor de consulta está disponível.
 
-       - **Hub de eventos**, que permite que os eventos sejam roteados para uso em outros aplicativos
+       - **Event Hub**, que permite que eventos sejam encaminhados para uso em outras aplicações
 
    1. Selecione **Guardar**.
 
-      ![Configurações de auditoria](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Definições de auditoria](./media/sql-database-security-tutorial/audit-settings.png)
 
-1. Agora, você pode selecionar **Exibir logs de auditoria** para exibir os dados de eventos de Database.
+1. Agora pode selecionar registos de auditoria para visualizar dados de **eventos** de base de dados.
 
     ![Registos de auditoria](./media/sql-database-security-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> Consulte [auditoria do banco de dados SQL](sql-database-auditing.md) sobre como personalizar ainda mais os eventos de auditoria usando o PowerShell ou a API REST.
+> Consulte a auditoria da base de [dados SQL](sql-database-auditing.md) sobre como personalizar ainda mais os eventos de auditoria utilizando a PowerShell ou a REST API.
 
 ### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
 
-O recurso de mascaramento de dados ocultará automaticamente os dados confidenciais em seu banco de dado.
+A função de máscara de dados ocultará automaticamente dados sensíveis na sua base de dados.
 
-Para habilitar o mascaramento de dados:
+Para permitir a máscara de dados:
 
-1. Em portal do Azure, selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página **bancos SQL** .
+1. No portal Azure, selecione bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 
-1. Na seção **segurança** , selecione **máscara de dados dinâmicos**.
+1. Na secção **Segurança,** selecione **Máscara de Dados Dinâmicos**.
 
-1. Em configurações de **máscara de dados dinâmicos** , selecione **Adicionar máscara** para adicionar uma regra de mascaramento. O Azure preencherá automaticamente os esquemas de banco de dados, tabelas e colunas disponíveis para sua escolha.
+1. Em definições **dinâmicas de máscara de dados,** selecione **Adicionar máscara** para adicionar uma regra de mascaramento. O Azure irá povoar automaticamente os schemas, tabelas e colunas disponíveis para escolher.
 
-    ![Configurações de máscara](./media/sql-database-security-tutorial/mask-settings.png)
+    ![Definições de máscara](./media/sql-database-security-tutorial/mask-settings.png)
 
-1. Selecione **Guardar**. As informações selecionadas agora são mascaradas para privacidade.
+1. Selecione **Guardar**. A informação selecionada é agora mascarada de privacidade.
 
     ![Exemplo de máscara](./media/sql-database-security-tutorial/mask-query.png)
 
 ### <a name="transparent-data-encryption"></a>Encriptação de Dados Transparente
 
-O recurso de criptografia criptografa automaticamente os dados em repouso e não requer alterações nos aplicativos que acessam o banco de dado criptografado. Para novos bancos de dados, a criptografia está ativada por padrão. Você também pode criptografar dados usando o SSMS e o recurso [Always Encrypted](sql-database-always-encrypted.md) .
+A funcionalidade de encriptação encripta automaticamente os seus dados em repouso e não necessita de alterações nas aplicações que acedam à base de dados encriptada. Para novas bases de dados, a encriptação está em predefinição. Também pode encriptar dados utilizando SSMS e a funcionalidade [Sempre encriptada.](sql-database-always-encrypted.md)
 
-Para habilitar ou verificar a criptografia:
+Para ativar ou verificar a encriptação:
 
-1. Em portal do Azure, selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página **bancos SQL** .
+1. No portal Azure, selecione bases de **dados SQL** do menu à esquerda e selecione a sua base de dados na página de bases de **dados SQL.**
 
-1. Na seção **segurança** , selecione **Transparent Data Encryption**.
+1. Na secção **Segurança,** selecione **encriptação**transparente de dados .
 
-1. Se necessário, defina **criptografia de dados** como **ativado**. Selecione **Guardar**.
+1. Se necessário, detete a **encriptação de dados** para **ON**. Selecione **Guardar**.
 
     ![Encriptação de Dados Transparente](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Para exibir o status de criptografia, conecte-se ao banco de dados usando o [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna `encryption_state` da exibição [Sys. dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) . Um estado de `3` indica que o banco de dados está criptografado.
+> Para ver o estado de encriptação, ligue-se à base de dados utilizando [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna `encryption_state` da visão [sys.dm_database_encryption_keys.](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) Um estado de `3` indica que a base de dados está encriptada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a melhorar a segurança do seu banco de dados com apenas algumas etapas simples. Aprendeu a:
+Neste tutorial, aprendeu a melhorar a segurança da sua base de dados com apenas alguns passos simples. Aprendeu a:
 
 > [!div class="checklist"]
-> - Criar regras de firewall no nível de servidor e de banco de dados
-> - Configurar um administrador do Azure Active Directory (AD)
-> - Gerenciar o acesso do usuário com autenticação SQL, autenticação do Azure AD e cadeias de conexão segura
-> - Habilitar recursos de segurança, como segurança avançada de dados, auditoria, máscara de dados e criptografia
+> - Criar regras de firewall ao nível do servidor e do nível da base de dados
+> - Configure um administrador de Diretório Ativo Azure (AD)
+> - Gerir o acesso ao utilizador com autenticação SQL, autenticação AD Azure e cordas de ligação seguras
+> - Ativar funcionalidades de segurança, tais como segurança avançada de dados, auditoria, mascaramento de dados e encriptação
 
-Avance para o próximo tutorial para aprender a implementar a distribuição geográfica.
+Avance para o próximo tutorial para aprender a implementar a geodistribuição.
 
 > [!div class="nextstepaction"]
 >[Implementar uma base de dados distribuída geograficamente](sql-database-implement-geo-distributed-database.md)

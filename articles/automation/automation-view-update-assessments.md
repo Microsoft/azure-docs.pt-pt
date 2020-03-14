@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373090"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278418"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Ver avaliações de atualização da Atualização do Azure
 
@@ -32,7 +32,7 @@ Selecione **as atualizações Em falta** para visualizar a lista de atualizaçõ
 
 As tabelas seguintes listam as classificações de atualização suportadas na Gestão de Atualizações, com uma definição para cada classificação.
 
-### <a name="windows"></a>Portal do
+### <a name="windows"></a>Windows
 
 |Classificação  |Descrição  |
 |---------|---------|
@@ -62,6 +62,6 @@ Atualmente não existe um método suportado para permitir a disponibilidade de d
 
 Para classificar as atualizações na versão 6 da Red Hat Enterprise, é necessário instalar o plugin de segurança de yum. No Red Hat Enterprise Linux 7, o plugin já faz parte do próprio yum, não há necessidade de instalar nada. Para mais informações, consulte o seguinte artigo de [conhecimento](https://access.redhat.com/solutions/10021)do Chapéu Vermelho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de visualizar quaisquer avaliações de atualização, pode agendar uma implementação de atualização seguindo os passos nas atualizações e patches do [Manage para os seus VMs Azure](automation-tutorial-update-management.md).

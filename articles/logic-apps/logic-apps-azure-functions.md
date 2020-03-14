@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358945"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284125"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Ligue para as funções do Azure Logic Apps
 
@@ -227,7 +227,7 @@ Para utilizar a identidade gerida da sua aplicação lógica na sua função Azu
 
    ![A partir do menu de consola de depuração, selecione a opção "CMD"](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. Depois da página seguinte aparecer, a partir da lista de pastas, selecione site > **wwwroot** > *sua função*. Estes passos utilizam "FabrikamAzureFunction" como função de exemplo.
+1. Depois da página seguinte aparecer, a **site** partir da lista de pastas, selecione site > **wwwroot** > *sua função*. Estes passos utilizam "FabrikamAzureFunction" como função de exemplo.
 
    ![Selecione "site" > "wwwroot" > a sua função](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 

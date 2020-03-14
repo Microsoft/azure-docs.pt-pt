@@ -4,11 +4,11 @@ description: Impedir que os utilizadores atualizem ou abatam recursos críticos 
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109535"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274011"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueie recursos para evitar alterações inesperadas
 

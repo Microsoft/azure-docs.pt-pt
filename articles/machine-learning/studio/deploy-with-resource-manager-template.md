@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: f05ef9472f11a5025e9856cfb207cc0859f24c3e
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169356"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218123"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementar o Estúdio de Aprendizagem automática Azure (clássico) Workspace utilizando o Gestor de Recursos Azure
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Utilizar um modelo de implementação poupa tempo ao fornecer-lhe uma forma dimensionável para o Azure Resource Manager implantar componentes interconectados com uma validação e mecanismo de repetição. Para configurar o Azure Machine Learning Studio (clássico) Workspaces, por exemplo, é necessário configurar primeiro uma conta de armazenamento Azure e depois implementar o seu espaço de trabalho. Imagine a fazê-lo manualmente para centenas de áreas de trabalho. Uma alternativa mais fácil é usar um modelo de Gestor de Recursos Azure para implantar um Espaço de Trabalho studio (clássico) e todas as suas dependências. Este artigo leva-o ao longo deste processo passo a passo. Para uma excelente visão geral do Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](../../azure-resource-manager/management/overview.md)
 
@@ -84,10 +86,10 @@ Guarde este modelo como ficheiro mlworkspace.json em c:\temp\.
 * Instalar módulos para o Azure Resource Manager e gestão de serviço do Azure
 
 ```powershell
-# Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
+# Install the Azure Resource Manager modules from the PowerShell Gallery (press "A")
 Install-Module Az -Scope CurrentUser
 
-# Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
+# Install the Azure Service Management modules from the PowerShell Gallery (press "A")
 Install-Module Azure -Scope CurrentUser
 ```
 

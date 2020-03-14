@@ -1,6 +1,6 @@
 ---
 title: Papéis azure embutidos para Azure RBAC
-description: Descreve as funções azure incorporadas para o controlo de acesso baseado em funções Azure (Azure RBAC). Lista as Ações, NotActions, DataActions e NotDataActions.
+description: Este artigo descreve as funções azure incorporadas para o controlo de acesso baseado em funções azure (RBAC). Lista Ações, NãoAções, Ações de Dados e NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/12/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b7b944880074b64f6a9e66e177082e52632e9c9d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 5b6da05f07636f6a6dde16cf6d8061629a72adfa
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205896"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281109"
 ---
 # <a name="azure-built-in-roles"></a>Papéis azure embutidos
 
-O [controlo de acesso baseado em funções azure (Azure RBAC)](overview.md) tem várias funções azure incorporadas que pode atribuir a utilizadores, grupos, diretores de serviços e identidades geridas. As atribuições de funções são a forma como controlas o acesso aos recursos do Azure. Se as funções incorporadas não atenderem às necessidades específicas da sua organização, pode criar os seus próprios [papéis personalizados Azure.](custom-roles.md)
+O [controlo de acesso baseado em funções azure (RBAC)](overview.md) tem várias funções azure incorporadas que pode atribuir a utilizadores, grupos, diretores de serviçoe identidades geridas. As atribuições de funções são a forma como controlas o acesso aos recursos do Azure. Se as funções incorporadas não atenderem às necessidades específicas da sua organização, pode criar os seus próprios [papéis personalizados Azure.](custom-roles.md)
 
-Este artigo enumera as funções incorporadas para os recursos Azure, que estão sempre a evoluir. Para obter as funções mais recentes, utilize a lista de definição de definição de funções [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az](/cli/azure/role/definition#az-role-definition-list). Se procura funções de administrador para o Azure Ative Directory, consulte [as permissões de funções do Administrador no Diretório Ativo do Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Este artigo enumera as funções incorporadas para os recursos Azure, que estão sempre a evoluir. Para obter as funções mais recentes, utilize a lista de definição de definição de funções [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az](/cli/azure/role/definition#az-role-definition-list). Se procura funções de administrador para o Azure Ative Directory (Azure AD), consulte [permissões de funções de administrador no Diretório Ativo do Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="descriptions-and-ids"></a>Descrições e IDs
 
-A tabela seguinte fornece uma breve descrição e a identificação única de cada papel incorporado. Clique no nome do papel para ver a lista de `Actions`, `NotActions`, `DataActions`e `NotDataActions` para cada papel. Para obter informações sobre o que estas ações significam e como se aplicam aos planos de gestão e dados, consulte Compreender as definições de [papéis para os recursos Do Azure.](role-definitions.md)
+A tabela seguinte fornece uma breve descrição e a identificação única de cada papel incorporado. Selecione o nome do papel para ver a lista de `Actions`, `NotActions`, `DataActions`e `NotDataActions` para cada papel. Para obter informações sobre o que estas ações significam e como se aplicam aos planos de gestão e dados, consulte Compreender as definições de [papéis para os recursos Do Azure.](role-definitions.md)
 
 
 > [!div class="mx-tableFixed"]
@@ -1059,7 +1059,7 @@ Permite-lhe gerir máquinas virtuais clássicas, mas não ter acesso a elas, e n
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.",
+  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "name": "d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "permissions": [
@@ -2052,7 +2052,7 @@ Permite-lhe gerir instâncias geridas pelo SQL e configurar a rede necessária, 
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others.",
+  "description": "Lets you manage SQL Managed Instances and required network configuration, but can't give access to others.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "name": "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "permissions": [
@@ -3853,10 +3853,7 @@ Pode gerir definições de plantas, mas não atribuí-las.
 
 ### <a name="blueprint-operator"></a>Operador de plantas
 
-Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. 
-
-> [!NOTE] 
-> Isto só funciona se a atribuição for feita com uma identidade gerida atribuída pelo utilizador.
+Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. NOTA: isto só funciona se a atribuição for feita com uma identidade gerida atribuída pelo utilizador.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4316,6 +4313,8 @@ Pode ler todos os dados de monitorização e editar definições de monitorizaç
 > | Microsoft.WorkloadMonitor/monitores/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
+> | Microsoft.AlertsGe/actionRules/* |  |
+> | Microsoft.AlertsManagement/smartGroups/* |  |
 > | **NotAções** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -4359,7 +4358,9 @@ Pode ler todos os dados de monitorização e editar definições de monitorizaç
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
         "Microsoft.WorkloadMonitor/notificationSettings/*",
-        "Microsoft.AlertsManagement/smartDetectorAlertRules/*"
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/smartGroups/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -5322,7 +5323,7 @@ Pode gerir os pontos finais da CDN, mas não pode conceder acesso a outros utili
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "name": "426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "permissions": [
@@ -5376,7 +5377,7 @@ Pode ver pontos finais de CDN, mas não pode fazer alterações.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN endpoints, but can’t make changes.",
+  "description": "Can view CDN endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "name": "871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "permissions": [
@@ -5430,7 +5431,7 @@ Pode gerir perfis de CDN e seus pontos finais, mas não pode conceder acesso a o
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN profiles and their endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN profiles and their endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "name": "ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "permissions": [
@@ -5484,7 +5485,7 @@ Pode ver perfis de CDN e seus pontos finais, mas não pode fazer alterações.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN profiles and their endpoints, but can’t make changes.",
+  "description": "Can view CDN profiles and their endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8f96442b-4075-438f-813d-ad51ab4019af",
   "name": "8f96442b-4075-438f-813d-ad51ab4019af",
   "permissions": [
@@ -5731,7 +5732,7 @@ Colaborador Azure Sentinel
 > | **Ações** |  |
 > | Microsoft.SecurityInsights/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Procure usando um motor novo. |
-> | Microsoft.OperationalInsights/workspaces/read | Obtém um espaço de trabalho existente |
+> | Microsoft.OperationalInsights/workspaces/*/read | Ver dados de análise de registo |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | Obtenha saída da solução OMS |
 > | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas sobre os dados no espaço de trabalho |
@@ -5763,7 +5764,7 @@ Colaborador Azure Sentinel
       "actions": [
         "Microsoft.SecurityInsights/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5797,7 +5798,8 @@ Leitor de Sentinela Azure
 > | **Ações** |  |
 > | Microsoft.SecurityInsights/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Procure usando um motor novo. |
-> | Microsoft.OperationalInsights/workspaces/read | Obtém um espaço de trabalho existente |
+> | Microsoft.OperationalInsights/workspaces/*/read | Ver dados de análise de registo |
+> | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Obtenha serviços ligados sob um determinado espaço de trabalho. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtém uma consulta de pesquisa guardada |
 > | Microsoft.OperationsManagement/solutions/read | Obtenha saída da solução OMS |
 > | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas sobre os dados no espaço de trabalho |
@@ -5829,7 +5831,8 @@ Leitor de Sentinela Azure
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
+        "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5863,8 +5866,9 @@ Resposta Sentinela Azure
 > | **Ações** |  |
 > | Microsoft.SecurityInsights/*/read |  |
 > | Microsoft.SecurityInsights/cases/* |  |
+> | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Procure usando um motor novo. |
-> | Microsoft.OperationalInsights/workspaces/read | Obtém um espaço de trabalho existente |
+> | Microsoft.OperationalInsights/workspaces/*/read | Ver dados de análise de registo |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obter fontes de dados sob um espaço de trabalho. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtém uma consulta de pesquisa guardada |
 > | Microsoft.OperationsManagement/solutions/read | Obtenha saída da solução OMS |
@@ -5897,8 +5901,9 @@ Resposta Sentinela Azure
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/cases/*",
+        "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
@@ -6655,6 +6660,7 @@ Pode ver serviços de backup, mas não pode fazer alterações
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Estado da Operação para uma determinada Operação |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumerar todas as intenções de proteção de reserva |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização para um cofre de serviços de recuperação. |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validar funcionalidades |
 > | **NotAções** |  |
 > | *nenhum* |  |
 > | **Ações de Dados** |  |
@@ -6709,7 +6715,8 @@ Pode ver serviços de backup, mas não pode fazer alterações
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
-        "Microsoft.RecoveryServices/Vaults/usages/read"
+        "Microsoft.RecoveryServices/Vaults/usages/read",
+        "Microsoft.RecoveryServices/locations/backupValidateFeatures/action"
       ],
       "notActions": [],
       "dataActions": [],

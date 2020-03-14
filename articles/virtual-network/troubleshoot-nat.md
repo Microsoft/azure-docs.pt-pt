@@ -1,6 +1,6 @@
 ---
-title: Problemas de resolução de problemas Da rede virtual naT problemas de conectividade
-titleSuffix: Azure Virtual Network NAT troubleshooting
+title: Conectividade na rede virtual Desfilmo Azure NaT
+titleSuffix: Azure Virtual Network
 description: Problemas de resolução de problemas com a Rede Virtual NAT.
 services: virtual-network
 documentationcenter: na
@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: c629b3425cd095a6ac9d305b5cd6de58ed9d572a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 43e6853fd5e7583883f79e70c8dbcd558f137834
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674320"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79202166"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Problemas de resolução de problemas Da rede virtual naT problemas de conectividade
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Conectividade na rede virtual Desfilmo Azure NaT
 
 Este artigo ajuda os administradores a diagnosticar e resolver problemas de conectividade ao utilizar o NAT da Rede Virtual.
-
->[!NOTE] 
->A Rede Virtual NAT está disponível como pré-visualização pública neste momento. Atualmente só está disponível num conjunto limitado de [regiões.](nat-overview.md#region-availability) Esta pré-visualização é fornecida sem um acordo de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter mais informações.
 
 ## <a name="problems"></a>Problemas
 
@@ -54,7 +51,7 @@ Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a
 
 #### <a name="design-patterns"></a>Padrões de estrutura
 
-Aproveite sempre que possível a reutilização da ligação e o agrupamento de ligação.  Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis, fiáveis e escaláveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e quadros de desenvolvimento.
+Aproveite sempre que possível a reutilização da ligação e o agrupamento de ligação.  Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e quadros de desenvolvimento.
 
 _**Solução:**_ Utilize padrões apropriados
 
@@ -90,14 +87,14 @@ A tabela a seguir pode ser utilizada num ponto de partida para o qual as ferrame
 
 ### <a name="connectivity-failures"></a>Falhas de conectividade
 
-Problemas de conectividade com a [Rede Virtual NAT](nat-overview.md) podem ser devidos a várias questões diferentes:
+Problemas de conectividade com a [Rede Virtual NAT](nat-overview.md) podem ser causados por várias questões diferentes:
 
 * [exaustão sNAT](#snat-exhaustion) transitória ou persistente do portal NAT,
 * falhas transitórias na infraestrutura Azure, 
 * falhas transitórias no caminho entre Azure e o destino público da Internet, 
 * falhas transitórias ou persistentes no destino público da Internet.
 
-Utilize ferramentas como a seguinte para validação da conectividade. [O ping do ICMP não é suportado.](#icmp-ping-is-failing)
+Utilize ferramentas como a seguinte para validação da conectividade. [O iCMP ping não é suportado.](#icmp-ping-is-failing)
 
 | Sistema operativo | Ensaio genérico de ligação TCP | Teste de camada de aplicação TCP | UDP |
 |---|---|---|---|
@@ -110,7 +107,7 @@ Secção de revisão sobre [exaustão sNAT](#snat-exhaustion) neste artigo.
 
 #### <a name="azure-infrastructure"></a>Infraestrutura do Azure
 
-Embora o Azure monitorize e opere a sua infraestrutura com grande cuidado, podem ocorrer falhas transitórias, uma vez que não há garantiade que as transmissões não tenham perdas.  Utilize padrões de design que permitam retransmissões syn para aplicações TCP. Utilize intervalos de ligação suficientemente grandes para permitir a retransmissão do TCP SYN para reduzir os impactos transitórios causados por um pacote SYN perdido.
+A Azure monitoriza e opera a sua infraestrutura com grande cuidado. Falhas transitórias podem ocorrer, não há garantias de que as transmissões são inperdas.  Utilize padrões de design que permitam retransmissões syn para aplicações TCP. Utilize intervalos de ligação suficientemente grandes para permitir a retransmissão do TCP SYN para reduzir os impactos transitórios causados por um pacote SYN perdido.
 
 _**Solução:**_
 
@@ -122,20 +119,20 @@ Não recomendamos reduzir artificialmente o tempo de ligação do TCP ou afinar 
 
 #### <a name="public-internet-transit"></a>trânsito público da Internet
 
-A probabilidade de falhas transitórias aumenta com um caminho mais longo para o destino e sistemas mais intermédios. Espera-se que falhas transitórias possam aumentar de frequência sobre [a infraestrutura Azure.](#azure-infrastructure) 
+As probabilidades de falhas transitórias aumentam com um caminho mais longo para o destino e sistemas mais intermédios. Espera-se que falhas transitórias possam aumentar de frequência sobre [a infraestrutura azure.](#azure-infrastructure) 
 
 Siga as mesmas orientações que a secção de [infraestruturas Azure](#azure-infrastructure) anterior.
 
 #### <a name="internet-endpoint"></a>Ponto final da Internet
 
-As secções anteriores aplicam-se para além de considerações relacionadas com o ponto final da Internet com a com que a sua comunicação é estabelecida. Outros fatores que podem ter impacto no sucesso da conectividade são:
+As secções anteriores aplicam-se, juntamente com o ponto final da Internet com o que a comunicação é estabelecida. Outros fatores que podem ter impacto no sucesso da conectividade são:
 
 * gestão do tráfego do lado do destino, incluindo
 - Limitação da taxa API imposta pelo lado do destino
 - Atenuações volutrícias do DDoS ou modelação de tráfego de camadas de transporte
 * firewall ou outros componentes no destino 
 
-Normalmente, as capturas de pacotes na fonte, bem como o destino (se disponível) são necessárias para determinar o que está a acontecer.
+Normalmente, as capturas de pacotes na fonte e o destino (se disponível) são necessários para determinar o que está a acontecer.
 
 _**Solução:**_
 
@@ -147,9 +144,11 @@ _**Solução:**_
 
 #### <a name="tcp-resets-received"></a>Resets tCP recebidos
 
-Se observar resets TCP (pacotes TCP RST) recebidos na fonte VM, podem ser gerados pela porta de entrada NAT do lado privado para fluxos que não são reconhecidos como em curso.  Uma razão possível é que a ligação TCP tem prazo inativo.  Pode ajustar o tempo de inatividade de 4 minutos a até 120 minutos.
+O portal NAT gera resets de TCP na fonte VM para tráfego que não é reconhecido como em curso.
 
-Os resets tCP não são gerados no lado público dos recursos de gateway naNA. Se receber Resets TCP no lado do destino, são gerados pela pilha vm de origem e não pelo recurso de gateway NAT.
+Uma razão possível é que a ligação TCP tem prazo inativo.  Pode ajustar o tempo de inatividade de 4 minutos a até 120 minutos.
+
+Os resets tCP não são gerados no lado público dos recursos de gateway na NAT. Os resets de TCP no lado do destino são gerados pela fonte VM, e não pelo recurso de gateway NAT.
 
 _**Solução:**_
 
@@ -158,7 +157,7 @@ _**Solução:**_
 
 ### <a name="ipv6-coexistence"></a>Coexistência IPv6
 
-[O NAT da Rede Virtual](nat-overview.md) suporta os protocolos IPv4 UDP e TCP e a implantação numa [subnet com prefixo IPv6 não é suportada](nat-overview.md#limitations).
+[O NAT da Rede Virtual](nat-overview.md) suporta protocolos IPv4 UDP e TCP e a implantação numa [subnet com prefixo IPv6 não é suportada](nat-overview.md#limitations).
 
 _**Solução:**_ Desloque o gateway NAT numa subnet sem prefixo IPv6.
 

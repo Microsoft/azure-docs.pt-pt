@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 818c053c22cfa47cac0f4f6a19349cf239d3cdec
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396860"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258125"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reproteger falhou sobre os VMs azure para a região primária
 
@@ -90,6 +90,6 @@ As seguintes condições determinam quanto é que os dados são replicados:
 |A região de origem tem 1 VM com 1 disco padrão DE TB.<br/>Apenas são utilizados dados de 127 GB e o resto do disco está vazio.<br/>O tipo de disco é padrão com 60 mib/s de entrada.<br/>Nenhuma alteração de dados após a falha.| Tempo aproximado: 45 minutos - 1,5 horas.<br/>Durante a reproteção, a Recuperação do Local preencherá a verificação de todos os dados que demorarão 127 GB/ 45 MBs, aproximadamente 45 minutos.<br/>É necessário algum tempo para a recuperação do local à escala automática, aproximadamente 20-30 minutos.<br/>Sem acusações de Egress. |
 |A região de origem tem 1 VM com 1 disco padrão DE TB.<br/>Apenas são utilizados dados de 127 GB e o resto do disco está vazio.<br/>O tipo de disco é padrão com 60 mib/s de entrada.<br/>45 GB de dados muda após a falha.| Tempo aproximado: 1 hora a 2 horas.<br/>Durante a reproteção, a Recuperação do Local preencherá a verificação de todos os dados que demorarão 127 GB/ 45 MBs, aproximadamente 45 minutos.<br/>Tempo de transferência para aplicar alterações de 45 GB que são de 45 GB/ 45 MBps, aproximadamente 17 minutos.<br/>Os encargos com a Egress seriam para alterações de dados de 45 GB, não para a verificação. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de o VM estar protegido, pode iniciar uma falha. A falha encerra o VM na região secundária e cria e arranca o VM na região primária, com breves tempos de paragem durante este processo. Recomendamos que escolha um momento adequado para este processo e que faça uma falha no teste antes de dar início a uma falha completa no local principal. [Saiba mais](site-recovery-failover.md) sobre o fracasso da Recuperação do Site Azure.

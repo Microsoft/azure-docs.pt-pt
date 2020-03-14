@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre desempenho do aplicativo
-description: Obtenha respostas para perguntas frequentes sobre problemas de disponibilidade, desempenho e aplicativos no serviço Azure App.
+title: Perguntas-gerais de desempenho da aplicação
+description: Obtenha respostas a perguntas frequentes sobre disponibilidade, desempenho e problemas de aplicação no Serviço de Aplicações Azure.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -9,106 +9,107 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659718"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259867"
 ---
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de desempenho do aplicativo para aplicativos Web no Azure
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas de desempenho de aplicações para aplicações web em Azure
 
 > [!NOTE]
-> Algumas das diretrizes a seguir podem funcionar apenas nos serviços de aplicativos do Windows ou do Linux. Por exemplo, os serviços de aplicativos do Linux são executados no modo de 64 bits por padrão.
+> Algumas das diretrizes abaixo só podem funcionar em Serviços de Aplicações Windows ou Linux. Por exemplo, os Serviços de Aplicações Linux funcionam em modo de 64 bits por padrão.
 >
 
-Este artigo tem respostas para perguntas frequentes sobre problemas de desempenho de aplicativos para o [recurso de aplicativos Web do serviço de Azure app](https://azure.microsoft.com/services/app-service/web/).
+Este artigo tem respostas a perguntas frequentes (PERGUNTAS) sobre problemas de desempenho de aplicações para a [funcionalidade de Aplicações Web do Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-is-my-app-slow"></a>Por que meu aplicativo está lento?
+## <a name="why-is-my-app-slow"></a>Porque é que a minha aplicação é lenta?
 
-Vários fatores podem contribuir para o desempenho lento do aplicativo. Para obter etapas de solução de problemas detalhadas, consulte [solucionar problemas de desempenho do aplicativo Web lento](troubleshoot-performance-degradation.md).
+Vários fatores podem contribuir para um desempenho lento da aplicação. Para obter passos detalhados de resolução de problemas, consulte [o desempenho lento da aplicação web troubleshoot](troubleshoot-performance-degradation.md).
 
-## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Como fazer solucionar um cenário de alto consumo de CPU?
+## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Como posso resolver um cenário de consumo de CPU?
 
-Em alguns cenários de alto consumo de CPU, seu aplicativo pode realmente exigir mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Em outras ocasiões, o alto consumo de CPU pode ser causado por um loop incorreto ou por uma prática de codificação. Obter informações sobre o que está disparando o aumento do consumo de CPU é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo do processo. Para obter mais informações, consulte [capturar e analisar um arquivo de despejo para alto consumo de CPU para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Em alguns cenários elevados de consumo de CPU, a sua aplicação pode realmente necessitar de mais recursos informáticos. Nesse caso, considere a escala para um nível de serviço mais elevado para que a aplicação obtenha todos os recursos de que necessita. Outras vezes, o elevado consumo de CPU pode ser causado por um mau ciclo ou por uma prática de codificação. Obter informações sobre o que está a desencadear o aumento do consumo de CPU é um processo em duas partes. Primeiro, crie um depósito de processo, e depois analise o despejo do processo. Para mais informações, consulte [Capturar e analisar um ficheiro de despejo para um alto consumo de CPU para Aplicações Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
-## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Como fazer solucionar um cenário de alto consumo de memória?
+## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Como posso resolver um cenário de alto consumo de memória?
 
-Em alguns cenários de alto consumo de memória, seu aplicativo pode realmente exigir mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória. Obter informações sobre o que está disparando o alto consumo de memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo do processo. O diagnóstico de falhas da Galeria de extensões de site do Azure pode executar com eficiência essas duas etapas. Para obter mais informações, consulte [capturar e analisar um arquivo de despejo para uma memória alta intermitente para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Em alguns cenários de alto consumo de memória, a sua aplicação pode realmente necessitar de mais recursos informáticos. Nesse caso, considere a escala para um nível de serviço mais elevado para que a aplicação obtenha todos os recursos de que necessita. Outras vezes, um inseto no código pode causar uma fuga de memória. Uma prática de codificação também pode aumentar o consumo de memória. Obter informações sobre o que está a desencadear um elevado consumo de memória é um processo em duas partes. Primeiro, crie um depósito de processo, e depois analise o despejo do processo. O Diagnosticizador de Acidentes da Galeria de Extensão do Sítio Azure pode executar eficazmente estes dois passos. Para mais informações, consulte [Capturar e analisar um ficheiro de despejo para alta memória intermitente para Aplicações Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
-## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Como fazer automatizar aplicativos Web do serviço de aplicativo usando o PowerShell?
+## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Como automatizar aplicações web do App Service utilizando o PowerShell?
 
-Você pode usar os cmdlets do PowerShell para gerenciar e manter aplicativos Web do serviço de aplicativo. Em nossa postagem de blog [automatizar aplicativos Web hospedados no serviço Azure App usando o PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), descrevemos como usar cmdlets do PowerShell baseados em Azure Resource Manager para automatizar tarefas comuns. A postagem do blog também tem um código de exemplo para várias tarefas de gerenciamento de aplicativos Web. Para obter descrições e sintaxe para todos os cmdlets de aplicativos Web do serviço de aplicativo, consulte [AZ. sites](/powershell/module/az.websites).
+Pode utilizar cmdlets PowerShell para gerir e manter aplicações web do App Service. No nosso blog post [Aplicações web Automate hospedadas no Azure App Service utilizando o PowerShell,](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)descrevemos como usar cmdlets PowerShell baseados em Recursos Azure para automatizar tarefas comuns. O post do blog também tem código de amostra para várias tarefas de gestão de aplicações web. Para descrições e sintaxe para todas as aplicações web do App Service, consulte [Az.Websites](/powershell/module/az.websites).
 
-## <a name="how-do-i-view-my-web-apps-event-logs"></a>Como fazer exibir os logs de eventos do meu aplicativo Web?
+## <a name="how-do-i-view-my-web-apps-event-logs"></a>Como vejo os registos de eventos da minha aplicação web?
 
-Para exibir os logs de eventos de seu aplicativo Web:
+Para ver os registos de eventos da sua aplicação web:
 
-1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. No menu, selecione **console de depuração** > **cmd**.
-3. Selecione a pasta **LogFiles** .
-4. Para exibir os logs de eventos, selecione o ícone de lápis ao lado de **EventLog. xml**.
-5. Para baixar os logs, execute o cmdlet do PowerShell `Save-AzureWebSiteLog -Name webappname`.
+1. Inscreva-se no seu [site da Kudu.](https://*yourwebsitename*.scm.azurewebsites.net)
+2. No menu, selecione **Debug Console** > **CMD**.
+3. Selecione a pasta **LogFiles.**
+4. Para ver os registos de eventos, selecione o ícone do lápis ao lado do **eventlog.xml**.
+5. Para descarregar os registos, execute o cmdlet PowerShell `Save-AzureWebSiteLog -Name webappname`.
 
-## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Como fazer capturar um despejo de memória do modo de usuário do meu aplicativo Web?
+## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Como posso capturar um despejo de memória em modo utilizador da minha aplicação web?
 
-Para capturar um despejo de memória de modo de usuário de seu aplicativo Web:
+Para capturar um despejo de memória em modo utilizador da sua aplicação web:
 
-1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Selecione o menu **Process Explorer** .
-3. Clique com o botão direito do mouse no processo **w3wp. exe** ou no processo WebJob.
-4. Selecione **baixar despejo de memória** > **despejo completo**.
+1. Inscreva-se no seu [site da Kudu.](https://*yourwebsitename*.scm.azurewebsites.net)
+2. Selecione o menu **Process Explorer.**
+3. Clique no processo **w3wp.exe** ou no seu processo WebJob.
+4. Selecione **Descarregar despejo de memória** > despejo **completo**.
 
-## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como fazer exibir informações de nível de processo para meu aplicativo Web?
+## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como vejo informações de nível de processo para a minha aplicação web?
 
-Você tem duas opções para exibir informações de nível de processo para seu aplicativo Web:
+Tem duas opções para visualizar informações de nível de processo para a sua aplicação web:
 
 *   No portal do Azure:
-    1. Abra o **Gerenciador de processos** para o aplicativo Web.
-    2. Para ver os detalhes, selecione o processo **w3wp. exe** .
-*   No console do kudu:
-    1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-    2. Selecione o menu **Process Explorer** .
-    3. Para o processo **w3wp. exe** , selecione **Propriedades**.
+    1. Abra o **Process Explorer** para a aplicação web.
+    2. Para ver os detalhes, selecione o processo **w3wp.exe.**
+*   Na consola kudu:
+    1. Inscreva-se no seu [site da Kudu.](https://*yourwebsitename*.scm.azurewebsites.net)
+    2. Selecione o menu **Process Explorer.**
+    3. Para o processo **w3wp.exe,** selecione **Propriedades**.
 
-## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>Quando navego até meu aplicativo, vejo "erro 403-este aplicativo Web foi interrompido". Como fazer resolver isso?
+## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>Quando navego na minha aplicação, vejo "Error 403 - Esta aplicação web é interrompida." Como posso resolver isto?
 
-Três condições podem causar esse erro:
+Três condições podem causar este erro:
 
-* O aplicativo Web atingiu um limite de cobrança e seu site foi desabilitado.
-* O aplicativo Web foi interrompido no Portal.
-* O aplicativo Web atingiu um limite de cota de recursos que pode ser aplicado a um plano de serviço de escala livre ou compartilhado.
+* A aplicação web atingiu um limite de faturação e o seu site foi desativado.
+* A aplicação web foi interrompida no portal.
+* A aplicação web atingiu um limite de quota de recursos que pode aplicar-se a um plano de serviço à escala livre ou partilhada.
 
-Para ver o que está causando o erro e resolver o problema, siga as etapas em [aplicativos Web: "erro 403 – este aplicativo Web está parado"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Para ver o que está a causar o erro e resolver o problema, siga os passos nas [Aplicações Web: "Error 403 – Esta aplicação web está parada"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
-## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Onde posso saber mais sobre cotas e limites para vários planos do serviço de aplicativo?
+## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Onde posso aprender mais sobre quotas e limites para vários planos de Serviço de Aplicações?
 
-Para obter informações sobre cotas e limites, consulte [limites do serviço de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
+Para obter informações sobre quotas e limites, consulte os limites do Serviço de [Aplicações.](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) 
 
-## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Como fazer diminuir o tempo de resposta para a primeira solicitação após o tempo ocioso?
+## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Como reduzi o tempo de resposta para o primeiro pedido após o tempo de inatividade?
 
-Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Dessa forma, o sistema pode conservar recursos. A desvantagem é que a resposta à primeira solicitação depois que o aplicativo Web é descarregado é mais longa, para permitir que o aplicativo Web seja carregado e comece a fornecer respostas. Nos planos de serviço básico e Standard, você pode ativar a configuração de **Always on** para manter o aplicativo sempre carregado. Isso elimina tempos de carregamento mais longos depois que o aplicativo está ocioso. Para alterar a configuração de **Always on** :
+Por padrão, as aplicações web são descarregadas se ficarem inativas por um determinado período de tempo. Desta forma, o sistema pode conservar recursos. A desvantagem é que a resposta ao primeiro pedido após o descarregamento da aplicação web é mais longa, para permitir que a aplicação web carregue e comece a servir respostas. Nos planos de serviço Basic e Standard, pode ligar a definição **Always On** para manter a aplicação sempre carregada. Isto elimina tempos de carga mais longos após a aplicação estar inativa. Para alterar a definição **sempre em cima:**
 
-1. No portal do Azure, acesse seu aplicativo Web.
-2. Selecione **configurações do aplicativo**.
-3. Para **Always on**, selecione **ativado**.
+1. No portal Azure, vá à sua aplicação web.
+2. **Configuração** selecione
+3. Selecione **as definições gerais**.
+4. Para **sempre ligado,** selecione **On**.
 
-## <a name="how-do-i-turn-on-failed-request-tracing"></a>Como fazer ativar o rastreamento de solicitação com falha?
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>Como ligo o pedido falhado?
 
-Para ativar o rastreamento de solicitação com falha:
+Para ativar o rastreio de pedido falhado:
 
-1. No portal do Azure, acesse seu aplicativo Web.
-3. Selecione **todas as configurações** > **logs de diagnóstico**.
-4. Para **rastreamento de solicitação com falha**, selecione **ativado**.
+1. No portal Azure, vá à sua aplicação web.
+3. **Selecione todas as definições** > **registos**de diagnóstico .
+4. Para rastreio de **pedido falhado,** selecione **On**.
 5. Selecione **Guardar**.
-6. Na folha do aplicativo Web, selecione **ferramentas**.
-7. Selecione **Visual Studio online**.
-8. Se a configuração não estiver **ativada**, selecione **ativada**.
-9. Selecione **ir**.
-10. Selecione **Web. config**.
-11. Em System. NetServer, adicione esta configuração (para capturar uma URL específica):
+6. Na lâmina da aplicação web, selecione **Tools**.
+7. Selecione **Estúdio Visual Online**.
+8. Se a definição não estiver **ligado,** selecione **On**.
+9. Selecione **Go**.
+10. Selecione **Web.config**.
+11. No system.webServer, adicione esta configuração (para capturar um URL específico):
 
     ```xml
     <system.webServer>
@@ -125,7 +126,7 @@ Para ativar o rastreamento de solicitação com falha:
     </add> </traceFailedRequests>
     </tracing>
     ```
-12. Para solucionar problemas de desempenho lento, adicione essa configuração (se a solicitação de captura estiver demorando mais de 30 segundos):
+12. Para resolver problemas de desempenho lento, adicione esta configuração (se o pedido de captura estiver a demorar mais de 30 segundos):
     ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
@@ -140,51 +141,51 @@ Para ativar o rastreamento de solicitação com falha:
     </add> </traceFailedRequests>
     </tracing>
     ```
-13. Para baixar os rastreamentos de solicitação com falha, no [portal](https://portal.azure.com), acesse seu site.
-15. Selecione **ferramentas** > **kudu** > **go**.
-18. No menu, selecione **console de depuração** > **cmd**.
+13. Para descarregar os vestígios de pedido falhados, no [portal,](https://portal.azure.com)vá ao seu site.
+15. Selecione **Ferramentas** > **Kudu** > **Go**.
+18. No menu, selecione **Debug Console** > **CMD**.
 19. Selecione a pasta **LogFiles** e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
-20. Para ver o arquivo XML, selecione o ícone de lápis.
+20. Para ver o ficheiro XML, selecione o ícone do lápis.
 
-## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Vejo a mensagem "o processo de trabalho solicitou reciclagem devido ao limite de ' porcentagem de memória '." Como fazer resolver esse problema?
+## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Vejo a mensagem "Processo de Trabalhador pediu reciclagem devido ao limite de 'Memória Por Cento'." Como posso abordar esta questão?
 
-A quantidade máxima de memória disponível para um processo de 32 bits (mesmo em um sistema operacional de 64 bits) é de 2 GB. Por padrão, o processo de trabalho é definido como 32 bits no serviço de aplicativo (para compatibilidade com aplicativos Web herdados).
+A quantidade máxima de memória disponível para um processo de 32 bits (mesmo num sistema operativo de 64 bits) é de 2 GB. Por padrão, o processo do trabalhador está definido para 32 bits no App Service (para compatibilidade com aplicações web legados).
 
-Considere a possibilidade de alternar para os processos de 64 bits para que você possa aproveitar a memória adicional disponível em sua função Web Worker. Isso dispara uma reinicialização do aplicativo Web, portanto, agende adequadamente.
+Considere mudar para processos de 64 bits para que possa tirar partido da memória adicional disponível no seu papel de Web Worker. Isto despoleta o reinício de uma aplicação web, por isso, agende em conformidade.
 
-Observe também que um ambiente de 64 bits requer um plano de serviço básico ou Standard. Os planos gratuito e compartilhado sempre são executados em um ambiente de 32 bits.
+Note também que um ambiente de 64 bits requer um plano de serviço Básico ou Standard. Os planos gratuitos e partilhados funcionam sempre num ambiente de 32 bits.
 
-Para obter mais informações, consulte [configurar aplicativos Web no serviço de aplicativo](configure-common.md).
+Para mais informações, consulte [as aplicações web da Configure no App Service](configure-common.md).
 
-## <a name="why-does-my-request-time-out-after-230-seconds"></a>Por que minha solicitação atingiu o tempo limite após 230 segundos?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>Porque é que o meu pedido acaba depois de 230 segundos?
 
-Azure Load Balancer tem uma configuração de tempo limite de ociosidade padrão de quatro minutos. Esse é geralmente um limite de tempo de resposta razoável para uma solicitação da Web. Se seu aplicativo Web exigir processamento em segundo plano, recomendamos o uso de Azure WebJobs. O aplicativo Web do Azure pode chamar webjobs e ser notificado quando o processamento em segundo plano for concluído. Você pode escolher entre vários métodos para usar trabalhos Web, incluindo filas e gatilhos.
+O Equilíbrio de Carga Azure tem um tempo limite de quatro minutos. Este é geralmente um prazo de resposta razoável para um pedido web. Se a sua aplicação web necessitar de processamento de fundo, recomendamos a utilização do Azure WebJobs. A aplicação web Azure pode ligar para webJobs e ser notificada quando o processamento de fundo estiver terminado. Pode escolher entre vários métodos para usar WebJobs, incluindo filas e gatilhos.
 
-O webjobs foi projetado para processamento em segundo plano. Você pode fazer tanto processamento em segundo plano quanto desejar em um WebJob. Para obter mais informações sobre trabalhos Web, consulte [executar tarefas em segundo plano com trabalhos](webjobs-create.md)Web.
+WebJobs é projetado para processamento de fundo. Pode fazer o processamento de antecedentes que quiser num WebJob. Para obter mais informações sobre webJobs, consulte executar tarefas de [fundo com WebJobs](webjobs-create.md).
 
-## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>Os aplicativos ASP.NET Core hospedados no serviço de aplicativo às vezes param de responder. Como fazer corrigir esse problema?
+## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET aplicações Core que são hospedadas no App Service às vezes deixam de responder. Como posso resolver este problema?
 
-Um problema conhecido com uma versão anterior do [Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) pode fazer com que um aplicativo ASP.NET Core 1,0 hospedado no serviço de aplicativo pare de responder intermitentemente. Você também pode ver esta mensagem: "o aplicativo CGI especificado encontrou um erro e o servidor encerrou o processo."
+Um problema conhecido com uma [versão kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) anterior pode fazer com que uma ASP.NET aplicação Core 1.0 que está hospedada no App Service para parar intermitentemente de responder. Pode também ver esta mensagem: "A aplicação CGI especificada encontrou um erro e o servidor terminou o processo."
 
-Esse problema é corrigido na versão Kestrel do 1.0.2. Esta versão está incluída na atualização do ASP.NET Core 1.0.3. Para resolver esse problema, certifique-se de atualizar suas dependências de aplicativo para usar o Kestrel 1.0.2. Como alternativa, você pode usar uma das duas soluções alternativas descritas na postagem do blog [ASP.NET Core 1,0 problemas de desempenho lentos nos aplicativos Web do serviço de aplicativo](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
+Esta edição é corrigida na versão 1.0.2 da Kestrel. Esta versão está incluída na atualização ASP.NET Core 1.0.3. Para resolver este problema, certifique-se de atualizar as dependências da sua aplicação para utilizar o Kestrel 1.0.2. Em alternativa, pode utilizar uma das duas sobras descritas na publicação de blog ASP.NET problemas de [perf lentos Core 1.0 em aplicações web do App Service.](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites)
 
 
-## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Não consigo encontrar meus arquivos de log na estrutura de arquivos do meu aplicativo Web. Como posso encontrá-los?
+## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Não encontro os meus ficheiros de registo na estrutura de ficheiros da minha aplicação web. Como posso encontrá-los?
 
-Se você usar o recurso de cache local do serviço de aplicativo, a estrutura de pastas das pastas de arquivos de log e de dados para sua instância do serviço de aplicativo será afetada. Quando o cache local é usado, as subpastas são criadas nas pastas de dados e arquivos de log de armazenamento. As subpastas usam o padrão de nomenclatura "identificador exclusivo" + carimbo de data/hora. Cada subpasta corresponde a uma instância de VM na qual o aplicativo Web está em execução ou foi executado.
+Se utilizar a funcionalidade Cache Local do Serviço de Aplicações, a estrutura de pastas das pastas LogFiles e Data para a sua instância de Serviço de Aplicações é afetada. Quando a Cache Local é utilizada, as subpastas são criadas nas pastas de registo de armazenamento Files e Data. As subpastas utilizam o padrão de nomeação "identificador único" + carimbo de tempo. Cada subpasta corresponde a uma instância VM em que a aplicação web está a funcionar ou executa.
 
-Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração do aplicativo `WEBSITE_LOCAL_CACHE_OPTION` será definida como `Always`.
+Para determinar se está a utilizar cache local, verifique o separador de definições de aplicações do serviço de **aplicações.** Se o Cache Local estiver a ser utilizado, a definição de `WEBSITE_LOCAL_CACHE_OPTION` da aplicação está definida para `Always`.
 
-Se você não estiver usando o cache local e estiver enfrentando esse problema, envie uma solicitação de suporte.
+Se não estiver a usar cache local e estiver a passar por este problema, apresente um pedido de apoio.
 
-## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Vejo a mensagem "foi feita uma tentativa de acessar um soquete de uma maneira proibida por suas permissões de acesso". Como fazer resolver isso?
+## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Vejo a mensagem "Foi feita uma tentativa de aceder a uma tomada de uma forma proibida pelas suas permissões de acesso." Como posso resolver isto?
 
-Esse erro normalmente ocorre se as conexões TCP de saída na instância de VM estiverem esgotadas. No serviço de aplicativo, os limites são impostos para o número máximo de conexões de saída que podem ser feitas para cada instância de VM. Para obter mais informações, consulte [limites numéricos de VM cruzada](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
+Este erro ocorre normalmente se as ligações TCP de saída na instância VM estiverem esgotadas. No Serviço de Aplicações, são aplicados limites para o número máximo de ligações de saída que podem ser feitas para cada instância VM. Para mais informações, consulte [os limites numéricos cross-VM](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
 
-Esse erro também pode ocorrer se você tentar acessar um endereço local do seu aplicativo. Para obter mais informações, consulte [solicitações de endereço local](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
+Este erro também pode ocorrer se tentar aceder a um endereço local a partir da sua aplicação. Para mais informações, consulte [os pedidos de morada local](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
 
-Para obter mais informações sobre conexões de saída em seu aplicativo Web, consulte a postagem de blog sobre [conexões de saída para sites do Azure](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
+Para obter mais informações sobre ligações de saída na sua aplicação web, consulte a publicação de blog sobre [ligações de saída a websites Azure](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
 
-## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Como fazer usar o Visual Studio para depurar remotamente meu aplicativo Web do serviço de aplicativo?
+## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Como uso o Visual Studio para depurar remotamente a minha aplicação web do App Service?
 
-Para obter uma explicação detalhada que mostra como depurar seu aplicativo Web usando o Visual Studio, consulte [depuração remota do aplicativo Web do serviço de aplicativo](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+Para uma passagem detalhada que lhe mostre como depurar a sua aplicação web usando o Visual Studio, consulte [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).

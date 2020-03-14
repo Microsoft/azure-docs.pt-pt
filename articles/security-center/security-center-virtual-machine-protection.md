@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
 ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380830"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282643"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja as suas máquinas e aplicações
 Quando o Azure Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
@@ -198,7 +198,7 @@ O Centro de Segurança analisa as suas configurações do Docker e fornece-lhe v
 ![separador de recipiente](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte os seguintes artigos:
 
 * [Lista completa de referência das recomendações de segurança do Azure Security Center](recommendations-reference.md)

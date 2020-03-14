@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: b-juche
 ms.openlocfilehash: b76edb2d0db806d8ff4935d2b093fee3c2bb34d7
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925376"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248544"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS FREQUENTES Sobre ficheiros Azure NetApp
 

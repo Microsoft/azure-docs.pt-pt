@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396876"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256435"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configure a geo-replicação ativa para a Base de Dados Azure SQL no portal Azure e inicie a falha
 
@@ -91,7 +91,7 @@ Esta operação termina permanentemente a replicação para a base de dados secu
     ![Remover secundário](./media/sql-database-geo-replication-portal/remove-secondary.png)
 5. Abre-se uma janela de confirmação. Clique em **Sim** para remover a base de dados da parceria de geo-replicação. (Desloque-o para uma base de dados de leitura e escrita não parte de qualquer replicação.)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a geo-replicação ativa, consulte a [geo-replicação ativa.](sql-database-active-geo-replication.md)
 * Para aprender sobre grupos de auto-failover, consulte [grupos de falha automática](sql-database-auto-failover-group.md)

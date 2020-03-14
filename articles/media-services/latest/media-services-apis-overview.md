@@ -14,11 +14,11 @@ ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 4a3b699c90e1fefb834f8ddfe3a23fc2a97354ec
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359352"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251417"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com Media Services v3 APIs
 
@@ -150,7 +150,7 @@ Confira o artigo da [comunidade Azure Media Services](media-services-community.m
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligue-se aos Serviços de Media com Java](configure-connect-java-howto.md)
 * [Ligue-se aos Serviços de Media com .NET](configure-connect-dotnet-howto.md)

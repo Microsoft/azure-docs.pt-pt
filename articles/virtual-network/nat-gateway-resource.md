@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: d78828b2e439668dbc0cd8567560a709256dad5f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359099"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217019"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Conceber redes virtuais com recursos de gateway NAT (Visualização Pública)
 
@@ -31,10 +31,6 @@ Os recursos de gateway NAT fazem parte da [Rede Virtual NAT](nat-overview.md) e 
 </p>
 
 *Figura: Rede Virtual NAT para saída para a Internet*
-
-
->[!NOTE] 
->A Rede Virtual NAT está disponível como pré-visualização pública neste momento. Atualmente só está disponível num conjunto limitado de [regiões.](nat-overview.md#region-availability) Esta pré-visualização é fornecida sem um acordo de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter mais informações.
 
 ## <a name="how-to-deploy-nat"></a>Como implantar o NAT
 
@@ -147,7 +143,7 @@ Reveja esta secção para se familiarizar com considerações para conceber rede
 
 ### <a name="cost-optimization"></a>Otimização de custos
 
-[Os pontos finais](virtual-network-service-endpoints-overview.md) do serviço e a [ligação privada](../private-link/private-link-overview.md) são duas opções a considerar para otimizar o custo onde o NAT não é necessário.  Qualquer tráfego direcionado para pontos finais de serviço ou ligação privada não é processado pelo NAT da rede virtual.  
+[Os pontos finais](virtual-network-service-endpoints-overview.md) do serviço e o [link privado](../private-link/private-link-overview.md) são opções a considerar para otimizar o custo. O NAT não é necessário para estes serviços. O tráfego direcionado para pontos finais de serviço ou ligação privada não é processado pelo NAT da rede virtual.  
 
 Os pontos finais do serviço ligam os recursos de serviço azure à sua rede virtual e controlam o acesso aos seus recursos de serviço Azure. Por exemplo, quando aceder ao armazenamento do Azure, utilize um ponto final de serviço para armazenamento para evitar encargos nat processados de dados. Os pontos finais de serviço são gratuitos.
 
@@ -335,37 +331,33 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 ## <a name="limitations"></a>Limitações
 
 - O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga.   Os recursos básicos (por exemplo, o equilíbrio básico de carga) e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
-- A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.  O NAT não pode ser implantado numa sub-rede com prefixo IPv6.
+- A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.  O NAT não pode ser implantado numa sub-rede com um prefixo IPv6.
 - A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
 - O NAT não pode abranger várias redes virtuais.
 
-## <a name="preview-participation"></a>Visualização da participação
-
-Siga [as instruções para ativar a sua subscrição](nat-overview.md#public-preview-participation).
 
 ## <a name="feedback"></a>Comentários
 
-Queremos saber como podemos melhorar o serviço. Partilhe connosco o seu [feedback sobre a Pré-Visualização Pública.](https://aka.ms/natfeedback)  E pode propor e votar o que devemos construir a seguir na [UserVoice para o NAT](https://aka.ms/natuservoice).
+Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos construir a seguir na [UserVoice para o NAT](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Conheça a [rede virtual NAT](nat-overview.md).
 * Conheça [métricas e alertas para os recursos](nat-metrics.md)de gateway NAT .
 * Saiba mais sobre a resolução de recursos de [gateway na NAT.](troubleshoot-nat.md)
-* [Diga-nos o que construir a seguir para a Rede Virtual NAT no UserVoice](https://aka.ms/natuservoice).
-* [Forneça feedback sobre a Pré-Visualização Pública](https://aka.ms/natfeedback).
 * Tutorial para validar na NaT Gateway
-  - [Azure CLI,](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell,](tutorial-create-validate-nat-gateway-cli.md)
+  - [CLI do Azure](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
   - [Portal](tutorial-create-validate-nat-gateway-cli.md)
 * Quickstart para implantar um recurso de gateway NAT
-  - [Azure CLI,](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell,](./quickstart-create-nat-gateway-powershell.md)
-  - [Portal.](./quickstart-create-nat-gateway-portal.md)
+  - [CLI do Azure](./quickstart-create-nat-gateway-cli.md)
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
+  - [Portal](./quickstart-create-nat-gateway-portal.md)
 * Conheça a API do recurso de gateway NAT
-  - [REST API,](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI,](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+  - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+
 * Conheça [as zonas de disponibilidade.](../availability-zones/az-overview.md)
 * Saiba mais sobre o [equilíbrio de carga padrão.](../load-balancer/load-balancer-standard-overview.md)
 * Conheça [as zonas de disponibilidade e o equilibrador de carga padrão.](../load-balancer/load-balancer-standard-availability-zones.md)

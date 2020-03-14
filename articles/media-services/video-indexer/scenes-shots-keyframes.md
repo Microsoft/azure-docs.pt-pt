@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363942"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245944"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e keyframes
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
 ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361355"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272737"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
 
@@ -25,7 +25,7 @@ Utilizando o [portal Azure,](https://portal.azure.com)pode gerir os clusters [Ap
 
 Um aglomerado Apache Hadoop existente no HDInsight.  Consulte [a Create Linux clusters em HDInsight utilizando o portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Introdução
 
 Inicie sessão em [https://portal.azure.com](https://portal.azure.com).
 
@@ -258,7 +258,7 @@ O azulejo do tamanho do **Cluster** da [página inicial](#homePage) do cluster m
 - [Use a Colmeia Apache com HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 - [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu algumas funções administrativas básicas. Para saber mais, consulte os seguintes artigos:
 

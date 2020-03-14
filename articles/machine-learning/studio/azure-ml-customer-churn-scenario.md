@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 79a7b157d5daf8940aba454808c65ed433cfe29c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 4cf918abae51ca330054ef86e57095d29a21a37a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169001"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204533"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analise o Customer Churn usando o Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## <a name="overview"></a>Descrição geral
 Este artigo apresenta uma implementação de referência de um projeto de análise de churn do cliente que é construído usando o Azure Machine Learning Studio (clássico). Neste artigo, discutimos a modelos genéricos associados para holística resolver o problema de abandono de clientes industriais. Podemos também medir a precisão de modelos que são criadas com Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
 

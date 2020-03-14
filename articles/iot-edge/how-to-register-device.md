@@ -10,11 +10,11 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f7facb539a84d39e6659627e80ecc560fc87591c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673513"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285100"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registe um dispositivo Azure IoT Edge
 

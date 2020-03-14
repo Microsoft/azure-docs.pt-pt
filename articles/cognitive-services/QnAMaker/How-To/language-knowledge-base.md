@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389402"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220635"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Suporte linguístico do conteúdo da base de conhecimento para o Fabricante qnA
 
@@ -68,7 +68,7 @@ Pode verificar a linguagem do seu recurso QnA Maker a partir da página de defin
 ![Imagem de portal do QnA Maker da página de definições do serviço](../media/language-support/language-knowledge-base.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Migrar uma base de conhecimento](../Tutorials/migrate-knowledge-base.md)

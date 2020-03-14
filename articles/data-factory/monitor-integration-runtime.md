@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357195"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261141"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorize um tempo de integração na Azure Data Factory  
 O tempo de execução da **integração** é a infraestrutura computacional utilizada pela Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de tempos de integração oferecidos pela Data Factory:
@@ -55,7 +55,7 @@ O quadro seguinte fornece possíveis estatutos de um tempo de execução de inte
 | Estado | Comentários/Cenários | 
 | ------ | ------------------ |
 | Online | O tempo de execução da integração Azure está online e pronto para ser usado. | 
-| Offline | O tempo de funcionamento da integração Azure está offline devido a um erro interno. |
+| Banda | O tempo de funcionamento da integração Azure está offline devido a um erro interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime de integração autoalojado
 Esta secção fornece descrições para propriedades devolvidas pelo Get-AzDataFactoryV2IntegrationTimetime cmdlet. 
@@ -94,7 +94,7 @@ O quadro seguinte fornece possíveis estatutos de um nó de tempo de integraçã
 | Estado | Descrição |
 | ------ | ------------------ | 
 | Online | O nó está ligado ao serviço data Factory. |
-| Offline | O nó está offline. |
+| Banda | O nó está offline. |
 | Atualizar | O nó está a ser atualizado automaticamente. |
 | Limitado | Devido a um problema de conectividade. Pode ser devido a http porta 8050, problema de conectividade de ônibus de serviço, ou um problema de sincronização credencial. |
 | Inativo | O nó está numa configuração diferente da configuração de outros nódosos maioritários. |
@@ -108,7 +108,7 @@ A tabela que se segue fornece possíveis estatutos de um tempo de execução de 
 | ------ | ----------- | 
 | Necessidade de Inscrição | Nenhum nó está registado neste tempo de integração auto-hospedado ainda. |
 | Online | Todos os nós estão online. |
-| Offline | Nenhum nó está online. |
+| Banda | Nenhum nó está online. |
 | Limitado | Nem todos os nós neste tempo de integração auto-hospedado estão num estado saudável. Este estado é um aviso de que alguns nós podem estar em baixo. Este estatuto pode dever-se a uma questão de sincronização credencial no nó de expedidor/trabalhador. |
 
 Utilize o **Cmdlet Get-AzDataFactoryV2IntegrationTimeTimeMetric** cmdlet para obter a carga útil JSON contendo as propriedades de tempo de execução de integração auto-hospedada detalhada, e os seus valores instantâneos durante o tempo de execução do cmdlet.

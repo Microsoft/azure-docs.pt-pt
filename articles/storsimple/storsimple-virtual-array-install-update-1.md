@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365723"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254511"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instale a Atualização 1.0 na sua Matriz Virtual StorSimple
 
@@ -127,6 +127,6 @@ Este procedimento leva cerca de 4 minutos para ser concluído. Execute os seguin
 > [!NOTE]
 > Se aplicou diretamente o Update 1 a um dispositivo que executa uma versão antes do Update 0.6, está a perder algumas atualizações. Contacte o Microsoft Support para os próximos passos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

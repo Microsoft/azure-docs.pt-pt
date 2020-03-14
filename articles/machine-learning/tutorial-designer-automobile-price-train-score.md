@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
-ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.date: 03/04/2020
+ms.openlocfilehash: ed3667ada834437e81ffdcb9161c2a726fe6a6dc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396203"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238665"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever o preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -262,16 +262,16 @@ Utilize o módulo **'Avaliar modelo'** para avaliar a forma como o seu modelo ob
 
 Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de gasodutos para treinar o seu modelo de aprendizagem automática. Você pode submeter um pipeline executado em qualquer ponto enquanto constrói oleodutos no designer. Pode fazer isto para verificar o seu trabalho à medida que vai e verificar as suas funções de pipeline como esperado.
 
-1. Na parte superior da tela, selecione **Executar**.
+1. Na parte superior da tela, selecione **Submeter**.
 
-1. Na caixa de diálogo de execução do **gasoduto Configurar, selecione** **+ Nova experiência** para a **Experiência**.
+1. Na caixa de diálogo de execução do **gasoduto Configurar,** selecione **Criar nova**.
 
     > [!NOTE]
     > Experiências grupo gasoduto semelhante corre juntos. Se executar um pipeline várias vezes, pode selecionar a mesma experiência para execuções sucessivas.
 
-    1. Introduza um nome descritivo para **Nome da Experiência**.
+    1. Introduza um nome descritivo para **novo nome da experiência**.
 
-    1. Selecione **Executar**.
+    1. Selecione **Submeter**.
     
     Pode ver o estado de execução e os detalhes na parte superior direita da tela.
 

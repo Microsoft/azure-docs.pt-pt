@@ -5,11 +5,11 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359648"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248817"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços suportados, schemas e categorias para Registos de Recursos Azure
 
@@ -125,7 +125,7 @@ Algumas categorias só podem ser apoiadas para tipos específicos de recursos. E
 |Microsoft.Databricks/espaços de trabalho|dbfs|Sistema de Ficheiros do Databricks|
 |Microsoft.Databricks/espaços de trabalho|aglomerados|Clusters de tijolos de dados|
 |Microsoft.Databricks/espaços de trabalho|accounts|Contas databricks|
-|Microsoft.Databricks/espaços de trabalho|Empregos|Empregos de Databricks|
+|Microsoft.Databricks/espaços de trabalho|empregos|Empregos de Databricks|
 |Microsoft.Databricks/espaços de trabalho|caderno|Databricks Notebook|
 |Microsoft.Databricks/espaços de trabalho|SSH|Databricks SSH|
 |Microsoft.Databricks/espaços de trabalho|área de trabalho|Espaço de trabalho de Databricks|

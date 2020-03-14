@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f06c50c35e25f2f64948c5f18672e00382d4ef42
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: d8c3357325eadefec7bb97faba5d600e9c6793a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892969"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276715"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de networking de funções Azure
 
@@ -54,6 +54,8 @@ O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas 
     * Para mais informações, consulte [os pontos finais do serviço](../virtual-network/virtual-network-service-endpoints-overview.md)de rede virtual .
     * Tenha em mente que, com pontos finais de serviço, a sua função ainda tem acesso total à internet, mesmo com a integração virtual da rede configurada.
 * O acesso ao site privado também está disponível dentro de um App Service Environment que está configurado com um equilibrista de carga interna (ILB). Para mais informações, consulte [Criar e utilizar um equilibrador de carga interno com um Ambiente de Serviço de Aplicações](../app-service/environment/create-ilb-ase.md).
+
+Para saber como configurar o acesso ao site privado, consulte o acesso privado ao [site do Azure Functions](functions-create-private-site-access.md).
 
 ## <a name="virtual-network-integration"></a>Integração da rede virtual
 

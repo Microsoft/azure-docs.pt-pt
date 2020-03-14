@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381859"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254771"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilize o serviço StorSimple Device Manager para gerir volumes (Atualizar 3 ou mais tarde)
 
@@ -57,8 +57,8 @@ Consulte o quadro seguinte para obter a máxima capacidade prevista para cada di
 | 8100 |64 TB |8 TB |
 | 8600 |64 TB |20 TB |
 | **Dispositivos virtuais** | | |
-| 8010 |30 TB |N/A |
-| 8020 |64 TB |N/A |
+| 8010 |30 TB |N/D |
+| 8020 |64 TB |N/D |
 
 ## <a name="the-volumes-blade"></a>A lâmina de volumes
 
@@ -317,7 +317,7 @@ Execute os seguintes passos para ativar ou desativar a monitorização durante u
 
 4. Clique em **Guardar** e quando solicitado para confirmação, clique **em Sim**. O portal Azure apresenta uma notificação para atualizar o volume e, em seguida, uma mensagem de sucesso, depois de o volume ser atualizado com sucesso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [clonar um volume StorSimple](storsimple-8000-clone-volume-u2.md).
 * Aprenda a [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

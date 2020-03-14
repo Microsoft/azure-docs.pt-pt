@@ -1,6 +1,6 @@
 ---
-title: (PRETERIDO) Gerir um cluster do Swarm do Azure com a API do Docker
-description: Implementar contentores para um cluster Docker Swarm no Azure Container Service
+title: (DEPRECIADO) Gerir o cluster Azure Swarm com a API do Docker
+description: Desloque contentores para um aglomerado de estivadores de estivano no Serviço de Contentores Azure
 services: container-service
 author: rgardler
 manager: madhana
@@ -9,14 +9,14 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c76701ce74aafcccdbb2f1a2454f9528b52fc096
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61456571"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136232"
 ---
-# <a name="deprecated-container-management-with-docker-swarm"></a>(PRETERIDO) Gestão de contentores com o Docker Swarm
+# <a name="deprecated-container-management-with-docker-swarm"></a>(DEPRECIADO) Gestão de contentores com Docker Swarm
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -69,9 +69,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ## <a name="deploy-containers-by-using-docker-compose"></a>Implementar contentores utilizando o Docker Compose
 Pode utilizar o Docker Compose para automatizar a implementação e a configuração de vários contentores. Para tal, certifique-se de que foi criado um túnel Secure Shell (SSH) e que a variável DOCKER_HOST foi definida (ver os pré-requisitos acima).
 
-Crie um ficheiro docker-compose.yml no sistema local. Para tal, utilize este [exemplo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Crie um ficheiro docker-compose.yml no sistema local. Para isso, utilize esta amostra:
 
-```bash
+```dockerfile
 web:
   image: adtd/web:0.1
   ports:
@@ -112,6 +112,6 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 Naturalmente, pode utilizar `docker-compose ps` para examinar apenas os contentores definidos noficheiro `compose.yml`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre o Docker Swarm](https://docs.docker.com/swarm/)
 

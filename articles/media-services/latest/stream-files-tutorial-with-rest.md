@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
 ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359539"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238637"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - REST
 

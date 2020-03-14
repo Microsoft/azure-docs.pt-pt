@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: overview
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 560f34d21a68cecc4950db5dcceb9c8ef7b05a49
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614440"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219249"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplo de cenários de utilizador para a API de Análise de Texto
 

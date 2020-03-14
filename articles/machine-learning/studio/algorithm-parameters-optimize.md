@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 33705d0c9f2f405be733fd21c88cb83e96aec781
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168973"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218274"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Escolha parâmetros para otimizar os seus algoritmos no Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este tópico descreve como escolher o hiperparâmetro certo definido para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de machine learning tem parâmetros para definir. Quando preparar um modelo, terá de fornecer valores para esses parâmetros. A eficácia do modelo preparado depende dos parâmetros de modelo que escolher. O processo de encontrar o conjunto ideal de parâmetros é conhecido como seleção de *modelos.*
 
@@ -41,7 +43,7 @@ Pode definir o parâmetro definido para o passo de inicialização do modelo. A 
 
 ![Árvore de decisões elevada de duas classes, o único parâmetro](./media/algorithm-parameters-optimize/fig2.png)
 
- Alternadamente, pode definir os pontos máximos e mínimos da grelha e o número total de pontos a gerar com o Construtor de **Gama de Utilização**. Por predefinição, os valores de parâmetro são gerados numa escala linear. Mas se a **Escala de Registo** for verificada, os valores são gerados na escala de registo (isto é, a relação dos pontos adjacentes é constante em vez da sua diferença). Para os parâmetros de número inteiro, pode definir um intervalo utilizando um hífen. Por exemplo, "1 a 10" significa que todos os números inteiros entre 1 e 10 (ambos inclusivo) o conjunto de parâmetros de formulário. Também é suportado um modo misto. Por exemplo, defina o parâmetro "-1 a 10, 20, 50" incluiria inteiros 1 a 10, 20 e 50.
+ Alternadamente, pode definir os pontos máximos e mínimos da grelha e o número total de pontos a gerar com o Construtor de **Gama de Utilização**. Por predefinição, os valores de parâmetro são gerados numa escala linear. Mas se a **Escala de Registo** for verificada, os valores são gerados na escala de registo (isto é, a relação dos pontos adjacentes é constante em vez da sua diferença). Para os parâmetros de número inteiro, pode definir um intervalo utilizando um hífen. Por exemplo, "1-10" significa que todos os inteiros entre 1 e 10 (ambos inclusivos) formam o conjunto de parâmetros. Também é suportado um modo misto. Por exemplo, o parâmetro definido "1-10, 20, 50" incluiria os inteiros 1-10, 20 e 50.
 
 ![Árvore de decisões elevada de duas classes, intervalo de parâmetro](./media/algorithm-parameters-optimize/fig3.png)
 

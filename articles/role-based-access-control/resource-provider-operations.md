@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/12/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9b3a1175b5e22b787c62365d3b113e02ec1d1326
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6b0d967dad250b06988865cde2f4ce11367f8acb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361909"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245775"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de Recursos Azure
 
@@ -448,10 +448,9 @@ Serviço Azure: [Gestão API](../api-management/index.yml)
 > | Ação | Microsoft.ApiManagement/service/gateways/read | Lista uma coleção de gateways registados com instância de serviço. ou obtém os detalhes do Gateway especificados pelo seu identificador. |
 > | Ação | Microsoft.ApiManagement/service/gateways/write | Cria ou atualiza um Gateway a ser utilizado na instância Api Management. ou atualiza os detalhes do portal especificados pelo seu identificador. |
 > | Ação | Microsoft.ApiManagement/service/gateways/delete | Elimina gateway específico. |
-> | Ação | Microsoft.ApiManagement/service/gateways/keys/action | Recupera as chaves do portal. |
-> | Ação | Microsoft.ApiManagement/service/gateways/regeneraprimaryKey/action | Regenera a chave primária de gateway invalidação quaisquer fichas criadas com ela. |
-> | Ação | Microsoft.ApiManagement/service/gateways/regeneraçãoSecondaryKey/action | Regenera a invalidação da chave secundária de gateway, quaisquer fichas criadas com ela. |
-> | Ação | Microsoft.ApiManagement/service/gateways/token/action | Obtém o Token de Autorização de Acesso Partilhado para o portal. |
+> | Ação | Microsoft.ApiManagement/service/gateways/listKeys/action | Recupera as chaves do portal. |
+> | Ação | Microsoft.ApiManagement/service/gateways/regeneraçãoChave/ação | Regenera a invalidação da chave de gateway especificada, quaisquer fichas criadas com ela. |
+> | Ação | Microsoft.ApiManagement/service/gateways/generateToken/action | Obtém o Token de Autorização de Acesso Partilhado para o portal. |
 > |  | **serviço/gateways/apis** |  |
 > | Ação | Microsoft.ApiManagement/service/gateways/apis/read | Lista uma coleção das APIs associadas a um portal. |
 > | Ação | Microsoft.ApiManagement/service/gateways/apis/write | Adiciona uma API ao Gateway especificado. |
@@ -483,7 +482,7 @@ Serviço Azure: [Gestão API](../api-management/index.yml)
 > | Ação | Microsoft.ApiManagement/service/namedValues/read | Lista uma coleção de valores nomeados definidos numa instância de serviço. ou obtém os detalhes do valor nomeado especificados pelo seu identificador. |
 > | Ação | Microsoft.ApiManagement/service/namedValues/write | Cria ou atualiza o valor nomeado. ou Atualiza o valor específico nomeado. |
 > | Ação | Microsoft.ApiManagement/service/namedValues/delete | Elimina o valor específico nomeado da instância de serviço de Gestão API. |
-> | Ação | Microsoft.ApiManagement/service/namedValues/listSecrets/action | Obtém os segredos do valor nomeado especificado pelo seu identificador. |
+> | Ação | Microsoft.ApiManagement/service/namedValues/listValue/action | Obtém o segredo do valor nomeado especificado pelo seu identificador. |
 > |  | **estado de serviço/rede** |  |
 > | Ação | Microsoft.ApiManagement/service/networkstatus/read | Obtém o estado de acesso à rede dos recursos de que o serviço depende. |
 > |  | **serviço/notificações** |  |
@@ -809,6 +808,18 @@ Serviço Azure: [Automação](../automation/index.yml)
 > | Ação | Microsoft.Automation/automationAccounts/nodes/reports/content/read | Lê conteúdos de relatório sinuoso da Automação Azure |
 > |  | **automatizaçãoContas/objetoDataTypes/campos** |  |
 > | Ação | Microsoft.Automation/automationAccounts/objectDataTypes/fields/read | Obtém Campos de Automação Azure |
+> |  | **automatizaçõesContas/privateEndpointConnectionProxies** |  |
+> | Ação | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/read | Lê procuração de ligação de ponto final de automação azure |
+> | Ação | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/write | Cria um proxy de ligação de ponto final privado de automação Azure |
+> | Ação | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/validate/action | Validar um pedido de ligação de ponto final privado (validação groupId) |
+> | Ação | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/delete | Eliminar um proxy de ligação de ponto final privado de automação Azure |
+> |  | **automatizaçõesContas/privateEndpointConnectionProxies/operaçãoResultados** |  |
+> | Ação | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/operationResults/read | Obtenha resultados da operação de procuração de ponto final da Azure Automation. |
+> |  | **automatizaçõesContas/privateEndpointConnections** |  |
+> | Ação | Microsoft.Automação/automatizaçãoContas/privateEndpointConnections/read | Obtenha o estatuto de ligação de endpoint privado da automação Azure |
+> | Ação | Microsoft.Automation/automationAccounts/privateEndpointConnections/write | Aprovar ou rejeitar uma ligação de endpoint privado da Automação Azure |
+> |  | **automatizaçãoContas/privateLinkResources** |  |
+> | Ação | Microsoft.Automation/automationAccounts/privateLinkResources/read | Lê informações do grupo para pontos finais privados |
 > |  | **automatizaçãoContas/python2Pacotes** |  |
 > | Ação | Microsoft.Automation/automationAccounts/python2Packages/read | Recebe um pacote Azure Automation Python 2 |
 > | Ação | Microsoft.Automation/automationAccounts/python2Packages/write | Cria ou atualiza um pacote Azure Automation Python 2 |
@@ -910,6 +921,8 @@ Serviço Azure: núcleo
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.AzureStack/register/action | Regista subscrição com fornecedor de recursos Microsoft.AzureStack |
+> |  | **cloudManifestFiles** |  |
+> | Ação | Microsoft.AzureStack/cloudManifestFiles/read | Obtém o Ficheiro Manifesto nuvem |
 > |  | **Operações** |  |
 > | Ação | Microsoft.AzureStack/Operations/read | Obtém as propriedades de uma operação de fornecedor de recursos |
 > |  | **registos** |  |
@@ -927,8 +940,6 @@ Serviço Azure: núcleo
 > | Ação | Microsoft.AzureStack/registrations/products/getProducts/action | Recupera uma lista de produtos Azure Stack Marketplace |
 > | Ação | Microsoft.AzureStack/registrations/products/getProduct/action | Recupera o produto Azure Stack Marketplace |
 > | Ação | Microsoft.AzureStack/registrations/products/uploadProductLog/action | Estado de funcionamento do produto Record Azure Stack Marketplace e carimbo de tempo |
-> |  | **verificaçãoKeys** |  |
-> | Ação | Microsoft.AzureStack/verificationKeys/getCurrentKey/action | Obtém a versão atual do Azure Stack assinando chave pública |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -1010,6 +1021,7 @@ Serviço Azure: [Cost Management + Faturação](../cost-management-billing/index
 > | Ação | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
 > | Ação | Microsoft.Billing/billingAccounts/billingProfiles/read |  |
 > | Ação | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
+> | Ação | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
 > |  | **billingAccounts/billingPerfis/billingPermissions** |  |
 > | Ação | Microsoft.Billing/billingAccounts/billingProfiles/billingPermissions/read |  |
 > |  | **contas/faturaçãoPerfis/clientes** |  |
@@ -1019,6 +1031,7 @@ Serviço Azure: [Cost Management + Faturação](../cost-management-billing/index
 > |  | **billingAccounts/billingPerfis/faturasSecs** |  |
 > | Ação | Microsoft.Billing/billingAccounts/billingProfiles/faturasSecs/write |  |
 > | Ação | Microsoft.Billing/billingAccounts/billingProfiles/faturasSecs/read |  |
+> | Ação | Microsoft.Billing/billingAccounts/billingProfiles/faturasSecs/write |  |
 > |  | **billingAccounts/billingPerfis/faturaS/billingPermissions** |  |
 > | Ação | Microsoft.Billing/billingAccounts/billingProfiles/faturasSections/billingPermissions/read |  |
 > |  | **billingAccounts/billingPerfis/faturaS/billingSubscris** |  |
@@ -1263,14 +1276,6 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Ação | Microsoft.Cdn/CheckNameAvailability/action |  |
 > | Ação | Microsoft.Cdn/ValidateProbe/action |  |
 > | Ação | Microsoft.Cdn/CheckResourceUsage/action |  |
-> |  | **cdnwebapplicationfirewallmanagedrulesets** |  |
-> | Ação | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/read |  |
-> | Ação | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/write |  |
-> | Ação | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/delete |  |
-> |  | **cdnwebapplicationfirewallpolicies** |  |
-> | Ação | Microsoft.Cdn/cdnwebapplicationapplicationfirewallpolicies/read |  |
-> | Ação | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/write |  |
-> | Ação | Microsoft.Cdn/cdnwebapplicationapplicationfirewallpolicies/eliminar |  |
 > |  | **talhenos** |  |
 > | Ação | Microsoft.Cdn/edgenodes/read |  |
 > | Ação | Microsoft.Cdn/edgenodes/write |  |
@@ -1279,10 +1284,6 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Ação | Microsoft.Cdn/operationresults/read |  |
 > | Ação | Microsoft.Cdn/operationresults/write |  |
 > | Ação | Microsoft.Cdn/operationresults/delete |  |
-> |  | **resultados de operações/cdnwebapplicationfirewallpolicyresults** |  |
-> | Ação | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/read |  |
-> | Ação | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/write |  |
-> | Ação | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/delete |  |
 > |  | **resultados de operações/perfis** |  |
 > | Ação | Microsoft.Cdn/operationresults/profileresults/read |  |
 > | Ação | Microsoft.Cdn/operationresults/profileresults/write |  |
@@ -1306,6 +1307,10 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/delete |  |
 > | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/DisableCustomHttps/action |  |
 > | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/EnableCustomHttps/action |  |
+> |  | **resultados de operações/resultados de perfis/resultados finais/origingroupresults** |  |
+> | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/origingroupresults/read |  |
+> | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/origingroupresults/write |  |
+> | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/origingroupresults/delete |  |
 > |  | **resultados de operações/resultados de perfis/resultados finais/resultados de origens** |  |
 > | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/read |  |
 > | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/write |  |
@@ -1335,6 +1340,10 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Ação | Microsoft.Cdn/profiles/endpoints/customdomains/delete |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/customdomains/DisableCustomHttps/action |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/customdomains/EnableCustomHttps/action |  |
+> |  | **perfis/pontos finais/grupos de origens** |  |
+> | Ação | Microsoft.Cdn/perfis/pontos finais/origingroups/read |  |
+> | Ação | Microsoft.Cdn/perfis/pontos finais/origingroups/write |  |
+> | Ação | Microsoft.Cdn/perfis/pontos finais/origingroups/delete |  |
 > |  | **perfis/pontos finais/origens** |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/origins/read |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/origins/write |  |
@@ -1756,6 +1765,7 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
+> | Ação | Microsoft.CognitiveServices/register/action | Ação de Registo de Assinaturas |
 > | Ação | Microsoft.CognitiveServices/register/action | Regista subscrição de serviços cognitivos |
 > | Ação | Microsoft.CognitiveServices/checkDomainAvailability/action | Lê SKUs disponíveis para uma subscrição. |
 > | Ação | Microsoft.CognitiveServices/register/action | Regista subscrição de serviços cognitivos |
@@ -2447,6 +2457,8 @@ Serviço Azure: [Registo de Contentores](../container-registry/index.yml)
 > | Ação | Microsoft.ContainerRegistry/registries/queueBuild/action | Cria uma nova construção com base nos parâmetros de pedido e adiciona-a à fila de construção. |
 > | Ação | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Obtenha a localização da url de carregamento de fonte para um registo de contentores. |
 > | Ação | Microsoft.ContainerRegistry/registries/scheduleRun/action | Agende uma corrida contra um registo de contentores. |
+> |  | **registos/grupos de agentes** |  |
+> | Ação | Microsoft.ContainerRegistry/registros/agentpools/listQueueStatus/action | Enumera rita todo o estado da fila de uma lista de agentes para um registo de contentores. |
 > |  | **registos/artefactos** |  |
 > | Ação | Microsoft.ContainerRegistry/registries/artifacts/delete | Apagar artefactos num registo de contentores. |
 > |  | **registos/construções** |  |
@@ -2510,6 +2522,8 @@ Serviço Azure: [Registo de Contentores](../container-registry/index.yml)
 > | Ação | Microsoft.ContainerRegistry/registros/scopeMaps/operationStatuses/read | Obtém um estado de funcionamento de mapa de âmbito. |
 > |  | **registos/sinal** |  |
 > | Ação | Microsoft.ContainerRegistry/registries/sign/write | Empurre/Puxe os metadados fidedignos de conteúdo para um registo de contentores. |
+> |  | **registos/taskruns** |  |
+> | Ação | Microsoft.ContainerRegistry/registros/taskruns/listDetails/action | Enumerar todos os detalhes de uma execução de tarefas para um registo de contentores. |
 > |  | **registos/tarefas** |  |
 > | Ação | Microsoft.ContainerRegistry/registries/tasks/read | Obtém uma tarefa para um registo de contentores ou lista todas as tarefas. |
 > | Ação | Microsoft.ContainerRegistry/registries/tasks/write | Cria ou atualiza uma tarefa para um registo de contentores. |
@@ -2812,6 +2826,9 @@ Serviço Azure: [Azure Databricks](../azure-databricks/index.yml)
 > | Ação | Microsoft.Databricks/workspaces/delete | Remove um espaço de trabalho databricks. |
 > | Ação | Microsoft.Databricks/workspaces/refreshPermissions/action | Atualizar permissões para um espaço de trabalho |
 > | Ação | Microsoft.Databricks/workspaces/updateDenyAssignment/action | Atualização negar atribuição não ações para um grupo de recursos geridos de um espaço de trabalho |
+> | Ação | Microsoft.Databricks/workspaces/refreshWorkspaces/action | Atualizar um espaço de trabalho com novos detalhes como URL |
+> |  | **espaços de trabalho/dbWorkspaces** |  |
+> | Ação | Microsoft.Databricks/workspaces/dbWorkspaces/write | Inicializa o espaço de trabalho dos Databricks (apenas interno) |
 > |  | **espaços de trabalho/fornecedores/Microsoft.Insights/diagnosticSettings** |  |
 > | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Define as definições de diagnóstico disponíveis para o espaço de trabalho databricks |
 > | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Adicione ou modifique as definições de diagnóstico. |
@@ -3470,7 +3487,7 @@ Serviço Azure: [Base de Dados Azure para PostgreSQL](../postgresql/index.yml)
 > | Ação | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Obtém o ajuste desassemático para o recurso |
 > | Ação | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
 > |  | **servidores/fornecedores/Microsoft.Insights/logDefinitions** |  |
-> | Ação | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para servidores Postgres |
+> | Ação | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para servidores PostgreSQL |
 > |  | **servidores/fornecedores/Microsoft.Insights/metricDefinitions** |  |
 > | Ação | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Tipos de retorno de métricas disponíveis para bases de dados |
 > |  | **servidores/consultaTextos** |  |
@@ -3506,7 +3523,7 @@ Serviço Azure: [Base de Dados Azure para PostgreSQL](../postgresql/index.yml)
 > | Ação | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | Obtém o ajuste desassemático para o recurso |
 > | Ação | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
 > |  | **servidorsv2/fornecedores/Microsoft.Insights/logDefinitions** |  |
-> | Ação | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para servidores Postgres |
+> | Ação | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Obtém os registos disponíveis para servidores PostgreSQL |
 > |  | **servidorsv2/fornecedores/Microsoft.Insights/metricDefinitions** |  |
 > | Ação | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | Tipos de retorno de métricas disponíveis para bases de dados |
 
@@ -3597,6 +3614,7 @@ Serviço Azure: [IoT Hub,](../iot-hub/index.yml) [Serviço de Provisionamento de
 > | Ação | Microsoft.Devices/iotHubs/listkeys/Action | Pegue todas as Chaves IotHub |
 > | Ação | Microsoft.Devices/iotHubs/exportDevices/Action | Dispositivos de Exportação |
 > | Ação | Microsoft.Devices/iotHubs/importDevices/Action | Dispositivos de Importação |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnectionsApproval/Action | Aprovar ou rejeitar uma ligação de ponto final privado |
 > |  | **iotHubs/certificados** |  |
 > | Ação | Microsoft.Devices/iotHubs/certificates/Read | Recebe o Certificado |
 > | Ação | Microsoft.Devices/iotHubs/certificates/Write | Criar ou atualizar Certificado |
@@ -3611,6 +3629,10 @@ Serviço Azure: [IoT Hub,](../iot-hub/index.yml) [Serviço de Provisionamento de
 > |  | **IotHubs/diagnósticoDefinições** |  |
 > | Ação | Microsoft.Devices/IotHubs/diagnosticSettings/read | Obtém a definição de diagnóstico para o recurso |
 > | Ação | Microsoft.Devices/IotHubs/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o recurso |
+> |  | **iotHubs/digitalTwinsLinks** |  |
+> | Ação | Microsoft.Devices/iotHubs/digitalTwinsLinks/Write |  |
+> | Ação | Microsoft.Devices/iotHubs/digitalTwinsLinks/Read |  |
+> | Ação | Microsoft.Devices/iotHubs/digitalTwinsLinks/Delete |  |
 > |  | **iotHubs/eventoSGridFilters** |  |
 > | Ação | Microsoft.Devices/iotHubs/eventGridFilters/Write | Criar novo ou atualizar o filtro de rede de eventos existente |
 > | Ação | Microsoft.Devices/iotHubs/eventGridFilters/Read | Obtém o filtro da Grelha de Eventos |
@@ -3631,6 +3653,21 @@ Serviço Azure: [IoT Hub,](../iot-hub/index.yml) [Serviço de Provisionamento de
 > | Ação | Microsoft.Devices/IotHubs/metricDefinitions/read | Obtém as métricas disponíveis para o serviço IotHub |
 > |  | **iotHubs/resultados de operação** |  |
 > | Ação | Microsoft.Devices/iotHubs/operationresults/Read | Obtenha resultado da operação (API obsoleta) |
+> |  | **iotHubs/privateEndpointConnectionProxies** |  |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/valida/Action | Valida a entrada de proxy de ligação de ponto final privado durante a criação |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/Read | Obtém propriedades para procuração de ligação de ponto final privado especificada |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/Write | Cria ou atualiza um proxy de ligação de ponto final privado |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/Delete | Elimina um proxy de ligação de ponto final privado existente |
+> |  | **iotHubs/privateEndpointConnectionProxies/operaçãoResultados** |  |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/operationResults/Read | Obtenha o resultado de uma operação de asincronização num proxy de ligação de ponto final privado |
+> |  | **iotHubs/privateEndpointConnections** |  |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnections/Read | Obtém propriedades para ligação de ponto final privado especificada |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnections/Delete | Elimina uma ligação de ponto final privado existente |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnections/Write | Cria ou atualiza uma ligação de ponto final privado |
+> |  | **iotHubs/privateEndpointConnections/operationResults** |  |
+> | Ação | Microsoft.Devices/iotHubs/privateEndpointConnections/operationResults/Read | Obtenha o resultado de uma operação de asincronização numa ligação de ponto final privado |
+> |  | **iotHubs/privateLinkResources** |  |
+> | Ação | Microsoft.Devices/iotHubs/privateLinkResources/Read | Obtém recursos de ligação privada para iotHub |
 > |  | **iotHubs/quotaMetrics** |  |
 > | Ação | Microsoft.Devices/iotHubs/quotaMetrics/Read | Obtenha métricas de quota |
 > |  | **iotHubs/encaminhamento** |  |
@@ -4121,6 +4158,17 @@ Serviço Azure: [Grelha de Eventos](../event-grid/index.yml)
 > | Ação | Microsoft.EventGrid/domains/delete | Eliminar um domínio |
 > | Ação | Microsoft.EventGrid/domains/listKeys/action | Lista rumina chaves para um domínio |
 > | Ação | Microsoft.EventGrid/domains/regenerateKey/action | Chave regenerada para um domínio |
+> |  | **domínios/privateEndpointConnectionProxies** |  |
+> | Ação | Microsoft.EventGrid/domínios/privateEndpointConnectionProxies/validação/ação | Validar PrivateEndpointConnectionProxies para domínios |
+> | Ação | Microsoft.EventGrid/domínios/privateEndpointConnectionProxies/read | Ler PrivateEndpointConnectionProxies para domínios |
+> | Ação | Microsoft.EventGrid/domínios/privateEndpointConnectionProxies/write | Escreva PrivateEndpointConnectionProxies para domínios |
+> | Ação | Microsoft.EventGrid/domínios/privateEndpointConnectionProxies/delete | Eliminar PrivateEndpointConnectionProxies para domínios |
+> |  | **domínios/privateEndpointConnections** |  |
+> | Ação | Microsoft.EventGrid/domínios/privateEndpointConnections/read | Ler PrivateEndpointConnections para domínios |
+> | Ação | Microsoft.EventGrid/domínios/privateEndpointConnections/write | Escreva PrivateEndpointConnections para domínios |
+> | Ação | Microsoft.EventGrid/domínios/privateEndpointConnections/delete | Eliminar PrivateEndpointConnections para domínios |
+> |  | **domínios/privateLinkResources** |  |
+> | Ação | Microsoft.EventGrid/domínios/privateLinkResources/read | Obter ou listar PrivateLinkResources para domínios |
 > |  | **domínios/fornecedores/Microsoft.Insights/logDefinitions** |  |
 > | Ação | Microsoft.EventGrid/domínios/fornecedores/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de diagnóstico |
 > |  | **domínios/fornecedores/Microsoft.Insights/metricDefinitions** |  |
@@ -4160,12 +4208,56 @@ Serviço Azure: [Grelha de Eventos](../event-grid/index.yml)
 > | Ação | Microsoft.EventGrid/operations/read | Operações da List EventGrid. |
 > |  | **operaçõesEstatuto** |  |
 > | Ação | Microsoft.EventGrid/operationsStatus/read | Leia o estado de uma operação |
+> |  | **partnerNamespaces** |  |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/write | Criar ou atualizar um espaço de nome de parceiro |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/read | Leia um espaço de nome de parceiro |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/delete | Eliminar um espaço de nome de parceiro |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/listKeys/action | Lista de chaves para um espaço de nome de parceiro |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/regeneraçãoKey/action | Chave regenerativa para um espaço de nome de parceiro |
+> |  | **partnerNamespaces/eventChannels** |  |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/eventChannels/read | Leia um canal de eventos |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/eventChannels/write | Criar ou atualizar um canal de eventos |
+> | Ação | Microsoft.EventGrid/partnerNamespaces/eventChannels/delete | Eliminar um canal de eventos |
+> |  | **parceiroSRegistrations** |  |
+> | Ação | Microsoft.EventGrid/partnerRegistrations/write | Criar ou atualizar um registo de parceiro |
+> | Ação | Microsoft.EventGrid/partnerRegistrations/read | Ler inscrição de parceiro |
+> | Ação | Microsoft.EventGrid/partnerRegistrations/delete | Eliminar o registo de um parceiro |
+> |  | **parceiroTópicos** |  |
+> | Ação | Microsoft.EventGrid/partnerTopics/read | Leia um tópico de parceiro |
+> | Ação | Microsoft.EventGrid/partnerTopics/write | Criar ou atualizar um tópico de parceiro |
+> | Ação | Microsoft.EventGrid/partnerTopics/delete | Eliminar um tópico de parceiro |
+> | Ação | Microsoft.EventGrid/partnerTopics/activate/action | Ativar tópico de parceiro |
+> | Ação | Microsoft.EventGrid/partnerTopics/desativação/ação | Desativar o tópico do parceiro |
+> |  | **sku** |  |
+> | Ação | Microsoft.EventGrid/sku/read | Leia as Definições Sku disponíveis para recursos da grelha de eventos |
+> |  | **sistemaTópicos** |  |
+> | Ação | Microsoft.EventGrid/systemTopics/read | Leia um tópico do sistema |
+> | Ação | Microsoft.EventGrid/systemTopics/write | Criar ou atualizar um tópico do sistema |
+> | Ação | Microsoft.EventGrid/systemTopics/delete | Eliminar um tópico do sistema |
+> |  | **systemTopics/providers/Microsoft.Insights/diagnosticSettings** |  |
+> | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição de diagnóstico para tópicos do sistema |
+> | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para tópicos do sistema |
+> |  | **systemTopics/providers/Microsoft.Insights/logDefinitions** |  |
+> | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/logDefinitions/read | Permite o acesso a registos de diagnóstico |
+> |  | **systemTopics/providers/Microsoft.Insights/metricDefinitions** |  |
+> | Ação | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para tópicos do sistema |
 > |  | **tópicos** |  |
 > | Ação | Microsoft.EventGrid/topics/write | Criar ou atualizar um tópico |
 > | Ação | Microsoft.EventGrid/topics/read | Leia um tópico |
 > | Ação | Microsoft.EventGrid/topics/delete | Apagar um tópico |
 > | Ação | Microsoft.EventGrid/topics/listKeys/action | Lista ruminário de chaves para um tópico |
 > | Ação | Microsoft.EventGrid/topics/regenerateKey/action | Chave regenerada para um tópico |
+> |  | **tópicos/privateEndpointConnectionProxies** |  |
+> | Ação | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/validação/ação | Validar PrivateEndpointConnectionProxies para tópicos |
+> | Ação | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/read | Ler PrivateEndpointConnectionProxies para tópicos |
+> | Ação | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/write | Escreva PrivateEndpointConnectionProxies para tópicos |
+> | Ação | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/delete | Eliminar PrivateEndpointConnectionProxies para tópicos |
+> |  | **tópicos/privateEndpointConnections** |  |
+> | Ação | Microsoft.EventGrid/topics/privateEndpointConnections/read | Ler PrivateEndpointConnections para tópicos |
+> | Ação | Microsoft.EventGrid/topics/privateEndpointConnections/write | Escreva PrivateEndpointConnections para tópicos |
+> | Ação | Microsoft.EventGrid/topics/privateEndpointConnections/delete | Eliminar PrivateEndpointConnections para tópicos |
+> |  | **tópicos/privateLinkResources** |  |
+> | Ação | Microsoft.EventGrid/topics/privateLinkResources/read | Ler PrivateLinkResources para tópicos |
 > |  | **tópicos/fornecedores/Microsoft.Insights/diagnosticSettings** |  |
 > | Ação | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | Obtém o cenário de diagnóstico para tópicos |
 > | Ação | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para tópicos |
@@ -4259,6 +4351,11 @@ Serviço Azure: [Hubs de Eventos](../event-hubs/index.yml)
 > | Ação | Microsoft.EventHub/namespaces/networkrulesets/delete | Eliminar recurso de regra VNET |
 > |  | **espaços de nome/resultados de operação** |  |
 > | Ação | Microsoft.EventHub/namespaces/operationresults/read | Obtenha o estado da operação Namespace |
+> |  | **espaços de nome/privateEndpointConnectionProxies** |  |
+> | Ação | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/validação/ação | Validar procuração de ligação de ponto final privado |
+> | Ação | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/read | Obtenha procuração de ligação de ponto final privado |
+> | Ação | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/write | Criar procuração de ligação de ponto final privado |
+> | Ação | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/delete | Eliminar procuração de ligação de ponto final privado |
 > |  | **espaços de nome/fornecedores/Microsoft.Insights/diagnósticoDefinições** |  |
 > | Ação | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenha a lista de definições de diagnóstico do Espaço de Nome Descrições de recursos |
 > | Ação | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenha a lista de definições de diagnóstico do Espaço de Nome Descrições de recursos |
@@ -4885,6 +4982,8 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.Insights/myWorkbooks/Read | Leia um Livro privado |
 > |  | **Operações** |  |
 > | Ação | Microsoft.Insights/Operations/Read | Ler operações |
+> |  | **PrivateLinkScopeOperationStatuses** |  |
+> | Ação | Microsoft.Insights/PrivateLinkScopeOperationStatuses/Read | Leia um estado de funcionamento com âmbito de ligação privada |
 > |  | **PrivateLinkScopes** |  |
 > | Ação | Microsoft.Insights/PrivateLinkScopes/Read | Leia um âmbito de ligação privada |
 > | Ação | Microsoft.Insights/PrivateLinkScopes/Write | Criar ou atualizar um âmbito de ligação privada |
@@ -5630,6 +5729,7 @@ Serviço Azure: núcleo
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.Marketplace/register/action | Regista o fornecedor de recursos Microsoft.Marketplace na subscrição. |
+> | Ação | Microsoft.Marketplace/privateStores/action | Atualiza privateStore. |
 > |  | **ofertaTipos/editores/ofertas/planos/acordos** |  |
 > | Ação | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Devolve um acordo. |
 > | Ação | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Aceita um acordo assinado. |
@@ -5637,6 +5737,13 @@ Serviço Azure: núcleo
 > | Ação | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Devolve um config. |
 > | Ação | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Salva um config. |
 > | Ação | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Importa uma imagem para o ACR do utilizador final. |
+> |  | **lojas privadas** |  |
+> | Ação | Microsoft.Marketplace/privateStores/write | Cria a PrivateStore. |
+> | Ação | Microsoft.Marketplace/privateStores/delete | Elimina a PrivateStore. |
+> | Ação | Microsoft.Marketplace/privateStores/offers/action | Oferta de atualizações na PrivateStore. |
+> |  | **privateStores/ofertas** |  |
+> | Ação | Microsoft.Marketplace/privateStores/offers/write | Cria oferta na PrivateStore. |
+> | Ação | Microsoft.Marketplace/privateStores/offers/delete | Elimina a oferta da PrivateStore. |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -5988,6 +6095,10 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balancer de Carga
 > | Ação | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read | Obtém uma política de Aplicação Gateway WAF |
 > | Ação | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write | Cria uma política de Aplicação Gateway WAF ou atualiza uma política de Aplicação Gateway WAF |
 > | Ação | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Elimina uma política de WAF de Gateway de aplicação |
+> |  | **aplicaçõesRuleCollections** |  |
+> | Ação | Microsoft.Network/applicationRuleCollections/read | Obtém Azure Firewall ApplicationRuleCollection |
+> | Ação | Microsoft.Network/applicationRuleCollections/write | CriaorUpdates Azure Firewall ApplicationRuleCollection |
+> | Ação | Microsoft.Network/applicationRuleCollections/delete | Elimina a Aplicação de Firewall AzureRuleCollection |
 > |  | **aplicaçõesGrupos de Segurança** |  |
 > | Ação | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | Junta-se a uma configuração IP para grupos de segurança de aplicações. Não é alertável. |
 > | Ação | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Junta-se a uma Regra de Segurança aos Grupos de Segurança de Aplicações. Não é alertável. |
@@ -6259,6 +6370,22 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balancer de Carga
 > | Ação | Microsoft.Network/locations/usages/read | Obtém as métricas de utilização de recursos |
 > |  | **localizações/virtualNetworkAvailableEndpointServices** |  |
 > | Ação | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | Obtém uma lista dos serviços de endpoint de rede virtual disponíveis |
+> |  | **natRuleCollections** |  |
+> | Ação | Microsoft.Network/natRuleCollections/read | Obtém Azure Firewall NatRuleCollection |
+> | Ação | Microsoft.Network/natRuleCollections/write | CriaOrUpdates Azure Firewall NatRuleCollection |
+> | Ação | Microsoft.Network/natRuleCollections/delete | Elimina a Azure Firewall NatRuleCollection |
+> |  | **networkExperimentProfiles** |  |
+> | Ação | Microsoft.Network/networkExperimentProfiles/read | Obtenha um perfil de Analisador de Internet |
+> | Ação | Microsoft.Network/networkExperimentProfiles/write | Criar ou atualizar um perfil de Analisador de Internet |
+> | Ação | Microsoft.Network/networkExperimentProfiles/delete | Eliminar um perfil de Analisador de Internet |
+> |  | **networkExperimentProfiles/experimentos** |  |
+> | Ação | Microsoft.Network/networkExperimentProfiles/experiments/read | Faça um teste de Análise de Internet |
+> | Ação | Microsoft.Network/networkExperimentProfiles/experiments/write | Criar ou atualizar um teste de Análise da Internet |
+> | Ação | Microsoft.Network/networkExperimentProfiles/experiments/delete | Eliminar um teste de Análise da Internet |
+> | Ação | Microsoft.Network/networkExperimentProfiles/experiments/timeseries/action | Obtenha uma série de tempo de teste de análise de Internet |
+> | Ação | Microsoft.Network/networkExperimentProfiles/experiments/latencyScorecard/action | Obtenha um cartão de pontuação de latência do teste de análise da Internet |
+> |  | **networkExperimentProfiles/pontos de fim reconfigurados** |  |
+> | Ação | Microsoft.Network/networkExperimentProfiles/preconfiguredEndpoints/read | Obtenha os pontos finais pré-configurados do perfil do Analisador de Internet |
 > |  | **políticas de intenções de rede** |  |
 > | Ação | Microsoft.Network/networkIntentPolicies/read | Obtém uma descrição da política de intenções de rede |
 > | Ação | Microsoft.Network/networkIntentPolicies/write | Cria uma Política de Intenções de Rede ou atualiza uma política de intenções de rede existente |
@@ -6287,6 +6414,10 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balancer de Carga
 > | Ação | Microsoft.Network/networkProfiles/setContainers/action | Conjuntos contentores |
 > | Ação | Microsoft.Network/networkProfiles/removeContainers/action | Remove contentores |
 > | Ação | Microsoft.Network/networkProfiles/setNetworkInterfaces/action | Define interfaces de rede de contentores |
+> |  | **redeRuleCollections** |  |
+> | Ação | Microsoft.Network/networkRuleCollections/read | Obtém Azure Firewall NetworkRuleCollection |
+> | Ação | Microsoft.Network/networkRuleCollections/write | CriaOrUpdates Azure Firewall NetworkRuleCollection |
+> | Ação | Microsoft.Network/networkRuleCollections/delete | Elimina a Coleção de Regras de Rede de Firewall Azure |
 > |  | **networkSecurityGroups** |  |
 > | Ação | Microsoft.Network/networkSecurityGroups/read | Obtém uma definição de grupo de segurança de rede |
 > | Ação | Microsoft.Network/networkSecurityGroups/write | Cria um grupo de segurança de rede ou atualiza um grupo de segurança de rede existente |
@@ -7030,6 +7161,18 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ADFActivityRun/read | Leia os dados da tabela ADFActivityRun |
 > |  | **espaços de trabalho/consulta/ADFPipelineRun** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | Leia os dados da tabela ADFPipelineRun |
+> |  | **espaços de trabalho/consulta/ADFSSISIntegrationPrazoS** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/ADFSSISIntegrationRuntimeLogs/read | Leia os dados da tabela ADFSSISIntegrationRuntimeLogs |
+> |  | **espaços de trabalho/consulta/ADFSSISPackageEventMessageContext** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/ADFSSISPackageEventMessageContext/read | Leia os dados da tabela ADFSSISPackageEventMessageContext |
+> |  | **espaços de trabalho/consulta/ADFSSISPackageEventMessages** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/ADFSSISPackageEventMessages/read | Leia os dados da tabela ADFSSISPackageEventMessages |
+> |  | **espaços de trabalho/consulta/ADFSSISPackageExecutáveisEstatísticas** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/ADFSSISPackageExecutableStatistics/read | Leia os dados da tabela ADFSSISPackageExecutableStatistics |
+> |  | **espaços de trabalho/consulta/ADFSSISPackageExecutionComponentPhases** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/ADFSSISPackageExecutionComponentPhases/read | Leia os dados da tabela ADFSSISPackageExecutionComponentPhases |
+> |  | **espaços de trabalho/consulta/ADFSSISPackageExecutionDataStatistics** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/ADFSSISPackageExecutionDataStatistics/read | Leia os dados da tabela ADFSSISPackageExecutionDataStatistics |
 > |  | **espaços de trabalho/consulta/ADFTriggerRun** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | Leia os dados da tabela ADFTriggerRun |
 > |  | **espaços de trabalho/consulta/ADReplicationResult** |  |
@@ -7052,14 +7195,30 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.OperationalInsights/workspaces/consulta/AmlComputeJobEvent/read | Leia os dados da tabela AmlComputeJobEvent |
 > |  | **espaços de trabalho/consulta/ApiManagementGatewayLogs** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/consulta/ApiManagementGatewayLogs/read | Leia os dados da tabela ApiManagementGatewayLogs |
+> |  | **espaços de trabalho/consulta/AppAvailabilityResults** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppAvailabilityResults/read | Leia os dados da tabela AppAvailabilityResults |
+> |  | **espaços de trabalho/consulta/AppBrowserTimings** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppBrowserTimings/read | Leia os dados da tabela AppBrowserTimings |
 > |  | **espaços de trabalho/consulta/AppCenterError** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | Leia os dados da tabela AppCenterError |
+> |  | **espaços de trabalho/consulta/AppDependencies** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppDependencies/read | Leia os dados da tabela AppDependencies |
+> |  | **espaços de trabalho/consulta/Eventos de Aplicações** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppEvents/read | Leia os dados da tabela AppEvents |
 > |  | **espaços de trabalho/consulta/ApplicationInsights** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Ler dados da tabela ApplicationInsights |
+> |  | **espaços de trabalho/consulta/AppMetrics** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppMetrics/read | Leia os dados da tabela AppMetrics |
+> |  | **espaços de trabalho/consulta/AppPageViews** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppPageViews/read | Leia os dados da tabela AppPageViews |
+> |  | **espaços de trabalho/consulta/AppPerformanceCounters** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppPerformanceCounters/read | Leia os dados da tabela AppPerformanceCounters |
 > |  | **espaços de trabalho/consulta/AppPlatformLogsforSpring** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppPlatformLogsforSpring/read | Leia os dados da tabela AppPlatformLogsforSpring |
 > |  | **espaços de trabalho/consulta/AppPlatformSystemLogs** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppPlatformSystemLogs/read | Leia os dados da tabela AppPlatformSystemLogs |
+> |  | **espaços de trabalho/consulta/AppRequests** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppRequests/read | Leia os dados da tabela AppRequests |
 > |  | **espaços de trabalho/consulta/AppServiceAppLogs** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppServiceAppLogs/read | Leia os dados da tabela AppServiceAppLogs |
 > |  | **espaços de trabalho/consulta/AppServiceAuditLogs** |  |
@@ -7072,6 +7231,10 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppServiceFileAuditLogs/read | Leia os dados da tabela AppServiceFileAuditAuditLogs |
 > |  | **espaços de trabalho/consulta/AppServiceHTTPLogs** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppServiceHTTPLogs/read | Leia os dados da tabela AppServiceHTTPLogs |
+> |  | **espaços de trabalho/consulta/AppSystemEvents** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppSystemEvents/read | Leia os dados da tabela AppSystemEvents |
+> |  | **espaços de trabalho/consulta/AppTraces** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AppTraces/read | Leia os dados da tabela AppTraces |
 > |  | **espaços de trabalho/consulta/AuditLogs** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Leia os dados da tabela AuditLogs |
 > |  | **espaços de trabalho/consulta/AutoscaleEvaluationsLog** |  |
@@ -7086,6 +7249,8 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Leia os dados da tabela AzureActivity |
 > |  | **espaços de trabalho/consulta/AzureAssessmentRecommendation** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | Leia os dados do quadro de Recomendação AzureAssessment |
+> |  | **espaços de trabalho/consulta/AzureDiagnostics** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/AzureDiagnostics/read | Leia os dados da tabela AzureDiagnostics |
 > |  | **espaços de trabalho/consulta/AzureMetrics** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Leia os dados da tabela AzureMetrics |
 > |  | **espaços de trabalho/consulta/BaiClusterEvent** |  |
@@ -7424,6 +7589,8 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | Leia os dados do quadro de Recomendação spAssessment |
 > |  | **espaços de trabalho/consulta/SQLAssessmentRecommendation** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Leia os dados do quadro de recomendação da SQLAssessment |
+> |  | **espaços de trabalho/consulta/SqlDataClassification** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/consulta/SqlDataClassification/read | Leia os dados da tabela SqlDataClassification |
 > |  | **espaços de trabalho/consulta/SQLQueryPerformance** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Leia os dados da tabela SQLQueryPerformance |
 > |  | **espaços de trabalho/consulta/SqlThreatProtectionLoginAudits** |  |
@@ -7784,6 +7951,21 @@ Serviço Azure: [Recuperação do Site](../site-recovery/index.yml)
 > |  | **Abóbadas/configurações de monitorização** |  |
 > | Ação | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Obtém a configuração de notificação de cofre dos serviços de recuperação. |
 > | Ação | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Configures notificações de e-mail para cofre de serviços de recuperação. |
+> |  | **Cofres/privateEndpointConnectionProxies** |  |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/delete | Obtenha todos os recipientes protegidos |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/read | Obtenha todos os recipientes protegidos |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/validate/action | Obtenha todos os recipientes protegidos |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/write | Obtenha todos os recipientes protegidos |
+> |  | **Cofres/privateEndpointConnectionProxies/operaçãoResultados** |  |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/operationResults/read | Obtenha todos os recipientes protegidos |
+> |  | **Cofres/privateEndpointConnectionProxies/operationsStatus** |  |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/operationsStatus/read | Obtenha todos os recipientes protegidos |
+> |  | **Abóbadas/privateEndpointConnections** |  |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnections/write | Obtenha todos os recipientes protegidos |
+> |  | **Cofres/privateEndpointConnections/operaçãoResultados** |  |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnections/operationResults/read | Obtenha todos os recipientes protegidos |
+> |  | **Cofres/privateEndpointConnections/operationsStatus** |  |
+> | Ação | microsoft.recoveryservices/Vaults/privateEndpointConnections/operationsStatus/read | Obtenha todos os recipientes protegidos |
 > |  | **Cofres/Identidades registadas** |  |
 > | Ação | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | A operação do contentor de registo pode ser utilizada para registar um contentor com o Serviço de Recuperação. |
 > | Ação | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Get Containers pode ser utilizada para registar os contentores para um recurso. |
@@ -8008,6 +8190,11 @@ Serviço Azure: [Relé Azure](../service-bus-relay/relay-what-is-it.md)
 > | Ação | Microsoft.Relay/namespaces/networkrulesets/delete | Eliminar recurso de regra VNET |
 > |  | **espaços de nome/resultados de operação** |  |
 > | Ação | Microsoft.Relay/namespaces/operationresults/read | Obtenha o estado da operação Namespace |
+> |  | **espaços de nome/privateEndpointConnectionProxies** |  |
+> | Ação | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/validate/action | Validar procuração de ligação de ponto final privado |
+> | Ação | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/read | Obtenha procuração de ligação de ponto final privado |
+> | Ação | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/write | Criar procuração de ligação de ponto final privado |
+> | Ação | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/delete | Eliminar procuração de ligação de ponto final privado |
 > |  | **espaços de nome/fornecedores/Microsoft.Insights/diagnósticoDefinições** |  |
 > | Ação | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenha a lista de definições de diagnóstico do Espaço de Nome Descrições de recursos |
 > | Ação | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenha a lista de definições de diagnóstico do Espaço de Nome Descrições de recursos |
@@ -8043,6 +8230,8 @@ Serviço Azure: [Azure Service Health](../service-health/index.yml)
 > | Ação | Microsoft.ResourceHealth/AvailabilityStatuses/read | Obtém o estado de disponibilidade de todos os recursos no âmbito especificado |
 > |  | **DisponibilidadeStatuses/corrente** |  |
 > | Ação | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | Obtém o estado de disponibilidade do recurso especificado |
+> |  | **questões emergentes** |  |
+> | Ação | Microsoft.ResourceHealth/emergentes/read | Obter os problemas emergentes dos serviços azure |
 > |  | **eventos** |  |
 > | Ação | Microsoft.ResourceHealth/events/read | Obtenha Eventos de Saúde de Serviço para dada subscrição |
 > |  | **evento de saúde** |  |
@@ -8216,6 +8405,9 @@ Serviço Azure: Centro de [Segurança](../security-center/index.yml)
 > |  | **avaliações** |  |
 > | Ação | Microsoft.Segurança/avaliações/leitura | Obtenha avaliações de segurança na sua subscrição |
 > | Ação | Microsoft.Segurança/avaliações/escrita | Crie ou atualize avaliações de segurança na sua subscrição |
+> |  | **definições de autoprovisionamento** |  |
+> | Ação | Microsoft.Security/autoProvisioningSettings/read | Obtenha a definição de fornecimento de carros de segurança para a subscrição |
+> | Ação | Microsoft.Security/autoProvisioningSettings/write | Criar ou atualizar a definição de fornecimento automático de segurança para a subscrição |
 > |  | **conformidadeResultados** |  |
 > | Ação | Microsoft.Security/complianceResults/read | Obtém os resultados de conformidade para o recurso |
 > |  | **informaçõesProteçãoPolíticas** |  |
@@ -8406,6 +8598,11 @@ Serviço Azure: [Ônibus de serviço](../service-bus/index.md)
 > | Ação | Microsoft.ServiceBus/namespaces/networkrulesets/delete | Eliminar recurso de regra VNET |
 > |  | **espaços de nome/resultados de operação** |  |
 > | Ação | Microsoft.ServiceBus/namespaces/operationresults/read | Obtenha o estado da operação Namespace |
+> |  | **espaços de nome/privateEndpointConnectionProxies** |  |
+> | Ação | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/validação/ação | Validar procuração de ligação de ponto final privado |
+> | Ação | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/read | Obtenha procuração de ligação de ponto final privado |
+> | Ação | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/write | Criar procuração de ligação de ponto final privado |
+> | Ação | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/delete | Eliminar procuração de ligação de ponto final privado |
 > |  | **espaços de nome/fornecedores/Microsoft.Insights/diagnósticoDefinições** |  |
 > | Ação | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenha a lista de definições de diagnóstico do Espaço de Nome Descrições de recursos |
 > | Ação | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenha a lista de definições de diagnóstico do Espaço de Nome Descrições de recursos |
@@ -10522,7 +10719,7 @@ Serviço Azure: [Monitor Azure](../azure-monitor/index.yml)
 > |  | **operações** |  |
 > | Ação | Microsoft.WorkloadMonitor/operations/read | Obtém as operações apoiadas |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Prestador de recursos de correspondência para o serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Papéis personalizados do Azure](custom-roles.md)

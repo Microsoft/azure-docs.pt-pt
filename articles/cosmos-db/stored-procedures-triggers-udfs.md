@@ -8,11 +8,11 @@ ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388602"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246529"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 
@@ -79,7 +79,7 @@ O Azure Cosmos DB suporta dois tipos de acionadores:
 
 ### <a name="pre-triggers"></a>Pré-gatilhos
 
-O Azure Cosmos DB fornece acionadores que podem ser invocados ao executar uma operação num item do Azure Cosmos. Por exemplo, pode especificar um pré-acionador quando cria um item. Neste caso, o pré-acionador será executado antes da criação do item. Pré-acionadores não podem ter parâmetros de entrada. Se necessário, pode ser utilizado o objeto de pedido para atualizar o corpo do documento no pedido original. Quando os acionadores são registrados, os utilizadores podem especificar as operações que pode ser executado com. Se um gatilho foi criado com `TriggerOperation.Create`, isto significa que não será permitido utilizar o gatilho numa operação de substituição. Por exemplo, ver [Como escrever desencadeia](how-to-write-stored-procedures-triggers-udfs.md#triggers) artigo.
+O Azure Cosmos DB fornece acionadores que podem ser invocados ao executar uma operação num item do Azure Cosmos. Por exemplo, pode especificar um pré-acionador quando cria um item. Neste caso, o pré-acionador será executado antes da criação do item. Os pré-acionadores não podem ter parâmetros de entrada. Se necessário, pode ser utilizado o objeto de pedido para atualizar o corpo do documento no pedido original. Quando os acionadores são registados, os utilizadores podem especificar as operações com as quais estes podem ser executados. Se um gatilho foi criado com `TriggerOperation.Create`, isto significa que não será permitido utilizar o gatilho numa operação de substituição. Por exemplo, ver [Como escrever desencadeia](how-to-write-stored-procedures-triggers-udfs.md#triggers) artigo.
 
 ### <a name="post-triggers"></a>Pós-gatilhos
 
@@ -96,7 +96,7 @@ As funções definidas pelo utilizador (UDFs) são usadas para estender a sintax
 
 Além de emitir consultas utilizando sintaxe de consulta SQL API, o [SDK do lado do servidor permite-lhe](https://azure.github.io/azure-cosmosdb-js-server) realizar consultas utilizando uma interface JavaScript sem qualquer conhecimento do SQL. A Consulta JavaScript API permite-lhe construir consultas programáticas, passando funções predicadas em sequência de chamadas de função. As consultas são analisadas pelo tempo de execução do JavaScript e são executadas eficientemente dentro do Azure Cosmos DB. Para saber mais sobre o suporte da API de consulta JavaScript, consulte Trabalhar com o artigo da API integrado em [linguagem JavaScript.](javascript-query-api.md) Por exemplo, consulte Como escrever procedimentos e gatilhos armazenados usando o artigo [da Javascript Query API.](how-to-write-javascript-query-api.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba escrever e utilizar procedimentos, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB com os seguintes artigos:
 

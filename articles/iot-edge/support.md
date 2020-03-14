@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 3f1f4efc13e2d11e7111264564a227a484d611d5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395663"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284814"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas de suporte do Azure IoT Edge
 
@@ -56,7 +56,7 @@ A família do hospedeiro osso deve sempre corresponder à família do oss o de h
 ![anfitrião do OS combina com](./media/support/edge-on-device.png)
 </center> de os sois
 
-### <a name="tier-1"></a>Escalão 1
+### <a name="tier-1"></a>Nível 1
 
 Os sistemas listados na tabela seguinte são suportados pela Microsoft, geralmente disponíveis ou em pré-visualização pública, e são testados com cada nova versão. 
 

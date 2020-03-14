@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379629"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283150"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores de linguagem aos campos de cordas num índice de pesquisa cognitiva azure
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre propriedades indexadas, consulte [Create Ind
 ## <a name="language-analyzer-list"></a>Lista de analisadores de linguagem 
  Abaixo está a lista de idiomas suportados juntamente com nomes de lucene e analisadores da Microsoft.  
 
-|Linguagem|Nome do Analisador da Microsoft|Nome do Analisador Lucene|  
+|Idioma|Nome do Analisador da Microsoft|Nome do Analisador Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Arménio||hy.lucene|  

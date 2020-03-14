@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381434"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280537"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Diretório Ativo Azure para o Azure Red Hat OpenShift
 
@@ -92,15 +92,20 @@ Para mais detalhes sobre a criação de uma nova aplicação Azure AD, consulte 
 
 ## <a name="add-api-permissions"></a>Adicionar permissões API
 
-1. Na secção **Gerir** clique em **permissões API**.
-2. Clique em **Adicionar permissão** e selecione **Azure Ative Directory Graph** e, em seguida, **permissões delegadas**. 
-3. Expandir o **Utilizador** na lista abaixo e ativar a permissão **User.Read.** Se **o Utilizador.Read** estiver ativado por defeito, certifique-se de que é a permissão do **Gráfico de Diretório Ativo Azure** **User.Read**, *não* a permissão do **Microsoft Graph** **User.Read**.
+[//]: # (Não mude para o Microsoft Graph. Não funciona com o Microsoft Graph.)
+1. Na secção **Gerir** clique em **permissões API**
+2. Clique em **Adicionar permissão** e selecione **Azure Ative Directory Graph** e, em seguida, **permissões delegadas**.
+> [!NOTE]
+> Certifique-se de que selecionou o "Azure Ative Directory Graph" e não o azulejo "Microsoft Graph".
+
+3. Expandir o **Utilizador** na lista abaixo e ativar a permissão **User.Read.** Se **o Utilizador.Ler** estiver ativado por defeito, certifique-se de que é a permissão do **Gráfico de Diretório Ativo Azure** **User.Read**.
 4. Percorra e selecione **permissões**de aplicação .
-5. Expandir **o Diretório** na lista abaixo e ativar **o Diretório.ReadAll**
+5. Expandir **o Diretório** na lista abaixo e ativar **o Diretório.ReadAll**.
 6. Clique em **Adicionar permissões** para aceitar as alterações.
 7. O painel de permissões DaPI deve agora mostrar tanto *user.Read* como *Diretório.ReadAll*. Por favor, note o aviso em **consentimento da Administração requer uma** coluna próxima ao *Diretório.ReadAll*.
 8. Se for o Administrador de *Subscrição Azure,* clique no consentimento do **Administrador grant para o Nome de *Subscrição***  abaixo. Se não for o Administrador de *Assinatura Azure,* solicite o consentimento do seu administrador.
-![Screenshot do painel de permissões DaPI. User.Read and Directy.ReadTodas as permissões adicionadas, consentimento administrativo necessário para o Diretório.LeiaTodos os](./media/howto-aad-app-configuration/permissions-required.png)
+
+![Screenshot do painel de permissões DaPI. User.Read and Directy.ReadTodas as permissões adicionadas, consentimento administrativo necessário para O Diretório.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
 > A sincronização do grupo de administradores de clusters só funcionará após a concessão do consentimento. Você verá um círculo verde com uma marca de verificação e uma mensagem "Granted for *Subscription Name"* na coluna *de consentimento do Administrador.*

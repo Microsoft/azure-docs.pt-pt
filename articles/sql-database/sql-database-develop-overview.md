@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357650"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257007"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento da aplicação da base de dados SQL
 
@@ -59,6 +59,6 @@ Para obter mais informações sobre como se preparar para eventos de manutençã
 - As ligações do cliente à Base de Dados Azure SQL por vezes contornam o proxy e interagem diretamente com a base de dados. As portas que não sejam 1433 tornam-se importantes. Para mais informações, a arquitetura de [conectividade azure SQL Database](sql-database-connectivity-architecture.md) e [os Portos para além de 1433 para ADO.NET 4.5 e SQL Database.](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Para configurar a rede para uma instância gerida, consulte a [configuração da rede para casos geridos](sql-database-howto-managed-instance.md#network-configuration).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore todas as [capacidades da Base de Dados SQL](sql-database-technical-overview.md).

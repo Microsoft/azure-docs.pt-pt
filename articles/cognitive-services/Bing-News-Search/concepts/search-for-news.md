@@ -1,7 +1,7 @@
 ---
-title: Pesquisar notícias com o API de Pesquisa de Notícias do Bing
+title: Procure notícias com a API de Pesquisa de Notícias bing
 titleSuffix: Azure Cognitive Services
-description: Saiba como enviar consultas de pesquisa para notícias gerais, tópicos de tendências e manchetes.
+description: Saiba como enviar consultas de pesquisa para notícias gerais, tópicos de tendência e manchetes.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448568"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220327"
 ---
-# <a name="search-for-news-with-the-bing-news-search-api"></a>Pesquisar notícias com o API de Pesquisa de Notícias do Bing
+# <a name="search-for-news-with-the-bing-news-search-api"></a>Procure notícias com a API de Pesquisa de Notícias bing
 
-O API de Pesquisa de Imagem do Bing facilita a integração dos recursos de pesquisa de notícias cognitivas do Bing em seus aplicativos.
+A API de Pesquisa de Imagem Bing facilita a integração das capacidades cognitivas de pesquisa de notícias do Bing nas suas aplicações.
 
-Embora o API de Pesquisa de Notícias do Bing encontre e retorne artigos de notícias relevantes, ele fornece vários recursos para recuperação de notícias inteligente e concentrada na Web.
+Enquanto a API de Pesquisa de Notícias bing encontra e devolve principalmente artigos de notícias relevantes, fornece várias funcionalidades para a recuperação inteligente e focada de notícias na web.
 
 ## <a name="suggest-and-use-search-terms"></a>Sugerir e usar termos de pesquisa
 
@@ -29,7 +29,7 @@ Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu term
 
 Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica-o antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Por exemplo, se o utilizador introduzir *sailing dinghies*, defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
-## <a name="get-general-news"></a>Obtenha notícias gerais
+## <a name="get-general-news"></a>Receber notícias gerais
 
 Para obter artigos gerais relacionados com o termo de pesquisa do utilizador a partir da Web, envie o seguinte pedido GET:
 
@@ -51,7 +51,7 @@ Para obter notícias de um domínio específico, utilize o operador de consulta 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-O exemplo JSON a seguir mostra a resposta à consulta anterior. Como parte dos [requisitos de uso e exibição](../useanddisplayrequirements.md) das APIs de pesquisa do Bing, você deve exibir cada artigo de notícias na ordem fornecida na resposta. Se o artigo tiver artigos em cluster, você deverá indicar que existem artigos relacionados e exibi-los após a solicitação.
+A amostra JSON seguinte mostra a resposta à consulta anterior. Como parte dos requisitos de [utilização e exibição](../useanddisplayrequirements.md) para as APIs de pesquisa bing, você deve exibir cada artigo de notícias na ordem fornecida na resposta. Se o artigo tiver artigos agrupados, deve indicar que os artigos relacionados existem e exibi-los a pedido.
 
 ```json
 {
@@ -105,9 +105,9 @@ Cada [artigo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/b
 
 Se o Bing conseguir determinar a categoria do artigo, este incluirá o campo `category`.
 
-## <a name="get-todays-top-news"></a>Obtenha as principais notícias de hoje
+## <a name="get-todays-top-news"></a>Obtenha as melhores notícias de hoje
 
-Para obter os principais artigos de notícias de hoje, você pode enviar a mesma solicitação de notícias geral como antes, deixando a desdefinição do parâmetro `q`.
+Para obter os principais artigos de notícias de hoje, pode enviar o mesmo pedido de notícias gerais de antes, deixando o parâmetro `q` desmontado.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,9 +119,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-A resposta para obter as notícias mais importantes é quase igual à de obter notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de usar o campo `provider` para atribuir o artigo.
+A resposta para receber notícias de topo é quase a mesma para receber notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de usar o campo `provider` para atribuir o artigo.
 
-## <a name="get-news-by-category"></a>Obter notícias por categoria
+## <a name="get-news-by-category"></a>Obtenha notícias por categoria
 
 Para obter artigos por categoria, como os principais artigos de desporto ou entretenimento, envie o seguinte pedido GET ao Bing:
 
@@ -257,11 +257,11 @@ Se existirem outros artigos relacionados com uma notícia, esta pode incluir o c
     },
 ```
 
-## <a name="throttling-requests"></a>Pedidos de limitação
+## <a name="throttling-requests"></a>Limitar pedidos
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Como paginar os resultados de Pesquisa de Notícias do Bing](../paging-news.md)
+> [Como página através dos resultados da Pesquisa de Notícias bing](../paging-news.md)

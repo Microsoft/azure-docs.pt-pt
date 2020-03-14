@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361244"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258489"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Tecido de serviço para código de estúdio visual
 
@@ -48,7 +48,7 @@ Devem ser instalados os seguintes pré-requisitos para o desenvolvimento de Java
 Devem ser instalados os seguintes pré-requisitos para o .NET Core/desenvolvimento:C#
 
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (versão 2.0.0 ou posterior)
-* [para Código de Estúdio Visual (alimentado por OmniSharp) extensão do código VS C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Precisava de C# depurar serviços. Pode instalar-se clicando no ícone das Extensões na Barra de **Atividade** sem Código VS e procurando a extensão, ou a partir do Mercado de Código VS.
+* [para Código de Estúdio Visual (alimentado por OmniSharp) extensão do código VS C# ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Precisava de C# depurar serviços. Pode instalar-se clicando no ícone das Extensões na Barra de **Atividade** sem Código VS e procurando a extensão, ou a partir do Mercado de Código VS.
 
 ## <a name="setup"></a>Configurar
 

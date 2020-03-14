@@ -4,11 +4,11 @@ description: Aprenda sobre o failover e failable na Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362866"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281811"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre a recuperação de desastres no local falha/failback
 

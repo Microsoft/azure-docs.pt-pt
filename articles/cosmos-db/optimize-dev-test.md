@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: d2ca7b7e4b637802df6a78c2493e3cc088f09881
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673344"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246685"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Otimizar o custo de desenvolvimento e teste no Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Numa base de [dados de entradas partilhadas,](set-throughput.md#set-throughput-o
 
 Por exemplo, suponha que a sua conta de desenvolvimento ou teste tem quatro contentores. Se criar quatro recipientes com entrada dedicada (mínimo de 400 RU/s), o seu total de RU/s será de 1600 RU/s. Em contrapartida, se criar uma base de dados de produção partilhada (mínimo de 400 RU/s) e colocar os seus contentores lá, o seu total de RU/s será de apenas 400 RU/s. Em geral, as bases de dados de entrada partilhadas são ótimas para cenários em que não é necessário obter uma entrada garantida em qualquer recipiente individual.  Saiba mais sobre bases de [dados de entrada partilhadas.](set-throughput.md#set-throughput-on-a-database)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode começar com o emulador ou as contas gratuitas do Azure Cosmos DB com os seguintes artigos:
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: victorh
 ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373635"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279991"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades de Gateway de Aplicação Azure
 

@@ -8,21 +8,15 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 710c5a780841135344d92e93a02f97963b36b09e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 8d226b67c0b438ac726fc3abf6452db68fb10dce
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921395"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140710"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
-O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS, tais como:
- 
- - **Armazenamento do Azure**
- - **Azure Cosmos DB**
- - **Base de Dados SQL do Azure**
-
-O Private Link permite o acesso aos serviços de clientes e parceiros hospedados sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
+O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Armazenamento Azure e Base de Dados SQL) e o Azure acolheu serviços de clientes/parceiros sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
 
 O tráfego entre a sua rede virtual e o serviço viaja pela rede de espinha dorsal da Microsoft. Expor o seu serviço à internet pública já não é necessário. Pode criar o seu próprio [serviço de ligação privada](private-link-service-overview.md) na sua rede virtual e entregá-lo aos seus clientes. A configuração e consumo utilizando o Azure Private Link é consistente em todos os serviços de parceiros azure PaaS, propriedade do cliente e parceiros partilhados.
 

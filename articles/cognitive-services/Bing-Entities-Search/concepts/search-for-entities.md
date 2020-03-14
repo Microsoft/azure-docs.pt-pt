@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388495"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220316"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Procura de entidades com a API entidade bing
 
@@ -331,6 +331,6 @@ Se não tiver a certeza se a sua experiência pode ser considerada uma experiên
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Experimente um [Quickstart](../quickstarts/csharp.md) para começar a procurar entidades com a API de Pesquisa de Entidades Bing.
