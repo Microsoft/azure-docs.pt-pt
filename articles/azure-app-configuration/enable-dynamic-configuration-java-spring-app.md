@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 3/5/2020
 ms.author: lcozzens
-ms.openlocfilehash: 6445b9707273d273c562b7d643da34f5ba26e1fc
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 37c832e3b6d1430da0b45558c9632f0486a7233b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967489"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216764"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutorial: Use a configuração dinâmica numa aplicação Java Spring
 
@@ -53,4 +53,7 @@ Guarde o ficheiro e, em seguida, construa e execute a sua aplicação como de co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ativou a sua aplicação Spring Boot para atualizar dinamicamente as definições de configuração a partir da Configuração da Aplicação. Para mais informações, consulte [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/).
+Neste tutorial, ativou a sua aplicação Spring Boot para atualizar dinamicamente as definições de configuração a partir da Configuração da Aplicação. Para aprender a usar uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações, continue para o próximo tutorial.
+
+> [!div class="nextstepaction"]
+> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

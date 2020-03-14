@@ -1,118 +1,118 @@
 ---
-title: 'Tutorial: configurar a rede em um cluster de arquivos do Azure FXT Edge'
-description: Como personalizar as configurações de rede depois de criar o cluster de arquivos do Azure FXT Edge
+title: 'Tutorial: Configure a rede num cluster de ficheiros de borda Azure FXT'
+description: Como personalizar as definições de rede após a criação do cluster Azure FXT Edge Filer
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551068"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239799"
 ---
-# <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: definir as configurações de rede do cluster
+# <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Configure as definições de rede do cluster
 
-Antes de usar um cluster de filer do Azure FXT Edge criado recentemente, você deve verificar e personalizar várias configurações de rede para seu fluxo de trabalho. 
+Antes de utilizar um cluster de ficheiros de borda Supor Azure FXT, deve verificar e personalizar várias definições de rede para o seu fluxo de trabalho. 
 
-Este tutorial explica as configurações de rede que talvez você precise ajustar para um novo cluster. 
+Este tutorial explica as definições de rede que poderá necessitar de se ajustar para um novo cluster. 
 
-Aprenderá sobre: 
+Aprenderá: 
 
 > [!div class="checklist"]
-> * Quais configurações de rede talvez precisem ser atualizadas após a criação de um cluster
-> * Quais casos de uso de filer do Azure FXT Edge exigem um servidor AD ou um servidor DNS 
-> * Como configurar o DNS Round Robin (RRDNS) para balancear automaticamente a carga de solicitações do cliente para o cluster FXT
+> * Quais as definições de rede que podem ter de ser atualizadas após a criação de um cluster
+> * Que os casos de ficheiros de borda Azure FXT requerem um servidor AD ou um servidor DNS 
+> * Como configurar dNS de robin redondo (RRDNS) para carregar automaticamente os pedidos do cliente de equilíbrio para o cluster FXT
 
-A quantidade de tempo que leva para concluir essas etapas depende de quantas alterações de configuração são necessárias no seu sistema:
+O tempo que leva para completar estes passos depende de quantas mudanças de configuração são necessárias no seu sistema:
 
-* Se você só precisa ler o tutorial e verificar algumas configurações, deve levar de 10 a 15 minutos. 
-* Se você precisar configurar o DNS Round Robin, essa tarefa poderá levar uma hora ou mais.
+* Se precisar ler apenas o tutorial e verificar algumas definições, deve demorar 10 a 15 minutos. 
+* Se precisar configurar dNS de robin redondo, essa tarefa pode demorar uma hora ou mais.
 
-## <a name="adjust-network-settings"></a>Ajustar as configurações de rede
+## <a name="adjust-network-settings"></a>Ajustar as definições da rede
 
-Várias tarefas relacionadas à rede fazem parte da configuração de um novo cluster de filer do Azure FXT Edge. Verifique esta lista e decida quais delas se aplicam ao seu sistema.
+Várias tarefas relacionadas com a rede fazem parte da criação de um novo cluster Azure FXT Edge Filer. Consulte esta lista e decida quais se aplicam ao seu sistema.
 
-Para saber mais sobre as configurações de rede para o cluster, leia [Configurando serviços de rede](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html) no guia de configuração do cluster.
+Para saber mais sobre as definições de rede para o cluster, leia os serviços de [rede de configuração](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html) no Guia de Configuração do Cluster.
 
-* Configurar o DNS Round Robin para a rede voltada para o cliente (opcional)
+* Configure DNS de robin redondo para a rede virada para o cliente (opcional)
 
-  Balancear a carga do tráfego de cluster Configurando o sistema DNS, conforme descrito em [Configurar o DNS para o cluster de arquivos de borda do FXT Edge](#configure-dns-for-load-balancing).
+  Tráfego de cluster de equilíbrio de carga configurando o sistema DNS conforme descrito no [Configure DNS para o cluster FXT Edge Filer](#configure-dns-for-load-balancing).
 
-* Verificar configurações de NTP
+* Verifique as definições de NTP
 
-* Configurar o Active Directory e os downloads de nomes de nome de usuário/grupo (se necessário)
+* Configure o Diretório Ativo e os downloads de nome de utilizador/nome de grupo (se necessário)
 
-  Se os hosts de rede usarem Active Directory ou outro tipo de serviço de diretório externo, você deverá modificar a configuração de serviços de diretório do cluster para configurar como o cluster baixa as informações de nome de usuário e grupo. Leia serviços de **diretório** > de **cluster** no guia de configuração de cluster para obter detalhes.
+  Se os anfitriões da rede utilizarem o Ative Directory ou outro tipo de serviço de diretório externo, deve modificar a configuração dos serviços de diretório do cluster para configurar como o cluster descarrega o nome de utilizador e as informações do grupo. Leia os **Serviços** de **Diretório** do Cluster > no Guia de Configuração do Cluster para mais detalhes.
 
-  Um servidor do AD será necessário se você quiser suporte a SMB. Configure o AD antes de começar a configurar o SMB.
+  É necessário um servidor AD se quiser suporte SMB. Configure o D.C. antes de começar a configurar o SMB.
 
 * Definir VLANs (opcional)
   
-  Configure quaisquer VLANs adicionais necessárias antes de definir o vservers e o namespace global do seu cluster. Leia [trabalhando com VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) no guia de configuração de cluster para saber mais.
+  Configure quaisquer VLANs adicionais necessários antes de definir os vservers do seu cluster e o espaço de nome global. Leia [Trabalhar com VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) no Guia de Configuração de Cluster para saber mais.
 
 * Configurar servidores proxy (se necessário)
 
-  Se o cluster usar um servidor proxy para acessar endereços externos, siga estas etapas para configurá-lo:
+  Se o seu cluster utilizar um servidor proxy para alcançar endereços externos, siga estes passos para o configurar:
 
-  1. Definir o servidor proxy na página Definições de **configuração de proxy**
-  1. Aplique a configuração do servidor proxy com a página de **instalação geral** do **cluster** > ou a página de **detalhes do Filer principal** .
+  1. Defina o servidor proxy na página de **configurações** proxy
+  1. Aplique a configuração do servidor proxy com a página de **Configuração Geral** do **Cluster** > ou a página de Detalhes do **Ficheiro Core.**
   
-  Para obter mais informações, leia [usando proxies da Web](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) no guia de configuração do cluster.
+  Para mais informações, leia [utilizando proxies web](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/proxy_overview.html) no Guia de Configuração do Cluster.
 
-* Carregar [certificados de criptografia](#encryption-certificates) para o cluster usar (opcional)
+* Enviar certificados de [encriptação](#encryption-certificates) para o cluster a utilizar (opcional)
 
 ### <a name="encryption-certificates"></a>Certificados de encriptação
 
-O cluster de arquivos de borda do FXT usa certificados X. 509 para essas funções:
+O cluster FXT Edge Filer utiliza certificados X.509 para estas funções:
 
-* Para criptografar o tráfego de administração do cluster
+* Para encriptar o tráfego da administração de clusters
 
-* Para autenticar em nome de um cliente para servidores KMIP de terceiros
+* Autenticar em nome de um cliente a servidores KMIP de terceiros
 
-* Para verificar os certificados de servidor dos provedores de nuvem
+* Para verificar os certificados de servidor dos fornecedores de nuvem
 
-Se você precisar carregar certificados para o cluster, use a página de configurações de **certificados** de > de **cluster** . Os detalhes estão na página [certificados de > de cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) do guia de configuração do cluster.
+Se precisar de fazer o upload de certificados para o cluster, utilize a página de definições de **Certificados** de ** > cluster.** Os detalhes estão na página [cluster > Certificados](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) do Guia de Configuração do Cluster.
 
-Para criptografar a comunicação de gerenciamento de cluster, use a página > configurações **gerais de instalação** do **cluster** para selecionar qual certificado usar para SSL administrativo.
+Para encriptar a comunicação de gestão de clusters, utilize a página de definições de **Configuração** **geral** do Cluster > para selecionar qual o certificado a utilizar para o SSL administrativo.
 
 > [!Note] 
-> As chaves de acesso do serviço de nuvem são armazenadas usando a página de configuração de **credenciais de nuvem** . A seção [Adicionar um Filer principal](fxt-add-storage.md#add-a-core-filer) acima mostra um exemplo; Leia a seção de [credenciais de nuvem](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) do guia de configuração do cluster para obter detalhes. 
+> As teclas de acesso ao serviço de nuvem são armazenadas utilizando a página de configuração **cloud Credentials.** A [secção de ficheiros de núcleo adicionar](fxt-add-storage.md#add-a-core-filer) acima mostra um exemplo; ler a secção de [credenciais](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) de nuvem do Guia de Configuração do Cluster para mais detalhes. 
 
-## <a name="configure-dns-for-load-balancing"></a>Configurar o DNS para balanceamento de carga
+## <a name="configure-dns-for-load-balancing"></a>Configure DNS para equilibrar a carga
 
-Esta seção explica as noções básicas de configuração de um sistema DNS Round Robin (RRDNS) para distribuir a carga do cliente entre todos os endereços IP voltados para o cliente no cluster do Filer do FXT Edge. 
+Esta secção explica os fundamentos da configuração de um sistema DNS (RRDNS) de robin redondo para distribuir a carga do cliente entre todos os endereços IP virados para o cliente no seu cluster FXT Edge Filer. 
 
-### <a name="decide-whether-or-not-to-use-dns"></a>Decida se deseja ou não usar o DNS
+### <a name="decide-whether-or-not-to-use-dns"></a>Decida se deve ou não utilizar O DNS
 
-O balanceamento de carga é sempre recomendado, mas você não precisa usar sempre o DNS. Por exemplo, com alguns tipos de fluxos de trabalho de cliente, pode fazer mais sentido usar um script para atribuir endereços IP de cluster uniformemente entre clientes quando eles montam o cluster. Alguns métodos são descritos em [montar o cluster](fxt-mount-clients.md). 
+O equilíbrio de carga é sempre recomendado, mas não é preciso usar sempre DNS. Por exemplo, com alguns tipos de fluxos de trabalho de clientes, talvez faça mais sentido usar um script para atribuir endereços IP do cluster uniformemente entre os clientes quando montam o cluster. Alguns métodos são descritos no [Monte do cluster](fxt-mount-clients.md). 
 
-Lembre-se destas coisas ao decidir se deve ou não usar um servidor DNS: 
+Tenha em mente estas coisas ao decidir se deve ou não utilizar um servidor DNS: 
 
-* Se o sistema for acessado somente por clientes NFS, o DNS não será necessário. É possível especificar todos os endereços de rede usando endereços IP numéricos. 
+* Se o seu sistema for acedido apenas por clientes NFS, o DNS não é necessário. É possível especificar todos os endereços da rede utilizando endereços IP numéricos. 
 
-* Se o seu sistema der suporte ao acesso SMB (CIFS), o DNS será necessário, pois você deve especificar um domínio DNS para o servidor de Active Directory.
+* Se o seu sistema suportar o acesso sMB (CIFS), é necessário dNS, pois deve especificar um domínio DNS para o servidor Ative Directory.
 
-* O DNS será necessário se você quiser usar a autenticação Kerberos.
+* O DNS é necessário se quiser utilizar a autenticação Kerberos.
 
-### <a name="round-robin-dns-configuration-details"></a>Detalhes de configuração de DNS de Round Robin
+### <a name="round-robin-dns-configuration-details"></a>Detalhes de configuração dNS de robin redondo
 
-Quando os clientes acessam o cluster, o RRDNS equilibra automaticamente suas solicitações entre todas as interfaces disponíveis.
+Quando os clientes acedem ao cluster, o RRDNS equilibra automaticamente os seus pedidos entre todas as interfaces disponíveis.
 
-Para obter um desempenho ideal, configure o servidor DNS para manipular endereços de cluster voltados para o cliente, conforme mostrado no diagrama a seguir.
+Para um desempenho ótimo, configure o seu servidor DNS para lidar com os endereços de cluster virados para o cliente, como mostrado no diagrama seguinte.
 
-Um VServer de cluster é mostrado à esquerda e os endereços IP aparecem no centro e à direita. Configure cada ponto de acesso para cliente com os registros A e os ponteiros conforme ilustrado.
+Um vserver de cluster é mostrado à esquerda, e os endereços IP aparecem no centro e na direita. Configure cada ponto de acesso a cada cliente com registos E indicações a ilustração.
 
-diagrama de DNS Round Robin de cluster ![-link de texto alt detalhado segue a imagem](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
-[Descrição de texto detalhado](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
+diagrama de DNS de ![Cluster - ligação de texto alt detalhada segue a imagem](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
+[descrição detalhada do texto](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
-Cada endereço IP voltado para o cliente deve ter um nome exclusivo para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são nomeados VS1-Client-IP-* para fins de clareza, mas, em produção, você provavelmente deve usar algo mais conciso, como cliente *.)
+Cada endereço IP virado para o cliente deve ter um nome único para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são nomeados vs1-cliente-IP-* para clareza, mas na produção você provavelmente deve usar algo mais conciso, como cliente*.)
 
-Os clientes montam o cluster usando o nome do vserver como o argumento do servidor. 
+Os clientes montam o cluster usando o nome do servidor como argumento do servidor. 
 
-Modifique o arquivo de ``named.conf`` do seu servidor DNS para definir a ordem cíclica de consultas para seu vserver. Essa opção garante que todos os valores disponíveis sejam alternados pelo. Adicione uma instrução como a seguinte:
+Modifique o ficheiro ``named.conf`` do seu servidor DNS para definir a ordem cíclica de consultas ao seu vserver. Esta opção garante que todos os valores disponíveis sejam concluídos. Adicione uma declaração como a seguinte:
 
 ```
 options {
@@ -122,7 +122,7 @@ options {
 };
 ```
 
-Os comandos a seguir ``nsupdate`` fornecem um exemplo de configuração de DNS corretamente:
+Os seguintes comandos ``nsupdate`` fornecem um exemplo de configuração correta do DNS:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -136,20 +136,20 @@ update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
 update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 ```
 
-### <a name="enable-dns-in-the-cluster"></a>Habilitar o DNS no cluster 
+### <a name="enable-dns-in-the-cluster"></a>Ativar DNS no cluster 
 
-Especifique o servidor DNS que o cluster usa no **cluster** > página de configurações de **rede administrativa** . As configurações nessa página incluem:
+Especifique o servidor DNS que o cluster utiliza na página de definições de Rede **Administrativa** do **Cluster** > . As definições nessa página incluem:
 
-* Endereço do servidor DNS
+* Endereço de servidor DNS
 * Nome de domínio DNS
-* Domínios de pesquisa DNS
+* Domínios de pesquisa dNS
 
-Para obter mais detalhes, leia [configurações de DNS](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) no guia de configuração do cluster.
+Para mais detalhes, leia [as definições de DNS](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) no Guia de Configuração do Cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Esta é a última etapa de configuração básica para o cluster de arquivos do Azure FXT Edge. 
+Este é o último passo básico de configuração para o cluster Azure FXT Edge Filer. 
 
-* Saiba mais sobre os LEDs do sistema e outros indicadores em [monitorar o status do hardware](fxt-monitor.md).
-* Saiba mais sobre como os clientes devem montar o cluster do Filer do FXT Edge na [montagem do cluster](fxt-mount-clients.md). 
-* Para obter mais informações sobre como operar e gerenciar um cluster de filer do FXT Edge, consulte o [Guia de configuração do cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 
+* Conheça os LEDs do sistema e outros indicadores no estado do [hardware do Monitor](fxt-monitor.md).
+* Saiba mais sobre como os clientes devem montar o cluster FXT Edge Filer no [Monte do cluster](fxt-mount-clients.md). 
+* Para mais informações sobre a operação e gestão de um cluster FXT Edge Filer, consulte o Guia de [Configuração](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html)do Cluster . 

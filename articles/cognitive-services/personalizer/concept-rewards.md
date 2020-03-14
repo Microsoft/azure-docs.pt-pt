@@ -4,11 +4,11 @@ description: A pontuação da recompensa indica o quão bem a escolha de persona
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397116"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219370"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Notas de recompensa indicam sucesso da personalização
 

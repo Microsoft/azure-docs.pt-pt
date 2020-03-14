@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358576"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285243"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e usar gémeos dispositivos em IoT Hub
 
