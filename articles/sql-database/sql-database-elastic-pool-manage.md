@@ -12,11 +12,11 @@ ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 4ae2e84ab5f6108de4e8236c39371cf9658809d8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359919"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256331"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir piscinas elásticas na Base de Dados Azure SQL
 

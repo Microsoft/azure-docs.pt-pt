@@ -4,11 +4,11 @@ description: Saiba como executar um comando num contentor que está atualmente e
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374555"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247205"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Execute um comando num contentor Azure em execução
 

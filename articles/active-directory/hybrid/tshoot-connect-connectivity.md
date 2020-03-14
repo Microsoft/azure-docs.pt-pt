@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376030"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253601"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Conectividade AD de Troubleshoot Azure
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD E como resolver problemas de conectividade. Estes problemas são mais prováveis de serem vistos num ambiente com um servidor proxy.

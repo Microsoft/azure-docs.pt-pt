@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381462"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243695"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Crie um inquilino da AD Azure para o Azure Red Hat OpenShift
 
@@ -19,7 +19,7 @@ O Microsoft Azure Red Hat OpenShift requer um inquilino do [Azure Ative Director
 
 Se ainda não tem um inquilino da AD Azure, siga estas instruções para criar uma.
 
-## <a name="create-a-new-azure-ad-tenant"></a>Criar um novo inquilino da AD Azure
+## <a name="create-a-new-azure-ad-tenant"></a>Criar um novo inquilino do Azure AD
 
 Para criar um inquilino:
 
@@ -37,11 +37,11 @@ Para criar um inquilino:
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
-## <a name="resources"></a>recursos
+## <a name="resources"></a>Recursos
 
 Consulte a [documentação do Diretório Ativo azure](https://docs.microsoft.com/azure/active-directory/) para obter mais informações sobre [os inquilinos da AD Azure.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a criar um diretor de serviço, gere um URL de callback secreto e autenticado do cliente e crie um novo utilizador ative Directy para testar aplicações no seu cluster Azure Red Hat OpenShift.
 

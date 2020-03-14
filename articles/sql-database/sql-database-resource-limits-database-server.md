@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
 ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391092"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255928"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos da Base de Dados SQL e governação de recursos
 

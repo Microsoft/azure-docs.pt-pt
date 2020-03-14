@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381414"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238749"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 

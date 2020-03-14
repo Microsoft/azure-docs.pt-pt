@@ -12,11 +12,11 @@ ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4a5d0908842c20e15fdf7b336b9e244c4bafb345
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78397787"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264300"
 ---
 # <a name="string-claims-transformations"></a>Transformações de sinistros de cordas
 
@@ -158,7 +158,7 @@ Determine se uma reivindicação de corda é igual a outra. O resultado é um no
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | Primeiro tipo de reclamação, que deve ser comparado. |
 | inputClaim | inputClaim2 | string | Segundo tipo de reclamação, que deve ser comparado. |
-| EntradaParametro | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| EntradaParametro | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | EntradaParametro | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
 
@@ -198,7 +198,7 @@ Determina se um valor de reclamação é igual ao valor do parâmetro de entrada
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | O tipo de reclamação, que deve ser comparado. |
-| EntradaParametro | operator | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
+| EntradaParametro | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | EntradaParametro | compareTo | string | comparação de cordas, um dos valores: Ordinal, OrdinalIgnoreCase. |
 | EntradaParametro | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cordas que estão a ser comparadas. |
 | OutputClaim | outputClaim | boolean | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |

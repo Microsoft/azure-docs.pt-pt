@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390469"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250780"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de escala
 Este artigo discute considerações de design para conjuntos de escala de máquina virtual. Para obter informações sobre o que são os conjuntos de escala de máquina virtual, consulte a visão geral dos [conjuntos](virtual-machine-scale-sets-overview.md)de escala de máquina virtual .

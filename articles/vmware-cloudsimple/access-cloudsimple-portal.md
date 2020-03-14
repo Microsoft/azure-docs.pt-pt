@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384216"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244735"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Aceda à Solução VMware por CloudSimple do portal Azure
 
@@ -69,7 +69,7 @@ Se as suas permissões não permitirem o acesso ao portal CloudSimple, contacte 
 
 ![Consentimento para A Autorização de Serviço CloudSimple - requer administradores](media/cloudsimple-azure-consent-requires-administrator.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [criar uma nuvem privada](https://docs.azure.cloudsimple.com/create-private-cloud/)
 * Saiba como [configurar um ambiente de nuvem privada](quickstart-create-private-cloud.md)

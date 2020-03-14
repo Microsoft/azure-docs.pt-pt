@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386913"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254368"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de Tráfego frequentemente perguntas (FAQ)
 
@@ -43,7 +43,7 @@ Como explicado em Como funciona o Gestor de [Tráfego,](../traffic-manager/traff
 
 Por conseguinte, uma investigação mais aprofundada deverá centrar-se no pedido.
 
-O cabeçalho do anfitrião HTTP enviado do navegador do cliente é a fonte mais comum de problemas. Certifique-se de que a aplicação está configurada para aceitar o cabeçalho correto do anfitrião para o nome de domínio que está a usar. Para pontos finais utilizando o Serviço de Aplicações Azure, consulte configurar um nome de [domínio personalizado para uma aplicação web no Serviço de Aplicações Azure utilizando](../app-service/web-sites-traffic-manager-custom-domain-name.md)o Traffic Manager .
+O cabeçalho do anfitrião HTTP enviado do navegador do cliente é a fonte mais comum de problemas. Certifique-se de que a aplicação está configurada para aceitar o cabeçalho correto do anfitrião para o nome de domínio que está a usar. Para pontos finais utilizando o Serviço de Aplicações Azure, consulte configurar um nome de [domínio personalizado para uma aplicação web no Serviço de Aplicações Azure utilizando](../app-service/configure-domain-traffic-manager.md)o Traffic Manager .
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Qual é o impacto de desempenho da utilização do Traffic Manager?
 
@@ -145,9 +145,9 @@ Os dispositivos de utilizador final normalmente usam um resolver DNS para fazer 
 
 Os endereços IP para associar a um ponto final podem ser especificados de duas formas. Em primeiro lugar, pode utilizar a notação de octeto decimal pontilhada quad com endereços de início e fim para especificar o intervalo (por exemplo, 1.2.3.4-5.6.7.8 ou 3.4.5.6-3.4.5.6). Em segundo lugar, pode utilizar a notação CIDR para especificar o intervalo (por exemplo, 1.2.3.0/24). Pode especificar várias gamas e pode utilizar ambos os tipos de notação num conjunto de intervalos. Aplicam-se algumas restrições.
 
--   Não pode ter sobreposição de gamas de endereços, uma vez que cada IP precisa de ser mapeado apenas para um ponto final
--   O endereço de início não pode ser mais do que o endereço final
--   No caso da notação CIDR, o endereço IP antes do '/' deve ser o endereço de início dessa gama (por exemplo, 1.2.3.0/24 é válido, mas 1.2.3.4.4/24 não é válido)
+-    Não pode ter sobreposição de gamas de endereços, uma vez que cada IP precisa de ser mapeado apenas para um ponto final
+-    O endereço de início não pode ser mais do que o endereço final
+-    No caso da notação CIDR, o endereço IP antes do '/' deve ser o endereço de início dessa gama (por exemplo, 1.2.3.0/24 é válido, mas 1.2.3.4.4/24 não é válido)
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Como posso especificar um ponto final de recuo quando se usa o encaminhamento subnet?
 
@@ -382,25 +382,25 @@ Quando uma consulta é recebida contra um perfil, o Gestor de Tráfego primeiro 
 
 Para perfis com qualquer método de encaminhamento que não seja o MultiValue:
 
-|Pedido de consulta de entrada|    Tipo endpoint|  Resposta Fornecida|
+|Pedido de consulta de entrada|     Tipo endpoint|     Resposta Fornecida|
 |--|--|--|
-|QUALQUER |  A / AAAA / CNAME |  Ponto final do alvo| 
-|A |    A / CNAME | Ponto final do alvo|
-|A |    AAAA |  NODATA |
-|AAAA | AAAA / CNAME |  Ponto final do alvo|
-|AAAA | A | NODATA |
-|CNAME |    CNAME | Ponto final do alvo|
-|CNAME  |A / AAAA | NODATA |
+|QUALQUER |    A / AAAA / CNAME |    Ponto final do alvo| 
+|A |    A / CNAME |    Ponto final do alvo|
+|A |    AAAA |    NODATA |
+|AAAA |    AAAA / CNAME |    Ponto final do alvo|
+|AAAA |    A |    NODATA |
+|CNAME |    CNAME |    Ponto final do alvo|
+|CNAME     |A / AAAA |    NODATA |
 |
 
 Para perfis com método de encaminhamento definido para MultiValue:
 
-|Pedido de consulta de entrada|    Tipo endpoint | Resposta Fornecida|
+|Pedido de consulta de entrada|     Tipo endpoint |    Resposta Fornecida|
 |--|--|--|
-|QUALQUER |  Mistura de A e AAAA | Pontos Finais-Alvo|
-|A |    Mistura de A e AAAA | Apenas pontos finais-alvo do tipo A|
-|AAAA   |Mistura de A e AAAA|     Apenas pontos finais de destino do tipo AAAA|
-|CNAME |    Mistura de A e AAAA | NODATA |
+|QUALQUER |    Mistura de A e AAAA |    Pontos Finais-Alvo|
+|A |    Mistura de A e AAAA |    Apenas pontos finais-alvo do tipo A|
+|AAAA    |Mistura de A e AAAA|     Apenas pontos finais de destino do tipo AAAA|
+|CNAME |    Mistura de A e AAAA |    NODATA |
 
 ### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Posso usar um perfil com iPv4 / IPv6 endereçado pontos finais num perfil aninhado?
 

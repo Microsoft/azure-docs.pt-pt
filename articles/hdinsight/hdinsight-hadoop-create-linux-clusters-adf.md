@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395217"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239561"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters Apache Hadoop a pedido no HDInsight utilizando a Azure Data Factory
 
@@ -360,7 +360,7 @@ Em alternativa, pode eliminar todo o grupo de recursos que criou para este tutor
 
 1. Introduza o nome do grupo de recursos para confirmar a eliminação e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a usar a Azure Data Factory para criar um cluster HDInsight a pedido e executar empregos [apache hive.](https://hive.apache.org/) Avance para o próximo artigo para aprender a criar clusters HDInsight com configuração personalizada.
 
 > [!div class="nextstepaction"]

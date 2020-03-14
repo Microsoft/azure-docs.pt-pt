@@ -12,11 +12,11 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.openlocfilehash: 778f6b8d133ddb21f918d65a9d8aecd8b2205b08
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127191"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283774"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
 ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357137"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249610"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Realizar consultas de registo de recursos cruzados no Monitor Azure  
 

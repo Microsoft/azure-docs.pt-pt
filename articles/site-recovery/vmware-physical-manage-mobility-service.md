@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363002"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256968"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerir o Agente de mobilidade 
 
@@ -37,11 +37,24 @@ Configura o agente de mobilidade no seu servidor quando utiliza a Recuperação 
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Atualizar o serviço de Mobilidade através do script powershell no servidor Windows
 
+Antes de começar a garantir que o servidor de configuração, servidores de processos de escala e quaisquer servidores-alvo principais que façam parte da sua implementação são atualizados antes de atualizar o Serviço de Mobilidade em máquinas protegidas.
+
 Utilize o seguinte script para atualizar o serviço de mobilidade num servidor através de cmdlet de concha de potência
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
+
+## <a name="update-mobility-service-manually-on-each-protected-server"></a>Atualizar o serviço de mobilidade manualmente em cada servidor protegido
+
+1. Antes de começar a garantir que o servidor de configuração, servidores de processos de escala e quaisquer servidores-alvo principais que façam parte da sua implementação são atualizados antes de atualizar o Serviço de Mobilidade em máquinas protegidas.
+
+2. [Localize o instalador do agente](vmware-physical-mobility-service-overview.md#locate-installer-files) com base no sistema operativo do servidor.
+
+>[!IMPORTANT]
+> Se estiver a replicar o VM Azure IaaS de uma região de Azure para outra, não utilize este método. Consulte a [nossa orientação](azure-to-azure-autoupdate.md) para obter informações sobre todas as opções disponíveis.
+
+3. Copie o ficheiro de instalação na máquina protegida e execute-o para atualizar o agente de mobilidade.
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Conta de atualização utilizada para a instalação de push do serviço mobility
 

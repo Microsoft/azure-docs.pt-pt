@@ -4,11 +4,11 @@ description: Este artigo fornece uma introdução para atualizar uma aplicação
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366830"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259048"
 ---
 # <a name="service-fabric-application-upgrade"></a>Upgrade de aplicação de tecido de serviço
 Uma aplicação Azure Service Fabric é uma coleção de serviços. Durante uma atualização, o Service Fabric compara o manifesto de [aplicação](service-fabric-application-and-service-manifests.md) com a versão anterior e determina quais os serviços da aplicação que requerem atualizações. O Service Fabric compara os números da versão no serviço manifestos com os números da versão na versão anterior. Se um serviço não tiver mudado, esse serviço não é atualizado.

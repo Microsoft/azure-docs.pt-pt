@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
 ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258918"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade de cluster de tecido de serviço
 Para qualquer implantação de produção, o planeamento da capacidade é um passo importante. Aqui estão alguns dos itens que você tem que considerar como parte desse processo.
@@ -66,7 +66,7 @@ O nível de durabilidade é utilizado para indicar ao sistema os privilégios qu
 
 | Nível de durabilidade  | Número mínimo exigido de VMs | VM SKUs suportado                                                                  | Atualizações que faz para o seu conjunto de escala de máquina virtual                               | Atualizações e manutenção iniciadas pelo Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Dourado             | 5                              | SKUs de nó completo dedicado a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser adiado até ser aprovado pelo cluster Service Fabric | Pode ser pausado por 2 horas por UD para permitir tempo adicional para as réplicas recuperarem de falhas anteriores |
+| Gold             | 5                              | SKUs de nó completo dedicado a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser adiado até ser aprovado pelo cluster Service Fabric | Pode ser pausado por 2 horas por UD para permitir tempo adicional para as réplicas recuperarem de falhas anteriores |
 | Silver           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser adiado até ser aprovado pelo cluster Service Fabric | Não pode ser adiado por qualquer período significativo de tempo                                                    |
 | Bronze           | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será adiado pelo cluster Service Fabric           | Não pode ser adiado por qualquer período significativo de tempo                                                    |
 
@@ -134,7 +134,7 @@ Aqui está a recomendação sobre a escolha do nível de fiabilidade.  O número
 | 1 |Não especifique o parâmetro do Nível de Fiabilidade, o sistema calcula-o |
 | 3 |Bronze |
 | 5 ou 6|Silver |
-| 7 ou 8 |Dourado |
+| 7 ou 8 |Gold |
 | 9 e para cima |Platina |
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo de nó primário - orientação de capacidade
@@ -194,7 +194,7 @@ Para cargas de trabalho de produção
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Assim que terminar o planeamento da sua capacidade e configurar um cluster, leia o seguinte:
 
 * [Segurança do cluster de tecido de serviço](service-fabric-cluster-security.md)

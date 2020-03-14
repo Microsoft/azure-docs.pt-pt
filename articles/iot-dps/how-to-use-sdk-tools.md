@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391010"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271528"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como utilizar as ferramentas fornecidas nos SDKs para simplificar o desenvolvimento do provisionamento
 O Serviço de Provisionamento de Dispositivos IoT Hub simplifica o processo [](concepts-auto-provisioning.md) de provisionamento com fornecimento automático de toque zero, just-in-time de forma segura e escalável.  É necessário um atestado de segurança sob a forma de certificado X.509 ou Módulo de Plataforma Fidedigna (TPM).  A Microsoft também está em parceria com [outros parceiros](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de hardware de segurança para melhorar a confiança na segurança da implementação do IoT. Compreender o requisito de segurança do hardware pode ser bastante desafiante para os desenvolvedores. Um conjunto de SDKs de Serviço de Provisionamento Azure IoT são fornecidos para que os desenvolvedores possam usar uma camada de conveniência para escrever clientes que falam com o serviço de provisionamento. Os SDKs também fornecem amostras para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança em desenvolvimento.

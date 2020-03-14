@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 870c8856cdc22b0586199051575de02312420990
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385100"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267264"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Crie um modelo de construtor de imagem Azure 
 

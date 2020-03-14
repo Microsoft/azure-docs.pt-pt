@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390446"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250754"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Encerrar notificação para casos de conjunto de máquinas virtuais Azure
 As instâncias definidas por escala podem optar por receber notificações de rescisão por exemplo e definir um prazo de atraso pré-definido para a operação de rescisão. A notificação de rescisão é enviada através do Serviço de Metadados Do Azure – [Eventos Agendados,](../virtual-machines/windows/scheduled-events.md)que fornece notificações e atrasa operações impactantes, como reboots e reimplantação. A solução adiciona mais um evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento de rescisão dependerá do limite de atraso especificado pelos utilizadores nas configurações do modelo de conjunto de escala.

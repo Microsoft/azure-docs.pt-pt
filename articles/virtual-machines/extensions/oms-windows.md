@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
 ms.openlocfilehash: a0b5f45ba993033a9f56ee6b078193677b1c5aad
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191814"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253809"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual Log Analytics para Windows
 

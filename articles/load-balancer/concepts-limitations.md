@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
 ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358665"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241683"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Balancer de Carga
 O Azure Load Balancer contém vários componentes chave para o seu funcionamento.  Estes componentes podem ser configurados na sua subscrição através do portal Azure, Azure CLI ou Azure PowerShell.  

@@ -4,11 +4,11 @@ description: Descreve as funções para utilizar num modelo do Azure Resource Ma
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354990"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248674"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 

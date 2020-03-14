@@ -9,11 +9,11 @@ author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
 ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395653"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246477"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de mesa de armazenamento de mesa azure: tabelas escaláveis e performantes
 
@@ -100,7 +100,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 </td>
 </tr>
 <tr>
-<td>Vendas</td>
+<td>Sales</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>

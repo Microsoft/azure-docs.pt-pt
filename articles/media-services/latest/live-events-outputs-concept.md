@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
 ms.openlocfilehash: 96b3e602011f4d3f237f29ce9b2fcad8bd0b8300
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395075"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251391"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo em serviços de mídia
 

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376271"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253744"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de utilizador azure AD Connect
 O Azure Ative Directory (Azure AD) Connect permite que os seus utilizadores acedam tanto aos recursos em nuvem como no local, utilizando as mesmas palavras-passe. Este artigo descreve conceitos-chave para cada modelo de identidade para ajudá-lo a escolher a identidade que pretende usar para iniciar sessão no Azure AD.
@@ -190,6 +190,6 @@ Na página **de sessão de sessão do Utilizador,** selecione o sinal de utiliza
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a integração das suas identidades no local com o Diretório Ativo Azure.](whatis-hybrid-identity.md)
 - Saiba mais sobre os conceitos de [design Azure AD Connect.](plan-connect-design-concepts.md)

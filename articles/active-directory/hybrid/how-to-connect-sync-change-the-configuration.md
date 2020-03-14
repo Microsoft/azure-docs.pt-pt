@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376311"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261167"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização Azure AD Connect: Faça uma alteração na configuração padrão
 O objetivo deste artigo é acompanhá-lo sobre como fazer alterações na configuração padrão no Diretório Ativo Azure (Azure AD) Ligar sincronização. Fornece passos para alguns cenários comuns. Com este conhecimento, deverá ser capaz de fazer alterações simples na sua própria configuração com base nas suas próprias regras de negócio.
@@ -319,7 +319,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilizador |
-    | cloudMastered | NOTEQUAL | true |
+    | cloudMastered | NOTEQUAL | Verdadeiro |
 
     O filtro de deteção determina a que objetos Da AD Azure esta regra de sincronização de saída é aplicada. Neste exemplo, utilizamos o mesmo filtro de digitalização da regra de sincronização out *to AD – Identidade* do Utilizador fora da caixa. Impede que a regra de sincronização seja aplicada a objetos do Utilizador que não sejam sincronizados a partir do Diretório Ativo no local. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.
 
@@ -392,7 +392,7 @@ Reativar o programador de sincronização incorporado:
 2. Reativar a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Leia mais sobre o modelo de configuração em [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md).
 * Leia mais sobre a linguagem de expressão na compreensão das expressões de [disposição declarativas.](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 

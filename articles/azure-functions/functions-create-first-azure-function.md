@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ms.openlocfilehash: 3e5513d8730f455b220fa480eb99ce9c29216210
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356243"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241291"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -71,7 +71,7 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Criou uma aplicação de função com uma função simples de http desencadeada.  
 

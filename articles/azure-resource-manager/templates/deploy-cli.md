@@ -3,12 +3,12 @@ title: Implementar recursos com ClI Azure e modelo
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para o Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 17307b1657afc133a7e1b1d7714363329573e48c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382877"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273907"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
@@ -24,13 +24,13 @@ Pode direcionar a sua implementação para uma subscrição Azure ou um grupo de
 
 Para implantar num grupo de **recursos,** utilize a criação de implementação do [grupo Az:](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
-```azurecli
+```azurecli-interactive
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
 Para implementar uma **subscrição,** utilize a criação de [implementação az:](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
 
-```azurecli
+```azurecli-interactive
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
@@ -103,7 +103,7 @@ Para passar os valores dos parâmetros, pode utilizar parâmetros inline ou um f
 
 Para passar os parâmetros inline, forneça os valores em `parameters`. Por exemplo, passar uma corda e uma matriz para um modelo é uma concha bash, use:
 
-```azurecli
+```azurecli-interactive
 az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \
@@ -114,7 +114,7 @@ Se estiver a utilizar o Azure CLI com O Comando Do Windows (CMD) ou PowerShell, 
 
 Também pode obter o conteúdo do ficheiro e fornecer esse conteúdo como parâmetro inline.
 
-```azurecli
+```azurecli-interactive
 az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \

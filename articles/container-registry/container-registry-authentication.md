@@ -4,11 +4,11 @@ description: Opções de autenticação para um registo privado de contentores A
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361516"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247049"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticar com um registo de contentores Azure
 
@@ -89,7 +89,7 @@ Pode ativar o utilizador administrativo no portal Azure navegando no seu registo
 
 ![Ativar o utilizador de administração UI no portal Azure][auth-portal-01]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Empurre a sua primeira imagem usando o Azure CLI](container-registry-get-started-azure-cli.md)
 

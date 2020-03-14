@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: b432f381bae79d783663130d06dbf874f00a9994
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
-ms.translationtype: HT
+ms.openlocfilehash: 5083dc79b146598142ac27eb6ac7ef9ed436f37d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128527"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251560"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para a mudança dos Serviços de Media v2 para v3
 
@@ -67,7 +67,7 @@ Se tiver um serviço de vídeo desenvolvido hoje em cima do [legado Media Servic
     * vista (não gerir) [v3 Ativos,](assets-concept.md) 
     * [obtenha informações sobre o acesso a APIs.](access-api-portal.md) 
 
-Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
+    Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
 * Você precisa fornecer Media Reserved Units (MRUs) na sua conta para controlar a conmoeda e desempenho dos seus Empregos, particularmente aqueles que envolvam Análise de Vídeo ou Áudio. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Pode gerir as MrUs utilizando o [CLI 2.0 para media services v3,](media-reserved-units-cli-how-to.md)utilizando o [portal Azure,](../previous/media-services-portal-scale-media-processing.md)ou utilizando as [APIs v2](../previous/media-services-dotnet-encoding-units.md). Você precisa fornecer MRUs, quer esteja usando Media Services v2 ou v3 APIs.
 * As entidades de Serviços de Media criadas com a V3 API não podem ser geridas pela API v2.  
 * Nem todas as entidades da API V2 aparecem automaticamente na API V3.  Seguem-se exemplos de entidades nas duas versões que são incompatíveis:  

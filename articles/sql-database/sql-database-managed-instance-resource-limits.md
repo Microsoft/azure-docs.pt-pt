@@ -12,11 +12,11 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
 ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605007"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268798"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Azure SQL Base de dados gerido limites de recursos de instância
 

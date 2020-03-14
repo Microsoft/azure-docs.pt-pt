@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395063"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251261"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos Finais de Streaming (Origem) nos Serviços De Mídia Azure
 

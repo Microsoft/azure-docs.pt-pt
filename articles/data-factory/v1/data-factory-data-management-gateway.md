@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357335"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281876"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -542,5 +542,5 @@ Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -Resourc
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Consulte [os dados entre as instalações e as lojas de dados em nuvem.](data-factory-move-data-between-onprem-and-cloud.md) No walkthrough, cria-se um pipeline que utiliza a porta de entrada para mover dados de uma base de dados do SQL Server no local para uma bolha Azure.

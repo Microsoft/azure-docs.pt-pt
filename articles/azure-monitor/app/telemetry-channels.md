@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368299"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275701"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
 

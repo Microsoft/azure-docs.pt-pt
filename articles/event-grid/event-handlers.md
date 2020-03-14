@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359296"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265054"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos na Grelha de Eventos Azure
 
@@ -138,7 +138,7 @@ Utilize webhooks para pontos finais personalizáveis que respondam a eventos.
 | [Quickstart: envie eventos de registo de contentores](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de registo de contentores. |
 | [Visão geral: receba eventos para um ponto final http](receive-events.md) | Descreve como validar um ponto final http para receber eventos de uma Subscrição de Eventos, e receber e desserializar eventos. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
 * Para começar rapidamente a usar a Grelha de Eventos, consulte [create e encaminhe eventos personalizados com a Grelha de Eventos Azure](custom-event-quickstart.md).

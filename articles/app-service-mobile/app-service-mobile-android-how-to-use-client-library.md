@@ -7,11 +7,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374227"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249389"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como utilizar o Azure Mobile Apps SDK para Android
 

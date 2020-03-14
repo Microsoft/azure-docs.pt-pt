@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383350"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250572"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor da GPU da NVIDIA para o Linux
 
@@ -75,8 +75,8 @@ O seguinte JSON mostra o esquema para a extensão.
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.HpcCompute | Cadeia de caracteres |
-| tipo | NvidiaGpuDriverLinux | Cadeia de caracteres |
+| publicador | Microsoft.HpcCompute | string |
+| tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Definições
@@ -85,9 +85,9 @@ Todas as definições são opcionais. O comportamento predefinido é não atuali
 
 | Nome | Descrição | Default Value | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
-| atualizandoOS | Atualize o núcleo mesmo que não seja necessário para a instalação do condutor | false | VERDADEIRO, FALSO | valor booleano |
-| driverVersion | NV: Versão do controlador grid<br> VERSÃO NC/ND: versão de kit de ferramentas CUDA. Os mais recentes controladores para o CUDA escolhido saem automaticamente instalados. | mais recente | GRELHA: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | Cadeia de caracteres |
-| instalarCUDA | Instale o conjunto de ferramentas CUDA. Apenas relevante para vMs da série NC/ND. | true | VERDADEIRO, FALSO | valor booleano |
+| atualizandoOS | Atualize o núcleo mesmo que não seja necessário para a instalação do condutor | false | VERDADEIRO, FALSO | boolean |
+| driverVersion | NV: Versão do controlador grid<br> VERSÃO NC/ND: versão de kit de ferramentas CUDA. Os mais recentes controladores para o CUDA escolhido saem automaticamente instalados. | mais recente | GRELHA: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| instalarCUDA | Instale o conjunto de ferramentas CUDA. Apenas relevante para vMs da série NC/ND. | true | VERDADEIRO, FALSO | boolean |
 
 
 ## <a name="deployment"></a>Implementação
@@ -155,7 +155,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell e o Azure CLI. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando.
 
@@ -190,7 +190,7 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina virtual para Linux](features-linux.md).
 
 Para obter mais informações sobre VMs da série N, consulte [gpu otimizado tamanhos](../linux/sizes-gpu.md)de máquinavirtual .

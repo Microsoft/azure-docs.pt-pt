@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377846"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263351"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalar o agente do aprovisionamento na cloud do Azure AD Connect
 Este documento acompanha-o através do processo de instalação do Diretório Ativo Azure (Azure AD) Connect agent de provisionamento e como configurá-lo inicialmente no portal Azure.
@@ -100,7 +100,7 @@ Para verificar se o agente está a funcionar, siga estes passos.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é o provisionamento?](what-is-provisioning.md)
 - [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)

@@ -9,11 +9,11 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381969"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255577"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso em Azure Data Lake Storage Gen2
 
@@ -88,7 +88,7 @@ Tanto os ACLs de acesso como os ACLs predefinidos têm a mesma estrutura.
 
 As permissões num objeto de contentor estiveram **leia,** **Escreva**e **Execute,** e podem ser utilizadas em ficheiros e diretórios, como mostrado na tabela seguinte:
 
-|            |    Ficheiro     |   Active |
+|            |    Ficheiro     |   Diretório |
 |------------|-------------|----------|
 | **Leitura (R)** | Pode editar o conteúdo de um ficheiro | Requer **leitura** e **execução** para listar o conteúdo do diretório |
 | **Escrita (W)** | Pode escrever ou acrescentar a um ficheiro | Requer **escrever** e **executar** para criar itens infantis num diretório |
@@ -105,7 +105,7 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Leitura + Escrita + Execução |
 | 5            | `R-X`        | Leitura + Execução         |
-| 4            | `R--`        | Ler                   |
+| 4            | `R--`        | Leitura                   |
 | 0            | `---`        | Sem permissões         |
 
 #### <a name="permissions-inheritance"></a>Herança de permissões

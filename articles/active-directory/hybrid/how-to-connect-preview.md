@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375986"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261284"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre funcionalidades na pré-visualização
 Este tópico descreve como usar funcionalidades atualmente em pré-visualização.
 
-## <a name="group-writeback"></a>Redação em grupo
+## <a name="group-writeback"></a>Repetição de escrita do grupo
 A opção de reescrita em grupo em funcionalidades opcionais permite-lhe reescrever o **Office 365 Groups** para uma floresta com Exchange instalado. Este é um grupo que é sempre dominado na nuvem. Se tiver exchange on-local, então pode reescrever estes grupos para as instalações para que os utilizadores com uma caixa de correio de troca no local possam enviar e receber e-mails destes grupos.
 
 Mais informações sobre os Grupos 365 do Office e como utilizá-los podem ser consultados [aqui](https://aka.ms/O365g).
@@ -51,7 +51,7 @@ Um grupo do Office 365 está representado como um grupo de distribuição no ad 
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Continue a [instalação personalizada de Azure AD Connect](how-to-connect-install-custom.md).
 
-Saiba mais sobre integrar as suas identidades no local com o [Diretório Ativo Azure.](whatis-hybrid-identity.md)
+Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

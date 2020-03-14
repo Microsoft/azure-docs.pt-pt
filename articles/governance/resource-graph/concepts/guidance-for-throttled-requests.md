@@ -4,11 +4,11 @@ description: Aprenda a agrupar, cambalear, paginado e consulta paralelamente par
 ms.date: 12/02/2019
 ms.topic: conceptual
 ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388615"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259854"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
 

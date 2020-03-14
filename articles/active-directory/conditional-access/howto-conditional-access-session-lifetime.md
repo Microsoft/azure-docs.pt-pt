@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195067"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263286"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configure gestão de sessão de autenticação com Acesso Condicional
 
@@ -37,7 +37,7 @@ A frequência de inatividade define o período de tempo antes de um utilizador s
 
 A configuração predefinida do Diretório Ativo Azure (Azure AD) para o sinal de utilizador na frequência é uma janela rolante de 90 dias. Pedir credenciais aos utilizadores muitas vezes parece uma coisa sensata a fazer, mas pode dar a volta: os utilizadores que são treinados para introduzir as suas credenciais sem pensar podem fornecer-lhes involuntariamente um pedido de credencial malicioso.
 
-Pode parecer alarmante não pedir a um utilizador que volte a entrar, na realidade qualquer violação das políticas de TI irá revogar a sessão. Alguns exemplos incluem (mas não se limitam a) uma alteração de senha, um dispositivo incompatível ou desativação de conta. Também pode revogar explicitamente [as sessões dos utilizadores utilizando o PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A configuração padrão da AD Azure resume-se a "não pedir aos utilizadores que forneçam as suas credenciais se a postura de segurança das suas sessões não tiver mudado".
+Pode parecer alarmante não pedir a um utilizador que volte a entrar, na realidade qualquer violação das políticas de TI irá revogar a sessão. Alguns exemplos incluem (mas não se limitam a) uma alteração de senha, um dispositivo incompatível ou desativação de conta. Também pode revogar explicitamente [as sessões dos utilizadores utilizando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A configuração padrão da AD Azure resume-se a "não pedir aos utilizadores que forneçam as suas credenciais se a postura de segurança das suas sessões não tiver mudado".
 
 A definição de frequência sessão funciona com aplicações que implementaram protocolos OAUTH2 ou OIDC de acordo com as normas. A maioria das aplicações nativas da Microsoft para Windows, Mac e Mobile, incluindo as seguintes aplicações web, cumprem a definição.
 
@@ -72,7 +72,7 @@ Exemplo 2:
 
 Uma sessão de navegador persistente permite que os utilizadores permaneçam inscritos após o fecho e reabertura da janela do navegador.
 
-O padrão da AD Azure para a persistência da sessão de navegador permite que os utilizadores de dispositivos pessoais escolham se persistem a sessão mostrando um "Stay signed in?" pronta após autenticação bem sucedida. Se a persistência do navegador estiver configurada em AD FS utilizando a orientação no artigo [AD FS Single Sign-On Settings,](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+O padrão da AD Azure para a persistência da sessão de navegador permite que os utilizadores de dispositivos pessoais escolham se persistem a sessão mostrando um "Stay signed in?" pronta após autenticação bem sucedida. Se a persistência do navegador estiver configurada em AD FS utilizando a orientação no artigo [AD FS Single Sign-On Settings,](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 )vamos cumprir essa política e persistir também a sessão de AD Azure. Também pode configurar se os utilizadores do seu inquilino vêem o "Stay in?" solicitar alterando a definição adequada no painel de marca da empresa no portal Azure utilizando a orientação no artigo Personalize a sua página de entrada de [Anúncio sacana](../fundamentals/customize-branding.md)do Azure .
 
 ## <a name="configuring-authentication-session-controls"></a>Configurar os controlos da sessão de autenticação

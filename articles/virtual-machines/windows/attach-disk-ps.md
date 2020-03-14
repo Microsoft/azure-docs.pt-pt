@@ -8,11 +8,11 @@ ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: ce995a84d2290845e83416caf9c8b0004242eed4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267758"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Fixe um disco de dados a um VM windows com PowerShell
 

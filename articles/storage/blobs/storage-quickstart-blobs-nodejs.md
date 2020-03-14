@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b53896896ecd4b0e577e8d2c5ec13e00ce6fab30
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e68e91d90846ab77b994b53be7a84a9dd8bc5a25
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191933"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241039"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js
 
@@ -118,7 +118,7 @@ O armazenamento da Blob Azure está otimizado para armazenar quantidades massiva
 
 O diagrama seguinte mostra a relação entre estes recursos.
 
-![Diagrama da arquitetura de armazenamento blob](./media/storage-blob-introduction/blob1.png)
+![Diagrama da arquitetura de armazenamento blob](./media/storage-blobs-introduction/blob1.png)
 
 Utilize as seguintes aulas JavaScript para interagir com estes recursos:
 

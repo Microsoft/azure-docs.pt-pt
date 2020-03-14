@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimckitt
 ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082064"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250806"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de escala de máquina virtual
 

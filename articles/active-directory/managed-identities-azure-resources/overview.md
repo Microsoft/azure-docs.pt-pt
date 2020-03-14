@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a721d1e486010e22927512985611cccdd99f4505
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 47bd3b5da79bdb9c7dca75d521aa39d3652ab1ab
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365088"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240143"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 
@@ -56,7 +56,7 @@ O seu código pode utilizar uma identidade gerida para pedir tokens de acesso pa
 
 O diagrama seguinte mostra como é que as identidades de serviço geridas funcionam com as máquinas virtuais (VMs) do Azure:
 
-![Identidades de Serviço Geridas e VMs do Azure](media/overview/msi-vm-vmextension-imds-example.png)
+![Identidades de Serviço Geridas e VMs do Azure](media/overview/data-flow.png)
 
 |  Propriedade    | Identidade gerida atribuída pelo sistema | Identidade gerida atribuída ao utilizador |
 |------|----------------------------------|--------------------------------|

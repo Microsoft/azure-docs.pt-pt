@@ -15,11 +15,11 @@ ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378338"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264092"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de mapeamento de atributos para aplicações SaaS no Diretório Ativo Azure
 

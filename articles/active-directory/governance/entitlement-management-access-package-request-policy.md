@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897610"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261934"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições de pedido e aprovação para um pacote de acesso na gestão de direitos da AD Azure
 
@@ -50,11 +50,11 @@ Para obter informações sobre a lógica prioritária que é usada quando se apl
 
 Para alterar as definições de pedido e aprovação para um pacote de acesso, é necessário abrir a política correspondente. Siga estas medidas para abrir as definições de pedido e aprovação para um pacote de acesso.
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
 1. Clique em **Políticas** e, em seguida, clique na política que pretende editar.
 
@@ -74,11 +74,11 @@ Para alterar as definições de pedido e aprovação para um pacote de acesso, �
 
 Se tiver um conjunto de utilizadores que deverão ter diferentes definições de pedido e aprovação, provavelmente terá de criar uma nova política. Siga estes passos para começar a adicionar uma nova política a um pacote de acesso existente.
 
-**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
 
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
+1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
+1. No menu esquerdo, clique em **pacotes de acesso** e abra o pacote de acesso.
 
 1. Clique em **Políticas** **e,** em seguida, adicionar a política .
 
@@ -86,7 +86,7 @@ Se tiver um conjunto de utilizadores que deverão ter diferentes definições de
 
     ![Criar política com nome e descrição](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
-1. Clique em **Avançar** para abrir a guia **solicitações** .
+1. Clique em **Seguir** para abrir o separador **Pedidos.**
 
 1. Execute os passos numa das seguintes secções de pedido.
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: manayar
 ms.openlocfilehash: aa2b0013818f897f01945d394266a57016ecb0bb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390462"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250767"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Compreenda as IDs de instância para vm sde de escala Azure
 Este artigo descreve iDs de exemplo para conjuntos de escala e as várias maneiras que aparecem.

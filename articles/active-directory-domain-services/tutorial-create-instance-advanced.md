@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: f6817c1ec308e75a4af88825d46848b504775e19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383670"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239148"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Crie e configure uma instância de Serviços de Domínio de Diretório Ativo Azure com opções avançadas de configuração
 

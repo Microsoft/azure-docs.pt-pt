@@ -15,11 +15,11 @@ ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138352"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246360"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure
 
@@ -29,7 +29,7 @@ Se precisar de atribuir funções de administrador no Diretório Ativo do Azure,
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar ou remover atribuições de função, você deve ter:
+Para adicionar ou remover atribuições de funções, deve ter:
 
 - `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 

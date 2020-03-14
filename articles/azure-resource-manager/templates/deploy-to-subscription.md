@@ -2,23 +2,17 @@
 title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: 1a76e41b4b2264bc535752e8f765b3303080abbd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78924930"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248414"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
-Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos no:
-
-* nível de subscrição (abrangido por este artigo)
-* [nível de grupo de gestão](deploy-to-management-group.md)
-* [nível de inquilino](deploy-to-tenant.md)
-
-Utiliza-se implementações de nível de subscrição para tomar medidas que façam sentido a esse nível, tais como a criação de grupos de recursos ou a atribuição [de controlo de acesso baseado em papéis.](../../role-based-access-control/overview.md)
+Para simplificar a gestão dos recursos na sua subscrição Azure, pode definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em papéis](../../role-based-access-control/overview.md) em toda a subscrição. Com modelos de nível de subscrição, aplica-se declarativamente políticas e atribui funções na subscrição. Também pode criar grupos de recursos e implantar recursos.
 
 Para implementar modelos ao nível da subscrição, utilize o Azure CLI, PowerShell ou REST API. O portal Azure não suporta a implantação no nível de subscrição.
 
@@ -46,10 +40,10 @@ Para os modelos, utilize:
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-Para ficheiros de parâmetros, utilize:
+O esquema para um ficheiro de parâmetros é o mesmo para todos os âmbitos de implantação. Para ficheiros de parâmetros, utilize:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandos de implantação
@@ -387,5 +381,4 @@ New-AzSubscriptionDeployment `
 * Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para um exemplo de implementação de definições de espaço de trabalho para o Centro de Segurança Azure, consulte [o deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Os modelos de amostra podem ser encontrados no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* Para aprender sobre a criação de modelos de Gestor de Recursos Azure, consulte [os modelos de autor.](template-syntax.md)
-* Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](template-functions.md).
+* Você também pode implementar modelos ao [nível do grupo](deploy-to-management-group.md) de gestão e [do nível de inquilino.](deploy-to-tenant.md)

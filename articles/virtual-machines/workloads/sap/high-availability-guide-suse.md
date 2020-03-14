@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: radeltch
 ms.openlocfilehash: 9a9e8e4ac406186ba0ca9aaec065301e31ef0f02
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932737"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264469"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP
 

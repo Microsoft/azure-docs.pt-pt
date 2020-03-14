@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365032"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240255"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 

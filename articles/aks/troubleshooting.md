@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
 ms.openlocfilehash: f0ad8d503b5280b8cba89d940b99dcd81da71ffc
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892802"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252886"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas da AKS
 
