@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379363"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284840"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente IoT Edge e dos gémeos do módulo IoT Edge
 
@@ -31,7 +31,7 @@ Um módulo twin inclui:
 
 O módulo twin para o agente IoT Edge chama-se `$edgeAgent` e coordena as comunicações entre o agente IoT Edge em execução num dispositivo e ioT Hub. As propriedades pretendidas são definidas ao aplicar um manifesto de implantação num dispositivo específico, como parte de uma implementação de único dispositivo ou à escala.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem de ser "1.0" | Sim |
 | Runtime.Type | Tem de ser "docker" | Sim |
@@ -121,6 +121,6 @@ O módulo twin para o hub IoT Edge chama-se `$edgeHub` e coordena as comunicaç�
 | clientes. .lastConnectTime {moduleId ou dispositivo} | Da última vez que o dispositivo ou módulo se ligou. |
 | clientes. .lastDisconnectTime {moduleId ou dispositivo} | Da última vez que o dispositivo ou módulo se desligou. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para aprender a usar estas propriedades para construir manifestos de implantação, veja [compreender como os módulos IoT Edge podem ser usados, configurados e reutilizados](module-composition.md).

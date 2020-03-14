@@ -1,5 +1,5 @@
 ---
-title: Sobre a Conversa ção multi-dispositivo (Pré-visualização) - Serviço de Discurso
+title: Conversação multi-dispositivo (Pré-visualização) - Serviço de Discurso
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560818"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371363"
 ---
-# <a name="about-multi-device-conversation-preview"></a>Sobre a Conversação multi-dispositivo (Pré-visualização)
+# <a name="what-is-multi-device-conversation-preview"></a>O que é conversação multi-dispositivo (Pré-visualização)?
 
 **A conversa ção multi-dispositivo** facilita a criação de uma conversa de fala ou texto entre vários clientes e coordena as mensagens enviadas entre eles.
 
@@ -75,8 +75,8 @@ Cada cliente pode enviar mensagens áudio ou instantâneas. O serviço utilizar�
 Uma **conversa** é uma sessão que um utilizador inicia para que os outros utilizadores participantes se juntem. Todos os clientes se ligam à conversa utilizando o código de **conversação**de cinco letras .
 
 Cada conversa cria metadados que incluem:
--   Selos temporais de quando a conversa começou e terminou
--   Lista de todos os participantes na conversa, que inclui o apelido escolhido de cada utilizador e a língua primária para a entrada de discurso ou texto.
+-    Selos temporais de quando a conversa começou e terminou
+-    Lista de todos os participantes na conversa, que inclui o apelido escolhido de cada utilizador e a língua primária para a entrada de discurso ou texto.
 
 
 Existem dois tipos de utilizadores numa conversa: **anfitrião** e **participante.**

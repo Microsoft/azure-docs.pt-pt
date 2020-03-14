@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9970894436107ab51c2ad2d31aa1e14a3e6b5778
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356497"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276611"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem de funções azure
 
@@ -153,12 +153,10 @@ A unidade de escala para funções Azure é a aplicação de função. Quando a 
 O escalonamento pode variar em vários fatores, e escalar de forma diferente com base no gatilho e na linguagem selecionadas. Há algumas complexidades de comportamentos de escalação para estar atento:
 
 * Uma única aplicação de função apenas se eleva para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, por isso não há um limite definido para o número de execuções simultâneas.
-* Para os gatilhos HTTP, novos casos só serão atribuídos no máximo uma vez a cada 1 segundo.
-* Para os gatilhos não HTTP, novos casos só serão atribuídos no máximo uma vez a cada 30 segundos.
-
-Os diferentes gatilhos também podem ter diferentes limites de escala, bem como documentados abaixo:
-
-* [Hub de Eventos](functions-bindings-event-hubs-trigger.md#scaling)
+* Para os gatilhos HTTP, novos casos são atribuídos, no máximo, uma vez por segundo.
+* Para os gatilhos não HTTP, são atribuídos novos casos, no máximo, uma vez a cada 30 segundos. A escala é mais rápida quando se corre num [plano Premium.](#premium-plan)
+* Para os gatilhos de ônibus de serviço, utilize _a Gestão_ de direitos sobre recursos para a escala mais eficiente. Com os direitos de _escuta,_ a escala não é tão precisa porque o comprimento da fila não pode ser usado para informar decisões de escala. Para saber mais sobre a definição de direitos nas políticas de acesso ao ônibus de serviço, consulte a Política de Autorização de [Acesso Partilhado](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* Para os gatilhos do Event Hub, consulte a [orientação](functions-bindings-event-hubs-trigger.md#scaling) de escala no artigo de referência. 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Boas práticas e padrões para aplicações escaláveis
 

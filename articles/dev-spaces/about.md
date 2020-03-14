@@ -7,11 +7,11 @@ description: Saiba como a Azure Dev Spaces proporciona uma experiência rápida 
 keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 586b19070ec36517add21f7aac86ddf15121be2d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393617"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240703"
 ---
 # <a name="introduction-to-azure-dev-spaces"></a>Introdução aos espaços Azure Dev
 
@@ -40,7 +40,7 @@ Para mais informações sobre como funciona o Azure Dev Spaces, consulte [como f
 
 A Azure Dev Spaces é apoiada apenas por aglomerados AKS em [algumas regiões.][supported-regions] O Azure Dev Spaces suporta a utilização da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou do [Visual Studio Code](https://code.visualstudio.com/download) com a [extensão do Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) instalada no Linux, MacOS ou Windows 8 ou superior para criar e executar aplicações no AKS. Também suporta a utilização do [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) instalado no Windows 8 ou superior. Para o Visual Studio 2019, vai precisar da carga de trabalho do Azure Development. Para o Visual Studio 2017, você precisará da carga de trabalho de Desenvolvimento Web e [ferramentas de estúdio visual para Kubernetes.](https://aka.ms/get-vsk8stools)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o rápido desenvolvimento iterativo para equipas com O Azure Dev Spaces com o desenvolvimento da equipa rapidamente.
 

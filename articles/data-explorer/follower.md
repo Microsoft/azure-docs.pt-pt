@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 447e8a67cedbb8f78e4db9602f603fefd382693c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: f6dbdb54c1c5a5d477c3ccb988963758faab83b0
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162944"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140019"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utilize base de dados de seguidores para anexar bases de dados no Azure Data Explorer
 
@@ -164,7 +164,7 @@ Nesta secção, aprende-se a anexar uma base de dados a um cluser existente util
         },
         "defaultPrincipalsModificationKind": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "Union",
             "metadata": {
                 "description": "The default principal modification kind."
             }
@@ -180,13 +180,10 @@ Nesta secção, aprende-se a anexar uma base de dados a um cluser existente util
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('attachedDatabaseConfigurationsName')]",
+            "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Kusto/clusters', parameters('followerClusterName'))]"
-            ],
             "properties": {
                 "databaseName": "[parameters('databaseName')]",
                 "clusterResourceId": "[parameters('leaderClusterResourceId')]",
@@ -388,6 +385,6 @@ O administrador de base de dados do seguidor pode modificar a política de [cach
 * Não é possível eliminar um cluster que tenha uma base de dados anexada a um cluster diferente antes de o desmontar.
 * Não é possível parar um cluster que tenha anexado o acompanhamento ou a base de dados de líderes. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter informações sobre a configuração do cluster do seguidor, consulte [comandos de controlo para gerir um cluster de seguidores](/azure/kusto/management/cluster-follower).

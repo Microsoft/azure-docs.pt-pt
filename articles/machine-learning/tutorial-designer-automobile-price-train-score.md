@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/04/2020
-ms.openlocfilehash: ed3667ada834437e81ffdcb9161c2a726fe6a6dc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.date: 03/12/2020
+ms.openlocfilehash: 3a857c145959c1bcde169e95369ef0bea327dfaf
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238665"
+ms.locfileid: "79296987"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever o preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -168,6 +168,12 @@ O seu conjunto de dados ainda tem valores em falta depois de remover a coluna **
 
 1. Selecione o módulo **Clean Missing Data.**
 
+1. No módulo os detalhes painelem à direita da tela, selecione **Editar Coluna**.
+
+1. Nas **Colunas para serem limpas** janelas que aparecem, expanda o menu suspenso ao lado de **Incluir**. Selecione, **Todas as colunas**
+
+1. Selecione **Guardar**
+
 1. No módulo, os detalhes são à direita da tela, **selecione Remova a linha inteira** sob o modo de **limpeza**.
 
 1. No módulo os detalhes painelam à direita da tela, selecionem a caixa **de comentários** e introduzam Remover as linhas de valor *em falta*. 
@@ -213,9 +219,11 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
 1. **Selecione Regressão** > **Regressão Linear**, e arraste-a para a tela do oleoduto.
 
-1. Encontre e arraste o módulo **Modelo de Comboio** para a tela do gasoduto. 
-
 1. Ligue a saída do módulo **De regressão linear** à entrada esquerda do módulo **Modelo de Comboio.**
+
+1. Na paleta de módulos, expanda o treino do **Módulo**de secção e arraste o módulo **Modelo de Comboio** para a tela.
+
+1. Selecione o módulo **Modelo de Comboio** e arraste-o para a tela do gasoduto.
 
 1. Ligue a saída de dados de treino (porta esquerda) do módulo **Split Data** à entrada direita do módulo Modelo **de Comboio.**
     
@@ -224,8 +232,6 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
     ![Screenshot mostrando a configuração correta do módulo Modelo de Comboio. O módulo de regressão linear liga-se à porta esquerda do módulo Modelo de Comboio e o módulo Split Data liga-se à porta direita do Modelo de Comboio](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. Na paleta de módulos, expanda o treino do **Módulo**de secção e arraste o módulo **Modelo de Comboio** para a tela.
-
 1. Selecione o módulo **Modelo de Comboio.**
 
 1. No módulo os detalhes painelem à direita da tela, selecione Seletor de **colunas Editar.**
@@ -233,6 +239,9 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 1. Na caixa de diálogo da **coluna Label,** expanda o menu suspenso e selecione **nomes de Coluna**. 
 
 1. Na caixa de texto, insira o *preço* para especificar o valor que o seu modelo vai prever.
+
+    >[!IMPORTANT]
+    > Certifique-se de introduzir exatamente o nome da coluna. Não capitalize **o preço.** 
 
     O seu oleoduto deve ser assim:
 
@@ -260,7 +269,7 @@ Utilize o módulo **'Avaliar modelo'** para avaliar a forma como o seu modelo ob
 
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de gasodutos para treinar o seu modelo de aprendizagem automática. Você pode submeter um pipeline executado em qualquer ponto enquanto constrói oleodutos no designer. Pode fazer isto para verificar o seu trabalho à medida que vai e verificar as suas funções de pipeline como esperado.
+Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de gasodutos para treinar o seu modelo de aprendizagem automática. Você pode submeter um pipeline executado em qualquer ponto enquanto constrói oleodutos no designer. Pode fazer isto para verificar o seu trabalho à medida que vai verificar se o seu oleoduto funciona como esperado.
 
 1. Na parte superior da tela, selecione **Submeter**.
 
@@ -311,7 +320,7 @@ Ignore esta secção se quiser continuar com a parte 2 do tutorial, [implantando
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na segunda parte, aprenderás a implementar o teu modelo como um ponto final em tempo real.
 

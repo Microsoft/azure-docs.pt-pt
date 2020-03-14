@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376635"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261843"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão de direitos da AD Azure
 
@@ -91,7 +91,7 @@ Além disso, um aprovador designado e um solicitador de um pacote de acesso tamb
 
 A tabela seguinte enumera as tarefas que as funções de gestão de direitos podem desempenhar.
 
-| Tarefa | administrador | criador de catálogo | Proprietário do catálogo | Gestor de pacotes de acesso |
+| Tarefa | Admin | criador de catálogo | Proprietário do catálogo | Gestor de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegado a um criador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Adicionar uma organização conectada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
@@ -134,7 +134,7 @@ Para um utilizador que não seja um administrador global ou um administrador de 
 
 Para determinar o papel menos privilegiado para uma tarefa, também pode referenciar as funções de Administrador através de [uma tarefa de administrador no Diretório Ativo azure](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Delegar governação de acesso a criadores de catálogos](entitlement-management-delegate-catalog.md)
 - [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)

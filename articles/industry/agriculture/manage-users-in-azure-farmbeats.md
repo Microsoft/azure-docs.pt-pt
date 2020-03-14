@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 47da8146d3984982a9024b3bd084a1ab384c944f
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271697"
+ms.locfileid: "79298789"
 ---
 # <a name="manage-users"></a>Gerir utilizadores
 
@@ -18,7 +18,7 @@ O Azure FarmBeats inclui a gestão de utilizadores para pessoas que fazem parte 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- É necessária uma instalação Azure FarmBeats. Para mais informações, consulte [Instalar O Talhetes Azure](install-azure-farmbeats.md).
+- É necessária a instalação Azure FarmBeats. Para mais informações, consulte [Instalar O Talhetes Azure](install-azure-farmbeats.md).
 - Os IDs de e-mail dos utilizadores que pretende adicionar ou remover da sua instância Azure FarmBeats.
 
 ## <a name="manage-azure-farmbeats-users"></a>Gerir utilizadores da Azure FarmBeats
@@ -26,6 +26,8 @@ O Azure FarmBeats inclui a gestão de utilizadores para pessoas que fazem parte 
 O Azure FarmBeats utiliza a Azure AD para autenticação, controlo de acesso e funções. Pode adicionar utilizadores no inquilino Azure AD como utilizadores em Azure FarmBeats.
 
 > [!NOTE]
+> Se um utilizador não for um utilizador de inquilino sinuoso Azure AD, siga as instruções na secção de **utilizadores add Azure AD** para completar a configuração.
+
 > Se um utilizador que está a tentar adicionar como utilizador da Azure FarmBeats não estiver presente no inquilino DaAzure AD, complete a configuração seguindo as instruções na secção "Utilizadores add Azure AD".
 
 O Azure FarmBeats suporta dois tipos de funções de utilizador:
@@ -63,7 +65,7 @@ Para remover os utilizadores do sistema Azure FarmBeats:
 ## <a name="add-azure-ad-users"></a>Adicionar utilizadores de Anúncios Azure
 
 > [!NOTE]
-> Os utilizadores da Azure FarmBeats precisam de existir no inquilino da AD Azure antes de os atribuir a aplicações e funções. Se um utilizador que pretende adicionar ao Azure FarmBeats já não existir no inquilino da AD Azure, siga as instruções nesta secção. Se o utilizador existir no inquilino da AD Azure, pode ignorar estas instruções.
+> Os utilizadores da Azure FarmBeats precisam de existir no inquilino da AD Azure antes de os atribuir a aplicações e funções. Se um utilizador não existir no inquilino da AD Azure, siga as instruções nesta secção. Ignore as instruções, se um utilizador já existir no inquilino da AD Azure.
 
 Para adicionar utilizadores ao Azure AD, faça o seguinte:
 
@@ -82,6 +84,6 @@ Para adicionar utilizadores ao Azure AD, faça o seguinte:
 
 Para obter informações sobre a gestão dos utilizadores de Anúncios Azure, consulte [Adicionar ou excluir utilizadores em AD Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Adicionou utilizadores com sucesso à sua instância Azure FarmBeats. Agora, aprenda a [criar e gerir quintas.](manage-farms-in-azure-farmbeats.md#create-farms)

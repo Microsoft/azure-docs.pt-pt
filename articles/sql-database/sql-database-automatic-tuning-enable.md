@@ -1,6 +1,6 @@
 ---
 title: Ativar o ajuste automático
-description: Você pode habilitar o ajuste automático no banco de dados SQL do Azure com facilidade.
+description: Pode ativar a sintonização automática na sua Base de Dados Azure SQL facilmente.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,111 +11,118 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767777"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299333"
 ---
-# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilitar o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
+# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Ativar a sintonização automática para monitorizar consultas e melhorar o desempenho da carga de trabalho
 
-O Azure SQL Database é um serviço de dados gerenciado automaticamente que monitora constantemente suas consultas e identifica a ação que você pode executar para melhorar o desempenho da carga de trabalho. Você pode revisar as recomendações e aplicá-las manualmente, ou deixar que o banco de dados SQL do Azure aplique automaticamente as ações corretivas – isso é conhecido como **modo de ajuste automático**.
+A Base de Dados Azure SQL é um serviço de dados gerido automaticamente que monitoriza constantemente as suas consultas e identifica a ação que pode realizar para melhorar o desempenho da sua carga de trabalho. Pode rever as recomendações e aplicá-las manualmente, ou deixar que a Base de Dados Azure SQL aplique automaticamente as ações corretivas - isto é conhecido como **modo de afinação automática**.
 
-O ajuste automático pode ser habilitado no nível do servidor ou do banco de dados por meio do [portal do Azure](sql-database-automatic-tuning-enable.md#azure-portal), chamadas à [API REST](sql-database-automatic-tuning-enable.md#rest-api) e comandos [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
-
-> [!NOTE]
-> Por Instância Gerenciada, a opção com suporte FORCE_LAST_GOOD_PLAN pode ser configurada somente por meio [de T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . A configuração baseada em portal e as opções de ajuste automático de índice descritas neste artigo não se aplicam a Instância Gerenciada.
+A afinação automática pode ser ativada ao nível do servidor ou da base de dados através do [portal Azure,](sql-database-automatic-tuning-enable.md#azure-portal)das chamadas [REST API](sql-database-automatic-tuning-enable.md#rest-api) e dos comandos [T-SQL.](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
 
 > [!NOTE]
-> Não há suporte para a configuração de opções de ajuste automático por meio do modelo ARM (Azure Resource Manager) no momento.
+> Para o Caso Gerido, a opção suportada FORCE_LAST_GOOD_PLAN pode ser configurada apenas através do [T-SQL.](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) A configuração baseada no portal e as opções automáticas de afinação de índices descritas neste artigo não se aplicam à Instância Gerida.
 
-## <a name="enable-automatic-tuning-on-server"></a>Habilitar ajuste automático no servidor
+> [!NOTE]
+> Configurar opções de afinação automática através do modelo ARM (Gestor de Recursos Azure) não é suportado neste momento.
 
-No nível do servidor, você pode optar por herdar a configuração de ajuste automático de "padrões do Azure" ou não para herdar a configuração. Os padrões do Azure são FORCE_LAST_GOOD_PLAN estão habilitados, o CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
+## <a name="enable-automatic-tuning-on-server"></a>Ativar a sintonização automática no servidor
+
+A nível do servidor pode optar por herdar a configuração de afinação automática a partir de "Predefinições De Sem Definição" ou não herdar a configuração. As predefinições do Azure são FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
+
+> [!IMPORTANT]
+> A partir de março de 2020, as alterações às incumprimentos do Azure para a sintonização automática entrarão em vigor da seguinte forma:
+>
+> - Os novos incumprimentos do Azure serão FORCE_LAST_GOOD_PLAN = ativados, CREATE_INDEX = desativados e DROP_INDEX = desativados.
+> - Os servidores existentes sem preferências de afinação automática configuradas serão automaticamente configurados para HERDar as novas falhas do Azure. Isto aplica-se a todos os clientes que atualmente têm definições de servidor para afinação automática num estado indefinido.
+> - Os novos servidores criados serão automaticamente configurados para HERDar os novos incumprimentos do Azure (ao contrário do que aconteceu anteriormente quando a configuração de afinação automática estava em estado indefinido após a criação de novos servidores).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para habilitar o ajuste automático no **servidor**lógico do banco de dados SQL do Azure, navegue até o servidor em portal do Azure e, em seguida, selecione **ajuste automático** no menu.
+Para permitir a sintonização automática no **servidor**lógico da Base de Dados Azure SQL, navegue para o servidor no portal Azure e, em seguida, selecione **a sintonização automática** no menu.
 
 ![Servidor](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observe que **DROP_INDEX** opção no momento não é compatível com aplicativos que usam a alternância de partição e dicas de índice e não deve ser habilitada nesses casos. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico.
+> Por favor, note que **DROP_INDEX** opção neste momento não é compatível com aplicações que usam comutação de divisórias e dicas de índice e não deve ser ativada nestes casos. A queda de índices não utilizados não é suportada para os níveis de serviço Premium e Business Critical.
 >
 
-Selecione as opções de ajuste automático que você deseja habilitar e selecione **aplicar**.
+Selecione as opções de afinação automática que pretende ativar e selecionar **Aplicar**.
 
-As opções de ajuste automático em um servidor são aplicadas a todos os bancos de dados neste servidor. Por padrão, todos os bancos de dados herdam a configuração de seu servidor pai, mas isso pode ser substituído e especificado para cada banco de cada individualmente.
+As opções de afinação automática num servidor são aplicadas a todas as bases de dados deste servidor. Por padrão, todas as bases de dados herdam a configuração do seu servidor principal, mas esta pode ser ultrapassada e especificada para cada base de dados individualmente.
 
 ### <a name="rest-api"></a>API REST
 
-Saiba mais sobre como usar a API REST para habilitar o ajuste automático em um servidor, consulte [SQL Server atualização de ajuste automático e obter métodos http](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Saiba mais sobre a utilização da API REST para permitir a sintonização automática num servidor, consulte a [atualização automática do Servidor SQL e os métodos GET HTTP](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-## <a name="enable-automatic-tuning-on-an-individual-database"></a>Habilitar o ajuste automático em um banco de dados individual
+## <a name="enable-automatic-tuning-on-an-individual-database"></a>Ativar a sintonização automática numa base de dados individual
 
-O banco de dados SQL do Azure permite especificar individualmente a configuração de ajuste automático para cada banco de dados. No nível de banco de dados, você pode optar por herdar a configuração de ajuste automático do servidor pai, "padrões do Azure" ou não para herdar a configuração. Os padrões do Azure são definidos como FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
+A Base de Dados Azure SQL permite especificar individualmente a configuração de afinação automática para cada base de dados. No nível da base de dados pode optar por herdar a configuração de afinação automática do servidor dos pais, "Falhas de Azure" ou não herdar a configuração. Os Predefinidos Azure estão definidos para FORCE_LAST_GOOD_PLAN está ativado, CREATE_INDEX está ativado e DROP_INDEX está desativado.
 
 > [!TIP]
-> A recomendação geral é gerenciar a configuração de ajuste automático no **nível do servidor** para que as mesmas definições de configuração possam ser aplicadas automaticamente em cada banco de dados. Configure o ajuste automático em um banco de dados individual somente se você precisar que esse banco de dados tenha configurações diferentes das outras que herdam as configurações do mesmo servidor.
+> A recomendação geral é gerir a configuração de afinação automática ao **nível do servidor** para que as mesmas configurações de configuração possam ser aplicadas automaticamente em todas as bases de dados. Configure a sintonização automática numa base de dados individual apenas se precisar dessa base de dados para ter configurações diferentes das outras que herdam as definições do mesmo servidor.
 >
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para habilitar o ajuste automático em um **único banco de dados**, navegue até o banco de dados em portal do Azure e selecione **ajuste automático**.
+Para permitir a sintonização automática numa única base de **dados,** navegue para a base de dados do portal Azure e selecione **a finação automática**.
 
-As configurações individuais de ajuste automático podem ser configuradas separadamente para cada banco de dados. Você pode configurar manualmente uma opção de ajuste automático individual ou especificar que uma opção herde suas configurações do servidor.
+As definições de afinação automática individual podem ser configuradas separadamente para cada base de dados. Pode configurar manualmente uma opção de afinação automática individual, ou especificar que uma opção herda as suas definições a partir do servidor.
 
-![Base de Dados](./media/sql-database-automatic-tuning-enable/database.png)
+![Base de dados](./media/sql-database-automatic-tuning-enable/database.png)
 
-Observe que DROP_INDEX opção no momento não é compatível com aplicativos que usam a alternância de partição e dicas de índice e não deve ser habilitada nesses casos.
+Por favor, note que DROP_INDEX opção neste momento não é compatível com aplicações que usam comutação de divisórias e dicas de índice e não deve ser ativada nestes casos.
 
-Depois de selecionar a configuração desejada, clique em **aplicar**.
+Depois de ter selecionado a configuração desejada, clique em **Aplicar**.
 
-### <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>API do REST
 
-Saiba mais sobre como usar a API REST para habilitar o ajuste automático em um único banco de dados, consulte [atualização de ajuste automático do banco de dados SQL e obter métodos http](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
+Saiba mais sobre a utilização da API REST para permitir a sintonização automática numa única base de dados, consulte a Atualização automática de [afinação automática da Base de Dados SQL e os métodos GET HTTP](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### <a name="t-sql"></a>T-SQL
 
-Para habilitar o ajuste automático em um único banco de dados por meio de T-SQL, conecte-se ao banco de dados e execute a seguinte consulta:
+Para permitir a sintonização automática numa única base de dados via T-SQL, ligue-se à base de dados e execute a seguinte consulta:
 
 ```SQL
 ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
 ```
 
-Definir o ajuste automático como AUTO aplicará os padrões do Azure. Definindo-o para HERDAr, a configuração de ajuste automático será herdada do servidor pai. Escolhendo personalizado, você precisará configurar manualmente o ajuste automático.
+A definição de afinação automática para AUTO aplicará os Predefinidos Do Azure. Definindo-o para HERDa, a configuração de afinação automática será herdada do servidor dos pais. Escolhendo o CUSTOM, terá de configurar manualmente a afinação automática.
 
-Para configurar opções de ajuste automático individuais via T-SQL, conecte-se ao banco de dados e execute a consulta como esta:
+Para configurar opções individuais de afinação automática via T-SQL, ligue-se à base de dados e execute a consulta como esta:
 
 ```SQL
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-Definir a opção de ajuste individual como ON substituirá qualquer configuração que o banco de dados herdou e habilitará a opção de ajuste. Configurá-lo como OFF, também substituirá qualquer configuração herdada pelo banco de dados e desabilitará a opção de ajuste. A opção de ajuste automático, para a qual o padrão é especificado, herdará a configuração de ajuste automático das configurações de nível de servidor.  
+A definição da opção de afinação individual para ON, irá sobrepor-se a qualquer definição que a base de dados herdou e permitirá a opção de afinação. Definindo-o para OFF, também irá anular qualquer definição que a base de dados herdou e desativar a opção de afinação. A opção de afinação automática, para a qual o DEFAULT é especificado, herdará a configuração de afinação automática a partir das definições do nível do servidor.  
 
 > [!IMPORTANT]
-> No caso da [replicação geográfica ativa](sql-database-auto-failover-group.md), o ajuste automático precisa ser configurado somente no banco de dados primário. Automaticamente as ações de ajuste aplicadas, como a criação ou exclusão de índice de exemplo, serão replicadas automaticamente para o secundário somente leitura. A tentativa de habilitar o ajuste automático por meio do T-SQL no secundário somente leitura resultará em uma falha, pois não há suporte para uma configuração de ajuste diferente no secundário somente leitura.
+> Em caso de [geo-replicação ativa,](sql-database-auto-failover-group.md)a afinação automática tem de ser configurada apenas na base de dados primária. As ações de afinação aplicadas automaticamente, por exemplo, a criação ou o exclusão de índices serão automaticamente replicadas para o secundário de leitura. Tentar ativar a sintonização automática via T-SQL no secundário apenas para leitura resultará numa falha, uma vez que não suporta uma configuração de afinação diferente no secundário de leitura.
 >
 
-Encontre nossas mais está confinado no opções de T-SQL para configurar o ajuste automático, consulte [Opções ALTER DATABASE SET (Transact-SQL) para o servidor de banco de dados SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Encontre as nossas opções mais abut T-SQL para configurar a afinação automática, consulte opções de CONJUNTO DE BASE DE [DADOS ALTER (Transact-SQL) para servidor de base de dados SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
-## <a name="disabled-by-the-system"></a>Desabilitado pelo sistema
+## <a name="disabled-by-the-system"></a>Desativado pelo sistema
 
-O ajuste automático está monitorando todas as ações que ele pega no banco de dados e, em alguns casos, ele pode determinar que o ajuste automático não pode funcionar corretamente no banco de dados. Nessa situação, a opção de ajuste será desabilitada pelo sistema. Na maioria dos casos, isso ocorre porque Repositório de Consultas não está habilitado ou está em estado somente leitura em um banco de dados específico.
+A afinação automática está a monitorizar todas as ações que toma na base de dados e, em alguns casos, pode determinar que a afinação automática não pode funcionar corretamente na base de dados. Nesta situação, a opção de afinação será desativada pelo sistema. Na maioria dos casos isto acontece porque a Consulta Store não está ativada ou está em estado de leitura numa base de dados específica.
 
 ## <a name="permissions"></a>Permissões
 
-Como o ajuste automático é o recurso do Azure, para usá-lo, será necessário usar as funções RBAC internas do Azure. Usar a autenticação do SQL somente não será suficiente para usar o recurso do portal do Azure.
+Como a finação automática é a funcionalidade Azure, para usá-la terá de utilizar as funções RBAC incorporadas do Azure. A utilização da Autenticação SQL apenas não será suficiente para utilizar a funcionalidade do portal Azure.
 
-Para usar o ajuste automático, a permissão mínima necessária para conceder ao usuário é a função de colaborador do [BD SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor) interna do Azure. Você também pode considerar o uso de funções de privilégio mais alto, SQL Server como colaborador, colaborador e proprietário.
+Para utilizar a afinação automática, a permissão mínima necessária para conceder ao utilizador é a função de [contribuinte SQL DB](../role-based-access-control/built-in-roles.md#sql-db-contributor) incorporado da Azure. Também pode considerar a utilização de papéis de privilégio mais elevados, tais como SQL Server Contributor, Contributor e Owner.
 
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar notificações de email de ajuste automático
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar notificações automáticas de e-mail de afinação
 
-Consulte Guia de [notificações por email de ajuste automático](sql-database-automatic-tuning-email-notifications.md) .
+Consulte o guia de notificações de [e-mail de afinação automática.](sql-database-automatic-tuning-email-notifications.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Leia o [artigo ajuste automático](sql-database-automatic-tuning.md) para saber mais sobre o ajuste automático e como ele pode ajudá-lo a melhorar seu desempenho.
-* Consulte [recomendações de desempenho](sql-database-advisor.md) para obter uma visão geral das recomendações de desempenho do banco de dados SQL do Azure.
-* Consulte análise de [desempenho de consultas](sql-database-query-performance.md) para saber mais sobre como exibir o impacto no desempenho de suas principais consultas.
+* Leia o artigo de [afinação automática](sql-database-automatic-tuning.md) para saber mais sobre a finação automática e como pode ajudá-lo a melhorar o seu desempenho.
+* Consulte [as recomendações](sql-database-advisor.md) de Desempenho para uma visão geral das recomendações de desempenho da Base de Dados Azure SQL.
+* Consulte [a Query Performance Insights](sql-database-query-performance.md) para aprender sobre o impacto de desempenho das suas principais consultas.

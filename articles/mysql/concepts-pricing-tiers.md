@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: cf959112a2a717da1005be062dda3b83163d8d6c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374128"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269448"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para níveis de preços MySQL
 
@@ -99,7 +99,7 @@ O armazenamento de escala e a alteração do período de retenção de cópias d
 
 Para obter as informações mais atualizadas sobre preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/mysql/)do serviço . Para ver o custo da configuração que deseja, o [portal Azure](https://portal.azure.com/#create/Microsoft.MySQLServer) mostra o custo mensal no separador **de nível** de preços com base nas opções que selecionar. Se não tiver uma subscrição Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da calculadora de [preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expandir a categoria Bases de **Dados** e escolher a Base de Dados Azure para o **MySQL** para personalizar as opções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Aprenda a [criar um servidor MySQL no portal](howto-create-manage-server-portal.md).
 - Conheça [os limites](concepts-limits.md)de serviço.

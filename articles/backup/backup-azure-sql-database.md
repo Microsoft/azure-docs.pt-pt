@@ -3,16 +3,23 @@ title: Back up SQL Server bases de dados para Azure
 description: Este artigo explica como apoiar o SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 7305a75852deac466028e6278fca76626d8c1820
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273244"
+ms.locfileid: "79297497"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
-As bases de dados do SQL Server são cargas de trabalho críticas que requerem um objetivo de ponto de recuperação baixo (RPO) e retenção a longo prazo. Pode fazer backup nas bases de dados do SQL Server em funcionamento em VMs Azure utilizando [backup azure](backup-overview.md).
+[O Azure Backup](backup-overview.md) oferece uma solução especializada e baseada em fluxo para apoiar o SQL Server em execução em VMs Azure. Esta solução alinha-se com os benefícios da Azure Backup de backup de infraestruturas zero, retenção a longo prazo e gestão central. Além disso, fornece as seguintes vantagens especificamente para o Servidor SQL:
+
+1. Backups conscientes da carga de trabalho que suportam todos os tipos de backup - completo, diferencial e log
+2. RPO de 15 min (objetivo do ponto de recuperação) com backups de registo frequentes
+3. Recuperação pontual até um segundo
+4. Backup e restauro de nível de base de dados individuais
+
+Para ver os cenários de backup e restauro que apoiamos hoje, consulte a matriz de [suporte.](backup-azure-sql-database.md#scenario-support)
 
 ## <a name="backup-process"></a>Processo de backup
 
@@ -78,37 +85,37 @@ Dependendo da preferência de reserva e dos tipos de backup (completo/diferencia
 
 **Tipo de cópia de segurança** | **Node**
     --- | ---
-    cheio | Primária
-    Diferencial | Primária
-    Registar |  Primária
-    Cópia Apenas Cheia |  Primária
+    cheio | Principal
+    Diferencial | Principal
+    Registar |  Principal
+    Cópia Apenas Cheia |  Principal
 
 * **Preferência de backup: Secundário**
 
 **Tipo de cópia de segurança** | **Node**
 --- | ---
-cheio | Primária
-Diferencial | Primária
-Registar |  Secundária
-Cópia Apenas Cheia |  Secundária
+cheio | Principal
+Diferencial | Principal
+Registar |  Secundário
+Cópia Apenas Cheia |  Secundário
 
 * **Preferência de backup: Secundário**
 
 **Tipo de cópia de segurança** | **Node**
 --- | ---
-cheio | Primária
-Diferencial | Primária
-Registar |  Secundária
-Cópia Apenas Cheia |  Secundária
+cheio | Principal
+Diferencial | Principal
+Registar |  Secundário
+Cópia Apenas Cheia |  Secundário
 
 * **Sem preferência de backup**
 
 **Tipo de cópia de segurança** | **Node**
 --- | ---
-cheio | Primária
-Diferencial | Primária
-Registar |  Secundária
-Cópia Apenas Cheia |  Secundária
+cheio | Principal
+Diferencial | Principal
+Registar |  Secundário
+Cópia Apenas Cheia |  Secundário
 
 ## <a name="set-vm-permissions"></a>Definir permissões VM
 
@@ -215,7 +222,7 @@ catch
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre](backup-sql-server-database-azure-vms.md) o backup das bases de dados do SQL Server.
 * [Saiba restaurar](restore-sql-database-azure-vm.md) as bases de dados do SQL Server.

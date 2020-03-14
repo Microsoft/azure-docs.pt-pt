@@ -15,11 +15,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355985"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281473"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
@@ -55,12 +55,12 @@ Os termos seguintes são utilizados neste artigo:
 ## <a name="supported-namespace-pairs"></a>Pares de espaço de nome suportados
 As seguintes combinações de espaços de nomes primários e secundários são suportadas:  
 
-| Espaço de nome primário | Espaço de nome secundário | Suportado | 
+| Espaço de nome primário | Espaço de nome secundário | Suportadas | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Sim | 
-| Standard | Dedicada | Sim | 
-| Dedicada | Dedicada | Sim | 
-| Dedicada | Standard | Não | 
+| Standard | Dedicado | Sim | 
+| Dedicado | Dedicado | Sim | 
+| Dedicado | Standard | Não | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nome sinuosos em aglomerados separados. 
@@ -135,7 +135,7 @@ Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com 
 
 ![3][]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * A [amostra no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) atravessa um simples fluxo de trabalho que cria um geo-emparelhamento e inicia uma falha para um cenário de recuperação de desastres.
 * A [referência REST API](/rest/api/eventhub/disasterrecoveryconfigs) descreve APIs para executar a configuração de recuperação de geo-desastres.

@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação de cenários de conversação
+title: Documentação dos cenários de conversas
 summary: Explore os vários cenários de conversação, Transcrição de Conversas ou conversação multi-dispositivo.
 metadata:
   title: Documentação de cenários de conversação - Tutoriais, Referência API - Serviços Cognitivos Azure / Microsoft Docs
@@ -10,46 +10,50 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: d6ea318c2745f7d80a49e5fcb1b47381a9f276f7
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 0df2992564dcf90f6b927b5a917993caec18af45
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562957"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79365793"
 landingContent:
-- title: Transcrição de Conversas
+- title: Sobre Transcrição de Conversas
   linkLists:
   - linkListType: overview
     links:
-    - text: Sobre a Transcrição da Conversa
+    - text: O que é transcrição de conversa?
       url: conversation-transcription.md
   - linkListType: how-to-guide
     links:
-    - text: Transcrever uma conversa em tempo real
-      url: how-to-use-conversation-transcription.md
-    - text: Transcrever conversas de forma assíncrona
-      url: how-to-async-conversation-transcription.md
-    - text: Lidar com cenários de call center
+    - text: Lidar com cenários de centros de atendimento telefónico
       url: call-center-transcription.md
-- title: Conversas em vários dispositivos
+    - text: Transcrição de conversação em tempo real
+      url: how-to-use-conversation-transcription.md
+    - text: Transcrição de Conversas Assíncrona
+      url: how-to-async-conversation-transcription.md
+  - linkListType: reference
+    links:
+    - text: Suporte linguístico de transcrição de conversação
+      url: conversation-transcription.md#language-support
+- title: Sobre a conversa ção com vários dispositivos
   linkLists:
   - linkListType: overview
     links:
-    - text: Sobre a conversa ção de vários dispositivos
+    - text: O que são as conversas em vários dispositivos?
       url: multi-device-conversation.md
   - linkListType: quickstart
     links:
     - text: Iniciar e participar numa conversa
       url: quickstarts/multi-device-conversation.md
+  - linkListType: reference
+    links:
+    - text: Suporte linguístico de conversação multi-dispositivo
+      url: multi-device-conversation.md#language-support
 - title: Referência
   linkLists:
   - linkListType: reference
     links:
-    - text: Suporte linguístico de transcrição de conversação
-      url: conversation-transcription.md#language-support
-    - text: Suporte linguístico de conversação multi-dispositivo
-      url: multi-device-conversation.md#language-support
-    - text: Preços
+    - text: Preços da transcrição da fala
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

@@ -13,11 +13,11 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378833"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264222"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acesso a registos de auditoria Azure AD B2C
 
@@ -35,7 +35,7 @@ A categoria **B2C** nos registos de auditoria contém os seguintes tipos de ativ
 |Tipo de atividade |Descrição  |
 |---------|---------|
 |Autorização |Atividades relativas à autorização de um utilizador para aceder aos recursos B2C (por exemplo, um administrador que aceda a uma lista de políticas B2C).         |
-|Diretório |Atividades relacionadas com atributos de diretório recuperados quando um administrador assina na utilização do portal Azure. |
+|Active |Atividades relacionadas com atributos de diretório recuperados quando um administrador assina na utilização do portal Azure. |
 |Aplicação | Criar, ler, atualizar e eliminar operações (CRUD) em aplicações B2C. |
 |Chave |Operações CRUD em chaves armazenadas num recipiente chave B2C. |
 |Recurso |Operações crud em recursos B2C. Por exemplo, políticas e fornecedores de identidade.
@@ -51,7 +51,7 @@ Esta imagem de exemplo do portal Azure mostra os dados capturados quando um util
 
 O painel de detalhes da atividade contém as seguintes informações relevantes:
 
-|Section|Campo|Descrição|
+|Secção|Campo|Descrição|
 |-------|-----|-----------|
 | Atividade | Nome | Que atividade teve lugar. Por exemplo, *emitir um id_token à aplicação*, que conclui o insessão do utilizador real. |
 | Iniciado por (Ator) | Objectide | O ID do **objeto** da aplicação B2C a que o utilizador está a iniciar sessão. Este identificador não é visível no portal Azure, mas é acessível através da API do Microsoft Graph. |
@@ -221,6 +221,6 @@ Aqui está a representação da JSON do evento de atividade de exemplo mostrado 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode automatizar outras tarefas de administração, por exemplo, gerir contas de [utilizadores Do Azure AD B2C com](manage-user-accounts-graph-api.md)o Microsoft Graph .

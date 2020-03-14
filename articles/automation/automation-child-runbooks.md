@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 42362a170f493afd51a5d4ee139620ad25b54e79
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246540"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367368"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Livros infantis em Automação Azure
 
@@ -35,13 +35,13 @@ Que tipos de livros de execução podem chamar uns aos outros?
 
 * Um livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks) e um [livro gráfico](automation-runbook-types.md#graphical-runbooks) podem chamar-se um ao outro em linha, uma vez que ambos são baseados em PowerShell.
 * Um livro de execução do [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) e um livro de execução gráfico powerShell Workflow podem chamar-se um ao outro em linha, uma vez que ambos são baseados em PowerShell Workflow.
-* Os tipos PowerShell e os tipos powerShell Workflow não podem ligar uns aos outros em linha, e devem usar **start-AzAutomationRunbook**.
+* Os tipos PowerShell e os tipos powerShell Workflow não podem ligar uns aos outros em linha, e devem usar `Start-AzAutomationRunbook`.
 
 Quando é que a ordem de publicação importa?
 
 A ordem de publicação de livros de execução só importa para powerShell Workflow e livros gráficos powerShell Workflow.
 
-Quando o seu livro de recortes chama um livro de corridas para crianças gráfica ou PowerShell Workflow utilizando a execução inline, ele usa o nome do livro de execução. O nome deve começar por **.\\** especificar que o script está localizado no diretório local.
+Quando o seu livro de recortes chama um livro de corridas para crianças gráfica ou PowerShell Workflow utilizando a execução inline, ele usa o nome do livro de execução. O nome deve começar com `.\\` especificar que o script está localizado no diretório local.
 
 ### <a name="example"></a>Exemplo
 
@@ -62,15 +62,15 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 ## <a name="starting-a-child-runbook-using-a-cmdlet"></a>Iniciar um livro de crianças usando um cmdlet
 
 > [!IMPORTANT]
-> Se o seu livro de execução invocar um livro de execução para crianças com o cmdlet **Start-AzAutomationRunbook** com o parâmetro *de espera* e o livro de execução infantil produzir um resultado de objeto, a operação pode encontrar um erro. Para contornar o erro, consulte os [livros infantis com saída](troubleshoot/runbooks.md#child-runbook-object) de objetos para aprender a implementar a lógica para fazer sondagem para os resultados utilizando o cmdlet [Get-AzAutomationJobOutputRecord.](/powershell/module/az.automation/get-azautomationjoboutputrecord)
+> Se o seu livro de corridas invocar um livro de crianças com o `Start-AzAutomationRunbook` cmdlet com o parâmetro `Wait` e o livro de crianças produzir um resultado de objeto, a operação pode encontrar um erro. Para contornar o erro, consulte os [livros infantis com saída](troubleshoot/runbooks.md#child-runbook-object) de objetos para aprender a implementar a lógica para fazer sondagem para os resultados utilizando o cmdlet [Get-AzAutomationJobOutputRecord.](/powershell/module/az.automation/get-azautomationjoboutputrecord)
 
-Pode utilizar o **Start-AzAutomationRunbook** para iniciar um livro de execução descrito para [iniciar um livro de execução com o Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Existem dois modos de utilização para este cmdlet. Num modo, o cmdlet devolve o ID de trabalho quando o trabalho é criado para o livro de corridas infantil. No outro modo, que o seu script permite especificando o parâmetro *de espera,* o cmdlet aguarda até que o trabalho da criança termine e desconere a saída do livro de execução infantil.
+Pode utilizar `Start-AzAutomationRunbook` para iniciar um livro de execução como descrito no [Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Existem dois modos de utilização para este cmdlet. Num modo, o cmdlet devolve o ID de trabalho quando o trabalho é criado para o livro de corridas infantil. No outro modo, que o seu script permite especificando o parâmetro *de espera,* o cmdlet aguarda até que o trabalho da criança termine e desconere a saída do livro de execução infantil.
 
 O trabalho de um livro infantil começou com um cmdlet que funciona separadamente do trabalho do livro de corridas dos pais. Este comportamento resulta em mais empregos do que iniciar o livro de corridas, e torna os trabalhos mais difíceis de acompanhar. O progenitor pode começar mais do que um livro infantil sincronicamente sincronicamente sem esperar que cada um esteja completo. Para esta execução paralela, chamando os livros de execução da criança inline, o livro de execução dos pais deve usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
-A saída do livro de crianças não regressa ao livro de corridas dos pais de forma fiável devido ao timing. Além disso, variáveis como *$VerbosePreference*, *$WarningPreference*, e outras podem não ser propagadas aos livros infantis. Para evitar estes problemas, pode iniciar os livros infantis como trabalhos separados de automação utilizando o **Start-AzAutomationRunbook** com o parâmetro *de espera.* Esta técnica bloqueia o livro dos pais até que o livro de corridas da criança esteja completo.
+A saída do livro de crianças não regressa ao livro de corridas dos pais de forma fiável devido ao timing. Além disso, variáveis como `$VerbosePreference`, `$WarningPreference`, e outras podem não ser propagadas aos livros infantis. Para evitar estes problemas, pode iniciar os livros de execução para crianças como trabalhos separados de automação utilizando `Start-AzAutomationRunbook` com o parâmetro `Wait`. Esta técnica bloqueia o livro dos pais até que o livro de corridas da criança esteja completo.
 
-Se não quiser que o livro de execução dos pais seja bloqueado à espera, pode iniciar o livro de corridas para crianças utilizando o **Livro start-azAutomationRunbook** sem o parâmetro *de espera.* Neste caso, o seu livro de execução deve utilizar [o Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) para aguardar a conclusão do trabalho. Também deve utilizar [get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) e [Get-AzAutomationJobOutputOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) para recuperar os resultados.
+Se não quiser que o livro de corridas dos pais seja bloqueado à espera, pode iniciar o livro de corridas para crianças usando `Start-AzAutomationRunbook` sem o parâmetro `Wait`. Neste caso, o seu livro de execução deve utilizar [o Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) para aguardar a conclusão do trabalho. Também deve utilizar [get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) e [Get-AzAutomationJobOutputOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) para recuperar os resultados.
 
 Os parâmetros para um livro infantil iniciado com um cmdlet são fornecidos como um hashtable, como descrito nos [parâmetros Runbook](start-runbooks.md#runbook-parameters). Só podem ser utilizados tipos simples de dados. Se o runbook tem um parâmetro com um tipo de dados complexos, em seguida, tem de ser chamado inline.
 
@@ -80,7 +80,7 @@ Se os trabalhos dentro da mesma conta Automation funcionarem com mais de uma sub
 
 ### <a name="example"></a>Exemplo
 
-O exemplo seguinte inicia um livro infantil com parâmetros e, em seguida, aguarda que esteja completo utilizando o cmdlet **Start-AzAutomationRunbook** com o parâmetro *'Esperar'.* Uma vez concluído, o exemplo recolhe a saída de cmdlet do livro de execução infantil. Para utilizar o **Start-AzAutomationRunbook,** o script deve autenticar a sua subscrição Azure.
+O exemplo seguinte inicia um livro infantil com parâmetros e, em seguida, aguarda que esteja completo utilizando o `Start-AzAutomationRunbook` cmdlet com o parâmetro `Wait`. Uma vez concluído, o exemplo recolhe a saída de cmdlet do livro de execução infantil. Para utilizar `Start-AzAutomationRunbook`, o script deve autenticar a sua subscrição Azure.
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext

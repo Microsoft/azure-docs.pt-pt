@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355971"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244891"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais Azure
 
@@ -187,7 +187,7 @@ Se necessitar de executar a resolução de nomes a partir da sua aplicação web
 * No portal Azure, para o plano de App Service que acolhe a aplicação web, selecione **Sync Network** em **Networking**, **Integração de Rede Virtual.**
 
 ## <a name="specify-dns-servers"></a>Especificar servidores DNS
-Quando está a utilizar os seus próprios servidores DNS, o Azure fornece a capacidade de especificar vários servidores DNS por rede virtual. Também pode especificar vários servidores DNS por interface de rede (para o Azure Resource Manager) ou por serviço cloud (para o modelo de implementação clássico). Os servidores DNS especificados para uma interface de rede ou serviço de nuvem obtêm precedência sobre os servidores DNS especificados para a rede virtual.
+Quando está a utilizar os seus próprios servidores DNS, o Azure fornece a capacidade de especificar vários servidores DNS por rede virtual. Também é possível especificar vários servidores DNS por interface de rede (para o Azure Resource Manager), ou por serviço cloud (para o modelo de implementação clássica). Os servidores DNS especificados para uma interface de rede ou serviço de nuvem obtêm precedência sobre os servidores DNS especificados para a rede virtual.
 
 > [!NOTE]
 > As propriedades de ligação à rede, tais como IPs do servidor DNS, não devem ser editadas diretamente dentro de VMs. Isto porque podem ser apagados durante a cicatriz ação de serviço quando o adaptador de rede virtual é substituído. Isto aplica-se tanto aos VMs Windows como linux.
@@ -202,7 +202,7 @@ Quando estiver a utilizar o modelo de implementação clássico, pode especifica
 > [!NOTE]
 > Se alterar as definições de DNS para uma rede virtual ou máquina virtual que já está implantada, para que as novas definições de DNS entrem em vigor, deve realizar uma renovação de locação de DHCP em todos os VMs afetados na rede virtual. Para vMs que executam o Sistema operativo Windows OS, pode fazê-lo digitando `ipconfig /renew` diretamente no VM. Os passos variam consoante o Sistema Operativo. Consulte a documentação relevante para o seu tipo de SO.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Modelo de implementação do Gestor de Recursos Azure:
 

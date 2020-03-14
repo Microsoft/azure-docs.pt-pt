@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d28a342359114e05545f15624a86a17f7d0d3365
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 028b186964643a08a4370741a3f1ff2ba33a4e85
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268369"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370309"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Encriptação azure storage para dados em repouso
 
@@ -102,7 +102,7 @@ Para aprender a usar chaves geridas pelo cliente com o Cofre chave Azure para en
 
 Para ativar as chaves geridas pelo cliente numa conta de armazenamento, deve utilizar um Cofre de Chave Azure para armazenar as suas chaves. Deve ativar as propriedades **Soft Delete** e **Não purgar** as propriedades no cofre da chave.
 
-Apenas as chaves RSA são suportadas com encriptação de Armazenamento Azure. Para mais informações sobre as chaves, consulte **as chaves key vault** em [chaves, segredos e certificados do Cofre chave Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+Apenas as chaves RSA do tamanho 2048 são suportadas com encriptação de Armazenamento Azure. Para mais informações sobre as chaves, consulte **as chaves key vault** em [chaves, segredos e certificados do Cofre chave Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
 
 ### <a name="rotate-customer-managed-keys"></a>Rode as chaves geridas pelo cliente
 

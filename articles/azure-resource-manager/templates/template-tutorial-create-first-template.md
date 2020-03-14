@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e31d4a5f513355e61cb53a6548b3091637bfe9a4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 839b1bc7e851c438781672d9c1c0d1069b2ec4ed
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238553"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369085"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Crie e implante o seu primeiro modelo de Gestor de Recursos Azure
 
@@ -132,7 +132,7 @@ New-AzResourceGroupDeployment `
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
-az group deployment create \
+az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile

@@ -10,11 +10,11 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397192"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255408"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -97,7 +97,7 @@ az login
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-N/D
+N/A
 
 ---
 
@@ -284,7 +284,7 @@ Alternadamente, pode eliminar o grupo de recursos, que elimina a conta de armaze
 >
 > Se tentar eliminar uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro informando-o de que a conta de armazenamento ainda está em utilização. Para ajudar a resolver este erro, consulte [erros de resolução de problemas quando eliminar as contas](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)de armazenamento .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo de como fazer, criou uma conta de armazenamento padrão v2 de propósito geral. Para aprender a carregar e descarregar bolhas de e para a sua conta de armazenamento, continue a ser um dos quickstarts de armazenamento blob.
 

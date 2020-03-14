@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e24a4209869d4c47f8ac73e250699ec55d006296
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f46bcf412403d8f911e484e12a9d1f421b1666f0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253406"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366075"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 
@@ -46,7 +46,7 @@ A tabela seguinte resume os métodos de início de sessão únicos e ligações 
 | [SAML](#saml-sso) | na cloud e no local | Escolha o SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam utilizando um dos protocolos SAML.|
 | [Baseado em palavra-passe](#password-based-sso) | na cloud e no local | Escolha com base em palavra-passe quando a aplicação autentica com nome de utilizador e palavra-passe. Com base em palavra-passe de início de sessão único permite o armazenamento de palavra-passe de aplicação segura e de repetição com uma extensão de browser ou aplicação móvel. Este método utiliza o início de sessão no processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe. |
 | [Ligado](#linked-sign-on) | na cloud e no local | Escolha o sign-on ligado quando a aplicação estiver configurada para um único sinal num outro serviço de fornecedor de identidade. Esta opção não adiciona o início de sessão único para a aplicação. No entanto, a aplicação já pode ter início de sessão único implementado através de outro serviço, como serviços de Federação do Active Directory.|
-| [Desativado](#disabled-sso) | na cloud e no local | Escolha um único sinal de saque desativado quando a aplicação não estiver pronta para ser configurada para um único sinal. Os utilizadores têm de introduzir o respetivo nome de utilizador e a palavra-passe sempre que iniciarem esta aplicação.|
+| [Desativado](#disabled-sso) | na cloud e no local | Escolha um único sinal de saque desativado quando a aplicação não estiver pronta para ser configurada para um único sinal. Este modo é o padrão quando cria a aplicação.|
 | [Autenticação Integrada do Windows (IWA)](#integrated-windows-authentication-iwa-sso) | apenas no local | Escolha o iWA de um único sinal para aplicações que utilizem autenticação integrada do [Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)ou aplicações que tenham conhecimento de sinistros. Para a IWA, os conectores proxy de aplicação utilizam a Delegação Limitada kerberos (KCD) para autenticar os utilizadores na aplicação. |
 | [Baseado em cabeçalho](#header-based-sso) | apenas no local | Utilize com base no cabeçalho de início de sessão único quando o aplicativo usa cabeçalhos para autenticação. O único sinal baseado no cabeçalho requer o PingAccess para a AD Azure. Proxy de aplicações utiliza o Azure AD para autenticar o utilizador e, em seguida, passa o tráfego através do serviço de conector.  |
 
@@ -146,6 +146,8 @@ Utilização desativada modo de início de sessão único:
 - Se não estiver pronto para integrar esta aplicação com o Azure AD início de sessão único, ou
 - Se estiver a testar outros aspectos do aplicativo, ou
 - Como uma camada de segurança para uma aplicação no local que não requer que os utilizadores autenticar. Com desativado, o utilizador tem de autenticar.
+
+Note que se configurar a aplicação para sp-iniciado saml single sign-on e você alterar o modo SSO para desativar, não impedirá os utilizadores de assinar em aplicação fora do portal MyApps. Para isso, é necessário [desativar a capacidade de os utilizadores iniciarem sessão](disable-user-sign-in-portal.md)
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>Autenticação do Windows (IWA) integrada SSO
 

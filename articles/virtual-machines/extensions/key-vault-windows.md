@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3de4baa4eafe26cff18d9b1bcfb59398439994b0
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 22a4177d85cb9dbbaa9ed75e063306484c7b48a9
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969777"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298976"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Cofre chave para Windows
 
@@ -23,9 +23,13 @@ A extensão VM do Cofre Chave fornece uma atualização automática de certifica
 
 A extensão VM do Cofre Chave suporta versões abaixo do Windows:
 
-- Windows Server 2019
+- Windows Server de 2019
 - Windows Server 2016
 - Windows Server 2012
+
+### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado suportado
+
+- PKCS #12
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -69,14 +73,14 @@ O seguinte JSON mostra o esquema para a extensão VM do cofre chave. A extensão
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | string |
-| tipo | KeyVaultForWindows | string |
+| publicador | Microsoft.Azure.KeyVault | Cadeia de caracteres |
+| tipo | KeyVaultForWindows | Cadeia de caracteres |
 | typeHandlerVersion | 1.0 | int |
-| sondagensIntervalInS | 3600 | string |
-| certificateStoreName | MY | string |
-| linkOnRenovação | false | boolean |
-| certificateStoreLocation  | Máquina Local | string |
-| necessárioInitialSync | true | boolean |
+| sondagensIntervalInS | 3600 | Cadeia de caracteres |
+| certificateStoreName | MY | Cadeia de caracteres |
+| linkOnRenovação | false | valor booleano |
+| certificateStoreLocation  | Máquina Local | Cadeia de caracteres |
+| necessárioInitialSync | true | valor booleano |
 | certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cordas
 
 
@@ -193,7 +197,7 @@ Tenha em atenção as seguintes restrições/requisitos:
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure PowerShell.
 

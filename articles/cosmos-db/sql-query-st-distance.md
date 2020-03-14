@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4908d5f9f6eccaaaf71308b868d712f0eb96cb52
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 972712d37c146ce288c49af7832919946f5503cd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303159"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297123"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
- Devolve a distância entre as duas expressões LineString, Polygon ou GeoJSON ponto.  
+ Devolve a distância entre as duas expressões GeoJSON Point, Polygon, MultiPolygon ou LineString. Para saber mais, consulte o artigo de dados de [localização Geospatial e GeoJSON.](sql-query-geospatial-intro.md)
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -54,7 +54,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 Esta função do sistema beneficiará de um [índice geoespacial.](index-policy.md#spatial-indexes)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Funções espaciais Azure Cosmos DB](sql-query-spatial-functions.md)
 - [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)

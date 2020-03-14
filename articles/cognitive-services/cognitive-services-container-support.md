@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: dapine
 ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390821"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219414"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
@@ -49,7 +49,7 @@ Os recursos dos Serviços Cognitivos estão disponíveis no [Microsoft Azure.](h
 
 Contentores de serviços cognitivos do Azure fornecem o seguinte conjunto de contentores do Docker, cada um deles contendo um subconjunto da funcionalidade dos serviços nos serviços cognitivos do Azure:
 
-| Serviço | Nível de Preços Suportados | Contentor | Descrição |
+| Service | Nível de Preços Suportados | Contentor | Descrição |
 |---------|----------|----------|-------------|
 |[Detetor de anomalias][ad-containers] |F0, S0|**Detetor de anomalias** |A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série temporal com machine learning.<br>[Solicitar acesso](https://aka.ms/adcontainer)|
 |[Imagem Digitalizada][cv-containers] |F0, S1|**Leitura** |Extrai texto impresso partir de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita. O recipiente De leitura também deteta *texto manuscrito* em imagens e fornece suporte PDF/TIFF/multi-página.<br/><br/>**Importante:** O recipiente De Leitura funciona atualmente apenas com inglês.|
@@ -107,7 +107,7 @@ Contentores individuais podem ter seus próprios requisitos, além disso, inclui
 
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [as receitas](containers/container-reuse-recipe.md) de recipientes que pode usar com os Serviços Cognitivos.
 

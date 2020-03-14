@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 69c0c13c7027707cdadb2f1f1de9cc1655c9c625
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621898"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264781"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regras do Azure Firewall
 Pode configurar regras nat, regras de rede e aplicações em Azure Firewall. As regras são processadas de acordo com o tipo de regra. 
@@ -24,7 +24,7 @@ Pode configurar regras nat, regras de rede e aplicações em Azure Firewall. As 
 
 ### <a name="network-rules-and-applications-rules"></a>Regras de rede e aplicações
 
-Se configurar as regras de rede e as regras de aplicação, as regras de rede são aplicadas por ordem prioritária antes das regras de aplicação. As regras estão a acabar. Portanto, se um fósforo for encontrado numa regra de rede, nenhuma outra regra é processada.  Se não houver uma correspondência de regras de rede, e se o protocolo for HTTP,HTTPS ou MSSQL, o pacote é então avaliado pelas regras de aplicação em ordem prioritária. Se ainda não for encontrado um fósforo, o pacote é avaliado contra a recolha das regras de [infraestrutura.](infrastructure-fqdns.md) Se ainda não houver correspondência, então o pacote é negado por predefinição.
+Se configurar as regras de rede e as regras de aplicação, as regras de rede são aplicadas por ordem prioritária antes das regras de aplicação. As regras estão a acabar. Portanto, se um fósforo for encontrado numa regra de rede, nenhuma outra regra é processada.  Se não houver uma correspondência de regras de rede, e se o protocolo for HTTP, HTTPS ou MSSQL, então o pacote é avaliado pelas regras de aplicação em ordem prioritária. Se ainda não for encontrado um fósforo, o pacote é avaliado contra a recolha das regras de [infraestrutura.](infrastructure-fqdns.md) Se ainda não houver correspondência, então o pacote é negado por predefinição.
 
 ## <a name="inbound"></a>Entrada
 
@@ -47,7 +47,7 @@ A ligação ao google.com é permitida devido a uma regra de rede correspondente
 - Ação: Permitir
 
 
-|nome  |Protocolo  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|nome  |Protocol  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Permitir web     |TCP|Endereço IP|*|Endereço IP|*|80,443
 
@@ -73,7 +73,7 @@ O tráfego ssh é negado porque uma prioridade mais alta A recolha de regras da 
 - Prioridade: 200
 - Ação: Permitir
 
-|nome  |Protocolo  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|nome  |Protocol  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Permitir-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -83,7 +83,7 @@ O tráfego ssh é negado porque uma prioridade mais alta A recolha de regras da 
 - Prioridade: 100
 - Ação: Negar
 
-|nome  |Protocolo  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|nome  |Protocol  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Deny-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -91,6 +91,10 @@ O tráfego ssh é negado porque uma prioridade mais alta A recolha de regras da 
 
 As ligações SSH são negadas porque uma maior prioridade de recolha de regras de rede bloqueia-a. O processamento de regras para neste momento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="rule-changes"></a>Alterações de regras
+
+Se alterar uma regra para negar o tráfego anteriormente permitido, quaisquer sessões relevantes são retiradas.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - Aprenda a [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md).

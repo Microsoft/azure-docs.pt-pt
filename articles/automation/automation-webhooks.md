@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 043350db2c5372fc81fbb2b68155a4ac75457208
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278405"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367028"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um livro de execução da Automação Azure com um webhook
 
@@ -39,37 +39,37 @@ A tabela seguinte descreve as propriedades que deve configurar para um webhook.
 
 Um webhook pode definir valores para parâmetros de livro de execução que são usados quando o livro de execução começa. O webhook deve incluir valores para quaisquer parâmetros de livro obrigatórios e pode incluir valores para parâmetros opcionais. Um valor de parâmetro configurado para um webhook pode ser modificado mesmo após a criação do webhook. Vários webhooks ligados a um único livro de execução podem cada um usar diferentes valores de parâmetros de caderneta. Quando um cliente inicia um livro de execução usando um webhook, não pode sobrepor-se aos valores do parâmetro definidos no webhook.
 
-Para receber dados do cliente, o livro de execução suporta um único parâmetro chamado *WebhookData*. Este parâmetro define um objeto que contém dados que o cliente inclui num pedido post.
+Para receber dados do cliente, o livro de recortes suporta um único parâmetro chamado `WebhookData`. Este parâmetro define um objeto que contém dados que o cliente inclui num pedido post.
 
 ![Propriedades WebhookData](media/automation-webhooks/webhook-data-properties.png)
 
-O parâmetro *WebhookData* tem as seguintes propriedades:
+O parâmetro `WebhookData` tem as seguintes propriedades:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| WebhookName | Nome do gancho web. |
-| Cabeçalho de Pedido | Hashtable contendo os cabeçalhos do pedido de correio que chega. |
-| requestBody | Corpo do pedido de correio que chega. Este corpo retém qualquer formatação de dados, tais como cordas, JSON, XML ou codificadas por formulários. O livro de execução deve ser escrito para trabalhar com o formato de dados que se espera. |
+| `WebhookName` | Nome do gancho web. |
+| `RequestHeader` | Hashtable contendo os cabeçalhos do pedido de correio que chega. |
+| `RequestBody` | Corpo do pedido de correio que chega. Este corpo retém qualquer formatação de dados, tais como cordas, JSON, XML ou codificadas por formulários. O livro de execução deve ser escrito para trabalhar com o formato de dados que se espera. |
 
-Não existe nenhuma configuração do webhook necessária para suportar o parâmetro *WebhookData,* e o livro de execução não é necessário para aceitá-lo. Se o livro de execução não definir o parâmetro, quaisquer detalhes do pedido enviado pelo cliente são ignorados.
+Não há configuração do webhook necessária para suportar o parâmetro `WebhookData`, e o livro de execução não é necessário para aceitá-lo. Se o livro de execução não definir o parâmetro, quaisquer detalhes do pedido enviado pelo cliente são ignorados.
 
 > [!NOTE]
 > Ao ligar para um webhook, o cliente deve sempre armazenar quaisquer valores de parâmetro sintetizador caso a chamada falhe. Se houver uma falha de rede ou problema de ligação, a aplicação não pode recuperar chamadas falhadas do webhook.
 
-Se especificar um valor para *webhookData* na criação do webhook, é ultrapassado quando o webhook inicia o livro de execução com os dados do pedido do cliente POST. Isto acontece mesmo que a aplicação não inclua quaisquer dados no organismo de pedido. 
+Se especificar um valor para `WebhookData` na criação do webhook, é ultrapassado quando o webhook inicia o livro de execução com os dados do pedido do cliente POST. Isto acontece mesmo que a aplicação não inclua quaisquer dados no organismo de pedido. 
 
-Se iniciar um livro de execução que define o *WebhookData* utilizando um mecanismo diferente de um webhook, pode fornecer um valor para *o WebhookData* que o livro de execução reconhece. Este valor deve ser um objeto com as mesmas [propriedades](#webhook-properties) que o parâmetro *WebhookData* para que o livro de execução possa funcionar com ele assim que funcione com objetos *WebhookData* reais passados por um webhook.
+Se iniciar um livro de execução que defina `WebhookData` utilizando um mecanismo diferente de um webhook, pode fornecer um valor para `WebhookData` que o livro de execução reconhece. Este valor deve ser um objeto com as mesmas [propriedades](#webhook-properties) que o parâmetro `WebhookData` para que o livro de execução possa funcionar com ele assim como funciona com objetos `WebhookData` reais passados por um webhook.
 
 Por exemplo, se estiver a iniciar o seguinte livro de execução do portal Azure e pretender passar alguns dados de webhook de amostra para testes, tem de passar os dados em JSON na interface do utilizador.
 
 ![Parâmetro WebhookData da UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
-Para o próximo exemplo do livro de executantes, vamos definir as seguintes propriedades *WebhookData:*
+Para o próximo exemplo do livro de corridas, vamos definir as seguintes propriedades para `WebhookData`:
 
 * **WebhookName**: MyWebhook
 * **RequestBody**: `*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
 
-Agora passamos o seguinte objeto JSON na UI para o parâmetro *WebhookData.* Este exemplo, com retornos de carruagem e caracteres de newline, corresponde ao formato que é passado a partir de um webhook.
+Agora passamos o seguinte objeto JSON na UI para o parâmetro `WebhookData`. Este exemplo, com retornos de carruagem e caracteres de newline, corresponde ao formato que é passado a partir de um webhook.
 
 ```json
 {"WebhookName":"mywebhook","RequestBody":"[\r\n {\r\n \"ResourceGroup\": \"vm01\",\r\n \"Name\": \"vm01\"\r\n },\r\n {\r\n \"ResourceGroup\": \"vm02\",\r\n \"Name\": \"vm02\"\r\n }\r\n]"}
@@ -84,7 +84,7 @@ Agora passamos o seguinte objeto JSON na UI para o parâmetro *WebhookData.* Est
 
 A segurança de um webhook depende da privacidade do seu URL, que contém um símbolo de segurança que permite que o webhook seja invocado. A Azure Automation não realiza qualquer autenticação num pedido desde que seja feita no URL correto. Por esta razão, os seus clientes não devem utilizar webhooks para livros de execução que realizem operações altamente sensíveis sem utilizar em meios alternativos de validação do pedido.
 
-Você pode incluir lógica dentro de um livro de execução para determinar se é chamado por um webhook. Peça ao livro de execução que verifique a propriedade **WebhookName** do parâmetro *WebhookData.* O livro de execução pode realizar uma validação adicional procurando informações específicas nas propriedades **RequestHeader** e **RequestBody.**
+Você pode incluir lógica dentro de um livro de execução para determinar se é chamado por um webhook. Faça com que o livro de corridas verifique a propriedade `WebhookName` do parâmetro `WebhookData`. O livro de execução pode realizar uma validação adicional procurando informações específicas nas propriedades `RequestHeader` e `RequestBody`.
 
 Outra estratégia é fazer com que o livro de execução execute alguma validação de uma condição externa quando recebe um pedido de webhook. Por exemplo, considere um livro de corridas que é chamado pelo GitHub sempre que houver um novo compromisso com um repositório GitHub. O livro de execução pode ligar-se ao GitHub para validar que um novo compromisso ocorreu antes de continuar.
 
@@ -108,13 +108,13 @@ Utilize o seguinte procedimento para criar um novo webhook ligado a um livro de 
 
 ## <a name="using-a-webhook"></a>Usando um webhook
 
-Para utilizar um webhook depois de ter sido criado, o seu cliente deve emitir um pedido HTTP POST com o URL para o webhook. A sintaxe é:
+Para utilizar um webhook depois de ter sido criado, o seu cliente deve emitir um pedido de `POST` HTTP com o URL para o webhook. A sintaxe é:
 
 ```http
 http://<Webhook Server>/token?=<Token Value>
 ```
 
-O cliente recebe um dos seguintes códigos de devolução do pedido do POST.
+O cliente recebe um dos seguintes códigos de devolução do pedido `POST`.
 
 | Código | Texto | Descrição |
 |:--- |:--- |:--- |
@@ -147,7 +147,7 @@ Pode estender um webhook que não tenha atingido o seu tempo de validade. Para e
 O livro de execução da amostra seguinte aceita os dados do webhook e inicia as máquinas virtuais especificadas no organismo de pedido. Para testar este livro de execução, na sua conta De automação em **'Runbooks',** clique em Criar um livro de **execução**. Se não sabe criar um livro de corridas, consulte Criar um livro de [corridas.](automation-quickstart-create-runbook.md)
 
 > [!NOTE]
-> Para livros de execução powerShell não gráficos, **Add-AzAccount** e **Add-AzureRMAccount** são pseudónimos de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+> Para livros de execução powerShell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
 ```powershell
 param
@@ -219,7 +219,7 @@ $response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $heade
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-O exemplo seguinte mostra o corpo do pedido que está disponível para o livro de execução na propriedade **RequestBody** do *WebhookData*. Este valor é formatado em JSON para ser compatível com o formato incluído no corpo do pedido.
+O exemplo seguinte mostra o corpo do pedido que está disponível para o livro de execução na propriedade `RequestBody` de `WebhookData`. Este valor é formatado em JSON para ser compatível com o formato incluído no corpo do pedido.
 
 ```json
 [

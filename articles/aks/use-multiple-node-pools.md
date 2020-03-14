@@ -4,12 +4,12 @@ description: Aprenda a criar e gerir várias piscinas de nós para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: cf127cc75377c3ca3a18cdeaedbc1d450d6c3826
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b7025b896a1bd156c448ccfcd0e9001c49146be4
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252847"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368286"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Crie e gerencie várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
@@ -93,9 +93,7 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 
 A saída de exemplo seguinte mostra que a *mynodepool* foi criada com sucesso com três nódosos na piscina do nó. Quando o cluster AKS foi criado no passo anterior, um nó de *numpool1* padrão foi criado com uma contagem de nó de *2*.
 
-```console
-$ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
-
+```output
 [
   {
     ...
@@ -148,9 +146,11 @@ az aks nodepool upgrade \
 
 Enumere o estado das piscinas do seu nó novamente usando o comando da lista de [piscinas az aks.][az-aks-nodepool-list] O exemplo que se segue mostra que a *minodepool* está no estado de *modernização* para *1.15.7:*
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -234,9 +234,11 @@ az aks nodepool scale \
 
 Enumere o estado das piscinas do seu nó novamente usando o comando da lista de [piscinas az aks.][az-aks-nodepool-list] O exemplo que se segue mostra que a *miodepool* está no estado de *Escalacom* uma nova contagem de *5* nódosos:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -284,9 +286,11 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 
 A saída de exemplo a seguir do comando da lista de [piscinas az aks][az-aks-nodepool-list] mostra que *mynodepool* está no estado de *exclusão:*
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -337,9 +341,11 @@ az aks nodepool add \
 
 A saída de exemplo a seguir do comando da lista de [piscinas az aks][az-aks-nodepool-list] mostra que *o gpunodepool* está *a criar* nódosos com o *VmSize*especificado:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -375,8 +381,10 @@ Leva alguns minutos para que a *piscina* seja criada com sucesso.
 Você agora tem duas piscinas de nós no seu cluster - a piscina de nós padrão inicialmente criada, e a piscina de nó baseada em GPU. Use o [kubectl obter][kubectl-get] comando de nós para ver os nós no seu aglomerado. A saída de exemplo a seguir mostra os nódosos:
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
+```
 
+```output
 NAME                                 STATUS   ROLES   AGE     VERSION
 aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
 aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
@@ -431,8 +439,10 @@ kubectl apply -f gpu-toleration.yaml
 Leva alguns segundos para agendar a cápsula e puxar a imagem NGINX. Utilize o comando de [cápsula de utilização kubectl][kubectl-describe] para ver o estado da cápsula. A saída de exemplo condensado seguinte mostra a toleração *sku=gpu:NoSchedule* é aplicada. Na secção de eventos, o programador atribuiu a cápsula ao nó *aks-gpunodepool-28993262-vmss0000000000com* GpU- based:
 
 ```console
-$ kubectl describe pod mypod
+kubectl describe pod mypod
+```
 
+```output
 [...]
 Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
                  node.kubernetes.io/unreachable:NoExecute for 300s
@@ -563,9 +573,11 @@ az aks nodepool add \
 
 A saída de exemplo a seguir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *tagnodepool* está *criando* nódosos com a *etiqueta*especificada:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...

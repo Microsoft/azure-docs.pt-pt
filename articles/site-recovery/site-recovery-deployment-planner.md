@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: 50a236154a0340bd49e84a8ca02f656e3cd9994a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257657"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366301"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Planejador de Implantação de Implantação de Sítios Azure para VMware para Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
@@ -76,7 +76,7 @@ A ferramenta tem duas fases principais – a criação de perfis e a geração d
 
 | Requisito do servidor | Descrição|
 |---|---|
-|Medição da criação de perfis e do débito| <ul><li>Sistema operativo: Windows Server 2016 ou Windows Server 2012 R2<br>(que corresponda idealmente, pelo menos, às [recomendações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>As definições de nível de nível de estatísticas VMware vCenter podem ser de 1 ou superior nível</li><li>Permitir a porta vCenter (padrão 443): O Planificador de Implementação de Recuperação do Site utiliza esta porta para se ligar ao servidor vCenter/hospedeiro ESXi</ul></ul>|
+|Medição da criação de perfis e do débito| <ul><li>Sistema operativo: Windows Server 2016 ou Windows Server 2012 R2<br>(que corresponda idealmente, pelo menos, às [recomendações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet ao Azure (*.blob.core.windows.net) a partir deste servidor, porta 443<br>[Isto é opcional. Pode optar por fornecer a largura de banda disponível durante a Geração de Relatórios manualmente.]</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>As definições de nível de nível de estatísticas VMware vCenter podem ser de 1 ou superior nível</li><li>Permitir a porta vCenter (padrão 443): O Planificador de Implementação de Recuperação do Site utiliza esta porta para se ligar ao servidor vCenter/hospedeiro ESXi</ul></ul>|
 | Geração de relatórios | Um Windows PC ou Windows Server com Excel 2013 ou mais tarde.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) só é necessário quando passa a opção -Utilizador no comando de geração de relatórios para obter as mais recentes informações de configuração VM dos VMs. O Planificador de Implementação liga-se ao servidor vCenter. Permita que a porta vCenter (padrão 443) se ligue ao servidor vCenter.</li>|
 | Permissões de utilizador | Permissão só de leitura para a conta de utilizador utilizada para aceder ao VMware vCenter Server/anfitrião ESXi do VMware vSphere durante a criação do perfil |
 

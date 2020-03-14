@@ -9,16 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906533"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370479"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto final de armazenamento de Blob Azure
 
 Você pode mapear um domínio personalizado para um ponto final de serviço blob ou um ponto final [de site estático.](storage-blob-static-website.md) 
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Este mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com`). Se quiser que o seu ponto final da web esteja disponível no domínio raiz (por exemplo: `contoso.com`), então terá de utilizar o Azure CDN. Para obter orientação, consulte o Mapa um domínio personalizado com secção [ativada](#enable-https) por HTTPS deste artigo. Porque se vai a essa secção deste artigo para ativar o domínio raiz do seu domínio personalizado, o passo dentro dessa secção para ativar https é opcional. 
@@ -54,7 +56,7 @@ Se não estiver preocupado que o domínio não esteja brevemente disponível par
 
 O nome do hospedeiro é o URL final de ponto de armazenamento sem o identificador de protocolo e o corte de rasto. 
 
-1. Na [portal do Azure](https://portal.azure.com), vá para sua conta de armazenamento.
+1. No [portal Azure,](https://portal.azure.com)vá à sua conta de armazenamento.
 
 2. No painel do menu, em **Definições,** selecione **Propriedades**.  
 
@@ -81,7 +83,7 @@ Crie um disco CNAME para apontar para o seu nome de anfitrião. Um registo CNAME
 
 2. Encontre a secção para gerir os registos CNAME. 
 
-   Você pode ter que ir a umapáginade configurações avançada si mesmo si mesmo si mesmo si **mesmo**si.
+   Você pode ter que ir a uma **CNAME**página **Alias**de configurações avançada si mesmo si mesmo si mesmo si **mesmo**si.
 
 3. Crie um disco CNAME. Como parte desse registo, forneça os seguintes itens: 
 
@@ -93,7 +95,7 @@ Crie um disco CNAME para apontar para o seu nome de anfitrião. Um registo CNAME
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Passo 3: Registe o seu domínio personalizado com o Azure
 
-1. Na [portal do Azure](https://portal.azure.com), vá para sua conta de armazenamento.
+1. No [portal Azure,](https://portal.azure.com)vá à sua conta de armazenamento.
 
 2. No painel de menus, em **Serviço Blob,** selecione **domínio Personalizado**.  
 
@@ -140,7 +142,7 @@ Se o seu domínio suporta atualmente uma aplicação com um acordo de nível de 
 
 O nome do hospedeiro é o URL final de ponto de armazenamento sem o identificador de protocolo e o corte de rasto. 
 
-1. Na [portal do Azure](https://portal.azure.com), vá para sua conta de armazenamento.
+1. No [portal Azure,](https://portal.azure.com)vá à sua conta de armazenamento.
 
 2. No painel do menu, em **Definições,** selecione **Propriedades**.  
 
@@ -165,7 +167,7 @@ Crie um registo cname temporário para apontar para o seu nome de anfitrião. Um
 
 2. Encontre a secção para gerir os registos CNAME. 
 
-   Você pode ter que ir a umapáginade configurações avançada si mesmo si mesmo si mesmo si **mesmo**si.
+   Você pode ter que ir a uma **CNAME**página **Alias**de configurações avançada si mesmo si mesmo si mesmo si **mesmo**si.
 
 3. Crie um disco CNAME. Como parte desse registo, forneça os seguintes itens: 
 
@@ -185,7 +187,7 @@ Crie um registo cname temporário para apontar para o seu nome de anfitrião. Um
 
 Ao registar o seu domínio personalizado com o Azure, permite que o Azure reconheça o seu domínio personalizado sem ter de modificar o registo DNS para o domínio. Desta forma, quando modificar o registo DNS para o domínio, será mapeado para o ponto final blob sem tempo de inatividade.
 
-1. Na [portal do Azure](https://portal.azure.com), vá para sua conta de armazenamento.
+1. No [portal Azure,](https://portal.azure.com)vá à sua conta de armazenamento.
 
 2. No painel de menus, em **Serviço Blob,** selecione **domínio Personalizado**.  
 
@@ -213,7 +215,7 @@ Crie um registo cname temporário para apontar para o seu nome de anfitrião.
 
 2. Encontre a secção para gerir os registos CNAME. 
 
-   Você pode ter que ir a umapáginade configurações avançada si mesmo si mesmo si mesmo si **mesmo**si.
+   Você pode ter que ir a uma **CNAME**página **Alias**de configurações avançada si mesmo si mesmo si mesmo si **mesmo**si.
 
 3. Crie um disco CNAME. Como parte desse registo, forneça os seguintes itens: 
 
@@ -231,11 +233,11 @@ Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdom�
 
 Para remover um mapeamento de domínio personalizado, desregilhe o domínio personalizado. Utilize um dos seguintes procedimentos.
 
-#### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para remover a definição de domínio personalizado, faça o seguinte:
 
-1. Na [portal do Azure](https://portal.azure.com), vá para sua conta de armazenamento.
+1. No [portal Azure,](https://portal.azure.com)vá à sua conta de armazenamento.
 
 2. No painel de menus, em **Serviço Blob,** selecione **domínio Personalizado**.  
    O painel de **domínio personalizado** abre.
@@ -246,7 +248,7 @@ Para remover a definição de domínio personalizado, faça o seguinte:
 
 Depois de o domínio personalizado ter sido removido com sucesso, verá uma notificação do portal de que a sua conta de armazenamento foi atualizada com sucesso
 
-#### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+#### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para remover um registo de domínio personalizado, utilize o comando CLI de atualização da conta de [armazenamento az](https://docs.microsoft.com/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia (`""`) para o valor de argumento `--custom-domain`.
 
@@ -268,7 +270,7 @@ Para remover um registo de domínio personalizado, utilize o comando CLI de atua
       --custom-domain ""
   ```
 
-#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -314,7 +316,7 @@ Para mapear um domínio personalizado e ativar o acesso HTTPS, faça o seguinte:
 3. [Ativar HTTPS num domínio personalizado Azure CDN](../../cdn/cdn-custom-ssl.md).
 
    > [!NOTE] 
-   > Ao atualizar seu site estático, certifique-se de limpar o conteúdo armazenado em cache nos servidores de borda da CDN limpando o ponto de extremidade da CDN. Para obter mais informações, consulte [Remover um ponto final do Azure CDN](../../cdn/cdn-purge-endpoint.md).
+   > Quando atualizar o seu website estático, certifique-se de limpar o conteúdo em cache nos servidores de borda CDN purgando o ponto final do CDN. Para obter mais informações, consulte [Remover um ponto final do Azure CDN](../../cdn/cdn-purge-endpoint.md).
 
 4. (Opcional) Reveja as seguintes orientações:
 

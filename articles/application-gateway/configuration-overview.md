@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: f42be2a3075d313a490703562761a5df13542c85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: ef82d748b67db736bc2294089cd92edd2adde4a7
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279224"
+ms.locfileid: "79297959"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 
@@ -121,13 +121,13 @@ Escolha o endereço IP frontal que pretende associar a este ouvinte. O ouvinte o
 
 Escolha a porta frontal. Selecione uma porta existente ou crie uma nova. Escolha qualquer valor da [gama permitida de portas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Você pode usar não só portas bem conhecidas, como 80 e 443, mas qualquer porta personalizada permitida que seja adequada. Um porto pode ser usado para ouvintes virados para o público ou para os ouvintes virados para o privado.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Escolha HTTP ou HTTPS:
 
 - Se escolher HTTP, o tráfego entre o cliente e o gateway da aplicação não está encriptado.
 
-- Escolha HTTPS se quiser [a rescisão ssl](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) ou a [encriptação SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). O tráfego entre o cliente e o portal da aplicação está encriptado. E a ligação SSL termina na porta de entrada de aplicações. Se pretender encriptação SSL de ponta a ponta, tem de escolher HTTPS e configurar a definição **http back-end.** Isto garante que o tráfego é reencriptado quando viaja desde a porta de entrada da aplicação até à parte de trás.
+- Escolha HTTPS se quiser [a rescisão ssl](features.md#secure-sockets-layer-ssltls-termination) ou a [encriptação SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). O tráfego entre o cliente e o portal da aplicação está encriptado. E a ligação SSL termina na porta de entrada de aplicações. Se pretender encriptação SSL de ponta a ponta, tem de escolher HTTPS e configurar a definição **http back-end.** Isto garante que o tráfego é reencriptado quando viaja desde a porta de entrada da aplicação até à parte de trás.
 
 Para configurar a terminação ssl e a encriptação SSL de ponta a ponta, deve adicionar um certificado ao ouvinte para permitir que o portal de aplicação obtenha uma chave simétrica. Isto é ditado pela especificação do protocolo SSL. A chave simétrica é usada para encriptar e desencriptar o tráfego que é enviado para o portal. O certificado de gateway deve estar no formato Personal Information Exchange (PFX). Este formato permite-lhe exportar a chave privada que o gateway utiliza para encriptar e desencriptar o tráfego.
 
@@ -153,7 +153,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 O suporte WebSocket é ativado por padrão. Não existe uma definição configurável pelo utilizador para o ativar ou desativar. Pode utilizar WebSockets com ouvintes HTTP e HTTPS.
 
-### <a name="custom-error-pages"></a>Páginas de erro personalizadas
+### <a name="custom-error-pages"></a>Páginas de erro personalizada
 
 Pode definir erro personalizado a nível global ou ao nível do ouvinte. Mas a criação de páginas de erro personalizadas a nível global a partir do portal Azure não é atualmente suportada. Pode configurar uma página de erro personalizada para um erro de firewall de aplicação web 403 ou uma página de manutenção 502 ao nível do ouvinte. Deve também especificar um URL de bolha acessível ao público para o código de estado de erro dado. Para obter mais informações, consulte [Criar páginas de erro personalizadas do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
@@ -269,13 +269,13 @@ Note que o nome padrão do cookie de afinidade é *ApplicationGatewayAffinity* e
 
 A drenagem de ligações ajuda-o a remover graciosamente os membros da piscina de back-end durante as atualizações de serviço planeadas. Você pode aplicar este cenário a todos os membros de uma piscina back-end durante a criação de regras. Garante que todos os casos de desregistro de um pool de back-end continuam a manter as ligações existentes e a servir pedidos em curso para um tempo de tempo configurável e não recebem quaisquer novos pedidos ou ligações. A única exceção a esta questão são os pedidos de desregisto de casos devido à afinidade da sessão gerida por gateways e continuará a ser encaminhado para os casos de desregistando. A drenagem da ligação aplica-se a instâncias traseiras que são explicitamente removidas da piscina traseira.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 O Gateway de aplicações suporta http e HTTPS para encaminhamento de pedidos para os servidores de back-end. Se escolher HTTP, o tráfego para os servidores de back-end não está encriptado. Se a comunicação não encriptada não for aceitável, escolha HTTPS.
 
 Esta definição combinada com HTTPS no ouvinte suporta [o SSL de ponta a ponta](ssl-overview.md). Isto permite-lhe transmitir de forma segura dados sensíveis encriptados para a parte de trás. Cada servidor de back-end no pool de back-end que tenha SSL de ponta a ponta deve ser configurado com um certificado para permitir uma comunicação segura.
 
-### <a name="port"></a>Porta
+### <a name="port"></a>Port
 
 Esta definição especifica a porta onde os servidores de back-end ouvem o tráfego a partir do gateway da aplicação. Pode configurar portas que variam entre 1 e 65535.
 
@@ -351,7 +351,7 @@ Um gateway de aplicação monitoriza a saúde de todos os recursos na sua parte 
 > [!NOTE]
 > Depois de criar uma sonda de saúde personalizada, precisa associá-la a uma definição HTTP de back-end. Uma sonda personalizada não monitorizará a saúde da piscina traseira a menos que a definição correspondente de HTTP esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe sobre componentes do Application Gateway, pode:
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ae776fc3fb1f9eb4b7fa9747f2769dcccb25e042
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967638"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136351"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteja o backend da SPA com o OAuth 2.0, o Diretório Ativo Azure B2C e a Azure API Management
 
@@ -250,7 +250,7 @@ Você precisará adicionar blocos de endereços formatados CIDR ao painel de res
 
    > [!NOTE]
    > A secção seguinte é opcional e não se aplica ao nível **de Consumo,** que não suporta o portal de desenvolvimento.
-   > Se não pretender utilizar o portal do desenvolvedor, ou não puder utilizá-lo uma vez que está a utilizar o nível de Consumo, salte este passo e salte diretamente para ["Construa o JavaScript SPA para consumir a API".](##build-the-javascript-spa-to-consume-the-api)
+   > Se não pretender utilizar o portal do desenvolvedor, ou não puder utilizá-lo uma vez que está a utilizar o nível de Consumo, salte este passo e salte diretamente para ["Construa o JavaScript SPA para consumir a API".](#build-the-javascript-spa-to-consume-the-api)
 
 ## <a name="optional-configure-the-developer-portal"></a>[Opcional] Configure o portal de desenvolvimento
 
@@ -457,7 +457,7 @@ Você precisará adicionar blocos de endereços formatados CIDR ao painel de res
 ## <a name="and-were-done"></a>E estamos a fazer
 Os passos acima podem ser adaptados e editados para permitir muitas utilizações diferentes do Azure AD B2C com a API Management.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre a Gestão da API.
 * Para outras formas de garantir o seu serviço de back-end, consulte a [autenticação do Certificado Mútuo](api-management-howto-mutual-certificates.md).

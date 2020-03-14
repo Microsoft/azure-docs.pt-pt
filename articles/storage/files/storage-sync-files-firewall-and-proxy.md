@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 93681813c12f0df99909c849e57153e7a64c78fb
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381227"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299316"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização multi-site e as funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de nuvem Azure.
@@ -89,7 +89,7 @@ Como referido numa secção anterior, o porto 443 tem de ser aberto. Com base em
 
 A tabela seguinte descreve os domínios necessários para a comunicação:
 
-| Serviço | Ponto final da nuvem pública | Ponto final do Governo de Azure | Utilização |
+| Service | Ponto final da nuvem pública | Ponto final do Governo de Azure | Utilização |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de utilizador (como powerShell) vai para/através deste URL, incluindo a chamada inicial de registo do servidor. |
 | **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | As chamadas do Gestor de Recursos Azure devem ser feitas por um utilizador autenticado. Para ter sucesso, este URL é utilizado para a autenticação do utilizador. |
@@ -105,35 +105,35 @@ Se &ast;.one.microsoft.com é demasiado ampla, pode limitar a comunicação do s
 
 Por razões de continuidade de negócios e recuperação de desastres (BCDR), pode ter especificado as suas ações de ficheiro Azure numa conta de armazenamento globalmente redundante (GRS). Se for esse o caso, então as suas ações de ficheiro Saque A partir de Azure falhará na região emparelhada em caso de uma paragem regional duradoura. O Azure File Sync utiliza os mesmos pares regionais que o armazenamento. Por isso, se utilizar contas de armazenamento GRS, tem de ativar URLs adicionais para permitir que o seu servidor fale com a região emparelhada para o Azure File Sync. A tabela abaixo chama a esta "região emparelhada". Além disso, existe um URL de perfil de gestor de tráfego que precisa ser ativado também. Isto garantirá que o tráfego da rede pode ser perfeitamente reencaminhado para a região emparelhada em caso de falha e é chamado de "Discovery URL" na tabela abaixo.
 
-| Cloud  | Região | URL de ponto final primário | Região emparelhada | URL de descoberta |
+| Nuvem  | Região | URL de ponto final primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Austrália Sudeste | https:\//tm-kailani-aue.one.microsoft.com |
-| Público |Austrália Sudeste | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
-| Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | E.U.A. Centro-Sul | https:\//tm-brazilsouth01.afs.azure.net |
+| Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Sudeste da Austrália | https:\//tm-kailani-aue.one.microsoft.com |
+| Público |Sudeste da Austrália | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
+| Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | EUA Centro-Sul | https:\//tm-brazilsouth01.afs.azure.net |
 | Público | Canadá Central | https:\//kailani-cac.one.microsoft.com | Leste do Canadá | https:\//tm-kailani-cac.one.microsoft.com |
 | Público | Leste do Canadá | https:\//kailani-cae.one.microsoft.com | Canadá Central | https:\//tm-kailani.cae.one.microsoft.com |
 | Público | Índia Central | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
-| Público | E.U.A. Central | https:\//kailani-cus.one.microsoft.com | E.U.A. Leste 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Público | Ásia Leste | https:\//kailani11.one.microsoft.com | Ásia Sudeste | https:\//tm-kailani11.one.microsoft.com |
-| Público | E.U.A. Leste | https:\//kailani1.one.microsoft.com | E.U.A. Oeste | https:\//tm-kailani1.one.microsoft.com |
-| Público | E.U.A. Leste 2 | https:\//kailani-ess.one.microsoft.com | E.U.A. Central | https:\//tm-kailani-ess.one.microsoft.com |
+| Público | EUA Central | https:\//kailani-cus.one.microsoft.com | EUA Leste 2 | https:\//tm-kailani-cus.one.microsoft.com |
+| Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
+| Público | EUA Leste | https:\//kailani1.one.microsoft.com | EUA Oeste | https:\//tm-kailani1.one.microsoft.com |
+| Público | EUA Leste 2 | https:\//kailani-ess.one.microsoft.com | EUA Central | https:\//tm-kailani-ess.one.microsoft.com |
 | Público | Leste do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
 | Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Leste do Japão | https:\//tm-japanwest01.afs.azure.net |
-| Público | Coreia do Sul Central | https:\//koreacentral01.afs.azure.net/ | Sul da Coreia do Sul | https:\//tm-koreacentral01.afs.azure.net/ |
-| Público | Sul da Coreia do Sul | https:\//koreasouth01.afs.azure.net/ | Coreia do Sul Central | https:\//tm-koreasouth01.afs.azure.net/ |
-| Público | E.U.A. Centro-Norte | https:\//northcentralus01.afs.azure.net | E.U.A. Centro-Sul | https:\//tm-northcentralus01.afs.azure.net |
+| Público | Coreia do Sul Central | https:\//koreacentral01.afs.azure.net/ | Coreia do Sul | https:\//tm-koreacentral01.afs.azure.net/ |
+| Público | Coreia do Sul | https:\//koreasouth01.afs.azure.net/ | Coreia do Sul Central | https:\//tm-koreasouth01.afs.azure.net/ |
+| Público | EUA Centro-Norte | https:\//northcentralus01.afs.azure.net | EUA Centro-Sul | https:\//tm-northcentralus01.afs.azure.net |
 | Público | Europa do Norte | https:\//kailani7.one.microsoft.com | Europa Ocidental | https:\//tm-kailani7.one.microsoft.com |
-| Público | E.U.A. Centro-Sul | https:\//southcentralus01.afs.azure.net | E.U.A. Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
+| Público | EUA Centro-Sul | https:\//southcentralus01.afs.azure.net | EUA Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
-| Público | Ásia Sudeste | https:\//kailani10.one.microsoft.com | Ásia Leste | https:\//tm-kailani10.one.microsoft.com |
-| Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
-| Público | Oeste do Reino Unido | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
-| Público | E.U.A. Centro-Oeste | https:\//westcentralus01.afs.azure.net | E.U.A.Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
+| Público | Reino Unido Sul | https:\//kailani-uks.one.microsoft.com | Reino Unido Oeste | https:\//tm-kailani-uks.one.microsoft.com |
+| Público | Reino Unido Oeste | https:\//kailani-ukw.one.microsoft.com | Reino Unido Sul | https:\//tm-kailani-ukw.one.microsoft.com |
+| Público | EUA Centro-Oeste | https:\//westcentralus01.afs.azure.net | EUA Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Público | Europa Ocidental | https:\//kailani6.one.microsoft.com | Europa do Norte | https:\//tm-kailani6.one.microsoft.com |
-| Público | E.U.A. Oeste | https:\//kailani.one.microsoft.com | E.U.A. Leste | https:\//tm-kailani.one.microsoft.com |
-| Público | E.U.A.Oeste 2 | https:\//westus201.afs.azure.net | E.U.A. Centro-Oeste | https:\//tm-westus201.afs.azure.net |
-| Governo | US Gov - Arizona | https:\//usgovarizona01.afs.azure.us | US Gov - Texas | https:\//tm-usgovarizona01.afs.azure.us |
-| Governo | US Gov - Texas | https:\//usgovtexas01.afs.azure.us | US Gov - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
+| Público | EUA Oeste | https:\//kailani.one.microsoft.com | EUA Leste | https:\//tm-kailani.one.microsoft.com |
+| Público | EUA Oeste 2 | https:\//westus201.afs.azure.net | EUA Centro-Oeste | https:\//tm-westus201.afs.azure.net |
+| Governo | Gov (US) - Arizona | https:\//usgovarizona01.afs.azure.us | Gov (US) - Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Governo | Gov (US) - Texas | https:\//usgovtexas01.afs.azure.us | Gov (US) - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Se utilizar contas de armazenamento redundantes localmente redundantes (LRS) ou de zona redundante (ZRS), apenas necessita de ativar o URL listado em "URL de ponto final primário".
 
@@ -144,6 +144,55 @@ Por razões de continuidade de negócios e recuperação de desastres (BCDR), po
 > - https:\//kailani.one.microsoft.com (ponto final primário: Oeste dos EUA)
 > - https:\//kailani1.one.microsoft.com (região de fail-over emparelhada: Leste dos EUA)
 > - https:\//tm-kailani.one.microsoft.com (URL de descoberta da região primária)
+
+### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Permitir lista para endereços IP de Sincronização de Ficheiros Azure
+Se a firewall no local necessitar de adicionar endereços IP específicos a uma lista de permitir a ligação ao Azure File Sync, pode adicionar as seguintes gamas de endereços IP com base nas regiões a que está a ligar.
+
+| Região | Intervalos de endereços IP |
+|--------|-------------------|
+| EUA Central | 52.176.149.179/32, 20.37.157.80/29 |
+| EUA Leste 2 | 40.123.47.110/32, 20.41.5.144/29 |
+| EUA Leste | 104.41.148.238/32, 20.42.4.248/29 |
+| EUA Centro-Norte | 65.52.62.167/32, 40.80.188.24/29 |
+| EUA Centro-Sul | 104.210.219.252/32, 13.73.248.112/29 |
+| EUA Oeste 2 | 52.183.27.204/32, 20.42.131.224/29 |
+| EUA Centro-Oeste | 52.161.25.233/32, 52.150.139.104/29 |
+| EUA Oeste | 40.112.150.67/32, 40.82.253.192/29 |
+| Canadá Central | 52.228.42.41/32, 52.228.81.248/29 |
+| Leste do Canadá | 52.235.36.119/32, 40.89.17.232/29 |
+| Sul do Brasil | 191.237.253.115/32, 191.235.225.216/29 |
+| Europa do Norte | 40.113.94.67/32, 20.38.85.152/29 |
+| Europa Ocidental | 104.40.191.8/32, 20.50.1.0/29 |
+| França Central | 52.143.166.54/32, 20.43.42.8/29 |
+| Sul de França | 52.136.131.99/32, 51.105.88.248/29 |
+| Reino Unido Sul | 51.140.67.72/32, 51.104.25.224/29 |
+| Reino Unido Oeste | 51.140.202.34/32, 51.137.161.240/29 |
+| Suíça Norte | 51.107.48.224/29 |
+| Suíça Oeste | 51.107.144.216/29 |
+| Noroeste da Noruega | 51.120.224.216/29 |
+| Noruega Leste | 51.120.40.224/29 |
+| Ásia Oriental | 23.102.225.54/32, 20.189.108.56/29 |
+| Sudeste Asiático | 13.76.81.46/32, 20.43.131.40/29 |
+| Austrália Central | 20.37.224.216/29 |
+| Austrália Central 2 | 20.36.120.216/29 |
+| Leste da Austrália | 13.75.153.240/32, 20.37.195.96/29 |
+| Sudeste da Austrália | 13.70.176.196/32, 20.42.227.128/29 |
+| Sul da Índia | 104.211.231.18/32, 20.41.193.160/29 |
+| Oeste da Índia | 52.136.48.216/29 |
+| Leste do Japão | 104.41.161.113/32, 20.43.66.0/29 |
+| Oeste do Japão | 23.100.106.151/32, 40.80.57.192/29 |
+| Coreia do Sul Central | 52.231.67.75/32, 20.41.65.184/29 |
+| Coreia do Sul | 52.231.159.38/32, 40.80.169.176/29 |
+| US DoD Leste | 20.140.72.152/29 |
+| Gov (US) - Arizona | 20.140.64.152/29 |
+| Gov (US) - Arizona | 52.244.75.224/32, 52.244.79.140/32 |
+| US Gov - Iowa | 52.244.79.140/32, 52.244.75.224/32 |
+| Gov (US) - Texas | 52.238.166.107/32, 52.238.79.29/32 |
+| Gov (US) - Virginia | 13.72.17.152/32, 52.227.153.92/32 |
+| África do Sul Norte | 102.133.175.72/32 |
+| África do Sul Ocidental | 102.133.75.173/32, 102.133.56.128/29, 20.140.48.216/29 |
+| Central dos Emirados Emirados Unidos | 20.45.71.151/32, 20.37.64.216/29, 20.140.48.216/29 |
+| Emirados Unidos norte | 40.123.216.130/32, 20.38.136.224/29, 20.140.56.136/29 |
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade da rede aos pontos finais do serviço
 Uma vez registado um servidor com o serviço Desincronização de Ficheiros Azure, o Cmdlet de Conectividade Test-StorageSyncNetworkE e serverRegistration.exe podem ser utilizados para testar comunicações com todos os pontos finais (URLs) específicos deste servidor. Este cmdlet pode ajudar a resolver problemas quando uma comunicação incompleta impede o servidor de trabalhar totalmente com o Azure File Sync e pode ser usado para afinar configurações de proxy e firewall.
@@ -159,7 +208,7 @@ As listas anteriores neste documento contêm o URLs Azure File Sync com que comu
 
 A criação de regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e podem até mudar ao longo do tempo. Verifique este artigo periodicamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

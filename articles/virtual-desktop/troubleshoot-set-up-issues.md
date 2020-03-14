@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127442"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371601"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -145,7 +145,7 @@ Exemplo de erro bruto:
 
 Para corrigir isto, faça as seguintes coisas:
 
-1. Abra o Portal Azure e vá para a lâmina das **redes Virtuais.**
+1. Abra o Portal Azure e vá ao separador **redes Virtuais.**
 2. Encontre o seu VNET e, em seguida, selecione **servidores DNS**.
 3. O menu de servidores DNS deve aparecer no lado direito do ecrã. Nesse menu, selecione **Custom**.
 4. Certifique-se de que os servidores DNS listados em Custom correspondem ao seu controlador de domínio ou ao domínio ative directory. Se não vir o seu servidor DNS, pode adicioná-lo introduzindo o seu valor no campo de **servidor DNS Add.**

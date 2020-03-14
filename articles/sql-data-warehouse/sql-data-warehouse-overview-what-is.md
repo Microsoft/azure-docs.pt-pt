@@ -11,11 +11,11 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 68d39b4f363794d50fd05c2067502fc55d5d0170
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380715"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240577"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
 
@@ -52,7 +52,7 @@ A SQL Analytics armazena dados em tabelas relacionais com armazenamento colunar.
 
 Os resultados das análises podem ser enviados para aplicações ou bases de dados de relatórios em todo o mundo. Em seguida, os analistas empresariais podem obter informações para tomar decisões mais adequadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Explore [a arquitetura Azure Synapse](massively-parallel-processing-mpp-architecture.md)
 - Crie rapidamente [uma piscina SQL](create-data-warehouse-portal.md)

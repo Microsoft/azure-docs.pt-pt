@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
 ms.openlocfilehash: ca223de2bc0b26e4968d400ea418761a399dacae
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364603"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268941"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços de Machine Learning de Base de Dados Azure SQL com R (pré-visualização)
 
@@ -57,7 +57,7 @@ Além das embalagens pré-instaladas, pode [instalar pacotes adicionais.](sql-da
 
 Os Serviços de Aprendizagem automática com R não são recomendados para a carga de trabalho de produção durante a pré-visualização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte as [principais diferenças dos Serviços de Aprendizagem automática do Servidor SQL](sql-database-machine-learning-services-differences.md).
 - Para aprender a usar R para consultar o Azure SQL Database Machine Learning Services (pré-visualização), consulte o [guia Quickstart](sql-database-connect-query-r.md).

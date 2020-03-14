@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386289"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258996"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e escalação de capacidades para tecido de serviço Azure
 
@@ -224,7 +224,7 @@ O outro recurso está sob `nodeTypes` no [recurso Microsoft.ServiceFabric/cluste
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Crie um cluster em VMs ou computadores que executem o Windows Server: [Criação](service-fabric-cluster-creation-for-windows-server.md)de cluster de tecido de serviço para o Windows Server .
 * Crie um cluster em VMs ou computadores em execução de Linux: [Crie um cluster Linux](service-fabric-cluster-creation-via-portal.md).

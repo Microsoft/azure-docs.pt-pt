@@ -4,11 +4,11 @@ description: Uma base de conhecimento deve ser publicada. Uma vez publicada, a b
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389245"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220723"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consulta da base de conhecimento para respostas
 
@@ -96,7 +96,7 @@ A resposta HTTP é a resposta obtida da base de conhecimento, com base na melhor
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Pontuação de confiança](./confidence-score.md)

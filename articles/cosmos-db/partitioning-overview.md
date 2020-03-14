@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365565"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251872"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partição em Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Segue-se uma boa orientação para a escolha de uma chave de partição:
 
 * Os candidatos a chaves de partição podem incluir propriedades que aparecem frequentemente como filtro nas suas consultas. As consultas podem ser eficientemente encaminhadas, incluindo a chave de partição no predicado do filtro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Aprenda sobre [divisórias e escalas horizontais em Azure Cosmos DB](partition-data.md).
 * Saiba mais sobre [a provisão disponibilizada em Azure Cosmos DB](request-units.md).

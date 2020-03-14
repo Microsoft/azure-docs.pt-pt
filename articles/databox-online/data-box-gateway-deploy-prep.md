@@ -8,23 +8,23 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 7de14dec4d282116b71a5800f2cf51afad0ee8a4
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303210"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370258"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Prepare-se para implementar portal de caixas de dados Azure
 
-
-Este é o primeiro tutorial da série de tutoriais de implementação necessários para implementar completamente o Azure Data Box Gateway. Este tutorial descreve como preparar o portal do Azure para implementar o recurso do Data Box Gateway. 
+Este é o primeiro tutorial da série de tutoriais de implementação necessários para implementar completamente o Azure Data Box Gateway. Este tutorial descreve como preparar o portal do Azure para implementar o recurso do Data Box Gateway.
 
 Necessita de privilégios de administrador para concluir o processo de instalação e configuração. A preparação do portal demora menos de 10 minutos.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+>
 > * Criar um novo recurso
 > * Transferir a imagem do dispositivo virtual
 > * Obter a chave de ativação
@@ -50,13 +50,13 @@ Aqui, vai encontrar os pré-requisitos de configuração para o recurso do Data 
 
 Antes de começar, certifique-se de que:
 
-- A subscrição do Microsoft Azure deve ser suportada para o recurso Data Box Gateway. As subscrições pay-as-you-go também são suportadas.
-- Tem acesso ao proprietário ou colaborador ao nível do grupo de recursos para os recursos data Box Edge/Data Box Gateway, IoT Hub e Azure Storage.
+* A subscrição do Microsoft Azure está ativada para um recurso Azure Stack Edge. Certifique-se de que utilizou uma subscrição apoiada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)cloud solution provider [(CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou o Patrocínio do [Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Tem acesso ao proprietário ou colaborador ao nível do grupo de recursos para os recursos data Box Edge/Data Box Gateway, IoT Hub e Azure Storage.
 
-    - Para criar qualquer recurso Data Box Edge/ Data Box Gateway, deve ter permissões como contribuinte (ou superior) ao nível do grupo de recursos. Também precisa de se certificar de que o fornecedor `Microsoft.DataBoxEdge` está registado. Para obter informações sobre como se registar, vá ao [Register fornecedor de recursos.](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)
-    - Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Armazenamento Azure é, por defeito, um fornecedor de recursos registado.
-- Tem acesso a administrador ou utilizador ao Azure Ative Directory Graph API. Para mais informações, consulte [o Azure Ative Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
+  * Para criar qualquer recurso Data Box Edge/ Data Box Gateway, deve ter permissões como contribuinte (ou superior) ao nível do grupo de recursos. Também precisa de se certificar de que o fornecedor `Microsoft.DataBoxEdge` está registado. Para obter informações sobre como se registar, vá ao [Register fornecedor de recursos.](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)
+  * Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Armazenamento Azure é, por defeito, um fornecedor de recursos registado.
+* Tem acesso a administrador ou utilizador ao Azure Ative Directory Graph API. Para mais informações, consulte [o Azure Ative Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Para o dispositivo Data Box Gateway
 

@@ -5,11 +5,11 @@ ms.date: 11/25/2019
 ms.topic: overview
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e886f37a8d7f1395b5c831e81e600ecc6e2dd20f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384434"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241529"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -106,8 +106,8 @@ Por exemplo, considere um cenário em que tem uma definição de iniciativa - **
 
 | Política | Nome do parâmetro |Tipo de parâmetro  |Nota |
 |---|---|---|---|
-| policyA | allowedLocations | array  |Este parâmetro espera uma lista de cadeias para um valor, uma vez que o tipo de parâmetro foi definido como uma matriz |
-| policyB | allowedSingleLocation |string |Este parâmetro espera uma palavra para um valor, uma vez que o tipo de parâmetro foi definido como uma cadeia |
+| policyA | allowedLocations | matriz  |Este parâmetro espera uma lista de cadeias para um valor, uma vez que o tipo de parâmetro foi definido como uma matriz |
+| policyB | allowedSingleLocation |Cadeia de caracteres |Este parâmetro espera uma palavra para um valor, uma vez que o tipo de parâmetro foi definido como uma cadeia |
 
 Neste cenário, quando define os parâmetros da iniciativa para **initiativeC**, tem três opções:
 
@@ -143,7 +143,7 @@ A seguinte descrição geral do Azure Policy é do Build 2018. Para slides ou do
 
 > [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem uma ideia geral do Azure Policy e de alguns dos principais conceitos, seguem-se os passos sugeridos seguintes:
 

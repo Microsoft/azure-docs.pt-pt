@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672230"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239085"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -82,10 +82,10 @@ Utilize a tabela abaixo para obter uma descrição geral dos passos necessários
 
 | Passos | Dispositivos Windows atuais e sincronização de hash de palavra-passe | Dispositivos Windows atuais e federação | Dispositivos Windows de nível inferior |
 | :--- | :---: | :---: | :---: |
-| Configurar o ponto de ligação do serviço | ![Marcar][1] | ![Marcar][1] | ![Marcar][1] |
-| Criação de reclamações |     | ![Marcar][1] | ![Marcar][1] |
-| Permitir dispositivos não Windows 10 |       |        | ![Marcar][1] |
-| Verificar dispositivos associados | ![Marcar][1] | ![Marcar][1] | [Verifique][1] |
+| Configurar o ponto de ligação do serviço | ![Verificar][1] | ![Verificar][1] | ![Verificar][1] |
+| Criação de reclamações |     | ![Verificar][1] | ![Verificar][1] |
+| Permitir dispositivos não Windows 10 |       |        | ![Verificar][1] |
+| Verificar dispositivos associados | ![Verificar][1] | ![Verificar][1] | [Verifique][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Configure um ponto de ligação de serviço
 
@@ -560,7 +560,7 @@ Se estiver a ter problemas com a conclusão do Anúncio Híbrido Azure, junte-se
 * [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows atuais)
 * [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows de nível inferior)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introduction to device management in Azure Active Directory](overview.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 

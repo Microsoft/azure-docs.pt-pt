@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8d68d2e83bba055e92b99ee9294daf6f2395d8dc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206310"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299524"
 ---
-### <a name="portal"></a>Portal
+### <a name="portal"></a>vários inquilinos
 
 A configuração de chaves geridas pelo cliente para os seus discos exigirá que crie recursos numa determinada encomenda, caso o esteja a fazer pela primeira vez. Primeiro, terás de criar e montar um Cofre de Chave Azure.
 
@@ -49,9 +49,14 @@ A configuração de chaves geridas pelo cliente para os seus discos exigirá que
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Configuração do seu conjunto de encriptação de disco
 
-Para criar e configurar conjuntos de encriptação de disco, deve utilizar o seguinte link: https://aka.ms/diskencryptionsets. A criação de conjuntos de encriptação de disco ainda não está disponível no portal global Azure.
+Para criar e configurar conjuntos de encriptação de disco, deve utilizar o seguinte link: https://aka.ms/diskencryptionsets. Se estiver nas regiões do Governo Microsoft Azure, deve utilizar este link: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). A criação de conjuntos de encriptação de disco ainda não está disponível no portal global Azure.
 
-1. Abra o link de conjuntos de [encriptação](https://aka.ms/diskencryptionsets)do disco .
+1. Abra o link de encriptação do disco adequado para a sua região:
+
+    Regiões públicas: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Regiões do Governo de Azure: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    
 1. Selecione **+Adicionar**.
 
     ![Screenshot do ecrã principal do portal de encriptação do disco. Realçando o botão Adicionar](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
@@ -77,7 +82,12 @@ Duas notificações devem aparecer e ter sucesso. Isto permitir-lhe-á utilizar 
 Agora que criou e montou o seu cofre de chaves e o conjunto de encriptação do disco, pode implementar um VM usando a encriptação.
 O processo de implementação de VM é semelhante ao processo de implementação padrão, as únicas diferenças são que você precisa implementar o VM na mesma região que os seus outros recursos e você opta por usar uma chave gerida pelo cliente.
 
-1. Abra o link de conjuntos de [encriptação](https://aka.ms/diskencryptionsets)do disco .
+1. Abra o link de encriptação do disco adequado para a sua região:
+
+    Regiões públicas: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Regiões do Governo de Azure: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+
 1. Procure **por Máquinas Virtuais** e selecione **+ Adicione** para criar um VM.
 1. No separador **Basic,** selecione a mesma região que o seu conjunto de encriptação de disco e o Cofre chave Azure.
 1. Preencha os outros valores no separador **Basic** como quiser.
@@ -90,15 +100,20 @@ O processo de implementação de VM é semelhante ao processo de implementação
 
     ![Screenshot da experiência de criação vm, a lâmina dos discos. Com o conjunto de encriptação do disco em destaque.](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
 
-#### <a name="enable-on-an-existing-disk"></a>Habilitar em um disco existente
+#### <a name="enable-on-an-existing-disk"></a>Ativar num disco existente
 
-Para gerir e configurar a encriptação do disco nos seus discos existentes, deve utilizar o seguinte link: https://aka.ms/diskencryptionsets. Habilitar chaves gerenciadas pelo cliente em discos existentes ainda não está disponível no portal do Azure global.
+Para gerir e configurar a encriptação do disco nos seus discos existentes, deve utilizar o seguinte link: https://aka.ms/diskencryptionsets. Ativar as chaves geridas pelo cliente nos discos existentes ainda não está disponível no portal Azure global.
 
 > [!CAUTION]
-> Habilitar a criptografia de disco em qualquer disco anexado a uma VM exigirá que você interrompa a VM.
+> Permitir a encriptação do disco em quaisquer discos ligados a um VM exigirá que pare o VM.
 
-1. Abra o link de conjuntos de [encriptação](https://aka.ms/diskencryptionsets)do disco .
-1. Navegue até uma VM que está na mesma região que um de seus conjuntos de criptografia de disco.
+1. Abra o link de encriptação do disco adequado para a sua região:
+
+    Regiões públicas: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Regiões do Governo de Azure: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    
+1. Navegue para um VM que esteja na mesma região que um dos seus conjuntos de encriptação de discos.
 1. Abra o VM e selecione **Stop**.
 
     ![Screenshot da sobreposição principal para o seu vm exemplo. Com o botão Stop em destaque](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
@@ -112,5 +127,5 @@ Para gerir e configurar a encriptação do disco nos seus discos existentes, dev
 
     ![Screenshot do seu disco de exemplo SO. A lâmina de encriptação está aberta, a encriptação em repouso com uma chave gerida pelo cliente é selecionada, bem como o seu exemplo Azure Key Vault. Depois de efazer as seleções, o botão de salvamento é selecionado.](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
 
-1. Repita esse processo para todos os outros discos anexados à VM que você gostaria de criptografar.
-1. Quando os discos terminarem de alternar para chaves gerenciadas pelo cliente, se não houver nenhum outro disco anexado que você queira criptografar, você poderá iniciar sua VM.
+1. Repita este processo para quaisquer outros discos ligados ao VM que queira encriptar.
+1. Quando os seus discos terminarem de mudar para chaves geridas pelo cliente, se não houver outros discos anexados que queira encriptar, poderá iniciar o seu VM.

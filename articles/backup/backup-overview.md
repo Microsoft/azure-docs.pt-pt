@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
 ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397060"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240297"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de backup Azure?
 
@@ -46,7 +46,7 @@ A Azure Backup oferece estes principais benefícios:
   - [O armazenamento redundante localmente (LRS)](../storage/common/storage-redundancy-lrs.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
   - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy-grs.md) é a opção de replicação predefinida e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Reveja](backup-architecture.md) a arquitetura e os componentes para diferentes cenários de backup.
 - [Verifique](backup-support-matrix.md) os requisitos e limitações de suporte para backup e para [backup Azure VM](backup-support-matrix-iaas.md).

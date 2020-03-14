@@ -14,11 +14,11 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5048cefaae10cd55091dd72f0b73a3cf9d731a35
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375479"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253276"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções de AD Azure na Gestão de Identidade Privilegiada
 
@@ -215,7 +215,7 @@ Siga estes passos para atribuir a função de Administrador de Acesso ao Utiliza
 
  ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Configure Azure AD dispor de definições de funções na Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)
 - [Atribuir funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395430"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239785"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: Faça ligações de rede e alimentação ao nó De arquivo de borda Azure FXT
 
@@ -161,7 +161,7 @@ Para ligar o nó, pressione o botão de alimentação na parte frontal do sistem
 
 O botão de alimentação pode ser utilizado para desligar o sistema durante os testes e antes de o adicionar a um cluster. No entanto, depois de um nó de Filer de Borda Azure FXT estar a ser utilizado como parte de um cluster, deve utilizar o software do painel de controlo de cluster para desligar o hardware. Leia Como desligar com segurança o hardware do Ficheiro de [Borda Azure FXT](fxt-power-off.md) para obter mais detalhes. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de terminar de ligar o hardware, deligar cada um dos nós e insetá-los definindo as suas palavras-passe de raiz. 
 > [!div class="nextstepaction"]

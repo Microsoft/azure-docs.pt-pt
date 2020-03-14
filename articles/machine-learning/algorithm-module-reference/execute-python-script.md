@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 52eb3bdb463389d075421661610b5ee94d14d77d
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3370c7ebb8e0253543e6b9cb6ce7614811fb5bd0
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037059"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140795"
 ---
 # <a name="execute-python-script-module"></a>Execute módulo de script python
 
@@ -114,7 +114,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 }
 ```
 
-Depois de o gasoduto ser submetido com sucesso, pode visualizar a imagem no painel direito do módulo ![imagem carregada](media/module/upload-image-in-python-script.png)
+Depois de o gasoduto ser submetido com sucesso, pode pré-visualizar a imagem no painel direito do módulo
+
+[!div class="mx-imgBorder"]
+![](media/module/upload-image-in-python-script.png) de imagem carregada
 
 ## <a name="how-to-configure-execute-python-script"></a>Como configurar o Script Python execute
 
@@ -132,7 +135,7 @@ O módulo **Execute Python Script** contém um código Python de amostra que pod
 
     ![Execute o mapa de entrada python](media/module/python-module.png)
 
-4. Para incluir novos pacotes python ou código, adicione o ficheiro zipped contendo estes recursos personalizados no **pacote script**. A entrada para o **pacote Script** deve ser um ficheiro com fecho de mão enviado para o seu espaço de trabalho como um Conjunto de Dados do tipo Ficheiro. 
+4. Para incluir novos pacotes python ou código, adicione o ficheiro zipped contendo estes recursos personalizados no **pacote script**. A entrada para o **pacote Script** deve ser um ficheiro com fecho de mão enviado para o seu espaço de trabalho como um Conjunto de Dados do tipo Ficheiro. Pode fazer o upload do conjunto de dados na página de ativos **datasets** e pode arrastar e largar o módulo dataset da lista **my datasets** na árvore do módulo esquerdo na página de autor de designers. 
 
     Qualquer ficheiro contido no arquivo com fecho carregado pode ser utilizado durante a execução do gasoduto. Se o arquivo incluir uma estrutura de diretório, a estrutura é preservada, mas deve preparar um diretório chamado **SRC** para o caminho.
 
@@ -163,6 +166,6 @@ O módulo devolve dois conjuntos de dados:
 + Conjunto de Dados de **Resultados 2**, definido pelo segundo quadro de dados de pandas devolvidos no script Python
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

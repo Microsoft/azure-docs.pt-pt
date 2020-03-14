@@ -9,17 +9,18 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/07/2020
-ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: dcaaf3c2f793e7148e1695cdfaa68c768db5fff6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382377"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240542"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
 
-A Base de Dados Azure SQL permite-lhe criar e agendar trabalhos que possam ser executados periodicamente contra uma ou muitas bases de dados para executar consultas T-SQL e executar tarefas de manutenção. Cada trabalho regista o estado da execução e também automaticamente repete as operações se ocorrer alguma falha.
+A Base de Dados Azure SQL permite-lhe criar e agendar trabalhos que possam ser executados periodicamente contra uma ou muitas bases de dados para executar consultas T-SQL e executar tarefas de manutenção.
+Cada trabalho regista o estado da execução e também automaticamente repete as operações se ocorrer alguma falha.
 Pode definir bases de dados de alvos ou grupos de bases de dados Azure SQL onde o trabalho será executado, e também definir horários para executar um trabalho.
 Um trabalho trata da tarefa de iniciar sessão na base de dados do alvo. Também define, mantém e persiste scripts Transact-SQL para serem executados através de um grupo de bases de dados Azure SQL.
 
@@ -48,10 +49,10 @@ As seguintes tecnologias de agendamento de emprego estão disponíveis na Base d
 
 Vale a pena notar algumas diferenças entre o Agente SQL (disponível no local e como parte da SQL Database Managed Instance), e o agente de trabalho elástico de base de dados (disponível para bases de dados únicas na base de dados Azure SQL e bases de dados no SQL Data Warehouse).
 
-|  |Tarefas Elásticas  |Agente SQL |
+| |Tarefas Elásticas |Agente SQL |
 |---------|---------|---------|
-|Âmbito     |  Qualquer número de bases de dados SQL do Azure e/ou de armazéns de dados na mesma cloud do Azure que o agente de tarefa. Os alvos podem estar em diferentes servidores de base de dados SQL, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual na mesma instância do Servidor SQL que o agente SQL. |
-|APIs e Ferramentas suportadas     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
+|Âmbito | Qualquer número de bases de dados SQL do Azure e/ou de armazéns de dados na mesma cloud do Azure que o agente de tarefa. Os alvos podem estar em diferentes servidores de base de dados SQL, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto ou por shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual na mesma instância do Servidor SQL que o agente SQL. |
+|APIs e Ferramentas suportadas | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>Empregos de agente SQL
 
@@ -106,8 +107,8 @@ EXECUTE msdb.dbo.sysmail_add_account_sp
     @email_address = '$(loginEmail)',
     @display_name = 'SQL Agent Account',
     @mailserver_name = '$(mailserver)' ,
-    @username = '$(loginEmail)' ,  
-    @password = '$(password)' 
+    @username = '$(loginEmail)' ,
+    @password = '$(password)'
 
 -- Create a Database Mail profile
 EXECUTE msdb.dbo.sysmail_add_profile_sp
@@ -125,13 +126,13 @@ Também é necessário ativar o Database Mail em Caso Gerido:
 
 ```sql
 GO
-EXEC sp_configure 'show advanced options', 1;  
-GO  
-RECONFIGURE;  
-GO  
-EXEC sp_configure 'Database Mail XPs', 1;  
-GO  
-RECONFIGURE 
+EXEC sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXEC sp_configure 'Database Mail XPs', 1;
+GO
+RECONFIGURE
 ```
 
 Pode notificar a operadora de que algo aconteceu com os seus trabalhos de Agente SQL. Um operador define informações de contacto para um indivíduo responsável pela manutenção de uma ou mais Instâncias Geridas. Por vezes, as responsabilidades do operador são atribuídas a um indivíduo.
@@ -140,23 +141,24 @@ Em sistemas com vários Servidores De Instância Geridas ou SQL, muitos indivíd
 Pode criar operadores utilizando SSMS ou o script Transact-SQL mostrado no seguinte exemplo:
 
 ```sql
-EXEC msdb.dbo.sp_add_operator 
-    @name=N'Mihajlo Pupun', 
-        @enabled=1, 
-        @email_address=N'mihajlo.pupin@contoso.com'
+EXEC msdb.dbo.sp_add_operator
+    @name=N'Mihajlo Pupun',
+    @enabled=1,
+    @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
 Pode modificar qualquer trabalho e atribuir operadores que serão notificados por e-mail se o trabalho completar, falhar ou conseguir usar SSMS ou o seguinte script Transact-SQL:
 
 ```sql
-EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
-        @notify_level_email=3,                        -- Options are: 1 on succeed, 2 on failure, 3 on complete
-        @notify_email_operator_name=N'Mihajlo Pupun'
+EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
+    @notify_level_email=3, -- Options are: 1 on succeed, 2 on failure, 3 on complete
+    @notify_email_operator_name=N'Mihajlo Pupun'
 ```
 
 ### <a name="sql-agent-job-limitations"></a>Limitações de emprego do agente SQL
 
 Algumas das funcionalidades do Agente SQL que estão disponíveis no Servidor SQL não são suportadas em Caso Gerido:
+
 - As definições do Agente SQL são lidas apenas. O procedimento `sp_set_agent_properties` não é suportado em Instância Gerida.
 - O agente SQL ativa/incapacitante não é atualmente suportado em Instância Gerida. O Agente SQL está sempre a correr.
 - As notificações são parcialmente suportadas
@@ -180,17 +182,16 @@ A imagem seguinte mostra um agente de tarefa a executar tarefas nos diferentes t
 
 ### <a name="elastic-job-components"></a>Componentes de Tarefa Elástica
 
-|Componente  | Descrição (abaixo da tabela encontram-se detalhes adicionais) |
+|Componente | Descrição (abaixo da tabela encontram-se detalhes adicionais) |
 |---------|---------|
-|[**Agente de Tarefa Elástica**](#elastic-job-agent) |  O recurso do Azure que cria para executar e gerir tarefas.   |
-|[**Base de dados da tarefa**](#job-database)    |    Uma base de dados SQL do Azure que o agente de tarefa utiliza para armazenar dados relacionados com a tarefa, definições de tarefas, etc.      |
-|[**Grupo de destino**](#target-group)      |  O conjunto de servidores, conjuntos, bases de dados e mapas de shard no qual executar uma tarefa.       |
-|[**Tarefa**](#job)  |  Um trabalho é uma unidade de trabalho que é composta por um ou mais passos de [trabalho.](#job-step) Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script.  |
-
+|[**Agente de Tarefa Elástica**](#elastic-job-agent) | O recurso do Azure que cria para executar e gerir tarefas. |
+|[**Base de dados da tarefa**](#job-database) | Uma base de dados SQL do Azure que o agente de tarefa utiliza para armazenar dados relacionados com a tarefa, definições de tarefas, etc. |
+|[**Grupo de destino**](#target-group) | O conjunto de servidores, conjuntos, bases de dados e mapas de shard no qual executar uma tarefa. |
+|[**Tarefa**](#job) | Um trabalho é uma unidade de trabalho que é composta por um ou mais passos de [trabalho.](#job-step) Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script. |
 
 #### <a name="elastic-job-agent"></a>Agente de Tarefa Elástica
 
-Um agente de Tarefa Elástica é o recurso do Azure para criar, executar e gerir tarefas. O agente de Tarefa Elástica é um recurso do Azure que o utilizador cria no portal (o [PowerShell](elastic-jobs-powershell.md) e o REST também são suportados). 
+Um agente de Tarefa Elástica é o recurso do Azure para criar, executar e gerir tarefas. O agente de Tarefa Elástica é um recurso do Azure que o utilizador cria no portal (o [PowerShell](elastic-jobs-powershell.md) e o REST também são suportados).
 
 A criação de um **agente de Tarefa Elástica** requer uma base de dados SQL existente. O agente configura esta base de dados existente como a [*Base de dados da tarefa*](#job-database).
 
@@ -202,24 +203,20 @@ A *Base de dados da tarefa* serve para definir tarefas e controlar o estado e o 
 
 Para a pré-visualização atual, é necessária uma base de dados SQL do Azure (S0 ou superior) para criar um agente de Tarefa Elástica.
 
-A base de *dados job* não precisa literalmente de ser nova, mas deve ser um objetivo de serviço limpo, vazio, S0 ou maior. O objetivo de serviço recomendado da base de *dados de emprego* é S1 ou superior, mas a escolha ideal depende das necessidades de desempenho do seu trabalho: o número de passos de emprego, o número de alvos de emprego e a frequência com que os postos de trabalho são geridos. Por exemplo, uma base de dados S0 pode ser suficiente para um agente de trabalho que gere poucos empregos por hora, visando menos de dez bases de dados, mas gerir um trabalho a cada minuto pode não ser suficientemente rápido com uma base de dados S0, e um nível de serviço mais elevado poderia ser melhor. 
+A base de *dados job* não precisa literalmente de ser nova, mas deve ser um objetivo de serviço limpo, vazio, S0 ou maior. O objetivo de serviço recomendado da base de *dados de emprego* é S1 ou superior, mas a escolha ideal depende das necessidades de desempenho do seu trabalho: o número de passos de emprego, o número de alvos de emprego e a frequência com que os postos de trabalho são geridos. Por exemplo, uma base de dados S0 pode ser suficiente para um agente de trabalho que gere poucos empregos por hora, visando menos de dez bases de dados, mas gerir um trabalho a cada minuto pode não ser suficientemente rápido com uma base de dados S0, e um nível de serviço mais elevado poderia ser melhor.
 
-Se as operações contra a base de dados de trabalho forem mais lentas do que o esperado, [monitorize](sql-database-monitor-tune-overview.md#monitor-database-performance) o desempenho da base de dados e a utilização de recursos na base de dados de trabalho durante períodos de lentidão utilizando o portal Azure ou o [SYs.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Se a utilização de um recurso, como CPU, Data IO ou Log Write se aproxima a 100% e correlaciona com períodos de lentidão, considere aumentar gradualmente a base de dados para objetivos de serviço mais elevados (quer no [modelo DTU,](sql-database-service-tiers-dtu.md) quer no [modelo vCore)](sql-database-service-tiers-vcore.md)até que o desempenho da base de dados de emprego seja suficientemente melhorado.
-
+Se as operações contra a base de dados de trabalho forem mais lentas do que o esperado, [monitorize](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring) o desempenho da base de dados e a utilização de recursos na base de dados de trabalho durante períodos de lentidão utilizando o portal Azure ou o [SYs.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Se a utilização de um recurso, como CPU, Data IO ou Log Write se aproxima a 100% e correlaciona com períodos de lentidão, considere aumentar gradualmente a base de dados para objetivos de serviço mais elevados (quer no [modelo DTU,](sql-database-service-tiers-dtu.md) quer no [modelo vCore)](sql-database-service-tiers-vcore.md)até que o desempenho da base de dados de emprego seja suficientemente melhorado.
 
 ##### <a name="job-database-permissions"></a>Permissões da base de dados da tarefa
 
 Durante a criação do agente de tarefa, um esquema, tabelas e uma função chamada *jobs_reader* são criados na *Base de dados da tarefa*. A função é criada com as seguintes permissões e tem como objetivo dar aos administradores um melhor controlo de acesso para a monitorização de tarefas:
 
-
-|Nome da função  |permissões de esquema "jobs"  |permissões de esquema "jobs_internal"  |
+|Nome da função |permissões de esquema "jobs" |permissões de esquema "jobs_internal" |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECIONAR     |    Nenhum     |
+|**jobs_reader** | SELECT | Nenhum |
 
 > [!IMPORTANT]
 > Considere as implicações de segurança antes de conceder acesso à *Base de dados da tarefa* como um administrador da base de dados. Um utilizador mal intencionado com permissões para criar ou editar tarefas podia criar ou editar uma tarefa que utilize uma credencial armazenada para ligar a uma base de dados sob o controlo do utilizador mal intencionado, o que podia permitir que o utilizador mal intencionado determinasse a palavra-passe da credencial.
-
-
 
 #### <a name="target-group"></a>Grupo de destino
 
@@ -246,7 +243,6 @@ O **Exemplo 2** mostra um grupo de destino que contém um Azure SQL Server como 
 O **Exemplo 3** mostra um grupo de destino semelhante ao do *Exemplo 2*, mas é excluída especificamente uma base de dados individual. A ação do passo deste trabalho *não* será executada na base de dados excluída.<br>
 O **Exemplo 4** mostra um grupo de destino que contém um conjunto elástico como o destino. Tal como no *Exemplo 2*, o conjunto será enumerado dinamicamente no momento de execução do trabalho para determinar a lista de bases de dados contidas no mesmo.
 <br><br>
-
 
 ![Exemplos de grupos de destino](media/elastic-jobs-overview/targetgroup-examples2.png)
 
@@ -285,9 +281,9 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [O que é O Agente servidor SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
-- [Como criar e gerir trabalhos elásticos](elastic-jobs-overview.md) 
-- [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md) 
-- [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md) 
+- [O que é O Agente servidor SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [Como criar e gerir trabalhos elásticos](elastic-jobs-overview.md)
+- [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md)
+- [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

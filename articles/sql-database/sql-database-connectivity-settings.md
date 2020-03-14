@@ -9,14 +9,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: d18fdee85bd0fbabe68fe9890c4a2dc74366041d
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: cd239106bfd3ac785cffbf1365f298da565179ec
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096660"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366092"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de conectividade Azure SQL
+> [!NOTE]
+> As funcionalidades só estão disponíveis em **US West 2, US East, US South Central** com outras regiões em breve a seguir
+
 > [!NOTE]
 > Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 

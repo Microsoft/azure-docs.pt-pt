@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 4ebb52aa3e8d4ccfee6b36fb60c7f041df08a69a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44f57f52be512924e228d6488a786d117c6444e7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163029"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370598"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-messaging-eventhubs)
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote **de eventos de mensagens azure-eventhubs** Java.
@@ -25,7 +25,7 @@ Este quickstart mostra como enviar eventos e receber eventos de um centro de eve
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
 
-Para concluir este guia de início rápido, você precisa dos seguintes pré-requisitos:
+Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
 - Um ambiente de desenvolvimento do Java. Este quickstart usa [Eclipse](https://www.eclipse.org/). É necessário o Java Development Kit (JDK) com a versão 8 ou superior. 
@@ -55,7 +55,7 @@ import com.azure.messaging.eventhubs.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Sender {
-    public static void main(String[] args) {
+       public static void main(String[] args) {
     }
 }
 ```
@@ -208,7 +208,7 @@ A biblioteca de clientes Java para Centros de Eventos está disponível para uti
      }
     ```
     
-2. Descarregue o ficheiro **InMemoryCheckpointStore.java** a partir do [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)e adicione-o ao seu projeto. 
+2. Descarregue o ficheiro **InMemoryCheckpointStore.java** a partir do [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/InMemoryCheckpointStore.java)e adicione-o ao seu projeto. 
 3. Construa o programa e certifique-se de que não há erros. 
 
 ## <a name="run-the-applications"></a>Executar as aplicações

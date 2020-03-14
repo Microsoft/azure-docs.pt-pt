@@ -1,20 +1,20 @@
 ---
-title: Receber e responder a chamadas HTTPS
-description: Lidar com pedidos e eventos HTTPS em tempo real utilizando aplicações da Azure Logic
+title: Receber e responder a chamadas utilizando HTTPS
+description: Lidar com pedidos HTTPS de entrada de serviços externos utilizando aplicações da Azure Logic
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247283"
+ms.locfileid: "79297305"
 ---
-# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receba e responda às chamadas https recebidas utilizando aplicações da Azure Logic
+# <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos de entrada em HTTPS em Aplicações Lógicas Azure
 
 Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e a ação de gatilho ou resposta de pedido incorporado, pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem aos pedidos https recebidos. Por exemplo, pode ter a sua aplicação lógica:
 
@@ -58,7 +58,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
    ![Gatilho de pedido](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Required | Descrição |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de guardar a aplicação lógica e é usado para chamar a sua app lógica |
    | **Solicitar corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
@@ -157,7 +157,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente calivel que *só*
 
 1. Para especificar propriedades adicionais, abra a **lista de novos parâmetros** e selecione os parâmetros que pretende adicionar.
 
-   | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Required | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Método** | `method` | Não | O método que o pedido de entrada deve usar para chamar a app lógica |
    | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL final da app lógica pode aceitar |
@@ -191,8 +191,8 @@ Aqui está mais informações sobre as saídas do gatilho do Pedido:
 
 | Nome da propriedade JSON | Tipo de dados | Descrição |
 |--------------------|-----------|-------------|
-| `headers` | Object | Um objeto JSON que descreve os cabeçalhos do pedido |
-| `body` | Object | Um objeto JSON que descreve o conteúdo do corpo a partir do pedido |
+| `headers` | Objeto | Um objeto JSON que descreve os cabeçalhos do pedido |
+| `body` | Objeto | Um objeto JSON que descreve o conteúdo do corpo a partir do pedido |
 ||||
 
 <a name="add-response"></a>
@@ -202,6 +202,19 @@ Aqui está mais informações sobre as saídas do gatilho do Pedido:
 Pode utilizar a ação Resposta para responder com uma carga útil (dados) a um pedido HTTPS de entrada, mas apenas numa aplicação lógica que é desencadeada por um pedido HTTPS. Pode adicionar a ação Resposta em qualquer ponto do seu fluxo de trabalho. Para obter mais informações sobre a definição jSON subjacente para este gatilho, consulte o tipo de [ação Resposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minuto. Assumindo que o fluxo de trabalho da sua aplicação lógica inclui uma ação de Resposta, se a aplicação lógica não devolver uma resposta após este tempo passa, a sua aplicação lógica devolve um `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se a sua aplicação lógica não incluir uma ação de Resposta, a sua aplicação lógica devolve imediatamente uma resposta `202 ACCEPTED` ao chamador.
+
+> [!IMPORTANT]
+> Se uma ação de Resposta incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de resposta gerada sem mostrar qualquer aviso ou erro:
+>
+> * `Allow`
+> * `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding`e `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Embora as Aplicações Lógicas não o impeçam de salvar aplicações lógicas que tenham uma ação de Resposta com estes cabeçalhos, as Aplicações Lógicas ignoram estes cabeçalhos.
 
 1. No Logic App Designer, sob o passo em que pretende adicionar uma ação de Resposta, selecione **Novo passo**.
 
@@ -231,7 +244,7 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minut
 
    Aqui está mais informações sobre as propriedades que pode definir na ação Resposta. 
 
-   | Nome da propriedade | Nome da propriedade JSON | Necessário | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Required | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
    | **Headers** (Cabeçalhos) | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
@@ -242,6 +255,6 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um minut
 
 1. Quando terminar, guarde a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Conectores para Aplicações Lógicas](../connectors/apis-list.md)

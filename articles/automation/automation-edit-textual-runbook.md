@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c00ab8a5e0d307d89ae483db55bdb0b1258ae6a4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246413"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367283"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edição de livros textual na Automação Azure
 
@@ -59,7 +59,7 @@ Utilize o seguinte procedimento para abrir um livro de execução para edição 
 
 ### <a name="insert-an-asset-into-a-runbook"></a>Insira um ativo num livro de corridas
 
-1. Na tela do editor textual, posicione o cursor onde pretende colocar o código para o livro de execução infantil.
+1. No controlo de Tela do editor textual, posicione o cursor onde pretende colocar o código para o livro de execução infantil.
 2. Expandir o nó **assets** no controlo da Biblioteca.
 3. Expanda o nó para o tipo de ativo desejado.
 4. Clique no nome do ativo para inserir e **selecione Adicionar à tela**. Para [ativos variáveis,](automation-variables.md)selecione **adicionar "Obter Variável" à tela** ou adicionar **"set Variable" à tela,** dependendo se pretende obter ou definir a variável.
@@ -67,7 +67,7 @@ Utilize o seguinte procedimento para abrir um livro de execução para edição 
 
 ## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Editar um livro de execução da Automação Azure utilizando o Windows PowerShell
 
-Para editar um livro de execução com o Windows PowerShell, utilize o editor à sua escolha e guarde o livro de execução para um ficheiro ".ps1". Pode utilizar o cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) para recuperar o conteúdo do livro de execução. Pode utilizar o cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) para substituir o caderno de redação existente pelo modificado.
+Para editar um livro de execução com o Windows PowerShell, utilize o editor à sua escolha e guarde o livro de execução para um ficheiro **.ps1.** Pode utilizar o cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) para recuperar o conteúdo do livro de execução. Pode utilizar o cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) para substituir o caderno de redação existente pelo modificado.
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Recupere o conteúdo de um livro de corridas utilizando o Windows PowerShell
 

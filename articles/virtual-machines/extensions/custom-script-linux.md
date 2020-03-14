@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 2190bfd1a260d7b866fedc1f7c699faef2431a93
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 9a53cae61e48a8d0aa19b138d4084ca257ea705b
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254004"
+ms.locfileid: "79299248"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilize a versão 2 de extensão personalizada do script azure com máquinas virtuais Linux
 A versão 2 de extensão de script personalizado descarrega e executa scripts em máquinas virtuais Azure. Esta extensão é útil para configuração pós-implementação, instalação de software ou qualquer outra tarefa de configuração/gestão. Pode descarregar scripts a partir do Azure Storage ou de outro local acessível à Internet, ou pode fornecê-los ao tempo de execução da extensão. 
@@ -36,7 +36,7 @@ Existem duas extensões de script personalizadas Linux:
 Por favor, troque as implementações novas e existentes para utilizar a nova versão 2. A nova versão destina-se a ser uma substituição completa. Assim sendo, a migração é tão fácil como alterar o nome e a versão. Não precisa de alterar a configuração da extensão.
 
 
-### <a name="operating-system"></a>Sistema Operativo
+### <a name="operating-system"></a>Operating System
 
 A extensão personalizada do script para linux será executada na extensão suportada os os's, para mais informações, ver este [artigo](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
@@ -113,16 +113,16 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 | Nome | Valor / exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| publicador | Microsoft.Compute.Extensions | string |
-| tipo | CustomScript | string |
+| publicador | Microsoft.Compute.Extensions | Cadeia de caracteres |
+| tipo | CustomScript | Cadeia de caracteres |
 | typeHandlerVersion | 2.1 | int |
-| fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| comandoToExecutar (por exemplo) | python MyPythonScript.py \<my-param1> | string |
-| . | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
-| skipDos2Unix (por exemplo) | false | boolean |
+| fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
+| comandoToExecutar (por exemplo) | python MyPythonScript.py \<my-param1> | Cadeia de caracteres |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | Cadeia de caracteres |
+| skipDos2Unix (por exemplo) | false | valor booleano |
 | timestamp (por exemplo) | 123456789 | Inteiro de 32 bits |
-| armazenamentoAccountName (por exemplo) | exemplostorageacct | string |
-| armazenagemAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| armazenamentoAccountName (por exemplo) | exemplostorageacct | Cadeia de caracteres |
+| armazenagemAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Cadeia de caracteres |
 | identidade gerida (por exemplo) | { ou { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } ou { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json objeto |
 
 ### <a name="property-value-details"></a>Detalhes do valor da propriedade
@@ -212,7 +212,7 @@ CustomScript usa o seguinte algoritmo para executar um script.
 
 O CustomScript (versão 2.1) suporta a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros(s) de URLs fornecidos na definição "fileUris". Permite ao CustomScript aceder a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
 
-Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) ou atribuída ao [VM](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de [identidade gerido ao recipiente ou blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)do Armazenamento Azure .
+Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) ou atribuída ao [VM](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de [identidade gerido ao recipiente ou blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)do Armazenamento Azure .
 
 Para utilizar a identidade atribuída ao sistema no alvo VM/VMSS, detete o campo "managedidentity" para um objeto json vazio. 
 
@@ -376,7 +376,7 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 Quando a extensão do script personalizado é executado, o script é criado ou descarregado para um diretório semelhante ao seguinte exemplo. A saída de comando também é guardada neste diretório em ficheiros `stdout` e `stderr`.
 
 ```bash
@@ -460,6 +460,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para ver o código, questões e versões atuais, consulte o [script-script-extension-linux repo](https://github.com/Azure/custom-script-extension-linux)personalizado .
 

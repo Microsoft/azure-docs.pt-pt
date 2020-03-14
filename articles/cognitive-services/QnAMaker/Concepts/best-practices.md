@@ -4,11 +4,11 @@ description: Utilize estas melhores práticas para melhorar a sua base de dados 
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389260"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220778"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
@@ -102,7 +102,7 @@ Por padrão, o QnA Maker procura através de perguntas e respostas. Se quiser pe
 ### <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
 [Perguntas alternativas](../How-To/edit-knowledge-base.md) melhoram a probabilidade de um jogo com uma consulta do utilizador. Perguntas alternativas são úteis quando existem múltiplas formas em que pode ser solicitada a mesma pergunta. Isto pode incluir alterações na estrutura da sentença e estilo do word.
 
-|Consulta original|Consultas alternativas|Alterar|
+|Consulta original|Consultas alternativas|Alteração|
 |--|--|--|
 |É de estacionamento disponíveis?|Tem carro park?|estrutura de sentença|
  |Olá!|Yo<br>Olha aí!|Estilo do Word ou gíria|
@@ -118,7 +118,7 @@ Embora exista algum apoio para sinónimos na língua inglesa, use alterações d
 
 |Original word|Sinónimos|
 |--|--|
-|Comprar|purchase<br>net-banking<br>banca NET|
+|Comprar|comprar<br>net-banking<br>banca NET|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Utilizar palavras diferentes para diferenciar perguntas
 O algoritmo de classificação do QnA Maker, que combina com uma consulta do utilizador com uma pergunta na base de conhecimentos, funciona melhor se cada pergunta abordar uma necessidade diferente. Repetição da mesma palavra definido entre perguntas reduz a probabilidade de que a resposta certa é escolhida para uma consulta de determinado usuário com essas palavras.
@@ -141,7 +141,7 @@ O QnA Maker permite que os utilizadores [colaborem](../How-to/collaborate-knowle
 
 [A aprendizagem ativa](../How-to/improve-knowledge-base.md) faz o melhor trabalho de sugerir questões alternativas quando tem uma vasta gama de consultas baseadas no utilizador. É importante permitir que as consultas de utilizador de aplicações de clientes participem no ciclo de feedback de aprendizagem ativa sem censura. Uma vez sugeridas perguntas no portal QnA Maker, pode **[filtrar por sugestões](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** e depois rever e aceitar ou rejeitar essas sugestões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Editar uma base de conhecimento](../How-to/edit-knowledge-base.md)

@@ -11,11 +11,11 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
 ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127189"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283891"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -141,7 +141,7 @@ Considere os seguintes modelos treinados e as respetivas precisões de comboio e
 
 | Modelo | Precisão do comboio | Precisão do teste |
 |-------|----------------|---------------|
-| A | 99,9% | 95% |
+| Uma | 99,9% | 95% |
 | B | 87% | 87% |
 | C | 99,9% | 45% |
 
@@ -279,7 +279,7 @@ Pegue guarda-costas| ✓|✓
 Pausa corrida| ✓| 
 Retomar a execução| ✓| 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja exemplos e aprenda a construir modelos usando machine learning automatizado:
 

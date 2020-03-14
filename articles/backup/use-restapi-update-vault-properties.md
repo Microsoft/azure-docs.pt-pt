@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395529"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252366"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação azure utilizando a API REST
 
@@ -39,7 +39,7 @@ O GET URI tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` par�
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses"></a>Responses
 
 A resposta bem sucedida para a operação 'GET' é mostrada abaixo:
 
@@ -83,12 +83,12 @@ THe seguindo definições comuns são usados para criar um corpo de pedido
 
 Para mais detalhes, consulte [a documentação rest API](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Nome  |Required  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  ETag opcional       |
 |localização     |  true       |String         |   Localização dos recursos      |
 |propriedades     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
-|etiquetas     |         | Object        |     Etiquetas de recursos    |
+|etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
 #### <a name="example-request-body"></a>Corpo de pedido de exemplo
 
@@ -103,7 +103,7 @@ O exemplo seguinte é utilizado para atualizar o estado de eliminação suave pa
 }
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses"></a>Responses
 
 A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 
@@ -127,7 +127,7 @@ Uma vez apresentado o pedido 'PATCH', uma resposta de 200 (bem-sucedida) é devo
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Crie uma política de backup para apoiar um VM Azure neste cofre.](backup-azure-arm-userestapi-createorupdatepolicy.md)
 

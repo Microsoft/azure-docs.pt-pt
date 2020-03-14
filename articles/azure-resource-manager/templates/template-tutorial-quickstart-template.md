@@ -1,69 +1,69 @@
 ---
-title: Tutorial – usar modelos de início rápido
-description: Saiba como usar os modelos de início rápido do Azure para concluir o desenvolvimento do modelo.
+title: Tutorial - Use modelos de arranque rápido
+description: Aprenda a usar os modelos Azure Quickstart para completar o desenvolvimento do seu modelo.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0feb0a1a682328f1e23a7d800eb4f5653a6acdd1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1e110bb4711490f53da7628f608f150a2bc3186c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765424"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368881"
 ---
-# <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: usar modelos de início rápido do Azure
+# <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Use modelos Azure Quickstart
 
-Os [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) são um repositório de modelos contribuídos pela Comunidade. Você pode usar os modelos de exemplo em seu desenvolvimento de modelo. Neste tutorial, você encontrará uma definição de recurso de site e a adicionará ao seu próprio modelo. Leva cerca de **12 minutos** para ser concluída.
+[Os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/) são um repositório de modelos contribuídos pela comunidade. Pode utilizar os modelos de amostra no desenvolvimento do seu modelo. Neste tutorial, encontra uma definição de recurso do site e adiciona-a ao seu próprio modelo. Leva cerca de **12 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você conclua o [tutorial sobre modelos exportados](template-tutorial-export-template.md), mas isso não é necessário.
+Recomendamos que complete o [tutorial sobre modelos exportados,](template-tutorial-export-template.md)mas não é necessário.
 
-Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
+Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de Recursos e o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [as ferramentas](template-tutorial-create-first-template.md#get-tools)do modelo.
 
 ## <a name="review-template"></a>Modelo de revisão
 
-No final do tutorial anterior, seu modelo tinha o seguinte JSON:
+No final do tutorial anterior, o seu modelo tinha o seguinte JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json":::
 
-Esse modelo funciona para implantar contas de armazenamento e planos do serviço de aplicativo, mas talvez você queira adicionar um site a ele. Você pode usar modelos predefinidos para descobrir rapidamente o JSON necessário para implantar um recurso.
+Este modelo funciona para implementar contas de armazenamento e planos de serviço de aplicações, mas você pode querer adicionar um site a ele. Pode utilizar modelos pré-construídos para descobrir rapidamente o JSON necessário para a implementação de um recurso.
 
-## <a name="find-template"></a>Localizar modelo
+## <a name="find-template"></a>Encontrar modelo
 
-1. Abrir [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/)
-1. Em **Pesquisar**, insira **implantar aplicativo Web do Linux**.
-1. Selecione aquele com o título **implantar um aplicativo Web Linux básico**. Se você tiver problemas para encontrá-lo, aqui está o [link direto](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
-1. Selecione **Procurar no GitHub**.
-1. Selecione **azuredeploy. JSON**.
-1. Examine o modelo. Em particular, procure o recurso `Microsoft.Web/sites`.
+1. Modelos [open Azure Quickstart](https://azure.microsoft.com/resources/templates/)
+1. Em **Search,** introduza a **aplicação web de linha de utilização do Linux**.
+1. Selecione aquele com o título **Implementar uma aplicação web básica do Linux**. Se tiver dificuldade em encontrá-lo, aqui está o [link direto.](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/)
+1. **Selecione Procurar no GitHub**.
+1. Selecione **azuredeploy.json**.
+1. Reveja o modelo. Em particular, procure o recurso `Microsoft.Web/sites`.
 
-    ![Site de início rápido do modelo do Resource Manager](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
+    ![Site do gestor de recursos quickstart](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-existing-template"></a>Revisar modelo existente
+## <a name="revise-existing-template"></a>Rever o modelo existente
 
-Mescle o modelo de início rápido com o modelo existente:
+Fundir o modelo de arranque rápido com o modelo existente:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-O nome do aplicativo Web precisa ser exclusivo no Azure. Para evitar que os nomes duplicados, a variável **webAppPortalName** foi atualizada a partir de **"webAppPortalName": "[concat('parâmetros('webAppName'), 'webapp')"** para **"webAppPortalName": "[concat('webAppName'), uniqueString (recursoGroup().id)]"**
+O nome da aplicação web tem de ser único em todo o Azure. Para evitar que os nomes duplicados, a variável **webAppPortalName** foi atualizada a partir de **"webAppPortalName": "[concat('parâmetros('webAppName'), 'webapp')"** para **"webAppPortalName": "[concat('webAppName'), uniqueString (recursoGroup().id)]"**
 
-Adicione uma vírgula ao final da definição de `Microsoft.Web/serverfarms` para separar a definição de recurso da definição de `Microsoft.Web/sites`.
+Adicione uma vírem no final da definição `Microsoft.Web/serverfarms` para separar a definição de recursos da definição `Microsoft.Web/sites`.
 
-Há alguns recursos importantes a serem observados nesse novo recurso.
+Há algumas características importantes a notar neste novo recurso.
 
-Você notará que ele tem um elemento chamado **depends** que está definido como o plano do serviço de aplicativo. Essa configuração é necessária porque o plano do serviço de aplicativo deve existir antes que o aplicativo Web seja criado. O elemento **depends** informa ao Resource Manager como ordenar os recursos para implantação.
+Você vai notar que tem um elemento nomeado **depende** que está definido para o plano de serviço de aplicações. Esta definição é necessária porque o plano de serviço de aplicações deve existir antes da aplicação web ser criada. O elemento **dependsOn** diz ao Gestor de Recursos como encomendar os recursos para a implantação.
 
-A propriedade **serverFarmId** usa a função [ResourceId](template-functions-resource.md#resourceid) . Essa função obtém o identificador exclusivo de um recurso. Nesse caso, ele obtém o identificador exclusivo para o plano do serviço de aplicativo. O aplicativo Web está associado a um plano específico do serviço de aplicativo.
+A propriedade **serverFarmId** utiliza a função [resourceId.](template-functions-resource.md#resourceid) Esta função obtém o identificador único para um recurso. Neste caso, obtém o identificador único para o plano de serviço de aplicações. A aplicação web está associada a um plano específico de serviço de aplicações.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Use CLI do Azure ou Azure PowerShell para implantar um modelo.
+Utilize o Azure CLI ou o Azure PowerShell para implementar um modelo.
 
-Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se ainda não criou o grupo de recursos, consulte o [grupo de recursos Create](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -75,10 +75,10 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addwebapp \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -89,9 +89,9 @@ az group deployment create \
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
+Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recursos.
 
-Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
+Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
@@ -100,7 +100,7 @@ Se estiver parando agora, talvez você queira limpar os recursos implantados exc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você aprendeu a usar um modelo de início rápido para o desenvolvimento de modelo. No próximo tutorial, você adicionará marcas aos recursos.
+Aprendeu a usar um modelo de arranque rápido para o desenvolvimento do seu modelo. No próximo tutorial, adiciona-se tags aos recursos.
 
 > [!div class="nextstepaction"]
-> [Adicionar marcas](template-tutorial-add-tags.md)
+> [Adicionar tags](template-tutorial-add-tags.md)

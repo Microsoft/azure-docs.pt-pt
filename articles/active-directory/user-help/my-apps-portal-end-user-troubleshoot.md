@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: f72dd5595d67ae989cec5681d22def9a2f929adf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377957"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253159"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problemas de resolução de problemas com o portal My Apps
 
@@ -81,7 +81,7 @@ Se estiver a receber uma mensagem **Access Denied** depois de iniciar uma aplica
 
 Se depois de experimentar estas coisas ainda não consegue aceder à sua aplicação, deve contactar o balcão de ajuda da sua organização para obter assistência.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de iniciar sessão no portal **My Apps,** também pode atualizar as informações sobre o seu perfil e conta, as informações do seu grupo e informações de revisão de acesso (se tiver permissão).
 

@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393681"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241781"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
 
@@ -144,7 +144,7 @@ Para ver este mesmo nível de informação no painel de teste, tem de publicar a
 
 Quando terminar com este quickstart, selecione **Minhas aplicações** no menu de navegação superior. Selecione a caixa de verificação da aplicação da lista e, em seguida, selecione **Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Identificar intenções e entidades comuns](luis-tutorial-prebuilt-intents-entities.md)

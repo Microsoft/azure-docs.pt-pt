@@ -12,11 +12,11 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 3/11/2020
 ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129512"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268707"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de dados Azure SQL sem servidor
 
@@ -356,7 +356,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Alemanha Central, Alemanha Nordeste, Reino Unido Norte, Reino Unido Sul 2, Oeste Central DOS EUA e EUA Gov Central (Iowa).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](sql-database-single-database-get-started.md).
 - Para limites de recursos, consulte os limites de recursos de [nível de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

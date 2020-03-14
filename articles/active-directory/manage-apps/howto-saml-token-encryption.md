@@ -1,6 +1,6 @@
 ---
-title: Criptografia de token SAML no Azure Active Directory
-description: Saiba como configurar Azure Active Directory criptografia de token SAML.
+title: Encriptação simbólica SAML no Diretório Ativo Azure
+description: Saiba como configurar a encriptação de token SAML do Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,90 +12,90 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148638"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365871"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Como configurar a criptografia de token SAML do Azure AD (versão prévia)
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como: Configure Azure AD AD Token encriptação
 
 > [!NOTE]
-> A criptografia de token é um recurso do Azure Active Directory (Azure AD) Premium. Para saber mais sobre as edições, os recursos e os preços do Azure AD, confira [preços do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
+> A encriptação token é uma funcionalidade premium azure Ative Directory (Azure AD). Para saber mais sobre edições, funcionalidades e preços da Azure AD, consulte o preço da [AD Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
 
-A criptografia de token SAML permite o uso de asserções SAML criptografadas com um aplicativo que dá suporte a ela. Quando configurado para um aplicativo, o Azure AD criptografará as asserções SAML que ele emite para o aplicativo usando a chave pública Obtida de um certificado armazenado no Azure AD. O aplicativo deve usar a chave privada correspondente para descriptografar o token antes que ele possa ser usado como evidência de autenticação para o usuário conectado.
+A encriptação token SAML permite o uso de afirmações SAML encriptadas com uma aplicação que a suporta. Quando configurado para uma aplicação, a Azure AD encriptará as afirmações da SAML que emite para essa aplicação utilizando a chave pública obtida a partir de um certificado armazenado em Azure AD. A aplicação deve utilizar a chave privada correspondente para desencriptar o símbolo antes de poder ser utilizado como prova de autenticação para o utilizador assinado.
 
-Criptografar as asserções SAML entre o Azure AD e o aplicativo fornece garantia adicional de que o conteúdo do token não pode ser interceptado e dados pessoais ou corporativos comprometidos.
+Encriptar as afirmações da SAML entre a AD Azure e a aplicação fornece garantias adicionais de que o conteúdo do token não pode ser intercetado, e os dados pessoais ou corporativos comprometidos.
 
-Mesmo sem a criptografia de token, os tokens SAML do Azure AD nunca são passados na rede em claro. O Azure AD requer trocas de solicitação/resposta de token para ocorrer em canais HTTPS/TLS criptografados para que as comunicações entre o IDP, o navegador e o aplicativo ocorram por meio de Links criptografados. Considere o valor de criptografia de token para sua situação em comparação com a sobrecarga de gerenciamento de certificados adicionais.   
+Mesmo sem encriptação simbólica, as fichas SAML da Azure AD nunca são transmitidas na rede de forma clara. A Azure AD exige que as trocas de pedidos/respostas simbólicas ocorram sobre os canais HTTPS/TLS encriptados para que as comunicações entre o IDP, browser e aplicação ocorram sobre links encriptados. Considere o valor da encriptação simbólica para a sua situação em comparação com a sobrecarga de gestão de certificados adicionais.   
 
-Para configurar a criptografia de token, você precisa carregar um arquivo de certificado X. 509 que contém a chave pública para o objeto de aplicativo do Azure AD que representa o aplicativo. Para obter o certificado X. 509, você pode baixá-lo do próprio aplicativo ou obtê-lo do fornecedor do aplicativo em casos em que o fornecedor do aplicativo fornece chaves de criptografia ou em casos em que o aplicativo espera que você forneça uma chave privada, pode ser criados usando as ferramentas de criptografia, a parte da chave privada carregada no repositório de chaves do aplicativo e o certificado de chave pública correspondente carregado no Azure AD.
+Para configurar a encriptação simbólica, é necessário fazer o upload de um ficheiro de certificado X.509 que contenha a chave pública do objeto de aplicação Azure AD que representa a aplicação. Para obter o certificado X.509, pode descarregá-lo a partir da própria aplicação, ou obtê-lo do fornecedor de aplicações nos casos em que o fornecedor de aplicações fornece chaves de encriptação ou nos casos em que a aplicação espera que forneça uma chave privada, pode ser criado usando ferramentas de criptografia, a parte chave privada enviada para a loja chave da aplicação e o certificado de chave pública correspondente enviado para AD Azure.
 
-O Azure AD usa o AES-256 para criptografar os dados de Asserção SAML.
+A Azure AD utiliza o AES-256 para encriptar os dados de afirmação do SAML.
 
-## <a name="configure-saml-token-encryption"></a>Configurar a criptografia de token SAML
+## <a name="configure-saml-token-encryption"></a>Configurar encriptação token SAML
 
-Para configurar a criptografia de token SAML, siga estas etapas:
+Para configurar a encriptação token SAML, siga estes passos:
 
-1. Obtenha um certificado de chave pública que corresponda a uma chave privada configurada no aplicativo.
+1. Obtenha um certificado de chave pública que corresponda a uma chave privada que está configurada na aplicação.
 
-    Crie um par de chaves assimétricas para usar na criptografia. Ou, se o aplicativo fornecer uma chave pública a ser usada para criptografia, siga as instruções do aplicativo para baixar o certificado X. 509.
+    Crie um par de chaves assimétricas para usar para encriptação. Ou, se a aplicação fornecer uma chave pública para a encriptação, siga as instruções da aplicação para descarregar o certificado X.509.
 
-    A chave pública deve ser armazenada em um arquivo de certificado X. 509 no formato. cer.
+    A chave pública deve ser armazenada num ficheiro de certificado X.509 em formato .cer.
 
-    Se o aplicativo usar uma chave que você cria para sua instância, siga as instruções fornecidas pelo seu aplicativo para instalar a chave privada que o aplicativo usará para descriptografar tokens do seu locatário do Azure AD.
+    Se a aplicação utilizar uma chave que cria para a sua instância, siga as instruções fornecidas pela sua aplicação para instalar a chave privada que a aplicação utilizará para desencriptar fichas do seu inquilino Azure AD.
 
-1. Adicione o certificado à configuração do aplicativo no Azure AD.
+1. Adicione o certificado à configuração da aplicação em Azure AD.
 
-### <a name="to-configure-token-encryption-in-the-azure-portal"></a>Para configurar a criptografia de token no portal do Azure
+### <a name="to-configure-token-encryption-in-the-azure-portal"></a>Para configurar encriptação simbólica no portal Azure
 
-Você pode adicionar o certificado público à configuração do aplicativo dentro do portal do Azure.
+Pode adicionar o cert público à sua configuração de aplicação dentro do portal Azure.
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
-1. Vá para a folha **Azure Active Directory > aplicativos empresariais** e selecione o aplicativo para o qual você deseja configurar a criptografia de token.
+1. Vá à lâmina de **aplicações azure Ative Directory > Enterprise** e, em seguida, selecione a aplicação para a que pretende configurar encriptação simbólica.
 
-1. Na página do aplicativo, selecione **criptografia de token**.
+1. Na página da aplicação, selecione **encriptação Token**.
 
-    ![Opção de criptografia de token no portal do Azure](./media/howto-saml-token-encryption/token-encryption-option-small.png)
+    ![Opção de encriptação token no portal Azure](./media/howto-saml-token-encryption/token-encryption-option-small.png)
 
     > [!NOTE]
-    > A opção de **criptografia de token** só está disponível para aplicativos SAML que foram configurados na folha **aplicativos empresariais** na portal do Azure, seja na Galeria de aplicativos ou em um aplicativo inexistente na galeria. Para outros aplicativos, essa opção de menu é desabilitada. Para aplicativos registrados por meio da experiência de **registros de aplicativo** no portal do Azure, você pode configurar a criptografia para tokens SAML usando o manifesto do aplicativo, por meio de Microsoft Graph ou por meio do PowerShell.
+    > A opção de **encriptação Token** só está disponível para aplicações SAML que tenham sido criadas a partir da lâmina de **aplicações enterprise** no portal Azure, seja a partir da Galeria de Aplicações ou de uma aplicação Não-Galeria. Para outras aplicações, esta opção de menu é desativada. Para aplicações registadas através da experiência de **registos** da App no portal Azure, pode configurar a encriptação para tokens SAML utilizando o manifesto de aplicação, através do Microsoft Graph ou através do PowerShell.
 
-1. Na página **criptografia de token** , selecione **importar certificado** para importar o arquivo. cer que contém seu certificado X. 509 público.
+1. Na página de **encriptação Token,** selecione Certificado de **Importação** para importar o ficheiro .cer que contém o seu certificado público X.509.
 
-    ![Importe o arquivo. cer que contém o certificado X. 509](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Importar o ficheiro .cer que contém o certificado X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
-1. Depois que o certificado for importado e a chave privada estiver configurada para uso no lado do aplicativo, ative a criptografia selecionando o **...** ao lado do status da impressão digital e, em seguida, selecione **Ativar criptografia de token** nas opções do menu suspenso.
+1. Uma vez importado o certificado, e a chave privada é configurada para utilização no lado da aplicação, ativar a encriptação selecionando o **...** ao lado do estado da impressão digital e, em seguida, selecione **encriptação token Activate** a partir das opções no menu dropdown.
 
-1. Selecione **Sim** para confirmar a ativação do certificado de criptografia de token.
+1. Selecione **Sim** para confirmar a ativação do certificado de encriptação token.
 
-1. Confirme se as asserções SAML emitidas para o aplicativo estão criptografadas.
+1. Confirme que as afirmações do SAML emitidas para a aplicação estão encriptadas.
 
-### <a name="to-deactivate-token-encryption-in-the-azure-portal"></a>Para desativar a criptografia de token no portal do Azure
+### <a name="to-deactivate-token-encryption-in-the-azure-portal"></a>Para desativar encriptação simbólica no portal Azure
 
-1. Na portal do Azure, vá para **Azure Active Directory > aplicativos empresariais**e, em seguida, selecione o aplicativo que tem a criptografia de token SAML habilitada.
+1. No portal Azure, vá a **aplicações Azure Ative Directory > Enterprise**e, em seguida, selecione a aplicação que tem encriptação token SAML ativada.
 
-1. Na página do aplicativo, selecione **criptografia de token**, localize o certificado e, em seguida, selecione a opção **...** para mostrar o menu suspenso.
+1. Na página da aplicação, selecione **encriptação Token,** encontre o certificado e, em seguida, selecione a **opção ...** para mostrar o menu de dropdown.
 
-1. Selecione **desativar criptografia de token**.
+1. **Selecione Deactivate encriptação token**.
 
-## <a name="configure-saml-token-encryption-using-graph-api-powershell-or-app-manifest"></a>Configurar a criptografia de token SAML usando API do Graph, PowerShell ou manifesto de aplicativo
+## <a name="configure-saml-token-encryption-using-graph-api-powershell-or-app-manifest"></a>Configure encriptação token SAML usando gráfico API, PowerShell ou manifesto de aplicação
 
-Os certificados de criptografia são armazenados no objeto de aplicativo no Azure AD com uma marca de uso `encrypt`. Você pode configurar vários certificados de criptografia e aquele que está ativo para criptografar tokens é identificado pelo atributo `tokenEncryptionKeyID`.
+Os certificados de encriptação são armazenados no objeto de aplicação em Azure AD com uma etiqueta de utilização `encrypt`. Pode configurar vários certificados de encriptação e o que está ativo para encriptar fichas é identificado pelo atributo `tokenEncryptionKeyID`.
 
-Você precisará da ID de objeto do aplicativo para configurar a criptografia de token usando Microsoft Graph API ou o PowerShell. Você pode encontrar esse valor programaticamente ou acessando a página de **Propriedades** do aplicativo no portal do Azure e observando o valor da **ID de objeto** .
+Vai precisar do ID do objeto da aplicação para configurar encriptação simbólica utilizando a Microsoft Graph API ou powerShell. Pode encontrar este valor programáticamente, ou indo para a página **Propriedades** da aplicação no portal Azure e notando o valor de ID do **Objeto.**
 
-Quando você configura uma keycredential usando o Graph, o PowerShell ou no manifesto do aplicativo, você deve gerar um GUID a ser usado para o keyId.
+Quando configurar uma teclaCredential utilizando o Graph, powerShell ou no manifesto de aplicação, deve gerar um GUID para utilizar para o keyId.
 
-### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Para configurar a criptografia de token usando Microsoft Graph
+### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Para configurar encriptação simbólica usando o Microsoft Graph
 
-1. Atualize o `keyCredentials` do aplicativo com um certificado X. 509 para criptografia. O exemplo a seguir mostra como fazer isso.
+1. Atualize o `keyCredentials` da aplicação com um certificado X.509 para encriptação. O exemplo que se segue mostra como fazê-lo.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>
@@ -111,7 +111,7 @@ Quando você configura uma keycredential usando o Graph, o PowerShell ou no mani
     }
     ```
 
-1. Identifique o certificado de criptografia que está ativo para criptografar tokens. O exemplo a seguir mostra como fazer isso.
+1. Identifique o certificado de encriptação que está ativo para encriptar fichas. O exemplo que se segue mostra como fazê-lo.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid> 
@@ -121,20 +121,17 @@ Quando você configura uma keycredential usando o Graph, o PowerShell ou no mani
     }
     ```
 
-### <a name="to-configure-token-encryption-using-powershell"></a>Para configurar a criptografia de token usando o PowerShell
+### <a name="to-configure-token-encryption-using-powershell"></a>Para configurar encriptação simbólica usando powerShell
 
-Essa funcionalidade estará disponível em breve. 
+1. Utilize o mais recente módulo Azure AD PowerShell para se ligar ao seu inquilino.
 
-<!--
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. Detete as definições de encriptação do símbolo utilizando o comando **[Set-AzureApplication.](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)**
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Read the token encryption settings using the following commands.
+1. Leia as definições de encriptação do símbolo utilizando os seguintes comandos.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
@@ -142,19 +139,17 @@ Essa funcionalidade estará disponível em breve.
     $app.TokenEncryptionKeyId
     ```
 
--->
+### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Para configurar encriptação simbólica usando o manifesto de aplicação
 
-### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Para configurar a criptografia de token usando o manifesto do aplicativo
+1. A partir do portal Azure, vá para as inscrições do **Azure Ative Directory > App.**
 
-1. Na portal do Azure, vá para **Azure Active Directory > registros de aplicativo**.
+1. Selecione **Todas as aplicações** a partir do dropdown para mostrar todas as aplicações e, em seguida, selecione a aplicação da empresa que pretende configurar.
 
-1. Selecione **todos os aplicativos** na lista suspensa para mostrar todos os aplicativos e, em seguida, selecione o aplicativo empresarial que você deseja configurar.
+1. Na página da aplicação, selecione **Manifesto** para editar o manifesto de [inscrição](../develop/reference-app-manifest.md).
 
-1. Na página do aplicativo, selecione **manifesto** para editar o [manifesto do aplicativo](../develop/reference-app-manifest.md).
+1. Detete o valor para o atributo `tokenEncryptionKeyId`.
 
-1. Defina o valor para o atributo `tokenEncryptionKeyId`.
-
-    O exemplo a seguir mostra um manifesto de aplicativo configurado com dois certificados de criptografia e com o segundo selecionado como o ativo usando o tokenEnryptionKeyId.
+    O exemplo seguinte mostra um manifesto de aplicação configurado com dois certificados de encriptação, e com o segundo selecionado como o ativo usando o tokenEnryptionKeyId.
 
     ```json
     { 
@@ -225,5 +220,5 @@ Essa funcionalidade estará disponível em breve.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Descubra [como o AD do Azure usa o protocolo SAML](../develop/active-directory-saml-protocol-reference.md)
-* Aprenda o formato, as características de segurança e o conteúdo de [tokens SAML no Azure ad](../develop/reference-saml-tokens.md)
+* Saiba [como a Azure AD utiliza o protocolo SAML](../develop/active-directory-saml-protocol-reference.md)
+* Conheça o formato, as características de segurança e o conteúdo das [fichas SAML em Azure AD](../develop/reference-saml-tokens.md)

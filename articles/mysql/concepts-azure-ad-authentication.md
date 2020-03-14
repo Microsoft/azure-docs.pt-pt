@@ -1,17 +1,17 @@
 ---
-title: Autenticação de Diretório Ativo - Base de Dados Azure para MySQL - Servidor Único
-description: Conheça os conceitos de Diretório Ativo Azure para autenticação com Base de Dados Azure para MySQL - Servidor Único
+title: Autenticação de Diretório Ativo - Base de Dados Azure para MySQL
+description: Conheça os conceitos de Diretório Ativo Azure para autenticação com Base de Dados Azure para MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: eb26bc09ce273280b55a023c563427b5b323ace9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706105"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299027"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 
@@ -47,7 +47,7 @@ Para configurar e utilizar a autenticação do Diretório Ativo Azure, utilize o
 
 O diagrama de alto nível que se segue resume como funciona a autenticação utilizando a autenticação Azure AD com base de dados Azure para mySQL. As setas indicam vias de comunicação.
 
-![fluxo de autenticação][1]
+![Fluxo de autenticação][1]
 
 ## <a name="administrator-structure"></a>Estrutura de administrador
 
@@ -87,10 +87,10 @@ Depois de autenticar contra o Diretório Ativo, então recupere um símbolo. Est
 - Se o administrador da AD Azure for removido do servidor, o servidor deixará de estar associado a um inquilino da AD Azure, pelo que todos os logins da AD Azure serão desativados para o servidor. A adição de um novo administrador da Azure AD do mesmo inquilino irá reativar os logins da Azure AD.
 - A Base de Dados Azure para MySQL corresponde a fichas de acesso à Base de Dados Azure para o utilizador MySQL utilizando o ID exclusivo do utilizador Azure AD, em oposição à utilização do nome de utilizador. Isto significa que se um utilizador da AD Azure for eliminado em Azure AD e um novo utilizador criado com o mesmo nome, a Base de Dados Azure para o MySQL considera que um utilizador diferente. Portanto, se um utilizador for eliminado do Azure AD e, em seguida, um novo utilizador com o mesmo nome adicionado, o novo utilizador não poderá ligar-se ao utilizador existente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para aprender a criar e povoar o Azure AD, e depois configurar o Azure AD com base de dados Azure para mySQL, consulte [configurar e iniciar sessão com a Azure AD para azure Database para MySQL](howto-configure-sign-in-azure-ad-authentication.md).
-- Para uma visão geral dos logins e dos utilizadores de bases de dados para a Base de Dados Azure para mySQL, consulte Criar utilizadores na Base de [Dados Azure para MySQL - Servidor Único](howto-create-users.md).
+- Para uma visão geral dos logins e dos utilizadores de bases de dados para a Base de Dados Azure para MySQL, consulte Criar utilizadores na Base de [Dados Azure para mySQL](howto-create-users.md).
 
 <!--Image references-->
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f93bea240ee3f139c9be84199d116f9f3f231261
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361478"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281525"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Oleodutos e Atividades na Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -92,12 +92,12 @@ Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura
 }
 ```
 
-| Etiqueta | Descrição | Necessário |
+| Etiqueta | Descrição | Required |
 | --- | --- | --- |
 | nome |Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado (\_)</li><li>Seguir personagens não são permitidos: ".", "+", "?", "/", "<", "&gt","\*"%", "&",""","\\"</li></ul> |Sim |
-| descrição | Especifique o texto que descreve para o que é utilizado o pipeline. |Sim |
-| atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Consulte a secção seguinte para obter detalhes sobre as atividades do elemento JSON. | Sim |
-| start | Inicie a data-data para o oleoduto. Deve estar no [formato ISO.](https://en.wikipedia.org/wiki/ISO_8601) Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, uma hora EST. Aqui está um exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM EST.<br/><br/>As propriedades de início e de extremidade em conjunto especificam o período ativo para o gasoduto. As fatias de saída só são produzidas neste período ativo. |Não<br/><br/>Se especificar um valor para a propriedade final, deve especificar valor para a propriedade inicial.<br/><br/>Os tempos de início e de fim podem ser vazios para criar um oleoduto. Deve especificar ambos os valores para definir um período ativo para o gasoduto funcionar. Se não especificar os tempos de início e de fim ao criar um pipeline, pode defini-los utilizando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
+| description | Especifique o texto que descreve para o que é utilizado o pipeline. |Sim |
+| activities | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Consulte a secção seguinte para obter detalhes sobre as atividades do elemento JSON. | Sim |
+| Iniciar | Inicie a data-data para o oleoduto. Deve estar no [formato ISO.](https://en.wikipedia.org/wiki/ISO_8601) Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, uma hora EST. Aqui está um exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM EST.<br/><br/>As propriedades de início e de extremidade em conjunto especificam o período ativo para o gasoduto. As fatias de saída só são produzidas neste período ativo. |Não<br/><br/>Se especificar um valor para a propriedade final, deve especificar valor para a propriedade inicial.<br/><br/>Os tempos de início e de fim podem ser vazios para criar um oleoduto. Deve especificar ambos os valores para definir um período ativo para o gasoduto funcionar. Se não especificar os tempos de início e de fim ao criar um pipeline, pode defini-los utilizando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
 | end | Fim da data para o oleoduto. Se especificado deve estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, uma hora EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`, que é 6 AM EST.<br/><br/>Para executar o gasoduto indefinidamente, especifique 9999-09-09 como o valor para a propriedade final. <br/><br/> Um gasoduto está ativo apenas entre o seu tempo de início e o seu tempo de fim. Não é executado antes da hora de início ou após o fim do tempo. Se o gasoduto for interrompido, não será executado independentemente do seu início e fim. Para que um gasoduto possa funcionar, não deve ser interrompido. Consulte [o Agendamento e execução](data-factory-scheduling-and-execution.md) para perceber como funciona o agendamento e execução na Azure Data Factory. |Não <br/><br/>Se especificar um valor para a propriedade inicial, deve especificar valor para a propriedade final.<br/><br/>Consulte as notas para a propriedade **inicial.** |
 | isPaused | Se for verdade, o gasoduto não funciona. Está no estado de pausa. Valor predefinido = falso. Pode utilizar esta propriedade para ativar ou desativar um oleoduto. |Não |
 | pipelineMode | O método de agendamento corre para o oleoduto. Os valores permitidos são: agendados (padrão), uma vez.<br/><br/>«Programado» indica que o gasoduto funciona num determinado intervalo de tempo de acordo com o seu período ativo (início e fim). 'One time' indica que o gasoduto funciona apenas uma vez. Os gasodutos únicos uma vez criados não podem ser modificados/atualizados atualmente. Consulte o [oleoduto Onetime](#onetime-pipeline) para obter mais informações sobre a definição de uma vez. |Não |
@@ -130,10 +130,10 @@ A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Ca
 
 A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
-| Etiqueta | Descrição | Necessário |
+| Etiqueta | Descrição | Required |
 | --- | --- | --- |
 | nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 260</li><li>Deve começar com um número de letra, ou um sublinhado (\_)</li><li>Seguir personagens não são permitidos: ".", "+", "?",", "&lt",">","%","%","&",""\\"</li></ul> |Sim |
-| descrição | Texto que descreve para o que é utilizada a atividade |Sim |
+| description | Texto que descreve para o que é utilizada a atividade |Sim |
 | tipo | Tipo de atividade. Consulte as secções de [Atividades](#data-movement-activities) de Movimento de Dados e Atividades de [Transformação](#data-transformation-activities) de Dados para diferentes tipos de atividades. |Sim |
 | inputs |Tabelas de entrada utilizadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sim |
 | outputs |Tabelas de saída utilizadas pela atividade.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Sim |
@@ -150,7 +150,7 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | concurrency |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções paralelas de atividade que podem acontecer em diferentes fatias. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de condivisa maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a encomenda de fatias de dados que estão a ser processadas.<br/><br/>Por exemplo, se tiver 2 fatias (uma a acontecer às 16h, e outra às 17h), e ambas estão pendentes de execução. Se definir a execuçãoPriorityOrder para ser NewestFirst, a fatia às 17:00 é processada primeiro. Da mesma forma, se definir a execuçãoPriorityORder como O FIrst mais antigo, então a fatia às 16:00 é processada. |
 | retry |Número inteiro<br/><br/>O valor máximo pode ser 10 |0 |O número de repetições antes do processamento de dados para a fatia é marcado como Falha. A execução da atividade para uma fatia de dados é novamente experimentada até à contagem de retry especificada. A reprovação é feita o mais rápido possível após o fracasso. |
-| tempo limite |TimeSpan |00:00:00 |Intervalo para a atividade. Exemplo: 00:10:00 (implica tempo de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados numa fatia exceder o valor de tempo limite, é cancelado e o sistema tenta voltar a tentar o processamento. O número de tentativas depende da propriedade de retry. Quando o tempo de tempo ocorre, o estado é definido para TimedOut. |
+| timeout |TimeSpan |00:00:00 |Intervalo para a atividade. Exemplo: 00:10:00 (implica tempo de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados numa fatia exceder o valor de tempo limite, é cancelado e o sistema tenta voltar a tentar o processamento. O número de tentativas depende da propriedade de retry. Quando o tempo de tempo ocorre, o estado é definido para TimedOut. |
 | delay |TimeSpan |00:00:00 |Especifique o atraso antes do processamento de dados da fatia.<br/><br/>A execução da atividade para uma fatia de dados é iniciada após o atraso ter passado o tempo de execução esperado.<br/><br/>Exemplo: 00:10:00 (implica atraso de 10 minutos) |
 | longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de retry longas antes da execução da fatia é falhado.<br/><br/>as tentativas de longRetry são espaçadas por longRetryInterval. Por isso, se precisar especificar um tempo entre tentativas de retry, use longRetry. Se forespecificado tanto o Retry como o longRetry, cada tentativa de longa-retry inclui tentativas de retry e o número máximo de tentativas é Retry * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Assuma que só há uma fatia para executar (o estado é espera) e a execução da atividade falha sempre. Inicialmente haveria 3 tentativas de execução consecutivas. Após cada tentativa, o estado da fatia seria Retry. Depois de terminarem as primeiras 3 tentativas, o estado da fatia seria LongRetry.<br/><br/>Após uma hora (isto é, valor de LongRetryInteval), haveria outro conjunto de 3 tentativas de execução consecutivas. Depois disso, o estado da fatia seria falhado e não se tentariam mais tentativas de tentativa. Daí que no total foram feitas 6 tentativas.<br/><br/>Se qualquer execução for bem sucedida, o estado da fatia estará pronto e não se tentarem mais tentativas de tentativas.<br/><br/>O longRetry pode ser utilizado em situações em que os dados dependentes chegam a tempos não determinísticos ou o ambiente global é excêntrico sob o qual ocorre o tratamento de dados. Nesses casos, fazer repetições um após o outro pode não ajudar e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Palavra de precaução: não detete valores elevados para longRetry ou longRetryInterval. Tipicamente, valores mais elevados implicam outras questões sistémicas. |
 | longRetryInterval |TimeSpan |00:00:00 |O atraso entre longas tentativas de retry |
@@ -351,6 +351,6 @@ Tenha em atenção o seguinte:
 * A vista do diagrama não mostra gasodutos únicos. Este comportamento é propositado.
 * Os gasodutos únicos não podem ser atualizados. Pode clonar um oleoduto único, rebatizá-lo, atualizar propriedades e implantá-lo para criar outro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre conjuntos de dados, consulte o artigo [Criar conjuntos](data-factory-create-datasets.md) de dados.
 - Para obter mais informações sobre como os oleodutos são programados e executados, consulte o agendamento e execução no artigo [da Azure Data Factory.](data-factory-scheduling-and-execution.md)

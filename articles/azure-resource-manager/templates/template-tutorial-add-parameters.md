@@ -1,50 +1,50 @@
 ---
-title: Tutorial – adicionar parâmetros ao modelo
-description: Adicione parâmetros ao seu modelo de Azure Resource Manager para torná-lo reutilizável.
+title: Tutorial - adicione parâmetros ao modelo
+description: Adicione parâmetros ao seu modelo de Gestor de Recursos Azure para torná-lo reutilizável.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 930ae27acf09dfa54638e27c938d7680817cbbab
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773210"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370751"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: adicionar parâmetros ao modelo do Resource Manager
+# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adicione parâmetros ao seu modelo de Gestor de Recursos
 
-No [tutorial anterior](template-tutorial-add-resource.md), você aprendeu como adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, você aprenderá a melhorar o modelo adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
+No [tutorial anterior,](template-tutorial-add-resource.md)aprendeu a adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, aprende-se a melhorar o modelo adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você conclua o [tutorial sobre os recursos](template-tutorial-add-resource.md), mas isso não é necessário.
+Recomendamos que complete o [tutorial sobre recursos,](template-tutorial-add-resource.md)mas não é necessário.
 
-Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
+Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de Recursos e o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [as ferramentas](template-tutorial-create-first-template.md#get-tools)do modelo.
 
 ## <a name="review-template"></a>Modelo de revisão
 
-No final do tutorial anterior, seu modelo tinha o seguinte JSON:
+No final do tutorial anterior, o seu modelo tinha o seguinte JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
-Talvez você tenha notado que há um problema com esse modelo. O nome da conta de armazenamento é embutido em código. Você só pode usar esse modelo para implantar a mesma conta de armazenamento a cada vez. Para implantar uma conta de armazenamento com um nome diferente, você precisaria criar um novo modelo, que obviamente não é uma maneira prática de automatizar suas implantações.
+Deve ter reparado que há um problema com este modelo. O nome da conta de armazenamento é codificado. Só pode utilizar este modelo para implementar sempre a mesma conta de armazenamento. Para implementar uma conta de armazenamento com um nome diferente, você teria que criar um novo modelo, que obviamente não é uma forma prática de automatizar as suas implementações.
 
 ## <a name="make-template-reusable"></a>Tornar o modelo reutilizável
 
-Para tornar seu modelo reutilizável, vamos adicionar um parâmetro que você pode usar para passar um nome de conta de armazenamento. O JSON realçado no exemplo a seguir mostra o que mudou em seu modelo. O parâmetro **storagename** é identificado como uma cadeia de caracteres. O comprimento máximo é definido como 24 caracteres para evitar qualquer nome muito longo.
+Para tornar o seu modelo reutilizável, vamos adicionar um parâmetro que pode usar para passar num nome de conta de armazenamento. O JSON destacado no exemplo seguinte mostra o que mudou no seu modelo. O parâmetro **de nome** de armazenamento é identificado como uma corda. O comprimento máximo é definido para 24 caracteres para evitar quaisquer nomes que sejam demasiado longos.
 
-Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
+Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Vamos implantar o modelo. O exemplo a seguir implanta o modelo com CLI do Azure ou PowerShell. Observe que você fornece o nome da conta de armazenamento como um dos valores no comando de implantação. Para o nome da conta de armazenamento, forneça o mesmo nome usado no tutorial anterior.
+Vamos colocar o modelo. O exemplo seguinte implementa o modelo com Azure CLI ou PowerShell. Note que fornece o nome da conta de armazenamento como um dos valores do comando de implantação. Para o nome da conta de armazenamento, forneça o mesmo nome que usou no tutorial anterior.
 
-Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se ainda não criou o grupo de recursos, consulte o [grupo de recursos Create](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -54,10 +54,10 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnameparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -66,29 +66,29 @@ az group deployment create \
 
 ---
 
-## <a name="understand-resource-updates"></a>Entender as atualizações de recursos
+## <a name="understand-resource-updates"></a>Compreender as atualizações de recursos
 
-Na seção anterior, você implantou uma conta de armazenamento com o mesmo nome que você criou anteriormente. Você pode estar se perguntando como o recurso é afetado pela reimplantação.
+Na secção anterior, implementou uma conta de armazenamento com o mesmo nome que tinha criado anteriormente. Pode estar a perguntar-se como é que o recurso é afetado pela reafectação.
 
-Se o recurso já existir e nenhuma alteração for detectada nas propriedades, nenhuma ação será executada. Se o recurso já existir e uma propriedade tiver sido alterada, o recurso será atualizado. Se o recurso não existir, ele será criado.
+Se o recurso já existir e não for detetada qualquer alteração nas propriedades, não são tomadas quaisquer medidas. Se o recurso já existe e um imóvel mudou, o recurso é atualizado. Se o recurso não existe, é criado.
 
-Essa maneira de lidar com atualizações significa que seu modelo pode incluir todos os recursos necessários para uma solução do Azure. Você pode reimplantar com segurança o modelo e saber se os recursos são alterados ou criados somente quando necessário. Por exemplo, se você tiver adicionado arquivos à sua conta de armazenamento, poderá reimplantar a conta de armazenamento sem perder esses arquivos.
+Esta forma de lidar com atualizações significa que o seu modelo pode incluir todos os recursos necessários para uma solução Azure. Pode recolocar o modelo com segurança e saber que os recursos são alterados ou criados apenas quando necessário. Por exemplo, se tiver adicionado ficheiros à sua conta de armazenamento, pode recolocar a conta de armazenamento sem perder esses ficheiros.
 
-## <a name="customize-by-environment"></a>Personalizar por ambiente
+## <a name="customize-by-environment"></a>Personalize por meio ambiente
 
-Os parâmetros permitem-lhe personalizar a implementação, ao fornecer valores que são adaptados para um determinado ambiente. Por exemplo, você pode passar valores diferentes com base em se está implantando em um ambiente para desenvolvimento, teste e produção.
+Os parâmetros permitem-lhe personalizar a implementação, ao fornecer valores que são adaptados para um determinado ambiente. Por exemplo, você pode passar diferentes valores com base em se você está implantando para um ambiente de desenvolvimento, teste e produção.
 
-O modelo anterior sempre implementou uma conta de armazenamento Standard_LRS. Talvez você queira a flexibilidade para implantar SKUs diferentes dependendo do ambiente. O exemplo a seguir mostra as alterações para adicionar um parâmetro para a SKU. Copie todo o arquivo e cole-o em seu modelo.
+O modelo anterior sempre implementou uma conta de armazenamento Standard_LRS. Talvez queira a flexibilidade para implementar diferentes UsKUs dependendo do ambiente. O exemplo seguinte mostra as alterações para adicionar um parâmetro para SKU. Copie todo o ficheiro e cole sobre o seu modelo.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-O parâmetro **storageSKU** tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
+O parâmetro **storageSKU** tem um valor predefinido. Este valor é utilizado quando um valor não é especificado durante a implementação. Também tem uma lista de valores permitidos. Estes valores correspondem aos valores necessários para criar uma conta de armazenamento. Não quer que os utilizadores do seu modelo passem em SKUs que não funcionem.
 
 ## <a name="redeploy-template"></a>Reimplementar o modelo
 
-Você está pronto para implantar novamente. Como o SKU padrão está definido para **Standard_LRS,** você não precisa fornecer um valor para esse parâmetro.
+Está pronto para partir de novo. Como o SKU padrão está definido para **Standard_LRS,** você não precisa fornecer um valor para esse parâmetro.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -98,10 +98,10 @@ New-AzResourceGroupDeployment `
   -storageName "{your-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -110,9 +110,9 @@ az group deployment create \
 
 ---
 
-Para ver a flexibilidade do modelo, vamos implantá-lo novamente. Desta vez, o parâmetro SKU **Standard_GRS**. Você pode passar um novo nome para criar uma conta de armazenamento diferente ou usar o mesmo nome para atualizar sua conta de armazenamento existente. Ambas as opções funcionam.
+Para ver a flexibilidade do seu modelo, vamos implantar novamente. Desta vez, o parâmetro SKU **Standard_GRS**. Pode passar um novo nome para criar uma conta de armazenamento diferente, ou usar o mesmo nome para atualizar a sua conta de armazenamento existente. Ambas as opções funcionam.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -123,10 +123,10 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_GRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name usedefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -135,9 +135,9 @@ az group deployment create \
 
 ---
 
-Por fim, vamos executar mais um teste e ver o que acontece quando você passa uma SKU que não é um dos valores permitidos. Nesse caso, testamos o cenário em que um usuário do modelo pensa que o **básico** é uma das SKUs.
+Finalmente, vamos fazer mais um teste e ver o que acontece quando se passa num SKU que não é um dos valores permitidos. Neste caso, testamos o cenário em que um utilizador do seu modelo acha **que o básico** é um dos SKUs.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -148,10 +148,10 @@ New-AzResourceGroupDeployment `
   -storageSKU basic
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name testskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -160,13 +160,13 @@ az group deployment create \
 
 ---
 
-O comando falha imediatamente com uma mensagem de erro que indica quais valores são permitidos. O Gerenciador de recursos identifica o erro antes de iniciar a implantação.
+O comando falha imediatamente com uma mensagem de erro que indica quais os valores permitidos. O Gestor de Recursos identifica o erro antes do início da implantação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
+Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recursos.
 
-Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
+Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
@@ -175,7 +175,7 @@ Se estiver parando agora, talvez você queira limpar os recursos implantados exc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você melhorou o modelo criado no [primeiro tutorial](template-tutorial-create-first-template.md) adicionando parâmetros. No próximo tutorial, você aprenderá sobre as funções de modelo.
+Melhorou o modelo criado no [primeiro tutorial](template-tutorial-create-first-template.md) adicionando parâmetros. No próximo tutorial, você aprenderá sobre funções de modelo.
 
 > [!div class="nextstepaction"]
 > [Adicionar funções de modelo](template-tutorial-add-functions.md)

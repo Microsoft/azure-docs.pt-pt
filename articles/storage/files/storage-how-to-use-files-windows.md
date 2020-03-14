@@ -8,11 +8,11 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380245"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268148"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 Os [Ficheiros do Azure](storage-files-introduction.md) são o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -23,7 +23,7 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 | Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montável no Local |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Sim | Sim |
+| Windows Server de 2019 | SMB 3.0 | Sim | Sim |
 | Windows 10<sup>1</sup> | SMB 3.0 | Sim | Sim |
 | Canal semi-anual do Windows Server<sup>2</sup> | SMB 3.0 | Sim | Sim |
 | Windows Server 2016 | SMB 3.0 | Sim | Sim |
@@ -231,7 +231,7 @@ A tabela abaixo contém informações detalhadas sobre o estado de SMB 1 em cada
 
 | Versão do Windows                           | Estado predefinido de SMB 1 | Método de Desativação/Remoção       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019                       | Desativado             | Funcionalidade Remover com o Windows |
+| Windows Server de 2019                       | Desativado             | Funcionalidade Remover com o Windows |
 | Windows Server, versões 1709+            | Desativado             | Funcionalidade Remover com o Windows |
 | Windows 10, versões 1709+                | Desativado             | Funcionalidade Remover com o Windows |
 | Windows Server 2016                       | Ativado              | Funcionalidade Remover com o Windows |
@@ -239,7 +239,7 @@ A tabela abaixo contém informações detalhadas sobre o estado de SMB 1 em cada
 | Windows Server 2012 R2                    | Ativado              | Funcionalidade Remover com o Windows | 
 | Windows 8.1                               | Ativado              | Funcionalidade Remover com o Windows | 
 | Windows Server 2012                       | Ativado              | Desativar com o Registo       | 
-| Windows Server 2008 R2                    | Ativado              | Desativar com o Registo       |
+| Windows Server 2008 R2                    | Ativado              | Desativar com o Registo       |
 | Windows 7                                 | Ativado              | Desativar com o Registo       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditorias à utilização de SMB 1
@@ -300,7 +300,7 @@ Depois de criar a chave de registo, tem de reiniciar o servidor para desativar o
 - [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Descobrir o SMB 1 no seu ambiente com DSCEA)
 - [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Desativar o SMB 1 através da Política de Grupo)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 - [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
 - [FAQ](../storage-files-faq.md)

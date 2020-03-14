@@ -1,25 +1,23 @@
 ---
-title: 'Início rápido: reconhecer a fala armazenada no armazenamento de BLOBs-serviço de fala'
+title: 'Quickstart: Reconhecer discurso armazenado no armazenamento de blob - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: erhopf
+ms.date: 03/13/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 495d2a8e38b58eb3ef1494e6a3a33ee1dc32d049
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7fa1813eec8e73f4cc937062ad4374aef93e6e0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469786"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79381556"
 ---
-Neste guia de início rápido, você usará uma API REST para reconhecer a fala de arquivos em um processo em lote. Um processo em lote executa a transcrição de fala sem nenhuma interação do usuário. Ele fornece um modelo de programação simples, sem a necessidade de gerenciar a simultaneidade, modelos de fala personalizados ou outros detalhes. Ele envolve opções de controle avançadas, ao mesmo tempo que faz uso eficiente dos recursos do serviço de fala do Azure.
+Neste arranque rápido, utilizará uma API REST para reconhecer a fala dos ficheiros num processo de lote. Um processo de lote executa a transcrição da fala sem qualquer interação do utilizador. Dá-lhe um modelo de programação simples, sem a necessidade de gerir a concurrency, os modelos de fala personalizados ou outros detalhes. Implica opções de controlo avançadas, ao mesmo tempo que faz uma utilização eficiente dos recursos do serviço de fala Azure.
 
-A [visão geral da transcrição do lote](../../../batch-transcription.md) descreve os detalhes para usar esse recurso. A API detalhada está disponível como um [documento do Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), sob o cabeçalho `Custom Speech transcriptins`. 
-
-O início rápido a seguir orientará você por um exemplo de uso.
+O seguinte arranque rápido irá acompanhá-lo através de uma amostra de utilização.

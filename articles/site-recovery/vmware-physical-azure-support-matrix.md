@@ -3,14 +3,14 @@ title: Matriz de suporte para recuperação de vmware/desastre físico na recupe
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para O Azure usando a Recuperação do Site Azure.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/21/2020
+ms.date: 2/24/2020
 ms.author: raynew
-ms.openlocfilehash: b7ace4f470a4e054be5d7f5945fc3e9c4f7d0810
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 05e60c5b008746bbfd72dbe7a2e14b18aa563671
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257046"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371397"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para O Azure
 
@@ -135,7 +135,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os [núcleos SUSE 15 e 1
 
 **Componente** | **Suportado**
 --- | ---
-Sistemas de ficheiros | ext3, ext4, XFS
+Sistemas de ficheiros | ext3, ext4, XFS, BTRFS (condições aplicáveis nos termos deste quadro)
 Gestor de volume | - A LVM é apoiada.<br/> - /boot on LVM é suportado a partir do [Rollup atualizado 31](https://support.microsoft.com/help/4478871/) (versão 9.20 do serviço mobility) em diante. Não é suportado em versões anteriores do serviço de Mobilidade.<br/> - Vários discos de SO não são suportados.
 Dispositivos de armazenamento paravirtualizados | Os dispositivos exportados por controladores paravirtualizados não são suportados.
 Dispositivos IO de bloco multi-fila | Não suportado.

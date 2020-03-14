@@ -5,11 +5,11 @@ ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
 ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186988"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240941"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -87,7 +87,7 @@ Por exemplo, a função RBAC de contribuidor de VM pode ser atribuída a um grup
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
 
-| Nome da Função RBAC             | Criar | Mudar o Nome | Mover** | Eliminar | Atribuir Acesso | Atribuir Política | Leitura  |
+| Nome da Função RBAC             | Criar | Mudar o nome | Mover** | Eliminar | Atribuir Acesso | Atribuir Política | Ler  |
 |:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X      | X      | X             | X             | X     |
 |Contribuinte                 | X      | X      | X      | X      |               |               | X     |
@@ -189,7 +189,7 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

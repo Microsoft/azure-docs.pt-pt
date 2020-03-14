@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/24/2020
+ms.date: 03/12/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: c6883b9b79adfc4f91af354147d45ea27d806d78
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 1f5658c6fa52caa67de1f60c50048014dd77af13
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614471"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371336"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use a biblioteca de clientes Text Analytics
 
@@ -44,7 +44,6 @@ Utilize a biblioteca de clientes Text Analytics para executar:
 
 > [!IMPORTANT]
 > * Este quickstart é apenas para versão `3.0-preview` da biblioteca de clientes Text Analytics, que inclui uma pré-visualização pública para melhor análise de [sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e reconhecimento de [entidades nomeadas (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
->    * Certifique-se de que segue apenas as instruções para a versão que está a utilizar.
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não seguras por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos emlotados para o desempenho e escalabilidade. Consulte a documentação de referência abaixo.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -57,6 +56,7 @@ Utilize a biblioteca de clientes Text Analytics para executar:
 > * A versão de pré-visualização mais recente da API text analytics é `3.0-preview`, que inclui uma pré-visualização pública para melhor análise de [sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e reconhecimento de [entidades nomeadas (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). A versão mais recente é `2.1`.
 >    * Certifique-se de que segue apenas as instruções para a versão que está a utilizar.
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não seguras por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos emlotados para o desempenho e escalabilidade. Consulte a documentação de referência abaixo.
+> * Também pode executar esta versão da biblioteca de clientes Text Analytics [no seu navegador.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 

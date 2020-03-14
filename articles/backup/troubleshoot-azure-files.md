@@ -4,11 +4,11 @@ description: Este artigo apresenta informações sobre a resolução de problema
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382518"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252392"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Resolução de problemas da cópia de segurança de Partilhas de Ficheiros do Azure
 
@@ -65,7 +65,7 @@ A tabela seguinte apresenta informações para a configuração da cópia de seg
 | Outra operação de proteção configurada está em curso para este item. | Por favor, aguarde que a operação política modificada anterior termine e retente após algum tempo.|
 | Outra operação está em curso no item selecionado. | Por favor, aguarde que a outra operação em curso complete e retente depois de algum tempo |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre o backup de ações de ficheiros Azure, consulte:
 

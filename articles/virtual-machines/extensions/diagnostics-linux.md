@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: d9375d09219d2655bd9947c0953557f4a1bf8f3c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381185"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250637"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -283,7 +283,7 @@ Elemento | Valor
 eventVolume | (opcional) Controla o número de divisórias criadas dentro da tabela de armazenamento. Deve ser um dos `"Large"`, `"Medium"`ou `"Small"`. Se não especificado, o valor predefinido é `"Medium"`.
 sampleRateInSeconds | (opcional) O intervalo padrão entre a recolha de métricas cruas (não agregadas). A menor taxa de amostra suportada é de 15 segundos. Se não especificado, o valor predefinido é `15`.
 
-#### <a name="metrics"></a>métricas
+#### <a name="metrics"></a>metrics
 
 ```json
 "metrics": {
@@ -340,11 +340,11 @@ Elemento | Valor
 Pias | (opcional) Uma lista separada de vírgulas de nomes de lavatórios para os quais o LAD envia resultados métricos agregados. Todas as métricas agregadas são publicadas em cada pia listada. Ver [piasConfig.](#sinksconfig) Exemplo: `"EHsink1, myjsonsink"`.
 tipo | Identifica o provedor real da métrica.
 Classe | Juntamente com o "contador", identifica a métrica específica dentro do espaço de nome do fornecedor.
-counter | Juntamente com a "classe", identifica a métrica específica dentro do espaço de nome do fornecedor.
+contador | Juntamente com a "classe", identifica a métrica específica dentro do espaço de nome do fornecedor.
 contraespecificador | Identifica a métrica específica dentro do espaço de nome das Métricas Azure.
 condition | (opcional) Seleciona uma instância específica do objeto a que a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para obter mais informações, consulte as definições métricas `builtin`.
 sampleRate | Intervalo IS 8601 que define a taxa a que são recolhidas amostras cruas para esta métrica. Se não for definido, o intervalo de recolha é definido pelo valor da [amostraRateInSeconds](#ladcfg). A taxa de amostra mais curta suportada é de 15 segundos (PT15S).
-unit | Deve ser uma dessas cordas: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos correspondam a esta unidade. Lad ignora este campo.
+unidade | Deve ser uma dessas cordas: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos correspondam a esta unidade. Lad ignora este campo.
 displayName | O rótulo (na língua especificada pela definição local associada) a ser anexado a estes dados em Métricas Azure. Lad ignora este campo.
 
 O contra-Especificador é um identificador arbitrário. Os consumidores de métricas, como o portal Azure que mapeia e a funcionalidade de alerta, utilizam o contraespecificador como a "chave" que identifica uma métrica ou um exemplo de métrica. Para `builtin` métricas, recomendamos que utilize valores contraespecificadores que começam com `/builtin/`. Se estiver a recolher uma instância específica de uma métrica, recomendamos que prenda o identificador da instância ao valor do contraespecificador. Alguns exemplos:
@@ -413,9 +413,9 @@ Esta secção opcional controla a execução de consultas arbitrárias de [OMI.]
 Elemento | Valor
 ------- | -----
 espaço de nomes | (opcional) O espaço de nome OMI no qual a consulta deve ser executada. Se não especificado, o valor predefinido é "raiz/scx", implementado pelos [Fornecedores de plataformas cross-plataforma do System Center](https://github.com/Microsoft/SCXcore).
-consulta | A consulta da OMI a ser executada.
+query | A consulta da OMI a ser executada.
 table | (opcional) O quadro de armazenamento Azure, na conta de armazenamento designada (ver [definições protegidas).](#protected-settings)
-frequência | (opcional) O número de segundos entre a execução da consulta. O valor predefinido é de 300 (5 minutos); o valor mínimo é de 15 segundos.
+frequency | (opcional) O número de segundos entre a execução da consulta. O valor predefinido é de 300 (5 minutos); o valor mínimo é de 15 segundos.
 Pias | (opcional) Uma lista separada da vírgula de nomes de pias adicionais aos quais devem ser publicados os resultados métricos da amostra bruta. Nenhuma agregação destas amostras cruas é calculada pela extensão ou pela Azure Metrics.
 
 Ou "mesa" ou "pias", ou ambas, devem ser especificadas.
@@ -456,7 +456,7 @@ O fornecedor de métricas builtin é uma fonte de métricas mais interessante pa
 
 A classe de métricas do processador fornece informações sobre a utilização do processador no VM. Ao agregar percentagens, o resultado é a média em todos os CPUs. Num VM de dois vCPU, se um vCPU estivesse 100% ocupado e o outro estivesse 100% inativo, o percentIdleTime reportado seria 50. Se cada vCPU estivesse 50% ocupado durante o mesmo período, o resultado reportado também seria de 50. Num VM de quatro vCPU, com um vCPU 100% ocupado e os outros inativos, o percentIdleTime reportado seria de 75.
 
-counter | Significado
+contador | Significado
 ------- | -------
 PercentIdleTime | Percentagem de tempo durante a janela de agregação que os processadores estavam executando o laço ocioso kernel
 PercentProcessorTime | Percentagem de tempo executando um fio não ocioso
@@ -474,7 +474,7 @@ Para obter uma única métrica agregada em todos os processadores, defina `"cond
 
 A classe memória de métricas fornece informações sobre utilização da memória, paging e troca.
 
-counter | Significado
+contador | Significado
 ------- | -------
 Memória Disponível | Memória física disponível no MiB
 PercentAvailableMemory | Memória física disponível como um por cento da memória total
@@ -494,7 +494,7 @@ Esta classe de métricas tem apenas um único caso. O atributo "condição" não
 
 A classe de métricas da Rede fornece informações sobre a atividade da rede em interfaces de rede individuais desde o arranque. Lad não expõe métricas de largura de banda, que podem ser recuperadas a partir das métricas do hospedeiro.
 
-counter | Significado
+contador | Significado
 ------- | -------
 BytesTransmitidos | Total de bytes enviados desde a bota
 BytesReceived | Total de bytes recebidos desde o arranque
@@ -511,7 +511,7 @@ TotalColisões | Número de colisões reportadas pelas portas da rede desde o ar
 
 A classe de métricas do Sistema de Ficheiros fornece informações sobre o uso do sistema de ficheiros. Os valores absolutos e percentuais são reportados como seriam apresentados a um utilizador comum (não raiz).
 
-counter | Significado
+contador | Significado
 ------- | -------
 EspaçoLivre | Espaço de disco disponível em bytes
 Espaço Usado | Espaço de disco usado em bytes
@@ -534,7 +534,7 @@ Os valores agregados em todos os sistemas de ficheiros podem ser obtidos atravé
 
 A classe de métricas do Disco fornece informações sobre o uso do dispositivo de disco. Estas estatísticas aplicam-se a todo o impulso. Se existirem vários sistemas de ficheiros num dispositivo, os contadores para esse dispositivo são, efetivamente, agregados em todos eles.
 
-counter | Significado
+contador | Significado
 ------- | -------
 ReadsPerSecond | Ler operações por segundo
 WritesPerSecond | Escrever operações por segundo
@@ -731,7 +731,7 @@ Esta foto de uma sessão do Microsoft Azure Storage Explorer mostra as tabelas e
 
 Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) para aprender a consumir mensagens publicadas num ponto final do EventHubs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Crie alertas métricos no [Monitor Azure](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas que recolhe.
 * Crie gráficos de [monitorização](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para as suas métricas.

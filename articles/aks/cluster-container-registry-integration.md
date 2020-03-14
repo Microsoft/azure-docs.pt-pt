@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 5d8b45137ff82db6b23b5bf31eb3e8063de343bb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: f83faf05eb7099557d5b653e0b24591062c44d11
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191338"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368456"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticação com Registo de Contentores Azure do Serviço Azure Kubernetes
 
@@ -41,6 +41,7 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 # Create an AKS cluster with ACR integration
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 ```
+
 Em alternativa, pode especificar o nome ACR utilizando um ID de recurso ACR, que tem o seguinte formato:
 
 `/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
@@ -58,17 +59,22 @@ Integre um ACR existente com os aglomerados AKS existentes, fornecendo valores v
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
 ```
+
 ou,
-```
+
+```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
 Também pode remover a integração entre um ACR e um cluster AKS com o seguinte
+
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
 ```
+
 ou
-```
+
+```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
@@ -93,7 +99,7 @@ az aks get-credentials -g myResourceGroup -n myAKSCluster
 
 Crie um ficheiro chamado **acr-nginx.yaml** que contenha o seguinte:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -118,16 +124,20 @@ spec:
 ```
 
 Em seguida, execute esta implantação no seu cluster AKS:
-```
+
+```console
 kubectl apply -f acr-nginx.yaml
 ```
 
 Pode monitorizar a implantação executando:
-```
+
+```console
 kubectl get pods
 ```
+
 Devias ter duas cápsulas de corrida.
-```
+
+```output
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s

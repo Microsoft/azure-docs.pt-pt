@@ -1,6 +1,6 @@
 ---
 title: Configurar a autenticação do Azure Active Directory
-description: Saiba como ligar-se à Base de Dados SQL, à instância gerida e ao Azure Synapse utilizando a autenticação de diretório ativo Azure - depois de configurar a AD Azure.
+description: Saiba como ligar-se à Base de Dados SQL, à instância gerida e ao SQL Data Warehouse utilizando a Autenticação de Diretório Ativo Azure - depois de configurar a AD Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,20 +11,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 01/07/2020
-tags: azure-synapse
-ms.openlocfilehash: 42f79b83d174571d26f49b28ed480f86a004036c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 7c439091cecca153779017358188e6c1388086a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358406"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256656"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configure e gerea autenticação de Diretório Ativo Azure com SQL
 
-Este artigo mostra-lhe como criar e povoar o Azure AD, e depois usar o Azure AD com base de dados Azure [SQL,](sql-database-technical-overview.md) [instância gerida,](sql-database-managed-instance.md)e [Azure Synapse.](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Para uma visão geral, consulte [a autenticação do diretório ativo azure](sql-database-aad-authentication.md).
+Este artigo mostra-lhe como criar e povoar a AD Azure, e depois utilizar o Azure AD com base de dados Azure [SQL,](sql-database-technical-overview.md) [instância gerida](sql-database-managed-instance.md)e Armazém de [Dados SQL.](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Para uma visão geral, consulte [a autenticação do diretório ativo azure](sql-database-aad-authentication.md).
 
 > [!NOTE]
-> Este artigo aplica-se ao servidor Azure SQL, e tanto à Base de Dados SQL como ao Azure Synpase] que são criados no servidor Azure SQL. Para a simplicidade, a Base de Dados SQL é utilizada quando se refere tanto à Base de Dados SQL como ao Synapse Azure.
+> Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
 > [!IMPORTANT]  
 > A ligação ao SQL Server em execução num VM Azure não é suportada utilizando uma conta de Diretório Ativo Azure. Utilize uma conta de diretório ativo de domínio.
@@ -46,7 +45,7 @@ Para obter mais informações, veja [Integrating your on-premises identities wit
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Criar um administrador de AD Azure para o servidor Azure SQL
 
-Cada servidor Azure SQL (que acolhe uma Base de Dados SQL ou Azure Synapse) começa com uma única conta de administrador de servidor que é o administrador de todo o servidor Azure SQL. Deve ser criado um segundo administrador do SQL Server, ou seja, uma conta Azure AD. Este diretor é criado como um utilizador de base de dados contido na base de dados principal. Como administradores, as contas do administrador do servidor são membros do **db_owner** papel em cada base de dados de utilizadores e introduzem cada base de dados do utilizador como utilizador **dbo.** Para obter mais informações sobre as contas do administrador do servidor, consulte A Gestão de Bases de [Dados e Logins na Base de Dados SQL do Azure](sql-database-manage-logins.md).
+Cada servidor Azure SQL (que acolhe uma Base de Dados SQL ou Armazém de Dados SQL) começa com uma única conta de administrador de servidor que é o administrador de todo o servidor Azure SQL. Deve ser criado um segundo administrador do SQL Server, ou seja, uma conta Azure AD. Este diretor é criado como um utilizador de base de dados contido na base de dados principal. Como administradores, as contas do administrador do servidor são membros do **db_owner** papel em cada base de dados de utilizadores e introduzem cada base de dados do utilizador como utilizador **dbo.** Para obter mais informações sobre as contas do administrador do servidor, consulte A Gestão de Bases de [Dados e Logins na Base de Dados SQL do Azure](sql-database-manage-logins.md).
 
 Ao utilizar o Diretório Ativo Azure com geo-replicação, o administrador do Diretório Ativo Azure deve ser configurado tanto para os servidores primários como secundários. Se um servidor não tiver um administrador de Diretório Ativo Azure, então os logins do Diretório Ativo do Azure e os utilizadores recebem um erro "Não pode ligar" ao erro do servidor.
 
@@ -233,13 +232,13 @@ Para obter mais informações sobre comandos CLI, consulte [az sql mi](/cli/azur
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Fornecer um administrador de Diretório Ativo Azure para o seu servidor de base de dados Azure SQL
 
 > [!IMPORTANT]
-> Siga apenas estes passos se estiver a fornecer um servidor de base de dados Azure SQL ou Um Pool SQL em Azure Synapse.
+> Siga estas etapas apenas se estiver a fornecer um servidor de base de dados Azure SQL ou Data Warehouse.
 
 Os dois procedimentos seguintes mostram-lhe como fornecer um administrador de Diretório Ativo Azure para o seu servidor Azure SQL no portal Azure e utilizando o PowerShell.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. No [portal Azure](https://portal.azure.com/), no canto superior direito, selecione a sua ligação para deixar cair uma lista de possíveis Diretórios Ativos. Escolha o Diretório Ativo correto como o AD Azure predefinido. Este passo liga o Diretório Ativo associado à subscrição com o servidor Azure SQL certificando-se de que a mesma subscrição é usada tanto para o Azure AD como para o SQL Server. (O servidor Azure SQL pode ser hospedado quer a Azure SQL Database quer a Azure Synapse.)
+1. No [portal Azure](https://portal.azure.com/), no canto superior direito, selecione a sua ligação para deixar cair uma lista de possíveis Diretórios Ativos. Escolha o Diretório Ativo correto como o AD Azure predefinido. Este passo liga o Diretório Ativo associado à subscrição com o servidor Azure SQL certificando-se de que a mesma subscrição é usada tanto para o Azure AD como para o SQL Server. (O servidor Azure SQL pode ser hospedado quer a Azure SQL Database quer o Azure SQL Data Warehouse.)
 
     ![escolher-anúncio][8]
 
@@ -256,7 +255,7 @@ Os dois procedimentos seguintes mostram-lhe como fornecer um administrador de Di
 
     ![Servidores SQL definir administração de Diretório Ativo](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
 
-5. Na página **'Adicionar',** procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, selecione **Select**. (A página de administração do Diretório Ativo mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. (Consulte a lista de administradores suportados na secção de **Funcionalidades e Limitações da AD Azure** da [Utilização Azure Ative Directory Autenticação para autenticação com Base de Dados SQL ou Synapse Azure](sql-database-aad-authentication.md).) O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao Servidor SQL.
+5. Na página **'Adicionar',** procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, selecione **Select**. (A página de administração do Diretório Ativo mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. (Consulte a lista de administradores suportados na secção de **Funcionalidades e Limitações da AD Azure** da [Utilização Azure Ative Directory autenticação para autenticação com base de dados SQL ou Armazém de Dados SQL](sql-database-aad-authentication.md).) O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao Servidor SQL.
 
     ![Selecione administração de Diretório Ativo Azure](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
 
@@ -271,7 +270,7 @@ O processo de alteração do administrador pode demorar vários minutos. Em segu
 
 Para mais tarde remover um Administrador, no topo da página de administração do **Diretório Ativo,** selecione **Remover a administração**, e, em seguida, selecione **Guardar**.
 
-### <a name="powershell-for-azure-sql-database-and-azure-synapse"></a>PowerShell para Base de Dados Azure SQL e Azure Synapse
+### <a name="powershell-for-azure-sql-database-and-azure-sql-data-warehouse"></a>PowerShell para Base de Dados Azure SQL e Armazém de Dados Azure SQL
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -280,13 +279,13 @@ Para executar os cmdlets PowerShell, é necessário instalar e executar o Azure 
 - Connect-AzAccount
 - Select-AzSubscription
 
-Os Cmdlets utilizados para fornecer e gerir a administração da Azure AD para a Base de Dados Azure SQL e o SQL Pool em Azure Synpase:
+Os Cmdlets utilizados para fornecer e gerir a administração da Azure AD para a Base de Dados Azure SQL e o Armazém de Dados Azure SQL:
 
 | Nome cmdlet | Descrição |
 | --- | --- |
-| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisões um administrador de Diretório Ativo Azure para o servidor Azure SQL ou Azure Synpase. (Deve ser da subscrição atual) |
-| [Remover-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador de Diretório Ativo Azure para o servidor Azure SQL ou Azure Synapse. |
-| [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Devolve informações sobre um administrador de Diretório Ativo Azure atualmente configurado para o servidor Azure SQL ou Azure Synapse. |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisões um administrador de Diretório Ativo Azure para o servidor Azure SQL ou o Armazém de Dados Azure SQL. (Deve ser da subscrição atual) |
+| [Remover-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador de Diretório Ativo Azure para o servidor Azure SQL ou o Armazém de Dados Azure SQL. |
+| [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Devolve informações sobre um administrador de Diretório Ativo Azure atualmente configurado para o servidor Azure SQL ou Azure SQL Data Warehouse. |
 
 Utilize o comando PowerShell get-help para ver mais informações para cada um destes comandos. Por exemplo, `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
@@ -329,10 +328,10 @@ Pode fornecer um administrador Azure AD, ligando para os seguintes comandos CLI:
 
 | Comando | Descrição |
 | --- | --- |
-|[az sql servidor ad-admin criar](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Provisões um administrador de Diretório Ativo Azure para o servidor Azure SQL ou Azure Synapse. (Deve ser da subscrição atual) |
-|[az sql servidor ad-admin excluir](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Remove um administrador de Diretório Ativo Azure para o servidor Azure SQL ou Azure Synapse. |
-|[az sql servidor lista de anúncios](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Devolve informações sobre um administrador de Diretório Ativo Azure atualmente configurado para o servidor Azure SQL ou Azure Synapse. |
-|[az sql server ad-admin atualização](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Atualiza o administrador de Diretório Ativo para um servidor Azure SQL ou Azure Synapse. |
+|[az sql servidor ad-admin criar](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Provisões um administrador de Diretório Ativo Azure para o servidor Azure SQL ou o Armazém de Dados Azure SQL. (Deve ser da subscrição atual) |
+|[az sql servidor ad-admin excluir](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Remove um administrador de Diretório Ativo Azure para o servidor Azure SQL ou o Armazém de Dados Azure SQL. |
+|[az sql servidor lista de anúncios](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Devolve informações sobre um administrador de Diretório Ativo Azure atualmente configurado para o servidor Azure SQL ou Azure SQL Data Warehouse. |
+|[az sql server ad-admin atualização](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Atualiza o administrador de Diretório Ativo para um servidor Azure SQL ou Armazém de Dados Azure SQL. |
 
 Para obter mais informações sobre comandos CLI, consulte [o servidor az sql](/cli/azure/sql/server).
 
@@ -343,7 +342,7 @@ Para obter mais informações sobre comandos CLI, consulte [o servidor az sql](/
 
 ## <a name="configure-your-client-computers"></a>Configure os computadores dos seus clientes
 
-Em todas as máquinas de clientes, a partir das quais as suas aplicações ou utilizadores se ligam à Base de Dados Azure SQL ou ao pool SQL Azure Synpase utilizando identidades Azure AD, deve instalar o seguinte software:
+Em todas as máquinas de clientes, a partir das quais as suas aplicações ou utilizadores se ligam à Base de Dados Azure SQL ou ao Azure SQL Data Warehouse utilizando identidades AD Azure, deve instalar o seguinte software:
 
 - .NET Quadro 4.6 ou posterior mente a partir de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 - Biblioteca de Autenticação de Diretório Ativo Azure para Servidor SQL *(ADAL. DLL*). Abaixo estão os links de descarregamento para instalar o mais recente ssms, ODBC e o controlador OLE DB que contém o *ADAL. Biblioteca DLL.*
@@ -366,7 +365,7 @@ Pode cumprir estes requisitos através de:
 A autenticação do Diretório Ativo do Azure exige que os utilizadores de bases de dados sejam criados como utilizadores de bases de dados contidos. Um utilizador de base de dados contido com base numa identidade Azure AD, é um utilizador de base de dados que não tem um login na base de dados principal, e que mapeia uma identidade no diretório da AD Azure que está associada à base de dados. A identidade Azure AD pode ser uma conta de utilizador individual ou um grupo. Para mais informações sobre utilizadores de bases de dados contidos, consulte [utilizadores de bases de dados contidos- Tornando](https://msdn.microsoft.com/library/ff929188.aspx)a sua base de dados portátil .
 
 > [!NOTE]
-> Os utilizadores de bases de dados (com exceção dos administradores) não podem ser criados através do portal Azure. As funções RBAC não são propagadas ao SQL Server, À Base de Dados SQL ou ao SQL Pool em Azure Synapse. As funções Azure RBAC são utilizadas para a gestão dos Recursos Azure e não se aplicam às permissões de base de dados. Por exemplo, a função De Contribuinte do **Servidor SQL** não concede acesso à ligação à Base de Dados SQL ou ao pool SQL em Azure Synapse. A autorização de acesso deve ser concedida diretamente na base de dados utilizando declarações transact-SQL.
+> Os utilizadores de bases de dados (com exceção dos administradores) não podem ser criados através do portal Azure. As funções RBAC não são propagadas ao SQL Server, À Base de Dados SQL ou ao Armazém de Dados SQL. As funções Azure RBAC são utilizadas para a gestão dos Recursos Azure e não se aplicam às permissões de base de dados. Por exemplo, a função De Contribuinte do **Servidor SQL** não concede acesso à ligação à Base de Dados SQL ou ao Armazém de Dados SQL. A autorização de acesso deve ser concedida diretamente na base de dados utilizando declarações transact-SQL.
 
 > [!WARNING]
 > Personagens especiais como `:` de cólon ou ampersand `&` quando incluídos como nomes de utilizador nas declarações de LOGIN e UTILIZADOR da Criação de T-SQL não são suportados.
@@ -491,7 +490,7 @@ Saiba mais sobre os métodos de autenticação da AD Azure utilizando as amostra
 
 ## <a name="azure-ad-token"></a>Ficha da AD Azure
 
-Este método de autenticação permite que os serviços de nível médio se conectem à Base de Dados Azure SQL ou ao pool SQL em Azure Synapse, obtendo um símbolo do Azure Ative Directory (AAD). Permite cenários sofisticados, incluindo a autenticação baseada em certificados. Deve completar quatro passos básicos para utilizar a autenticação token Azure AD:
+Este método de autenticação permite que os serviços de nível médio se conectem à Base de Dados Azure SQL ou ao Azure SQL Data Warehouse, obtendo um símbolo do Azure Ative Directory (AAD). Permite cenários sofisticados, incluindo a autenticação baseada em certificados. Deve completar quatro passos básicos para utilizar a autenticação token Azure AD:
 
 1. Registe a sua aplicação no Azure Ative Directory e obtenha o ID do cliente para o seu código.
 2. Crie um utilizador de base de dados que represente a aplicação. (Concluído mais cedo no passo 6.)
@@ -527,8 +526,7 @@ A orientação sobre problemas de resolução de problemas com a Autenticação 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral do acesso e controlo na Base de Dados SQL, veja [Acesso e controlo da Base de Dados SQL](sql-database-control-access.md).
-- Para obter uma descrição geral de inícios de sessão, utilizadores e funções de base de dados da Base de Dados SQL, veja [Inícios de sessão, utilizadores e funções de base de dados](sql-database-manage-logins.md).
+- Para uma visão geral dos logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções](sql-database-manage-logins.md)de base de dados e contas de utilizador .
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](https://msdn.microsoft.com/library/ms189121.aspx).
 - Para obter mais informações sobre as regras de firewall na Base de Dados SQL, veja [Regras de firewall da Base de Dados SQL](sql-database-firewall-configure.md).

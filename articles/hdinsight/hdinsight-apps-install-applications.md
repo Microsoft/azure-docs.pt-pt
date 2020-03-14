@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: a7d83d2bc418e62bc2858e2a7fb35d2113640c83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 22d27d50a7d2c304e5d1a04a9a5eaa03d2f0bfa6
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272620"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366347"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Apache Hadoop de terceiros no Azure HDInsight
 
@@ -39,12 +39,12 @@ A lista seguinte mostra as aplicações publicadas:
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop, Spark,HBase |Trifacta Wrangler Enterprise for HDInsight suporta a luta de dados em toda a empresa para qualquer escala de dados. O custo de funcionamento da Trifacta no Azure é uma combinação de custos de subscrição da Trifacta mais os custos de infraestrutura Azure para as máquinas virtuais. |
 |[Plataforma de Dados Unifi](https://unifisoftware.com/platform/) |Hadoop,HBase,Storm,Spark |A Plataforma de Dados Unifi é um conjunto perfeitamente integrado de ferramentas de dados de self-service projetadas para capacitar o utilizador do negócio para enfrentar desafios de dados que impulsionam receitas incrementais, reduzir custos ou complexidade operacional. |
 |[Desvendadados APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Aplicativo De dados deunravel para cluster HDInsight Spark. |
-|[Catálogo de dados baseado em IA da linha de água](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Catálogos de linha de água, organizae e regula dados usando IA para marcar dados com termos de negócio. Catálogo de alfabetizada do waterline corporativos é um componente de sucesso críticos, para análises de autoatendimento, conformidade e governação e iniciativas de gestão de TI. |
+|[Catálogo de dados baseado em IA da linha de água](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Catálogos de linha de água, organizae e regula dados usando IA para marcar dados com termos de negócio. O catálogo de literacia empresarial da Waterline é uma componente crítica, de sucesso para aanálise de autosserviços, conformidade e governação, e iniciativas de gestão de TI. |
 
 As instruções fornecidas neste artigo utilizam o portal do Azure. Também pode exportar o modelo Azure Resource Manager a partir do portal ou obter uma cópia do modelo do Resource Manager de fornecedores e utilizar o Azure PowerShell e CLI clássica do Azure para implementar o modelo.  Consulte [a Create Apache Hadoop clusters no HDInsight utilizando modelos](hdinsight-hadoop-create-linux-clusters-arm-templates.md)de Gestor de Recursos .
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se pretender instalar aplicações do HDInsight num cluster do HDInsight existente, tem de ter um cluster do HDInsight. Para criar um, consulte [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Também pode instalar aplicações do HDInsight ao criar um cluster do HDInsight.
+Se pretender instalar aplicações do HDInsight num cluster do HDInsight existente, tem de ter um cluster do HDInsight. Para criar um, consulte [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md). Também pode instalar aplicações do HDInsight ao criar um cluster do HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Instalar aplicações em clusters existentes
 O procedimento seguinte mostra-lhe como instalar aplicações do HDInsight num cluster HDInsight existente.
@@ -53,7 +53,7 @@ O procedimento seguinte mostra-lhe como instalar aplicações do HDInsight num c
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Do menu esquerdo, navegue para **todos os serviços** > **Analytics** > **clusters HDInsight**.
-3. Selecione um cluster HDInsight da lista.  Se não tiver um, tem de criá-lo.  Veja [Create clusters (Criar clusters)](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+3. Selecione um cluster HDInsight da lista.  Se não tiver um, tem de criá-lo.  Veja [Create clusters (Criar clusters)](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Na categoria **Definições,** selecione **Aplicações**. Pode ver uma lista de aplicações instaladas na janela principal. 
    
     ![menu do portal das aplicações do HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 58a7689263f9bc761eb0b904a9376c1ca0112c13
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f2b51213dfc6d7e55f76e78b92d12111f84736be
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128098"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365394"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de anfitriões para validar atualizações de serviço
 
@@ -76,7 +76,7 @@ As atualizações de serviço acontecem mensalmente. Se houver grandes problemas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que criou um conjunto de anfitriões de validação, pode aprender a implementar e conectar-se a uma ferramenta de gestão para gerir os recursos do Microsoft Virtual Desktop.
+Agora que criou um conjunto de anfitriões de validação, pode aprender a usar a Azure Service Health para monitorizar a implementação do Windows Virtual Desktop. 
 
 > [!div class="nextstepaction"]
-> [Implementar um tutorial de ferramentas de gestão](./manage-resources-using-ui.md)
+> [Configurar alertas de serviço](./set-up-service-alerts.md)

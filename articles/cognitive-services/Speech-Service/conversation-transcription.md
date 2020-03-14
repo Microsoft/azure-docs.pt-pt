@@ -1,5 +1,5 @@
 ---
-title: Sobre a Transcrição de Conversas (Pré-visualização) - Serviço de fala
+title: Transcrição de Conversa (Pré-visualização) - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: A Transcrição de Conversas é uma solução de discurso a texto que combina reconhecimento de voz, identificação de altifalantes e atribuição de frases a cada orador (também conhecido como diarização) para fornecer transcrição em tempo real e/ou assíncrono de qualquer conversa.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 8fc52428795b0dc8123d501dac9605c473f61456
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561073"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367827"
 ---
-# <a name="about-conversation-transcription-preview"></a>Sobre a Transcrição de Conversas (Pré-visualização)
+# <a name="what-is-conversation-transcription-preview"></a>O que é Transcrição de Conversa (Pré-visualização)?
 
 A Transcrição de Conversas é uma solução [de discurso a texto](speech-to-text.md) que combina reconhecimento de voz, identificação de altifalantes e atribuição de frases a cada orador (também conhecido como _diarização)_ para fornecer transcrição em tempo real e/ou assíncrono de qualquer conversa. A Transcrição de Conversas distingue os oradores numa conversa para determinar quem disse o quê e quando, e facilita que os desenvolvedores adicionem o discurso ao texto às suas aplicações que realizam a diarização multi-colunas.
 

@@ -8,18 +8,20 @@ ms.topic: article
 ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d9650db601426cef195c27e6eb874ec26cf13bb8
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 17cd57fbcf9b1c14fb275a070bdefdd1282c4d6e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137684"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370530"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Crie e gerencie um instantâneo blob em .NET
 
 Um instantâneo é uma versão só de leitura de uma bolha que é tirada em um momento de tempo. As fotos são úteis para apoiar bolhas. Este artigo mostra como criar e gerir imagens blob usando a [biblioteca de clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-blob-snapshots"></a>Sobre fotos blob
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Uma imagem de uma bolha é idêntica à sua bolha base, exceto que o blob URI tem um valor **DateTime** anexado ao blob URI para indicar o tempo em que o instantâneo foi tirado. Por exemplo, se uma página blob URI for `http://storagesample.core.blob.windows.net/mydrives/myvhd`, o uri instantâneo é semelhante ao `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 

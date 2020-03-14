@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 3b7a75ac1c0876d562dc49e9253fe734475a551a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268198"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298959"
 ---
-# <a name="recommended-on-premises-live-streaming-encoders"></a>Codificadores de streaming recomendados no local
+# <a name="tested-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo testados no local
 
 No Azure Media Services, um [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para o processamento de conteúdos em streaming. O Live Event recebe streams de entrada ao vivo de uma de duas maneiras.
 
@@ -24,10 +24,12 @@ No Azure Media Services, um [Live Event](https://docs.microsoft.com/rest/api/med
 
     Se estiver a usar fluxos multibitrates para o evento ao vivo, o tamanho do VÍDEO GOP e os fragmentos de vídeo em bitrates diferentes devem ser sincronizados para evitar comportamentos inesperados no lado da reprodução.
 
-  > [!NOTE]
+  > [!TIP]
   > Usar um método de passagem é a forma mais económica de fazer streaming ao vivo.
  
 * Um codificador ao vivo no local envia um fluxo de bitrate único para o Live Event que está habilitado a realizar codificação ao vivo com os Media Services num dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Live Event realiza então a codificação ao vivo do fluxo de bitrate único para um fluxo de vídeo multibitável (adaptativo).
+
+Este artigo discute codificadores de streaming ao vivo testados no local. Para obter instruções sobre como verificar o seu codificador ao vivo no local, [consulte o seu codificador no local](become-on-premises-encoder-partner.md)
 
 Para obter informações detalhadas sobre a codificação ao vivo com os Media Services, consulte [o streaming em direto com os Media Services v3](live-streaming-overview.md).
 
@@ -99,8 +101,8 @@ Para reproduzir conteúdo, um fluxo de áudio e vídeo deve estar presente. A re
 
 ## <a name="see-also"></a>Consulte também
 
-[Torne-se um parceiro codificador no local](become-on-premises-encoder-partner.md)
-
-## <a name="next-steps"></a>Passos seguintes
-
 [Streaming em direto com Media Services v3](live-streaming-overview.md)
+
+## <a name="next-steps"></a>Passos Seguintes
+
+[Como verificar o seu codificador](become-on-premises-encoder-partner.md)

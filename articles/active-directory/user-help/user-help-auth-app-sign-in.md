@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78297852"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138948"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inscreva-se nas suas contas utilizando a aplicação Microsoft Authenticator
 
@@ -112,7 +112,7 @@ Num dispositivo iOS:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Inscreva-se usando verificação de dois fatores para a sua conta
 
-O método padrão de verificação de dois fatores requer que introduza o seu nome de utilizador e palavra-passe no dispositivo onde está a iniciar sessão e, em seguida, escolha se a aplicação Microsoft Authenticator recebe a aplicação Microsoft Authenticator. Num dispositivo Android, estes códigos de verificação podem ser encontrados no ecrã contas. Num dispositivo iOS, estes códigos de verificação podem ser encontrados no ecrã das **Contas** ou na visão completa do ecrã de uma conta, dependendo do tipo de conta. Liga a verificação de dois fatores para a sua conta como parte do processo para adicionar a conta à aplicação Microsoft Authenticator.
+O método padrão de verificação de dois fatores requer que introduza o seu nome de utilizador e palavra-passe no dispositivo onde está a iniciar sessão. Em seguida, abra a sua aplicação Microsoft Authenticator e digite o código gerado aleatoriamente para a sua conta na caixa de **códigos Enter.** Num dispositivo Android, estes códigos de verificação podem ser encontrados no ecrã **contas.** Num dispositivo iOS, estes códigos de verificação podem ser encontrados no ecrã das **Contas** ou na visão completa do ecrã de uma conta, dependendo do tipo de conta. Liga a verificação de dois fatores para a sua conta como parte do processo para adicionar a conta à aplicação Microsoft Authenticator.
 
 >[!Note]
 >Se não vir o seu trabalho ou conta escolar ou a sua conta pessoal no ecrã de **Contas** da aplicação Autenticadora Microsoft, significa que não adicionou a conta à aplicação Microsoft Authenticator. Para adicionar a sua conta, consulte [Adicionar o seu trabalho ou conta escolar](user-help-auth-app-add-work-school-account.md) ou Adicionar as suas contas [pessoais](user-help-auth-app-add-personal-ms-account.md).
@@ -131,7 +131,7 @@ Para as etapas necessárias para iniciar sessão no seu trabalho ou na sua escol
 | Por que não posso usar mais do que uma conta de trabalho ou escola para o registo telefónico? | Um telefone deve ser registado numa única conta de trabalho ou escola. Se pretender ativar o registo telefónico para um trabalho ou conta escolar diferente, deverá desmarcar a sua conta deste dispositivo através da página **Definições.** |
 | Posso entrar no meu computador usando o meu telefone? | Para o seu computador, recomendamos que se inscreva no Windows Hello no Windows 10. O Windows Hello permite-lhe usar o seu rosto, impressão digital ou PIN para iniciar sessão. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se tiver problemas em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de **problemas** de código de verificação de resolução de problemas do artigo de [informações e códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) da conta da Microsoft.
 

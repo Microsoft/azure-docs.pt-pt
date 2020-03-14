@@ -1,30 +1,47 @@
 ---
-title: Ligue para os pontos finais HTTP e HTTPS
-description: Envie pedidos de saída para HTTP e HTTPS pontos finais utilizando aplicações da Lógica Azure
+title: Pontos finais do serviço de chamada utilizando HTTP ou HTTPS
+description: Envie pedidos de saída http ou HTTPS para serviço de pontos finais de Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118000"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297215"
 ---
-# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envie chamadas de saída para HTTP ou HTTPS pontos finais utilizando aplicações da Lógica Azure
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Pontos finais do serviço de chamada sobre HTTP ou HTTPS de Aplicações Lógicas Azure
 
-Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação HTTP incorporado, pode criar tarefas e fluxos de trabalho automatizados que enviam regularmente pedidos para qualquer ponto final http ou HTTPS. Para receber e responder às chamadas http ou HTTPS recebidas, utilize o gatilho de pedido incorporado [ou a ação resposta](../connectors/connectors-native-reqres.md).
+Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação HTTP incorporado, pode criar tarefas e fluxos de trabalho automatizados que enviam pedidos para pontos finais de serviço em HTTP ou HTTPS. Por exemplo, pode monitorizar o ponto final do serviço para o seu website, verificando esse ponto final numa programação específica. Quando o evento especificado acontece nesse ponto final, como o seu site a descer, o evento despoleta o fluxo de trabalho da sua aplicação lógica e executa as ações nesse fluxo de trabalho. Se quiser receber e responder às chamadas HTTPS de entrada, utilize o gatilho de pedido incorporado [ou a ação resposta](../connectors/connectors-native-reqres.md).
 
-Por exemplo, pode monitorizar o ponto final do serviço para o seu website, verificando esse ponto final num horário especificado. Quando um evento específico acontece nesse ponto final, como o seu site a descer, o evento despoleta o fluxo de trabalho da sua aplicação lógica e executa as ações especificadas.
+> [!NOTE]
+> Baseado na capacidade do ponto final do alvo, o conector HTTP suporta as versões Transport Layer Security (TLS) 1.0, 1.1 e 1.2. Logic Apps negoceia com o ponto final sobre a utilização da versão suportada mais alta possível. Assim, por exemplo, se o ponto final suportar 1.2, o conector utiliza 1.2 primeiro. Caso contrário, o conector utiliza a versão suportada mais alta.
 
-Para verificar ou *fazer uma sondagem* num horário regular, pode utilizar o gatilho HTTP como o primeiro passo no seu fluxo de trabalho. Em cada verificação, o gatilho envia uma chamada ou *pedido* para o ponto final. A resposta do ponto final determina se o fluxo de trabalho da sua aplicação lógica funciona. O gatilho transmite qualquer conteúdo da resposta às ações na sua aplicação lógica.
+Para verificar ou *fazer uma sondagem* sobre um calendário recorrente, [adicione o gatilho HTTP](#http-trigger) como o primeiro passo no seu fluxo de trabalho. Cada vez que o gatilho verifica o ponto final, o gatilho chama ou envia um *pedido* para o ponto final. A resposta do ponto final determina se o fluxo de trabalho da sua aplicação lógica funciona. O gatilho transmite qualquer conteúdo da resposta do ponto final às ações na sua aplicação lógica.
 
-Pode utilizar a ação HTTP como qualquer outro passo no seu fluxo de trabalho para ligar para o ponto final quando quiser. A resposta do ponto final determina como as restantes ações do seu fluxo de trabalho funcionam.
+Para chamar um ponto final de qualquer outro lugar do seu fluxo de trabalho, [adicione a ação HTTP](#http-action). A resposta do ponto final determina como as restantes ações do seu fluxo de trabalho funcionam.
 
-Baseado na capacidade do ponto final do alvo, o conector HTTP suporta as versões Transport Layer Security (TLS) 1.0, 1.1 e 1.2. Logic Apps negoceia com o ponto final sobre a utilização da versão suportada mais alta possível. Assim, por exemplo, se o ponto final suportar 1.2, o conector utiliza 1.2 primeiro. Caso contrário, o conector utiliza a versão suportada mais alta.
+> [!IMPORTANT]
+> Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas removem estes cabeçalhos da mensagem de pedido gerada sem mostrar qualquer aviso ou erro:
+>
+> * `Accept-*`
+> * `Allow`
+> * `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding`e `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Embora as Aplicações Lógicas não o impeçam de salvar aplicações lógicas que usam um gatilho ou ação HTTP com estes cabeçalhos, as Aplicações Lógicas ignoram estes cabeçalhos.
+
+Este artigo mostra como adicionar um gatilho ou ação HTTP ao fluxo de trabalho da sua aplicação lógica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,13 +53,15 @@ Baseado na capacidade do ponto final do alvo, o conector HTTP suporta as versõe
 
 * A aplicação lógica de onde pretende chamar o ponto final do alvo. Para começar com o gatilho HTTP, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar a ação HTTP, inicie a sua aplicação lógica com qualquer gatilho que pretenda. Este exemplo utiliza o gatilho HTTP como primeiro passo.
 
+<a name="http-trigger"></a>
+
 ## <a name="add-an-http-trigger"></a>Adicione um gatilho HTTP
 
 Este gatilho incorporado faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
-1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza "http" como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP.**
+1. Sob a caixa de pesquisa do designer, selecione **Incorporado**. Na caixa de pesquisa, introduza `http` como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP.**
 
    ![Selecione gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -63,11 +82,13 @@ Este gatilho incorporado faz uma chamada http para o URL especificado para um po
 
 1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
+<a name="http-action"></a>
+
 ## <a name="add-an-http-action"></a>Adicione uma ação HTTP
 
 Esta ação incorporada faz uma chamada http para o URL especificado para um ponto final e devolve uma resposta.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
    Este exemplo utiliza o gatilho HTTP como primeiro passo.
 
@@ -75,7 +96,7 @@ Esta ação incorporada faz uma chamada http para o URL especificado para um pon
 
    Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal plus **(+** ) que aparece e, em seguida, **selecione Adicionar uma ação**.
 
-1. Em **'Escolha uma ação**' na caixa de pesquisa, introduza "http" como filtro. Na lista **de Ações,** selecione a ação **HTTP.**
+1. Em **'Escolha uma ação**', selecione **Incorporado**' . Na caixa de pesquisa, introduza `http` como filtro. Na lista **de Ações,** selecione a ação **HTTP.**
 
    ![Selecione ação HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -153,8 +174,8 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação HTTP, que
 
 | Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
-| cabeçalhos | objeto | Os cabeçalhos do pedido |
-| corpo | objeto | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
+| cabeçalhos | object | Os cabeçalhos do pedido |
+| corpo | object | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
 | código de estado | int | O código de estado do pedido |
 |||
 
@@ -163,12 +184,12 @@ Aqui está mais informações sobre as saídas de um gatilho ou ação HTTP, que
 | 200 | OK |
 | 202 | Aceite |
 | 400 | Pedido incorreto |
-| 401 | Não autorizado |
+| 401 | Não Autorizada |
 | 403 | Proibido |
 | 404 | Não foi encontrado |
 | 500 | Erro interno do servidor. Erro desconhecido ocorreu. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

@@ -8,24 +8,27 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: d217025a847c33ceff49feac22023f80fde2b109
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79218423"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371584"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Identidades do dispositivo IoT Hub de importação e exportação a granel
 
 Cada hub IoT tem um registo de identidade que pode usar para criar recursos por dispositivo no serviço. O registo de identidade também permite controlar o acesso aos pontos finais virados para o dispositivo. Este artigo descreve como importar e exportar identidades de dispositivos a granel de e para um registo de identidade. Para ver uma C# amostra de trabalho e aprender como pode usar esta capacidade ao clonar um hub para outra região, veja [Como Clonar um Hub IoT](iot-hub-how-to-clone.md).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+> [!NOTE]
+> O IoT Hub adicionou recentemente suporte à rede virtual num número limitado de regiões. Esta funcionalidade assegura as operações de importação e exportação e elimina a necessidade de passar chaves para autenticação.  Inicialmente, o suporte à rede virtual só está disponível nestas regiões: *WestUS2*, *EastUS*, e *SouthCentralUS.* Para saber mais sobre o suporte à rede virtual e as chamadas da API para implementá-lo, consulte [o IoT Hub Support para redes virtuais.](virtual-network-support.md)
 
 As operações de importação e exportação ocorrem no contexto do *Jobs* que lhe permite executar operações de serviço a granel contra um hub IoT.
 
 A classe **RegistryManager** inclui os **métodos ExportDevicesAsync** e **ImportDevicesAsync** que utilizam a estrutura **de trabalho.** Estes métodos permitem-lhe exportar, importar e sincronizar a totalidade de um registo de identidade do hub IoT.
 
 Este tópico discute a utilização da classe **RegistryManager** e do sistema **de emprego** para realizar importações a granel e exportações de dispositivos de e para o registo de identidade de um hub IoT. Também pode utilizar o Serviço de Provisionamento de Dispositivos Hub Azure IoT para permitir o fornecimento de zero toques, just-in-time a um ou mais hubs IoT sem necessitar de intervenção humana. Para saber mais, consulte a documentação do serviço de [fornecimento.](/azure/iot-dps)
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>O que são empregos?
 
@@ -83,6 +86,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+> [!NOTE]
+> Se a sua conta de armazenamento tiver configurações de firewall que restringem a conectividade do IoT Hub, considere utilizar a [microsoft confiável primeira exceção de primeira parte](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponível em regiões selecionadas para centros IoT com identidade de serviço gerida).
+
 
 ## <a name="device-importexport-job-limits"></a>Limites de importação/exportação de dispositivos
 

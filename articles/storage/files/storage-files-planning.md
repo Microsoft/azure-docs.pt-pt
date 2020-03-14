@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 88c35b7b1420b5d89f9215f7da3ccf24870024e9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: b5bf5cc5c44226236f39a6e32c33ebe346e36eeb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597878"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269019"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas formas principais: montando diretamente as ações de ficheiros Azure sem servidor ou por cache ingequedem ações de ficheiros Azure no local utilizando o Azure File Sync. Qual a opção de implementação que escolher altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -45,7 +45,7 @@ Para os clientes que migram de servidores de ficheiros no local ou para criar no
 Se pretender utilizar a chave da conta de armazenamento para aceder às suas ações de ficheiroS Azure, recomendamos a utilização de pontos finais de serviço, conforme descrito na secção [Networking.](#networking)
 
 ## <a name="networking"></a>Redes
-As ações de ficheiros Azure são acessíveis a partir de qualquer lugar através do ponto final da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de logon de um utilizador, podem originar-se de forma segura dentro ou fora do Azure. Em muitos ambientes de clientes, uma primeira parte do ficheiro Azure na sua estação de trabalho no local falhará, mesmo que os montes de VMs Azure tenham sucesso. A razão para isso é que muitas organizações e fornecedores de serviços de internet (ISPs) bloqueiam a porta que a SMB usa para comunicar, porta 445. 
+As ações de ficheiros Azure são acessíveis a partir de qualquer lugar através do ponto final da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de logon de um utilizador, podem originar-se de forma segura dentro ou fora do Azure. Em muitos ambientes de clientes, uma primeira parte do ficheiro Azure na sua estação de trabalho no local falhará, mesmo que os montes de VMs Azure tenham sucesso. A razão para isso é que muitas organizações e fornecedores de serviços de internet (ISPs) bloqueiam a porta que a SMB usa para comunicar, porta 445. Para ver o resumo de ISPs que permitem ou não o acesso a partir da porta 445, aceda a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Para desbloquear o acesso à sua partilha de ficheiros Azure, tem duas opções principais:
 
@@ -127,7 +127,7 @@ O quadro que se segue ilustra alguns exemplos destas fórmulas para as dimensõe
 |10,240      | 10,240  | Até 30.720  | 675 | 450   |
 |33,792      | 33,792  | Até 100.000 | 2,088 | 1,392   |
 |51,200      | 51,200  | Até 100.000 | 3,132 | 2,088   |
-|102,400     | 100 000 | Até 100.000 | 6,204 | 4,136   |
+|102,400     | 100,000 | Até 100.000 | 6,204 | 4,136   |
 
 > [!NOTE]
 > O desempenho das partilhas de ficheiros está sujeito a limites de rede de máquinas, largura de banda de rede disponível, tamanhos IO, paralelismo, entre muitos outros fatores. Por exemplo, com base em testes internos com 8 tamanhos de IO de leitura/escrita KiB, uma única máquina virtual do Windows, *Standard F16s_v2*, ligada à partilha de ficheiros premium sobre SMB poderia atingir IOPS de leitura de 20K e 15K escrever IOPS. Com 512 tamanhos de IO de leitura/escrita MiB, o mesmo VM poderia alcançar 1.1 GiB/s egress e 370 MiB/s entrada de entrada. Para atingir a escala máxima de desempenho, espalhe a carga por vários VMs. Consulte o guia de resolução de [problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e sobras.
@@ -170,7 +170,7 @@ Em muitos casos, não irá estabelecer uma nova quota de ficheiros líquida para
     - **Data Box**: Data Box fornece um mecanismo offline de transferência de dados para dados físicos do navio para o Azure. Este método foi concebido para aumentar a largura de banda de entrada e poupar, mas atualmente não suporta atributos do sistema de ficheiros como selos temporais e ACLs.
     - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy é um utilitário de linha de comando projetado para copiar dados de e para o Azure Files, bem como armazenamento Azure Blob, utilizando comandos simples com um desempenho ótimo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Planejamento de uma implantação de sincronização de ficheiros Azure](storage-sync-files-planning.md)
 * [Implementação de ficheiros Azure](storage-files-deployment-guide.md)
 * [Implementação de sincronização de ficheiros Azure](storage-sync-files-deployment-guide.md)

@@ -12,11 +12,11 @@ ms.date: 02/26/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388281"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219667"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -91,7 +91,7 @@ Para mudar de uma subscrição para outro, por exemplo, quando a avaliação gra
 - Se a sua aplicação utilizar uma das [APIs](rest-apis.md)REST do serviço de Fala, a região faz parte do uri de ponta que utiliza ao fazer pedidos.
 - Criado para uma região de chaves são válidas apenas nessa região. A tentar usá-los com outras regiões irá resultar em erros de autenticação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Execute um dos nossos inícios rápidos de 10 minutos ou consulte as nossas amostras SDK:
 

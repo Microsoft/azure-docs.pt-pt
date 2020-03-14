@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365181"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259776"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicite um sinal de acesso no Diretório Ativo Azure B2C
 
@@ -135,6 +135,6 @@ Ao utilizar https://jwt.ms para examinar o sinal de acesso que foi devolvido, de
 }.[Signature]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [configurar fichas em Azure AD B2C](configure-tokens.md)

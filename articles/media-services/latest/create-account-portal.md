@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c90278eccf889595378d3b6b07de2468910c660c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 5b05cd31a1747da0170556003e7a8534752e2fde
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080881"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137199"
 ---
 # <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Utilize o portal Azure para criar uma conta de Media Services
 
@@ -54,12 +54,10 @@ Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais deta
     
 1. Selecione **Afixar no dashboard** para ver o progresso da implementação da conta.
 1. Clique em **Criar** na parte inferior do formulário.
-   
-    Depois de criar a conta com êxito, a página de descrição geral é carregada. Na tabela final de streaming, a conta terá um ponto final de streaming predefinido no estado **de parado.** 
 
     Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir o seu conteúdo e tirar partido de [embalagens dinâmicas](dynamic-packaging-overview.md) e [encriptação dinâmica,](content-protection-overview.md)o ponto final de streaming a partir do qual pretende transmitir conteúdo tem de estar no estado **De Execução.** 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se planeia aceder programaticamente à Media Services API, consulte [Access the Azure Media Services API com autenticação Azure AD](access-api-portal.md).
 

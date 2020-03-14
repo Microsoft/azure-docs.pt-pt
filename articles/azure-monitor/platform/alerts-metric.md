@@ -4,14 +4,14 @@ description: Aprenda a usar o portal Azure ou o CLI para criar, visualizar e ger
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363441"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369391"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas métricos usando o Monitor Azure
 
@@ -136,7 +136,7 @@ As secções anteriores descreveram como criar, visualizar e gerir regras de ale
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Crie alertas métricos utilizando modelos](../../azure-monitor/platform/alerts-enable-template.md)de gestor de recursos azure .
+- [Crie alertas métricos utilizando modelos](../../azure-monitor/platform/alerts-metric-create-templates.md)de gestor de recursos azure .
 - [Entenda como os alertas métricos funcionam.](alerts-metric-overview.md)
 - [Compreenda como funcionam os alertas métricos com a condição dos Limiares Dinâmicos.](alerts-dynamic-thresholds.md)
 - [Compreenda o esquema do gancho web para alertas métricos](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

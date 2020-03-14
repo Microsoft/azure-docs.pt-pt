@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: a711303b95eb4acb9c226ce052466bf65d15a038
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c9fc60549d895129af56f289c6247dcb377b973b
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612765"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298678"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configure o LDAP seguro para um domínio gerido pelo Azure Ative Directory Domain Services
 
@@ -68,7 +68,7 @@ O certificado que solicita ou cria deve satisfazer os seguintes requisitos. O se
 * **Utilização da chave** - O certificado deve ser configurado para *assinaturas digitais* e chave de *precipherherment*.
 * **Final idade** do certificado - O certificado deve ser válido para autenticação do servidor SSL.
 
-Neste tutorial, vamos criar um certificado auto-assinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate.][New-SelfSignedCertificate] Abra uma janela PowerShell como **Administrador** e execute os seguintes comandos. Substitua a variável *$dnsName* pelo nome DNS utilizado pelo seu próprio domínio gerido, como *aaddscontoso.com:*
+Existem várias ferramentas disponíveis para criar certificado auto-assinado, tais como OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet etc. Neste tutorial, vamos criar um certificado auto-assinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate.][New-SelfSignedCertificate] Abra uma janela PowerShell como **Administrador** e execute os seguintes comandos. Substitua a variável *$dnsName* pelo nome DNS utilizado pelo seu próprio domínio gerido, como *aaddscontoso.com:*
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -142,7 +142,7 @@ Antes de poder utilizar o certificado digital criado no passo anterior com o seu
 1. Como este certificado é usado para desencriptar dados, deve controlar cuidadosamente o acesso. Pode ser utilizada uma palavra-passe para proteger a utilização do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
     Na página **de Segurança,** escolha a opção de **Palavra-passe** para proteger o *. Ficheiro de certificado PFX.* Introduza e confirme uma palavra-passe e, em seguida, selecione **Next**. Esta palavra-passe é utilizada na secção seguinte para ativar o LDAP seguro para o seu domínio gerido pelo Azure AD DS.
-1. Na página **De Registo para Exportação,** especifique o nome do ficheiro e a localização onde pretende exportar o certificado, como *C:\Users\accountname\azure-ad-ds.pfx*.
+1. Na página **De Registo para Exportação,** especifique o nome do ficheiro e a localização onde pretende exportar o certificado, como *C:\Users\accountname\azure-ad-ds.pfx*. Mantenha uma nota da senha e localização do *. Ficheiro PFX,* uma vez que esta informação seria necessária nos próximos passos.
 1. Na página de revisão, selecione **Terminar** para exportar o certificado para *a . Ficheiro de certificado PFX.* É apresentado um diálogo de confirmação quando o certificado tiver sido exportado com sucesso.
 1. Deixe o MMC aberto para utilização na seguinte secção.
 
@@ -215,12 +215,12 @@ Vamos criar uma regra que permita o acesso lDAP seguro de entrada sobre a porta 
     |-----------------------------------|--------------|
     | Origem                            | Endereços IP |
     | Endereços IP de origem / gamas CIDR | Um endereço IP válido ou intervalo para o seu ambiente |
-    | Intervalo de portas de origem                | *            |
-    | Destino                       | Qualquer          |
+    | Source port ranges                | *            |
+    | Destination                       | Any          |
     | Intervalos de portas de destino           | 636          |
-    | Protocolo                          | TCP          |
+    | Protocol                          | TCP          |
     | Ação                            | Permitir        |
-    | Prioridade                          | 401          |
+    | Priority                          | 401          |
     | Nome                              | AllowLDAPS   |
 
 1. Quando estiver pronto, selecione **Adicionar** para guardar e aplicar a regra.
@@ -275,7 +275,7 @@ Se tiver adicionado uma entrada DNS ao ficheiro de anfitriões locais do seu com
 1. Navegue e abra o ficheiro *C:\Windows\System32\drivers\etc*
 1. Elimine a linha para o registo que adicionou, como `40.121.19.239    ldaps.aaddscontoso.com`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

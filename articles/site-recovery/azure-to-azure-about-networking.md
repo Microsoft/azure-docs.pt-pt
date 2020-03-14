@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79258164"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371448"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking na recuperação de desastres azure VM
 
@@ -52,6 +52,8 @@ Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conec
 login.microsoftonline.com | Necessário para autorização e autenticação para os URLs do serviço de Recuperação do Local.
 *.hypervrecoverymanager.windowsazure.com | Necessária para que a comunicação do serviço de recuperação do site possa ocorrer a partir do VM.
 *.servicebus.windows.net | Necessário para que os dados de monitorização e diagnóstico de recuperação do site possam ser escritos a partir do VM.
+*.vault.azure.net | Permite o acesso para permitir a replicação de máquinas virtuais ativadas pela ADE através do portal
+*.automation.ext.azure.com | Permite permitir a tualização automática do agente de mobilidade para um item replicado via portal
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
@@ -63,6 +65,8 @@ Se estiver a usar um NSG para controlar a conectividade de saída, estas etiquet
 - Criar uma regra NSG baseada em placa de [serviço Azure Ative Diretório (AAD)](../virtual-network/security-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao AAD
 - Crie uma regra NSG baseada em etiquetas de serviço EventsHub para a região alvo, permitindo o acesso à monitorização da Recuperação do Site.
 - Crie uma regra NSG baseada em placa de serviço AzureSiteRecovery para permitir o acesso ao serviço de Recuperação do Site em qualquer região.
+- Crie uma regra NSG baseada em etiqueta de serviço AzureKeyVault. Isto só é necessário para permitir a replicação de máquinas virtuais ativadas pela ADE através do portal.
+- Crie uma regra NSG baseada em etiqueta de serviço GuestAndHybridManagement. Isto é necessário apenas para permitir a atualização automática do agente de mobilidade para um item replicado via portal.
 - Recomendamos que crie as regras de NSG necessárias num teste NSG, e verifique se não há problemas antes de criar as regras de um NSG de produção.
 
 ## <a name="example-nsg-configuration"></a>Exemplo de configuração NSG

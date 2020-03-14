@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9ae8f5072573dcc91dd3e8bdcd08968790f6444d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f299b13baf5811b92bdc2e40b027868617d7574c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79205201"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368524"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Certificados de rotação no Serviço Azure Kubernetes (AKS)
 
@@ -52,13 +52,13 @@ A AKS gera e utiliza os seguintes certificados, Autoridades de Certificados e Co
 
 Use [az aks obter credenciais][az-aks-get-credentials] para iniciar sessão no seu cluster AKS. Este comando também descarrega e configura o `kubectl` certificado de cliente na sua máquina local.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 Utilize `az aks rotate-certs` para rodar todos os certificados, CAs e SAs no seu cluster.
 
-```console
+```azurecli
 az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
@@ -74,7 +74,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 
 Atualize o certificado utilizado por `kubectl` executando `az aks get-credentials`.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 

@@ -4,11 +4,11 @@ description: Utilize instruções e contexto para gerir as múltiplas voltas, co
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389240"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220624"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -365,7 +365,7 @@ Pode adicionar ou eliminar instruções de várias voltas utilizando o [API de a
 
 O QnA Maker suporta o controlo da versão, incluindo passos de conversação multi-turn no ficheiro exportado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre conversas contextuais a partir desta amostra de [diálogo](https://aka.ms/qnamakermultiturnsample) ou saiba mais sobre [design de bot conceptual para conversas multi-turn](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 

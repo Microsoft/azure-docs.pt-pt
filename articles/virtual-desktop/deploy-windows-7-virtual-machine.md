@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a367e4d98135b5d29c4a0e38363739ca2689dcab
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 158dd9d6a38cc1aaf7667c0b16518e23b3f7cecf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127987"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366688"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 
@@ -35,7 +35,7 @@ Para configurar um VM Windows 7 no Windows Virtual Desktop:
 4. Adicione a conta que usou durante a ligação ao anfitrião com RDP ao grupo "Remote Desktop User". Se não o fizer, poderá não conseguir ligar-se ao VM depois de se juntar ao seu domínio de Diretório Ativo.
 5. Vá ao Windows Update no seu VM.
 6. Instale todas as Atualizações do Windows na categoria Importante.
-7. Instale todas as Atualizações do Windows na categoria Opcional (excluindo pacotes de idiomas). Isto instala a atualização Do Protocolo de Ambiente de Trabalho Remoto 8.0[(KB2592687)](https://www.microsoft.com/download/details.aspx?id=35393)que necessita para completar estas instruções.
+7. Instale todas as Atualizações do Windows na categoria Opcional (excluindo pacotes de idiomas). Isto instala a atualização Do Protocolo de Ambiente de Trabalho Remoto 8.0[(KB2592687)](https://www.microsoft.com/download/details.aspx?id=35387)que necessita para completar estas instruções.
 8. Abra o Editor de Política do Grupo Local e navegue para **modelos administrativos** de **configuração** de computador >  > componentes do Windows > **serviços** de ambiente de **trabalho remotos** > anfitrião de **sessão** remota de secretária > **ambiente de sessão remota**.
 9. Ativar a política do Protocolo de Ambiente de Trabalho Remoto 8.0.
 10. Junte-se a este VM ao seu domínio de Diretório Ativo.

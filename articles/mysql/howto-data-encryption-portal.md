@@ -1,17 +1,17 @@
 ---
-title: Encriptação de dados para Base de Dados Azure para MySQL utilizando o portal Azure
+title: Encriptação de dados - Portal Azure - Base de Dados Azure para MySQL
 description: Aprenda a configurar e gerir a encriptação de dados para a sua Base de Dados Azure para mySQL utilizando o portal Azure.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 55c155dc4396672c02322c6c5727dac57d0ac8ef
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 78a290b1e2984719645fb4d4ff253ab021a0826e
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898723"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299044"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Encriptação de dados para Base de Dados Azure para MySQL utilizando o portal Azure
 
@@ -220,6 +220,6 @@ Além disso, pode utilizar modelos do Gestor de Recursos Do Azure para ativar a 
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
  Para saber mais sobre encriptação de dados, consulte a Base de [Dados Azure para encriptação de dados MySQL com a chave gerida pelo cliente](concepts-data-encryption-mysql.md).

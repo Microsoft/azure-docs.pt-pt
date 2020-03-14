@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390960"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270800"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir VMs reputáveis em Laboratórios Azure DevTest
 Você adiciona um VM repreensível a um laboratório de forma semelhante à forma como [adiciona um VM padrão](devtest-lab-add-vm.md) – a partir de uma *base* que é ou uma [imagem personalizada,](devtest-lab-create-template.md) [fórmula,](devtest-lab-manage-formulas.md)ou [imagem do Mercado.](devtest-lab-configure-marketplace-images.md) Este tutorial acompanha-o através da utilização do portal Azure para adicionar um VM repreensível a um laboratório em DevTest Labs, e mostra os processos que um utilizador segue para reclamar e desreclamar o VM.
@@ -97,6 +97,6 @@ Isto é conhecido como "transferência do disco de dados". O disco de dados fica
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Uma vez criado, pode ligar-se ao VM selecionando **O Connect** no seu painel de gestão.
 * Explore a galeria de [modelos quickStart Do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396467"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284437"
 ---
 # <a name="understand-iot-hub-metrics"></a>Compreender as métricas do IoT Hub
 
@@ -111,7 +111,7 @@ O IoT Hub fornece várias métricas para lhe dar uma visão geral da saúde do s
 |connectedDeviceCount|Dispositivos conectados (pré-visualização)|Contagem|Média|Número de dispositivos ligados ao seu hub IoT|Nenhum|
 |configurações|Métricas de Configuração|Contagem|Total|Métricas para Operações de Configuração|Nenhum|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que viu uma visão geral das métricas do IoT Hub, siga este link para saber mais sobre a gestão do Azure IoT Hub:
 

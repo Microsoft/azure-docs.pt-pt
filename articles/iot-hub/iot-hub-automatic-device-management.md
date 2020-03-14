@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
 ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386087"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271307"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Dispositivo ioT automático e gestão de módulos utilizando o portal Azure
 
@@ -208,7 +208,7 @@ Para modificar uma configuração, utilize os seguintes passos:
 
    * Condição de destino 
    * Etiquetas 
-   * Prioridade 
+   * Priority 
    * Métricas
 
 4. Selecione **Guardar**.
@@ -229,7 +229,7 @@ Ao eliminar uma configuração, qualquer dispositivo gémeos assume a sua próxi
 
 5. Um pedido vai pedir-lhe para confirmar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 

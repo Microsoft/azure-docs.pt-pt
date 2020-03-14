@@ -4,11 +4,11 @@ description: Conheça o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388937"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269513"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração vMware
 
@@ -110,7 +110,7 @@ A tabela resume o suporte vM vm vm para VMware VMs que você quer migrar usando 
 **NFS** | Os volumes nFS montados à medida que os volumes nos VMs não serão replicados.
 **metas iSCSI** | VMs com alvos iSCSI não são suportados para migração sem agente.
 **IO multipata** | Não suportado.
-**Armazenamento vMotion** | Suportado
+**Armazenamento vMotion** | Suportadas
 **NICs em equipa** | Não suportado.
 **IPv6** | Não suportado.
 
@@ -154,6 +154,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após a migração-Linux | Para ligar aos VMs Azure após a migração utilizando o SSH:<br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/> Após a falha, no Azure VM, permitir ligações de entrada à porta SSH para as regras do grupo de segurança da rede sobre o VM falhado, e para a subnet Azure a que está conectado. Além disso, adicione um endereço IP público para o VM. |  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.

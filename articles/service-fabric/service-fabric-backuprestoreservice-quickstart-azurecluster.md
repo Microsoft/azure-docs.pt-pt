@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390199"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259009"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup periódico e restauro em um cluster De Tecido de Serviço Azure
 > [!div class="op_single_selector"]
@@ -302,7 +302,7 @@ Para ver cópias de segurança no Service Fabric Explorer, navegue para uma part
 - Os cmdlets de powerShell de tecido de serviço estão no modo de pré-visualização.
 - Sem suporte para clusters de tecido de serviço em Linux.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Compreender a configuração periódica de backup](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Cópia de segurança restaurar referência REST API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 

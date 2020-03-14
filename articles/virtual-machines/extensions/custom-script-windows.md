@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 86128953130fdb34c660f6e40ec24565ff93edb4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920268"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299231"
 ---
-# <a name="custom-script-extension-for-windows"></a>Extensão personalizada do script para windows
+# <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
 A extensão personalizada do script descarrega e executa scripts em máquinas virtuais Azure. Esta extensão é útil para a configuração de implementação de posts, instalação de software ou qualquer outra configuração ou tarefas de gestão. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão. A extensão personalizada do script integra-se com os modelos do Gestor de Recursos Azure, e pode ser executada utilizando o Portal Azure CLI, PowerShell, Azure ou a API de REST de Máquina Virtual Azure.
 
@@ -28,7 +28,7 @@ Este documento detalha como utilizar a extensão do script personalizado utiliza
 > [!NOTE]  
 > Não utilize a extensão personalizada do script para executar o Update-AzVM com o mesmo VM que o seu parâmetro, uma vez que irá esperar por si próprio.  
 
-### <a name="operating-system"></a>Sistema Operativo
+### <a name="operating-system"></a>Operating System
 
 A extensão personalizada do script para windows será executada no OSs de extensão suportado por extensão, para mais informações, ver este sistema operativo suportado por [extensão Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
 
@@ -113,14 +113,14 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.Compute | string |
-| tipo | CustomScriptExtension | string |
+| publicador | Microsoft.Compute | Cadeia de caracteres |
+| tipo | CustomScriptExtension | Cadeia de caracteres |
 | typeHandlerVersion | 1.10 | int |
-| fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
 | timestamp (por exemplo) | 123456789 | Inteiro de 32 bits |
-| comandoToExecutar (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| armazenamentoAccountName (por exemplo) | exemplostorageacct | string |
-| armazenagemAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| comandoToExecutar (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | Cadeia de caracteres |
+| armazenamentoAccountName (por exemplo) | exemplostorageacct | Cadeia de caracteres |
+| armazenagemAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Cadeia de caracteres |
 | identidade gerida (por exemplo) | { ou { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } ou { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json objeto |
 
 >[!NOTE]
@@ -149,7 +149,7 @@ As configurações públicas são enviadas em texto claro para o VM onde o scrip
 
 O CustomScript (versão 1.10 em diante) suporta a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros(s) de URLs fornecidos na definição "fileUris". Permite ao CustomScript aceder a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
 
-Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) ou atribuída ao [VM](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de [identidade gerido ao recipiente ou blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)do Armazenamento Azure .
+Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) ou atribuída ao [VM](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de [identidade gerido ao recipiente ou blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)do Armazenamento Azure .
 
 Para utilizar a identidade atribuída ao sistema no alvo VM/VMSS, detete o campo "managedidentity" para um objeto json vazio. 
 
@@ -306,7 +306,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, executar o seguinte comando:
 

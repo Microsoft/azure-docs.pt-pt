@@ -4,11 +4,11 @@ description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação 
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: e46d1e6ee1dd404e6e040eb394e89dd86a3d4d8e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082204"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269877"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -142,6 +142,6 @@ Para visualização sem agente, pode ver o mapa de dependência de um único ser
 
 Pode [visualizar dependências](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de grupos que tenham até 10 VMs. Se você tem um grupo que tem mais de 10 VMs, recomendamos que divida o grupo em grupos menores, e depois visualize as dependências.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia a visão geral do [Azure Migrate.](migrate-services-overview.md)

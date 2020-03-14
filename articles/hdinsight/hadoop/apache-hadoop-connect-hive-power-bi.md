@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/02/2020
-ms.openlocfilehash: 5bc36c0a52515e1801886a0c3959e29c14da3fe5
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: d9b64785dbd82842479eb3f313b8394f9f25b40b
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267806"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370003"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar os dados da Hive Apache com o Microsoft Power BI utilizando o ODBC no Azure HDInsight
 
@@ -32,7 +32,7 @@ A informação aplica-se também ao novo tipo de cluster [de consulta interativa
 
 Antes de ler este artigo, deve ter os seguintes itens:
 
-* Cluster HDInsight. O cluster pode ser um cluster HDInsight com Hive ou um cluster de consulta interativa recém-lançado. Para criar clusters, consulte [Criar cluster](apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Cluster HDInsight. O cluster pode ser um cluster HDInsight com Hive ou um cluster de consulta interativa recém-lançado. Para criar clusters, consulte [Criar cluster](apache-hadoop-linux-tutorial-get-started.md).
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/). Pode descarregar uma cópia do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 

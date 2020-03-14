@@ -6,12 +6,12 @@ ms.date: 10/22/2019
 ms.custom: cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 567e87b43c3fc3d7d2fb0c894ced53c89a133978
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 607cc0e5cd8236badfc1e5e591efda20d4fb669b
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524068"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368269"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma app Python no Azure App Service no Linux
 
@@ -90,7 +90,7 @@ O Azure CLI fornece-lhe muitos comandos convenientes que utiliza a partir de um 
 
 Para executar comandos Azure no Azure CLI, deve primeiro assinar usando o comando `az login`. Este comando abre um navegador para recolher as suas credenciais.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -101,11 +101,11 @@ O comando [`az webapp up`](/cli/azure/webapp#az-webapp-up) cria a aplicação we
 Na pasta *python-docs-hello-world* que contém o código da amostra, execute o seguinte comando `az webapp up`. Substitua `<app-name>` por um nome de aplicação globalmente único *(os caracteres válidos são `a-z`, `0-9`e `-`).* Substitua também `<location-name>` por uma região de Azure, como **o Centralus**, **eastasia**, **WestEurope**, **Koreasouth**, **Brasilsouth**, **centralindia**, e assim por diante. (Pode recuperar uma lista de regiões admissíveis para a sua conta Azure executando o [comando`az account list-locations`.)](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
-Este comando pode demorar alguns minutos a funcionar. Ao executar, apresenta informações semelhantes ao exemplo seguinte:
+Este comando pode demorar alguns minutos a funcionar completamente. Ao executar, apresenta informações semelhantes ao exemplo seguinte:
 
 ```output
 The behavior of this command has been altered by the following extension: webapp
@@ -157,7 +157,7 @@ Guarde as suas alterações e saia do editor.
 
 Recoloque a aplicação utilizando o comando `az webapp up` seguinte, utilizando o mesmo comando utilizado para implementar a aplicação pela primeira vez, substituindo `<app-name>` e `<location-name>` pelos mesmos nomes que utilizou anteriormente. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -174,13 +174,13 @@ Pode aceder aos registos de consolas gerados a partir de dentro da aplicação e
 
 Em primeiro lugar, ligue o registo do contentor executando o seguinte comando num terminal, substituindo `<app-name>` pelo nome da sua app e `<resource-group-name>` com o nome do grupo de recursos mostrado na saída do comando `az webapp up` utilizado (como "appsvc_rg_Linux_centralus"):
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 Quando o registo do contentor estiver ligado, execute o seguinte comando para mostrar o fluxo de registo:
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -217,7 +217,7 @@ Nos passos anteriores, criou os recursos do Azure num grupo de recursos. O grupo
 
 Se não espera precisar destes recursos no futuro, elimine o grupo de recursos executando o seguinte comando, substituindo `<resource-group-name>` pelo grupo de recursos mostrado na saída do comando `az webapp up`, como "appsvc_rg_Linux_centralus". O comando pode levar um minuto para ser concluído.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

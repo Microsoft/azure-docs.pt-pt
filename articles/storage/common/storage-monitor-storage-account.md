@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361040"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268291"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorize uma conta de armazenamento no portal Azure
 
@@ -144,6 +144,6 @@ Os registos de diagnóstico são guardados num recipiente de blob chamado *$logs
 
 Para obter informações sobre o acesso ao $logs recipiente, consulte a [exploração de armazenamento analíticos.](storage-analytics-logging.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Encontre mais detalhes sobre [métricas, registos e faturação](storage-analytics.md) para Storage Analytics.

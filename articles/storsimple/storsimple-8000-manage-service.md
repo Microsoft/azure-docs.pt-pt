@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384904"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267784"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implemente o serviço StorSimple Device Manager para dispositivos da série StorSimple 8000
 
@@ -189,7 +189,7 @@ Este script irá garantir que a chave de encriptação de dados do serviço est�
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Operações suportadas em dispositivos que executam versões antes do Update 5.0
 No portal Azure, apenas são suportados os dispositivos StorSimple que executam o Update 5.0 e superior. Os dispositivos que estão a executar versões mais antigas têm suporte limitado. Depois de ter migrado para o portal Azure, utilize a tabela seguinte para perceber quais as operações suportadas em dispositivos que executam versões antes do Update 5.0.
 
-| Operação                                                                                                                       | Suportado      |
+| Operação                                                                                                                       | Suportadas      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Registar um dispositivo                                                                                                               | Sim            |
 | Configure as definições do dispositivo, tais como geral, rede e segurança                                                                | Sim            |
@@ -211,7 +211,7 @@ No portal Azure, apenas são suportados os dispositivos StorSimple que executam 
 | Ligar e desligar os controladores do dispositivo                                                                                              | Sim            |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o processo de [implantação StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Saiba mais sobre a gestão da sua conta de [armazenamento StorSimple](storsimple-8000-manage-storage-accounts.md).
 * Saiba mais sobre como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

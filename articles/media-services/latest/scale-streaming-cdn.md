@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 90fa3b06e2696e9b45c333c75c8a8e117d5c0c96
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: e918f7ee64d4bc49d5da80bf9a3e7595555296dc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77563118"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203700"
 ---
-# <a name="scaling-streaming-with-cdn"></a>Streaming de escala com CDN
+# <a name="scaling-streaming-with-cdn"></a>Dimensionar Transmissão em Fluxo com CDN
 
 A Rede de Entrega de Conteúdos (CDN) oferece aos programadores uma solução global para o fornecimento rápido de conteúdo de largura de banda alta aos utilizadores, ao colocar em cache o respetivo conteúdo em nós físicos estrategicamente colocados em todo o mundo.  
 
-CDN caches conteúdo transmitido a partir de um ponto final de streaming de Serviços de Mídia [(origem)](streaming-endpoint-concept.md) por codec, por protocolo de streaming, por bitrate, por formato de recipiente, e por encriptação/DRM. Para cada combinação de codec-streaming protocolo-container-bitrate-encryption, haverá uma cache CDN separada. 
+CDN caches conteúdo transmitido a partir de um Media Services [Streaming Endpoint (origem)](streaming-endpoint-concept.md) por codec, por protocolo de streaming, por bitrate, por formato de contentor, e por encriptação/DRM. Para cada combinação de codec-streaming protocolo-container-bitrate-encryption, haverá uma cache CDN separada. 
 
 O conteúdo popular será servido diretamente a partir da cache CDN, desde que o fragmento de vídeo esteja em cache. É provável que o conteúdo ao vivo seja emcache porque normalmente tem muitas pessoas a ver exatamente a mesma coisa. O conteúdo a pedido pode ser um pouco mais complicado porque pode ter algum conteúdo que seja popular e outros que não são. Se você tem milhões de ativos de vídeo onde nenhum deles é popular (apenas um ou dois espectadores por semana) mas você tem milhares de pessoas assistindo todos os vídeos diferentes, o CDN torna-se muito menos eficaz. 
 
@@ -71,7 +71,7 @@ Para atingir este objetivo, um ponto final de streaming (origem) e CDN precisam 
 - A origem dos Serviços de Media precisa de ter a "inteligência" (Origin-Assist) para informar a CDN do próximo objeto para a prefetch, e 
 - O CDN faz a prefetch e o cache (parte CDN-Prefetch). A CDN também precisa de ter a "inteligência" para informar a origem, seja uma pré-busca ou uma busca regular, manuseando 404 respostas e uma forma de evitar um loop de prefetch interminável.
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 Os benefícios da funcionalidade *Origin-Assist CDN-Prefetch* incluem:
 
@@ -108,7 +108,7 @@ A funcionalidade *Origin-Assist CDN-Prefetch* suporta os seguintes protocolos de
 * DASH (CMAF)
 * Streaming suave
 
-### <a name="faqs"></a>Perguntas mais frequentes
+### <a name="faqs"></a>FAQs
 
 * E se um URL de caminho prefetch for inválido para que a prefetch cDN obtenha um 404? 
 
@@ -145,6 +145,7 @@ A funcionalidade *Origin-Assist CDN-Prefetch* suporta os seguintes protocolos de
 
 Confira o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Serviços de Media.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-A amostra [deste repositório](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) mostra como iniciar o ponto final de streaming predefinido com .NET.
+* Certifique-se de que retomará o documento [streaming Endpoint (origem).](streaming-endpoint-concept.md)
+* A amostra [deste repositório](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) mostra como iniciar o ponto final de streaming predefinido com .NET.

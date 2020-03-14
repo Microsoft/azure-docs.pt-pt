@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386938"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272568"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use Apache Ambari para otimizar configurações de cluster HDInsight
 
@@ -180,7 +180,7 @@ Os tipos de compressão disponíveis são:
 | Gzip | Gzip | ESVAZIAR | .gz | Não |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Sim |
 | LZO | Rio Lzop | LZO | .lzo | Sim, se indexado |
-| Estaladiço | N/D | Estaladiço | Estaladiço | Não |
+| Estaladiço | N/A | Estaladiço | Estaladiço | Não |
 
 Regra geral, ter o método de compressão splittable é importante, caso contrário muito poucos mappers serão criados. Se os dados de entrada forem texto, `bzip2` é a melhor opção. Para o formato ORC, o Snappy é a opção de compressão mais rápida.
 
@@ -432,7 +432,7 @@ A utilização do tampão de alocação local Memstore é determinada pela propr
 
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerir clusters HDInsight com a UI web Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

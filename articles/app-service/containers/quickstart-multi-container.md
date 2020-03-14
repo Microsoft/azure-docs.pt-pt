@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 19544d9ea9a86b6c0ad98debc7361f4579cbc998
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 5acd1a417222b4810393e8fe912b5243caaeb4cd
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78247025"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139645"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar uma aplicação multi-contentor (pré-visualização) utilizando uma configuração Docker Compose
 
@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/multicontainerwordpress
 cd multicontainerwordpress
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
@@ -97,6 +97,9 @@ Quando o plano do Serviço de Aplicações tiver sido criado, a CLI do Azure mos
 
 ## <a name="create-a-docker-compose-app"></a>Criar uma aplicação Docker Compose
 
+> [!NOTE]
+> Docker Compose on Azure App Services tem atualmente um limite de 4.000 caracteres neste momento.
+
 No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único (personagens válidos são `a-z`, `0-9`e `-`).
 
 ```azurecli
@@ -130,7 +133,7 @@ Navegue para a aplicação implementada em (`http://<app_name>.azurewebsites.net
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicação WordPress multi-contentor](tutorial-multi-container-app.md)

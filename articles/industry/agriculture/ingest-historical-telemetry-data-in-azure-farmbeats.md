@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 80d8f176d3a4af82a6b93e1af430d914c47bfff6
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
-ms.translationtype: HT
+ms.openlocfilehash: d47fdb9461786d80d65ee2448cc983a7a8348ff2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137361"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298772"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -20,14 +20,13 @@ A ingestão de dados históricos a partir de recursos da Internet of Things (IoT
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de avançar com este artigo, certifique-se de que instalou FarmBeats e recolheu dados históricos dos seus dispositivos IoT.
-Também precisa de permitir o acesso ao parceiro, conforme mencionado nos seguintes passos.
+Antes de avançar com este artigo, certifique-se de que instalou FarmBeats e recolheu dados históricos dos seus dispositivos IoT. Também precisa de permitir o acesso ao parceiro, conforme mencionado nos seguintes passos.
 
 ## <a name="enable-partner-access"></a>Ativar o acesso ao parceiro
 
 Tem de permitir a integração do parceiro na sua instância Azure FarmBeats. Este passo cria um cliente que tem acesso à sua instância Azure FarmBeats como parceiro de dispositivo e fornece-lhe os seguintes valores que são exigidos nos passos seguintes:
 
-- Ponto final da API: Este é o URL datahub, por exemplo, https://\<datahub>.azurewebsites.net.
+- Ponto final da API: Este é o URL datahub, por exemplo, https://\<datahub>.azurewebsites.net
 - ID do inquilino
 - ID de Cliente
 - Segredo do cliente
@@ -39,11 +38,11 @@ Siga estes passos.
 > Deve ser administrador para fazer os seguintes passos.
 
 1. Descarregue o [ficheiro zip](https://aka.ms/farmbeatspartnerscriptv2)e extrai-o para a sua unidade local. Haverá um ficheiro dentro do ficheiro postal.
-2. Inscreva-se na https://portal.azure.com/ e vá ao Azure Ative Directory -> Registos de Aplicações
+2. Inscreva-se na https://portal.azure.com/ e vá ao **Azure Ative Directory** > **App Registrations.**
 
-3. Clique no Registo de Aplicações que foi criado como parte da sua implementação farmBeats. Terá o mesmo nome que o seu FarmBeats Datahub.
+3. Selecione o Registo de **Aplicações** que foi criado como parte da sua implementação FarmBeats. Terá o mesmo nome que o seu FarmBeats Datahub.
 
-4. Clique em "Expor um API" -> Clique em "Adicionar uma aplicação de cliente" e insira **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verifique "Autorizar o Scope". Isto dará acesso ao Azure CLI (Cloud Shell) para realizar os passos abaixo.
+4. Selecione **Expor um API** > Selecione **Adicionar uma aplicação de cliente** e insira **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verifique **Autorizar o Scope**. Isto dará acesso ao Azure CLI (Cloud Shell) para executar os seguintes passos:
 
 5. Abra o Cloud Shell. Esta opção está disponível na barra de ferramentas no canto superior direito do portal Azure.
 
@@ -59,9 +58,9 @@ Siga estes passos.
 
 8. Vá ao diretório onde o ficheiro foi enviado. Por predefinição, os ficheiros são enviados para o diretório inicial sob o nome de utilizador.
 
-9. Execute o seguinte script. O guião pede o ID do Inquilino que pode ser obtido a partir do Azure Ative Directory -> página de visão geral.
+9. Execute o seguinte script. O script pede o ID do Inquilino, que pode ser obtido a partir da **página**de Visão Geral > **Diretório Ativo do Azure** .
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1   
 
@@ -70,9 +69,12 @@ Siga estes passos.
 10. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do inquilino,** **ID do cliente,** segredo do **cliente**e String **de Conexão EventHub**.
 ## <a name="create-device-or-sensor-metadata"></a>Criar metadados de dispositivos ou sensores
 
- Agora que tem as credenciais necessárias, pode definir o dispositivo e os sensores. Para isso, crie os metadados chamando a FarmBeats APIs. Por favor, note que terá de chamar as APIs como a aplicação do cliente que criou na secção acima
+ Agora que tem as credenciais necessárias, pode definir o dispositivo e os sensores. Para isso, crie os metadados chamando a FarmBeats APIs. Certifique-se de que chama as APIs como a aplicação do cliente que criou na secção acima.
 
- FarmBeats Datahub tem as seguintes APIs que permitem a criação e gestão de metadados de dispositivos ou sensores. Por favor, note que como parceiro tem acesso apenas ler, criar e atualizar os metadados; **A eliminação não é permitida por um parceiro.**
+ FarmBeats Datahub tem as seguintes APIs que permitem a criação e gestão de metadados de dispositivos ou sensores.
+
+ > [!NOTE]
+ > Como parceiro tem acesso apenas para ler, criar e atualizar os metadados; excluir a **opção é restrita ao parceiro.**
 
 - /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um portal ou um nó.
 - **dispositivo**/: O dispositivo corresponde a um dispositivo físico presente na exploração.
@@ -83,7 +85,7 @@ Siga estes passos.
 |        DeviceModel   |  Sugestões   |
 | ------- | -------             |
 |     Tipo (nó, porta de entrada)        |          Tipo do Dispositivo - Nó ou Gateway      |
-|          Fabricante            |         Nome do fabricante    |
+|          Manufacturer            |         Nome do fabricante    |
 |  Código de Produto                    |  Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800.  |
 |            Portas          |     Nome e tipo de porta, que é digital ou analógico.
 |     Nome                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
@@ -100,7 +102,7 @@ Siga estes passos.
 |     Propriedades    |  Propriedades adicionais do fabricante.
 |     **Modelo de Sensores**        |          |
 |       Tipo (analógico, digital)          |      O tipo de sensor, seja analógico ou digital.       |
-|          Fabricante            |       O fabricante do sensor.     |
+|          Manufacturer            |       O fabricante do sensor.     |
 |     Código de Produto| Código do produto ou nome ou número do modelo. Por exemplo, RS-CO2-N01. |
 |       SensorMeasures > Nome       | Nome da medida do sensor. Só a minúscula é suportada. Para medições de diferentes profundidades, especifique a profundidade. Por exemplo, soil_moisture_15cm. Este nome deve ser consistente com os dados da telemetria.  |
 |          SensorMeasures > DataType       |Tipo de dados de telemetria. Atualmente, o dobro é suportado.|
@@ -284,7 +286,7 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"description\": \"Test Device 123\"}" *
 ```
 
-Abaixo está um código de amostra em Python. Por favor, note que o token de acesso usado nesta amostra é o mesmo que recebemos durante a autenticação
+Abaixo está um código de amostra em Python. O símbolo de acesso utilizado nesta amostra é o mesmo que é recebido durante a autenticação.
 
 ```python
 import requests
@@ -347,11 +349,11 @@ Converta o formato histórico de dados de sensores num formato canónico que o A
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
         }
       ]
     }
@@ -400,7 +402,7 @@ Aqui está um exemplo de uma mensagem de telemetria:
 }
 ```
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Não é possível visualizar dados de telemetria depois de ingerir dados históricos/de streaming dos seus sensores
 
@@ -408,8 +410,10 @@ Aqui está um exemplo de uma mensagem de telemetria:
 
 **Ação corretiva:**
 
-1. Certifique-se de que fez o registo do parceiro corretamente - pode verificar isso indo para o seu datahub swagger, navegar para /Partner API, Fazer um Get e verificar se o parceiro está registado. Caso contrário, siga os [passos aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
+1. Certifique-se de que fez o registo adequado do parceiro - pode verificar isso indo ao seu datahub swagger, navegar para /Partner API, Domar um Get e verificar se o parceiro está registado. Caso contrário, siga os [passos aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar parceiro.
+
 2. Certifique-se de que criou os metadados (DeviceModel, Device, SensorModel, Sensor) utilizando as credenciais do cliente parceiro.
+
 3. Certifique-se de que utilizou o formato de mensagem telemetria correto (conforme especificado abaixo):
 
 ```json
@@ -423,11 +427,11 @@ Aqui está um exemplo de uma mensagem de telemetria:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -436,6 +440,6 @@ Aqui está um exemplo de uma mensagem de telemetria:
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre detalhes de integração baseados em REST API, consulte [REST API](rest-api-in-azure-farmbeats.md).

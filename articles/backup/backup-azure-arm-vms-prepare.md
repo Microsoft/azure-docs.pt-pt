@@ -4,17 +4,17 @@ description: Descreve como fazer backup de VMs Azure num cofre de Serviços de R
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363872"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273517"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Back up VMs Azure em um cofre de serviços de recuperação
 
 Este artigo descreve como apoiar os VMs Azure num cofre dos Serviços de Recuperação, utilizando o serviço [de backup Azure.](backup-overview.md)
 
-Neste artigo, aprende-se a:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -22,7 +22,7 @@ Neste artigo, aprende-se a:
 > * Criar um cofre.
 > * Descubra VMs e configure uma política de backup.
 > * Ative cópias de segurança para VMs Azure.
-> * Executa a cópia inicial.
+> * Execute a cópia de segurança inicial.
 
 > [!NOTE]
 > Este artigo descreve como configurar um cofre e selecionar VMs para fazer apoio. É útil se quiser esquelhá-lo em vários VMs. Em alternativa, pode [fazer o back up de um único VM Azure](backup-azure-vms-first-look-arm.md) diretamente a partir das definições VM.
@@ -41,17 +41,17 @@ Além disso, há algumas coisas que talvez precises de fazer em algumas circunst
 
  Um cofre armazena backups e pontos de recuperação criados ao longo do tempo, e armazena políticas de backup associadas a máquinas de reserva. Crie um cofre da seguinte forma:
 
-1. Inscreva-se no [portal Azure.](https://portal.azure.com/)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Em busca, digite Serviços de **Recuperação.** Em **Serviços,** clique em **cofres de Serviços**de Recuperação .
 
      ![Pesquisa de cofres de Serviços de Recuperação](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png)
 
 3. No menu dos **cofres dos Serviços de Recuperação,** clique em **+Adicionar**.
 
-     ![Criar serviços de recuperação Passo 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
+     ![Passo 2 da Criação do Cofre dos Serviços de Recuperação](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
 4. No cofre dos Serviços de **Recuperação,** escreva um nome amigável para identificar o cofre.
-    * O nome tem de ser único para a subscrição do Azure.
+    * O nome tem de ser exclusivo para a subscrição do Azure.
     * Pode conter 2 a 50 caracteres.
     * Deve começar com uma letra, e só pode conter letras, números e hífenes.
 5. Selecione a subscrição Azure, o grupo de recursos e a região geográfica em que o cofre deve ser criado. Em seguida, clique em **Criar**.
@@ -60,7 +60,7 @@ Além disso, há algumas coisas que talvez precises de fazer em algumas circunst
 
 Depois do cofre ser criado, aparece na lista de cofres dos Serviços de Recuperação. Se não vir o seu cofre, selecione **Refresh**.
 
-![Lista de cofres de reserva](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+![Lista de cofres de cópia de segurança](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 >[!NOTE]
 > O Azure Backup permite agora a personalização do nome do grupo de recursos criado pelo serviço de backup Azure. Para mais informações, consulte o grupo de [recursos Azure Backup para Máquinas Virtuais](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
@@ -78,7 +78,7 @@ Modificar o tipo de replicação do armazenamento da seguinte forma:
 2. Em **Propriedades**, sob **configuração de backup,** clique em **Atualizar**.
 3. Selecione o tipo de replicação de armazenamento e clique em **Guardar**.
 
-      ![Delineie a configuração de armazenamento para novo cofre](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+      ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 
 > [!NOTE]
    > Não pode modificar o tipo de replicação de armazenamento depois de o cofre ser configurado e conter itens de reserva. Se quiser fazer isso, precisa recriar o cofre.
@@ -149,7 +149,7 @@ O backup inicial será executado de acordo com o horário, mas você pode execut
 3. Na lista **de Itens de Backup,** clique nas elipses (...).
 4. Clique em **Backup agora**.
 5. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
-6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de abóbadas > **Backup Jobs** > **Em andamento**. Dependendo do tamanho do seu VM, a criação da cópia de segurança inicial pode demorar algum tempo.
+6. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de abóbadas > **Backup Jobs** > **Em andamento**. Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
 
 ## <a name="verify-backup-job-status"></a>Verificar o estado do trabalho de backup
 
@@ -168,10 +168,10 @@ O estatuto de trabalho pode variar dependendo dos seguintes cenários:
 
 **Instantâneo** | **Transferir dados para o cofre** | **Estatuto do Emprego**
 --- | --- | ---
-Concluído | Em curso | Em curso
-Concluído | Ignorado | Concluído
-Concluído | Concluído | Concluído
-Concluído | Falhou | Concluído com aviso
+Concluída | Em curso | Em curso
+Concluída | Ignorado | Concluída
+Concluída | Concluída | Concluída
+Concluída | Falhou | Concluído com aviso
 Falhou | Falhou | Falhou
 
 Agora, com esta capacidade, para o mesmo VM, duas cópias de segurança podem ser executadas paralelamente, mas em ambas as fases (instantâneo, dados de transferência para cofre) apenas uma sub tarefa pode estar em execução. Assim, em cenários foram um trabalho de backup em andamento resultou no backup do dia seguinte para falhar será evitado com esta funcionalidade de dissociação. As cópias de segurança do dia seguinte podem ter instantâneos concluídos enquanto os dados de **transferência para o cofre** saltaram se o trabalho de reserva de um dia anterior estiver em andamento.
@@ -185,7 +185,7 @@ O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em
 
 **VM** | **Detalhes**
 --- | ---
-**Janelas** | 1. [Descarregue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente.<br/><br/> 2. Instale com permissões de administração na máquina.<br/><br/> 3. Verifique a instalação. Em *C:\WindowsAzure\Packages* no VM, clique à direita **WaAppAgent.exe** > **Properties**. No separador **Details,** a versão do **produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a decorrer operações de backup e [reinstale o agente.](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)
+**Windows** | 1. [Descarregue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente.<br/><br/> 2. Instale com permissões de administração na máquina.<br/><br/> 3. Verifique a instalação. Em *C:\WindowsAzure\Packages* no VM, clique à direita **WaAppAgent.exe** > **Properties**. No separador **Details,** a versão do **produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a decorrer operações de backup e [reinstale o agente.](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)
 **Linux** | Instale utilizando um pacote RPM ou UM DEB do repositório de pacotes da sua distribuição. Este é o método preferido para instalar e atualizar o agente Azure Linux. Todos os fornecedores de [distribuição endossados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote de agentes Azure Linux nas suas imagens e repositórios. O agente está disponível no [GitHub,](https://github.com/Azure/WALinuxAgent)mas não recomendamos a instalação a partir daí.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a decorrer operações de backup e atualize os binários.
 
 >[!NOTE]
@@ -195,7 +195,7 @@ O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em
 >
 >**Para se inscrever na pré-estreia, escreva-nos na AskAzureBackupTeam@microsoft.com**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * Problemas de resolução de problemas com [agentes Da VM Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [backup Azure VM](backup-azure-vms-troubleshoot.md).
 * [Restaurar](backup-azure-arm-restore-vms.md) VMs azure.

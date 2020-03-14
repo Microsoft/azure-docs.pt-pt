@@ -3,12 +3,12 @@ title: Utilização de definições de diagnóstico para cofres de serviços de 
 description: Um artigo que descreve como usar os eventos de diagnóstico antigos e novos para o Azure Backup
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e3919d120e5f741af6cd30dd27e5a1dfa2b06cf2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583950"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136944"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Utilizar Definições de Diagnóstico para os Cofres dos Serviços de Recuperação
 
@@ -56,7 +56,9 @@ Uma vez que os dados fluem para o Espaço de Trabalho de LA, tabelas dedicadas p
 
 Tradicionalmente, todos os dados de diagnóstico relacionados com a cópia de segurança de um cofre foram contidos num único evento chamado 'AzureBackupReport'. Os seis eventos acima descritos são, na sua essência, uma decomposição de todos os dados contidos no AzureBackupReport. 
 
-Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibilidade, nos casos em que os utilizadores têm consultas personalizadas existentes neste evento, por exemplo, alertas de registo personalizados, visualizações personalizadas, etc. No entanto, recomendamos a escolha dos novos eventos para todas as novas definições de diagnóstico no cofre, uma vez que isso torna os dados muito mais fáceis de trabalhar em consultas de registo, proporciona uma melhor descoberta dos schemas e da sua estrutura, melhora o desempenho em ambas as ingesing latência e tempos de consulta. O suporte para a utilização do modo Dediagnóstico Azure acabará por ser eliminado gradualmente e, portanto, a escolha dos novos eventos poderá ajudá-lo a evitar migrações complexas numa data posterior.
+Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibilidade, nos casos em que os utilizadores têm consultas personalizadas existentes neste evento, por exemplo, alertas de registo personalizados, visualizações personalizadas, etc. No entanto, **recomendamos a mudança para os novos eventos o mais cedo possível,** uma vez que isso torna os dados muito mais fáceis de trabalhar em consultas de registo, proporciona uma melhor descoberta dos schemas e da sua estrutura, melhorando o desempenho tanto em termos de latência de ingestão como de tempos de consulta. **O suporte para a utilização do modo Dediagnóstico Azure acabará por ser eliminado gradualmente e, portanto, a escolha dos novos eventos poderá ajudá-lo a evitar migrações complexas numa data posterior**.
+
+Utilize a política incorporada da Azure Backup para adicionar uma nova definição de diagnóstico com os 6 novos eventos, para todos os seus cofres num âmbito especificado: [Configurar definições](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) de diagnóstico de cofre em escala
 
 Pode optar por criar configurações de diagnóstico separadas para o AzureBackupReport e os seis novos eventos, até que tenha migrado todas as suas consultas personalizadas para utilizar dados das novas tabelas. A imagem abaixo mostra um exemplo de um cofre com duas configurações de diagnóstico. A primeira definição, denominada **Setting1** envia dados do evento AzureBackupReport para um espaço de trabalho de LA no modo AzureDiagnostics. A segunda definição, denominada **Setting2** envia dados dos seis novos eventos de backup Azure para um espaço de trabalho de LA no modo Específico de Recursos.
 
@@ -84,6 +86,6 @@ A imagem abaixo mostra um exemplo de um utilizador com três configurações de 
 
 ![Três Configurações](./media/backup-azure-diagnostics-events/three-settings-example.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Conheça o Modelo de Dados de Análise de Log para os Eventos de Diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

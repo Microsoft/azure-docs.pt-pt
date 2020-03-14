@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 209ed755a7ef83b67170ef75911f93cdda742caa
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283527"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368201"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar alvos de cálculo para formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -154,15 +154,30 @@ Utilize a Máquina Virtual de Ciência de Dados Azure (DSVM) como o Azure VM de 
 
 1. **Anexar**: Para fixar uma máquina virtual existente como alvo de cálculo, deve fornecer o nome de domínio totalmente qualificado (FQDN), nome do utilizador e palavra-passe para a máquina virtual. No exemplo, substitua \<fqdn> com o Público FQDN do VM, ou o endereço IP público. Substitua \<username> e \<password> com o nome de utilizador sSH e palavra-passe para o VM.
 
+    > [!IMPORTANT]
+    > As seguintes regiões azure não suportam a fixação de uma máquina virtual utilizando o endereço IP público do VM. Em vez disso, utilize o ID do Gestor de Recursos Azure do VM com o parâmetro `resource_id`:
+    >
+    > * E.U.A Leste
+    > * E.U.A. Oeste 2
+    > * E.U.A. Centro-Sul
+    >
+    > O ID de recurso do VM pode ser construído utilizando o ID de subscrição, o nome do grupo de recursos e o nome VM utilizando o seguinte formato de cadeia: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -198,6 +213,15 @@ O Azure HDInsight é uma plataforma popular para análise de big data. A platafo
 
 1. **Anexar:** Para fixar um cluster HDInsight como um alvo de cálculo, deve fornecer o nome de anfitrião, o nome do utilizador e a palavra-passe para o cluster HDInsight. O exemplo seguinte utiliza o SDK para anexar um cluster a sua área de trabalho. No exemplo, substitua \<clustername> com o nome do seu cluster. Substitua \<username> e \<password> com o nome de utilizador sSH e palavra-passe para o cluster.
 
+    > [!IMPORTANT]
+    > As seguintes regiões azure não suportam a fixação de um cluster HDInsight utilizando o endereço IP público do cluster. Em vez disso, utilize o ID do Gestor de Recursos Azure do cluster com o parâmetro `resource_id`:
+    >
+    > * E.U.A Leste
+    > * E.U.A. Oeste 2
+    > * E.U.A. Centro-Sul
+    >
+    > O ID de recurso do cluster pode ser construído utilizando o ID de subscrição, o nome do grupo de recursos e o nome do cluster utilizando o seguinte formato de cadeia: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -208,6 +232,11 @@ O Azure HDInsight é uma plataforma popular para análise de big data. A platafo
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -234,9 +263,9 @@ O Lote Azure é utilizado para executar aplicações de computação paralela e 
 
 Para anexar o Lote Azure como um alvo de cálculo, deve utilizar o Azure Machine Learning SDK e fornecer as seguintes informações:
 
--   **Nome da computação Azure Batch**: Um nome amigável a ser usado para a computação dentro do espaço de trabalho
--   Nome da **conta Azure Batch**: O nome da conta Do Lote Azure
--   **Grupo de Recursos**: O grupo de recursos que contém a conta Do Lote Azure.
+-    **Nome da computação Azure Batch**: Um nome amigável a ser usado para a computação dentro do espaço de trabalho
+-    Nome da **conta Azure Batch**: O nome da conta Do Lote Azure
+-    **Grupo de Recursos**: O grupo de recursos que contém a conta Do Lote Azure.
 
 O seguinte código demonstra como anexar o Lote Azure como um alvo de cálculo:
 

@@ -8,11 +8,11 @@ ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365422"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275467"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -31,7 +31,7 @@ Para obter uma descrição geral prática sobre como utilizar a solução de an�
 
 O Azure SQL Analytics é uma solução de monitorização apenas em nuvem que suporta o streaming de telemetria de diagnósticos para todas as suas bases de dados Azure SQL. Uma vez que o Azure SQL Analytics não utiliza agentes para se ligar ao Monitor Azure, não suporta a monitorização do SQL Server hospedado no local ou em máquinas virtuais.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | [Definições de diagnóstico](../platform/diagnostic-settings.md) | **Sim** | Os dados métricos e de registo do Azure são enviados diretamente para o Azure Monitor Logs. |
 | [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | O Monitor Azure não lê os dados de uma conta de armazenamento. |
@@ -292,7 +292,7 @@ AzureDiagnostics
 
 Embora o Azure SQL Analytics seja livre de usar, aplica-se o consumo de telemetria de diagnósticoacima das unidades gratuitas de ingestão de dados atribuídas todos os meses, ver [preços de Log Analytics.](https://azure.microsoft.com/pricing/details/monitor) As unidades gratuitas de ingestão de dados fornecido ativar gratuita monitorização de vários bancos de dados por mês. Bases de dados mais ativas com cargas de trabalho mais pesadas ingebem mais dados versus bases de dados inativas. Pode monitorizar facilmente o seu consumo de ingestão de dados no Azure SQL Analytics selecionando o Workspace OMS no menu de navegação do Azure SQL Analytics e, em seguida, selecionando o Uso e Custos Estimados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Utilize consultas de [registo](../log-query/log-query-overview.md) no Monitor Azure para visualizar dados detalhados do Azure SQL.
 - [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) mostrando dados Azure SQL.

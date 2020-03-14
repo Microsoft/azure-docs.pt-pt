@@ -10,18 +10,20 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894532"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365373"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e falha na conta (pré-visualização)
 
 A Microsoft esforça-se por garantir que os serviços Do Azure estão sempre disponíveis. No entanto, podem ocorrer interrupções de serviço não planeadas. Se a sua aplicação necessitar de resiliência, a Microsoft recomenda a utilização de armazenamento geo-redundante, para que os seus dados sejam copiados para uma segunda região. Além disso, os clientes devem ter um plano de recuperação de desastres em vigor para lidar com uma interrupção do serviço regional. Uma parte importante de um plano de recuperação de desastres está a preparar-se para falhar até ao ponto final secundário no caso de o ponto final principal ficar indisponível.
 
 O Azure Storage suporta a falha da conta (pré-visualização) para contas de armazenamento georedundantes. Com o failover da conta, pode iniciar o processo de failover para a sua conta de armazenamento se o ponto final principal ficar indisponível. O failover atualiza o ponto final secundário para se tornar o ponto final principal da sua conta de armazenamento. Uma vez concluída a falha, os clientes podem começar a escrever para o novo ponto final primário.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Este artigo descreve os conceitos e processos envolvidos com uma falha de conta e discute como preparar a sua conta de armazenamento para recuperação com o menor impacto do cliente. Para aprender a iniciar uma falha de conta no portal Azure ou powerShell, consulte Iniciar uma falha de [conta (pré-visualização)](storage-initiate-account-failover.md).
 
@@ -124,7 +126,7 @@ Reveja as considerações adicionais descritas nesta secção para entender como
 
 #### <a name="storage-account-containing-archived-blobs"></a>Conta de armazenamento contendo bolhas arquivadas
 
-Contas de armazenamento contendo blobs arquivados suportam falha na conta. Uma vez concluída a falha, para converter a conta de volta a GRS ou RA-GRS, todas as bolhas archieved precisam de ser rehidratadas a um nível online primeiro.
+Contas de armazenamento contendo blobs arquivados suportam falha na conta. Uma vez concluída a falha, para converter a conta de volta a GRS ou RA-GRS todas as bolhas arquivadas precisam de ser rehidratadas a um nível online primeiro.
 
 #### <a name="storage-resource-provider"></a>Fornecedor de recursos de armazenamento
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913247"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136855"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Crie a sua primeira função Azure com Java e IntelliJ
 
@@ -46,7 +46,7 @@ Para desenvolver uma função com a Java e a IntelliJ, instale o seguinte softwa
 1. Na janela **Add Archetype,** complete os campos da seguinte forma:
     - _GroupId_: com.microsoft.azure
     - _ArtefactoId_: azure-functions-archetype
-    - _Versão_: Utilize a versão mais recente **1.22** [do repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - _Versão_: Verifique e utilize a versão mais recente [do repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Criar um projeto Maven a partir do arquétipo no IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selecione **OK**, e, em seguida, selecione **Next**.
 1. Insira os seus dados para o projeto atual e selecione **Terminar**.
@@ -107,7 +107,7 @@ A Maven cria os ficheiros do projeto numa nova pasta com o mesmo nome do valor _
    [INFO] ------------------------------------------------------------------------
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja o [Guia para programadores das Funções do Java](functions-reference-java.md) para obter mais informações sobre a programação de funções do Java.
 - Adicione funções adicionais com diferentes gatilhos ao seu projeto utilizando o `azure-functions:add` alvo Maven.

@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389699"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272087"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o caderno Jupyter em clusters Apache Spark em Azure HDInsight
 
@@ -71,12 +71,12 @@ Aqui estão alguns benefícios de usar os novos núcleos com o caderno Jupyter n
 
    | Magia | Exemplo | Descrição |
    | --- | --- | --- |
-   | Obter ajuda |`%%help` |Gera uma tabela de todas as magias disponíveis com exemplo e descrição |
+   | ajuda |`%%help` |Gera uma tabela de todas as magias disponíveis com exemplo e descrição |
    | info |`%%info` |Informações da sessão de saídas para o atual ponto final da Livy |
    | configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Refigura os parâmetros para a criação de uma sessão. A bandeira de força (-f) é obrigatória se já tiver sido criada uma sessão, o que garante que a sessão seja retirada e recriada. Veja o [Post/Sessões da Livy Request Body](https://github.com/cloudera/livy#request-body) para uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma corda JSON e devem estar na linha seguinte após a magia, como mostra a coluna de exemplo. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o kontext sqlContext. Se o parâmetro `-o` for aprovado, o resultado da consulta é persistente no contexto %%local python como um quadro de dados [pandas.](https://pandas.pydata.org/) |
    | local |`%%local`<br>`a=1` |Todo o código nas linhas seguintes é executado localmente. O código deve ser válido, mesmo independentemente do núcleo que está a usar. Assim, mesmo que tenha selecionado os kernels **PySpark3** ou **Spark** enquanto cria o caderno, se utilizar a magia `%%local` numa célula, essa célula só deve ter um código Python2 válido. |
-   | registos |`%%logs` |Produz os registos para a atual sessão da Livy. |
+   | logs |`%%logs` |Produz os registos para a atual sessão da Livy. |
    | delete |`%%delete -f -s <session number>` |Elimina uma sessão específica do atual ponto final da Livy. Não é possível apagar a sessão que é iniciada para o próprio núcleo. |
    | limpeza |`%%cleanup -f` |Elimina todas as sessões para o atual ponto final da Livy, incluindo a sessão deste caderno. A bandeira da força f é obrigatória. |
 

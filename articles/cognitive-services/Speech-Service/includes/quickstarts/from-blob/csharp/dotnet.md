@@ -2,14 +2,14 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 03/12/2020
 ms.author: dapine
-ms.openlocfilehash: 9404818142fdde109bfa89d54b9287108352f132
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 230a2328a2d03d2167cb1312eb2f02d4b2cedd64
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932697"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79296325"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,8 +63,9 @@ class Program
  
     static async Task Main()
     {
-        // For non-Windows 10 users.
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+        // Cognitive Services follows security best practices.
+        // If you experience connectivity issues, see:
+        // https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls
  
         await TranscribeAsync();
     }
@@ -554,6 +555,6 @@ Agora está pronto para construir a sua app e testar o nosso reconhecimento de v
 2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Começar dedepuração** ou prima **F5**.
 3. **Comece a reconhecer** - Vai instá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço da Fala, transcrito como texto, e renderizado na consola.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [footer](./footer.md)]

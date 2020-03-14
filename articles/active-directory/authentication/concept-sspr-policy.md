@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376948"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263936"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de password sinuosas no Diretório Ativo do Azure
 
@@ -158,7 +158,7 @@ Para começar, precisa [de descarregar e instalar o módulo PowerShell Da AD Azu
    > [!WARNING]
    > As palavras-passe definidas para `-PasswordPolicies DisablePasswordExpiration` ainda envelhecem com base no atributo `pwdLastSet`. Se definir as palavras-passe do utilizador para nunca expirar e, em seguida, mais de 90 dias passarem, as palavras-passe expiram. Com base no atributo `pwdLastSet`, se alterar a expiração para `-PasswordPolicies None`, todas as palavras-passe com uma `pwdLastSet` com mais de 90 dias exigem que o utilizador as altere da próxima vez que iniciar a sua inscrição. Esta alteração pode afetar um grande número de utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os seguintes artigos fornecem informações adicionais sobre o reset de palavra-passe através do Azure AD:
 

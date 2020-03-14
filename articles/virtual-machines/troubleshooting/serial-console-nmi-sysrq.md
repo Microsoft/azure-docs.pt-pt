@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393525"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250091"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utilize consola em série para chamadas SysRq e NMI
 
@@ -127,7 +127,7 @@ Para obter mais informações sobre as configurações do kernel linux, incluind
 ### <a name="coreos"></a>CoreOS
 - [Recolha de registos de colisão](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * A página principal de documentação do Linux da Consola Em Série está localizada [aqui.](serial-console-linux.md)
 * Utilize a Consola de Série para iniciar o [GRUB e introduzir o modo de utilizador único](serial-console-grub-single-user-mode.md)
 * A Consola em Série também está disponível para [VMs do Windows](serial-console-windows.md)

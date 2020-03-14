@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c1af4b0dac4b50e01b62b02f606be9fdd89d2ad1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278886"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367334"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Autoria gráfica em Automação Azure
 
@@ -21,7 +21,7 @@ A autoria gráfica permite-lhe criar livros de execução para a Automação Azu
 
 ## <a name="graphical-runbooks"></a>Livros gráficos
 
-Todos os livros de execução da Azure Automation são fluxos de trabalho do Windows PowerShell. Os livros gráficos e os livros de execução gráficopower Workflow geram código PowerShell que os trabalhadores da Automação executam, mas que não pode ver ou modificar. Pode converter um livro de execução gráfico para um livro de execução gráfico powerShell Workflow e vice-versa. No entanto, não é possível converter estes livros de execução num livro textual. Além disso, o editor gráfico da Automação não pode importar um livro textual.
+Todos os livros de execução da Azure Automation são fluxos de trabalho do Windows PowerShell. Os livros gráficos e os livros de execução gráficopower Workflow geram código PowerShell que os trabalhadores da Automação executam, mas que não pode ver ou modificar. Pode converter um livro de execução gráfico num livro de execução gráfico powerShell Workflow e vice-versa. No entanto, não é possível converter estes livros de execução num livro textual. Além disso, o editor gráfico da Automação não pode importar um livro textual.
 
 ## <a name="overview-of-graphical-editor"></a>Visão geral do editor gráfico
 
@@ -72,7 +72,7 @@ No exemplo seguinte, o cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/m
 
 #### <a name="parameter-values"></a>Valores dos parâmetros
 
-Quando especifica um valor para um parâmetro, seleciona uma fonte de dados para determinar como o valor é especificado. As fontes de dados disponíveis para um parâmetro específico dependem dos valores válidos para esse parâmetro. Por exemplo, a **Null** não é uma opção disponível para um parâmetro que não permite valores nulos.
+Quando especifica um valor para um parâmetro, seleciona uma fonte de dados para determinar como o valor é especificado. As fontes de dados disponíveis para um parâmetro específico dependem dos valores válidos para esse parâmetro. Por exemplo, a Null não é uma opção disponível para um parâmetro que não permite valores nulos.
 
 | Origem de Dados | Descrição |
 |:--- |:--- |
@@ -88,7 +88,7 @@ Quando especifica um valor para um parâmetro, seleciona uma fonte de dados para
 
 #### <a name="optional-additional-parameters"></a>Parâmetros adicionais opcionais
 
-Todos os cmdlets têm a opção de fornecer parâmetros adicionais. Estes são parâmetros comuns powerShell ou outros parâmetros personalizados. O editor gráfico apresenta uma caixa de texto onde pode fornecer parâmetros usando a sintaxe PowerShell. Por exemplo, para utilizar o parâmetro comum *Verbose,* deve especificar `-Verbose:$True`.
+Todos os cmdlets têm a opção de fornecer parâmetros adicionais. Estes são parâmetros comuns powerShell ou outros parâmetros personalizados. O editor gráfico apresenta uma caixa de texto onde pode fornecer parâmetros usando a sintaxe PowerShell. Por exemplo, para utilizar o parâmetro `Verbose` comum, deve especificar `-Verbose:$True`.
 
 ### <a name="retry-activity"></a>Atividade de retry
 
@@ -102,14 +102,14 @@ A condição de retry é uma expressão PowerShell que é avaliada após cada ve
 
 ![Atraso de retry da atividade](media/automation-graphical-authoring-intro/retry-condition.png)
 
-A condição de retry pode usar uma variável chamada *RetryData* que fornece acesso à informação sobre as repetições da atividade. Esta variável tem as propriedades na tabela seguinte:
+A condição de retry pode usar uma variável chamada `RetryData` que fornece acesso à informação sobre as repetições da atividade. Esta variável tem as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| NumberOfAttempts |Número de vezes que a atividade foi executada. |
-| Saída |Saída da última execução da atividade. |
-| TotalDuration |O tempo decorrido desde que a atividade começou da primeira vez. |
-| Começat |Tempo (em formato UTC) quando a atividade foi iniciada pela primeira vez. |
+| `NumberOfAttempts` |Número de vezes que a atividade foi executada. |
+| `Output` |Saída da última execução da atividade. |
+| `TotalDuration` |O tempo decorrido desde que a atividade começou da primeira vez. |
+| `StartedAt` |Tempo (em formato UTC) quando a atividade foi iniciada pela primeira vez. |
 
 Seguem-se exemplos de condições de retry de atividade.
 
@@ -136,7 +136,7 @@ Depois de configurar uma condição de retry para uma atividade, a atividade inc
 
 Um controlo de script de fluxo de trabalho é uma atividade especial que aceita o powerShell ou o script powerShell Workflow, dependendo do tipo de livro gráfico que está sendo da autoria. Este controlo fornece uma funcionalidade que pode não estar disponível por outros meios. Não pode aceitar parâmetros, mas pode usar variáveis para a saída de atividade e parâmetros de entrada de caderneta. Qualquer saída da atividade é adicionada ao databus. Uma exceção é a saída sem ligação de saída, caso em que a saída é adicionada à saída do livro de execução.
 
-Por exemplo, o código seguinte executa cálculos de data utilizando uma variável de entrada de livro de execução chamada *NumberOfDays*. Em seguida, envia um valor datatime calculado como saída a ser utilizado por atividades subsequentes no livro de execução.
+Por exemplo, o código seguinte executa cálculos de data utilizando uma variável de entrada de livro de execução chamada `NumberOfDays`. Em seguida, envia um valor datatime calculado como saída a ser utilizado por atividades subsequentes no livro de execução.
 
 ```powershell-interactive
 $DateTimeNow = (Get-Date).ToUniversalTime()
@@ -167,9 +167,9 @@ Um livro de execução gráfico começa com quaisquer atividades que não tenham
 
 ### <a name="link-conditions"></a>Condições de ligação
 
-Quando especifica uma condição num link, a atividade de destino só funciona se a condição resolver com True. Normalmente, utiliza-se uma variável *ActivityOutput* em condições para recuperar a saída da atividade de origem.
+Quando especifica uma condição num link, a atividade de destino só funciona se a condição resolver com True. Normalmente, utiliza-se uma variável `ActivityOutput` em condições para recuperar a saída da atividade de origem.
 
-Para uma ligação de gasoduto, deve especificar uma condição para um único objeto. O livro de execução avalia a condição para cada saída de objeto pela atividade de origem. Em seguida, executa a atividade de destino para cada objeto que satisfaz a condição. Por exemplo, com uma atividade de origem do **Get-AzVM,** pode utilizar a seguinte sintaxe para uma ligação de gasoduto condicional para recuperar apenas máquinas virtuais no grupo de recursos chamado Grupo 1.
+Para uma ligação de gasoduto, deve especificar uma condição para um único objeto. O livro de execução avalia a condição para cada saída de objeto pela atividade de origem. Em seguida, executa a atividade de destino para cada objeto que satisfaz a condição. Por exemplo, com uma atividade de origem de `Get-AzVM`, pode utilizar a seguinte sintaxe para uma ligação de gasoduto condicional para recuperar apenas máquinas virtuais no grupo de recursos chamado Grupo 1.
 
 ```powershell-interactive
 $ActivityOutput['Get Azure VMs'].Name -match "Group1"
@@ -181,7 +181,7 @@ Por exemplo, tome o seguinte conjunto de atividades no nosso livro de **execuç�
 
 ![Ligação Condicional com Sequências](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)
 
-O livro de execução utiliza três ligações de sequência diferentes que verificam valores dos parâmetros de entrada *VMName* e *ResourceGroupName* para determinar as medidas apropriadas a tomar. As possíveis ações são iniciar um único VM, iniciar todos os VMs no grupo de recursos, ou iniciar todos os VMs numa subscrição. Para a ligação de sequência entre **Ligar a Azure** e **Obter um VM único,** aqui está a lógica da condição:
+O livro de execução utiliza três ligações de sequência diferentes que verificam os valores dos parâmetros de entrada `VMName` e `ResourceGroupName` para determinar as medidas adequadas a tomar. As possíveis ações são iniciar um único VM, iniciar todos os VMs no grupo de recursos, ou iniciar todos os VMs numa subscrição. Para a ligação de sequência entre `Connect to Azure` e `Get single VM`, aqui está a lógica da condição:
 
 ```powershell-interactive
 <#
@@ -196,11 +196,11 @@ Both VMName and ResourceGroupName runbook input parameters have values
 
 Quando utiliza um link condicional, os dados disponíveis da atividade de origem para outras atividades nesse ramo são filtrados pela circunstância. Se uma atividade for a fonte de múltiplas ligações, os dados disponíveis para atividades em cada ramo dependem da condição na ligação que liga a esse ramo.
 
-Por exemplo, a atividade **Start-AzVM** no livro de execução abaixo inicia todas as máquinas virtuais. Tem dois links condicional. A primeira ligação condicional utiliza a expressão `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` filtrar se a atividade **Start-AzVM** terminar com sucesso. A segunda ligação condicional utiliza a expressão `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true` para filtrar se a atividade **Start-AzVm** não conseguir ligar a máquina virtual.
+Por exemplo, a `Start-AzVM` atividade no livro de execução abaixo inicia todas as máquinas virtuais. Tem dois links condicional. A primeira ligação condicional utiliza a expressão `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` para filtrar se a atividade `Start-AzVM` completar com sucesso. A segunda ligação condicional utiliza a expressão `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true` filtrar se a atividade `Start-AzVm` não conseguir ligar a máquina virtual.
 
 ![Exemplo de ligação condicional](media/automation-graphical-authoring-intro/runbook-conditional-links.png)
 
-Qualquer atividade que siga o primeiro link e utilize a saída de atividade do **Get-AzureVM** apenas recupera as máquinas virtuais que foram iniciadas no momento em que o **Get-AzureVM** foi executado. Qualquer atividade que siga o segundo link só recebe as máquinas virtuais que foram paradas no momento em que o **Get-AzureVM** foi executado. Qualquer atividade que seguem o terceiro link obtém todas as máquinas virtuais, independentemente do seu estado de funcionamento.
+Qualquer atividade que siga o primeiro link e utilize a saída de atividade a partir de `Get-AzureVM` apenas recupera as máquinas virtuais que foram iniciadas no momento em que `Get-AzureVM` foi executado. Qualquer atividade que siga o segundo link só recebe as máquinas virtuais que foram paradas no momento em que `Get-AzureVM` foi executado. Qualquer atividade que seguem o terceiro link obtém todas as máquinas virtuais, independentemente do seu estado de funcionamento.
 
 ### <a name="junctions"></a>Junções
 
@@ -232,7 +232,7 @@ O primeiro mecanismo utiliza uma fonte de dados de saída de atividade para povo
 
 ![produção de atividade](media/automation-graphical-authoring-intro/activity-output-datasource-revised20165.png)
 
-O segundo mecanismo de acesso a dados recupera a saída de uma atividade numa fonte de dados de expressão PowerShell ou numa atividade de script de fluxo de trabalho com uma variável *ActivityOutput,* utilizando a sintaxe mostrada abaixo. Se a saída for um objeto, o seu livro de execução pode especificar uma única propriedade.
+O segundo mecanismo de acesso a dados recupera a saída de uma atividade numa fonte de dados de expressão PowerShell ou numa atividade de script de fluxo de trabalho com uma variável `ActivityOutput`, utilizando a sintaxe mostrada abaixo. Se a saída for um objeto, o seu livro de execução pode especificar uma única propriedade.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label']
@@ -245,7 +245,7 @@ Pode definir [pontos](automation-powershell-workflow.md#checkpoints) de verifica
 
 ![Check Point](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-Os postos de controlo só estão ativados em livros de execução gráficos powerShell Workflow, e não estão disponíveis em livros gráficos. Se o livro de execução utilizar cmdlets Azure, deve seguir qualquer atividade checkpointada com uma atividade **Connect-AzAccount.** A operação de ligação é utilizada no caso de o livro de execução ser suspenso e deve reiniciar a partir deste posto de controlo num trabalhador diferente.
+Os postos de controlo só estão ativados em livros de execução gráficos powerShell Workflow, e não estão disponíveis em livros gráficos. Se o livro de execução utilizar cmdlets Azure, deve seguir qualquer atividade de checkpoint com uma atividade `Connect-AzAccount`. A operação de ligação é utilizada no caso de o livro de execução ser suspenso e deve reiniciar a partir deste posto de controlo num trabalhador diferente.
 
 ## <a name="runbook-input-and-output"></a>Entrada e saída do livro de execução
 
@@ -255,7 +255,7 @@ Um livro de execução requer a entrada de um utilizador que inicia o livro atra
 
 O livro de execução aceita a entrada definindo um ou mais parâmetros de entrada. O utilizador fornece valores para estes parâmetros sempre que o livro de execução começa. Quando o utilizador inicia o livro de execução utilizando o portal Azure, o utilizador é solicitado a fornecer valores para cada parâmetro de entrada suportado pelo livro de execução.
 
-Ao autorizar o seu livro de execução, pode aceder aos seus parâmetros de entrada clicando no botão **de entrada e saída** na barra de ferramentas do livro de execução. Isto abre o controlo de entrada e saída onde pode editar um parâmetro de entrada existente ou criar um novo clicando **em Adicionar entrada**.
+Ao autorizar o seu livro de execução, pode aceder aos seus parâmetros de entrada clicando em **Entrada e saída** na barra de ferramentas do livro de execução. Isto abre o controlo de entrada e saída onde pode editar um parâmetro de entrada existente ou criar um novo clicando **em Adicionar entrada**.
 
 ![Adicionar entrada](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -266,8 +266,8 @@ Cada parâmetro de entrada é definido pelas propriedades do quadro seguinte:
 | Nome | Necessário. O nome do parâmetro. O nome deve ser único dentro do livro de execução. Deve começar com uma letra e pode conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
 | Descrição |Opcional. Descrição do propósito para o parâmetro de entrada. |
 | Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O portal Azure fornece um controlo adequado para o tipo de dados para cada parâmetro quando solicita a entrada. Os tipos de parâmetros suportados são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dados não for selecionado, não se leciona a String.|
-| Obrigatório | Opcional. A definição especifica se deve ser previsto um valor para o parâmetro. Se escolher **sim,** deve ser fornecido um valor quando o livro de execução for iniciado. Se escolher **não,** não é necessário um valor quando o livro de execução é iniciado, e um valor predefinido pode ser usado. O livro de execução não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor predefinido. |
-| Default Value | Opcional. O valor utilizado para um parâmetro se não for passado quando o livro de execução é iniciado. Para definir um valor predefinido, escolha **Custom**. Selecione **Nenhum** se não quiser fornecer qualquer valor predefinido. |
+| Obrigatório | Opcional. A definição especifica se deve ser previsto um valor para o parâmetro. Se escolher `yes`, deve ser fornecido um valor quando o livro de execução for iniciado. Se escolher `no`, não é necessário um valor quando o livro de execução é iniciado, e um valor predefinido pode ser usado. O livro de execução não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor predefinido. |
+| Default Value | Opcional. O valor utilizado para um parâmetro se não for passado quando o livro de execução é iniciado. Para definir um valor predefinido, escolha `Custom`. Selecione `None` se não quiser fornecer qualquer valor predefinido. |
 
 ### <a name="runbook-output"></a>Resultado do runbook
 
@@ -304,7 +304,7 @@ else { "Weekday" }
 
 ### <a name="activity-output"></a>produção de atividade
 
-Para utilizar a saída de uma atividade anterior no seu livro de execução, utilize a variável *ActivityOutput* com a seguinte sintaxe.
+Para utilizar a saída de uma atividade anterior no seu livro de execução, utilize a variável `ActivityOutput` com a seguinte sintaxe.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label'].PropertyName
@@ -332,7 +332,7 @@ O livro de execução pode utilizar a saída de uma atividade numa expressão ma
 
 Utilize [operadores de comparação](https://technet.microsoft.com/library/hh847759.aspx) para comparar valores ou determinar se um valor corresponde a um padrão especificado. Uma comparação devolve um valor de verdade ou falso.
 
-Por exemplo, a seguinte condição determina se a máquina virtual de uma atividade chamada **Get-AzureVM** está atualmente parada.
+Por exemplo, a seguinte condição determina se a máquina virtual de uma atividade chamada `Get-AzureVM` está atualmente parada.
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
@@ -344,7 +344,7 @@ A seguinte condição determina se a mesma máquina virtual está em qualquer es
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-Pode juntar várias condições no seu livro de execução utilizando um [operador lógico](https://technet.microsoft.com/library/hh847789.aspx), como **- e** - ou - **ou**. Por exemplo, as seguintes verificações de condição para ver se a máquina virtual no exemplo anterior está em estado de **paragem** ou **paragem**.
+Pode juntar várias condições no seu livro de execução utilizando um [operador lógico](https://technet.microsoft.com/library/hh847789.aspx), como `-and` ou `-or`. Por exemplo, a condição seguinte verifica para ver se a máquina virtual no exemplo anterior está em estado de paragem ou paragem.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -369,7 +369,7 @@ $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
 $h
 ```
 
-O exemplo seguinte utiliza a saída de uma atividade chamada **Get Twitter Connection** para povoar um hashtable.
+O exemplo seguinte utiliza a saída de uma atividade chamada `Get Twitter Connection` para povoar um hashtable.
 
 ```powershell-interactive
 @{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
@@ -380,30 +380,30 @@ O exemplo seguinte utiliza a saída de uma atividade chamada **Get Twitter Conne
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticação aos recursos do Azure
 
-Os livros de execução da Azure Automation que gerem os recursos do Azure exigem a autenticação ao Azure. A [conta Run As](automation-create-runas-account.md), também referida como um principal de serviço, é o mecanismo padrão que um livro de execução da Automação utiliza para aceder aos recursos do Gestor de Recursos Azure na sua subscrição. Pode adicionar esta funcionalidade a um livro de execução gráfico adicionando o ativo de ligação **AzureRunAsConnection,** que utiliza o cmdlet PowerShell [Get-AutomationConnection,](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) à tela. Também pode adicionar o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Este cenário é ilustrado no seguinte exemplo.
+Os livros de execução da Azure Automation que gerem os recursos do Azure exigem a autenticação ao Azure. A [conta Run As](automation-create-runas-account.md), também referida como um principal de serviço, é o mecanismo padrão que um livro de execução da Automação utiliza para aceder aos recursos do Gestor de Recursos Azure na sua subscrição. Pode adicionar esta funcionalidade a um livro de execução gráfico adicionando o `AzureRunAsConnection` ativo de ligação, que utiliza o cmdlet PowerShell [Get-AutomationConnection,](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) à tela. Também pode adicionar o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Este cenário é ilustrado no seguinte exemplo.
 
 ![Executar como atividades de autenticação](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
-A **atividade Get Run As Connection**, ou **Get-AutomationConnection**, está configurada com uma fonte de dados de valor constante chamada **AzureRunAsConnection**.
+A atividade `Get Run As Connection`, ou `Get-AutomationConnection`, é configurada com uma fonte de dados de valor constante chamada `AzureRunAsConnection`.
 
 ![Executar como configuração de ligação](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
 
-A próxima atividade, **Connect-AzAccount,** adiciona o Run autenticado Como conta para utilização no livro de execução.
+A próxima atividade, `Connect-AzAccount`, adiciona o Run autenticado Como conta para utilização no livro de execução.
 
 ![Conjunto de parâmetros Connect-AzAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 >[!NOTE]
->Para os livros de execução PowerShell, **Add-AzAccount** e **Add-AzureRMAccount** são pseudónimos de **Connect-AzAccount**. Note que estes pseudónimos não estão disponíveis para os seus livros gráficos. Um livro de execução gráfico só pode usar o **próprio Connect-AzAccount.**
+>Para os livros de execução powerShell, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para `Connect-AzAccount`. Note que estes pseudónimos não estão disponíveis para os seus livros gráficos. Um livro gráfico só pode usar `Connect-AzAccount` si mesmo.
 
-Para os campos de parâmetros, **APPLICATIONID,** **CERTIFICATETHUMBPRINT,** e **TENANTID,** especifique o nome da propriedade para o caminho de Campo, uma vez que a atividade produz um objeto com múltiplas propriedades. Caso contrário, quando o livro de execução executa, falha ao tentar autenticar. Isto é o que você precisa no mínimo para autenticar o seu livro de execução com a conta Run As.
+Para os campos de **parâmetros APPLICATIONID,** **CERTIFICATETHUMBPRINT,** e **TENANTID,** especifique o nome da propriedade para o caminho de Campo, uma vez que a atividade produz um objeto com múltiplas propriedades. Caso contrário, quando o livro de execução executa, falha ao tentar autenticar. Isto é o que você precisa no mínimo para autenticar o seu livro de execução com a conta Run As.
 
-Alguns subscritores criam uma conta De automação utilizando uma conta de utilizador da [Azure AD](automation-create-aduser-account.md) para gerir a implantação clássica do Azure ou para os recursos do Gestor de Recursos Azure. Para manter a compatibilidade retrógrada para estes assinantes, o mecanismo de autenticação a utilizar no seu livro de execução é o cmdlet **Add-AzureAccount** com um [ativo credencial](automation-credentials.md). O ativo representa um utilizador do Ative Directy com acesso à conta Azure.
+Alguns subscritores criam uma conta De automação utilizando uma conta de utilizador da [Azure AD](automation-create-aduser-account.md) para gerir a implantação clássica do Azure ou para os recursos do Gestor de Recursos Azure. Para manter a retrocompatibilidade para estes assinantes, o mecanismo de autenticação a utilizar no seu livro de execução é o `Add-AzureAccount` cmdlet com um [ativo credencial](automation-credentials.md). O ativo representa um utilizador do Ative Directy com acesso à conta Azure.
 
-Pode ativar esta funcionalidade para o seu rumbook gráfico adicionando um ativo credencial à tela, seguido de uma atividade **Add-AzureAccount** que utiliza o ativo credencial para a sua entrada. Veja o seguinte exemplo.
+Pode ativar esta funcionalidade para o seu rsido gráfico adicionando um ativo credencial à tela, seguido de uma atividade `Add-AzureAccount` que utiliza o ativo credencial para a sua entrada. Veja o seguinte exemplo.
 
 ![Atividades de autenticação](media/automation-graphical-authoring-intro/authentication-activities.png)
 
-O livro de execução deve autenticar no seu início e após cada ponto de verificação. Assim, deve utilizar uma atividade **Add-AzureAccount** após qualquer atividade de **Checkpoint-Workflow.** Não precisa de usar uma atividade de credencial adicional.
+O livro de execução deve autenticar no seu início e após cada ponto de verificação. Assim, deve utilizar uma atividade `Add-AzureAccount` após qualquer `Checkpoint-Workflow` atividade. Não precisa de usar uma atividade de credencial adicional.
 
 ![produção de atividade](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 

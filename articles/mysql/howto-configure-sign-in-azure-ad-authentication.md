@@ -1,17 +1,17 @@
 ---
-title: Utilizar o Diretório Ativo Azure - Base de Dados Azure para MySQL - Servidor Único
-description: Saiba como configurar o Diretório Ativo Azure (Azure AD) para autenticação com base de dados Azure para MySQL - Servidor Único
+title: Utilizar o Diretório Ativo Azure - Base de Dados Azure para MySQL
+description: Saiba como configurar o Azure Ative Directory (Azure AD) para autenticação com base de dados Azure para MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: bb3a8c94b377fb9c9150945ec4cf5980e006dd34
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110607"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299010"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 
@@ -46,7 +46,7 @@ Depois de configurar o administrador, pode agora iniciar o seu insessão:
 
 O diagrama de alto nível que se segue resume o fluxo de trabalho da utilização da autenticação Azure AD com base de dados Azure para MySQL:
 
-![fluxo de autenticação][1]
+![Fluxo de autenticação][1]
 
 Desenhamos a integração da AD Azure para trabalhar com ferramentas mysql comuns como o mysql CLI, que não são conscientes do Azure AD e apenas suportam especificar o nome de utilizador e a palavra-passe quando se conectam ao MySQL. Passamos o token Azure AD como a palavra-passe como mostrado na imagem acima.
 
@@ -203,9 +203,9 @@ A maioria dos condutores são suportados, no entanto certifique-se de usar as de
 * Ir
   * go-sql-driver: Suportado, adicione `?tls=true&allowCleartextPasswords=true` à cadeia de ligação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Reveja os conceitos globais para [autenticação de Diretório Ativo Azure com Base de Dados Azure para MySQL - Servidor Único](concepts-azure-ad-authentication.md)
+* Reveja os conceitos globais para [autenticação de Diretório Ativo Azure com Base de Dados Azure para MySQL](concepts-azure-ad-authentication.md)
 
 <!--Image references-->
 

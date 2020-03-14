@@ -12,11 +12,11 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359885"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256474"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bases de dados individuais e reunidas da SQL
 
@@ -111,7 +111,7 @@ Crie uma publicação e uma subscrição push. Para obter mais informações, co
 - [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Crie uma Subscrição Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor de base de dados Azure SQL como assinante (por exemplo **N'azuresqldbdns.database.windows.net'** ) e o nome de base de dados Azure SQL como base de dados de destino (por **exemplo, AdventureWorks**).  
 
-## <a name="see-also"></a>Veja Também  
+## <a name="see-also"></a>Consulte Também  
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

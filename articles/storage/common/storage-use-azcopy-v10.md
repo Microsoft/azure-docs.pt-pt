@@ -8,11 +8,11 @@ ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391212"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268213"
 ---
 # <a name="get-started-with-azcopy"></a>Começar com a AzCopy
 
@@ -318,6 +318,6 @@ Se necessitar de utilizar a versão anterior do AzCopy (AzCopy v8.1), consulte q
 
 Ver [Configure, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se tiver dúvidas, questões ou feedback geral, submeta-as na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

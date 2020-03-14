@@ -1,24 +1,24 @@
 ---
-title: Expor um servidor WebSocket ao gateway de aplicativo
-description: Este artigo fornece informações sobre como expor um servidor WebSocket ao gateway de aplicativo com controlador de entrada para clusters AKS.
+title: Expor um servidor WebSocket ao Gateway de Aplicações
+description: Este artigo fornece informações sobre como expor um servidor WebSocket ao Application Gateway com controlador de entrada para clusters AKS.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 01fde82e69917f59f6519524c4c8828feb84a4f9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297837"
 ---
-# <a name="expose-a-websocket-server-to-application-gateway"></a>Expor um servidor WebSocket ao gateway de aplicativo
+# <a name="expose-a-websocket-server-to-application-gateway"></a>Expor um servidor WebSocket ao Gateway de Aplicações
 
-Conforme descrito na documentação do Application Gateway v2, ele [fornece suporte nativo para os protocolos WebSocket e http/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic). Observe que, para o gateway de aplicativo e a entrada kubernetes-não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket.
+Tal como descrito na documentação Application Gateway v2 - [fornece suporte nativo para os protocolos WebSocket e HTTP/2](features.md#websocket-and-http2-traffic). Tenha em agrado que, tanto para o Gateway de Aplicação como para o Kubernetes Ingress - não existe uma definição configurável pelo utilizador para ativar ou desativar seletivamente o suporte webSocket.
 
-O YAML de implantação kubernetes abaixo mostra a configuração mínima usada para implantar um servidor WebSocket, que é o mesmo que implantar um servidor Web normal:
+A implementação de Kubernetes YAML abaixo mostra a configuração mínima utilizada para implementar um servidor WebSocket, que é o mesmo que implementar um servidor web regular:
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -75,9 +75,9 @@ spec:
               servicePort: 80
 ```
 
-Considerando que todos os pré-requisitos são atendidos e você tem um gateway de aplicativo controlado por uma entrada kubernetes em seu AKS, a implantação acima resultaria em um servidor WebSockets exposto na porta 80 do IP público do seu gateway de aplicativo e no `ws.contoso.com` controlador.
+Dado que todos os pré-requisitos estão cumpridos, e você tem um Gateway de aplicação controlado por um Kubernetes Ingress no seu AKS, a implementação acima resultaria num servidor WebSockets exposto na porta 80 do IP público do seu Gateway de aplicação e no domínio `ws.contoso.com`.
 
-O comando de rotação a seguir testaria a implantação do servidor WebSocket:
+O seguinte comando cURL testaria a implementação do servidor WebSocket:
 ```sh
 curl -i -N -H "Connection: Upgrade" \
         -H "Upgrade: websocket" \
@@ -88,10 +88,10 @@ curl -i -N -H "Connection: Upgrade" \
         http://1.2.3.4:80/ws
 ```
 
-## <a name="websocket-health-probes"></a>Investigações de integridade do WebSocket
+## <a name="websocket-health-probes"></a>Sondas de saúde WebSocket
 
-Se sua implantação não definir explicitamente investigações de integridade, o gateway de aplicativo tentará um HTTP GET em seu ponto de extremidade do servidor WebSocket.
-Dependendo da implementação do servidor ([aqui está um amor](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) cabeçalhos específicos do WebSocket podem ser necessários (`Sec-Websocket-Version` por exemplo).
-Como o gateway de aplicativo não adiciona cabeçalhos WebSocket, a resposta de investigação de integridade do gateway de aplicativo do servidor WebSocket provavelmente será `400 Bad Request`.
-Como resultado, o gateway de aplicativo marcará o pods como não íntegro, o que resultará em um `502 Bad Gateway` para os consumidores do servidor WebSocket.
-Para evitar isso, talvez seja necessário adicionar um manipulador HTTP GET para uma verificação de integridade em seu servidor (`/health` por exemplo, que retorna `200 OK`).
+Se a sua implementação não definir explicitamente as sondas de saúde, o Application Gateway tentaria um HTTP GET no seu ponto final do servidor WebSocket.
+Dependendo da implementação do servidor[(aqui está um que amamos](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)), podem ser necessários cabeçalhos específicos do WebSocket (`Sec-Websocket-Version` por exemplo).
+Uma vez que o Gateway da aplicação não adiciona cabeçalhos WebSocket, a resposta da sonda de saúde do Gateway de aplicação do seu servidor WebSocket será provavelmente `400 Bad Request`.
+Como resultado, o Application Gateway marcará as suas cápsulas como pouco saudáveis, o que acabará por resultar numa `502 Bad Gateway` para os consumidores do servidor WebSocket.
+Para evitar isto, poderá ser necessário adicionar um manipulador HTTP GET para uma verificação de saúde ao seu servidor (`/health` por exemplo, que devolve `200 OK`).

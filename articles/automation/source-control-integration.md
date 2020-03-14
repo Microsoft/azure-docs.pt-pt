@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: eef67ca8111983adb4d9994894ba215240daee6f
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: b0eed8fe9d548ee54698d187e192960bb3b44e44
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78253737"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368813"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -33,7 +33,7 @@ A Azure Automation suporta três tipos de controlo de fonte:
 
 * Um repositório de controlo de fonte (GitHub ou Azure Repos)
 * Uma [conta Run As](manage-runas-account.md)
-* Os [mais recentes módulos Azure](automation-update-azure-modules.md) na sua conta Automation, incluindo o módulo **Az.Accounts** (equivalente a módulo Az de AzureRM.Profile)
+* Os [mais recentes módulos Azure](automation-update-azure-modules.md) na sua conta Automation, incluindo o módulo `Az.Accounts` (módulo Az equivalente a `AzureRM.Profile`)
 
 > [!NOTE]
 > Os trabalhos de sincronização do controlo de fontes são executados sob a conta de Automação do utilizador e são faturados ao mesmo ritmo que outros trabalhos de Automação.
@@ -54,15 +54,15 @@ Utilize este procedimento para configurar o controlo de origem utilizando o port
 
 3. Uma janela do navegador abre-se e pede-lhe para iniciar sessão. Siga as instruções para a autenticação completa.
 
-4. Na página Resumo do **Controlo de Origem,** utilize os campos para preencher as propriedades de controlo de origem definidas abaixo. Clique em **Guardar** quando terminar. 
+4. Na página Resumo do Controlo de Origem, utilize os campos para preencher as propriedades de controlo de origem definidas abaixo. Clique em **Guardar** quando terminar. 
 
     |Propriedade  |Descrição  |
     |---------|---------|
     |Nome de controlo de fonte     | Um nome amigável para o controlo de fontes. Este nome deve conter apenas letras e números.        |
-    |Tipo de controlo de origem     | Tipo de mecanismo de controlo de fonte. As opções disponíveis são:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
+    |Tipo de controlo de origem     | Tipo de mecanismo de controlo de fonte. As opções disponíveis são:</br> * GitHub</br>* Azure Repos (Git)</br> * Azure Repos (TFVC)        |
     |Repositório     | Nome do repositório ou projeto. Os primeiros 200 repositórios são recuperados. Para procurar um repositório, digite o nome no campo e clique **em Procurar no GitHub**.|
     |Ramo     | Ramo a partir do qual retirar os ficheiros de origem. O alvo da sucursal não está disponível para o tipo de controlo de fonte TFVC.          |
-    |Caminho da pasta     | Pasta que contém os livros de execução para sincronizar, por exemplo, /Livros de execução. Apenas os livros de execução na pasta especificada são sincronizados. A recursição não é apoiada.        |
+    |Caminho da pasta     | Pasta que contém os livros de execução para sincronizar, por exemplo, **/Livros de execução**. Apenas os livros de execução na pasta especificada são sincronizados. A recursição não é apoiada.        |
     |Auto Sync<sup>1</sup>     | Regulação que liga ou desliga a sincronização automática quando um compromisso é feito no repositório de controlo de fonte.        |
     |Publicar Livro de Execução     | Definição de On se os livros de execução forem automaticamente publicados após a sincronização do controlo de origem, e desligado de outra forma.           |
     |Descrição     | Texto especificando detalhes adicionais sobre o controlo de origem.        |
@@ -72,7 +72,7 @@ Utilize este procedimento para configurar o controlo de origem utilizando o port
    ![Resumo do controlo de fontes](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> O seu login para o seu repositório de controlo de fonte pode ser diferente do seu login para o portal Azure. Certifique-se de que está a iniciar sessão com a conta correta para o seu repositório de controlo de origem ao configurar o controlo de origem. Em caso de dúvida, abra um novo separador no seu navegador, saia de visualstudio.com ou github.com e tente ligar-se novamente ao controlo de origem.
+> O login do seu repositório de controlo de fonte pode ser diferente do seu login para o portal Azure. Certifique-se de que está a iniciar sessão com a conta correta para o seu repositório de controlo de origem ao configurar o controlo de origem. Em caso de dúvida, abra um novo separador no seu navegador, faça login a partir de **visualstudio.com** ou **github.com**, e tente ligar-se novamente ao controlo de origem.
 
 ### <a name="configure-source-control----powershell"></a>Configure o controlo de fonte -- PowerShell
 
@@ -109,13 +109,13 @@ A tabela que se segue define as permissões PAT mínimas necessárias para o Git
 
 |Âmbito  |Descrição  |
 |---------|---------|
-|**repo** (repositório)     |         |
-|repo:status     | Estado de compromisso de acesso         |
-|repo_deployment      | Estado de implantação de acesso         |
-|public_repo     | Aceder aos repositórios públicos         |
-|**administrador:repo_hook**     |         |
-|write:repo_hook     | Escreva ganchos de repositório         |
-|read:repo_hook|Ler ganchos de repositório|
+|**`repo`**     |         |
+|`repo:status`     | Estado de compromisso de acesso         |
+|`repo_deployment`      | Estado de implantação de acesso         |
+|`public_repo`     | Aceder aos repositórios públicos         |
+|**`admin:repo_hook`**     |         |
+|`write:repo_hook`     | Escreva ganchos de repositório         |
+|`read:repo_hook`|Ler ganchos de repositório|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Permissões mínimas de PAT para Azure Repos
 
@@ -128,15 +128,15 @@ A lista que se segue define as permissões mínimas de PAT necessárias para o A
 | Identidade | Leitura     |
 | Perfil de utilizador | Leitura     |
 | Artigos de trabalho | Leitura    |
-| Conexões de Serviço | Ler, consultar, gerir<sup>1</sup>    |
+| Ligações de serviço | Ler, consultar, gerir<sup>1</sup>    |
 
 <sup>1</sup> A permissão de ligações de serviço só é necessária se tiver ativado a sincronização automática.
 
 ## <a name="synchronizing"></a>Sincronização
 
-Faça o seguinte para sincronizar com o controlo de origem. 
+Siga estes passos para sincronizar com o controlo de origem. 
 
-1. Selecione a fonte da tabela na página de **controlo Fonte.** 
+1. Selecione a fonte da tabela na página de controlo Fonte. 
 
 2. Clique em **Iniciar Sincronização** para iniciar o processo de sincronização. 
 
@@ -178,7 +178,7 @@ Faça o seguinte para sincronizar com o controlo de origem.
 
     ```
 
-6. O registo adicional está disponível selecionando **Todos os Registos** na página de Resumo do **Sumário** de Sincronização de Controlo de Origem. Estas entradas de registo adicionais podem ajudá-lo a resolver problemas que podem surgir ao utilizar o controlo de origem.
+6. O registo adicional está disponível selecionando **Todos os Registos** na página de Resumo do Sumário de Sincronização de Controlo de Origem. Estas entradas de registo adicionais podem ajudá-lo a resolver problemas que podem surgir ao utilizar o controlo de origem.
 
 ## <a name="disconnecting-source-control"></a>Desligar o controlo de fontes
 
@@ -188,11 +188,11 @@ Para desligar de um repositório de controlo de fonte:
 
 2. Selecione o mecanismo de controlo de origem para remover. 
 
-3. Na página Resumo do **Controlo de Fontes,** clique em **Eliminar**.
+3. Na página Resumo do Controlo de Fontes, clique em **Eliminar**.
 
 ## <a name="handling-encoding-issues"></a>Lidar com questões de codificação
 
-Se várias pessoas estiverem a editar livros de execução no seu repositório de controlo de fontes utilizando diferentes editores, podem ocorrer questões de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se várias pessoas estiverem a editar livros de execução no seu repositório de controlo de fontes utilizando diferentes editores, podem ocorrer questões de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="updating-the-pat"></a>Atualizar o PAT
 

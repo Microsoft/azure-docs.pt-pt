@@ -1,6 +1,6 @@
 ---
 title: Aplicar recomendações de desempenho
-description: Use o portal do Azure para encontrar recomendações de desempenho que podem otimizar o desempenho do seu banco de dados SQL do Azure.
+description: Utilize o portal Azure para encontrar recomendações de desempenho que possam otimizar o desempenho da sua Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,161 +11,164 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5462a03accb3420b3f0fcec4624734c8f6d68859
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811584"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214167"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
-Você pode usar o portal do Azure para encontrar recomendações de desempenho que podem otimizar o desempenho do seu banco de dados SQL do Azure ou corrigir algum problema identificado em sua carga de trabalho. A página **recomendação de desempenho** no portal do Azure permite que você encontre as principais recomendações com base em seu impacto potencial. 
+Pode utilizar o portal Azure para encontrar recomendações de desempenho que possam otimizar o desempenho da sua Base de Dados Azure SQL ou corrigir algum problema identificado na sua carga de trabalho. A página de **recomendação** de desempenho no portal Azure permite-lhe encontrar as principais recomendações com base no seu impacto potencial.
 
-## <a name="viewing-recommendations"></a>Exibindo recomendações
+## <a name="viewing-recommendations"></a>Recomendações de visualização
 
-Para exibir e aplicar recomendações de desempenho, você precisa das permissões corretas de [controle de acesso baseado em função](../role-based-access-control/overview.md) no Azure. **Leitor**, as permissões de **colaborador do BD SQL** são necessárias para exibir as recomendações e o **proprietário**, as permissões de **colaborador do BD SQL** são necessárias para executar qualquer ação; criar ou descartar índices e cancelar a criação do índice.
+Para visualizar e aplicar recomendações de desempenho, precisa das permissões corretas [de controlo de acesso baseadas](../role-based-access-control/overview.md) em funções em Azure. **Reader,** **SQL DB As** permissões do Contribuinte São necessárias para ver recomendações, e as permissões do **Contribuinte** **SQL DB** são necessárias para executar quaisquer ações; criar ou largar índices e cancelar a criação de índices.
 
-Use as etapas a seguir para encontrar recomendações de desempenho no portal do Azure:
+Utilize os seguintes passos para encontrar recomendações de desempenho no portal Azure:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-2. Vá para **todos os serviços** > bancos de dados **SQL**e selecione seu banco de dados.
-3. Navegue até **recomendação de desempenho** para exibir as recomendações disponíveis para o banco de dados selecionado.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Vá a **Todos os serviços** > bases de **dados SQL**e selecione a sua base de dados.
+3. Navegue para **a recomendação de desempenho** para visualizar as recomendações disponíveis para a base de dados selecionada.
 
-As recomendações de desempenho são mostradas na tabela semelhante à mostrada na figura a seguir:
+Recomendações de desempenho são apresentadas no quadro semelhante à que se apresenta na figura seguinte:
 
 ![Recomendações](./media/sql-database-advisor-portal/recommendations.png)
 
-As recomendações são classificadas por seu impacto potencial no desempenho nas seguintes categorias:
+As recomendações são ordenadas pelo seu impacto potencial no desempenho nas seguintes categorias:
 
 | Impacto | Descrição |
 |:--- |:--- |
-| Elevado |Recomendações de alto impacto devem fornecer o impacto de desempenho mais significativo. |
+| High |Recomendações de alto impacto devem proporcionar o impacto de desempenho mais significativo. |
 | Médio |As recomendações de impacto médio devem melhorar o desempenho, mas não substancialmente. |
-| Baixa |As recomendações de baixo impacto devem fornecer um desempenho melhor do que sem, mas as melhorias podem não ser significativas. |
-
+| Low |As recomendações de baixo impacto devem proporcionar um melhor desempenho do que sem, mas as melhorias podem não ser significativas. |
 
 > [!NOTE]
-> O banco de dados SQL do Azure precisa monitorar atividades pelo menos por um dia para identificar algumas recomendações. O banco de dados SQL do Azure pode otimizar mais facilmente para padrões de consulta consistentes do que para picos aleatórios de atividade. Se as recomendações não estiverem disponíveis no momento, a página **recomendação de desempenho** fornecerá uma mensagem explicando o porquê.
-> 
+> A Base de Dados Azure SQL precisa de monitorizar as atividades pelo menos durante um dia, a fim de identificar algumas recomendações. A Base de Dados Azure SQL pode facilmente otimizar para padrões de consulta consistentes do que para explosões aleatórias de atividade. Se as recomendações não estiverem atualmente disponíveis, a página de **recomendação** de Desempenho fornece uma mensagem explicando porquê.
 
-Você também pode exibir o status das operações históricas. Selecione uma recomendação ou status para ver mais informações.
+Pode também ver o estado das operações históricas. Selecione uma recomendação ou estado para ver mais informações.
 
-Aqui está um exemplo de recomendação de "criar índice" no portal do Azure.
+Aqui está um exemplo de recomendação "Criar índice" no portal Azure.
 
 ![Criar índice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
-## <a name="applying-recommendations"></a>Aplicando recomendações
-O banco de dados SQL do Azure oferece controle total sobre como as recomendações são habilitadas usando qualquer uma das três opções a seguir: 
+## <a name="applying-recommendations"></a>Aplicação de recomendações
 
-* Aplique recomendações individuais uma de cada vez.
-* Habilite o ajuste automático para aplicar recomendações automaticamente.
-* Para implementar uma recomendação manualmente, execute o script T-SQL recomendado em seu banco de dados.
+A Base de Dados Azure SQL dá-lhe controlo total sobre como as recomendações são ativadas utilizando qualquer uma das seguintes três opções:
 
-Selecione qualquer recomendação para exibir seus detalhes e clique em **Exibir script** para examinar os detalhes exatos de como a recomendação é criada.
+* Aplicar recomendações individuais uma de cada vez.
+* Ativar a sintonização automática para aplicar automaticamente recomendações.
+* Para implementar uma recomendação manualmente, execute o script T-SQL recomendado na sua base de dados.
 
-O banco de dados permanece online enquanto a recomendação é aplicada – usar recomendação de desempenho ou ajuste automático nunca coloca um banco de dados offline.
+Selecione qualquer recomendação para visualizar os seus detalhes e, em seguida, clique em **Ver script** para rever os detalhes exatos de como a recomendação é criada.
+
+A base de dados permanece on-line enquanto a recomendação é aplicada - usando recomendação de desempenho ou afinação automática nunca desliga uma base de dados offline.
 
 ### <a name="apply-an-individual-recommendation"></a>Aplicar uma recomendação individual
-Você pode examinar e aceitar recomendações uma de cada vez.
 
-1. Na página **recomendações** , selecione uma recomendação.
-2. Na página **detalhes** , clique no botão **aplicar** .
-   
-    ![Aplicar recomendação](./media/sql-database-advisor-portal/apply.png)
+Pode rever e aceitar recomendações uma de cada vez.
 
-A recomendação selecionada é aplicada no banco de dados.
+1. Na página **recomendações,** selecione uma recomendação.
+2. Na página **Detalhes,** clique no botão **Aplicar.**
 
-### <a name="removing-recommendations-from-the-list"></a>Removendo as recomendações da lista
+   ![Aplicar recomendação](./media/sql-database-advisor-portal/apply.png)
 
-Se sua lista de recomendações contiver itens que você deseja remover da lista, você poderá descartar a recomendação:
+Recomendação selecionada é aplicada na base de dados.
 
-1. Selecione uma recomendação na lista de **recomendações** para abrir os detalhes.
-2. Clique em **descartar** na página de **detalhes** .
+### <a name="removing-recommendations-from-the-list"></a>Remoção de recomendações da lista
 
-Se desejar, você pode adicionar itens descartados de volta à lista de **recomendações** :
+Se a sua lista de recomendações contiver itens que pretende remover da lista, pode descartar a recomendação:
 
-1. Na página **recomendações** , clique em **Exibir Descartado**.
-2. Selecione um item descartado na lista para exibir seus detalhes.
-3. Opcionalmente, clique em **desfazer descartar** para adicionar o índice de volta à lista principal de **recomendações**.
+1. Selecione uma recomendação na lista de **Recomendações** para abrir os detalhes.
+2. Clique em **Descartar** na página **Detalhes.**
+
+Se desejar, pode adicionar itens descartados de volta à lista de **Recomendações:**
+
+1. Na página **recomendações,** clique em **Ver descartado**.
+2. Selecione um item descartado da lista para ver os seus detalhes.
+3. Opcionalmente, clique em **Desfazer Descartar** para adicionar o índice de volta à lista principal de **Recomendações**.
 
 > [!NOTE]
-> Observe que, se o [ajuste automático](sql-database-automatic-tuning.md) do banco de dados SQL estiver habilitado e você tiver Descartado manualmente uma recomendação da lista, essa recomendação nunca será aplicada automaticamente. Descartar uma recomendação é uma maneira prática para os usuários terem o ajuste automático habilitado nos casos em que exigirem que uma recomendação específica não deva ser aplicada.
-> Você pode reverter esse comportamento adicionando recomendações descartadas de volta à lista de recomendações selecionando a opção desfazer descartar.
-> 
+> Por favor, note que se a [afinação automática](sql-database-automatic-tuning.md) da Base de Dados SQL estiver ativada e se tiver descartado manualmente uma recomendação da lista, essa recomendação nunca será aplicada automaticamente. Descartar uma recomendação é uma forma útil de os utilizadores terem a finação automática ativada nos casos em que exigem que não seja aplicada uma recomendação específica.
+> Pode reverter este comportamento adicionando recomendações descartadas de volta à lista de Recomendações, selecionando a opção Desfazer Devoluções.
 
 ### <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
-Você pode definir o banco de dados SQL do Azure para implementar recomendações automaticamente. Conforme as recomendações ficam disponíveis, elas são aplicadas automaticamente. Assim como com todas as recomendações gerenciadas pelo serviço, se o impacto no desempenho for negativo, a recomendação será revertida.
 
-1. Na página **recomendações** , clique em **automatizar**:
-   
-    ![Configurações do Advisor](./media/sql-database-advisor-portal/settings.png)
+Pode definir a Base de Dados Azure SQL para implementar recomendações automaticamente. À medida que as recomendações ficam disponíveis, são automaticamente aplicadas. Tal como acontece com todas as recomendações geridas pelo serviço, se o impacto de desempenho for negativo, a recomendação é revertida.
+
+1. Na página **recomendações,** clique em **Automatizar:**
+
+   ![Definições de aconselhamento](./media/sql-database-advisor-portal/settings.png)
 2. Selecione ações para automatizar:
-   
-    ![Índices recomendados](./media/sql-database-automatic-tuning-enable/server.png)
+
+   ![Índices Recomendados](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observe que, no momento, a opção **DROP_INDEX** não é compatível com aplicativos que usam a alternância de partição e dicas de índice. 
->
+> Por favor, note que **DROP_INDEX** opção não é compatível com aplicações que usam comutação de divisórias e dicas de índice.
 
-Depois de selecionar a configuração desejada, clique em aplicar.
+Depois de ter selecionado a configuração desejada, clique em Aplicar.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar recomendações manualmente por meio do T-SQL
+### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar manualmente recomendações através do T-SQL
 
-Selecione qualquer recomendação e clique em **Exibir script**. Execute este script em seu banco de dados para aplicar manualmente a recomendação.
+Selecione qualquer recomendação e, em seguida, clique em **Ver script**. Envie este guião contra a sua base de dados para aplicar manualmente a recomendação.
 
-*Os índices executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e os ajustam ou excluem, se necessário. Para obter detalhes sobre como criar índices, consulte [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Além disso, as recomendações aplicadas manualmente permanecerão ativas e exibidas na lista de recomendações de 24-48 horas. antes que o sistema as retire automaticamente. Se você quiser remover uma recomendação mais cedo, poderá descartá-la manualmente.
+*Os índices que são executados manualmente não são monitorizados e validados para o impacto* de desempenho pelo serviço, pelo que é sugerido que monitorize estes índices após a criação para verificar se fornecem ganhos de desempenho e ajustá-los ou apagá-los se necessário. Para mais detalhes sobre a criação de índices, consulte [CREATE INDEX (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Além disso, as recomendações aplicadas manualmente permanecerão ativas e apresentadas na lista de recomendações para 24-48 horas. antes que o sistema os retire automaticamente. Se quiser remover uma recomendação mais cedo, pode descartá-la manualmente.
 
-### <a name="canceling-recommendations"></a>Cancelando recomendações
+### <a name="canceling-recommendations"></a>Cancelamento de recomendações
 
-As recomendações que estão em um status **pendente**, de **validação**ou de **êxito** podem ser canceladas. As recomendações com um status de **execução** não podem ser canceladas.
+Recomendações que se encontram em **estado pendente,** **validação**ou estado de **sucesso** podem ser canceladas. Recomendações com estatuto de **Execução** não podem ser canceladas.
 
-1. Selecione uma recomendação na área **histórico de ajuste** para abrir a página **detalhes de recomendações** .
-2. Clique em **Cancelar** para anular o processo de aplicação da recomendação.
+1. Selecione uma recomendação na área de **Tuning History** para abrir a página de detalhes de **recomendações.**
+2. Clique **em Cancelar** para abortar o processo de aplicação da recomendação.
 
 ## <a name="monitoring-operations"></a>Operações de monitorização
 
-A aplicação de uma recomendação pode não acontecer instantaneamente. O portal fornece detalhes sobre o status de recomendação. Estes são os Estados possíveis nos quais um índice pode estar:
+Aplicar uma recomendação pode não acontecer instantaneamente. O portal fornece detalhes sobre o estado da recomendação. Seguem-se os estados possíveis em que um índice pode estar em:
 
 | Estado | Descrição |
 |:--- |:--- |
-| Pendente |O comando aplicar recomendação foi recebido e está agendado para execução. |
-| Estava |A recomendação está sendo aplicada. |
-| Verificar |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Êxito |A recomendação foi aplicada com êxito e os benefícios foram medidos. |
-| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isso pode ser um problema transitório ou, possivelmente, uma alteração de esquema na tabela e o script não é mais válido. |
-| Revertendo |A recomendação foi aplicada, mas foi considerada sem desempenho e está sendo revertida automaticamente. |
+| Pending |Aplicar o comando de recomendação foi recebido e está agendado para a execução. |
+| Execução |A recomendação está a ser aplicada. |
+| Validação |A recomendação foi aplicada com sucesso e o serviço está a medir os benefícios. |
+| Êxito |A recomendação foi aplicada com sucesso e os benefícios foram medidos. |
+| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Esta pode ser uma questão transitória, ou possivelmente uma mudança de esquema para a mesa e o script já não é válido. |
+| Reverter |A recomendação foi aplicada, mas foi considerada não executante e está a ser automaticamente revertida. |
 | Revertido |A recomendação foi revertida. |
 
-Clique em uma recomendação em processo da lista para ver mais informações:
+Clique numa recomendação em processo da lista para ver mais informações:
 
-![Índices recomendados](./media/sql-database-advisor-portal/operations.png)
+![Índices Recomendados](./media/sql-database-advisor-portal/operations.png)
 
-### <a name="reverting-a-recommendation"></a>Revertendo uma recomendação
-Se você usou as recomendações de desempenho para aplicar a recomendação (ou seja, você não executou o script T-SQL manualmente), ela reverterá automaticamente a alteração se encontrar o impacto de desempenho negativo. Se, por algum motivo, você simplesmente quiser reverter uma recomendação, poderá fazer o seguinte:
+### <a name="reverting-a-recommendation"></a>Reverter uma recomendação
 
-1. Selecione uma recomendação aplicada com êxito na área **histórico de ajuste** .
-2. Clique em **reverter** na página **detalhes da recomendação** .
+Se usou as recomendações de desempenho para aplicar a recomendação (o que significa que não executou manualmente o script T-SQL), reverte automaticamente a alteração se considerar o impacto de desempenho negativo. Se, por alguma razão, simplesmente quiser reverter uma recomendação, pode fazer o seguinte:
 
-![Índices recomendados](./media/sql-database-advisor-portal/details.png)
+1. Selecione uma recomendação aplicada com sucesso na área de história de **Afinação.**
+2. Clique em **Reverter** na página de detalhes da **recomendação.**
 
-## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitoramento do impacto do desempenho de recomendações de índice
-Depois que as recomendações são implementadas com êxito (atualmente, somente as recomendações de operações de indexação e parametrização de consultas), você pode clicar em **informações de consulta** na página detalhes de recomendação para abrir [informações de desempenho de consulta](sql-database-query-performance.md) e ver o impacto no desempenho de suas principais consultas.
+![Índices Recomendados](./media/sql-database-advisor-portal/details.png)
 
-![Monitorar o impacto no desempenho](./media/sql-database-advisor-portal/query-insights.png)
+## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitorização do impacto do desempenho das recomendações do índice
+
+Depois de implementadas com sucesso as recomendações (atualmente, operações de índice e recomendações de parametrização), pode clicar em **Consultas** De Consulta insights na página de detalhes da recomendação para abrir [o Query Performance Insights](sql-database-query-performance.md) e ver o impacto de desempenho das suas principais consultas.
+
+![Monitorizar o impacto do desempenho](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Resumo
-O banco de dados SQL do Azure fornece recomendações para melhorar o desempenho do banco de dados SQL. Ao fornecer scripts T-SQL, você obtém assistência para otimizar seu banco de dados e, por fim, melhorar o desempenho da consulta.
 
-## <a name="next-steps"></a>Passos seguintes
-Monitore suas recomendações e continue a aplicá-las para refinar o desempenho. As cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. O banco de dados SQL do Azure continua a monitorar e fornecer recomendações que podem melhorar o desempenho do seu banco de dados. 
+A Base de Dados Azure SQL fornece recomendações para melhorar o desempenho da base de dados SQL. Ao fornecer scripts T-SQL, obtém assistência na otimização da sua base de dados e, em última análise, melhorando o desempenho da consulta.
 
-* Consulte [ajuste automático](sql-database-automatic-tuning.md) para saber mais sobre o ajuste automático no banco de dados SQL do Azure.
-* Consulte [recomendações de desempenho](sql-database-advisor.md) para obter uma visão geral das recomendações de desempenho do banco de dados SQL do Azure.
-* Consulte análise de [desempenho de consultas](sql-database-query-performance.md) para saber mais sobre como exibir o impacto no desempenho de suas principais consultas.
+## <a name="next-steps"></a>Passos Seguintes
+
+Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o desempenho. As cargas de trabalho na base de dados são dinâmicas e mudam continuamente. A Base de Dados Azure SQL continua a monitorizar e a fornecer recomendações que podem potencialmente melhorar o desempenho da sua base de dados.
+
+* Consulte a [sintonização automática](sql-database-automatic-tuning.md) para saber mais sobre a sintonização automática na Base de Dados Azure SQL.
+* Consulte [as recomendações](sql-database-advisor.md) de Desempenho para uma visão geral das recomendações de desempenho da Base de Dados Azure SQL.
+* Consulte [a Query Performance Insights](sql-database-query-performance.md) para aprender sobre o impacto de desempenho das suas principais consultas.
 
 ## <a name="additional-resources"></a>Recursos adicionais
+
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) (Arquivo de Consultas)
 * [CRIAR ÍNDICE](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controlo de acesso baseado em funções](../role-based-access-control/overview.md)
-

@@ -2,21 +2,21 @@
 title: Encriptação do lado do servidor de Discos Geridos Azure - PowerShell
 description: O Azure Storage protege os seus dados encriptando-os em repouso antes de persistir nos clusters de Armazenamento. Pode contar com chaves geridas pela Microsoft para a encriptação dos seus discos geridos, ou pode utilizar chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves.
 author: roygara
-ms.date: 01/10/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: f3ce439f3e8c2290539e088402c2636974d37821
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 0541b12d73cc5b5f7fdf713c759069e2ecbd8c18
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898853"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299636"
 ---
-# <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação lateral do servidor de discos geridos pelo Azure
+# <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação do lado do servidor dos discos geridos pelo Azure
 
-Os discos geridos pelo Azure encriptam automaticamente os seus dados por padrão quando os persistem na nuvem. A encriptação do lado do servidor protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade. Os dados em discos geridos pelo Azure são encriptados de forma transparente utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits , uma das cifras de blocos mais fortes disponíveis, e é compatível com O FIPS 140-2.   
+Os discos geridos pelo Azure encriptam automaticamente os seus dados por padrão quando os persistem na nuvem. A encriptação do lado do servidor protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade. Os dados em discos geridos pelo Azure são encriptados de forma transparente utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits , uma das cifras de blocos mais fortes disponíveis, e é compatível com O FIPS 140-2.
 
 A encriptação não afeta o desempenho dos discos geridos. Não há custos adicionais para a encriptação.
 
@@ -30,18 +30,22 @@ As seguintes secções descrevem cada uma das opções para a gestão chave em m
 
 ## <a name="platform-managed-keys"></a>Chaves geridas pela plataforma
 
-Por padrão, os discos geridos utilizam chaves de encriptação geridas pela plataforma. A partir de 10 de junho de 2017, todos os novos discos geridos, instantâneos, imagens e novos dados escritos aos discos geridos existentes são automaticamente encriptados em repouso com chaves geridas pela plataforma. 
+Por padrão, os discos geridos utilizam chaves de encriptação geridas pela plataforma. A partir de 10 de junho de 2017, todos os novos discos geridos, instantâneos, imagens e novos dados escritos aos discos geridos existentes são automaticamente encriptados em repouso com chaves geridas pela plataforma.
 
 ## <a name="customer-managed-keys"></a>Chaves geridas pelo cliente
 
 Pode optar por gerir a encriptação ao nível de cada disco gerido, com as suas próprias chaves. A encriptação do lado do servidor para discos geridos com chaves geridas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Pode importar [as suas chaves RSA](../../key-vault/key-vault-hsm-protected-keys.md) para o seu Cofre chave ou gerar novas chaves RSA no Cofre de Chaves Azure. Os discos geridos pelo Azure tratam da encriptação e da desencriptação de uma forma totalmente transparente usando [encriptação](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique)de envelopes. Encripta dados utilizando uma chave de encriptação de dados baseada em [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 (DEK), que está, por sua vez, protegida usando as suas chaves. Tem de conceder acesso a discos geridos no seu Cofre de Chaves para utilizar as suas chaves para encriptar e desencriptar o DEK. Isto permite-lhe o controlo total dos seus dados e chaves. Pode desativar as chaves ou revogar o acesso aos discos geridos a qualquer momento. Também pode auditar o uso da chave de encriptação com monitorização do Cofre de Chaves Azure para garantir que apenas discos geridos ou outros serviços Azure fidedignos acedem às suas chaves.
 
+Para SSDs premium, SSDs padrão e HDDs padrão: Quando desativar ou eliminar a sua chave, quaisquer VMs com discos que utilizem essa tecla desligam-se automaticamente. Depois disso, os VMs não serão utilizáveis a menos que a chave esteja ativada novamente ou atribua uma nova chave.
+
+Para discos ultra, quando desativa ou elimina uma chave, quaisquer VMs com discos ultra que utilizem a tecla não desligam automaticamente. Assim que deslocar e reiniciar os VMs, os discos deixarão de usar a chave e os VMs não voltarão a funcionar. Para voltar a colocar os VMs online, deve atribuir uma nova tecla ou ativar a chave existente.
+
 O diagrama seguinte mostra como os discos geridos utilizam o Azure Ative Directory e o Azure Key Vault para fazer pedidos utilizando a chave gerida pelo cliente:
 
-![Fluxo de trabalho gerido pelo disco e chaves geridas pelo cliente. Um administrador cria um Cofre de Chave Azure, depois cria um conjunto de encriptação de disco e configura o conjunto de encriptação do disco. O Conjunto está associado a um VM que permite ao disco fazer uso da AD Azure para autenticar](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Fluxo de trabalho gerido pelo disco e chaves geridas pelo cliente. Um administrador cria um Cofre de Chave Azure, depois cria um conjunto de encriptação de disco e configura o conjunto de encriptação do disco. O Conjunto está associado a um VM, que permite ao disco fazer uso da AD Azure para autenticar](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-A seguinte lista explica o diagrama com ainda mais detalhes:
+A seguinte lista explica o diagrama com mais detalhes:
 
 1. Um administrador do Cofre Chave Azure cria recursos chave do cofre.
 1. O cofre chave importa as chaves RSA para o Cofre chave ou gera novas chaves RSA no Cofre chave.
@@ -56,15 +60,14 @@ Para revogar o acesso às chaves geridas pelo cliente, consulte [o Azure Key Vau
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-Atualmente, apenas as seguintes regiões são apoiadas:
-
-- Disponível como uma oferta de GA nos EUA Orientais, Oeste DOS EUA 2, Centro-Sul dos EUA, Regiões do Sul do Reino Unido.
-- Disponível como uma pré-visualização pública nas regiões do Centro-Oeste dos EUA, Leste dos EUA 2, Canadá Central e Norte da Europa.
+[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
 ### <a name="restrictions"></a>Restrições
 
 Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
+- Se esta função estiver ativada para o disco, não poderá desativá-la.
+    Se precisa de trabalhar em torno disto, tem de [copiar todos os dados](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) para um disco gerido completamente diferente que não esteja a utilizar chaves geridas pelo cliente.
 - Apenas são suportadas [teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080, sem outras teclas ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptados utilizando as mesmas chaves geridas pelo cliente e devem estar na mesma subscrição.
 - As imagens criadas a partir de discos que são encriptados com encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptadas com as mesmas chaves geridas pelo cliente.
@@ -97,26 +100,26 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  Crie uma instância de um DiskEncryptionSet. 
+1.    Crie uma instância de um DiskEncryptionSet. 
     
-    ```powershell
-    $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
+        ```powershell
+        $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
+        
+        $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
+        ```
 
-    $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
-    ```
+1.    Conceda o acesso ao recurso DiskEncryptionSet ao cofre da chave.
 
-1.  Conceda o acesso ao recurso DiskEncryptionSet ao cofre da chave.
-
-    > [!NOTE]
-    > Pode levar alguns minutos para o Azure criar a identidade do seu DiskEncryptionSetSet no seu Diretório Ativo Azure. Se tiver um erro como "Não encontrar o objeto de Diretório Ativo" ao executar o seguinte comando, aguarde alguns minutos e tente novamente.
-    
-    ```powershell
-    $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
-     
-    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-     
-    New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
-    ```
+        > [!NOTE]
+        > Pode levar alguns minutos para o Azure criar a identidade do seu DiskEncryptionSetSet no seu Diretório Ativo Azure. Se tiver um erro como "Não encontrar o objeto de Diretório Ativo" ao executar o seguinte comando, aguarde alguns minutos e tente novamente.
+        
+        ```powershell
+        $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
+         
+        Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+         
+        New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
+        ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Crie um VM utilizando uma imagem do Marketplace, encriptando o OS e os discos de dados com chaves geridas pelo cliente
 
@@ -249,7 +252,7 @@ New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -
 
 [A encriptação](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) do disco Azure aproveita a funcionalidade [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) do Windows e a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para encriptar discos geridos com chaves geridas pelo cliente dentro do VM convidado.  A encriptação do lado do servidor com as chaves geridas pelo cliente melhora no ADE, permitindo-lhe utilizar quaisquer tipos e imagens de SO para os seus VMs encriptando dados no serviço de Armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Explore os modelos do Gestor de Recursos Azure para criar discos encriptados com chaves geridas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [O que é o Cofre chave Azure?](../../key-vault/key-vault-overview.md)

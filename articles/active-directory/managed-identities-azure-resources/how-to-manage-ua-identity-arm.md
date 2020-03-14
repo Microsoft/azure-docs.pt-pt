@@ -16,11 +16,11 @@ ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375503"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253380"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade gerida atribuída pelo utilizador utilizando o Gestor de Recursos Azure
 
@@ -83,7 +83,7 @@ Para criar uma identidade gerida atribuída ao utilizador, utilize o seguinte mo
   }
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter informações sobre como atribuir uma identidade gerida atribuída ao utilizador a um VM Azure utilizando um modelo de Gestor de Recursos Azure, [configurar identidades geridas para recursos Azure num VM Azure utilizando um modelo](qs-configure-template-windows-vm.md).
 

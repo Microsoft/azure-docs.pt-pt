@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
 ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388151"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273803"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir o lançamento da integração em saúde ao Gestor de Implantação do Azure (pré-visualização pública)
 
@@ -134,7 +134,7 @@ Para percorrer um exemplo, consulte [Tutorial: Use o health check in Azure Deplo
 
 Neste momento, o Gestor de Implantação azure sabe como consultar a saúde do seu serviço e em que fases do seu lançamento o fará. No entanto, o Gestor de Implementação do Azure também permite uma configuração profunda do tempo destas verificações. Uma etapa healthCheck é executada em 3 fases sequenciais, todas com durações configuráveis: 
 
-1. Wait
+1. Aguardar
 
     1. Após a conclusão de uma operação de implantação, os VMs podem estar a reiniciar, reconfigurando-se com base em novos dados, ou mesmo sendo iniciados pela primeira vez. Os serviços demoram também a que os serviços comecem a emitir sinais de saúde para serem agregados pelo prestador de cuidados de saúde em algo útil. Durante este processo tumultuoso, pode não fazer sentido verificar a saúde do serviço, uma vez que a atualização ainda não chegou a um estado estável. Com efeito, o serviço pode oscilar entre estados saudáveis e pouco saudáveis à medida que os recursos se instalam. 
     1. Durante a fase de espera, a saúde do serviço não é monitorizada. Isto é usado para permitir aos recursos implantados o tempo para assar antes de iniciar o processo de verificação de saúde. 
@@ -152,7 +152,7 @@ Neste momento, o Gestor de Implantação azure sabe como consultar a saúde do s
     1. Se em algum momento for detetada uma resposta pouco saudável, o Gestor de Implantação do Azure irá parar todo o lançamento e devolver a resposta REST transportando os sinais de serviço pouco saudáveis.
     1. Uma vez terminada a duração do HealthyState, o healthCheck está completo, e a implementação continua para o próximo passo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a integrar a monitorização da saúde no Gestor de Implantação do Azure. Avance para o artigo seguinte para saber como implementar com o Gestor de implementação.
 

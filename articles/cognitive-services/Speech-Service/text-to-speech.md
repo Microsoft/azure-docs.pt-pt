@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f939619cbbc69e9fc9cdbc4b2085a0b9d805511d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220415"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371210"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 

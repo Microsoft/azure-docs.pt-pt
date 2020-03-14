@@ -4,11 +4,11 @@ description: Descreve a estrutura e as propriedades dos modelos do Gestor de Rec
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388138"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248245"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure
 
@@ -33,7 +33,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 }
 ```
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Required | Descrição |
 |:--- |:--- |:--- |
 | $schema |Sim |Localização do ficheiro de esquemaJSON que descreve a versão do idioma do modelo.<br><br> Para implementações de grupos de recursos, utilize: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sim |Versão do modelo (como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser utilizado para se certificar de que o modelo certo está a ser utilizado. |
@@ -69,7 +69,7 @@ As propriedades disponíveis para um parâmetro são:
 }
 ```
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Required | Descrição |
 |:--- |:--- |:--- |
 | nome do parâmetro |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
 | tipo |Sim |Tipo do valor do parâmetro. Os tipos e valores permitidos são **cordas,** **cordões de segurança,** **int,** **bool,** **object,** **secureObject**e **array**. Ver [tipos de Dados](#data-types). |
@@ -79,7 +79,7 @@ As propriedades disponíveis para um parâmetro são:
 | maxValue |Não |O valor máximo para parâmetros do tipo int, este valor é inclusivo. |
 | minLength |Não |O comprimento mínimo para os parâmetros de corda, corda segura e tipo de matriz, este valor é inclusivo. |
 | maxLength |Não |O comprimento máximo para os parâmetros de corda, corda segura e tipo de matriz, este valor é inclusivo. |
-| descrição |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para mais informações, consulte [Comentários em modelos](#comments). |
+| description |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para mais informações, consulte [Comentários em modelos](#comments). |
 
 Por exemplo, como utilizar parâmetros, consulte [parâmetros nos modelos do Gestor](template-parameters.md)de Recursos Azure .
 
@@ -130,7 +130,7 @@ Para obter informações sobre o uso `copy` para criar vários valores para uma 
 
 Por exemplo, como usar variáveis, consulte [variáveis no modelo de Gestor](template-variables.md)de Recursos Azure .
 
-## <a name="functions"></a>Funções
+## <a name="functions"></a>Functions
 
 Dentro do seu modelo, pode criar as suas próprias funções. Estas funções estão disponíveis para utilização no seu modelo. Normalmente, define expressões complicadas que não quer repetir ao longo do seu modelo. Cria as funções definidas pelo utilizador a partir de expressões e [funções](template-functions.md) que são suportadas em modelos.
 
@@ -164,7 +164,7 @@ Ao definir uma função de utilizador, existem algumas restrições:
 ],
 ```
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Required | Descrição |
 |:--- |:--- |:--- |
 | espaço de nomes |Sim |Espaço de nome para as funções personalizadas. Utilize para evitar nomear conflitos com funções de modelo. |
 | nome da função |Sim |Nome da função personalizada. Ao ligar para a função, combine o nome da função com o espaço de nome. Por exemplo, para chamar uma função denominada nome único Nome no espaço de nome contoso, use `"[contoso.uniqueName()]"`. |
@@ -235,7 +235,7 @@ Define recursos com a seguinte estrutura:
 ]
 ```
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Required | Descrição |
 |:--- |:--- |:--- |
 | condition | Não | Valor booleano que indica se o recurso será provisionado durante esta implantação. Quando `true`, o recurso é criado durante a implantação. Quando `false`, o recurso é ignorado para esta implantação. Ver [condição](conditional-resource-deployment.md). |
 | tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nome do fornecedor de recursos e do tipo de recursos (como **Microsoft.Storage/storageAccounts**). Para determinar os valores disponíveis, consulte a [referência do modelo](/azure/templates/). Para um recurso infantil, o formato do tipo depende se está aninhado dentro do recurso-mãe ou definido fora do recurso-mãe. Consulte [o nome e o tipo de conjunto sinuosos para os recursos infantis](child-resource-name-type.md). |
@@ -252,7 +252,7 @@ Define recursos com a seguinte estrutura:
 | propriedades |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são os mesmos que os valores que fornece no organismo de pedido para a operação REST API (método PUT) para criar o recurso. Também pode especificar um conjunto de cópias para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte a [referência do modelo](/azure/templates/). |
 | recursos |Não |Recursos infantis que dependem do recurso que está a ser definido. Apenas forneça tipos de recursos que sejam permitidos pelo esquema do recurso-mãe. A dependência do recurso dos pais não está implícita. Tens de definir explicitamente essa dependência. Consulte [o nome e o tipo de conjunto sinuosos para os recursos infantis](child-resource-name-type.md). |
 
-## <a name="outputs"></a>Saídas
+## <a name="outputs"></a>Resultado
 
 Na secção de saídas, especifique os valores que são devolvidos da implementação. Normalmente, devolve-se valores dos recursos que foram implantados.
 
@@ -272,12 +272,12 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 }
 ```
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Required | Descrição |
 |:--- |:--- |:--- |
 | nome de saída |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
 | condition |Não | Valor booleano que indica se este valor de saída é devolvido. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para esta implantação. Quando não especificado, o valor predefinido é `true`. |
 | tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se especificar o **securestring** para o tipo de saída, o valor não é apresentado no histórico de implementação e não pode ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, guarde o segredo num Cofre chave e faça referência ao segredo no ficheiro do parâmetro. Para mais informações, consulte [o Cofre chave Azure para passar](key-vault-parameter.md)o valor do parâmetro seguro durante a implementação . |
-| valor |Não |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. Especifique o **valor** ou **a cópia**. |
+| Valor |Não |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. Especifique o **valor** ou **a cópia**. |
 | cópia |Não | Usado para devolver mais do que um valor para uma saída. Especificar **valor** ou **cópia**. Para mais informações, consulte a [iteração de saída nos modelos do Gestor](copy-outputs.md)de Recursos Azure . |
 
 Por exemplo, como utilizar saídas, consulte [saídas no modelo do Gestor](template-outputs.md)de Recursos Azure .
@@ -406,7 +406,7 @@ Pode quebrar uma corda em várias linhas. Por exemplo, consulte a propriedade de
 
 Para implantar modelos com cordas multi-linhas utilizando o Azure CLI, tem de utilizar o interruptor `--handle-extended-json-format`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para mais detalhes sobre as funções que pode utilizar dentro de um modelo, consulte funções de modelo de [gestor de recursos azure](template-functions.md).

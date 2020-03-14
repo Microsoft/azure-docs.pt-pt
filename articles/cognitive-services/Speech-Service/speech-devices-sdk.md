@@ -1,5 +1,5 @@
 ---
-title: Sobre os Dispositivos de Fala SDK - Serviço de Fala
+title: Dispositivos de Fala SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Comece com o SDK de dispositivos de voz. O serviço Speech funciona com uma grande variedade de dispositivos e fontes de áudio. O SDK de dispositivos de voz é uma biblioteca previamente atento que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 40179c7d421a26fd9a77b435668f75ec6fde8ab1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136978"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370649"
 ---
-# <a name="about-the-speech-devices-sdk"></a>Acerca do SDK de Dispositivos de Voz
+# <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos Dispositivos de Fala?
 
-O [serviço Speech](overview.md) funciona com uma grande variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
+O [serviço Speech](overview.md) funciona com uma grande variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca previamente atento que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone.
 
 O SDK de dispositivos de voz pode ajudá-lo a:
 

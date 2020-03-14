@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: fe8ea4dfb4de45a1e09648ac51fe8d74f93a6b9e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280277"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -248,7 +248,7 @@ Para executar tarefas em tabelas e rotas de rotas, a sua conta deve ser atribuí
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Obtenha a tabela de rota eficaz para uma interface de rede |
 | Microsoft.Network/networkWatchers/nextHop/action                |   Recebe o próximo salto de um VM                           |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Crie uma tabela de rotas utilizando scripts de amostra [PowerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou utilizando [modelos](template-samples.md) de Gestor de Recursos Azure<br>
 * Criar e aplicar [a política azure](policy-samples.md) para redes virtuais

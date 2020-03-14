@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330979"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297089"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (Pré-visualização)
 
@@ -72,13 +72,13 @@ Existem dois tipos de ingestão de streaming suportados:
 
 ## <a name="limitations"></a>Limitações
 
-* A ingestão de streaming não suporta [os cursores](/azure/kusto/management/databasecursor) de base de dados ou [o mapeamento de dados.](/azure/kusto/management/mappings) Apenas o mapeamento de dados [pré-criado](/azure/kusto/management/tables#create-ingestion-mapping) é suportado. 
+* A ingestão de streaming não suporta [os cursores](/azure/kusto/management/databasecursor) de base de dados ou [o mapeamento de dados.](/azure/kusto/management/mappings) Apenas o mapeamento de dados [pré-criado](/azure/kusto/management/create-ingestion-mapping-command) é suportado. 
 * Fluxo de desempenho de ingestão e escalas de capacidade com tamanhos de VM e cluster aumentados. As ingestão simultâneas limitam-se a seis ingestão por núcleo. Por exemplo, para 16 SKUs core, como D14 e L16, a carga máxima suportada é de 96 ingestão simultânea. Para duas SKUs centrais, como o D11, a carga máxima suportada é de 12 ingestão simultânea.
 * A limitação do tamanho dos dados por pedido de ingestão é de 4 MB.
 * As atualizações de Schema, tais como a criação e modificação de tabelas e mapeamentos de ingestão, podem demorar até cinco minutos para o serviço de ingestão de streaming.
 * Permitir o streaming de ingestão num cluster, mesmo quando os dados não são ingeridos através do streaming, utiliza parte do disco SSD local das máquinas de cluster para streaming de dados de ingestão e reduz o armazenamento disponível para cache quente.
 * [As etiquetas](/azure/kusto/management/extents-overview#extent-tagging) de extensão não podem ser definidas nos dados de ingestão de streaming.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Dados de consulta no Explorador de Dados do Azure](web-query-data.md)

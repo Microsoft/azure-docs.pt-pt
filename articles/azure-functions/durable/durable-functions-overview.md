@@ -7,11 +7,11 @@ ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356698"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241347"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
@@ -530,7 +530,7 @@ Para uma discussão mais aprofundada sobre as Funções Duráveis e a tecnologia
 
 Como as Funções Duráveis são uma extensão avançada para [funções Azure,](../functions-overview.md)não é apropriado para todas as aplicações. Para uma comparação com outras tecnologias de orquestração Azure, consulte [Compare Azure Functions e Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tipos e características de funções de funções duráveis](durable-functions-types-features-overview.md)

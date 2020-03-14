@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357874"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277885"
 ---
 # <a name="durable-functions-types-and-features"></a>Tipos e características de funções duráveis
 
@@ -59,7 +59,7 @@ As funções de orquestrador são desencadeadas por um gatilho de [orquestraçã
 
 Além de desencadear funções de orquestrador ou entidade, a ligação duradoura do *cliente* pode ser usada para interagir com orquestrações e entidades de corrida. Por exemplo, as orquestrações podem ser consultadas, encerradas, e podem ter eventos criados para eles. Para obter mais informações sobre gestão de orquestrações e entidades, consulte o artigo de gestão da [Instância.](durable-functions-instance-management.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar, crie a [C#](durable-functions-create-first-csharp.md) sua primeira função durável em ou [JavaScript](quickstart-js-vscode.md).
 

@@ -11,14 +11,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: be3a07eb2d4232d27a5b41ddc4258c89b79729bf
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 8179e36342f4f3544a1ecd503d7f136ea437d374
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169041"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217811"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>O que é o Estúdio de Aprendizagem automática (clássico)?
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -109,7 +111,7 @@ Para alguma ajuda a navegar através da grande biblioteca de algoritmos de apren
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implementar um serviço web de análise preditiva
 Uma vez que o seu modelo de análise preditiva esteja pronto, pode implantá-lo como um serviço web logo a partir do Machine Learning Studio (clássico). Para obter mais informações sobre este processo, consulte [A implantação de um serviço web Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Você pode aprender o básico de análise preditiva e aprendizagem automática usando um [arranque passo a passo](create-experiment.md) e [baseando-se em amostras](sample-experiments.md).
 
 <!-- Module References -->

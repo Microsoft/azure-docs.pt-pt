@@ -5,17 +5,17 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121413"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297922"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Sirva conteúdo do Azure Storage no Serviço de Aplicações em Linux
 
 > [!NOTE]
-> Este artigo se aplica a contêineres do Linux. Para implementar para personalizar os recipientes do Windows, consulte [configure Azure Files num recipiente windows no serviço de aplicações](../configure-connect-to-azure-storage.md). O Azure Storage no Serviço de Aplicações no Linux é uma funcionalidade de **pré-visualização.** Esta funcionalidade não é **suportada para cenários**de produção.
+> Este artigo aplica-se aos contentores Linux. Para implementar para personalizar os recipientes do Windows, consulte [configure Azure Files num recipiente windows no serviço de aplicações](../configure-connect-to-azure-storage.md). O Azure Storage no Serviço de Aplicações no Linux é uma funcionalidade de **pré-visualização.** Esta funcionalidade não é **suportada para cenários**de produção.
 >
 
 Este guia mostra como anexar o Azure Storage ao Serviço de Aplicações no Linux. Os benefícios incluem conteúdo seguro, portabilidade de conteúdo, armazenamento persistente, acesso a várias aplicações e múltiplos métodos de transferência.
@@ -25,7 +25,7 @@ Este guia mostra como anexar o Azure Storage ao Serviço de Aplicações no Linu
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 ou mais tarde).
 - Um serviço de aplicações existente [na aplicação Linux.](https://docs.microsoft.com/azure/app-service/containers/)
 - Uma [conta de armazenamento azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-- Uma [partilha de ficheiros Azure e um diretório.](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares)
+- Uma [partilha de ficheiros Azure e um diretório.](../../storage/files/storage-how-to-use-files-cli.md)
 
 
 ## <a name="limitations-of-azure-storage-with-app-service"></a>Limitações do armazenamento azure com serviço de aplicações
@@ -79,7 +79,7 @@ wordpress:
   - <custom-id>:<path_in_container>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Configure aplicações web no Azure App Service](../configure-common.md).
 

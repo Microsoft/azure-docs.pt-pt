@@ -9,40 +9,40 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: c66457ee46cf56a98002c61b70172cef75a8e824
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268711"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370071"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e amostra
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Utilize este módulo para efetuar amostragem num conjunto de dados ou para criar divisórias a partir do seu conjunto de dados.
+Utilize o módulo de partilha e amostra para efetuar a amostragem num conjunto de dados ou para criar divisórias a partir do seu conjunto de dados.
 
 A amostragem é uma ferramenta importante no machine learning porque permite reduzir o tamanho de um conjunto de dados mantendo a mesma relação de valores. Este módulo suporta várias tarefas relacionadas que são importantes na aprendizagem automática: 
 
 - Dividir os seus dados em várias subsecções do mesmo tamanho. 
 
-    Pode utilizar as divisórias para validação cruzada ou para atribuir casos a grupos aleatórios.
+  Pode utilizar as divisórias para validação cruzada ou para atribuir casos a grupos aleatórios.
 
 - Separar os dados em grupos e, em seguida, trabalhar com dados de um grupo específico. 
 
-    Depois de atribuir casos aleatoriamente a diferentes grupos, poderá ser necessário modificar as funcionalidades que estão associadas aapenas a um grupo.
+  Depois de atribuir casos aleatoriamente a diferentes grupos, poderá ter de modificar as funcionalidades que estão associadas aapenas a um grupo.
 
 - A provar. 
 
-    Pode extrair uma percentagem dos dados, aplicar amostras aleatórias ou escolher uma coluna para equilibrar o conjunto de dados e efetuar uma amostragem estratificada dos seus valores.
+  Pode extrair uma percentagem dos dados, aplicar amostras aleatórias ou escolher uma coluna para equilibrar o conjunto de dados e efetuar uma amostragem estratificada dos seus valores.
 
 - Criar um conjunto de dados menor para testes. 
 
-    Se tiver muitos dados, poderá querer utilizar apenas as primeiras linhas *n* durante a configuração do pipeline e, em seguida, mudar para utilizar o conjunto de dados completo quando construir o seu modelo. Também pode utilizar amostras para criar um conjunto de dados menor para utilização no desenvolvimento.
+  Se tiver muitos dados, poderá querer utilizar apenas as primeiras linhas *n* durante a configuração do pipeline e, em seguida, mudar para utilizar o conjunto de dados completo quando construir o seu modelo. Também pode utilizar amostras para criar um conjunto de dados menor para uso no desenvolvimento.
 
-## <a name="configure-partition-and-sample"></a>Configurar a partição e a amostra
+## <a name="configure-the-module"></a>Configure o módulo
 
-Este módulo suporta múltiplos métodos para dividir os seus dados em divisórias ou para amostragem. Escolha primeiro o método e, em seguida, detete as opções adicionais exigidas pelo método.
+Este módulo suporta os seguintes métodos de divisão dos seus dados em divisórias ou para amostragem. Escolha primeiro o método e, em seguida, detete as opções adicionais que o método requer.
 
 - Head
 - Amostragem
@@ -51,52 +51,52 @@ Este módulo suporta múltiplos métodos para dividir os seus dados em divisóri
 
 ### <a name="get-top-n-rows-from-a-dataset"></a>Obtenha linhas TOP N a partir de um conjunto de dados
 
-Utilize este modo para obter apenas as primeiras linhas *n.* Esta opção é útil se quiser testar um pipeline em um pequeno número de linhas, e não precisa que os dados sejam equilibrados ou amostrados de forma alguma.
+Utilize este modo para obter apenas as primeiras linhas *n.* Esta opção é útil se quiser testar um pipeline em um pequeno número de linhas, e você não precisa que os dados sejam equilibrados ou amostrados de forma alguma.
 
 1. Adicione o módulo **de partilha e amostra** ao seu pipeline na interface e ligue o conjunto de dados.  
 
-2. **Modo de partilha ou amostra**: Desloque esta opção para **cabeça**.
+1. **Modo de partilha ou amostra**: Desloque esta opção para **cabeça**.
 
-3. **Número de linhas para selecionar:** Digite o número de linhas para devolver.
+1. **Número de linhas para selecionar:** Introduza o número de linhas para devolver.
 
-    O número de linhas que especifica deve ser um inteiro não negativo. Se o número de linhas selecionadas for maior do que o número de linhas no conjunto de dados, todo o conjunto de dados é devolvido.
+   O número de linhas deve ser um inteiro não negativo. Se o número de linhas selecionadas for maior do que o número de linhas no conjunto de dados, todo o conjunto de dados é devolvido.
 
-4. Executar o pipeline.
+1. Executar o pipeline.
 
-O módulo produz um único conjunto de dados contendo apenas o número especificado de linhas. As linhas são sempre lidas a partir do topo do conjunto de dados.
+O módulo produz um único conjunto de dados que contém apenas o número especificado de linhas. As linhas são sempre lidas a partir do topo do conjunto de dados.
 
 ### <a name="create-a-sample-of-data"></a>Criar uma amostra de dados
 
-Esta opção suporta uma simples amostragem aleatória ou uma amostragem aleatória estratificada. Isto é útil se quiser criar um conjunto de dados de amostra seletiva mais pequeno para testes.
+Esta opção suporta uma simples amostragem aleatória ou uma amostragem aleatória estratificada. É útil se quiser criar um conjunto de dados de amostra seletiva mais pequeno para testes.
 
 1. Adicione o módulo **de partilha e amostra** ao seu pipeline e ligue o conjunto de dados.
 
-2. **Modo de partilha ou amostra:** Desloque isto para **A Amostragem**.
+1. **Modo de partilha ou amostra:** Desajuste esta opção para **A Amostragem**.
 
-3. **Taxa de amostragem**: Digite um valor entre 0 e 1. este valor especifica a percentagem de linhas do conjunto de dados de origem que deve ser incluído no conjunto de dados de saída.
+1. **Taxa de amostragem**: Introduza um valor entre 0 e 1. este valor especifica a percentagem de linhas do conjunto de dados de origem que deve ser incluído no conjunto de dados de saída.
 
-    Por exemplo, se quiser apenas metade do conjunto de dados original, escreva `0.5` indique que a taxa de amostragem deve ser de 50%.
+   Por exemplo, se quiser apenas metade do conjunto de dados original, introduza `0.5` para indicar que a taxa de amostragem deve ser de 50%.
 
-    As linhas do conjunto de dados de entrada são baralhadas e colocadas seletivamente no conjunto de dados de saída, de acordo com o rácio especificado.
+   As linhas do conjunto de dados de entrada são baralhadas e seletivamente colocadas no conjunto de dados de saída, de acordo com o rácio especificado.
 
-4. **Sementes aleatórias para amostragem**: Opcionalmente, digite uma nota para usar como um valor de semente.
+1. **Sementes aleatórias para amostragem**: Opcionalmente, introduza uma inteiro para usar como valor de semente.
 
-    Esta opção é importante se quiser que as linhas sejam sempre divididas da mesma forma. O valor padrão é 0, o que significa que uma semente inicial é gerada com base no relógio do sistema. Isto pode levar a resultados ligeiramente diferentes cada vez que executa o gasoduto.
+   Esta opção é importante se quiser que as linhas sejam sempre divididas da mesma forma. O valor padrão é **0**, o que significa que uma semente inicial é gerada com base no relógio do sistema. Este valor pode levar a resultados ligeiramente diferentes cada vez que executa o gasoduto.
 
-5. **Divisão estratificada para amostragem**: Selecione esta opção se for importante que as linhas do conjunto de dados sejam divididas uniformemente por alguma coluna chave antes de provar.
+1. **Divisão estratificada para amostragem**: Selecione esta opção se for importante que as linhas do conjunto de dados sejam divididas uniformemente por alguma coluna de teclas antes de provar.
 
-    Para a **coluna de teclas estratificação para amostragem,** selecione uma única coluna de *estratos* para utilizar ao dividir o conjunto de dados. As linhas do conjunto de dados são então divididas da seguinte forma:
+   Para a **coluna de teclas estratificação para amostragem,** selecione uma única coluna de *estratos* para utilizar ao dividir o conjunto de dados. As linhas do conjunto de dados são então divididas da seguinte forma:
 
-    1. Todas as linhas de entrada são agrupadas (estratificadas) pelos valores na coluna de estratos especificada.
+   1. Todas as linhas de entrada são agrupadas (estratificadas) pelos valores na coluna de estratos especificada.
 
-    2. As filas são baralhadas dentro de cada grupo.
+   1. As filas são baralhadas dentro de cada grupo.
 
-    3. Cada grupo é adicionado seletivamente ao conjunto de dados de saída para satisfazer o rácio especificado.
+   1. Cada grupo é adicionado seletivamente ao conjunto de dados de saída para satisfazer o rácio especificado.
 
 
-6. Executar o pipeline.
+1. Executar o pipeline.
 
-    Com esta opção, o módulo produz um único conjunto de dados que contém uma amostra representativa dos dados. A parte restante e não amostrada do conjunto de dados não é de saída. 
+   Com esta opção, o módulo produz um único conjunto de dados que contém uma amostra representativa dos dados. A parte restante e não amostrada do conjunto de dados não é de saída. 
 
 ## <a name="split-data-into-partitions"></a>Divida dados em divisórias
 
@@ -104,66 +104,66 @@ Utilize esta opção quando pretender dividir o conjunto de dados em subconjunto
 
 1. Adicione o módulo **de partilha e amostra** ao seu pipeline e ligue o conjunto de dados.
 
-2. Para **o modo de partilha ou amostra,** selecione Atribuir a **dobras**.
+1. Para **o modo de partilha ou amostra,** selecione Atribuir a **dobras**.
 
-3. **Utilize a substituição na divisória**: Selecione esta opção se pretender que a linha amostrada seja reposta na piscina de linhas para potencial reutilização. Como resultado, a mesma linha pode ser atribuída a várias dobras.
+1. **Utilize a substituição na divisória**: Selecione esta opção se pretender que a linha amostrada seja reposta na piscina de linhas para potencial reutilização. Como resultado, a mesma linha pode ser atribuída a várias dobras.
 
-    Se não utilizar a substituição (a opção predefinida), a linha amostrada não é colocada de volta na piscina de linhas para potencial reutilização. Como resultado, cada linha pode ser atribuída a apenas uma dobra.
+   Se não utilizar a substituição (a opção predefinida), a linha amostrada não é colocada de volta na piscina de linhas para potencial reutilização. Como resultado, cada linha pode ser atribuída a apenas uma dobra.
 
-4. **Divisão aleatória**: Selecione esta opção se pretender que as linhas sejam atribuídas aleatoriamente a dobras.
+1. **Divisão aleatória**: Selecione esta opção se pretender que as linhas sejam atribuídas aleatoriamente a dobras.
 
-    Se não selecionar esta opção, as linhas são atribuídas a dobras utilizando o método de robin redondo.
+   Se não selecionar esta opção, as linhas são atribuídas a dobras através do método round-robin.
 
-5. **Semente aleatória**: Opcionalmente, digite uma prótese para usar como valor de semente. Esta opção é importante se quiser que as linhas sejam sempre divididas da mesma forma. Caso contrário, o valor padrão de 0 significa que será utilizada uma semente de arranque aleatória.
+1. **Sementes aleatórias**: Opcionalmente, introduza uma prótese para usar como valor de semente. Esta opção é importante se quiser que as linhas sejam sempre divididas da mesma forma. Caso contrário, o valor padrão de **0** significa que será utilizada uma semente de arranque aleatória.
 
-6. **Especifique o método de partição**: Indique como pretende que os dados sejam distribuídos por cada partição, utilizando estas opções:
+1. **Especifique o método de partição**: Indique como pretende que os dados sejam distribuídos por cada partição, utilizando estas opções:
 
-    - **Partição uniformemente**: Utilize esta opção para colocar um número igual de linhas em cada partição. Para especificar o número de divisórias de saída, digite um número inteiro no **número de dobras especificada para dividir uniformemente em** caixa de texto.
+   - **Partição uniformemente**: Utilize esta opção para colocar um número igual de linhas em cada partição. Para especificar o número de divisórias de saída, introduza um número inteiro no **número de dobras especificadas para dividir uniformemente em** caixa.
 
-    - **Partição com proporções personalizadas**: Utilize esta opção para especificar o tamanho de cada divisória como uma lista separada da víramida.
+   - **Partição com proporções personalizadas**: Utilize esta opção para especificar o tamanho de cada divisória como uma lista separada da víramida.
 
-        Por exemplo, se pretender criar três divisórias, com a primeira partição contendo 50% dos dados, e as restantes duas divisórias que contêm 25% dos dados, clique na Lista de proporções separadas por caixa de texto **vírina** e digite estes números: `.5, .25, .25`
+     Por exemplo, assuma que quer criar três divisórias. A primeira partição conterá 50% dos dados. As duas divisórias restantes conterão 25% dos dados. Na **lista de proporções separadas por caixa vírposta,** introduza estes números: **.5, .25, .25**.
 
-        A soma de todos os tamanhos das divisórias deve somar exatamente 1.
+     A soma de todos os tamanhos das divisórias deve somar exatamente 1.
 
-        - Se introduzir números que somam **menos de 1**, é criada uma partição extra para manter as restantes linhas. Por exemplo, se escrever os valores .2 e .3, é criada uma terceira partição que detém os restantes 50% de todas as linhas.
+     Se introduzir números que somam *menos de 1*, é criada uma partição extra para manter as restantes linhas. Por exemplo, se introduzir os valores **.2** e **.3,** é criada uma terceira partição para manter os restantes 50% de todas as linhas.
+     
+     Se introduzir números que somam mais de *1*, um erro é levantado quando executa o gasoduto.
 
-        - Se introduzir números que somam mais de **1**, um erro é levantado quando executa o gasoduto.
+1. **Divisão estratificada**: Selecione esta opção se quiser que as linhas sejam estratificadas quando divididas e, em seguida, escolha a coluna de _estratos_.
 
-7. **Divisão estratificada**: Selecione esta opção se quiser que as linhas sejam estratificadas quando divididas e, em seguida, escolha a coluna de _estratos_.
+1. Executar o pipeline.
 
-8. Executar o pipeline.
-
-    Com esta opção, o módulo produz vários conjuntos de dados, divididos usando as regras que especificou.
+   Com esta opção, o módulo produz vários conjuntos de dados. Os conjuntos de dados são divididos de acordo com as regras que especificou.
 
 ### <a name="use-data-from-a-predefined-partition"></a>Utilizar dados de uma partição predefinida  
 
-Esta opção é usada quando dividiu um conjunto de dados em várias divisórias e agora pretende carregar cada partição por sua vez para posterior análise ou processamento.
+Utilize esta opção quando tiver dividido um conjunto de dados em várias divisórias e agora quer carregar cada partição por sua vez para posterior análise ou processamento.
 
 1. Adicione o módulo **de partição e amostra** ao gasoduto.
 
-2. Conecte-o à saída de um caso anterior de **Partição e Amostra**. Esta instância deve ter usado a opção **Atribuir a Folds** para gerar um número de divisórias.
+1. Ligue o módulo à saída de um caso anterior de **Partição e Amostra**. Esta instância deve ter usado a opção **Atribuir a Folds** para gerar um número de divisórias.
 
-3. **Modo de partição ou amostra**: Selecione **Pick Fold**.
+1. **Modo de partição ou amostra**: Selecione **Pick Fold**.
 
-4. **Especifique qual a dobra a amostrar**a partir de : Selecione uma divisória para utilizar digitando o seu índice. Os índices de partição são baseados em 1. Por exemplo, se dividisse o conjunto de dados em três partes, as divisórias teriam os índices 1, 2 e 3.
+1. **Especifique qual a dobra a amostrar**a partir de : Selecione uma divisória para utilizar introduzindo o seu índice. Os índices de partição são baseados em 1. Por exemplo, se dividisse o conjunto de dados em três partes, as divisórias teriam os índices 1, 2 e 3.
 
-    Se escrever um valor de índice inválido, é levantado um erro de tempo de design: "Error 0018: Dataset contém dados inválidos."
+   Se introduzir um valor de índice inválido, é levantado um erro de tempo de design: "Error 0018: Dataset contém dados inválidos."
 
-    Além de agrupar o conjunto de dados por dobras, pode separar o conjunto de dados em dois grupos: uma dobra-alvo, e tudo o resto. Para isso, digite o índice de uma única dobra e, em seguida, selecione a opção, **Escolha o complemento da dobra selecionada,** para obter tudo menos os dados na dobra especificada.
+   Além de agrupar o conjunto de dados por dobras, pode separar o conjunto de dados em dois grupos: uma dobra-alvo, e tudo o resto. Para isso, introduza o índice de uma única dobra e, em seguida, selecione o complemento de opção **Escolha o complemento da dobra selecionada** para obter tudo menos os dados na dobra especificada.
 
-5. Se estiver a trabalhar com várias divisórias, deve adicionar instâncias adicionais do módulo **de partilha e amostra** para manusear cada partição.
+1. Se estiver a trabalhar com várias divisórias, deve adicionar mais instâncias do módulo **de Partilha e Amostra** para lidar com cada partição.
 
-    Por exemplo, o módulo **de partição e amostra** na segunda linha está definido para Atribuir a **Dobras**, e os módulos da terceira linha estão definidos para **pick fold**.   
+   Por exemplo, o módulo **de partição e amostra** na segunda linha está definido para Atribuir a **Dobras**, e o módulo na terceira linha está definido para **pick Fold**.   
 
-    ![Partição e amostras](./media/module/partition-and-sample.png)
+   ![Partição e amostras](./media/module/partition-and-sample.png)
 
-5. Executar o pipeline.
+1. Executar o pipeline.
 
-    Com esta opção, o módulo produz um único conjunto de dados contendo apenas as linhas atribuídas a essa dobra.
+   Com esta opção, o módulo produz um único conjunto de dados que contém apenas as linhas atribuídas a essa dobra.
 
 > [!NOTE]
->  Não é possível visualizar diretamente as designações dobráveis; estão presentes apenas nos metadados.
+>  Não se pode ver as designações dobráveis diretamente. Só estão presentes nos metadados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

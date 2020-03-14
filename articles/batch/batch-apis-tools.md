@@ -10,11 +10,11 @@ ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 00d2a74946957f690979eec1d3a03a9b766299d8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394906"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252327"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
@@ -39,7 +39,7 @@ As suas aplicações e serviços podem emitir chamadas diretas de API REST ou ut
 
 | API | Referência da API | Transferência | Tutorial | Exemplos de código | Mais Informações |
 | --- | --- | --- | --- | --- | --- |
-| **REST do Batch** |[docs.microsoft.com][batch_rest] |N/D |- |- | [Versões Suportadas](/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **REST do Batch** |[docs.microsoft.com][batch_rest] |N/A |- |- | [Versões Suportadas](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **.NET do Batch** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notas de Versão](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Tutorial](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Leia-me](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Tutorial](batch-nodejs-get-started.md) |- | [Leia-me](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
@@ -51,7 +51,7 @@ As APIs do Azure Resource Manager para o Batch concedem acesso programático às
 
 | API | Referência da API | Transferência | Tutorial | Exemplos de código |
 | --- | --- | --- | --- | --- |
-| **REST de Gestão de Lotes** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **REST de Gestão de Lotes** |[docs.microsoft.com][api_rest_mgmt] |N/A |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Gestão de Batch .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 | **Python de Gestão de Lotes** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
 | **Node.js de Gestão de Lotes** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
@@ -77,7 +77,7 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para criar e dep
 - Para saber mais sobre o registo de eventos da aplicação do Batch, consulte [Log events for diagnostic evaluation and monitoring of Batch solutions](batch-diagnostics.md)(Registar eventos para avaliação de diagnóstico e monitorização de soluções do Batch). Para uma referência de eventos gerados pelo serviço do Batch, consulte [Batch Analytics](batch-analytics.md).
 - Para obter informações sobre as variáveis de ambiente para nós de computação, consulte [Azure Batch compute node environment variables](batch-compute-node-environment-variables.md)(Variáveis de ambiente de nó de computação do Azure Batch).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
 * [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.

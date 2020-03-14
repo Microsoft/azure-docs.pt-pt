@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: af6577684af559b7e152a53fbe4293740d676e6e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375239"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370836"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -76,12 +76,15 @@ A Azure Dev Spaces não conseguiu criar um controlador no seu cluster AKS porque
 
 Para corrigir este problema, [atualize a sua configuração de mancha](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) no seu cluster AKS para garantir que pelo menos um nó Linux permite agendar cápsulas sem especificar tolerâncias. Além disso, certifique-se de que pelo menos um nó Linux que permite agendar cápsulas sem especificar tolerações está no estado *Ready.* Se o seu nó demorar muito tempo a chegar ao estado *de Ready,* pode tentar reiniciar o seu nó.
 
-### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Erro "Azure Dev Spaces CLI não instalado corretamente" ao executar `az aks use-dev-spaces`
+### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Erro "Azure Dev Spaces CLI não instalado sem instalação corretamente" ao executar az aks use-dev-spaces
 
 Uma atualização para a CLI do Azure Dev Spaces alterou seu caminho de instalação. Se você estiver usando uma versão do CLI do Azure anterior a 2.0.63, poderá ver esse erro. Para exibir a sua versão do Azure CLI, utilize `az --version`.
 
 ```azurecli
 az --version
+```
+
+```output
 azure-cli                         2.0.60 *
 ...
 ```
@@ -126,7 +129,7 @@ Este tempo de tempo ocorre quando se tenta usar a Dev Spaces para executar um se
 Se executar `azds up` com o interruptor `--verbose`, ou ativar o registo verbose no Estúdio Visual, verá detalhes adicionais:
 
 ```cmd
-$ azds up --verbose
+azds up --verbose
 
 Installed chart in 2s
 Waiting for container image build...
@@ -292,7 +295,7 @@ Tente baixar e instalar a versão mais recente da CLI do Azure Dev Spaces:
 
 Você pode ver esse erro ao executar o depurador de Visual Studio Code. Talvez você não tenha a extensão de VS Code C# para instalada em seu computador de desenvolvimento. A C# extensão inclui suporte de depuração para o CoreCLR (.NET Core).
 
-Para corrigir este problema, instale a [extensão C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)do Código VS para .
+Para corrigir este problema, instale a [extensão C# ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)do Código VS para .
 
 ### <a name="error-configured-debug-type-coreclr-is-not-supported"></a>Erro "não há suporte para o tipo de depuração configurado ' CoreCLR '"
 
@@ -357,10 +360,13 @@ kubectl get pods --all-namespaces --include-uninitialized
 
 Esta edição pode ter impacto em cápsulas em *todos os espaços* de nome no cluster, incluindo espaços de nome onde o Azure Dev Spaces não está ativado.
 
-Para corrigir este problema, [atualize o CLI dos Espaços Dev para a versão mais recente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) e, em seguida, apagando a *Configuração inicializador azds* do controlador Dev Spaces:
+Para corrigir este problema, [atualize o CLI dos Espaços Dev para a versão mais recente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) e, em seguida, elimine a *Configuração inicializador azds* do controlador Dev Spaces:
 
 ```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
+```
+
+```bash
 kubectl delete InitializerConfiguration azds
 ```
 
@@ -495,5 +501,8 @@ Para corrigir este problema, certifique-se de que o seu *kubeconfig* tem os cert
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>
+```
+
+```console
 azds controller refresh-credentials -g <resource group name> -n <cluster name>
 ```

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc8a62bd75a01cb6b7184cb52585c4f8b08cadb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378264"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136539"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Diretório Ativo do Azure
 
@@ -51,7 +51,7 @@ A Microsoft oferece três opções de autenticação sem palavras-passe que cobr
 
 Os métodos de autenticação sem palavras-passe da Microsoft permitem diferentes cenários. Considere as suas necessidades organizacionais, pré-requisitos e as capacidades de cada método de autenticação para selecionar a sua estratégia de autenticação sem palavras-passe. Recomendamos que todas as organizações que utilizam dispositivos Windows 10 utilizem o Windows Hello for Business. Em seguida, adicione o registo do telefone (com a aplicação Microsoft Authenticator) ou as chaves de segurança para cenários adicionais.
 
-| Cenário | Autenticação do telefone | Chaves de segurança | Windows Hello para empresas |
+| Cenário | Autenticação do telefone | Chaves de segurança | Windows Hello para Empresas |
 | --- | --- | --- | --- |
 | **Sinal de computador em:** <br> Do dispositivo windows 10 atribuído | **Não** | **Sim** <br> Com biométrico, PIN | **Sim**<br>com reconhecimento biométrico e ou PIN |
 | **Sinal de computador em:** <br> A partir do dispositivo Partilhado Windows 10 | **Não** | **Sim** <br> Com biométrico, PIN  | **Não** |
@@ -130,7 +130,7 @@ Consulte [as melhores práticas para um piloto](https://aka.ms/deploymentplans) 
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planeie a autenticação sem palavras-passe com a aplicação Microsoft Authenticator
 
-A aplicação Microsoft Authenticator é um download gratuito do Google Play ou da Apple App Store. [Saiba mais sobre o download da aplicação Microsoft Authenticator](https://www.microsoft.com/account/authenticator?cmp=h66ftb_42hbak). Os utilizadores têm de descarregar a aplicação Microsoft Authenticator. e siga as instruções para ativar o sinal telefónico. 
+A aplicação Microsoft Authenticator é um download gratuito do Google Play ou da Apple App Store. [Saiba mais sobre o download da aplicação Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Os utilizadores têm de descarregar a aplicação Microsoft Authenticator. e siga as instruções para ativar o sinal telefónico. 
 
 Transforma qualquer iOS ou telefone Android numa credencial forte e sem palavras-passe. Os utilizadores fazem sessão em qualquer plataforma ou navegador, recebendo uma notificação para o seu telemóvel, correspondendo a um número apresentado no ecrã com o do seu telemóvel e, em seguida, usando biometria ou PIN para confirmar. [Veja mais detalhes sobre o funcionamento da aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in). 
 
@@ -326,7 +326,7 @@ Siga os passos do artigo, Ative o sinal de chave de [segurança sem palavras-pas
 | Utilizador incapaz de gerir a minha chave de segurança na versão 1809 do Windows 1809 | A versão 1809 requer que utilize o software de gestão da chave de segurança fornecido pelo fornecedor chave FIDO2. Contacte o fornecedor para obter apoio. |
 | Acho que a minha chave de segurança FIDO2 pode estar defeituosa, como posso testá-la. | Navegue para [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), introduza credenciais para uma conta de teste, ligue a chave de segurança do suspeito, selecione o botão **+** na parte superior direita do ecrã, clique em criar e passe pelo processo de criação. Se este cenário falhar, o seu dispositivo poderá estar defeituoso. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Ativar chaves de segurança sem palavras-passe para iniciar sessão para AD Azure](howto-authentication-passwordless-security-key.md)
 - [Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md)

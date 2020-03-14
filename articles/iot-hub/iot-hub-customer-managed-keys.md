@@ -1,6 +1,6 @@
 ---
-title: Criptografia de dados do Hub IoT do Azure em repouso por meio de chaves gerenciadas pelo cliente | Microsoft Docs
-description: Criptografia de dados em repouso com chaves gerenciadas pelo cliente para o Hub IoT
+title: Encriptação de dados do Azure IoT Hub em repouso através de chaves geridas pelo cliente Microsoft Docs
+description: Encriptação de dados em repouso com chaves geridas pelo cliente para IoT Hub
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,21 +8,21 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: asrastog
-ms.openlocfilehash: 1bb55d593878026bb3e57014a317b4fc0158d734
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 609f68c79159c4ce17468fc1df13c0c9eae7f211
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913137"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370581"
 ---
-# <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Criptografia de dados em repouso com chaves gerenciadas pelo cliente para o Hub IoT
+# <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Encriptação de dados em repouso com chaves geridas pelo cliente para IoT Hub
 
-O Hub IoT dá suporte à criptografia de dados em repouso com chaves gerenciadas pelo cliente (CMK), também conhecida como traga sua própria chave (BYOK), suporte para o Hub IoT do Azure. O Hub IoT do Azure fornece criptografia de dados em repouso e em trânsito. Por padrão, o Hub IoT usa chaves gerenciadas pela Microsoft para criptografar os dados. Com o suporte do CMK, os clientes agora têm a opção de criptografar os dados em repouso com uma chave de criptografia de chave, gerenciada pelos clientes, usando o [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+O IoT Hub suporta a encriptação de dados em repouso com chaves geridas pelo cliente (CMK), também conhecida como Bring your own key (BYOK), suporte para O Hub Azure IoT. O Azure IoT Hub fornece encriptação de dados em repouso e em trânsito. Por padrão, o IoT Hub utiliza chaves geridas pela Microsoft para encriptar os dados. Com o suporte da CMK, os clientes têm agora a opção de encriptar os dados em repouso com uma chave de encriptação, gerida pelos clientes, utilizando o [Cofre de Chaves Azure.](https://azure.microsoft.com/services/key-vault/)
 
-Esse recurso requer a criação de um novo hub IoT (camada básica ou Standard), em uma das seguintes regiões: leste dos EUA, oeste dos EUA 2 ou EUA Central do Sul. Para experimentar esse recurso, entre em contato conosco por meio [do suporte da Microsoft](https://azure.microsoft.com/support/create-ticket/). Compartilhe o nome da sua empresa e a ID da assinatura ao entrar em contato com o suporte da Microsoft.
+Esta capacidade requer a criação de um novo Hub IoT (nível básico ou padrão), numa das seguintes regiões: Leste dos EUA, Oeste dos EUA 2, Centro-Sul dos EUA ou Gov dos EUA. Para experimentar esta capacidade, contacte-nos através do [suporte da Microsoft](https://azure.microsoft.com/support/create-ticket/). Partilhe o nome da sua empresa e o ID de subscrição ao contactar o suporte da Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o Hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
+* [Saiba mais sobre o IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
 
-* [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Saiba mais sobre o Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

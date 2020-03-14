@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4dae0d10f103710a0e6039127c5c1cacb63c03c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/12/2020
+ms.openlocfilehash: 50e88d43d159ba5ac8f7b6c196c9843faad9eaf1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394233"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246230"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiar dados de ou para azure Data Lake Storage Gen1 usando a Azure Data Factory
 
@@ -58,7 +58,7 @@ As seguintes secções fornecem informações sobre propriedades que são usadas
 
 As seguintes propriedades são suportadas para o serviço ligado à Azure Data Lake Store:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade `type` deve ser definida para **AzureDataLakeStore**. | Sim |
 | dataLakeStoreUri | Informações sobre a conta do Azure Data Lake Store. Esta informação tem um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
@@ -83,7 +83,7 @@ Para utilizar a autenticação principal do serviço, siga estes passos.
 
 São suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
 | servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um `SecureString` para armazená-lo de forma segura na Data Factory, ou fazer referência a [um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
@@ -158,7 +158,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para Azure Data Lake Store Gen1 em definições `location` no conjunto de dados baseado em formato:
 
-| Propriedade   | Descrição                                                  | Necessário |
+| Propriedade   | Descrição                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
 | tipo       | A propriedade do tipo sob `location` no conjunto de dados deve ser definida para **AzureDataLakeStoreLocation**. | Sim      |
 | folderPath | O caminho para uma pasta. Se pretender utilizar um wildcard para filtrar pastas, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
@@ -200,7 +200,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para Azure Data Lake Store Gen1 em configurações `storeSettings` na fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário                                      |
+| Propriedade                 | Descrição                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | tipo                     | A propriedade do tipo sob `storeSettings` deve ser definida para **AzureDataLakeStoreReadSettings**. | Sim                                           |
 | recursive                | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Quando o recursivo é definido como verdadeiro e a pia é uma loja baseada em ficheiros, uma pasta vazia ou subpasta não é copiada ou criada na pia. Os valores permitidos são **verdadeiros** (predefinidos) e **falsos**. | Não                                            |
@@ -257,10 +257,11 @@ As seguintes propriedades são suportadas para Azure Data Lake Store Gen1 em con
 
 As seguintes propriedades são suportadas para Azure Data Lake Store Gen1 em configurações `storeSettings` no sumidouro de cópia baseado em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário |
+| Propriedade                 | Descrição                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | tipo                     | A propriedade do tipo sob `storeSettings` deve ser definida para **AzureDataLakeStoreWriteDefinições**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a origem é ficheiros a partir de um arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (predefinição)</b>: Preserva a hierarquia dos ficheiros na pasta-alvo. O caminho relativo do ficheiro fonte para a pasta fonte é idêntico ao caminho relativo do ficheiro-alvo para a pasta-alvo.<br/><b>- Hierarquia flattena</b>: Todos os ficheiros da pasta fonte estão no primeiro nível da pasta-alvo. Os ficheiros de destino têm nomes de geradas automaticamente. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se não for especificado o nome de ficheiro, o nome de ficheiro intercalada é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. | Não       |
+| expiraçãoDataTime | Especifica o tempo de validade dos ficheiros escritos. O tempo é aplicado ao tempo UTC no formato "2020-03-01T08:00:00:00Z". Por defeito é NULO, o que significa que os ficheiros escritos nunca expiram. | Não |
 | maxConcurrentConnections | O número de ligações para ligar à loja de dados simultaneamente. Especifique apenas quando pretende limitar a ligação simultânea à loja de dados. | Não       |
 
 **Exemplo:**
@@ -427,7 +428,7 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para **AzureDataLakeStoreFile**. |Sim |
 | folderPath | Caminho para a pasta na Data Lake Store. Se não for especificado, ele aponta para a raiz. <br/><br/>O filtro Wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou personagem individual). Use `^` para escapar se o seu nome real de pasta tiver um wildcard ou este char de fuga dentro. <br/><br/>Por exemplo: pasta de raiz/subpasta/. Consulte mais exemplos em exemplos de [pastas e filtros de ficheiros](#folder-and-file-filter-examples). |Não |
@@ -472,7 +473,7 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de fonte de fonte de atividade de cópia legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade `type` da fonte de atividade de cópia deve ser definida para **AzureDataLakeStoreSource**. |Sim |
 | recursive | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Quando `recursive` é definido como verdadeiro e a pia é uma loja baseada em ficheiros, uma pasta vazia ou subpasta não é copiada ou criada na pia. Os valores permitidos são **verdadeiros** (predefinidos) e **falsos**. | Não |
@@ -512,7 +513,7 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 
 ### <a name="legacy-copy-activity-sink-model"></a>Modelo de pia de atividade de cópia legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade `type` do afundado de atividade de cópia deve ser definida para **AzureDataLakeStoreSink**. |Sim |
 | copyBehavior | Define o comportamento de cópia quando a origem é ficheiros a partir de um arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (predefinição)</b>: Preserva a hierarquia dos ficheiros na pasta-alvo. O caminho relativo do ficheiro fonte para a pasta fonte é idêntico ao caminho relativo do ficheiro-alvo para a pasta-alvo.<br/><b>- Hierarquia flattena</b>: Todos os ficheiros da pasta fonte estão no primeiro nível da pasta-alvo. Os ficheiros de destino têm nomes de geradas automaticamente. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se não for especificado o nome de ficheiro, o nome de ficheiro intercalada é o nome especificado. Caso contrário, o nome do ficheiro é autogerado. | Não |
@@ -550,6 +551,6 @@ Para saber detalhes sobre as propriedades, consulte a [atividade de Eliminar](de
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148337"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279406"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações do dispositivo VPN do parceiro
 Este artigo fornece uma visão geral da configuração de dispositivos VPN no local para a ligação aos gateways VpN Azure. Uma rede virtual Azure e configuração de gateway VPN são usadas para lhe mostrar como se conectar a diferentes configurações de dispositivos VPN no local utilizando os mesmos parâmetros.
@@ -148,6 +148,6 @@ Quando criar a ligação VPN S2S, pode utilizar opcionalmente [o BGP para o gate
     New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para instruções passo a passo para configurar gateways VPN ativos, consulte a configuração de [gateways VPN ativos para instalações cruzadas e ligações VNet-to-VNet](vpn-gateway-activeactive-rm-powershell.md).
 

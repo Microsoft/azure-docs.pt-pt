@@ -9,14 +9,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 1b76147ac48d0bfb7b7bb1302e33b21e5ababb77
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 3f22ce3b1fb750e33e35d35ee1fe5ad1893abcfd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169067"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204141"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Gestão de Ciclo de Vida de Aplicação no Estúdio de Aprendizagem automática Azure (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 O Azure Machine Learning Studio (clássico) é uma ferramenta para desenvolver experiências de machine learning que estão operacionalizadas na plataforma cloud Azure. É como o Visual Studio IDE e o serviço de nuvem escalável fundido numa única plataforma. Pode incorporar práticas padrão de Gestão de Ciclo de Vida de Aplicações (ALM) desde a versão de vários ativos até à execução e implementação automatizadas, no Azure Machine Learning Studio (clássico). Este artigo discute algumas das opções e abordagens.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -93,7 +96,7 @@ Um aspeto importante da ALM é poder automatizar o processo de execução e impl
 9. [Implementar um serviço web](https://github.com/hning86/azuremlps#new-amlwebservice) a partir da experiência preditiva.
 10. Teste o ponto final do serviço web [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ou [BES.](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Descarregue o módulo [PowerShell Studio (clássico) PowerShell](https://aka.ms/amlps) e comece a automatizar as suas tarefas ALM.
 * Aprenda a [criar e gerir um grande número de modelos ML utilizando apenas uma experiência](create-models-and-endpoints-with-powershell.md) através da PowerShell e retreinando a API.
 * Saiba mais sobre [a implementação de serviços web Azure Machine Learning.](deploy-a-machine-learning-web-service.md)

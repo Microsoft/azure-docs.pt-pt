@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 06b35fdcd9da333c3c9d94d41c84a2f25ede59ad
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362164"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248908"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -114,7 +114,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes dentro
 | Azure Monitor para contentores | Dados de inventário e desempenho recolhidos pelo [Azure Monitor para contentores.](../insights/container-insights-overview.md) Consulte [os detalhes da recolha de dados do Recipiente](../insights/container-insights-log-search.md#container-records) para obter uma lista das tabelas. |
 | Azure Monitor para VMs | Dados de mapa e desempenho recolhidos pelo [Azure Monitor para VMs](../insights/vminsights-overview.md). Consulte [como consultar os registos do Monitor Azure para obter informações](../insights/vminsights-log-search.md) sobre a consulta destes dados. |
 
-### <a name="custom"></a>Personalizado 
+### <a name="custom"></a>Personalizar 
 
 | Dados | Descrição |
 |:---|:---|
@@ -129,7 +129,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes dentro
 | Azure Sentinel | [O Azure Sentinel](/azure/sentinel/) armazena dados de fontes de dados num espaço de trabalho do Log Analytics. Ver [Ligar fontes](/azure/sentinel/connect-data-sources)de dados .  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a plataforma de [dados Azure Monitor.](data-platform.md)
 - Conheça [as métricas no Monitor Azure.](data-platform-metrics.md)

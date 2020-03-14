@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372272"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274479"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades standard em Registos de Monitor Estoque Azure
 Os dados em Registos do Monitor Do Azure são [armazenados como um conjunto de registos numa aplicação log Analytics ou aplicação Application Insights,](../log-query/logs-structure.md)cada um com um determinado tipo de dados que tem um conjunto único de propriedades. Muitos tipos de dados terão propriedades padrão que são comuns em vários tipos. Este artigo descreve estas propriedades e fornece exemplos de como pode usá-las em consultas.
@@ -205,7 +205,7 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Leia mais sobre como os dados de registo do [Monitor Azure são armazenados](../log-query/log-query-overview.md).
 - Obtenha uma lição sobre escrever consultas de [registo.](../../azure-monitor/log-query/get-started-queries.md)

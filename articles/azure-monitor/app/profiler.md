@@ -7,11 +7,11 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367705"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275779"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Aplicativos de serviço de aplicações Azure ao vivo com Insights de Aplicação
 
@@ -72,7 +72,7 @@ Recomendamos que tenha o Profiler habilitado em todas as suas aplicações para 
 Os ficheiros do Profiler podem ser eliminados quando utilizar o WebDeploy para implementar alterações na sua aplicação web. Pode evitar que a eliminação, excluindo a App_Data pasta seja eliminada durante a implementação. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Trabalhar com insights de aplicação em estúdio visual](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 

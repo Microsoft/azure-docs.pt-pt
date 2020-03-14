@@ -10,11 +10,11 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381552"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241697"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM para o serviço de provisionamento de dispositivos IoT Hub utilizando o Java Service SDK
 
@@ -152,7 +152,7 @@ Se planeia explorar a amostra de serviço java, não limpe os recursos criados n
 1. Feche a janela do simulador TPM que pode ter criado para simular o seu dispositivo TPM.
 1. Navegue para o seu serviço de provisionamento de dispositivos no portal Azure, selecione Gerir **as matrículas,** e depois selecione o separador **Individual Registration.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste arranque rápido, inscreveu um dispositivo TPM simulado no seu serviço de fornecimento de dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
 > [!div class="nextstepaction"]

@@ -1,50 +1,50 @@
 ---
-title: Tutorial – adicionar marcas a recursos no modelo
-description: Adicione marcas aos recursos que você implanta em seu modelo de Azure Resource Manager. As marcas permitem que você organize os recursos logicamente.
+title: Tutorial - adicione tags aos recursos em modelo
+description: Adicione tags aos recursos que implementa no seu modelo de Gestor de Recursos Azure. As etiquetas permitem-lhe organizar logicamente recursos.
 author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: dd89d41e0980afcef30e11fac3ce5583f439662f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773187"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370717"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: adicionar marcas em seu modelo do Resource Manager
+# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adicione tags no seu modelo de Gestor de Recursos
 
-Neste tutorial, você aprenderá a adicionar marcas a recursos em seu modelo. As [marcas](../management/tag-resources.md) ajudam a organizar seus recursos de forma lógica. Os valores de marcação aparecem em relatórios de custo. Este tutorial leva **8 minutos** para ser concluído.
+Neste tutorial, você aprende a adicionar tags aos recursos no seu modelo. [As etiquetas](../management/tag-resources.md) ajudam-no logicamente a organizar os seus recursos. Os valores da etiqueta aparecem nos relatórios de custos. Este tutorial leva **8 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que você conclua o [tutorial sobre modelos de início rápido](template-tutorial-quickstart-template.md), mas isso não é necessário.
+Recomendamos que complete o [tutorial sobre modelos Quickstart,](template-tutorial-quickstart-template.md)mas não é necessário.
 
-Você deve ter Visual Studio Code com a extensão de ferramentas do Resource Manager e Azure PowerShell ou CLI do Azure. Para obter mais informações, consulte [ferramentas de modelo](template-tutorial-create-first-template.md#get-tools).
+Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de Recursos e o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [as ferramentas](template-tutorial-create-first-template.md#get-tools)do modelo.
 
 ## <a name="review-template"></a>Modelo de revisão
 
-O modelo anterior implantou uma conta de armazenamento, um plano do serviço de aplicativo e um aplicativo Web.
+O seu modelo anterior implementou uma conta de armazenamento, plano de serviço de aplicações e aplicação web.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
-Depois de implantar esses recursos, talvez seja necessário controlar os custos e localizar os recursos que pertencem a uma categoria. Você pode adicionar marcas para ajudar a resolver esses problemas.
+Depois de implantar estes recursos, poderá ter de rastrear custos e encontrar recursos que pertençam a uma categoria. Pode adicionar tags para ajudar a resolver estes problemas.
 
 ## <a name="add-tags"></a>Adicionar etiquetas
 
-Você marca os recursos para adicionar valores que ajudam a identificar seu uso. Por exemplo, você pode adicionar marcas que listam o ambiente e o projeto. Você pode adicionar marcas que identificam um centro de custo ou a equipe que possui o recurso. Adicione quaisquer valores que façam sentido para sua organização.
+Você marca recursos para adicionar valores que o ajudam a identificar o seu uso. Por exemplo, pode adicionar tags que listam o ambiente e o projeto. Pode adicionar etiquetas que identifiquem um centro de custos ou a equipa proprietária do recurso. Adicione quaisquer valores que façam sentido para a sua organização.
 
-O exemplo a seguir realça as alterações no modelo. Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
+O exemplo seguinte realça as alterações ao modelo. Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-É hora de implantar o modelo e examinar os resultados.
+É hora de implementar o modelo e olhar para os resultados.
 
-Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se ainda não criou o grupo de recursos, consulte o [grupo de recursos Create](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -56,10 +56,10 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -70,20 +70,20 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
+Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. No menu à esquerda, selecione **grupos de recursos**.
-1. Selecione o grupo de recursos no qual você implantou.
-1. Selecione um dos recursos, como o recurso da conta de armazenamento. Você verá que agora ele tem marcas.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
+1. Selecione o grupo de recursos para o quais foi implantado.
+1. Selecione um dos recursos, como o recurso da conta de armazenamento. Vê que agora tem etiquetas.
 
-   ![Mostrar marcas](./media/template-tutorial-add-tags/show-tags.png)
+   ![Mostrar etiquetas](./media/template-tutorial-add-tags/show-tags.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver passando para o próximo tutorial, não será necessário excluir o grupo de recursos.
+Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recursos.
 
-Se estiver parando agora, talvez você queira limpar os recursos implantados excluindo o grupo de recursos.
+Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
@@ -92,7 +92,7 @@ Se estiver parando agora, talvez você queira limpar os recursos implantados exc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você adicionou marcas aos recursos. No próximo tutorial, você aprenderá a usar arquivos de parâmetro para simplificar a passagem de valores para o modelo.
+Neste tutorial, adicionou etiquetas aos recursos. No próximo tutorial, você aprenderá a usar ficheiros de parâmetros para simplificar a passagem de valores para o modelo.
 
 > [!div class="nextstepaction"]
-> [Usar arquivo de parâmetro](template-tutorial-use-parameter-file.md)
+> [Utilize o ficheiro parâmetro](template-tutorial-use-parameter-file.md)

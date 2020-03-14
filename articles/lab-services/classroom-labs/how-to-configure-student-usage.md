@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: daa302e9be026157b464a12998f3faa52526aba6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358642"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270943"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
 Este artigo descreve como adicionar utilizadores ao laboratório, registrá-los no laboratório, controlar o número de horas que podem usar o VM, e muito mais. 
@@ -144,7 +144,7 @@ Para isso, siga estes passos:
 ## <a name="student-accounts"></a>Contas de estudantes
 Para adicionar alunos a um laboratório de sala de aula, usa as suas contas de e-mail. Podem ser utilizados os seguintes tipos de contas de e-mail:
 
-- Uma conta de e-mail estudantil fornecida pelo Office 365 Azure Ative Directory (AAD) da sua universidade. 
+- Uma conta de e-mail estudantil fornecida pelo Escritório 365 Azure Ative Diretório da sua universidade. 
 - Uma conta de e-mail da Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com`ou `@live.com`.
 - Uma conta de e-mail não-Microsoft, como a fornecida pela Yahoo ou pela Google. No entanto, este tipo de contas deve estar ligada a uma conta Microsoft.
 - Uma conta do GitHub. Esta conta deve estar ligada a uma conta Microsoft.
@@ -174,7 +174,15 @@ Na página de **opções de iniciar** sessão, selecione **Iniciar sessão com o
 
 Finalmente, são solicitados a criar uma conta Microsoft que esteja ligada à sua conta GitHub. Acontece automaticamente quando o aluno seleciona **Next**.  O aluno é imediatamente assinado e ligado ao laboratório da sala de aula.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="export-list-of-users-to-a-csv-file"></a>Lista de exportação de utilizadores para um ficheiro CSV
+
+1. Mude para o separador **Utilizadores.**
+2. Selecione **...** (elipsis) na barra de ferramentas e, em seguida, selecione **Export CSV**. 
+
+    ![Lista de exportação de utilizadores](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
+
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
 - [Como administrador, crie e gere as contas de laboratório](how-to-manage-lab-accounts.md)

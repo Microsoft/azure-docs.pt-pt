@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651343"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369782"
 ---
-#    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (Pré-visualização)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (Pré-visualização)
 
 > [!IMPORTANT] 
 > Esta habilidade está atualmente em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe nenhum suporte de Portal ou .NET SDK.
@@ -38,9 +38,9 @@ Os parâmetros são sensíveis aos casos.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| entidadesDefinitionUri | Caminho para um ficheiro JSON ou CSV contendo todo o texto-alvo para corresponder. Esta definição de entidade é lida no início de uma execução de indexante; quaisquer atualizações a este ficheiro a meio da execução não serão realizadas até que as execuções subsequentes. Este config deve estar acessível em HTTPS. Consulte o formato de definição de [entidade personalizada"](#custom-entity-definition-format) abaixo para obter o esquema csv ou JSON esperado.|
+| entidadesDefinitionUri    | Caminho para um ficheiro JSON ou CSV contendo todo o texto-alvo para corresponder. Esta definição de entidade é lida no início de uma execução de indexante; quaisquer atualizações a este ficheiro a meio da execução não serão realizadas até que as execuções subsequentes. Este config deve estar acessível em HTTPS. Consulte o formato de definição de [entidade personalizada"](#custom-entity-definition-format) abaixo para obter o esquema csv ou JSON esperado.|
 |inlineEntidadesDefinição | Definições de entidade sons a ninline JSON. Este parâmetro substitui as entidadesDefinitionUri parâmetro se estiver presente. Não podem ser fornecidos mais de 10 KB de configuração em linha. Consulte a [Definição](#custom-entity-definition-format) de Entidade Personalizada abaixo para obter o esquema esperado da JSON. |
-|defaultLanguageCode |  (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. Apoiam-se as seguintes línguas: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (`en`). Se passar um formato de código de idioma-country, apenas é utilizada a parte do idioma do formato.  |
+|defaultLanguageCode |    (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. Apoiam-se as seguintes línguas: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (`en`). Se passar um formato de código de idioma-country, apenas é utilizada a parte do idioma do formato.  |
 
 
 ## <a name="skill-inputs"></a>Inputs de habilidade
@@ -48,13 +48,13 @@ Os parâmetros são sensíveis aos casos.
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | texto          | O texto para analisar.          |
-| languageCode  | Opcional. A predefinição é `"en"`.  |
+| languageCode    | Opcional. A predefinição é `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 
-| Nome de saída     | Descrição                   |
+| Nome de saída      | Descrição                   |
 |---------------|-------------------------------|
 | entidades | Uma série de objetos que contêm informações sobre os fósforos que foram encontrados, e metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: A entidade de alto nível identificada. A entidade representa o formulário "normalizado". </li> <li> *id*: Um identificador único para a entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *descrição*: Descrição da entidade definida pelo utilizador no "Formato de Definição de Entidade Aduaneira". </li> <li> *tipo:* Tipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *subtipo:* Subtipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li>  <li> *fósforos*: Recolha que descreve cada uma das partidas para essa entidade no texto de origem. Cada partida terá os seguintes membros: </li> <ul> <li> *texto*: O texto bruto corresponde ao documento de origem. </li> <li> *offset*: O local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: O comprimento do texto combinado. </li> <li> *matchDistance*: O número de caracteres diferentes desta partida era do nome ou pseudónimo original da entidade.  </li> </ul> </ul>
   |
@@ -168,7 +168,7 @@ As tabelas abaixo descrevem mais detalhes os diferentes parâmetros de configura
 Em alguns casos, pode ser mais conveniente fornecer a lista de entidades personalizadas para combinar diretamente com a definição de habilidade. Nesse caso, pode utilizar um formato JSON semelhante ao acima descrito, mas está inlineado na definição de habilidade.
 Apenas configurações com menos de 10 KB de tamanho (tamanho serializado) podem ser definidas em linha. 
 
-##  <a name="sample-definition"></a>Definição de amostra
+##    <a name="sample-definition"></a>Definição de amostra
 
 Uma definição de habilidade de amostra utilizando um formato inline é mostrada abaixo:
 
@@ -231,7 +231,7 @@ Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição
 
 ```
 
-##  <a name="sample-input"></a>Entrada da amostra
+##    <a name="sample-input"></a>Entrada da amostra
 
 ```json
 {
@@ -248,7 +248,7 @@ Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição
 }
 ```
 
-##  <a name="sample-output"></a>Resultado da amostra
+##    <a name="sample-output"></a>Resultado da amostra
 
 ```json
   { 
@@ -295,6 +295,12 @@ Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição
     ] 
   } 
 ```
+
+## <a name="errors-and-warnings"></a>Erros e advertências
+
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Aviso: Alcançou a capacidade máxima para os fósforos, saltando todos os outros jogos duplicados.
+
+Este aviso será emitido se o número de fósforos detetados for superior ao máximo permitido. Neste caso, deixaremos de incluir jogos duplicados. Se isso for inaceitável para si, por favor preencha um bilhete de [apoio](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com o seu caso de uso individual.
 
 ## <a name="see-also"></a>Consulte também
 

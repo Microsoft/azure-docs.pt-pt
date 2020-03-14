@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378325"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263923"
 ---
 # <a name="what-is-password-writeback"></a>O que é a redação da palavra-passe?
 
@@ -166,6 +166,6 @@ As palavras-passe *não* são redigidas em nenhuma das seguintes situações:
 > [!WARNING]
 > A utilização da caixa de verificação "O utilizador deve alterar a palavra-passe no próximo início de sessão" em ferramentas administrativas de Diretório Ativo no local, como utilizadores e computadores de diretório ativo ou o Ative Directory Administrative Center é suportado como uma funcionalidade de pré-visualização do Azure AD Connect. Para mais informações, consulte o artigo, Implemente a sincronização de hash de [palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Ativar a reescrita da palavra-passe utilizando o Tutorial: Permitir a reescrita da [palavra-passe](tutorial-enable-writeback.md)

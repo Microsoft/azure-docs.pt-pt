@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382704"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266874"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolver mensagens de erro do RDP específicas para uma VM do Windows no Azure
 Pode receber uma mensagem de erro específica ao utilizar a ligação Remote Desktop a uma máquina virtual do Windows (VM) em Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com medidas de resolução de problemas para resolvê-las. Se tiver problemas de ligação ao seu VM utilizando RDP, mas não encontrar uma mensagem de erro específica, consulte o guia de resolução de [problemas para](troubleshoot-rdp-connection.md)o Ambiente de Trabalho Remoto .
@@ -104,7 +104,7 @@ Todos os computadores do Windows têm um grupo local de utilizadores de Ambiente
 
 Certifique-se de que a conta que está a usar para se ligar tem direitos de entrada no Ambiente de Trabalho Remoto. Como suver, utilize uma conta de domínio ou administrador local para se conectar em desktop remoto. Para adicionar a conta desejada ao grupo local dos utilizadores do Ambiente de Trabalho Remoto, utilize o snap-in da Consola de Gestão da Microsoft (**System Tools > Utilizadores Locais e Grupos > Grupos > Utilizadores de Ambiente**de Trabalho Remoto).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se nenhum destes erros ocorrer e tiver um problema desconhecido com a ligação utilizando RDP, consulte o guia de resolução de [problemas para](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)o Ambiente de Trabalho Remoto .
 
 * Para obter medidas de resolução de problemas no acesso a aplicações em execução num VM, consulte o [acesso da Troubleshoot a uma aplicação em execução num Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

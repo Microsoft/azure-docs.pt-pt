@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383277"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250676"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual da Dependência do Monitor Azure para Windows
 
-A funcionalidade Azure Monitor for VMs Map obtém os seus dados do agente microsoft Dependency. A extensão virtual da máquina virtual do agente de dependência Azure VM para windows é publicada e suportada pela Microsoft. A extensão instala o agente Dependency em máquinas virtuais Azure. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão virtual da máquina virtual do agente de dependência Do VM Azure para windows.
+O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente do Microsoft Dependency. A extensão virtual da máquina virtual do agente de dependência Azure VM para windows é publicada e suportada pela Microsoft. A extensão instala o agente Dependency em máquinas virtuais Azure. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão virtual da máquina virtual do agente de dependência Do VM Azure para windows.
 
-## <a name="operating-system"></a>Sistema Operativo
+## <a name="operating-system"></a>Sistema operativo
 
 A extensão do agente de dependência Azure VM para windows pode ser executada contra os sistemas operativos suportados listados na secção de [sistemas operativos suportados](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) do artigo de implementação do Monitor Azure para VMs.
 
@@ -69,16 +69,16 @@ O seguinte JSON mostra o esquema para a extensão do agente de dependência Azur
 }
 ```
 
-### <a name="property-values"></a>Valores patrimoniais
+### <a name="property-values"></a>Valores de propriedade
 
 | Nome | Valor/Exemplo |
 | ---- | ---- |
-| apiVersão | 2015-01-01 |
-| editora | Microsoft.Azure.Monitoring.DependencyAgent |
-| Tipo | DependencyAgentWindows |
+| apiVersion | 2015-01-01 |
+| publicador | Microsoft.Azure.Monitoring.DependencyAgent |
+| tipo | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
-## <a name="template-deployment"></a>implantação do modelo
+## <a name="template-deployment"></a>Implementação de modelos
 
 Pode implementar as extensões Azure VM com modelos de Gestor de Recursos Azure. Pode utilizar o esquema JSON detalhado na secção anterior num modelo de Gestor de Recursos Azure para executar a extensão do agente de dependência Azure VM durante uma implementação do modelo de gestor de recursos Azure.
 
@@ -140,9 +140,9 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das implementações de extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o módulo PowerShell Azure:
 
@@ -156,6 +156,6 @@ A saída de execução de extensão é registada em ficheiros encontrados no seg
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 ```
 
-### <a name="support"></a>apoio
+### <a name="support"></a>Suporte
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Ou pode arquivar um incidente de apoio azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para obter informações sobre como utilizar o Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 9d94b6627348d08c76fa040255ba0856a2ffa945
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 4f8bb1f20dcc3a7900e3347616018a6e156962d0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168818"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218178"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Use powerShell para criar modelos studio (clássicos) e pontos finais de serviço web a partir de uma experiência
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este é um problema de aprendizado de máquina comum: pretende criar muitos modelos que tenham o mesmo fluxo de trabalho de treinamento e usam o mesmo algoritmo. Mas deseja que eles tenham conjuntos de dados de treinamento diferente como entrada. Este artigo mostra-lhe como fazê-lo em escala no Azure Machine Learning Studio (clássico) usando apenas uma experiência.
 

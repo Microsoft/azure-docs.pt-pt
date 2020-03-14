@@ -1,84 +1,84 @@
 ---
-title: PRETERIDO Monitorar o cluster kubernetes do Azure-Sysdig
-description: Monitorando o cluster kubernetes no serviço de contêiner do Azure usando o Sysdig
+title: (DEPRECIADO) Monitor Azure Kubernetes cluster - Sysdig
+description: Monitorização do cluster Kubernetes no Serviço de Contentores Azure usando a Sysdig
 author: bburns
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3cb9c628993201553b8da1d1bd37b4705e0f23dc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 68136d5b9ec16c822cb62e4fee85b8ace9b1899a
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271644"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371104"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>PRETERIDO Monitorar um cluster kubernetes do serviço de contêiner do Azure usando o Sysdig
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>(DEPRECIADO) Monitorize um cluster de Kubernetes do Serviço de Contentores Azure usando sysdig
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este tutorial pressupõe que você [criou um cluster kubernetes usando o serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
+Este walkthrough pressupõe que [criou um cluster Kubernetes usando](container-service-kubernetes-walkthrough.md)o Serviço de Contentores Azure .
 
-Ele também pressupõe que você tenha a CLI do Azure e as ferramentas do kubectl instaladas.
+Também assume que tem as ferramentas azure cli e kubectl instaladas.
 
-Você pode testar se tem a ferramenta de `az` instalada executando:
+Pode testar se tiver a ferramenta `az` instalada executando:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
-Se você não tiver a ferramenta de `az` instalada, há instruções [aqui](https://github.com/azure/azure-cli#installation).
+Se não tiver a ferramenta `az` instalada, existem instruções [aqui.](https://github.com/azure/azure-cli#installation)
 
-Você pode testar se tem a ferramenta de `kubectl` instalada executando:
+Pode testar se tiver a ferramenta `kubectl` instalada executando:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
-Se você não tiver `kubectl` instalado, poderá executar:
+Se não tiver `kubectl` instalado, pode correr:
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="sysdig"></a>Sysdig
-Sysdig é um monitoramento externo como uma empresa de serviço que pode monitorar contêineres em seu cluster kubernetes em execução no Azure. O uso de Sysdig requer uma conta Sysdig ativa.
-Você pode se inscrever para uma conta em seu [site](https://app.sysdigcloud.com).
+A Sysdig é uma empresa de monitorização externa que pode monitorizar contentores no seu cluster Kubernetes em funcionamento em Azure. Usar a Sysdig requer uma conta sysdig ativa.
+Pode inscrever-se para uma conta no [site](https://app.sysdigcloud.com)deles.
 
 Após ter iniciado sessão no site na nuvem do Sysdig, clique no seu nome de utilizador e deverá ver a sua "Chave de Acesso" na página. 
 
 ![Chave de API do Sysdig](./media/container-service-kubernetes-sysdig/sysdig2.png)
 
-## <a name="installing-the-sysdig-agents-to-kubernetes"></a>Instalando os agentes do Sysdig no kubernetes
-Para monitorar seus contêineres, o Sysdig executa um processo em cada computador usando um `DaemonSet`de kubernetes.
-DaemonSets são objetos de API kubernetes que executam uma única instância de um contêiner por computador.
-Eles são perfeitos para a instalação de ferramentas como o agente de monitoramento do Sysdig.
+## <a name="installing-the-sysdig-agents-to-kubernetes"></a>Instalação dos agentes Sysdig na Kubernetes
+Para monitorizar os seus contentores, a Sysdig executa um processo em cada máquina utilizando um `DaemonSet`Kubernetes .
+DaemonSets são objetos Kubernetes API que executam uma única instância de um recipiente por máquina.
+São perfeitos para instalar ferramentas como o agente de monitorização do Sysdig.
 
-Para instalar o daemonset do Sysdig, você deve primeiro baixar [o modelo](https://github.com/draios/sysdig-cloud-scripts/tree/master/agent_deploy/kubernetes) do Sysdig. Salve esse arquivo como `sysdig-daemonset.yaml`.
+Para instalar o daemonset Sysdig, deve primeiro descarregar [o modelo](https://github.com/draios/sysdig-cloud-scripts/tree/master/agent_deploy/kubernetes) a partir de sysdig. Guarde o ficheiro como `sysdig-daemonset.yaml`.
 
-No Linux e OS X, você pode executar:
+Em Linux e OS X pode correr:
 
 ```console
-$ curl -O https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml
+curl -O https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml
 ```
 
 No PowerShell:
 
-```console
-$ Invoke-WebRequest -Uri https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml | Select-Object -ExpandProperty Content > sysdig-daemonset.yaml
+```powershell
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml | Select-Object -ExpandProperty Content > sysdig-daemonset.yaml
 ```
 
-Em seguida, edite esse arquivo para inserir sua chave de acesso, que você obteve da sua conta do Sysdig.
+Em seguida, edite esse ficheiro para inserir a sua Chave de Acesso, que obteve na sua conta Sysdig.
 
-Por fim, crie o Daemonset:
+Finalmente, crie o DaemonSet:
 
 ```console
-$ kubectl create -f sysdig-daemonset.yaml
+kubectl create -f sysdig-daemonset.yaml
 ```
 
-## <a name="view-your-monitoring"></a>Exibir seu monitoramento
-Depois de instalado e em execução, os agentes devem bombear os dados de volta para o Sysdig.  Volte para o [painel do sysdig](https://app.sysdigcloud.com) e você deverá ver informações sobre seus contêineres.
+## <a name="view-your-monitoring"></a>Veja a sua monitorização
+Uma vez instalados e em funcionamento, os agentes devem bombear os dados de volta para a Sysdig.  Volte para o painel de instrumentos de [sysdig](https://app.sysdigcloud.com) e deverá ver informações sobre os seus contentores.
 
-Você também pode instalar painéis específicos do kubernetes por meio do [Assistente de novo painel](https://app.sysdigcloud.com/#/dashboards/new).
+Também pode instalar dashboards específicos da Kubernetes através do [novo assistente](https://app.sysdigcloud.com/#/dashboards/new)do dashboard .

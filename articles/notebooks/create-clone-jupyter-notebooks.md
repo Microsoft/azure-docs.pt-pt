@@ -4,11 +4,11 @@ description: Os projetos de pré-visualização de Cadernos Azure gerem uma cole
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360647"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280576"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos na Pré-visualização de cadernos Azure
 
@@ -71,10 +71,10 @@ As seguintes palavras reservadas não podem ser usadas por si próprias como ide
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
 | sobre | conta | administração | api | blog | sala de aula |
-| conteúdo | dashboard | explorar | faq | Obter ajuda | html |
+| conteúdo | dashboard | explorar | faq | ajuda | html |
 | home page | importação | biblioteca | gestão | Novo | caderno |
 | notebooks | pdf | pré-visualização | preços | profile | pesquisa |
-| status | apoio | test | | | |
+| status | apoio | teste | | | |
 
 Se tentar usar uma destas palavras como id de projeto, os popups **Create New Project** e Project **Settings** indicam: "O id da biblioteca é um identificador reservado."
 
@@ -110,7 +110,7 @@ Para clonar um projeto:
 
 1. Depois de selecionar o botão **Clone,** os Cadernos Azure navegam diretamente para a cópia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Explore os cadernos de amostras](azure-notebooks-samples.md)
 - [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)

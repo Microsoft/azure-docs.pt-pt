@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
 ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362178"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249207"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Ativar o Monitor Azure para VMs (pré-visualização) visão geral
 

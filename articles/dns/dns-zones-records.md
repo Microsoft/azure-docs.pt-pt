@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392600"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265158"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral das zonas e registos do DNS
 
@@ -141,7 +141,7 @@ Aplicam-se os seguintes limites predefinidos ao utilizar o Azure DNS:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [crie registos DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, aprenda a importar e exportar um ficheiro de [zona DNS](dns-import-export.md).

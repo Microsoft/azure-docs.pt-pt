@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387543"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281343"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mova dados de MongoDB usando a Fábrica de Dados Azure
 
@@ -61,13 +61,13 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 O quadro seguinte fornece descrição para elementos JSON específicos do serviço ligado **onPremisesMongoDB.**
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesMongoDb** |Sim |
-| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Sim |
+| relatórios |Endereço IP ou nome de anfitrião do servidor MongoDB. |Sim |
 | porta |Porta TCP que o servidor MongoDB usa para ouvir ligações ao cliente. |Opcional, valor por defeito: 27017 |
 | authenticationType |Básico, ou Anónimo. |Sim |
-| o nome de utilizador |Conta de utilizador para aceder ao MongoDB. |Sim (se for utilizada a autenticação básica). |
+| username |Conta de utilizador para aceder ao MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |A palavra-passe do utilizador. |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada a autenticação básica). predefinição: utiliza a conta de administração e a base de dados especificada utilizando a propriedade databaseName. |
 | databaseName |Nome da base de dados MongoDB a que pretende aceder. |Sim |
@@ -79,7 +79,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção TypeProperties para conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | --- | --- | --- |
 | collectionName |Nome da coleção na base de dados mongoDB. |Sim |
 
@@ -90,9 +90,9 @@ As propriedades disponíveis na secção **tipoPropriedades** da atividade por o
 
 Quando a fonte é do tipo **MongoDbSource** as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Required |
 | --- | --- | --- | --- |
-| consulta |Use a consulta personalizada para ler dados. |Fio de consulta SQL-92. Por exemplo: selecione * do MyTable. |Não (se for especificado o nome da **recolha do conjunto** de **dados)** |
+| query |Use a consulta personalizada para ler dados. |Fio de consulta SQL-92. Por exemplo: selecione * do MyTable. |Não (se for especificado o nome da **recolha do conjunto** de **dados)** |
 
 
 
@@ -294,14 +294,14 @@ Ao mover dados para MongoDB, os seguintes mapeamentos são utilizados de tipos M
 | --- | --- |
 | Binário |Byte[] |
 | Booleano |Booleano |
-| Data |DateTime |
+| Date |DateTime |
 | NumberDouble |Valor de duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
 | String |String |
 | UUID |Guid |
-| Object |Renormalizado em colunas achatadas com "_" como separador aninhada |
+| Objeto |Renormalizado em colunas achatadas com "_" como separador aninhada |
 
 > [!NOTE]
 > Para aprender sobre o suporte para matrizes usando tabelas virtuais, consulte o [Suporte para tipos complexos usando a](#support-for-complex-types-using-virtual-tables) secção de tabelas virtuais abaixo.
@@ -324,14 +324,14 @@ Por exemplo, "ExampleTable" abaixo é uma tabela MongoDB que tem uma coluna com 
 | _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id:"123", item:"torradeira", preço:"456", desconto:"0.2"}, {invoice_id:"124", item:"forno", preço: "1235", desconto: "0,2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"frigorífico", preço: "12543", desconto: "0.0"}] |Gold |[1,2] |
+| 2222 |XYZ |[{invoice_id:"135", item:"frigorífico", preço: "12543", desconto: "0.0"}] |Dourado |[1,2] |
 
 O condutor geraria várias tabelas virtuais para representar esta única tabela. A primeira tabela virtual é a tabela base chamada "ExampleTable", mostrada abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
 | _id | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
 | 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 2222 |XYZ |Dourado |
 
 As tabelas seguintes mostram as tabelas virtuais que representam as matrizes originais no exemplo. Estas tabelas contêm o seguinte:
 
@@ -345,7 +345,7 @@ Tabela "ExampleTable_Invoices":
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |torradeira |456 |0.2 |
 | 1111 |1 |124 |forno |1235 |0.2 |
-| 2222 |0 |135 |frigorífico |12543 |0,0 |
+| 2222 |0 |135 |frigorífico |12543 |0.0 |
 
 Tabela "ExampleTable_Ratings":
 
@@ -365,5 +365,5 @@ Ao copiar dados de lojas de dados relacionais, tenha em mente a repetível para 
 ## <a name="performance-and-tuning"></a>Desempenho e Afinação
 Consulte o [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Fábrica de Dados Do Azure e várias formas de o otimizar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Consulte os dados entre as [instalações e o](data-factory-move-data-between-onprem-and-cloud.md) artigo em nuvem para obter instruções passo a passo para criar um pipeline de dados que transfifique os dados de uma loja de dados no local para uma loja de dados Azure.

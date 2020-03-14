@@ -1,51 +1,51 @@
 ---
-title: Gerenciar recursos no Azure Red Hat OpenShift | Microsoft Docs
-description: Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift
+title: Gerir recursos no Azure Red Hat OpenShift  Microsoft Docs
+description: Gerir projetos, modelos, fluxos de imagem num cluster OpenShift do Chapéu Vermelho Azure
 services: openshift
-keywords: os projetos do Red Hat openshift solicitam o autoprovisionador
+keywords: chapéu vermelho projetos abertos pede auto-provisioner
 author: mjudeikis
-ms.author: b-majude
+ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378233"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139118"
 ---
-# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift 
+# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerir projetos, modelos, fluxos de imagem num cluster OpenShift do Chapéu Vermelho Azure 
 
-Em uma plataforma de contêiner OpenShift, os projetos são usados para agrupar e isolar objetos relacionados. Como administrador, você pode dar aos desenvolvedores acesso a projetos específicos, permitir que eles criem seus próprios projetos e conceder a eles direitos administrativos a projetos individuais.
+Numa Plataforma de Contentores OpenShift, os projetos são usados para agrupar e isolar objetos relacionados. Como administrador, pode dar aos desenvolvedores acesso a projetos específicos, permitir-lhes criar os seus próprios projetos e conceder-lhes direitos administrativos a projetos individuais.
 
 ## <a name="self-provisioning-projects"></a>Projetos de autoprovisionamento
 
-Você pode permitir que os desenvolvedores criem seus próprios projetos. Um ponto de extremidade de API é responsável por provisionar um projeto de acordo com um modelo chamado Project-Request. O console Web e o comando `oc new-project` usam esse ponto de extremidade quando um desenvolvedor cria um novo projeto.
+Pode permitir que os desenvolvedores criem os seus próprios projetos. Um ponto final da API é responsável por fornecer um projeto de acordo com um modelo chamado pedido de projeto. A consola web e o comando `oc new-project` usam este ponto final quando um desenvolvedor cria um novo projeto.
 
-Quando uma solicitação de projeto é enviada, a API substitui os seguintes parâmetros no modelo:
+Quando um pedido de projeto é submetido, a API substitui os seguintes parâmetros no modelo:
 
 | Parâmetro               | Descrição                                    |
 | ----------------------- | ---------------------------------------------- |
 | PROJECT_NAME            | O nome do projeto. Necessário.             |
 | PROJECT_DISPLAYNAME     | O nome de exibição do projeto. Pode estar vazio. |
 | PROJECT_DESCRIPTION     | A descrição do projeto. Pode estar vazio.  |
-| PROJECT_ADMIN_USER      | O nome do usuário administrador.       |
-| PROJECT_REQUESTING_USER | O nome do usuário do solicitante.           |
+| PROJECT_ADMIN_USER      | O nome de utilizador do utilizador administrador.       |
+| PROJECT_REQUESTING_USER | O nome de utilizador do utilizador que solicita.           |
 
-O acesso à API é concedido aos desenvolvedores com a associação de função de cluster de autoprovisionadores. Esse recurso está disponível para todos os desenvolvedores autenticados por padrão.
+O acesso à API é concedido a programadores com o papel de cluster auto-provisionador vinculativo. Esta funcionalidade está disponível para todos os desenvolvedores autenticados por padrão.
 
 ## <a name="modify-the-template-for-a-new-project"></a>Modificar o modelo para um novo projeto 
 
-1. Faça logon como um usuário com privilégios de `customer-admin`.
+1. Faça login como utilizador com privilégios `customer-admin`.
 
-2. Edite o modelo de solicitação de projeto padrão.
+2. Editar o modelo de pedido de projeto padrão.
 
    ```
    oc edit template project-request -n openshift
    ```
 
-3. Remova o modelo de projeto padrão do processo de atualização do Microsoft Red Hat OpenShift (toa) adicionando a anotação a seguir: `openshift.io/reconcile-protect: "true"`
+3. Remova o modelo de projeto predefinido do processo de atualização Do Hat OpenShift (ARO) do Azure Red Hat, adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -55,21 +55,21 @@ O acesso à API é concedido aos desenvolvedores com a associação de função 
    ...
    ```
 
-   O modelo de solicitação de projeto não será atualizado pelo processo de atualização da toa. Isso permite que os clientes personalizem o modelo e preserve essas personalizações quando o cluster é atualizado.
+   O modelo de pedido de projeto não será atualizado pelo processo de atualização ARO. Isto permite que os clientes personalizem o modelo e preservem estas personalizações quando o cluster é atualizado.
 
-## <a name="disable-the-self-provisioning-role"></a>Desabilitar a função de autoprovisionamento
+## <a name="disable-the-self-provisioning-role"></a>Desativar o papel de auto-provisionamento
 
-Você pode impedir que um grupo de usuários autenticado provisione novos projetos automaticamente.
+Pode evitar que um grupo de utilizadores autenticado se auto-aprovisione novos projetos.
 
-1. Faça logon como um usuário com privilégios de `customer-admin`.
+1. Faça login como utilizador com privilégios `customer-admin`.
 
-2. Edite a associação de função de cluster de autoprovisionadores.
+2. Editar o papel de cluster auto-provisionadores vinculativo.
 
    ```
    oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
-3. Remova a função do processo de atualização da toa adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`.
+3. Retire a função do processo de atualização ARO adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`.
 
    ```
    ...
@@ -79,7 +79,7 @@ Você pode impedir que um grupo de usuários autenticado provisione novos projet
    ...
    ```
 
-4. Altere a associação de função de cluster para impedir que `system:authenticated:oauth` criem projetos:
+4. Alterar a função de cluster vinculada para evitar que `system:authenticated:oauth` criem projetos:
 
    ```
    apiVersion: rbac.authorization.k8s.io/v1
@@ -99,20 +99,20 @@ Você pode impedir que um grupo de usuários autenticado provisione novos projet
      name: osa-customer-admins
    ```
 
-## <a name="manage-default-templates-and-imagestreams"></a>Gerenciar modelos padrão e imageStreams
+## <a name="manage-default-templates-and-imagestreams"></a>Gerir modelos padrão e imagensStreams
 
-No Azure Red Hat OpenShift, você pode desabilitar atualizações para todos os modelos padrão e fluxos de imagem dentro do namespace `openshift`.
-Para desabilitar as atualizações para todos os `Templates` e `ImageStreams` no namespace `openshift`:
+No Azure Red Hat OpenShift, pode desativar atualizações para quaisquer modelos padrão e fluxos de imagem dentro `openshift` espaço de nome.
+Para desativar atualizações para todos os `Templates` e `ImageStreams` em `openshift` espaço de nome:
 
-1. Faça logon como um usuário com privilégios de `customer-admin`.
+1. Faça login como utilizador com privilégios `customer-admin`.
 
-2. Editar o namespace `openshift`:
+2. Editar `openshift` espaço de nome:
 
    ```
    oc edit namespace openshift
    ```
 
-3. Remova o namespace `openshift` do processo de atualização da toa adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
+3. Remova `openshift` espaço de nome do processo de atualização ARO adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -122,9 +122,9 @@ Para desabilitar as atualizações para todos os `Templates` e `ImageStreams` no
    ...
    ```
 
-   Qualquer objeto individual no namespace `openshift` pode ser removido do processo de atualização adicionando a anotação `openshift.io/reconcile-protect: "true"` a ele.
+   Qualquer objeto individual no espaço de nome `openshift` pode ser removido do processo de atualização adicionando-lhe anotação `openshift.io/reconcile-protect: "true"`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente o tutorial:
 > [!div class="nextstepaction"]

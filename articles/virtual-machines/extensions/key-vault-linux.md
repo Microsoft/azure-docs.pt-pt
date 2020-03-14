@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8fa8ca50a8d8cae7543c6aacb84fa57bc2f9c3a4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a4fb3ad2ce6225528910bbda9d98a38001242710
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945210"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298993"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Cofre chave para Linux
 
@@ -27,6 +27,10 @@ A extensão VM do cofre chave suporta estas distribuições Linux:
 - Ubuntu-1804
 - Debiano-9
 - Suse-15 
+
+### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado suportado
+
+- PKCS #12
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

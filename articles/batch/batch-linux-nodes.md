@@ -15,11 +15,11 @@ ms.date: 06/01/2018
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394894"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252288"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provision Linux computação nóde sintetizar em piscinas de lote
 
@@ -45,7 +45,7 @@ Ao configurar uma referência de imagem virtual da máquina, especifice as propr
 
 | **Propriedades de referência de imagem** | **Exemplo** |
 | --- | --- |
-| Publicador |Canónico |
+| Publisher |Canónico |
 | Oferta |UbuntuServer |
 | SKU |18.04-LTS |
 | Versão |mais recente |
@@ -290,7 +290,7 @@ O Azure Batch é construído com base na tecnologia Azure Cloud Services e Azure
 
 Se implementar aplicações nos seus nós de Lote utilizando pacotes de [aplicações,](batch-application-packages.md)também é cobrado pelos recursos de Armazenamento Azure que os seus pacotes de aplicação consomem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 As [amostras][github_samples_py] de código Python no repositório [de amostras de lote azul][github_samples] no GitHub contêm scripts que mostram como realizar operações comuns do Lote, tais como pool, job, e criação de tarefas. A [README][github_py_readme] que acompanha as amostras python tem detalhes sobre como instalar os pacotes necessários.
 

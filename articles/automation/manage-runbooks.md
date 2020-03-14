@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278379"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366841"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
 
@@ -33,7 +33,7 @@ Pode criar um novo livro de corridas em Azure Automation utilizando um dos porta
 
 ### <a name="create-a-runbook-with-powershell"></a>Crie um livro de corridas com a PowerShell
 
-Pode utilizar o cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de execução de [fluxo de trabalho powerShell](automation-runbook-types.md#powershell-workflow-runbooks)vazio . Utilize o parâmetro *Tipo* para especificar um dos tipos de livro definidos para **O Livro New-AzAutomationRunbook**.
+Pode utilizar o cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de execução de [fluxo de trabalho powerShell](automation-runbook-types.md#powershell-workflow-runbooks)vazio . Utilize o parâmetro `Type` para especificar um dos tipos de livro definidos para `New-AzAutomationRunbook`.
 
 O exemplo que se segue mostra como criar um novo livro vazio.
 
@@ -75,7 +75,7 @@ Pode utilizar o seguinte procedimento para importar um ficheiro de script para a
 
 ### <a name="import-a-runbook-from-a-script-file-with-windows-powershell"></a>Importar um runbook a partir de um ficheiro de script com o Windows PowerShell
 
-Utilize o cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro script como um projeto de livro de execução powerShell Workflow. Se o livro de execução já existir, a importação falha a menos que utilize o parâmetro *Force* com o cmdlet.
+Utilize o cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro script como um projeto de livro de execução powerShell Workflow. Se o livro de execução já existir, a importação falha a menos que utilize o parâmetro `Force` com o cmdlet.
 
 O exemplo que se segue mostra como importar um ficheiro de script num livro de corridas.
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e quaisquer ações que executa são concluídas. Não é criado histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#output-stream) e aviso [e erro](automation-runbook-output-and-messages.md#message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo Verbose](automation-runbook-output-and-messages.md#message-streams) só são apresentadas no painel de saída se a variável VerbosePreference](automação-runbook-output-and-messages.md#preference-variables) estiver definida para *VerbosePreference* **Continuar**.
+Quando testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e quaisquer ações que executa são concluídas. Não é criado histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#output-stream) e aviso [e erro](automation-runbook-output-and-messages.md#message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo Verbose](automation-runbook-output-and-messages.md#message-streams) só são apresentadas no painel de saída se a variável `VerbosePreference`(automação-runbook-output-and-messages.md#preference-variables) estiver definida para Continuar.
 
 Mesmo que o projeto de versão esteja a ser executado, o livro de execução ainda executa normalmente e executa quaisquer ações contra recursos no ambiente. Por esta razão, só deve testar livros de execução sobre recursos não produtivos.
 

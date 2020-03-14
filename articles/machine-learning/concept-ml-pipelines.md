@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 3f1d0e13d9b76c7ef06edb953b59ebfa73c302de
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270319"
+ms.locfileid: "79296851"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
 Os oleodutos Azure Machine Learning permitem criar fluxos de trabalho nos seus projetos de aprendizagem automática. Estes fluxos de trabalho têm uma série de benefícios: 
 
 + Simplicidade
-+ Velocidade
++ velocidade
 + Repetível
 + Flexibilidade
 + Versão e rastreio
@@ -205,6 +205,12 @@ As principais vantagens da utilização de gasodutos para os seus fluxos de trab
 | **Modularidade** | Separar áreas de preocupações e isolar alterações permite que o software evolua a um ritmo mais rápido e com maior qualidade. | 
 |**Colaboração**|Os oleodutos permitem que os cientistas de dados colaborem em todas as áreas do processo de design de aprendizagem automática, ao mesmo tempo que são capazes de trabalhar simultaneamente em passos de pipeline.|
 
+### <a name="choosing-the-proper-pipelinestep-subclass"></a>Escolher a subclasse PipelineStep adequada
+
+O `PythonScriptStep` é a subclasse mais flexível do `PipelineStep`abstrato. Outras subclasses, como `EstimatorStep` subclasses e `DataTransferStep` podem realizar tarefas específicas com menos código. Por exemplo, um `EstimatorStep` pode ser criado simplesmente passando um nome para o passo, um `Estimator`e um alvo de cálculo. Ou, pode substituir inputs e saídas, parâmetros de gasoduto e argumentos. Para mais informações, consulte os modelos de comboio com o [Azure Machine Learning utilizando o estimador.](how-to-train-ml-models.md) 
+
+O `DataTransferStep` facilita a movimentação de dados entre fontes de dados e pias. O código para fazer isto manualmente é simples, mas repetitivo. Em vez disso, pode apenas criar um `DataTransferStep` com um nome, referências a uma fonte de dados e um sumidouro de dados, e um alvo de cálculo. O [notebook Azure Machine Learning Pipeline com DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) demonstra esta flexibilidade.
+
 ## <a name="modules"></a>Módulos
 
 Embora as etapas do gasoduto permitam a reutilização dos resultados de uma execução anterior, em muitos casos a construção do passo pressupõe que os scripts e ficheiros dependentes necessários devem estar disponíveis localmente. Se um cientista de dados quer construir em cima do código existente, os scripts e dependências muitas vezes devem ser clonados de um repositório separado.
@@ -219,7 +225,7 @@ Os módulos são semelhantes na utilização dos passos do gasoduto, mas fornece
 
 Consulte o [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) para obter exemplos de código sobre como criar, ligar e utilizar módulos em pipelines de Aprendizagem automática Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os oleodutos Azure ML são uma instalação poderosa que começa a fornecer valor nas fases iniciais de desenvolvimento. O valor aumenta à medida que a equipa e o projeto crescem. Este artigo explicou como os oleodutos são especificados com o Azure Machine Learning Python SDK e orquestrados em Azure. Você viu algum código fonte básico e foi introduzido em algumas das aulas de `PipelineStep` que estão disponíveis. Deve ter a sensação de quando usar os oleodutos Azure ML e como o Azure os gere. 
 

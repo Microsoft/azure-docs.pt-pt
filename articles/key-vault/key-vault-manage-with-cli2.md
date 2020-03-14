@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387254"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239463"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o cofre de chaves utilizando o Azure CLI 
 
@@ -321,7 +321,7 @@ Aqui está um exemplo de como remover um segredo específico:
 az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma referência completa do Azure CLI para comandos de cofre de chaves, consulte a [referência CLI do Cofre chave](/cli/azure/keyvault).
 

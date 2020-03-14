@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
 ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392525"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271073"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub alta disponibilidade e recuperação de desastres
 
@@ -127,9 +127,9 @@ Aqui está um resumo das opções HA/DR apresentadas neste artigo que podem ser 
 | --- | --- | --- | --- | --- | --- |
 | Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhum|Nenhum|
 | Falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhum|
-| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução HA personalizada|Não|Alta|> 1x o custo de 1 ioT hub|
+| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução HA personalizada|Não|High|> 1x o custo de 1 ioT hub|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é o Hub IoT do Azure?](about-iot-hub.md)
 * [Comece com IoT Hubs (Quickstart)](quickstart-send-telemetry-dotnet.md)

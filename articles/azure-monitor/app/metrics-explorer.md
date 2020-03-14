@@ -4,11 +4,11 @@ description: Como interpretar gráficos sobre exploradormétrico e como personal
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368272"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275896"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas em insights de aplicação
 As métricas em Insights de [Aplicação][start] são valores medidos e contagens de eventos que são enviados em telemetria a partir da sua aplicação. Ajudam-no a detetar problemas de desempenho e a observar as tendências na forma como a sua aplicação está a ser utilizada. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
@@ -180,7 +180,7 @@ Se quiser visões ainda mais ricas dos seus dados, pode [exportar para o Power B
 
 A partir de um gráfico métrico, pode clicar no ícone Analytics para chegar diretamente à consulta equivalente ao Analytics.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 *Não vejo nenhum dado na minha ficha.*
 
 * Os filtros aplicam-se a todos os gráficos da lâmina. Certifique-se de que, enquanto está focado num gráfico, não definiu um filtro que exclui todos os dados de outro.
@@ -193,7 +193,7 @@ A partir de um gráfico métrico, pode clicar no ícone Analytics para chegar di
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Monitorização do uso com Insights de Aplicação](../../azure-monitor/app/usage-overview.md)
 * [Usando pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 

@@ -1,19 +1,19 @@
 ---
-title: Link privado para base de dados Azure para método de configuração CLI MySQL (Pré-visualização)
+title: Private Link - Azure CLI - Base de Dados Azure para MySQL
 description: Saiba como configurar link privado para Base de Dados Azure para MySQL do Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d9a401bfbf1f0c63995c8f7773abb6e8e874e7e
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561702"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368014"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Criar e gerir link privado para base de dados Azure para MySQL (Pré-visualização) utilizando o CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerir link privado para base de dados Azure para MySQL usando cli
 
 Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. Neste artigo, você aprenderá a usar o Azure CLI para criar um VM em uma Rede Virtual Azure e uma Base de Dados Azure para servidor MySQL com um ponto final privado Azure.
 

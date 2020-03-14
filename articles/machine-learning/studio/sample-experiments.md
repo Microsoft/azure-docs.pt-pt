@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 5400f10be3d4ef0954102e55ab578f5bc5ccc00a
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 1a913e714565ffb99237357e331ef5cf0189c40f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169164"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204226"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Create Azure Machine Learning Studio (clássico) experiências a partir de exemplos de trabalho na Galeria Azure AI
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Saiba como iniciar experimentações de exemplo a partir da [Galeria de IA do Azure](https://gallery.azure.ai/), em vez de criar experimentações de machine learning do zero. Pode utilizar os exemplos para criar a sua própria solução de machine learning.
 
@@ -56,7 +58,7 @@ Você também pode criar uma nova experiência no Machine Learning Studio (clás
 
 Uma nova experiência é criada no seu espaço de trabalho machine learning studio (clássico) usando a experiência de exemplo como modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Importar dados de várias origens](import-data.md)
 * [Tutorial de início rápido para a linguagem R no Machine Learning](r-quickstart.md)
 * [Implementar um serviço Web Machine Learning](deploy-a-machine-learning-web-service.md)

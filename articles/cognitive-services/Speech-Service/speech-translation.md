@@ -1,73 +1,73 @@
 ---
-title: Tradução de fala com o serviço de fala
+title: Tradução da fala com serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O serviço de fala permite que você adicione tradução de fala de ponta a ponta, em tempo real e em vários idiomas, a seus aplicativos, ferramentas e dispositivos. A mesma API pode ser utilizada para a tradução de voz para voz e conversão de voz em texto.
+description: O serviço de fala permite-lhe adicionar tradução de fala em tempo real, em tempo real, multilingues para as suas aplicações, ferramentas e dispositivos. A mesma API pode ser utilizada para a tradução de voz para voz e conversão de voz em texto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f2f0b277fb9dc6270e9015b5bf3205cc8aceaa0a
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815472"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371244"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?
 
-A tradução de fala do serviço de fala permite a tradução de fala em tempo real, de voz a fala e de fala a texto de fluxos de áudio. Com o SDK de fala, seus aplicativos, ferramentas e dispositivos têm acesso a transcrições de origem e saídas de tradução para áudio fornecido. Os resultados provisórios de transcrição e tradução são retornados conforme a fala é detectada e os resultados de finais podem ser convertidos em fala sintetizada.
+A tradução da fala do serviço Speech permite a tradução em tempo real, multi-linguagem da fala à fala e da tradução fala-a-texto dos streams de áudio. Com o SDK de Fala, as suas aplicações, ferramentas e dispositivos têm acesso a transcrições de origem e saídas de tradução para áudio fornecido. Os resultados provisórios da transcrição e tradução são devolvidos à medida que a fala é detetada, e os resultados finais podem ser convertidos em discurso sintetizado.
 
-O mecanismo de tradução da Microsoft é fornecido por duas abordagens diferentes: conversão de máquina estatística (SMT) e conversão de máquina neural (NMT). O SMT usa análise estatística avançada para estimar a melhor tradução possível, dado o contexto de algumas palavras. Com o NMT, as redes neurais são usadas para fornecer traduções mais precisas e de som natural usando o contexto completo de frases para traduzir palavras.
+O motor de tradução da Microsoft é alimentado por duas abordagens diferentes: tradução de máquinas estatísticas (SMT) e tradução de máquinas neurais (NMT). O SMT utiliza análiseestatística avançada para estimar as melhores traduções possíveis dado o contexto de algumas palavras. Com o NMT, as redes neurais são usadas para fornecer traduções mais precisas e naturais, utilizando todo o contexto das frases para traduzir palavras.
 
-Hoje, a Microsoft usa o NMT para tradução para as linguagens mais populares. Todos os [idiomas disponíveis para a tradução de voz para voz](language-support.md#speech-translation) têm a tecnologia NMT. Tradução de voz em texto utilizar SMT ou NMT consoante o par de idioma. Quando o idioma de destino tem suporte do NMT, a tradução completa é NMT. Quando o idioma de destino não tem suporte do NMT, a tradução é um híbrido de NMT e SMT, usando o inglês como uma "dinamização" entre os dois idiomas.
+Hoje em dia, a Microsoft usa NMT para tradução para os idiomas mais populares. Todas as [línguas disponíveis para tradução fala-a-fala](language-support.md#speech-translation) são alimentadas por NMT. Tradução de voz em texto utilizar SMT ou NMT consoante o par de idioma. Quando a linguagem-alvo é suportada por NMT, a tradução completa é movida por NMT. Quando a linguagem-alvo não é suportada pelo NMT, a tradução é um híbrido de NMT e SMT, usando o inglês como um "pivô" entre as duas línguas.
 
-## <a name="core-features"></a>Principais recursos
+## <a name="core-features"></a>Características do núcleo
 
-Aqui estão os recursos disponíveis por meio do SDK de fala e APIs REST:
+Aqui estão as funcionalidades disponíveis através do Speech SDK e DOP REST:
 
 | Caso de utilização | SDK | REST |
 |----------|-----|------|
-| Tradução de conversão de fala em texto com resultados de reconhecimento. | Sim | Não |
-| Conversão de fala em fala. | Sim | Não |
-| Resultados de tradução e de reconhecimento provisórios. | Sim | Não |
+| Tradução fala-a-texto com resultados de reconhecimento. | Sim | Não |
+| Tradução fala-a-fala. | Sim | Não |
+| Resultados provisórios de reconhecimento e tradução. | Sim | Não |
 
-## <a name="get-started-with-speech-translation"></a>Introdução à tradução de fala
+## <a name="get-started-with-speech-translation"></a>Começar com a tradução da fala
 
-Oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido de tradução de fala organizados por idioma.
+Oferecemos quickstarts projetados para tê-lo em funcionamento código em menos de 10 minutos. Esta tabela inclui uma lista de quickstarts de tradução da fala organizados pela linguagem.
 
-| Início Rápido | Plataforma | Referência de API |
+| Início Rápido | Plataforma | Referência da API |
 |------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
-| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Navegador](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Navegador](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Navegador](https://aka.ms/csspeech/javaref) |
+| [C#.NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C#.Quadro líquido](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Procurar](https://aka.ms/csspeech/cppref)|
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Código de exemplo
 
-O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemplos abrangem cenários comuns, como a leitura de áudio de um arquivo ou fluxo, um reconhecimento/conversão de captura única e contínua e o trabalho com modelos personalizados.
+O código de amostra para o SDK do Discurso está disponível no GitHub. Estas amostras cobrem cenários comuns como ler áudio de um ficheiro ou stream, reconhecimento/tradução contínuo e de tiro único, e trabalhar com modelos personalizados.
 
-* [Exemplos de conversão de fala em texto e tradução (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Amostras de fala a texto e tradução (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="migration-guides"></a>Guias de migração
 
-Se seus aplicativos, ferramentas ou produtos estiverem usando o [API de tradução de fala](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), criamos guias para ajudá-lo a migrar para o serviço de fala.
+Se as suas aplicações, ferramentas ou produtos estiverem a usar a API do Discurso do [Tradutor,](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)criámos guias para o ajudar a migrar para o serviço de Fala.
 
-* [Migrar do API de Tradução de Fala para o serviço de fala](how-to-migrate-from-translator-speech-api.md)
+* [Migrar da API do Discurso tradutor para o serviço de discurso](how-to-migrate-from-translator-speech-api.md)
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Doutorados de referência
 
 * [SDK de Voz](speech-sdk-reference.md)
-* [SDK de dispositivos de fala](speech-devices-sdk.md)
-* [API REST: conversão de fala em texto](rest-speech-to-text.md)
-* [API REST: conversão de texto em fala](rest-text-to-speech.md)
-* [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
+* [Dispositivos de fala SDK](speech-devices-sdk.md)
+* [REST API: Discurso-a-texto](rest-speech-to-text.md)
+* [REST API: Texto-a-falar](rest-text-to-speech.md)
+* [REST API: Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha uma chave de assinatura do serviço de fala gratuitamente](get-started.md)
-* [Obtenha o SDK de fala](speech-sdk.md)
+* [Obtenha uma chave de subscrição do serviço Speech gratuitamente](get-started.md)
+* [Obtenha o SDK do Discurso](speech-sdk.md)

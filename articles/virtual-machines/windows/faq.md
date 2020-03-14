@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 64aeaf412bc8af242a9d3184a3c1f0fa0ee4809e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: e3d2673ba52ba0cca36e2a999558313b64716ade
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243331"
+ms.locfileid: "79299619"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais do Windows
 Este artigo aborda algumas questões comuns sobre máquinas virtuais do Windows criadas em Azure utilizando o modelo de implementação do Gestor de Recursos. Para a versão Linux deste tópico, consulte [frequentemente perguntas sobre máquinas virtuais Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -41,7 +41,7 @@ Estabeleça uma ligação remota utilizando a Ligação remota de ambiente de tr
 
 Se estiver com problemas com o Remote Desktop, consulte as ligações de ambiente de [trabalho remoto supor problemas a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Se estiver familiarizado com o Hyper-V, poderá querer uma ferramenta semelhante ao VMConnect. O Azure não oferece uma ferramenta semelhante porque o acesso à consola para uma máquina virtual não é suportado.
+Se estiver familiarizado com o Hyper-V, pode estar à procura de uma ferramenta semelhante à VMConnect. O Azure não oferece uma ferramenta semelhante porque o acesso à consola a uma máquina virtual não é suportado.
 
 ## <a name="can-i-use-the-temporary-disk-the-d-drive-by-default-to-store-data"></a>Posso usar o disco temporário (o D: conduzir por padrão) para armazenar dados?
 Não use o disco temporário para armazenar dados. É apenas armazenamento temporário, por isso arriscaria perder dados que não podem ser recuperados. A perda de dados pode ocorrer quando a máquina virtual se move para um hospedeiro diferente. O redimensionamento de uma máquina virtual, a atualização do anfitrião ou uma falha de hardware no anfitrião são alguns dos motivos pelos quais uma máquina virtual pode ser movida.
@@ -75,7 +75,7 @@ Sim. Para criar rapidamente um VM Linux para experimentar, consulte [Create a Li
 Sim, isto agora é possível. O VM primeiro precisa de ser interrompido. Em seguida, pode adicionar ou remover um NIC (a menos que seja o último NIC no VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome de computador?
-Sim. O nome do computador pode ter um máximo de 15 caracteres de comprimento. Consulte [as regras e restrições](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#sample-naming-convention) de convenções de naming para obter mais informações sobre o nome dos seus recursos.
+Sim. O nome do computador pode ter um máximo de 15 caracteres de comprimento. Consulte [as regras e restrições](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) de convenções de naming para obter mais informações sobre o nome dos seus recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Existem requisitos de nome de grupo de recursos?
 Sim. O nome do grupo de recursos pode ter um máximo de 90 caracteres de comprimento. Consulte as regras e restrições de [convenções de nomeação](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) para obter mais informações sobre grupos de recursos.

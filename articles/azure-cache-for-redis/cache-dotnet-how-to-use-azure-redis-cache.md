@@ -7,13 +7,13 @@ ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/18/2018
-ms.openlocfilehash: b22d40e29d2150592f2753edd789458fbf25911f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/11/2020
+ms.openlocfilehash: 6384416c2feef3c9a9517bce08374a7667eb5d6b
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241389"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369068"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Quickstart: Use Azure Cache para Redis com uma aplicação .NET Framework
 
@@ -49,8 +49,7 @@ Substitua `<access-key>` pela chave primária da sua cache.
 
 No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
 
-No **Visual C#** , clique em **Ambiente de Trabalho Clássico do Windows** e, em seguida, clique em **Aplicação de Consola** e **OK**, para criar uma nova aplicação de consola.
-
+Selecione **App de Consola (.QUADRO NET)** e **Seguinte** para configurar a sua aplicação. Digite um **nome de Projeto** e clique em **Criar** uma nova aplicação de consola.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -128,7 +127,7 @@ Adicione o seguinte código ao procedimento `Main` da classe `Program` para a su
         {
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = Connection.GetDatabase();
 
             // Perform cache operations using the cache object...
 

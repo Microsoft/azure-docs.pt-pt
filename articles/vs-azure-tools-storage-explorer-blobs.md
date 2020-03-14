@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386065"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244397"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir os recursos de armazenamento da Blob Azure com o Storage Explorer
 
@@ -223,7 +223,7 @@ Os seguintes passos ilustram como gerir as bolhas (e pastas) dentro de um recipi
      2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)** .
      3. Selecione **Yes (Sim)** , na caixa de diálogo de confirmação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](https://www.storageexplorer.com).
 * Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).

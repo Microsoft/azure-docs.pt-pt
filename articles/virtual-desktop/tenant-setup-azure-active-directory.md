@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a70e52771828de6cc9fad7998097d70c28a64fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 9f9f7f709d31967e892900ccb25657a5963c0379
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238819"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370224"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop
 
@@ -82,7 +82,7 @@ Atribuir a função de candidatura do TenantCreator:
 3. Selecionar **Utilizadores e grupos**. Pode ver que o administrador que concedeu o consentimento ao pedido já está listado com a função **de Acesso Predefinido** atribuída. Isto não é suficiente para criar um inquilino do Windows Virtual Desktop. Continue a seguir estas instruções para adicionar a função **TenantCreator** a um utilizador.
    
    ![Uma imagem dos utilizadores e grupos atribuídos para gerir a aplicação da empresa "Windows Virtual Desktop". A imagem mostra apenas uma missão, que é para "Acesso Padrão".](media/tenant-default-access.png)
-4. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na lâmina **adicionar assignment.**
+4. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no separador **Adicionar Assignment.**
 5. Procure uma conta de utilizador que crie o seu inquilino do Windows Virtual Desktop. Para a simplicidade, esta pode ser a conta de administrador global.
    - Se estiver a utilizar um Fornecedor de Identidade da Microsoft como contosoadmin@live.com ou contosoadmin@outlook.com, poderá não conseguir iniciar sessão no Windows Virtual Desktop. Recomendamos a utilização de uma conta específica de domínio como admin@contoso.com ou admin@contoso.onmicrosoft.com em vez disso.
 

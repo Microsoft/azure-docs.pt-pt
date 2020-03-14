@@ -1,6 +1,6 @@
 ---
-title: Limites do serviço de visualização pública – gêmeos digital do Azure | Microsoft Docs
-description: Saiba mais sobre o serviço de visualização pública, assinatura, instância e limites de taxa para o Azure digital gêmeos.
+title: Limites de serviço de pré-visualização pública - Azure Digital Twins Microsoft Docs
+description: Conheça o serviço público de pré-visualização, subscrição, instância e limites de tarifas para As Gémeas Digitais Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,71 +8,65 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 8658bc44e41f61e717cf228a6d8e7cee6b477022
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264955"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370389"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de pré-visualização pública
 
-Durante a visualização pública, o Azure digital gêmeos tem a seguinte assinatura, instância e limites de taxa temporários.
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Essas restrições existem para ajudar a simplificar o aprendizado sobre o novo serviço e seus diversos recursos.
+Durante a pré-visualização pública, a Azure Digital Twins tem os seguintes limites temporários de subscrição, instância e tarifas para os clientes existentes. Estes constrangimentos existem para ajudar a simplificar a aprendizagem sobre o novo serviço e as suas muitas funcionalidades, e serão aumentados ou removidos pela disponibilidade geral (GA).
 
-> [!NOTE]
-> Esses limites serão aumentados ou removidos pela disponibilidade geral (GA).
+## <a name="per-subscription-limits"></a>Limites por subscrição
 
-## <a name="per-subscription-limits"></a>Limites por assinatura
-
-Durante a visualização pública, cada assinatura do Azure pode criar ou executar apenas uma instância de gêmeos digital do Azure por vez.
-
-> [!TIP]
-> Se você excluir sua instância, poderá criar uma nova.
+Durante a pré-visualização pública, cada subscrição do Azure pode criar ou executar apenas uma instância de Gémeos Digitais Azure de cada vez. Se apagar a sua instância, pode criar uma nova.
 
 ## <a name="per-instance-limits"></a>Limites por instância
 
-Por sua vez, cada instância de gêmeos digital do Azure pode ter:
+Por sua vez, cada instância de Gémeos Digitais Azure pode ter:
 
-- Exatamente um recurso **IoTHub** inserido que é criado automaticamente durante o provisionamento do serviço.
-- Exatamente um ponto de extremidade do **EventHub** para o tipo de evento **DeviceMessage**.
-- Até três pontos de extremidade de **EventHub**, **ServiceBus**ou **EventGrid** do tipo de evento **SensorChange**, **SpaceChange**, **TopologyOperation**ou **UdfCustom**.
+- Exatamente um recurso **IoTHub** incorporado que é criado automaticamente durante o fornecimento de serviços.
+- Exatamente um ponto final **do EventHub** para o tipo de evento **DeviceMessage**.
+- Até três Pontos finais **EventHub,** **ServiceBus,** ou **EventGrid** do tipo evento **SensorChange,** **SpaceChange,** **TopologyOperation**ou **UdfCustom**.
 
 > [!NOTE]
-> Alguns parâmetros que geralmente são definidos na criação das entidades de IoT do Azure acima não são necessários durante a visualização pública.
-> - Consulte a [documentação de referência do Swagger](./how-to-use-swagger.md) para obter as especificações mais recentes da API.
+> Alguns parâmetros que são geralmente definidos na criação das entidades azure IoT acima não são necessários durante a pré-visualização pública.
+> - Consulte a [documentação](./how-to-use-swagger.md) de referência swagger para as especificações mais recentes da API.
 
-## <a name="azure-digital-twins-management-api-limits"></a>Limites da API de gerenciamento de gêmeos digital do Azure
+## <a name="azure-digital-twins-management-api-limits"></a>Limites da API de Gestão de Gémeos Digitais Azure
 
-Os limites de taxa de solicitação para sua API de gerenciamento de gêmeos digital do Azure são:
+Os limites de taxa de pedido para a sua API de Gestão de Gémeos Digitais Azure são:
 
-- 100 solicitações por segundo à API de gerenciamento de gêmeos digital do Azure.
-- Até 1.000 objetos retornados por uma única consulta da API de gerenciamento de gêmeos digital do Azure.
+- 100 pedidos por segundo à API de Gestão de Gémeos Digitais Azure.
+- Até 1.000 objetos devolvidos por uma única consulta da API de Gestão de Gémeos Digitais Azure.
 
 > [!IMPORTANT]
-> Se você exceder o limite de 1.000 objetos, receberá um erro e deverá simplificar sua consulta.
+> Se exceder o limite de 1.000 objetos, receberá um erro e deve simplificar a sua consulta.
 
-## <a name="user-defined-functions-rate-limits"></a>Limites de taxa de funções definidas pelo usuário
+## <a name="user-defined-functions-rate-limits"></a>Limites de taxa de taxa de funções definidas pelo utilizador
 
-Os limites a seguir definem o número total de todas as chamadas de função definidas pelo usuário feitas para sua instância de gêmeos digital do Azure:
+Os seguintes limites definem o número total de todas as chamadas de função definidas pelo utilizador feitas para a sua instância Azure Digital Twins:
 
-- 400 chamadas de biblioteca de cliente por segundo
-- 100 chamadas **SendNotification** por segundo
+- 400 chamadas de biblioteca de clientes por segundo
+- 100 Chamadas **de Notificação de Envio** por segundo
 
 > [!NOTE]
-> As ações a seguir podem fazer com que limites de taxa adicionais sejam aplicados temporariamente:
-> - Edições feitas nos metadados do objeto de topologia
-> - Atualizações feitas na definição da função definida pelo usuário
+> As seguintes ações podem fazer com que os limites adicionais das taxas sejam aplicados temporariamente:
+> - Edificas feitas para os metadados de objetos de topo
+> - Atualizações feitas à definição de função definida pelo utilizador
 > - Dispositivos que enviam telemetria pela primeira vez
 
 ## <a name="device-telemetry-limits"></a>Limites de telemetria do dispositivo
 
-Os limites a seguir limitam o número total de todas as mensagens que seus dispositivos podem enviar para sua instância de gêmeos digital do Azure:
+Os seguintes limites cobrem o número total de todas as mensagens que os seus dispositivos podem enviar para a sua instância Azure Digital Twins:
 
 - 100 mensagens por segundo em todos os dispositivos
--   25 mensagens por segundo por dispositivo
+-    25 mensagens por segundo por dispositivo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para experimentar um exemplo de gêmeos digital do Azure, vá para [início rápido para encontrar as salas disponíveis](./quickstart-view-occupancy-dotnet.md).
+- Para experimentar uma amostra de Gémeos Digitais Azure, vá ao [Quickstart para encontrar quartos disponíveis.](./quickstart-view-occupancy-dotnet.md)

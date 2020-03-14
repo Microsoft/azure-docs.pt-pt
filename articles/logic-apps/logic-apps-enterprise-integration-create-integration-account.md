@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251002"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270332"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerir contas de integração para integrações empresariais B2B em Aplicações Lógicas Azure
 
@@ -55,7 +55,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos nesta secção
 
    ![Fornecer detalhes da conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Propriedade | Necessário | Valor | Descrição |
+   | Propriedade | Required | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome** | Sim | <> *de nome de conta de integração* | O nome da sua conta de integração, que pode conter apenas letras, números, hífens (`-`), sublinha (`_`), parênteses (`(`, `)`) e períodos (`.`). Este exemplo usa "Fabrikam-Integration". |
    | **Subscrição** | Sim | <*Azure-subscription-name*> | O nome para a subscrição do Azure |
@@ -276,7 +276,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos nesta secção
 
    ![Para confirmar a eliminação, selecione "Sim"](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Crie parceiros comerciais na sua conta de integração](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * [Crie acordos entre parceiros na sua conta de integração](../logic-apps/logic-apps-enterprise-integration-agreements.md)

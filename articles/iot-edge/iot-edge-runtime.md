@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358667"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284905"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura
 
@@ -90,9 +90,9 @@ Cada item no manifesto de implantação contém informações específicas sobre
 
   * A transferir
   * A executar
-  * Estado de funcionamento incorreto
+  * Danificado
   * Falhou
-  * Parada
+  * Parado
 
 * **reiniciar Política** – Como o agente IoT Edge reinicia um módulo. Os valores possíveis incluem:
   
@@ -123,6 +123,6 @@ O agente do IoT Edge desempenha um papel fundamental na segurança de um disposi
 
 Para mais informações sobre o quadro de segurança Azure IoT Edge, leia sobre o gestor de [segurança IoT Edge](iot-edge-security-manager.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Compreender os módulos Azure IoT Edge](iot-edge-modules.md)

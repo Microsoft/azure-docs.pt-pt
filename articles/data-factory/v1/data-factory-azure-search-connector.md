@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387484"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281564"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Empurre dados para um índice de pesquisa cognitiva Azure usando a Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -55,17 +55,17 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 
 A tabela seguinte fornece descrições para elementos JSON específicos do serviço ligado à Pesquisa Cognitiva Azure.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | -------- | ----------- | -------- |
 | tipo | A propriedade tipo deve ser definida para: **AzureSearch**. | Sim |
-| url | URL para o serviço de pesquisa. | Sim |
+| URL | URL para o serviço de pesquisa. | Sim |
 | key | Chave de administrador para o serviço de pesquisa. | Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntode dados. A secção **typeProperties** é diferente para cada tipo de conjunto de dados. A secção TypeProperties para um conjunto de dados do tipo **AzureSearchIndex** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | -------- | ----------- | -------- |
 | tipo | A propriedade tipo deve ser definida para **AzureSearchIndex**.| Sim |
 | indexName | Nome do índice de pesquisa. Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
@@ -76,7 +76,7 @@ Para obter uma lista completa de secções e imóveis disponíveis para definir 
 
 Para a Atividade de Cópia, quando o lavatório é do tipo **AzureSearchIndexSink,** as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Required |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).| fusão (padrão)<br/>Carregar| Não |
 | WriteBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes. | 1 a 1.000. O valor padrão é de 1000. | Não |
@@ -290,7 +290,7 @@ Também pode mapear colunas desde o conjunto de dados de origem até colunas a p
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
 Consulte o guia de [desempenho e afinação](data-factory-copy-activity-performance.md) da Atividade de Cópia para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) e várias formas de o otimizar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
 * [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instruções passo a passo para criar um pipeline com uma Atividade de Cópia.

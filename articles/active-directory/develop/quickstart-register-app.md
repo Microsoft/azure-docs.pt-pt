@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: dc719064166be917d868c7b7fee6b126b4099840
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893200"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240885"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registe uma aplicação com a plataforma de identidade da Microsoft
 
@@ -57,7 +57,7 @@ A Azure AD atribui uma aplicação única, ou cliente, ID para a sua aplicação
 
 ![Exemplo de uma página de visão geral de aplicações recém-registada](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Avance para o próximo artigo para aprender a aceder a APIs web.
 > [!div class="nextstepaction"]

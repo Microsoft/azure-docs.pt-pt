@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Descreve os processos que alimentam os Espaços Azure Dev e como são configurados no ficheiro de configuração azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 ms.openlocfilehash: e96541b0008dca9cbaeda92152f835c188036971
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375253"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259919"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como funciona o Azure Dev Spaces e está configurado
 

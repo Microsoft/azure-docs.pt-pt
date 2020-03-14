@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: abe159221846c4820ba9750f62bdbc814521ecc4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 8fd2f808169a0615e1ad5ca338823e3a8e3212ff
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252743"
+ms.locfileid: "79297854"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Erros de resolução de problemas com livros de execução
 
@@ -609,7 +609,7 @@ Executar Como contas podem não ter as mesmas permissões contra os recursos do 
 
 ### <a name="issues-passing-parameters-into-webhooks"></a>Problemas que passam parâmetros em webhooks
 
-Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um livro de corridas a partir de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um livro de corridas a partir de um webhook](../automation-webhooks.md#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### <a name="issues-using-az-modules"></a>Problemas usando módulos Az
 
@@ -630,7 +630,7 @@ Executar Como contas podem não ter as mesmas permissões contra os recursos do 
 
 ### <a name="passing-parameters-into-webhooks"></a>Transmitir parâmetros para os webhooks
 
-Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um livro de corridas a partir de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Para obter ajuda com a passagem de parâmetros em webhooks, consulte [Iniciar um livro de corridas a partir de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### <a name="using-az-modules"></a>Utilizar os módulos do Az
 
@@ -649,7 +649,7 @@ A caixa de areia Azure impede o acesso a todos os servidores COM fora de process
 * [Iniciar um livro de corridas na Automação Azure](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Execução de livro de corridas na Automação Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

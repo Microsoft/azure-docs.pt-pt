@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5bdc51f47a170922d4fc33e8538695af29e5159c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128124"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365428"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar diretores de serviço e atribuições de funções utilizando a PowerShell
 
@@ -113,4 +113,4 @@ Depois de ter assinado o contrato, certifique-se de que tudo funciona testando a
 Depois de ter criado o diretor de serviço e lhe ter atribuído um papel no seu inquilino do Windows Virtual Desktop, pode usá-lo para criar uma piscina de anfitriões. Para saber mais sobre as piscinas de anfitriões, continue ao tutorial para criar uma piscina de anfitriões no Windows Virtual Desktop.
 
  > [!div class="nextstepaction"]
- > [Tutorial de piscina de anfitrião do Windows Virtual Desktop](./create-host-pools-azure-marketplace.md)
+ > [Criar um conjunto de anfitriões com o Azure Marketplace](./create-host-pools-azure-marketplace.md)

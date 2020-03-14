@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: bae44f67a485546ba29148a114d88df198f7c3e6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361693"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280927"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Criar e gerir o público expressRoute peering
 
@@ -296,7 +296,7 @@ Selecione a linha para espreitar e, em seguida, modifique as propriedades de obs
 
 Remova a sua configuração de observação selecionando o ícone de exclusão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Próximo passo, [Ligue uma rede virtual a um circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 

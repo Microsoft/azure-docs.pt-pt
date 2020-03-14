@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b29dbd7a034123b17b34b1c0fd4c8649e30810bd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 7cd989d944a35af8b1fd932643826e1aedd03962
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128169"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370207"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Crie um recipiente de perfil FSLogix para uma piscina de anfitriões usando ficheiros Azure NetApp
 
@@ -73,7 +73,7 @@ Para começar, precisa de configurar uma conta Azure NetApp Files.
 7. Selecione **Ficheiros Azure NetApp** nos resultados da pesquisa e, em seguida, selecione **Criar**.
 
 8. Selecione o botão **Adicionar.**
-9. Quando a lâmina da **conta New NetApp** abrir, introduza os seguintes valores:
+9. Quando o separador de **conta New NetApp** abrir, introduza os seguintes valores:
 
     - Para **Nome**, insira o nome da sua conta NetApp.
     - Para **subscrição,** selecione a subscrição da conta de armazenamento que configura no passo 4 do menu suspenso.
@@ -92,7 +92,7 @@ Em seguida, crie uma nova piscina de capacidade:
 1. Vá ao menu Deficheiros Azure NetApp e selecione a sua nova conta.
 2. No menu da sua conta, selecione **Piscinas de Capacidade** no serviço de Armazenamento.
 3. **Selecione Adicionar piscina**.
-4. Quando a lâmina da **piscina de nova capacidade** abrir, introduza os seguintes valores:
+4. Quando o separador **de piscina de nova capacidade** abrir, introduza os seguintes valores:
 
     - Para **Nome,** insira um nome para a nova piscina de capacidade.
     - Para **o nível**de serviço, selecione o valor desejado a partir do menu suspenso. Recomendamos **Premium** para a maioria dos ambientes.
@@ -127,7 +127,7 @@ Em seguida, terá de criar um novo volume.
 
 1. Selecione **Volumes**e, em seguida, **selecione Adicionar volume**.
 
-2. Quando a **Lâmina criar uma** lâmina de volume se abrir, introduza os seguintes valores:
+2. Quando o separador **Criar um separador** de volume abrir, introduza os seguintes valores:
 
     - Para **nome Volume,** introduza um nome para o novo volume.
     - Para **pool capacity,** selecione o pool de capacidade que acabou de criar a partir do menu suspenso.

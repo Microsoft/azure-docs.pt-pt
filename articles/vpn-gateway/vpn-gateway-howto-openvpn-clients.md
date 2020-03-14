@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: cherylmc
 ms.openlocfilehash: a45a3412a1ceb8e8a9bd9fd1a34dfdbd10ba1c75
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393564"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244605"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configure clientes OpenVPN para Azure VPN Gateway
 
@@ -165,7 +165,7 @@ Verifique se completou os passos para configurar o OpenVPN para o seu gateway VP
     ![Importação de ficheiros](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
 17. Pode ligar-se ligando a VPN **ON** na página **Definições** de Rede ou sob o ícone da rede na bandeja do sistema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se quiser que os clientes VPN possam aceder a recursos noutro VNet, siga as instruções do artigo [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para configurar uma ligação vnet-to-vnet. Certifique-se de que ativa o BGP nos portões e nas ligações, caso contrário o tráfego não fluirá.
 

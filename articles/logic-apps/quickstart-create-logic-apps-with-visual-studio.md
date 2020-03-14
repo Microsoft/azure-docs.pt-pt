@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.openlocfilehash: 693b2fd8ac7440b67f53de0aedb9a8268a90de76
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386600"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241655"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Quickstart: Criar tarefas automatizadas, processos e fluxos de trabalho com aplicações lógicas azure - Estúdio Visual
 
@@ -199,7 +199,7 @@ Quando terminar com a sua aplicação lógica, elimine o grupo de recursos que c
 
 1. Elimine a solução do Visual Studio do seu computador local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, criou, implementou e executou a sua aplicação lógica com o Visual Studio. Para aprender sobre gestão e realização de implementação avançada para aplicações lógicas com Visual Studio, consulte estes artigos:
 

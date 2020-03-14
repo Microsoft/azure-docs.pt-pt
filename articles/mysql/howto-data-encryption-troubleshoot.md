@@ -1,17 +1,17 @@
 ---
-title: Encriptação de dados de resolução de problemas na Base de Dados Azure para MySQL
+title: Encriptação de dados de resolução de problemas - Base de Dados Azure para MySQL
 description: Saiba como resolver a encriptação de dados na Base de Dados Azure para o MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 516f0b2080fc894ec00f222c712ffdea4ee74356
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851106"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297045"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Encriptação de dados de resolução de problemas na Base de Dados Azure para MySQL
 
@@ -57,6 +57,6 @@ As seguintes configurações causam a maioria dos problemas com encriptação de
 - Identifique o cofre da chave e vá ao cofre chave no portal Azure.
 - Certifique-se de que a chave URI identifica uma chave que está presente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Utilize o portal Azure para configurar encriptação de dados com uma chave gerida pelo cliente na Base de Dados Azure para MySQL](howto-data-encryption-portal.md)

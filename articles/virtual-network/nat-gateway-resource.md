@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2020
+ms.date: 03/12/2020
 ms.author: allensu
-ms.openlocfilehash: d78828b2e439668dbc0cd8567560a709256dad5f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 3cc459b7f4b81b14f57bbb702f0b0d988654189f
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79217019"
+ms.locfileid: "79298659"
 ---
-# <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Conceber redes virtuais com recursos de gateway NAT (Visualização Pública)
+# <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conceber redes virtuais com recursos de gateway NAT
 
 Os recursos de gateway NAT fazem parte da [Rede Virtual NAT](nat-overview.md) e fornecem conectividade de saída da Internet para uma ou mais subnets de uma rede virtual. A sub-rede da rede virtual indica que o portal NAT será utilizado. O NAT fornece tradução de endereço de rede fonte (SNAT) para uma sub-rede.  Os recursos de gateway NAT especificam quais os endereços IP estáticos que as máquinas virtuais utilizam quando criam fluxos de saída. Os endereços IP estáticos provêm de recursos públicos de endereçoIP, recursos de prefixo IP públicos, ou ambos. Um recurso de gateway NAT pode usar até 16 endereços IP estáticos de qualquer um deles.
 
@@ -50,7 +50,7 @@ Não são necessárias rotas definidas pelo utilizador.
 
 O recurso foi concebido para ser simples, como pode ver pelo exemplo do Gestor de Recursos Azure num formato semelhante ao modelo.  Este formato semelhante ao modelo é mostrado aqui para ilustrar os conceitos e estrutura.  Modifique o exemplo para as suas necessidades.  Este documento não se destina a ser um tutorial.
 
-O diagrama seguinte mostra as referências recedíveis entre os diferentes recursos do Gestor de Recursos Azure.  A seta indica a direção da referência, originária de onde é reconelegível. Rever 
+O diagrama seguinte mostra as referências recedíveis entre os diferentes recursos do Gestor de Recursos Azure.  A seta indica a direção da referência, originária de onde é reconelegível. Revisão 
 
 <p align="center">
   <img src="media/nat-overview/flow-map.svg" width="256" title="Modelo de objeto nat rede virtual">
@@ -340,7 +340,7 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 
 Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos construir a seguir na [UserVoice para o NAT](https://aka.ms/natuservoice).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Conheça a [rede virtual NAT](nat-overview.md).
 * Conheça [métricas e alertas para os recursos](nat-metrics.md)de gateway NAT .
@@ -353,6 +353,7 @@ Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos co
   - [CLI do Azure](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
   - [Portal](./quickstart-create-nat-gateway-portal.md)
+  - [Modelo](./quickstart-create-nat-gateway-template.md)
 * Conheça a API do recurso de gateway NAT
   - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)

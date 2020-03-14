@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379762"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282942"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Como funciona a pesquisa completa de texto em Pesquisa Cognitiva Azure
 
@@ -251,7 +251,7 @@ Para produzir os termos num índice invertido, o motor de busca realiza análise
 
 Voltando ao nosso exemplo, para o campo do **título,** o índice invertido é assim:
 
-| Duração | Lista de documentos |
+| Termo | Lista de documentos |
 |------|---------------|
 | atman | 1 |
 | praia | 2 |
@@ -265,7 +265,7 @@ Na área do título, apenas o *hotel* aparece em dois documentos: 1, 3.
 
 Para o campo **de descrição,** o índice é o seguinte:
 
-| Duração | Lista de documentos |
+| Termo | Lista de documentos |
 |------|---------------|
 | ar | 3
 | e | 4
@@ -379,7 +379,7 @@ Do ponto de vista técnico, a pesquisa completa de texto é altamente complexa, 
 
 Este artigo explorou a pesquisa completa de texto no contexto da Pesquisa Cognitiva Azure. Esperamos que lhe dê antecedentes suficientes para reconhecer potenciais causas e resoluções para resolver problemas comuns de consulta. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 + Construa o índice de amostra, experimente diferentes consultas e reveja os resultados. Para obter instruções, consulte [Construir e consultar um índice no portal](search-get-started-portal.md#query-index).
 

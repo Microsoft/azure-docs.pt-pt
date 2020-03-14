@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 55e5b0be7ebefaa26a5981afe3b7c9d3f8a5bf37
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d8ecabab596612b443f1eb0a50fd550fdc474c43
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79216981"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370819"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é a Rede Virtual NAT?
 
@@ -135,7 +135,9 @@ O portal NAT é faturado com dois metros separados:
 As horas de recursos são responsáveis pela duração durante a qual existe um recurso de gateway NAT.
 Contas processadas por dados de todo o tráfego processado por um recurso de gateway NAT.
 
-Durante a pré-visualização pública, os preços são descontados em 50%.
+## <a name="availability"></a>Disponibilidade
+
+A Rede Virtual NAT e o recurso de gateway NAT estão disponíveis em todas as [regiões](https://azure.microsoft.com/global-infrastructure/regions/)de nuvem pública azure.
 
 ## <a name="support"></a>Suporte
 
@@ -148,7 +150,7 @@ Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos co
 
 ## <a name="limitations"></a>Limitações
 
-* O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga.   Os recursos básicos (por exemplo, o equilíbrio básico de carga) e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
+* O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga. Os recursos básicos, tais como o equilíbrio básico de carga, e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
 * A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.  O NAT não pode ser implantado numa sub-rede com um prefixo IPv6.
 * A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
 * O NAT não pode abranger várias redes virtuais.

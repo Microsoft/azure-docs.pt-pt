@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395896"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243812"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna sinuosos no fluxo de dados de mapeamento
 
@@ -69,6 +69,6 @@ Se a sua regra resultar em mapeamentos idênticos múltiplos, ative a saída de 
 * `stream` representa o nome associado a cada fluxo, ou transformação no seu fluxo
 * `position` é a posição ordinal das colunas no seu fluxo de dados
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre a linguagem de expressão de [fluxo](data-flow-expression-functions.md) de dados de mapeamento para transformações de dados
 * Use padrões de coluna na [transformação](data-flow-sink.md) da pia e [selecione a transformação](data-flow-select.md) com mapeamento baseado em regras
