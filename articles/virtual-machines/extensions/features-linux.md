@@ -1,6 +1,6 @@
 ---
-title: Recursos e extensões de VM do Azure para Linux
-description: Saiba quais extensões estão disponíveis para máquinas virtuais do Azure, agrupadas pelo que elas fornecem ou aperfeiçoadas.
+title: Extensões e funcionalidades azure VM para Linux
+description: Saiba quais as extensões disponíveis para máquinas virtuais Azure, agrupando supérum pelo que fornecem ou melhoram.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -15,77 +15,77 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073755"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250520"
 ---
-# <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões de máquina virtual para Linux
+# <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades da máquina virtual para Linux
 
-As extensões de VM (máquina virtual) do Azure são aplicativos pequenos que fornecem tarefas de configuração e automação de pós-implantação em VMs do Azure. Por exemplo, se uma máquina virtual requer instalação de software, proteção antivírus ou para executar um script dentro dela, uma extensão de VM pode ser usada. As extensões de VM do Azure podem ser executadas com o CLI do Azure, o PowerShell, os modelos de Azure Resource Manager e o portal do Azure. As extensões podem ser agrupadas com uma nova implantação de VM ou executadas em qualquer sistema existente.
+As extensões da máquina virtual Azure (VM) são pequenas aplicações que fornecem tarefas de configuração pós-implantação e automação em VMs Azure. Por exemplo, se uma máquina virtual necessitar de instalação de software, proteção antivírus ou executar um script no seu interior, pode ser utilizada uma extensão VM. As extensões Azure VM podem ser executadas com os modelos Azure CLI, PowerShell, Azure Resource Manager e o portal Azure. As extensões podem ser agregadas com uma nova implementação vm, ou correr contra qualquer sistema existente.
 
-Este artigo fornece uma visão geral das extensões de VM, pré-requisitos para usar extensões de VM do Azure e orientação sobre como detectar, gerenciar e remover extensões de VM. Este artigo fornece informações generalizadas porque muitas extensões de VM estão disponíveis, cada uma com uma configuração potencialmente exclusiva. Detalhes específicos da extensão podem ser encontrados em cada documento específico para a extensão individual.
+Este artigo fornece uma visão geral das extensões VM, pré-requisitos para a utilização de extensões VM Azure e orientações sobre como detetar, gerir e remover extensões VM. Este artigo fornece informações generalizadas porque muitas extensões VM estão disponíveis, cada uma com uma configuração potencialmente única. Detalhes específicos da extensão podem ser encontrados em cada documento específico da extensão individual.
 
-## <a name="use-cases-and-samples"></a>Casos de uso e amostras
+## <a name="use-cases-and-samples"></a>Utilizar casos e amostras
 
-Várias extensões de VM do Azure diferentes estão disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
+Várias extensões Azure VM diferentes estão disponíveis, cada uma com um caso de utilização específico. Alguns exemplos incluem:
 
-- Aplique as configurações de estado desejado do PowerShell a uma VM com a extensão de DSC para Linux. Para obter mais informações, consulte [extensão de configuração de estado desejado do Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure o monitoramento de uma VM com a extensão de VM Microsoft Monitoring Agent. Para obter mais informações, consulte [como monitorar uma VM Linux](../linux/tutorial-monitoring.md).
-- Configure o monitoramento de sua infraestrutura do Azure com a extensão chefe ou Datadog. Para obter mais informações, consulte o blog [chefe docs](https://docs.chef.io/azure_portal.html) ou [Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Aplique as configurações do Estado desejado powerShell num VM com a extensão DSC para Linux. Para mais informações, consulte a extensão de [configuração do Estado Pretendido.](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)
+- Configure a monitorização de um VM com a extensão VM do Monitor do Microsoft. Para mais informações, consulte [Como monitorizar um VM Linux](../linux/tutorial-monitoring.md).
+- Configure a monitorização da sua infraestrutura Azure com a extensão Chef ou Datadog. Para mais informações, consulte o [chef docs](https://docs.chef.io/azure_portal.html) ou [blog Datadog.](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)
 
-Além das extensões específicas do processo, uma extensão de script personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de script personalizado para Linux permite que qualquer script de bash seja executado em uma VM. Os scripts personalizados são úteis para criar implantações do Azure que exigem configuração além das ferramentas nativas do Azure que podem ser fornecidas. Para obter mais informações, consulte [extensão de script personalizado da VM do Linux](custom-script-linux.md).
+Além de extensões específicas do processo, uma extensão de Script Personalizado está disponível tanto para máquinas virtuais Windows como Linux. A extensão custom Script para Linux permite que qualquer script bash seja executado num VM. Scripts personalizados são úteis para projetar implementações Azure que requerem configuração para além do que a ferramenta nativa Azure pode fornecer. Para mais informações, consulte a extensão do [Script Personalizado Linux VM](custom-script-linux.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para lidar com a extensão na VM, você precisará do agente Linux do Azure instalado. Algumas extensões individuais têm pré-requisitos, como o acesso a recursos ou dependências.
+Para lidar com a extensão do VM, precisa do Agente Azure Linux instalado. Algumas extensões individuais têm pré-requisitos, tais como o acesso a recursos ou dependências.
 
 ### <a name="azure-vm-agent"></a>Agente da VM do Azure
 
-O agente de VM do Azure gerencia as interações entre uma VM do Azure e o controlador de malha do Azure. O agente de VM é responsável por muitos aspectos funcionais da implantação e do gerenciamento de VMs do Azure, incluindo a execução de extensões de VM. O agente de VM do Azure é pré-instalado em imagens do Azure Marketplace e pode ser instalado manualmente em sistemas operacionais com suporte. O agente de VM do Azure para Linux é conhecido como agente do Linux.
+O agente Azure VM gere interações entre um VM Azure e o controlador de tecido Azure. O agente VM é responsável por muitos aspetos funcionais de implantação e gestão de VMs Azure, incluindo extensões VM de execução. O agente Azure VM está pré-instalado nas imagens do Azure Marketplace e pode ser instalado manualmente em sistemas operativos suportados. O Agente Azure VM do Linux é conhecido como o agente Linux.
 
-Para obter informações sobre sistemas operacionais e instruções de instalação com suporte, consulte [agente de máquina virtual do Azure](agent-linux.md).
+Para obter informações sobre sistemas operativos suportados e instruções de instalação, consulte o [agente de máquinas virtuais Azure](agent-linux.md).
 
-#### <a name="supported-agent-versions"></a>Versões de agente com suporte
+#### <a name="supported-agent-versions"></a>Versões de agente suportado
 
-Para fornecer a melhor experiência possível, há versões mínimas do agente. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Para proporcionar a melhor experiência possível, existem versões mínimas do agente. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-#### <a name="supported-oses"></a>Sistemas operacionais com suporte
+#### <a name="supported-oses"></a>OSes suportados
 
-O agente do Linux é executado em vários SOS, no entanto, o Framework de extensões tem um limite para os SOS que são extensões. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+O agente Linux funciona em várias OSes, no entanto o quadro de extensões tem um limite para os OSes que se prolongam. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Algumas extensões não têm suporte em todos os sistemas operacionais e podem emitir o *código de erro 51, ' sistema operacional sem suporte '* . Verifique a documentação de extensão individual para obter suporte.
+Algumas extensões não são suportadas em todos os OSes e podem emitir código de *erro 51, "Os Não Suportado".* Verifique a documentação individual de extensão para obter suporte.
 
 #### <a name="network-access"></a>Acesso à rede
 
-Os pacotes de extensão são baixados do repositório de extensões de armazenamento do Azure, e os carregamentos de status de extensão são postados no armazenamento do Azure. Se você usar a versão [com suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, uma vez que o pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente. Se você estiver em uma versão sem suporte do agente, precisará permitir o acesso de saída ao armazenamento do Azure nessa região da VM.
+Os pacotes de extensão são descarregados do repositório de extensão de armazenamento Azure, e os uploads de estado de extensão são publicados no Armazenamento Azure. Se utilizar a versão [suportada](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não precisa de permitir o acesso ao Armazenamento Azure na região vM, assim como pode utilizar o agente para redirecionar a comunicação para o controlador de tecido Azure para comunicações de agentes. Se estiver numa versão não suportada do agente, tem de permitir o acesso de saída ao armazenamento Azure naquela região a partir do VM.
 
 > [!IMPORTANT]
-> Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado, as extensões falharão independentemente das anteriores.
+> Se bloqueou o acesso a *168.63.129.16* utilizando a firewall do hóspede, as extensões falham independentemente do acima referido.
 
-Os agentes só podem ser usados para baixar pacotes de extensão e status de relatório. Por exemplo, se uma instalação de extensão precisar baixar um script do GitHub (script personalizado) ou precisar de acesso ao armazenamento do Azure (backup do Azure), as portas de grupo de segurança de rede/firewall adicionais precisarão ser abertas. Extensões diferentes têm requisitos diferentes, pois são aplicativos por conta própria. Para extensões que exigem acesso ao armazenamento do Azure, você pode permitir o acesso usando as marcas do serviço NSG do Azure para [armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Os agentes só podem ser usados para descarregar pacotes de extensão e o estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Armazenamento Azure (Backup Azure), então as portas adicionais de firewall/Network Security Group precisam de ser abertas. As diferentes extensões têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que requerem acesso ao Armazenamento Azure, pode permitir o acesso utilizando etiquetas de serviço Azure NSG para [armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-Para redirecionar solicitações de tráfego de agente, o agente Linux tem suporte para servidor proxy. No entanto, esse suporte ao servidor proxy não aplica extensões. Você deve configurar cada extensão individual para trabalhar com um proxy.
+Para redirecionar os pedidos de tráfego do agente, o Agente Linux tem suporte ao servidor proxy. No entanto, este suporte proxy servidor não aplica extensões. Deve configurar cada extensão individual para trabalhar com um representante.
 
-## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
+## <a name="discover-vm-extensions"></a>Descubra extensões VM
 
-Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Para ver uma lista completa, use [AZ VM Extension Image List](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo a seguir lista todas as extensões disponíveis no local *westus* :
+Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Para ver uma lista completa, utilize a lista de imagens de [extensão az vm](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo seguinte lista todas as extensões disponíveis na localização *westus:*
 
 ```azurecli
 az vm extension image list --location westus --output table
 ```
 
-## <a name="run-vm-extensions"></a>Executar extensões de VM
+## <a name="run-vm-extensions"></a>Executar extensões VM
 
-As extensões de VM do Azure são executadas em VMs existentes, o que é útil quando você precisa fazer alterações de configuração ou recuperar a conectividade em uma VM já implantada. As extensões de VM também podem ser agrupadas com Azure Resource Manager implantações de modelo. Usando extensões com modelos do Resource Manager, as VMs do Azure podem ser implantadas e configuradas sem intervenção pós-implantação.
+As extensões De VM Azure funcionam em VMs existentes, o que é útil quando precisa de fazer alterações de configuração ou recuperar a conectividade num VM já implantado. As extensões VM também podem ser agregadas com implementações de modelos do Gestor de Recursos Azure. Utilizando extensões com modelos de Gestor de Recursos, os VMs Azure podem ser implantados e configurados sem intervenção pós-implantação.
 
-Os métodos a seguir podem ser usados para executar uma extensão em uma VM existente.
+Os seguintes métodos podem ser utilizados para executar uma extensão contra um VM existente.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões de VM do Azure podem ser executadas em uma VM existente com o comando [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) . O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o script a ser executado (https:\//raw.githubusercontent.com/me/project/hello.sh) com suas próprias informações. 
+As extensões De VM Azure podem ser executadas contra um VM existente com o comando conjunto de [extensão az vm.](/cli/azure/vm/extension#az-vm-extension-set) O exemplo seguinte executa a extensão do Script Personalizado contra um VM chamado *myVM* num grupo de recursos chamado *myResourceGroup*. Substitua o nome do grupo de recursos, nome VM e script para executar (https:\//raw.githubusercontent.com/me/project/hello.sh) com as suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -96,7 +96,7 @@ az vm extension set `
   --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-Quando a extensão é executada corretamente, a saída é semelhante ao exemplo a seguir:
+Quando a extensão funciona corretamente, a saída é semelhante ao seguinte exemplo:
 
 ```bash
 info:    Executing command vm extension set
@@ -107,17 +107,17 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-As extensões de VM podem ser aplicadas a uma VM existente por meio do portal do Azure. Selecione a VM no portal, escolha **extensões**e, em seguida, selecione **Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente.
+As extensões VM podem ser aplicadas a um VM existente através do portal Azure. Selecione o VM no portal, escolha **extensões**e, em seguida, **selecione Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente.
 
-A imagem a seguir mostra a instalação da extensão de script personalizado do Linux do portal do Azure:
+A imagem seguinte mostra a instalação da extensão do Script Personalizado Linux do portal Azure:
 
-![Instalar extensão de script personalizado](./media/features-linux/installscriptextensionlinux.png)
+![Instale extensão de script personalizada](./media/features-linux/installscriptextensionlinux.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-As extensões de VM podem ser adicionadas a um modelo de Azure Resource Manager e executadas com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão de VM cuida da instalação do software.
+As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e executadas com a implementação do modelo. Quando implementa uma extensão com um modelo, pode criar implementações Azure totalmente configuradas. Por exemplo, o seguinte JSON é retirado de um modelo de Gestor de Recursos que implementa um conjunto de VMs equilibrados em carga e uma base de dados Azure SQL, e depois instala uma aplicação .NET Core em cada VM. A extensão VM cuida da instalação do software.
 
-Para obter mais informações, consulte o [modelo completo do Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Para mais informações, consulte o modelo completo [do Gestor de Recursos](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ```json
 {
@@ -148,13 +148,13 @@ Para obter mais informações, consulte o [modelo completo do Resource Manager](
 }
 ```
 
-Para obter mais informações sobre como criar modelos do Resource Manager, consulte Criando [modelos de Azure Resource Manager](../windows/template-description.md#extensions).
+Para obter mais informações sobre a criação de modelos de Gestor de Recursos, consulte [os modelos de Gestor de Recursos Do Azure.](../windows/template-description.md#extensions)
 
-## <a name="secure-vm-extension-data"></a>Proteger dados de extensão de VM
+## <a name="secure-vm-extension-data"></a>Dados de extensão VM seguros
 
-Quando você executa uma extensão de VM, pode ser necessário incluir informações confidenciais, como credenciais, nomes de conta de armazenamento e chaves de acesso da conta de armazenamento. Muitas extensões de VM incluem uma configuração protegida que criptografa dados e apenas descriptografa-os dentro da VM de destino. Cada extensão tem um esquema de configuração protegida específico e cada uma é detalhada na documentação específica da extensão.
+Quando executa uma extensão VM, pode ser necessário incluir informações sensíveis, tais como credenciais, nomes de contas de armazenamento e chaves de acesso à conta de armazenamento. Muitas extensões VM incluem uma configuração protegida que encripta dados e apenas os desencripta dentro do VM alvo. Cada extensão tem um esquema de configuração protegido específico, e cada uma é detalhada em documentação específica de extensão.
 
-O exemplo a seguir mostra uma instância da extensão de script personalizado para Linux. O comando a ser executado inclui um conjunto de credenciais. Neste exemplo, o comando a ser executado não é criptografado:
+O exemplo que se segue mostra uma instância da extensão do Script Personalizado para Linux. O comando para executar inclui um conjunto de credenciais. Neste exemplo, o comando a executar não é encriptado:
 
 ```json
 {
@@ -183,7 +183,7 @@ O exemplo a seguir mostra uma instância da extensão de script personalizado pa
 }
 ```
 
-Mover o **comando para executar** a propriedade para a configuração **protegida** protege a cadeia de caracteres de execução, conforme mostrado no exemplo a seguir:
+Mover o **comando para executar** a propriedade para a configuração **protegida** segura a cadeia de execução, como mostra o seguinte exemplo:
 
 ```json
 {
@@ -214,34 +214,34 @@ Mover o **comando para executar** a propriedade para a configuração **protegid
 }
 ```
 
-### <a name="how-do-agents-and-extensions-get-updated"></a>Como os agentes e as extensões são atualizados?
+### <a name="how-do-agents-and-extensions-get-updated"></a>Como é que os agentes e extensões são atualizados?
 
-Os agentes e as extensões compartilham o mesmo mecanismo de atualização. Algumas atualizações não exigem regras de firewall adicionais.
+Os Agentes e Extensões partilham o mesmo mecanismo de atualização. Algumas atualizações não requerem regras adicionais de firewall.
 
-Quando uma atualização está disponível, ela só é instalada na VM quando há uma alteração nas extensões e outras alterações de modelo de VM, como:
+Quando uma atualização está disponível, só é instalada no VM quando há uma alteração às extensões, e outras alterações do Modelo VM, tais como:
 
 - Discos de dados
 - Extensões
-- Contêiner de diagnóstico de inicialização
-- Segredos do SO convidado
+- Recipiente de diagnóstico de arranque
+- Segredos do Os convidado
 - Tamanho da VM
 - Perfil de rede
 
-Os Publicadores disponibilizam atualizações para regiões em momentos diferentes, para que seja possível ter VMs em diferentes regiões em diferentes versões.
+As editoras disponibilizam atualizações para regiões em diferentes momentos, pelo que é possível que possa ter VMs em diferentes regiões em diferentes versões.
 
-#### <a name="agent-updates"></a>Atualizações do agente
+#### <a name="agent-updates"></a>Atualizações de agente
 
-O agente de VM do Linux contém o código do *agente de provisionamento* e o código de *manipulação de extensão* em um pacote, que não pode ser separado. Você pode desabilitar o *agente de provisionamento* quando desejar provisionar no Azure usando o Cloud-init. Para fazer isso, consulte [usando Cloud-init](../linux/using-cloud-init.md).
+O Agente Linux VM contém código de código e tratamento de *extensão* do agente de *provisionamento* numa embalagem, que não pode ser separada. Pode desativar o *Agente de Provisionamento* quando quiser fornecer o Azure utilizando cloud-init. Para isso, veja [o uso de cloud-init](../linux/using-cloud-init.md).
 
-As versões com suporte dos agentes podem usar as atualizações automáticas. O único código que pode ser atualizado é o *código de manipulação de extensão*, não o código de provisionamento. O *código do agente de provisionamento* é um código de execução única.
+As versões suportadas dos Agentes podem utilizar atualizações automáticas. O único código que pode ser atualizado é o código de manuseamento de *extensões,* não o código de provisionamento. O código do *Agente de Provisionamento* é um código de execução.
 
-O *código de manipulação de extensão* é responsável pela comunicação com a malha do Azure e pela manipulação das operações de extensões de VM, como instalações, status de relatórios, atualização de extensões individuais e remoção delas. As atualizações contêm correções de segurança, correções de bugs e aprimoramentos no *código de manipulação de extensão*.
+O código de tratamento de *extensões* é responsável pela comunicação com o tecido Azure e manuseamento das operações de extensões VM, tais como instalações, estado de reporte, atualização das extensões individuais e remoção das mesmas. As atualizações contêm correções de segurança, correções de erros e melhorias no código de manuseamento de *extensões*.
 
-Quando o agente é instalado, um daemon pai é criado. Esse pai então gera um processo filho que é usado para manipular extensões. Se uma atualização estiver disponível para o agente, ela será baixada, o pai interromperá o processo filho, o atualizará e, em seguida, o reiniciará. Se houver um problema com a atualização, o processo pai será revertido para a versão filho anterior.
+Quando o agente é instalado, um daemon-mãe é criado. Este progenitor gera então um processo infantil que é usado para lidar com extensões. Se estiver disponível uma atualização para o agente, é descarregada, o progenitor para o processo da criança, atualiza-o e reinicia-o. Caso haja algum problema com a atualização, o processo dos pais volta para a versão infantil anterior.
 
-O processo pai não pode ser atualizado automaticamente. O pai só pode ser atualizado por uma atualização de pacote distribuição.
+O processo dos pais não pode ser atualizado automaticamente. O progenitor só pode ser atualizado através de uma atualização do pacote de distro.
 
-Para verificar qual versão está sendo executada, verifique o `waagent` da seguinte maneira:
+Para verificar qual a versão que está a executar, verifique a `waagent` da seguinte forma:
 
 ```bash
 waagent --version
@@ -255,15 +255,15 @@ Python: 3.5.2
 Goal state agent: 2.2.18
 ```
 
-Na saída de exemplo anterior, o pai ou "pacote implantado versão" é *WALinuxAgent-2.2.17*
+Na saída de exemplo anterior, o progenitor ou "versão implantada em pacote" é *WALinuxAgent-2.2.17*
 
-O ' agente de estado de meta ' é a versão de atualização automática.
+O 'Agente estatal goal' é a versão de atualização automática.
 
-É altamente recomendável que você sempre tenha a atualização automática para o agente, [AutoUpdate. Enabled = y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Não ter essa habilitação significa que você precisa manter a atualização manual do agente e não obter correções de bug e de segurança.
+É altamente recomendável que tenha sempre atualização automática para o agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Não ter isto ativado significa que tem de continuar a atualizar manualmente o agente e não obter correções de segurança e bugs.
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 
-Quando uma atualização de extensão está disponível, o agente do Linux baixa e atualiza a extensão. As atualizações de extensão automáticas são *secundária* ou de *hotfix*. Você pode aceitar ou recusar atualizações *secundárias* de extensões ao provisionar a extensão. O exemplo a seguir mostra como atualizar as versões secundárias automaticamente em um modelo do Resource Manager com *autoUpgradeMinorVersion ": true,"* :
+Quando uma atualização de extensão está disponível, o Agente Linux descarrega e atualiza a extensão. As atualizações automáticas de extensão são *Menor* ou *Hotfix*. Pode optar por não prorrogar as atualizações *menores* quando fornecer a extensão. O exemplo seguinte mostra como atualizar automaticamente versões menores num modelo de Gestor de Recursos com *autoUpgradeMinorVersion": verdadeiro,':*
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -277,19 +277,19 @@ Quando uma atualização de extensão está disponível, o agente do Linux baixa
     },
 ```
 
-Para obter as correções mais recentes do bug de lançamento secundário, é altamente recomendável que você sempre Selecione atualização automática em suas implantações de extensão. Atualizações de hotfix que contêm correções de bug de chave ou segurança não podem ser recusadas.
+Para obter as mais recentes correções de erros de desbloqueio, é altamente recomendável que selecione sempre a atualização automática nas suas implementações de extensão. As atualizações de hotfix que transportam correções de segurança ou de erros chave não podem ser optadas.
 
 ### <a name="how-to-identify-extension-updates"></a>Como identificar atualizações de extensão
 
-#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identificar se a extensão está definida com autoUpgradeMinorVersion em uma VM
+#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identificar se a extensão é definida com autoUpgradeMinorVersion num VM
 
-Você poderá ver no modelo de VM se a extensão tiver sido provisionada com ' autoUpgradeMinorVersion '. Para verificar, use [AZ VM show](/cli/azure/vm#az-vm-show) e forneça o grupo de recursos e o nome da VM da seguinte maneira:
+Pode ver no modelo VM se a extensão foi aprovisionada com 'autoUpgradeMinorVersion'. Para verificar, utilize [az vm show](/cli/azure/vm#az-vm-show) e forneça o grupo de recursos e o nome VM da seguinte forma:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
 ```
 
-A saída de exemplo a seguir mostra que *autoUpgradeMinorVersion* está definido como *true*:
+A saída de exemplo a seguir mostra que a *versão autoUpgradeMinorVersion* está definida como *verdadeira:*
 
 ```json
   "resources": [
@@ -299,11 +299,11 @@ A saída de exemplo a seguir mostra que *autoUpgradeMinorVersion* está definido
       "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/CustomScriptExtension",
 ```
 
-#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identificando quando ocorreu um autoUpgradeMinorVersion
+#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identificar quando ocorreu uma versão automáticaDaMenor
 
-Para ver quando uma atualização da extensão ocorreu, examine os logs de agente na VM em */var/log/waagent.log*.
+Para ver quando ocorreu uma atualização da extensão, reveja os registos do agente no VM em */var/log/waagent.log*.
 
-No exemplo a seguir, a VM tinha *Microsoft. OSTCExtensions. LinuxDiagnostic-2.3.9025* instalado. Um hotfix estava disponível para *Microsoft. OSTCExtensions. LinuxDiagnostic-2.3.9027*:
+No exemplo abaixo, o VM tinha *microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9025* instalado. Um hotfix estava disponível para *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027*:
 
 ```bash
 INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Expected handler state: enabled
@@ -326,33 +326,33 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 ## <a name="agent-permissions"></a>Permissões do agente
 
-Para executar suas tarefas, o agente precisa ser executado como *raiz*.
+Para executar as suas tarefas, o agente precisa de funcionar como *raiz*.
 
-## <a name="troubleshoot-vm-extensions"></a>Solucionar problemas de extensões de VM
+## <a name="troubleshoot-vm-extensions"></a>Extensões VM de resolução de problemas
 
-Cada extensão de VM pode ter etapas de solução de problemas específicas para a extensão. Por exemplo, quando você usa a extensão de script personalizado, os detalhes de execução de script podem ser encontrados localmente na VM em que a extensão foi executada. Qualquer etapa de solução de problemas específica de extensão é detalhada na documentação específica da extensão.
+Cada extensão VM pode ter passos de resolução de problemas específicos da extensão. Por exemplo, quando utiliza a extensão do Script Personalizado, os detalhes de execução do script podem ser encontrados localmente no VM onde a extensão foi executada. Quaisquer etapas específicas de resolução de problemas específicas para a extensão são detalhadas em documentação específica de extensão.
 
-As etapas de solução de problemas a seguir se aplicam a todas as extensões de VM.
+As seguintes etapas de resolução de problemas aplicam-se a todas as extensões VM.
 
-1. Para verificar o log do agente do Linux, examine a atividade quando sua extensão estava sendo provisionada no */var/log/waagent.log*
+1. Para verificar o Registo do Agente Linux, veja a atividade quando a sua extensão estava a ser aprovisionada em */var/log/waagent.log*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em */var/log/azure/\<extensionname >*
+2. Verifique os registos de extensão reais para obter mais detalhes em */var/log/azure/\<extensãoName>*
 
-3. Verifique as seções de solução de problemas de documentação específica da extensão para obter códigos de erro, problemas conhecidos etc.
+3. Verifique as secções de resolução de problemas de documentação específicas para a extensão de códigos de erro, questões conhecidas, etc.
 
-3. Examine os logs do sistema. Verifique se há outras operações que possam interferir na extensão, como uma instalação de longa execução de outro aplicativo que exigia acesso exclusivo ao Gerenciador de pacotes.
+3. Olhe para os registos do sistema. Verifique se existem outras operações que possam ter interferido com a extensão, como uma instalação de longa duração de outra aplicação que exigia acesso exclusivo ao gestor de pacotes.
 
-### <a name="common-reasons-for-extension-failures"></a>Motivos comuns para falhas de extensão
+### <a name="common-reasons-for-extension-failures"></a>Razões comuns para falhas na extensão
 
-1. As extensões têm 20 minutos para serem executadas (as exceções são as extensões CustomScript, chefe e DSC que têm 90 minutos). Se sua implantação exceder esse tempo, ela será marcada como um tempo limite. A causa disso pode ser devido a pequenas VMs de recursos, outras configurações de VM/inicialização de tarefas que consomem grandes quantidades de recursos, enquanto a extensão está tentando provisionar.
+1. As extensões têm 20 minutos para executar (exceções são as extensões CustomScript, Chef e DSC que têm 90 minutos). Se a sua implantação exceder este tempo, está marcada como um tempo limite. A causa disto pode ser devido a VMs de baixo recurso, outras configurações vm/tarefas de arranque que consomem elevadas quantidades de recursos enquanto a extensão está a tentar fornecer.
 
-2. Pré-requisitos mínimos não atendidos. Algumas extensões têm dependências em SKUs de VM, como imagens do HPC. As extensões podem exigir certos requisitos de acesso à rede, como a comunicação com o armazenamento do Azure ou serviços públicos. Outros exemplos podem ser acesso a repositórios de pacotes, ficando sem espaço em disco ou restrições de segurança.
+2. Pré-requisitos mínimos não cumpridos. Algumas extensões têm dependências de VM SKUs, como imagens HPC. As extensões podem exigir determinados requisitos de acesso em rede, tais como a comunicação ao Armazenamento Azure ou serviços públicos. Outros exemplos poderiam ser o acesso a repositórios de pacotes, ficando sem espaço de disco, ou restrições de segurança.
 
-3. Acesso exclusivo do Gerenciador de pacotes. Em alguns casos, você pode encontrar uma configuração de VM de longa execução e uma instalação de extensão em conflito, onde ambas precisam de acesso exclusivo ao Gerenciador de pacotes.
+3. Acesso exclusivo ao gestor de pacotes. Em alguns casos, poderá encontrar uma configuração vm de longa duração e instalação de extensão conflituosa, onde ambos precisam de acesso exclusivo ao gestor do pacote.
 
-### <a name="view-extension-status"></a>Exibir status da extensão
+### <a name="view-extension-status"></a>Ver estado de extensão
 
-Depois que uma extensão de VM for executada em uma VM, use [AZ VM Get-Instance-View](/cli/azure/vm#az-vm-get-instance-view) para retornar o status da extensão da seguinte maneira:
+Depois de uma extensão VM ter sido executada contra um VM, utilize [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) para devolver o estado de extensão da seguinte forma:
 
 ```azurecli
 az vm get-instance-view \
@@ -381,11 +381,11 @@ A saída é semelhante à seguinte saída de exemplo:
   }
 ```
 
-O status de execução da extensão também pode ser encontrado no portal do Azure. Para exibir o status de uma extensão, selecione a VM, escolha **extensões**e, em seguida, selecione a extensão desejada.
+O estado de execução da extensão também pode ser encontrado no portal Azure. Para ver o estado de uma extensão, selecione o VM, escolha **extensões**e, em seguida, selecione a extensão desejada.
 
-### <a name="rerun-a-vm-extension"></a>Executar novamente uma extensão de VM
+### <a name="rerun-a-vm-extension"></a>Reexecutar uma extensão VM
 
-Pode haver casos em que uma extensão de VM precisa ser executada novamente. Você pode executar novamente uma extensão removendo-a e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, use [AZ VM Extension Delete](/cli/azure/vm/extension#az-vm-extension-delete) da seguinte maneira:
+Pode haver casos em que uma extensão VM precisa de ser reexecutada. Pode reproduzir uma extensão removendo-a e, em seguida, reexecutar a extensão com um método de execução à sua escolha. Para remover uma extensão, utilize a [extensão az vm a eliminar](/cli/azure/vm/extension#az-vm-extension-delete) da seguinte forma:
 
 ```azurecli
 az vm extension delete \
@@ -394,22 +394,22 @@ az vm extension delete \
     --name customScript
 ```
 
-Você também pode remover uma extensão na portal do Azure da seguinte maneira:
+Também pode remover uma extensão no portal Azure da seguinte forma:
 
-1. Selecione uma VM.
+1. Selecione um VM.
 2. Escolha **extensões**.
 3. Selecione a extensão desejada.
 4. Escolha **desinstalar**.
 
-## <a name="common-vm-extension-reference"></a>Referência de extensão de VM comum
+## <a name="common-vm-extension-reference"></a>Referência de extensão VM comum
 
-| Nome da extensão | Descrição | Mais informações |
+| Nome de extensão | Descrição | Mais informações |
 | --- | --- | --- |
-| Extensão de script personalizado para Linux |Executar scripts em uma máquina virtual do Azure |[Extensão de script personalizado para Linux](custom-script-linux.md) |
-| Extensão de acesso da VM |Restabelecer o acesso a uma máquina virtual do Azure |[Extensão de acesso da VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-| Extensão do Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extensão de script personalizado para Linux |Executar scripts contra uma máquina virtual Azure |[Extensão de script personalizado para Linux](custom-script-linux.md) |
+| Extensão de acesso da VM |Recuperar o acesso a uma máquina virtual Azure |[Extensão de acesso da VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
+| Extensão do Diagnóstico do Azure |Gerir diagnósticos azure |[Extensão de Diagnóstico Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Extensão de acesso Azure VM |Gerir utilizadores e credenciais |[Extensão de acesso VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre extensões de VM, consulte [visão geral de extensões e recursos de máquinas virtuais do Azure](overview.md).
+Para obter mais informações sobre extensões VM, consulte [extensões de máquinas virtuais Azure e funcionalidades de visão geral](overview.md).

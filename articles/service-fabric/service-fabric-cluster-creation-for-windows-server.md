@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389836"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258827"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Tecido de Serviço Azure para criar clusters de tecido de serviço em quaisquer máquinas virtuais ou computadores que executem o Windows Server. Isto significa que pode implementar e executar aplicações de Tecido de Serviço em qualquer ambiente que contenha um conjunto de computadores Windows Server interligados, seja nas instalações ou com qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de tecido de serviço chamado pacote de Servidor Windows autónomo. Os clusters tradicionais de tecido de serviço em Azure estão disponíveis como um serviço gerido, enquanto os clusters autónomos de tecido de serviço são self-service. Para mais informações sobre as diferenças, consulte [Comparar os clusters De Tecido solado azure e autónomos.](./service-fabric-deploy-anywhere.md)

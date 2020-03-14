@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0716c2d4475bb538c06b9a591521fbdcfc0c80e4
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968089"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263442"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
 

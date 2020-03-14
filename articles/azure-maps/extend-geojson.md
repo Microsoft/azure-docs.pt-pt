@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368605"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276403"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrias GeoJSON estendidas
 
@@ -43,7 +43,7 @@ Uma geometria `Circle` representada com o objeto `GeoJSON Feature` __deve__ cont
 
     O centro do círculo é representado usando um objeto `GeoJSON Point`.
 
-- raio
+- Raio
 
     A `radius` do círculo é representada usando as propriedades de `GeoJSON Feature`. O valor do raio é de _contadores_ e deve ser do tipo `double`.
 

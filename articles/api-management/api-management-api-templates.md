@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374483"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265964"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos API na Gestão da API Azure
 
@@ -346,12 +346,12 @@ Os modelos desta secção permitem personalizar o conteúdo das páginas API no 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`apiId`|Cadeia de caracteres|A identificação da atual API.|  
-|`apiName`|Cadeia de caracteres|O nome da API.|  
-|`apiDescription`|Cadeia de caracteres|Uma descrição da API.|  
+|`apiId`|string|A identificação da atual API.|  
+|`apiName`|string|O nome da API.|  
+|`apiDescription`|string|Uma descrição da API.|  
 |`api`|[Entidade sumária da API.](api-management-template-data-model-reference.md#APISummary)|A Atual API.|  
 |`operation`|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
-|`sampleUrl`|Cadeia de caracteres|O URL para a operação atual.|  
+|`sampleUrl`|string|O URL para a operação atual.|  
 |`operationMenu`|[Menu de funcionamento](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
 |`consoleUrl`|URI|O URI para o botão **Experimente.**|  
 |`samples`|Recolha de entidades de amostra de [código.](api-management-template-data-model-reference.md#Sample)|As amostras de código para a operação atual.|  
@@ -1472,5 +1472,5 @@ puts response.body
 }  
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](api-management-developer-portal-templates.md).

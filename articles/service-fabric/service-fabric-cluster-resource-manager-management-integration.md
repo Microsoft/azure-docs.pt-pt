@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386260"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258749"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração de gestor de recursos cluster com gestão de cluster de tecido de serviço
 O Gestor de Recursos de Cluster de Tecidos de Serviço não conduz upgrades em Tecido de Serviço, mas está envolvido. A primeira forma que o Cluster Resource Manager ajuda na gestão é rastreando o estado desejado do cluster e os serviços no seu interior. O Cluster Resource Manager envia relatórios de saúde quando não consegue colocar o cluster na configuração desejada. Por exemplo, se não houver capacidade suficiente, o Gestor de Recursos de Cluster envia avisos de saúde e erros que indiquem o problema. Outra parte da integração tem a ver com o funcionar das atualizações. O Cluster Resource Manager altera ligeiramente o seu comportamento durante as atualizações.  

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359948"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256318"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de recursos para bases de dados únicas utilizando o modelo de compra dTU
 
@@ -38,7 +38,7 @@ As tabelas que se seguem mostram os recursos disponíveis para uma única base d
 | Máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
 | Escolhas de armazenamento max (GB) | 2 |
-| Armazenamento em OLTP na memória máx. (GB) |N/A |
+| Armazenamento em OLTP na memória máx. (GB) |N/D |
 | Trabalhadores simultâneos max (pedidos) | 30 |
 | Sessões simultâneas máx. | 300 |
 |||
@@ -56,7 +56,7 @@ As tabelas que se seguem mostram os recursos disponíveis para uma única base d
 | Máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Escolhas de armazenamento max (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |
+| Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |
 | Trabalhadores simultâneos max (pedidos)| 60 | 90 | 120 | 200 |
 | Sessões simultâneas máx. |600 | 900 | 1200 | 2400 |
 ||||||
@@ -74,7 +74,7 @@ As tabelas que se seguem mostram os recursos disponíveis para uma única base d
 | Máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Escolhas de armazenamento max (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Armazenamento em OLTP na memória máx. (GB) | N/A | N/A | N/A | N/A |N/A |
+| Armazenamento em OLTP na memória máx. (GB) | N/D | N/D | N/D | N/D |N/D |
 | Trabalhadores simultâneos max (pedidos)| 400 | 800 | 1600 | 3200 |6000 |
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||

@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
 ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362970"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257683"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questões gerais sobre recuperação do site azure
 
@@ -219,7 +219,7 @@ Sim, você pode usar a recuperação de localização alternativa para falhar pa
 * [Para máquinas virtuais VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Para máquinas virtuais Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatização
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Posso automatizar cenários de recuperação do site com um SDK?
 Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a API REST, PowerShell ou o SDK do Azure. Atualmente suportados cenários para implementar a recuperação do site usando powerShell:
@@ -234,6 +234,6 @@ Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a 
 
 [Conheça](site-recovery-whats-new.md) novas atualizações e obtenha informações de [rollup.](service-updates-how-to.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Leia a [Descrição geral da Recuperação de Sites](site-recovery-overview.md)
 

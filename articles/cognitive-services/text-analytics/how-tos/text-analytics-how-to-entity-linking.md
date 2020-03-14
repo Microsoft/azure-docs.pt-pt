@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 243086ddaae47eba20eea6877fe6d7f8f9889290
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117500"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203496"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o Reconhecimento de EntidadeS Nomeadas em Análise de Texto
 
@@ -182,14 +182,13 @@ A API de Análise de Texto é apátrida. Não são armazenados dados na sua cont
 
 Todos os pedidos post devolvem uma resposta formatada JSON com as IDs e propriedades de entidades detetadas.
 
-O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
-
+O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados. Devido ao suporte multilingual e emoji, a resposta pode conter compensações de texto. Veja [como processar compensações](../concepts/text-offsets.md) de texto para mais informações.
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Respostas exemplo v3
 
-A versão 3 fornece pontos finais separados para ner e ligação de entidades. As respostas para ambas as operações estão abaixo.
+A versão 3 fornece pontos finais separados para ner e ligação de entidades. As respostas para ambas as operações estão abaixo. 
 
 #### <a name="example-ner-response"></a>Resposta NER exemplo
 

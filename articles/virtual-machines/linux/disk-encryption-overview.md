@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 28d37ba6796799ea27bbd5338247a504ea82388f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970472"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250429"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação de disco azure para VMs Linux 
 
@@ -81,7 +81,7 @@ As distribuições de servidores Linux que não são endossadas pelo Azure não 
 > [!NOTE]
 > A nova implementação de encriptação de disco azure é suportada para O RHEL OS e disco de dados para imagens RHEL7 Pay-As-You-Go.  
 >
-> O ADE também é suportado para Imagens Douradas RHEL Bring-Your-Your-Own-Subscription, mas apenas **depois** de a subscrição ter sido registada . Para mais informações, consulte [Red Hat Enterprise Linux Bring-Your-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> O ADE também é suportado para Imagens Douradas RHEL Bring-Your-Your-Own-Subscription, mas apenas **depois** de a subscrição ter sido registada . Para mais informações, consulte [Red Hat Enterprise Linux Bring-Your-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## <a name="additional-vm-requirements"></a>Requisitos adicionais de VM
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048170"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273049"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -241,7 +241,7 @@ CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a
 
 | **Região do Azure de Clouds Nacionais**| **Valor da comunidade BGP** |
 | --- | --- |
-| **US Gov dos Estados Unidos da América** |  |
+| **US Gov da América** |  |
 | US Gov - Arizona | 12076:51106 |
 | US Gov - Iowa | 12076:51109 |
 | US Gov - Virginia | 12076:51105 |
@@ -252,7 +252,7 @@ CrM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a
 
 | **Serviço nas Clouds Nacionais** | **Valor da comunidade BGP** |
 | --- | --- |
-| **US Gov dos Estados Unidos da América** |  |
+| **US Gov da América** |  |
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype para Empresas Online |12076:5130 |

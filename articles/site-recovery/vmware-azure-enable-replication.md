@@ -7,11 +7,11 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363053"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257319"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação ao Azure para VMware VMs
 
@@ -136,7 +136,7 @@ Saiba mais sobre [o Azure Hybrid Benefit.](https://aka.ms/azure-hybrid-benefit-p
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de a máquina virtual chegar a um estado protegido, tente uma [falha](site-recovery-failover.md) para verificar se a sua aplicação aparece no Azure.
 

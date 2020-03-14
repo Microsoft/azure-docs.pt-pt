@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 02/10/2020
+ms.date: 03/11/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8c995a40e621f7155ad0741004d10b1146523489
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360054"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256058"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Instância gerida Diferenças, limitações e questões conhecidas
 
@@ -29,7 +29,7 @@ Existem algumas limitações paaS que são introduzidas em Caso Gerido e algumas
 - [A disponibilidade](#availability) inclui as diferenças em [Sempre Em Grupos de Disponibilidade](#always-on-availability-groups) e [backups](#backup).
 - [A segurança](#security) inclui as diferenças na [auditoria,](#auditing) [certificados,](#certificates) [credenciais,](#credential) [fornecedores criptográficos,](#cryptographic-providers) [logins e utilizadores,](#logins-and-users)e a chave de serviço e chave principal de [serviço.](#service-key-and-service-master-key)
 - [A configuração](#configuration) inclui as diferenças na extensão do [pool tampão,](#buffer-pool-extension) [na colagem,](#collation)nos níveis de [compatibilidade,](#compatibility-levels) [no espelho da base de dados,](#database-mirroring) [nas opções de base](#database-options)de dados, no [Agente servidor SQL](#sql-server-agent)e [nas opções de mesa.](#tables)
-- [As funcionalidades](#functionalities) incluem [INSERÇÃO A GRANEL/OPENROWSET,](#bulk-insert--openrowset) [CLR,](#clr) [DBCC,](#dbcc) [transações distribuídas, eventos alargados,](#distributed-transactions) [bibliotecas externas,](#external-libraries) [filestream e FileTable,](#filestream-and-filetable)Pesquisa [](#extended-events) [Semântica de texto completo,](#full-text-semantic-search) [servidores ligados,](#linked-servers) [PolyBase,](#polybase) [Replicação,](#replication) [RESTAURO,](#restore-statement)Corretor de [Serviços, procedimentos armazenados, funções e gatilhos.](#stored-procedures-functions-and-triggers) [](#service-broker)
+- [As funcionalidades](#functionalities) incluem [INSERÇÃO A GRANEL/OPENROWSET,](#bulk-insert--openrowset) [CLR,](#clr) [DBCC,](#dbcc) [transações distribuídas, eventos alargados,](#distributed-transactions) [bibliotecas externas,](#external-libraries) [filestream e FileTable,](#filestream-and-filetable)Pesquisa [extended events](#extended-events) [Semântica de texto completo,](#full-text-semantic-search) [servidores ligados,](#linked-servers) [PolyBase,](#polybase) [Replicação,](#replication) [RESTAURO,](#restore-statement)Corretor de [Serviços, procedimentos armazenados, funções e gatilhos.](#stored-procedures-functions-and-triggers) [Service Broker](#service-broker)
 - [Configurações ambientais](#Environment) tais como VNets e configurações de sub-rede.
 
 A maioria destas características são constrangimentos arquitetónicos e representam características de serviço.
@@ -65,7 +65,6 @@ Limitações:
 
 - Com um caso gerido, pode fazer o backup de uma base de dados de instância seletiva com até 32 faixas, o que é suficiente para bases de dados até 4 TB se for utilizada uma compressão de reserva.
 - Não é possível executá`BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados encriptada com encriptação transparente de dados (TDE) gerida pelo serviço. O TDE gerido pelo serviço obriga as cópias de segurança a serem encriptadas com uma chave TDE interna. A chave não pode ser exportada, por isso não podes restaurar a reserva. Utilize cópias de segurança automáticas e restauro pontual, ou utilize [tDE (BYOK) gerido pelo cliente.](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) Também pode desativar a encriptação na base de dados.
-- As cópias de segurança manuais para o armazenamento do Blob Azure só são suportadas para [contas BlockBlobStorage](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 - O tamanho máximo da risca de reserva utilizando o comando `BACKUP` numa instância gerida é de 195 GB, que é o tamanho máximo da bolha. Aumente o número de listras no comando de reserva para reduzir o tamanho das listras individuais e permaneça dentro deste limite.
 
     > [!TIP]
@@ -140,8 +139,8 @@ Uma instância gerida não pode aceder a ficheiros, por isso os fornecedores cri
     A instância gerida suporta os principais da base de dados Azure AD com a `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`de sintaxe . Esta funcionalidade também é conhecida como Azure AD continha utilizadores de base de dados.
 
 - Os logins do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS` não são suportados. Utilize logins e utilizadores de Diretório Ativo Azure.
-- O utilizador da AD Azure que criou a instância tem [privilégios administrativos ilimitados.](sql-database-manage-logins.md#unrestricted-administrative-accounts)
-- Os utilizadores de bases de dados ad-inadministrador do Azure podem ser criados utilizando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Ver [CREATE USER ... Do FORNECEDOR EXTERNO.](sql-database-manage-logins.md#non-administrator-users)
+- O utilizador da AD Azure que criou a instância tem [privilégios administrativos ilimitados.](sql-database-manage-logins.md)
+- Os utilizadores de bases de dados ad-inadministrador do Azure podem ser criados utilizando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Ver [CREATE USER ... Do FORNECEDOR EXTERNO.](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
 - Os diretores do servidor Azure AD (logins) suportam as funcionalidades SQL dentro de uma instância gerida apenas. As funcionalidades que requerem interação transversal, independentemente de estarem dentro do mesmo inquilino da AD Azure ou de diferentes inquilinos, não são suportadas para utilizadores da AD Azure. Exemplos de tais características são:
 
   - Replicação transacional SQL.
@@ -470,6 +469,7 @@ O corretor de serviços de instâncias cruzadas não é suportado:
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
+  - `remote access`
   - `remote data archive`
   - `remote proc trans`
 - `sp_execute_external_scripts` não é apoiado. Veja [sp_execute_external_scripts.](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)

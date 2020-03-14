@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359670"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269435"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consultas lentas na Base de Dados Azure para MySQL
 Na Base de Dados Azure para MySQL, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para resolução de problemas.
@@ -72,7 +72,7 @@ A tabela seguinte descreve o que está em cada tronco. Dependendo do método de 
 | `start_time_t` [UTC] | Hora da consulta começar |
 | `query_time_s` | Tempo total em segundos que a consulta demorou a executar |
 | `lock_time_s` | Tempo total em segundos a consulta foi bloqueada |
-| `user_host_s` | Nome de Utilizador |
+| `user_host_s` | Nome de utilizador |
 | `rows_sent_s` | Número de filas enviadas |
 | `rows_examined_s` | Número de linhas examinadas |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
@@ -140,6 +140,6 @@ Uma vez que os seus registos de consulta lenta são canalizados para registos do
     | where query_time_d > 10
     ```    
     
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 - [Como configurar registos de consulta lenta do portal Azure](howto-configure-server-logs-in-portal.md)
 - [Como configurar registos de consulta lenta do Azure CLI](howto-configure-server-logs-in-cli.md).

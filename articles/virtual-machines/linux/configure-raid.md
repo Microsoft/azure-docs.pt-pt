@@ -1,44 +1,36 @@
 ---
-title: Configurar o RAID de software em uma máquina virtual que executa o Linux
-description: Saiba como usar o mdadm para configurar o RAID no Linux no Azure.
-services: virtual-machines-linux
-documentationcenter: na
+title: Configure o software RAID num Linux VM
+description: Aprenda a usar mdadm para configurar raid no Linux em Azure.
 author: rickstercdn
-manager: gwallace
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 122abda51b907491b322908c3c2c689bc1723e87
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534188"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250260"
 ---
-# <a name="configure-software-raid-on-linux"></a>Configurar o RAID de Software no Linux
-É um cenário comum usar o RAID de software em máquinas virtuais Linux no Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente, isso pode ser usado para melhorar o desempenho e permitir uma melhor taxa de transferência em comparação com o uso de apenas um único disco.
+# <a name="configure-software-raid-on-linux"></a>Configure Software RAID em Linux
+É um cenário comum usar o software RAID em máquinas virtuais Linux em Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente isto pode ser usado para melhorar o desempenho e permitir uma melhor entrada em comparação com a utilização de apenas um disco.
 
-## <a name="attaching-data-disks"></a>Anexando discos de dados
-Dois ou mais discos de dados vazios são necessários para configurar um dispositivo RAID.  O principal motivo para criar um dispositivo RAID é melhorar o desempenho da e/s do disco.  Com base nas suas necessidades de e/s, você pode optar por anexar discos que são armazenados em nosso armazenamento Standard, com até 500 IO/PS por disco ou nosso armazenamento Premium com até 5000 IO/PS por disco. Este artigo não se aprofunda em detalhes sobre como provisionar e anexar discos de dados a uma máquina virtual do Linux.  Consulte o artigo Microsoft Azure [anexar um disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
+## <a name="attaching-data-disks"></a>Anexação de discos de dados
+São necessários dois ou mais discos de dados vazios para configurar um dispositivo RAID.  A principal razão para criar um dispositivo RAID é melhorar o desempenho do seu IO do disco.  Com base nas suas necessidades de IO, pode optar por anexar discos que são armazenados no nosso Armazenamento Standard, com até 500 IO/ps por disco ou o nosso armazenamento Premium com até 5000 IO/ps por disco. Este artigo não entra em detalhes sobre como fornecer e anexar discos de dados a uma máquina virtual Linux.  Consulte o artigo do Microsoft Azure [para obter](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
 
 > [!IMPORTANT]
->Não misture discos de tamanhos diferentes, fazendo isso resultaria em desempenho do raidset limitado ao do disco mais lento. 
+>Não misture discos de diferentes tamanhos, fazendo-o resultaria na realização do raidset para se limitar ao do disco mais lento. 
 
-## <a name="install-the-mdadm-utility"></a>Instalar o utilitário mdadm
+## <a name="install-the-mdadm-utility"></a>Instale o utilitário mdadm
 * **Ubuntu**
   ```bash
   sudo apt-get update
   sudo apt-get install mdadm
   ```
 
-* **Oracle Linux CentOS &**
+* **CentOS e Oracle Linux**
   ```bash
   sudo yum install mdadm
   ```
@@ -48,10 +40,10 @@ Dois ou mais discos de dados vazios são necessários para configurar um disposi
   zypper install mdadm
   ```
 
-## <a name="create-the-disk-partitions"></a>Criar as partições de disco
-Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partição de disco será chamada de/dev/sdc1.
+## <a name="create-the-disk-partitions"></a>Criar as divisórias do disco
+Neste exemplo, criamos uma única divisória de disco em /dev/sdc. A nova divisória do disco será chamada /dev/sdc1.
 
-1. Iniciar `fdisk` para começar a criar partições
+1. Comece `fdisk` começar a criar divisórias
 
     ```bash
     sudo fdisk /dev/sdc
@@ -65,13 +57,13 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
                     sectors (command 'u').
     ```
 
-1. Pressione ' n' no prompt para criar uma partição **n**ova:
+1. Prima 'n' na solicitação para criar uma partição **n**ew:
 
     ```bash
     Command (m for help): n
     ```
 
-1. Em seguida, pressione ' p ' para criar uma partição **p**rimária:
+1. Em seguida, prima 'p' para criar uma partição **p**rimary:
 
     ```bash 
     Command action
@@ -79,27 +71,27 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
             p   primary partition (1-4)
     ```
 
-1. Pressione ' 1 ' para selecionar a partição número 1:
+1. Prima '1' para selecionar a partição número 1:
 
     ```bash
     Partition number (1-4): 1
     ```
 
-1. Selecione o ponto de partida da nova partição ou pressione `<enter>` para aceitar o padrão para posicionar a partição no início do espaço livre na unidade:
+1. Selecione o ponto de partida da nova divisória ou pressione `<enter>` para aceitar o padrão para colocar a divisória no início do espaço livre na unidade:
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-1. Selecione o tamanho da partição, por exemplo, digite ' + 10G ' para criar uma partição de 10 gigabytes. Ou então, pressione `<enter>` criar uma única partição que abranja toda a unidade:
+1. Selecione o tamanho da partição, por exemplo, escreva '+10G' para criar uma partição de 10 gigabytes. Ou, pressione `<enter>` criar uma única divisória que se estende por toda a unidade:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
-1. Em seguida, altere a ID e o tipo **t**da partição da ID padrão ' 83 ' (Linux) para a ID ' fd ' (Linux RAID Auto):
+1. Em seguida, altere o ID e **t**ype da partição do ID padrão '83' (Linux) para ID 'fd' (Raid auto Linux):
 
     ```bash  
     Command (m for help): t
@@ -107,7 +99,7 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     Hex code (type L to list codes): fd
     ```
 
-1. Por fim, grave a tabela de partição na unidade e saia do fdisk:
+1. Finalmente, escreva a mesa de partição para o disco de acionamento e saída:
 
     ```bash   
     Command (m for help): w
@@ -115,16 +107,16 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     ```
 
 ## <a name="create-the-raid-array"></a>Criar a matriz RAID
-1. O exemplo a seguir irá "distribuir" (RAID nível 0) três partições localizadas em três discos de dados separados (sdc1, sdd1, sde1).  Depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que, se esses discos de dados fizerem parte de outra matriz RAID expirada, poderá ser necessário adicionar o parâmetro `--force` ao comando `mdadm`:
+1. O exemplo seguinte irá "riscar" (nível RAID 0) três divisórias localizadas em três discos de dados separados (sdc1, sdd1, sde1).  Depois de executar este comando é criado um novo dispositivo RAID chamado **/dev/md127.** Note também que se estes discos de dados fizermos parte de outra matriz RAID extinta, pode ser necessário adicionar o parâmetro `--force` ao comando `mdadm`:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-1. Criar o sistema de arquivos no novo dispositivo RAID
+1. Criar o sistema de ficheiros no novo dispositivo RAID
    
-    **CentOS, Oracle Linux, SLES 12, openSUSE e Ubuntu**
+    **CentOS, Oracle Linux, SLES 12, abre SUSE e Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
@@ -136,7 +128,7 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    **SLES 11** -habilitar boot.MD e criar mdadm. conf
+    **SLES 11** - permita boot.md e crie mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -144,20 +136,20 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     ```
    
    > [!NOTE]
-   > Uma reinicialização pode ser necessária depois de fazer essas alterações em sistemas SUSE. Esta etapa *não* é necessária no SLES 12.
+   > Pode ser necessário reiniciar após a eificação destas alterações nos sistemas SUSE. Este passo *não* é necessário na SLES 12.
    > 
    
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Adicionar o novo sistema de arquivos a/etc/fstab
+## <a name="add-the-new-file-system-to-etcfstab"></a>Adicione o novo sistema de ficheiros a /etc/fstab
 > [!IMPORTANT]
-> A edição inadequada do arquivo/etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que um backup do arquivo/etc/fstab seja criado antes da edição.
+> A edição inadequada do ficheiro /etc/fstab pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
 
-1. Crie o ponto de montagem desejado para o novo sistema de arquivos, por exemplo:
+1. Crie o ponto de montagem desejado para o seu novo sistema de ficheiros, por exemplo:
 
     ```bash
     sudo mkdir /data
     ```
-1. Ao editar/etc/fstab, o **UUID** deve ser usado para fazer referência ao sistema de arquivos em vez do nome do dispositivo.  Use o utilitário `blkid` para determinar o UUID para o novo sistema de arquivos:
+1. Ao editar /etc/fstab, o **UUID** deve ser utilizado para fazer referência ao sistema de ficheiros em vez do nome do dispositivo.  Utilize o utilitário `blkid` para determinar o UUID para o novo sistema de ficheiros:
 
     ```bash   
     sudo /sbin/blkid
@@ -165,29 +157,29 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-1. Abra o/etc/fstab em um editor de texto e adicione uma entrada para o novo sistema de arquivos, por exemplo:
+1. Abra/etc/fstab num editor de texto e adicione uma entrada para o novo sistema de ficheiros, por exemplo:
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
     ```
    
-    Ou no **SLES 11**:
+    Ou na **SLES 11:**
 
     ```bash
     /dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
     ```
    
-    Em seguida, salve e feche o/etc/fstab.
+    Em seguida, guarde e feche /etc/fstab.
 
-1. Teste se a entrada/etc/fstab está correta:
+1. Teste se a entrada /etc/fstab está correta:
 
     ```bash  
     sudo mount -a
     ```
 
-    Se esse comando resultar em uma mensagem de erro, verifique a sintaxe no arquivo/etc/fstab.
+    Se este comando resultar numa mensagem de erro, verifique a sintaxe no ficheiro /etc/fstab.
    
-    Em seguida, execute o comando `mount` para garantir que o sistema de arquivos esteja montado:
+    Em seguida, executar o comando `mount` para garantir que o sistema de ficheiros está montado:
 
     ```bash   
     mount
@@ -195,11 +187,11 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     /dev/md127 on /data type ext4 (rw)
     ```
 
-1. Adicional Parâmetros de inicialização failsafe
+1. (Opcional) Parâmetros de arranque de segurança
    
-    **configuração do fstab**
+    **configuração fstab**
    
-    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo/etc/fstab. Esses parâmetros permitem falhas durante a montagem de um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao ficheiro /etc/fstab. Estes parâmetros permitem falhas na montagem de um determinado sistema de ficheiros e permitem que o sistema Linux continue a arrancar mesmo que não seja capaz de montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
    
     Exemplo (Ubuntu):
 
@@ -207,28 +199,28 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
     ```   
 
-    **Parâmetros de inicialização do Linux**
+    **Parâmetros de arranque de Linux**
    
-    Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema seja inicializado mesmo que o RAID seja percebido como danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
+    Além dos parâmetros acima referidos, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema arranque mesmo que o RAID seja visto como danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isto também pode resultar num sistema não-sabotável.
    
-    Consulte a documentação da sua distribuição sobre como editar corretamente os parâmetros do kernel. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11), esses parâmetros podem ser adicionados manualmente ao arquivo "`/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em "/etc/default/grub".
+    Consulte a documentação da sua distribuição sobre como editar adequadamente os parâmetros de kernel. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) estes parâmetros podem ser adicionados manualmente ao ficheiro "`/boot/grub/menu.lst`".  Em Ubuntu este parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em "/etc/padrão/grub".
 
 
-## <a name="trimunmap-support"></a>Suporte para APARAr/cancelar mapeamento
-Alguns kernels do Linux dão suporte a operações de corte/desmapeamento para descartar blocos não utilizados no disco. Essas operações são úteis principalmente no armazenamento Standard para informar ao Azure que as páginas excluídas não são mais válidas e podem ser descartadas. A descartação de páginas pode economizar custos se você criar arquivos grandes e, em seguida, excluí-los.
+## <a name="trimunmap-support"></a>Suporte TRIM/UNMAP
+Alguns núcleos linux suportam operações TRIM/UNMAP para descartar blocos não utilizados no disco. Estas operações são principalmente úteis no armazenamento padrão para informar o Azure de que as páginas apagadas já não são válidas e podem ser descartadas. As páginas de devoluções podem economizar custos se criar ficheiros grandes e depois eliminá-las.
 
 > [!NOTE]
-> O RAID não poderá emitir comandos de descarte se o tamanho da parte da matriz for definido como menor que o padrão (512KB). Isso ocorre porque a granularidade do desmapeamento no host também é 512KB. Se você tiver modificado o tamanho da parte da matriz por meio do parâmetro `--chunk=` do mdadm, as solicitações de corte/desmapeamento poderão ser ignoradas pelo kernel.
+> Raid pode não emitir comandos de devoluções se o tamanho do pedaço para a matriz estiver definido para menos do que o padrão (512KB). Isto porque a granularidade não map no hospedeiro também é de 512KB. Se modificar o tamanho do pedaço da matriz através do parâmetro `--chunk=` do Mdadm, os pedidos trim/unmap podem ser ignorados pelo núcleo.
 
-Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
+Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume, consulte a sua distribuição para obter a abordagem recomendada:
 
-- Use a opção de montagem `discard` em `/etc/fstab`, por exemplo:
+- Utilize a opção `discard` montagem em `/etc/fstab`, por exemplo:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- Em alguns casos, a opção `discard` pode ter implicações de desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
+- Em alguns casos, a opção `discard` pode ter implicações no desempenho. Em alternativa, pode executar o comando `fstrim` manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
 
     **Ubuntu**
 

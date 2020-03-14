@@ -1,5 +1,5 @@
 ---
-title: Resolução de Problemas
+title: Resolução de problemas
 description: Resolução de problemas Azure Synapse Analytics.
 services: sql-data-warehouse
 author: kevinvngo
@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 085b907b6a848fb534df63b5465948864048cc19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383738"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256487"
 ---
 # <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Resolução de problemas sQL Analytics em Azure Synapse
 Este artigo enumera uma pergunta comum de resolução de problemas.
@@ -67,7 +67,7 @@ Este artigo enumera uma pergunta comum de resolução de problemas.
 | Limitações de procedimento armazenadas          | Consulte [as limitações de procedimento armazenadas](../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md#limitations) para compreender algumas das limitações dos procedimentos armazenados. |
 | Os UDFs não suportam declarações SELECT | Esta é uma limitação atual dos nossos UDFs.  Consulte a [FUNÇÃO CREATE](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) para a sintaxe que apoiamos. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para mais ajuda na procura de solução para o seu problema, aqui estão outros recursos que pode tentar.
 
 * [Blogues](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

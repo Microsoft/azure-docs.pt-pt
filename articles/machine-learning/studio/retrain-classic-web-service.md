@@ -10,14 +10,16 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: caf2437b4a4853bc29f094d082a4ea15d2f7a3c9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8094d64eab1a4b25a76554bf9eb6848c2e4d3493
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388475"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204244"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retre e implemente um clássico serviço web Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Retreinar modelos de aprendizagem automática é uma forma de garantir que se mantêm precisos e baseados nos dados mais relevantes disponíveis. Este artigo irá mostrar-lhe como retreinar um clássico serviço web studio (clássico). Para um guia sobre como retreinar um novo serviço web Studio (clássico), [veja este artigo como fazer.](retrain-machine-learning-model.md)
 

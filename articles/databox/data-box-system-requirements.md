@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380588"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259958"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos do sistema Azure Data Box
 
@@ -37,7 +37,7 @@ Os requisitos do software incluem a informação sobre os sistemas operativos su
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
-### <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
+### <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
@@ -60,6 +60,6 @@ A tabela seguinte lista as portas que precisam de ser abertas na sua firewall pa
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implemente a sua Caixa de Dados Azure](data-box-deploy-ordered.md)

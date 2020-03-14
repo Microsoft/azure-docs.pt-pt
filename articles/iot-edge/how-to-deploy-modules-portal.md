@@ -10,11 +10,11 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379347"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271450"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementar módulos do Azure IoT Edge do portal do Azure
 
@@ -104,6 +104,6 @@ Escolha um módulo a partir da página Mercado do **Módulo IoT Edge.** O módul
 
 Selecione **Seguinte: Rotas** e continue com a implantação conforme descrito por [Especificar rotas](#specify-routes) e [Implementação](#review-deployment) de Revisão no início deste artigo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [implantar e monitorizar módulos IoT Edge em escala](how-to-deploy-monitor.md)

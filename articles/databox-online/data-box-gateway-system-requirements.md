@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384655"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260192"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos do sistema De Gateway de Caixa de Dados Azure
 
@@ -50,11 +50,11 @@ O sistema de hospedagem subjacente ao Portal da Caixa de Dados é capaz de dedic
 
 | **Sistema/plataforma operacional**  |**Versões**   |**Notas**  |
 |---------|---------|---------|
-|Anfitrião  |  2012 R2 <br> 2016 <br> 2019 |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |As ferramentas VMware não são suportadas.         |
 
 
-## <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
+## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
