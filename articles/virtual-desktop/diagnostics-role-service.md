@@ -9,11 +9,11 @@ ms.date: 03/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127942"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254264"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
@@ -168,7 +168,7 @@ A tabela que se segue enumera erros comuns que os seus administradores podem enc
 |14|UnexpectedNetworkDisconnect|A ligação à rede caiu. Peça ao utilizador para voltar a ligar-se.|
 |24|ReverseConnectFailed|A máquina virtual hospedeira não tem linha direta de visão para RD Gateway. Certifique-se de que o endereço IP gateway pode ser resolvido.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre papéis dentro do Windows Virtual Desktop, consulte o ambiente de ambiente de [trabalho virtual do Windows](environment-setup.md).
 

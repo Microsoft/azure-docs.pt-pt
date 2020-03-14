@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
 ms.openlocfilehash: 39e6e9d500a398fd34b8b61727dee8bf11da7430
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892881"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270488"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona o Azure Machine Learning: Arquitetura e conceitos
 
@@ -228,13 +228,13 @@ Para mais informações, consulte Criar e registar Conjuntos de Dados de [Aprend
 
 Uma loja de **dados** é uma abstração de armazenamento sobre uma conta de armazenamento Azure. A loja de dados pode utilizar um recipiente de blob Azure ou uma partilha de ficheiros Azure como armazenamento final. Cada espaço de trabalho tem uma loja de dados padrão, e pode registar reservas adicionais de dados. Utilize o Python SDK API ou o Azure Machine Learning CLI para armazenar e recuperar ficheiros da loja de dados.
 
-### <a name="compute-targets"></a>Os destinos de computação
+### <a name="compute-targets"></a>Destinos de computação
 
 Um [alvo computacional](concept-compute-target.md) permite especificar o recurso computacional onde executa o seu script de treino ou hospedar a sua implementação de serviço. Esta localização pode ser a sua máquina local ou um recurso computacional baseado em nuvem.
 
 Saiba mais sobre os [objetivos de computação disponíveis para a formação e implementação.](concept-compute-target.md)
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 
 Para começar com o Azure Machine Learning, veja:
 

@@ -6,11 +6,11 @@ ms.subservice: dsc
 ms.date: 09/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: a4a46837e366caf2860aa0d6597ec7aebc94905a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373536"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278990"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação de configurações dSC na configuração do Estado da Automação Azure
 
@@ -31,7 +31,7 @@ Para obter detalhes de compilação, consulte a extensão de [Configuração do 
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Compilação de uma configuração DSC na configuração do Estado de Azure
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>vários inquilinos
 
 1. Na sua conta de Automação, clique na **configuração do Estado (DSC)** .
 1. Clique no separador **Configurações** e, em seguida, clique no nome de configuração para compilar.
@@ -97,7 +97,7 @@ Configuration ParametersExample
 
 Pode compilar configurações de DSC que utilizam parâmetros básicos no portal de configuração do Estado da Automatização Azure ou com o Azure PowerShell.
 
-#### <a name="portal"></a>Portal
+#### <a name="portal"></a>vários inquilinos
 
 No portal, pode introduzir valores de parâmetros depois de clicar em **Compile**.
 
@@ -276,7 +276,7 @@ Pode utilizar o [cmdlet Import-AzAutomationDscNodeConfiguração](/powershell/mo
 Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAccount' -ResourceGroupName 'MyResourceGroup' -ConfigurationName 'MyNodeConfiguration' -Path 'C:\MyConfigurations\TestVM1.mof'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para começar, veja O Início com a Configuração do Estado da [Automação Azure](automation-dsc-getting-started.md).
 - Para aprender sobre a compilação de configurações de DSC para que possa atribuí-las a nós-alvo, consulte [configurações de compilação na Configuração do Estado da Automação Azure](automation-dsc-compile.md).

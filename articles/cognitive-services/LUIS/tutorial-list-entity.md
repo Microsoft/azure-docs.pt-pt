@@ -1,110 +1,102 @@
 ---
-title: 'Tutorial: listar entidade-LUIS'
-titleSuffix: Azure Cognitive Services
+title: 'Tutorial: Entidade da lista - LUIS'
 description: Obtenha dados que correspondam a uma lista de itens predefinida. Cada item na lista pode ter sinónimos também com correspondência exata
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447774"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297412"
 ---
-# <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: obter dados de correspondência de texto exatos de um expressão com uma entidade de lista
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obtenha dados exatos de texto de uma expressão com entidade da lista
 
-Neste tutorial, entenda como obter dados que correspondem exatamente a uma lista predefinida de itens.
+Neste tutorial, entenda como obter dados que correspondam exatamente a uma lista predefinida de itens.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Importar aplicativo e usar a tentativa existente
+> * App de importação e utilização de intenções existentes
 > * Adicionar entidade de lista
-> * Treinar, publicar e consultar o aplicativo para obter dados extraídos
+> * Treinar, publicar e consultar app para obter dados extraídos
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="what-is-a-list-entity"></a>O que é uma entidade de lista?
 
-Uma entidade de lista é uma correspondência exata de texto com as palavras no expressão. Cada item na lista pode incluir uma lista de sinónimos. Use uma entidade de lista quando desejar uma correspondência exata.
+Uma entidade da lista é uma correspondência exata do texto com as palavras na expressão. Cada item na lista pode incluir uma lista de sinónimos. Use uma entidade da lista quando quiser uma correspondência exata.
 
-Para esse aplicativo de pizza importado, crie uma entidade de lista para os diferentes tipos de pizza crust.
+Para esta aplicação de pizza importada, crie uma entidade de lista para os diferentes tipos de crosta de pizza.
 
 Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
 * Os valores dos dados são um conjunto conhecido.
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
-* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. LUIS não usa a lista além de correspondências de texto exatas. A lematização, plurals e outras variações não são resolvidas com apenas uma entidade de lista. Para gerenciar variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
+* O texto na expressão é um jogo insensível com um sinónimo ou o nome canónico. Luis não usa a lista para além da partida. As variações, os plurales e outras variações não são resolvidos apenas com uma entidade de lista. Para gerir variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
 > [!CAUTION]
-> Se você não tiver certeza se deseja uma entidade de lista ou uma entidade aprendida por computador com uma lista de frases como um descritor, a prática recomendada e mais flexível é usar uma entidade aprendida por máquina com uma lista de frases como um descritor. Esse método permite que o LUIS Aprenda e estenda os valores dos dados a serem extraídos.
+> Se não tem a certeza se quer uma entidade de lista ou uma entidade aprendida com uma lista de frases como descritor, a melhor e mais flexível prática é usar uma entidade aprendida com uma lista de frases como descritor. Este método permite que a LUIS aprenda e estenda os valores dos dados para extrair.
 
-## <a name="import-example-json-and-add-utterances"></a>Importar example. JSON e adicionar declarações
+## <a name="import-example-json-and-add-utterances"></a>Importar exemplo .json e adicionar expressões
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Descarregue e guarde o [ficheiro JSON](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)da aplicação .
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. O aplicativo importado tem uma intenção de `OrderPizza`. Selecione essa intenção e adicione alguns declarações com os novos tipos crust:
+1. A aplicação importada tem uma intenção `OrderPizza`. Selecione essa intenção e adicione algumas expressões com novos tipos de crosta:
 
-    |Novo declarações|
+    |Novas proclamações|
     |--|--|
-    |peça uma pizza de Pan crust pequena pepperoni|
-    |3 pizzas Crust do Havaí fino|
-    |entregar pizzas de 2 inserida crust com pentes de pão|
-    |uma pizza crustda espessa para retirada|
-    |uma pizza Dish pepperoni em profundidade|
+    |por favor, peça uma crosta de panela pizza pepperoni pequena|
+    |3 pizzas havaianas de crosta fina|
+    |entregar 2 pizzas de crosta recheadas com palitos de pão|
+    |uma pizza de crosta grossa para pickup|
+    |uma pizza pepperoni prato profundo|
 
-## <a name="crust-list-entity"></a>Entidade de lista de crust
+## <a name="crust-list-entity"></a>Entidade da lista de crostas
 
-Agora que a intenção **OrderPizza** tem um declarações de exemplo com tipos Crust, Luis precisa entender quais palavras representam os tipos crust.
+Agora que a intenção **da OrderPizza** tem pronunciações exemplo com tipos de crosta, a LUIS precisa de perceber quais as palavras que representam os tipos de crosta.
 
-Exemplos de nome primário e sinônimos são:
+Exemplos do nome primário e sinónimos são:
 
-|Nome canônico|Sinónimos|
+|Nome canónico|Sinónimos|
 |--|--|
-|Dish profunda|longo<br>crust Dish profunda<br>espessura<br>crust espesso|
-|Deslocamento panorâmico|regularmente<br>Original<br>normal<br>crust regular<br>crust original<br>crust normal|
-|Inserida|inserida crust|
-|Dinâmico|crust fino<br>Skinn<br>Skinny crust|
+|Prato profundo|profundo<br>crosta de prato profundo<br>grosso<br>crosta grossa|
+|Pan|Regular<br>Original<br>normal<br>crosta regular<br>crosta original<br>crosta normal|
+|Recheado|crosta recheada|
+|Dinâmico|crosta fina<br>magro<br>crosta magra|
 
 1. Selecione **Entidades** no painel esquerdo.
 
-1. Selecione **+ criar**.
+1. Selecione **+ Criar**.
 
 1. Na caixa de diálogo pop-up de entidade, introduza `CrustList` para o nome da entidade e **Lista** para o tipo de entidade. Selecione **Seguinte**.
 
     > [!div class="mx-imgBorder"]
-    > ![captura de tela de criação de nova entidade de diálogo pop-up](media/luis-quickstart-intent-and-list-entity/create-pizza-crust-list-entity.png)
+    > ![Screenshot de criar nova entidade de diálogo pop-up](media/luis-quickstart-intent-and-list-entity/create-pizza-crust-list-entity.png)
 
-1. Na página **criar uma lista de entidades** , insira os nomes canônicos e sinônimos para cada nome canônico e, em seguida, selecione **criar**.
+1. Na página **Criar uma lista,** introduza os nomes canónicos e sinónimos para cada nome canónico e, em seguida, selecione **Criar**.
 
     > [!div class="mx-imgBorder"]
-    > ![captura de tela da adição de itens para listar a entidade](media/luis-quickstart-intent-and-list-entity/add-pizza-crust-items-list-entity.png)
+    > ![Screenshot de adicionar itens à entidade listada](media/luis-quickstart-intent-and-list-entity/add-pizza-crust-items-list-entity.png)
 
-    Quando você adiciona uma entidade de lista a um aplicativo LUIS, não precisa [rotular](label-entity-example-utterance.md) o texto com a entidade de lista. Ele é aplicado a todos os declarações em todas as intenções.
+    Quando adiciona uma entidade de lista a uma aplicação LUIS, não precisa de [rotular](label-entity-example-utterance.md) o texto com a entidade da lista. É aplicado a todas as expressões em todas as intenções.
 
-## <a name="train-the-app-before-testing-or-publishing"></a>Treinar o aplicativo antes de testar ou publicar
+## <a name="train-the-app-before-testing-or-publishing"></a>Treine a app antes de testar ou publicar
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publicar o aplicativo para consulta do ponto de extremidade
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publique a app para consultar a partir do ponto final
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter previsão de intenção e entidade do ponto de extremidade
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtenha intenção e previsão de entidade a partir do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-2. Vá para o final da URL no endereço e insira o seguinte expressão:
+2. Vá até ao fim do URL no endereço e introduza a seguinte expressão:
 
     `Deliver 2 deep dish hawaiian pizzas and a thin pepperoni`
 
@@ -186,23 +178,23 @@ Exemplos de nome primário e sinônimos são:
     }
     ```
 
-    Os tipos de crust foram encontrados como correspondências exatas de texto e retornados na resposta JSON. Essas informações são usadas pelo aplicativo cliente para processar o pedido.
+    Os tipos de crosta foram encontrados como correspondências de texto exatas e devolvidos na resposta json. Esta informação é utilizada pela aplicação do cliente para processar a encomenda.
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Listar](luis-concept-entity-types.md#list-entity) informações conceituais da entidade
+* [Informação](luis-concept-entity-types.md#list-entity) conceptual da entidade de lista
 * [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
-* [Como testar no portal do LUIS](luis-interactive-test.md)
-* [Conceito – entidades](luis-concept-entity-types.md)
-* [Referência JSON de entidade de expressão regular](reference-entity-regular-expression.md?tabs=V3)
+* [Como testar no portal LUIS](luis-interactive-test.md)
+* [Conceito - entidades](luis-concept-entity-types.md)
+* [Referência jSON de entidade de expressão regular](reference-entity-regular-expression.md?tabs=V3)
 * [Como adicionar entidades para extrair dados](luis-how-to-add-entities.md)
 
-## <a name="next-steps"></a>Passos seguintes
-Este tutorial adicionou o exemplo declarações e, em seguida, criou uma entidade de lista para extrair correspondências exatas de texto do declarações. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
+## <a name="next-steps"></a>Passos Seguintes
+Este tutorial acrescentou declarações de exemplo, então criou uma entidade da lista para extrair correspondências de texto exatas das expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
 > [!div class="nextstepaction"]
-> [Adicionar uma entidade predefinida com uma função](tutorial-entity-roles.md)
+> [Adicionar entidade pré-construída com um papel](tutorial-entity-roles.md)
 

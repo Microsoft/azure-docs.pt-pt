@@ -10,11 +10,11 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128843"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239057"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Ligar, configurar e ativar borda de caixa de dados Azure 
 
@@ -150,7 +150,7 @@ O seu painel de instrumentos apresenta as várias definições necessárias para
 
 A configuração do dispositivo está completa. Agora pode adicionar ações no seu dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

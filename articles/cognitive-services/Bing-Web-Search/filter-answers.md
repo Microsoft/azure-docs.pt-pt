@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381805"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220272"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrar as respostas que a resposta de pesquisa inclui  
 
@@ -100,7 +100,7 @@ Apesar de Bing não ter retornado os resultados de vídeo e notícias na respost
 
 Está desencorajado de usar `responseFilter` para obter resultados de uma única API. Se quiser conteúdo de uma única API bing, ligue diretamente para a API. Por exemplo, para receber apenas imagens, envie um pedido para o ponto final da Image Search API, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` ou um dos outros pontos finais das [Imagens.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) Chamar a API única é importante não só por razões de desempenho, mas porque as APIs específicas do conteúdo oferecem resultados mais ricos. Por exemplo, pode utilizar filtros que não estejam disponíveis para a API de pesquisa web para filtrar os resultados.  
 
-### <a name="site"></a>site
+### <a name="site"></a>Site
 
 Para obter resultados de pesquisa de um domínio específico, inclua o parâmetro de consulta `site:` na corda de consulta.  
 

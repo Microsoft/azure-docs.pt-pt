@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
 ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380171"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239001"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para armazenamento de blob de caixa de dados Azure através de APIs REST  
 
@@ -189,7 +189,7 @@ Utilize o AzCopy para fazer o upload de todos os ficheiros numa pasta para o arm
         --dest-key <key> \
         --recursive
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a>Portal do
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
@@ -214,7 +214,7 @@ Se quiser copiar apenas recursos de origem que não existem no destino, especifi
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a>Portal do
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
@@ -222,7 +222,7 @@ Se houver erros durante a operação de ligação ou cópia, consulte [problemas
 
 O próximo passo é preparar o seu dispositivo para o navio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 

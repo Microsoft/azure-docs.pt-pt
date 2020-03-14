@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381977"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271177"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Instale a segurança X.509 no seu hub Azure IoT
 
@@ -183,7 +183,7 @@ Em seguida, vamos mostrar-lhe C# como criar uma aplicação para simular o dispo
 
    ![Executar aplicativo de dispositivo](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre como garantir a sua solução IoT, consulte:
 

@@ -4,11 +4,11 @@ description: O personalizer pode ser aplicado em qualquer situação em que a su
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374862"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219326"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o Personalizer
 
@@ -106,6 +106,6 @@ Em algumas arquiteturas, a sequência acima pode ser difícil de implementar. Ne
     * Se a ação de topo não for viável, não ative a aprendizagem para este ranking e decida através da sua própria lógica ou abordagens alternativas o que mostrar ao utilizador. Mesmo que utilize a segunda opção mais bem classificada, não ative a aprendizagem para este ranking.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Ética e utilização responsável.](ethics-responsible-use.md)

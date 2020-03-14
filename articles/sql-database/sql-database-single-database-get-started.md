@@ -1,6 +1,6 @@
 ---
 title: Criar uma única base de dados
-description: Crie e consulta uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure, PowerShell e Azure CLI.
+description: Crie uma base de dados única Azure SQL utilizando o portal Azure, PowerShell ou Azure CLI. Consulta a base de dados com o Editor de Consulta no portal Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,48 +10,43 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 02/14/2020
-ms.openlocfilehash: 2dacdfaa5443707ab82ae53922ac439319375276
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359767"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240521"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Quickstart: Criar uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure, PowerShell e Azure CLI
+# <a name="quickstart-create-an-azure-sql-database-single-database"></a>Quickstart: Criar uma base de dados única Azure SQL
 
-A criação de uma [única base de dados](sql-database-single-database.md) é a opção de implementação mais rápida e simples para criar uma base de dados na Base de Dados Azure SQL. Este quickstart mostra-lhe como criar e, em seguida, consultar uma única base de dados usando o portal Azure.
+Neste arranque rápido, você usa o portal Azure, um script PowerShell ou um script Azure CLI para criar uma base de dados única Azure SQL. Em seguida, consulta a base de dados usando o **editor da Consulta** no portal Azure. 
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/). 
+Uma [única base de dados](sql-database-single-database.md) é a opção de implementação mais rápida e simples para a Base de Dados Azure SQL. Gere uma única base de dados dentro de um servidor de base de [dados SQL,](sql-database-servers.md)que está dentro de um grupo de [recursos Azure](../azure-resource-manager/management/overview.md) numa região específica do Azure. Neste arranque rápido, cria um novo grupo de recursos e servidor SQL para a nova base de dados.
 
-Para todos os passos neste arranque rápido, inscreva-se no [portal Azure](https://portal.azure.com/).
+Pode criar uma única base de dados no nível de computação *aprovisionado* ou *sem servidores.* Uma base de dados provisionada é pré-atribuída uma quantidade fixa de recursos computacionais, incluindo CPU e memória, e utiliza um dos dois modelos de [compra.](sql-database-purchase-models.md) Este quickstart cria uma base de dados aprovisionada utilizando o modelo de compra [baseado em vCore,](sql-database-service-tiers-vcore.md) mas também pode escolher um modelo [baseado em DTU.](sql-database-service-tiers-DTU.md) 
+
+O nível de computação sem servidor só está disponível no modelo de compra baseado em vCore, e tem uma gama automática de recursos computacionais, incluindo CPU e memória. Para criar uma única base de dados no nível de computação sem servidor, consulte [Criar uma base de dados sem servidores](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+
+## <a name="prerequisite"></a>Pré-requisito
+
+- Uma subscrição ativa do Azure. Se não tiver uma subscrição, [crie uma conta gratuita](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-single-database"></a>Criar uma única base de dados
-
-Uma única base de dados pode ser criada no nível de computação provisionado ou sem servidores.
-
-- Uma única base de dados no nível de cálculo provisionado é pré-atribuída uma quantidade fixa de recursos informáticos, incluindo CPU e memória utilizando um dos dois modelos de [compra.](sql-database-purchase-models.md)
-- Uma única base de dados no nível de computação sem servidor tem uma gama de recursos computacionais, incluindo CPU e memória que são automaticamente dimensionadas e só estão disponíveis nos [modelos de compra baseados em vCore](sql-database-service-tiers-vcore.md).
-
-Quando cria uma única base de dados, também define um servidor de Base de [Dados SQL](sql-database-servers.md) para geri-lo e colocá-lo dentro do [grupo de recursos Azure](../azure-resource-manager/management/overview.md) numa região especificada.
-
-> [!NOTE]
-> Este quickstart utiliza o [modelo de compra baseado em vCore,](sql-database-service-tiers-vcore.md)mas o modelo de compra baseado em [DTU](sql-database-service-tiers-DTU.md) também está disponível.
-
-Para criar uma única base de dados contendo os dados da amostra AdventureWorksLT:
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="query-the-database"></a>Consulta na base de dados
 
-Agora que criou a base de dados, utilize a ferramenta de consulta incorporada no portal Azure para ligar à base de dados e consultar os dados.
+Uma vez criada a sua base de dados, pode utilizar o editor de **Consulta** incorporada no portal Azure para ligar à base de dados e consultar os dados.
 
+1. No portal, procure e selecione bases de **dados SQL**e, em seguida, selecione a sua base de dados da lista.
 1. Na página base de **dados SQL** para a sua base de dados, selecione **O editor de Consulta (pré-visualização)** no menu esquerdo.
+1. Introduza as informações de login do seu servidor e selecione **OK**.
+   
+   ![Inscreva-se no editor da Consulta](./media/sql-database-single-database-get-started/query-editor-login.png)
 
-   ![Inscreva-se no editor da Consulta](./media/sql-database-get-started-portal/query-editor-login.png)
-
-2. Introduza as suas informações de login e selecione **OK**.
-3. Introduza a seguinte consulta no painel do editor da **Consulta.**
+1. Introduza a seguinte consulta no painel do editor da **Consulta.**
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -60,28 +55,47 @@ Agora que criou a base de dados, utilize a ferramenta de consulta incorporada no
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-4. Selecione **Executar**e, em seguida, reveja os resultados da consulta no painel **resultados.**
+1. Selecione **Executar**e, em seguida, reveja os resultados da consulta no painel **resultados.**
 
-   ![Resultados do editor de consulta](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![Resultados do editor de consulta](./media/sql-database-single-database-get-started/query-editor-results.png)
 
-5. Feche a página do editor da **Consulta** e selecione **OK** quando solicitado a descartar as suas edidas não guardadas.
+1. Feche a página do editor da **Consulta** e selecione **OK** quando solicitado a descartar as suas edidas não guardadas.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Mantenha este grupo de recursos, servidor de base de dados e base de dados única se pretender ir aos [próximos passos](#next-steps). Os próximos passos mostram-lhe como ligar e consultar a sua base de dados utilizando métodos diferentes.
+Mantenha o grupo de recursos, servidor e base de dados única para passar aos próximos passos e aprender a ligar e consultar a sua base de dados com diferentes métodos.
 
-Quando terminar de usar estes recursos, pode eliminá-los da seguinte forma:
+Quando terminar de utilizar estes recursos, pode eliminar o grupo de recursos que criou, que também eliminará o servidor e uma única base de dados dentro dele.
 
-1. A partir do menu esquerdo no portal Azure, selecione **grupos de Recursos,** e depois selecione **myResourceGroup**.
-2. Na página do grupo de recursos, selecione **Eliminar o grupo de recursos**.
-3. Introduza o *myResourceGroup* no campo e, em seguida, selecione **Eliminar**.
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-## <a name="next-steps"></a>Passos seguintes
+Para eliminar o **myResourceGroup** e todos os seus recursos utilizando o portal Azure:
 
-- Crie uma regra de firewall ao nível do servidor para se ligar à base de dados única a partir de instalações ou ferramentas remotas. Para mais informações, consulte [Criar uma regra de firewall ao nível do servidor](sql-database-server-level-firewall-rule.md).
-- Depois de criar uma regra de firewall ao nível do servidor, [conecte e consulta](sql-database-connect-query.md) a sua base de dados utilizando várias ferramentas e idiomas diferentes.
-  - [Ligar e consultar com o SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Ligar e consultar com o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Para criar uma única base de dados no nível de cálculo provisionado utilizando o Azure CLI, consulte [as amostras Do ClI Do Azure](sql-database-cli-samples.md).
-- Para criar uma única base de dados no nível de cálculo provisionado utilizando o Azure PowerShell, consulte [as amostras da Azure PowerShell](sql-database-powershell-samples.md).
-- Para criar uma única base de dados no nível de computação sem servidor usando o Azure Powershell, consulte Criar uma base de [dados sem servidores](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+1. No portal, procure e selecione **grupos de Recursos,** e, em seguida, selecione **myResourceGroup** da lista.
+1. Na página do grupo de recursos, **selecione Eliminar o grupo de recursos**.
+1. Em **Sescreva o nome do grupo de recursos,** introduza *o myResourceGroup,* e, em seguida, selecione **Eliminar**.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para eliminar o grupo de recursos e todos os seus recursos, execute o seguinte comando Azure CLI, utilizando o nome do seu grupo de recursos:
+
+```azurecli-interactive
+az group delete --name <your resource group>
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para eliminar o grupo de recursos e todos os seus recursos, execute o seguinte cmdlet PowerShell, utilizando o nome do seu grupo de recursos:
+
+ ```azurepowershell-interactive
+Remove-AzResourceGroup -Name <your resource group>
+```
+
+---
+## <a name="next-steps"></a>Passos Seguintes
+
+[Conecte e consulta](sql-database-connect-query.md) a sua base de dados utilizando diferentes ferramentas e idiomas:
+> [!div class="nextstepaction"]
+> [Ligar e consultar com o SQL Server Management Studio](sql-database-connect-query-ssms.md)
+> 
+> [Ligar e consultar com o Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

@@ -9,11 +9,11 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393224"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255434"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
 
@@ -43,8 +43,8 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 | &nbsp; |configuração .NET |[Para aplicações .NET, configurou .NET para utilizar um número suficiente de fios?](#increase-minimum-number-of-threads) |
 | &nbsp; |Paralelismo |[Assegurou que o paralelismo está devidamente limitado para que não sobrecarregue as capacidades do seu cliente ou se aproxime dos alvos de escalabilidade?](#unbounded-parallelism) |
 | &nbsp; |Ferramentas |[Está a utilizar as versões mais recentes das bibliotecas e ferramentas fornecidas pela Microsoft?](#client-libraries-and-tools) |
-| &nbsp; |Tentativas |[Estás a usar uma política de retry com um recuo exponencial para erros de estrangulamento e intervalos?](#timeout-and-server-busy-errors) |
-| &nbsp; |Tentativas |[A sua aplicação está a evitar tentativas de erros não retáveis?](#non-retryable-errors) |
+| &nbsp; |Repetições |[Estás a usar uma política de retry com um recuo exponencial para erros de estrangulamento e intervalos?](#timeout-and-server-busy-errors) |
+| &nbsp; |Repetições |[A sua aplicação está a evitar tentativas de erros não retáveis?](#non-retryable-errors) |
 | &nbsp; |Bolhas de cópia |[Estás a copiar bolhas da maneira mais eficiente?](#blob-copy-apis) |
 | &nbsp; |Bolhas de cópia |[Está a utilizar a versão mais recente do AzCopy para operações de cópia a granel?](#use-azcopy) |
 | &nbsp; |Bolhas de cópia |[Está a usar a família Azure Data Box para importar grandes volumes de dados?](#use-azure-data-box) |
@@ -283,7 +283,7 @@ As bolhas de apêndice são semelhantes às bolhas de bloco, na medida em que s�
 
 As bolhas de página são apropriadas se a aplicação precisar de realizar escritos aleatórios nos dados. Por exemplo, os discos de máquinas virtuais Azure são armazenados como bolhas de página. Para mais informações, consulte [Understanding block blobs, apêndice blobs e page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Metas de escalabilidade e desempenho para armazenamento blob](scalability-targets.md)
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

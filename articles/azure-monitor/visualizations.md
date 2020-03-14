@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/24/2018
 ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372287"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274115"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Monitor Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métricas armazenados no Monitor Azure.
@@ -47,7 +47,7 @@ Visualizações como gráficos e gráficos podem ajudá-lo a analisar os seus da
 ## <a name="azure-monitor-views"></a>Pontos de vista do Monitor Azure
 [As vistas no Monitor Azure](platform/view-designer.md) permitem-lhe criar visualizações personalizadas com dados de registo. São utilizados através da [monitorização de soluções](insights/solutions.md) para apresentar os dados que recolhem.
 
-![Ver](media/visualizations/view.png)
+![Vista](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados de registo.
@@ -130,7 +130,7 @@ Pode aceder a dados em registo e dados métricos no Monitor Azure através da su
 - Esforço significativo de engenharia necessário.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Conheça os [dados recolhidos pelo Azure Monitor.](platform/data-platform.md)
 - Saiba mais sobre [os dashboards Azure.](../azure-portal/azure-portal-dashboards.md)
 - Saiba mais sobre [as vistas no Monitor Azure.](platform/view-designer.md)

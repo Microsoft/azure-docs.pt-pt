@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384796"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260374"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gerencie os oleodutos Azure Data Factory utilizando a app de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -204,7 +204,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 <tr>
 <td>-</td><td>A janela de atividade não foi gerada ou validada.</td>
 </tr>
-<td>Pronto</td><td>-</td><td>A janela de atividade está pronta para ser reemitada.</td>
+<td>Preparado</td><td>-</td><td>A janela de atividade está pronta para ser reemitada.</td>
 </tr>
 <tr>
 <td>Ignorado</td><td>-</td><td>A janela de atividade não foi processada.</td>

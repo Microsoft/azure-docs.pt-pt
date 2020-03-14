@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362810"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257384"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -146,7 +146,7 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
 
 Consulte o nosso artigo de resolução de [problemas](vmware-azure-troubleshoot-configuration-server.md) para resolver problemas de implementação e conectividade.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 * Quanto tempo é que a licença é fornecida num servidor de configuração implementado através do OVF válido? O que acontece se eu não reativar a licença?
 
@@ -193,6 +193,6 @@ Consulte o nosso artigo de resolução de [problemas](vmware-azure-troubleshoot-
 
 Para mais PERGUNTAS nas Perguntas de Configuração, consulte [as questões comuns](vmware-azure-common-questions.md#configuration-server)do servidor de configuração .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Instale a recuperação de desastres de [VMware VMs](vmware-azure-tutorial.md) para o Azure.

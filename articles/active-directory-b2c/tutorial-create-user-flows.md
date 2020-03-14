@@ -11,11 +11,11 @@ ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389919"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264248"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Diretório Ativo Azure B2C
 
@@ -115,7 +115,7 @@ Para permitir que os utilizadores da sua aplicação reponham a sua palavra-pass
 1. Clique no **fluxo do utilizador run,** verifique o endereço de e-mail da conta que criou anteriormente e selecione **Continuar**.
 1. Tem agora a oportunidade de alterar a palavra-passe para o utilizador. Altere a palavra-passe e selecione **Continuar**. O símbolo é devolvido à `https://jwt.ms` e deve ser exibido a si.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a:
 

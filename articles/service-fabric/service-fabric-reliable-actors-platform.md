@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391878"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282305"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os atores confiáveis usam a plataforma De Tecido de Serviço
 Este artigo explica como os Atores Fiáveis trabalham na plataforma Azure Service Fabric. Os Atores Fiáveis funcionam num quadro que é hospedado numa implementação de um serviço de confiança estatal chamado serviço de *ator.* O serviço do ator contém todos os componentes necessários para gerir o ciclo de vida e o envio de mensagens para os seus atores:
@@ -87,7 +87,7 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 Quando se está a usar GUIDs/UUIDs e cordas, os valores são hashed a um Int64. No entanto, quando estiver a fornecer explicitamente um Int64 a uma `ActorId`, o Int64 irá mapear diretamente para uma partição sem mais hashing. Pode usar esta técnica para controlar em que divisória os atores são colocados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Gestão do Estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e recolha de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos atores](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)

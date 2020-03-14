@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373775"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259334"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de backup e restauro no [Serviço de Aplicações Azure](overview.md) permite-lhe facilmente criar backups de aplicações manualmente ou em horário. Pode configurar as cópias de segurança a reter até um período de tempo indefinido. Pode restaurar a aplicação a uma imagem instantânea de um estado anterior, sobrecarregando a app existente ou restaurando para outra aplicação.
@@ -168,5 +168,5 @@ Para amostras, consulte:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter informações sobre a restauração de uma aplicação a partir de uma cópia de segurança, consulte [Restaurar uma aplicação no Azure](web-sites-restore.md). 

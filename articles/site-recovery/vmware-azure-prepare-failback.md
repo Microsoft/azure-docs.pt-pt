@@ -4,11 +4,11 @@ description: Prepare-se para a reprovação de VMware VMs após falha com recupe
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362852"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257189"
 ---
 # <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Prepare-se para reproteção e reprovação de VMware VMs
 
@@ -70,6 +70,6 @@ Algumas portas devem estar abertas para reprotecção/reprovação. O gráfico s
 10. Verifique se o hospedeiro ESXi em que o alvo principal VM tem pelo menos uma loja de dados virtual de ficheiros de máquinas (VMFS) anexada ao mesmo. Se não forem anexadas reservas de dados VMFS, a entrada da loja de dados nas definições de reproteção está vazia e não pode proceder.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Reproteja](vmware-azure-reprotect.md) um VM.

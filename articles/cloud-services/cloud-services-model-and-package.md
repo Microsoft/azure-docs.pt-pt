@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344514"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247491"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo do Serviço cloud e como o embala?
 Um serviço na nuvem é criado a partir de três componentes, a definição de serviço *(.csdef)* , o config de serviço *(.cscfg)* e um pacote de serviço *(.cspkg)* . Tanto os **ficheiros ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados em XML e descrevem a estrutura do serviço de nuvem e como é configurado; coletivamente chamado o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **ServiceDefinition.csdef** e, entre outras coisas, contém todas as dependências binárias necessárias. O Azure cria um serviço na nuvem tanto do **ServicePackage.cspkg** como do **ServiceConfig.cscfg**.
@@ -273,7 +273,7 @@ Quando as variáveis forem definidas da seguinte forma:
 | \[\] PhysicalPath |Os diretórios físicos dos conteúdos para cada percurso virtual definidos no nó do site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do ficheiro binário para o papel. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estou a criar um pacote de serviço sinuoso e quero...
 
 * [Configurar o ambiente de trabalho remoto para uma instância de serviço na nuvem][remotedesktop]

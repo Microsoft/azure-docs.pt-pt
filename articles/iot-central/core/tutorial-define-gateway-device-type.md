@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: ec84d3804c24766c6344e9909ba10089e186599c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623464"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298840"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
@@ -105,7 +105,7 @@ Para adicionar propriedades em nuvem ao modelo de dispositivo de **gateway Smart
 
     | Nome a apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Data   |
+    | Data da Última Assistência | Nenhum          | Date   |
     | Nome do cliente     | Nenhum          | String |
 
 2. Selecione **Guardar**.
@@ -193,7 +193,7 @@ Ambos os seus dispositivos a jusante simulados estão agora ligados ao seu dispo
 
 Selecione um modelo de dispositivo de gateway e uma instância do dispositivo gateway e selecione **Juntar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -203,6 +203,9 @@ Neste tutorial, ficou a saber como:
 * Defina uma visualização para a telemetria do dispositivo.
 * Adicione relacionamentos.
 * Publique o modelo do seu dispositivo.
+
+> [!NOTE]
+> A geração de códigos baseado em Código VS não é suportada atualmente para dispositivos gateway modelados em IoT Central.
 
 Em seguida, pode:
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374780"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249688"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: Configure SAP SuccessFactors para o fornecimento de utilizadores de directórioactivo ativo (Pré-visualização)
 O objetivo deste tutorial é mostrar os passos que precisa de executar para fornecer aos utilizadores da SuccessFactors Employee Central em Ative Directory (AD) e Azure AD, com redação opcional de endereço de e-mail para SuccessFactors. Esta integração encontra-se na pré-visualização pública e suporta a recuperação de mais de [70 atributos](../app-provisioning/sap-successfactors-attribute-reference.md) de utilizadores da SuccessFactors Employee Central.

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355613"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277781"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a fiabilidade das Funções Azure
 
@@ -116,9 +116,9 @@ As definições no ficheiro host.json aplicam-se em todas as funções dentro da
 
 Outras opções de configuração do anfitrião encontram-se no artigo de [configuração host.json](functions-host-json.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para mais informações, consulte os seguintes recursos:
 
 * [Como gerir ligações em Funções Azure](manage-connections.md)
 * [Boas práticas do Serviço de Aplicações Azure](../app-service/app-service-best-practices.md)

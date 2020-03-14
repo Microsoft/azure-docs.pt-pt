@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0fd016e02c579f4e7230bd18d363cfe9a64c88eb
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244267"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366109"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder remotamente a apps com procuração de aplicação ad-ad-azure
 
@@ -81,13 +81,9 @@ O software não remendo ainda é responsável por um grande número de ataques. 
 
 Para melhorar a segurança das aplicações publicadas pela Azure AD Application Proxy, bloqueamos os robôs web crawler de indexar e arquivar as suas aplicações. Cada vez que um robô web crawler tenta recuperar as definições do robô para uma aplicação publicada, application Proxy responde com um ficheiro robots.txt que inclui `User-agent: * Disallow: /`.
 
-### <a name="ddos-prevention"></a>Prevenção de DDOS
+#### <a name="azure-ddos-protection-service"></a>Serviço de proteção Azure DDoS
 
-As aplicações publicadas através do Application Proxy estão protegidas contra ataques de Negação de Serviço Distribuído (DDOS).
-
-O serviço Application Proxy monitoriza a quantidade de tráfego que tenta chegar às suas aplicações e rede. Se o número de dispositivos que solicitam acesso remoto às suas aplicações aumentar, a Microsoft acelera o acesso à sua rede. 
-
-A Microsoft observa os padrões de tráfego para aplicações individuais e para a sua subscrição como um todo. Se um pedido receber pedidos superiores ao normal, os pedidos de acesso a esse pedido são negados por um curto período de tempo. Se receber pedidos superiores ao normal em toda a subscrição, os pedidos de acesso a qualquer uma das suas aplicações são negados. Esta medida preventiva impede que os seus servidores de aplicações sejam sobrecarregados por pedidos de acesso remoto, para que os utilizadores no local possam continuar a aceder às suas aplicações. 
+As aplicações publicadas através do Application Proxy estão protegidas contra ataques de Negação de Serviço Distribuído (DDoS). **A proteção Azure DDoS** é um serviço oferecido com a plataforma Azure para proteger os seus recursos Azure de negação de ataques de serviço. O nível de serviço **Básico** está automaticamente ativado, proporcionando uma monitorização de tráfego sempre ativa e uma mitigação em tempo real de ataques comuns ao nível da rede. Um nível **Standard** também está disponível, oferecendo capacidades adicionais de mitigação que são sintonizadas especificamente aos recursos da Rede Virtual Azure. Para mais detalhes, consulte a [visão geral da Norma de Proteção DDoS azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Nos bastidores
 

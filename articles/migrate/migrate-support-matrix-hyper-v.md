@@ -4,11 +4,11 @@ description: Saiba mais sobre o suporte para avaliação hyper-V com a Azure Mig
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 9c1228992d71e56b9118e88967478e619c14959a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393313"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245814"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -82,6 +82,6 @@ O quadro seguinte resume os requisitos do porto para avaliação.
 **Ligação à Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar a porta de entrada log analytics.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Prepare-se para avaliação de VM hiper-V](tutorial-prepare-hyper-v.md)

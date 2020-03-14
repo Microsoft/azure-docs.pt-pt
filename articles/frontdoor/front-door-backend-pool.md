@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382086"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272854"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Backends e piscinas de backend no Serviço de Porta da Frente Azure
 Este artigo descreve conceitos sobre como mapear a sua implementação de aplicações com o Azure Front Door Service. Também explica os diferentes termos na configuração da Porta Frontal em torno dos backends das aplicações.
@@ -89,7 +89,7 @@ As definições de equilíbrio de carga para o pool de backend definem como aval
 
 Para mais informações, consulte o método de [encaminhamento baseado em menor latência](front-door-routing-methods.md#latency).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar um perfil porta da frente](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

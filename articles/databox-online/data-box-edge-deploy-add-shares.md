@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946151"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79212951"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutorial: Transferir dados com borda de caixa de dados Azure
 
@@ -59,26 +59,28 @@ Para criar uma parte, faça o seguinte procedimento:
     O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux.  
     Dependendo se escolhe ações da SMB ou da NFS, as restantes opções variam ligeiramente. 
 
-    c. Forneça uma conta de armazenamento onde a parte resida. 
+    c. Forneça uma conta de armazenamento onde a parte resida.
 
-    
+      > [!IMPORTANT]
+      > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para mais informações, consulte definir e gerir as políticas de [imutabilidade para armazenamento de blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+
     d. Na lista de drop-down do **serviço de armazenamento,** selecione **Block Blob,** **Page Blob**ou **Files**.  
     O tipo de serviço que selecionar depende do formato que pretende utilizar os dados no Azure. Neste exemplo, porque queremos armazenar os dados como blocos blobs em Azure, selecionamos **Block Blob**. Se selecionar o **Page Blob,** certifique-se de que os seus dados estão alinhados 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
 
     e. Crie um novo recipiente de bolhas ou utilize um existente a partir da lista de abandono. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de partilha recém-criado.
-   
-    f. Dependendo se criou uma quota SMB ou uma participação nFS, faça um dos seguintes passos: 
-     
-    - **Partilha SMB**: Sob **todos os privilégios do utilizador local,** selecione **Criar novo** ou **utilizar existentes**. Se criar um novo utilizador local, introduza um nome de utilizador e uma senha e, em seguida, confirme a palavra-passe. Esta ação atribui permissões ao utilizador local. Atualmente, a modificação das permissões de nível de partilha não é suportada.
+
+    f. Dependendo se criou uma quota SMB ou uma participação nFS, faça um dos seguintes passos:
+
+    * **Partilha SMB**: Sob **todos os privilégios do utilizador local,** selecione **Criar novo** ou **utilizar existentes**. Se criar um novo utilizador local, introduza um nome de utilizador e uma senha e, em seguida, confirme a palavra-passe. Esta ação atribui permissões ao utilizador local. Atualmente, a modificação das permissões de nível de partilha não é suportada.
 
         Se selecionar a caixa de verificação de **operações apenas para** ver estas ações, pode especificar utilizadores apenas de leitura.
 
         ![Adicionar uma partilha SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **NFS share**: Introduza os endereços IP de clientes autorizados que possam aceder à partilha.
+
+    * **NFS share**: Introduza os endereços IP de clientes autorizados que possam aceder à partilha.
 
         ![Adicionar uma partilha NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. Selecione **Criar** para criar a parte.
     
     Foi notificado de que a criação de ações está em andamento. Após a criação da parte com as definições especificadas, as atualizações de azulejos **de Partilha** para refletir a nova ação.

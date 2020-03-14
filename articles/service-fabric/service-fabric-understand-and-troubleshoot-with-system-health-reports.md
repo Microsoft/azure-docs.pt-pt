@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364972"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282019"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Os componentes da Azure Service Fabric fornecem relatórios de saúde do sistema sobre todas as entidades do cluster saída da caixa. A loja de [saúde](service-fabric-health-introduction.md#health-store) cria e elimina entidades com base nos relatórios do sistema. Organiza-os também numa hierarquia que capta interações de entidades.
@@ -872,7 +872,7 @@ O Sistema.O alojamento reporta um aviso se as capacidades do nó não forem defi
 * **Propriedade**: **Governança de Recursos**.
 * **Próximos passos**: A forma preferida de ultrapassar este problema é alterar o manifesto de cluster para permitir a deteção automática dos recursos disponíveis. Outra forma é atualizar o manifesto do cluster com capacidades de nó corretamente especificadas para estas métricas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Ver relatórios de saúde de tecido de serviço](service-fabric-view-entities-aggregated-health.md)
 
 * [Como reportar e verificar a saúde do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

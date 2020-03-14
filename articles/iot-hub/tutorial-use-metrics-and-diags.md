@@ -9,11 +9,11 @@ ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: a19eb19c3a25d3856d5cf333bd64be888f65a6e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892889"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239939"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e registos de diagnóstico com um hub IoT
 
@@ -47,7 +47,7 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="set-up-resources"></a>Configurar os recursos
+## <a name="set-up-resources"></a>Configurar recursos
 
 Para este tutorial, você precisa de um hub IoT, uma conta de armazenamento, e um dispositivo IoT simulado. Pode criar estes recursos com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no fim, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
@@ -371,7 +371,7 @@ Para remover o grupo de recursos, utilize o comando [az group delete](https://do
 az group delete --name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a usar métricas e registos de diagnóstico executando as seguintes tarefas:
 

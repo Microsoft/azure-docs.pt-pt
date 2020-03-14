@@ -8,11 +8,11 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391052"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248596"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Colete registos de plataforma Azure no espaço de trabalho do Log Analytics no Monitor Azure
 [Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem. Este artigo descreve a recolha de registos de recursos num espaço de trabalho do Log Analytics que permite analisá-lo com outros dados de monitorização recolhidos em Registos de Monitores Do Azure utilizando consultas de registo poderosas e também para alavancar outras funcionalidades do Monitor de Azure, como alertas e alertas e visualizações. 
@@ -54,7 +54,7 @@ Considere o seguinte exemplo em que as definições de diagnóstico estão a ser
 
 A tabela AzureDiagnostics será a seguinte:  
 
-| ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Categoria     | Uma  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -71,7 +71,7 @@ O exemplo acima resultaria na criação de três tabelas:
  
 - Serviço de *Mesa1AuditLogs* da seguinte forma:
 
-    | Fornecedor de Recursos | Categoria | A | B | C |
+    | Fornecedor de Recursos | Categoria | Uma | B | C |
     | -- | -- | -- | -- | -- |
     | Serviço1 | AuditLogs | x1 | y1 | z1 |
     | Serviço1 | AuditLogs | x5 | y5 | z5 |
@@ -121,7 +121,7 @@ A Azure Data Factory, devido a um conjunto muito detalhado de registos, é um se
 Deve migrar os seus registos para utilizar o modo específico de recursos o mais rapidamente possível. Se não conseguir fazê-lo imediatamente, uma alternativa provisória é isolar os registos da Azure Data Factory no seu próprio espaço de trabalho para minimizar a probabilidade destes registos terem impacto noutros tipos de registos recolhidos nos seus espaços de trabalho.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Leia mais sobre registos](platform-logs-overview.md)de recursos .
 * [Crie uma definição de diagnóstico para recolher registos e métricas em Azure](diagnostic-settings.md).

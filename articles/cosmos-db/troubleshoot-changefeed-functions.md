@@ -3,16 +3,16 @@ title: Problemas de resolução de problemas ao usar funções azure disparam pa
 description: Questões comuns, salções e passos de diagnóstico, ao utilizar o gatilho funções Azure para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605082"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365513"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e resolver problemas ao usar funções azure gatilho para Cosmos DB
 
@@ -41,7 +41,7 @@ Além disso, se estiver a criar manualmente a sua própria instância do [client
 
 A Função Azure falha com a mensagem de erro "Ou a 'coleção de códigos' (na base de dados 'nome') ou a coleção de aluguer 'collection2-name' (na base de dados 'database2-name') não existe. Ambas as coleções devem existir antes do ouvinte começar. Para criar automaticamente a coleção de arrendamento, detete 'CreateLeaseCollectionIfNotExists' para 'true'"
 
-Isto significa que um ou ambos os contentores Azure Cosmos necessários para o gatilho funcionar não existem ou não estão acessíveis à Função Azure. **O erro em si dirá qual base de dados e contentores da Azure Cosmos é o gatilho que procura** com base na sua configuração.
+Isto significa que um ou ambos os contentores Azure Cosmos necessários para o gatilho funcionar não existem ou não estão acessíveis à Função Azure. O erro em si dirá qual a base de dados e o recipiente da **Azure Cosmos é o gatilho que procura** com base na sua configuração.
 
 1. Verifique o atributo `ConnectionStringSetting` e que **se refere a uma definição que existe na sua App de Funções Azure**. O valor deste atributo não deve ser a própria Linha de Ligação, mas sim o nome da Definição de Configuração.
 2. Verifique se existem `databaseName` e `collectionName` na sua conta Azure Cosmos. Se estiver a utilizar uma substituição automática de valor (utilizando padrões `%settingName%`), certifique-se de que o nome da definição existe na sua App de Funções Azure.
@@ -51,6 +51,10 @@ Isto significa que um ou ambos os contentores Azure Cosmos necessários para o g
 ### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Função Azure não começa com "A recolha de passes partilhados deve ter uma chave de partição"
 
 As versões anteriores da Extensão DB do Azure Cosmos não suportam a utilização de um contentor de arrendamento criado dentro de uma base de dados de [entrada partilhada.](./set-throughput.md#set-throughput-on-a-database) Para resolver este problema, atualize a extensão [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) para obter a versão mais recente.
+
+### <a name="azure-function-fails-to-start-with-partitionkey-must-be-supplied-for-this-operation"></a>A Função Azure não começa com "PartitionKey deve ser fornecida para esta operação."
+
+Este erro significa que está atualmente a utilizar uma coleção de arrendamento dividido com uma dependência de [extensão](#dependencies)antiga. Atualize para a versão mais recente disponível. Se estiver atualmente a funcionar nas funções Azure V1, terá de fazer upgrade para as funções Azure V2.
 
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>A Função Azure não começa com "A coleção de arrendamento, se dividida, deve ter a chave de partição igual à identificação."
 
@@ -70,6 +74,13 @@ Se for a última, poderá existir algum atraso entre as alterações a serem arm
 3. O seu recipiente Azure Cosmos pode ser [limitado pela taxa.](./request-units.md)
 4. Pode utilizar o atributo `PreferredLocations` no seu gatilho para especificar uma lista separada de vírinas das regiões azure para definir uma ordem de ligação preferencial personalizada.
 
+### <a name="some-changes-are-repeated-in-my-trigger"></a>Algumas mudanças são repetidas no meu Gatilho
+
+O conceito de "mudança" é uma operação num documento. Os cenários mais comuns onde os eventos para o mesmo documento são recebidos são:
+* A conta está a usar a eventual consistência. Ao consumir o feed de mudança num nível de consistência eventual, pode haver duplicados eventos entre as operações subsequentes de leitura de feed de mudança (o último evento de uma operação de leitura aparece como o primeiro do próximo).
+* O documento está a ser atualizado. O Change Feed pode conter múltiplas operações para os mesmos documentos, se esse documento estiver a receber atualizações, pode recolher vários eventos (um para cada atualização). Uma maneira fácil de distinguir entre diferentes operações para o mesmo documento é rastrear a propriedade `_lsn` [para cada alteração.](change-feed.md#change-feed-and-_etag-_lsn-or-_ts) Se não corresponderem, estas são alterações diferentes sobre o mesmo documento.
+* Se estiver a identificar documentos apenas por `id`, lembre-se que o identificador único para um documento é o `id` e a sua chave de partição (pode haver dois documentos com a mesma chave de partilha `id` mas diferente).
+
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Faltam algumas mudanças no meu Gatilho.
 
 Se descobrir que algumas das mudanças que ocorreram no seu contentor Azure Cosmos não estão a ser captadas pela Função Azure, há um passo inicial de investigação que tem de ser realizado.
@@ -85,11 +96,11 @@ Neste cenário, o melhor curso de ação é adicionar `try/catch` blocos no seu 
 
 Se descobrir que algumas alterações não foram recebidas pelo seu gatilho, o cenário mais comum é que há **outra Função Azure em execução**. Pode ser outra Função Azure implantada em Azure ou uma Função Azure a funcionar localmente na máquina de um desenvolvedor que tem **exatamente a mesma configuração** (mesmos recipientes monitorizados e de aluguer), e esta Função Azure está a roubar um subconjunto das alterações que seria de esperar que a sua Função Azure processasse.
 
-Além disso, o cenário pode ser validado, se souber quantas instâncias da App de Função Azure tem em execução. Se inspecionar o seu contentor de arrendamento e contar o número de artigos de locação no seu interior, os valores distintos do `Owner` propriedade neles devem ser iguais ao número de instâncias da sua App de Funções. Se houver mais Proprietários do que as instâncias conhecidas da Aplicação de Funções do Azure, tal significa que estes proprietários adicionais serão os responsáveis pelo “roubo” das alterações.
+Além disso, o cenário pode ser validado, se souber quantas instâncias da App de Função Azure tem em execução. Se inspecionar o seu contentor de arrendamento e contar o número de artigos de locação no seu interior, os valores distintos do `Owner` propriedade neles devem ser iguais ao número de instâncias da sua App de Funções. Se houver mais proprietários do que os conhecidos casos da App função Azure, significa que estes proprietários extrasão os que "roubam" as alterações.
 
 Uma maneira fácil de contornar esta situação é aplicar um `LeaseCollectionPrefix/leaseCollectionPrefix` à sua Função com um valor novo/diferente ou, em alternativa, testar com um novo recipiente de arrendamento.
 
-### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>Precisa reiniciar e reprocessar todos os itens no meu recipiente desde o início 
+### <a name="need-to-restart-and-reprocess-all-the-items-in-my-container-from-the-beginning"></a>Precisa reiniciar e reprocessar todos os itens no meu recipiente desde o início 
 Para reprocessar todos os itens num recipiente desde o início:
 1. Pare a sua função Azure se estiver em funcionamento. 
 1. Eliminar os documentos na coleção de arrendamento (ou excluir e recriar a coleção de arrendamento para que esteja vazia)

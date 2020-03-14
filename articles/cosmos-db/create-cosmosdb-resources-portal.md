@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
 ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385419"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240409"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Criar uma conta Azure Cosmos, base de dados, contentores e itens do portal Azure
 
@@ -107,7 +107,7 @@ Se pretender eliminar apenas a base de dados e utilizar a conta Azure Cosmos no 
 * Abra o **Data Explorer,** clique na base de dados que pretende eliminar e selecionar **eliminar base de dados**.
 * Introduza o nome ID/base de dados da base de dados para confirmar o funcionamento da eliminação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste arranque rápido, aprendeu a criar uma conta Azure Cosmos DB, criar uma base de dados e um contentor usando o Data Explorer. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 

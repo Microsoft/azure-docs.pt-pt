@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372056"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278093"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Dados de importação e exportação em Azure Cache para Redis
 Import/Export é um Cache Azure para a operação de gestão de dados Redis, que permite importar dados para Azure Cache para Redis ou exportar dados de Azure Cache para Redis, importando e exportando um cache azure para redis Database (RDB) de uma cache premium para uma bolha numa conta de armazenamento Azure.
@@ -149,7 +149,7 @@ Para resolver esta questão, inicie a operação de importação ou exportação
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Tive um erro ao exportar os meus dados para o Armazém Azure Blob. O que aconteceu?
 A exportação funciona apenas com ficheiros RDB armazenados como bolhas de página. Outros tipos de blob não são atualmente suportados, incluindo contas de armazenamento Blob com camadas quentes e frescas. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como usar mais funcionalidades de cache premium.
 
 * [Introdução ao Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)

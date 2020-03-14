@@ -12,11 +12,11 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587401"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256214"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são piscinas de instâncias de base de dados SQL (pré-visualização)?
 
@@ -148,7 +148,7 @@ Se criar piscinas de instâncias em [subscrições elegíveis para benefício](h
 
 Para obter mais detalhes sobre os preços do pool, consulte a secção de *piscinas* de exemplo na página de preços de [instância gerida](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para começar com piscinas de instância, consulte [a instância de dados de dados SQL piscinas como guiar](sql-database-instance-pools-how-to.md).
 - Para aprender a criar a sua primeira instância gerida, consulte [o guia Quickstart](sql-database-managed-instance-get-started.md).

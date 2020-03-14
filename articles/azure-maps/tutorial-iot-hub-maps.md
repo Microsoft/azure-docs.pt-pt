@@ -10,11 +10,11 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: f0367a195ca0aa5f26ff0819b00c50fabae1d271
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359580"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239617"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análise espacial IoT usando mapas azure
 
@@ -85,7 +85,7 @@ A figura que se segue representa a área geoveda realçada em azul. A rota do ve
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para completar os passos neste tutorial, é necessário primeiro criar um grupo de recursos no portal Azure. Para criar um grupo de recursos, faça os seguintes passos:
 
@@ -298,7 +298,7 @@ O mapa abaixo mostra quatro pontos onde o veículo estava fora da geoveda, regis
 
 ![mapa de violação](./media/tutorial-iot-hub-maps/violation-map.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para explorar as APIs do Azure Maps utilizadas neste tutorial, consulte:
 

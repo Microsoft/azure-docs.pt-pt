@@ -12,11 +12,11 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668867"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264313"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -75,18 +75,18 @@ Um elemento **TechnicalProfiles** contém um conjunto de perfis técnicos suport
 
 O elemento **Perfil Técnico** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 |---------|---------|---------|
-| Id | Sim | Um identificador único do perfil técnico. O perfil técnico pode ser referenciado utilizando este identificador a partir de outros elementos do ficheiro de política. Por exemplo, **OrquestraçõesPassos** e **ValidaçãoPerfil Técnico**. |
+| ID | Sim | Um identificador único do perfil técnico. O perfil técnico pode ser referenciado utilizando este identificador a partir de outros elementos do ficheiro de política. Por exemplo, **OrquestraçõesPassos** e **ValidaçãoPerfil Técnico**. |
 
 O **Perfil Técnico** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Domain | 0:1 | O nome de domínio para o perfil técnico. Por exemplo, se o seu perfil técnico especificar o fornecedor de identidade do Facebook, o nome de domínio é Facebook.com. |
+| Domínio | 0:1 | O nome de domínio para o perfil técnico. Por exemplo, se o seu perfil técnico especificar o fornecedor de identidade do Facebook, o nome de domínio é Facebook.com. |
 | DisplayName | 1:1 | O nome do perfil técnico que pode ser apresentado aos utilizadores. |
 | Descrição | 0:1 | A descrição do perfil técnico que pode ser apresentado aos utilizadores. |
-| Protocolo | 0:1 | O protocolo usado para a comunicação com a outra parte. |
+| Protocol | 0:1 | O protocolo usado para a comunicação com a outra parte. |
 | Metadados | 0:1 | Uma coleção de pares chave/valor que são utilizados pelo protocolo para comunicar com o ponto final no decurso de uma transação. |
 | InputTokenFormat | 0:1 | O formato do símbolo de entrada. Valores possíveis: `JSON`, `JWT`, `SAML11`ou `SAML2`. O valor `JWT` representa um Token Web JSON de acordo com a especificação IETF. O valor `SAML11` representa um símbolo de segurança SAML 1.1 de acordo com a especificação OASIS.  O valor `SAML2` representa um símbolo de segurança SAML 2.0 de acordo com a especificação OASIS. |
 | OutputTokenFormat | 0:1 | O formato do símbolo de saída. Valores possíveis: `JSON`, `JWT`, `SAML11`ou `SAML2`. |
@@ -105,11 +105,11 @@ O **Perfil Técnico** contém os seguintes elementos:
 | UseTechnicalProfileForSessionManagement | 0:1 | Um perfil técnico diferente a ser usado para a gestão de sessões. |
 |EnabledForUserJourneys| 0:1 |Controle se o perfil técnico for executado numa viagem de utilizador.  |
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O elemento **Protocolo** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`ou `None`. |
 | Manipulador | Não | Quando o nome do protocolo estiver definido para `Proprietary`, especifique o nome totalmente qualificado do conjunto que é utilizado pelo Azure AD B2C para determinar o manipulador de protocolos. |
@@ -126,7 +126,7 @@ Um elemento **metadados** contém os seguintes elementos:
 
 O elemento **Item** do elemento **Metadados** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Chave | Sim | A chave dos metadados. Consulte cada tipo de perfil técnico, para obter a lista de itens de metadados. |
 
@@ -142,9 +142,9 @@ O elemento **CryptographicKeys** contém o seguinte elemento:
 
 O elemento **Chave** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
-| Id | Não | Um identificador único de um par de chaves particular referenciado de outros elementos no ficheiro de política. |
+| ID | Não | Um identificador único de um par de chaves particular referenciado de outros elementos no ficheiro de política. |
 | StorageReferenceId | Sim | Um identificador de um recipiente-chave de armazenamento referenciado de outros elementos no ficheiro de política. |
 
 ## <a name="inputclaimstransformations"></a>InputClaimsTransformations
@@ -159,7 +159,7 @@ O elemento **InputClaimsTransformations** contém o seguinte elemento:
 
 O elemento **InputClaimsTransformation** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de uma transformação de sinistros já definida no ficheiro de política ou no ficheiro de política dos pais. |
 
@@ -175,7 +175,7 @@ O elemento **InputClaims** contém o seguinte elemento:
 
 O elemento **InputClaim** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro da política dos pais. |
 | Valor Padrão | Não | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser usada como InputClaim pelo perfil técnico. |
@@ -195,11 +195,11 @@ A função DislayClaims encontra-se atualmente em **pré-visualização**.
 
 O elemento **DisplayClaim** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Não | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro da política dos pais. |
 | DisplayControlReferenceid | Não | O identificador de um controlo de [exibição](display-controls.md) já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro de política dos pais. |
-| Necessário | Não | Indica se a alegação de exibição é necessária. |
+| Required | Não | Indica se a alegação de exibição é necessária. |
 
 O **DisplayClaim** requer que especifique um `ClaimTypeReferenceId` ou `DisplayControlReferenceId`.
 
@@ -215,7 +215,7 @@ O elemento **PersistedClaims** contém os seguintes elementos:
 
 O elemento **PersistedClaim** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro da política dos pais. |
 | Valor Padrão | Não | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser usada como InputClaim pelo perfil técnico. |
@@ -233,7 +233,7 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política ou no ficheiro da política dos pais. |
 | Valor Padrão | Não | Um valor predefinido a utilizar para criar uma reclamação se a reclamação indicada pelo ClaimTypeReferenceId não existir para que a reclamação resultante possa ser usada como InputClaim pelo perfil técnico. |
@@ -252,7 +252,7 @@ O elemento **OutputClaimsTransformations** contém o seguinte elemento:
 
 O elemento **OutputClaimsTransformation** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de uma transformação de sinistros já definida no ficheiro de política ou no ficheiro de política dos pais. |
 
@@ -268,7 +268,7 @@ O elemento **ValidaçãoPerfis Técnicos** contém o seguinte elemento:
 
 O elemento **ValidaçãoTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro da política dos pais. |
 
@@ -276,7 +276,7 @@ O elemento **ValidaçãoTechnicalProfile** contém o seguinte atributo:
 
 O **SujeitoNamingInfo** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | Tipo de reclamação | Sim | Um identificador de um tipo de reclamação já definido na secção ClaimsSchema no ficheiro de política. |
 
@@ -284,7 +284,7 @@ O **SujeitoNamingInfo** contém o seguinte atributo:
 
 O elemento **IncluirPerfil Técnico** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política, ou ficheiro de política dos pais. |
 
@@ -292,7 +292,7 @@ O elemento **IncluirPerfil Técnico** contém o seguinte atributo:
 
 O elemento **UseTechnicalProfileForSessionManagement** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Required | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou no ficheiro da política dos pais. |
 

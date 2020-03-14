@@ -4,11 +4,11 @@ description: Entenda como o serviço Azure Resource Graph permite uma consulta c
 ms.date: 03/02/2020
 ms.topic: overview
 ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385214"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240059"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -87,7 +87,7 @@ O Resource Graph suporta o Azure CLI, Azure PowerShell, Azure SDK para .NET, e m
 - [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Execute a sua primeira consulta utilizando o [portal Azure.](first-query-portal.md)
 - Execute a sua primeira consulta com [o Azure CLI.](first-query-azurecli.md)

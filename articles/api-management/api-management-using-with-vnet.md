@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 62e8c174cd10a003657093b805291e003a9ede1b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 0ff7eff2465f187c25c58b429db752decc38ffc4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244059"
+ms.locfileid: "79298041"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Azure API Management com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Visão geral da rede virtual Azure](../virtual-network/virtual-networks-overview.md).
@@ -110,7 +110,7 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 
 | Fonte / Porta de Destino(s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Fonte / Destino   | Finalidade (*)                                                 | Tipo de Rede Virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente à API Management                      | Externo             |
+| * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente à API Management                      | Externa             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para portal Azure e Powershell         | Externa e Interna  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | **Dependência do armazenamento azure**                             | Externa e Interna  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Diretório Ativo Azure](api-management-howto-aad.md) (se aplicável)                   | Externa e Interna  |
@@ -177,9 +177,11 @@ Segue-se uma lista de problemas comuns de configuração que podem ocorrer ao im
 ## <a name="subnet-size"></a> Requisito de tamanho de subnet
 O Azure reserva alguns endereços IP dentro de cada subnet, e estes endereços não podem ser usados. Os primeiros e últimos endereços IP das subnets estão reservados para conformidade com o protocolo, juntamente com mais três endereços utilizados para os serviços Azure. Para mais informações, consulte [Existem restrições à utilização de endereços IP dentro destas subredes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Para além dos endereços IP utilizados pela infraestrutura Azure VNET, cada instância de Gestão Api na subnet utiliza dois endereços IP por unidade de Premium SKU ou um endereço IP para o Developer SKU. Cada instância reserva um endereço IP adicional para o equilibrador de carga externo. Ao ser implantado na vnet interna, requer um endereço IP adicional para o equilibrante interno de carga.
+Para além dos endereços IP utilizados pela infraestrutura Azure VNET, cada instância de Gestão Api na subnet utiliza dois endereços IP por unidade de Premium SKU ou um endereço IP para o Developer SKU. Cada instância reserva um endereço IP adicional para o equilibrador de carga externo. Ao implantar na rede virtual interna, requer um endereço IP adicional para o equilibrante interno de carga.
 
 Dado o cálculo acima do tamanho mínimo da subnet, em que a Gestão API pode ser implantada é /29 que dá três endereços IP utilizáveis.
+
+Cada unidade de escala adicional da API Management requer mais dois endereços IP.
 
 ## <a name="routing"></a> Encaminhamento
 + Um endereço IP público equilibrado em carga (VIP) será reservado para fornecer acesso a todos os pontos finais do serviço.
@@ -201,38 +203,38 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 |-----------------|-------------------------|---------------|
 | Azure Public| Centro-Sul dos EUA (Global)| 104.214.19.224|
 | Azure Public| Centro-Norte dos EUA (Global)| 52.162.110.80|
-| Azure Public| E.U.A. Centro-Oeste| 52.253.135.58|
+| Azure Public| EUA Centro-Oeste| 52.253.135.58|
 | Azure Public| Coreia do Sul Central| 40.82.157.167|
-| Azure Public| Oeste do Reino Unido| 51.137.136.0|
+| Azure Public| Reino Unido Oeste| 51.137.136.0|
 | Azure Public| Oeste do Japão| 40.81.185.8|
-| Azure Public| E.U.A. Centro-Norte| 40.81.47.216|
-| Azure Public| Sul do Reino Unido| 51.145.56.125|
+| Azure Public| EUA Centro-Norte| 40.81.47.216|
+| Azure Public| Reino Unido Sul| 51.145.56.125|
 | Azure Public| Oeste da Índia| 40.81.89.24|
-| Azure Public| E.U.A. Leste| 52.224.186.99|
+| Azure Public| EUA Leste| 52.224.186.99|
 | Azure Public| Europa Ocidental| 51.145.179.78|
 | Azure Public| Leste do Japão| 52.140.238.179|
 | Azure Public| França Central| 40.66.60.111|
 | Azure Public| Leste do Canadá| 52.139.80.117|
 | Azure Public| Emirados Unidos norte| 20.46.144.85|
 | Azure Public| Sul do Brasil| 191.233.24.179|
-| Azure Public| Ásia Sudeste| 40.90.185.46|
+| Azure Public| Sudeste Asiático| 40.90.185.46|
 | Azure Public| África do Sul Norte| 102.133.130.197|
 | Azure Public| Canadá Central| 52.139.20.34|
-| Azure Public| Sul da Coreia do Sul| 40.80.232.185|
+| Azure Public| Coreia do Sul| 40.80.232.185|
 | Azure Public| Índia Central| 13.71.49.1|
-| Azure Public| E.U.A. Oeste| 13.64.39.16|
-| Azure Public| Austrália Sudeste| 20.40.160.107|
+| Azure Public| EUA Oeste| 13.64.39.16|
+| Azure Public| Sudeste da Austrália| 20.40.160.107|
 | Azure Public| Austrália Central| 20.37.52.67|
 | Azure Public| Sul da Índia| 20.44.33.246|
-| Azure Public| E.U.A. Central| 13.86.102.66|
+| Azure Public| EUA Central| 13.86.102.66|
 | Azure Public| Leste da Austrália| 20.40.125.155|
-| Azure Public| E.U.A.Oeste 2| 51.143.127.203|
+| Azure Public| EUA Oeste 2| 51.143.127.203|
 | Azure Public| LESTE DOS EUA 2 EUAP| 52.253.229.253|
 | Azure Public| EUA Centrais EUA| 52.253.159.160|
-| Azure Public| E.U.A. Centro-Sul| 20.188.77.119|
-| Azure Public| E.U.A. Leste 2| 20.44.72.3|
+| Azure Public| EUA Centro-Sul| 20.188.77.119|
+| Azure Public| EUA Leste 2| 20.44.72.3|
 | Azure Public| Europa do Norte| 52.142.95.35|
-| Azure Public| Ásia Leste| 52.139.152.27|
+| Azure Public| Ásia Oriental| 52.139.152.27|
 | Azure Public| Sul de França| 20.39.80.2|
 | Azure Public| Suíça Oeste| 51.107.96.8|
 | Azure Public| Austrália Central 2| 20.39.99.81|

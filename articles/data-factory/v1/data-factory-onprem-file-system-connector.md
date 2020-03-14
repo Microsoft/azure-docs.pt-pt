@@ -13,11 +13,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387448"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265938"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de ficheiros no local utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -70,7 +70,7 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 Pode ligar um sistema de ficheiros no local a uma fábrica de dados Azure com o serviço ligado ao **Servidor de Ficheiros On-Premises.** A tabela seguinte fornece descrições para elementos JSON específicos do serviço ligado ao Servidor de Ficheiros No Local.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | --- | --- | --- |
 | tipo |Certifique-se de que a propriedade do tipo está definida para **onPremisesFileServer**. |Sim |
 | host |Especifica o caminho de raiz da pasta que pretende copiar. Use o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte as definições de serviço ligados à [amostra e definições](#sample-linked-service-and-dataset-definitions) de conjunto de dados, por exemplo. |Sim |
@@ -127,7 +127,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados. Fornece informações como a localização e o formato dos dados na loja de dados. A secção typeProperties para o conjunto de dados do tipo **FileShare** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | --- | --- | --- |
 | folderPath |Especifica o subcaminho para a pasta. Use o personagem de fuga\' para personagens especiais na corda. Não é suportado o filtro de carateres universais. Consulte as definições de serviço ligados à [amostra e definições](#sample-linked-service-and-dataset-definitions) de conjunto de dados, por exemplo.<br/><br/>Pode combinar esta propriedade com **partiçãoBy** para ter caminhos de pastas baseados em datas de início/fim de fatias. |Sim |
 | fileName |Especifique o nome do ficheiro na **pastaPath** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o nome do **ficheiro** não é especificado para um conjunto de dados de saída e preservar a **hierarquia** não é especificado no sumidouro de atividade, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
@@ -179,13 +179,13 @@ Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias. Se est
 
 **FileSystemSource** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Required |
 | --- | --- | --- | --- |
 | recursive |Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. |Verdade, Falso (padrão) |Não |
 
 **FileSystemSink** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Required |
 | --- | --- | --- | --- |
 | copyBehavior |Define o comportamento da cópia quando a fonte é BlobSource ou FileSystem. |**PreserveHierarchy:** Preserva a hierarquia dos ficheiros na pasta-alvo. Ou seja, o caminho relativo do ficheiro fonte para a pasta fonte é o mesmo que o caminho relativo do ficheiro alvo para a pasta-alvo.<br/><br/>**Hierarquia do Achatamento:** Todos os ficheiros da pasta fonte são criados no primeiro nível da pasta alvo. Os ficheiros-alvo são criados com um nome autogerado.<br/><br/>**Ficheiros de fusão:** Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro/nome blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, trata-se de um nome de ficheiro gerado automaticamente. |Não |
 

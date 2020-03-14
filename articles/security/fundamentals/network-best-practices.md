@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245229"
+ms.locfileid: "79299350"
 ---
 # <a name="azure-best-practices-for-network-security"></a>As melhores práticas do Azure para a segurança da rede
 Este artigo discute uma coleção de boas práticas azure para melhorar a segurança da sua rede. Estas boas práticas derivam da nossa experiência com o networking Azure e as experiências de clientes como você.
@@ -122,7 +122,7 @@ Embora este seja o design básico de uma rede de perímetro, existem muitos proj
 
 Com base no conceito Zero Trust mencionado anteriormente, recomendamos que considere usar uma rede de perímetro para todas as implementações de alta segurança para aumentar o nível de segurança da rede e controlo de acesso para os seus recursos Azure. Pode utilizar o Azure ou uma solução de terceiros para fornecer uma camada adicional de segurança entre os seus ativos e a internet:
 
-- Controlos nativos de Azure. [O Azure Firewall](/azure/firewall/overview) e a firewall de [aplicação web no Application Gateway](/azure/application-gateway/overview#web-application-firewall) oferecem segurança básica com uma firewall totalmente audada como um serviço, alta disponibilidade incorporada, escalabilidade de nuvem sem restrições, filtragem FQDN, suporte para conjuntos de regras centrais OWASP, configuração e configuração simples.
+- Controlos nativos de Azure. [O Azure Firewall](/azure/firewall/overview) e a firewall de [aplicação web no Application Gateway](../../application-gateway/features.md#web-application-firewall) oferecem segurança básica com uma firewall totalmente audada como um serviço, alta disponibilidade incorporada, escalabilidade de nuvem sem restrições, filtragem FQDN, suporte para conjuntos de regras centrais OWASP, configuração e configuração simples.
 - Ofertas de terceiros. Procure no [Mercado Azure](https://azuremarketplace.microsoft.com/) firewall de próxima geração (NGFW) e outras ofertas de terceiros que forneçam ferramentas de segurança familiares e níveis significativamente melhorados de segurança da rede. A configuração pode ser mais complexa, mas uma oferta de terceiros pode permitir-lhe usar as capacidades e habilidades existentes.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Evite exposição à internet com ligações WAN dedicadas
@@ -209,5 +209,5 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 Para saber mais sobre os pontos finais de serviço e sobre os serviços e regiões azure para os quais estão disponíveis pontos finais de serviço, consulte [os pontos finais](../../virtual-network/virtual-network-service-endpoints-overview.md)do serviço de rede Virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança azure para obter mais práticas de segurança para usar quando está a projetar, implementar e gerir as suas soluções em nuvem utilizando o Azure.

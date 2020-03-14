@@ -4,11 +4,11 @@ description: Como excluir discos da replicação para Azure com recuperação do
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362938"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281850"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastres
 
@@ -257,7 +257,7 @@ As nossas definições de ficheiros de paging no Azure VM são as seguintes:
 ![Definições de ficheiro de paginação na máquina virtual do Azure](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre as diretrizes para o disco de armazenamento temporário:
     - [Saiba mais sobre](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) a utilização de SSDs em VMs Azure para armazenar extensões SQL Server TempDB e Buffer Pool

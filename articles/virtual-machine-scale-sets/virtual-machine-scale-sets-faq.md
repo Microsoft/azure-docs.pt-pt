@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
 ms.openlocfilehash: 222f26febb7b14c627307295a8cdd68a17694d03
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394641"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254160"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -221,7 +221,7 @@ Pode fornecer as chaves públicas SSH em texto simples quando criar uma VM do Li
 }
 ```
 
-nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
+nome do elemento linuxConfiguration | Required | Tipo | Descrição
 --- | --- | --- | ---
 SSH | Não | Coleção | Especifica a configuração de chave SSH para um sistema operacional do Linux
 caminho | Sim | String | Especifica o caminho de ficheiro do Linux em que as chaves SSH ou o certificado deve estar localizado
@@ -649,7 +649,7 @@ Pode encontrar o necessário workspaceId e workspaceKey na área de trabalho do 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Como ativar os diagnósticos de arranque?
 

@@ -4,11 +4,11 @@ description: Conheça os planos de recuperação na Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396998"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257774"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
@@ -91,7 +91,7 @@ Veja um vídeo de exemplo rápido mostrando uma falha no clique para um plano de
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.
 - [Run](site-recovery-failover.md) failovers. 

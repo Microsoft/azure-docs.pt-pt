@@ -1,6 +1,6 @@
 ---
-title: Instalar o .NET em funções dos serviços de nuvem do Azure | Microsoft Docs
-description: Este artigo descreve como instalar manualmente o .NET Framework em suas funções Web e de trabalho do serviço de nuvem
+title: Instalar .NET nas funções Azure Cloud Services [ Serviços De Nuvem Azul] Microsoft Docs
+description: Este artigo descreve como instalar manualmente o .NET Framework na sua web de serviço na nuvem e funções de trabalhador
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -10,50 +10,50 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
-ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214712"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos serviços de nuvem do Azure
-Este artigo descreve como instalar versões do .NET Framework que não vêm com o sistema operacional convidado do Azure. Você pode usar o .NET no sistema operacional convidado para configurar suas funções Web e de trabalho do serviço de nuvem.
+# <a name="install-net-on-azure-cloud-services-roles"></a>Instalar .NET nas funções azure cloud services
+Este artigo descreve como instalar versões de .NET Framework que não vêm com o Os De hóspedes azure. Pode utilizar .NET no Os convidado para configurar as funções web e de trabalhadores do serviço na nuvem.
 
-Por exemplo, você pode instalar o .NET 4.6.2 na família de sistemas operacionais convidados 4, que não vem com nenhuma versão do .NET 4,6. (A família de sistemas operacionais convidados 5 vem com o .NET 4,6.) Para obter as informações mais recentes sobre as versões do sistema operacional convidado do Azure, consulte [notícias de versão do SO convidado do Azure](cloud-services-guestos-update-matrix.md). 
+Por exemplo, pode instalar .NET Framework 4.6.2 na família Os 4 do Guest OS, que não vem com qualquer lançamento de .NET Framework 4.6. (A família Os 5 hóspede seleção vem com .NET Framework 4.6.) Para obter as últimas informações sobre os lançamentos do Os O, consulte as novidades de lançamento do [Azure Guest OS](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->O SDK 2,9 do Azure contém uma restrição sobre a implantação do .NET 4,6 na família de sistemas operacionais convidados 4 ou anterior. Uma correção para a restrição está disponível no site do [Microsoft docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) .
+>O Azure SDK 2.9 contém uma restrição à implantação .NET Framework 4.6 na família Os 4 ou anterior. Uma correção para a restrição está disponível no site do [Microsoft Docs.](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)
 
-Para instalar o .NET em suas funções Web e de trabalho, inclua o instalador do .NET Web como parte do seu projeto de serviço de nuvem. Inicie o instalador como parte das tarefas de inicialização da função. 
+Para instalar .NET nas suas funções web e trabalhador, inclua o instalador web .NET como parte do seu projeto de serviço na nuvem. Inicie o instalador como parte das tarefas de arranque do papel. 
 
-## <a name="add-the-net-installer-to-your-project"></a>Adicionar o instalador do .NET ao seu projeto
-Para baixar o instalador da Web para o .NET Framework, escolha a versão que você deseja instalar:
+## <a name="add-the-net-installer-to-your-project"></a>Adicione o instalador .NET ao seu projeto
+Para descarregar o instalador web para o .NET Framework, escolha a versão que pretende instalar:
 
-* [Instalador da Web do .NET 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
-* [Instalador da Web do .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [Instalador da Web do .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
+* [.NET Quadro 4.8 instalador web](https://dotnet.microsoft.com/download/thank-you/net48)
+* [.NET Quadro 4.7.2 instalador web](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET Quadro 4.6.2 instalador web](https://www.microsoft.com/download/details.aspx?id=53345)
 
-Para adicionar o instalador para uma função *Web* :
-  1. Em **Gerenciador de soluções**, em **funções** em seu projeto de serviço de nuvem, clique com o botão direito do mouse em sua função *Web* e selecione **Adicionar** > **nova pasta**. Crie uma pasta chamada **bin**.
-  2. Clique com o botão direito do mouse na pasta bin e selecione **adicionar** > **Item existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
+Para adicionar o instalador para uma função *web:*
+  1. No **Solution Explorer**, em **funções** no seu projeto de serviço na nuvem, clique na sua função *web* e selecione **Adicionar** > **Nova Pasta**. Crie uma pasta chamada **bin**.
+  2. Clique na pasta do lixo e selecione **Adicionar** > **item existente**. Selecione o instalador .NET e adicione-o à pasta do lixo.
   
-Para adicionar o instalador para uma função de *trabalho* :
-* Clique com o botão direito do mouse em sua função de *trabalho* e selecione **Adicionar** > **Item existente**. Selecione o instalador do .NET e adicione-o à função. 
+Para adicionar o instalador para uma função *de trabalhador:*
+* Clique à direita na sua função de *trabalhador* e selecione **Adicionar** > **Item Existente**. Selecione o instalador .NET e adicione-o à função. 
 
-Quando os arquivos são adicionados dessa maneira à pasta de conteúdo da função, eles são automaticamente adicionados ao seu pacote de serviço de nuvem. Os arquivos são então implantados em um local consistente na máquina virtual. Repita esse processo para cada função Web e de trabalho em seu serviço de nuvem para que todas as funções tenham uma cópia do instalador.
+Quando os ficheiros são adicionados desta forma à pasta de conteúdo sonoro, são automaticamente adicionados ao seu pacote de serviço na nuvem. Os ficheiros são então implantados para uma localização consistente na máquina virtual. Repita este processo para cada função web e trabalhador no seu serviço na nuvem para que todas as funções tenham uma cópia do instalador.
 
 > [!NOTE]
-> Você deve instalar o .NET 4.6.2 em sua função de serviço de nuvem mesmo que seu aplicativo tenha como destino o .NET 4,6. O sistema operacional convidado inclui a [atualização 3098779](https://support.microsoft.com/kb/3098779) da base de dados de conhecimento e a [atualização 3097997](https://support.microsoft.com/kb/3097997). Poderão ocorrer problemas quando você executar seus aplicativos .NET se o .NET 4,6 estiver instalado sobre as atualizações da base de dados de conhecimento. Para evitar esses problemas, instale o .NET 4.6.2 em vez da versão 4,6. Para obter mais informações, consulte o [artigo 3118750 da base de dados de conhecimento](https://support.microsoft.com/kb/3118750) e [4340191](https://support.microsoft.com/kb/4340191).
+> Deve instalar .NET Framework 4.6.2 na sua função de serviço na nuvem, mesmo que os seus alvos de aplicação .NET Framework 4.6. O Os Convidado inclui a atualização da Base de Conhecimento [3098779](https://support.microsoft.com/kb/3098779) e [a atualização 3097997](https://support.microsoft.com/kb/3097997). Os problemas podem ocorrer quando executa as suas aplicações .NET se a .NET Framework 4.6 estiver instalada em cima das atualizações da Base de Conhecimento. Para evitar estes problemas, instale .NET Framework 4.6.2 em vez da versão 4.6. Para mais informações, consulte o [artigo 3118750](https://support.microsoft.com/kb/3118750) e [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
-![Conteúdo da função com arquivos do instalador][1]
+![Conteúdo de função com ficheiros instaladores][1]
 
-## <a name="define-startup-tasks-for-your-roles"></a>Definir tarefas de inicialização para suas funções
-Você pode usar tarefas de inicialização para executar operações antes de uma função ser iniciada. Instalar o .NET Framework como parte da tarefa de inicialização garante que a estrutura seja instalada antes de qualquer código de aplicativo ser executado. Para obter mais informações sobre tarefas de inicialização, consulte [executar tarefas de inicialização no Azure](cloud-services-startup-tasks.md). 
+## <a name="define-startup-tasks-for-your-roles"></a>Defina tarefas de arranque para as suas funções
+Pode utilizar tarefas de arranque para realizar operações antes de iniciar uma função. A instalação do .NET Framework como parte da tarefa de arranque garante que a estrutura seja instalada antes de qualquer código de aplicação ser executado. Para obter mais informações sobre as tarefas de arranque, consulte executar tarefas de [arranque em Azure](cloud-services-startup-tasks.md). 
 
-1. Adicione o seguinte conteúdo ao arquivo de @ Definition. csdef sob o nó **WebRole** ou **WorkerRole** para todas as funções:
+1. Adicione o seguinte conteúdo ao ficheiro ServiceDefinition.csdef sob o nó **WebRole** ou **WorkerRole** para todas as funções:
    
     ```xml
     <LocalResources>
@@ -73,19 +73,19 @@ Você pode usar tarefas de inicialização para executar operações antes de um
     </Startup>
     ```
    
-    A configuração anterior executa o comando do console `install.cmd` com privilégios de administrador para instalar o .NET Framework. A configuração também cria um elemento **localStorage** chamado **NETFXInstall**. O script de inicialização define a pasta Temp para usar esse recurso de armazenamento local. 
+    A configuração anterior executa o comando da consola `install.cmd` com privilégios de administrador para instalar o .NET Framework. A configuração também cria um elemento **LocalStorage** chamado **NETFXInstall**. O script de arranque define a pasta temporária para utilizar este recurso de armazenamento local. 
     
     > [!IMPORTANT]
-    > Para garantir a instalação correta da estrutura, defina o tamanho desse recurso como pelo menos 1.024 MB.
+    > Para garantir a correta instalação da estrutura, detete a dimensão deste recurso para pelo menos 1.024 MB.
     
-    Para obter mais informações sobre tarefas de inicialização, consulte [tarefas comuns de inicialização dos serviços de nuvem do Azure](cloud-services-startup-tasks-common.md).
+    Para obter mais informações sobre as tarefas de arranque, consulte as tarefas de [arranque da Common Azure Cloud Services.](cloud-services-startup-tasks-common.md)
 
-2. Crie um arquivo chamado **install. cmd** e adicione o seguinte script de instalação ao arquivo.
+2. Crie um ficheiro chamado **install.cmd** e adicione o seguinte script de instalação ao ficheiro.
 
-   O script verifica se a versão especificada do .NET Framework já está instalada no computador consultando o registro. Se a versão do .NET não estiver instalada, o instalador da Web do .NET será aberto. Para ajudar a solucionar problemas, o script registra todas as atividades no arquivo startuptasklog-(data e hora atual). txt que é armazenado no armazenamento local **InstallLogs** .
+   O script verifica se a versão especificada do .NET Framework já está instalada na máquina consultando o registo. Se a versão .NET Framework não for instalada, então o instalador web .NET Framework é aberto. Para ajudar a resolver problemas, o script regista toda a atividade no ficheiro startuptasklog-(data e hora atual).txt que é armazenado em **InstallLogs** armazenamento local.
    
    > [!IMPORTANT]
-   > Use um editor de texto básico como o bloco de notas do Windows para criar o arquivo install. cmd. Se você usar o Visual Studio para criar um arquivo de texto e alterar a extensão para. cmd, o arquivo ainda poderá conter uma marca de ordem de byte UTF-8. Essa marca pode causar um erro quando a primeira linha do script é executada. Para evitar esse erro, torne a primeira linha do script uma instrução REM que pode ser ignorada pelo processamento da ordem de byte. 
+   > Utilize um editor de texto básico como o Windows Notepad para criar o ficheiro install.cmd. Se utilizar o Visual Studio para criar um ficheiro de texto e alterar a extensão para .cmd, o ficheiro ainda pode conter uma marca de byte UTF-8. Esta marca pode causar um erro quando a primeira linha do script é executada. Para evitar este erro, faça da primeira linha do script uma declaração REM que pode ser ignorada pelo processamento de encomendas byte. 
    > 
    >
    
@@ -197,17 +197,17 @@ Você pode usar tarefas de inicialização para executar operações antes de um
    EXIT /B 0
    ```
 
-3. Adicione o arquivo install. cmd a cada função usando **adicionar** > **Item existente** no **Gerenciador de soluções** conforme descrito anteriormente neste tópico. 
+3. Adicione o ficheiro install.cmd a cada função utilizando **add** > **item existente** no **Solution Explorer,** como descrito anteriormente neste tópico. 
 
-    Depois que essa etapa for concluída, todas as funções deverão ter o arquivo do instalador do .NET e o arquivo install. cmd.
+    Depois de concluído este passo, todas as funções devem ter o ficheiro do instalador .NET e o ficheiro install.cmd.
 
-   ![Conteúdo da função com todos os arquivos][2]
+   ![Conteúdo de função com todos os ficheiros][2]
 
-## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Configurar o diagnóstico para transferir os logs de inicialização para o armazenamento de BLOBs
-Para simplificar a solução de problemas de instalação, você pode configurar Diagnóstico do Azure para transferir quaisquer arquivos de log gerados pelo script de inicialização ou o instalador do .NET para o armazenamento de BLOBs do Azure. Ao usar essa abordagem, você pode exibir os logs baixando os arquivos de log do armazenamento de BLOBs em vez de ter a área de trabalho remota na função.
+## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Configure Diagnósticos para transferir registos de startups para o armazenamento blob
+Para simplificar os problemas de instalação de resolução de problemas, pode configurar o Azure Diagnostics para transferir quaisquer ficheiros de registo gerados pelo script de arranque ou pelo instalador .NET para o armazenamento Azure Blob. Ao utilizar esta abordagem, pode visualizar os registos baixando os ficheiros de registo do armazenamento Blob em vez de ter de se remeter para o trabalho.
 
 
-Para configurar o diagnóstico, abra o arquivo Diagnostics. wadcfgx e adicione o seguinte conteúdo sob o nó **diretórios** : 
+Para configurar diagnósticos, abra o ficheiro diagnostics.wadcfgx e adicione o seguinte conteúdo sob o nó de **Diretórios:** 
 
 ```xml 
 <DataSources>
@@ -217,15 +217,15 @@ Para configurar o diagnóstico, abra o arquivo Diagnostics. wadcfgx e adicione o
 </DataSources>
 ```
 
-Esse XML configura o diagnóstico para transferir os arquivos no diretório de log no recurso **NETFXInstall** para a conta de armazenamento de diagnóstico no contêiner de blob **Netfx-install** .
+Este XML confunde diagnósticos para transferir os ficheiros no diretório de registo no recurso **NETFXInstalar** para a conta de armazenamento de Diagnósticos no recipiente de blob de **instalação netfx.**
 
-## <a name="deploy-your-cloud-service"></a>Implantar seu serviço de nuvem
-Quando você implantar seu serviço de nuvem, as tarefas de inicialização instalarão o .NET Framework se ele ainda não estiver instalado. Suas funções de serviço de nuvem estão no estado *ocupado* enquanto a estrutura está sendo instalada. Se a instalação do Framework exigir uma reinicialização, as funções de serviço também poderão ser reiniciadas. 
+## <a name="deploy-your-cloud-service"></a>Implante o seu serviço de nuvem
+Quando implementa o seu serviço na nuvem, as tarefas de arranque instalam o .NET Framework se ainda não estiver instalado. As suas funções de serviço na nuvem estão em estado *de ocupado* enquanto a estrutura está a ser instalada. Se a instalação-quadro necessitar de um reinício, as funções de serviço também poderão reiniciar. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Instalando o .NET Framework][Installing the .NET Framework]
-* [Determinar quais versões do .NET Framework estão instaladas][How to: Determine Which .NET Framework Versions Are Installed]
-* [Solução de problemas .NET Framework instalações][Troubleshooting .NET Framework Installations]
+* [Instalação do .NET Framework][Installing the .NET Framework]
+* [Determinar quais as versões .NET Framework instaladas][How to: Determine Which .NET Framework Versions Are Installed]
+* [Resolução de problemas .NET Instalações de enquadramento][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
 [Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers

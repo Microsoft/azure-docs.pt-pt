@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359066"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280316"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública Azure
 O Azure permite-lhe executar aplicações e máquinas virtuais (VMs) em infraestruturas físicas partilhadas. Uma das principais motivações económicas para executar aplicações num ambiente de nuvem é a capacidade de distribuir o custo dos recursos partilhados entre vários clientes. Esta prática de multiarrendamento melhora a eficiência ao multiplexing recursos entre clientes diferentes a baixos custos. Infelizmente, também introduz o risco de partilhar servidores físicos e outros recursos de infraestrutura para executar as suas aplicações sensíveis e VMs que podem pertencer a um utilizador arbitrário e potencialmente malicioso.
@@ -321,7 +321,7 @@ A implantação do Azure tem várias camadas de isolamento de rede. O diagrama s
 
 [A Subnet](../../virtual-network/virtual-networks-overview.md) oferece uma camada adicional de isolamento com a rede virtual com base na gama IP. Endereços IP na rede virtual, pode dividir uma rede virtual em várias subredes para organização e segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Também pode configurar o grupo de segurança da [rede (NSGs)](../../virtual-network/virtual-networks-overview.md) para permitir ou negar o tráfego de rede a uma instância VM com base em regras configuradas na lista de controlo de acesso (ACL) do NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Saiba mais sobre as opções de isolamento da [rede para máquinas em redes virtuais Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Isto inclui o cenário clássico de frente e back-end onde as máquinas de uma determinada rede ou subrede de back-end só podem permitir que certos clientes ou outros computadores se conectem a um determinado ponto final com base numa lista de endereços IP.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e17112cbe2a494a585cd5a09c36cfe449d3d433c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249212"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365820"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e passos de resolução de problemas para os Serviços de Domínio de Diretório Ativo azure
 
@@ -30,7 +30,7 @@ Se tiver problemas em permitir o Azure AD DS, reveja os seguintes erros e passos
 
 | **Mensagem de erro da amostra** | **Resolução** |
 | --- |:--- |
-| *O nome addscontoso.com já está a ser usado nesta rede. Especifique um nome que não esteja a ser utilizado.* |[Conflito de nome de domínio na rede virtual](troubleshoot.md#domain-name-conflict) |
+| *O nome aaddscontoso.com já está a ser usado nesta rede. Especifique um nome que não esteja a ser utilizado.* |[Conflito de nome de domínio na rede virtual](troubleshoot.md#domain-name-conflict) |
 | *Os Serviços de Domínio não podiam ser ativados neste inquilino da AD Azure. O serviço não dispõe de permissões adequadas à aplicação denominada 'Azure AD Domain Services Sync'. Elimine a aplicação chamada 'Azure AD Domain Services Sync' e tente ativar os Serviços de Domínio para o seu inquilino Azure AD.* |[Os Serviços de Domínio não têm permissões adequadas para a aplicação Desincronização de Serviços de Domínio Da AD Azure](troubleshoot.md#inadequate-permissions) |
 | *Os Serviços de Domínio não podiam ser ativados neste inquilino da AD Azure. O pedido de Serviços de Domínio no seu inquilino Azure AD não tem as permissões necessárias para ativar os Serviços de Domínio. Elimine o pedido com o identificador de aplicação d87dcbc6-a371-462e-88e3-28ad15ec4e64 e tente permitir serviços de domínio para o seu inquilino Azure AD.* |[A aplicação De serviços de domínio não está configurada corretamente no seu inquilino Azure AD](troubleshoot.md#invalid-configuration) |
 | *Os Serviços de Domínio não podiam ser ativados neste inquilino da AD Azure. A aplicação AD Microsoft Azure está desativada no seu inquilino Azure AD. Ative a aplicação com o identificador de aplicação 00000002-0000-0000-c000-00000000000000000000000000000e e, em seguida, tente ativar os Serviços de Domínio para o seu inquilino Azure AD.* |[A aplicação Microsoft Graph é desativada no seu inquilino Azure AD](troubleshoot.md#microsoft-graph-disabled) |

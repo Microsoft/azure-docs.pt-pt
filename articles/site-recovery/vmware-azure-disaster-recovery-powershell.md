@@ -8,11 +8,11 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391731"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257202"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de desastres de VMware VMs para Azure com powerShell
 
@@ -353,9 +353,9 @@ Agora, reproduza as seguintes máquinas virtuais utilizando as definições espe
 
 |Máquina virtual  |Servidor de processos        |Conta de Armazenamento              |Conta de Armazenamento de Registos  |Política           |Conta para instalação de serviço de mobilidade|Grupo de recursos-alvo  | Rede virtual alvo  |Sub-rede alvo  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|CentOSVM1       |ConfigurationServer   |N/D| logstorageaccount1                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
+|CentOSVM1       |ConfigurationServer   |N/A| logstorageaccount1                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|conta de armazenamento premium1       |logstorageaccount1   |Política de Replicação|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/D                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |Política de Replicação|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
 
 ```azurepowershell
@@ -496,5 +496,5 @@ Neste passo, falhamos sobre a máquina virtual Win2K12VM1 para um ponto de recup
 
 2. Uma vez falhado com sucesso, pode supor a operação de failover e configurar a replicação inversa do Azure de volta ao site VMware no local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba automatizar mais tarefas utilizando a referência PowerShell de recuperação do [site Azure](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

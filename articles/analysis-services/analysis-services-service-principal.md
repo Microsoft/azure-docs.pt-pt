@@ -8,11 +8,11 @@ ms.date: 02/18/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375131"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266146"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -108,6 +108,6 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Inscreva-se na  Da PowerShell da Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps)  
 [Adicione um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   

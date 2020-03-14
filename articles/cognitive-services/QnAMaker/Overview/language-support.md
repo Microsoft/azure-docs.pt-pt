@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389226"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220558"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte linguístico para um recurso qna maker e bases de conhecimento
 
@@ -29,7 +29,7 @@ Saiba mais sobre o [impacto da seleção linguística.](../how-to/language-knowl
 
 A lista seguinte contém as línguas suportadas para um recurso QnA Maker. 
 
-|Idioma|
+|Linguagem|
 |--|
 |Árabe|
 |Arménio|
@@ -85,7 +85,7 @@ A lista seguinte contém as línguas suportadas para um recurso QnA Maker.
 |Urdu|
 |Vietnamita|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Seleção de idiomas](../how-to/language-knowledge-base.md)

@@ -3,12 +3,12 @@ title: Funcionalidades de segurança para ajudar a proteger as cargas de trabalh
 description: Aprenda a utilizar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f89d9ab3ef373ecd9a7d15ef4ec9b2109750f8de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395538"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248076"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger cargas de trabalho em nuvem que usam Backup Azure
 
@@ -178,24 +178,23 @@ Siga estes passos.
 1. Siga os passos para [desativar a eliminação suave](#disabling-soft-delete).
 2. No portal Azure, vá ao seu cofre, vá a **Backup Itens**e escolha o VM suave apagado.
 
-![Escolha VM eliminado suavemente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Escolha VM eliminado suavemente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. Selecione a opção **Não apagar**.
 
-![Escolha Não excluir](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
+   ![Escolha Não excluir](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 4. Uma janela aparecerá. **Selecione Undelete**.
 
-![Selecione Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Selecione Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 5. Escolha **eliminar os dados de backup** para eliminar permanentemente os dados de backup.
 
-![Escolha eliminar dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha eliminar dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Digite o nome do item de reserva para confirmar que pretende eliminar os pontos de recuperação.
 
-![Digite o nome do artigo de reserva](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do artigo de reserva](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Para eliminar os dados de cópia de segurança do artigo, **selecione Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de backup foram eliminados.
 
@@ -269,6 +268,10 @@ O Azure Backup permite-lhe fazer backup de Máquinas Virtuais Azure contendo dis
 
 Pode fazer backup e restaurar as máquinas virtuais Windows ou Linux Azure (VMs) com discos encriptados utilizando o serviço de backup Azure. Para obter instruções, consulte [Back up e restaure as máquinas virtuais encriptadas com cópia](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)de segurança Azure .
 
+## <a name="private-endpoints"></a>Pontos Finais Privados
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+
 ## <a name="other-security-features"></a>Outras funcionalidades de segurança
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Proteção dos pontos de recuperação de Backup Azure
@@ -321,6 +324,6 @@ As operações de eliminação suave podem ser efetuadas através da [Powershell
 
 Não. Atualmente, o soft delete é suportado apenas para máquinas virtuais Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Leia sobre os controlos de [segurança para o Backup Azure](backup-security-controls.md).

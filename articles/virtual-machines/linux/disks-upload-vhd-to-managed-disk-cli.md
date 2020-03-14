@@ -4,16 +4,16 @@ description: Aprenda a carregar um vhd para um disco gerido pelo Azure e copie u
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 09/20/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f2eb0f59d460fbf8d6595db658bb3f5f9c4a6ad0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970347"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365854"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Faça upload de um vhd para Azure usando o Azure CLI
 
@@ -28,7 +28,7 @@ Atualmente, o upload direto é suportado para discos hdd padrão, SSD padrão e 
 - Descarregue a versão mais recente [do AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale o Azure CLI](/cli/azure/install-azure-cli).
 - Um ficheiro vhd, armazenado localmente
-- Se pretende fazer o upload de um vhd a partir do local: Um vhd que [foi preparado para o Azure](../windows/prepare-for-upload-vhd-image.md), armazenado localmente.
+- Se pretende fazer o upload de um vhd a partir do local: Um vhd de tamanho fixo que [foi preparado para o Azure,](../windows/prepare-for-upload-vhd-image.md)armazenado localmente.
 - Ou, um disco gerido em Azure, se pretender realizar uma ação de cópia.
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerido vazio
@@ -79,8 +79,6 @@ Este upload tem a mesma entrada que o [HDD padrão](disks-types.md#standard-hdd)
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
-
-Se o seu SAS expirar durante o upload e ainda não tiver chamado `revoke-access`, poderá obter um novo SAS para continuar o upload usando `grant-access`, novamente.
 
 Depois de o upload estar completo e já não precisar de escrever mais dados para o disco, revogar o SAS. A revogação do SAS alterará o estado do disco gerido e permitirá que prenda o disco a um VM.
 

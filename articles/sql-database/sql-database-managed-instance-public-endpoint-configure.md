@@ -11,11 +11,11 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360453"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256162"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configure ponto final público em caso gerido na Base de Dados Azure SQL
 
@@ -96,7 +96,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Origem**     |Qualquer endereço IP ou etiqueta de serviço         |<ul><li>Para serviços Azure como Power BI, selecione a etiqueta de serviço Azure Cloud</li> <li>Para o seu computador ou Azure VM, utilize o endereço IP NAT</li></ul> |
     |**Gamas de portas de origem**     |*         |Deixe isto para * (qualquer) como as portas de origem são geralmente dinamicamente atribuídas e, como tal, imprevisíveis |
-    |**Destino**     |Qualquer         |Deixando o destino como Qualquer para permitir o tráfego na subnet de instância gerida |
+    |**Destino**     |Any         |Deixando o destino como Qualquer para permitir o tráfego na subnet de instância gerida |
     |**Gamas portuárias de destino**     |3342         |Porta de destino de âmbito para 3342, que é o ponto final público tDS de instância gerida |
     |**Protocolo**     |TCP         |Instância gerida usa protocolo TCP para TDS |
     |**Ação**     |Permitir         |Permitir que o tráfego de entrada gerencie a instância através do ponto final público |
@@ -114,6 +114,6 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
     ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a utilização da Base de [Dados Azure SQL gerida](sql-database-managed-instance-public-endpoint-securely.md)de forma segura com ponto final público .

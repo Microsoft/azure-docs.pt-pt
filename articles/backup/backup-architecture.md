@@ -4,11 +4,11 @@ description: Fornece uma visão geral da arquitetura, componentes e processos ut
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363775"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273621"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup Azure
 
@@ -210,7 +210,7 @@ Quando restaurar Os VMs com discos geridos, pode restaurar um VM completo com di
 - Durante o processo de restauro, o Azure trata dos discos geridos. Se estiver a usar a opção de conta de armazenamento, gere a conta de armazenamento criada durante o processo de restauro.
 - Se restaurar um VM gerido encriptado, certifique-se de que as chaves e segredos do VM existem no cofre da chave antes de iniciar o processo de restauro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja a matriz de suporte para [aprender sobre funcionalidades suportadas e limitações para cenários](backup-support-matrix.md)de backup .
 - Configurar cópias de segurança para um destes cenários:

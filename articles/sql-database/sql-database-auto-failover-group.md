@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
 ms.openlocfilehash: 6d87d3373711d12df3f2cced26ef35ae951ad41e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356669"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269838"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir falhas transparentes e coordenadas de várias bases de dados
 
@@ -25,7 +25,7 @@ Os grupos de falha automática são uma funcionalidade de Base de Dados SQL que 
 > [!NOTE]
 > Ao trabalhar com bases de dados individuais ou agréns num servidor de base de dados SQL e pretender vários secundários nas mesmas regiões ou regiões diferentes, utilize [geo-replicação ativa.](sql-database-active-geo-replication.md) 
 
-Quando se está a utilizar grupos de falha automática com uma política automática de failover, qualquer falha que tenha impacto numa ou várias bases de dados do grupo resulta em falha automática. Normalmente, estes são incidentes que não podem ser auto-atenuados pelas operações automáticas de alta disponibilidade incorporadas. Os exemplos de disparos de failover incluem um incidente causado por um anel de inquilino SQL ou anel de controlo sendo para baixo devido a uma fuga de memória de kernel oss em vários nós computacionais, ou um incidente causado por um ou mais anéis de inquilino sendo parabaixo porque um cabo de rede errado foi cortado durante ro desmantelamento de hardware utine.  Para mais informações, consulte a Alta Disponibilidade da Base de [Dados SQL](sql-database-high-availability.md).
+Quando se está a utilizar grupos de falha automática com uma política automática de failover, qualquer falha que tenha impacto numa ou várias bases de dados do grupo resulta em falha automática. Normalmente, estes são incidentes que não podem ser auto-atenuados pelas operações automáticas de alta disponibilidade incorporadas. Os exemplos de disparos de failover incluem um incidente causado por um anel de inquilino SQL ou anel de controlo sendo para baixo devido a uma fuga de memória de kernel oss em vários nós computacionais, ou um incidente causado por um ou mais anéis de inquilino sendo parabaixo porque um cabo de rede errado foi cortado durante um cabo de rede errado durante um cabo de rede errado foi cortado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado foi cortado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo de rede errado durante um cabo desmantelamento de hardware de rotina.  Para mais informações, consulte a Alta Disponibilidade da Base de [Dados SQL](sql-database-high-availability.md).
 
 Além disso, os grupos de auto-failover fornecem pontos finais de leitura e ouvintes que permanecem inalterados durante as failovers. Quer utilize ativação manual ou automática de failover, a falha comuta todas as bases de dados secundárias do grupo para primária. Após a falha da base de dados, o registo dNS é automaticamente atualizado para redirecionar os pontos finais para a nova região. Para obter os dados específicos de RPO e RTO, consulte [a visão geral da continuidade do negócio](sql-database-business-continuity.md).
 
@@ -463,7 +463,7 @@ Como discutido anteriormente, grupos de auto-failover e geo-replicação ativa t
 | [Obter Grupo Failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Recupera a configuração de um grupo de falhas. |
 | [Lista de Grupos failover - Lista por localização](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de failover num local. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para tutoriais detalhados, consulte
     - [Adicione uma única base de dados a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)

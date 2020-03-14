@@ -12,11 +12,11 @@ ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
 ms.openlocfilehash: 3f6bbef8f274c5efb99d5b98961450aa7b001527
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359959"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256344"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra dTU
 
@@ -39,7 +39,7 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por piscina (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Escolhas de armazenamento máximo por piscina (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento OLTP Max In-Memory por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
+| Armazenamento OLTP Max In-Memory por piscina (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -54,7 +54,7 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Armazenamento incluído por piscina (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Escolhas de armazenamento máximo por piscina (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Armazenamento OLTP Max In-Memory por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
+| Armazenamento OLTP Max In-Memory por piscina (GB) | N/A | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -69,7 +69,7 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por piscina (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Escolhas de armazenamento máximo por piscina (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Armazenamento OLTP Max In-Memory por piscina (GB) | N/D | N/D | N/D | N/D | N/D |
+| Armazenamento OLTP Max In-Memory por piscina (GB) | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -127,7 +127,7 @@ A tabela seguinte descreve as propriedades para bases de dados reunidas.
 | Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados numa piscina. No entanto, as bases de dados reunidas partilham o armazenamento de piscinas. Mesmo que o armazenamento total máximo *por base de dados* seja superior ao espaço total de armazenamento disponível da *piscina,* o espaço total realmente utilizado por todas as bases de dados não poderá exceder o limite de piscina disponível. O tamanho da base de dados max refere-se ao tamanho máximo dos ficheiros de dados e não inclui o espaço utilizado pelos ficheiros de registo. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para os limites de recursos vCore para uma única base de dados, consulte [os limites de recursos para bases de dados únicas utilizando o modelo](sql-database-vcore-resource-limits-single-databases.md) de compra vCore
 - Para os limites de recursos dTU para uma única base de dados, consulte [os limites de recursos para bases de dados únicas utilizando o modelo](sql-database-dtu-resource-limits-single-databases.md) de compra dTU

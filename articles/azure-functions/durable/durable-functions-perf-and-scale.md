@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356709"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277911"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala em Funções Duráveis (Funções Azure)
 
@@ -266,7 +266,7 @@ A tabela que se segue mostra os números *máximos* de entrada esperados para os
 
 Se não estiver a ver os números de entrada que espera e o seu CPU e o uso da memória parecersaudável, verifique se a causa está relacionada com [a saúde da sua conta de armazenamento](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance). A extensão das Funções Duráveis pode colocar carga significativa numa conta de Armazenamento Azure e cargas suficientemente elevadas podem resultar em estrangulamento da conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça a recuperação de desastres e a geodistribuição](durable-functions-disaster-recovery-geo-distribution.md)

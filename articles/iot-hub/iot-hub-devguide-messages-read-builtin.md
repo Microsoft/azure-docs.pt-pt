@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392517"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284606"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -54,13 +54,13 @@ No portal, o campo final compatível com o Event Hub contém uma cadeia completa
 | ---- | ----- |
 | Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
-| Espaço de Nomes | abcd1234namespace |
+| Espaço de nomes | abcd1234namespace |
 
 Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as permissões **ServiceConnect** para se ligar ao Centro de Eventos especificado.
 
 Os SDKs que pode utilizar para ligar ao ponto final compatível com o Hub de Eventos incorporado que o IoT Hub expõe incluem:
 
-| Idioma | SDK | Exemplo | Notas |
+| Linguagem | SDK | Exemplo | Notas |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início rápido](quickstart-send-telemetry-dotnet.md) | Utiliza informações compatíveis com hubs de eventos |
  Java | https://github.com/Azure/azure-event-hubs-java | [Início rápido](quickstart-send-telemetry-java.md) | Utiliza informações compatíveis com hubs de eventos |
@@ -76,7 +76,7 @@ As integrações do produto que pode utilizar com o ponto final compatível com 
 * [Integração Apache Spark.](../hdinsight/spark/apache-spark-eventhub-streaming.md)
 * [Azure Databricks.](https://docs.microsoft.com/azure/azure-databricks/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre os pontos finais do Hub IoT, consulte os [pontos finais do Hub IoT](iot-hub-devguide-endpoints.md).
 

@@ -12,11 +12,11 @@ ms.date: 03/29/2018
 ms.author: rosh
 ROBOTS: NOINDEX
 ms.openlocfilehash: f92c0faaaa3aa0cd2af16a031f3bed4c6b41fc22
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393950"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220789"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de pré-visualização v7 do URL do projeto
 
@@ -74,7 +74,7 @@ Seguem-se os cabeçalhos que um pedido e resposta podem incluir.
 ## <a name="query-parameters"></a>Parâmetros de consulta
 O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para os parâmetros necessários. Tem de codificar os parâmetros de consulta. A consulta deve ser um URL absoluto com um esquema http ou https; não apoiamos URLs relativos ou outros esquemas como ftp://
 
-|Nome|Valor|Tipo|Necessário|
+|Nome|Valor|Tipo|Required|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pré-visualização de URL atualmente apenas suporta geografia dos EUA e língua inglesa.<br /><br />|String|Sim|
 |<a name="query" />q|O URL para pré-visualizar|String|Sim|
@@ -84,7 +84,7 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
 ## <a name="response-objects"></a>Objetos de resposta
 O esquema de resposta é ou uma [WebPage] ou ErrorResponse, como na API de pesquisa web. Se o pedido falhar, o objeto de nível superior é o objeto [ErrorResponse.](#errorresponse)
 
-|Object|Descrição|
+|Objeto|Descrição|
 |------------|-----------------|
 |[Página Web](#webpage)|Objeto JSON de nível superior que contém atributos de pré-visualização.|
 
@@ -114,9 +114,9 @@ Define informações sobre uma página Web na pré-visualização.
 |Nome|Valor|Tipo|
 |----------|-----------|----------|
 |nome|O título da página, não necessariamente o título HTML|String|
-|url|O URL que foi realmente rastejado (pedido pode ter seguido redirecionamentos)|String|
-|descrição|Breve descrição da página e do conteúdo|String|
-|isFamilyFriendly|Mais preciso para itens no índice web; atreca-se em tempo real fazer esta deteção com base apenas no URL e não no conteúdo da página|boolean|
+|URL|O URL que foi realmente rastejado (pedido pode ter seguido redirecionamentos)|String|
+|description|Breve descrição da página e do conteúdo|String|
+|isFamilyFriendly|Mais preciso para itens no índice web; atreca-se em tempo real fazer esta deteção com base apenas no URL e não no conteúdo da página|valor booleano|
 |primaryImageOfPage/contentUrl|O URL para uma imagem representativa a incluir na pré-visualização|String|
 
 ### <a name="identifiable"></a>Identificável
@@ -179,7 +179,7 @@ Seguem-se os possíveis códigos de erro e os valores do código de sub-erro.
 |Autorização Inválida|Autorização Faltando<br/>AutorizaçãoRedundy|Bing devolve InvalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, falta o cabeçalho `Ocp-Apim-Subscription-Key` ou a chave de subscrição não é válida.<br/><br/>O despedimento ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de estado HTTP é 401.
 |InsufficientAuthorization|AutorizaçãoDeficiente<br/>Autorizações Caducadas|Bing devolve InsuficienteAutorização quando o chamador não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição tiver sido desativada ou tiver expirado. <br/><br/>Se o erro for insuficiente, o código de estado HTTP é 403.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Início Rápido do C#](csharp.md)
 - [Início rápido do Java](java-quickstart.md)
 - [Início rápido do JavaScript](javascript.md)

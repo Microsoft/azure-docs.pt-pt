@@ -12,11 +12,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387567"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260426"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mova dados de uma fonte HTTP utilizando a Azure Data Factory
 
@@ -50,10 +50,10 @@ Pode criar um pipeline que tenha uma atividade de cópia para mover dados de uma
 
 A tabela seguinte descreve elementos JSON específicos do serviço ligado http:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | --- | --- | --- |
 | tipo | A propriedade **tipo** deve ser definida para **Http**. | Sim |
-| url | O URL base para o servidor web. | Sim |
+| URL | O URL base para o servidor web. | Sim |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows**e **ClientCertificate.** <br><br> Consulte secções posteriores neste artigo para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Sim |
 | enableServerCertificateValidation | Especifica se permite a validação do certificado SSL do servidor se a fonte for um servidor web HTTPS. Quando o seu servidor HTTPS utilizar um certificado auto-assinado, detetete isto como **falso**. | Não<br /> (o padrão é **verdadeiro)** |
 | gatewayName | O nome da instância Gateway de Gestão de Dados para utilizar para ligar a uma fonte http no local. | Sim, se estiver a copiar dados de uma fonte http no local |
@@ -65,7 +65,7 @@ Para mais detalhes sobre a definição de credenciais para uma fonte de dados do
 
 Definir **autenticaçãoTipo** para **básico,** **digesto,** ou **Windows**. Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, deteteas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | --- | --- | --- |
 | userName | O nome do utilizador a utilizar para aceder ao ponto final http. | Sim |
 | palavra-passe | A palavra-passe para o utilizador (nome de**utilizador).** | Sim |
@@ -93,7 +93,7 @@ Definir **autenticaçãoTipo** para **básico,** **digesto,** ou **Windows**. Pa
 
 Para utilizar a autenticação básica, detete **teaautenticaçãoType** para **O ClienteCertificate**. Para além das propriedades genéricas do conector HTTP descritas nas secções anteriores, deteteas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | --- | --- | --- |
 | embeddedCertData | O conteúdo codificado base64 de dados binários do ficheiro PFX. | Especificar **incorporadaCertData** ou **certThumbprint** |
 | certThumbprint | A impressão digital do certificado que foi instalado na loja cert da sua máquina de gateway. Aplicar apenas quando copiar dados de uma fonte http no local. | Especificar **incorporadaCertData** ou **certThumbprint** |
@@ -157,7 +157,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados. A secção **TypeProperties** fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para um conjunto de dados do tipo **Http** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | O **tipo** do conjunto de dados deve ser definido para **Http**. | Sim |
 | relativeUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligado. <br><br> Para construir um URL dinâmico, pode utilizar funções de Fábrica de [Dados e variáveis do sistema](data-factory-functions-variables.md). Exemplo: **relativaUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | Não |
@@ -220,7 +220,7 @@ As propriedades disponíveis na secção **tipoPropriedades** da atividade varia
 
 Atualmente, quando a fonte na Atividade de Cópia é do tipo **HttpSource,** são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | O prazo (o valor **TimeSpan)** para o pedido http para obter uma resposta. É o tempo livre para obter uma resposta, não o tempo para ler dados de resposta. | Não<br />(valor predefinido: **00:01:40**) |
 

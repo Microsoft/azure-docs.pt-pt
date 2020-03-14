@@ -9,17 +9,17 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381127"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271710"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Executar o serviço de gestão de certificados OPC Vault de forma segura
 
 Este artigo explica como executar o serviço de gestão de certificados OPC Vault de forma segura em Azure, e revê outras diretrizes de segurança a considerar.
 
-## <a name="roles"></a>Papéis
+## <a name="roles"></a>Funções
 
 ### <a name="trusted-and-authorized-roles"></a>Funções confiáveis e autorizadas
 
@@ -144,7 +144,7 @@ Forneça um conjunto exaustivo de todos os certificados emitidos nos últimos 12
 
 Durante a vida de um CA, a eliminação da chave só pode acontecer raramente. É por isso que nenhum utilizador tem certificado de cofre de chave Apague o direito de exclusão e por que não existem APIs expostos para eliminar um certificado CA emitente. O procedimento de funcionamento padrão manual para a desabater as chaves criptográficas da autoridade de certificação apenas está disponível acedendo diretamente ao Key Vault no portal Azure. Também pode eliminar o grupo de certificados no Cofre chave. Para garantir a eliminação imediata, desative a funcionalidade de eliminação suave do [Cofre chave.](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 
-## <a name="certificates"></a>certificados
+## <a name="certificates"></a>Certificados
 
 ### <a name="certificates-must-comply-with-minimum-certificate-profile"></a>Os certificados devem cumprir o perfil mínimo do certificado
 
@@ -237,7 +237,7 @@ A cerimónia de geração-chave da AC deve ser realizada contra um roteiro docum
   - Preparação de materiais para armazenamento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu a gerir com segurança o Cofre OPC, pode:
 

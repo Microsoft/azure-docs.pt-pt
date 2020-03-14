@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376197"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253536"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Problemas de resolução de um objeto que não está sincronizando com O Diretório Ativo Azure
 
@@ -54,7 +54,7 @@ O processo de sincronização envolve seguir etapas:
 
 5. **Exportação para AD Azure:** Após a sincronização, os objetos são exportados do CS Azure AD para O D.Azure.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Para encontrar os erros, olhe para alguns lugares diferentes, na seguinte ordem:
 
@@ -79,7 +79,7 @@ A coluna **Status** contém as informações mais importantes e mostra o problem
 | stopped-error-limit |Há mais de 5.000 erros. A corrida foi automaticamente interrompida devido ao grande número de erros. |
 | concluído-\*-erros |A corrida terminou, mas há erros (menos de 5.000) que devem ser investigados. |
 | concluído-\*-avisos |A corrida terminou, mas alguns dados não estão no estado esperado. Se tiver erros, esta mensagem geralmente é apenas um sintoma. Não investigue avisos até ter resolvido erros. |
-| exito |Sem problemas. |
+| êxito |Sem problemas. |
 
 Quando selecionar uma linha, a parte inferior do separador **Operações** é atualizada para mostrar os detalhes dessa execução. No lado mais à esquerda desta área, você pode ter uma lista intitulada **Step #** . Esta lista só aparece se tiver vários domínios na sua floresta e cada domínio for representado por um passo. O nome de domínio pode ser encontrado na rubrica **Partição**. No âmbito da rubrica Estatísticas de **Sincronização,** pode encontrar mais informações sobre o número de alterações que foram processadas. Selecione os links para obter uma lista dos objetos alterados. Se tiver objetos com erros, esses erros aparecem sob a rubrica Erros de **Sincronização.**
 
@@ -208,6 +208,6 @@ Se faltar o conector ao Azure AD, reveja a secção de [atributos MV](#mv-attrib
 
 A partir do separador **Conectores** também pode ir ao [objeto espacial do conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre a [sincronização Azure AD Connect](how-to-connect-sync-whatis.md).
 - Saiba mais sobre [identidade híbrida.](whatis-hybrid-identity.md)

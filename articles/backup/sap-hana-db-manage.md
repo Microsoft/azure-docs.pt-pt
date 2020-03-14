@@ -4,11 +4,11 @@ description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar as ba
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382476"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252405"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -185,6 +185,6 @@ Desregilhe uma instância SAP HANA depois de desativar a proteção, mas antes d
 
    ![Selecione não registar](./media/sap-hana-db-manage/unregister.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Aprenda a [resolver problemas comuns ao apoiar as bases de dados SAP HANA.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)

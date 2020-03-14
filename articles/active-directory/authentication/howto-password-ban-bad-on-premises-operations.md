@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082106"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263819"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local a Proteção de Palavras-passe de Diretório Ativo Azure
 
@@ -67,7 +67,7 @@ Os utilizadores finais afetados podem ter de trabalhar com o seu pessoal de TI p
 > [!NOTE]
 > A Proteção de Palavras-passe Azure AD não tem controlo sobre a mensagem de erro específica exibida pela máquina cliente quando uma palavra-passe fraca é rejeitada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para personalizar a lista de palavras-passe proibida para a sua organização, consulte Configurar a lista de [senhas proibida selada](tutorial-configure-custom-password-protection.md)por Código de Acesso AD .
 

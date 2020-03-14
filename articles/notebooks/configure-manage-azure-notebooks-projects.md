@@ -4,11 +4,11 @@ description: Saiba como gerir metadados de projetos, ficheiros de projetos, ambi
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360648"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280602"
 ---
 # <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gerir e configurar projetos na Pré-visualização de cadernos Azure
 
@@ -81,7 +81,7 @@ Cada item na lista de ficheiros do projeto fornece comandos por meio de um menu 
 | Pré-visualização | p | Abre-se de uma visualização HTML do arquivo; para blocos de notas, a pré-visualização é um processamento só de leitura do bloco de notas. Para mais informações, consulte a secção [Preview.](#preview) |
 | Editar ficheiro | Eu | Abre o arquivo para edição. |
 | Transferência | d | Transfere um ficheiro zip que contém o ficheiro ou o conteúdo de uma pasta. |
-| Mudar o Nome | a | Pedidos de um novo nome para o ficheiro ou pasta. |
+| Mudar o nome | a | Pedidos de um novo nome para o ficheiro ou pasta. |
 | Eliminar | x | Solicita a confirmação e, em seguida, remove permanentemente o arquivo do projeto. As eliminações não podem ser anuladas. |
 | Mover | m | Move um ficheiro para uma pasta diferente no mesmo projeto. |
 
@@ -93,7 +93,7 @@ A página de pré-visualização suporta vários comandos de barra de ferramenta
 
 | Comando | Atalho de teclado | Ação |
 | --- | --- | --- |
-| Partilhar | s | Apresenta o popup partilha a partir da qual pode obter uma ligação, partilhar a mídia social, obter o HTML para incorporar e enviar um e-mail. |
+| Partilha | s | Apresenta o popup partilha a partir da qual pode obter uma ligação, partilhar a mídia social, obter o HTML para incorporar e enviar um e-mail. |
 | Clone | c  | Clone o bloco de notas à sua conta. |
 | Executar | R | Se tem permissão para fazer isso, é executado o bloco de notas. |
 | Transferência | d | Transfere uma cópia do bloco de notas. |
@@ -186,7 +186,7 @@ Também pode utilizar o comando a partir de uma célula de código num bloco de 
 !cat .nb.log
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)
 - [Aceda aos dados da nuvem num caderno](access-data-resources-jupyter-notebooks.md)

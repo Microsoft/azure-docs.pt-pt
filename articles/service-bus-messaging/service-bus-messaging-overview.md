@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
 ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396275"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240633"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -39,7 +39,7 @@ Um espaço de nome é um recipiente para todos os componentes de mensagens. Vár
 
 As mensagens são enviadas e recebidas de *filas*. As filas armazenam mensagens até que a aplicação recetora esteja disponível para recebê-las e processá-las.
 
-![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
 As mensagens nas filas são encomendadas e marcadas à chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo *pull,* apenas entregando mensagens quando solicitadas.
 
@@ -124,7 +124,7 @@ O Service Bus integra-se totalmente nos seguintes serviços do Azure:
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a utilizar as mensagens do Service Bus, consulte os seguintes artigos:
 

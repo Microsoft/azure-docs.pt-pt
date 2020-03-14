@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver erros encontrados com backup e res
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: c087814d74032bfc39310690cb31e258fdb1e41e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247933"
+ms.locfileid: "79297395"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup em máquinas virtuais Azure
 
@@ -24,7 +24,7 @@ Esta secção cobre a falha de funcionamento de backup da máquina Azure Virtual
 * Certifique-se de que o Agente VM (Agente WA) é a [versão mais recente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Certifique-se de que a versão Do SI ou Do Sistema Operativo VM Do Windows ou Do Linux é suportada, consulte a Matriz de Suporte de [Backup IaaS VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Verifique se outro serviço de reserva não está a funcionar.
-  * Para garantir que não existem problemas de extensão instantânea, [desinstale as extensões para forçar a recarga e, em seguida, tente novamente a cópia de segurança](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * Para garantir que não existem problemas de extensão instantânea, [desinstale as extensões para forçar a recarga e, em seguida, tente novamente a cópia de segurança](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Verifique se o VM tem conectividade com a Internet.
   * Certifique-se de que outro serviço de reserva não está a funcionar.
 * A partir de `Services.msc`, certifique-se de que o serviço **de agente convidado Windows Azure** está em **execução.** Se o serviço **de Agente Convidado Windows Azure** estiver em falta, instale-o a partir de [VMs Azure back up num cofre de Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
@@ -200,7 +200,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | O reforço não pode cancelar o trabalho porque não está em andamento. <br>O cancelamento é suportado apenas para postos de trabalho em curso. Tente cancelar um trabalho em andamento. |Este erro acontece por causa de um estado transitório. Espere um minuto e tente novamente a operação de cancelamento. |
 | O reforço não cancelou o trabalho: <br>Espere até o trabalho terminar. |Nenhum |
 
-## <a name="restore"></a>Restauro
+## <a name="restore"></a>Restaurar
 
 | Detalhes do erro | Solução |
 | --- | --- |

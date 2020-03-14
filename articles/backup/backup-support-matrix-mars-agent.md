@@ -4,11 +4,11 @@ description: Este artigo resume o suporte de backup Azure quando faz backup de m
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932603"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247868"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente microsoft Azure Recovery Services (MARS)
 
@@ -43,7 +43,7 @@ Quando utiliza o agente MARS para fazer o back-up dos dados, o agente tira uma f
 
 **Cache** | **Detalhes**
 --- | ---
-Tamanho |  O espaço livre na pasta cache deve ser de pelo menos 5 a 10% do tamanho total dos seus dados de backup.
+Size |  O espaço livre na pasta cache deve ser de pelo menos 5 a 10% do tamanho total dos seus dados de backup.
 Localização | A pasta cache deve ser armazenada localmente na máquina que está a ser apoiada, e deve estar online. A pasta cache não deve estar numa partilha de rede, em meios amovíveis ou num volume offline.
 Pasta | A pasta cache não deve ser encriptada num volume deduplicado ou numa pasta comprimido, que é escassa, ou que tenha um ponto de reparo.
 Mudanças de localização | Pode alterar a localização da cache parando o motor de reserva (`net stop bengine`) e copiando a pasta cache para uma nova unidade. (Certifique-se de que a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registo em **HKLM\SOFTWARE\Microsoft\Microsoft\Windows Azure Backup** **(Config/ScratchLocation** e **Config/CloudBackupProvider/ScratchLocation**) para a nova localização e reinicie o motor.
@@ -182,7 +182,7 @@ Partilha de rede| Não suportado |O volume deve ser local no servidor.
 Volumes bloqueados por BitLocker| Não suportado |O volume deve ser desbloqueado antes do início da cópia de segurança.
 Identificação do sistema de ficheiros| Não suportado |Apenas o NTFS é apoiado.
 Meios amovíveis| Não suportado |Todas as fontes de artigo de reserva devem ter um estado *fixo.*
-Unidades desduplicadas | Suportado | O Azure Backup converte dados desduplicados em dados normais. Otimiza, encripta, armazena e envia os dados para o cofre.
+Unidades desduplicadas | Suportadas | O Azure Backup converte dados desduplicados em dados normais. Otimiza, encripta, armazena e envia os dados para o cofre.
 
 ## <a name="support-for-initial-offline-backup"></a>Suporte para cópia de segurança offline inicial
 
@@ -199,7 +199,7 @@ Ao utilizar a funcionalidade [De restauro instantâneo](backup-instant-restore-c
 
 As cópias de segurança não podem ser restauradas a uma máquina-alvo que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança retirada de um computador que está a executar o Windows 7 pode ser restaurada no Windows 8 ou posteriormente. Mas uma cópia de segurança tirada de um computador que está a executar o Windows 8 não pode ser restaurada num computador que está a executar o Windows 7.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [a arquitetura de backup que utiliza o agente MARS.](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)
 - Saiba o que é suportado quando [executa o agente MARS no MABS ou num servidor DPM](backup-support-matrix-mabs-dpm.md).

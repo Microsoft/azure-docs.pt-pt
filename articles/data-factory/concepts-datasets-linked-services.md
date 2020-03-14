@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381768"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246269"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados na Fábrica de Dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -67,11 +67,11 @@ Um conjunto de dados na Data Factory é definido no seguinte formato JSON:
 ```
 A tabela seguinte descreve propriedades no JSON acima:
 
-Propriedade | Descrição | Necessário |
+Propriedade | Descrição | Required |
 -------- | ----------- | -------- |
 nome | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
 tipo | tipo de conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais detalhes, consulte [os tipos de Conjunto de Dados](#dataset-type). | Sim |
-structure | Esquema do conjunto de dados. Para mais detalhes, consulte [dataset schema](#dataset-structure-or-schema). | Não |
+estrutura | Esquema do conjunto de dados. Para mais detalhes, consulte [dataset schema](#dataset-structure-or-schema). | Não |
 typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, mesa Azure SQL). Para mais detalhes sobre os tipos suportados e suas propriedades, consulte o [tipo dataset](#dataset-type). | Sim |
 
 ### <a name="data-flow-compatible-dataset"></a>Conjunto de dados compatível com fluxo de dados
@@ -112,7 +112,7 @@ Quando importar o esquema de um conjunto de dados do Fluxo de Dados, selecione o
 
 A tabela seguinte descreve propriedades no JSON acima:
 
-Propriedade | Descrição | Necessário |
+Propriedade | Descrição | Required |
 -------- | ----------- | -------- |
 nome | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação.](naming-rules.md) |  Sim |
 tipo | tipo de conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais detalhes, consulte [os tipos de Conjunto de Dados](#dataset-type). | Sim |
@@ -178,7 +178,7 @@ Os conjuntos de dados da secção **de estrutura** ou **schema** (data flow comp
 
 Cada coluna na estrutura contém as seguintes propriedades:
 
-Propriedade | Descrição | Necessário
+Propriedade | Descrição | Required
 -------- | ----------- | --------
 nome | Nome da coluna. | Sim
 tipo | Tipo de dados da coluna. Data Factory suporta os seguintes tipos de dados provisórios como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan** | Não
@@ -217,7 +217,7 @@ Aqui ficam algumas diferenças entre data factory e data factory versão 1 conju
 - As propriedades políticas e de disponibilidade não são suportadas na versão atual. A hora de início de um gasoduto depende dos [gatilhos.](concepts-pipeline-execution-triggers.md)
 - Conjuntos de dados com âmbito (conjuntos de dados definidos num pipeline) não são suportados na versão atual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte o seguinte tutorial para obter instruções passo a passo para a criação de oleodutos e conjuntos de dados utilizando uma destas ferramentas ou SDKs.
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Início rápido: criar uma fábrica de dados com .NET)

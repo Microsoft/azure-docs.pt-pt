@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 5a41d5653de0d8a9f674009904756892ac343609
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358476"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281733"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -63,11 +63,11 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 O serviço ligado à Teradata suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **Teradata**. | Sim |
 | connectionString | Especifica as informações necessárias para se ligar à instância Teradata. Consulte as seguintes amostras.<br/>Também pode colocar uma palavra-passe no Cofre de Chaves Azure e retirar a configuração `password` da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| o nome de utilizador | Especifique um nome de utilizador para ligar à Teradata. Aplica-se quando está a utilizar a autenticação do Windows. | Não |
+| username | Especifique um nome de utilizador para ligar à Teradata. Aplica-se quando está a utilizar a autenticação do Windows. | Não |
 | palavra-passe | Especifique uma palavra-passe para a conta de utilizador especificada para o nome de utilizador. Também pode optar por fazer referência a [um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). <br>Aplica-se quando está a utilizar a autenticação do Windows ou a fazer referência a uma palavra-passe no Cofre chave para autenticação básica. | Não |
 | connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Sim |
 
@@ -150,10 +150,10 @@ Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dado
 
 Para copiar dados da Teradata, são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para `TeradataTable`. | Sim |
-| database | O nome da instância Teradata. | Não (se for especificada "query" na origem de atividade) |
+| base de dados | O nome da instância Teradata. | Não (se for especificada "query" na origem de atividade) |
 | table | O nome da tabela na instância Teradata. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo:**
@@ -204,10 +204,10 @@ Esta secção fornece uma lista de propriedades suportadas por fonte da Teradata
 
 Para copiar dados da Teradata, as seguintes propriedades são suportadas na secção **de origem** de atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Required |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para `TeradataSource`. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativa a carga divisória, tem de ligar os parâmetros correspondentes de partição incorporados na sua consulta. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não (se for especificado o quadro no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativa a carga divisória, tem de ligar os parâmetros correspondentes de partição incorporados na sua consulta. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não (se for especificado o quadro no conjunto de dados) |
 | partitionOptions | Especifica as opções de partilha de dados utilizadas para carregar dados da Teradata. <br>Os valores de aditar são: **Nenhum** (padrão), **Hash** e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, não `None`), o grau de paralelismo para carregar simultaneamente dados da Teradata é controlado pela [definição`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade da cópia. | Não |
 | partiçãoDefinições | Especifique o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não é `None`. | Não |
 | partitionColumnName | Especifique o nome da coluna de origem que será utilizada por divisória de alcance ou partição de Hash para cópia paralela. Se não especificado, o índice primário da tabela é detetado automaticamente e utilizado como coluna de partição. <br>Aplicar quando a opção de partição for `Hash` ou `DynamicRange`. Se utilizar uma consulta para recuperar os dados de origem, prenda `?AdfHashPartitionCondition` ou `?AdfRangePartitionColumnName` na cláusula WHERE. Consulte o exemplo na cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
@@ -306,7 +306,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | ByteInt |Int16 |
 | char |String |
 | Clob |String |
-| Data |DateTime |
+| Date |DateTime |
 | decimal |decimal |
 | Valor de duplo |Valor de duplo |
 | Graphic |Não suportado. Aplicar elenco explícito na consulta de origem. |
@@ -324,7 +324,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | Interval Second |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Interval Year |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Interval Year To Month |Não suportado. Aplicar elenco explícito na consulta de origem. |
-| Number |Valor de duplo |
+| Número |Valor de duplo |
 | Período (Data) |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Período (Hora) |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Período (Hora com Fuso Horário) |Não suportado. Aplicar elenco explícito na consulta de origem. |
@@ -346,5 +346,5 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

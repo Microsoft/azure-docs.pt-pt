@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377381"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262740"
 ---
 # <a name="using-web-browsers-msalnet"></a>Utilização de navegadores web (MSAL.NET)
 
@@ -45,15 +45,15 @@ Geralmente, recomenda-se que utilize o padrão da plataforma, e este é tipicame
 
 ### <a name="at-a-glance"></a>Num relance
 
-| Enquadramento        | Embutido | Sistema | Predefinição |
+| Enquadramento        | incorporado | Sistema | Predefinição |
 | ------------- |-------------| -----| ----- |
-| .NET Classic     | Sim | Sim, | Embutido |
+| .NET Classic     | Sim | Sim, | incorporado |
 | .NET Core     | Não | Sim, | Sistema |
 | .NET Standard | Não | Sim, | Sistema |
-| UWP | Sim | Não | Embutido |
+| UWP | Sim | Não | incorporado |
 | Xamarin.Android | Sim | Sim  | Sistema |
 | Xamarin.iOS | Sim | Sim  | Sistema |
-| Xamarin.Mac| Sim | Não | Embutido |
+| Xamarin.Mac| Sim | Não | incorporado |
 
 ^ Requer "http://localhost" redirecionar URI
 
@@ -149,7 +149,7 @@ Existem algumas diferenças visuais entre webview incorporado e navegador de sis
 
 **Iniciar sessão interativa com MSAL.NET utilizando o Webview incorporado:**
 
-![Embutido](media/msal-net-web-browsers/embedded-webview.png)
+![incorporado](media/msal-net-web-browsers/embedded-webview.png)
 
 **Iniciar sessão interativa com MSAL.NET utilizando o Browser do Sistema:**
 

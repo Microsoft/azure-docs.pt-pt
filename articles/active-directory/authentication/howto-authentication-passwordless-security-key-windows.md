@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269359"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263910"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ative o acesso à chave de segurança sem palavras-passe para dispositivos Windows 10 com Diretório Ativo Azure (pré-visualização)
 
@@ -160,7 +160,7 @@ Se quiser partilhar problemas de feedback ou de encontro durante a pré-visualiz
    - Subcategoria: FIDO
 1. Para capturar registos, use a opção para **recriar** o meu Problema
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Permitir o acesso aos recursos no local para dispositivos aderes à AD Azure e híbridos Azure](howto-authentication-passwordless-security-key-on-premises.md)
 

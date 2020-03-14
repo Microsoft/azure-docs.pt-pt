@@ -1,17 +1,17 @@
 ---
-title: Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
+title: Encriptação de dados com chave gerida pelo cliente - Base de Dados Azure para MySQL
 description: A Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente permite-lhe trazer a sua própria chave (BYOK) para proteção de dados em repouso. Permite ainda que as organizações implementem a separação de deveres na gestão de chaves e dados.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210436"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299129"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
@@ -29,7 +29,7 @@ Key Vault é um sistema de gestão de chaves externas baseado em nuvem. É altam
 
 ## <a name="benefits"></a>Vantagens
 
-A criptografia de dados para o Azure Database para MySQL oferece os seguintes benefícios:
+A encriptação de dados para a Base de Dados Azure para o MySQL fornece os seguintes benefícios:
 
 * O acesso a dados é totalmente controlado por si pela capacidade de remover a chave e tornar a base de dados inacessível 
 * Controlo total sobre o ciclo de vida-chave, incluindo a rotação da chave para alinhar com as políticas corporativas
@@ -59,7 +59,7 @@ O administrador do cofre chave também pode [permitir o registo de eventos de au
 
 Quando o servidor está configurado para utilizar a chave gerida pelo cliente armazenada no cofre da chave, o servidor envia o DEK para o cofre de chaves para encriptação. O Key Vault devolve o DEK encriptado, que está armazenado na base de dados do utilizador. Da mesma forma, quando necessário, o servidor envia o DEK protegido para o cofre chave para desencriptação. Os auditores podem usar o Monitor Azure para rever os registos de eventos de auditoria do Key Vault, se o registo está ativado.
 
-## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-mysql"></a>Requisitos para a configuração da criptografia de dados para o Azure Database para MySQL
+## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-mysql"></a>Requisitos para configurar encriptação de dados para base de dados Azure para MySQL
 
 Seguem-se os requisitos para configurar o Cofre chave:
 
@@ -125,6 +125,6 @@ Para evitar problemas ao configurar encriptação de dados gerida pelo cliente d
 * Mantenha o servidor recém-criado (restaurado/réplica) num estado inacessível, porque a sua identidade única ainda não foi dada permissões ao Key Vault.
 * No servidor restaurado/réplica, revvalida a chave gerida pelo cliente nas definições de encriptação de dados. Isto garante que o servidor recém-criado é dado embrulhámento e desembrulhar permissões para a chave armazenada no Cofre chave.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprenda a configurar a encriptação de dados com uma chave gerida pelo cliente para a sua base de [dados Azure para o MySQL utilizando o portal Azure](howto-data-encryption-portal.md).

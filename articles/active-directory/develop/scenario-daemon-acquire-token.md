@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377346"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262649"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App Daemon que chama APIs web - adquira um token
 
@@ -171,7 +171,7 @@ private static IAuthenticationResult acquireToken() throws Exception {
 
 ---
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Se ainda não tem uma biblioteca para a sua língua escolhida, talvez queira usar o protocolo diretamente:
 
@@ -208,7 +208,7 @@ Para mais informações, consulte a documentação do protocolo: plataforma de i
 
 Em MSAL.NET, `AcquireTokenForClient` usa a cache token da aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache token do utilizador.) Não ligue `AcquireTokenSilent` antes de ligar para `AcquireTokenForClient`, porque `AcquireTokenSilent` usa a cache token do *utilizador.* `AcquireTokenForClient` verifica a própria cache de ficha de *aplicação* e atualiza-a.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Usou o âmbito de recurso/.padrão?
 
@@ -233,7 +233,7 @@ Content: {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 

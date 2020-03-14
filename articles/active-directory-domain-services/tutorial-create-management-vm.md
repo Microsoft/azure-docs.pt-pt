@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239141"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar um VM de gestão para configurar e administrar um domínio gerido pelo Azure Ative Directory Domain Services
 
@@ -59,7 +59,6 @@ O Azure AD DS fornece um domínio gerido para os seus utilizadores, aplicações
 
 Os membros do grupo de administradores da *AAD DC* recebem privilégios no domínio gerido pela AD DS azure que lhes permite fazer tarefas como:
 
-* Junte as máquinas ao domínio gerido.
 * Configure o objeto de política de grupo incorporado (GPO) para os recipientes *AADDC Computers* e *AADDC Users* no domínio gerido.
 * Administrar o DNS no domínio gerido.
 * Crie e disgere unidades organizacionais personalizadas (OUs) no domínio gerido.
@@ -142,7 +141,7 @@ Estão disponíveis ações do Common Ative Directory Administrative Center, tai
 
 Também pode utilizar o *Módulo de Diretório Ativo para windows PowerShell,* instalado como parte das ferramentas administrativas, para gerir ações comuns no seu domínio gerido pelo Azure AD DS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

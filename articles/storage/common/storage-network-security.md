@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 03f383bd6e44a55388e0bef6a38c4a1880d6f044
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 29fa294d2f384ae74c1184c6207648907cb99386
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268265"
+ms.locfileid: "79299112"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -131,7 +131,7 @@ Quando planear a recuperação após desastre durante uma falha regional, deve c
 > [!NOTE]
 > Pontos finais de serviço não se aplicam ao tráfego fora da região de rede virtual e o par de regiões designado. Só pode aplicar regras de rede, conceder acesso a partir de redes virtuais para contas de armazenamento na região primária de uma conta de armazenamento ou na região emparelhada designado.
 
-### <a name="required-permissions"></a>Permissões obrigatórias
+### <a name="required-permissions"></a>Permissões necessárias
 
 Para aplicar uma regra de rede virtual a uma conta de armazenamento, o utilizador tem de ter as permissões adequadas para as sub-redes que está a ser adicionadas. A permissão necessária é *aderir ao Serviço a uma Subnet* e está incluída na função incorporada do Contribuinte de Conta de *Armazenamento.* Também podem ser adicionada às definições de função personalizada.
 
@@ -370,7 +370,7 @@ Alguns serviços da Microsoft operam a partir de redes que não podem ser inclu�
 
 Quando ativa os **serviços fidedignos** da Microsoft... definição, os recursos dos seguintes serviços que estão registados na mesma subscrição que a sua conta de armazenamento têm acesso a um conjunto limitado de operações, conforme descrito:
 
-| Serviço                  | Nome do fornecedor de recursos     | Operações permitidas                 |
+| Service                  | Nome do fornecedor de recursos     | Operações permitidas                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | Microsoft.RecoveryServices | Executar cópias de segurança e restauros de discos não geridos em máquinas de virtuais IAAS. (não necessário para discos geridos). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para o Azure utilizando a Data Box. [Saiba mais](/azure/databox/data-box-overview). |
@@ -386,13 +386,13 @@ Quando ativa os **serviços fidedignos** da Microsoft... definição, os recurso
 
 A definição de **serviços fidedignos** da Microsoft... permite também que uma determinada instância dos serviços abaixo aceda à conta de armazenamento, se atribuir explicitamente [uma função RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à [identidade gerida atribuída](../../active-directory/managed-identities-azure-resources/overview.md) pelo sistema para essa instância de recursos. Neste caso, o âmbito de acesso, por exemplo, corresponde ao papel RBAC atribuído à identidade gerida.
 
-| Serviço                        | Nome do fornecedor de recursos                 | Objetivo            |
+| Service                        | Nome do fornecedor de recursos                 | Objetivo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Permite que os serviços de Pesquisa Cognitiva acedam a contas de armazenamento para indexação, processamento e consulta. |
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registries | As Tarefas ACR podem aceder a contas de armazenamento ao construir imagens de contentores. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite o acesso às contas de armazenamento através do tempo de execução da ADF. |
 | Azure Data Share               | Microsoft.DataShare/contas           | Permite o acesso a contas de armazenamento através da Data Share. |
-| Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que aplicações lógicas acedam a contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
+| Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que aplicações lógicas acedam a contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados do Azure Machine Learning escrevem saída seleção, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Permite a importação e exportação de dados de instâncias específicas da Base de Dados SQL utilizando a PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam escritos ao armazenamento blob. Esta funcionalidade encontra-se em pré-visualização. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
@@ -469,7 +469,7 @@ Pode gerir as exceções de regra de rede através do portal do Azure, o PowerSh
 > [!IMPORTANT]
 > Certifique-se de [que definir a regra de incumprimento](#change-the-default-network-access-rule) para **negar,** ou remover exceções não tem qualquer efeito.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre os pontos finais do serviço da Rede Azure nos [pontos finais do Serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
 

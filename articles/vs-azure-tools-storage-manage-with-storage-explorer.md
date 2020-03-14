@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357034"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279796"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
@@ -266,7 +266,7 @@ Ao introduzir texto na caixa de pesquisa, o Storage Explorer exibe todos os recu
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerir os recursos de armazenamento da Blob Azure com o Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Trabalhe com dados usando o Azure Storage Explorer](./cosmos-db/storage-explorer.md)

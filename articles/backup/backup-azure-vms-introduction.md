@@ -3,16 +3,22 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço de backup Azure apoia as máquinas Azure Virtual e como seguir as melhores práticas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 67ff06e882ec61dff58922606469ac27a8bbf7fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273218"
+ms.locfileid: "79297362"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup Azure VM
 
 Este artigo descreve como o [serviço de backup Azure](backup-introduction-to-azure-backup.md) apoia as máquinas virtuais Azure (VMs).
+
+A Azure Backup fornece cópias de segurança independentes e isoladas para se proteger da destruição não intencional dos dados dos seus VMs. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão incorporada dos pontos de recuperação. A configuração e a escala são simples, as cópias de segurança são otimizadas, e você pode facilmente restaurar conforme necessário.
+
+Como parte do processo de backup, é tirada uma [imagem instantânea](#snapshot-creation)e os dados são transferidos para o cofre dos Serviços de Recuperação sem impacto nas cargas de trabalho de produção. O instantâneo proporciona diferentes níveis de consistência, como descrito [aqui.](#snapshot-consistency)
+
+A Azure Backup também tem ofertas especializadas para cargas de trabalho de base de dados como [o SQL Server](backup-azure-sql-database.md) e [o SAP HANA](sap-hana-db-about.md) que estão conscientes da carga de trabalho, oferecem RPO de 15 minutos (objetivo de ponto de recuperação), e permitem a cópia de segurança e restauro de bases de dados individuais.
 
 ## <a name="backup-process"></a>Processo de backup
 
@@ -66,7 +72,7 @@ O Azure Backup tira fotografias de acordo com o horário de reserva.
   - Se os pré-scripts e pós-scripts executarem com sucesso, o Azure Backup marca o ponto de recuperação como consistente com aplicações. No entanto, quando se está a usar scripts personalizados, é supor a consistência da aplicação.
   - [Saiba mais](backup-azure-linux-app-consistent.md) sobre como configurar scripts.
 
-### <a name="snapshot-consistency"></a>Consistência instantânea
+## <a name="snapshot-consistency"></a>Consistência instantânea
 
 A tabela a seguir explica os diferentes tipos de consistência instantânea:
 
@@ -129,6 +135,6 @@ Disco de dados 2 | 32 TB | 0 GB
 
 O tamanho real do VM neste caso é de 17 GB + 30 GB + 0 GB = 47 GB. Este tamanho de instância protegida (47 GB) torna-se a base para a fatura mensal. À medida que a quantidade de dados no VM aumenta, o tamanho da instância protegida utilizado para alterações de faturação corresponde.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora, [preparem-se para o reforço Azure VM.](backup-azure-arm-vms-prepare.md)

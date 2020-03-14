@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a apoiar as bases de dados do SQL Server em m
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7a6bae3a850b5e67af8da80a06b862e7e2e7561d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120846"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273335"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -17,7 +17,7 @@ As bases de dados do SQL Server são cargas de trabalho críticas que requerem u
 
 Este artigo mostra como fazer backup numa base de dados do SQL Server que está a funcionar num Azure VM para um cofre dos Serviços de Recuperação de Backup Azure.
 
-Neste artigo, você aprenderá a:
+Neste artigo, aprenderá a:
 
 > [!div class="checklist"]
 >
@@ -98,6 +98,10 @@ Utilize etiquetas de serviço NSG | Mais fácil de gerir à medida que as altera
 Utilize tags FQDN de firewall Azure | Mais fácil de gerir à medida que as FQDNs necessárias são geridas automaticamente | Pode ser usado apenas com Firewall Azure
 Use um proxy HTTP | Ponto único de acesso à Internet aos VMs <br/> | Custos adicionais para executar um VM com o software proxy <br/> Sem endereços FQDN publicados, permitir regras estarão sujeitas a alterações de endereço IP Do Azure
 
+#### <a name="private-endpoints"></a>Pontos Finais Privados
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Base de dados de diretrizes de nomeação para Backup Azure
 
 Evite utilizar os seguintes elementos em nomes de bases de dados:
@@ -125,7 +129,7 @@ Como descobrir bases de dados em execução num VM:
 
    ![Selecione Backup para abrir o menu 'Backup Goal'](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. In **Backup Goal**, set Whereyour **workload running?**
+3. In **Backup Goal**, set Where **Azure**your **workload running?**
 
 4. No **que pretende fazer backup,** selecione **SQL Server em Azure VM**.
 
@@ -282,7 +286,7 @@ Se precisar de desativar a proteção automática, selecione o nome da instânci
 
 ![Desativar a proteção automática neste caso](./media/backup-azure-sql-database/disable-auto-protection.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprenda a:
 

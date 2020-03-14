@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d43ad2ce88108a728b26e10eecc7082262a4b637
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359630"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271359"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu centro ioT
 
@@ -78,6 +78,8 @@ Utilize operações assíncronas no ponto final do fornecedor de [recursos IoT H
 Utilize operações assíncronas no ponto final do fornecedor de [recursos IoT Hub](iot-hub-devguide-endpoints.md) para importar identidades de dispositivos a granel para o registo de identidade de um hub IoT. As importações são trabalhos de longa duração que utilizam dados num contentor de blob fornecido pelo cliente para escrever dados de identidade do dispositivo no registo de identidade.
 
 Para obter mais informações sobre as APIs de importação e exportação, consulte o fornecedor de [recursos do IoT Hub REST APIs](/rest/api/iothub/iothubresource). Para saber mais sobre a gestão de postos de trabalho na importação e exportação, consulte a [gestão a granel das identidades do dispositivo IoT Hub.](iot-hub-bulk-identity-mgmt.md)
+
+As identidades do dispositivo também podem ser exportadas e importadas a partir de um Hub IoT através da API de serviço através da [API REST](/rest/api/iothub/service/createimportexportjob) ou de um dos [SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)de Serviço IoT Hub .
 
 ## <a name="device-provisioning"></a>Fornecimento de dispositivos
 
@@ -237,7 +239,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu a usar o registo de identidade do IoT Hub, pode estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

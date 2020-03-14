@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 31e85876d60ae6fcd8f3b29633506d698a323acb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386407"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272438"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Ligue-se ao HDInsight (Apache Hadoop) utilizando o SSH
 
@@ -21,7 +21,7 @@ Aprenda a utilizar a [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_S
 
 A tabela seguinte contém o endereço e as informações da porta necessárias para a ligação ao HDInsight utilizando um cliente SSH:
 
-| Endereço | Porta | Liga-se a... |
+| Endereço | Port | Liga-se a... |
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nó principal primário |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nó principal secundário |
@@ -256,7 +256,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [HDInsight usando o armazenamento](hdinsight-hadoop-use-data-lake-store.md)do lago De dados Azure .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Use SSH tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) (Utilizar túnel SSH com o HDInsight)
 * [Planeie uma rede virtual com o HDInsight](hdinsight-plan-virtual-network-deployment.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396294"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261661"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
 
@@ -46,7 +46,7 @@ O **Número de sequência** para uma mensagem programada só é válido enquanto
 
 Como a funcionalidade está ancorada em mensagens individuais e as mensagens só podem ser enquecidas uma vez, o Service Bus não suporta horários recorrentes para mensagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 

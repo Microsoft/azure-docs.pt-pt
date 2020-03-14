@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393787"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220976"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenções na sua app LUIS
 
@@ -100,7 +100,7 @@ Saiba mais sobre a combinação de apps de fabricante luis e QnA com o [modelo d
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Pedir ajuda para aplicações com o número significativo de intenções
 Se reduzir o número de objetivos ou divisão de suas intenções em várias aplicações não estiver a funcionar, contacte o suporte. Se a sua subscrição Azure incluir serviços de suporte, contacte o [suporte técnico do Azure.](https://azure.microsoft.com/support/options/) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [entidades](luis-concept-entity-types.md), que são palavras importantes relevantes para as intenções
 * Saiba como [adicionar e gerir as intenções](luis-how-to-add-intents.md) na sua aplicação LUIS.

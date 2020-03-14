@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jeconnoc
-ms.openlocfilehash: 0e47bde280e9483f3c265e0d3147eadcbb128612
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344177"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248258"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade do negócio e recuperação de desastres (BCDR): Regiões Emparelhadas de Azure
 
@@ -26,7 +26,7 @@ Um par regional é composto por duas regiões dentro da mesma geografia. O Azure
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Alguns serviços azure aproveitam ainda mais as regiões emparelhadas para garantir a continuidade do negócio e proteger contra perdas de dados.  O Azure fornece [várias soluções](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) de armazenamento que aproveitam as regiões emparelhadas para garantir a disponibilidade de dados. Por exemplo, o [Armazenamento Geo-Redundante Azure](/storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replica automaticamente os dados para uma região secundária, garantindo que os dados são duráveis mesmo no caso de a região primária não ser recuperável. 
+Alguns serviços azure aproveitam ainda mais as regiões emparelhadas para garantir a continuidade do negócio e proteger contra perdas de dados.  O Azure fornece [várias soluções](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) de armazenamento que aproveitam as regiões emparelhadas para garantir a disponibilidade de dados. Por exemplo, o [Armazenamento Geo-Redundante Azure](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replica automaticamente os dados para uma região secundária, garantindo que os dados são duráveis mesmo no caso de a região primária não ser recuperável. 
 
 Note que nem todos os serviços Azure replicam automaticamente dados, nem todos os serviços Azure recuam automaticamente de uma região falhada para o seu par.  Nesses casos, a recuperação e a replicação devem ser configuradas pelo cliente.
 

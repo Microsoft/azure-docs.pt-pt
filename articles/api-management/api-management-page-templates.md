@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374366"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249545"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página na Gestão da API Azure
 A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das páginas do portal do programador utilizando um conjunto de modelos que configuram o seu conteúdo. Utilizando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor à sua escolha, como [o DotLiquid para Designers,](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)e um conjunto fornecido de recursos de [cordas](api-management-template-resources.md#strings)localizados, recursos [de Gliph](api-management-template-resources.md#glyphs)e [controlos](api-management-page-controls.md)de página, tem uma grande flexibilidade para configurar o conteúdo das páginas como entender que se ajuste usando estes modelos.  
@@ -229,11 +229,11 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|código de referência|string|Código gerado se esta página foi exibida como resultado de um erro interno.|  
-|errorCode|string|Código gerado se esta página foi exibida como resultado de um erro interno.|  
-|e-mailBody|string|Corpo de e-mail gerado se esta página foi exibida como resultado de um erro interno.|  
-|requestedUrl|string|O URL solicitado quando a página não foi encontrada.|  
-|referrerUrl|string|O URL de referência para o URL solicitado.|  
+|código de referência|Cadeia de caracteres|Código gerado se esta página foi exibida como resultado de um erro interno.|  
+|errorCode|Cadeia de caracteres|Código gerado se esta página foi exibida como resultado de um erro interno.|  
+|e-mailBody|Cadeia de caracteres|Corpo de e-mail gerado se esta página foi exibida como resultado de um erro interno.|  
+|requestedUrl|Cadeia de caracteres|O URL solicitado quando a página não foi encontrada.|  
+|referrerUrl|Cadeia de caracteres|O URL de referência para o URL solicitado.|  
   
 ### <a name="sample-template-data"></a>Dados do modelo de amostra  
   
@@ -247,5 +247,5 @@ A Azure API Management oferece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte como personalizar o portal de desenvolvimento de [gestão da API utilizando modelos](api-management-developer-portal-templates.md).

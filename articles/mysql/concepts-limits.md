@@ -5,35 +5,38 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/9/2019
-ms.openlocfilehash: 757a061bff72ca9fc34d408cd94cec9966d1157f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 3/9/2020
+ms.openlocfilehash: 6954f306e0d0a346bd8f39776d987af99f7574dd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191118"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299095"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados. Consulte também [as limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao motor de base de dados MySQL.
 
-## <a name="maximum-connections"></a>Número máximo de ligações
-Seguem-se o número máximo de ligações por vCores e escalão de preço: 
+## <a name="server-parameters"></a>Parâmetros do servidor
 
-|**Escalão de Preço**|**vCore(s)**| **Ligações Max**|
-|---|---|---|
-|Básica| 1| 50|
-|Básica| 2| 100|
-|Fins Gerais| 2| 600|
-|Fins Gerais| 4| 1250|
-|Fins Gerais| 8| 2500|
-|Fins Gerais| 16| 5000|
-|Fins Gerais| 32| 10000|
-|Fins Gerais| 64| 20000|
-|Memória Otimizada| 2| 1250|
-|Memória Otimizada| 4| 2500|
-|Memória Otimizada| 8| 5000|
-|Memória Otimizada| 16| 10000|
-|Memória Otimizada| 32| 20000|
+Os valores mínimos e máximos de vários parâmetros populares do servidor são determinados pelo nível de preços e vCores. Consulte as tabelas abaixo para limites.
+
+### <a name="max_connections"></a>max_connections
+
+|**Escalão de Preço**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|---|---|---|---|---|
+|Básica|1|50|10|50|
+|Básica|2|100|10|100|
+|Fins Gerais|2|300|10|600|
+|Fins Gerais|4|625|10|1250|
+|Fins Gerais|8|1250|10|2500|
+|Fins Gerais|16|2500|10|5000|
+|Fins Gerais|32|5000|10|10000|
+|Fins Gerais|64|10000|10|20000|
+|Memória Otimizada|2|600|10|800|
+|Memória Otimizada|4|1250|10|2500|
+|Memória Otimizada|8|2500|10|5000|
+|Memória Otimizada|16|5000|10|10000|
+|Memória Otimizada|32|10000|10|20000|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
 > Erro 1040 (08004): Demasiadas ligações
@@ -43,9 +46,114 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 
 A criação de novas ligações de clientes ao MySQL leva tempo e uma vez estabelecidas, estas ligações ocupam recursos de base de dados, mesmo quando estão inativas. A maioria das aplicações solicita muitas ligações de curta duração, o que compõe esta situação. O resultado é menos recursos disponíveis para a sua carga de trabalho real, levando a uma diminuição do desempenho. Um pooler de ligação que diminui as ligações inativas e reutiliza as ligações existentes ajudará a evitar isso. Para aprender sobre a configuração do ProxySQL, visite o nosso post de [blog.](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042)
 
+## <a name="query_cache_size"></a>query_cache_size
+
+A cache de consulta é desligada por defeito. Para ativar a cache de consulta, configure o parâmetro `query_cache_type`. 
+
+Reveja a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) para saber mais sobre este parâmetro.
+
+> [!NOTE]
+> A cache de consulta é depreciada a partir de MySQL 5.7.20 e foi removida em MySQL 8.0
+
+|**Escalão de Preço**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|---|---|---|---|---|
+|Básica|1|Não configurável no nível básico|N/A|N/A|
+|Básica|2|Não configurável no nível básico|N/A|N/A|
+|Fins Gerais|2|0|0|16777216|
+|Fins Gerais|4|0|0|33554432|
+|Fins Gerais|8|0|0|67108864|
+|Fins Gerais|16|0|0|134217728|
+|Fins Gerais|32|0|0|134217728|
+|Fins Gerais|64|0|0|134217728|
+|Memória Otimizada|2|0|0|33554432|
+|Memória Otimizada|4|0|0|67108864|
+|Memória Otimizada|8|0|0|134217728|
+|Memória Otimizada|16|0|0|134217728|
+|Memória Otimizada|32|0|0|134217728|
+
+## <a name="sort_buffer_size"></a>sort_buffer_size
+
+Reveja a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) para saber mais sobre este parâmetro.
+
+|**Escalão de Preço**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|---|---|---|---|---|
+|Básica|1|Não configurável no nível básico|N/A|N/A|
+|Básica|2|Não configurável no nível básico|N/A|N/A|
+|Fins Gerais|2|524288|32768|4194304|
+|Fins Gerais|4|524288|32768|8388608|
+|Fins Gerais|8|524288|32768|16777216|
+|Fins Gerais|16|524288|32768|33554432|
+|Fins Gerais|32|524288|32768|33554432|
+|Fins Gerais|64|524288|32768|33554432|
+|Memória Otimizada|2|524288|32768|8388608|
+|Memória Otimizada|4|524288|32768|16777216|
+|Memória Otimizada|8|524288|32768|33554432|
+|Memória Otimizada|16|524288|32768|33554432|
+|Memória Otimizada|32|524288|32768|33554432|
+
+## <a name="join_buffer_size"></a>join_buffer_size
+
+Reveja a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) para saber mais sobre este parâmetro.
+
+|**Escalão de Preço**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|---|---|---|---|---|
+|Básica|1|Não configurável no nível básico|N/A|N/A|
+|Básica|2|Não configurável no nível básico|N/A|N/A|
+|Fins Gerais|2|262144|128|268435455|
+|Fins Gerais|4|262144|128|536870912|
+|Fins Gerais|8|262144|128|1073741824|
+|Fins Gerais|16|262144|128|2147483648|
+|Fins Gerais|32|262144|128|4294967295|
+|Fins Gerais|64|262144|128|4294967295|
+|Memória Otimizada|2|262144|128|536870912|
+|Memória Otimizada|4|262144|128|1073741824|
+|Memória Otimizada|8|262144|128|2147483648|
+|Memória Otimizada|16|262144|128|4294967295|
+|Memória Otimizada|32|262144|128|4294967295|
+
+## <a name="max_heap_table_size"></a>max_heap_table_size
+
+Reveja a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) para saber mais sobre este parâmetro.
+
+|**Escalão de Preço**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|---|---|---|---|---|
+|Básica|1|Não configurável no nível básico|N/A|N/A|
+|Básica|2|Não configurável no nível básico|N/A|N/A|
+|Fins Gerais|2|16777216|16384|268435455|
+|Fins Gerais|4|16777216|16384|536870912|
+|Fins Gerais|8|16777216|16384|1073741824|
+|Fins Gerais|16|16777216|16384|2147483648|
+|Fins Gerais|32|16777216|16384|4294967295|
+|Fins Gerais|64|16777216|16384|4294967295|
+|Memória Otimizada|2|16777216|16384|536870912|
+|Memória Otimizada|4|16777216|16384|1073741824|
+|Memória Otimizada|8|16777216|16384|2147483648|
+|Memória Otimizada|16|16777216|16384|4294967295|
+|Memória Otimizada|32|16777216|16384|4294967295|
+
+## <a name="tmp_table_size"></a>tmp_table_size
+
+Reveja a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) para saber mais sobre este parâmetro.
+
+|**Escalão de Preço**|**vCore(s)**|**Default value** (Valor predefinido)|**Valor do min**|**Valor máximo**|
+|---|---|---|---|---|
+|Básica|1|Não configurável no nível básico|N/A|N/A|
+|Básica|2|Não configurável no nível básico|N/A|N/A|
+|Fins Gerais|2|16777216|1024|67108864|
+|Fins Gerais|4|16777216|1024|134217728|
+|Fins Gerais|8|16777216|1024|268435456|
+|Fins Gerais|16|16777216|1024|536870912|
+|Fins Gerais|32|16777216|1024|1073741824|
+|Fins Gerais|64|16777216|1024|1073741824|
+|Memória Otimizada|2|16777216|1024|134217728|
+|Memória Otimizada|4|16777216|1024|268435456|
+|Memória Otimizada|8|16777216|1024|536870912|
+|Memória Otimizada|16|16777216|1024|1073741824|
+|Memória Otimizada|32|16777216|1024|1073741824|
+
 ## <a name="storage-engine-support"></a>Suporte ao mecanismo de armazenamento
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Suportadas
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
 - [MEMÓRIA](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
@@ -64,7 +172,7 @@ A criação de novas ligações de clientes ao MySQL leva tempo e uma vez estabe
 
 ## <a name="data-manipulation-statement-support"></a>Suporte de instrução de manipulação de dados
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Suportadas
 - `LOAD DATA INFILE` é suportado, mas o parâmetro `[LOCAL]` deve ser especificado e direcionado para um caminho unc (armazenamento Azure montado através de SMB).
 
 ### <a name="unsupported"></a>Não suportado
@@ -92,6 +200,6 @@ A criação de novas ligações de clientes ao MySQL leva tempo e uma vez estabe
 ## <a name="current-known-issues"></a>Atuais problemas conhecidos
 - Instância do servidor MySQL apresenta a versão de servidor incorreto depois de ligação é estabelecida. Para obter a versão correta do motor da instância do servidor, utilize o comando `select version();`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [O que está disponível em cada nível de serviço](concepts-pricing-tiers.md)
 - [Versões de base de dados MySQL suportadas](concepts-supported-versions.md)

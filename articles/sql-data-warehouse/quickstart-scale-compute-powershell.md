@@ -12,11 +12,11 @@ ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 2b8aef37e9e7a3022ffc799bba80e8944330b8f1
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129561"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241067"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Scale compute for Synapse SQL pool com Azure PowerShell
 
@@ -119,7 +119,7 @@ Para ver o estado por si só, utilize o seguinte comando:
 $database | Select-Object DatabaseName,Status
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora aprendeu a escalar a computação para piscina SQL. Para saber mais sobre o pool SQL, continue ao tutorial para carregar dados.
 
 > [!div class="nextstepaction"]

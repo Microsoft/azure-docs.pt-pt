@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 9afac1adef801956f176dd339c795e2df533a2c7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169126"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204187"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Execute análises com o Azure Machine Learning Studio (clássico) utilizando uma base de dados do SQL Server no local
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Muitas vezes, as empresas que funcionam com dados no local pretende tirar partido do dimensionamento e agilidade da cloud para as suas cargas de trabalho de aprendizagem. Mas não quer interromper os processos empresariais atuais e fluxos de trabalho ao mover seus dados no local para a cloud. O Azure Machine Learning Studio (clássico) suporta agora a leitura dos seus dados a partir de uma base de dados do SQL Server no local e, em seguida, treina ndo e marcando um modelo com estes dados. Já não terá de copiar e sincronizar os dados entre a cloud e o servidor no local manualmente. Em vez disso, o módulo **de dados de importação** no Azure Machine Learning Studio (clássico) pode agora ler diretamente a partir da sua base de dados sQL Server no local para os seus trabalhos de formação e pontuação.
 
@@ -43,7 +45,7 @@ O Runtime de integração de autoalojado de fábrica de dados tem os seguintes p
 * A integração de autoalojado da fábrica de dados requer um sistema de operativo de 64 bits com o .NET Framework 4.6.1 ou superior.
 * As versões de sistema operativo do Windows suportadas são o Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * A configuração recomendada para a máquina de Runtime de integração é, pelo menos, 2 GHz, 4 núcleos de CPU, 8GB de RAM e disco de 80GB.
-* Se a máquina de anfitrião hiberna, o runtime de integração não responde a pedidos de dados. Por conseguinte, configurar uma esquema de energia adequado no computador antes de instalar o IR. Se a máquina estiver configurada para hibernação, a instalação do Runtime de integração apresenta uma mensagem.
+* Se a máquina hospedeira hibernar, o IR não responderá aos pedidos de dados. Por conseguinte, configurar uma esquema de energia adequado no computador antes de instalar o IR. Se a máquina estiver configurada para hibernação, a instalação do Runtime de integração apresenta uma mensagem.
 * Porque a atividade de cópia ocorre com uma frequência específica, a utilização de recursos (CPU, memória) na máquina também segue o mesmo padrão com horas de pico e tempos de inatividade. Utilização de recursos também depende muito a quantidade de dados a ser movidos. Quando várias tarefas de cópia em curso, observará subir durante as horas de pico de utilização de recursos. Enquanto a configuração mínima listada acima é tecnicamente suficiente, poderá ter uma configuração com mais recursos do que a configuração mínima, dependendo da sua carga específico para movimento de dados.
 
 Considere o seguinte quando configurar e utilizar o Data Factory Integration Runtime autoalojado:
@@ -51,7 +53,7 @@ Considere o seguinte quando configurar e utilizar o Data Factory Integration Run
 * Pode instalar apenas uma instância do Runtime de integração num único computador.
 * Pode usar um único Runtime de integração para várias origens de dados no local.
 * Pode ligar várias IRs em computadores diferentes para a mesma origem de dados no local.
-* Configurar uma identificação para apenas um espaço de trabalho de cada vez. Atualmente, o IRs não pode ser compartilhado entre áreas de trabalho.
+* Configurar uma identificação para apenas um espaço de trabalho de cada vez. Atualmente, as IRs não podem ser partilhadas em espaços de trabalho.
 * Pode configurar vários IRs para um único espaço de trabalho. Por exemplo, pode querer utilizar um IR que esteja ligado às fontes de dados do seu teste durante o desenvolvimento e um IR de produção quando estiver pronto para operacionalizar.
 * O runtime de integração não precisa de estar no mesmo computador, como a origem de dados. Mas, mantendo-se mais de perto para a origem de dados reduz o tempo para o gateway ligar à origem de dados. Recomendamos que instale o runtime de integração num computador que é diferente do que aloja a origem de dados no local para que a origem de dados e de gateway não compitam por recursos.
 * Se já tiver um IR instalado no seu computador a servir cenários power BI ou Azure Data Factory, instale um IR separado para o Azure Machine Learning Studio (clássico) noutro computador.
@@ -118,7 +120,7 @@ A primeira etapa é criar e configurar o gateway para aceder à sua base de dado
 Isto completa o processo de configuração de gateway no Azure Machine Learning Studio (clássico).
 Agora, está pronto para utilizar os seus dados no local.
 
-Você pode criar e configurar vários gateways em Studio (clássico) para cada espaço de trabalho. Por exemplo, pode ter um gateway que pretende ligar às suas origens de dados de teste durante o desenvolvimento e um gateway diferente para as origens de dados de produção. O Azure Machine Learning Studio (clássico) dá-lhe a flexibilidade para configurar vários gateways dependendo do seu ambiente corporativo. Atualmente, não é possível partilhar um gateway entre áreas de trabalho e apenas um gateway pode ser instalado num único computador. Para mais informações, consulte [Mover dados entre fontes no local e cloud com Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
+Você pode criar e configurar vários gateways em Studio (clássico) para cada espaço de trabalho. Por exemplo, pode ter um gateway que pretende ligar às suas origens de dados de teste durante o desenvolvimento e um gateway diferente para as origens de dados de produção. O Azure Machine Learning Studio (clássico) dá-lhe a flexibilidade para configurar vários gateways dependendo do seu ambiente corporativo. Atualmente não pode partilhar uma porta de entrada entre espaços de trabalho e apenas um portal pode ser instalado num único computador. Para mais informações, consulte [Mover dados entre fontes no local e cloud com Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Passo 2: Utilizar o gateway para ler dados a partir de uma origem de dados no local
 Depois de configurar o gateway, pode adicionar um módulo de **Dados de Importação** a uma experiência que insere os dados a partir da base de dados do SQL Server no local.

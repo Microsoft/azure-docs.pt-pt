@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096201"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299078"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configure replicação numa base de dados de instância gerida por Azure SQL
 
@@ -42,7 +42,6 @@ A replicação transacional está em pré-visualização pública na instância 
 
 Configurar uma instância gerida para funcionar como editor e/ou distribuidor requer:
 
-- Que o caso gerido não está atualmente a participar numa relação de geo-replicação.
 - Que a instância gerida pela editora está na mesma rede virtual que o distribuidor e o assinante, ou [peering vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi estabelecido entre as redes virtuais das três entidades. 
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação.
 - Uma conta de armazenamento Azure partilhada para o diretório de trabalho de replicação.
@@ -338,7 +337,7 @@ GO
 Pode limpar os seus recursos [Azure, apagando os recursos geridos do grupo de recursos](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e, em seguida, apagando o grupo de recursos `SQLMI-Repl`. 
 
    
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consulte Também
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Tutorial: Configure a replicação transacional entre um editor do MI e um assinante do SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)

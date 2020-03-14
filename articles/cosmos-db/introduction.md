@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
 ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082107"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240395"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -91,7 +91,7 @@ Cosmos DB oferece uma escolha de APIs para trabalhar com os seus dados armazenad
 
 Qualquer [aplicação web, móvel, gaming e IoT](use-cases.md) que precise lidar com quantidades massivas de dados, lê e escreve à [escala global](distribute-data-globally.md) com tempos de resposta quase reais para uma variedade de dados beneficiará da elevada disponibilidade [garantida](https://azure.microsoft.com/support/legal/sla/cosmos-db/)da Cosmos DB, alta produção, baixa latência e consistência insugável. Saiba como o Azure Cosmos DB pode ser usado para construir [IoT e telemática,](use-cases.md#iot-and-telematics) [retalho e marketing,](use-cases.md#retail-and-marketing) [jogos](use-cases.md#gaming) e [aplicações web e móveis.](use-cases.md#web-and-mobile-applications)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Leia mais sobre os conceitos fundamentais da Cosmos DB [distribuição](distribute-data-globally.md) global e [partição](partitioning-overview.md) e [produção aprovisionada.](request-units.md)
 

@@ -9,18 +9,20 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: a980c7bd068a463956191eece43ec1be233e7890
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967890"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367623"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob críticos de negócios com armazenamento imutável
 
 O armazenamento imutável para armazenamento De Blob Azure permite que os utilizadores armazenem objetos de dados críticos do negócio num estado WORM (Write Once, Read Many). Este estado torna os dados não apagamentos e não modificáveis para um intervalo especificado pelo utilizador. Durante a duração do intervalo de retenção, as bolhas podem ser criadas e lidas, mas não podem ser modificadas ou eliminadas. O armazenamento imutável está disponível para contas v1 de uso geral, v2 de uso geral, BlobStorage e BlockBlobStorage em todas as regiões do Azure.
 
 Para obter informações sobre como definir e limpar os deters legais ou criar uma política de retenção baseada no tempo usando o portal Azure, PowerShell ou Azure CLI, consulte set e gere as políticas de [imutabilidade para o armazenamento blob](storage-blob-immutability-policies-manage.md).
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Sobre o armazenamento imutável blob
 

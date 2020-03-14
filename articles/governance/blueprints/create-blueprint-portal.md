@@ -4,11 +4,11 @@ description: Neste arranque rápido, utiliza-se plantas Azure para criar, defini
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357972"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240983"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Quickstart: Defina e atribua uma planta no portal
 
@@ -290,7 +290,7 @@ Se já não precisar de uma atribuição de plantas, remova-a de uma subscriçã
 > A eliminação de uma planta neste método também elimina todas as versões publicadas da planta selecionada.
 > Para eliminar uma única versão, abra a planta, selecione o separador **de versões Publicados,** selecione a versão que pretende eliminar e, em seguida, selecione **Delete This Version**. Além disso, não pode apagar uma planta até ter eliminado toda a definição de projeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste arranque rápido, criou, atribuiu e removeu uma planta com portal Azure. Para saber mais sobre as Plantas Azure, continue o artigo blueprint lifecycle.
 

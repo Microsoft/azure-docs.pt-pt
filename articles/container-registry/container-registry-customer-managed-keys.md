@@ -4,12 +4,12 @@ description: Saiba sobre encriptação no resto do seu registo de contentores Az
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 8bce77c776fe088e5c317f02cd2757738a287069
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 7bfc4e9a73280ab330efbeeba51a5dcb0a80da10
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096560"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365346"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Encriptação usando chaves geridas pelo cliente
 
@@ -27,6 +27,7 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 
 * Atualmente só é possível ativar esta funcionalidade quando criar um registo.
 * Depois de ativar uma chave gerida pelo cliente num registo, não pode desativá-la.
+* [A confiança](container-registry-content-trust.md) de conteúdo não é suportada atualmente num registo encriptado com uma chave gerida pelo cliente.
 * Num registo encriptado com uma chave gerida pelo cliente, os registos de execução para [Tarefas ACR](container-registry-tasks-overview.md) são atualmente retidos por apenas 24 horas. Se precisar de reter registos por um período mais longo, consulte a orientação para [exportar e armazenar registos](container-registry-tasks-logs.md#alternative-log-storage)de execução de tarefas .
 
 ## <a name="prerequisites"></a>Pré-requisitos

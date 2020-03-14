@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355791"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277651"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Funções Azure padrões de expressão de ligação
 
@@ -154,7 +154,7 @@ Por exemplo, um gatilho de armazenamento de fila Azure suporta as seguintes prop
 * QueueTrigger - desencadear o conteúdo da mensagem se uma cadeia válida
 * DequeueCount
 * Tempo de validade
-* Id
+* ID
 * Tempo de inserção
 * NextVisibleTime
 * PopReceipt
@@ -317,6 +317,6 @@ A expressão vinculativa `DateTime` resolve-se a `DateTime.UtcNow`. O seguinte c
 
 Em C# e outras línguas .NET, você pode usar um padrão de ligação imperativo, em oposição às ligações declarativas em *função.json* e atributos. A ligação imperativa é útil quando os parâmetros de ligação precisam de ser calculados no tempo de execução em vez de tempo de conceção. Para saber mais, consulte a [ C# referência](functions-dotnet-class-library.md#binding-at-runtime) do desenvolvedor ou a referência do desenvolvedor de [ C# scripts](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Utilização do valor de retorno da Função Azure](./functions-bindings-return-value.md)

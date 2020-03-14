@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127278"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79164881"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicione recursos ao seu ambiente de serviço de integração (ISE) em Aplicações Lógicas Azure
 
@@ -42,7 +42,7 @@ Para construir aplicações lógicas que funcionam no seu ambiente de serviço d
 
    ![Selecione ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Required | Descrição |
    |----------|----------|-------------|
    | **Nome** | Sim | O nome para a aplicação lógica para criar |
    | **Subscrição** | Sim | O nome da subscrição Azure para usar |
@@ -74,7 +74,7 @@ Para criar uma conta de integração que utilize um ISE, siga estes passos:
 
    ![Selecione ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Required | Descrição |
    |----------|----------|-------------|
    | **Nome** | Sim | O nome para a conta de integração que quer criar |
    | **Subscrição** | Sim | O nome da subscrição Azure que pretende utilizar |
@@ -131,6 +131,6 @@ Para utilizar conectores personalizados no seu ISE, crie esses conectores person
 
 1. Para gerir conectores personalizados no seu ISE, consulte Gerir o seu ambiente de serviço de [integração.](../logic-apps/ise-manage-integration-service-environment.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerir ambientes de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md)

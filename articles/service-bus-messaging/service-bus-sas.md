@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117161"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259477"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso partilhado
 
@@ -305,7 +305,7 @@ A tabela que se segue mostra os direitos de acesso necessários para várias ope
 | Eliminar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
 | Regras enumeradas |Gerir ou ouvir |../myTopic/subscriptions/mySubscription/Rules
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre mensagens do Service Bus, consulte os seguintes tópicos.
 

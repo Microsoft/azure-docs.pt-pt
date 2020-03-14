@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: ff102ebe50dd4d2169090718ced9e550701b1b09
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374683"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259412"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilize um equilibrante de carga interna com o Serviço Azure Kubernetes (AKS)
 
@@ -133,7 +133,7 @@ Quando todos os serviços que utilizam o equilibrista interno de carga são elim
 
 Também pode eliminar diretamente um serviço como qualquer recurso kubernetes, como `kubectl delete service internal-app`, que também elimina o equilibrador de carga Azure subjacente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre os serviços da Kubernetes na documentação dos [serviços da Kubernetes.][kubernetes-services]
 

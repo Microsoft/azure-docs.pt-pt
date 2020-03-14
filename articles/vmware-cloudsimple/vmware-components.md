@@ -10,11 +10,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386869"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279510"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes VMware de nuvem privada
 
@@ -34,7 +34,7 @@ Uma pilha privada de VMware cloud é implementada com a seguinte versão de soft
 | ESXi | 6.7U2 | Enterprise Plus |
 | vCenter | 6.7U2 | vCenter Standard |
 | vSAN | 6.7 | Enterprise |
-| Centro de Dados NSX | 2.4.1 | Avançado |
+| Centro de Dados NSX | 2.4.1 | Avançada |
 
 ## <a name="esxi"></a>ESXi
 
@@ -117,6 +117,6 @@ A CloudSimple testa um patch de segurança crítico assim que fica disponível a
 
 A CloudSimple fornece atualizações trimestrais de manutenção aos componentes do software VMware. Quando uma nova versão principal do software VMware está disponível, a CloudSimple trabalha com os clientes para coordenar uma janela de manutenção adequada para upgrade.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Manutenção e atualizações CloudSimple](cloudsimple-maintenance-updates.md)

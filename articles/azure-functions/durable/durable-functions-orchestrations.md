@@ -6,11 +6,11 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357789"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241361"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duráveis
 
@@ -110,7 +110,7 @@ Uma vez concluído o ponto de verificação, a função de orquestrador é livre
 
 Após a conclusão, a história da função mostrada anteriormente se parece com a seguinte tabela no Armazenamento de Mesa Azure (abreviada para fins de ilustração):
 
-| Chave partição (Instanceid)                     | Tipo de evento             | Carimbo de data/hora               | Input | Nome             | Resultado                                                    | Estado |
+| Chave partição (Instanceid)                     | Tipo de evento             | Carimbo de data/hora               | Entrada | Nome             | Resultado                                                    | Estado |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | Execução Iniciada      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -127,7 +127,7 @@ Após a conclusão, a história da função mostrada anteriormente se parece com
 | eaee885b | TarefaConcluída         | 2017-05-05T18:45:34.919Z |       |                  | "Olá Londres!""                                       |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
 | eaee885b | OrquestradorConcluído | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
-| eaee885b | Execução Concluída    | 2017-05-05T18:45:35.044Z |       |                  | "["Olá Tóquio!"","Olá Seattle!"""Olá Londres!"]" | Concluído           |
+| eaee885b | Execução Concluída    | 2017-05-05T18:45:35.044Z |       |                  | "["Olá Tóquio!"","Olá Seattle!"""Olá Londres!"]" | Concluída           |
 
 Algumas notas sobre os valores da coluna:
 
@@ -334,7 +334,7 @@ module.exports = async function (context, location) {
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Restrições de código orquestrador](durable-functions-code-constraints.md)

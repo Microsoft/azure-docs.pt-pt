@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382259"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265210"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Compreender modelos de objetos de gémeos digitais e gráfico de inteligência espacial
 
@@ -97,7 +97,7 @@ Saiba mais sobre [como usar swagger.](how-to-use-swagger.md)
 
 Todas as chamadas API devem ser autenticadas utilizando [o OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). As APIs seguem as convenções de [Diretrizes da Microsoft REST API](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que devolvem as coleções suportam opções de consulta do sistema [OData.](https://www.odata.org/getting-started/basic-tutorial/#queryData)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber sobre a conectividade do dispositivo e como enviar mensagens de telemetria para As Gémeas Digitais, leia a conectividade do dispositivo Azure Digital Twins e a entrada de [telemetria.](concepts-device-ingress.md)
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 55a4aa066739203f8697fb4c9083869f5a05ef4f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372813"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282669"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 
@@ -21,7 +21,7 @@ Este guia destina-se a profissionais de tecnologias da informação (TI), analis
 
 O Security Center utiliza o Agente de Monitorização da Microsoft para recolher e armazenar dados. Veja [Azure Security Center Platform Migration](security-center-platform-migration.md) (Migração da Plataforma do Centro de Segurança do Azure) para saber mais. As informações neste artigo representam a funcionalidade do Centro de Segurança após a transição para o Agente de Monitorização da Microsoft.
 
-## <a name="troubleshooting-guide"></a>Guia de resolução de problemas
+## <a name="troubleshooting-guide"></a>Troubleshooting guide (Guia de resolução de problemas)
 
 Este guia explica como resolver problemas relacionados com o Centro de Segurança.
 
@@ -54,7 +54,7 @@ A maior parte da resolução de problemas feita no Centro de Segurança será re
 
 O registo de auditoria contém todas as operações de escrita (PUT, POST, DELETE) efetuadas nos seus recursos, no entanto, não inclui as operações de leitura (GET).
 
-## <a name="microsoft-monitoring-agent"></a>Agente de Monitorização da Microsoft
+## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
 
 O Security Center utiliza o Microsoft Monitoring Agent – este é o mesmo agente utilizado pelo serviço Azure Monitor – para recolher dados de segurança das suas máquinas virtuais Azure. Assim que a recolha de dados estiver ativa e o agente estiver corretamente instalado no computador de destino, o processo abaixo deve estar em execução:
 

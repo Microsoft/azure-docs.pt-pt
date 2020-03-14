@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387762"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220305"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisa de vídeos com a API de pesquisa de vídeo bing
 

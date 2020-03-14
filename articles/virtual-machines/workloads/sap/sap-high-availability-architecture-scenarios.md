@@ -17,11 +17,11 @@ ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 08f770ced6cb1ec1102159788e1583d481436b08
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363648"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279913"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
 
@@ -344,7 +344,7 @@ As secções seguintes discutem como alcançar uma elevada disponibilidade para 
 
 > Esta secção aplica-se a:
 >
-> ![Windows][Logo_Windows] Janelas e ![Linux][Logo_Linux] Linux
+> ![Portal do][Logo_Windows] Janelas e ![Linux][Logo_Linux] Linux
 >
 
 Normalmente não precisa de uma solução específica de alta disponibilidade para o servidor de aplicações SAP e para as instâncias de diálogo. Obtém uma elevada disponibilidade por redundância e configura vários casos de diálogo em vários casos de máquinas virtuais Azure. Deverá ter pelo menos duas instâncias de aplicação SAP instaladas em dois casos de máquinas virtuais Azure.
@@ -382,7 +382,7 @@ Para mais informações, consulte a secção de conjuntos de disponibilidade do 
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arquitetura de alta disponibilidade para uma instância SAP ASCS/SCS no Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Portal do][Logo_Windows] Portal do
 >
 
 Pode utilizar uma solução WSFC para proteger a instância SAP ASCS/SCS. A solução tem duas variantes:
@@ -404,7 +404,7 @@ Para obter mais informações sobre o agrupamento da instância SAP ASCS/SCS uti
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuração multi-SID SAP NetWeaver para uma instância SAP ASCS/SCS agrupada
 
-> ![Windows][Logo_Windows] Windows
+> ![Portal do][Logo_Windows] Portal do
 > 
 > O Multi-SID é suportado com o WSFC, utilizando a partilha de ficheiros e o disco partilhado.
 > 

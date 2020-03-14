@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357452"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278535"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerir o Azure Cache para Redis com a Azure PowerShell
 > [!div class="op_single_selector"]
@@ -122,14 +122,14 @@ A tabela seguinte contém propriedades e descrições para parâmetros comumente
 | Nome |Nome da cache | |
 | Localização |Localização da cache | |
 | ResourceGroupName |Nome de grupo de recursos para criar a cache | |
-| Tamanho |Do tamanho da cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| Size |Do tamanho da cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |O número de fragmentos a criar ao criar uma cache premium com clustering habilitado. Valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Especifica o SKU da cache. Os valores válidos são: Básico, Standard, Premium |Standard |
 | RedisConfiguration |Especifica as definições de configuração do Redis. Para mais detalhes sobre cada definição, consulte a tabela de [propriedades redisConfiguration](#redisconfiguration-properties) seguinte. | |
 | EnableNonSslPort |Indica se a porta não-SSL está ativada. |Falso |
 | MaxMemoryPolicy |Este parâmetro foi depreciado - use redisConfiguration em vez disso. | |
 | StaticIP |Ao hospedar a sua cache num VNET, especifica um endereço IP único na sub-rede para a cache. Se não for fornecido, um é escolhido para si a partir da sub-rede. | |
-| Subrede |Ao hospedar a sua cache num VNET, especifica o nome da sub-rede para implantar a cache. | |
+| Subnet |Ao hospedar a sua cache num VNET, especifica o nome da sub-rede para implantar a cache. | |
 | VirtualNetwork |Ao hospedar a sua cache num VNET, especifica o ID de recurso do VNET no qual se implanta a cache. | |
 | chaveTipo |Especifica qual a chave de acesso para regenerar ao renovar as teclas de acesso. Valores válidos são: Primário, Secundário | |
 
@@ -147,7 +147,7 @@ A tabela seguinte contém propriedades e descrições para parâmetros comumente
 | set-max-intset-entries |Configura [a otimização da memória](https://redis.io/topics/memory-optimization) para pequenos tipos de dados agregados |Standard e Premium |
 | zset-max-ziplist-entries |Configura [a otimização da memória](https://redis.io/topics/memory-optimization) para pequenos tipos de dados agregados |Standard e Premium |
 | zset-max-ziplist-value |Configura [a otimização da memória](https://redis.io/topics/memory-optimization) para pequenos tipos de dados agregados |Standard e Premium |
-| bases de dados |Configura o número de bases de dados. Esta propriedade só pode ser configurada na criação de cache. |Standard e Premium |
+| DWDataMart |Configura o número de bases de dados. Esta propriedade só pode ser configurada na criação de cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Para criar um Cache Azure para Redis
 Os novos casos azure cache para redis são criados usando o cmdlet [New-AzRedisCache.](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache)
@@ -771,7 +771,7 @@ O comando seguinte reinicia ambos os nós da cache especificada.
         -Force
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a utilização do Windows PowerShell com o Azure, consulte os seguintes recursos:
 
 * [Azure Cache para a documentação de cmdlet Redis na MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)

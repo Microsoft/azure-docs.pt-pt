@@ -14,11 +14,11 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375827"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263195"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Pré-visualização)
 
@@ -88,7 +88,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | cloud_instance_name |
 | cnf |
 | code |
-| controlos |
+| controls |
 | credential_keys |
 | cSr |
 | csr_type |
@@ -105,7 +105,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | grant_type |
 | graph |
 | group_sids |
-| grupos |
+| groups |
 | grupos hasgroups |
 | hash_alg |
 | home_oid |
@@ -120,7 +120,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | provedor de identidade |
 | idp |
 | in_corp |
-| instance |
+| instância |
 | ipaddr |
 | isbrowserhostedapp |
 | iss |
@@ -159,7 +159,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | resource |
 | role |
 | roles |
-| scope |
+| âmbito |
 | scp |
 | sid |
 | signature |
@@ -177,7 +177,7 @@ Há certos conjuntos de alegações que definem como e quando são usadas em fic
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| o nome de utilizador |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -291,7 +291,7 @@ O elemento ID identifica qual o imóvel da fonte que fornece o valor para a recl
 | Utilizador | DisplayName | Nome a Apresentar |
 | Utilizador | objectide | ObjectID |
 | Utilizador | mail | Endereço de E-mail |
-| Utilizador | userprincipalname | Nome Principal de Utilizador |
+| Utilizador | userprincipalname | Nome Principal de utilizador |
 | Utilizador | Departamento|Departamento|
 | Utilizador | onpremisessamaccountname | No local, nome da conta SAM |
 | Utilizador | netbiosname| Nome NetBios |
@@ -319,8 +319,8 @@ O elemento ID identifica qual o imóvel da fonte que fornece o valor para a recl
 | Utilizador | extensãoatribuído14 | Atributo de extensão 14 |
 | Utilizador | extensãoatribuído15 | Atributo de extensão 15 |
 | Utilizador | outro correio | Outros Correios |
-| Utilizador | país | País |
-| Utilizador | city | Localidade |
+| Utilizador | país | Country |
+| Utilizador | city | City |
 | Utilizador | state | Estado |
 | Utilizador | título de emprego | Cargo |
 | Utilizador | employeeid | ID do empregado |
@@ -387,7 +387,7 @@ Com base no método escolhido, espera-se um conjunto de inputs e saídas. Defina
 |Origem|ID|Descrição|
 |-----|-----|-----|
 | Utilizador | mail|Endereço de E-mail|
-| Utilizador | userprincipalname|Nome Principal de Utilizador|
+| Utilizador | userprincipalname|Nome Principal de utilizador|
 | Utilizador | onpremisessamaccountname|Nas instalações do nome da conta Sam|
 | Utilizador | employeeid|ID do empregado|
 | Utilizador | extensãoatribuído1 | Atributo de extensão 1 |

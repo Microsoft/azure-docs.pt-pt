@@ -8,11 +8,11 @@ ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0f13f297facedceb50920c0f6afca63fe1df0b48
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375106"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266185"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 
@@ -53,7 +53,7 @@ Selecionar registos **do motor** todos [os xEvents](https://docs.microsoft.com/a
 |Processamento de consultas     |   Início da consulta direta      |
 |Processamento de consultas     |  Fim da consulta direta       |
 
-### <a name="service"></a>Serviço
+### <a name="service"></a>Service
 
 |Nome da operação  |Ocorre quando  |
 |---------|---------|
@@ -68,7 +68,7 @@ Selecionar registos **do motor** todos [os xEvents](https://docs.microsoft.com/a
 
 A categoria Métricas regista as mesmas [métricas do Servidor](analysis-services-monitor.md#server-metrics) para a tabela AzureMetrics. Se estiver a utilizar a [escala de](analysis-services-scale-out.md) consulta e precisar de separar métricas para cada réplica de leitura, utilize a tabela AzureDiagnostics, onde o Nome **da Operação** é igual ao **LogMetric**.
 
-## <a name="setup-diagnostics-logging"></a>Configurar o registo de diagnósticos
+## <a name="setup-diagnostics-logging"></a>Configurar registo de diagnóstico
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -267,7 +267,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Ativar o registo
+### <a name="enable-logging"></a>Ativar registo
 
 Para ativar o registo, utilize o cmdlet Set-AzDiagnosticSetting, juntamente com as variáveis para a nova conta de armazenamento, conta de servidor e a categoria. Executar o seguinte comando, colocando a bandeira **ativada** para **$true:**
 
@@ -324,7 +324,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
   -RetentionEnabled $true -RetentionInDays 90
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre a exploração de diagnóstico de [recursos Azure.](../azure-monitor/platform/platform-logs-overview.md)
 

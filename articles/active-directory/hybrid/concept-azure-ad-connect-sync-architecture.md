@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376261"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261622"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização Azure AD Connect: Compreender a arquitetura
 Este tópico abrange a arquitetura básica para a sincronização Azure AD Connect. Em muitos aspetos, é semelhante aos seus antecessores MIIS 2003, ILM 2007 e FIM 2010. O sincronizado Azure AD Connect é a evolução destas tecnologias. Se estiver familiarizado com alguma destas tecnologias anteriores, o conteúdo deste tópico também lhe será familiar. Se é novo em sincronização, então este tópico é para si. No entanto, não é um requisito conhecer os detalhes deste tópico para ser bem sucedido na realização de personalizações para a sincronização Azure AD Connect (chamada motor de sincronização neste tópico).
@@ -256,7 +256,7 @@ O motor sincronizado armazena informações sobre o estado de exportação e imp
 
 Por exemplo, se as exportações de motores sincronizados atributoC, que tem um valor de 5, a uma fonte de dados conectada, armazena C=5 na sua memória de estado de exportação. Cada exportação adicional deste objeto resulta numa tentativa de exportar C=5 para a fonte de dados conectada novamente porque o motor sincronizado assume que este valor não foi persistentemente aplicado ao objeto (isto é, a menos que um valor diferente tenha sido importado recentemente do fonte de dados conectada). A memória de exportação é limpa quando C=5 é recebida durante uma operação de importação do objeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -3,12 +3,12 @@ title: Referência de desenvolvedor python para funções Azure
 description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 6c625c050652ffac568ac45b06af7a853c75c8c2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358056"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276689"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvimento de funções azure Python
 
@@ -394,7 +394,18 @@ Para o desenvolvimento local, as definições de aplicação são [mantidas no f
 
 ## <a name="python-version"></a>Versão de Python 
 
-Atualmente, a Azure Functions suporta tanto python 3.6.x como 3.7.x (distribuição oficial do CPython). Ao correr localmente, o tempo de execução utiliza a versão Python disponível. Para solicitar uma versão python específica quando criar a sua aplicação de funções no Azure, utilize a opção `--runtime-version` do comando [`az functionapp create`.](/cli/azure/functionapp#az-functionapp-create) A mudança de versão só é permitida na criação de App function.  
+A Azure Functions suporta as seguintes versões Python:
+
+| Versão funções | Versões<sup>*</sup> Python |
+| ----- | ----- |
+| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 2.x | 3.7<br/>3.6 |
+
+<sup>*</sup> Distribuição oficial do CPython
+
+Para solicitar uma versão python específica quando criar a sua aplicação de funções no Azure, utilize a opção `--runtime-version` do comando [`az functionapp create`.](/cli/azure/functionapp#az-functionapp-create) A versão 'Funções' é definida pela opção `--functions-version`. A versão Python é definida quando a aplicação de funções é criada e não pode ser alterada.  
+
+Ao correr localmente, o tempo de execução utiliza a versão Python disponível. 
 
 ## <a name="package-management"></a>Gestão de pacotes
 

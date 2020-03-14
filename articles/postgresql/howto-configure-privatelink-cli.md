@@ -1,24 +1,24 @@
 ---
-title: Link privado para base de dados Azure para postgreSQL - Método de configuração CLI do servidor único (pré-visualização)
+title: Private Link - Azure CLI - Base de Dados Azure para PostgreSQL - Servidor único
 description: Saiba como configurar link privado para Base de Dados Azure para PostgreSQL- Servidor único do Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d4288b901a0e6e132e32f8391d108e79861fc331
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562093"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371040"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Criar e gerir link privado para base de dados Azure para PostgreSQL - Servidor único (Pré-visualização) utilizando cli
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerir link privado para base de dados Azure para PostgreSQL - Servidor único usando CLI
 
 Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. Neste artigo, você aprenderá a usar o Azure CLI para criar um VM em uma Rede Virtual Azure e uma Base de Dados Azure para postgreSQL single servidor com um ponto final privado Azure.
 
 > [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para o servidor Single PostgreSQL suporta os níveis de preços otimizados para fins gerais e memória.
+> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para PostgreSQL - Servidor Único suporta níveis de preços otimizados para fins gerais e memória.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

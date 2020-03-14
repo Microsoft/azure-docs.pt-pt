@@ -4,11 +4,11 @@ description: Ao utilizar a gestão de recursos delegados do Azure, é importante
 ms.date: 07/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394059"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270709"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -33,14 +33,14 @@ Por exemplo, pode querer usar uma estrutura como esta:
 |Arquitetos     |Grupo de utilizadores         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Avaliação     |Grupo de utilizadores         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Especialistas em VM     |Grupo de utilizadores         |\<principalId\>         |Colaborador vM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatização     |Nome principal de serviço (SPN)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |Nome principal de serviço (SPN)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Uma vez criados estes grupos, pode atribuir aos utilizadores as necessidades. Adicione apenas os utilizadores que realmente precisam de ter acesso. Certifique-se de que revê regularmente a adesão ao grupo e remova todos os utilizadores que já não sejam adequados ou necessários para incluir.
 
 Tenha em mente que quando embarcar nos clientes através de uma oferta de [serviço gerido pelo público,](../how-to/publish-managed-services-offers.md)qualquer grupo (ou utilizador ou diretor de serviço) que inclua terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir diferentes grupos para trabalhar com cada cliente, terá de publicar um plano privado separado que seja exclusivo de cada cliente, ou clientes a bordo individualmente utilizando modelos do Gestor de Recursos Azure. Por exemplo, você poderia publicar um plano público que tem acesso muito limitado, em seguida, trabalhar com o cliente diretamente para embarcar seus recursos para acesso adicional usando um Modelo de Recurso Azure personalizado que concede acesso adicional conforme necessário.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Implementar a autenticação de vários fatores azure.](../../active-directory/authentication/howto-mfa-getstarted.md)
 - Conheça [as experiências de gestão de inquilinos cruzados.](cross-tenant-management-experience.md)

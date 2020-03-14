@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376956"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264196"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Serviços de Domínio AD Azure
 
@@ -105,12 +105,12 @@ Um grupo de segurança de [rede (NSG)](https://docs.microsoft.com/azure/virtual-
 
 São necessárias as seguintes regras do grupo de segurança da rede para que o Azure AD DS forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança da rede para a subnet de rede virtual em que o seu domínio gerido pelo Azure AD DS é implantado.
 
-| Número da porta | Protocolo | Origem                             | Destino | Ação | Necessário | Objetivo |
+| Número da porta | Protocol | Origem                             | Destination | Ação | Required | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com o seu inquilino Azure AD. |
-| 3389        | TCP      | Corpnetsaw                         | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
-| 636         | TCP      | Qualquer                                | Qualquer         | Permitir  | Não       | Só ativado quando configurar o LDAP seguro (LDAPS). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Permitir  | Sim      | Sincronização com o seu inquilino Azure AD. |
+| 3389        | TCP      | Corpnetsaw                         | Any         | Permitir  | Sim      | Gestão do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Permitir  | Sim      | Gestão do seu domínio. |
+| 636         | TCP      | Any                                | Any         | Permitir  | Não       | Só ativado quando configurar o LDAP seguro (LDAPS). |
 
 > [!WARNING]
 > Não edite manualmente estes recursos e configurações de rede. Quando associar um grupo de segurança de rede mal configurado ou uma tabela de rotas definida pelo utilizador com a subnet na qual o Azure AD DS é implantado, poderá perturbar a capacidade da Microsoft de servir e gerir o domínio. A sincronização entre o seu inquilino Azure AD e o seu domínio gerido pela Azure AD DS também é interrompida.
@@ -158,7 +158,7 @@ Deve também encaminhar o tráfego de entrada a partir dos endereços IP incluí
 > [!CAUTION]
 > Estas gamas IP do centro de dados Azure podem ser alteradas sem aviso prévio. Certifique-se de que tem processos para validar que tem os mais recentes endereços IP.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre alguns dos recursos de rede e opções de conexão utilizadas pela Azure AD DS, consulte os seguintes artigos:
 

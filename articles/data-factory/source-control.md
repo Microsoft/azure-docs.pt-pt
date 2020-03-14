@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
 ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386628"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260608"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Fábrica de Dados Azure
 
@@ -171,7 +171,7 @@ Assim que aparecer o painel de definições de repositório, **selecione Remover
 
 Depois de remover a associação com o repo atual, pode configurar as suas definições git para usar um repo diferente e, em seguida, importar os recursos existentes da Data Factory para o novo repo. 
 
-## <a name="version-control"></a>Controlo de versões
+## <a name="version-control"></a>Controle de versão
 
 Os sistemas de controlo de versão (também conhecidos como controlo de _fonte)_ permitem que os desenvolvedores colaborem em alterações de código e de rastreio que são feitas na base de código. O controlo de origem é uma ferramenta essencial para projetos multi-desenvolvedores.
 
@@ -262,7 +262,7 @@ Selecione **Feedback** para comentar sobre funcionalidades ou para notificar a M
 
 ![Comentários](media/author-visually/provide-feedback.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre monitorização e gestão de gasodutos, consulte [monitor e gerenciar os gasodutos programáticamente](monitor-programmatically.md).
 * Para implementar a integração e implantação contínuas, consulte a [integração e entrega contínuas (CI/CD) na Fábrica de Dados Azure.](continuous-integration-deployment.md)

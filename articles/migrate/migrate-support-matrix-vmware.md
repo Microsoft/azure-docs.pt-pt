@@ -4,11 +4,11 @@ description: Saiba mais sobre o suporte de avaliação vMware em Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: b887508fb8e422bd83aa9d13e42085d7a6bd2283
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080394"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269591"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação vmware 
 
@@ -107,7 +107,7 @@ Esta opção está atualmente em pré-visualização. [Saiba mais](how-to-create
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Reveja](best-practices-assessment.md) as melhores práticas para a criação de avaliações.
 - [Prepare-se para a avaliação vMware.](tutorial-prepare-vmware.md)

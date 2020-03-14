@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362754"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258008"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute com recuperação do site Azure
 
@@ -58,7 +58,7 @@ Se já está a utilizar o ExpressRoute para ligar do seu centro de dados no loca
 
 Pode replicar máquinas virtuais Azure para qualquer região azure dentro do mesmo aglomerado geográfico que [aqui](../site-recovery/azure-to-azure-support-matrix.md#region-support)descrito. Se a região de Azure alvo escolhida não estiver dentro da mesma região geopolítica que a fonte, poderá ser necessário permitir o ExpressRoute Premium. Para mais detalhes, consulte as [localizações do ExpressRoute](../expressroute/expressroute-locations.md) e [os preços expressRoute.](https://azure.microsoft.com/pricing/details/expressroute/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [os circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
 - Saiba mais sobre os domínios de [encaminhamento ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Saiba mais sobre as localizações do [ExpressRoute.](../expressroute/expressroute-locations.md)

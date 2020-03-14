@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365087"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282422"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 A Azure Service Fabric introduz um modelo de saúde que proporciona uma avaliação e reporte de saúde ricas, flexíveis e extensíveis. O modelo permite a monitorização quase em tempo real do estado do cluster e dos serviços que nele estão em funcionamento. Você pode facilmente obter informações de saúde e corrigir problemas potenciais antes que eles em cascata e causar interrupções massivas. No modelo típico, os serviços enviam relatórios com base nas suas opiniões locais, e essa informação é agregada para fornecer uma visão global do nível do cluster.
@@ -294,7 +294,7 @@ Outros sistemas têm um único serviço centralizado ao nível do cluster que an
 
 O modelo de saúde é fortemente utilizado para monitorização e diagnóstico, para avaliar a saúde do cluster e aplicação, e para atualizações monitorizadas. Outros serviços utilizam dados de saúde para realizar reparações automáticas, construir o histórico de saúde do cluster e emitir alertas sobre determinadas condições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Ver relatórios de saúde de tecido de serviço](service-fabric-view-entities-aggregated-health.md)
 
 [Use relatórios de saúde do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

@@ -14,11 +14,11 @@ ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
 ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377194"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263000"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -74,7 +74,7 @@ Para aprender a chamar as APIs do Microsoft Graph num ambiente nacional de nuvem
 
 Para aprender a construir uma aplicação utilizando a plataforma de identidade da Microsoft, siga o tutorial da [Microsoft Authentication Library (MSAL).](msal-national-cloud.md) Especificamente, esta aplicação irá assinar num utilizador e obter um sinal de acesso para ligar para a Microsoft Graph API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre:
 

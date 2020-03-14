@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
 ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373583"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279133"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral da monitorização da saúde gateway aplicação
 
@@ -88,7 +88,7 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de saú
 | Propriedade da sonda | Descrição |
 | --- | --- |
 | Nome |Nome da sonda. Este nome é utilizado para se referir à sonda nas definições http back-end. |
-| Protocolo |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
+| Protocol |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
 | Anfitrião |Nome anfitrião para enviar a sonda. Aplicável apenas quando vários sites estiverem configurados no Gateway da Aplicação, utilize de outra forma '127.0.0.1'. Este valor é diferente do nome de anfitrião vm. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa a partir de '/'. |
 | Intervalo |Intervalo da sonda em segundos. Este valor é o intervalo de tempo entre duas sondas consecutivas. |
@@ -107,7 +107,7 @@ Além disso, a conectividade de saída da Internet não pode ser bloqueada, e o 
 
 Para mais informações, consulte a visão geral da [configuração do Gateway](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet)de aplicação .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de aprender sobre a monitorização da saúde application Gateway, pode configurar uma sonda de [saúde personalizada](application-gateway-create-probe-portal.md) no portal Azure ou uma [sonda de saúde personalizada](application-gateway-create-probe-ps.md) utilizando o PowerShell e o modelo de implementação do Gestor de Recursos Azure.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

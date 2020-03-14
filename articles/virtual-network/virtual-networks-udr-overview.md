@@ -17,11 +17,11 @@ ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
 ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355898"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280069"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -60,9 +60,9 @@ O Azure adiciona rotas de sistema predefinidas adicionais para diferentes capaci
 
 |Origem                 |Prefixos de endereço                       |Tipo de salto seguinte|Sub-rede numa rede virtual à qual a rota é adicionada|
 |-----                  |----                                   |---------                    |--------|
-|Predefinição                |Exclusivos da rede virtual, por exemplo, 10.1.0.0/16|VNet peering                 |Todos|
-|Gateway de rede virtual|Prefixos anunciados no local através do BGP ou configurados no gateway de rede local     |Gateway de rede virtual      |Todos|
-|Predefinição                |Vários                               |VirtualNetworkServiceEndpoint|Apenas a sub-rede na qual está ativado um ponto final de serviço.|
+|Predefinição                |Exclusivos da rede virtual, por exemplo, 10.1.0.0/16|VNet peering                 |Todas|
+|Gateway de rede virtual|Prefixos anunciados no local através do BGP ou configurados no gateway de rede local     |Gateway de rede virtual      |Todas|
+|Predefinição                |Múltiplos                               |VirtualNetworkServiceEndpoint|Apenas a sub-rede na qual está ativado um ponto final de serviço.|
 
 * **Peering de rede virtual (VNet)** : quando cria um peering de rede virtual entre duas redes virtuais, é adicionada uma rota para cada intervalo de endereços dentro do espaço de endereços de cada rede virtual para a qual é criado o peering. Saiba mais sobre o [peering de rede virtual](virtual-network-peering-overview.md).<br>
 * **Gateway de rede virtual**: quando é adicionado um gateway de rede virtual a uma rede virtual, são adicionadas uma ou mais rotas que têm o *Gateway de rede virtual* listado como o tipo de salto seguinte. A origem também é *gateway de rede virtual*, porque o gateway adiciona as rotas à sub-rede. Se o seu gateway de rede no local trocar de rotas de protocolo [BGP](#border-gateway-protocol) (Border Gateway Protocol) com um gateway de rede virtual do Azure, é adicionada uma rota a cada rota propagada a partir do gateway de rede no local. Recomenda-se que resuma as rotas no local para os intervalos de endereços maiores possíveis, para que sejam propagadas para um gateway de rede virtual do Azure o menor número possível de rotas. Existem limites ao número de rotas que pode propagar para um gateway de rede virtual do Azure. Para obter mais detalhes, veja [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).<br>
@@ -212,18 +212,18 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 
 |ID  |Origem |Estado  |Prefixos de endereço    |Tipo de salto seguinte          |Endereço IP do próximo salto|Nome da rota definida pelo utilizador| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |Predefinição|Inválido|10.0.0.0/16         |Rede virtual        |                   |              |
-|2   |Utilizador   |Ativa |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
-|3   |Utilizador   |Ativa |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
-|4   |Predefinição|Inválido|10.1.0.0/16         |VNet peering           |                   |              |
-|5   |Predefinição|Inválido|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
-|7   |Utilizador   |Ativa |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
-|8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
-|9   |Utilizador   |Ativa |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
-|10  |Predefinição|Ativa |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Predefinição|Inválido|0.0.0.0/0           |Internet               |                   |              |
-|12  |Utilizador   |Ativa |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
+|1   |Predefinição|inválido|10.0.0.0/16         |Rede virtual        |                   |              |
+|2   |Utilizador   |Autenticação do |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
+|3   |Utilizador   |Autenticação do |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
+|4   |Predefinição|inválido|10.1.0.0/16         |VNet peering           |                   |              |
+|5   |Predefinição|inválido|10.2.0.0/16         |VNet peering           |                   |              |
+|6   |Utilizador   |Autenticação do |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
+|7   |Utilizador   |Autenticação do |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
+|8   |Predefinição|inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
+|9   |Utilizador   |Autenticação do |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
+|10  |Predefinição|Autenticação do |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|11  |Predefinição|inválido|0.0.0.0/0           |Internet               |                   |              |
+|12  |Utilizador   |Autenticação do |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
 
 Segue-se uma explicação de cada ID de rota:
 
@@ -246,18 +246,18 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 
 |Origem  |Estado  |Prefixos de endereço    |Tipo de salto seguinte             |Endereço IP do próximo salto|
 |------- |-------|------              |-------                   |--------           
-|Predefinição |Ativa |10.0.0.0/16         |Rede virtual           |                   |
-|Predefinição |Ativa |10.1.0.0/16         |VNet peering              |                   |
-|Predefinição |Ativa |10.2.0.0/16         |VNet peering              |                   |
-|Predefinição |Ativa |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
-|Predefinição |Ativa |0.0.0.0/0           |Internet                  |                   |
-|Predefinição |Ativa |10.0.0.0/8          |Nenhum                      |                   |
-|Predefinição |Ativa |100.64.0.0/10       |Nenhum                      |                   |
-|Predefinição |Ativa |192.168.0.0/16      |Nenhum                      |                   |
+|Predefinição |Autenticação do |10.0.0.0/16         |Rede virtual           |                   |
+|Predefinição |Autenticação do |10.1.0.0/16         |VNet peering              |                   |
+|Predefinição |Autenticação do |10.2.0.0/16         |VNet peering              |                   |
+|Predefinição |Autenticação do |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
+|Predefinição |Autenticação do |0.0.0.0/0           |Internet                  |                   |
+|Predefinição |Autenticação do |10.0.0.0/8          |Nenhum                      |                   |
+|Predefinição |Autenticação do |100.64.0.0/10       |Nenhum                      |                   |
+|Predefinição |Autenticação do |192.168.0.0/16      |Nenhum                      |                   |
 
 A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de 10.0.0.0.0/8, 192.168.0.0.0.0/16 e 100.64.0.0/10 prefixos da tabela de rotas *subnet1* quando a rota definida pelo utilizador para o prefixo de endereço 0.0.0.0/0 foi adicionada à *Subnet1*.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação de rede virtual](tutorial-create-route-table-portal.md)<br>
 * [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>

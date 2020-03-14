@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
 ms.openlocfilehash: 044f974d83eba098820639e67412110329d5ad7d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379372"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249116"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recolher e analisar registos de atividade do Azure no espaço de trabalho do Log Analytics no Monitor Azure
 
@@ -71,7 +71,7 @@ Clique no azulejo **Azure Activity Logs** para abrir a vista Registos de Ativida
 | Registos de atividades por recurso | Mostra o número total de recursos com Registos de Atividade e lista os dez melhores recursos com contagens recorde para cada recurso. Clique na área total para fazer uma pesquisa de registo para `AzureActivity | summarize AggregatedValue = count() by Resource`, que mostra todos os recursos Do Azure disponíveis para a solução. Clique num recurso para executar uma consulta de registo devolvendo todos os registos de atividade para esse recurso. |
 | Registos de atividade pelo fornecedor de recursos | Mostra o número total de fornecedores de recursos que produzem Registos de Atividade e lista o top 10. Clique na área total para fazer uma consulta de registo para `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que mostra todos os fornecedores de recursos Azure. Clique num fornecedor de recursos para executar uma consulta de registo devolvendo todos os registos de atividade para o fornecedor. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre o [Registo de Atividades](platform-logs-overview.md).
 - Saiba mais sobre a plataforma de [dados Azure Monitor.](data-platform.md)

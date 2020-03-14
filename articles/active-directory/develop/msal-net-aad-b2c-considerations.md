@@ -14,11 +14,11 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083994"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262818"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para assinar em utilizadores com identidades sociais
 
@@ -126,7 +126,7 @@ Este fluxo não é **recomendado** porque a sua aplicação que pede a um utiliz
 Ao utilizar o nome de utilizador/palavra-passe, está a abdicar de uma série de coisas:
 - Princípios fundamentais da identidade moderna: a palavra-passe é pescada, reproduzida. Porque temos este conceito de segredo de partilha que pode ser intercetado. Isto é incompatível com sem palavras-passe.
 - Os utilizadores que necessitem de fazer MFA não poderão entrar (uma vez que não há interação).
-- Os usuários não poderão fazer logon único.
+- Os utilizadores não poderão fazer um único sinal.
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configure o fluxo ROPC em Azure AD B2C
 No seu inquilino Azure AD B2C, crie um novo fluxo de utilizador e selecione **Sign in usando ROPC**. Isto permitirá a política ropc para o seu inquilino. Consulte [configurar as credenciais de senha do proprietário do recurso](/azure/active-directory-b2c/configure-ropc) para obter mais detalhes.
@@ -178,7 +178,7 @@ Em alternativa, pode utilizar a `tid` reivindicação, se estiver a utilizar as 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação para "Desaparecido da resposta simbólica"
 Uma opção é utilizar a alegação de "nome" como nome de utilizador preferido. O processo é mencionado neste [B2C doc](../../active-directory-b2c/user-flow-overview.md) &> "Na coluna de reclamação de Retorno, escolha as reclamações que deseja devolvidas nos tokens de autorização enviados de volta para a sua aplicação após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione 'Nome de exibição, Código Postal'."
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
 Mais detalhes sobre a aquisição de fichas interactivamente com MSAL.NET para aplicações Azure AD B2C são fornecidos na amostra seguinte.
 

@@ -4,11 +4,11 @@ description: Enumera as definições políticas incorporadas para a Política Az
 ms.date: 02/15/2020
 ms.topic: sample
 ms.openlocfilehash: 06c913bdccd8b35970a195f6ee658ce7b1d97a7b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387239"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239743"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas integradas da Política Azure
 
@@ -18,7 +18,7 @@ O nome de cada um embutido liga-se à definição de política no portal Azure. 
 
 [!INCLUDE [azure-policy-samples-policies-index](../../../../includes/azure-policy-samples-policies-index.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

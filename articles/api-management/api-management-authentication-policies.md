@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374317"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280329"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de gestão da API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre a adição e configuração de políticas, consulte [Políticas na Gestão da API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -48,16 +48,16 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Required|
 |----------|-----------------|--------------|
 |autenticação-básico|Elemento de raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Required|Predefinição|
 |----------|-----------------|--------------|-------------|
-|o nome de utilizador|Especifica o nome de utilizador da credencial básica.|Sim|N/D|
-|palavra-passe|Especifica a palavra-passe da credencial básica.|Sim|N/D|
+|username|Especifica o nome de utilizador da credencial básica.|Sim|N/A|
+|palavra-passe|Especifica a palavra-passe da credencial básica.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.
@@ -88,16 +88,16 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Required|  
 |----------|-----------------|--------------|  
 |autenticação-certificado|Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Required|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|A impressão digital para o certificado de cliente.|Ou `thumbprint` ou `certificate-id` devem estar presentes.|N/D|  
-|certificado-id|O nome do recurso do certificado.|Ou `thumbprint` ou `certificate-id` devem estar presentes.|N/D|  
+|thumbprint|A impressão digital para o certificado de cliente.|Ou `thumbprint` ou `certificate-id` devem estar presentes.|N/A|  
+|certificado-id|O nome do recurso do certificado.|Ou `thumbprint` ou `certificate-id` devem estar presentes.|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)de política.  
@@ -147,16 +147,16 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
 
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Required|  
 |----------|-----------------|--------------|  
 |autenticação-gerida identidade |Elemento de raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Required|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|resource|Cadeia. O ID da app da Web Target API (recurso seguro) no Diretório Ativo Azure.|Sim|N/D|  
-|nome de saída-token-variável|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de objeto `string`. |Não|N/D|  
+|resource|Cadeia. O ID da app da Web Target API (recurso seguro) no Diretório Ativo Azure.|Sim|N/A|  
+|nome de saída-token-variável|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de objeto `string`. |Não|N/A|  
 |ignore-error|Boolean. Se for definido para `true`, o gasoduto político continuará a executar mesmo que não seja obtido um token de acesso.|Não|false|  
   
 ### <a name="usage"></a>Utilização  
@@ -166,7 +166,7 @@ Neste exemplo, o certificado de cliente é identificado pelo nome do recurso.
   
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para mais informações que trabalhem com políticas, consulte:
 
 + [Políticas em Gestão aPi](api-management-howto-policies.md)

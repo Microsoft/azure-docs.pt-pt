@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
 ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359574"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271086"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorize a saúde do Hub Azure IoT e diagnostice rapidamente problemas
 
@@ -548,7 +548,7 @@ Para verificar a saúde dos seus hubs ioT, siga estes passos:
 
 Para saber mais sobre como interpretar os dados de saúde, consulte a [visão geral da saúde dos recursos do Azure.](../service-health/resource-health-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Compreender as métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitorização e notificações remotas IoT com Aplicações Lógicas Azure que ligam o seu hub IoT e caixa de correio](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

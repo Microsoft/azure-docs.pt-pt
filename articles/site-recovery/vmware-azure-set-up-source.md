@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391719"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257059"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurar o ambiente de origem para a replicação de VMware para azure
 
@@ -84,5 +84,5 @@ Excluir as seguintes pastas do software Antivírus
 7. Diretório de instalação de servidor de processo equilibrado do site Azure, exemplo: C:\Ficheiros do programa (x86)\Microsoft Azure Recovery Site
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Configurar o seu ambiente alvo](./vmware-azure-set-up-target.md) 

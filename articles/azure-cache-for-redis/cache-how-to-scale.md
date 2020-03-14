@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372013"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278002"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como escalar o Cache Azure para Redis
 O Azure Cache for Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e características do cache. Depois de criar uma cache, pode escalar o tamanho e o nível de preços da cache se os requisitos da sua aplicação mudarem. Este artigo mostra-lhe como escalar a sua cache usando o portal Azure, e ferramentas como o Azure PowerShell e o Azure CLI.

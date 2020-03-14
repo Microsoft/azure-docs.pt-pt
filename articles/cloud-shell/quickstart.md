@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394542"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252132"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Quickstart para Bash em Azure Cloud Shell
 
@@ -52,7 +52,7 @@ az account set --subscription 'my-subscription-name'
 > [!TIP]
 > A sua subscrição será lembrada para futuras sessões utilizando `/home/<user>/.azure/azureProfile.json`.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um novo grupo de recursos na WestUS chamado "MyRG".
 ```azurecli-interactive
 az group create --location westus --name MyRG
@@ -94,7 +94,7 @@ Ao estabelecer a ligação SSH, deve ver o pedido de boas-vindas de Ubuntu. <br>
    az group delete -n MyRG
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre os ficheiros persistindo para Bash na Cloud Shell](persisting-shell-storage.md) <br>
 [Conheça o Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o armazenamento de Ficheiros Azure](../storage/files/storage-files-introduction.md) <br>

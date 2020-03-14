@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127889"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365224"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
@@ -71,7 +71,7 @@ Aqui está como reimplantar o modelo do Gestor de Recursos Azure para expandir u
 
 ## <a name="run-the-azure-marketplace-offering"></a>Executar a oferta do Azure Marketplace
 
-Siga as instruções em [Create a host pool utilizando o Azure Marketplace](./create-host-pools-azure-marketplace.md) até chegar à Run the [Azure Marketplace oferecendo-se para fornecer uma nova piscina de anfitriões.](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool) Quando chegar a esse ponto, terá de introduzir as seguintes informações para cada lâmina:
+Siga as instruções em [Create a host pool utilizando o Azure Marketplace](./create-host-pools-azure-marketplace.md) até chegar à Run the [Azure Marketplace oferecendo-se para fornecer uma nova piscina de anfitriões.](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool) Quando chegar a esse ponto, terá de introduzir as seguintes informações para cada separador:
 
 ### <a name="basics"></a>Noções básicas
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
 ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388681"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250234"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção para máquinas virtuais em Azure
 
@@ -91,12 +91,12 @@ Para obter mais informações sobre a configuração dos seus VMs para uma eleva
 
 #### <a name="availability-zones"></a>Zonas de disponibilidade
 
-As zonas de disponibilidade são locais físicos únicos dentro de uma região de Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. 
+As zonas de disponibilidade são locais físicos únicos dentro de uma região de Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. 
 
 Uma zona de disponibilidade é uma combinação de um domínio de falha e um domínio de atualização. Se criar três ou mais VMs em três zonas de uma região do Azure, os seus VMs são efetivamente distribuídos por três domínios de falha e três domínios de atualização. A plataforma Azure reconhece esta distribuição através de domínios de atualização para garantir que os VMs em diferentes zonas não são atualizados ao mesmo tempo.
 
 Cada atualização de infraestrutura sai zona por zona, dentro de uma única região. Mas, pode ter implantação em curso na Zona 1, e diferente implantação na Zona 2, ao mesmo tempo. As missões não são todas serializadas. Mas, uma única implantação só sai de uma zona de cada vez para reduzir o risco.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
 Pode utilizar o [Azure CLI,](maintenance-notifications-cli.md) [O Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerir a manutenção planeada. 

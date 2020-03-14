@@ -1,24 +1,24 @@
 ---
-title: Guia de otimização do desempenho
-description: Aprenda a usar recomendações para sintonizar manualmente o seu desempenho de consulta de base de dados Azure SQL.
+title: Orientação de afinação de desempenho para aplicações e bases de dados
+description: Saiba mais sobre aplicações de base de dados de afinação e bases de dados para o desempenho na Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: carlrab; jrasnick
+ms.date: 03/10/2020
+ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382368"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255954"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Desempenho de consulta de melodia manual na Base de Dados Azure SQL
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Sintonize aplicações e bases de dados para o desempenho na Base de Dados Azure SQL
 
 Depois de ter identificado um problema de desempenho que está a enfrentar com a Base de Dados SQL, este artigo foi concebido para o ajudar:
 
@@ -232,6 +232,10 @@ Pode examinar **sys.resource_stats** para determinar se o recurso para um teste 
 
 Se uma carga de trabalho tiver um conjunto de consultas repetidas, muitas vezes faz sentido capturar e validar a otimização das escolhas do seu plano porque conduz a unidade de tamanho mínimo de recursos necessária para alojar a base de dados. Depois de validá-lo, ocasionalmente reexamine os planos para ajudá-lo a certificar-se de que eles não se degradaram. Você pode aprender mais sobre dicas de [consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
+### <a name="very-large-database-architectures"></a>Arquiteturas de bases de dados muito grandes
+
+Antes do lançamento do nível de serviço [Hyperscale](sql-database-service-tier-hyperscale.md) para bases de dados únicas na Base de Dados Azure SQL, os clientes costumavam atingir os limites de capacidade para bases de dados individuais. Estes limites de capacidade ainda existem para bases de dados agréis em piscinas elásticas e bases de dados de instâncias em casos geridos. As duas secções seguintes discutem duas opções para resolver problemas com bases de dados muito grandes na Base de Dados Azure SQL quando não é possível utilizar o nível de serviço de hiperescala.
+
 ### <a name="cross-database-sharding"></a>Sharding de base de dados cruzada
 
 Uma vez que a Base de Dados Azure SQL funciona em hardware de mercadoria, os limites de capacidade para uma base de dados individual são inferiores às de uma instalação tradicional no local Do Servidor SQL. Alguns clientes usam técnicas de sharding para difundir operações de base de dados em várias bases de dados quando as operações não se enquadram dentro dos limites de uma base de dados individual na Base de Dados Azure SQL. A maioria dos clientes que usam técnicas de sharding na Base de Dados Azure SQL dividem os seus dados numa única dimensão em várias bases de dados. Para esta abordagem, é necessário compreender que as aplicações OLTP realizam frequentemente transações que se aplicam a apenas uma linha ou a um pequeno grupo de linhas no esquema.
@@ -243,7 +247,7 @@ Por exemplo, se uma base de dados tiver nome, encomenda e detalhes de encomenda 
 
 Embora a base de dados não reduza a capacidade de recursos agregados para uma solução, é altamente eficaz em suportar soluções muito grandes que estão espalhadas por várias bases de dados. Cada base de dados pode funcionar com um tamanho de computação diferente para suportar bases de dados muito grandes e "eficazes" com elevados requisitos de recursos.
 
-### <a name="functional-partitioning"></a>Criação de partições funcionais
+#### <a name="functional-partitioning"></a>Criação de partições funcionais
 
 Os utilizadores do SQL Server combinam frequentemente muitas funções numa base de dados individual. Por exemplo, se uma aplicação tem lógica para gerir o inventário de uma loja, essa base de dados pode ter lógica associada ao inventário, rastreamento de ordens de compra, procedimentos armazenados e vistas indexadas ou materializadas que gerem relatórios de fim de mês. Esta técnica facilita a administração da base de dados para operações como backup, mas também requer que você dimensione o hardware para lidar com a carga máxima em todas as funções de uma aplicação.
 
@@ -259,7 +263,7 @@ Algumas aplicações são intensivas. Por vezes, pode reduzir a carga total de I
 
 Algumas aplicações de base de dados têm cargas de trabalho pesadas. As camadas de cache podem reduzir a carga na base de dados e podem potencialmente reduzir o tamanho da computação necessária para suportar uma base de dados utilizando a Base de Dados Azure SQL. Com [o Azure Cache for Redis](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho pesada, pode ler os dados uma vez (ou talvez uma vez por máquina de nível de aplicação, dependendo da configuração), e depois armazenar esses dados fora da sua base de dados SQL. Esta é uma forma de reduzir a carga de base de dados (CPU e ler IO), mas há um efeito na consistência transacional porque os dados que estão a ser lidos a partir da cache podem estar dessincronizados com os dados na base de dados. Embora em muitas aplicações algum nível de inconsistência seja aceitável, isso não é verdade para todas as cargas de trabalho. Deve compreender completamente quaisquer requisitos de aplicação antes de implementar uma estratégia de cache de nível de aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre os níveis de serviço baseados em DTU, consulte [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
 - Para obter mais informações sobre os níveis de serviço baseados em vCore, consulte o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).

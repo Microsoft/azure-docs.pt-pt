@@ -4,11 +4,11 @@ description: Lista os tipos de recursos Azure que podem ser transferidos para um
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 8ab194ad240e4f3e0994314ef9ade3bc7159cf81
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387703"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273933"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover apoio operacional para recursos
 Este artigo enumera se um tipo de recurso Azure suporta a operação de movimento. Também fornece informações sobre condições especiais a considerar ao mover um recurso.
@@ -196,7 +196,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | regras de ação | Sim | Sim |
-> | alerts | Não | Não |
+> | alertas | Não | Não |
 > | alerta | Não | Não |
 > | smartdetectoralertrules | Sim | Sim |
 
@@ -308,7 +308,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | aglomerados | Não | Não |
 > | servidores de ficheiros | Não | Não |
-> | Empregos | Não | Não |
+> | empregos | Não | Não |
 > | espaços de trabalho | Não | Não |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
@@ -537,14 +537,14 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | alerts | Não | Não |
+> | alertas | Não | Não |
 > | orçamentos | Não | Não |
 > | empresariais | Sim | Sim |
 > | dimensões | Não | Não |
 > | Exportações | Não | Não |
 > | subscrições externas | Não | Não |
 > | Previsão | Não | Não |
-> | consulta | Não | Não |
+> | query | Não | Não |
 > | Reportconfigs | Não | Não |
 > | relatórios | Não | Não |
 > | regras de showback | Não | Não |
@@ -570,7 +570,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | Empregos | Não | Não |
+> | empregos | Não | Não |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
@@ -843,7 +843,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | Empregos | Sim | Sim |
+> | empregos | Sim | Sim |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -862,12 +862,12 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | tipos de eventos | Não | Não |
 > | definições de diagnóstico alargadas | Não | Não |
 > | definições de log | Não | Não |
-> | registos | Não | Não |
+> | logs | Não | Não |
 > | alertas métricos | Não | Não |
 > | linhas de base métricas | Não | Não |
 > | definições métricas | Não | Não |
 > | espaços de nomemétrico | Não | Não |
-> | métricas | Não | Não |
+> | metrics | Não | Não |
 > | meus livros | Não | Não |
 > | privatelinkscopes | Sim | Sim |
 > | scheduledqueryrules | Sim | Sim |
@@ -1328,7 +1328,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | entidades | Não | Não |
 > | incidentes | Não | Não |
 > | consentimentos de escritório | Não | Não |
-> | settings | Não | Não |
+> | definições | Não | Não |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
@@ -1359,7 +1359,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | clusters geridos | Não | Não |
 > | redes | Não | Não |
 > | lojas secretas | Não | Não |
-> | volumes | Não | Não |
+> | protegidos | Não | Não |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
@@ -1370,7 +1370,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | gateways | Sim | Sim |
 > | redes | Sim | Sim |
 > | segredos | Sim | Sim |
-> | volumes | Sim | Sim |
+> | protegidos | Sim | Sim |
 
 ## <a name="microsoftservices"></a>Microsoft.Services
 
@@ -1598,7 +1598,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 
 Atualmente, os serviços de terceiros não apoiam a operação de mudança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para que os comandos movam recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](move-resource-group-and-subscription.md).
 
 Para obter os mesmos dados que um ficheiro de valores separados de vírem, descarregue [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

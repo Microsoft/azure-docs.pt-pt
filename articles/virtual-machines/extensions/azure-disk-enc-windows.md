@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 8435663dcf92e2617ea2fe9218649e94243272d2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383261"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250650"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Encriptação de disco azure para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -137,20 +137,20 @@ Utilização do `AADClientCertificate`:
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.Azure.Security | string |
-| tipo | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1.1, 2.2 | string |
+| publicador | Microsoft.Azure.Security | Cadeia de caracteres |
+| tipo | AzureDiskEncryptionForLinux | Cadeia de caracteres |
+| typeHandlerVersion | 1.1, 2.2 | Cadeia de caracteres |
 | (1.1 esquema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (1.1 esquema) AADClientSecret | palavra-passe | string |
-| (1.1 esquema) Certificado aADClient | thumbprint | string |
+| (1.1 esquema) AADClientSecret | palavra-passe | Cadeia de caracteres |
+| (1.1 esquema) Certificado aADClient | thumbprint | Cadeia de caracteres |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
-| KeyVaultURL | url | string |
-| (opcional) Passphrase | palavra-passe | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | Cadeia de caracteres | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | Cadeia de caracteres |
+| KeyEncryptionKeyURL | URL | Cadeia de caracteres |
+| KeyVaultURL | URL | Cadeia de caracteres |
+| (opcional) Passphrase | palavra-passe | Cadeia de caracteres | 
+| SequenceVersion | uniqueidentifier | Cadeia de caracteres |
+| VolumeType | OS, Data, All | Cadeia de caracteres |
 
 ## <a name="template-deployment"></a>Implementação de modelos
 Para um exemplo de implementação do modelo, consulte [Criar um novo Windows VM encriptado a partir da imagem da galeria](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
@@ -161,7 +161,7 @@ As instruções podem ser encontradas na mais recente [documentação do Azure C
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Consulte o guia de resolução de problemas da encriptação do [disco Azure](../../security/azure-security-disk-encryption-tsg.md).
 
@@ -169,5 +169,5 @@ Consulte o guia de resolução de problemas da encriptação do [disco Azure](..
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina Virtual para Windows](features-windows.md).

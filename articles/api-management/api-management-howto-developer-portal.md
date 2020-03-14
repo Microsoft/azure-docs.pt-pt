@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6b11242831e68787fe225d4d0b66638f1388de6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126554"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297990"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal de desenvolvimento da Azure API Management
 
@@ -157,6 +157,12 @@ A consola interativa faz um pedido de API do lado do cliente do navegador. Pode 
 </cors>
 ```
 
+Aplique o CORS no âmbito global para garantir que está ativado para todas as APIs.
+
+1. Navegue para **todas as APIs** na secção **APIs** do seu serviço de Gestão API no portal Azure.
+2. Clique no ícone **</>** na secção de **processamento de entrada.**
+3. Insira a política na secção **<inbound>** do ficheiro XML. Certifique-se de que o valor **<origin>** corresponde ao domínio do seu portal de desenvolvimento.
+
 > [!NOTE]
 > 
 > Se aplicar a política CORS no âmbito do Produto, em vez do âmbito API(s) e a sua API utilizar a autenticação da chave de subscrição através de um cabeçalho, a sua consola não funcionará.
@@ -207,7 +213,7 @@ A falha de chamada também pode ser causada por um certificado SSL, que é atrib
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual é o suporte do navegador para o portal?
 
-| Browser                     | Suportado       |
+| Browser                     | Suportadas       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
@@ -217,7 +223,7 @@ A falha de chamada também pode ser causada por um certificado SSL, que é atrib
 
  <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o novo portal de desenvolvimento:
 

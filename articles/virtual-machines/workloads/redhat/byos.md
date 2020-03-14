@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 825d26307f2b462d51b143b88127e229508f2f25
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970488"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264599"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens gold de subscrição própria em Azure
 
@@ -212,7 +212,7 @@ Para obter passos para aplicar encriptação de disco azure, consulte cenários 
 
 - Se utilizar a automatização para fornecer VMs a partir das imagens RHEL BYOS, deve fornecer parâmetros de plano semelhantes aos mostrados nos comandos da amostra. Por exemplo, se utilizar a Terraform, fornece a informação do plano num bloco de [planos](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter guias passo a passo e detalhes do programa para o Cloud Access, consulte a [documentação de Acesso](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)à Nuvem de Chapéu Vermelho .
 - Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho, consulte a Infraestrutura de Atualização do [Chapéu Vermelho Azure](./redhat-rhui.md).

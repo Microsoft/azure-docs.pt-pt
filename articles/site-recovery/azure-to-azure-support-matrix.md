@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
 ms.openlocfilehash: d278f96acf8d8efc57a9ae7fb57f9a758339162a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362839"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258112"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
 
@@ -77,7 +77,7 @@ Firewalls de armazenamento azure para redes virtuais  | Suportadas | Se estiver 
 
 A Recuperação do Site suporta a replicação de VMs Azure que executam os sistemas operativos listados nesta secção.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>Portal do
 
 
 **Sistema operativo** | **Detalhes**
@@ -167,7 +167,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os [núcleos SUSE 15 e 1
 
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho | Qualquer tamanho De VM Azure com pelo menos 2 núcleos CPU e RAM de 1-GB | Verifique o [tamanho da máquina virtual Azure.](../virtual-machines/windows/sizes.md)
+Size | Qualquer tamanho De VM Azure com pelo menos 2 núcleos CPU e RAM de 1-GB | Verifique o [tamanho da máquina virtual Azure.](../virtual-machines/windows/sizes.md)
 Conjuntos de disponibilidade | Suportadas | Se ativar a replicação de um VM Azure com as opções predefinidas, um conjunto de disponibilidade é criado automaticamente, com base nas definições da região de origem. Pode modificar estas definições.
 Zonas de disponibilidade | Suportadas |
 Benefício de Utilização Híbrida (HUB) | Suportadas | Se a VM de origem tiver uma licença HUB ativada, um teste failover ou falhou sobre vM também usa a licença HUB.

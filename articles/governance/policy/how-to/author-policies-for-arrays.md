@@ -4,11 +4,11 @@ description: Aprenda a trabalhar com parâmetros de matriz e expressões linguí
 ms.date: 11/26/2019
 ms.topic: how-to
 ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280667"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz sobre recursos Azure
 
@@ -183,7 +183,7 @@ Para cada condição exemplo abaixo, substitua `<field>` por `"field": "Microsof
 
 Os seguintes resultados são o resultado da combinação da condição e da regra política de exemplo e de um conjunto de valores existentes acima:
 
-|Condição |Resultado | Cenário |Explicação |
+|condição |Resultado | Cenário |Explicação |
 |-|-|-|-|
 |`{<field>,"notEquals":"127.0.0.1"}` |Nada, nada. |Nenhum jogo |Um elemento matriz avalia como falso (127.0.0.1 != 127.0.0.1) e um como verdadeiro (127.0.0.1 != 192.168.1.1), pelo que a condição **de notEquals** é _falsa_ e o efeito não é desencadeado. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Efeito político |Nenhum jogo |Ambos os elementos da matriz avaliam como verdadeiro (10.0.4.1 != 127,0.0.1 e 10.0.4.1 != 192.168.1.1), pelo que a condição **notEquals** é _verdadeira_ e o efeito é desencadeado. |
@@ -203,7 +203,7 @@ O [efeito apêndice](../concepts/effects.md#append) comporta-se de forma diferen
 
 Para mais informações, consulte os [exemplos do apêndice.](../concepts/effects.md#append-examples)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja exemplos nas [amostras da Política Azure.](../samples/index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

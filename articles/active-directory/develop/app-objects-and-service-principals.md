@@ -15,11 +15,11 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.openlocfilehash: 19085346fb5797245c9f71911f8178df0a1b742a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370300"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263013"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos principais de aplicação e serviço no Diretório Ativo azure
 
@@ -89,7 +89,7 @@ Neste cenário de exemplo:
 | 2    | Quando os administradores de Contoso e Fabrikam completam o consentimento, um objeto principal de serviço é criado no inquilino Azure AD da sua empresa e atribuído as permissões que o administrador concedeu. Note também que a aplicação HR pode ser configurada/concebida para permitir o consentimento dos utilizadores para uso individual. |
 | 3    | Os inquilinos consumidores da aplicação HR (Contoso e Fabrikam) têm cada um o seu próprio objeto principal de serviço. Cada um representa a sua utilização de uma instância do pedido em tempo de execução, regida pelas permissões conferidas pelo respetivo administrador. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Pode utilizar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar tanto a aplicação como os principais objetos de serviço.
 - Pode aceder ao objeto de aplicação de uma aplicação utilizando a Microsoft Graph API, o manifesto editor de aplicações [do portal Azure,][AZURE-Portal] ou [cmdlets Azure AD PowerShell, representados](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)pela sua entidade de [Aplicação][MS-Graph-App-Entity]OData.
