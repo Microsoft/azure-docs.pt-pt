@@ -648,8 +648,10 @@
           href: snapshot-copy-managed-disk.md
         - name: Reservar Armazenamento de Discos
           href: disks-reserved-capacity.md
-        - name: Criar um instantâneo incremental
+        - name: Criar um instantâneo incremental - CLI
           href: disks-incremental-snapshots.md
+        - name: Criar um instantâneo incremental - Portal
+          href: disks-incremental-snapshots-portal.md
         - name: Fazer cópia de segurança de discos não geridos
           href: incremental-snapshots.md
         - name: Migração e conversão
@@ -762,7 +764,7 @@
       displayName: ARM
 - name: Recursos
   items:
-    - name: Modelo do Resource Manager de autor
+    - name: Modelos do Resource Manager de autor
       displayName: 'Azure Resource Manager, ARM'
       href: /azure/azure-resource-manager/
     - name: Desenvolva as suas competências com o Microsoft Learn

@@ -8,6 +8,8 @@
       href: overview.md
     - name: Comparar serviços de mensagens
       href: compare-messaging-services.md
+    - name: Escalões premium vs. básicos
+      href: premium-basic-tiers.md
 - name: Guias de Início Rápido
   expanded: true
   items:
@@ -102,6 +104,8 @@
           href: security-authentication.md
         - name: Autorização
           href: security-authorization.md
+        - name: Segurança da rede
+          href: network-security.md
     - name: Entrega e tentativa
       href: delivery-and-retry.md
     - name: Filtro de eventos
@@ -118,6 +122,12 @@
       href: geo-disaster-recovery.md
 - name: Guias de procedimentos
   items:
+    - name: Configurar pontos finais privados (pré-visualização)
+      href: configure-private-endpoints.md
+    - name: Configurar firewall do IP (pré-visualização)
+      href: configure-firewall.md
+    - name: Atualizar escalão de preço
+      href: update-tier.md
     - name: Publicar em tópico personalizado
       href: post-to-custom-topic.md
     - name: Receber eventos num ponto final de HTTP

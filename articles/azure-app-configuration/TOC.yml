@@ -64,8 +64,6 @@
   items:
     - name: Arquivo de chave-valor
       href: concept-key-value.md
-    - name: Encriptar com chaves geridas pelo cliente
-      href: concept-customer-managed-keys.md
     - name: Instantâneo para um ponto anterior no tempo
       href: concept-point-time-snapshot.md
     - name: Gestão de funcionalidades
@@ -74,8 +72,12 @@
       href: concept-github-action.md
     - name: Manipulação de eventos
       href: concept-app-configuration-event.md
-    - name: Autenticação
+    - name: Segurança
       items:
+        - name: Encriptar com chaves geridas pelo cliente
+          href: concept-customer-managed-keys.md
+        - name: Proteger o arquivo de configuração com Pontos Finais Privados
+          href: concept-private-endpoint.md
         - name: Integrar na Identidade Gerida do Azure
           href: howto-integrate-azure-managed-service-identity.md
         - name: Permitir o acesso com o Azure Active Directory
