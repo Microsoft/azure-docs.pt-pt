@@ -1,9 +1,0 @@
-- name: Interface de Linha de Comandos (CLI)
-  href: index.yml
-  items:
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: Interface de Linha de Comandos do Azure (CLI)
-      href: /cli/azure
-    - name: Ferramentas do PowerShell para Visual Studio 2015
-      href: 'https://adamdriscoll.gitbooks.io/powershell-tools-documentation/content/'
