@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7349c22a2478020c9ac79655ad1e7c23c4cf5034
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 6fef1829e008b58f50546e9e6e7ad2ccee037224
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893130"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245268"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planeamento e implementação de Máquinas Virtuais Azure para SAP NetWeaver
 
@@ -54,7 +54,7 @@ ms.locfileid: "78893130"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533 ]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
@@ -372,7 +372,7 @@ As seguintes Notas SAP estão relacionadas com o tema da SAP no Azure:
 
 | Número de nota | Título |
 | --- | --- |
-| [1928533] |Aplicações SAP em Azure: Produtos e Dimensionamento SAP |
+| [1928533 ] |Aplicações SAP em Azure: Produtos e Dimensionamento SAP |
 | [2015553] |SAP no Microsoft Azure: Apoiar pré-requisitos |
 | [1999351] |Resolução de problemas Monitorização Avançada do Azure para SAP |
 | [2178632] |Principais métricas de monitorização para SAP no Microsoft Azure |
@@ -495,9 +495,17 @@ Para mais informações sobre os preços no local, leia o artigo [Máquinas Virt
 
 Além disso, o Azure oferece os conceitos de um anfitrião dedicado. O conceito dedicado do anfitrião dá-lhe mais controlo sobre os ciclos de remendos que são feitos pelo Azure. Pode cronometrar o remendo de acordo com os seus próprios horários. Esta oferta destina-se especificamente a clientes com carga de trabalho que podem não seguir o ciclo normal de carga de trabalho. Para ler os conceitos de ofertas dedicadas ao anfitrião azure, leia o artigo [Azure Dedicado Host.](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) A utilização desta oferta é suportada para carga de trabalho SAP e é usada por vários clientes SAP que querem ter mais controlo sobre a remensão da infraestrutura e eventuais planos de manutenção da Microsoft. Para obter mais informações sobre como a Microsoft mantém e remende a infraestrutura Azure que acolhe máquinas virtuais, leia o artigo [Manutenção de máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates).
 
+#### <a name="generation-1-and-generation-2-virtual-machines"></a>Máquinas virtuais geração 1 e geração 2
+O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de máquinas virtuais. Estes formatos são chamados **Geração 1** e **Geração 2**. **A Geração 2** foi introduzida no ano de 2012 com o hipervisor Windows Server 2012. O Azure começou a usar máquinas virtuais da Geração 1. À medida que implanta máquinas virtuais Azure, o padrão ainda é utilizar o formato Geração 1. Entretanto, também pode supor formatos VM da Geração 2. O artigo [Apoio à geração 2 VMs no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) lista as famílias Azure VM que podem ser implantadas como Geração 2 VM. Este artigo também enumera as diferenças funcionais muito importantes das máquinas virtuais da Geração 2, uma vez que podem funcionar na nuvem privada Hyper-V e azure. Mais importante ainda este artigo também enumera diferenças funcionais entre máquinas virtuais geração 1 e VMs geração 2, como as que funcionam em Azure. 
+
+> [!NOTE]
+> Existem diferenças funcionais de Geração 1 e Geração 2 VMs em execução em Azure. Leia o artigo Apoio para os [VMs da geração 2 no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) para ver uma lista dessas diferenças.  
+ 
+Mover um VM existente de uma geração para outra geração não é possível. Para mudar a geração de máquinas virtuais, precisa de implementar um novo VM da geração que deseja e reinstalar o software que está a executar na máquina virtual da geração. Isto apenas afeta a imagem vHD base do VM e não tem qualquer impacto nos discos de dados ou nas ações NFS ou SMB anexadas. Discos de dados, nFS ou ações SMB que foram originalmente atribuídas, por exemplo, numa Geração 1 VM
+
+De momento, você vai encontrar este problema especialmente entre os VMs da Série M Azure e VMs da Série Mv2. Devido a limitações no formato VM geração 1, os grandes VMs da família Mv2 não puderam ser oferecidos em formato Geração 1, mas obrigados a ser oferecidos exclusivamente na Geração 2. Do outro lado, a família M-Series VM ainda não está habilitada para ser implantada na Geração 2. Como resultado, a redimensionamento entre as máquinas virtuais da série M e mv2 requer uma reinstalação do software numa máquina virtual que você alvo da outra família VM. A Microsoft está a trabalhar para permitir que implementes VMs da série M para implementações da Geração 2. A implementação de VMs da série M como VMs de Geração 2 no futuro, vai permitir uma aparente redimensionamento entre as máquinas virtuais da série M e mv2. Em ambas as direções, quer de tamanho superior de M-Series a máquinas virtuais de série Mv2 maiores ou de tamanho inferior de VMs da série Mv2 maior estoiradora para VMs da série M menor. A documentação será atualizada assim que os VMs da série M puderem ser implantados como VMs da Geração 2.    
 
  
-
 
 ### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Armazenamento: Armazenamento e discos de dados do Microsoft Azure
 As Máquinas Virtuais Microsoft Azure utilizam diferentes tipos de armazenamento. Ao implementar o SAP nos Serviços de Máquinas Virtuais Azure, é importante compreender as diferenças entre estes dois principais tipos de armazenamento:
@@ -584,7 +592,7 @@ A cadeia acima precisa identificar exclusivamente o VHD que é armazenado no Arm
 Os Discos Geridos são um novo tipo de recurso no Gestor de Recursos Azure que pode ser usado em vez de VHDs que são armazenados em Contas de Armazenamento Azure. Os Discos Geridos alinham-se automaticamente com o conjunto de disponibilidade da máquina virtual a que estão ligados e, portanto, aumentam a disponibilidade da sua máquina virtual e os serviços que estão a funcionar na máquina virtual. Para mais informações, leia o [artigo Visão Geral.](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)
 
 Recomendamos que utilize o disco Gerido, pois simplificam a implementação e gestão das suas máquinas virtuais.
-Atualmente, a SAP apenas suporta discos geridos Premium. Para mais informações, leia Nota SAP [1928533]
+Atualmente, a SAP apenas suporta discos geridos Premium. Para mais informações, leia Nota SAP [1928533 ]
 
 #### <a name="microsoft-azure-storage-resiliency"></a>Resiliência do Armazenamento Microsoft Azure
 
@@ -739,7 +747,7 @@ Consulte também este blog e documento anexo para salção SAP em Azure: <https:
 
 **Passo 2**: Para os sistemas existentes, as operações de volume de I/O e de I/S por segundo no servidor DBMS devem ser medidas. Para os sistemas recém-planeados, o exercício de dimensionamento para o novo sistema também deve dar ideias ásperas sobre os requisitos de I/S do lado do DBMS. Se não tiver a certeza, eventualmente terá de conduzir uma Prova de Conceito.
 
-**Passo 3:** Compare o requisito SAPS para o servidor DBMS com o SAPS que os diferentes tipos de VM do Azure podem fornecer. A informação sobre sAPS dos diferentes tipos de VM Azure está documentada na Nota SAP [1928533]. O foco deve estar no DBMS VM primeiro, uma vez que a camada de base de dados é a camada de um sistema SAP NetWeaver que não escala na maioria das implementações. Em contraste, a camada de aplicação SAP pode ser dimensionada. Se nenhum dos tipos de VM Azure suportado sAP pode fornecer o SAPS necessário, a carga de trabalho do sistema SAP planeado não pode ser executada no Azure. Ou precisa de implantar o sistema no local ou precisa de alterar o volume de carga de trabalho do sistema.
+**Passo 3:** Compare o requisito SAPS para o servidor DBMS com o SAPS que os diferentes tipos de VM do Azure podem fornecer. A informação sobre sAPS dos diferentes tipos de VM Azure está documentada na Nota SAP [1928533 ]. O foco deve estar no DBMS VM primeiro, uma vez que a camada de base de dados é a camada de um sistema SAP NetWeaver que não escala na maioria das implementações. Em contraste, a camada de aplicação SAP pode ser dimensionada. Se nenhum dos tipos de VM Azure suportado sAP pode fornecer o SAPS necessário, a carga de trabalho do sistema SAP planeado não pode ser executada no Azure. Ou precisa de implantar o sistema no local ou precisa de alterar o volume de carga de trabalho do sistema.
 
 **Passo 4**: Tal como documentado [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows),][virtual-machines-sizes-windows]o Azure aplica uma quota IOPS por disco independente, quer utilize o Armazenamento Standard ou o Armazenamento Premium. Dependendo do tipo VM, o número de discos de dados, que podem ser montados varia. Como resultado, pode calcular um número máximo de IOPS que pode ser alcançado com cada um dos diferentes tipos de VM. Dependendo do layout de ficheiros da base de dados, pode riscar discos para se tornar um volume no OS convidado. No entanto, se o volume atual de IOPS de um sistema SAP implantado exceder os limites calculados do maior tipo de VM de Azure e se não houver possibilidade de compensar com mais memória, a carga de trabalho do sistema SAP pode ser severamente afetada. Nesses casos, pode chegar a um ponto em que não deve implantar o sistema no Azure.
 
@@ -1971,7 +1979,7 @@ A figura seguinte ilustrou a mesma paisagem usando discos geridos.
 
 ##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA em Linux
 
-A arquitetura para SAP HA em Linux on Azure é basicamente a mesma que para Windows como descrito acima. Consulte a Nota SAP [1928533] para obter uma lista de soluções de alta disponibilidade suportadas.
+A arquitetura para SAP HA em Linux on Azure é basicamente a mesma que para Windows como descrito acima. Consulte a Nota SAP [1928533 ] para obter uma lista de soluções de alta disponibilidade suportadas.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Utilização automática para instâncias SAP
 

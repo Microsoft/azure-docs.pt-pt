@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382365"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256188"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na nuvem – Gerir as suas bases de dados individuais e reunidas na Base de Dados Azure SQL
 
@@ -91,7 +91,7 @@ Para saber mais sobre a recuperação de desastres, consulte: [Azure SQL Db Disa
 
 A Base de Dados SQL leva a Segurança e a Privacidade muito a sério. A segurança dentro da Base de Dados SQL está disponível ao nível da base de dados e ao nível da plataforma e é melhor compreendida quando categorizada em várias camadas. Em cada camada você pode controlar e fornecer a segurança ideal para a sua aplicação. As camadas são:
 
-- Identidade e autenticação[(autenticação Windows/SQL e autenticação Azure Ative Directory [AAD]).](sql-database-control-access.md)
+- Identidade e autenticação[(autenticação SQL e autenticação Azure Ative Directory [AAD]).](sql-database-manage-logins.md)
 - Atividade de monitorização[(Auditoria](sql-database-auditing.md) e [deteção de ameaças).](sql-database-threat-detection.md)
 - Proteger dados reais[(Encriptação de Dados Transparentes [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e [Sempre Encriptado [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlar o acesso a dados sensíveis e privilegiados[(segurança de nível de linha](/sql/relational-databases/security/row-level-security) e [máscara de dados dinâmicos).](/sql/relational-databases/security/dynamic-data-masking)
@@ -100,10 +100,10 @@ A Base de Dados SQL leva a Segurança e a Privacidade muito a sério. A seguran�
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Que métodos de autenticação do utilizador são oferecidos na Base de Dados SQL
 
-Existem dois métodos de [autenticação oferecidos](sql-database-control-access.md#authentication) na Base de Dados SQL:
+Existem dois métodos de autenticação oferecidos na Base de Dados SQL:
 
 - [Autenticação de diretório ativo Azure](sql-database-aad-authentication.md)
-- Autenticação do SQL
+- [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 A autenticação tradicional das janelas não é suportada. Azure Ative Directory (AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Acesso único de acesso de sign-on (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços azure para uma autenticação mais simples. O AAD suporta [o MFA (Multi Fator Authentication)](sql-database-ssms-mfa-authentication.md) e com [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md) a AAD pode ser integrada com o Diretório Ativo do Servidor do Windows. A autenticação SQL funciona exatamente como tem usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados de um determinado servidor de Base de Dados SQL. Isto também permite que a Base de Dados SQL e o SQL Data Warehouse ofereçam contas de autenticação multifactor e de utilizadores de hóspedes dentro de um domínio DaD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
 
@@ -226,7 +226,7 @@ A Rota Expressa também permite que você rebente até 2x o limite de largura de
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>A Base de Dados SQL está em conformidade com quaisquer requisitos regulamentares, e como é que isso ajuda com a conformidade da minha própria organização.
 
-A Base de Dados SQL está em conformidade com uma série de conformidades regulamentares. Para ver o mais recente conjunto de conformidades que foram cumpridas pela SQL Database, visite o [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e avalie as conformidades que são importantes para a sua organização para ver se a Base de Dados SQL está incluída nos serviços De tebeiros do Azure. É importante notar que, embora a Base de Dados SQL possa ser certificada como um serviço conforme, ajuda no cumprimento do serviço da sua organização, mas não o garante automaticamente.
+A Base de Dados SQL está em conformidade com uma série de compliancies regulamentares. Para ver o mais recente conjunto de compliancies que foram cumpridas pela SQL Database, visite o [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e desempene as compliancies que são importantes para a sua organização para ver se a Base de Dados SQL está incluída nos serviços De base de dados DoML em conformidade. É importante notar que, embora a Base de Dados SQL possa ser certificada como um serviço conforme, ajuda no cumprimento do serviço da sua organização, mas não o garante automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitorização e manutenção de bases de dados inteligentes após migração
 
