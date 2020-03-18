@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
-ms.openlocfilehash: 4ce048cafa4c20e3bbdbd8ecf1669748531ee122
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: MT
+ms.openlocfilehash: f47a543143c949715fe2a49adccf074759a346fa
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129058"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79382099"
 ---
 ```json
 {
@@ -21,13 +21,13 @@ ms.locfileid: "74129058"
 }
 ```
 
-As propriedades a seguir estão disponíveis no `extensionBundle`:
+As propriedades seguintes estão disponíveis em `extensionBundle`:
 
 | Propriedade | Descrição |
 | -------- | ----------- |
-| ID | O namespace para pacotes de extensão do Microsoft Azure functions. |
-| versão | A versão do pacote a ser instalado. O tempo de execução do Functions sempre escolhe a versão máxima permitida definida pelo intervalo de versão ou intervalo. O valor da versão acima permite todas as versões do pacote da 1.0.0 até, mas não incluindo 2.0.0. Para obter mais informações, consulte a [notação de intervalo para especificar intervalos de versão](/nuget/reference/package-versioning#version-ranges-and-wildcards). |
+| ID | O espaço de nomes para os pacotes de extensões das Funções do Microsoft Azure. |
+| versão | A versão do pacote a instalar. O runtime das Funções escolhe sempre a versão máxima permitida definida pelo intervalo de versões. O valor da versão acima permite todas as versões de pacote a partir da 1.0.0, mas não inclui a 2.0.0. Para obter mais informações, veja a [notação de intervalo para especificar intervalos de versões](/nuget/reference/package-versioning#version-ranges). |
 
-As versões do pacote são incrementadas como pacotes na alteração do pacote. As alterações de versão principal ocorrem quando os pacotes no pacote são incrementados por uma versão principal. As alterações de versão principais no pacote geralmente coincidem com uma alteração na versão principal do tempo de execução do functions.  
+As versões de pacote incrementam à medida que os pacotes mudam. As alterações às versões principais ocorrem quando os pacotes incrementam por versão principal. As alterações às versões principais no pacote geralmente coincidem com uma alteração na versão principal do runtime das Funções.  
 
-O conjunto atual de extensões instaladas pelo pacote padrão é enumerado neste [arquivo Extensions. JSON](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+O conjunto atual de extensões instaladas pelo pacote predefinido está enumerado neste [ficheiro .json](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
