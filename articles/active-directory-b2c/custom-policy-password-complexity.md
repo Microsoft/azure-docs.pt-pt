@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: af6a7611381cbf7a251e65969d156f4c40d71843
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126766"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138439"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configure a complexidade da palavra-passe utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -153,4 +153,4 @@ Para configurar a complexidade da palavra-passe, sobrepor-se aos tipos de `newPa
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como configurar a alteração da [palavra-passe utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-password-change.md).
-- - Saiba mais sobre os [elementos Predicados](predicates.md) e [Predicados Validações](predicates.md#predicatevalidations) na referência IEF.
+- Saiba mais sobre os [elementos Predicados](predicates.md) e [Predicados Validações](predicates.md#predicatevalidations) na referência IEF.

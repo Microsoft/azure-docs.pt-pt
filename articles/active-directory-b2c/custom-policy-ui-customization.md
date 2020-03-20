@@ -12,11 +12,11 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374857"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245996"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -26,20 +26,20 @@ Ao completar os passos deste artigo, cria uma política personalizada de inscri�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para inscrever-se e entrar com contas locais.
+Conclua as etapas em introdução [às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada de trabalho para inscrever-se e entrar com contas locais.
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Modificar o ficheiro de extensões
+## <a name="4-modify-the-extensions-file"></a>4. Modificar o arquivo de extensões
 
 Para configurar a personalização ui, copie a **Definição** de Conteúdo e os seus elementos infantis do ficheiro base para o ficheiro de extensões.
 
-1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`.** </em> Este ficheiro base é um dos ficheiros de política incluídos no pacote de arranque de política personalizada, que deveria ter obtido no pré-requisito, [Começar com políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
-1. Procure e copie todo o conteúdo do elemento Definições de **Conteúdo.**
-1. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions.xml*. Procure o elemento **BuildingBlocks.** Se o elemento não existir, adicione-o.
-1. Colar todo o conteúdo do elemento **ContentDefinitions** que copiou em criança do elemento **BuildingBlocks.**
-1. Procure o elemento **ContentDefinition** que contenha `Id="api.signuporsignin"` no XML que copiou.
-1. Altere o valor do **LoadUri** para o URL do ficheiro HTML que carregou para o armazenamento. Por exemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Este ficheiro base é um dos ficheiros de política incluídos no pacote de arranque de política personalizada, que deveria ter obtido no pré-requisito, [Começar com políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Pesquise e copie todo o conteúdo do elemento **ContentDefinitions** .
+1. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions. xml*. Procure o elemento **BuildingBlocks** . Se o elemento não existir, adicione-o.
+1. Cole todo o conteúdo do elemento **ContentDefinitions** que você copiou como um filho do elemento **BuildingBlocks** .
+1. Procure o elemento **ContentDefinition** que contém `Id="api.signuporsignin"` no XML que você copiou.
+1. Altere o valor de **LoadUri** para a URL do arquivo HTML que você carregou no armazenamento. Por exemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     A sua política personalizada deve parecer o seguinte código:
 
@@ -60,19 +60,19 @@ Para configurar a personalização ui, copie a **Definição** de Conteúdo e os
 
 1. Salve o arquivo de extensões.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Faça upload e teste a sua política personalizada atualizada
+## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Carregar e testar sua política personalizada atualizada
 
 ### <a name="51-upload-the-custom-policy"></a>5.1 Faça upload da política personalizada
 
-1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
-1. Procure e **selecione Azure AD B2C**.
-1. No âmbito **das Políticas,** selecione Quadro de **Experiência de Identidade**.
-1. Selecione **a política personalizada de upload**.
+1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+1. Procure e selecione **Azure ad B2C**.
+1. Em **políticas**, selecione **estrutura de experiência de identidade**.
+1. Selecione **carregar política personalizada**.
 1. Carregue o arquivo de extensões que você alterou anteriormente.
 
 ### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Teste a política personalizada usando **Run agora**
 
-1. Selecione a política que carregou e, em seguida, selecione **Executar agora**.
+1. Selecione a política que você carregou e, em seguida, selecione **executar agora**.
 1. Você deve ser capaz de se inscrever usando um endereço de email.
 
 [!INCLUDE [active-directory-b2c-html-templates](../../includes/active-directory-b2c-html-templates.md)]
@@ -133,4 +133,4 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre elementos UI que podem ser personalizados, consulte o guia de referência para a personalização de [UI para fluxos de utilizadores](customize-ui-overview.md).
+Para obter mais informações sobre elementos de interface do usuário que podem ser personalizados, consulte o [Guia de referência para a personalização da interface do usuário para fluxos de usuários](customize-ui-overview.md).
