@@ -8,83 +8,52 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d279a2a368e606e036b24172eb94b667b3255db
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: MT
+ms.openlocfilehash: 56a3478f1c0dbc05eba07a5109f5bb6ba89b79d0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267955"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079883"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione reclamações e personalize a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Neste artigo, adiciona um novo utilizador à sua viagem de utilizador de inscrição no Azure Ative Directory B2C (Azure AD B2C).  Configura a entrada como uma queda e define se é necessária.
+Neste artigo, você recolhe um novo atributo durante a sua jornada de inscrição no Azure Ative Directory B2C (Azure AD B2C). Você vai obter a cidade dos utilizadores, configurá-la como uma gota e definir se é necessário fornecer.
+
+Pode recolher dados iniciais dos seus utilizadores utilizando a viagem de inscrição ou de inscrição no utilizador. As reclamações adicionais podem ser recolhidas mais tarde, utilizando uma viagem de utilizador de edição de perfil. Sempre que o Azure AD B2C recolhe informações diretamente do utilizador interactivamente, o Quadro de Experiência de Identidade utiliza o seu [perfil técnico autoafirmado](self-asserted-technical-profile.md). Nesta amostra, você:
+
+1. Defina uma reivindicação de "cidade".
+1. Pergunte ao utilizador pela sua cidade.
+1. Persistir a cidade até ao perfil de utilizador no diretório Azure AD B2C.
+1. Leia a reivindicação da cidade do diretório Azure AD B2C em cada entrada.
+1. Devolva a cidade à sua candidatura de festa de base após inscrição ou inscrição.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete os passos do artigo [Começar com Políticas Personalizadas.](custom-policy-get-started.md) Teste a viagem de inscrição ou inscrição no utilizador para iniciar uma nova conta local antes de prosseguir.
+Conclua as etapas em introdução [às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada de trabalho para inscrição e inscrição com contas sociais e locais.
 
-## <a name="add-claims"></a>Adicionar reclamações
+## <a name="define-a-claim"></a>Definir uma reclamação
 
-A recolha de dados iniciais dos seus utilizadores é conseguida utilizando a viagem de inscrição ou inscrição no utilizador. As reclamações adicionais podem ser recolhidas mais tarde, utilizando uma viagem de utilizador de edição de perfil. Sempre que o Azure AD B2C recolhe informações diretamente do utilizador interactivamente, o Quadro de Experiência de Identidade utiliza o seu fornecedor autoafirmado.
-
-
-### <a name="define-the-claim"></a>Definir a reclamação
-
-Vamos pedir ao utilizador a sua cidade. Adicione o seguinte elemento ao elemento **ClaimsSchema** no ficheiro de política TrustFrameworkBase:
-
-```xml
-<ClaimType Id="city">
-  <DisplayName>city</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Your city</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
-```
-
-São utilizados os seguintes elementos para definir a alegação:
+Uma reclamação fornece um armazenamento temporário de dados durante uma execução política Azure AD B2C. O [esquema das alegações](claimsschema.md) é o lugar onde declaras as tuas alegações. São utilizados os seguintes elementos para definir a alegação:
 
 - **Nome do ecrã** - Uma cadeia que define a etiqueta virada para o utilizador.
+- [DataType](claimsschema.md#datatype) - O tipo de reclamação.
 - **UserHelpText** - Ajuda o utilizador a compreender o que é necessário.
-- **UserInputType** - Pode ser uma caixa de texto, uma seleção de rádio, uma lista de drop-down ou uma seleção múltipla.
+- [UserInputType](claimsschema.md#userinputtype) - O tipo de controlo de entrada, como caixa de texto, seleção de rádio, lista de drop-down ou várias seleções.
 
-#### <a name="textbox"></a>TextBox
+Abra o ficheiro de extensões da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
 
-```xml
-<ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Your city</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
-```
-
-#### <a name="radiosingleselect"></a>RadioSingleSelect
+1. Procure o elemento [BuildingBlocks](buildingblocks.md) . Se o elemento não existir, adicione-o.
+1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
+1. Adicione a reivindicação da cidade ao elemento **ClaimsSchema.**  
 
 ```xml
 <ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>RadioSingleSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
-```
-
-#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
-
-![Controlo de dropdown de seleção única mostrando várias opções](./media/custom-policy-configure-user-input/dropdown-menu-example.png)
-
-```xml
-<ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
+  <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
   <UserInputType>DropdownSingleSelect</UserInputType>
   <Restriction>
@@ -95,173 +64,137 @@ São utilizados os seguintes elementos para definir a alegação:
 </ClaimType>
 ```
 
-#### <a name="checkboxmultiselect"></a>Caixa de verificaçãoMultiSelect
+## <a name="add-a-claim-to-the-user-interface"></a>Adicione uma reclamação à interface do utilizador
 
-![Controlo de caixa de verificação multi-selecionado mostrando várias opções](./media/custom-policy-configure-user-input/multiselect-menu-example.png)
+Os seguintes perfis técnicos são [autoafirmados,](self-asserted-technical-profile.md)invocados quando se espera que um utilizador forneça informações:
+
+- **LocalAccountSignUpWithLogonEmail** - Fluxo de inscrição de conta local.
+- **SelfAsserted-Social** - Conta federada pela primeira vez.
+- **AutoAfirmou-ProfileUpdate** - Editar fluxo de perfil.
+
+Para recolher a reivindicação da cidade durante a inscrição, deve ser adicionada como uma reivindicação de saída para o perfil técnico `LocalAccountSignUpWithLogonEmail`. Anular este perfil técnico no ficheiro de extensão. Especifique toda a lista de pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
 
 ```xml
-<ClaimType Id="city">
-  <DisplayName>Receive updates from which cities?</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>CheckboxMultiSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
+<ClaimsProvider>
+  <DisplayName>Local Account</DisplayName>
+  <TechnicalProfiles>
+    <!--Local account sign-up page-->
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <OutputClaims>
+       <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+       <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+       <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+       <OutputClaim ClaimTypeReferenceId="displayName" />
+       <OutputClaim ClaimTypeReferenceId="givenName" />
+       <OutputClaim ClaimTypeReferenceId="surName" />
+       <OutputClaim ClaimTypeReferenceId="city"/>
+     </OutputClaims>
+   </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+<ClaimsProvider>
 ```
 
-### <a name="add-the-claim-to-the-user-journey"></a>Adicione a reclamação à viagem do utilizador
+Para recolher a reclamação da cidade após o início de sessão com uma conta federada, deve ser adicionado como uma reivindicação de saída ao perfil técnico `SelfAsserted-Social`. Para que os utilizadores de conta locais e federados possam editar os seus dados de perfil mais tarde, adicione a alegação de saída ao perfil técnico `SelfAsserted-ProfileUpdate`. Anular estes perfis técnicos no ficheiro de extensão. Especifique toda a lista das alegações de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
 
-1. Adicione a reclamação como `<OutputClaim ClaimTypeReferenceId="city"/>` ao perfil técnico `LocalAccountSignUpWithLogonEmail` encontrado no ficheiro de política TrustFrameworkBase. Este perfil técnico utiliza o AutoAtributoAattributeProvider.
-
-    ```xml
-    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <DisplayName>Email signup</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-        <Item Key="language.button_continue">Create</Item>
-      </Metadata>
-      <CryptographicKeys>
-        <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-      </CryptographicKeys>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" />
-      </InputClaims>
+```xml
+  <DisplayName>Self Asserted</DisplayName>
+  <TechnicalProfiles>
+    <!--Federated account first-time sign-in page-->
+    <TechnicalProfile Id="SelfAsserted-Social">
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="objectId" />
-        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-        <OutputClaim ClaimTypeReferenceId="newUser" />
-        <!-- Optional claims, to be collected from the user -->
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surName" />
+        <OutputClaim ClaimTypeReferenceId="displayName"/>
+        <OutputClaim ClaimTypeReferenceId="givenName"/>
+        <OutputClaim ClaimTypeReferenceId="surname"/>
         <OutputClaim ClaimTypeReferenceId="city"/>
       </OutputClaims>
-      <ValidationTechnicalProfiles>
-        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-      </ValidationTechnicalProfiles>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
     </TechnicalProfile>
-    ```
-
-2. Adicione a reclamação ao perfil técnico AAD-UserWriteUseLogonEmail como `<PersistedClaim ClaimTypeReferenceId="city" />` de escrever a reclamação ao diretório AAD depois de a recolher do utilizador. Pode saltar este passo se preferir não persistir na reivindicação no diretório para uso futuro.
-
-    ```xml
-    <!-- Technical profiles for local accounts -->
-    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-      <Metadata>
-        <Item Key="Operation">Write</Item>
-        <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-      </Metadata>
-      <IncludeInSso>false</IncludeInSso>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-      </InputClaims>
-      <PersistedClaims>
-        <!-- Required claims -->
-        <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-        <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-        <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-        <!-- Optional claims. -->
-        <PersistedClaim ClaimTypeReferenceId="givenName" />
-        <PersistedClaim ClaimTypeReferenceId="surname" />
-        <PersistedClaim ClaimTypeReferenceId="city" />
-      </PersistedClaims>
+    <!--Edit profile page-->
+    <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="objectId" />
-        <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-      </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-    </TechnicalProfile>
-    ```
-
-3. Adicione a `<OutputClaim ClaimTypeReferenceId="city" />` reclamação aos perfis técnicos que lêem do diretório quando um utilizador faz o sinal de sintetizador.
-
-    ```xml
-    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-      <Metadata>
-        <Item Key="Operation">Read</Item>
-        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-        <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-      </Metadata>
-      <IncludeInSso>false</IncludeInSso>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-      </InputClaims>
-      <OutputClaims>
-        <!-- Required claims -->
-        <OutputClaim ClaimTypeReferenceId="objectId" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-        <!-- Optional claims -->
-        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="otherMails" />
-        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-        <OutputClaim ClaimTypeReferenceId="city" />
-      </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-    </TechnicalProfile>
-    ```
-
-    ```xml
-    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
-      <Metadata>
-        <Item Key="Operation">Read</Item>
-        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      </Metadata>
-      <IncludeInSso>false</IncludeInSso>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
-      </InputClaims>
-      <OutputClaims>
-        <!-- Optional claims -->
-        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="displayName"/>
         <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+## <a name="read-and-write-a-claim"></a>Ler e escrever uma reclamação
+
+Os seguintes perfis técnicos são [perfis técnicos ative diretórios,](active-directory-technical-profile.md)que lêem e escrevem dados para o Azure Ative Directory.  
+Utilize `PersistedClaims` para escrever dados para o perfil do utilizador e `OutputClaims` para ler dados do perfil do utilizador dentro dos respetivos perfis técnicos do Diretório Ativo.
+
+Anular estes perfis técnicos no ficheiro de extensão. Encontre o elemento **ClaimsProviders.**  Adicione um novo ClaimsProviders da seguinte forma:
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Azure Active Directory</DisplayName>
+  <TechnicalProfiles>
+    <!-- Write data during a local account sign-up flow. -->
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="city"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+    <!-- Write data during a federated account first-time sign-in flow. -->
+    <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="city"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+    <!-- Write data during edit profile flow. -->
+    <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="city"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+    <!-- Read data after user authenticates with a local account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
-    ```
+    <!-- Read data after user authenticates with a federated account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <OutputClaims>  
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
 
-4. Adicione a `<OutputClaim ClaimTypeReferenceId="city" />` reclamação ao ficheiro SignUporSignIn.xml para que esta reclamação seja enviada para a aplicação no token após uma viagem bem sucedida do utilizador.
+## <a name="include-a-claim-in-the-token"></a>Incluir uma reclamação no símbolo 
 
-    ```xml
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="OpenIdConnect" />
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName" />
-          <OutputClaim ClaimTypeReferenceId="givenName" />
-          <OutputClaim ClaimTypeReferenceId="surname" />
-          <OutputClaim ClaimTypeReferenceId="email" />
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-          <OutputClaim ClaimTypeReferenceId="identityProvider" />
-          <OutputClaim ClaimTypeReferenceId="city" />
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="sub" />
-      </TechnicalProfile>
-    </RelyingParty>
-    ```
+Para devolver a reivindicação da cidade à aplicação do partido que depende, adicione uma reclamação de saída ao <em>`SocialAndLocalAccounts/` **`SignUpOrSignIn.xml`** </em> ficheiro. A alegação de saída será adicionada ao símbolo após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico dentro da secção do partido de fiação para adicionar a cidade como uma reivindicação de saída.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="city" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
 
 ## <a name="test-the-custom-policy"></a>Testar a política personalizada
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 4. Selecione Quadro de **Experiência de Identidade**.
@@ -269,7 +202,7 @@ São utilizados os seguintes elementos para definir a alegação:
 2. Selecione a política de inscrição ou de inscrição que fez o upload e clique no botão **Executar agora.**
 3. Deverá poder inscrever-se através de um endereço de e-mail.
 
-O ecrã de inscrição deve ser semelhante a este:
+O ecrã de inscrição deve ser semelhante ao seguinte screenshot:
 
 ![Screenshot da opção de inscrição modificada](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
 
@@ -277,34 +210,29 @@ O símbolo enviado de volta para o seu pedido inclui a reclamação `city`.
 
 ```json
 {
-  "exp": 1493596822,
-  "nbf": 1493593222,
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1583500140,
+  "nbf": 1583496540,
   "ver": "1.0",
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "sub": "9c2a3a9e-ac65-4e46-a12d-9557b63033a9",
-  "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
-  "acr": "b2c_1a_trustf_signup_signin",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
-  "iat": 1493593222,
-  "auth_time": 1493593222,
+  "iat": 1583496540,
+  "auth_time": 1583496540,
+  "name": "Emily Smith",
   "email": "joe@outlook.com",
-  "given_name": "Joe",
-  "family_name": "Ras",
-  "city": "Bellevue",
-  "name": "unknown"
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "city": "Bellevue"
+  ...
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>Opcional: Remover a verificação de e-mail
+## <a name="next-steps"></a>Passos Seguintes
 
-Para ignorar a verificação de e-mail, pode optar por removê`PartnerClaimType="Verified.Email"`. Neste caso, o endereço de e-mail é necessário mas não verificado, a menos que "Required" = verdadeiro seja removido.  Considere cuidadosamente se esta opção é a certa para os seus casos de utilização.
-
-O e-mail verificado é ativado por padrão no `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no ficheiro de política TrustFrameworkBase:
-
-```xml
-<OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-```
-
-## <a name="next-steps"></a>Passos seguintes
-
-Saiba como [utilizar atributos personalizados numa política](custom-policy-custom-attributes.md)de edição de perfil personalizado.
+- Saiba mais sobre o elemento [ClaimsSchema](claimsschema.md) na referência IEF.
+- Aprenda a [usar atributos personalizados numa política](custom-policy-custom-attributes.md)de edição de perfil personalizado.
