@@ -11,10 +11,10 @@ metadata:
   ms.author: labrenne
   ms.date: 09/23/2019
   ms.openlocfilehash: d44ef419ec93e890ac1f8696d3ee45aadd3cd26f
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/05/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77026069"
 landingContent:
 - title: Acerca do Azure Batch

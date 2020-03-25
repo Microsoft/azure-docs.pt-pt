@@ -47,7 +47,7 @@
           href: media-services-portal-live-passthrough-get-started.md
         - name: .NET
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
-- name: Procedimento
+- name: Como
   items:
     - name: Componentes legados
       displayName: 'deprecated, deprecation, retired, retirement, legacy'
@@ -434,7 +434,7 @@
       items:
         - name: Perguntas mais frequentes
           href: media-services-frequently-asked-questions.md
-        - name: Guia de resolução de problemas de transmissão em fluxo em direto
+        - name: Guia de resolução de problemas de transmissão em direto
           href: media-services-troubleshooting-live-streaming.md
         - name: Códigos de erro
           href: media-services-error-codes.md

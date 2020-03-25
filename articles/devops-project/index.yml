@@ -10,10 +10,10 @@ metadata:
   ms.author: 
   ms.date: 03/05/2020
   ms.openlocfilehash: f03a03b353ffa0d0562169a51a2552c2f2ab143b
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "78942469"
 landingContent:
 - title: Sobre o Azure DevOps Projects

@@ -10,10 +10,10 @@ metadata:
   ms.author: jasonh
   ms.date: 12/26/2019
   ms.openlocfilehash: 5044e3d679827982af7259511777f7119188b00b
-  ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/04/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "75659122"
 landingContent:
 - title: Acerca do Azure Notebooks

@@ -11,10 +11,10 @@ metadata:
   ms.author: mamccrea
   ms.date: 09/16/2019
   ms.openlocfilehash: dff33c61d67a25bfc5c1119e5408602df01e5e30
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "75359737"
 landingContent:
 - title: Sobre o Azure Stream Analytics

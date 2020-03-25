@@ -47,7 +47,7 @@
       items:
         - name: Descrição Geral - Service Fabric e contentores
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
-        - name: Procedimento
+        - name: Como
           items:
             - name: Criar uma aplicação contentora no Windows
               href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'

@@ -57,9 +57,9 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: Como funciona o Gestor de Tráfego
       href: traffic-manager-how-it-works.md
-    - name: FAQs
+    - name: Perguntas mais frequentes
       href: traffic-manager-FAQs.md
-- name: Procedimento
+- name: Como
   items:
     - name: Configurar o encaminhamento de desempenho no Gestor de Tráfego
       href: traffic-manager-configure-performance-routing-method.md
@@ -119,14 +119,6 @@
       href: 'https://msdn.microsoft.com/library/mt163667.aspx'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.network/trafficmanagerprofiles
-- name: Relacionado
-  items:
-    - name: Gateway de Aplicação
-      href: /azure/application-gateway/
-    - name: Load balancer
-      href: /azure/load-balancer/
-    - name: DNS do Azure
-      href: /azure/dns/
 - name: Recursos
   items:
     - name: Mapa do Azure

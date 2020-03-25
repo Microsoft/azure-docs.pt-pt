@@ -9,10 +9,10 @@ metadata:
   ms.service: mariadb
   ms.topic: landing-page
   ms.openlocfilehash: bd4bb93a43bd493069ed03f6197595fe782d605a
-  ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/06/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "70735382"
 landingContent:
 - title: Acerca do Azure Database for MariaDB
@@ -105,7 +105,7 @@ landingContent:
       url: howto-data-in-replication.md
     - text: Criar uma réplica de leitura com o portal do Azure
       url: howto-read-replicas-portal.md
-- title: Codificar com APIs de programação
+- title: Programar com as APIs de programação
   linkLists:
   - linkListType: get-started
     links:

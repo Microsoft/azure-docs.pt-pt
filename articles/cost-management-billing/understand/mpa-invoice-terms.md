@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.openlocfilehash: 2aca67b5e73bf7f02ac6bca27569265339b0eae6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200168"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termos na fatura do Contrato de Parceiro da Microsoft
@@ -80,7 +80,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender os custos na fatura do perfil de faturação](review-customer-agreement-bill.md)
+- [Compreender os custos na sua fatura do perfil de faturação](review-customer-agreement-bill.md)
 - [Como obter a faturação e os dados de utilização diária do Azure](../manage/download-azure-invoice-daily-usage-date.md)
 - [Ver os preços do Azure da sua organização](../manage/ea-pricing.md)
 - [Visualizar documentos fiscais para o seu perfil de faturação](mca-download-tax-document.md)

@@ -11,10 +11,10 @@ metadata:
   ms.author: tarcher
   ms.date: 09/11/2019
   ms.openlocfilehash: ccdf9055fbdb72f0f0059d9bfe27bee41952446e
-  ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/16/2019
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "72388995"
 landingContent:
 - title: Sobre o Ansible no Azure

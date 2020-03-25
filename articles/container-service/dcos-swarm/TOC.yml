@@ -4,7 +4,7 @@
   items:
     - name: Sobre o Container Service
       href: container-service-intro.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Docker Swarm

@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344144"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238045"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
-Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja [Funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
-Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
+Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
 
 ## <a name="billing-role-definitions"></a>Definições de função de faturação
 
@@ -34,7 +34,7 @@ A tabela a seguir descreve as funções de faturação que utiliza para gerir a 
 |Gestor de faturas|Visualiza e paga faturas para o perfil de faturação|
 |Proprietário da secção de fatura|Gere tudo na secção de fatura|
 |Contribuidor da secção de fatura|Gere tudo exceto permissões na secção de fatura|
-|Leitor da secção de fatura|Vista só de leitura de tudo na secção de fatura|
+|Leitor da secção de fatura|Vista só de leitura de tudo na secção da fatura|
 |Criador de subscrições do Azure|Cria subscrições do Azure|
 
 ## <a name="billing-account-roles-and-tasks"></a>Funções e tarefas da conta de faturação
@@ -176,7 +176,7 @@ A tabela a seguir mostra qual a função necessária para realizar tarefas no co
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Gerir funções de faturação no portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 

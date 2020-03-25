@@ -13,10 +13,10 @@ metadata:
   ms.author: normesta
   ms.date: 08/20/2019
   ms.openlocfilehash: f937c88b70e60b7613cc08ba9d3f91748e3f0bd2
-  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/15/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "75981862"
 landingContent:
 - title: Acerca do Armazenamento de Blobs do Azure
@@ -41,7 +41,7 @@ landingContent:
       url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - linkListType: how-to-guide
     links:
-    - text: Criar uma conta de armazenamento
+    - text: Criar uma conta do Storage
       url: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Criar uma conta de armazenamento de blob de blocos
       url: storage-blob-create-account-block-blob.md

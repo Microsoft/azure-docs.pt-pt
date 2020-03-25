@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: O que é a monitorização do Azure AD?
       href: overview-monitoring.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Transferir um relatório de início de sessão

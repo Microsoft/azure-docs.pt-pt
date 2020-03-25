@@ -1,5 +1,5 @@
 ---
-title: Cancelar a sua subscrição do Azure | Microsoft Docs
+title: Cancelar a sua subscrição do Azure
 description: Descreve como cancelar a sua subscrição do Azure, como a subscrição de Avaliação Gratuita
 author: bandersmsft
 ms.reviewer: amberb
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 738eb860857d15f920a7552629c7d83ae6e2c3f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4cc3c1bcfe5f153e76f3bd37fbefa79fca4d541a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199828"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237739"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar a sua subscrição do Azure
 
@@ -22,7 +22,7 @@ Se já não precisar da subscrição do Azure, pode cancelá-la no portal do Azu
 Antes de cancelar a sua subscrição:
 * Crie uma cópia de segurança dos dados. Por exemplo, se estiver a armazenar dados no armazenamento do Azure ou no SQL, transfira uma cópia. Se tiver uma máquina virtual, guarde uma imagem da mesma localmente.
 * Encerre os seus serviços. Aceda à [página de recursos no portal de gestão](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) e **Pare** quaisquer máquinas virtuais, aplicações ou outros serviços em execução.
-* Considere migrar os seus dados. Veja como [Mover recursos para um novo grupo de recursos ou subscrição](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+* Considere migrar os seus dados. Veja como [Mover recursos para um grupo de recursos ou subscrição nova](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Elimine todos os recursos e grupos de recursos. A eliminação dos mesmos é necessária para que possa cancelar uma subscrição. Cada grupo de recursos tem de ser eliminado individualmente. Durante a eliminação do grupo de recursos, tem de confirmar a eliminação ao digitar o nome do grupo de recursos.
 * Se tiver funções personalizadas que façam referência a esta subscrição em `AssignableScopes`, deverá atualizar estas funções personalizadas para remover a subscrição. Se tentar atualizar uma função personalizada depois de cancelar uma subscrição, poderá obter um erro. Para obter mais informações, veja [Como resolver problemas com funções personalizadas](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [Funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md).
 
@@ -54,7 +54,7 @@ Depois de cancelar, a faturação é interrompida imediatamente. No entanto, pod
 
 Depois de cancelar, os seus serviços serão desativados. Isto significa que as máquinas virtuais são desalocadas, os endereços IP temporários são libertados e o armazenamento é só de leitura.
 
-Aguardamos 90 dias antes de eliminar definitivamente os seus dados, caso precise de aceder aos mesmos ou mude de ideias. Não cobramos por manter os dados. Para saber mais, veja [Centro de Confiança da Microsoft – Como gerimos os dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+Aguardamos 90 dias antes de eliminar definitivamente os seus dados, caso precise de aceder aos mesmos ou mude de ideias. Não cobramos por manter os dados. Para saber mais, veja [Centro de Fidedignidade da Microsoft – Como gerimos os dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="reactivate-subscription"></a>Reativar subscrição
 

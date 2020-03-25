@@ -10,10 +10,10 @@ ms.date: 02/14/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 1dd0dfad0c68e18ae272d5d94fedd67d24be9ae1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200783"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visualizar e transferir os preços do Azure para a sua organização
@@ -93,14 +93,14 @@ Também pode usar os preços da sua organização para estimar os custos com a c
 Se for um cliente do EA, veja:
 
 - [Gerir o acesso às suas informações de faturação do EA para o Azure](manage-billing-access.md)
-- [Ver e transferir a sua fatura do Microsoft Azure](../understand/download-azure-invoice.md)
+- [Ver e transferir a fatura do Microsoft Azure](../understand/download-azure-invoice.md)
 - [Ver e transferir a utilização e os custos do Microsoft Azure](../understand/download-azure-daily-usage.md)
 - [Compreender a sua fatura para clientes do Contrato Enterprise](../understand/review-enterprise-agreement-bill.md)
 
 Se tiver um Contrato de Cliente da Microsoft, veja:
 
 - [Compreender os termos na sua folha de preços para um Contrato de Cliente da Microsoft](mca-understand-pricesheet.md)
-- [Ver e transferir a sua fatura do Microsoft Azure](../understand/download-azure-invoice.md)
+- [Ver e transferir a fatura do Microsoft Azure](../understand/download-azure-invoice.md)
 - [Ver e transferir a utilização e os custos do Microsoft Azure](../understand/download-azure-daily-usage.md)
-- [Visualizar e transferir os documentos fiscais para o seu perfil de faturação](../understand/mca-download-tax-document.md)
+- [Ver e transferir os documentos fiscais para o seu perfil de faturação](../understand/mca-download-tax-document.md)
 - [Compreender os custos na sua fatura do perfil de faturação](../understand/review-customer-agreement-bill.md)

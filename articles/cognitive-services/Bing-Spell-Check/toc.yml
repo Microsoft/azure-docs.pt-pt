@@ -7,7 +7,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: API REST
       expanded: true
@@ -64,7 +64,7 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck'
         - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-java-stable'
-    - name: Requisitos de utilização e de apresentação
+    - name: Requisitos de apresentação e utilização
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
 - name: Recursos

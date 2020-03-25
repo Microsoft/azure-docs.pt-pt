@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 0cdcc26ca0ae64455f8a27b13c2e4bc87e0ecb68
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74222666"
 ---
 Verifique o tipo de contrato para determinar se tem acesso a uma conta de faturação de um Contrato de Parceiro da Microsoft.
  
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
  
 2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
  
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/billing-check-mpa/search-cmb.png)
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-check-mpa/search-cmb.png)
  
 3. Se tiver acesso a apenas um âmbito de faturação, selecione **Propriedades** no lado esquerdo. Terá acesso a uma conta de faturação de um Contrato de Parceiro da Microsoft se o tipo de conta de faturação for **Contrato de Parceiro da Microsoft**.
  

@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema Payment Card Industry Data 
 ms.date: 01/29/2020
 ms.topic: sample
 ms.openlocfilehash: 70a03b925c12fbfc7a3a605f682699c0808cd9eb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "76905530"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Descrição geral do exemplo de esquema PCI-DSS v3.2.1

@@ -12,10 +12,10 @@ metadata:
   ms.author: mlottner
   ms.date: 09/23/2019
   ms.openlocfilehash: 251cb6efab940993c6242bc921855d9a4a98819f
-  ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/27/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "74554150"
 landingContent:
 - title: Acerca do Centro de Segurança do Azure para IoT

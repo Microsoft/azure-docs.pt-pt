@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: ronhogue
   ms.author: rohogue
-  ms.date: 03/11/2020
-  ms.openlocfilehash: bf1ab34e0ac7477133933886bb07d16f4574c788
-  ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+  ms.date: 03/20/2020
+  ms.openlocfilehash: 4196fa541837952a3526bceb41325cce26e9207b
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/13/2020
-  ms.locfileid: "79298857"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80130741"
 landingContent:
 - title: Acerca do Azure FXT Edge Filer
   linkLists:
@@ -40,12 +40,12 @@ landingContent:
       url: fxt-add-storage.md
     - text: 7 - Configurar as definições de rede do cluster
       url: fxt-configure-network.md
+    - text: Montar clientes no cluster
+      url: fxt-mount-clients.md
 - title: Gerir
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Montar clientes no cluster
-      url: fxt-mount-clients.md
     - text: Monitorizar o estado de hardware
       url: fxt-monitor.md
     - text: Desligar o hardware com segurança

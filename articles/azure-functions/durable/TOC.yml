@@ -10,7 +10,7 @@
       href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Versões do Durable Functions
       href: durable-functions-versions.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: 'Criar função durável - C#'

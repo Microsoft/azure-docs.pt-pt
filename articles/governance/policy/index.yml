@@ -11,10 +11,10 @@ metadata:
   ms.author: dacoulte
   ms.date: 11/04/2019
   ms.openlocfilehash: 1a91f7fe63753ddc7c8b88d487064b15206fcfe3
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "73494344"
 landingContent:
 - title: Acerca do Azure Policy

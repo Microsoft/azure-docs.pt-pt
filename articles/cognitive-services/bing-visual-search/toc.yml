@@ -7,7 +7,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: API REST
       expanded: true
@@ -81,7 +81,7 @@
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest'
-    - name: Requisitos de utilização e de apresentação
+    - name: Requisitos de apresentação e utilização
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
 - name: Recursos

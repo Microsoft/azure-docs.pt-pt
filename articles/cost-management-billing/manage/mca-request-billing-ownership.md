@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 10f1052f9acf9bf91c1d7fb0b64a1d3285487cf3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200732"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obter a propriedade da faturação das subscrições do Azure de outras contas
 
 Talvez queira assumir a propriedade das subscrições do Azure caso o proprietário da faturação atual esteja de saída da sua organização ou se quiser pagar as subscrições através da sua conta de faturação. Assumir a propriedade transfere as responsabilidades de faturação das subscrições para a sua conta.
 
-Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-for-access).
+Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-for-access).
 
 Para pedir a propriedade da faturação, deve ser um **proprietário da secção da fatura** ou um **contribuidor da secção da fatura**. Para saber mais, veja [tarefas das funções da secção da fatura](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
@@ -72,7 +72,7 @@ Para pedir a propriedade da faturação, deve ser um **proprietário da secção
 
 ## <a name="check-the-transfer-request-status"></a>Verificar o estado do pedido de transferência
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 
@@ -139,7 +139,7 @@ Pode pedir a propriedade da faturação dos tipos de subscrição listados abaix
 - [Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/)\*
 - [Pay As You Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 - [Oferta Patrocinada do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*

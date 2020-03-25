@@ -5,7 +5,7 @@
   items:
     - name: O que é a API do Detetor de Anomalias?
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Biblioteca de cliente

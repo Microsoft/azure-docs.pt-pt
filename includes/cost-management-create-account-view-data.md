@@ -5,10 +5,10 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 09/17/2018
 ms.openlocfilehash: aa23e7f47517ea7cec76faa9ffec1a6456927aa5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75500162"
 ---
 ## <a name="view-cost-data"></a>Ver dados de custos

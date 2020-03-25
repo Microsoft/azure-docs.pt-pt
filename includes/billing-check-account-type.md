@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
 ms.openlocfilehash: bc60e7d39e6dbdf04744a10ef6c6f286e1b1ea52
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75987788"
 ---
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
  
 2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
  
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
  
 3. Se tiver acesso a apenas um âmbito de faturação, selecione **Propriedades** no lado esquerdo.
  

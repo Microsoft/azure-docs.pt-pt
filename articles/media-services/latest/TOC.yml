@@ -75,7 +75,7 @@
       items:
         - name: Descrição geral
           href: encoding-concept.md
-          displayName: 'encoding, presets, jobs, adaptive, bitrate, billing'
+          displayName: 'encode, encoding, presets, jobs, adaptive, bitrate, billing'
         - name: Codificador de Codificador Standard
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -87,7 +87,7 @@
       items:
         - name: Descrição geral
           href: analyzing-video-audio-files-concept.md
-          displayName: 'analyzing, presets, jobs'
+          displayName: 'analyze, analyzing, presets, jobs'
         - name: Transformações e Tarefas
           href: transforms-jobs-concept.md
     - name: Transmissão em direto
@@ -113,7 +113,7 @@
     - name: Empacotamento e entrega
       items:
         - name: Empacotamento dinâmico
-          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming'
+          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video'
           href: dynamic-packaging-overview.md
         - name: Manifestos dinâmicos
           href: filters-dynamic-manifest-overview.md
@@ -202,20 +202,13 @@
     - name: Introdução
       items:
         - name: Criar uma conta
-          items:
-            - name: Com o portal
-              href: create-account-portal.md
-            - name: Com a CLI
-              href: create-account-cli-how-to.md
-              displayName: storage
+          href: create-account-howto.md
+          displayName: 'portal, cli, storage'
         - name: Repor as credenciais de conta
           href: cli-reset-account-credentials.md
-        - name: Aceder a APIs
-          items:
-            - name: Com o portal
-              href: access-api-portal.md
-            - name: Com a CLI
-              href: access-api-cli-how-to.md
+        - name: API de acesso
+          displayName: 'portal, cli'
+          href: access-api-howto.md
         - name: Dimensionar Unidades Reservadas de Multimédia
           href: media-reserved-units-cli-how-to.md
         - name: Criar um Elemento
@@ -344,6 +337,7 @@
     - name: Resolução de problemas
       items:
         - name: Perguntas mais frequentes
+          displayName: faqs
           href: frequently-asked-questions.md
         - name: Códigos de erro
           items:
@@ -359,7 +353,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
       displayName: schema
     - name: REST
-      href: 'https://aka.ms/ams-v3-rest-ref'
+      href: 'https://docs.microsoft.com/rest/api/media/'
     - name: CLI do Azure
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: SDKs

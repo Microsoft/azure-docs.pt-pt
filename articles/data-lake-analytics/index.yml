@@ -12,10 +12,10 @@ metadata:
   ms.author: hrasheed
   ms.date: 09/13/2019
   ms.openlocfilehash: ed785cb383381902e488acbe182446eaa977824a
-  ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/08/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "73825808"
 landingContent:
 - title: Sobre o Data Lake Analytics

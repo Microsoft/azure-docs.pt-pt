@@ -10,10 +10,10 @@ metadata:
   ms.subservice: azuread-dev
   ms.workload: identity
   ms.openlocfilehash: 5af100e7e5a1456dae4bc4e68334299d1fd12794
-  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/12/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77163216"
 landingContent:
 - title: Azure Active Directory para programadores

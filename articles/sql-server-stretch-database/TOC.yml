@@ -12,7 +12,7 @@
       href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
     - name: Executar o assistente
       href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
-- name: Procedimento
+- name: Como
   items:
     - name: Ativar
       items:
