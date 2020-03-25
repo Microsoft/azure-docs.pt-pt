@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
 ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78301425"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA

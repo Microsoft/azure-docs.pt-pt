@@ -143,8 +143,6 @@
           href: consuming-from-excel.md
         - name: Utilizar o suplemento do Excel
           href: excel-add-in-for-web-services.md
-        - name: Utilizar Conjunto do Batch
-          href: dedicated-capacity-for-bes-jobs.md
     - name: Casos de utilização
       items:
         - name: Alterações dos clientes

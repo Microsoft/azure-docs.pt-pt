@@ -1,7 +1,6 @@
 ---
 title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245450"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204890"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 

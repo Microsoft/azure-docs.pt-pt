@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
 ms.openlocfilehash: 4ad28bd65fe9bc240e963f103ca5bd658e90fdfd
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77529624"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Como é aplicado o desconto de reserva à Cache do Azure para Redis

@@ -10,10 +10,10 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/26/2019
   ms.openlocfilehash: 0e55528ea547954219e9b7c8f7bb4d69897642c8
-  ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/19/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77467016"
 landingContent:
 - title: Acerca do Terraform no Azure

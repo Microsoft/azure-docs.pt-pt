@@ -1,26 +1,28 @@
 ---
-title: Ativar subscrições e contas do Azure | Microsoft Docs
+title: Ativar as subscrições e contas do Azure
 description: Ative o acesso através das APIs do Azure Resource Manager para contas novas e existentes, e resolva problemas comuns com contas.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 2467ee65b3f7090e5854bdd7848abab667ccfe55
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301374"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474667"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar subscrições e contas do Azure com o Cloudyn
 
 Adicionar ou atualizar as suas credenciais do Azure Resource Manager permite que o Cloudyn detete todas as contas e subscrições no seu Inquilino do Azure. Se também tiver ativado a extensão do Diagnóstico do Azure nas suas máquinas virtuais, o Cloudyn pode recolher métricas expandidas, como, por exemplo, da CPU e da memória. Este artigo descreve como ativar o acesso através das APIs do Azure Resource Manager para contas novas e existentes. Descreve também como resolver problemas comuns com contas.
 
 O Cloudyn não consegue aceder à maior parte dos seus dados de subscrição do Azure quando a subscrição está _desativada_. Tem de editar contas _desativadas_ para que o Cloudyn possa aceder às mesmas.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="required-azure-permissions"></a>Permissões do Azure necessárias
 

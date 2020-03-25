@@ -1,20 +1,18 @@
 ---
 title: Configurar a integração do AWS com o Azure Cost Management
 description: Este artigo acompanha-o através da definição e configuração da integração do relatório de Custos e Utilização do AWS com o Azure Cost Management.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.custom: ''
-ms.openlocfilehash: 90d75383c1bd7c67b3feeb77fe2284d7b4e0cdf9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199998"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203088"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Definir e configurar a integração do relatório de Custos e Utilização do AWS
 
@@ -39,11 +37,11 @@ Utilize a página **Relatórios de Custos e Utilização** da consola Faturaçã
 9. Na caixa de diálogo Configurar Registo S3, realiza uma das seguintes tarefas:
     1. Selecione um registo existente na lista pendente e escolha **Seguinte**.
     2. Introduza um nome de registo, a Região onde quer criar o novo registo e escolha **Seguinte**.
-10. Selecione **Confirmei que esta política está correta** e clique em **Guardar**.
-11. (Opcional) No prefixo Caminho do Relatório, introduza o prefixo do caminho do relatório que quer adicionar ao nome do relatório.
+10.    Selecione **Confirmei que esta política está correta** e clique em **Guardar**.
+11.    (Opcional) No prefixo Caminho do Relatório, introduza o prefixo do caminho do relatório que quer adicionar ao nome do relatório.
 Se não especificar um prefixo, o prefixo predefinido é o nome que especificou para o relatório. O intervalo de datas tem o formato `/report-name/date-range/`.
 12. Para **Unidade de tempo**, escolha **Horas**.
-13. Para **Versões do relatório**, escolha se quer que cada versão do relatório substitua a versão anterior ou se quer novos relatórios adicionais.
+13.    Para **Versões do relatório**, escolha se quer que cada versão do relatório substitua a versão anterior ou se quer novos relatórios adicionais.
 14. Para **Permitir integração de dados para**, não é necessária nenhuma seleção.
 15. Para **Compressão**, selecione **GZIP**.
 16. Selecione **Seguinte**.
@@ -124,8 +122,8 @@ A política JSON deve assemelhar-se ao seguinte exemplo. Substitua _bucketname_ 
             "Effect": "Allow",
             "Action": [
 "organizations:ListAccounts",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+             "ce:*",
+             "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },
