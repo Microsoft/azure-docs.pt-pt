@@ -10,11 +10,11 @@ ms.date: 02/10/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: dacae693020fea2f77a80b5b8bad44a07e471367
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200202"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237926"
 ---
 # <a name="view-and-download-tax-documents-for-your-azure-invoice"></a>Ver e transferir os documentos fiscais da fatura do Azure
 

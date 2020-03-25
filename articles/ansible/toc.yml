@@ -111,7 +111,7 @@
       href: ./ansible-matrix.md
     - name: Todos os módulos para o Azure
       href: 'https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure'
-- name: Ferramentas
+- name: Recursos
   items:
     - name: Extensão do Visual Studio Code para Ansible
       href: 'https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible'

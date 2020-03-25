@@ -5,7 +5,7 @@
   items:
     - name: O que é a API do Reconhecedor de Tinta Digital?
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: API REST

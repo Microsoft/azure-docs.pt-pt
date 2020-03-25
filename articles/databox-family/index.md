@@ -12,10 +12,10 @@ ms.topic: hub-page
 ms.date: 10/28/2019
 ms.author: alkohli
 ms.openlocfilehash: e2a3d17dda5f0d7a1cecc13583981d3659775283
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "73583212"
 ---
 <div id="main" class="v2">

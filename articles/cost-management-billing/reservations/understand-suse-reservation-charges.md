@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 9979ced6d5bd71dd1a42d19c222111a76ed18428
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200236"
 ---
 # <a name="azure-software-plan-discount"></a>Desconto de plano de software do Azure
@@ -24,7 +24,7 @@ Para comprar o plano certo, tem de compreender a utilização da VM e o número 
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
-Um desconto de reserva é “*use-it-or-lose-it*” (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
+Um desconto de reserva é "*use-it-or-lose-it*" (utilizar ou perder). Portanto, se não tiver recursos correspondentes para nenhuma hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
 
 Quando encerra um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão *perdidas*.
 
@@ -146,7 +146,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 Para saber mais sobre as reservas, veja os seguintes artigos:
 
-- [O que são as reservas do Azure?](save-compute-costs-reservations.md)
+- [O que são as Reservas do Azure?](save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de planos de software SUSE com Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerir o Azure Reservations](manage-reserved-vm-instance.md)

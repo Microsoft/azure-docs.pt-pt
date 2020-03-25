@@ -10,10 +10,10 @@ ms.workload: na
 ms.date: 01/30/2020
 ms.author: rogarana
 ms.openlocfilehash: 18fdda3e28761fcf912b716f51b5e270a9b224d0
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77586653"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Compreender como o desconto de reserva é aplicado ao armazenamento de discos do Azure
@@ -58,4 +58,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 - [Reduzir custos com a Reserva de Discos do Azure (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
 - [Reduzir custos com a Reserva de Discos do Azure (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
-- [O que são as reservas do Azure?](save-compute-costs-reservations.md)
+- [O que são as Reservas do Azure?](save-compute-costs-reservations.md)

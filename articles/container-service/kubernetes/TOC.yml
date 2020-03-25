@@ -4,7 +4,7 @@
   items:
     - name: Kubernetes no Azure
       href: container-service-intro-kubernetes.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Kubernetes no Azure

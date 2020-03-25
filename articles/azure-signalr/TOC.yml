@@ -101,7 +101,7 @@
       href: 'https://azure.microsoft.com/updates/'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service'
-    - name: FAQs
+    - name: Perguntas mais frequentes
       href: signalr-resource-faq.md
     - name: Limites do nível de subscrição do SignalR Service
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'

@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Analysis Services?
       href: analysis-services-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar um servidor - Portal
       href: analysis-services-create-server.md

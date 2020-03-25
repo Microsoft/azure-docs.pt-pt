@@ -12,7 +12,7 @@
       href: cloud-services-dotnet-get-started.md
     - name: Exemplo de Serviço em Nuvem Python para o Visual Studio
       href: cloud-services-python-ptvs.md
-- name: Procedimento
+- name: Como
   items:
     - name: Planear
       items:
@@ -139,6 +139,8 @@
           href: cloud-services-allocation-failures.md
         - name: Causas comuns da reciclagem de funções do Serviço em Nuvem
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+        - name: A aplicação não suporta o TLS 1.2
+          href: applications-dont-support-tls-1-2.md
         - name: O tamanho da pasta TEMP predefinida demasiado pequeno para a função
           href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
         - name: Problemas de implementação comuns

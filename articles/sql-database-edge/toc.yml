@@ -4,7 +4,7 @@
   items:
     - name: O que é a Base de Dados SQL no Edge?
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Implementar Base de Dados SQL no Edge

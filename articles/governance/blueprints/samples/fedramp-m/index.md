@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema FedRAMP Moderado. Este exem
 ms.date: 10/31/2019
 ms.topic: sample
 ms.openlocfilehash: 4a94d4ad29fdc79be508deb4bed76a91e8e76168
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74544451"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Descrição geral do exemplo de esquema FedRAMP Moderado

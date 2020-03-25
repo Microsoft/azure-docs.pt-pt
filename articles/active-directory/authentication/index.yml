@@ -13,10 +13,10 @@ metadata:
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
   ms.openlocfilehash: d06cc6f3c2d0d5033777a2f988d12ba7edb7be9c
-  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/20/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77484099"
 landingContent:
 - title: Acerca da autenticação

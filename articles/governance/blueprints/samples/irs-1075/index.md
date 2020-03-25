@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema IRS 1075. Este exemplo de e
 ms.date: 11/19/2019
 ms.topic: sample
 ms.openlocfilehash: 1edd4b843c6cc8c486961cd2337f7b44e3b190e7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74546794"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Descrição geral do exemplo de esquema IRS 1075

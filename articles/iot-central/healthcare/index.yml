@@ -11,10 +11,10 @@ metadata:
   ms.author: philmea
   ms.date: 10/25/2019
   ms.openlocfilehash: e5b8498039b16f3a5e3a68fc0c4329b3579d494a
-  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/26/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77623054"
 landingContent:
 - title: Criar soluções para cuidados de saúde
@@ -57,7 +57,7 @@ landingContent:
       url: ../core/howto-run-a-job.md
     - text: Analisar os dados do seu dispositivo
       url: ../core/howto-create-analytics.md
-- title: Transformação
+- title: Transformar
   linkLists:
   - linkListType: tutorial
     links:

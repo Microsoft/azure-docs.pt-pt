@@ -26,7 +26,7 @@
     - name: Aplicações de página única
       displayName: SPA
       items:
-        - name: JavaScript
+        - name: Javascript
           href: quickstart-v2-javascript.md
     - name: Web Apps
       items:
@@ -69,7 +69,7 @@
     - name: Aplicações de página única
       displayName: SPA
       items:
-        - name: JavaScript
+        - name: Javascript
           href: tutorial-v2-javascript-spa.md
     - name: Web Apps
       items:
@@ -332,7 +332,7 @@
           items:
             - name: Android
               href: msal-android-b2c.md
-            - name: JavaScript
+            - name: Javascript
               href: msal-b2c-overview.md
             - name: .NET
               href: msal-net-aad-b2c-considerations.md

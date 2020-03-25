@@ -33,7 +33,7 @@
       items:
         - name: Criar um grupo de dispositivos
           href: tutorial-use-device-groups.md
-    - name: Transformação
+    - name: Transformar
       items:
         - name: Criar uma regra
           href: tutorial-create-telemetry-rules.md
@@ -83,7 +83,7 @@
           href: howto-run-a-job.md
         - name: Modelo de dispositivo da versão
           href: howto-version-device-template.md
-    - name: Transformação
+    - name: Transformar
       items:
         - name: Exportar dados para destinos no Azure
           href: howto-export-data.md
@@ -127,8 +127,10 @@
               href: howto-manage-preferences.md
             - name: Ativar/desativar chat ao vivo
               href: howto-show-hide-chat.md
-- name: Relacionado
+- name: Recursos
   items:
+    - name: Opções de suporte e ajuda
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Modelos de aplicação do setor
       items:
         - name: Retalho
@@ -139,30 +141,30 @@
           href: ../government/overview-iot-central-government.md
         - name: Cuidados de saúde
           href: ../healthcare/overview-iot-central-healthcare.md
-    - name: Serviços de Plataforma
+    - name: Serviços de IoT do Azure
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
         - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
           href: /azure/iot-dps
-        - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Maps
+        - name: Centro de IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Aceleradores de soluções IoT
+          href: /azure/iot-accelerators
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Soluções Edge
+    - name: SDKs do Azure IoT
       items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
+        - name: SDKs do Serviço de IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: SDKs do Dispositivo IoT
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: Recursos
-  items:
-    - name: Opções de suporte e ajuda
-      href: /azure/iot-fundamentals/iot-support-help
     - name: Referência da API do IoT Central
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: Pedidos de dados do cliente

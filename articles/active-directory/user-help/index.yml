@@ -13,10 +13,10 @@ metadata:
   ms.author: curtand
   ms.date: 08/26/2019
   ms.openlocfilehash: 891c76692ecd13e7201ca5b0b0096040dbb2a958
-  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/07/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77062613"
 landingContent:
 - title: Configurar e utilizar a aplicação Microsoft Authenticator

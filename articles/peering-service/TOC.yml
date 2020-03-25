@@ -14,7 +14,7 @@
       href: connection-telemetry.md
     - name: Modelo de inclusão
       href: onboarding-model.md
-- name: Guias
+- name: Guias de procedimentos
   items:
     - name: Registar Peering Service
       items:
@@ -46,5 +46,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-peering/'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/?service=azure-peering'
-    - name: FAQs
+    - name: Perguntas mais frequentes
       href: faq.md

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: banders
 ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199692"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Controlar o saldo do Crédito do Azure do Contrato de Cliente da Microsoft
@@ -21,13 +21,13 @@ Pode consultar o saldo do Crédito do Azure da sua conta de faturação do Contr
 
 Na conta de faturação de um Contrato de Cliente da Microsoft, os créditos são atribuídos a um perfil de faturação. Cada perfil de faturação tem os seus próprios créditos que são aplicados automaticamente aos custos na fatura. Tem de ter uma função de proprietário, contribuidor, leitor ou gestor de faturas no perfil de faturação ou uma função de proprietário, contribuidor ou leitor na conta de faturação para ver o saldo do Crédito do Azure de um perfil de faturação. Para saber mais sobre as funções, veja [Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure](understand-mca-roles.md).
 
-Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="check-your-credit-balance"></a>Consultar o saldo do crédito
 
 ### <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 

@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 01/28/2020
 ms.author: banders
 ms.openlocfilehash: 2f7b09c14553fdb5d642080d286ce123176b997f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76991053"
 ---
 # <a name="how-reservation-recommendations-are-created"></a>Como são criadas as recomendações de reservas

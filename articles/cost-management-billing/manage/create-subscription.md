@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: d6a8196816aaaa61458050334f605cb41afa16b9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200851"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma subscrição do Azure adicional
@@ -33,7 +33,7 @@ Precisará das seguintes permissões para criar subscrições:
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma subscrição no portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Escreva **Subscrições** na caixa de pesquisa.
 
    ![Captura de ecrã que mostra a pesquisa de uma subscrição no portal](./media/create-subscription/billing-search-subscription-portal.png)

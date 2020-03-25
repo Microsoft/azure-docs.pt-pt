@@ -24,7 +24,7 @@
       href: data-catalog-prerequisites.md
     - name: FAQ
       href: data-catalog-frequently-asked-questions.md
-- name: Procedimento
+- name: Como
   items:
     - name: Registar origens de dados
       href: data-catalog-how-to-register.md

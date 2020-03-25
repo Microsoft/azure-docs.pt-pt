@@ -413,7 +413,7 @@ sudo crm configure property maintenance-mode=false</pre></code>
 #  <a name="resource-group-g_ip_db2ptr_ptr"></a>Grupo de Recursos: g_ip_db2ptr_PTR
 #      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (ocf::heartbeat:IPaddr2): Iniciado azibmdb02
 #      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatazure-lb------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (ocf::heartbeat:azure-lb): Iniciado azibmdb02
-#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Conjunto de Mestre/Escravo: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Conjunto de principal/secundário: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Masters: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Escravos: [azibmdb01]
 </pre>

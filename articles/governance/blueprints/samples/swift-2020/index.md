@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema SWIFT CSP-CSCF v2020. Este 
 ms.date: 09/24/2019
 ms.topic: sample
 ms.openlocfilehash: ee8670522bc4549dbb687a9ebe35bb20d53b0f17
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74546461"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Descrição geral do exemplo de esquema SWIFT CSP-CSCF v2020

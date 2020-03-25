@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: e885abcd997a4764090c5e8c8ce7ad14c0963220
-  ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+  ms.openlocfilehash: e3d9f63d2f365d5f91f205dc57b1d28e42711403
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/11/2020
-  ms.locfileid: "79086713"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80129808"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -304,7 +304,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
     azureCategories:
     - analytics
-    url: sql-data-warehouse/index.yml
+    url: synapse-analytics/sql-data-warehouse/index.yml
   - title: Catálogo de Dados
     summary: Extraia mais valor dos seus elementos de dados empresariais
     imageSrc: https://static.docs.com/ui/media/product/azure/data-catalog.svg
@@ -800,7 +800,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/service-bus.svg
     azureCategories:
     - integration
-    url: service-bus/index.md
+    url: service-bus-messaging/index.yml
   - title: Azure Digital Twins (Pré-visualização)
     summary: Crie soluções de inteligência espacial de IoT de próxima geração
     imageSrc: https://static.docs.com/ui/media/product/azure/digital-twins.svg
@@ -1173,7 +1173,7 @@ productDirectory:
     azureCategories:
     - storage
     url: azure-netapp-files/index.yml
-  - title: Blob Storage
+  - title: Armazenamento de Blobs
     summary: Armazenamento de objetos baseados em REST para dados não estruturados
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:
@@ -1185,7 +1185,7 @@ productDirectory:
     azureCategories:
     - storage
     url: virtual-machines/windows/managed-disks-overview.md
-  - title: Armazenamento de Ficheiros
+  - title: File Storage
     summary: Partilhas de ficheiros que utilizam o protocolo 3.0 SMB padrão
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:
@@ -1220,7 +1220,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/storsimple-device-managers.svg
     azureCategories:
     - storage
-    url: storsimple/index.md
+    url: storsimple/index.yml
   - title: Serviço Azure SignalR
     summary: Adicione funcionalidades da Web em tempo real facilmente
     imageSrc: https://static.docs.com/ui/media/product/azure/signalr-service.svg

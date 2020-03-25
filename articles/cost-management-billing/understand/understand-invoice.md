@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: a3bf55bef0f6fc25f98b362b4a22e22471a031f1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199063"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos na sua fatura do Microsoft Azure
@@ -98,7 +98,7 @@ A tabela a seguir descreve os cabeçalhos de coluna dos custos de utilização a
 | Recurso |Identifica a unidade de medida do medidor a ser consumido |
 | Região |Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter |
 | Consumido |O valor do medidor utilizado durante o período de faturação |
-| Incluídos |A quantidade do medidor que está incluída gratuitamente no seu período de faturação atual |
+| Incluída |A quantidade do medidor que está incluída gratuitamente no seu período de faturação atual |
 | A Cobrar |Mostra a diferença entre a Quantidade Consumida e a Quantidade Incluída. Este montante ser-lhe-á cobrado. Para as ofertas "Pay As You Go" sem quantidade incluída com a oferta, este total equivale à Quantidade Consumida |
 | Tarifa |A tarifa que lhe é cobrada por unidade |
 | Valor |Apresenta o resultado da multiplicação entre a coluna Quantidade Excedida e a coluna Tarifa. Se a Quantidade Consumida não exceder a Quantidade Incluída, não haverá custos nesta coluna. |

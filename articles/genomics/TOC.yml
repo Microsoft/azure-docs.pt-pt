@@ -4,7 +4,7 @@
   items:
     - name: O que é o Microsoft Genomics?
       href: overview-what-is-genomics.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Executar um fluxo de trabalho simples do Genomics

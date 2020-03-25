@@ -12,12 +12,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: c0f85c065a4334f41c7f52a05e2b885f97dde25f
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 7a6692b4ed0314acc8200e3e364e9a045d33e799
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70124887"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80049670"
 landingContent:
 - title: Sobre o Azure AD
   linkLists:
@@ -63,5 +63,7 @@ landingContent:
     links:
     - text: Adicionar ou eliminar utilizadores
       url: add-users-azure-active-directory.md
+    - text: Atribuir funções a utilizadores
+      url: active-directory-users-assign-role-azure-portal.md
     - text: Atribuir licenças a utilizadores
       url: license-users-groups.md

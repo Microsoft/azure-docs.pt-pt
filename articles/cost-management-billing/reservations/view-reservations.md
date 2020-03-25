@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 5c9d9074e4b8d0d9e36417daee4d58c1d9b28b64
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199250"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Ver reservas do Azure no portal do Azure
@@ -26,7 +26,7 @@ Para obter mais informações, veja [Adicionar ou alterar os utilizadores que po
 
 Para ver uma reserva como Proprietário ou Leitor:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Escreva **Reservas** na caixa de pesquisa.
     ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/view-reservations/portal-reservation-search.png)  
 3. A lista mostra todas as reservas onde possui a função Proprietário ou Leitor. Cada reserva mostra a última percentagem de utilização conhecida.  
@@ -43,7 +43,7 @@ Se tiver de alterar o âmbito de uma reserva, dividir uma reserva ou alterar que
 
 Para ver as transações de reserva no portal do Azure:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Procure **Cost Management + Faturação**.
 
     ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/view-reservations/portal-cm-billing-search.png)

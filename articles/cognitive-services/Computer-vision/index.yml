@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: e7c04f587f900342031f25210f6640b46fbc358b
-  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+  ms.openlocfilehash: 428ff52a94c41a564e023d859f70af6eb56df7fa
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/01/2020
-  ms.locfileid: "78207086"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80131690"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -41,15 +41,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Utilizar o SDK Python
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Utilizar o SDK Java
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Utilizar o SDK Node
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Utilizar o SDK do Go
-      url: quickstarts-sdk/go-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 - title: Detetar objetos em imagens
   linkLists:
   - linkListType: concept
@@ -59,15 +59,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Utilizar o SDK Python
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Utilizar o SDK Java
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Utilizar o SDK Node
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Utilizar o SDK do Go
-      url: quickstarts-sdk/go-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 - title: Aplicação de etiquetas de conteúdo a imagens
   linkLists:
   - linkListType: concept
@@ -77,15 +77,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Utilizar o SDK Python
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Utilizar o SDK Java
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Utilizar o SDK Node
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Utilizar o SDK do Go
-      url: quickstarts-sdk/go-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 - title: Utilizar contentores
   linkLists:
   - linkListType: get-started
@@ -111,15 +111,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Utilizar o SDK Python
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Utilizar o SDK Java
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Utilizar o SDK Node
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Utilizar o SDK do Go
-      url: quickstarts-sdk/go-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 - title: Referência
   linkLists:
   - linkListType: reference

@@ -1,5 +1,5 @@
 ---
-title: Limite de gastos do Azure | Microsoft Docs
+title: Limite de gastos do Azure
 description: Este artigo descreve como funciona um limite de gastos do Azure e como o pode remover.
 author: bandersmsft
 ms.reviewer: judupont
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: ef1ed399f2ed3401612543b3dcaf94dfbafb6715
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6feac116c92f8dac7bd1dde2084f9b25f5e559f8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361023"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238062"
 ---
 # <a name="azure-spending-limit"></a>Limite de gastos do Azure
 

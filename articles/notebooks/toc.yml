@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Notebooks?
       href: azure-notebooks-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Iniciar sessão e definir um ID de utilizador
       href: quickstart-sign-in-azure-notebooks.md

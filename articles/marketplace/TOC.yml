@@ -26,7 +26,7 @@
         - name: Guia de publicação por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
-            - name: Virtual Machines
+            - name: Máquinas Virtuais
               href: ./marketplace-virtual-machines.md
             - name: 'Aplicações do Azure: modelos de solução'
               href: ./marketplace-solution-templates.md

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: tamram
 ms.openlocfilehash: b6360619b7666ab7836a751491e05e379df32d93
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199199"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Compreender como o desconto de reserva é aplicado ao Armazenamento do Microsoft Azure
@@ -27,7 +27,7 @@ O desconto de capacidade reservada do Armazenamento do Microsoft Azure é aplica
 
 O desconto de capacidade reservada do Armazenamento do Microsoft Azure é um desconto “use-it-or-lose-it” (utilizar ou perder). Caso não tenha nenhum blob de blocos ou recursos do Azure Data Lake Storage Gen2 que cumpram os termos da reserva para uma determinada hora, perde uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
 
-Quando elimina um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão perdidas.
+Quando elimina um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não forem encontrados recursos correspondentes no âmbito especificado, as horas reservadas perdem-se.
 
 ## <a name="discount-examples"></a>Exemplos de desconto
 
@@ -54,4 +54,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Otimizar os custos do Armazenamento de blobs com a capacidade reservada](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [O que são as reservas do Azure?](save-compute-costs-reservations.md)
+- [O que são as Reservas do Azure?](save-compute-costs-reservations.md)

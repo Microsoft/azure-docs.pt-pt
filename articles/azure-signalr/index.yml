@@ -10,10 +10,10 @@ metadata:
   ms.author: wesmc
   ms.date: 03/11/2020
   ms.openlocfilehash: db405e7405fc96779aebc9074fa19302f3b4ba1b
-  ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/12/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "79137942"
 landingContent:
 - title: Sobre o serviço Azure SignalR
