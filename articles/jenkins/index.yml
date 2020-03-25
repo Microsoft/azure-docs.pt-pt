@@ -11,10 +11,10 @@ metadata:
   ms.author: tarcher
   ms.date: 02/24/2020
   ms.openlocfilehash: c852d1ffbc1ef3853d5d409d7f0818cb7943cdc3
-  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/04/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "78269031"
 landingContent:
 - title: Acerca do Jenkins no Azure

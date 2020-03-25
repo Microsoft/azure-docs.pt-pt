@@ -11,10 +11,10 @@ metadata:
   ms.author: genli
   ms.date: 09/09/2019
   ms.openlocfilehash: f19ce0f1e088d2360f4afb2925d2a5d67b4c0252
-  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/28/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77920846"
 landingContent:
 - title: Resolver falhas de implementação
@@ -29,7 +29,7 @@ landingContent:
       url: ../../azure-resource-manager/templates/error-invalid-template.md
     - text: Resolver erros de SKUs não disponíveis
       url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
-- title: Documentação de Orientação de Implementação de VMs
+- title: Documentação de orientação de implementação de VMs
   linkLists:
   - linkListType: how-to-guide
     links:

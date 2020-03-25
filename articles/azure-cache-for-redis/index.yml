@@ -10,10 +10,10 @@ metadata:
   ms.author: yegu
   ms.date: 12/16/2019
   ms.openlocfilehash: fad78db361927a14f393066fb088354552d880a9
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "75470037"
 landingContent:
 - title: Acerca da Cache do Azure para Redis

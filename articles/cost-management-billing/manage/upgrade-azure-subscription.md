@@ -11,10 +11,10 @@ ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 29454bc5edb02ff571e06be3e9f203792d473aed
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199454"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Atualizar a conta gratuita do Azure ou a conta Microsoft Azure for Students Starter

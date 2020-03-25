@@ -12,10 +12,10 @@ metadata:
   manager: mtillman
   ms.date: 10/30/2019
   ms.openlocfilehash: 8c0d92cc7f50ec72b33d86335291580a477db056
-  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/04/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "78273659"
 landingContent:
 - title: Sobre o Azure Analysis Services

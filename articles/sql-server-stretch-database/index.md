@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 01/23/2017
 ms.author: craigg
 ms.openlocfilehash: ff021c12ccd95684b355b0591b739bb1ad2e17bf
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "68610266"
 ---
 # <a name="sql-server-stretch-database-documentation"></a>Documentação do SQL Server Stretch Database

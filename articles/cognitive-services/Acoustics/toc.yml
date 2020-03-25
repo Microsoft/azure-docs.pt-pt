@@ -3,7 +3,7 @@
   items:
     - name: O que é o Projeto Acoustics?
       href: what-is-acoustics.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Início Rápido com o Unity
       href: unity-quickstart.md

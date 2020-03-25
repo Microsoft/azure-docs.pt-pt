@@ -11,10 +11,10 @@ metadata:
   ms.author: dacoulte
   ms.date: 09/01/2019
   ms.openlocfilehash: 44d21c07a81dc3fe5912137691b67af1a3e910e2
-  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/04/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "70239212"
 landingContent:
 - title: Acerca do Azure Blueprints

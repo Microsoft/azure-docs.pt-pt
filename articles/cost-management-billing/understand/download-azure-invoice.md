@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200270"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Ver e transferir a fatura do Microsoft Azure
@@ -33,7 +33,7 @@ Se tiver um Contrato de Parceiro da Microsoft (MPA), terá de ser Administrador 
 
 <!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). -->
 
-## <a name="noinvoice"></a> Motivo pelo qual pode não obter uma fatura
+## <a name="why-you-might-not-get-an-invoice"></a><a name="noinvoice"></a> Motivo pelo qual pode não obter uma fatura
 
 Podem existir vários motivos para não ver uma fatura:
 

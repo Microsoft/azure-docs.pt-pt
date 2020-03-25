@@ -8,18 +8,17 @@ metadata:
   description: 'A API de Análise de Texto é um serviço com base na cloud que fornece capacidades avançadas de processamento de linguagem natural em texto não processado. Inclui quatro funções principais: análise de sentimentos, extração de expressões-chave, reconhecimento de entidades nomeadas e deteção de idioma. Saiba como analisar conteúdo através de formas diferentes com os nossos inícios rápidos, tutoriais e exemplos.'
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: c98f6b9994dfa80f51a78d9be22e283cca700ce9
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.openlocfilehash: 468315f79f7d0f9d10013c4068b5bb29436b3166
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/21/2020
-  ms.locfileid: "77524602"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415143"
 landingContent:
 - title: Acerca da API de Análise de Texto
   linkLists:

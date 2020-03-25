@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/12/2020
 ms.author: v-miegge
 ms.openlocfilehash: 40a645fe4b74043d84dc770f15d5e3c3ec907f02
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199488"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Resolver problemas relativos a início de sessão da subscrição do Azure

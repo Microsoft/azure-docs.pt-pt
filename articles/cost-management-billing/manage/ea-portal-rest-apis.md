@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
 ms.openlocfilehash: a29af1c9239cc44b3d4a41d17df88e88ee926fbe
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78272373"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise

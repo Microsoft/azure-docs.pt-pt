@@ -74,7 +74,7 @@
       href: team-data-science-process-for-data-scientists.md
     - name: Para DevOps
       href: team-data-science-process-for-devops.md
-- name: Procedimento
+- name: Como
   items:
     - name: Configurar ambientes de ciência de dados
       href: environment-setup.md

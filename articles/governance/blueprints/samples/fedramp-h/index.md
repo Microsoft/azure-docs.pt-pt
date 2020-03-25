@@ -4,10 +4,10 @@ description: Descrição geral do exemplo de esquema do FedRAMP Alto. Este exemp
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: dede255b73a2a052acf1e8b95ad5171a1ace6ae5
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "77087285"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Descrição geral do exemplo de esquema do FedRAMP Alto

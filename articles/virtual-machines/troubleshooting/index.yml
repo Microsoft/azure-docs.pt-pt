@@ -11,10 +11,10 @@ metadata:
   ms.author: genli
   ms.date: 09/09/2019
   ms.openlocfilehash: 4111df079f6e4c0d49ab1381add835d493b3540a
-  ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/20/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77519245"
 landingContent:
 - title: Resolver falhas de implementação

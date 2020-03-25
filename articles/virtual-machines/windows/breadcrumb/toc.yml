@@ -2,13 +2,13 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Virtual Machines
+    - name: Máquinas Virtuais
       tocHref: /azure/active-directory/managed-identities-azure-resources/
       topicHref: /azure/virtual-machines/index
       items:
         - name: Windows
           tocHref: /azure/active-directory/managed-identities-azure-resources/
           topicHref: /azure/virtual-machines/windows/index
-    - name: Virtual Machines
+    - name: Máquinas Virtuais
       tocHref: /azure/virtual-machines/
       topicHref: /azure/virtual-machines/index

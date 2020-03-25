@@ -83,7 +83,7 @@
           href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/?view=azure-node-latest'
         - name: Ir
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch'
-    - name: Requisitos de utilização e de apresentação
+    - name: Requisitos de apresentação e utilização
       href: Use-display-requirements.md
 - name: Recursos
   items:

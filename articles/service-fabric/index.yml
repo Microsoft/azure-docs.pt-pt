@@ -8,10 +8,10 @@ metadata:
   ms.author: edoyle
   ms.date: 12/04/2019
   ms.openlocfilehash: a2651387a425439d09ad68b0e763ff0c6c3f7f27
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "75452212"
 landingContent:
 - title: Acerca do Service Fabric

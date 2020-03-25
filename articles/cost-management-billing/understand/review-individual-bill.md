@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199131"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Analisar a fatura individual do Azure
@@ -120,7 +120,7 @@ Os custos mostrados na análise de custos devem corresponder exatamente ao valor
 
 ![Custos de utilização da fatura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>Serviços externos faturados separadamente
+## <a name="external-services-billed-separately"></a><a name="external"></a>Serviços externos faturados separadamente
 
 Os serviços externos ou os custos do marketplacet dizem respeito aos recursos que foram criados por fornecedores de software de terceiros. Estes recursos estão disponíveis para utilização no Azure Marketplace. Por exemplo, uma Firewall Barracuda é um recurso do Azure Marketplace oferecido por terceiros. Todos os custos da firewall e os medidores correspondentes aparecem como custos de serviços externos.
 
@@ -149,7 +149,7 @@ Uma vez criada a VM, cada medidor começa a emitir registos de utilização. Est
 
 Pode ver os medidores que foram utilizados para calcular a faturação no ficheiro CSV de utilização.
 
-## <a name="payment"></a>Pagar a fatura
+## <a name="pay-your-bill"></a><a name="payment"></a>Pagar a fatura
 
 Se configurar um cartão de crédito como o método de pagamento, o pagamento será cobrado automaticamente dentro de 10 dias após o fim do período de faturação. No extrator do cartão de crédito, o item de linha indicará **MSFT Azure**.
 

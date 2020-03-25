@@ -88,7 +88,7 @@ sections:
         items:
           - html: '.NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blobs</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Ficheiros</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Filas</a>'
           - html: 'Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Ficheiros</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Filas</a>'
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">O Azure PowerShell</a>
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">CLI do Azure</a>
   - title: Desenvolva as suas competências com o Microsoft Learn
     items:
@@ -106,7 +106,7 @@ sections:
             image:
               src: /learn/achievements/choose-storage-approach-in-azure.svg
               href: /learn/modules/choose-storage-approach-in-azure/
-          - title: Criar uma conta do Storage do Azure
+          - title: Criar uma conta de armazenamento do Azure
             href: /learn/modules/create-azure-storage-account/
             image:
               src: /learn/achievements/create-azure-storage-account.svg

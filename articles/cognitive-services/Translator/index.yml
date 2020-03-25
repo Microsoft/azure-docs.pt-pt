@@ -8,18 +8,17 @@ metadata:
   services: cognitive-services
   author: erhopf
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 7103e8e6e64c60507b8f72d843fe05afa2e3561f
-  ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+  ms.openlocfilehash: 2d6b5f07cdefe874a8c25338e5c31664fccb8055
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/12/2019
-  ms.locfileid: "73960605"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415735"
 landingContent:
 - title: Tradutor
   linkLists:

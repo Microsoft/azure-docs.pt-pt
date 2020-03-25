@@ -10,7 +10,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: API REST
       expanded: true
@@ -33,7 +33,7 @@
       href: local-categories.md
 - name: Referência
   items:
-    - name: Requisitos de utilização e de apresentação
+    - name: Requisitos de apresentação e utilização
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
     - name: Referência da API de Pesquisa de Negócios Locais

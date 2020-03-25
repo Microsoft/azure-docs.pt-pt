@@ -2,20 +2,17 @@
 title: Resolução de problemas num cartão rejeitado na inscrição no Azure
 description: Resolva o problema do cartão de crédito rejeitado na inscrição no Azure no portal do Azure ou no centro de contas.
 author: v-miegge
-services: cost-management-billing
-manager: dcscontentpm
 ms.reviewer: judupont
-editor: v-jesits
 ms.service: cost-management-billing
 ms.topic: troubleshooting
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 04bd8b82e301778db6c68791925f1cd668fb7859
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 3e82bf024580f12c45b6e4a2dd5074aed4f0a1c1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560563"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204720"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Resolução de problemas num cartão rejeitado na inscrição no Azure
 
@@ -58,7 +55,7 @@ Para obter mais informações sobre como pagar por fatura, veja [Submit a reques
 
 Para obter mais informações sobre como gerir as suas informações do cartão, incluindo a alteração ou a remoção de um cartão, veja [Add, update, or remove a credit for Azure](change-credit-card.md) (Adicionar, atualizar ou remover um crédito para o Azure).
 
-## <a name="additional-help-resources"></a>Recursos de ajuda adicionais
+## <a name="additional-help-resources"></a>Recursos de ajuda adicional
 
 Outros artigos de resolução de problemas para Subscrições e Faturação do Azure
 

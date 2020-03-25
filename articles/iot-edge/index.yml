@@ -12,10 +12,10 @@ metadata:
   manager: philmea
   ms.date: 08/05/2019
   ms.openlocfilehash: bf968da3bba6510b3ce273ba1049f4ad164319c2
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "75457216"
 landingContent:
 - title: Desenvolver para dispositivos Linux

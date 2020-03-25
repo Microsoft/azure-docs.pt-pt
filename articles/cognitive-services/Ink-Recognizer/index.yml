@@ -8,18 +8,17 @@ metadata:
   services: cognitive-services
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: ink-recognizer
   ms.topic: landing-page
   ms.date: 09/23/2019
   ms.author: aahi
-  ms.openlocfilehash: 7aee03f6f82c6c07e3af51a19344ba7716c66a23
-  ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+  ms.openlocfilehash: f7e273639e5a5efd5e52517d9729bb7ba8908604
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71827874"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415714"
 landingContent:
 - title: Acerca da API do Reconhecedor de Tinta Digital
   linkLists:

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: andalmia
 ms.openlocfilehash: 29af3d064b481548cdb9b9518e9735eb34aaf034
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78270224"
 ---
 # <a name="azure-subscription-states"></a>Estados de subscrição do Azure

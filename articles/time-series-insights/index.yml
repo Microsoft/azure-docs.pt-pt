@@ -13,10 +13,10 @@ metadata:
   ms.author: v-adgera
   ms.date: 02/12/2020
   ms.openlocfilehash: 34d7e9ad4f312576eb1e51961feb8364b99a967e
-  ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/27/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "77651326"
 landingContent:
 - title: Acerca do Azure Time Series Insights

@@ -4,7 +4,7 @@
   items:
     - name: Serviço Azure Service Health
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Configurar alertas para eventos de estado de funcionamento do serviço
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
@@ -16,7 +16,7 @@
       href: service-health-overview.md
     - name: Estado de Funcionamento de Recursos
       href: resource-health-overview.md
-- name: Procedimento
+- name: Como
   items:
     - name: Configurar alertas para eventos de estado de funcionamento do serviço
       href: alerts-activity-log-service-notifications.md

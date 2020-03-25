@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.openlocfilehash: 4c4b105bb4b67e855de27b6a57d2080fde068421
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200219"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237909"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termos na sua fatura do Contrato de Cliente da Microsoft
 
-Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se à conta de faturação do Azure de um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 A sua fatura disponibiliza um resumo dos seus custos e instruções para o pagamento. Está disponível para transferência em .pdf (Portable Document Format) a partir do [portal do Azure](https://portal.azure.com/) ou pode ser enviada por e-mail. Para obter mais informações, veja [Ver e transferir a sua fatura do Microsoft Azure](download-azure-invoice.md).
 
@@ -102,7 +102,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Compreender os custos na fatura do perfil de faturação](review-customer-agreement-bill.md)
+- [Compreender os custos na sua fatura do perfil de faturação](review-customer-agreement-bill.md)
 - [Como obter a faturação e os dados de utilização diária do Azure](../manage/download-azure-invoice-daily-usage-date.md)
 - [Ver os preços do Azure da sua organização](../manage/ea-pricing.md)
 - [Visualizar documentos fiscais para o seu perfil de faturação](mca-download-tax-document.md)

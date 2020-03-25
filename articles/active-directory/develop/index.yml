@@ -10,13 +10,13 @@ metadata:
   ms.subservice: develop
   ms.workload: identity
   ms.openlocfilehash: edc613b275d996ac8ef8ed4470529153fdcfbecb
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/09/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "78943465"
 landingContent:
-- title: Acerca da plataforma de identidade da Microsoft
+- title: Acerca da plataforma de identidades da Microsoft
   linkLists:
   - linkListType: overview
     links:
@@ -48,11 +48,11 @@ landingContent:
       url: scenario-spa-overview.md
   - linkListType: quickstart
     links:
-    - text: JavaScript
+    - text: Javascript
       url: quickstart-v2-javascript.md
   - linkListType: tutorial
     links:
-    - text: JavaScript
+    - text: Javascript
       url: tutorial-v2-javascript-spa.md
   - linkListType: download
     links:

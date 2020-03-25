@@ -27,7 +27,7 @@
               href: QuickStarts/go.md
             - name: Java
               href: QuickStarts/Java.md
-            - name: JavaScript
+            - name: Javascript
               href: QuickStarts/JavaScript.md
             - name: Node.js
               href: QuickStarts/node.md
@@ -115,5 +115,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Encriptação
+      href: face-encryption-of-data-at-rest.md
     - name: Notas de versão
       href: ReleaseNotes.md

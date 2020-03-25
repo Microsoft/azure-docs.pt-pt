@@ -9,10 +9,10 @@ ms.service: cost-management-billing
 ms.reviewer: matrive
 ms.custom: ''
 ms.openlocfilehash: fd4d4a16642e764276d49dd732a785be48197d01
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200032"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerir os custos e a utilização do AWS no Azure

@@ -11,10 +11,10 @@ metadata:
   ms.author: sstein
   ms.date: 11/04/2019
   ms.openlocfilehash: a13235e6451997a2fab320c38663af941e43789d
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "73508640"
 landingContent:
 - title: Base de Dados SQL no Edge

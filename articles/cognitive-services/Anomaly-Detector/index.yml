@@ -8,18 +8,17 @@ metadata:
   services: cognitive-services
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 4f7eca51cd4ec6995618b68bd376fa5f4f6268e4
-  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+  ms.openlocfilehash: 82755c42ecc46c2d6bcc7ec3362f43a594923693
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/13/2019
-  ms.locfileid: "74013612"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415931"
 landingContent:
 - title: Sobre a API do Detetor de Anomalias
   linkLists:

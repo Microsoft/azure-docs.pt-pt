@@ -9,10 +9,10 @@ metadata:
   ms.service: postgresql
   ms.topic: landing-page
   ms.openlocfilehash: 4deeec3686d2e3b0a150b74a222f7f1eab0a93fd
-  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/12/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "73932234"
 landingContent:
 - title: Acerca da Base de Dados do Azure para PostgreSQL

@@ -1,20 +1,19 @@
 ---
-title: Inscrever-se no Office 365 com a conta do Azure | Microsoft Docs
+title: Inscrever-se no Office 365 com a conta do Azure
 description: Saiba como criar uma subscrição do Office 365 com uma conta do Azure
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: banders
-ms.openlocfilehash: b38800a990056d7de0b6978573ddc19c80503a1d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 736009a88f309e0a38402222668a9609f844552f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199930"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204822"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se para uma subscrição do Office 365 com a sua conta do Azure
 Se for subscritor do Azure, pode usar a sua conta do Azure para se inscrever para uma subscrição do Office 365. Se fizer parte de uma organização que tem uma subscrição do Azure, pode criar subscrições do Office 365 para utilizadores no seu Azure Active Directory existente (AAD). Inscreva-se no Office 365 com uma conta que tenha permissões de Administrador Global ou de Administrador de Faturação no seu inquilino do Azure Active Directory. Para obter mais informações, veja [Verificar as minhas permissões de conta no AAD](#RoleInAzureAD) e [Atribuir funções de administrador no Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -47,8 +46,8 @@ Se criou a subscrição do Office 365 para a sua organização, use os passos a 
 
 Depois de se inscrever, a subscrição do Office 365 é adicionada à mesma instância do Azure Active Directory à qual a sua subscrição do Azure pertence. Para obter mais informações, veja [Mais sobre as subscrições do Azure e do Office 365](office-365-account-for-azure-subscription.md#more-about-subs) e [Como estão associadas as subscrições do Azure ao Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-## <a id="RoleInAzureAD"></a>Verificar as permissões da minha conta no AAD
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+## <a name="check-my-account-permissions-in-azure-ad"></a><a id="RoleInAzureAD"></a>Verificar as permissões da minha conta no AAD
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Todos os serviços** e, em seguida, procure **Active Directory**.
 
     ![Captura de ecrã do Active Directory Domain Services no portal do Azure](./media/azure-account-for-office-365-subscription/billing-more-services-active-directory.png)

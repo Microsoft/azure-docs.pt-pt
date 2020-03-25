@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: banders
 ms.openlocfilehash: 5de6baf81f67ef6bee43b54e7aa0d62088c15be9
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78898643"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreenda a faturação do Contrato Enterprise do Azure

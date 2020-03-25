@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: 69f83fc1d390fcbea77468045b89ee6024e7fe9a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200321"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Como é aplicado um desconto de pré-compra de Azure Databricks
@@ -51,7 +51,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 - Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](manage-reserved-vm-instance.md).
 - Para saber mais sobre a pré-compra de Azure Databricks para poupar dinheiro, veja [Otimizar custos de Azure Databricks com uma pré-compra](prepay-databricks-reserved-capacity.md).
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-  - [O que são as reservas do Azure?](save-compute-costs-reservations.md)
+  - [O que são as Reservas do Azure?](save-compute-costs-reservations.md)
   - [Gerir Reservas no Azure](manage-reserved-vm-instance.md)
   - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](understand-reserved-instance-usage.md)
   - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)

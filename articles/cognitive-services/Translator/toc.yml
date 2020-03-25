@@ -6,7 +6,7 @@
       items:
         - name: O que é a API de Texto do Microsoft Translator?
           href: translator-info-overview.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Traduzir texto
           href: quickstart-translate.md
@@ -46,12 +46,6 @@
           href: prevent-translation.md
         - name: Utilizar a funcionalidade de dicionário dinâmico
           href: dynamic-dictionary.md
-        - name: Utilizar contentores
-          items:
-            - name: Instalar e executar contentores
-              href: how-to-install-containers.md
-            - name: Configurar contentores
-              href: translator-text-container-config.md
         - name: Traduzir por trás de firewalls
           href: firewalls.md
     - name: Amostras
@@ -122,7 +116,7 @@
       items:
         - name: O que é o Custom Translator?
           href: custom-translator/overview.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Criar um modelo personalizado
           href: custom-translator/quickstart-build-deploy-custom-model.md
@@ -178,5 +172,7 @@
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+        - name: Encriptação
+          href: translator-encryption-of-data-at-rest.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
