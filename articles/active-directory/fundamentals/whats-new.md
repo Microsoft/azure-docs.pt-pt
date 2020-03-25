@@ -18,7 +18,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5cf12c28dc04d0dbb8a680d45c8d8f5f5faa2d82
 ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/13/2020
 ms.locfileid: "79262103"
@@ -361,7 +361,7 @@ Para obter mais informações sobre a experiência das novas Minhas Apps e criar
 **Categoria de serviço:** B2B  
 **Capacidade do produto:** Autenticação do Utilizador
 
-Novo suporte para a utilização de IDs sociais do Google (contas Gmail) em Anúncio sacana do Azure ajuda a tornar a colaboração mais simples para os seus utilizadores e parceiros. Já não é necessário que os seus parceiros criem e gerem uma nova conta específica da Microsoft. O Microsoft Teams agora suporta totalmente os utilizadores do Google em todos os clientes e através dos pontos finais de autenticação comuns e relacionados com o arrendatário.
+Novo suporte para a utilização de IDs sociais do Google (contas Gmail) em Anúncio do Azure ajuda a tornar a colaboração mais simples para os seus utilizadores e parceiros. Já não é necessário que os seus parceiros criem e gerem uma nova conta específica da Microsoft. O Microsoft Teams agora suporta totalmente os utilizadores do Google em todos os clientes e através dos pontos finais de autenticação comuns e relacionados com o arrendatário.
 
 Para mais informações, consulte adicionar o Google como um fornecedor de [identidade para utilizadores convidados B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
 

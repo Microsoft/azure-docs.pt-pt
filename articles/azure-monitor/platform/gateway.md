@@ -25,7 +25,7 @@ O gateway Log Analytics é um proxy avançado HTTP que suporta o túnel HTTP uti
 
 O gateway do Log Analytics suporta:
 
-* Reportando até os mesmos espaços de trabalho log Analytics configurados em cada agente por trás e que estão configurados com Trabalhadores de Runbook Híbrido sacana da Azure Automation.  
+* Reportando até os mesmos espaços de trabalho log Analytics configurados em cada agente por trás e que estão configurados com Trabalhadores de Runbook Híbrido da Azure Automation.  
 * Os computadores Windows em que o Microsoft Monitoring Agent está diretamente ligado a um espaço de trabalho do Log Analytics no Monitor Azure.
 * Computadores Linux em que um agente DeLog Analytics para o Linux está diretamente ligado a um espaço de trabalho de Log Analytics no Monitor Azure.  
 * System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com UR3, ou um grupo de gestão em Operations Manager 2016 ou mais tarde que está integrado com log Analytics.  
@@ -217,7 +217,7 @@ Após a criação do equilibrador de carga, é necessário criar um pool de back
 
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>Configure o grupo de gestão de gestores de operações e agente de análise de log analytics
 
-Nesta secção, você verá como configurar agentes Log Analytics diretamente conectados, um grupo de gestão de Gestor de Operações, ou Trabalhadores de Runbook Híbrido sacana Azure Automation com a porta de entrada Log Analytics para comunicar com a Azure Automation ou Log Analytics.  
+Nesta secção, você verá como configurar agentes Log Analytics diretamente conectados, um grupo de gestão de Gestor de Operações, ou Trabalhadores de Runbook Híbrido Azure Automation com a porta de entrada Log Analytics para comunicar com a Azure Automation ou Log Analytics.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>Configure um agente de Log Analytics autónomo
 

@@ -26,7 +26,7 @@ ms.locfileid: "77663268"
 > 
 > O relatório Azure AD fornece uma visão mais abrangente dos registos da atividade da AD Azure no seu ambiente, incluindo assinar em eventos, eventos de auditoria e alterações no seu diretório. Para ligar os registos da AD Azure, pode utilizar o [conector Azure Sentinel Azure AD](../../sentinel/connect-azure-active-directory.md) ou configurar a integração de [registos da AD Azure com](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)o Monitor Azure . 
 >
-> A recolha de registo sacana azure está sujeita aos preços do Monitor Azure.  Consulte [os preços do Monitor Azure](https://azure.microsoft.com/pricing/details/monitor/) para obter mais informações.
+> A recolha de registo azure está sujeita aos preços do Monitor Azure.  Consulte [os preços do Monitor Azure](https://azure.microsoft.com/pricing/details/monitor/) para obter mais informações.
 >
 > Para utilizar a solução Azure Sentinel Office 365:
 > 1. A utilização do conector Office 365 em Azure Sentinel afeta os preços do seu espaço de trabalho. Para mais informações, consulte [os preços do Azure Sentinel.](https://azure.microsoft.com/pricing/details/azure-sentinel/)

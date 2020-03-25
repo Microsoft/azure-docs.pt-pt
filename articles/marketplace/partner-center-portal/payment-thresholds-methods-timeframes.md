@@ -125,7 +125,7 @@ Para ver os países/regiões em que esses métodos de pagamento são usados para
 | Listenstaine                    | Sim               | Sim                                      | Sim    | Sim             |
 | Lituânia                        | Sim               | Sim                                      | Sim    | Não              |
 | Luxemburgo                       | Sim               | Sim                                      | Sim    | Sim             |
-| Macedónia                        | Não                | Sim                                      | Sim    | Não              |
+| Macedónia do Norte                        | Não                | Sim                                      | Sim    | Não              |
 | Madagáscar                       | Sim               | Sim                                      | Sim    | Não              |
 | Malawi                           | Sim               | Sim                                      | Sim    | Sim             |
 | Malásia                         | Sim               | Sim                                      | Sim    | Sim             |

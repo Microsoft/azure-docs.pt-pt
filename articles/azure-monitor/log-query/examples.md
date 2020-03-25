@@ -8,7 +8,7 @@ ms.author: bwren
 ms.date: 10/01/2019
 ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
 ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2020
 ms.locfileid: "77662053"
@@ -134,7 +134,7 @@ AzureDiagnostics
 ```
 
 ### <a name="get-a-random-record-for-each-unique-category"></a>Obtenha um recorde aleatório para cada categoria única
-Este exemplo obtém um único registo de diagnóstico sacana do Azure para cada categoria única.
+Este exemplo obtém um único registo de diagnóstico do Azure para cada categoria única.
 
 ```Kusto
 AzureDiagnostics

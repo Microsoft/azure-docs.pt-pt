@@ -10,7 +10,7 @@ services: azure-maps
 manager: ''
 ms.openlocfilehash: b8b3dbf515aa3bcc9075a748b9d717cfa36b6ab0
 ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2020
 ms.locfileid: "77648926"
@@ -197,7 +197,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Países Baixos                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
-| +Caraíbas Holanda         |        ✓       |                      |             |
+| +Holanda         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
 | +Sint Maarten                  |        ✓       |                      |             |
 | Noruega                         |        ✓       |         ✓            |     ✓      | 

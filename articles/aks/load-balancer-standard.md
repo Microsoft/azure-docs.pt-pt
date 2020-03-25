@@ -136,7 +136,7 @@ az aks update \
 
 ### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Defina o seu próprio IP público ou prefixos no cluster criar tempo
 
-Pode desejar trazer os seus próprios endereços IP ou prefixos IP para saídas no momento da criação do cluster para apoiar cenários como os pontos finais da lista branca. Aperte os mesmos parâmetros acima indicados para o seu passo de criação de cluster para definir os seus próprios IpS públicos e prefixos IP no início do ciclo de vida de um cluster.
+Pode desejar trazer os seus próprios endereços IP ou prefixos IP para saídas no momento da criação do cluster para apoiar cenários como os pontos finais da lista de permissões. Aperte os mesmos parâmetros acima indicados para o seu passo de criação de cluster para definir os seus próprios IpS públicos e prefixos IP no início do ciclo de vida de um cluster.
 
 Use o *az aks criar* comando com o parâmetro de *saída de carga-balancer-ips* para criar um novo cluster com os seus IPs públicos no início.
 

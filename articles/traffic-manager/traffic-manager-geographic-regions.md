@@ -600,7 +600,7 @@ Este artigo lista os países e regiões utilizados pelo método de encaminhament
 
         - CE (Equador)
 
-        - FK (Ilhas Falkland [Malvinas])
+        - Ilhas Falkland (Malvinas)
 
         - GF (Guiana Francesa)
 

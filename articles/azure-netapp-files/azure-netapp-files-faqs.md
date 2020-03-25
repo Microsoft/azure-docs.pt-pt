@@ -16,7 +16,7 @@ ms.date: 03/06/2020
 ms.author: b-juche
 ms.openlocfilehash: 0713f59889962960b4f3ad5eba58ddb7b32e95ff
 ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/14/2020
 ms.locfileid: "79369748"
@@ -116,7 +116,7 @@ O tamanho do volume reportado em DF é o tamanho máximo que o volume de Ficheir
 O Azure NetApp Files suporta nFSv3 e NFSv4.1. Pode criar um volume utilizando qualquer versão NFS. 
 
 > [!IMPORTANT] 
-> O acesso à função NFSv4.1 requer uma lista branca.  Para solicitar a lista geminada, submeta um pedido para <anffeedback@microsoft.com>. 
+> O acesso à função NFSv4.1 requer uma lista de permissões.  Para solicitar a lista geminada, submeta um pedido para <anffeedback@microsoft.com>. 
 
 
 ### <a name="how-do-i-enable-root-squashing"></a>Como posso permitir o esmagamento de raízes?

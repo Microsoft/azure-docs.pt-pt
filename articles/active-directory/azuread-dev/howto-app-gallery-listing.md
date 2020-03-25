@@ -15,7 +15,7 @@ ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: 99c7d7fccf674fe8cda9d1f64cdf303f1e7764fd
 ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2020
 ms.locfileid: "77164841"
@@ -43,7 +43,7 @@ Este artigo mostra como listar uma aplicação na galeria de aplicações Azure 
 - Para obter uma senha SSO, certifique-se de que o suporte da sua aplicação é autenticação para que a abóbada de senha possa ser feita para obter um único sinal para funcionar como esperado.
 - Precisa de uma conta permanente para testes com pelo menos dois utilizadores registados.
 
-**Como obter anúncio sacana do Azure para programadores?**
+**Como obter anúncio do Azure para programadores?**
 
 Você pode obter uma conta de teste gratuita com todas as funcionalidades premium Azure AD - 90 dias grátis e pode ser estendida desde que trabalhe com ele: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 

@@ -104,7 +104,7 @@ A tabela seguinte fornece informações de cobertura para o serviço de mobilida
 | Luxemburgo | Luxemburgo* |
 | Moldávia | Chisinau |
 | Montenegro | Podgorica |
-| Países Baixos | Holanda* |
+| Países Baixos | Países Baixos* |
 | Noruega | Noruega* | 
 | Polónia | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Cracóvia, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Varsóvia, Wodzłisaw Śląski, Wrocław, Zakopane, Zakopane, Zakopane, Zakopane,</p> |
 | Portugal | Bragança, Coimbra, Funchal, Leiria, Lisboa, Portimão, Porto|

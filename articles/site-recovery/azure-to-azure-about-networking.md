@@ -35,7 +35,7 @@ Se estiver a utilizar o Azure ExpressRoute ou uma ligação VPN da sua rede no l
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Normalmente, as redes são protegidas usando firewalls e grupos de segurança de rede (NSGs). As firewalls utilizam a lista branca baseada em URL ou IP para controlar a conectividade da rede. Os NSGs fornecem regras que utilizam gamas de endereços IP para controlar a conectividade da rede.
+Normalmente, as redes são protegidas usando firewalls e grupos de segurança de rede (NSGs). As firewalls utilizam a lista de permissões baseada em URL ou IP para controlar a conectividade da rede. Os NSGs fornecem regras que utilizam gamas de endereços IP para controlar a conectividade da rede.
 
 >[!IMPORTANT]
 > A utilização de um proxy autenticado para controlar a conectividade da rede não é suportada pela Recuperação do Site, e a replicação não pode ser ativada.

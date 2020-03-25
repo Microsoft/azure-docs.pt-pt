@@ -61,9 +61,9 @@ As seguintes certificações Azure Firewall são para o Azure global:
 - MAS e ABS (Singapura)
 - MPAA (EUA)
 - NBB e FSMA (Bélgica)
-- NEN 7510:2011 (Holanda)
+- NEN 7510:2011 (Países Baixos)
 - NHS IG Toolkit (Reino Unido)
-- Holanda BIR 2012
+- Países Baixos BIR 2012
 - OSFI (Canadá)
 - PCI DSS Nível 1
 - RBI e IRDAI (Índia)

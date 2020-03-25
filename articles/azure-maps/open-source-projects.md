@@ -28,7 +28,7 @@ O seguinte lista alguns dos mais populares projetos e amostras de código aberto
 | [Amostras de código de nuvem de mapas azure](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps por meio da nuvem do Azure governamental. |
 | [Amostras de diretório ativo Azure Maps e Azure](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Uma coleção de exemplos que mostram como usar Azure Active Directory com mapas do Azure. | 
 | [Implementar análise espacial IoT usando mapas azure](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Acompanhar e capturar eventos relevantes que ocorrem em espaço e tempo é um cenário de IoT comum. |
-| [Amostras de caderno sacana do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Uma coleção de exemplos do Python usando os serviços REST do Azure Maps. |
+| [Amostras de caderno do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Uma coleção de exemplos do Python usando os serviços REST do Azure Maps. |
 | [Quadro Bot - Habilidade de Ponto de Interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | A Habilidade de Ponto de Interesse fornece capacidades relacionadas com OPO a um Assistente Virtual usando o Azure Maps com o Serviço Bot Azure e a Bot Framework. |
 
 Uma lista mais longa que inclui projetos criados pela comunidade de código aberto está disponível [aqui](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)

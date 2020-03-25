@@ -48,15 +48,15 @@ Trate todas as inputs como não fidedignas para proteger a sua aplicação das v
 
 Validar a entrada no início do fluxo de dados para garantir que apenas os dados devidamente formados entram no fluxo de trabalho. Não pretende que os dados mal formados persistam na sua base de dados ou desencadeiem uma avaria num componente a jusante.
 
-Lista negra e whitelisting são duas abordagens gerais para a validação da sintaxe de entrada:
+lista de bloqueios e whitelisting são duas abordagens gerais para a validação da sintaxe de entrada:
 
-  - A lista negra tenta verificar se uma determinada entrada de utilizador não contém conteúdo "conhecido como malicioso".
+  - A lista de bloqueios tenta verificar se uma determinada entrada de utilizador não contém conteúdo "conhecido como malicioso".
 
   - A Whitelisting tenta verificar se uma determinada entrada de utilizador corresponde a um conjunto de inputs "bem conhecidos". Whitelisting baseado em caracteres é uma forma de whitelisting onde uma aplicação verifica que a entrada do utilizador contém apenas caracteres "conhecidos bem" ou que a entrada corresponde a um formato conhecido.
     Por exemplo, isto pode envolver verificar se um nome de utilizador contém apenas caracteres alfanuméricos ou que contém exatamente dois números.
 
 Whitelisting é a abordagem preferida para construir software seguro.
-A lista negra é propensa a erros porque é impossível pensar numa lista completa de entrada potencialmente má.
+A lista de bloqueios é propensa a erros porque é impossível pensar numa lista completa de entrada potencialmente má.
 
 Faça este trabalho no servidor, não no lado do cliente (ou no servidor e no lado do cliente).
 

@@ -72,7 +72,7 @@ Ao editar o KB, verá uma nova origem para chit-bate-papo, com base em personali
 Para visualizar os metadados, selecione **Ver Opções** na barra de ferramentas e, em seguida, selecione **Metadados de Mostrar**.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Adicione a conversa chit adicionais perguntas e respostas
-Pode adicionar novos QnA chit-bate-papo não no predefinidos definida. Certifique-se de que não estará duplicando um par de QnA que já é abrangido no conjunto de chit-bate-papo. Quando adiciona sacana nova QnA, é adicionado à sua fonte **editorial.** Para garantir que o ranker entende que este é chit-chat, adicione a chave/par de metadados "Editorial: chitchat", como se pode ver na seguinte imagem:
+Pode adicionar novos QnA chit-bate-papo não no predefinidos definida. Certifique-se de que não estará duplicando um par de QnA que já é abrangido no conjunto de chit-bate-papo. Quando adiciona nova QnA, é adicionado à sua fonte **editorial.** Para garantir que o ranker entende que este é chit-chat, adicione a chave/par de metadados "Editorial: chitchat", como se pode ver na seguinte imagem:
    
 ![! [Adicionar chit-chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 

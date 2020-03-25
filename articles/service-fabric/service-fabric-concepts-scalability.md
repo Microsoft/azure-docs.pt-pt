@@ -104,7 +104,7 @@ Se aumentar o número de nós, o Tecido de Serviço irá mover algumas das répl
 ![layout de partição com quatro nós](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
-## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Escalando usando o Gestor de Recursos de Cluster de Tecido sacana de serviço e métricas
+## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Escalando usando o Gestor de Recursos de Cluster de Tecido de serviço e métricas
 [As métricas](service-fabric-cluster-resource-manager-metrics.md) são como os serviços expressam o seu consumo de recursos ao Tecido de Serviço. A utilização de métricas dá ao Cluster Resource Manager a oportunidade de reorganizar e otimizar o layout do cluster. Por exemplo, pode haver muitos recursos no cluster, mas podem não ser afetados aos serviços que estão atualmente a fazer trabalho. A utilização de métricas permite ao Cluster Resource Manager reorganizar o cluster para garantir que os serviços têm acesso aos recursos disponíveis. 
 
 

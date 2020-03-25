@@ -35,7 +35,7 @@ O Storm no HDInsight oferece as funcionalidades seguintes:
 
 * **Dimensionamento dinâmico**: pode adicionar ou remover nós de trabalho sem qualquer impacto nas topologias Storm em execução. Tem de desativar e reativar as topologias em execução para tirar partido de novos nós adicionados através de operações de dimensionamento.
 
-* **Criar gasodutos de streaming utilizando vários serviços Azure**: Storm on HDInsight integra-se com outros serviços Azure, tais como Hubs de Eventos, Base de Dados SQL, Armazenamento Azure e Armazenamento de Lagos De Dados Azure. Para uma solução de exemplo que se integra com os serviços Azure, consulte [eventos de processo sacana com tempestade Apache no HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
+* **Criar gasodutos de streaming utilizando vários serviços Azure**: Storm on HDInsight integra-se com outros serviços Azure, tais como Hubs de Eventos, Base de Dados SQL, Armazenamento Azure e Armazenamento de Lagos De Dados Azure. Para uma solução de exemplo que se integra com os serviços Azure, consulte [eventos de processo com tempestade Apache no HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 Para obter uma lista de empresas que utiliza o Apache Storm como solução de análise em tempo real, veja [Companies using Apache Storm](https://storm.apache.org/Powered-By.html) (Empresas que Utilizam o Apache Storm).
 

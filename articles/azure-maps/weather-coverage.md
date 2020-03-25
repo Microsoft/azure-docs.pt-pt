@@ -56,7 +56,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | República Dominicana                       | ✓ |   |  ✓| 
 | Equador                                  | ✓ |   |  ✓| 
 | El Salvador                              | ✓ |   |  ✓| 
-| Ilhas Falkland                         | ✓ |   |  ✓| 
+| Ilhas Falkland (Malvinas)                         | ✓ |   |  ✓| 
 | Guiana Francesa                            | ✓ |   |  ✓| 
 | Gronelândia                                | ✓ |   |  ✓| 
 | Granada                                  | ✓ |   |  ✓| 

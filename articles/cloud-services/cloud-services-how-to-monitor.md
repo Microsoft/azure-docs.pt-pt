@@ -36,7 +36,7 @@ A monitorização básica não requer uma conta de armazenamento.
 
 A monitorização avançada envolve a utilização da extensão de Diagnóstico Sinuoso **(e** opcionalmente o SDK de Insights de Aplicação) sobre a função que pretende monitorizar. A extensão de diagnóstico utiliza um ficheiro config (por função) chamado **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitorizadas. A extensão Azure Diagnostic recolhe e armazena dados numa conta de Armazenamento Azure. Estas definições estão configuradas nos ficheiros **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef)e [.cscfg.](cloud-services-model-and-package.md#serviceconfigurationcscfg) Isto significa que existe um custo extra associado à monitorização avançada.
 
-À medida que cada função é criada, o Visual Studio adiciona-lhe a extensão de Diagnóstico Sacana. Esta extensão de diagnóstico pode recolher os seguintes tipos de informação:
+À medida que cada função é criada, o Visual Studio adiciona-lhe a extensão de Diagnóstico. Esta extensão de diagnóstico pode recolher os seguintes tipos de informação:
 
 * Contadores de desempenho personalizados
 * Registos de aplicação

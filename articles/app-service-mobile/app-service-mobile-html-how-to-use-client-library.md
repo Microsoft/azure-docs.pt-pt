@@ -24,7 +24,7 @@ Limitamos o suporte ao navegador para as versões atuais e últimas dos principa
 
 O pacote é distribuído como módulo JavaScript Universal, por isso suporta formatos globais, AMD e CommonJS.
 
-## <a name="Setup"></a>Configuração e pré-requisitos
+## <a name="setup-and-prerequisites"></a><a name="Setup"></a>Configuração e pré-requisitos
 Este guia assume que criou um backend com uma mesa. Este guia assume que a mesa tem o mesmo esquema que as mesas nesses tutoriais.
 
 A instalação das aplicações móveis Azure JavaScript SDK pode ser feita através do comando `npm`:
@@ -50,14 +50,14 @@ Também pode utilizar uma versão pré-construída do SDK, baixando diretamente 
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Como: Autenticar utilizadores
+## <a name="how-to-authenticate-users"></a><a name="auth"></a>Como: Autenticar utilizadores
 O Azure App Service suporta autenticar e autorizar utilizadores de aplicações utilizando vários fornecedores de identidade externa: Facebook, Google, Microsoft Account e Twitter. Pode definir permissões nas tabelas para restringir o acesso a operações específicas apenas a utilizadores autenticados. Também pode utilizar a identidade dos utilizadores autenticados para implementar regras de autorização em scripts de servidores. Para mais informações, consulte o Get iniciado com tutorial de [Começar com a autenticação]
 
 São suportados dois fluxos de autenticação: um fluxo de servidor e um fluxo de cliente.  O fluxo do servidor proporciona a experiência de autenticação mais simples, uma vez que se baseia na interface de autenticação web do fornecedor. O fluxo do cliente permite uma integração mais profunda com capacidades específicas do dispositivo, tais como um único sign-on, uma vez que se baseia em SDKs específicos do fornecedor.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Como configurar o seu Serviço de Aplicações Móveis para URLs de redirecionamento externo.
+### <a name="how-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Como configurar o seu Serviço de Aplicações Móveis para URLs de redirecionamento externo.
 Vários tipos de aplicações JavaScript usam uma capacidade de backback para lidar com fluxos ui oAuth.  Estas capacidades incluem:
 
 * Executar o seu serviço localmente
@@ -82,7 +82,7 @@ Correr localmente pode causar problemas porque, por padrão, a autenticação do
     Substitua os URLs na matriz pelos URLs do seu serviço, que neste exemplo é `http://localhost:3000` para o serviço de amostra nó.js local. Também pode utilizar `http://localhost:4400` para o serviço Ripple ou qualquer outro URL, dependendo da configuração da sua aplicação.
 8. No topo da página, clique em **Ler/Escrever**e, em seguida, clique em **PUT** para guardar as suas atualizações.
 
-Também precisa de adicionar os mesmos URLs de loopback às definições da lista branca CORS:
+Também precisa de adicionar os mesmos URLs de loopback às definições da lista de permissões CORS:
 
 1. Navegue de volta ao [Portal do Azure]
 2. Navegue para o seu backend da Aplicação Móvel.

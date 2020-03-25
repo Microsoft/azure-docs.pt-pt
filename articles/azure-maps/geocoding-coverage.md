@@ -51,7 +51,7 @@ A capacidade de geocodificação num país/região depende da cobertura de dados
 | Dominicana                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Equador                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
-| Ilhas Falkland                                    |                 |                |              |      ✓     |          ✓         |
+| Ilhas Falkland (Malvinas)                                    |                 |                |              |      ✓     |          ✓         |
 | Guiana Francesa                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Granada                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Guadalupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
