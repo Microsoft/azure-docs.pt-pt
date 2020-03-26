@@ -10,10 +10,10 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76514141"
 ---
 ::: zone target="docs"
@@ -55,7 +55,7 @@ Antes de começar, certifique-se de que:
 7. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
     - Um ou mais cabos de fibra de ótica SFP+ ou de cobre Twinax SFP+ de 10 GbE (utilize com as interfaces de rede DATA1, DATA2). O Data Box possui Adaptadores 10GBASE-T com Duas Portas Mellanox ConnectX®-3 Pro EN com interface de rede PCI Express 3.0, para que os cabos compatíveis com esta interface funcionem. Por exemplo, foi utilizado um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP + 3M para os testes internos. Para obter mais informações, veja a [lista de cabos e comutadores suportados da Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
-    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
+    - Um cabo de rede RJ-45 CAT 6A OU um RJ-45 CAT 6 (utilizar com a interface de rede DATA 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
 ## <a name="cable-your-device"></a>Instalação dos cabos do dispositivo
 
@@ -91,7 +91,7 @@ Depois de receber o dispositivo, tem de instalar os cabos e ligar-se ao disposit
     - Cabo de alimentação com terra (incluído), com a classificação 10 A ou superior, com um conector IEC60320 C-13 numa extremidade para ligar ao dispositivo.
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Dois cabos de cobre SFP + Twinax de 10 GbE (utilizar com interfaces de rede DADOS 1, DADOS 2 de 10 Gbps)
-    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
+    - Um cabo de rede RJ-45 CAT 6A OU um RJ-45 CAT 6 (utilizar com a interface de rede DATA 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
 3. Remova e coloque o dispositivo numa superfície plana. 
     

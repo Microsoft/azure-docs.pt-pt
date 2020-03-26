@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: sewatson
 ms.openlocfilehash: b505900d0552169c9c6dbe84ded891060a349979
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61234497"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "64681018"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentação das máquinas virtuais do Linux
 
