@@ -10,11 +10,11 @@ ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187538"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214399"
 ---
 ::: zone target="docs"
 
@@ -77,7 +77,7 @@ Verifique se a cópia de dados para o dispositivo foi concluída e a **Preparaç
 
 ::: zone-end
 
-## <a name="in-us-canada-europetabin-us-canada-europe"></a>[Nos E.U.A., Canadá, Europa](#tab/in-us-canada-europe)
+## <a name="in-us-canada-europe"></a>[Nos E.U.A., Canadá, Europa](#tab/in-us-canada-europe)
 
 Se quiser devolver o dispositivo nos EUA, Canadá ou Europa, siga os passos abaixo.
 
@@ -114,7 +114,7 @@ Após o carregamento para o Azure, o Data Box elimina os dados dos discos de aco
 ::: zone-end
 
 
-## <a name="in-australiatabin-australia"></a>[Na Austrália](#tab/in-australia)
+## <a name="in-australia"></a>[Na Austrália](#tab/in-australia)
 
 Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para os envios na Austrália.
 
@@ -143,7 +143,7 @@ Após o carregamento para o Azure, o Data Box elimina os dados dos discos de aco
 
 ::: zone-end
 
-## <a name="in-japantabin-japan"></a>[No Japão](#tab/in-japan) 
+## <a name="in-japan"></a>[No Japão](#tab/in-japan) 
 
 1. Mantenha a embalagem original utilizada para enviar o dispositivo para a devolução.
 2. Desligue o dispositivo e remova os cabos.
@@ -191,7 +191,7 @@ Após o carregamento para o Azure, o Data Box elimina os dados dos discos de aco
 
 ::: zone-end
 
-## <a name="in-singaporetabin-singapore"></a>[Em Singapura](#tab/in-singapore) 
+## <a name="in-singapore"></a>[Em Singapura](#tab/in-singapore) 
 
 1. Mantenha a embalagem original utilizada para enviar o dispositivo para a devolução.
 2. Tome nota do número de controlo (apresentado como número de referência na página Preparação para envio da IU da Web local do Data Box). Está disponível após o passo de preparação para envio ser concluído com êxito. Transfira o guia de remessa a partir desta página e cole na caixa da embalagem. 
@@ -273,7 +273,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managedtabin-selfmanaged"></a>[Envio Autónomo](#tab/in-selfmanaged) 
+## <a name="self-managed"></a>[Envio Autónomo](#tab/in-selfmanaged) 
 
 Se estiver a utilizar o Data Box no Japão, Singapura, Coreia e Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
 
