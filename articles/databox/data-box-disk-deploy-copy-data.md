@@ -10,11 +10,11 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380489"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214331"
 ---
 ::: zone target="docs"
 
@@ -72,10 +72,10 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
 
     |Destino de armazenamento selecionado  |Tipo de conta de armazenamento|Tipo de conta de armazenamento de teste |Pastas e subpastas  |
     |---------|---------|---------|------------------|
-    |Conta de armazenamento     |GPv1 ou GPv2                 | ND | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Conta de armazenamento     |GPv1 ou GPv2                 | ND | BlockBlob <br> PageBlob <br> Azurefile        |
     |Conta de armazenamento     |Conta de armazenamento de blobs         | ND | BlockBlob        |
     |Managed disks     |ND | GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardSSD</li></ul>        |
-    |Conta de armazenamento <br> Managed disks     |GPv1 ou GPv2 | GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardSSD</li></ul>         |
+    |Conta de armazenamento <br> Managed disks     |GPv1 ou GPv2 | GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> Azurefile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardSSD</li></ul>         |
     |Conta de armazenamento <br> Managed disks    |Conta de armazenamento de blobs | GPv1 ou GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardSSD</li></ul>         |
 
     Abaixo, segue um exemplo de uma captura de ecrã de um pedido em que a conta de armazenamento GPv2 foi especificada:
@@ -103,7 +103,7 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
     |Parâmetros/Opções  |Descrição |
     |--------------------|------------|
     |Origem            | Especifica o caminho para o diretório de origem.        |
-    |Destination       | Especifica o caminho para o diretório de destino.        |
+    |Destino       | Especifica o caminho para o diretório de destino.        |
     |/E                  | Copia os subdiretórios, incluindo diretórios vazios. |
     |/MT[:N]             | Cria cópias com múltiplos threads com N threads, em que N é um número inteiro entre 1 e 128. <br>O valor predefinido para N é 8.        |
     |/R: \<N>             | Especifica o número de repetições nas cópias falhadas. O valor predefinido de N é 1.000.000 (um milhão de repetições).        |
@@ -289,7 +289,7 @@ Se não tiver utilizado a ferramenta Cópia Dividida para copiar os dados, terá
 
 Se encontrar erros durante a validação, veja [resolver problemas de erros de validação](data-box-disk-troubleshoot.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 

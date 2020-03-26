@@ -10,15 +10,15 @@ ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380549"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214297"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-verify-data-upload-from-azure-data-box-disk"></a>Tutorial: Verifique o upload de dados do Disco de Caixa de Dados do Azure
+# <a name="tutorial-verify-data-upload-from-azure-data-box-disk"></a>Tutorial: Verificar o carregamento de dados do Azure Data Box Disk
 
 Este é o último tutorial da série: Implementar o Azure Data Box Disk. Neste tutorial, vai aprender o seguinte:
 
@@ -28,7 +28,7 @@ Este é o último tutorial da série: Implementar o Azure Data Box Disk. Neste t
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que completou o Tutorial: Devolver disco de caixa de [dados Azure](data-box-disk-deploy-picked-up.md).
+Antes de começar, verifique se concluiu o [Tutorial: Devolver o Azure Data Box Disk](data-box-disk-deploy-picked-up.md).
 
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
