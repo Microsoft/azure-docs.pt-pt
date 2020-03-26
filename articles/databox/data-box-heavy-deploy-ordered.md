@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70241395"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutorial: Encomendar o Azure Data Box Heavy
@@ -70,7 +70,7 @@ Antes de começar, certifique-se de que:
 
 Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
-1. Utilize as suas credenciais do Microsoft Azure para iniciar sessão neste URL: [ https://portal.azure.com ](https://portal.azure.com).
+1. Utilize as suas credenciais do Microsoft Azure para iniciar sessão neste URL: [https://portal.azure.com](https://portal.azure.com).
 2. Selecione **+ Criar um recurso** e procure *Azure Data Box*. Selecione **Azure Data Box**.
     
    [![Procurar Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
