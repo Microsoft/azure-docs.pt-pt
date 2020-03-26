@@ -10,10 +10,10 @@ ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78273180"
 ---
 ::: zone target="chromeless"
