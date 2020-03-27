@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 07/27/2019
-  ms.openlocfilehash: e11e0edf214d3362784285cc24ee209855383119
-  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+  ms.date: 03/17/2020
+  ms.openlocfilehash: f26980f866a074bf6c3d2ce716687b18bbcb3249
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77166172"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79497640"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -26,12 +26,12 @@ highlightedContent:
   - title: Novidades do Azure AD
     itemType: whats-new
     url: ./fundamentals/whats-new.md
+  - title: As 5 principais formas de o Azure AD simplificar o trabalho remoto
+    itemType: overview
+    url: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/top-5-ways-your-azure-ad-can-help-you-enable-remote-work/ba-p/1144691
   - title: Atribuir funções a utilizadores
     itemType: how-to-guide
     url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
-  - title: Criar um grupo e adicionar membros
-    itemType: how-to-guide
-    url: ./fundamentals/add-users-azure-active-directory.md
   - title: Lista de verificação de Implementação do Azure AD
     itemType: concept
     url: ./fundamentals/active-directory-deployment-checklist-p2.md

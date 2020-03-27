@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: cab367254df3f83903eeee110f0a435b97ea8eba
-  ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+  ms.openlocfilehash: 852a01416b52c6a7b98c3b4883210749bf3cc509
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2020
-  ms.locfileid: "78368622"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80132454"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -76,20 +76,16 @@ landingContent:
       url: tutorial-create-store-locator.md
   - linkListType: how-to-guide
     links:
+    - text: Utilizar o controlo de mapa do Azure Maps
+      url: how-to-use-map-control.md
+    - text: Utilizar o módulo de ferramentas de desenho
+      url: set-drawing-options.md
+    - text: Utilizar o módulo de serviços
+      url: how-to-use-services-module.md
     - text: Utilizar o módulo IO espacial
       url: how-to-use-spatial-io-module.md
-    - text: Adicionar uma camada de dados simples
-      url: spatial-io-add-simple-data-layer.md
-    - text: Ler e escrever dados espaciais
-      url: spatial-io-read-write-spatial-data.md
-    - text: Adicionar uma camada de mapa OGC
-      url: spatial-io-add-ogc-map-layer.md
-    - text: Ligar a um serviço WFS
-      url: spatial-io-connect-wfs-service.md
-    - text: Tirar partido de operações principais
-      url: spatial-io-core-operations.md
-    - text: Detalhes do formato de dados suportado
-      url: spatial-io-supported-data-format-details.md
+    - text: Browsers suportados por SDK web
+      url: supported-browsers.md
   - linkListType: reference
     links:
     - text: Controlo de mapa
@@ -128,8 +124,10 @@ landingContent:
     links:
     - text: Procurar um endereço (geocodificação)
       url: how-to-search-for-address.md
-    - text: Melhores práticas de pesquisa
+    - text: Melhores Práticas de utilização do Serviço de Pesquisa
       url: how-to-use-best-practices-for-search.md
+    - text: Melhores Práticas de utilização do Serviço de Itinerários
+      url: how-to-use-best-practices-for-routing.md
     - text: Processar dados personalizados num mapa estático
       url: how-to-render-custom-data.md
   - linkListType: reference

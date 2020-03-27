@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Documentação do Azure Data Lake Storage Gen1
+summary: Saiba como configurar, gerir e aceder a um repositório de hiperescala do data lake compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão. O Azure Data Lake Storage Gen2 está em disponibilidade geral. Recomendamos que comece a utilizar hoje.
+metadata:
+  title: Documentação do Azure Data Lake Storage Gen1
+  description: Saiba como configurar, gerir e aceder a um repositório de hiperescala do data lake compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão.
+  ms.service: data-lake-store
+  ms.topic: landing-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bf688b1230c8fd4eecba08ce361e92b9030a241f
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79410096"
+landingContent:
+- title: Acerca do Azure Data Lake Storage Gen1
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Data Lake Storage Gen1?
+      url: data-lake-store-overview.md
+    - text: Comparar com o Armazenamento do Azure
+      url: data-lake-store-comparison-with-blob-storage.md
+    - text: Documentação de Troca do Azure Data Lake Storage Gen2
+      url: ../storage/data-lake-storage/introduction.md
+- title: Introdução
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Portal do Azure
+      url: data-lake-store-get-started-portal.md
+    - text: Azure PowerShell
+      url: data-lake-store-get-started-powershell.md
+    - text: CLI do Azure
+      url: data-lake-store-get-started-cli-2.0.md
+- title: Carregar e mover dados
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar o Azure Data Factory
+      url: ../data-factory/load-azure-data-lake-store.md
+    - text: Utilizar o Explorador do Armazenamento
+      url: data-lake-store-in-storage-explorer.md
+    - text: Utilizar o AdlCopy
+      url: data-lake-store-copy-data-azure-storage-blob.md
+    - text: Utilizar o DistCp
+      url: data-lake-store-copy-data-wasb-distcp.md
+    - text: Utilizar o Sqoop
+      url: data-lake-store-data-transfer-sql-sqoop.md
+- title: Proteger dados
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral da segurança
+      url: data-lake-store-security-overview.md
+    - text: Controlo de acesso
+      url: data-lake-store-access-control.md
+  - linkListType: how-to-guide
+    links:
+    - text: Proteger dados armazenados
+      url: data-lake-store-secure-data.md
+    - text: Encriptação
+      url: data-lake-store-encryption.md
+    - text: Integração da rede virtual
+      url: data-lake-store-network-security.md
+- title: Autenticação
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Opções de autenticação
+      url: data-lakes-store-authentication-using-azure-active-directory.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticação de utilizador final
+      url: data-lake-store-end-user-authenticate-using-active-directory.md
+    - text: Autenticação serviço a serviço
+      url: data-lake-store-service-to-service-authenticate-using-active-directory.md
+- title: Operações de sistema de ficheiros
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: SDK .NET
+      url: data-lake-store-data-operations-net-sdk.md
+    - text: SDK Java
+      url: data-lake-store-get-started-java-sdk.md
+    - text: API REST
+      url: data-lake-store-data-operations-rest-api.md
+    - text: Python
+      url: data-lake-store-data-operations-python.md
+- title: Operações de gestão de conta
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: SDK .NET
+      url: data-lake-store-get-started-net-sdk.md
+    - text: API REST
+      url: data-lake-store-get-started-rest-api.md
+    - text: Python
+      url: data-lake-store-get-started-python.md

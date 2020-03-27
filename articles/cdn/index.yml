@@ -9,12 +9,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: 7244b5f70468735a0dcced4d9cc9e71c1194350e
-  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.openlocfilehash: e181f5cb94dc33765b6fceb81cc98832a3b800ce
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77582573"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79479778"
 landingContent:
 - title: Sobre a CDN do Azure
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
     links:
     - text: Biblioteca de vídeos da CDN do Azure
       url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+    - text: Como utilizar substituições de HTTP na CDN do Azure da Microsoft
+      url: https://channel9.msdn.com/Shows/Azure-Friday/How-to-use-HTTP-overrides-on-Azure-CDN-from-Microsoft
 - title: Introdução
   linkLists:
   - linkListType: quickstart

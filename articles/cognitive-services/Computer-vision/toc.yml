@@ -9,18 +9,8 @@
       href: whats-new.md
 - name: Guias de Início Rápido
   items:
-    - name: Utilizar o SDK de cliente
-      items:
-        - name: SDK .NET
-          href: quickstarts-sdk/csharp-sdk.md
-        - name: SDK Python
-          href: quickstarts-sdk/python-sdk.md
-        - name: SDK Java
-          href: quickstarts-sdk/java-sdk.md
-        - name: SDK Node.js
-          href: quickstarts-sdk/node-sdk.md
-        - name: SDK Go
-          href: quickstarts-sdk/go-sdk.md
+    - name: Utilizar a biblioteca de cliente
+      href: quickstarts-sdk/client-library.md
     - name: Utilizar a API REST
       items:
         - name: Analisar uma imagem remota

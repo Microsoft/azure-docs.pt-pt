@@ -22,6 +22,8 @@
           href: disaster-recovery-dns-traffic-manager.md
     - name: Planear e conceber
       items:
+        - name: Suporte para trabalhar remotamente
+          href: working-remotely-support.md
         - name: Redes virtuais
           href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Conectividade entre vários locais - VPN

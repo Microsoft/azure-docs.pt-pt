@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure Machine Learning
-summary: O Azure Machine Learning oferece interfaces Web e SDKs para que possa preparar e implementar rapidamente pipelines e modelos de machine learning à escala. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn.
+summary: Saiba como utilizar o Azure Machine Learning para preparar, implementar e gerir modelos de machine learning e pipelines à escala. Os tutoriais, exemplos de código, referências de API e muito mais mostram-lhe como.
 metadata:
   title: Documentação do Azure Machine Learning
-  description: O Azure Machine Learning oferece interfaces Web e SDKs para preparar e implementar rapidamente pipelines e modelos de machine learning à escala. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn.
+  description: Saiba como utilizar o Azure Machine Learning para preparar, implementar e gerir modelos de machine learning e pipelines à escala. Os tutoriais, exemplos de código, referências de API e muito mais mostram-lhe como.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,39 +11,33 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 03/05/2020
-  ms.openlocfilehash: 5165456617193f4701b1bc635c103d0719c8f403
-  ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+  ms.date: 03/18/2020
+  ms.openlocfilehash: 5855d523bf32798166ab32b6ff336cae95e81ca1
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/05/2020
-  ms.locfileid: "78328562"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80063962"
 landingContent:
-- title: Introdução ao Azure ML
+- title: Introdução ao machine learning
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Experimentação em notebooks Python
+    - text: Blocos de notas Python
       url: tutorial-1st-experiment-sdk-setup.md
-    - text: Experimentação no RStudio
-      url: tutorial-1st-r-experiment.md
-    - text: Experimentação com o estruturador de arrastar e largar
+    - text: O designer (arrastar e largar)
       url: tutorial-designer-automobile-price-train-score.md
-    - text: Experimentação com o ML automatizado
+    - text: RStudio
+      url: tutorial-1st-r-experiment.md
+    - text: ML automático
       url: tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
-    - text: O que é o Azure ML?
+    - text: O que é o Azure Machine Learning?
       url: overview-what-is-azure-ml.md
     - text: Arquitetura e conceitos
       url: concept-azure-machine-learning-architecture.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurar o ambiente
-      url: how-to-configure-environment.md
-    - text: Configurar destinos de computação de preparação
-      url: how-to-set-up-training-targets.md
-- title: 'Experimentação: SDK Python'
+- title: Utilizar o SDK Python
   linkLists:
   - linkListType: tutorial
     links:
@@ -51,10 +45,12 @@ landingContent:
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Classificar imagens
       url: tutorial-train-models-with-aml.md
-    - text: Prever tarifas de táxi com ML automatizado
+    - text: Prever tarifas de táxi com ML Automático
       url: tutorial-auto-train-models.md
   - linkListType: how-to-guide
     links:
+    - text: Configurar o ambiente
+      url: how-to-configure-environment.md
     - text: Preparar com o Scikit-learn
       url: how-to-train-scikit-learn.md
     - text: Preparar com o TensorFlow
@@ -63,28 +59,20 @@ landingContent:
       url: how-to-train-pytorch.md
     - text: Preparar com o Keras
       url: how-to-train-keras.md
-- title: Utilizar Pipelines de ML
+- title: Criar pipelines de ML
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar pipelines de ML (Python)
+      url: tutorial-pipeline-batch-scoring-classification.md
+    - text: Regressão linear para prever preços (estruturador)
+      url: tutorial-designer-automobile-price-train-score.md
   - linkListType: overview
     links:
     - text: O que são pipelines de ML?
       url: concept-ml-pipelines.md
-    - text: O estruturador de arrastar e largar
+    - text: O que é o designer?
       url: concept-designer.md
-  - linkListType: tutorial
-    links:
-    - text: Regressão linear para prever preços (estruturador)
-      url: tutorial-designer-automobile-price-train-score.md
-    - text: Criar pipelines de ML (SDK do Python)
-      url: tutorial-pipeline-batch-scoring-classification.md
-  - linkListType: how-to-guide
-    links:
-    - text: Agendar pipelines de ML (SDK do Python)
-      url: how-to-schedule-pipelines.md
-    - text: Prever atrasos (estruturador)
-      url: how-to-designer-sample-classification-flight-delay.md
-    - text: Prever alterações (estruturador)
-      url: how-to-designer-sample-classification-churn.md
 - title: Implementar e gerir modelos
   linkLists:
   - linkListType: how-to-guide
@@ -93,14 +81,14 @@ landingContent:
       url: concept-model-management-and-deployment.md
     - text: Como e onde implementar
       url: how-to-deploy-and-where.md
-    - text: Autenticação
-      url: how-to-setup-authentication.md
+    - text: Exemplos de MLOps
+      url: https://github.com/microsoft/MLOps
     - text: Predição em tempo real
       url: how-to-consume-web-service.md
     - text: Predição de lote
       url: how-to-use-parallel-run-step.md
-    - text: Exemplos ponto a ponto (GitHub)
-      url: https://github.com/microsoft/MLOps
+    - text: Autenticação
+      url: how-to-setup-authentication.md
 - title: Ir para documentos de referência
   linkLists:
   - linkListType: reference
@@ -109,11 +97,11 @@ landingContent:
       url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
     - text: SDK para R
       url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/azureml/
     - text: CLI de Aprendizagem automática
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
     - text: Algoritmos e módulos do estruturador
       url: algorithm-module-reference/module-reference.md
-    - text: API REST
-      url: https://docs.microsoft.com/rest/api/azureml/
     - text: Arquiteturas de referência de IA (GitHub)
       url: https://github.com/Microsoft/AI

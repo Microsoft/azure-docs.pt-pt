@@ -1,5 +1,5 @@
-- name: Documentação de Armazenamento do Data Lake Ger1
-  href: index.md
+- name: Documentação do Data Lake Storage Gen1
+  href: index.yml
 - name: Documentação de Troca do Azure Data Lake Storage Gen2
   href: 'https://docs.microsoft.com/azure/storage/data-lake-storage/introduction'
 - name: Descrição geral

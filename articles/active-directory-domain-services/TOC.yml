@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: Ativar eventos de auditoria de segurança
           href: security-audit-events.md
+        - name: Analisar eventos de auditoria com Livros do Azure Monitor
+          href: use-azure-monitor-workbooks.md
     - name: Associar VMs a um domínio
       items:
         - name: VM do Windows Server a partir do modelo

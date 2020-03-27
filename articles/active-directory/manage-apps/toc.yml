@@ -68,7 +68,7 @@
               href: manage-certificates-for-federated-single-sign-on.md
             - name: Restrições de inquilino
               href: tenant-restrictions.md
-            - name: Configurar a encriptação de tokens SAML (Pré-visualização)
+            - name: Configurar a encriptação de tokens SAML
               href: howto-saml-token-encryption.md
             - name: Portais de utilizador final
               href: end-user-experiences.md
@@ -139,9 +139,7 @@
               href: grant-admin-consent.md
             - name: Configurar o fluxo de trabalho de consentimento do administrador (pré-visualização)
               href: configure-admin-consent-workflow.md
-            - name: Métodos para atribuir utilizadores e grupos a uma aplicação
-              href: methods-for-assigning-users-and-groups.md
-            - name: Atribuir um utilizador a uma aplicação
+            - name: Atribuir um utilizador ou grupo a uma aplicação
               href: assign-user-or-group-access-portal.md
             - name: Criar coleções em As Minhas Aplicações
               href: access-panel-collections.md

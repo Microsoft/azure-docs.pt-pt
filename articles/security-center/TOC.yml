@@ -37,9 +37,7 @@
       href: security-center-compliance-dashboard.md
 - name: Conceitos
   items:
-    - name: Classificação de Segurança no Centro de Segurança
-      href: security-center-secure-score.md
-    - name: A Classificação de Segurança melhorada
+    - name: Classificação de segurança
       href: secure-score-security-controls.md
     - name: Permissões
       href: security-center-permissions.md
@@ -59,16 +57,18 @@
           href: azure-kubernetes-service-integration.md
     - name: Proteção contra ameaças e alertas de segurança
       items:
+        - name: Proteção contra ameaças no Centro de Segurança do Azure
+          href: threat-protection.md
         - name: Descrição geral dos alertas de segurança
           href: security-center-alerts-overview.md
         - name: Lista de alertas de referência
           href: alerts-reference.md
+        - name: Esquemas de alertas
+          href: alerts-schemas.md
         - name: Gerir alertas de segurança
           href: security-center-managing-and-responding-alerts.md
         - name: Gerir incidentes de segurança
           href: security-center-incident.md
-        - name: Proteção contra ameaças no Centro de Segurança do Azure
-          href: threat-protection.md
         - name: Correlação de Alertas Inteligentes da Cloud (incidentes)
           href: security-center-alerts-cloud-smart.md
         - name: Informações sobre ameaças e mapa de alertas de segurança
@@ -201,6 +201,8 @@
       href: security-center-features-retirement-july2019.md
     - name: Avaliação e recomendações da proteção de ponto final
       href: security-center-endpoint-protection.md
+    - name: Classificação de segurança (legada)
+      href: security-center-secure-score.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

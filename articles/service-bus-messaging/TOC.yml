@@ -19,7 +19,7 @@
               href: service-bus-quickstart-powershell.md
             - name: CLI do Azure
               href: service-bus-quickstart-cli.md
-            - name: Modelo Azure Resource Manager
+            - name: Modelo ARM
               href: service-bus-resource-manager-namespace-queue.md
         - name: Enviar e receber mensagens
           items:
@@ -41,7 +41,7 @@
           items:
             - name: Portal do Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
-            - name: Modelo Azure Resource Manager
+            - name: Modelo ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publicar e subscrever para mensagens
           items:
@@ -65,6 +65,8 @@
       href: service-bus-tutorial-topics-subscriptions-portal.md
     - name: Atualizar inventário - CLI
       href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: Responder a eventos através do Event Grid
+      href: service-bus-to-event-grid-integration-example.md
 - name: Amostras
   items:
     - name: Exemplos de Service Bus
@@ -104,6 +106,8 @@
                   href: authenticate-application.md
         - name: Controlos de segurança incorporados
           href: service-bus-messaging-security-controls.md
+        - name: Segurança da rede
+          href: network-security.md
 - name: Guias de procedimentos
   items:
     - name: Migrar das APIs do Azure Service Manager (clássico) para as APIs do Resource Manager
@@ -126,8 +130,6 @@
               href: message-expiration.md
             - name: Processamento de mensagens com o Azure Event Grid
               href: service-bus-to-event-grid-integration-concept.md
-            - name: Exemplos do Azure Event Grid
-              href: service-bus-to-event-grid-integration-example.md
         - name: Filtros de tópico e ações
           href: topic-filters.md
         - name: Migrar de espaços de nomes Standard para Premium
@@ -152,10 +154,6 @@
               href: service-bus-amqp-troubleshoot.md
         - name: Funcionalidades avançadas
           items:
-            - name: Utilizar firewalls
-              href: service-bus-ip-filtering.md
-            - name: Pontos finais de serviço de Rede Virtual
-              href: service-bus-service-endpoints.md
             - name: Filas de mensagens não entregues
               href: service-bus-dead-letter-queues.md
             - name: Obtenção prévia de mensagens
@@ -192,7 +190,7 @@
           href: service-bus-diagnostic-logs.md
         - name: Suspender e reativar as entidades de mensagens
           href: entity-suspend.md
-        - name: Use Azure Resource Manager templates (Utilizar modelos do Azure Resource Manager)
+        - name: Utilizar modelos do ARM
           href: service-bus-resource-manager-overview.md
           items:
             - name: Criar um espaço de nomes
@@ -203,7 +201,13 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Proteger
       items:
-        - name: Configurar chaves geridas pelo cliente para encriptação inativa
+        - name: Configurar firewalls
+          href: service-bus-ip-filtering.md
+        - name: Configurar pontos finais de serviço de rede virtual
+          href: service-bus-service-endpoints.md
+        - name: Configurar pontos finais privados (pré-visualização)
+          href: private-link-service.md
+        - name: Configurar chaves geridas pelo cliente
           href: configure-customer-managed-key.md
     - name: Resolução de problemas
       items:

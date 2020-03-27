@@ -7,12 +7,28 @@
       href: Welcome.md
     - name: Serviços Cognitivos e Machine Learning
       href: cognitive-services-and-machine-learning.md
-    - name: Redes virtuais para os Serviços Cognitivos
-      href: cognitive-services-virtual-networks.md
     - name: Subdomínios personalizados para os Serviços Cognitivos
       href: cognitive-services-custom-subdomains.md
     - name: Suporte de idiomas
       href: language-support.md
+- name: Guias de Início Rápido
+  items:
+    - name: Criar um novo recurso utilizando o portal do Azure
+      href: cognitive-services-apis-create-account.md
+    - name: Criar um novo recurso utilizando o CLI do Azure
+      href: cognitive-services-apis-create-account-cli.md
+    - name: Registo de diagnósticos
+      href: diagnostic-logging.md
+- name: Segurança
+  items:
+    - name: Segurança dos Serviços Cognitivos
+      href: cognitive-services-security.md
+    - name: Redes virtuais para os Serviços Cognitivos
+      href: cognitive-services-virtual-networks.md
+    - name: Configurar chaves geridas pelo cliente
+      href: ./encryption/cognitive-services-encryption-keys-portal.md
+    - name: Autenticar pedidos nos Serviços Cognitivos
+      href: authentication.md
 - name: Suporte de contentor
   items:
     - name: Suporte de contentor
@@ -39,16 +55,6 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Serviço de Kubernetes do Azure (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
-- name: Inícios rápidos
-  items:
-    - name: Criar um novo recurso utilizando o portal do Azure
-      href: cognitive-services-apis-create-account.md
-    - name: Criar um novo recurso utilizando o CLI do Azure
-      href: cognitive-services-apis-create-account-cli.md
-    - name: Autenticação
-      href: authentication.md
-    - name: Registo de diagnósticos
-      href: diagnostic-logging.md
 - name: Recursos
   items:
     - name: Mapa do Azure

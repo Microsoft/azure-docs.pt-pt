@@ -87,6 +87,8 @@
           href: networking-features.md
         - name: Gateway de Aplicação com pontos finais de serviço
           href: networking/app-gateway-with-service-endpoints.md
+        - name: Ponto Final Privado
+          href: networking/private-endpoint.md
     - name: IPs de entrada e de saída
       href: overview-inbound-outbound-ips.md
     - name: Integração da Rede Virtual
@@ -144,7 +146,7 @@
         - name: Comprar domínio
           href: manage-custom-dns-buy-domain.md
         - name: Mapear domínios com o Gestor de Tráfego
-          href: web-sites-traffic-manager-custom-domain-name.md
+          href: configure-domain-traffic-manager.md
         - name: Migrar um domínio ativo
           href: manage-custom-dns-migrate-domain.md
     - name: Proteger aplicação
@@ -175,6 +177,8 @@
           href: configure-ssl-certificate-in-code.md
         - name: Configurar a autenticação mútua de TLS
           href: app-service-web-configure-tls-mutual-auth.md
+        - name: Encriptar dados do site
+          href: configure-encrypt-at-rest-using-cmk.md
     - name: Dimensionar aplicação
       items:
         - name: Aumentar verticalmente a capacidade do servidor
@@ -210,7 +214,7 @@
         - name: Mover entre regiões
           href: manage-move-across-regions.md
         - name: Mover subscrições
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources'
     - name: Execução de tarefas em segundo plano
       items:
         - name: Criar Trabalhos Web

@@ -26,6 +26,10 @@
       href: permissions.md
     - name: Configurar Alertas para recomendações
       href: advisor-alerts.md
+    - name: Remediação em massa para recomendações
+      href: advisor-quick-fix.md
+    - name: Dados do Assistente no Azure Resource Graph
+      href: advisor-azure-resource-graph.md
 - name: Referência
   items:
     - name: Centro de Segurança

@@ -92,6 +92,8 @@
   items:
     - name: Ativar uma funcionalidade para um subconjunto de utilizadores
       href: howto-feature-filters-aspnet-core.md
+    - name: Utilizar etiquetas para configuração por ambiente
+      href: howto-labels-aspnet-core.md
     - name: Importar ou exportar dados de configuração
       href: howto-import-export-data.md
     - name: Encaminhar eventos para um ponto final personalizado

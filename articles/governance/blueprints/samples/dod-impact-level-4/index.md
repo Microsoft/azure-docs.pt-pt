@@ -1,18 +1,18 @@
 ---
 title: Descrição geral do exemplo de esquema Impacto DoD Nível 4
 description: Descrição geral do exemplo Impacto DoD Nível 4. Este exemplo de esquema ajuda os clientes a avaliar controlos de Impacto DoD Nível 4 específicos.
-ms.date: 02/09/2020
+ms.date: 03/12/2020
 ms.topic: sample
-ms.openlocfilehash: faac024a0bd18f6a2f10e441ca9e44526463e435
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: a67dae5399d3e2e24c226c53f915b91e2524e735
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154612"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "79415381"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Descrição geral do exemplo de esquema Impacto DoD Nível 4
 
-O exemplo de esquema Impacto DoD Nível 4 (DoD IL4) fornece proteções de governação com o [Azure Policy](../../../policy/overview.md) que o ajudam a avaliar controlos de Impacto DoD Nível 4 específicos. Este esquema ajuda os clientes a implementar um conjunto essencial de políticas para qualquer arquitetura implementada no Azure que tenha de implementar controlos de Impacto DoD Nível 4.
+O exemplo de esquema Impacto DoD Nível 4 (DoD IL4) fornece proteções de governação com o [Azure Policy](../../../policy/overview.md) que o ajudam a avaliar controlos de Impacto DoD Nível 4 específicos. Este esquema ajuda os clientes a implementar um conjunto essencial de políticas para qualquer arquitetura implementada no Azure que tenha de implementar controlos de Impacto DoD Nível 4. Para obter as informações mais recentes sobre quais os Serviços e Clouds do Azure que cumprem a autorização de Impacto DoD Nível 4, veja [Azure services by FedRAMP and DoD CC SRG audit scope](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) (Serviços do Azure por âmbito de auditoria DoD CC SRG e FedRAMP).
 
 ## <a name="control-mapping"></a>Mapeamento de controlo
 

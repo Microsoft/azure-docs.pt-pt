@@ -1,5 +1,5 @@
 - name: Documentação do StorSimple
-  href: index.md
+  href: index.yml
 - name: Matriz Virtual do StorSimple
   items:
     - name: Descrição geral

@@ -1,55 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais
+summary: Os conjuntos de dimensionamento de máquina virtual do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga e dimensionamento automático.
 metadata:
-  title: 'Os conjuntos de dimensionamento de máquina virtual do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga e dimensionamento automático. Saiba como criar, configurar, gerir e dimensionar automaticamente os conjuntos de disponibilidade de máquinas virtuais com os nossos inícios rápidos, tutoriais e amostras.'
-  services: virtual-machine-scale-sets
-  author: georgewallace
-  manager: gwallace
+  title: Documentação dos Conjuntos de Dimensionamento de Máquinas Virtuais
+  description: Saiba como criar, configurar, gerir e dimensionar automaticamente os conjuntos de disponibilidade de máquinas virtuais com os nossos inícios rápidos, tutoriais e amostras.
   ms.service: virtual-machine-scale-sets
   ms.topic: landing-page
-  ms.date: 03/14/2018
-  ms.author: gwallace
-  description: Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem-lhe criar e gerir um grupo de VMs com balanceamento de carga e dimensionamento automático.
-sections:
-  - title: Inícios rápidos
-    items:
-      - type: paragraph
-        text: Saiba como implementar um servidor web num conjunto de dimensionamento de máquinas virtuais.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Portal do Azure
-            href: /azure/virtual-machine-scale-sets/quick-create-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI do Azure
-            href: /azure/virtual-machine-scale-sets/quick-create-cli
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/virtual-machine-scale-sets/quick-create-powershell
-  - title: Tutoriais Passo-a-Passo
-    items:
-      - type: paragraph
-        text: 'Saiba como implementar, gerir e dimensionar automaticamente os conjuntos de dimensionamento de máquina virtual no Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: Criar e gerir um conjunto de dimensionamento com a <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">CLI do Azure</a> ou o <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
-          - html: Utilizar os discos de dados com a <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">CLI do Azure</a> ou o <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
-          - html: Utilizar uma imagem de VM personalizada com a <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">CLI do Azure</a> ou o <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
-          - html: Aplicar aplicações num conjunto de dimensionamento com a <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">CLI do Azure</a> ou o <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
-          - html: Dimensionar automaticamente um conjunto de dimensionamento com a <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">CLI do Azure</a> ou o <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
-  - title: Amostras
-    items:
-      - type: paragraph
-        text: Implementações de exemplo para os conjunto de dimensionamento de máquinas virtuais.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">CLI do Azure</a>
-          - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">O Azure PowerShell</a>
+  author: ju-shim
+  ms.author: jushiman
+  manager: gwallace
+  ms.date: 03/16/2020
+  ms.openlocfilehash: 046d3d87a06c817044f7b07386bdfc03f65b1afb
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80123387"
+landingContent:
+- title: Sobre os conjuntos de dimensionamento de máquinas virtuais
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são os conjuntos de dimensionamento de máquinas virtuais?
+      url: overview.md
+    - text: Perguntas Mais Frequentes (FAQ)
+      url: virtual-machine-scale-sets-faq.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Portal do Azure
+      url: quick-create-portal.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: CLI do Azure
+      url: disk-encryption-cli.md
+- title: Funcionalidades mais recentes
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Política de redução horizontal
+      url: virtual-machine-scale-sets-scale-in-policy.md
+    - text: Notificação de terminação
+      url: virtual-machine-scale-sets-terminate-notification.md
+    - text: Proteção de instâncias
+      url: virtual-machine-scale-sets-instance-protection.md
+- title: Guias passo a passo
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar e gerir um conjunto de dimensionamento com a CLI do Azure
+      url: tutorial-create-and-manage-cli.md
+    - text: Criar e gerir um conjunto de dimensionamento com o Azure PowerShell
+      url: tutorial-create-and-manage-powershell.md
+    - text: Utilizar discos de dados com a CLI do Azure
+      url: tutorial-use-disks-cli.md
+    - text: Utilizar discos de dados com o Azure PowerShell
+      url: tutorial-use-disks-powershell.md
+    - text: Utilizar uma imagem de VM personalizada com a CLI do Azure
+      url: tutorial-use-custom-image-cli.md
+    - text: Utilizar uma imagem de VM personalizada com o Azure PowerShell
+      url: tutorial-use-custom-image-powershell.md
+    - text: Implementar aplicações num conjunto de dimensionamento com a CLI do Azure
+      url: tutorial-install-apps-cli.md
+    - text: Implementar aplicações num conjunto de dimensionamento com o Azure PowerShell
+      url: tutorial-install-apps-powershell.md
+    - text: Dimensionar automaticamente um conjunto de dimensionamento com a CLI do Azure
+      url: tutorial-autoscale-cli.md
+    - text: Dimensionar automaticamente um conjunto de dimensionamento com o Azure PowerShell
+      url: tutorial-autoscale-powershell.md
+- title: Amostras
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Implementação de exemplo para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
+      url: cli-samples.md
+    - text: Implementação de exemplo para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
+      url: powershell-samples.md
+- title: Formação personalizada
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Criar uma aplicação dimensionável com conjuntos de dimensionamento de máquinas virtuais
+      url: https://docs.microsoft.com/learn/modules/build-app-with-scale-sets/
+    - text: " Criar uma máquina virtual do Windows no Azure"
+      url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/

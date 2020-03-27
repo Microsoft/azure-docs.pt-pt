@@ -86,6 +86,8 @@
       href: publish-apps.md
     - name: Configurar a anexação da aplicação MSIX
       href: app-attach.md
+    - name: Utilizar o Microsoft Teams
+      href: teams-on-wvd.md
 - name: Conceitos
   items:
     - name: Ambiente do Windows Virtual Desktop
