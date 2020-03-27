@@ -3,23 +3,25 @@ title: Tutorial – Criar e gerir dados exportados do Azure Cost Management
 description: Este artigo mostra como pode criar e gerir dados exportados do Azure Cost Management para os utilizar em sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 04228a5f3f7e0b10e3cd881043af7861bb9fb347
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b950235eccbd41b1dfa46c23985e804212d9e8f2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251142"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155907"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir dados exportados
 
 Se leu o tutorial de Análise de Custos, está familiarizado com a transferência manual dos dados do Cost Management. No entanto, pode criar uma tarefa periódica, que exporta automaticamente os dados do Cost Management para o armazenamento do Azure com base numa frequência diária, semanal ou mensal. Os dados exportados estão no formato CSV e contêm todas as informações recolhidas pelo Cost Management. Pode utilizar os dados exportados no armazenamento do Azure com sistemas externos e combiná-los com os seus dados personalizados. E pode utilizar os dados exportados num sistema externo, como um dashboard ou outro sistema financeiro.
 
 Veja o vídeo [How to schedule exports to storage with Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) (Como agendar exportações para o armazenamento com o Azure Cost Management) sobre como criar uma exportação agendada dos seus dados de custos do Azure para o Armazenamento do Azure.
+
+>[!VIDEO https://www.youtube.com/embed/rWa_xI1aRzo]
 
 Os exemplos neste tutorial orientam-no na exportação dos dados de gestão de custos e, em seguida, verificam se os dados foram exportados com êxito.
 
@@ -51,7 +53,7 @@ Para criar ou ver uma exportação de dados ou para agendar uma exportação, ab
 
 > [!NOTE]
 > - Além das subscrições, pode criar exportações em grupos de recursos, contas, departamentos e inscrições. Para obter mais informações sobre os âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
->- Quando inicia sessão como parceiro no âmbito da conta de faturação ou no inquilino de um cliente, pode exportar os dados para uma conta do Armazenamento do Microsoft Azure que esteja ligada à conta de armazenamento do seu parceiro. Contudo, tem de ter uma subscrição ativa no inquilino CSP.
+>- Quando inicia sessão como parceiro no âmbito da conta de faturação ou no inquilino de um cliente, pode exportar os dados para uma conta do Armazenamento do Microsoft Azure que esteja associada à sua conta de armazenamento de parceiro. Contudo, tem de ter uma subscrição ativa no inquilino CSP.
 >
 
 

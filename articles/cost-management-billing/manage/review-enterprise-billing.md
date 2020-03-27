@@ -1,17 +1,17 @@
 ---
-title: Analisar dados de faturação da inscrição do Azure Enterprise com a API REST | Microsoft Docs
+title: Analisar dados de faturação da inscrição do Azure Enterprise com a API REST
 description: Saiba como utilizar as APIs REST do Azure para analisar as informações de faturação da inscrição do Enterprise.
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24c4d9b74d68a05a253f05521ee62a0881a90988
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4d42a9cfa15b532a98b632331f592d7e51bc09f0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199573"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202867"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Analisar a faturação da inscrição do Enterprise com as APIs REST
 

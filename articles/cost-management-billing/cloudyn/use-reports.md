@@ -1,26 +1,28 @@
 ---
-title: Utilizar relatórios da Cloudyn no Azure | Microsoft Docs
+title: Utilizar relatórios da Cloudyn no Azure
 description: Este artigo descreve o objetivo dos relatórios da Cloudyn que estão incluídos no portal da Cloudyn para o ajudar a utilizá-los eficazmente.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b3563e08963b0b32542dcbece2529c350981f557
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 633bf8126c1745cfd8db117966975bbf4ea2c9c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200015"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463548"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal da Cloudyn
 
 Este artigo descreve o objetivo dos relatórios da Cloudyn que estão incluídos no portal da Cloudyn. Descreve também como pode utilizar eficazmente os relatórios. A maioria dos relatórios são intuitivos e têm um aspeto e funcionalidade uniformes. A maioria das ações que pode fazer num relatório também podem ser feitas noutros relatórios. Para obter uma descrição geral sobre como utilizar os relatórios da Cloudyn, incluindo como personalizar e guardar ou agendar relatórios, veja [Compreender os relatórios de custos](understanding-cost-reports.md).
 
 O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](../cost-management-billing-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-types"></a>Tipos de relatório
 

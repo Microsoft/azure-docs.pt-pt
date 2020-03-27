@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6ef96bf248c449b318cebaba9c53f63e448855
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c6883dfd0f4c3bc11afdd68ead8c8c84729b1880
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199165"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065694"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no ficheiro de utilização e custos do Azure para um Contrato de Cliente da Microsoft
 
@@ -21,9 +21,9 @@ Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Micro
 
 O ficheiro CSV de utilização e custos do Azure contém custos de utilização diária e de nível de medidor para o período de faturação atual.
 
-Para obter o ficheiro de utilização e custos do Azure, veja [Visualizar e transferir a utilização e os custos do Azure para o seu Contrato de Cliente da Microsoft](download-azure-daily-usage.md). Está disponível num formato de ficheiro de valores separados por vírgulas (.csv) que pode abrir numa aplicação de folha de cálculo.
+Para obter o ficheiro de utilização e custos do Azure, veja [Visualizar e transferir a utilização e os custos do Azure para o seu Contrato de Cliente da Microsoft](download-azure-daily-usage.md). Está disponível num formato de ficheiro de valores separados por vírgulas (.csv), que pode abrir numa aplicação de folha de cálculo.
 
-Os custos de utilização são o total de custos **mensais** de uma subscrição. Os custos de utilização não têm em consideração nenhum crédito ou desconto.
+Os custos de utilização são o total de custos **mensais** de uma subscrição. Os custos de utilização não têm em conta nenhum crédito ou desconto.
 
 ## <a name="changes-from-azure-ea-usage-and-charges"></a>Alterações de utilização e custos do Azure EA
 
@@ -88,6 +88,8 @@ meterCategory | Nome da categoria de classificação do medidor. Por exemplo, *S
 meterSubCategory | Nome da categoria de subclassificação do medidor
 meterRegion | Nome da região em que o medidor do serviço está disponível. Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter.
 oferta | Nome da oferta comprada
+PayGPrice | Preço de revenda do recurso.
+PricingModel | Identificador que indica como é definido o preço do medidor (Valores: A Pedido, Reserva, Pontual)
 productId | Identificador exclusivo do produto que acumula os custos
 produto | Nome do produto que acumula os custos
 ID da subscrição | Identificador exclusivo da subscrição que acumula os custos

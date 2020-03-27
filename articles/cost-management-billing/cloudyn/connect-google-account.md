@@ -1,25 +1,26 @@
 ---
-title: Ligar uma conta do Google Cloud Platform à Cloudyn no Azure | Microsoft Docs
+title: Ligar uma conta do Google Cloud Platform à Cloudyn no Azure
 description: Ligue uma conta do Google Cloud Platform para ver os custos e os dados de utilização nos relatórios da Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 09989337b2e78277c6182630ce0f1cdf57a0e0c1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4e10d39f744b40e7eb9058841eed9ff0f0e55d44
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770194"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474650"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ligar uma conta do Google Cloud Platform
 
 Pode ligar a sua conta do Google Cloud Platform existente à Cloudyn. Após ligar a conta à Cloudyn, os custos e os dados de utilização ficam disponíveis nos relatórios da Cloudyn. Este artigo ajuda-o a configurar e a ligar a sua conta Google à Cloudyn.
 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="collect-project-information"></a>Recolher informações do projeto
 
@@ -74,4 +75,4 @@ Em poucas horas, os relatórios da Cloudyn mostram informações sobre os custos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre a Cloudyn, veja o tutorial [Rever a utilização e os custos](tutorial-review-usage.md) da Cloudyn.
+- Para saber mais sobre a Cloudyn, continue para o tutorial [Rever a utilização e os custos](tutorial-review-usage.md) da Cloudyn.

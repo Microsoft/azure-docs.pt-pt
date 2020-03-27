@@ -1,24 +1,26 @@
 ---
-title: Ver as métricas principais nos dashboards da Cloudyn no Azure | Microsoft Docs
+title: Ver as métricas principais nos dashboards da Cloudyn no Azure
 description: Este artigo descreve como pode ver as métricas principais nos dashboards da Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 78af8f2541eb0b28d75be89612d158c889261adc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 892df9a6e0eb4d791f818eed0a78c96a829e25a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770130"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464228"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Ver as métricas principais dos custos nos dashboards
 
 Os dashboards da Cloudyn fornecem uma vista de alto nível dos relatórios. Os dashboards permitem ver as métricas principais dos custos numa única vista. Também apresentam os destaques das tendências empresariais para o ajudar a tomar decisões empresariais importantes.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 Os dashboards também são utilizados para criar vistas para pessoas com diferentes responsabilidades na sua organização, que podem incluir:
 

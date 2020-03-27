@@ -1,20 +1,19 @@
 ---
-title: Tutorial – Criar e gerir orçamentos do Azure | Microsoft Docs
+title: Tutorial - Criar e gerir orçamentos do Azure
 description: Este tutorial ajuda a planear e a contabilizar os custos dos serviços do Azure que consome.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/11/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128363"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155941"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
@@ -28,6 +27,7 @@ Os exemplos mostrados neste tutorial irão guiá-lo através da criação e edi�
 
 Veja o vídeo [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) (Aplicar orçamentos a subscrições com o portal do Azure) para ver como pode criar orçamentos no Azure para monitorizar os custos.
 
+>[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
 Neste tutorial, ficará a saber como:
 

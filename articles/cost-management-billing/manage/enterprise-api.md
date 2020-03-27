@@ -1,5 +1,5 @@
 ---
-title: APIs Enterprise de Faturação do Azure | Microsoft Docs
+title: APIs Enterprise de Faturação do Azure
 description: Saiba mais sobre as APIs de Relatórios que permitem aos clientes Enterprise do Azure extrair dados de consumo através de programação.
 author: mumami
 tags: billing
@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: 9f9552c134fa7653e4100cae3c731e4c670d44e3
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560546"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202918"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que os clientes Enterprise do Azure extraiam programaticamente dados de consumo e de faturação para as ferramentas de análise de dados preferidas. Os clientes Enterprise assinaram um [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer alocações monetárias negociadas e aceder a preços personalizados para os recursos do Azure.

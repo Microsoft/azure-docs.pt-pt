@@ -1,20 +1,20 @@
 ---
-title: Tutorial – Gerir os custos através da Cloudyn no Azure | Microsoft Docs
+title: Tutorial – Gerir os custos através da Cloudyn no Azure
 description: Neste tutorial, saiba com efetuar a gestão dos custos com relatórios de alocação, análise de custos e estorno.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: a492f611ed5a785ae148894baf3f24c2df773df2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769898"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474582"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através da Cloudyn
 
@@ -32,6 +32,8 @@ Neste tutorial, ficará a saber como:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter uma conta do Azure.
@@ -46,7 +48,7 @@ A Cloudyn obtém dados de etiquetas do grupo de recursos do Azure e propaga auto
 
 Através do modelo de alocação de custos, pode definir categorias (etiquetas) que são aplicadas internamente a recursos (não marcados) não categorizados para agrupar os custos e definir regras para processar os custos não marcados. As regras de alocação de custos são as instruções que guardar em que os custos de um serviço são distribuídos por um outro serviço. Posteriormente, esses recursos mostram etiquetas/categorias em relatórios de *alocação de custos*, quando selecionar o modelo que criou.
 
-Não se esqueça de que as informações da etiqueta não são apresentadas para esses recursos em relatórios de *análise de custo*. Além disso, as etiquetas aplicadas na Cloudyn através da alocação de custos não são enviadas para o Azure, por isso irá vê-las no portal do Azure.
+Não se esqueça de que as informações da etiqueta não são apresentadas para esses recursos em relatórios de *análise de custo*. Além disso, as etiquetas aplicadas na Cloudyn através da alocação de custos não são enviadas para o Azure, pelo que não irá vê-las no portal do Azure.
 
 Quando inicia a alocação de custos, a primeira coisa a fizer é definir o âmbito através de um modelo de custos. O modelo de custos não altera os custos, distribui-os. Quando criar um modelo de custos, segmenta os dados por entidade de custo, conta ou subscrição e por múltiplas etiquetas. Etiquetas de exemplo comuns podem incluir um código de faturação, centro de custos ou nome do grupo. As etiquetas também ajudam a efetuar a análise de custos ou o estorno para outras partes da sua organização.
 

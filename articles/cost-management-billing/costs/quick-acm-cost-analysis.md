@@ -1,21 +1,21 @@
 ---
-title: Início Rápido – Explorar os custos do Azure com a análise de custos | Microsoft Docs
+title: Início Rápido – Explorar os custos do Azure com a análise de custos
 description: Este guia de início rápido ajuda-o a utilizar a análise de custos para explorar e analisar os custos da sua organização associados ao Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/24/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 002caa15b7054ab806018a733b32a1b2555e1aea
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384195"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155958"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Quickstart: Explore e analise custos com análise de custos
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custos
 
 Antes de conseguir controlar e otimizar corretamente os custos do Azure, tem de compreender qual é a origem dos custos dentro da sua organização. Também é útil saber quanto dinheiro os seus serviços custam e quanto gasta no suporte aos vários ambientes e sistemas. Ter visibilidade sobre todos os custos é fundamental para compreender com precisão os padrões das despesas da organização. Pode utilizar os padrões das despesas para impor mecanismos de controlo de custos, como orçamentos.
 
@@ -27,14 +27,13 @@ Neste início rápido, vai aprender a:
 - Personalizar as vistas de custos
 - Transferir dados da análise de custos
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 A análise de custos suporta diferentes tipos de contas do Azure. Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](understand-cost-mgt-data.md). Para ver os dados dos custos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure.
 
 Para obter informações sobre a atribuição de acesso aos dados do Azure Cost Management, veja [Atribuir acesso aos dados](../../cost-management/assign-access-acm-data.md).
 
-Se tiver uma nova subscrição, não pode utilizar imediatamente as funcionalidades de Gestão de Custos. Pode levar até 48 horas antes de poder utilizar todas as funcionalidades de Gestão de Custos.
+Se tiver uma subscrição nova, não pode utilizar as funcionalidades do Cost Management imediatamente. Poderá demorar até 48 horas até poder utilizar todas as funcionalidades do Cost Management.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,28 +45,31 @@ Para rever os custos na análise de custos, abra o âmbito no portal do Azure e 
 
 O âmbito que selecionar será utilizado em todo o Cost Management para permitir obter a consolidação dos dados e o controlo de acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, seleciona um âmbito maior, no qual os outros âmbitos são incluídos e, em seguida, filtra até obter os âmbitos aninhados de que necessita. É importante compreender esta abordagem, pois algumas pessoas poderão não ter acesso a um âmbito principal único, que abrange vários âmbitos aninhados.
 
+Veja o vídeo [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) (Como utilizar o Cost Management no portal do Azure) para saber mais sobre como utilizar a Análise de Custos.
+
+>[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
+
 A vista da análise de custos inicial inclui as seguintes áreas.
 
-**Visualização de custos acumulada**: Representa a configuração predefinida da visualização da análise de custos. Cada vista inclui o intervalo de datas, a granularidade, agrupar por e as definições de filtragem. A vista predefinida mostra os custos acumulados do atual período de faturação, mas poderá alterar para outras vistas incorporadas. Para obter mais informações, veja [Personalizar as vistas de custos](#customize-cost-views).
+**Vista de custos acumulados**: representa a configuração da vista de análise de custos predefinida. Cada vista inclui o intervalo de datas, a granularidade, agrupar por e as definições de filtragem. A vista predefinida mostra os custos acumulados do atual período de faturação, mas poderá alterar para outras vistas incorporadas. Para obter mais informações, veja [Personalizar as vistas de custos](#customize-cost-views).
 
-**Custo real**: Mostra os custos totais de utilização e compra para o mês em curso, uma vez que são acumulados e mostrarão na sua conta.
+**Custo real**: mostra o total de custos de utilização e de compra do mês atual, à medida que são acumulados e conforme são apresentados na fatura.
 
-**Previsão**: Mostra os custos totais previstos para o período de tempo que escolher.
+**Previsão**: mostra o total de custos previstos de um período de tempo à sua escolha
 
-**Orçamento**: Mostra o limite de despesas previsto para o âmbito selecionado, se disponível.
+**Orçamento**: mostra o limite de gastos planeado do âmbito selecionado, se disponível.
 
-**Granularidade acumulada**: Mostra o total agregado de custos diários agregados, desde o início do período de faturação. Depois de [criar um orçamento](tutorial-acm-create-budgets.md) para a sua conta de faturação ou subscrição, pode ver rapidamente a tendência das despesas em relação ao orçamento. Paire o rato sobre uma data para ver os custos acumulados desse dia.
+**Granularidade acumulada**: mostra o total de custos diários agregados, desde o início do período de faturação. Depois de [criar um orçamento](tutorial-acm-create-budgets.md) para a sua conta de faturação ou subscrição, pode ver rapidamente a tendência das despesas em relação ao orçamento. Paire o rato sobre uma data para ver os custos acumulados desse dia.
 
-**Gráficos de pivô (donut)** : Fornecer pivôs dinâmicos, decompondo o custo total por um conjunto comum de propriedades padrão. Mostram desde os custos mais elevados até aos mais baixos do mês atual. Pode alterar os gráficos dinâmicos a qualquer momento ao selecionar um gráfico diferente. Os custos são categorizados por serviço (categoria do medidor), localização (região) e âmbito subordinado por predefinição. Por exemplo, as contas de inscrição são incluídas nas contas de faturação, os grupos de recursos são incluídos nas subscrições e os recursos são incluídos nos grupos de recursos.
+**Gráficos dinâmicos (em anel)** : apresentam gráficos dinâmicos, ao dividir o total de custos por um conjunto comum de propriedades padrão. Mostram desde os custos mais elevados até aos mais baixos do mês atual. Pode alterar os gráficos dinâmicos a qualquer momento ao selecionar um gráfico diferente. Os custos são categorizados por serviço (categoria do medidor), localização (região) e âmbito subordinado por predefinição. Por exemplo, as contas de inscrição são incluídas nas contas de faturação, os grupos de recursos são incluídos nas subscrições e os recursos são incluídos nos grupos de recursos.
 
-![Vista inicial de análise de custos no portal do Azure](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Vista inicial da análise de custos no portal do Azure](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ### <a name="understand-forecast"></a>Compreender a previsão
 
 A previsão de custos mostra uma projeção dos seus custos estimados para o período de tempo selecionado. O modelo baseia-se num modelo de regressão de série temporal. Requer pelo menos 10 dias de dados de utilização e custos recentes para prever os custos de forma precisa. Durante um determinado período de tempo, o modelo de previsão requer partes iguais dos dados de preparação para o período previsto. Por exemplo, uma projeção de três meses requer, pelo menos, três meses de dados de utilização e custos recentes.
 
 O modelo utiliza um máximo de seis meses de dados de preparação para projetar custos para um ano. No mínimo, precisa de sete dias de dados de preparação para alterar a sua previsão. A previsão baseia-se em alterações drásticas, como picos e quedas, nos padrões de custo e utilização. A previsão não gera projeções individuais para cada item nas propriedades **Agrupar por**. Apenas prevê um total dos custos acumulados. Se utilizar várias moedas, o modelo prevê apenas os custos em USD.
-
 
 ## <a name="customize-cost-views"></a>Personalizar as vistas de custos
 
@@ -86,7 +88,7 @@ No entanto, há muitos casos em que precisa de uma análise mais aprofundada. A 
 
 A análise de custos mostra os dados do mês atual por predefinição. Utilize o seletor de datas para mudar para intervalos de datas comuns rapidamente. Os exemplos incluem os últimos sete dias, o último mês, o ano atual ou um intervalo de datas personalizado. As subscrições pay as you go também incluem intervalos de datas com base no seu período de faturação, o que não está ligado ao mês do calendário, como o período de faturação atual ou a última fatura. Utilize as ligações **<ANTERIOR** e **SEGUINTE>** no topo do menu para aceder ao período anterior ou seguinte, respetivamente. Por exemplo, **<ANTERIOR** mudará de **Últimos 7 dias** para **Há 8-14 dias** ou **Há 15-21**.
 
-![Seletor de data que mostra uma seleção de exemplo para este mês](./media/quick-acm-cost-analysis/date-selector.png)
+![Seletor de datas a mostrar uma seleção de exemplo para este mês](./media/quick-acm-cost-analysis/date-selector.png)
 
 A análise de custos mostra os custos **acumulados** por predefinição. Os custos acumulados incluem todos os custos de cada dia e dos dias anteriores, o que lhe dá uma visão em crescimento constante dos seus custos agregados diários. Esta vista está otimizada para mostrar a evolução das suas despesas em relação a um orçamento no intervalo de tempo selecionado.
 
@@ -108,13 +110,13 @@ De forma geral, pode contar ver dados ou notificações de recursos consumidos d
 
 **Agrupar por** propriedades comuns para dividir os custos e identificar os principais contribuidores. Para agrupar por etiquetas de recursos, por exemplo, selecione a chave da etiqueta pela qual quer agrupar. Os custos são divididos por cada valor de etiqueta, com um segmento extra para os recursos que não têm aplicada essa etiqueta.
 
-A maioria dos [recursos do Azure suportam etiquetas](../../azure-resource-manager/management/tag-support.md). Contudo, algumas etiquetas não estão disponíveis no Cost Management e na faturação. Além disso, as etiquetas de grupos de recursos não são suportadas. O suporte de etiquetas aplica-se à utilização comunicadas *depois* de a etiqueta ter sido aplicada ao recurso. As etiquetas não são aplicadas retroativamente para rollups de custos.
+A maioria dos [recursos do Azure suportam etiquetas](../../azure-resource-manager/management/tag-support.md). Contudo, algumas etiquetas não estão disponíveis no Cost Management e na faturação. Além disso, as etiquetas de grupos de recursos não são suportadas. O suporte de etiquetas aplica-se à utilização registada *depois* de a etiqueta ter sido aplicada ao recurso. As etiquetas não são aplicadas retroativamente para rollups de custos.
 
 Veja o vídeo [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Como rever as políticas de etiquetas no Azure Cost Management) para saber mais sobre a utilização da política de etiquetas do Azure para melhorar a visibilidade dos dados de custos.
 
 Veja a seguir uma vista dos custos de serviço do Azure do mês atual.
 
-![Vista acumulada agrupada diária mostrando os custos de serviço do Azure de exemplo do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![Vista acumulada agrupada diária a mostrar exemplos dos custos de serviço do Azure do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 Por predefinição, a análise de custos mostra todos os custos de utilização e de compras à medida que são acumulados e também serão apresentados na sua fatura, também conhecidos como **Custo real**. A visualização do custo real é ideal para reconciliar a sua fatura. Contudo, os picos de compras nos custos poderão ser alarmantes quando estiver atento a anomalias nas despesas e outras alterações nos custos. Para aplanar os picos causados por custos de compras de reservas, mude para **Custo amortizado**.
 
@@ -126,13 +128,13 @@ Devido à alteração da forma como os custos são apresentados, é importante n
 
 A imagem seguinte mostra os nomes dos grupos de recursos. Pode agrupar por etiqueta para ver os custos totais por etiqueta ou utilizar a vista **Custo por recurso** para ver todas as etiquetas de um recurso em particular.
 
-![Dados completos para mostrar nomes de grupos de recursos de exibição atual](./media/quick-acm-cost-analysis/full-data-set.png)
+![Dados completos para a vista atual a mostrar os nomes dos grupos de recursos](./media/quick-acm-cost-analysis/full-data-set.png)
 
 Quando agrupa os custos por um atributo específico, os 10 contribuidores principais são mostrados, do mais elevado ao mais baixo. Se existirem mais de 10, os nove contribuidores principais são mostrados com um grupo **Outros** que representa todos os restantes grupos combinados. Quando agrupa por etiquetas, aparece um grupo **Não marcados** para os custos que não têm a chave de etiqueta aplicada. **Não marcados** está sempre em último, mesmo que os custos sem etiqueta sejam mais elevados do que os que têm etiqueta. Os custos não marcados farão parte do grupo **Outros** se existirem 10 ou mais valores de etiquetas. Mude para a vista de tabela e altere a granularidade para **Nenhuma** para ver todos os valores classificados desde o custo mais elevado ao mais baixo.
 
 As máquinas virtuais, as redes e os recursos de armazenamento clássicos não partilham dados detalhados de faturas. São unidos como **Serviços clássicos** ao agrupar os custos.
 
-Os gráficos dinâmicos, no gráfico principal, mostram os diferentes agrupamentos, que lhe dão uma ideia mais geral dos seus custos gerais relativos ao período de tempo e filtros selecionados. Selecione uma propriedade ou etiquetas para ver os custos agregados por qualquer dimensão.
+Os gráficos dinâmicos, no gráfico principal, mostram os diferentes agrupamentos, que lhe dão uma ideia mais geral dos seus custos gerais relativos ao período de tempo e filtros selecionados. Selecione uma propriedade ou uma etiqueta para ver os custos agregados por qualquer dimensão.
 
 ![Exemplo a mostrar os gráficos dinâmicos](./media/quick-acm-cost-analysis/pivot-charts.png)
 
@@ -176,11 +178,17 @@ Para obter mais informações sobre os termos, veja [Compreender os termos utili
 
 Guarde e partilhe vistas personalizadas com outras pessoas ao afixar a análise de custos no dashboard do portal do Azure ou ao copiar uma ligação para a análise de custos.
 
+Veja o vídeo [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) (Partilhar e guardar vistas no Azure Cost Management) para saber mais sobre como utilizar o portal para partilhar conhecimentos sobre custos na sua organização.
+
+>[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
+
 Para afixar a análise de custos, selecione o ícone de afixar no canto superior direito. Ao afixar a análise de custos, guardará apenas a vista principal de gráfico ou tabela. Partilhe o dashboard para permitir o acesso a outras pessoas ao mosaico. Note que esta ação partilha apenas a configuração do dashboard e não permite o acesso a outras pessoas aos dados subjacentes. Se não tiver acesso aos custos, mas tiver acesso ao dashboard partilhado, verá uma mensagem de “acesso negado”.
 
 Para partilhar uma ligação para a análise de custos, selecione **Partilhar** no topo do painel. Será mostrado um URL, que abre esta vista específica para o âmbito específico. Se não tiver acesso aos custos e obtiver este URL, verá uma mensagem de “acesso negado”.
 
 Para saber mais sobre a concessão de acesso aos custos para cada âmbito suportado, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
+
+
 
 ## <a name="automation-and-offline-analysis"></a>Automatização e análise offline
 
@@ -229,7 +237,7 @@ Se necessitar que os custos reais mostrem as compras à medida que ocorreram, al
 
 As APIs do Cost Management funcionam em todos os âmbitos acima dos recursos: grupo de recursos, subscrição e grupo de gestão através do acesso ao Azure RBAC, contas de faturação EA (inscrições), departamentos e contas de inscrição através do acesso ao EA Portal. Saiba mais sobre os âmbitos, incluindo como determinar o ID de âmbito ou gerir o acesso, em [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o primeiro tutorial para saber como criar e gerir orçamentos.
 

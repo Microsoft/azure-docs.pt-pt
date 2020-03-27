@@ -1,5 +1,5 @@
 ---
-title: Gerir o acesso à faturação do Azure | Microsoft Docs
+title: Gerir o acesso à faturação do Azure
 description: Saiba como conceder acesso às informações de faturação do Azure aos membros da sua equipa.
 author: vikramdesai01
 ms.reviewer: amberb
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5a4d725d88ee38bb68ea3da4f3e2a6a9bfc7e201
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e7a6f105c6c8292e8e95b388d60dd95c3548dbb5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344649"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237671"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso às informações de faturação do Azure
 
@@ -44,7 +44,7 @@ Para atribuir funções, veja [Gerir o acesso através do RBAC e do portal do Az
 ** Se for um cliente EA, um Proprietário da Conta poderá atribuir a função acima a outros utilizadores da sua equipa. Mas para que estes utilizadores vejam as informações de faturação, o Administrador da Empresa deve permitir que o Proprietário da Conta visualize os custos no Enterprise Portal.
 
 
-### <a name="opt-in"></a> Permitir que os utilizadores transfiram faturas
+### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> Permitir que os utilizadores transfiram faturas
 
 Depois de um administrador de conta ter atribuído as funções apropriadas a outros utilizadores, deverá ativar o acesso para transferir faturas no portal do Azure. As faturas anteriores a dezembro de 2016 só estão disponíveis para o Administrador de Conta.
 

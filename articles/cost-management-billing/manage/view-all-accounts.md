@@ -1,5 +1,5 @@
 ---
-title: Ver as contas de faturação no portal do Azure | Microsoft Docs
+title: Ver as suas contas de faturação no portal do Azure
 description: Saiba como ver as suas contas de faturação no portal do Azure.
 author: amberbhargava
 tags: billing
@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: banders
-ms.openlocfilehash: 0117496642c17db97535eca74aad334f1517a665
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4dab11afb2ddd910a4d6619d088031279ebf3172
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199471"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238011"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Âmbitos e contas de faturação no portal do Azure
 

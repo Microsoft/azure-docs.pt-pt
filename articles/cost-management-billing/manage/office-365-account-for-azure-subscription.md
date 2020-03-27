@@ -1,5 +1,5 @@
 ---
-title: Inscrever-se no Azure com a conta do Office 365 | Microsoft Docs
+title: Inscrever-se no Azure com a conta do Office 365
 description: Saiba como criar uma subscrição do Azure com uma conta do Office 365
 author: JiangChen79
 ms.reviewer: adwise
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 265d9bcafa7caf9af0f8c4c7f33de044fa02349c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: b42a5b83f5442755614a3cb2ae81cffda09b4b3b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199590"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238113"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscrever-se para uma subscrição do Azure com a sua conta do Office 365
 Se tiver uma subscrição do Office 365, pode usar a sua conta do Office 365 para criar uma subscrição do Azure. Inicie sessão no [portal do Azure](https://portal.azure.com/) com o seu nome de utilizador e palavra-passe do Office 365. Se quiser configurar máquinas virtuais ou usar outros serviços do Azure, tem de se inscrever para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [usar o Controlo de Acesso Baseado em Funções para gerir o acesso à sua subscrição e aos recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -35,7 +35,7 @@ Poupe tempo e evite a proliferação de contas inscrevendo-se no Azure com o seu
 
 - Se precisar de adicionar outras pessoas na sua organização à subscrição do Azure, veja [Introdução à gestão de acesso no portal do Azure](../../role-based-access-control/overview.md).
 
-## <a id="more-about-subs">Mais informações sobre as subscrição do Azure e do Office 365</a>
+## <a name=""></a><a id="more-about-subs">Mais informações sobre as subscrição do Azure e do Office 365</a>
 O Office 365 e o Azure usam o serviço do AAD para gerir utilizadores e subscrições. O diretório do Azure é como um contentor no qual pode agrupar utilizadores e subscrições. Para usar as mesmas contas de utilizador para as suas subscrições do Azure e do Office 365, precisa de se certificar de que as subscrições do Azure são criadas no mesmo diretório que as subscrições do Office 365. Tenha em consideração os seguintes pontos:
 
 * Uma subscrição é criada num diretório

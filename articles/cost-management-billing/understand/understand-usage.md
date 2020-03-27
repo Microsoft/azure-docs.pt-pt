@@ -6,14 +6,14 @@ ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199029"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065647"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Compreender os termos no ficheiro de utilização e de custos do Azure
 
@@ -74,10 +74,12 @@ MeterName | Todos | O nome do medidor.
 MeterRegion | Todos | Nome da localização do datacenter dos serviços com preços baseados na localização. Veja Localização.
 MeterSubCategory | Todos | Nome da categoria de subclassificação do medidor.
 OfferId<sup>1</sup> | Todos | Nome da oferta comprada.
+PayGPrice | Todos | Preço de revenda do recurso.
 PartNumber<sup>1</sup> | EA, PAYG | Identificador utilizado para obter preços específicos do medidor.
 PlanName | EA, PAYG | Nome do plano do Marketplace.
 PreviousInvoiceId | MCA | Referência a uma fatura original, caso este item de linha seja um reembolso.
 PricingCurrency | MCA | Moeda utilizada aquando da classificação baseada nos preços negociados.
+PricingModel | Todos | Identificador que indica como é definido o preço do medidor. (Valores: A Pedido, Reserva, Pontual)
 Produto | Todos | Nome do produto.
 ProductId<sup>1</sup> | MCA | Identificador exclusivo do produto.
 ProductOrderId | Todos | Identificador exclusivo da encomenda do produto.

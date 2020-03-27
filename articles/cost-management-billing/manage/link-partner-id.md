@@ -1,5 +1,5 @@
 ---
-title: Ligar uma conta do Azure a um ID de parceiro | Microsoft Docs
+title: Ligar uma conta do Azure a um ID de parceiro
 description: Acompanhe as cativações dos clientes do Azure ao ligar um ID de parceiro à conta de utilizador que utiliza para gerir os recursos do cliente.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
@@ -7,18 +7,18 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651394"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204805"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
-Os parceiros da Microsoft fornecem serviços que ajudam os clientes a alcançar os objetivos de negócios e de missão ao utilizar os produtos da Microsoft. Ao agir em nome do cliente que gere, configura e dá suporte aos serviços do Azure, os utilizadores parceiros precisarão de aceder ao ambiente do cliente. Com a Ligação de Administração de Parceiros, os parceiros podem associar o ID do Microsoft Partner Network às credenciais utilizadas para a entrega do serviço.
+Os parceiros da Microsoft fornecem serviços que ajudam os clientes a alcançar os objetivos de negócios e de missão ao utilizar os produtos da Microsoft. Ao agir em nome do cliente que gere, configura e dá suporte aos serviços do Azure, os utilizadores parceiros precisarão de aceder ao ambiente do cliente. Com a Ligação do Administrador de Parceiros (PAL), os parceiros podem associar o seu ID do Microsoft Partner Network às credenciais utilizadas para a entrega do serviço.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+A PAL permite à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso dos clientes do Azure. A Microsoft pode atribuir influência e receita consumida do Azure à sua organização com base nas permissões da conta (função RBAC) e no âmbito (subscrição, grupo de recursos, recurso).
 
 ## <a name="get-access-from-your-customer"></a>Obter acesso a partir do cliente
 

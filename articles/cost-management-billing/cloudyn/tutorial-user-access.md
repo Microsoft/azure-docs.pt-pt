@@ -1,20 +1,20 @@
 ---
-title: Tutorial – Atribuir acesso através da Cloudyn no Azure | Microsoft Docs
+title: Tutorial – Atribuir acesso com a Cloudyn no Azure
 description: Neste tutorial, ficará a saber como atribuir acesso a dados da Cloudyn com contas de utilizador que definem os níveis de acesso para as entidades.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b93dfd7699ab2f1e2851b4d1f7e6d4c721186a2e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: e8fff8b75ff419cffc7f496f921dcba734109e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773996"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463616"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: Atribuir acesso aos dados da Cloudyn
 
@@ -33,6 +33,8 @@ Quando registou o seu contrato ou conta do Azure, foi criada uma conta com permi
 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,9 +70,9 @@ Não pode remover-se como utilizador.
 > [!WARNING]
 > Quando elimina um utilizador, não é possível restaurá-lo.
 
-1.  No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e, em seguida, selecione **Gestão de Utilizadores**.
-2.  Na lista de utilizadores, selecione o utilizador que quer eliminar e, em seguida, clique em **Eliminar Utilizador** (símbolo de caixote do lixo).
-3.  Na caixa Eliminar Utilizador, clique em **Sim** e, em seguida, clique em **OK**.
+1.    No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e, em seguida, selecione **Gestão de Utilizadores**.
+2.    Na lista de utilizadores, selecione o utilizador que quer eliminar e, em seguida, clique em **Eliminar Utilizador** (símbolo de caixote do lixo).
+3.    Na caixa Eliminar Utilizador, clique em **Sim** e, em seguida, clique em **OK**.
 
 
 ## <a name="delete-or-export-personal-data"></a>Eliminar ou exportar dados pessoais
