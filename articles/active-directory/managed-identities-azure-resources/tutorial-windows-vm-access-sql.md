@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` usar uma identidade gerenciada para acessar o Azure SQL-Windows-Azure AD
+title: Tutorial`:` Use uma identidade gerida para aceder ao Azure SQL - Windows - Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder ao SQL do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977868"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder ao SQL do Azure
@@ -52,9 +52,9 @@ Existem dois passos para conceder acesso da sua VM a uma base de dados:
 1. Ative a autenticação do Azure AD para o SQL Server.
 2. Criar um **utilizador contido** na base de dados que representa a identidade atribuída pelo sistema da VM.
 
-### <a name="enable-azure-ad-authentication"></a>Habilitar a autenticação do Azure AD
+### <a name="enable-azure-ad-authentication"></a>Ativar a autenticação da AD Azure
 
-**Para [Configurar a autenticação do Azure ad para o SQL Server](/azure/sql-database/sql-database-aad-authentication-configure):**
+**Para configurar a [autenticação AD Azure para o servidor SQL:](/azure/sql-database/sql-database-aad-authentication-configure)**
 
 1.  No portal do Azure, selecione **SQL Servers** no painel de navegação esquerdo.
 2.  Clique no SQL Server para ser ativado para autenticação do Azure AD.
@@ -63,16 +63,16 @@ Existem dois passos para conceder acesso da sua VM a uma base de dados:
 5.  Selecione uma conta de utilizador do Azure AD para se tornar num administrador do servidor e clique em **Selecionar.**
 6.  Na barra de comandos, clique em **Guardar.**
 
-### <a name="create-contained-user"></a>Criar usuário independente
+### <a name="create-contained-user"></a>Criar utilizador contido
 
-Esta seção mostra como criar um usuário independente no banco de dados que representa a identidade atribuída pelo sistema da VM. Para esta etapa, você precisa de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de começar, também pode ser útil rever os artigos seguintes para obter informações sobre a integração do Azure AD:
+Esta secção mostra como criar um utilizador contido na base de dados que representa a identidade atribuída ao vM. Para este passo, precisa do [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de começar, também pode ser útil rever os artigos seguintes para obter informações sobre a integração do Azure AD:
 
 - [Autenticação Universal com a Base de Dados SQL e o SQL Data Warehouse (suporte do SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configurar e gerir a autenticação do Azure Active Directory com a Base de Dados SQL ou o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
-O banco de BD SQL requer nomes de exibição do AAD exclusivos. Com isso, as contas do AAD, como usuários, grupos e entidades de serviço (aplicativos) e nomes de VM habilitados para identidade gerenciada devem ser definidas exclusivamente no AAD em relação aos nomes de exibição. O banco de dados SQL verifica o nome de exibição do AAD durante a criação do T-SQL de tais usuários e, se não for exclusivo, o comando falha ao solicitar para fornecer um nome de exibição do AAD exclusivo para uma determinada conta.
+O SQL DB requer nomes únicos de exibição aAD. Com isto, as contas AAD, tais como utilizadores, grupos e principados de serviço (aplicações) e nomes de VM habilitados para identidade gerida devem ser definidas de forma única no AAD no que diz respeito aos seus nomes de exibição. O SQL DB verifica o nome de exibição AAD durante a criação de tais utilizadores e, se não for único, o comando falha em solicitar a disponibilização de um nome único de exibição AAD para uma determinada conta.
 
-**Para criar um usuário independente:**
+**Para criar um utilizador contido:**
 
 1. Inicie o SQL Server Management Studio.
 2. Na caixa de diálogo **Ligar ao Servidor**, introduza o nome do seu SQL Server no campo **Nome do servidor**.
@@ -108,9 +108,9 @@ O código em execução na VM pode agora obter um token através da identidade g
 
 ## <a name="access-data"></a>Aceder a dados
 
-Esta seção mostra como obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM e usá-la para chamar o SQL do Azure. O SQL do Azure suporta nativamente a autenticação do Azure AD para que possa aceitar diretamente tokens de acesso obtidos através de identidades geridas para recursos do Azure. Vai utilizar o método de **token de acesso** de criação de uma ligação para o SQL. Isto faz parte da integração do SQL do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
+Esta secção mostra como obter um sinal de acesso usando a identidade gerida atribuída pelo vM e usá-la para ligar para Azure SQL. O SQL do Azure suporta nativamente a autenticação do Azure AD para que possa aceitar diretamente tokens de acesso obtidos através de identidades geridas para recursos do Azure. Vai utilizar o método de **token de acesso** de criação de uma ligação para o SQL. Isto faz parte da integração do SQL do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
 
-Aqui está um exemplo de código .NET de abertura de uma conexão com o SQL usando um token de acesso. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida atribuída pelo sistema da VM. **.NET Framework 4,6** ou superior ou o **.NET Core 2,2** ou superior é necessário para usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE em conformidade. Observe que a ID de recurso do Azure SQL é `https://database.windows.net/`.
+Aqui está um exemplo de código .NET de abertura de uma ligação ao SQL usando um token de acesso. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida atribuída pelo sistema da VM. **.NET Quadro 4.6** ou superior ou **.NET Core 2.2** ou superior é necessário utilizar o método do token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE em conformidade. Note que o ID de recurso `https://database.windows.net/`para Azure SQL é .
 
 ```csharp
 using System.Net;
@@ -158,7 +158,7 @@ Em alternativa, uma forma rápida de testar a configuração ponto a ponto sem t
 
 1.  No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**.
 2.  Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows.
-3.  Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota.
+3.  Agora que criou uma **Ligação remota de ambiente** de trabalho com a máquina virtual, abra a **PowerShell** na sessão remota.
 4.  Através de `Invoke-WebRequest` do PowerShell, faça um pedido ao ponto final da identidade gerida local para obter um token de acesso para o SQL do Azure.
 
     ```powershell

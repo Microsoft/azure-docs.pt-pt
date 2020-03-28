@@ -1,44 +1,44 @@
 ---
-title: Tutorial – criar uma rede spoke no Azure usando o Terraform
-description: Saiba como implementar dois VNets spoke conectados a um Hub em uma topologia hub-spoke
+title: Tutorial - Criar uma rede de voz em Azure usando terraforma
+description: Saiba implementar dois VNets falados ligados a um hub numa topologia de porta-voz
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 2a36b8ac22fb52f6b8f1246fd254d9c3ff22fc82
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159019"
 ---
-# <a name="tutorial-create-a-spoke-network-in-azure-using-terraform"></a>Tutorial: criar uma rede spoke no Azure usando o Terraform
+# <a name="tutorial-create-a-spoke-network-in-azure-using-terraform"></a>Tutorial: Criar uma rede de voz em Azure usando terraforma
 
-Neste tutorial, você implementa duas redes spoke separadas para demonstrar a separação de cargas de trabalho. As redes compartilham recursos comuns usando a rede virtual do Hub. Os spokes podem ser utilizados para isolar cargas de trabalho nas suas próprias VNets, geridas separadamente dos outros spokes. Cada carga de trabalho pode incluir várias camadas com várias sub-redes ligadas através de balanceadores de carga do Azure.
+Neste tutorial, implementa duas redes de voz separadas para demonstrar a separação de cargas de trabalho. As redes partilham recursos comuns utilizando a rede virtual hub. Os spokes podem ser utilizados para isolar cargas de trabalho nas suas próprias VNets, geridas separadamente dos outros spokes. Cada carga de trabalho pode incluir várias camadas com várias sub-redes ligadas através de balanceadores de carga do Azure.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Use a HCL (linguagem HashiCorp) para implementar o spoke VNets na topologia hub-spoke
-> * Usar o Terraform para criar máquinas virtuais nas redes spoke
-> * Use Terraform para estabelecer emparelhamentos de rede virtual com as redes de Hub
+> * Use hCL (HashiCorp Language) para implementar os VNets falados em topologia centrada no hub
+> * Use terraforma para criar máquinas virtuais nas redes de voz
+> * Use a Terraform para estabelecer os pares de rede virtual com as redes hub
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Crie uma topologia de rede híbrida de Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
-1. [Crie uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
-1. [Crie uma rede virtual de Hub com Terraform no Azure](./terraform-hub-spoke-hub-network.md).
-1. [Crie um dispositivo de rede virtual de Hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md).
+1. [Crie um hub e falou de topologia híbrida com terraforma em Azure.](./terraform-hub-spoke-introduction.md)
+1. [Criar rede virtual no local com terraforma em Azure.](./terraform-hub-spoke-on-prem.md)
+1. [Crie uma rede virtual hub com terraforma em Azure.](./terraform-hub-spoke-hub-network.md)
+1. [Crie um aparelho de rede virtual hub com Terraform em Azure](./terraform-hub-spoke-hub-nva.md).
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
-Dois scripts spoke são criados nesta seção. Cada script define uma rede virtual spoke e uma máquina virtual para a carga de trabalho. Em seguida, uma rede virtual emparelhada do hub para o spoke é criada.
+Dois guiões falados são criados nesta secção. Cada script define uma rede virtual falada e uma máquina virtual para a carga de trabalho. É então criada uma rede virtual de centro para falada.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -50,9 +50,9 @@ Dois scripts spoke são criados nesta seção. Cada script define uma rede virtu
     cd hub-spoke
     ```
 
-## <a name="declare-the-two-spoke-networks"></a>Declarar as duas redes spoke
+## <a name="declare-the-two-spoke-networks"></a>Declare as duas redes de voz
 
-1. Em Cloud Shell, abra um novo arquivo chamado `spoke1.tf`.
+1. Na Cloud Shell, abra `spoke1.tf`um novo ficheiro chamado .
 
     ```bash
     code spoke1.tf
@@ -172,7 +172,7 @@ Dois scripts spoke são criados nesta seção. Cada script define uma rede virtu
     }
     ```
 
-1. Salve o arquivo e saia do editor.
+1. Guarde o ficheiro e saia do editor.
 
 1. Crie um novo ficheiro com o nome `spoke2.tf`.
 
@@ -298,9 +298,9 @@ Dois scripts spoke são criados nesta seção. Cada script define uma rede virtu
     }
     ```
      
-1. Salve o arquivo e saia do editor.
+1. Guarde o ficheiro e saia do editor.
   
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Validar uma rede hub e spoke com o Terraform no Azure](./terraform-hub-spoke-validation.md)
+> [Validar um hub e uma rede falada com a Terraform em Azure](./terraform-hub-spoke-validation.md)

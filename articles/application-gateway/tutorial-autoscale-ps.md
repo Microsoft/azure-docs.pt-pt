@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: melhorar o acesso do aplicativo Web-Gateway de Aplicativo Azure'
-description: Neste tutorial, saiba como criar um gateway de aplicativo com redundância de zona e dimensionamento automático com um endereço IP reservado usando Azure PowerShell.
+title: 'Tutorial: Melhorar o acesso à aplicação web - Gateway de aplicação azure'
+description: Neste tutorial, aprenda a criar um portal de aplicação autoscalcificante e redundante com um endereço IP reservado usando o Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,34 +9,34 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74011370"
 ---
-# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutorial: criar um gateway de aplicativo que melhora o acesso ao aplicativo Web
+# <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutorial: Criar um portal de aplicações que melhore o acesso à aplicação web
 
-Se você for um administrador de ti preocupado com a melhoria do acesso ao aplicativo Web, poderá otimizar seu gateway de aplicativo para dimensionar com base na demanda do cliente e abranger várias zonas de disponibilidade. Este tutorial ajuda você a configurar Aplicativo Azure recursos de gateway que fazem isso: dimensionamento automático, redundância de zona e VIPs reservados (IP estático). Você usará Azure PowerShell cmdlets e o modelo de implantação de Azure Resource Manager para resolver o problema.
+Se for um administrador de TI preocupado em melhorar o acesso à aplicação web, pode otimizar a sua porta de aplicação à escala com base na procura do cliente e abranger várias zonas de disponibilidade. Este tutorial ajuda-o a configurar funcionalidades de Gateway de Aplicação Azure que o fazem: autoescala, redundância de zona e VIPs reservados (IP estático). Utilizará os cmdlets Azure PowerShell e o modelo de implementação do Gestor de Recursos Azure para resolver o problema.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um certificado autoassinado
-> * Criar uma rede virtual de dimensionamento automático
+> * Criar uma rede virtual de escala automática
 > * Criar um IP público reservado
-> * Configurar a infraestrutura do gateway de aplicativo
+> * Instale a sua infraestrutura de gateway de aplicação
 > * Especificar o dimensionamento automático
 > * Criar o gateway de aplicação
 > * Testar o gateway de aplicação
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este tutorial exige que execute o Azure PowerShell localmente. Você deve ter Azure PowerShell módulo versão 1.0.0 ou posterior instalado. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Connect-AzAccount` para criar uma ligação ao Azure.
+Este tutorial exige que execute o Azure PowerShell localmente. Tem de ter o módulo Azure PowerShell versão 1.0.0 ou posteriormente instalado. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -89,7 +89,7 @@ Export-PfxCertificate `
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual com uma sub-rede dedicada para um gateway de aplicativo de dimensionamento automático. Atualmente, apenas um gateway de aplicação de dimensionamento automático pode ser implementado em cada sub-rede dedicada.
+Crie uma rede virtual com uma subnet dedicada para um gateway de aplicação autoscalcificante. Atualmente, apenas um gateway de aplicação de dimensionamento automático pode ser implementado em cada sub-rede dedicada.
 
 ```azurepowershell
 #Create VNet with two subnets
@@ -101,7 +101,7 @@ $vnet = New-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
 
 ## <a name="create-a-reserved-public-ip"></a>Criar um IP público reservado
 
-Especifique o método de alocação de PublicIPAddress como **estático**. Um VIP de gateway de aplicação de dimensionamento automático só pode ser estático. Os IPs dinâmicos não são suportados. Apenas o SKU PublicIpAddress standard é suportado.
+Especifique o método de atribuição do PublicIPAddress como **Estático**. Um VIP de gateway de aplicação de dimensionamento automático só pode ser estático. Os IPs dinâmicos não são suportados. Apenas o SKU PublicIpAddress standard é suportado.
 
 ```azurepowershell
 #Create static public IP
@@ -111,7 +111,7 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
 
 ## <a name="retrieve-details"></a>Obter os detalhes
 
-Recupere detalhes do grupo de recursos, da sub-rede e do IP em um objeto local para criar os detalhes de configuração de IP para o gateway de aplicativo.
+Recupere detalhes do grupo de recursos, subnet e IP num objeto local para criar os detalhes de configuração IP para o gateway da aplicação.
 
 ```azurepowershell
 $resourceGroup = Get-AzResourceGroup -Name $rg
@@ -120,9 +120,9 @@ $vnet = Get-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
 
-## <a name="configure-the-infrastructure"></a>Configurar a infraestrutura
+## <a name="configure-the-infrastructure"></a>Configure a infraestrutura
 
-Configure a configuração de IP, a configuração de IP de front-end, o pool de back-end, as configurações de HTTP, o certificado, a porta, o ouvinte e a regra em um formato idêntico para o gateway de aplicativo padrão existente. O novo SKU segue o mesmo modelo de objeto do SKU Standard.
+Configure o config IP, o config IP frontal, o pool back-end, as definições http, o certificado, a porta, o ouvinte e a regra num formato idêntico ao gateway de aplicação Standard existente. O novo SKU segue o mesmo modelo de objeto do SKU Standard.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -150,7 +150,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType bas
 
 ## <a name="specify-autoscale"></a>Especificar o dimensionamento automático
 
-Agora você pode especificar a configuração de dimensionamento automático para o gateway de aplicativo. São suportados dois tipos de configuração de dimensionamento automático:
+Agora pode especificar a configuração de escala automática para o gateway da aplicação. São suportados dois tipos de configuração de dimensionamento automático:
 
 * **Modo de capacidade fixo**. Neste modo, o gateway de aplicação não dimensiona automaticamente e opera numa capacidade de Unidade de Escala fixa.
 
@@ -167,7 +167,7 @@ Agora você pode especificar a configuração de dimensionamento automático par
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Crie o gateway de aplicativo e inclua zonas de redundância e a configuração de dimensionamento automático.
+Crie o gateway de aplicação e inclua zonas de despedimento e a configuração de escala automática.
 
 ```azurepowershell
 $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
@@ -180,13 +180,13 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Use Get-AzPublicIPAddress para obter o endereço IP público do gateway de aplicativo. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
+Utilize o Get-AzPublicIPAddress para obter o endereço IP público do gateway da aplicação. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
 
 `Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Primeiro, explore os recursos que foram criados com o gateway de aplicativo. Em seguida, quando eles não forem mais necessários, você poderá usar o comando `Remove-AzResourceGroup` para remover o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
+Primeiro explore os recursos que foram criados com o portal de aplicação. Depois, quando já não forem necessários, pode usar o `Remove-AzResourceGroup` comando para remover o grupo de recursos, a porta de entrada de aplicações e todos os recursos relacionados.
 
 `Remove-AzResourceGroup -Name $rg`
 

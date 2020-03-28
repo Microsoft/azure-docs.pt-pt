@@ -1,30 +1,24 @@
 ---
-title: Exemplo de Script do PowerShell do Azure - eliminar contentores pelo prefixo | Documentos da Microsoft
+title: Amostra de script Azure PowerShell - Eliminar recipientes por prefixo Microsoft Docs
 description: Elimine contentores de blobs do Armazenamento do Azure com base num prefixo do nome do contentor.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e0c41ed1fc2cdb7559d36a7056ebb7b9a6ecc186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73c2f221d2ac0b3ceb76e3db0fdc6379a6dd330a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216305"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060887"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminar contentores com base no prefixo do nome do contentor
 
-Este script Elimina contentores no armazenamento de Blobs do Azure com base num prefixo no nome do contentor.
+Este script elimina os recipientes no armazenamento do Azure Blob com base num prefixo no nome do recipiente.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -34,7 +28,7 @@ Este script Elimina contentores no armazenamento de Blobs do Azure com base num 
 
 [!code-powershell[main](../../../powershell_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.ps1 "Delete containers by prefix")]
 
-## <a name="clean-up-deployment"></a>Limpar a implementação 
+## <a name="clean-up-deployment"></a>Limpar a implementação
 
 Execute o seguinte comando para remover o grupo de recursos, os restantes contentores e todos os recursos relacionados.
 
@@ -48,11 +42,11 @@ Este script utiliza os seguintes comandos para eliminar contentores com base no 
 
 | Comando | Notas |
 |---|---|
-| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de armazenamento especificada ou todas as contas de armazenamento num grupo de recursos ou subscrição. |
-| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Lista os contentores de armazenamento associados com uma conta de armazenamento. |
-| [Remove-AzStorageContainer](/powershell/module/az.storage/Remove-AzStorageContainer) | Remove o contentor de armazenamento especificada. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de Armazenamento especificada ou todas as contas de Armazenamento num grupo de recursos ou na subscrição. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Lista os recipientes de armazenamento associados a uma conta de armazenamento. |
+| [Recipiente de armazenamento remove-Az](/powershell/module/az.storage/Remove-AzStorageContainer) | Remove o recipiente de armazenamento especificado. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

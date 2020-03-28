@@ -1,16 +1,16 @@
 ---
-title: Obter grupo de recursos gerenciados & redimensionar VMs-CLI do Azure
-description: Fornece CLI do Azure script de exemplo que obtém um grupo de recursos gerenciado em um aplicativo gerenciado do Azure. O script redimensiona as VMs.
+title: Obtenha o grupo de recursos gerido & redimensionar VMs - Azure CLI
+description: Fornece script de amostra Azure CLI que obtém um grupo de recursos geridos numa Aplicação Gerida Azure. O guião redimensiona os VMs.
 author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: 878a8d660495c932cc8fa44bb1ed06e79576729b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75650059"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obter recursos num grupo de recursos gerido e redimensionar VMs com a CLI do Azure

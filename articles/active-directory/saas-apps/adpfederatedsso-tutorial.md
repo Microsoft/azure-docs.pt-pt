@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com o ADP | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o ADP.
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a ADP [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a ADP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,182 +17,182 @@ ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b031ded2022078c31bd8570c6a6317c398715480
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70162664"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o ADP
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com a ADP
 
-Neste tutorial, você aprenderá a integrar o ADP ao Azure Active Directory (Azure AD). Ao integrar o ADP ao Azure AD, você pode:
+Neste tutorial, você vai aprender a integrar a ADP com o Azure Ative Directory (Azure AD). Quando integrar a ADP com a AD Azure, pode:
 
-* Controle no Azure AD quem tem acesso ao ADP.
-* Habilite seus usuários a serem automaticamente conectados ao ADP com suas contas do Azure AD.
-* Gerencie suas contas em um local central-o portal do Azure.
+* Controlo em Azure AD que tem acesso à ADP.
+* Ative que os seus utilizadores sejam automaticamente inscritos na ADP com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do ADP.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* ADP single sign-on (SSO) ativada subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* O ADP oferece suporte ao SSO iniciado pelo **IDP**
+* ADP suporta **IDP** iniciado SSO
 
 > [!NOTE]
-> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
+> O identificador desta aplicação é um valor fixo de cadeia, pelo que apenas uma instância pode ser configurada num inquilino.
 
-## <a name="adding-adp-from-the-gallery"></a>Adicionando o ADP da Galeria
+## <a name="adding-adp-from-the-gallery"></a>Adicionar ADP da galeria
 
-Para configurar a integração do ADP ao Azure AD, você precisará adicionar o ADP da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração da ADP em Azure AD, você precisa adicionar ADP da galeria à sua lista de aplicações saaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **ADP** na caixa de pesquisa.
-1. Selecione **ADP** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** digite **ADP** na caixa de pesquisa.
+1. Selecione **ADP** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adp"></a>Configurar e testar o logon único do Azure AD para o ADP
+## <a name="configure-and-test-azure-ad-single-sign-on-for-adp"></a>Configure e teste Azure AD único sinal para ADP
 
-Configure e teste o SSO do Azure AD com o ADP usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ADP.
+Configure e teste Azure AD SSO com ADP utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em ADP.
 
-Para configurar e testar o SSO do Azure AD com o ADP, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com a ADP, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-2. **[Configurar o SSO do ADP](#configure-adp-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do ADP](#create-adp-test-user)** – para ter um equivalente de B. Simon no ADP que esteja vinculado à representação do usuário no Azure AD.
-3. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+2. **[Configure ADP SSO](#configure-adp-sso)** - para configurar as definições de início de sessão simples no lado da aplicação.
+    1. **[Crie um utilizador de teste ADP](#create-adp-test-user)** - para ter uma contrapartida de B.Simon em ADP que esteja ligada à representação do utilizador da AD Azure.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na portal do Azure, na página de integração de aplicativos do **ADP** , clique na **guia Propriedades** e execute as seguintes etapas: 
+1. No portal Azure, na página de integração de aplicações **da ADP,** clique no **separador Propriedades** e execute os seguintes passos: 
 
-    ![Propriedades de logon único](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
+    ![Propriedades únicas de inscrição](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
-    a. Defina o valor **do campo habilitado para usuários para entrar** como **Sim**.
+    a. Detete o **Habilitado para que os utilizadores assinem** o valor do campo para **Sim**.
 
-    b. Copie a **URL de acesso do usuário** e você precisa colá-la na **seção configurar URL de logon**, que é explicada posteriormente no tutorial.
+    b. Copie o URL de acesso ao **Utilizador** e terá de colá-lo na secção de URL de **inscrição configurada,** o que é explicado mais tarde no tutorial.
 
-    c. Defina o valor do campo de **atribuição de usuário obrigatório** como **Sim**.
+    c. Detete a atribuição do **utilizador de** valor de campo exigido para **Sim**.
 
-    d. Defina o valor do campo **visível para usuários** como **não**.
+    d. Desloque o **valor visível para os utilizadores** no campo para **No**.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ADP** , localize a seção **gerenciar** e selecione **logon único**.
-1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da ADP,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar configuração básica de SAML](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+1. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    Na caixa de texto **identificador (ID da entidade)** , digite uma URL:`https://fed.adp.com`
+    Na caixa de texto **identificador (Id da entidade),** digite um URL:`https://fed.adp.com`
 
-4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+4. Na configuração de um único sign-on com a página **SAML,** na secção certificado de **assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar ADP** , copie as URLs apropriadas com base em seu requisito.
+6. Na secção **ADP configurada,** copie os URL(s) adequados com base no seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao ADP.
+Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso à ADP.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **ADP**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **ADP**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-adp-sso"></a>Configurar SSO do ADP
+## <a name="configure-adp-sso"></a>Configure ADP SSO
 
-Para configurar o logon único no lado do **ADP** , você precisa carregar o XML de **metadados** baixado no [site do ADP](https://adpfedsso.adp.com/public/login/index.fcc).
+Para configurar um único sinal no lado **ADP,** precisa de carregar o **DatamesXML** descarregado no [website aDP](https://adpfedsso.adp.com/public/login/index.fcc).
 
 > [!NOTE]  
-> Esse processo pode levar alguns dias.
+> Este processo pode demorar alguns dias.
 
-### <a name="configure-your-adp-services-for-federated-access"></a>Configurar seus serviços do ADP para acesso federado
+### <a name="configure-your-adp-services-for-federated-access"></a>Configure os seus serviços ADP para acesso federado
 
 >[!Important]
-> Seus funcionários que exigem acesso federado aos serviços do ADP devem ser atribuídos ao aplicativo de serviço do ADP e, subsequentemente, os usuários devem ser reatribuídos ao serviço ADP específico.
-Após o recebimento da confirmação do seu representante ADP, configure seus serviços do ADP e atribua/gerencie usuários para controlar o acesso do usuário ao serviço ADP específico.
+> Os seus colaboradores que necessitem de acesso federado aos seus serviços ADP devem ser atribuídos à aplicação de serviço ADP e, posteriormente, os utilizadores devem ser transferidos para o serviço ADP específico.
+Após a receção da confirmação do seu representante da ADP, configure o seu serviço ADP(s) e designe/gerea os utilizadores para controlar o acesso do utilizador ao serviço ADP específico.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **ADP** na caixa de pesquisa.
-1. Selecione **ADP** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
-1. Na portal do Azure, na página de integração de aplicativos do **ADP** , clique na **guia Propriedades** e execute as seguintes etapas:  
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** digite **ADP** na caixa de pesquisa.
+1. Selecione **ADP** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No portal Azure, na sua página de integração de aplicações **ADP,** clique no **separador Propriedades** e execute os seguintes passos:  
 
-    ![Propriedades vinculadas de logon único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Propriedades ligadas a um único sign-on](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
-    a.  Defina o valor **do campo habilitado para usuários para entrar** como **Sim**.
+    a.  Detete o **Habilitado para que os utilizadores assinem** o valor do campo para **Sim**.
 
-    b.  Defina o valor do campo de **atribuição de usuário obrigatório** como **Sim**.
+    b.  Detete a atribuição do **utilizador de** valor de campo exigido para **Sim**.
 
-    c.  Defina o valor do campo **visível para usuários** como **Sim**.
+    c.  Desloque o **valor visível para os utilizadores** no campo para **Sim**.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ADP** , localize a seção **gerenciar** e selecione **logon único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **da ADP,** encontre a secção **Gerir** e selecione **um único sinal.**
 
-1. Na caixa de diálogo **selecionar um método de logon único** , selecione **modo** como **vinculado**. para vincular seu aplicativo ao **ADP**.
+1. No diálogo **Select a Single Sign-on,** selecione **Mode** as **Linked**. para ligar a sua aplicação à **ADP**.
 
-    ![Logon único vinculado](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
+    ![Inscrição única ligada](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
-1. Navegue até a seção **Configurar URL de logon** , execute as seguintes etapas:
+1. Navegue para a secção url de início de **'Configurar',** efetuar os seguintes passos:
 
-    ![Prop de logon único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
+    ![Adereço de inscrição única](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
 
-    a. Cole a **URL de acesso do usuário**, que você copiou da **guia Propriedades** acima (do aplicativo principal do ADP).
+    a. Colar o URL de acesso ao **utilizador**, que copiou do **separador** de propriedades acima (a partir da aplicação ADP principal).
                                                              
-    b. A seguir estão os cinco aplicativos que dão suporte a diferentes **URLs de estado**de retransmissão. Você precisa acrescentar o valor da **URL do estado** de retransmissão apropriado para determinado aplicativo manualmente à **URL de acesso do usuário**.
+    b. Seguem-se as 5 aplicações que suportam **diferentes URLs de Estado de Retransmissão.** Tem de anexar o valor URL de Estado de **Retransmissão** adequado para aplicação específica manualmente ao URL de acesso ao **Utilizador**.
     
-    * **A equipe de funcionários da ADP agora**
+    * **Força de trabalho da ADP agora**
         
         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-    * **A equipe de funcionários da ADP agora aprimorou o tempo**
+    * **Força de trabalho da ADP agora tempo melhorado**
         
         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
     
-    * **ADP privilegiando HCM**
+    * **ADP Vantage HCM**
         
         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-    * **RH do ADP Enterprise**
+    * **ADP Enterprise HR**
 
         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
@@ -200,32 +200,32 @@ Após o recebimento da confirmação do seu representante ADP, configure seus se
 
         `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
-9. **Salve** suas alterações.
+9. **Guarde** as suas alterações.
 
-10. Após o recebimento da confirmação do seu representante ADP, comece a testar com um ou dois usuários.
+10. Após a receção da confirmação do seu representante da ADP, inicie o teste com um ou dois utilizadores.
 
-    a. Atribua alguns usuários ao aplicativo de serviço ADP para testar o acesso federado.
+    a. Atribuir poucos utilizadores à App de serviço ADP para testar o acesso federado.
 
-    b. O teste é bem-sucedido quando os usuários acessam o aplicativo de serviço ADP na galeria e podem acessar seu serviço ADP.
+    b. O teste é bem sucedido quando os utilizadores acedem à aplicação de serviço ADP na galeria e podem aceder ao seu serviço ADP.
  
-11. Após a confirmação de um teste bem-sucedido, atribua o serviço ADP federado a usuários individuais ou grupos de usuários, que será explicado posteriormente no tutorial e distribua-o para seus funcionários.
+11. Na confirmação de um teste bem sucedido, atribua o serviço ADP federado a utilizadores individuais ou grupos de utilizadores, o que é explicado mais tarde no tutorial e lança-o aos seus colaboradores.
 
-### <a name="create-adp-test-user"></a>Criar usuário de teste do ADP
+### <a name="create-adp-test-user"></a>Criar o utilizador de teste ADP
 
-O objetivo desta seção é criar um usuário chamado B. Simon em ADP. Trabalhe com a [equipe de suporte do ADP](https://www.adp.com/contact-us/overview.aspx) para adicionar os usuários na conta do ADP. 
+O objetivo desta secção é criar um utilizador chamado B.Simon em ADP. Trabalhe com a [equipa de suporte da ADP](https://www.adp.com/contact-us/overview.aspx) para adicionar os utilizadores na conta ADP. 
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco ADP no painel de acesso, você deverá ser conectado automaticamente à ADP para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo ADP no Painel de Acesso, deverá ser automaticamente inscrito no ADP para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o ADP com o Azure AD](https://aad.portal.azure.com)
+- [Experimente a ADP com a AD Azure](https://aad.portal.azure.com)

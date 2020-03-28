@@ -1,23 +1,23 @@
 ---
-title: 'PowerShell: restaurar um backup de aplicativo'
-description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como restaurar um aplicativo de um backup.
+title: 'PowerShell: Restaurar uma cópia de segurança da aplicação'
+description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como restaurar uma aplicação a partir de uma cópia de segurança.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 026c275ce4bc85ff3f964bfbb175cc01ff611df0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: a10a451bff73c081d9b0c95c494acb8b2051bd84
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685776"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057735"
 ---
-# <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar um aplicativo Web de um backup usando Azure PowerShell
+# <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança usando o Azure PowerShell
 
-Este script de exemplo recupera um backup concluído anteriormente de um aplicativo Web existente e o restaura substituindo seu conteúdo. 
+Este script de amostra recupera uma cópia de segurança previamente concluída a partir de uma aplicação web existente e restaura-a sobrepondo o seu conteúdo. 
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. 
 
@@ -29,7 +29,7 @@ Se for preciso, instale o Azure PowerShell com a instrução que se encontra no 
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Se você não precisar mais do aplicativo Web, use o comando a seguir para remover o grupo de recursos, o aplicativo Web e todos os recursos relacionados.
+Se já não precisar da aplicação web, utilize o seguinte comando para remover o grupo de recursos, a aplicação web e todos os recursos relacionados.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroupName -Force
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
-| [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restaura um aplicativo Web de um backup concluído anteriormente. |
+| [Restaurar-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restaura uma aplicação web a partir de uma cópia de segurança previamente concluída. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

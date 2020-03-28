@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: explicação detalhada de Machine Learning em Azure IoT Edge'
-description: Um tutorial de alto nível que percorre as várias tarefas necessárias para criar um aprendizado de máquina de ponta a ponta no cenário de borda.
+title: 'Tutorial: Passe detalhado da Aprendizagem automática na Borda Azure IoT'
+description: Um tutorial de alto nível que percorre as várias tarefas necessárias para criar uma aprendizagem automática de ponta a ponta no cenário de ponta a ponta.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,101 +9,101 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74106501"
 ---
-# <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: uma solução de ponta a ponta usando Azure Machine Learning e IoT Edge
+# <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: Uma solução de ponta a ponta utilizando o Azure Machine Learning e o IoT Edge
 
-Frequentemente, os aplicativos de IoT desejam aproveitar a nuvem inteligente e a borda inteligente. Neste tutorial, orientaremos você pelo treinamento de um modelo de aprendizado de máquina com dados coletados de dispositivos IoT na nuvem, implantando esse modelo para IoT Edge e mantendo e refinando o modelo periodicamente.
+Frequentemente, as aplicações IoT querem aproveitar a nuvem inteligente e a borda inteligente. Neste tutorial, percorremos-lhe a formação de um modelo de machine learning com dados recolhidos a partir de dispositivos IoT na nuvem, implantando esse modelo para IoT Edge, e mantendo e refinando o modelo periodicamente.
 
-O objetivo principal deste tutorial é apresentar o processamento de dados de IoT com o aprendizado de máquina, especificamente na borda. Embora tenhamos contato com vários aspectos de um fluxo de trabalho de aprendizado de máquina geral, este tutorial não se destina a uma introdução aprofundada ao aprendizado de máquina. Como um caso no ponto, não tentamos criar um modelo altamente otimizado para o caso de uso – nós apenas fazemos o suficiente para ilustrar o processo de criação e uso de um modelo viável para o processamento de dados de IoT.
+O principal objetivo deste tutorial é introduzir o processamento de dados ioT com machine learning, especificamente no limite. Embora toquemos em muitos aspetos de um fluxo geral de trabalho de aprendizagem automática, este tutorial não se destina a uma introdução aprofundada ao machine learning. Como um caso em particular, não tentamos criar um modelo altamente otimizado para o caso de uso – apenas fazemos o suficiente para ilustrar o processo de criação e utilização de um modelo viável para o processamento de dados IoT.
 
-## <a name="target-audience-and-roles"></a>Público-alvo e funções
+## <a name="target-audience-and-roles"></a>Público-alvo e papéis
 
-Este conjunto de artigos destina-se a desenvolvedores sem experiência anterior em desenvolvimento de IoT ou aprendizado de máquina. A implantação do Machine Learning na borda exige o conhecimento de como conectar uma ampla variedade de tecnologias. Portanto, este tutorial aborda um cenário completo de ponta a ponta para demonstrar uma maneira de unir essas tecnologias em uma solução de IoT. Em um ambiente do mundo real, essas tarefas podem ser distribuídas entre várias pessoas com especialidades diferentes. Por exemplo, os desenvolvedores se concentrariam no código do dispositivo ou na nuvem, enquanto os cientistas de dados criaram os modelos de análise. Para permitir que um desenvolvedor individual conclua este tutorial com êxito, fornecemos diretrizes complementares com ideias e links para mais informações que esperamos que seja suficiente para entender o que está sendo feito, bem como o porquê.
+Este conjunto de artigos destina-se a programadores sem experiência prévia em desenvolvimento ioT ou machine learning. Implementar machine learning no limite requer conhecimento de como ligar uma vasta gama de tecnologias. Portanto, este tutorial abrange todo um cenário de ponta a ponta para demonstrar uma forma de juntar estas tecnologias para uma solução IoT. Num ambiente real, estas tarefas podem ser distribuídas por várias pessoas com diferentes especializações. Por exemplo, os desenvolvedores focar-se-iam em qualquer dispositivo ou código de nuvem, enquanto os cientistas de dados conceberam os modelos de análise. Para permitir que um desenvolvedor individual complete com sucesso este tutorial, fornecemos orientações suplementares com insights e ligações a mais informações que esperamos ser suficientes para entender o que está a ser feito, bem como porquê.
 
-Como alternativa, você pode fazer uma parceria com colegas de funções diferentes para acompanhar o tutorial, trazendo sua experiência completa e aprender como uma equipe como as coisas se encaixam.
+Em alternativa, pode juntar-se aos colegas de trabalho de diferentes funções para acompanhar o tutorial em conjunto, reunindo toda a sua experiência e aprendendo como uma equipa como as coisas se encaixam.
 
-Em ambos os casos, para ajudar a orientar o (s) leitor (es), cada artigo neste tutorial indica a função do usuário. Essas funções incluem:
+Em qualquer dos casos, para ajudar a orientar o(s) leitor( s), cada artigo neste tutorial indica o papel do utilizador. Essas funções incluem:
 
 * Desenvolvimento em nuvem (incluindo um desenvolvedor de nuvem trabalhando em uma capacidade DevOps)
 * Análise de dados
 
-## <a name="use-case-predictive-maintenance"></a>Caso de uso: manutenção preditiva
+## <a name="use-case-predictive-maintenance"></a>Caso de utilização: Manutenção preditiva
 
-Baseiamos esse cenário em um caso de uso apresentado na conferência sobre o PHM08 (Prognostics and Health Management) em 2008. O objetivo é prever a vida útil restante (RUL) de um conjunto de motores de avião turbofan. Esses dados foram gerados usando mapas C, a versão comercial dos mapas (software modular Aero-propulsão System Simulation). Este software fornece um ambiente de simulação de mecanismo turbofan flexível para simular convenientemente os parâmetros de integridade, controle e mecanismo.
+Baseamos este cenário num caso de utilização apresentado na Conferência sobre Prognósticos e Gestão da Saúde (PHM08) em 2008. O objetivo é prever a vida útil remanescente (RUL) de um conjunto de motores de avião turbofan. Estes dados foram gerados utilizando o C-MAPSS, a versão comercial do software MAPSS (Simulação modular do sistema aero-propulsão). Este software proporciona um ambiente flexível de simulação do motor turbofan para simular convenientemente os parâmetros de saúde, controlo e motor.
 
-Os dados usados neste tutorial são obtidos do conjunto de [dados de simulação de degradação do mecanismo de turbofan](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+Os dados utilizados neste tutorial são retirados do conjunto de dados de simulação de degradação do [motor Turbofan](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
-No arquivo Leiame:
+Do arquivo de leitura:
 
-***Cenário experimental***
+***Cenário Experimental***
 
-*Conjuntos de dados consistem em várias séries de tempo MultiVariable. Cada conjunto de dados é dividido em subconjuntos de treinamento e teste. Cada série temporal é de um mecanismo diferente – ou seja, os dados podem ser considerados de uma frota de mecanismos do mesmo tipo. Cada mecanismo começa com diferentes graus de desgaste inicial e variação de fabricação que é desconhecida para o usuário. Esse desgaste e variação é considerado normal, ou seja, não é considerado uma condição de falha. Há três configurações operacionais que têm um efeito significativo sobre o desempenho do mecanismo. Essas configurações também estão incluídas nos dados. Os dados são contaminados com ruído de sensor.*
+*Os conjuntos de dados consistem em várias séries de tempo multivariadas. Cada conjunto de dados é ainda dividido em subconjuntos de treino e teste. Cada série de cada vez é de um motor diferente – ou seja, os dados podem ser considerados de uma frota de motores do mesmo tipo. Cada motor começa com diferentes graus de desgaste inicial e variação de fabrico que é desconhecido para o utilizador. Este desgaste e variação é considerado normal, ou seja, não é considerado uma condição de falha. Existem três configurações operacionais que têm um efeito substancial no desempenho do motor. Estas definições também estão incluídas nos dados. Os dados estão contaminados com ruído de sensor.*
 
-*O mecanismo está operando normalmente no início de cada série temporal e desenvolve uma falha em algum momento durante a série. No conjunto de treinamento, a falha aumenta em magnitude até a falha do sistema. No conjunto de teste, a série temporal termina algum tempo antes da falha do sistema. O objetivo da competição é prever o número de ciclos operacionais restantes antes da falha no conjunto de teste, ou seja, o número de ciclos operacionais após o último ciclo que o mecanismo continuará a operar. Também forneceu um vetor de valores reais restantes de RUL (vida útil) para os dados de teste.*
+*O motor está a funcionar normalmente no início de cada série e desenvolve uma falha em algum momento durante a série. No conjunto de treino, a falha cresce em magnitude até falhar no sistema. No conjunto de testes, a série de tempo termina algum tempo antes da falha do sistema. O objetivo do concurso é prever o número de ciclos operacionais restantes antes da avaria no conjunto de testes, ou seja, o número de ciclos operacionais após o último ciclo que o motor continuará a funcionar. Também forneceu um vetor de verdadeiros valores de vida útil remanescente (RUL) para os dados de teste.*
 
-Como os dados foram publicados para uma competição, várias abordagens para derivar modelos de aprendizado de máquina foram publicadas de forma independente. Descobrimos que os exemplos de estudo são úteis para entender o processo e o raciocínio envolvidos na criação de um modelo de aprendizado de máquina específico. Consulte, por exemplo:
+Como os dados foram publicados para um concurso, várias abordagens para derivar modelos de aprendizagem automática foram publicadas de forma independente. Descobrimos que estudar exemplos é útil na compreensão do processo e do raciocínio envolvidos na criação de um modelo específico de aprendizagem automática. Ver, por exemplo:
 
-[Modelo de previsão de falha do mecanismo de aeronave](https://github.com/jancervenka/turbofan_failure) por jancervenka de usuário do github.
+[Modelo](https://github.com/jancervenka/turbofan_failure) de previsão de falha do motor de aeronaves pelo utilizador do GitHub jancervenka.
 
-[Degradação do mecanismo turbofan](https://github.com/hankroark/Turbofan-Engine-Degradation) pelo usuário do GitHub hankroark.
+[Degradação do motor Turbofan](https://github.com/hankroark/Turbofan-Engine-Degradation) por hankroark utilizador GitHub.
 
 ## <a name="process"></a>Processo
 
-A figura abaixo ilustra as etapas aproximadas a seguir neste tutorial:
+A imagem abaixo ilustra os passos ásperos que seguimos neste tutorial:
 
-![Diagrama de arquitetura para etapas do processo](media/tutorial-machine-learning-edge-01-intro/tutorial-steps-overview.png)
+![Diagrama de arquitetura para passos de processo](media/tutorial-machine-learning-edge-01-intro/tutorial-steps-overview.png)
 
-1. **Coletar dados de treinamento**: o processo começa coletando dados de treinamento. Em alguns casos, os dados já foram coletados e estão disponíveis em um banco de dados, ou na forma de arquivos. Em outros casos, especialmente para cenários de IoT, os dados precisam ser coletados de dispositivos e sensores de IoT e armazenados na nuvem.
+1. **Recolher dados de formação**: O processo começa por recolher dados de formação. Em alguns casos, os dados já foram recolhidos e estão disponíveis numa base de dados, ou sob a forma de ficheiros de dados. Noutros casos, especialmente para cenários ioT, os dados precisam de ser recolhidos a partir de dispositivos e sensores IoT e armazenados na nuvem.
 
-   Supomos que você não tenha uma coleção de mecanismos de turbofan, portanto, os arquivos de projeto incluem um simulador de dispositivo simples que envia os dados do dispositivo de NASA para a nuvem.
+   Assumimos que não tem uma coleção de motores turbofan, pelo que os ficheiros do projeto incluem um simples simulador de dispositivos que envia os dados do dispositivo da NASA para a nuvem.
 
-1. **Preparar dados**. Na maioria dos casos, os dados brutos, conforme coletados de dispositivos e sensores, exigirão preparação para o aprendizado de máquina. Esta etapa pode envolver a limpeza de dados, a reformatação de dados ou o pré-processamento para injetar informações adicionais que o Machine Learning pode desativar.
+1. **Preparar dados**. Na maioria dos casos, os dados brutos recolhidos a partir de dispositivos e sensores exigirão preparação para o machine learning. Este passo pode envolver a limpeza de dados, a reformatação de dados ou o pré-processamento para injetar informações adicionais de aprendizagem automática podem ser fundamentadas.
 
-   Para nossos dados de computador do Engine de avião, a preparação de dados envolve calcular tempos de tempo para falhas explícitos para cada ponto de dados na amostra com base nas observações reais sobre os dados. Essas informações permitem que o algoritmo de aprendizado de máquina Localize correlações entre padrões de dados de sensor reais e o tempo de vida restante esperado do mecanismo. Esta etapa é altamente específica do domínio.
+   Para os dados da máquina do motor do avião, a preparação de dados envolve o cálculo de tempo-a-falha explícitos para cada ponto de dados na amostra com base nas observações reais dos dados. Esta informação permite que o algoritmo de aprendizagem automática encontre correlações entre os padrões reais de dados do sensor e o tempo de vida restante esperado do motor. Este passo é altamente específico do domínio.
 
-1. **Crie um modelo de aprendizado de máquina**. Com base nos dados preparados, agora podemos experimentar diferentes algoritmos de aprendizado de máquina e parametrizações para treinar modelos e comparar os resultados entre si.
+1. **Construa um modelo de aprendizagem automática.** Com base nos dados preparados, podemos agora experimentar diferentes algoritmos de aprendizagem automática e parametrização para treinar modelos e comparar os resultados uns com os outros.
 
-   Nesse caso, para teste, comparamos o resultado previsto calculado pelo modelo com o resultado real observado em um conjunto de mecanismos. No Azure Machine Learning, podemos gerenciar as diferentes iterações de modelos que criamos em um registro de modelo.
+   Neste caso, para testes comparamos o resultado previsto calculado pelo modelo com o resultado real observado num conjunto de motores. No Azure Machine Learning, podemos gerir as diferentes iterações de modelos que criamos num registo de modelos.
 
-1. **Implante o modelo**. Assim que tivermos um modelo que satisfaça nossos critérios de sucesso, podemos mudar para a implantação. Isso envolve o encapsulamento do modelo em um aplicativo de serviço Web que pode ser alimentado com dados usando chamadas REST e resultados de análise de retorno. O aplicativo de serviço Web é então empacotado em um contêiner do Docker que, por sua vez, pode ser implantado na nuvem ou como um módulo IoT Edge. Neste exemplo, nos concentramos na implantação para IoT Edge.
+1. **Implementar o modelo**. Assim que tivermos um modelo que satisfaça os nossos critérios de sucesso, podemos passar para a implantação. Isto envolve embrulhar o modelo numa aplicação de serviço web que pode ser alimentada com dados usando chamadas REST e resultados de análise de retorno. A aplicação de serviço web é então embalada num recipiente de estivador, que por sua vez pode ser implantado na nuvem ou como um módulo IoT Edge. Neste exemplo, focamo-nos na implantação para ioT Edge.
 
-1. **Manter e refinar o modelo**. Nosso trabalho não é feito depois que o modelo é implantado. Em muitos casos, queremos continuar coletando dados e carregar periodicamente esses dados para a nuvem. Em seguida, podemos usar esses dados para treinar novamente e refinar nosso modelo, que podemos reimplantar para IoT Edge.
+1. **Mantenha e refine o modelo.** O nosso trabalho não é feito quando o modelo for implementado. Em muitos casos, queremos continuar a recolher dados e carregar periodicamente esses dados para a nuvem. Podemos então usar estes dados para retreinar e aperfeiçoar o nosso modelo, que depois podemos reimplantar para IoT Edge.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir o tutorial, você precisa ter acesso a uma assinatura do Azure na qual você tenha direitos para criar recursos. Vários dos serviços usados neste tutorial incorrerão em cobranças do Azure. Se você ainda não tiver uma assinatura do Azure, talvez seja possível começar com uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
+Para completar o tutorial, precisa de acesso a uma subscrição Azure na qual tem direitos de criação de recursos. Vários dos serviços utilizados neste tutorial incorrerão em encargos com o Azure. Se ainda não tiver uma subscrição Azure, poderá começar com uma [Conta Azure Free](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
-Você também precisa de um computador com o PowerShell instalado, no qual você pode executar scripts para configurar uma máquina virtual do Azure como seu computador de desenvolvimento.
+Também precisa de uma máquina com powerShell instalada onde pode executar scripts para configurar uma Máquina Virtual Azure como a sua máquina de desenvolvimento.
 
-Neste documento, usamos o seguinte conjunto de ferramentas:
+Neste documento, utilizamos o seguinte conjunto de ferramentas:
 
-* Um hub IoT do Azure para captura de dados
+* Um hub Azure IoT para captura de dados
 
-* Azure Notebooks como nosso front-end principal para preparação de dados e experimentação de aprendizado de máquina. Executar o código Python em um bloco de anotações em um subconjunto dos dados de exemplo é uma ótima maneira de obter um retorno rápido e interativo iterativo durante a preparação dos dados. Os notebooks Jupyter também podem ser usados para preparar scripts para serem executados em escala em um back-end de computação.
+* Os Cadernos Azure são a nossa principal extremidade frontal para a preparação de dados e experimentação de machine learning. Executar código python num caderno num subconjunto dos dados da amostra é uma ótima maneira de obter uma reviravolta rápida iterativa e interativa durante a preparação de dados. Os cadernos jupyter também podem ser usados para preparar scripts para correr em escala em um backend computacional.
 
-* Azure Machine Learning como um back-end para aprendizado de máquina em escala e para geração de imagem de aprendizado de máquina. Nós orientamos o back-end de Azure Machine Learning usando scripts preparados e testados em notebooks Jupyter.
+* Azure Machine Learning como um backend para machine learning em escala e para geração de imagem de aprendizagem automática. Conduzimos o backend Azure Machine Learning usando scripts preparados e testados em cadernos Jupyter.
 
-* Azure IoT Edge para o aplicativo fora da nuvem de uma imagem de aprendizado de máquina
+* Borda Azure IoT para aplicação off-cloud de uma imagem de aprendizagem automática
 
-Obviamente, há outras opções disponíveis. Em determinados cenários, por exemplo, IoT Central pode ser usado como uma alternativa sem código para capturar dados de treinamento iniciais de dispositivos IoT.
+Obviamente, há outras opções disponíveis. Em certos cenários, por exemplo, a IoT Central pode ser usada como uma alternativa sem código para capturar dados de treino iniciais a partir de dispositivos IoT.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este tutorial é dividido nas seguintes seções:
+Este tutorial é dividido nas seguintes secções:
 
-1. Configure seu computador de desenvolvimento e os serviços do Azure.
-2. Gere os dados de treinamento para o módulo de aprendizado de máquina.
-3. Treine e implante o módulo de aprendizado de máquina.
-4. Configure um dispositivo IoT Edge para atuar como um gateway transparente.
-5. Criar e implantar módulos de IoT Edge.
-6. Envie dados para o dispositivo de IoT Edge.
+1. Instale a sua máquina de desenvolvimento e os serviços Azure.
+2. Gere os dados de treino para o módulo de aprendizagem automática.
+3. Treine e implante o módulo de aprendizagem automática.
+4. Configure um dispositivo IoT Edge para funcionar como uma porta de entrada transparente.
+5. Crie e implemente módulos IoT Edge.
+6. Envie dados para o seu dispositivo IoT Edge.
 
-Continue no próximo artigo para configurar um computador de desenvolvimento e provisionar recursos do Azure.
+Continuar para o próximo artigo para criar uma máquina de desenvolvimento e fornecer recursos Azure.
 
 > [!div class="nextstepaction"]
-> [Configurar um ambiente para aprendizado de máquina no IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)
+> [Criar um ambiente para aprendizagem automática em IoT Edge](tutorial-machine-learning-edge-02-prepare-environment.md)

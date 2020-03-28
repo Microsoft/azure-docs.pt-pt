@@ -1,21 +1,21 @@
 ---
-title: 'PowerShell: excluir um backup de aplicativo'
-description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como excluir um backup de aplicativo.
+title: 'PowerShell: Eliminar uma cópia de segurança da aplicação'
+description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como eliminar uma cópia de segurança de uma aplicação.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: b8d3175b4266e132d94f6f2dde163cb60fb11396
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 93b53bedef291b9aa740f5bbe9c492185f035f89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685805"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044839"
 ---
-# <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Excluir um backup de uma Web usando Azure PowerShell
+# <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Elimine uma cópia de segurança para uma web utilizando o Azure PowerShell
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
 
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
-| [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Remove a cópia de segurança especificada de uma aplicação Web. |
+| [Remover-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Remove a cópia de segurança especificada de uma aplicação Web. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e773d628b4600d6c2e73d488d82d6ab4c64b56a2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 940de5e100da934e0bc4efdfc6686f8040e10954
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239925"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457326"
 ---
-# <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar o Soft-delete do Key Vault com o CLI
+# <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
 A função de eliminação suave do Cofre de Chaves Azure permite a recuperação de cofres apagados e objetos de cofre. Especificamente, a eliminação suave aborda os seguintes cenários:
 
@@ -29,7 +29,7 @@ A função de eliminação suave do Cofre de Chaves Azure permite a recuperaçã
 
 Para obter informações específicas de referência para o Cofre chave para o CLI, consulte a referência do [Cofre chave Azure CLI](https://docs.microsoft.com/cli/azure/keyvault).
 
-## <a name="required-permissions"></a>Permissões necessárias
+## <a name="required-permissions"></a>Permissões obrigatórias
 
 As operações do Key Vault são geridas separadamente através de permissões de controlo de acesso baseadas em funções (RBAC) da seguinte forma:
 
@@ -37,7 +37,7 @@ As operações do Key Vault são geridas separadamente através de permissões d
 |:--|:--|:--|
 |Lista|Listas apagadas cofres chave.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura um cofre de chaves apagado.|Microsoft.KeyVault/vaults/write|
-|Remover|Remove permanentemente um cofre de chaves apagado e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|Remover|Remove permanentemente um cofre de chaves apagado e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purga/ação|
 
 Para obter mais informações sobre permissões e controlo de acesso, consulte [Proteja o seu cofre de chaves](key-vault-secure-your-key-vault.md).
 
@@ -155,7 +155,7 @@ As ações de **recuperação** e **purga** têm as suas próprias permissões a
 
 #### <a name="set-a-key-vault-access-policy"></a>Desestabeleça uma política de acesso ao cofre chave
 
-Os seguintes subsídios de comando user@contoso.com autorização para utilizar várias operações em chaves em *ContosoVault,* incluindo **purga:**
+O seguinte user@contoso.com comando concede permissão para a utilização de várias operações em chaves em *ContosoVault,* incluindo **a purga:**
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
@@ -207,7 +207,7 @@ O mesmo acontece com o cofre da chave. Para eliminar permanentemente um cofre de
 
 ### <a name="purging-a-key-vault"></a>Purgando um cofre chave
 
-Quando um cofre chave é purgado, todo o seu conteúdo é permanentemente apagado, incluindo chaves, segredos e certificados. Para purgar um cofre de chaves apagado, use o comando `az keyvault purge`. Pode encontrar a localização dos cofres de chaves apagados da sua subscrição utilizando o comando `az keyvault list-deleted`.
+Quando um cofre chave é purgado, todo o seu conteúdo é permanentemente apagado, incluindo chaves, segredos e certificados. Para purgar um cofre de `az keyvault purge` chaves apagado suavemente, use o comando. Pode encontrar a localização dos cofres de chaves `az keyvault list-deleted`apagados da sua subscrição utilizando o comando .
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
@@ -233,13 +233,13 @@ Só é possível ativar a proteção da purga se estiver ativada uma eliminaçã
 
 Para ligar a proteção de eliminação suave e purga quando criar um cofre, use o [cofre az criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
 
-```
+```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
 Para adicionar proteção de purga a um cofre existente (que já tem soft delete ativado), utilize o comando de [atualização az keyvault:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update)
 
-```
+```azurecli
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
 ```
 

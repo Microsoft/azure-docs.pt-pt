@@ -1,5 +1,5 @@
 ---
-title: Tutorial – criar e usar discos para conjuntos de dimensionamento com CLI do Azure
+title: Tutorial - Criar e utilizar discos para conjuntos de escala com O CLI Azure
 description: Saiba como utilizar a CLI do Azure para criar e utilizar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
 author: cynthn
 tags: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278237"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067046"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e utilizar discos com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armazenar o sistema operativo, as aplicações e os dados da instância de VM. Ao criar e gerir um conjunto de dimensionamento, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange como criar e gerir discos de VM. Neste tutorial, ficará a saber como:
@@ -25,11 +25,11 @@ Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armaz
 > * Desempenho do disco
 > * Anexar e preparar discos de dados
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 
 ## <a name="default-azure-disks"></a>Discos do Azure predefinidos
@@ -76,8 +76,8 @@ Os discos Premium são apoiados por um disco de elevado desempenho baseado em SS
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 |Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1024 GB (1 TB) | 2\.048 GB (2 TB) | 4\.095 GB (4 TB) |
-| IOPs Máx por disco | 120 | 240 | 500 | 2300 | 5000 | 7\.500 | 7\.500 |
+| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1024 GB (1 TB) | 2.048 GB (2 TB) | 4.095 GB (4 TB) |
+| IOPs Máx por disco | 120 | 240 | 500 | 2300 | 5000 | 7.500 | 7.500 |
 Débito por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80 000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, consulte [Tamanhos de VM do Linux](../virtual-machines/linux/sizes.md).
@@ -87,13 +87,13 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 Pode criar e anexar discos quando cria um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos durante a criação do conjunto de dimensionamento
-Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus*.
+Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos chamado *myResourceGroup* é criado na região *oriental.*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet* e gera chaves SSH, caso não existam. São criados dois discos com o parâmetro `--data-disk-sizes-gb`. O primeiro disco tem *64* GB de tamanho e o segundo disco tem *128* GB:
+Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de escala chamado *myScaleSet*, e gera teclas SSH se não existirem. São criados dois discos com o parâmetro `--data-disk-sizes-gb`. O primeiro disco tem *64* GB de tamanho e o segundo disco tem *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -146,7 +146,7 @@ az vmss list-instance-connection-info \
 
 Utilize o seu Endereço IP público e o número de porta para ligar à primeira instância de VM, conforme mostrado no exemplo seguinte:
 
-```azurecli-interactive
+```console
 ssh azureuser@52.226.67.166 -p 50001
 ```
 
@@ -198,7 +198,7 @@ sudo df -h
 
 O exemplo de saída seguinte mostra que os três discos têm os respetivos sistemas de ficheiros instalados corretamente, montados em */datadisks*:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        30G  1.3G   28G   5% /
 /dev/sdb1        50G   52M   47G   1% /mnt
@@ -270,7 +270,7 @@ São apresentadas informações sobre o tamanho do disco, a camada de armazename
 ```
 
 
-## <a name="detach-a-disk"></a>Desanexar um disco
+## <a name="detach-a-disk"></a>Desligar um disco
 Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk) e especifique o LUN do disco. Os LUNs são apresentados no resultado de [az vmss show](/cli/azure/vmss) na secção anterior. O exemplo seguinte desanexa o LUN *2* do conjunto de dimensionamento:
 
 ```azurecli-interactive

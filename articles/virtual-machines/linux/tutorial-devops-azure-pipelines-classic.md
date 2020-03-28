@@ -13,10 +13,10 @@ ms.date: 1/16/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: 5707a99b329915b35131fe793b0dfabd02348677
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77912533"
 ---
 # <a name="tutorial-integrated-devops-for-iaas-and-paas-on-azure"></a>Tutorial: DevOps integrados para IaaS e PaaS em Azure
@@ -27,13 +27,13 @@ Abaixo estão alguns dos Serviços Azure que simplificam as cargas de trabalho e
 Estas tecnologias, combinadas com pessoas e processos, permitem às equipas fornecer continuamente valor aos clientes. 
 
 - Azure: https://portal.azure.com – Portal para a construção de cargas de trabalho em nuvem. Gerir e monitorizar tudo, desde aplicações web simples até aplicações complexas em nuvem 
-- Azure DevOps: https://dev.azure.com – Planeie melhor, colabore melhor e navere mais rápido com um conjunto de serviços modernos de dev 
-- Estúdio Azure Machine Learning: https://ml.azure.com - Dados de preparação, treina e implementa modelos de aprendizagem automática 
+- Azure DevOps: https://dev.azure.com – Planeie mais inteligente, colabore melhor e navere mais rápido com um conjunto de serviços modernos de dev 
+- Estúdio Azure Machine https://ml.azure.com Learning: - Dados de preparação, treina e implementa modelos de aprendizagem automática 
  
 
 O Azure DevOps é um serviço Azure incorporado que automatiza cada parte do processo DevOps com integração contínua e entrega contínua para qualquer recurso Azure.
 Quer a sua aplicação utilize máquinas virtuais, aplicações web, Kubernetes ou qualquer outro recurso, pode implementar, infraestrutura como código, integração contínua, testes contínuos, entrega contínua e monitorização contínua com Azure e Azure DevOps.  
-![](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) AzDevOps_portalView 
+![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
  
  
 ## <a name="iaas---configure-cicd"></a>IaaS - Configure CI/CD 
@@ -46,7 +46,7 @@ Pode configurar atualizações de rolamento para as suas "**máquinas virtuais**
 
 Aqui está a passagem passo a passo. 
 1. Inscreva-se no seu portal Azure e navegue para uma máquina virtual. 
-2. No painel esquerdo VM, navegue para o menu de **entrega contínua** . Em seguida, clique em **Configurar**. 
+2. No painel esquerdo VM, navegue para o menu de **entrega** contínua. Em seguida, clique em **Configurar**. 
    ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azdevops-configure.png) 
 3. No painel de configuração, clique em "Azure DevOps Organization" para selecionar uma conta existente ou criar uma. Em seguida, selecione o projeto sob o qual pretende configurar o gasoduto.  
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azdevops-project.png) 
@@ -81,7 +81,7 @@ Aqui está a passagem passo a passo.
 2. Siga os passos 2-5 na secção **de atualizações Rolling** para adicionar vários VMs ao grupo de implementação. Adicione uma etiqueta personalizada aos VMs que devem fazer parte de implementações verde-azuladas. Por exemplo, "azul" ou "verde" para os VMs que são para o papel de stand-by. 
 3. Uma vez configurado o gasoduto para os VMs, clique no oleoduto, lance a organização Azure DevOps, **Edite** o pipeline, navegue para a fase **de dev.** Adicione a etiqueta ao filtro "verde". 
 4. Adicione uma fase sem agente, configure a fase com passo de validação manual e um passo de api invocado-REST para trocar as etiquetas. 
-   ![](media/tutorial-devops-azure-pipelines-classic/azdevops-blue-green-deploy.png) AzDevOps_BlueGreen
+   ![AzDevOps_BlueGreen](media/tutorial-devops-azure-pipelines-classic/azdevops-blue-green-deploy.png)
  
  
 ## <a name="azure-devops-project"></a>Projeto Azure DevOps 

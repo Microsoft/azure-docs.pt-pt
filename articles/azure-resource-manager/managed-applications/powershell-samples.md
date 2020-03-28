@@ -1,26 +1,26 @@
 ---
 title: Exemplos do Azure PowerShell
-description: Fornece Azure PowerShell scripts de exemplo a serem usados ao trabalhar com aplicativos gerenciados do Azure.
+description: Fornece scripts de amostra Azure PowerShell para usar quando trabalha com aplicações geridas azure.
 author: tfitzmac
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 4e068f8cf64e653c6b0231cc1d1bcddfbb9e9c55
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75650304"
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
 
-A tabela a seguir inclui links para scripts para aplicativos gerenciados do Azure que usam o Azure PowerShell.
+A tabela seguinte inclui links para scripts para Aplicações Geridas Azure que usam o Azure PowerShell.
 
 | | |
 |-|-|
-|**Criar aplicativo gerenciado**||
-| [Criar definição de aplicativo gerenciado](scripts/managed-application-powershell-sample-create-definition.md) | Cria uma definição de aplicativo gerenciado no catálogo de serviços.  |
-| [Implantar aplicativo gerenciado](scripts/managed-application-poweshell-sample-create-application.md) | Implanta um aplicativo gerenciado do catálogo de serviços.  |
+|**Criar aplicação gerida**||
+| [Criar definição de aplicação gerida](scripts/managed-application-powershell-sample-create-definition.md) | Cria uma definição de aplicação gerida no catálogo de serviços.  |
+| [Implementar aplicação gerida](scripts/managed-application-poweshell-sample-create-application.md) | Implementa uma aplicação gerida a partir do catálogo de serviços.  |
 | | |
-|**Atualizar grupo de recursos gerenciado**||
-| [Obter recursos no grupo de recursos gerenciados e redimensionar VMs](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Obtém recursos do grupo de recursos gerenciados e redimensiona as VMs. |
+|**Atualizar grupo de recursos geridos**||
+| [Obtenha recursos em grupo de recursos geridos e redimensione VMs](scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md) | Obtém recursos do grupo de recursos geridos e redimensiona os VMs. |

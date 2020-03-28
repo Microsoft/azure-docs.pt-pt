@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com ExpenseIn | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ExpenseIn.
+title: 'Tutorial: Integração do Diretório Ativo Azure com DespesasIn [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Diretório Ativo azure e o ExpenseIn.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,182 +17,182 @@ ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67102846"
 ---
-# <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar ExpenseIn com o Azure Active Directory
+# <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar Despesas Com Diretório Ativo Azure
 
-Neste tutorial, irá aprender como integrar ExpenseIn com o Azure Active Directory (Azure AD). Quando integrar ExpenseIn com o Azure AD, pode:
+Neste tutorial, você vai aprender a integrar O ExpenseIn com o Azure Ative Directory (Azure AD). Quando integrar o ExpenseIn com a Azure AD, pode:
 
-* Controlar no Azure AD que tenha acesso ao ExpenseIn.
-* Permita que os utilizadores ser automaticamente sessão iniciada para ExpenseIn com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controlo em Azure AD que tem acesso a ExpenseIn.
+* Ative que os seus utilizadores sejam automaticamente inscritos no ExpenseIn com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
-* ExpenseIn início de sessão único (SSO) ativado na subscrição.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* DespesasIn uma subscrição de inscrição única (SSO) ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta ExpenseIn **SP e IDP** iniciada SSO.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. DespesasIn suporta **SP e IDP** iniciado SSO.
 
-## <a name="adding-expensein-from-the-gallery"></a>Adicionando ExpenseIn da Galeria
+## <a name="adding-expensein-from-the-gallery"></a>Adicionar DespesasNa da galeria
 
-Para configurar a integração do ExpenseIn com o Azure AD, terá de adicionar ExpenseIn a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração de ExpenseIn em Azure AD, precisa adicionar ExpenseIn da galeria à sua lista de aplicações saaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **ExpenseIn** na caixa de pesquisa.
-1. Selecione **ExpenseIn** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No **Add da** secção galeria, digite **Despesas Na** caixa de pesquisa.
+1. Selecione **ExpenseIn** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Configurar e testar o SSO do Azure AD com ExpenseIn com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no ExpenseIn.
+Configure e teste Azure AD SSO com ExpenseIn utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em ExpenseIn.
 
-Para configurar e testar o SSO do Azure AD com ExpenseIn, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com O Em despesas, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Configurar ExpenseIn](#configure-expensein)**  para configurar as definições de SSO no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com B.Simon.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar B.Simon utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste ExpenseIn](#create-expensein-test-user)**  para ter um equivalente de B.Simon no ExpenseIn que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
+1. **[Configure O SSO AD Azure](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure as despesas Para](#configure-expensein)** configurar as definições SSO no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sinal de Azure AD com B.Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para permitir que b.Simon utilize um único sinal de AD Azure.
+5. Criar O utilizador do **[teste ExpenseIn](#create-expensein-test-user)** para ter uma contrapartida de B.Simon em ExpenseIn que esteja ligada à representação da AD Azure do utilizador.
+6. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **ExpenseIn** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **ExpenseIn,** encontre a secção **Gerir** e selecione **single sign-on**.
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, executar o passo seguinte:
+4. Na secção **Basic SAML Configuration,** se pretender configurar a aplicação no modo iniciado **idp,** execute o seguinte passo:
 
-    Na **URL de resposta** texto, escreva qualquer um do URL:
+    Na caixa de texto **URL resposta,** digite qualquer um dos URL:
 
     | |
     |--|
     | `https://app.expensein.com/samlcallback` |
     | `https://mobileapi.expensein.com/identity/samlcallback` |
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+5. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://app.expensein.com/saml`
+    Na caixa de texto **de URL sign-on,** escreva um URL:`https://app.expensein.com/saml`
 
-1. No **definir a segurança de início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e clique em **Transferir** para transferir o **certificado (Base64)** e guarde-o no seu computador.
+1. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação da Aplicação** e clique em **Descarregar** para descarregar o **Certificado (Base64)** e guardá-lo no seu computador.
 
-   ![O link de download de certificado](./media/expensein-tutorial/copy-metdataurl-certificate.png)
+   ![O link de descarregamento do Certificado](./media/expensein-tutorial/copy-metdataurl-certificate.png)
 
-1. Sobre o **configurar ExpenseIn** secção, copie o URL adequado com base nos seus requisitos.
+1. Na secção **Configurar DespesasIn,** copie os URL(s) adequados com base no seu requisito.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-expensein"></a>Configurar ExpenseIn
+### <a name="configure-expensein"></a>Configure despesasDentro
 
-1. Para automatizar a configuração no ExpenseIn, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
+1. Para automatizar a configuração dentro do ExpenseIn, precisa de instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
 
-    ![Extensão My apps](common/install-myappssecure-extension.png)
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-2. Depois de adicionar a extensão para o navegador, clique em **ExpenseIn configuração** irá direcioná-lo para o aplicativo ExpenseIn. A partir daí, forneça as credenciais de administrador a iniciar sessão em ExpenseIn. A extensão de navegador automaticamente irá configurar o aplicativo para e automatizar passos 3 a 5.
+2. Depois de adicionar extensão ao navegador, clique em Despesas de **ConfiguraçãoIrá** direcioná-lo para a aplicação ExpenseIn. A partir daí, forneça as credenciais de administração para assinar em ExpenseIn. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-5.
 
-    ![Configuração do programa de configuração](common/setup-sso.png)
+    ![Configuração de configuração de configuração](common/setup-sso.png)
 
-3. Se desejar configurar manualmente o ExpenseIn, abra uma nova janela de browser e inicie sessão no site da sua empresa ExpenseIn como administrador e execute os seguintes passos:
+3. Se pretender configurar o ExpenseIn manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa ExpenseIn como administrador e execute os seguintes passos:
 
-4. Clique em **administrador** no topo da página, em seguida, navegue até **Single Sign-On** e clique em **Adicionar fornecedor**.
+4. Clique em **Admin** na parte superior da página e depois navegue para **Single Sign-On** e clique em **Adicionar fornecedor**.
 
-     ![Configuração de ExpenseIn](./media/expenseIn-tutorial/config01.png)
+     ![Configuração de Despesas](./media/expenseIn-tutorial/config01.png)
 
-5. Sobre o **novo fornecedor de identidade** pop-up, execute os seguintes passos:
+5. No **pop-up do Novo Fornecedor** de Identidade, execute os seguintes passos:
 
-    ![Configuração de ExpenseIn](./media/expenseIn-tutorial/config02.png)
+    ![Configuração de Despesas](./media/expenseIn-tutorial/config02.png)
 
-    a. Na **nome do fornecedor** texto, escreva o nome, como por exemplo: Azure.
+    a. Na caixa de texto **'Nome** fornecedora', digite o nome ex:Azure.
 
-    b. Selecione **Sim** como **permitir fornecedor Intitated logon**.
+    b. Selecione **Sim** como permitir o início de **sessão intitada do fornecedor**.
 
-    c. Na **Url de destino** texto caixa, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    c. Na caixa de texto **Target Url,** cola o valor do URL de **Login,** que copiou do portal Azure.
 
-    d. Na **emissor** texto caixa, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
+    d. Na caixa de texto **emitente,** cola o valor do **Identificador AD Azure,** que copiou do portal Azure.
 
-    e. Abra o certificado (Base64) no bloco de notas, copie o seu conteúdo e cole-na **certificado** caixa de texto.
+    e. Abra o Certificado (Base64) no Bloco de Notas, copie o seu conteúdo e cole-o na caixa de texto **do Certificado.**
 
     f. Clique em **Criar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso para ExpenseIn.
+Nesta secção, permitirá que b.Simon utilize um único sign-on Azure, concedendo acesso ao ExpenseIn.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **ExpenseIn**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **ExpenseIn**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-### <a name="create-expensein-test-user"></a>Criar utilizador de teste ExpenseIn
+### <a name="create-expensein-test-user"></a>Criar DespesasNo utilizador de teste
 
-Para ativar a utilizadores do Azure AD iniciar sessão no ExpenseIn, tem de ser aprovisionados em ExpenseIn. ExpenseIn, aprovisionamento é uma tarefa manual.
+Para permitir que os utilizadores de Anúncios Azure assinem ao ExpenseIn, devem ser aprovisionados no ExpenseIn. No ExpenseIn, o provisionamento é uma tarefa manual.
 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+**Para fornecer uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no ExpenseIn como administrador.
+1. Inscreva-se no ExpenseIn como Administrador.
 
-2. Clique em **administrador** no topo da página, em seguida, navegue até **utilizadores** e clique em **novo utilizador**.
+2. Clique em **Admin** na parte superior da página e depois navegue para **utilizadores** e clique em **Novo Utilizador**.
 
-     ![Configuração de ExpenseIn](./media/expenseIn-tutorial/config03.png)
+     ![Configuração de Despesas](./media/expenseIn-tutorial/config03.png)
 
-3. Sobre o **detalhes** pop-up, execute os seguintes passos:
+3. No pop-up **Details,** execute os seguintes passos:
 
-    ![Configuração de ExpenseIn](./media/expenseIn-tutorial/config04.png)
+    ![Configuração de Despesas](./media/expenseIn-tutorial/config04.png)
 
-    a. Na **nome próprio** texto, introduza o nome de utilizador, como **B**.
+    a. Na caixa de texto **First Name,** introduza o primeiro nome do utilizador como **B**.
 
-    b. Na **sobrenome** texto, digite o apelido do utilizador, como **Simon**.
+    b. Na caixa de texto **De Apelido,** introduza o último nome de utilizador como **Simon**.
 
-    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como `B.Simon@contoso.com`.
+    c. Na caixa de texto **por e-mail,** introduza o e-mail do utilizador como `B.Simon@contoso.com`.
 
     d. Clique em **Criar**.
 
 ### <a name="test-sso"></a>Teste SSO
 
-Ao selecionar o mosaico ExpenseIn no painel de acesso, deve ser automaticamente sessão iniciada no ExpenseIn para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo ExpenseIn no Painel de Acesso, deve ser automaticamente inscrito nas Despesas Para as quais configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

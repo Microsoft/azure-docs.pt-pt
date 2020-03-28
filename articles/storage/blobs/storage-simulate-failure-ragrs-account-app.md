@@ -5,16 +5,17 @@ description: Simular um erro na leitura de dados da região primária quando o a
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 3693ae8c9c425c35ab1a4ebf88b6cd3dfb58f92c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162706"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061294"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simular uma falha na leitura de dados da região primária
 
@@ -22,7 +23,7 @@ Este tutorial é a segunda parte de uma série. Nele, aprende-se sobre os benef�
 
 Para simular uma falha, pode utilizar o [Encaminhamento Estático](#simulate-a-failure-with-an-invalid-static-route) ou [o Violinista](#simulate-a-failure-with-fiddler). Ambos os métodos permitirão simular falhas de pedidos para o ponto final primário da sua conta de armazenamento [geo-redundante](../common/storage-redundancy.md) de acesso de leitura (RA-GRS), fazendo com que a aplicação seja lida a partir do ponto final secundário.
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 Na segunda parte da série, saiba como:
 
@@ -51,7 +52,7 @@ Utilize as instruções no [tutorial anterior][previous-tutorial] para lançar a
 
 Enquanto a aplicação estiver pausada, abra um pedido de comando no Windows como administrador ou executar terminal como raiz no Linux.
 
-Obtenha informações sobre o domínio final primário da conta de armazenamento, inserindo o seguinte comando num comunicado de comando ou terminal, substituindo `STORAGEACCOUNTNAME` pelo nome da sua conta de armazenamento.
+Obtenha informações sobre o domínio final primário da conta de armazenamento, inserindo o seguinte comando num comunicado de comando ou terminal, substituindo `STORAGEACCOUNTNAME` o nome da sua conta de armazenamento.
 
 ```
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
@@ -61,7 +62,7 @@ Copie o endereço IP da sua conta de armazenamento para um editor de texto, para
 
 Para obter o endereço IP do anfitrião local, escreva `ipconfig` na linha de comandos do Windows, ou `ifconfig` no terminal do Linux.
 
-Para adicionar uma rota estática para um anfitrião de destino, escreva o seguinte comando num comunicado de comando do Windows ou num terminal Linux, substituindo `<destination_ip>` pelo endereço IP da sua conta de armazenamento e `<gateway_ip>` pelo seu endereço IP local.
+Para adicionar uma rota estática para um anfitrião de destino, escreva `<destination_ip>` o seguinte comando num `<gateway_ip>` comunicado de comando do Windows ou num terminal Linux, substituindo pelo endereço IP da sua conta de armazenamento e pelo seu endereço IP local.
 
 #### <a name="linux"></a>Linux
 
@@ -109,7 +110,7 @@ Abra o Fiddler, selecione **Regras** e **Personalizar Regras**.
 
 O Fiddler ScriptEditor lança e exibe o ficheiro **SampleRules.js.** Este ficheiro é utilizado para personalizar o Fiddler.
 
-Colhe a seguinte amostra de código na função `OnBeforeResponse`, substituindo `STORAGEACCOUNTNAME` pelo nome da sua conta de armazenamento. Dependendo da amostra, poderá também ser necessário substituí`HelloWorld` pelo nome do ficheiro de teste (ou prefixo como `sampleFile`) a ser descarregado. O novo código é comentado para garantir que não funciona imediatamente.
+Colhe a seguinte amostra `OnBeforeResponse` de código `STORAGEACCOUNTNAME` na função, substituindo pelo nome da sua conta de armazenamento. Dependendo da amostra, também poderá `HelloWorld` ser necessário substituir pelo nome do ficheiro `sampleFile`de teste (ou prefixo como) a ser descarregado. O novo código é comentado para garantir que não funciona imediatamente.
 
 Uma vez concluído, selecione **File** e **Guarde** para guardar as suas alterações. Deixe aberta a janela ScriptEditor para utilização nos seguintes passos.
 
@@ -137,7 +138,7 @@ Utilize as instruções no [tutorial anterior][previous-tutorial] para lançar a
 
 ### <a name="simulate-failure"></a>Simular falha
 
-Enquanto a aplicação estiver pausada, volte para o Fiddler e descomente a regra personalizada que guardou na função `OnBeforeResponse`. Certifique-se de selecionar **File** e **Guardar** para guardar as suas alterações para que a regra faça efeito. Este código procura pedidos para a conta de armazenamento RA-GRS e, se o caminho contiver o nome do ficheiro da amostra, devolve um código de resposta de `503 - Service Unavailable`.
+Enquanto a aplicação estiver pausada, volte para o Fiddler `OnBeforeResponse` e descomente a regra personalizada que guardou na função. Certifique-se de selecionar **File** e **Guardar** para guardar as suas alterações para que a regra faça efeito. Este código procura pedidos para a conta de armazenamento RA-GRS e, se o caminho `503 - Service Unavailable`contiver o nome do ficheiro da amostra, devolve um código de resposta de .
 
 Na janela com a amostra de execução, retome a aplicação ou pressione a tecla apropriada para descarregar o ficheiro da amostra e confirme que provém de armazenamento secundário. Em seguida, pode fazer uma pausa na amostra novamente ou esperar no aviso.
 

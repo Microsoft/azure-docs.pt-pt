@@ -1,5 +1,5 @@
 ---
-title: Tutorial para usar referências chave de configuração de aplicativos Azure numa aplicação ASP.NET Core  Microsoft Docs
+title: Tutorial para usar referências chave de configuração de aplicativos Azure numa aplicação ASP.NET Core [ Microsoft Docs
 description: Neste tutorial, você aprende a usar referências chave vault da Configuração de Aplicações Azure a partir de uma aplicação ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: f89d9d87a8ee7954709e8753a84e9eba5fc1e9d7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: eceb4a9d4e0cc84166280f30b094b82088f53a4a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79216785"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475311"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências chave vault em uma aplicação ASP.NET Core
 
@@ -82,11 +82,11 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência chave vault à configuração da aplicação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Explorador de **Configuração**.
 
-1. Selecione **+ Criar** > **referência do cofre chave,** e depois especificar os seguintes valores:
+1. Selecione **+ Criar** > **referência de cofre chave,** e depois especificar os seguintes valores:
     - **Chave**: Selecione **TestApp:Definições:Mensagem de cofre**de teclas .
     - **Etiqueta**: Deixe este valor em branco.
     - **Subscrição,** **Grupo de Recursos**e Cofre **chave**: Introduza os valores correspondentes aos do cofre chave que criou na secção anterior.
@@ -140,7 +140,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
     $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="bash"></a>[Estação Bash](#tab/bash)
+    #### <a name="bash"></a>[Bash](#tab/bash)
 
     ```bash
     export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -171,7 +171,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
     using Azure.Identity;
     ```
 
-1. Atualize o método `CreateWebHostBuilder` para utilizar a Configuração da App, ligando para o método `config.AddAzureAppConfiguration`. Inclua a opção `ConfigureKeyVault` e passe as credenciais corretas para o seu Cofre chave.
+1. Atualize `CreateWebHostBuilder` o método para utilizar `config.AddAzureAppConfiguration` a Configuração da Aplicação, ligando para o método. Inclua `ConfigureKeyVault` a opção e passe as credenciais corretas para o seu Cofre chave.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -216,7 +216,7 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
             .UseStartup<Startup>());
     ```
 
-1. Quando ininiciaste a ligação à Configuração da Aplicação, configuraste a ligação ao Cofre chave, chamando o método `ConfigureKeyVault`. Após a inicialização, pode aceder aos valores das referências key vault da mesma forma que acede aos valores das teclas regulares de Configuração de Aplicações.
+1. Quando ininiciaste a ligação à Configuração da Aplicação, `ConfigureKeyVault` configuraste a ligação ao Cofre chave, ligando para o método. Após a inicialização, pode aceder aos valores das referências key vault da mesma forma que acede aos valores das teclas regulares de Configuração de Aplicações.
 
     Para ver este processo em ação, abra *o Index.cshtml* na pasta **Views** > **Home.** Substitua o seu conteúdo pelo seguinte código:
 
@@ -244,17 +244,17 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 1. Para construir a aplicação utilizando o CLI .NET Core, execute o seguinte comando na concha de comando:
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. Depois de concluída a construção, utilize o seguinte comando para executar a aplicação web localmente:
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 
-1. Abra uma janela do navegador e vá para `http://localhost:5000`, que é o URL padrão para a aplicação web hospedada localmente.
+1. Abra uma janela do `http://localhost:5000`navegador e vá para , que é o URL padrão para a aplicação web hospedada localmente.
 
     ![Lançamento de aplicações locais Quickstart](./media/key-vault-reference-launch-local.png)
 

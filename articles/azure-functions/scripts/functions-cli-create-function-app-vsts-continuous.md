@@ -1,19 +1,19 @@
 ---
-title: Criar um aplicativo de funções com implantação DevOps-CLI do Azure
+title: Criar uma aplicação de função com implementação de DevOps - Azure CLI
 description: Criar uma Function App e implementar código de função a partir do Azure DevOps
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
 ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75922646"
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Criar uma função no Azure que é implantada a partir do Azure DevOps
+# <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Criar uma função em Azure que é implantada a partir de Azure DevOps
 
-Este tópico mostra como usar Azure Functions para criar um aplicativo de funções sem [servidor](https://azure.microsoft.com/solutions/serverless/) usando o [plano de consumo](../functions-scale.md#consumption-plan). O aplicativo de funções, que é um contêiner para suas funções, é implantado continuamente de um repositório DevOps do Azure. 
+Este tópico mostra-lhe como usar funções Azure para criar uma aplicação de função [sem servidor](https://azure.microsoft.com/solutions/serverless/) usando o [plano de consumo](../functions-scale.md#consumption-plan). A aplicação de funções, que é um recipiente para as suas funções, é continuamente implantada a partir de um repositório Azure DevOps. 
 
 Para concluir este tópico, tem de ter:
 
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma c
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para a aplicação de funções. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no plano de [consumo](../functions-scale.md#consumption-plan)sem servidor. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no plano de [consumo](../functions-scale.md#consumption-plan)sem servidores. |
 | [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associa uma aplicação de funções a um repositório do Git ou do Mercurial. |
 
 ## <a name="next-steps"></a>Passos seguintes

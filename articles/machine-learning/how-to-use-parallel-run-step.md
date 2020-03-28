@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3d283d1094336b928869aa281b4a640d7a62dd94
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037351"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477192"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência do lote sobre grandes quantidades de dados usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,13 +34,13 @@ Neste artigo, aprende-se as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+* Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 * Para um arranque rápido guiado, complete o tutorial de [configuração](tutorial-1st-experiment-sdk-setup.md) se ainda não tiver um espaço de trabalho Azure Machine Learning ou uma máquina virtual de caderno. 
 
-* Para gerir o seu próprio ambiente e dependências, consulte o [guia como configurar](how-to-configure-environment.md) o seu próprio ambiente. Faça `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` no seu ambiente para descarregar as dependências necessárias.
+* Para gerir o seu próprio ambiente e dependências, consulte o [guia como configurar](how-to-configure-environment.md) o seu próprio ambiente. Corra `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` no seu ambiente para descarregar as dependências necessárias.
 
-## <a name="set-up-machine-learning-resources"></a>Configurar recursos de aprendizado de máquina
+## <a name="set-up-machine-learning-resources"></a>Configurar recursos de aprendizagem automática
 
 As seguintes ações configuram os recursos necessários para executar um gasoduto de inferência de lote:
 
@@ -50,9 +50,9 @@ As seguintes ações configuram os recursos necessários para executar um gasodu
 
 ### <a name="create-a-datastore-with-sample-images"></a>Criar uma loja de dados com imagens de amostra
 
-Obtenha o conjunto de avaliação MNIST do contentor público `sampledata` numa conta chamada `pipelinedata`. Crie uma loja de dados com o nome `mnist_datastore`, que aponta para este recipiente. Na chamada seguinte para `register_azure_blob_container`, colocar a bandeira `overwrite` para `True` substitui qualquer datastore que tenha sido criada anteriormente com esse nome. 
+Obtenha o conjunto de avaliação MNIST do `sampledata` `pipelinedata`recipiente de blob público numa conta chamada . Crie uma loja `mnist_datastore`de dados com o nome , que aponta para este recipiente. Na chamada seguinte, `register_azure_blob_container`definindo a `overwrite` bandeira para `True` substituir qualquer datastore que tenha sido criada anteriormente com esse nome. 
 
-Pode alterar este passo para apontar para o seu recipiente de bolhas, fornecendo os seus próprios valores para `datastore_name`, `container_name`e `account_name`.
+Pode alterar este passo para apontar para o seu recipiente `datastore_name` `container_name`de `account_name`bolhas, fornecendo os seus próprios valores para , e .
 
 ```python
 from azureml.core import Datastore
@@ -70,7 +70,7 @@ mnist_blob = Datastore.register_azure_blob_container(ws,
 
 Em seguida, especifique a loja de dados padrão do espaço de trabalho como a loja de dados de saída. Vaiusá-lo para a saída de inferência.
 
-Quando cria o seu espaço de trabalho, [os Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) e o [armazenamento Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) estão ligados ao espaço de trabalho por defeito. O Azure Files é a loja de dados padrão para um espaço de trabalho, mas também pode utilizar o armazenamento Blob como uma loja de dados. Para mais informações, consulte as opções de [armazenamento do Azure.](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
+Quando cria o seu espaço de trabalho, [os Ficheiros](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) Azure e o [armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) Blob estão ligados ao espaço de trabalho por defeito. O Azure Files é a loja de dados padrão para um espaço de trabalho, mas também pode utilizar o armazenamento Blob como uma loja de dados. Para mais informações, consulte as opções de [armazenamento do Azure.](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -85,16 +85,16 @@ Agora precisa configurar as inputs e saídas de dados, incluindo:
 - O diretório que contém os rótulos.
 - O diretório para a produção.
 
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) é uma classe para explorar, transformar e gerir dados em Azure Machine Learning. Esta aula tem dois tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e [`FileDataset`. ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) Neste exemplo, utilizará `FileDataset` como as inputs para o passo do gasoduto de inferência do lote. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)é uma classe para explorar, transformar e gerir dados em Azure Machine Learning. Esta classe tem [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) dois [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py)tipos: e . Neste exemplo, utilizará `FileDataset` como entrada sintetizadora para o passo do gasoduto de inferência do lote. 
 
 > [!NOTE] 
-> `FileDataset` suporte na inferência do lote está restrito ao armazenamento de Azure Blob por enquanto. 
+> `FileDataset`o suporte na inferência do lote está restrito ao armazenamento de Azure Blob por enquanto. 
 
-Também pode fazer referência a outros conjuntos de dados no seu script de inferência personalizada. Por exemplo, pode usá-lo para aceder a etiquetas no seu script para rotular imagens utilizando `Dataset.register` e `Dataset.get_by_name`.
+Também pode fazer referência a outros conjuntos de dados no seu script de inferência personalizada. Por exemplo, pode usá-lo para aceder a etiquetas `Dataset.register` no `Dataset.get_by_name`seu script para rotular imagens utilizando e .
 
 Para obter mais informações sobre os conjuntos de dados do Azure Machine Learning, consulte Criar e aceder a conjuntos de [dados (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objetos são utilizados para a transferência de dados intermédios entre os passos do gasoduto. Neste exemplo, usa-o para saídas de inferência.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)os objetos são utilizados para a transferência de dados intermédios entre os passos do gasoduto. Neste exemplo, usa-o para saídas de inferência.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -151,7 +151,7 @@ else:
 
 ## <a name="prepare-the-model"></a>Preparar o modelo
 
-[Descarregue o modelo de classificação de imagem pré-treinado](https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz)e, em seguida, extrai-lo para o diretório `models`.
+[Descarregue o modelo de classificação de imagem pré-treinado](https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz)e, em seguida, extrai-lo para o `models` diretório.
 
 ```python
 import os
@@ -188,9 +188,9 @@ model = Model.register(model_path="models/",
 
 O script *deve conter* duas funções:
 - `init()`: Utilize esta função para qualquer preparação dispendiosa ou comum para inferência posterior. Por exemplo, use-o para carregar o modelo num objeto global. Esta função será chamada apenas uma vez no início do processo.
--  `run(mini_batch)`: A função será executada por cada `mini_batch` instância.
-    -  `mini_batch`: Passo de execução paralela invocará o método de execução e passará uma lista ou Pandas DataFrame como argumento para o método. Cada entrada em min_batch será - um caminho de ficheiro se a entrada for um Conjunto de Dados de Ficheiros, um DataFrame pandas se a entrada for um TabularDataset.
-    -  `response`: o método de execução() deve devolver um DataFrame pandas ou uma matriz. Para append_row output_action, estes elementos devolvidos estão anexados ao ficheiro de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída devolvido indica uma execução bem sucedida do elemento de entrada no mini-lote de entrada. Deve certificar-se de que os dados suficientes estão incluídos no resultado do mapa para mapear a entrada para executar o resultado. A saída de execução será escrita no ficheiro de saída e não garantidamente por ordem, deve utilizar alguma chave na saída para mapeá-la para a entrada.
+-  `run(mini_batch)`: A função `mini_batch` será executada para cada instância.
+    -  `mini_batch`: Passo de execução paralelo invocará o método de execução e passará uma lista ou Pandas DataFrame como argumento para o método. Cada entrada em min_batch será - um caminho de ficheiro se a entrada for um Conjunto de Dados de Ficheiros, um DataFrame pandas se a entrada for um TabularDataset.
+    -  `response`: executar() método deve devolver um DataFrame pandas ou uma matriz. Para append_row output_action, estes elementos devolvidos estão anexados ao ficheiro de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída devolvido indica uma execução bem sucedida do elemento de entrada no mini-lote de entrada. Deve certificar-se de que os dados suficientes estão incluídos no resultado do mapa para mapear a entrada para executar o resultado. A saída de execução será escrita no ficheiro de saída e não garantidamente por ordem, deve utilizar alguma chave na saída para mapeá-la para a entrada.
 
 ```python
 # Snippets from a sample script.
@@ -250,7 +250,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 Agora tem tudo o que precisa para construir o oleoduto.
 
-### <a name="prepare-the-run-environment"></a>Preparar o ambiente de execução
+### <a name="prepare-the-run-environment"></a>Preparar o ambiente de corrida
 
 Primeiro, especifique as dependências do seu guião. Usa este objeto mais tarde quando cria o passo do gasoduto.
 
@@ -270,22 +270,22 @@ batch_env.spark.precache_packages = False
 
 ### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Especifique os parâmetros para o seu passo de gasoduto de inferência do lote
 
-`ParallelRunConfig` é a configuração principal para a inferência do lote recém-introduzida `ParallelRunStep` instância dentro do oleoduto De Aprendizagem automática Azure. Usa-o para embrulhar o script e configurar os parâmetros necessários, incluindo todos os seguintes parâmetros:
+`ParallelRunConfig`é a configuração principal para a `ParallelRunStep` nova introdução da instância de inferência do lote dentro do gasoduto De aprendizagem automática Azure. Usa-o para embrulhar o script e configurar os parâmetros necessários, incluindo todos os seguintes parâmetros:
 - `entry_script`: Um script de utilizador como um caminho de arquivo local que será executado em paralelo em vários nódosos. Se `source_directory` estiver presente, utilize um caminho relativo. Caso contrário, utilize qualquer caminho acessível na máquina.
-- `mini_batch_size`: O tamanho do mini-lote passou para uma única chamada `run()`. (opcional; o valor predefinido é `10` ficheiros para FileDataset e `1MB` para TabularDataset.)
-    - Para `FileDataset`, é o número de ficheiros com um valor mínimo de `1`. Pode combinar vários ficheiros num mini-lote.
-    - Para `TabularDataset`, é o tamanho dos dados. Exemplo os valores são `1024`, `1024KB`, `10MB`e `1GB`. O valor recomendado é `1MB`. O mini-lote de `TabularDataset` nunca irá cruzar os limites dos ficheiros. Por exemplo, se tiver ficheiros .csv com vários tamanhos, o ficheiro mais pequeno é de 100 KB e o maior é de 10 MB. Se definir `mini_batch_size = 1MB`, os ficheiros com um tamanho inferior a 1 MB serão tratados como um mini-lote. Os ficheiros com um tamanho maior do que 1 MB serão divididos em vários mini-lotes.
-- `error_threshold`: O número de falhas recorde de `TabularDataset` e falhas de ficheiros para `FileDataset` que devem ser ignoradas durante o processamento. Se a contagem de erros para toda a entrada for superior a este valor, o trabalho será abortado. O limiar de erro é para toda a entrada e não para mini-lotes individuais enviados para o método `run()`. O alcance é `[-1, int.max]`. A parte `-1` indica ignorar todas as falhas durante o processamento.
+- `mini_batch_size`: O tamanho do mini-lote `run()` passou para uma única chamada. (opcional; o valor `10` predefinido são `1MB` ficheiros para FileDataset e para TabularDataset.)
+    - Pois, `FileDataset`é o número de ficheiros `1`com um valor mínimo de . Pode combinar vários ficheiros num mini-lote.
+    - Pois, `TabularDataset`é o tamanho dos dados. Os valores `1024KB` `10MB`exemplo `1GB`são, `1024`e . O valor `1MB`recomendado é . O mini-lote `TabularDataset` de nunca cruzará os limites dos ficheiros. Por exemplo, se tiver ficheiros .csv com vários tamanhos, o ficheiro mais pequeno é de 100 KB e o maior é de 10 MB. Se definir, `mini_batch_size = 1MB`os ficheiros com um tamanho inferior a 1 MB serão tratados como um mini-lote. Os ficheiros com um tamanho maior do que 1 MB serão divididos em vários mini-lotes.
+- `error_threshold`: O número de `TabularDataset` falhas recorde para `FileDataset` e falhas de ficheiros para isso deve ser ignorado durante o processamento. Se a contagem de erros para toda a entrada for superior a este valor, o trabalho será abortado. O limiar de erro é para toda a entrada e `run()` não para mini-lotes individuais enviados para o método. O alcance `[-1, int.max]`é. A `-1` peça indica ignorar todas as falhas durante o processamento.
 - `output_action`: Um dos seguintes valores indica como a saída será organizada:
-    - `summary_only`: O script do utilizador armazenará a saída. `ParallelRunStep` utilizará a saída apenas para o cálculo do limiar de erro.
-    - `append_row`: Para todos os ficheiros de entrada, apenas um ficheiro será criado na pasta de saída para anexar todas as saídas separadas por linha. O nome do ficheiro será `parallel_run_step.txt`.
+    - `summary_only`: O script do utilizador armazenará a saída. `ParallelRunStep`utilizará a saída apenas para o cálculo do limiar de erro.
+    - `append_row`: Para todos os ficheiros de entrada, apenas um ficheiro será criado na pasta de saída para anexar todas as saídas separadas por linha. O nome do `parallel_run_step.txt`ficheiro será.
 - `source_directory`: Caminhos para pastas que contenham todos os ficheiros a executar no alvo do cálculo (opcional).
-- `compute_target`: Apenas `AmlCompute` é suportado.
+- `compute_target`: `AmlCompute` Só é suportado.
 - `node_count`: O número de nós de cálculo a utilizar para executar o script do utilizador.
 - `process_count_per_node`: O número de processos por nó.
-- `environment`: A definição de ambiente python. Pode configurá-lo para usar um ambiente Python existente ou para criar um ambiente temporário para a experiência. A definição é também responsável pela definição das dependências de aplicação necessárias (opcional).
-- `logging_level`: Verbosidade de log. Os valores em cada vez mais verbosidade são: `WARNING`, `INFO`e `DEBUG`. (opcional; o valor predefinido é `INFO`)
-- `run_invocation_timeout`: O prazo de intenção de invocação do método `run()` em segundos. (opcional; valor por defeito é `60`)
+- `environment`: A definição de ambiente Python. Pode configurá-lo para usar um ambiente Python existente ou para criar um ambiente temporário para a experiência. A definição é também responsável pela definição das dependências de aplicação necessárias (opcional).
+- `logging_level`: Verbosidade de log. Os valores na verbosidade crescente são: `WARNING`, `INFO`e `DEBUG`. (opcional; o valor `INFO`predefinido é)
+- `run_invocation_timeout`: `run()` O tempo de intenção de invocação do método em segundos. (opcional; valor `60`por defeito é)
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -301,16 +301,16 @@ parallel_run_config = ParallelRunConfig(
     node_count=4)
 ```
 
-### <a name="create-the-pipeline-step"></a>Criar o passo de pipeline
+### <a name="create-the-pipeline-step"></a>Criar o passo do oleoduto
 
-Crie o passo do gasoduto utilizando o script, a configuração do ambiente e os parâmetros. Especifique o alvo computacional que já anexou ao seu espaço de trabalho como alvo de execução para o script. Utilize `ParallelRunStep` para criar o passo do gasoduto de inferência do lote, que leva todos os seguintes parâmetros:
-- `name`: O nome do passo, com as seguintes restrições de nomeação: caracteres únicos, 3-32 e regex ^\[a-z\]([-a-z0-9]*[a-z0-9]??$.?$.
+Crie o passo do gasoduto utilizando o script, a configuração do ambiente e os parâmetros. Especifique o alvo computacional que já anexou ao seu espaço de trabalho como alvo de execução para o script. Utilizar `ParallelRunStep` para criar o passo do gasoduto de inferência do lote, que leva todos os seguintes parâmetros:
+- `name`: O nome do passo, com as seguintes restrições de nomeação:\[caracteres\]únicos, 3-32 e regex ^ a-z ([-a-z0-9]*[a-z0-9]??$.?$.
 - `models`: Zero ou mais nomes de modelos já registados no registo do modelo de Aprendizagem Automática Azure.
-- `parallel_run_config`: Um objeto `ParallelRunConfig`, como definido anteriormente.
+- `parallel_run_config`: `ParallelRunConfig` Um objeto, tal como definido anteriormente.
 - `inputs`: Um ou mais conjuntos de dados de aprendizagem automática azure de letra única.
-- `output`: Um objeto `PipelineData` que corresponda ao diretório de saída.
+- `output`: `PipelineData` Um objeto que corresponda ao diretório de saída.
 - `arguments`: Uma lista de argumentos passados para o script do utilizador (opcional).
-- `allow_reuse`: Se o passo deve reutilizar os resultados anteriores quando executado com as mesmas definições/entradas. Se este parâmetro for `False`, será sempre gerada uma nova corrida para este passo durante a execução do gasoduto. (opcional; o valor predefinido é `True`.)
+- `allow_reuse`: Se o passo deve reutilizar os resultados anteriores quando executado com as mesmas definições/entradas. Se este parâmetro `False`for , será sempre gerada uma nova execução para este passo durante a execução do gasoduto. (opcional; o valor `True`predefinido é .)
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunStep
@@ -327,13 +327,13 @@ parallelrun_step = ParallelRunStep(
 ```
 
 >[!Note]
-> O passo acima depende de `azureml-contrib-pipeline-steps`, como descrito nos [pré-requisitos.](#prerequisites) 
+> O passo acima `azureml-contrib-pipeline-steps`depende, como descrito nos [pré-requisitos.](#prerequisites) 
 
-### <a name="run-the-pipeline"></a>Executar o pipeline
+### <a name="submit-the-pipeline"></a>Submeter o gasoduto
 
-Agora, corre o oleoduto. Em primeiro lugar, crie um objeto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) utilizando a referência do espaço de trabalho e o passo do gasoduto que criou. O parâmetro `steps` é uma variedade de passos. Neste caso, só há um passo para marcar lotes. Para construir oleodutos com vários passos, coloque os passos em ordem nesta matriz.
+Agora, corre o oleoduto. Primeiro, crie um [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) objeto utilizando a referência do espaço de trabalho e o passo do gasoduto que criou. O `steps` parâmetro é uma variedade de passos. Neste caso, só há um passo para marcar lotes. Para construir oleodutos com vários passos, coloque os passos em ordem nesta matriz.
 
-Em seguida, utilize a função `Experiment.submit()` para submeter o gasoduto para execução.
+Em seguida, `Experiment.submit()` utilize a função para submeter o gasoduto para execução.
 
 ```python
 from azureml.pipeline.core import Pipeline
@@ -347,8 +347,8 @@ pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
 
 Um trabalho de inferência do lote pode levar muito tempo para terminar. Este exemplo monitoriza o progresso utilizando um widget Jupyter. Também pode gerir o progresso do trabalho usando:
 
-* Azure Machine Learning Studio. 
-* Saída da consola [a](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) partir do`PipelineRun`objeto.
+* Estúdio de Aprendizagem automática Azure. 
+* Saída da [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) consola a partir do objeto.
 
 ```python
 from azureml.widgets import RunDetails

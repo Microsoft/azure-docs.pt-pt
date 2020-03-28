@@ -10,40 +10,40 @@ ms.custom: include file
 ms.topic: include
 ms.date: 10/04/2019
 ms.openlocfilehash: b44d624db419919823ec85bcb599007fb75c92b9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73929647"
 ---
-1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para sua assinatura do Azure. 
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando as credenciais para a sua subscrição Azure. 
 
-1. No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso**.
+1. No canto superior esquerdo do portal Azure, selecione **+ Crie um recurso**.
 
       ![Criar um novo recurso](media/aml-create-in-portal/create-workspace.gif)
 
-1. Use a barra de pesquisa para localizar **Machine Learning**.
+1. Utilize a barra de pesquisa para encontrar **machine learning**.
 
 1. Selecione **Machine Learning**.
 
-1. No painel **Machine Learning** , selecione **criar** para começar.
+1. No painel **machine learning,** selecione **Criar** para começar.
 
-1. Forneça as seguintes informações para configurar seu novo espaço de trabalho:
+1. Forneça as seguintes informações para configurar o seu novo espaço de trabalho:
 
    Campo|Descrição 
    ---|---
-   Nome do espaço de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas. 
+   Nome da área de trabalho |Introduza um nome único que identifique o seu espaço de trabalho. Neste exemplo, utilizamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e para diferenciar dos espaços de trabalho criados por outros. 
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
-   Grupo de recursos | Use um grupo de recursos existente em sua assinatura ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
-   Localização | Selecione o local mais próximo de seus usuários e os recursos de dados para criar seu espaço de trabalho.
-   Edição do espaço de trabalho | Selecione **Enterprise**. Este tutorial requer o uso do Enterprise Edition. A edição Enterprise está em versão prévia e não adiciona custos extras no momento. 
+   Grupo de recursos | Utilize um grupo de recursos existente na sua subscrição ou introduza um nome para criar um novo grupo de recursos. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, utilizamos **docs-aml**. 
+   Localização | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
+   Edição do espaço de trabalho | Selecione **Enterprise**. Este tutorial requer o uso da edição da Enterprise. A edição da Enterprise está em pré-visualização e não adiciona atualmente custos adicionais. 
 
-1. Depois de concluir a configuração do espaço de trabalho, selecione **criar**. 
+1. Depois de terminar de configurar o espaço de trabalho, selecione **Criar**. 
 
    > [!WARNING] 
-   > Pode levar vários minutos para criar seu espaço de trabalho na nuvem.
+   > Pode levar vários minutos para criar o seu espaço de trabalho na nuvem.
 
-   Quando o processo for concluído, uma mensagem de êxito de implantação será exibida. 
+   Quando o processo está concluído, aparece uma mensagem de sucesso de implantação. 
  
- 1. Para exibir o novo espaço de trabalho, selecione **ir para o recurso**.
+ 1. Para ver o novo espaço de trabalho, selecione **Ir para o recurso**.
 

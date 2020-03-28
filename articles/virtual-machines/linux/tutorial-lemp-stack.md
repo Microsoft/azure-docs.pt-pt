@@ -1,5 +1,5 @@
 ---
-title: Tutorial – implantar o LEMP em uma máquina virtual do Linux no Azure
+title: Tutorial - Desloque o LEMP numa máquina virtual Linux em Azure
 description: Neste tutorial, vai aprender a instalar a pilha LEMP numa máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 1de2e70ccafbbde49e764437bfe8ce94602747b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d603dbf2746608f499ba37b4f17b533b64bc941
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034458"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154360"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web da LEMP numa máquina virtual do Linux no Azure
 
@@ -35,9 +35,9 @@ Este artigo explica como implementar um servidor Web NGINX, o MySQL e o PHP (pil
 
 Esta configuração é para testes rápidos ou uma prova de conceito.
 
-Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
@@ -54,7 +54,7 @@ sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-m
 ## <a name="verify-installation-and-configuration"></a>Verificar a instalação e a configuração
 
 
-### <a name="verify-nginx"></a>Verificar NGINX
+### <a name="verify-nginx"></a>Verificar o NGINX
 
 Verifique a versão do NGINX com o seguinte comando:
 ```bash
@@ -74,13 +74,13 @@ Verifique a versão do MySQL com o seguinte comando (tenha em atenção o parâm
 mysql -V
 ```
 
-Para ajudar a proteger a instalação do MySQL, incluindo a definição de uma senha raiz, execute o script `mysql_secure_installation`. 
+Para ajudar a proteger a instalação do MySQL, incluindo a definição de uma palavra-passe de raiz, executar o `mysql_secure_installation` script. 
 
 ```bash
 sudo mysql_secure_installation
 ```
 
-Opcionalmente, você pode configurar o plug-in de validação de senha (recomendado). Em seguida, defina uma senha para o usuário raiz do MySQL e defina as configurações de segurança restantes para o seu ambiente. Recomendamos que você responda "Y" (Sim) a todas as perguntas.
+Pode configurar opcionalmente o Validar Password Plugin (recomendado). Em seguida, detete uma palavra-passe para o utilizador raiz MySQL e configure as restantes definições de segurança para o seu ambiente. Recomendamos que responda "Y" (sim) a todas as perguntas.
 
 Se pretender experimentar funcionalidades do MySQL (criar uma base de dados MySQL, adicionar utilizadores ou alterar as definições de configuração), inicie sessão no MySQL. Este passo não é necessário para concluir este tutorial. 
 
@@ -107,7 +107,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-No editor, substitua os conteúdos do `/etc/nginx/sites-available/default` pelo seguinte. Veja os comentários para obter uma explicação sobre as definições. Substitua o endereço IP público de sua VM por *yourPublicIPAddress*, confirme a versão do PHP em `fastcgi_pass`e deixe as configurações restantes. Em seguida, guarde o ficheiro.
+No editor, substitua os conteúdos do `/etc/nginx/sites-available/default` pelo seguinte. Veja os comentários para obter uma explicação sobre as definições. Substitua o endereço IP público do seu VM para o `fastcgi_pass`seu *PublicIPAddress,* confirme a versão PHP e deixe as restantes definições. Em seguida, guarde o ficheiro.
 
 ```
 server {
@@ -170,10 +170,10 @@ Neste tutorial, implementou um servidor LEMP no Azure. Aprendeu a:
 > * Verificar a instalação e a configuração
 > * Instalar o WordPress na pilha LEMP
 
-Avance para o tutorial seguinte para aprender a proteger os servidores Web com certificados SSL.
+Avance para o próximo tutorial para aprender a proteger servidores web com certificados TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Proteger o servidor Web com SSL](tutorial-secure-web-server.md)
+> [Servidor web seguro com TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

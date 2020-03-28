@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Criar a política de firewall de aplicação web (WAF) para a Porta da Frente Azure - portal Azure'
-description: Neste tutorial, aprende-se a criar uma política waf utilizando o portal Azure.
+title: 'Tutorial: Criar política waf para porta da frente Azure - portal Azure'
+description: Neste tutorial, aprende-se a criar uma política de Firewall de Aplicação Web (WAF) utilizando o portal Azure.
 author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 2e4987273d0ecdc258a3134b89ffc3406e25e97c
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137582"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475846"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de firewall de aplicação web na porta frontal azure usando o portal Azure
 
-Este tutorial mostra-lhe como criar uma política básica de Firewall de Aplicação Web Azure (WAF) e aplicar a política a um anfitrião frontal na Porta frontal do Azure.
+Este tutorial mostra-lhe como criar uma política básica de Firewall de Aplicação Web Azure (WAF) e aplicá-la a um anfitrião frontal na Porta frontal do Azure.
 
 Neste tutorial, ficará a saber como:
 
@@ -27,18 +27,17 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Crie um perfil porta da frente seguindo as instruções descritas em [Quickstart: Crie um perfil porta da frente](../../frontdoor/quickstart-create-front-door.md).
+Crie um perfil porta da frente seguindo as instruções descritas em [Quickstart: Crie um perfil porta da frente](../../frontdoor/quickstart-create-front-door.md). 
 
 ## <a name="create-a-web-application-firewall-policy"></a>Criar uma política de firewall de aplicação web
 
-Em primeiro lugar, crie uma política básica de WAF com o Conjunto de Regras padrão gerido (DRS) utilizando o portal.
+Em primeiro lugar, crie uma política básica de WAF com o Conjunto de Regras padrão gerido (DRS) utilizando o portal. 
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso**>procurar **WAF**>selecione **Web application firewall ** > selecione **Create**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um recurso**>procurar POR **WAF**>selecione firewall de **aplicação Web (Pré-visualização)** > selecione **Criar**.
 2. No separador **Basics** da página **de política Criar uma WAF,** introduzir ou selecionar as seguintes informações, aceitar as predefinições para as definições restantes e, em seguida, selecionar Rever + **criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Política para            |Selecione Global WAF (Porta da Frente).|
     | Subscrição            |Selecione o nome de subscrição da Porta Da Frente.|
     | Grupo de recursos          |Selecione o nome do grupo de recursos da Porta Da Frente.|
     | Nome da política             |Introduza um nome único para a sua política waf.|
@@ -58,7 +57,7 @@ Em primeiro lugar, crie uma política básica de WAF com o Conjunto de Regras pa
 
 ## <a name="configure-web-application-firewall-rules-optional"></a>Configure regras de firewall de aplicações web (opcional)
 
-### <a name="change-mode"></a>Alterar modo
+### <a name="change-mode"></a>Alterar o modo
 
 Quando cria uma política waf, pela política padrão de WAF está no modo **deteção.** No modo de **deteção,** a WAF não bloqueia quaisquer pedidos, pelo contrário, os pedidos que correspondam às regras waf são registados em registos WAF.
 Para ver o WAF em ação, pode alterar as definições de modo de **Deteção** para **Prevenção**. No modo **de Prevenção,** os pedidos que correspondem às regras definidas no Predefinido Definido remado (DRS) são bloqueados e registados em registos WAF.
@@ -77,8 +76,8 @@ O conjunto de regras predefinidas gerido pelo Azure é ativado por defeito. Para
 
  ![Alterar conjunto de regras waf](../media/waf-front-door-create-portal/managed2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> Saiba mais sobre a Firewall de [Aplicação Web Azure](../overview.md)
-> [Saiba mais sobre a Porta da Frente Azure](../../frontdoor/front-door-overview.md)
+> [Saiba mais sobre a firewall](../overview.md)
+> de aplicação web azure[Saiba mais sobre a porta da frente do Azure](../../frontdoor/front-door-overview.md)

@@ -5,30 +5,30 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: e4b366075cb16f62a0e16b5b06da6fb19ffefdb9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67184924"
 ---
-1. Inicie sessão no dispositivo do Data Box. Certifique-se de que ele está desbloqueado.
+1. Assine o dispositivo Data Box. Certifique-se de que está desbloqueado.
 
-    ![Dashboard de caixa de dados](media/data-box-add-device-ip/data-box-connect-via-rest-1.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-add-device-ip/data-box-connect-via-rest-1.png)
 
-2. Aceda a **definir interfaces de rede**. Tome nota do endereço IP do dispositivo para a interface de rede utilizada para ligar ao cliente.
+2. Vá para **Definir interfaces de rede**. Tome nota do endereço IP do dispositivo para a interface de rede utilizada para ligar ao cliente.
 
-    ![Dashboard de caixa de dados](media/data-box-add-device-ip/data-box-connect-via-rest-2.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-add-device-ip/data-box-connect-via-rest-2.png)
 
-3. Aceda a **Connect e de cópia** e clique em **Rest**.
+3. Vá para **Ligar e copiar** e clique em **Descansar**.
 
-    ![Dashboard de caixa de dados](media/data-box-add-device-ip/data-box-connect-via-rest-3.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-add-device-ip/data-box-connect-via-rest-3.png)
 
-4. Do **armazenamento de acesso da conta e carregar dados** caixa de diálogo, copie a **ponto final de serviço Blob**.
+4. A partir da conta de Armazenamento de **Acesso e diálogo de dados de upload,** copie o ponto final do serviço **Blob**.
 
-    ![Dashboard de caixa de dados](media/data-box-add-device-ip/data-box-connect-via-rest-4.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-add-device-ip/data-box-connect-via-rest-4.png)
 
-5. Inicie **bloco de notas** como administrador e, em seguida, abra o **anfitriões** arquivo localizado em `C:\Windows\System32\Drivers\etc`.
-6. Adicione a seguinte entrada para sua **anfitriões** ficheiro: `<device IP address> <Blob service endpoint>`
-7. Para referência, utilize a imagem seguinte. Guardar a **anfitriões** ficheiro.
+5. Inicie o Bloco de **Notas** como administrador e, `C:\Windows\System32\Drivers\etc`em seguida, abra o ficheiro dos **anfitriões** localizado em .
+6. Adicione a seguinte entrada ao ficheiro dos **anfitriões:**`<device IP address> <Blob service endpoint>`
+7. Para referência, utilize a seguinte imagem. Guarde o ficheiro dos **anfitriões.**
 
-    ![Dashboard de caixa de dados](media/data-box-add-device-ip/data-box-connect-via-rest-5.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-add-device-ip/data-box-connect-via-rest-5.png)

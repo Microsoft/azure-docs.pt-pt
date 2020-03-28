@@ -1,21 +1,21 @@
 ---
-title: Criar um aplicativo de funções sem servidor usando o CLI do Azure
-description: Criar um aplicativo de funções para execução sem servidor no Azure usando o CLI do Azure
+title: Criar uma aplicação de função sem servidores utilizando o Azure CLI
+description: Criar um aplicativo de função para execução sem servidor estoque em Azure usando o Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 0fe4cb6e75a74f58b4c3b312f923935053ea4756
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75922617"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Criar uma aplicação de funções para execução de código sem servidor 
 
-Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. O aplicativo de funções é criado usando o [plano de consumo](../functions-scale.md#consumption-plan), que é ideal para cargas de trabalho sem servidor controladas por eventos.
+Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. A aplicação de funções é criada utilizando o [plano de consumo,](../functions-scale.md#consumption-plan)ideal para cargas de trabalho sem servidores orientadas por eventos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,7 +25,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Esse script cria um aplicativo de funções do Azure usando o [plano de consumo](../functions-scale.md#consumption-plan).
+Este script cria uma aplicação Azure Function utilizando o [plano de consumo.](../functions-scale.md#consumption-plan)
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a Consumption plan")]
 

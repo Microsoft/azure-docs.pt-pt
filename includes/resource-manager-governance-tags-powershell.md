@@ -9,13 +9,13 @@ ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 069baf627c0230b6a4727c375494352ab3e6a803
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67184193"
 ---
-Para adicionar duas etiquetas a um grupo de recursos, utilize o [Set-AzResourceGroup](/powershell/module/az.resources/set-azresourcegroup) comando:
+Para adicionar duas tags a um grupo de recursos, utilize o comando [Set-AzResourceGroup:](/powershell/module/az.resources/set-azresourcegroup)
 
 ```azurepowershell-interactive
 Set-AzResourceGroup -Name myResourceGroup -Tag @{ Dept="IT"; Environment="Test" }
@@ -86,7 +86,7 @@ Para combinar vários valores numa única etiqueta, utilize uma cadeia JSON.
 Set-AzResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
-Para adicionar uma nova etiqueta com vários valores sem perder as etiquetas existentes, terá de obter as etiquetas existentes, utilize uma cadeia de caracteres do JSON para a nova etiqueta e, volte a aplicar a coleção de etiquetas:
+Para adicionar uma nova etiqueta com vários valores sem perder as etiquetas existentes, deve recuperar as etiquetas existentes, utilizar uma corda JSON para a nova etiqueta e reaplicar a coleção de etiquetas:
 
 ```azurepowershell-interactive
 # Get existing tags and add a new tag

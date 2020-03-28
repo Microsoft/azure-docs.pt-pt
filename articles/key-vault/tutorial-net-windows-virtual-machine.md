@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use o Cofre de Chaves Azure com uma máquina virtual Windows em .NET  Microsoft Docs
+title: Tutorial - Use o Cofre de Chaves Azure com uma máquina virtual Windows em .NET [ Microsoft Docs
 description: Neste tutorial, configura uma aplicação ASP.NET central para ler um segredo do seu cofre chave.
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 625b1a40543af8024bb3506bb02151d435c89a57
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 1bf280ac8b9b01189c306f33e8fcc232a5cec8b6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79134396"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472678"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Use o Cofre de Chaves Azure com uma máquina virtual Windows em .NET
 
@@ -36,7 +36,7 @@ Este tutorial mostra-lhe como:
 
 Antes de começar, leia [os conceitos básicos do Key Vault.](basic-concepts.md) 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Para iniciar sessão no Azure utilizando o Azure CLI, introduza:
 az login
 ```
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). 
 
@@ -108,7 +108,7 @@ Criar uma máquina virtual utilizando um dos seguintes métodos:
 
 * [O Azure CLI](../virtual-machines/windows/quick-create-cli.md)
 * [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
-* [O portal do Azure](../virtual-machines/windows/quick-create-portal.md)
+* [O portal Azure](../virtual-machines/windows/quick-create-portal.md)
 
 ### <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
 Crie uma identidade atribuída ao sistema para a máquina virtual com o comando de atribuição de [identidade az vm:](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign)
@@ -119,7 +119,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Note a identidade atribuída ao sistema que está exposta no seguinte código. A saída do comando anterior seria: 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -139,7 +139,7 @@ Para iniciar sessão na máquina virtual, siga as instruções em [Connect e ins
 
 ## <a name="set-up-the-console-app"></a>Configurar a aplicação de consola
 
-Crie uma aplicação de consola e instale as embalagens necessárias utilizando o comando `dotnet`.
+Crie uma aplicação de consola e `dotnet` instale as embalagens necessárias utilizando o comando.
 
 ### <a name="install-net-core"></a>Instalar .NET Core
 
@@ -159,9 +159,9 @@ dotnet run
 
 ### <a name="install-the-packages"></a>Instale as embalagens
 
- A partir da janela da consola, instale as embalagens .NET necessárias para este arranque rápido:
+A partir da janela da consola, instale as embalagens .NET necessárias para este arranque rápido:
 
- ```console
+```console
 dotnet add package System.IO;
 dotnet add package System.Net;
 dotnet add package System.Text;

@@ -1,23 +1,23 @@
 ---
-title: Instalar um aplicativo em um cluster autônomo
-description: Neste tutorial, você aprenderá a instalar um aplicativo em seu cluster Service Fabric autônomo.
+title: Instale uma aplicação num cluster autónomo
+description: Neste tutorial, aprende a instalar uma aplicação no seu cluster de Tecido de Serviço autónomo.
 author: dkkapur
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613963"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: implementar uma aplicação no cluster autónomo do Service Fabric
 
-Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, você cria um cluster autônomo hospedado no AWS e implanta um aplicativo nele.
+Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série tutorial, você cria um cluster autónomo hospedado na AWS e implementa uma aplicação nele.
 
-Este tutorial é a terceira parte de uma série.  Service Fabric clusters autônomos oferecem a opção de escolher seu próprio ambiente e criar um cluster como parte de nossa abordagem de "qualquer sistema operacional, qualquer nuvem" com Service Fabric. Este tutorial mostra como criar a infraestrutura do AWS necessário para alojar este cluster autónomo.
+Este tutorial é a terceira parte de uma série.  Os clusters autónomos service Fabric oferecem-lhe a opção de escolher o seu próprio ambiente e criar um cluster como parte da nossa abordagem "qualquer SISTEMA, qualquer nuvem" com o Tecido de Serviço. Este tutorial mostra como criar a infraestrutura do AWS necessário para alojar este cluster autónomo.
 
 Na terceira parte da série, ficará a saber como:
 
@@ -29,8 +29,8 @@ Na terceira parte da série, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* [Instale o Visual Studio 2019](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e **ASP.net e desenvolvimento** para a Web.
-* [Instale o SDK do Service Fabric](service-fabric-get-started.md)
+* [Instale o Visual Studio 2019](https://www.visualstudio.com/) e instale o **desenvolvimento do Azure** e ASP.NET e trabalhos de **desenvolvimento web.**
+* [Instale o SDK de Tecido de Serviço](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Transferir o exemplo de aplicação de votação
 
@@ -46,13 +46,13 @@ Agora que a aplicação foi transferida, pode implementá-la num cluster diretam
 
 1. Abrir o Visual Studio
 
-2. Selecione **Ficheiro** > **Abrir**
+2. Selecione **File** > **Open**
 
 3. Navegue para a pasta para onde clonou o repositório de git para e selecione Voting.sln
 
-4. Clique com o botão direito do rato no projeto de aplicação `Voting` no Explorador de Soluções e escolha **Publicar**
+4. Clique no projeto `Voting` de candidatura no Solution Explorer e escolha **Publicar**
 
-5. Selecione o menu pendente do **Ponto Final de Ligação** e introduza o nome DNS público de um dos nós no cluster.  Por exemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Observe que no Azure, um FQDN (nome de domínio totalmente qualificado) não é fornecido automaticamente, mas pode [ser facilmente definido na página Visão geral da VM.](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)
+5. Selecione o menu pendente do **Ponto Final de Ligação** e introduza o nome DNS público de um dos nós no cluster.  Por exemplo, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Note que em Azure, um nome de domínio totalmente qualificado (FQDN) não é dado automaticamente, mas pode ser facilmente [definido na página de Visão Geral vM.](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)
 
 6. Abra o browser preferido e escreva o endereço do cluster (ponto final da ligação, esta aplicação implementa na porta 8080, por exemplo, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

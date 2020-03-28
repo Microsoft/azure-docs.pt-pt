@@ -5,51 +5,51 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72933478"
 ---
-Selecione **Compilar**. Na caixa de diálogo que é aberta, selecione uma pasta para a qual exportar o projeto do Xcode.
+Selecione **Construir**. Na caixa de diálogo que abre, selecione uma pasta para exportar o projeto Xcode para.
 
-Quando a exportação for concluída, uma pasta que contém o projeto Xcode exportado será exibida.
+Quando a exportação estiver concluída, aparecerá uma pasta que contenha o projeto Xcode exportado.
 
 > [!NOTE]
-> Se uma janela perguntando se você deseja substituir ou anexar aparecer, recomendamos que você selecione **acrescentar** porque ele é mais rápido. Você só precisará selecionar **substituir** se estiver alterando ativos em sua cena. (Por exemplo, se você estiver adicionando, removendo ou alterando relações pai/filho, ou se estiver adicionando, removendo ou alterando Propriedades.) Se você estiver apenas fazendo alterações no código-fonte, **Append** deverá ser suficiente.
+> Se aparecer uma janela a perguntar-lhe se pretende substituir ou anexar, recomendamos que selecione **O Apêndice** porque é mais rápido. Só precisa selecionar **Substitua** se estiver a mudar de ativo na sua cena. (Por exemplo, se estiver a adicionar, remover ou alterar relações entre pais e filhos, ou se estiver a adicionar, remover ou alterar propriedades.) Se estiver apenas a fazer alterações de código fonte, o **Apêndice** deve ser suficiente.
 
-### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Converter o projeto Xcode em xcworkspace contendo referências de âncoras espaciais do Azure
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Converter o projeto Xcode em xcworkspace contendo referências de âncoras espaciais Azure
 
-Na pasta do projeto Xcode exportada, execute este comando no terminal para instalar o CocoaPods necessário para o projeto:
+Na pasta do projeto Xcode exportada, execute este comando no Terminal para instalar os CocoaPods necessários para o projeto:
 
 ```bash
 pod install --repo-update
 ```
 
-Agora você pode abrir `Unity-iPhone.xcworkspace` para abrir o projeto no Xcode:
+Agora pode `Unity-iPhone.xcworkspace` abrir o projeto em Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Consulte as etapas de solução de problemas [aqui](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) se você estiver tendo problemas de CocoaPod após a atualização para o MacOS Catalina (10,15).
+> Veja aqui os [passos](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) de resolução de problemas se tiver problemas com o CocoaPod depois de atualizar para macOS Catalina (10.15).
 
-Selecione o nó raiz **Unity-iPhone** para exibir as configurações do projeto e, em seguida, selecione a guia **geral** .
+Selecione o nó de **unidade-iPhone** raiz para visualizar as definições do projeto e, em seguida, selecione o separador **Geral.**
 
-Em **assinatura**, verifique se a **assinatura gerenciar automaticamente** está habilitada. Se não estiver, habilite-o e, em seguida, selecione **habilitar automático** na caixa de diálogo que aparece para redefinir as configurações de compilação.
+Em **'Assinatura', certifique-se**de que a assinatura está ativada **automaticamente.** Se não for, ative-o e, em seguida, **selecione Ativar Automático** na caixa de diálogo que parece redefinir as definições de construção.
 
-Em **informações de implantação**, verifique se o **destino de implantação** está definido como `11.0`.
+Em informações de **implantação,** certifique-se de que o alvo de **implantação** está definido para `11.0`.
 
-### <a name="deploy-the-app-to-your-ios-device"></a>Implantar o aplicativo em seu dispositivo iOS
+### <a name="deploy-the-app-to-your-ios-device"></a>Implemente a aplicação para o seu dispositivo iOS
 
-Conecte o dispositivo iOS ao Mac e defina o **esquema ativo** para seu dispositivo IOS.
+Ligue o dispositivo iOS ao Mac e detete **tede** o esquema ativo para o seu dispositivo iOS.
 
-![Selecionar o dispositivo](./media/spatial-anchors-unity/select-device.png)
+![Selecione o dispositivo](./media/spatial-anchors-unity/select-device.png)
 
-Selecione **Compilar e execute o esquema atual**.
+Selecione **Construir e, em seguida, executar o esquema atual**.
 
-![Implantar e executar](./media/spatial-anchors-unity/deploy-run.png)
+![Implementar e executar](./media/spatial-anchors-unity/deploy-run.png)
 
 > [!NOTE]
-> Se você vir um erro `library not found for -lPods-Unity-iPhone`, provavelmente você abriu o arquivo `.xcodeproj` em vez do arquivo `.xcworkspace`.
+> Se vir `library not found for -lPods-Unity-iPhone` um erro, provavelmente abriu o `.xcodeproj` ficheiro em vez do `.xcworkspace` ficheiro.

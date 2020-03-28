@@ -1,5 +1,5 @@
 ---
-title: Junte-se a um VM do Windows Server para um domínio gerido  Microsoft Docs
+title: Junte-se a um VM do Windows Server para um domínio gerido [ Microsoft Docs
 description: Neste tutorial, aprenda a juntar uma máquina virtual do Windows Server a um domínio gerido pelo Azure Ative Directory Domain Services.
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: 05705d14db336b15a6ddf2317f9e69464c8e575b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239183"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481590"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Junte-se a uma máquina virtual do Windows Server para um domínio gerido
 
@@ -74,7 +74,7 @@ Se já tem um VM que pretende aderir ao domínio, salte para a secção para [se
 
 1. Por padrão, os VMs criados em Azure são acessíveis a partir da Internet utilizando RDP. Quando o RDP está ativado, é provável que ocorra um sinal automatizado nos ataques, o que pode desativar contas com nomes comuns, como *administrador* ou *administrador,* devido a múltiplos sinais sucessivos falhados nas tentativas.
 
-    O RDP só deve ser ativado quando necessário, e limitado a um conjunto de gamas IP autorizadas. Esta configuração ajuda a melhorar a segurança do VM e reduz a área para potenciais ataques. Ou criar e utilizar um anfitrião do Azure Bastion que só permite o acesso através do portal Azure sobre o SSL. No próximo passo deste tutorial, você usa um anfitrião do Azure Bastion para ligar-se de forma segura ao VM.
+    O RDP só deve ser ativado quando necessário, e limitado a um conjunto de gamas IP autorizadas. Esta configuração ajuda a melhorar a segurança do VM e reduz a área para potenciais ataques. Ou criar e utilizar um anfitrião do Azure Bastion que só permite o acesso através do portal Azure sobre o TLS. No próximo passo deste tutorial, você usa um anfitrião do Azure Bastion para ligar-se de forma segura ao VM.
 
     Por enquanto, desative as ligações diretas de RDP ao VM.
 
@@ -106,7 +106,7 @@ Se já tem um VM que pretende aderir ao domínio, salte para a secção para [se
 
 1. Em seguida, no menu esquerdo da janela de rede virtual, selecione **Subnets,** em seguida, escolha **+ Subnet** para adicionar uma subnet.
 
-1. Selecione **+ Subnet,** em seguida, introduza um nome para a sub-rede, como *a gestão*. Forneça uma **gama de endereços (bloco CIDR)** , como *10.0.2.0/24*. Certifique-se de que esta gama de endereços IP não se sobrepõe a quaisquer outros intervalos de endereços existentes do Azure ou no local. Deixe as outras opções como valores predefinidos e, em seguida, selecione **OK**.
+1. Selecione **+ Subnet,** em seguida, introduza um nome para a sub-rede, como *a gestão*. Forneça uma **gama de endereços (bloco CIDR)**, como *10.0.2.0/24*. Certifique-se de que esta gama de endereços IP não se sobrepõe a quaisquer outros intervalos de endereços existentes do Azure ou no local. Deixe as outras opções como valores predefinidos e, em seguida, selecione **OK**.
 
     ![Criar uma configuração de sub-rede no portal Azure](./media/join-windows-vm/create-subnet.png)
 
@@ -155,10 +155,10 @@ Com o VM criado e uma ligação RDP baseada na web estabelecida usando o Azure B
 
 1. Introduza credenciais de domínio para se juntar ao domínio. Utilize as credenciais para um utilizador que faz parte do domínio gerido pelo Azure AD DS. A conta deve fazer parte do domínio gerido pela Azure AD DS ou pelo inquilino Azure AD - contas de diretórios externos associados ao seu inquilino Azure AD não podem autenticar corretamente durante o processo de união de domínios. As credenciais de conta podem ser especificadas de uma das seguintes formas:
 
-    * **Formato UPN** (recomendado) - Introduza o sufixo principal do utilizador (UPN) para a conta de utilizador, tal como configurado em Azure AD. Por exemplo, o sufixo UPN do utilizador de *contosoadmina* seria `contosoadmin@aaddscontoso.onmicrosoft.com`. Existem alguns casos comuns de utilização em que o formato UPN pode ser usado de forma fiável para iniciar sessão no domínio em vez do formato *SAMAccountName:*
+    * **Formato UPN** (recomendado) - Introduza o sufixo principal do utilizador (UPN) para a conta de utilizador, tal como configurado em Azure AD. Por exemplo, o sufixo UPN do utilizador `contosoadmin@aaddscontoso.onmicrosoft.com`de *contosoadminseria* . Existem alguns casos comuns de utilização em que o formato UPN pode ser usado de forma fiável para iniciar sessão no domínio em vez do formato *SAMAccountName:*
         * Se o prefixo UPN de um utilizador for longo, como o *nome deehasareallylongname,* o *Nome SAMAccount pode* ser autogerado.
         * Se vários utilizadores tiverem o mesmo prefixo UPN no seu inquilino Azure AD, como *o DEE,* o seu formato *SAMAccountName* poderá ser autogerado.
-    * **Formato SAMAccountName** - Introduza o nome da conta no formato *SAMAccountName.* Por exemplo, o *Nome samAccount da* *contosoadmina* do utilizador seria `AADDSCONTOSO\contosoadmin`.
+    * **Formato SAMAccountName** - Introduza o nome da conta no formato *SAMAccountName.* Por exemplo, o *Nome samAccount* da *contosoadmina* do utilizador seria `AADDSCONTOSO\contosoadmin`.
 
 1. Demora alguns segundos a juntar-se ao domínio gerido pelo Azure AD DS. Quando estiver concluída, a seguinte mensagem dá-lhe as boas-vindas ao domínio:
 
@@ -207,10 +207,10 @@ Se não receber um pedido que peça credenciais para se juntar ao domínio, há 
 Depois de experimentar cada uma destas etapas de resolução de problemas, tente juntar-se ao VM do Windows Server novamente para o domínio gerido.
 
 * Verifique se o VM está ligado à mesma rede virtual em que o Azure AD DS está ativado ou tem uma ligação de rede com pares.
-* Tente pingar o nome de domínio DNS do domínio gerido, como `ping aaddscontoso.com`.
-    * Se o pedido de ping falhar, tente adoeça os endereços IP para o domínio gerido, como `ping 10.0.0.4`. O endereço IP para o seu ambiente é apresentado na página *Propriedades* quando selecionar o domínio gerido pelo Azure AD DS a partir da sua lista de recursos Azure.
+* Tente pingar o nome de domínio DNS `ping aaddscontoso.com`do domínio gerido, tais como .
+    * Se o pedido de ping falhar, tente pingar os endereços `ping 10.0.0.4`IP para o domínio gerido, tais como . O endereço IP para o seu ambiente é apresentado na página *Propriedades* quando selecionar o domínio gerido pelo Azure AD DS a partir da sua lista de recursos Azure.
     * Se conseguir obter o endereço IP, mas não o domínio, o DNS pode estar incorretamente configurado. Confirme que os endereços IP do domínio gerido estão configurados como servidores DNS para a rede virtual.
-* Tente descarregar a cache de resolver DNS na máquina virtual utilizando o comando `ipconfig /flushdns`.
+* Tente descarregar a cache de resolver DNS `ipconfig /flushdns` na máquina virtual utilizando o comando.
 
 ### <a name="credentials-related-issues"></a>Questões relacionadas com credenciais
 
@@ -220,7 +220,7 @@ Depois de experimentar cada uma destas etapas de resolução de problemas, tente
 
 * Certifique-se de que a conta de utilizador que especifica pertence ao domínio gerido pelo Azure AD DS.
 * Confirme que a conta faz parte do domínio gerido pela Azure AD DS ou pelo inquilino azure AD. As contas de diretórios externos associados ao seu inquilino Azure AD não podem autenticar corretamente durante o processo de união de domínios.
-* Tente utilizar o formato UPN para especificar credenciais, como `contosoadmin@aaddscontoso.onmicrosoft.com`. Se houver muitos utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo, o *Nome SAMAccount para* a sua conta pode ser autogerado. Nestes casos, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
+* Tente utilizar o formato UPN `contosoadmin@aaddscontoso.onmicrosoft.com`para especificar credenciais, tais como . Se houver muitos utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo, o *Nome SAMAccount para* a sua conta pode ser autogerado. Nestes casos, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
 * Verifique se permitiu a sincronização da [palavra-passe][password-sync] no seu domínio gerido. Sem este passo de configuração, as hashes de senha necessárias não estarão presentes no domínio gerido pelo Azure AD DS para autenticar corretamente o seu sinal na tentativa.
 * Aguarde a sincronização da palavra-passe. Quando a palavra-passe de uma conta de utilizador é alterada, uma sincronização automática de fundo da Azure AD atualiza a palavra-passe no Azure ADDS. Leva algum tempo para que a palavra-passe esteja disponível para uso de união de domínio.
 

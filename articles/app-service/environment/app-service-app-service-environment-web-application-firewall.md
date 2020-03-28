@@ -1,21 +1,21 @@
 ---
-title: Configurar um WAF
-description: Saiba como configurar um WAF (firewall do aplicativo Web) na frente do Ambiente do Serviço de Aplicativo, seja com Aplicativo Azure gateway ou um WAF de terceiros.
+title: Configure uma WAF
+description: Aprenda a configurar uma firewall de aplicação web (WAF) em frente ao seu Ambiente de Serviço de Aplicações, seja com o Portal de Aplicações Azure ou com um WAF de terceiros.
 author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: ba53438eb5ae1870cb180b169348ab0f92e5f305
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 51375c13d842bda2450a83e1bbc48b741adba39b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688761"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057450"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de Aplicações Web (WAF) para o Ambiente de Serviço de Aplicações
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 As firewalls de aplicações Web (WAF) ajudam a proteger as suas aplicações Web ao inspecionarem o tráfego Web de entrada para bloquear injeções de SQL, Scripting Entre Sites, carregamentos de malware, DDoS de aplicações e outros ataques. Também inspecionam as respostas dos servidores Web do back-end quanto a Prevenção de Perda de Dados (DLP). Em combinação com o isolamento e o dimensionamento adicional que os Ambientes de Serviço de Aplicações proporcionam, as firewalls oferecem um ambiente ideal para alojar aplicações Web criticas das empresas que têm de conseguir suportar pedidos maliciosos e altos volumes de tráfego. O Azure proporciona uma capacidade de WAF com o [Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Para saber como integrar o Ambiente de Serviço de Aplicações num Gateway de Aplicação, leia o documento [Integrate your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) (Integrar o ASE de ILB num Gateway de Aplicação).
 
@@ -23,7 +23,7 @@ Para além do Gateway de Aplicação do Azure, existem muitas opções no mercad
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 Neste documento, vamos configurar o Ambiente de Serviço de Aplicações por trás de várias instâncias com carga balanceada do Barracuda WAF, de modo a que apenas o tráfego do WAF possa chegar ao Ambiente de Serviço de Aplicações e não esteja acessível a partir do DMZ. Também temos o Gestor de Tráfego do Azure à frente das instâncias do Barracuda WAF para fazer o balanceamento de carga entre os datacenters e as regiões do Azure. Um diagrama de alto nível da configuração teria o aspeto da imagem seguinte:
 
 ![Arquitetura][Architecture] 
@@ -66,12 +66,12 @@ Depois de iniciar sessão, deverá ver um dashboard, como o da imagem seguinte, 
 
 ![Dashboard de Gestão][ManagementDashboard]
 
-Clicar no separador **Services** (Serviços) permite-lhe configurar o WAF para os serviços que aquele está a proteger. Para obter mais detalhes sobre como configurar o Barracuda WAF, veja a [documentação da Barracuda](https://techlib.barracuda.com/waf/getstarted1). No exemplo a seguir, um aplicativo do serviço de aplicativo que atende o tráfego em HTTP e HTTPS foi configurado.
+Clicar no separador **Services** (Serviços) permite-lhe configurar o WAF para os serviços que aquele está a proteger. Para obter mais detalhes sobre como configurar o Barracuda WAF, veja a [documentação da Barracuda](https://techlib.barracuda.com/waf/getstarted1). No exemplo seguinte, foi configurada uma aplicação do App Service que serve tráfego em HTTP e HTTPS.
 
 ![Gestão Adicionar Serviços][ManagementAddServices]
 
 > [!NOTE]
-> Dependendo de como seus aplicativos são configurados e quais recursos estão sendo usados na sua Ambiente do Serviço de Aplicativo, você precisará encaminhar o tráfego para portas TCP diferentes de 80 e 443, por exemplo, se você tiver IP SSL configuração para um aplicativo do serviço de aplicativo. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
+> Dependendo da configuração das suas aplicações e das funcionalidades utilizadas no seu Ambiente de Serviço de Aplicação, é necessário reencaminhar o tráfego para portas TCP que não sejam 80 e 443, por exemplo, se tiver configuração IP SSL para uma aplicação de Serviço de Aplicações. Para obter uma lista das portas de rede utilizadas em Ambientes de Serviço de Aplicações, veja a secção Portas de Rede da [documentação Control Inbound Traffic](app-service-app-service-environment-control-inbound-traffic.md) (Controlar o Tráfego de Entrada).
 > 
 > 
 

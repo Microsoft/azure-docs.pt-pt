@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Cisco Webex para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Cisco Webex para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo do Azure para fornecer e desfornecer automaticamente contas de utilizadores à Cisco Webex.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
 ms.openlocfilehash: 0075783c049e7f48645f768026dd9d5ec0ead821
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77058523"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Tutorial: Configure Cisco Webex para fornecimento automático de utilizadores
@@ -27,19 +27,19 @@ ms.locfileid: "77058523"
 O objetivo deste tutorial é demonstrar os passos a serem realizados na Cisco Webex e azure Ative Directory (Azure AD) para configurar a Azure AD para fornecer e desfornecer automaticamente utilizadores à Cisco Webex.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
 > Este conector encontra-se atualmente em Pré-visualização. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * Um inquilino do Azure AD.
 * [Um inquilino da Cisco Webex.](https://www.webex.com/pricing/index.html)
 * Uma conta de utilizador na Cisco Webex com permissões de administrador.
 
-## <a name="adding-cisco-webex-from-the-gallery"></a>Adicionando o Cisco WebEx da Galeria
+## <a name="adding-cisco-webex-from-the-gallery"></a>Adicionando Cisco Webex da galeria
 
 Antes de configurar a Cisco Webex para o fornecimento automático de utilizadores com o Azure AD, é necessário adicionar a Cisco Webex da galeria de aplicações Azure AD à sua lista de aplicações SaaS geridas.
 
@@ -47,15 +47,15 @@ Antes de configurar a Cisco Webex para o fornecimento automático de utilizadore
 
 1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
 2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite **cisco Webex**, selecione Cisco **Webex** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
 
@@ -83,7 +83,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **Cisco Webex**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Cisco Webex**.
 
@@ -101,7 +101,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![Cisco Webex Provisioning](./media/cisco-webex-provisioning-tutorial/secrettoken1.png)
 
-6.  No campo URL do **Arrendatário,** insira um valor sob a forma de `https://api.ciscoweb.com/v1/scim/[OrgId]`. Para obter `[OrgId]`, inscreva-se no seu [Cisco Webex Control Hub](https://admin.webex.com/login). Clique no nome da sua organização no canto inferior esquerdo e copie o valor do ID da **Organização**. 
+6.  No campo URL do **Arrendatário,** `https://api.ciscoweb.com/v1/scim/[OrgId]`insira um valor sob a forma de . Para `[OrgId]`obter, inscreva-se no seu [Cisco Webex Control Hub](https://admin.webex.com/login). Clique no nome da sua organização no canto inferior esquerdo e copie o valor do ID da **Organização**. 
 
     * Para obter o valor do **Token Secreto,** navegue para este [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose). A partir do sinal webex na página que aparece, inscreva-se com a conta de administração da Cisco Webex completa para a sua organização. Uma página de erro aparece dizendo que o site não pode ser alcançado, mas isto é normal.
 
@@ -113,7 +113,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à Cisco Webex. Se a ligação falhar, certifique-se de que a sua conta Cisco Webex tem permissões de Administrador e tente novamente.
 
-    ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![URL do inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
    
 8. No campo de email de **notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de fornecimento e verificar a caixa de verificação - Envie uma notificação por **e-mail quando ocorrer uma falha**.
 
@@ -133,17 +133,17 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 13. Para ativar o serviço de provisionamento de AD Azure para a Cisco Webex, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
-    ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
+    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
 
 14. Defina os utilizadores e/ou grupos que deseja fornecer à Cisco Webex, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Escopo de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de provisionamento](common/provisioning-scope.png)
 
 15. Quando estiver pronto para fornecer, clique em **Guardar**.
 
-    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure na Cisco Webex.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure na Cisco Webex.
 
 Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 

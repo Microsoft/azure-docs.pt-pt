@@ -9,15 +9,15 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67184189"
 ---
 Ao implementar recursos no Azure, tem muita flexibilidade ao decidir os tipos de recursos a implementar, onde estão localizados e como configurá-los. No entanto, essa flexibilidade pode abrir mais opções do que gostaria de permitir na sua organização. Ao considerar implementar recursos no Azure, deve estar a questionar-se:
 
-* Como atender a requisitos legais de soberania de dados em determinados países/regiões?
+* Como posso cumprir os requisitos legais para a soberania dos dados em certos países/regiões?
 * Como controlo os custos?
 * Como garanto que alguém não altera um sistema crítico inadvertidamente?
 * Como controlo os custos dos recursos e faturo-os com precisão?

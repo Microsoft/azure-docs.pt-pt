@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 3a857c145959c1bcde169e95369ef0bea327dfaf
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 8b471dd509dca02ab2a66d70dbc7fac9988f1afe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79296987"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472242"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever o preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Na [segunda parte](tutorial-designer-automobile-price-deploy.md) do tutorial, ir
 > [!NOTE]
 >Uma versão completa deste tutorial está disponível como um pipeline de amostra.
 >
->Para encontrá-lo, vá ao designer no seu espaço de trabalho. Na secção **New pipeline,** selecione **Amostra 1 - Regressão: Previsão do Preço do Automóvel (Básico)** .
+>Para encontrá-lo, vá ao designer no seu espaço de trabalho. Na secção **New pipeline,** selecione **Amostra 1 - Regressão: Previsão do Preço do Automóvel (Básico)**.
 
 ## <a name="create-a-new-pipeline"></a>Criar um novo oleoduto
 
@@ -43,7 +43,7 @@ Os oleodutos Azure Machine Learning organizam múltiplas etapas de aprendizagem 
 
 Para criar um oleoduto azure machine learning, você precisa de um espaço de trabalho Azure Machine Learning. Nesta secção, aprende-se a criar estes dois recursos.
 
-### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
+### <a name="create-a-new-workspace"></a>Crie uma nova área de trabalho
 
 Para utilizar o designer, precisa primeiro de um espaço de trabalho Azure Machine Learning. O espaço de trabalho é o recurso de alto nível para o Azure Machine Learning, que fornece um lugar centralizado para trabalhar com todos os artefactos que cria em Azure Machine Learning.
 
@@ -69,7 +69,7 @@ Um oleoduto funciona num alvo de cálculo, que é um recurso de computação que
 
 Pode definir um alvo de **computação Padrão** para todo o pipeline, que dirá a cada módulo para usar o mesmo alvo de computação por padrão. No entanto, pode especificar os alvos da computação numa base por módulo.
 
-1. Ao lado do nome do pipeline, selecione o **ícone de Engrenagem** ![Screenshot do ícone de engrenagem](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) na parte superior da tela para abrir o painel **Definições.**
+1. Ao lado do nome do pipeline, selecione o **ícone** ![de engrenagem Screenshot do ícone](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) de engrenagem na parte superior da tela para abrir o painel **Definições.**
 
 1. No painel **Definições** à direita da tela, **selecione Selecione o alvo computacional**.
 
@@ -89,7 +89,7 @@ Pode definir um alvo de **computação Padrão** para todo o pipeline, que dirá
 
 ## <a name="import-data"></a>Importar dados
 
-Existem vários conjuntos de dados de amostras incluídos no designer para que possa experimentar. Para este tutorial, utilize **os dados do preço do Automóvel (Raw)** . 
+Existem vários conjuntos de dados de amostras incluídos no designer para que possa experimentar. Para este tutorial, utilize **os dados do preço do Automóvel (Raw)**. 
 
 1. À esquerda da tela do oleoduto está uma paleta de conjuntos de dados e módulos. Selecione **Conjuntos**de Dados e, em seguida, veja a secção **Amostras** para visualizar os conjuntos de dados disponíveis.
 
@@ -155,7 +155,7 @@ Quando se treina um modelo, tem que fazer algo sobre os dados que faltam. Neste 
 
     Os comentários aparecerão no gráfico para ajudá-lo a organizar o seu pipeline.
 
-### <a name="clean-missing-data"></a>Apagar dados em falta
+### <a name="clean-missing-data"></a>Limpar dados em falta
 
 O seu conjunto de dados ainda tem valores em falta depois de remover a coluna **de perdas normalizadas.** Pode remover os dados restantes em falta utilizando o módulo **Clean Missing Data.**
 
@@ -188,7 +188,7 @@ Agora que tem os módulos no lugar para processar os dados, pode configurar os m
 
 Porque quer prever o preço, que é um número, pode usar um algoritmo de regressão. Para este exemplo, usa-se um modelo linear de regressão.
 
-### <a name="split-the-data"></a>Divida os dados
+### <a name="split-the-data"></a>Dividir os dados
 
 Dividir dados é uma tarefa comum na aprendizagem automática. Dividirá os seus dados em dois conjuntos de dados separados. Um conjunto de dados irá treinar o modelo e o outro vai testar o quão bem o modelo foi executado.
 
@@ -207,7 +207,7 @@ Dividir dados é uma tarefa comum na aprendizagem automática. Dividirá os seus
 
     Esta opção divide 70% dos dados para treinar o modelo e 30% para testá-lo. O conjunto de dados de 70% será acessível através da porta de saída esquerda. Os restantes dados estarão disponíveis através da porta de saída certa.
 
-1. No módulo os detalhes painelam à direita da tela, selecionem a caixa **de comentários** e introduzam dividir o conjunto de dados em conjunto de *treino (0.7) e conjunto de teste (0.3)* .
+1. No módulo os detalhes painelam à direita da tela, selecionem a caixa **de comentários** e introduzam dividir o conjunto de dados em conjunto de *treino (0.7) e conjunto de teste (0.3)*.
 
 ### <a name="train-the-model"></a>Dar formação sobre o modelo
 
@@ -217,7 +217,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     
     Esta opção exibe várias categorias de módulos que pode utilizar para inicializar algoritmos de aprendizagem.
 
-1. **Selecione Regressão** > **Regressão Linear**, e arraste-a para a tela do oleoduto.
+1. **Selecione Regressão** > **Linear regressão**e arraste-a para a tela do oleoduto.
 
 1. Ligue a saída do módulo **De regressão linear** à entrada esquerda do módulo **Modelo de Comboio.**
 
@@ -253,7 +253,7 @@ Depois de treinar o seu modelo utilizando 70% dos dados, pode usá-lo para marca
 
 1. Introduza o modelo de *pontuação* na caixa de pesquisa para encontrar o módulo **'Modelo de Pontuação'.** Arraste o módulo para a tela do oleoduto. 
 
-1. Ligue a saída do módulo **Modelo de Comboio** à porta de entrada esquerda do Modelo de **Pontuação**. Ligue a saída de dados de teste (porta direita) do módulo **De dados divididos** à porta de entrada direita do **Modelo de Pontuação**.
+1. Ligue a saída do módulo **Train Model** à porta de entrada da esquerda de **Score Model**. Ligue a saída de dados de teste (porta da direita) do módulo **Split Data** à porta de entrada da direita de **Score Model**.
 
 ### <a name="add-the-evaluate-model-module"></a>Adicione o módulo Modelo de Avaliação
 
@@ -267,7 +267,7 @@ Utilize o módulo **'Avaliar modelo'** para avaliar a forma como o seu modelo ob
 
     ![Screenshot mostrando a configuração correta do gasoduto.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-## <a name="run-the-pipeline"></a>Executar o pipeline
+## <a name="submit-the-pipeline"></a>Submeter o gasoduto
 
 Agora que o seu oleoduto está todo configurado, pode submeter uma corrida de gasodutos para treinar o seu modelo de aprendizagem automática. Você pode submeter um pipeline executado em qualquer ponto enquanto constrói oleodutos no designer. Pode fazer isto para verificar o seu trabalho à medida que vai verificar se o seu oleoduto funciona como esperado.
 
@@ -290,7 +290,7 @@ Após a execução, pode ver os resultados da execução do gasoduto. Primeiro, 
 
 1. Selecione o módulo **'Modelo de Pontuação'** para visualizar a sua saída.
 
-1. No módulo os detalhes painelam à direita da tela, selecione **Outputs** > ícone de gráfico ![visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelam à direita da tela, ![selecione **Saídas** > ícone de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
@@ -302,12 +302,12 @@ Utilize o **Modelo de Avaliação** para ver se o modelo treinado foi executado 
 
 1. Selecione o módulo **'Avaliar Modelo'** para visualizar a sua saída.
 
-1. No módulo os detalhes painelam à direita da tela, selecione **Output** > ícone de gráfico ![visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
+1. No módulo os detalhes painelem à direita da tela, selecione **Output** > ícone ![de gráfico visualizar ícone](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para visualizar resultados.
 
 As seguintes estatísticas são mostradas para o seu modelo:
 
-* **Erro Absoluto Médio (MAE)** : A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
-* **Erro quadrado da raiz média (RMSE)** : A raiz quadrada da média de erros quadrados das previsões efetuadas no conjunto de dados do teste.
+* **Erro Absoluto Médio (MAE)**: A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
+* **Erro quadrado da raiz média (RMSE)**: A raiz quadrada da média de erros quadrados das previsões efetuadas no conjunto de dados do teste.
 * **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
 * **Erro ao quadrado absoluto**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
 * **Coeficiente de Determinação**: Também conhecido como o valor quadrado R, esta métrica estatística indica quão bem um modelo se encaixa nos dados.
@@ -320,7 +320,7 @@ Ignore esta secção se quiser continuar com a parte 2 do tutorial, [implantando
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na segunda parte, aprenderás a implementar o teu modelo como um ponto final em tempo real.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a19eb19c3a25d3856d5cf333bd64be888f65a6e2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d287cfab7adb676d3561486ed34c1062895a4036
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239939"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80133643"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e registos de diagnóstico com um hub IoT
 
@@ -36,9 +36,9 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Instalar o [Visual Studio](https://www.visualstudio.com/). 
+- Instalar [o Estúdio Visual.](https://www.visualstudio.com/) 
 
 - Uma conta de e-mail capaz de receber correio.
 
@@ -49,11 +49,11 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 ## <a name="set-up-resources"></a>Configurar recursos
 
-Para este tutorial, você precisa de um hub IoT, uma conta de armazenamento, e um dispositivo IoT simulado. Pode criar estes recursos com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no fim, pode remover tudo num único passo ao eliminar o grupo de recursos.
+Para este tutorial, você precisa de um hub IoT, uma conta de armazenamento, e um dispositivo IoT simulado. Pode criar estes recursos com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no final, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 Estes são os passos necessários.
 
-1. Crie um [grupo de recursos](../azure-resource-manager/management/overview.md). 
+1. Criar um [grupo de recursos](../azure-resource-manager/management/overview.md). 
 
 2. Criar um centro de ioT.
 
@@ -123,7 +123,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >Aqui está o comando para atualizar a extensão. Executa isto no seu caso Cloud Shell.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## <a name="enable-the-diagnostic-logs"></a>Ativar os registos de diagnóstico 
@@ -165,7 +165,7 @@ Agora, estabeleça algumas métricas para ver quando as mensagens são enviadas 
 
 1. No painel de definições para o hub IoT, clique na opção **Métricas** na secção **de Monitorização.**
 
-2. Na parte superior do ecrã, clique nas **últimas 24 horas (Automática)** . No dropdown que aparece, selecione **Last 4 horas** para intervalo de **tempo**, e coloque a **granularidade** do tempo para **1 minuto,** hora local. Clique **Em Aplicar** para guardar estas definições. 
+2. Na parte superior do ecrã, clique nas **últimas 24 horas (Automática)**. No dropdown que aparece, selecione **Last 4 horas** para intervalo de **tempo**, e coloque a **granularidade** do tempo para **1 minuto,** hora local. Clique **Em Aplicar** para guardar estas definições. 
 
    ![Screenshot mostrando as definições de tempo das métricas.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
@@ -262,7 +262,7 @@ O IoT Hub ainda não foi migrado para as [métricas do Monitor Azure;](/azure/az
 
    **Destinatários do email**de notificação : Coloque aqui o seu endereço de e-mail. 
 
-   Clique **em OK** para salvar a regra. 
+   Clique em **OK** para guardar a regra. 
 
 5. Deve agora ver dois alertas no painel de alertas clássicos: 
 
@@ -290,7 +290,7 @@ Faça duplo clique no ficheiro da solução (SimulatedDevice.sln) para abrir o c
 
 ## <a name="run-and-test"></a>Executar e testar 
 
-Em Program.cs, mude o `Task.Delay` de 1000 para 10, o que reduz o tempo entre o envio de mensagens de 1 segundo para 0,01 segundos. Encurtar este atraso aumenta o número de mensagens enviadas.
+Em Program.cs, `Task.Delay` mude o de 1000 para 10, o que reduz o tempo entre o envio de mensagens de 1 segundo para 0,01 segundos. Encurtar este atraso aumenta o número de mensagens enviadas.
 
 ```csharp
 await Task.Delay(10);
@@ -371,7 +371,7 @@ Para remover o grupo de recursos, utilize o comando [az group delete](https://do
 az group delete --name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar métricas e registos de diagnóstico executando as seguintes tarefas:
 

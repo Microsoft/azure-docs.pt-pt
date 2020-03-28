@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: 8a09a52db40f4f52219bce3e703e275b0f310c1a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67184926"
 ---
 Siga estes passos para ligar à conta de armazenamento e verificar a ligação.
 
-1. No Explorador de armazenamento, abra a **ligar ao armazenamento do Azure** caixa de diálogo. Na **ligar ao armazenamento do Azure** caixa de diálogo, selecione **utilize um nome de conta de armazenamento e a chave**.
+1. No Storage Explorer, abra o diálogo **Connect to Azure Storage.** No diálogo **Connect to Azure Storage,** selecione **Utilize um nome e uma chave da conta de armazenamento**.
 
-    ![Dashboard de caixa de dados](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
 
-2. Colar seu **nome da conta** e **chave de conta** (1 valor da chave a **Connect e a cópia** página na IU da web local). Selecione domínio de pontos finais de armazenamento como **outros (introduzir abaixo)** e, em seguida, forneça o ponto final de serviço de BLOBs, conforme mostrado abaixo. Verifique **utilizar HTTP** opção apenas se transferir através de *http*. Se utilizar *https*, deixe a opção desmarcada. Selecione **Seguinte**.
+2. Cole o nome da **conta** e a **chave conta** (chave 1 do valor da página Connect e **cópia** na UI web local). Selecione o domínio dos pontos finais de armazenamento como **Outro (insira abaixo)** e, em seguida, forneça o ponto final do serviço blob como mostrado abaixo. Verifique a opção **Use HTTP** apenas se transferir em *http*. Se utilizar *https,* deixe a opção desmarcada. Selecione **Next**.
 
-    ![Dashboard de caixa de dados](media/data-box-verify-connection/data-box-connect-via-rest-11.png)    
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-verify-connection/data-box-connect-via-rest-11.png)    
 
-3. Na **resumo da ligação** caixa de diálogo, reveja as informações fornecidas. Selecione **Ligar**.
+3. No diálogo **sumário de ligação,** reveja as informações fornecidas. Selecione **Ligar**.
 
-    ![Dashboard de caixa de dados](media/data-box-verify-connection/data-box-connect-via-rest-12.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-verify-connection/data-box-connect-via-rest-12.png)
 
-4. A conta que adicionou com êxito é apresentada no painel esquerdo do Explorador de armazenamento com (externos, outros) anexado ao respetivo nome. Clique em **contentores de BLOBs** para ver o contentor.
+4. A conta que adicionou com sucesso é exibida no painel esquerdo do Storage Explorer com (Externo, Outros) anexado ao seu nome. Clique em **Recipientes Blob** para ver o recipiente.
 
-    ![Dashboard de caixa de dados](media/data-box-verify-connection/data-box-connect-via-rest-17.png)
+    ![Painel de instrumentos da Caixa de Dados](media/data-box-verify-connection/data-box-connect-via-rest-17.png)

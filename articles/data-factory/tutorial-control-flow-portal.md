@@ -1,5 +1,5 @@
 ---
-title: Ramificação e encadeamento de atividades em um pipeline usando portal do Azure
+title: Atividades de ramificação e corrente num oleoduto utilizando o portal Azure
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
 author: djpmsft
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 3fe4dc76e8ece0d525f307626b1772a3239805db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977497"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
@@ -40,9 +40,9 @@ Este tutorial utiliza o portal do Azure. Pode utilizar outros mecanismos para in
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure**. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento do Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
-* **Base de Dados SQL do Azure**. Pode utilizar a base de dados como arquivo de dados **sink**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
+* **Assinatura Azure.** Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de Armazenamento Azure.** Utilize o armazenamento de blobs como arquivo de dados de **origem**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter os passos para criar uma.
+* **Base de Dados Azure SQL**. Pode utilizar a base de dados como arquivo de dados **sink**. Se não tiver uma Base de Dados SQL do Azure, veja o artigo [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
 
 ### <a name="create-blob-table"></a>Criar a tabela de blobs
 
@@ -127,7 +127,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu à esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**:
+1. No menu esquerdo, selecione **Criar um recurso** > **Data + Analytics** > **Data Factory**:
 
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -135,7 +135,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
      ![Página Nova fábrica de dados](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
 
-   O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
+   O nome da fábrica de dados Azure deve ser **globalmente único.** Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados.
@@ -149,7 +149,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**.
+8. No painel de instrumentos, vê o seguinte azulejo com estatuto: **Implantação da fábrica**de dados .
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -173,7 +173,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     - **sourceBlobContainer** – parâmetro no pipeline consumido pelo conjunto de dados do blob de origem.
     - **sinkBlobContainer** – parâmetro no pipeline consumido pelo conjunto de dados do blob de sink.
-    - **receiver** – este parâmetro é utilizado por duas atividades Web no pipeline que envia e-mails de êxito ou falha para o recetor cujo endereço de e-mail é especificado por este parâmetro.
+    - **recetor** – este parâmetro é utilizado pelas duas atividades web no pipeline que enviam e-mails de sucesso ou falha ao recetor cujo endereço de e-mail é especificado por este parâmetro.
 
    ![Menu Novo pipeline](./media/tutorial-control-flow-portal/pipeline-parameters.png)
 4. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline.
@@ -209,7 +209,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
     ![Botão conjunto de dados de novo](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
 14. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e clique em **Concluir**.
 15. Na página **Geral** das definições do conjunto de dados, introduza **SinkBlobDataset** em **Nome**.
-16. Mude para o separador **Ligação** e siga os passos abaixo:
+16. Mude para o separador **Ligação** e faça os seguintes passos:
 
     1. Selecione **AzureStorageLinkedService** em **Serviço ligado**.
     2. Introduza `@pipeline().parameters.sinkBlobContainer` para a pasta.
@@ -288,7 +288,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
     1. Introduza **adfv2branch/adftutorial/entrada** no parâmetro **sourceBlobContainer**.
     2. Introduza **adftutorial/adfv2branch/output** no parâmetro **sinkBlobContainer**.
     3. Introduza um **endereço de e-mail** do **recetor**.
-    4. Clique em **Concluir**
+    4. Clique em **Terminar**
 
         ![Parâmetros de execução de pipeline](./media/tutorial-control-flow-portal/pipeline-run-parameters.png)
 

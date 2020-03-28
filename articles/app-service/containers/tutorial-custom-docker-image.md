@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: mvc, seodec18
+ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239267"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045749"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Construa uma imagem personalizada e corra no Serviço de Aplicações a partir de um registo privado
 
@@ -36,7 +36,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, precisa de:
 
 * [Git](https://git-scm.com/downloads)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Estivador](https://docs.docker.com/get-started/#setup)
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -47,9 +47,9 @@ git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --conf
 cd docker-django-webapp-linux
 ```
 
-## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem a partir do Dockerfile
+## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem a partir do ficheiro Docker
 
-No repositório Git, veja _Dockerfile_. Este ficheiro descreve o ambiente do Python que é necessário para executar a sua aplicação. Além disso, a imagem configura um servidor [SSH](https://www.ssh.com/ssh/protocol/) para comunicação segura entre o contentor e o anfitrião.
+No repositório Git, veja _Dockerfile_. Este ficheiro descreve o ambiente do Python que é necessário para executar a sua aplicação. Além disso, a imagem configura um servidor [SSH](https://www.ssh.com/ssh/protocol/) para comunicação segura entre o contentor e o anfitrião. A última linha no `ENTRYPOINT ["init.sh"]` `init.sh` _Dockerfile,_ invoca para iniciar o serviço SSH e o servidor Python.
 
 ```Dockerfile
 FROM python:3.4
@@ -73,17 +73,19 @@ COPY init.sh /usr/local/bin/
     
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
+
+#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```
 
-Construa a imagem do Docker com o comando `docker build`.
+Construa a imagem `docker build` do Docker com o comando.
 
 ```bash
 docker build --tag mydockerimage .
 ```
 
-Execute o contentor do Docker para verificar se a compilação funciona. Emita o comando [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) e transmita o nome e a etiqueta da imagem para o mesmo. Certifique-se de que utiliza o argumento `-p` para especificar a porta.
+Execute o contentor do Docker para verificar se a compilação funciona. Emita-lhe o [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) comando e passe-lhe o nome e a etiqueta da imagem. Certifique-se de que utiliza o argumento `-p` para especificar a porta.
 
 ```bash
 docker run -p 8000:8000 mydockerimage
@@ -105,7 +107,7 @@ Para criar uma aplicação que utiliza a imagem que acaba de criar, executa coma
 
 ### <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
 
-No Cloud Shell, utilize o comando [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) para criar um Azure Container Registry.
+Na Cloud Shell, [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) utilize o comando para criar um registo de contentores Azure.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -113,7 +115,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 ### <a name="sign-in-to-azure-container-registry"></a>Inscreva-se no Registo de Contentores de Azure
 
-Para empurrar uma imagem para o registo, precisa autenticar com o registo privado. Na Cloud Shell, use o comando [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) para recuperar as credenciais do registo que criou.
+Para empurrar uma imagem para o registo, precisa autenticar com o registo privado. Na Cloud Shell, [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) use o comando para recuperar as credenciais do registo que criou.
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -137,7 +139,7 @@ A saída revela duas palavras-passe juntamente com o nome do utilizador.
 }
 ```
 
-A partir da janela do terminal local, inscreva-se no Registo de Contentores Azure utilizando o comando `docker login`, como se pode ver no seguinte exemplo. Substitua\<nome de registo de *contentores azul>* e *\<registro-username>* com valores para o seu registo. Quando solicitado, digite uma das palavras-passe do passo anterior.
+A partir da janela do terminal local, inscreva-se no Registo de Contentores Azure utilizando o `docker login` comando, como mostra o seguinte exemplo. Substitua * \<* o>de registo de contentores-azul e * \<o nome de utilizador do registo>* por valores para o seu registo. Quando solicitado, digite uma das palavras-passe do passo anterior.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <registry-username>
@@ -178,7 +180,7 @@ Deve obter a seguinte saída.
 
 ### <a name="create-web-app"></a>Criar aplicação Web
 
-No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Substitua _\<nome de aplicativo>_ com um nome único de aplicação, e\<nome de _registo de contentores azul>_ com o seu nome de registo.
+No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Substitua _ \<>de nome de aplicação_ por um nome único de aplicação e _ \<>_ de registo de contentores azul com o seu nome de registo.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
@@ -203,21 +205,21 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Configure credenciais de registo na aplicação web
 
-Para que o Serviço de Aplicações puxe a imagem privada, precisa de informações sobre o seu registo e imagem. Na Cloud Shell, forneça-lhes o [comando`az webapp config container set`.](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) Substitua *\<nome de aplicação>* *\<azure-container-registry-name>* \<_registry-username>_ e _\<password>_
+Para que o Serviço de Aplicações puxe a imagem privada, precisa de informações sobre o seu registo e imagem. Na Cloud Shell, forneça-lhes o [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) comando. Substitua * \<o nome da aplicação>*, * \<>* de registo de registo sinuoso, _ \<nome de utilizador de registo>_ e _ \<>de palavra-passe. _
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
 ```
 
 > [!NOTE]
-> Quando utilizar um registo diferente do Docker Hub, `--docker-registry-server-url` deve ser formatado `https://` seguido do nome de domínio totalmente qualificado do registo.
+> Quando utilizar um registo diferente `--docker-registry-server-url` do Docker Hub, deve ser formatado como `https://` seguido pelo nome de domínio totalmente qualificado do registo.
 >
 
 ### <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
-A maioria das imagens do Docker usam variáveis ambientais personalizadas, como uma porta que não seja 80. Informe o Serviço de Aplicações sobre a porta que a sua imagem utiliza utilizando a definição de aplicações `WEBSITES_PORT`. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_.
+A maioria das imagens do Docker usam variáveis ambientais personalizadas, como uma porta que não seja 80. Informe o Serviço de Aplicações sobre `WEBSITES_PORT` a porta que a sua imagem utiliza utilizando a definição da aplicação. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_.
 
-Para configurar as definições da aplicação, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. As definições da aplicação são sensíveis a maiúsculas e minúsculas e são separadas por espaços.
+Para definir as definições da aplicação, utilize o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando na Cloud Shell. As definições da aplicação são sensíveis a maiúsculas e minúsculas e são separadas por espaços.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_PORT=8000
@@ -291,7 +293,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para permi
 
 ### <a name="open-ssh-connection-to-container"></a>Abrir a ligação SSH ao contentor
 
-A ligação SSH está disponível apenas através do site Kudu, que é acessível a `https://<app-name>.scm.azurewebsites.net`.
+A ligação SSH está disponível apenas `https://<app-name>.scm.azurewebsites.net`através do site Kudu, que é acessível a .
 
 Para ligar, navegue para `https://<app-name>.scm.azurewebsites.net/webssh/host` e inicie sessão com a sua conta do Azure.
 
@@ -324,7 +326,7 @@ Parabéns! Configurou um recipiente Linux personalizado no Serviço de Aplicaç�
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O que aprendeu:
 
@@ -344,7 +346,7 @@ Avance para o próximo tutorial para aprender a mapear um nome DNS personalizado
 Ou, confira outros recursos:
 
 > [!div class="nextstepaction"]
-> [Configurar recipiente personalizado](configure-custom-container.md)
+> [Configurar um contentor personalizado](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicação WordPress multi-contentor](tutorial-multi-container-app.md)

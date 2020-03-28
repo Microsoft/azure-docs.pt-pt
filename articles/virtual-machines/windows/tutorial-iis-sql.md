@@ -1,5 +1,5 @@
 ---
-title: Tutorial-criar VMs que executam uma pilha SQL, IIS, .NET no Azure
+title: Tutorial - Crie VMs executando uma pilha SQL, IIS, .NET em Azure
 description: Neste tutorial, vai aprender a instalar a pilha do Azure SQL, IIS, .NET numa máquina virtual do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 286d00ce718a34dea15a075984cc3b2a5e4cfec3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 762d67a291ec33e13ca9e7311b0cf11da140dd6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064667"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154275"
 ---
-# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: instalar o SQL, o IIS, o .NET Stack em uma VM do Windows com Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instale o SQL, IIS, .NET stack em um Windows VM com Azure PowerShell
 
-Neste tutorial, instalamos uma pilha SQL, IIS, .NET usando Azure PowerShell. Este pilha consiste em duas VMs com o Windows Server 2016, uma com o IIS e .NET e a outra com o SQL Server.
+Neste tutorial, instalamos uma pilha SQL, IIS, .NET utilizando o Azure PowerShell. Este pilha consiste em duas VMs com o Windows Server 2016, uma com o IIS e .NET e a outra com o SQL Server.
 
 > [!div class="checklist"]
 > * Criar uma VM 
@@ -35,11 +35,11 @@ Neste tutorial, instalamos uma pilha SQL, IIS, .NET usando Azure PowerShell. Est
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-## <a name="create-an-iis-vm"></a>Criar uma VM do IIS 
+## <a name="create-an-iis-vm"></a>Criar um IIS VM 
 
-Neste exemplo, usamos o cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) no PowerShell Cloud Shell para criar rapidamente uma VM do Windows Server 2016 e, em seguida, instalar o IIS e o .NET Framework. AS VMs do IIS e SQL partilham um grupo de recursos e a rede virtual, pelo que iremos criar variáveis para esses nomes.
+Neste exemplo, utilizamos o cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) na PowerShell Cloud Shell para criar rapidamente um Windows Server 2016 VM e, em seguida, instalar o IIS e o .NET Framework. AS VMs do IIS e SQL partilham um grupo de recursos e a rede virtual, pelo que iremos criar variáveis para esses nomes.
 
 
 ```azurepowershell-interactive
@@ -58,7 +58,7 @@ New-AzVm `
     -OpenPorts 80,3389 
 ```
 
-Instale o IIS e o .NET Framework usando a extensão de script personalizado com o cmdlet [set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) .
+Instale o IIS e a estrutura .NET utilizando a extensão de script personalizada com o cmdlet [set-AzVMExtension.](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)
 
 ```azurepowershell-interactive
 Set-AzVMExtension `
@@ -74,7 +74,7 @@ Set-AzVMExtension `
 
 ## <a name="create-another-subnet"></a>Criar outra sub-rede
 
-Crie uma segunda sub-rede para a VM do SQL. Obter a vNet usando [Get-AzVirtualNetwork] {/PowerShell/Module/AZ.Network/Get-azvirtualnetwork}.
+Crie uma segunda sub-rede para a VM do SQL. Obtenha o vNet usando [Get-AzVirtualNetwork]{/powershell/module/az.network/get-azvirtualnetwork}.
 
 ```azurepowershell-interactive
 $vNet = Get-AzVirtualNetwork `
@@ -82,7 +82,7 @@ $vNet = Get-AzVirtualNetwork `
    -ResourceGroupName $resourceGroup
 ```
 
-Crie uma configuração para a sub-rede usando [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
+Crie uma configuração para a sub-rede utilizando [add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
 
 
 ```azurepowershell-interactive
@@ -93,7 +93,7 @@ Add-AzVirtualNetworkSubnetConfig `
    -ServiceEndpoint Microsoft.Sql
 ```
 
-Atualize a vNet com as novas informações de sub-rede usando [set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)
+Atualize o vNet com as novas informações de subnet usando [set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)
    
 ```azurepowershell-interactive   
 $vNet | Set-AzVirtualNetwork
@@ -117,7 +117,7 @@ New-AzVm `
     -OpenPorts 3389,1401 
 ```
 
-Use [set-AzVMSqlServerExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsqlserverextension) para adicionar a [extensão de SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) à VM do SQL.
+Utilize a [extensão set-AzVMSqlServer](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsqlserverextension) para adicionar a [extensão do Servidor SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) ao VM SQL.
 
 ```azurepowershell-interactive
 Set-AzVMSqlServerExtension `
@@ -137,8 +137,8 @@ Neste tutorial, instalou a pilha SQL&#92;IIS&#92;.NET com o Azure PowerShell. Ap
 > * Criar uma VM a executar o SQL Server
 > * Instalar a extensão do SQL Server
 
-Avance para o tutorial seguinte para aprender a proteger o servidor Web IIS com certificados SSL.
+Avance para o próximo tutorial para aprender a proteger o servidor web IIS com certificados TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Proteger o servidor Web IIS com certificados SSL](tutorial-secure-web-server.md)
+> [Servidor web IIS seguro com certificados TLS/SSL](tutorial-secure-web-server.md)
 

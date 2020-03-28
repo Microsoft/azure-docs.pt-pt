@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o planejamento de gama Predictix | Documentos da Microsoft'
-description: Neste tutorial, irá aprender como configurar o início de sessão único entre o Azure Active Directory e o planejamento de gama Predictix.
+title: 'Tutorial: Integração do Diretório Ativo azure com o Planeamento de Sortido sortido sortido sortido soro de Previsão [ Microsoft Docs'
+description: Neste tutorial, você vai aprender a configurar um único sign-on entre o Azure Ative Directory e o Predictix Sortment Planning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,95 +16,95 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: bc3ea2f6fddc233a69d96c0c885ab310ed1e77c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094158"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integração do Active Directory do Azure com o planejamento de gama Predictix
+# <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integração do Diretório Ativo Azure com o Planeamento de Sortido sortido sortido sortido sortido soro
 
-Neste tutorial, irá aprender como integrar o planejamento de gama Predictix com o Azure Active Directory (Azure AD).
-Esta integração oferece estes benefícios:
+Neste tutorial, você aprenderá a integrar o Planeamento de Sortido sortido sortido sortido sortido soro com o Diretório Ativo Azure (Azure AD).
+Esta integração proporciona estes benefícios:
 
-* Pode utilizar o Azure AD para controlar quem tem acesso a variedade de Predictix planejamento.
-* Pode permitir que os utilizadores ter automaticamente sessão iniciada no planejamento de gama Predictix (início de sessão único) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central: portal do Azure.
+* Pode usar a AD Azure para controlar quem tem acesso ao Planeamento de Sortimento de Predictix.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Predictix Sortment Planning (único sinal) com as suas contas Azure AD.
+* Pode gerir as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicações saaS com a Azure AD, consulte [o single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Se não tiver uma subscrição do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o planejamento de gama Predictix, tem de ter:
+Para configurar a integração da AD Azure com o Planeamento de Sortido sortidos predictix, você precisa ter:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma subscrição de planejamento de gama Predictix que tem início de sessão único ativada.
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita.](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição de Planeamento de Sortido sortido predictix que tem um único sinal ativado.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, irá configurar e testar o Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você vai configurar e testar o único sign-on Azure AD em um ambiente de teste.
 
-* Planeamento da variedade de Predictix suporta SSO iniciado por SP.
+* O Planeamento de Sortido sortidos Predictix apoia o SSO iniciado pelo SP.
 
-## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Adicionar o planejamento de gama Predictix a partir da Galeria
+## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Adicione o Planeamento de Sortido predictix da galeria
 
-Para configurar a integração do planeamento de gama Predictix com o Azure AD, terá de adicionar Predictix variedade de planeamento da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Planeamento de Sortido sortido sortido predictix em Azure AD, você precisa adicionar Predictix Sorts Planning da galeria à sua lista de aplicações geridas saaS.
 
-1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
+1. No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azure Ative Directory:**
 
     ![Selecione Azure Active Directory](common/select-azuread.png)
 
-2. Aceda a **aplicações empresariais** > **todas as aplicações**:
+2. Ir a **aplicações** > da Enterprise**Todas as aplicações:**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar uma aplicação, selecione **nova aplicação** na parte superior da janela:
+3. Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
-    ![Selecionar novo aplicativo](common/add-new-app.png)
+    ![Selecione Nova aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **planejamento de gama Predictix**. Selecione **planejamento de gama Predictix** nos resultados da pesquisa e, em seguida, selecione **Add**.
+4. Na caixa de pesquisa, introduza o **Planeamento de Sortido predictix**. Selecione **O Planeamento de Variedades Predictix** nos resultados da pesquisa e, em seguida, selecione **Adicionar**.
 
-     ![Resultados da pesquisa](common/search-new-app.png)
+     ![Resultados de pesquisa](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, irá configurar e testar o Azure AD início de sessão único com o planejamento de gama Predictix com um utilizador de teste com o nome Eduarda Almeida.
-Para ativar o início de sessão único, tem de estabelecer uma relação entre um utilizador do Azure AD e o utilizador correspondente no planeamento da variedade de Predictix.
+Nesta secção, irá configurar e testar um único sign-on azure ad com o Predictix Sortment Planning utilizando um utilizador de teste chamado Britta Simon.
+Para permitir uma única inscrição, é necessário estabelecer uma relação entre um utilizador da AD Azure e o utilizador correspondente no Planeamento de Sortidos predictix.
 
-Para configurar e testar o Azure AD início de sessão único com o planejamento de gama Predictix, tem de concluir estes passos:
+Para configurar e testar o único sign-on azure ad com o Predictix Sorts Planning, você precisa completar estes passos:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  para ativar a funcionalidade para os seus utilizadores.
-2. **[Configurar o planejamento de gama Predictix início de sessão único](#configure-predictix-assortment-planning-single-sign-on)**  no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar o Azure AD início de sessão único para o utilizador.
-5. **[Criar um utilizador de teste de planejamento de gama Predictix](#create-a-predictix-assortment-planning-test-user)**  associado a representação do Azure AD do utilizador.
-6. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
+1. Configure o único sinal de entrada **[da AD Azure](#configure-azure-ad-single-sign-on)** para ativar a funcionalidade para os seus utilizadores.
+2. **[Configure o planeamento de sortidos predictix único](#configure-predictix-assortment-planning-single-sign-on)** no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sinal de AD Azure.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para ativar o único sinal de entrada da Azure AD para o utilizador.
+5. Crie um utilizador de teste de **[planeamento de sortidos Predictix](#create-a-predictix-assortment-planning-test-user)** que esteja ligado à representação da AD Azure do utilizador.
+6. **[Teste um único sinal](#test-single-sign-on)** para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, irá ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, irá ativar o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar do Azure AD início de sessão único com o planejamento de gama Predictix, siga estes passos:
+Para configurar o único sign-on da Azure AD com o Predictix Sorts Planning, tome estas medidas:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **planejamento de gama Predictix** página de integração de aplicações, selecione **início de sessão único**:
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações de planeamento de **sortidos predictix,** selecione **um único sign-on:**
 
-    ![Selecione início de sessão único](common/select-sso.png)
+    ![Selecione um único sinal on](common/select-sso.png)
 
-2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
+2. Na selectuma única caixa de diálogo do **método de sinalização,** selecione o modo **SAML/WS-Fed** para ativar um único sinal:
 
-    ![Selecionar um método de início de sessão único](common/select-saml-option.png)
+    ![Selecione um único método de sinalização](common/select-saml-option.png)
 
-3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
+3. Na configuração de um único sign-on com a página **SAML,** selecione o ícone **Editar** para abrir a caixa de diálogo **de configuração SAML básica:**
 
     ![Ícone editar](common/edit-urls.png)
 
-4. Na **configuração básica de SAML** diálogo caixa, conclua os passos seguintes.
+4. Na caixa de diálogo **Basic SAML Configuration,** complete os seguintes passos.
 
-    ![Caixa de diálogo de configuração de SAML básica](common/sp-identifier.png)
+    ![Caixa de diálogo de configuração SAML básica](common/sp-identifier.png)
 
-    1. Na **iniciar sessão no URL** , introduza um URL neste padrão:
+    1. No **signo na** caixa URL, introduza um URL neste padrão:
 
        | |
         |--|
@@ -112,7 +112,7 @@ Para configurar do Azure AD início de sessão único com o planejamento de gama
         | `https://<sub-domain>.dev.ap.predictix.com/`|
         | |
 
-    1. Na **identificador (ID de entidade)** , introduza um URL neste padrão:
+    1. Na caixa **Identifier (Id da Entidade),** introduza um URL neste padrão:
 
         | |
         |--|
@@ -121,93 +121,93 @@ Para configurar do Azure AD início de sessão único com o planejamento de gama
         | |
 
     > [!NOTE]
-    > Estes valores são marcadores de posição. Tem de utilizar o URL de início de sessão real e o identificador. Contacte os [equipa de suporte de planeamento de gama Predictix](https://www.infor.com/support) para obter os valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** caixa de diálogo no portal do Azure.
+    > Estes valores são espaços reservados. Tens de usar o URL e identificador de inscrição real. Contacte a equipa de apoio ao Planeamento de [Sortidos Predictix](https://www.infor.com/support) para obter os valores. Também pode consultar os padrões mostrados na caixa de diálogo **Basic SAML Configuration** no portal Azure.
 
-5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, selecione o **transferir** ligação junto a **certificado (Base64)** acordo com suas necessidades e guarde o certificado no seu computador:
+5. Na configuração de um único sinal com a página **SAML,** na secção Certificado de **Assinatura SAML,** selecione o link **de descarregamento** ao lado do **Certificado (Base64)**, de acordo com os seus requisitos, e guarde o certificado no seu computador:
 
-    ![Ligação de transferência do certificado](common/certificatebase64.png)
+    ![Link de descarregamento de certificado](common/certificatebase64.png)
 
-6. Na **configurar o planejamento de gama Predictix** secção, copie os URLs adequados, com base nos seus requisitos:
+6. Na secção de Planeamento de **Sortidos Predictix,** copie os URLs apropriados, com base nos seus requisitos:
 
-    ![Copie os URLs de configuração](common/copy-configuration-urls.png)
+    ![Copiar os URLs de configuração](common/copy-configuration-urls.png)
 
-    1. **URL de início de sessão**.
+    1. **URL de login**.
 
-    1. **Azure AD Identifier**.
+    1. **Identificador Azure AD**.
 
-    1. **URL de fim de sessão**.
+    1. **URL de logout**.
 
-### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Configurar o planejamento de gama Predictix início de sessão único
+### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Configure Predictix Sortido Planejando um único sinal
 
-Para configurar o início de sessão único no lado do planeamento do Predictix variedade, terá de enviar o certificado que transferiu e os URLs que copiou do portal do Azure para o [equipa de suporte de planeamento de gama Predictix](https://www.infor.com/support). Esta equipe garante que a ligação de SAML SSO está definida corretamente em ambos os lados.
+Para configurar um único sinal no lado do Planeamento de Sortidos Predictix, precisa enviar o certificado que descarregou e os URLs que copiou do portal Azure para a equipa de apoio ao Planeamento de [Sortidos Predictix](https://www.infor.com/support). Esta equipa garante que a ligação SAML SSO está corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
+Nesta secção, você vai criar uma utilizadora de teste chamada Britta Simon no portal Azure.
 
-1. No portal do Azure, selecione **do Azure Active Directory** no painel esquerdo, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**:
+1. No portal Azure, selecione **Azure Ative Directory** no painel esquerdo, selecione **Utilizadores,** e, em seguida, selecione **Todos os utilizadores:**
 
-    ![Selecione todos os utilizadores](common/users.png)
+    ![Selecionar Todos os utilizadores](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã:
+2. Selecione **Novo utilizador** na parte superior do ecrã:
 
-    ![Selecione o novo utilizador](common/new-user.png)
+    ![Selecione Novo utilizador](common/new-user.png)
 
-3. Na **utilizador** diálogo caixa, siga os passos seguintes.
+3. Na caixa de diálogo **do Utilizador,** tome os seguintes passos.
 
-    ![Caixa de diálogo de utilizador](common/user-properties.png)
+    ![Caixa de diálogo do utilizador](common/user-properties.png)
 
-    1. Na **Name** , introduza **BrittaSimon**.
+    1. Na caixa **de nomes,** entre **brittaSimon.**
   
-    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >** . (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa de **nomes do Utilizador,** introduza **\<BrittaSimon@> de domínio da\< sua empresa.>de extensão. ** (Por exemplo, BrittaSimon@contoso.com.)
 
-    1. Selecione **palavra-passe de Show**e, em seguida, anote o valor no **palavra-passe** caixa.
+    1. Selecione **mostrar palavra-passe**e, em seguida, anote o valor que está na caixa **password.**
 
     1. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure AD início de sessão único, concedendo acesso para planejamento de gama Predictix.
+Nesta secção, permitirá que Britta Simon use um único sign-on da Azure AD, concedendo-lhe acesso ao Predictix Sortment Planning.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **planejamento de gama Predictix**.
+1. No portal Azure, selecione **aplicações Enterprise**, selecione **Todas as aplicações,** e, em seguida, selecione **Predictix Sorts Planning**.
 
     ![Aplicações Empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **planejamento de gama Predictix**.
+2. Na lista de aplicações, selecione **Predictix Sorts Planning**.
 
-    ![Lista de aplicações](common/all-applications.png)
+    ![Lista de candidaturas](common/all-applications.png)
 
-3. No painel esquerdo, selecione **utilizadores e grupos**:
+3. No painel esquerdo, selecione **Utilizadores e grupos:**
 
-    ![Selecionar utilizadores e grupos](common/users-groups-blade.png)
+    ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-4. Selecione **adicionar utilizador**e, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Atribuição adicionar'.**
 
-    ![Selecione adicionar utilizador](common/add-assign-user.png)
+    ![Selecione Adicionar utilizador](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores e, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na caixa de diálogo **De utilizadores e grupos,** selecione **Britta Simon** na lista de utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se um valor de função na asserção de SAML, que espera do **selecionar função** diálogo caixa, selecione a função adequada para o utilizador a partir da lista. Clique nas **selecione** na parte inferior do ecrã.
+6. Se esperar um valor de papel na afirmação Do SAML, na caixa de diálogo **Select Role,** selecione a função adequada para o utilizador da lista. Clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
+7. Na caixa de diálogo **Adicionar Atribuição,** selecione **Atribuir**.
 
-### <a name="create-a-predictix-assortment-planning-test-user"></a>Criar um utilizador de teste Predictix variedade de planeamento
+### <a name="create-a-predictix-assortment-planning-test-user"></a>Criar um utilizador de teste de planeamento de sortidos predictix
 
-Em seguida, terá de criar um utilizador com o nome Eduarda Almeida no planeamento da variedade de Predictix. Trabalhar com o [equipa de suporte de planeamento de gama Predictix](https://www.infor.com/support) para adicionar utilizadores. Os utilizadores têm de ser criado e ativado antes de utilizar o início de sessão único.
+Em seguida, você precisa criar um utilizador chamado Britta Simon no Predictix Sortment Planning. Trabalhe com a equipa de suporte do Planeamento de [Sortidos Predictix](https://www.infor.com/support) para adicionar utilizadores. Os utilizadores precisam de ser criados e ativados antes de utilizar um único sinal.
 
 > [!NOTE]
-> O titular da conta do Azure AD recebe uma mensagem de e-mail e seleciona uma ligação para confirmar a conta até se tornar Active Directory.
+> O titular da conta Azure AD recebe um e-mail e seleciona um link para confirmar a conta antes de se tornar ativa.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
+Agora precisa de testar a configuração de um único sinal de acesso do Azure AD utilizando o Painel de Acesso.
 
-Ao selecionar o mosaico de planejamento de gama Predictix no painel de acesso, deve ser automaticamente conectado para a instância de planejamento do Predictix variedade de mensagens em fila para o qual configura o SSO. Para obter mais informações, consulte [aplicações de acesso e a utilização no portal minhas aplicações](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo de Planeamento de Sortido sortido sortido predictix no Painel de Acesso, deve ser automaticamente inscrito na instância de Planeamento de Sortido predictix para o qual configura o SSO. Para mais informações, consulte [O Acesso e utilize aplicações no portal My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

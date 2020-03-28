@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o programa auxiliar de programa auxiliar | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e do programa auxiliar de programa auxiliar.
+title: 'Tutorial: Integração de Diretório Ativo Azure com ajudante de ajuda [ Ajuda] Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Helper Helper.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,142 +17,142 @@ ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d70cdade93b028c90c9f62374cd6b997556dd52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67101275"
 ---
-# <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Tutorial: Integrar o auxiliar de auxiliares com o Azure Active Directory
+# <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Tutorial: Auxiliar integrado com Diretório Ativo Azure
 
-Neste tutorial, irá aprender como integrar o auxiliar de auxiliar no Azure Active Directory (Azure AD). Quando integrar o auxiliar de auxiliar no Azure AD, pode:
+Neste tutorial, você vai aprender a integrar helper helper com O Diretório Ativo Azure (Azure AD). Quando integrar o Helper Helper com o Azure AD, pode:
 
-* Controlar no Azure AD que tenha acesso ao programa auxiliar de programa auxiliar.
-* Permita que os utilizadores ser automaticamente sessão iniciada para auxiliar auxiliar com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controle em Azure AD que tem acesso a Helper Helper.
+* Ative que os seus utilizadores sejam automaticamente inscritos no Helper Helper Com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
-* Auxiliar auxiliar início de sessão único (SSO) ativado na subscrição.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A assinatura ativada pelo Helper Helper (SSO) ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta o auxiliar de programa auxiliar **SP e IDP** iniciou o SSO e suporta **Just In Time** aprovisionamento de utilizadores.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. Helper Helper suporta **SP e IDP** iniciado SSO e suporta o fornecimento de utilizadores **Just In Time.**
 
-## <a name="adding-helper-helper-from-the-gallery"></a>Adicionando o auxiliar de programa auxiliar da Galeria
+## <a name="adding-helper-helper-from-the-gallery"></a>Adicionar ajudante da galeria
 
-Para configurar a integração do programa auxiliar de programa auxiliar para o Azure AD, terá de adicionar programa auxiliar de auxiliar a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Helper Helper no Azure AD, precisa de adicionar helper helper da galeria à sua lista de aplicações geridas saaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **auxiliares de programa auxiliar** na caixa de pesquisa.
-1. Selecione **auxiliar auxiliar** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **de galeria,** digite **helper helper** na caixa de pesquisa.
+1. Selecione **Helper Helper** do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Configurar e testar o SSO do Azure AD com através de um utilizador de teste com o nome do programa auxiliar do programa auxiliar **B. Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no programa auxiliar de programa auxiliar.
+Configure e teste Azure AD SSO com helper helper utilizando um utilizador de teste chamado **B. Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Helper Helper.
 
-Para configurar e testar o SSO do Azure AD com o programa auxiliar de programa auxiliar, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o Helper Helper, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Configurar o auxiliar de programa auxiliar](#configure-helper-helper)**  para configurar as definições de SSO no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Simon B.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Simon B. utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste do programa auxiliar de programa auxiliar](#create-helper-helper-test-user)**  para ter um equivalente de Simon B. no programa auxiliar de programa auxiliar que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
+1. **[Configure O SSO AD Azure](#configure-azure-ad-sso)** para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure](#configure-helper-helper)** o Ajudante de Ajuda para configurar as definições SSO no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** para testar o único sinal de Azure AD com B. Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** para permitir que b. Simon utilize um único sinal de AD Azure.
+5. **[Crie o utilizador do teste Helper Helper](#create-helper-helper-test-user)** para ter uma contraparte de B. Simon no Helper Helper que está ligado à representação do utilizador da AD Azure.
+6. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na **auxiliares de programa auxiliar** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Helper Helper,** encontre a secção **Gerir** e selecione **um único sinal .**
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na **configuração básica de SAML** secção, se tiver **ficheiro de metadados do fornecedor de serviços** e deseja configurar no **IDP** modo iniciado execute os seguintes passos:
+1. Na secção **basic SAML Configuration,** se tiver ficheiro de **metadados do Fornecedor** de Serviços e pretender configurar no modo iniciado do **IDP,** execute os seguintes passos:
 
     >[!NOTE]
-    >Aceda ao url `https://sso.helperhelper.com/saml/<customer_id>` para obter o ficheiro de metadados do fornecedor de serviços. Contacte [equipa de suporte de cliente do programa auxiliar de programa auxiliar](mailto:info@helperhelper.com) para `<customer_id>`.
+    >Vá ao `https://sso.helperhelper.com/saml/<customer_id>` url para obter o ficheiro de metadados do Fornecedor de Serviços. Contacte a equipa de `<customer_id>`apoio ao [cliente helper helper](mailto:info@helperhelper.com) para .
 
-    a. Clique em **carregamento de ficheiro de metadados**.
+    a. Clique no **ficheiro de metadados de upload**.
 
-    b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
+    b. Clique no logotipo da **pasta** para selecionar o ficheiro de metadados e clicar em **Carregar**.
 
-    c. Depois do ficheiro de metadados é carregado com êxito, o **identificador** e **URL de resposta** valores ficam automaticamente preenchida na seção de configuração básica de SAML.
+    c. Após o ficheiro de metadados ser carregado com sucesso, os valores de URL do **Identificador** e **da Resposta** ficam povoados automaticamente na secção de Configuração Básica do SAML.
 
     > [!Note]
-    > Se o **identificador** e **URL de resposta** valores não obter polulated automática, em seguida, preencha os valores manualmente de acordo com seus requisitos.
+    > Se os valores de URL do **Identificador** e **da Resposta** não forem automaticamente polerados, preencha os valores manualmente de acordo com a sua exigência.
 
-1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://sso.helperhelper.com/saml/<customer_id>/login`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://sso.helperhelper.com/saml/<customer_id>/login`
 
     > [!NOTE]
-    > O valor de URL de início de sessão não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente do programa auxiliar de programa auxiliar](mailto:info@helperhelper.com) para obter este valor. Também pode consultar os padrões que mostra a **configuração básica de SAML** secção o portal.l do Azure.
+    > O valor do URL de inscrição não é real. Atualize este valor com o URL de início de sinal real. Contacte a equipa de suporte do [Helper Helper Helper Client](mailto:info@helperhelper.com) para obter este valor. Também pode consultar os padrões mostrados na secção **basic SAML Configuração** no portal Azure.l.
 
-1. No **definir a segurança de início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o em seu bloco de notas .
+1. Na configuração do Single Sign-On com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu Bloco de Notas.
 
-   ![O link de download de certificado](common/copy-metadataurl.png)
+   ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
 
-1. Sobre o **configurar o auxiliar de programa auxiliar** secção, copie o URL adequado com base nos seus requisitos.
+1. Na secção De assistência à **instalação,** copie os URL(s) adequados com base na sua exigência.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-helper-helper"></a>Configurar o auxiliar de programa auxiliar
+### <a name="configure-helper-helper"></a>Auxiliar de ajuda configurar
 
-Para configurar o início de sessão único em **auxiliar auxiliar** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte do programa auxiliar de programa auxiliar](mailto:info@helperhelper.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único login no lado do **Helper Helper,** precisa enviar o Url de **Metadados da Federação de Aplicações** para a equipa de suporte do [Helper Helper](mailto:info@helperhelper.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Simon B.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B. Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B. Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `BrittaSimon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, irá ativar a Simon B. utilizar do Azure-início de sessão único, concedendo acesso para auxiliar auxiliar.
+Nesta secção, permitirá que B. Simon utilize um único sign-on Azure, concedendo acesso ao Helper Helper.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **auxiliar auxiliar**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Helper Helper**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B. Simon** a partir da lista de utilizadores, em seguida, clique no **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. No diálogo **de Utilizadores e grupos,** selecione **B. Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-### <a name="create-helper-helper-test-user"></a>Criar utilizador de teste do programa auxiliar de programa auxiliar
+### <a name="create-helper-helper-test-user"></a>Criar o utilizador de teste helper helper
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado no programa auxiliar de programa auxiliar. Programa auxiliar de programa auxiliar suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no programa auxiliar de programa auxiliar, é criado um novo após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado em Helper Helper. O Helper Helper suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Helper Helper, um novo é criado após a autenticação.
 
 ### <a name="test-sso"></a>Teste SSO
 
-Ao selecionar o mosaico de programa auxiliar de auxiliar no painel de acesso, deve ser automaticamente conectado para o auxiliar de programa auxiliar para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo auxiliar no Painel de Acesso, deve ser automaticamente inscrito no Helper Helper para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

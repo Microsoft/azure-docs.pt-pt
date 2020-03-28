@@ -1,32 +1,32 @@
 ---
-title: 'Tutorial: gerenciar governança de marca'
-description: Neste tutorial, você usa o efeito modificar de Azure Policy para criar e impor um modelo de governança de marca em recursos novos e existentes.
+title: 'Tutorial: Gerir a governação da etiqueta'
+description: Neste tutorial, utiliza-se o efeito Modificar da Política Azure para criar e impor um modelo de governação de etiquetas sobre recursos novos e existentes.
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75965990"
 ---
-# <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: gerenciar o controle de marca com Azure Policy
+# <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerir a governação de etiquetas com a Política Azure
 
-As [marcas](../../../azure-resource-manager/management/tag-resources.md) são uma parte crucial da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para o gerenciamento de marca](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), as marcas podem ser a base para aplicar suas políticas de negócios com Azure Policy ou [controlar os custos com o gerenciamento de custos](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
-Não importa como ou por que você usa marcas, é importante que você possa adicionar, alterar e remover rapidamente essas marcas nos recursos do Azure.
+[As etiquetas](../../../azure-resource-manager/management/tag-resources.md) são uma parte crucial da organização dos seus recursos Azure numa taxonomia. Ao seguir [as melhores práticas de gestão de etiquetas,](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)as etiquetas podem ser a base para aplicar as suas políticas de negócio com a Política Azure ou [acompanhar os custos com](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources)a Cost Management.
+Não importa como ou por que usar etiquetas, é importante que possa adicionar, alterar e remover rapidamente essas etiquetas nos seus recursos Azure.
 
-O efeito de [modificação](../concepts/effects.md#modify) de Azure Policy foi projetado para auxiliar na governança de marcas, independentemente do estágio da governança de recursos em que você está. **Modificar** ajuda quando:
+O efeito Modificado da Política Azure [destina-se](../concepts/effects.md#modify) a ajudar na governação das etiquetas, independentemente da fase da governação dos recursos em que se encontra. **Modificar** ajuda quando:
 
-- Você é novo na nuvem e não tem governança de marca
-- Já tem milhares de recursos sem controle de marca
-- Já tem uma taxonomia existente que você precisa alterar
+- Énovo na nuvem e não tem governação de etiquetas.
+- Já temos milhares de recursos sem governação de etiquetas
+- Já tem uma taxonomia existente que precisa de ser alterada
 
-Neste tutorial, você concluirá as seguintes tarefas:
+Neste tutorial, completará as seguintes tarefas:
 
 > [!div class="checklist"]
-> - Identificar seus requisitos de negócios
+> - Identifique os seus requisitos de negócio
 > - Mapear cada requisito para uma definição de política
-> - Agrupar as políticas de marca em uma iniciativa
+> - Agrupar as políticas de etiquetas numa iniciativa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,25 +34,25 @@ Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver
 
 ## <a name="identify-requirements"></a>Identificar requisitos
 
-Como qualquer boa implementação de controles de governança, os requisitos devem vir de suas necessidades de negócios e ser bem compreendidos antes da criação de controles técnicos. Para este tutorial de cenário, os seguintes itens são nossos requisitos de negócios:
+Como qualquer boa implementação dos controlos de governação, os requisitos devem vir das suas necessidades de negócio e ser bem compreendidos antes de criar controlos técnicos. Para este cenário tutorial, os seguintes itens são os nossos requisitos de negócio:
 
-- Duas marcas obrigatórias em todos os recursos: _CostCenter_ e _env_
-- _CostCenter_ deve existir em todos os contêineres e recursos individuais
-  - Os recursos herdam do contêiner no qual estão, mas podem ser substituídos individualmente
-- _Env_ deve existir em todos os contêineres e recursos individuais
-  - Os recursos determinam ambiente por esquema de nomenclatura de contêiner e não podem ser substituídos
-  - Todos os recursos em um contêiner fazem parte do mesmo ambiente
+- Duas etiquetas necessárias em todos os recursos: _CostCenter_ e _Env_
+- _CostCenter_ deve existir em todos os recipientes e recursos individuais
+  - Recursos herdados do contentor em que estão, mas podem ser individualmente ultrapassados
+- _Env_ deve existir em todos os recipientes e recursos individuais
+  - Os recursos determinam o ambiente através do sistema de nomeação de contentores e não podem ser ultrapassados
+  - Todos os recursos num contentor fazem parte do mesmo ambiente
 
-## <a name="configure-the-costcenter-tag"></a>Configurar a marca CostCenter
+## <a name="configure-the-costcenter-tag"></a>Configure a etiqueta CostCenter
 
-Em termos específicos de um ambiente do Azure gerenciado pelo Azure Policy, os requisitos de marca _CostCenter_ exigem o seguinte:
+Em termos específicos de um ambiente Azure gerido pela Política Azure, os requisitos de etiqueta _costCenter_ exigem o seguinte:
 
-- Grupos de recursos de negação ausentes na marca _CostCenter_
-- Modificar recursos para adicionar a marca _CostCenter_ do grupo de recursos pai quando ausente
+- Negar grupos de recursos que faltam à etiqueta _CostCenter_
+- Modifique os recursos para adicionar a etiqueta _CostCenter_ do grupo de recursos parentais quando falta
 
-### <a name="deny-resource-groups-missing-the-costcenter-tag"></a>Grupos de recursos de negação ausentes na marca CostCenter
+### <a name="deny-resource-groups-missing-the-costcenter-tag"></a>Negar grupos de recursos que faltam à etiqueta CostCenter
 
-Como o _CostCenter_ de um grupo de recursos não pode ser determinado pelo nome do grupo de recursos, ele deve ter a marca definida na solicitação para criar o grupo de recursos. A regra de política a seguir com o efeito de [negação](../concepts/effects.md#deny) impede a criação ou a atualização de grupos de recursos que não têm a marca _CostCenter_ :
+Uma vez que o _CostCenter_ para um grupo de recursos não pode ser determinado pelo nome do grupo de recursos, deve ter a etiqueta definida no pedido de criação do grupo de recursos. A seguinte regra política com o efeito [Deny](../concepts/effects.md#deny) impede a criação ou atualização de grupos de recursos que não têm a etiqueta _CostCenter:_
 
 ```json
 "if": {
@@ -72,11 +72,11 @@ Como o _CostCenter_ de um grupo de recursos não pode ser determinado pelo nome 
 ```
 
 > [!NOTE]
-> Como essa regra de política se destina a um grupo de recursos, o _modo_ na definição de política deve ser ' todos ' em vez de ' indexado '.
+> Dado que esta regra de política visa um grupo de recursos, o _modo_ de definição de política deve ser "All" em vez de "Indexado".
 
-### <a name="modify-resources-to-inherit-the-costcenter-tag-when-missing"></a>Modificar recursos para herdar a marca CostCenter quando ausente
+### <a name="modify-resources-to-inherit-the-costcenter-tag-when-missing"></a>Modificar recursos para herdar a etiqueta CostCenter quando faltar
 
-A segunda _CostCenter_ precisa ser para qualquer recurso que herde a marca do grupo de recursos pai quando ela estiver ausente. Se a marca já estiver definida no recurso, mesmo se for diferente do grupo de recursos pai, ela deverá ser mantida sozinha. A regra de política a seguir usa [Modificar](../concepts/effects.md#modify):
+A segunda necessidade do _CostCenter_ é que quaisquer recursos herdem a etiqueta do grupo de recursos-mãe quando está desaparecida. Se a etiqueta já estiver definida no recurso, mesmo que diferente do grupo de recursos-mãe, deve ser deixada em paz. A seguinte regra de política utiliza [Modificar:](../concepts/effects.md#modify)
 
 ```json
 "policyRule": {
@@ -100,21 +100,21 @@ A segunda _CostCenter_ precisa ser para qualquer recurso que herde a marca do gr
 }
 ```
 
-Essa regra de política usa a operação **Adicionar** em vez de **addOrReplace** , pois não queremos alterar o valor da marca se ela estiver presente ao [corrigir](../how-to/remediate-resources.md) os recursos existentes. Ele também usa a função de modelo `[resourcegroup()]` para obter o valor de marca do grupo de recursos pai.
+Esta regra de política utiliza a operação **addOrReplace,** uma vez que não queremos alterar o valor da etiqueta se estiver presente na [reparação](../how-to/remediate-resources.md) dos recursos existentes. **add** Também usa `[resourcegroup()]` a função do modelo para obter o valor da etiqueta do grupo de recursos parentais.
 
 > [!NOTE]
-> Como essa regra de política tem como destino recursos que dão suporte a marcas, o _modo_ na definição de política deve ser ' indexado '. Essa configuração também garante que essa política ignore grupos de recursos.
+> Uma vez que esta regra de política visa os recursos que suportam as etiquetas, o _modo_ de definição de política deve ser "Indexado". Esta configuração também garante que esta política ignora os grupos de recursos.
 
-## <a name="configure-the-env-tag"></a>Configurar a marcação env
+## <a name="configure-the-env-tag"></a>Configure a etiqueta Env
 
-Em termos específicos de um ambiente do Azure gerenciado pelo Azure Policy, os requisitos de marcação _env_ chamam o seguinte:
+Em termos específicos de um ambiente Azure gerido pela Política Azure, os requisitos da etiqueta _Env_ exigem o seguinte:
 
-- Modificar a marca _env_ no grupo de recursos com base no esquema de nomenclatura do grupo de recursos
-- Modifique a marca _env_ em todos os recursos no grupo de recursos para o mesmo que o grupo de recursos pai
+- Modificar a etiqueta _Env_ no grupo de recursos com base no esquema de nomeação do grupo de recursos
+- Modificar a etiqueta _Env_ em todos os recursos do grupo de recursos para o mesmo que o grupo de recursos-mãe
 
-### <a name="modify-resource-groups-env-tag-based-on-name"></a>Modificar a marca env dos grupos de recursos com base no nome
+### <a name="modify-resource-groups-env-tag-based-on-name"></a>Modificar grupos de recursos Etiqueta Env com base no nome
 
-Uma política de [modificação](../concepts/effects.md#modify) é necessária para cada ambiente existente em seu ambiente do Azure. A política de modificação para cada uma é semelhante a esta definição de política:
+É necessária uma política [de modificação](../concepts/effects.md#modify) para cada ambiente que exista no seu ambiente Azure. A política de modificar para cada um se parece com esta definição de política:
 
 ```json
 "policyRule": {
@@ -146,13 +146,13 @@ Uma política de [modificação](../concepts/effects.md#modify) é necessária p
 ```
 
 > [!NOTE]
-> Como essa regra de política se destina a um grupo de recursos, o _modo_ na definição de política deve ser ' todos ' em vez de ' indexado '.
+> Dado que esta regra de política visa um grupo de recursos, o _modo_ de definição de política deve ser "All" em vez de "Indexado".
 
-Essa política só corresponde a grupos de recursos com o esquema de nomenclatura de exemplo usado para recursos de produção de `prd-`. Um esquema de nomenclatura mais complexo pode ser obtido com várias condições de **correspondência** em vez do único, **como** neste exemplo.
+Esta política apenas corresponde aos grupos de `prd-`recursos com o sistema de nomeação da amostra utilizado para os recursos de produção de . Esquemas de nomeação mais complexos podem ser alcançados com várias condições de **correspondência** em vez de um único **como** neste exemplo.
 
-### <a name="modify-resources-to-inherit-the-env-tag"></a>Modificar recursos para herdar a marca env
+### <a name="modify-resources-to-inherit-the-env-tag"></a>Modificar recursos para herdar a etiqueta Env
 
-O requisito de negócios chama todos os recursos para ter a marca _env_ que seu grupo de recursos pai faz. Essa marca não pode ser substituída, então usaremos a operação **addOrReplace** com o efeito [Modificar](../concepts/effects.md#modify) . A política de modificação de exemplo é semelhante à seguinte regra:
+O requisito do negócio exige que todos os recursos tenham a etiqueta _Env_ que o seu grupo de recursos-mãe faz. Esta etiqueta não pode ser sobremontada, por isso vamos usar a operação **addOrReplace** com o efeito [Modificar.](../concepts/effects.md#modify) A política de modificação da amostra parece a seguinte regra:
 
 ```json
 "policyRule": {
@@ -184,21 +184,21 @@ O requisito de negócios chama todos os recursos para ter a marca _env_ que seu 
 ```
 
 > [!NOTE]
-> Como essa regra de política tem como destino recursos que dão suporte a marcas, o _modo_ na definição de política deve ser ' indexado '. Essa configuração também garante que essa política ignore grupos de recursos.
+> Uma vez que esta regra de política visa os recursos que suportam as etiquetas, o _modo_ de definição de política deve ser "Indexado". Esta configuração também garante que esta política ignora os grupos de recursos.
 
-Esta regra de política procura qualquer recurso que não tenha seu valor de grupos de recursos pai para a marca _env_ ou que não tenha a marca _env_ . Os recursos correspondentes têm sua marca _env_ definida como o valor de grupos de recursos pai, mesmo que a marca já exista no recurso, mas com um valor diferente.
+Esta regra de política procura qualquer recurso que não tenha o valor dos seus grupos de recursos-mãe para a etiqueta _Env_ ou que esteja a perder a etiqueta _Env._ Os recursos correspondentes têm a sua etiqueta _Env_ definida para o valor dos grupos de recursos-mãe, mesmo que a etiqueta já existisse no recurso, mas com um valor diferente.
 
-## <a name="assign-the-initiative-and-remediate-resources"></a>Atribuir a iniciativa e corrigir recursos
+## <a name="assign-the-initiative-and-remediate-resources"></a>Atribuir a iniciativa e remediar recursos
 
-Depois que as políticas de marca acima forem criadas, junte-as a uma única iniciativa para governança de marca e atribua-as a um grupo de gerenciamento ou assinatura. A iniciativa e as políticas incluídas avaliam a conformidade dos recursos existentes e altera as solicitações de recursos novos ou atualizados que correspondem à propriedade **If** na regra de política. No entanto, a política não atualiza automaticamente os recursos existentes sem conformidade com as alterações de marca definidas.
+Uma vez criadas as políticas de etiquetaacima, junte-se a eles numa única iniciativa de governação de etiquetas e atribua-as a um grupo de gestão ou subscrição. A iniciativa e as políticas incluídas avaliam então o cumprimento dos recursos existentes e altera os pedidos de recursos novos ou atualizados que correspondam ao **se** imóvel na regra política. No entanto, a política não atualiza automaticamente os recursos não conformes existentes com as alterações de etiquetadefinidas.
 
-Como as políticas de [deployIfNotExists](../concepts/effects.md#deployifnotexists) , a política de **modificação** usa tarefas de correção para alterar os recursos existentes sem conformidade. Siga as instruções em [como corrigir recursos](../how-to/remediate-resources.md) para identificar seus recursos de **modificação** sem conformidade e corrigir as marcas para sua taxonomia definida.
+Tal como as políticas [do IfNotExists,](../concepts/effects.md#deployifnotexists) a política **Modificar** utiliza tarefas de reparação para alterar os recursos não conformes existentes. Siga as instruções sobre [como remediar os recursos](../how-to/remediate-resources.md) para identificar os seus recursos **modificadores** não conformes e corrigir as etiquetas à sua taxonomia definida.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já está a trabalhar com os recursos neste tutorial, utilize os passos seguintes para eliminar quaisquer atribuições ou definições criadas acima:
+Se terminar de trabalhar com recursos deste tutorial, use os seguintes passos para eliminar qualquer uma das atribuições ou definições acima criadas:
 
-1. Selecione **definições** (ou **atribuições** se estiver a tentar eliminar uma atribuição) sob **criação** no lado esquerdo da página política do Azure.
+1. Selecione **Definições** (ou **Atribuições** se estiver a tentar eliminar uma atribuição) ao abrigo da **Autoria** no lado esquerdo da página Política Azure.
 
 1. Procure a nova definição de iniciativa ou de política (ou atribuição) que acabou de remover.
 
@@ -206,16 +206,16 @@ Se já está a trabalhar com os recursos neste tutorial, utilize os passos segui
 
 ## <a name="review"></a>Rever
 
-Neste tutorial, você aprendeu sobre as seguintes tarefas:
+Neste tutorial, aprendeu sobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> - Identificado seus requisitos de negócios
-> - Mapeado cada requisito para uma definição de política
-> - Agrupadas as políticas de marca em uma iniciativa
+> - Identificou os seus requisitos de negócio
+> - Mapeou cada exigência para uma definição de política
+> - Agrupara as políticas de etiquetas numa iniciativa
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as estruturas de definições de política, veja este artigo:
 
 > [!div class="nextstepaction"]
-> [Azure Policy definition structure](../concepts/definition-structure.md) (Estrutura de definição do Azure Policy)
+> [Estrutura de definição do Azure Policy](../concepts/definition-structure.md)

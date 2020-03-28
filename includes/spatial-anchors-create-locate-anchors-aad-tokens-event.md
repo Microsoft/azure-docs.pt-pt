@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 7219a457a2631f9ff6beee06eff34bce0ff5a23f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67183961"
 ---
-Como com os tokens de acesso, se não estiver configurado um token do Azure AD, tem manipular o evento de TokenRequired, ou implementar o método de tokenRequired no protocolo delegado.
+Tal como com as fichas de acesso, se não estiver definido um token AD Azure, deve tratar do evento TokenRequired ou implementar o método tokenRequired no protocolo de delegado.
 
-Pode processar o evento de forma síncrona, definindo a propriedade nos argumentos do evento.
+Você pode lidar com o evento sincronizadamente, definindo a propriedade nos argumentos do evento.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238889"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067556"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Prepare Azure para recuperação de desastres no local para Azure
 
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 - Reveja a arquitetura para [VMware,](vmware-azure-architecture.md) [Hyper-V](hyper-v-azure-architecture.md)e recuperação de desastres de [servidor físico.](physical-azure-architecture.md)
 - Leia perguntas comuns para [VMware](vmware-azure-common-questions.md) e [Hyper-V](hyper-v-azure-common-questions.md)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar. Em seguida, inscreva-se no [portal Azure.](https://portal.azure.com)
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar. Em seguida, inscreva-se no [portal Azure.](https://portal.azure.com)
 
 
 ## <a name="verify-account-permissions"></a>Verificar permissões de conta
@@ -52,7 +52,7 @@ Se acabou de criar a sua conta Azure gratuita, é o administrador da sua subscri
 Para concluir estas tarefas, a conta deve estar atribuída à função incorporada de Contribuidor de Máquina Virtual. Além disso, para gerir as operações de Recuperação do Site num cofre, a sua conta deve ser atribuída ao papel integrado do Colaborador de Recuperação do Site.
 
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
 1. A partir do menu do portal Azure, selecione **Criar um recurso**e procurar no Mercado de **Recuperação.**
 2. Selecione **Backup e Recuperação** do Site a partir dos resultados da pesquisa e na página de Backup e Recuperação do Site, clique em **Criar**. 
@@ -70,7 +70,7 @@ Para concluir estas tarefas, a conta deve estar atribuída à função incorpora
 
 As máquinas no local são replicadas para discos geridos pelo Azure. Quando ocorre a falha, os VMs Azure são criados a partir destes discos geridos, e unidos à rede Azure que especifica neste procedimento.
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Redes** > **Rede virtual**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 2. Mantenha o **Gestor de Recursos** selecionado como modelo de implementação.
 3. Em **Nome**, introduza um nome de rede. O nome tem de ser exclusivo dentro do grupo de recursos do Azure. Estamos a utilizar **ContosoASRnet** neste tutorial.
 4. No **espaço Address,** introduza a gama de endereços da rede virtual na notação CDR. Estamos a usar **10.1.0.0/24.**

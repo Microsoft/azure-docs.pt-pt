@@ -17,10 +17,10 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 4e3e24565375f68b4b5bdf1dfb0b16bb280aa417
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74039477"
 ---
 # <a name="create-a-vm-with-nginx"></a>Criar uma VM com o NGINX
@@ -66,7 +66,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual. Este comando também especifica a imagem da máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra do grupo de segurança de rede para permitir tráfego de entrada. Neste exemplo, a porta 80 está aberta para o tráfego HTTP. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Adiciona e executa uma extensão da máquina virtual para uma VM. Neste exemplo, é utilizada a extensão de script personalizado para instalar o NGINX.|
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Adiciona e executa uma extensão de máquina virtual numa VM. Neste exemplo, é utilizada a extensão de script personalizado para instalar o NGINX.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes

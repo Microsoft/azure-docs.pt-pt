@@ -1,6 +1,6 @@
 ---
-title: Configurar o roteamento de mensagens para o Hub IoT do Azure com Azure PowerShell
-description: Configure o roteamento de mensagens para o Hub IoT do Azure usando Azure PowerShell. Dependendo das propriedades da mensagem, encaminhe para uma conta de armazenamento ou para uma fila do barramento de serviço.
+title: Configure o encaminhamento de mensagens para o Hub Azure IoT com a Azure PowerShell
+description: Configure o encaminhamento de mensagens para o Hub Azure IoT utilizando o Azure PowerShell. Dependendo das propriedades na mensagem, arota para uma conta de armazenamento ou uma fila de ônibus de serviço.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -10,36 +10,36 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084441"
 ---
-# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: usar Azure PowerShell para configurar o roteamento de mensagens do Hub IoT
+# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: Use o Azure PowerShell para configurar o encaminhamento de mensagens IoT Hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## <a name="download-the-script-optional"></a>Baixar o script (opcional)
+## <a name="download-the-script-optional"></a>Descarregue o script (opcional)
 
-Para a segunda parte deste tutorial, você baixa e executa um aplicativo do Visual Studio para enviar mensagens para o Hub IoT. Há uma pasta no download que contém o modelo de Azure Resource Manager e o arquivo de parâmetros, bem como os scripts do CLI do Azure e do PowerShell. 
+Para a segunda parte deste tutorial, você descarrega e executa uma aplicação do Estúdio Visual para enviar mensagens para o IoT Hub. Há uma pasta no download que contém o modelo de gestor de recursos azure e o ficheiro de parâmetros, bem como os scripts Azure CLI e PowerShell. 
 
-Se você quiser exibir o script concluído, baixe os [exemplos de IOT C# do Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descompacte o arquivo. zip mestre. O script CLI do Azure está em/iot-hub/Tutorials/Routing/SimulatedDevice/resources/como **iothub_routing_psh. ps1**.
+Se quiser ver o script acabado, descarregue as [amostras Azure IoT C# .](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Desaperte o ficheiro master.zip. O script Azure CLI está em /iot-hub/Tutoriais/Routing/SimuladoDispositivo/recursos/ como **iothub_routing_psh.ps1**.
 
-## <a name="create-your-resources"></a>Criar seus recursos
+## <a name="create-your-resources"></a>Crie os seus recursos
 
-Comece criando os recursos com o PowerShell.
+Comece por criar os recursos com a PowerShell.
 
-### <a name="use-powershell-to-create-your-base-resources"></a>Use o PowerShell para criar seus recursos básicos
+### <a name="use-powershell-to-create-your-base-resources"></a>Use o PowerShell para criar os seus recursos base
 
-Copie e cole o script abaixo em Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Esta primeira seção do script criará os recursos base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o namespace do barramento de serviço e a fila do barramento de serviço. Ao percorrer o tutorial, copie cada bloco de script e cole-o em Cloud Shell para executá-lo.
+Copie e cole o script abaixo na Cloud Shell e prima Enter. Corre o guião uma linha de cada vez. Esta primeira secção do script criará os recursos base para este tutorial, incluindo a conta de armazenamento, IoT Hub, Service Bus Namespace e service bus queue. Ao passar pelo tutorial, copie cada bloco de script e cole-o na Cloud Shell para executá-lo.
 
-Há vários nomes de recursos que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar isso mais fácil, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *randomValue*. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, você pode defini-lo como uma cadeia de caracteres vazia ou como um valor específico. 
+Existem vários nomes de recursos que devem ser globalmente únicos, como o nome IoT Hub e o nome da conta de armazenamento. Para facilitar isto, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *RandomValue*. O RandomValue é gerado uma vez no topo do script e anexado aos nomes de recursos conforme necessário ao longo do script. Se não quiser que seja aleatório, pode defini-lo numa corda vazia ou num valor específico. 
 
 > [!IMPORTANT]
-> As variáveis definidas no script inicial também são usadas pelo script de roteamento, portanto, execute todo o script na mesma sessão de Cloud Shell. Se você abrir uma nova sessão para executar o script para configurar o roteamento, várias das variáveis terão valores ausentes. 
+> As variáveis definidas no script inicial também são usadas pelo script de encaminhamento, por isso executa todo o script na mesma sessão cloud Shell. Se abrir uma nova sessão para executar o guião para a configuração do encaminhamento, várias das variáveis estarão faltando valores. 
 >
 
 ```azurepowershell-interactive
@@ -126,45 +126,45 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 [!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
-Agora que os recursos base estão configurados, você pode configurar o roteamento de mensagens.
+Agora que os recursos base estão configurados, pode configurar o encaminhamento da mensagem.
 
 ## <a name="set-up-message-routing"></a>Configurar o encaminhamento de mensagens
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Para criar um ponto de extremidade de roteamento, use [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint). Para criar a rota de mensagens para o ponto de extremidade, use [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute).
+Para criar um ponto final de encaminhamento, utilize [add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint). Para criar a rota de mensagens para o ponto final, utilize [add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute).
 
-### <a name="route-to-a-storage-account"></a>Rotear para uma conta de armazenamento 
+### <a name="route-to-a-storage-account"></a>Rota para uma conta de armazenamento 
 
-Primeiro, configure o ponto de extremidade para a conta de armazenamento e, em seguida, crie a rota de mensagem.
+Primeiro, crie o ponto final para a conta de armazenamento e, em seguida, crie a rota da mensagem.
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão de Cloud Shell:
+Estas são as variáveis utilizadas pelo script que deve ser definida sessão cloud Shell:
 
-**resourcegroup**: há duas ocorrências deste campo-defina ambas como seu grupo de recursos.
+**recursosGroup**: Existem duas ocorrências deste campo -- detetete ambas para o seu grupo de recursos.
 
-**nome**: esse campo é o nome do Hub IOT ao qual o roteamento será aplicado.
+**nome**: Este campo é o nome do Hub IoT a que se aplicará o encaminhamento.
 
-**EndpointName**: esse campo é o nome que identifica o ponto de extremidade. 
+**nome final**: Este campo é o nome que identifica o ponto final. 
 
-**EndpointType**: esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina-a como `azurestoragecontainer`.
+**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve `azurestoragecontainer`ser `eventhub` `servicebusqueue`definido `servicebustopic`para, ou . Para os seus propósitos `azurestoragecontainer`aqui, coloque-o em .
 
-**SubscriptionId**: esse campo é definido como a SubscriptionId para sua conta do Azure.
+**subscriçãoID**: Este campo é definido para o ID de subscrição para a sua conta Azure.
 
-**storageConnectionString**: esse valor é recuperado da conta de armazenamento configurada no script anterior. Ele é usado pelo roteamento para acessar a conta de armazenamento.
+**armazenamentoConnectionString**: Este valor é recuperado da conta de armazenamento criada no script anterior. É utilizado pelo encaminhamento para aceder à conta de armazenamento.
 
-**ContainerName**: esse campo é o nome do contêiner na conta de armazenamento na qual os dados serão gravados.
+**nome**do recipiente : Este campo é o nome do recipiente na conta de armazenamento para onde serão escritos os dados.
 
-**Codificação**: defina esse campo como `AVRO` ou `JSON`. Isso designa o formato dos dados armazenados. O padrão é AVRO.
+**Codificação**: Desloque este campo para qualquer um `AVRO` ou `JSON`. Isto designa o formato dos dados armazenados. O padrão é AVRO.
 
-**RouteName**: esse campo é o nome da rota que você está configurando. 
+**nome**de rota : Este campo é o nome da rota que está a configurar. 
 
-**condição**: esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para o armazenamento é `level="storage"`.
+**condição**: Este campo é a consulta utilizada para filtrar as mensagens enviadas para este ponto final. A condição de consulta para as mensagens que estão a ser encaminhadas para o armazenamento é `level="storage"`.
 
-**habilitado**: esse campo usa como padrão `true`, indicando que a rota da mensagem deve ser habilitada depois de ser criada.
+**ativado**: Este campo `true`descorre para, indicando que a rota da mensagem deve ser ativada após a criação.
 
-Copie esse script e cole-o na janela Cloud Shell.
+Copie este guião e cole-o na janela cloud Shell.
 
 ```powershell
 ##### ROUTING FOR STORAGE #####
@@ -175,7 +175,7 @@ $routeName = "ContosoStorageRoute"
 $condition = 'level="storage"'
 ```
 
-A próxima etapa é criar o ponto de extremidade de roteamento para a conta de armazenamento. Você também especifica o contêiner no qual os resultados serão armazenados. O contêiner foi criado quando a conta de armazenamento foi criada.
+O próximo passo é criar o ponto final de encaminhamento para a conta de armazenamento. Especifica também o recipiente no qual os resultados serão armazenados. O contentor foi criado quando a conta de armazenamento foi criada.
 
 ```powershell
 # Create the routing endpoint for storage.
@@ -192,7 +192,7 @@ Add-AzIotHubRoutingEndpoint `
   -Encoding AVRO
 ```
 
-Em seguida, crie a rota de mensagem para o ponto de extremidade de armazenamento. A rota de mensagem designa para onde enviar as mensagens que atendem à especificação de consulta.
+Em seguida, crie a rota da mensagem para o ponto final de armazenamento. A rota da mensagem designa para onde enviar as mensagens que cumprem a especificação de consulta.
 
 ```powershell
 # Create the route for the storage endpoint.
@@ -206,9 +206,9 @@ Add-AzIotHubRoute `
    -Enabled 
 ```
 
-### <a name="route-to-a-service-bus-queue"></a>Rotear para uma fila do barramento de serviço
+### <a name="route-to-a-service-bus-queue"></a>Rota para uma fila de ônibus de serviço
 
-Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de conexão da fila do barramento de serviço, você deve criar uma regra de autorização que tenha os direitos corretos definidos. O script a seguir cria uma regra de autorização para a fila do barramento de serviço chamada `sbauthrule`e define os direitos para `Listen Manage Send`. Depois que essa regra de autorização for configurada, você poderá usá-la para recuperar a cadeia de conexão para a fila.
+Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de ligação para a fila do Ônibus de serviço, deve criar uma regra de autorização que tenha os direitos corretos definidos. O seguinte guião cria uma regra `sbauthrule`de autorização para a `Listen Manage Send`fila de ônibus de serviço chamada , e define os direitos de . Uma vez configurada esta regra de autorização, pode usá-la para recuperar a corda de ligação para a fila.
 
 ```powershell
 ##### ROUTING FOR SERVICE BUS QUEUE #####
@@ -222,7 +222,7 @@ New-AzServiceBusAuthorizationRule `
   -Rights @("Manage","Listen","Send")
 ```
 
-Agora, use a regra de autorização para recuperar a chave de fila do barramento de serviço. Esta regra de autorização será usada para recuperar a cadeia de conexão posteriormente no script.
+Agora use a regra de autorização para recuperar a chave de fila do Autocarro de Serviço. Esta regra de autorização será usada para recuperar a cadeia de ligação mais tarde no script.
 
 ```powershell
 $sbqkey = Get-AzServiceBusKey `
@@ -232,17 +232,17 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Agora, configure o ponto de extremidade de roteamento e a rota de mensagem para a fila do barramento de serviço. Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão de Cloud Shell:
+Agora, instale o ponto final de encaminhamento e a rota de mensagem para a fila do Autocarro de Serviço. Estas são as variáveis utilizadas pelo script que deve ser definida sessão cloud Shell:
 
-**EndpointName**: esse campo é o nome que identifica o ponto de extremidade. 
+**nome final**: Este campo é o nome que identifica o ponto final. 
 
-**EndpointType**: esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina-a como `servicebusqueue`.
+**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve `azurestoragecontainer`ser `eventhub` `servicebusqueue`definido `servicebustopic`para, ou . Para os seus propósitos `servicebusqueue`aqui, coloque-o em .
 
-**RouteName**: esse campo é o nome da rota que você está configurando. 
+**nome**de rota : Este campo é o nome da rota que está a configurar. 
 
-**condição**: esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para a fila do barramento de serviço é `level="critical"`.
+**condição**: Este campo é a consulta utilizada para filtrar as mensagens enviadas para este ponto final. A condição de consulta para as mensagens que `level="critical"`estão a ser encaminhadas para a fila do Autocarro de Serviço é .
 
-Aqui está a Azure PowerShell para o roteamento de mensagens para a fila do barramento de serviço.
+Aqui está o Azure PowerShell para o encaminhamento de mensagens para a fila do Ônibus de serviço.
 
 ```powershell
 $endpointName = "ContosoSBQueueEndpoint"
@@ -271,13 +271,13 @@ Add-AzIotHubRoute `
    -Enabled 
 ```
 
-### <a name="view-message-routing-in-the-portal"></a>Exibir o roteamento de mensagens no portal
+### <a name="view-message-routing-in-the-portal"></a>Ver encaminhamento de mensagem no portal
 
 [!INCLUDE [iot-hub-include-view-routing-in-portal](../../includes/iot-hub-include-view-routing-in-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você tem os recursos configurados e as rotas de mensagens definidas, avance para o próximo tutorial para saber como enviar mensagens para o Hub IoT e vê-las roteadas para os diferentes destinos. 
+Agora que tem os recursos configurados e as rotas de mensagens configuradas, avance para o próximo tutorial para aprender a enviar mensagens para o centro ioT e vê-los ser encaminhados para os diferentes destinos. 
 
 > [!div class="nextstepaction"]
-> [Parte 2-exibir os resultados de roteamento de mensagens](tutorial-routing-view-message-routing-results.md)
+> [Parte 2 - Veja os resultados do encaminhamento da mensagem](tutorial-routing-view-message-routing-results.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – criar uma pilha média em uma máquina virtual do Linux no Azure
+title: Tutorial - Crie uma pilha MEAN em uma máquina virtual Linux em Azure
 description: Neste tutorial, vai aprender a criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa VM do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e0ed3454f11907c5f183f08fd2ec51db3384225
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034392"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154326"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa máquina virtual do Linux no Azure
 
@@ -34,9 +34,9 @@ Este tutorial mostra como criar uma pilha MongoDB, Express, AngularJS e Node.js 
 > * Aceder a caminhos com o AngularJS
 > * Executar a aplicação
 
-Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux
@@ -220,7 +220,7 @@ O [Express](https://expressjs.com) é uma arquitetura de aplicação Web Node.js
 
 O [AngularJS](https://angularjs.org) fornece uma arquitetura Web para criar vistas dinâmicas nas suas aplicações Web. Neste tutorial, utilizamos o AngularJS para ligar a nossa página Web ao Express e efetuar ações na nossa base de dados de livros.
 
-1. Reverta o diretório para *Livros* (`cd ../..`) e, em seguida, crie uma pasta com o nome *público* e adicione um ficheiro com o nome *script.js* com a configuração de controlador definida.
+1. Mude o diretório *Books* de`cd ../..`volta para Books ( ), e, em seguida, crie uma pasta chamada *pública* e adicione um ficheiro chamado *script.js* com a configuração do controlador definida.
 
     ```javascript
     var app = angular.module('myApp', []);
@@ -317,7 +317,7 @@ O [AngularJS](https://angularjs.org) fornece uma arquitetura Web para criar vist
 
 ##  <a name="run-the-application"></a>Executar a aplicação
 
-1. Reverta o diretório para *Livros* (`cd ..`) e inicie o servidor ao executar este comando:
+1. Mude o diretório *Books* de`cd ..`volta para Books ( ) e inicie o servidor executando este comando:
 
     ```bash
     nodejs server.js
@@ -349,7 +349,7 @@ Neste tutorial, criou uma aplicação Web que acompanha os registos de livros at
 > * Aceder a caminhos com o AngularJS
 > * Executar a aplicação
 
-Avance para o tutorial seguinte para aprender a proteger os servidores Web com certificados SSL.
+Avance para o próximo tutorial para aprender a proteger servidores web com certificados TLS.
 
 > [!div class="nextstepaction"]
-> [Proteger o servidor Web com SSL](tutorial-secure-web-server.md)
+> [Servidor web seguro com TLS](tutorial-secure-web-server.md)

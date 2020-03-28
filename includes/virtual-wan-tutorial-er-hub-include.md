@@ -9,30 +9,30 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6f910dbe91ed8e1cb65eefa6dfc48c72a689bf25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73491594"
 ---
-1. Localize a WAN virtual que você criou. Na página WAN virtual, na seção **conectividade** , selecione **hubs**.
-2. Na página hubs, selecione **+ novo hub** para abrir a página **criar Hub virtual** .
-3. Na guia Criar **noções básicas** de página do **Hub virtual** , preencha os seguintes campos:
+1. Localize o WAN Virtual que criou. Na página WAN Virtual, sob a secção **conectividade,** selecione **Hubs**.
+2. Na página Hubs, selecione **+Novo Hub** para abrir a página **Create virtual hub.**
+3. No separador **Criar hub virtual** **Basics,** complete os seguintes campos:
 
    ![Noções básicas](./media/virtual-wan-tutorial-er-hub-include/hub1.png "Noções básicas")
 
     **Detalhes do projeto**
 
-   * Região (anteriormente conhecida como local)
+   * Região (anteriormente designada por Localização)
    * Nome
-   * Espaço de endereço privado do Hub. O espaço de endereço mínimo é/24 para criar um Hub, o que implica que qualquer intervalo de/25 a/32 produzirá um erro durante a criação.
-4. Selecione a **guia ExpressRoute**.
+   * Espaço de endereços privados hub. O espaço de endereço mínimo é /24 para criar um hub, o que implica que qualquer coisa que varie de /25 a /32 produzirá um erro durante a criação.
+4. Selecione o **separador ExpressRoute**.
 
-5. Na guia **ExpressRoute** , preencha os seguintes campos:
+5. No separador **ExpressRoute,** preencha os seguintes campos:
 
    ![ExpressRoute](./media/virtual-wan-tutorial-er-hub-include/hub2.png "ExpressRoute")
 
-   * Selecione **Sim** para criar um gateway de **ExpressRoute** .
-   * Selecione o valor **unidades de escala do gateway** na lista suspensa.
-6. Selecione **revisão + criar** para validar.
-7. Selecione **criar** para criar o Hub. Após 30 minutos, **atualize** para exibir o Hub na página **hubs** . Selecione **ir para o recurso** para navegar até o recurso.
+   * Selecione **Sim** para criar um gateway **ExpressRoute.**
+   * Selecione o valor das **unidades** de escala Gateway a partir do dropdown.
+6. Selecione **Review + Criar** para validar.
+7. Selecione **Criar** para criar o centro. Após 30 minutos, **Refresque** para ver o centro na página **Hubs.** Selecione **Ir ao recurso** para navegar para o recurso.

@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM anexando um disco gerenciado como exemplo de CLI de disco do so
+title: Criar um VM anexando um disco gerido como disco OS - Amostra CLI
 description: Exemplo do Script da CLI do Azure – Criar uma VM ao anexar um disco gerido como disco do SO
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 1616466619c7c7627106c09de703d02a7c40d248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75458397"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Criar uma máquina virtual através de um disco de SO gerido existente com a CLI

@@ -6,24 +6,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/18/2020
+ms.openlocfilehash: b184a42c52384440445181ac44c616c3139e064f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239561"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80130697"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters Apache Hadoop a pedido no HDInsight utilizando a Azure Data Factory
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Neste tutorial, aprende-se a criar um cluster [Apache Hadoop,](https://hadoop.apache.org/) a pedido, no Azure HDInsight utilizando a Azure Data Factory. Em seguida, utiliza gasodutos de dados na Azure Data Factory para executar trabalhos da Hive e eliminar o cluster. No final deste tutorial, aprende-se a operacionalizar um grande trabalho de dados onde a criação de clusters, o funcionamento do trabalho e a eliminação do cluster são realizados num horário.
+Neste tutorial, aprende-se a criar um cluster [Apache Hadoop,](./hadoop/apache-hadoop-introduction.md) a pedido, no Azure HDInsight utilizando a Azure Data Factory. Em seguida, utiliza gasodutos de dados na Azure Data Factory para executar trabalhos da Hive e eliminar o cluster. No final deste tutorial, aprende-se a operacionalizar um grande trabalho de dados onde a criação de clusters, o funcionamento do trabalho e a eliminação do cluster são realizados num horário.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage do Azure
+> * Criar uma conta de armazenamento do Azure
 > * Compreender a atividade da Fábrica de Dados Azure
 > * Criar uma fábrica de dados usando o portal Azure
 > * Criar serviços ligados
@@ -32,7 +32,7 @@ Este tutorial abrange as seguintes tarefas:
 > * Monitorizar um pipeline
 > * Verificar a saída
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="create-preliminary-azure-objects"></a>Criar objetos Azure preliminares
 
-Nesta secção, cria vários objetos que serão utilizados para o cluster HDInsight que cria a pedido. A conta de armazenamento criada conterá a amostra do script [HiveQL,](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) `partitionweblogs.hql`, que utiliza para simular uma amostra de trabalho da [Apache Hive](https://hive.apache.org/) que funciona no cluster.
+Nesta secção, cria vários objetos que serão utilizados para o cluster HDInsight que cria a pedido. A conta de armazenamento criada conterá a `partitionweblogs.hql`amostra do script [HiveQL,](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) que utiliza para simular uma amostra de trabalho da Apache Hive que funciona no cluster.
 
 Esta secção utiliza um script Azure PowerShell para criar a conta de armazenamento e copiar sobre os ficheiros necessários dentro da conta de armazenamento. O script de amostra Azure PowerShell nesta secção executa as seguintes tarefas:
 
@@ -50,9 +50,9 @@ Esta secção utiliza um script Azure PowerShell para criar a conta de armazenam
 2. Cria um grupo de recursos Azure.
 3. Cria uma Conta de armazenamento do Azure.
 4. Cria um recipiente Blob na conta de armazenamento
-5. Copia o script da amostra HiveQL **(partitionweblogs.hql**) o recipiente Blob. O guião está disponível em [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql. ](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql) O script da amostra já está disponível em outro recipiente público blob. O script PowerShell abaixo faz uma cópia destes ficheiros na conta De armazenamento Azure que cria.
+5. Copia o script da amostra HiveQL **(partitionweblogs.hql**) o recipiente Blob. O script está [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)disponível em . O script da amostra já está disponível em outro recipiente público blob. O script PowerShell abaixo faz uma cópia destes ficheiros na conta De armazenamento Azure que cria.
 
-**Para criar uma conta de armazenamento e copiar os ficheiros utilizando o Azure PowerShell:**
+### <a name="create-storage-account-and-copy-files"></a>Criar contas de armazenamento e copiar ficheiros
 
 > [!IMPORTANT]  
 > Especifique os nomes para o grupo de recursos Azure e a conta de armazenamento Azure que será criada pelo script.
@@ -151,12 +151,12 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-**Para verificar a criação da conta de armazenamento**
+### <a name="verify-storage-account"></a>Verificar a conta de armazenamento
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Da esquerda, navegue para **todos os serviços** > grupos de Recursos > **Gerais.**
+1. Da esquerda, navegue para **todos os serviços grupos** > de**Recursos Gerais.****General** > 
 1. Selecione o nome do grupo de recursos que criou no seu script PowerShell. Utilize o filtro se tiver demasiados grupos de recursos listados.
-1. Do ponto de vista **geral,** vê-se um recurso listado a menos que partilhe o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome que especificou anteriormente. Selecione o nome de conta de armazenamento.
+1. Do ponto de vista **geral,** vê-se um recurso listado a menos que partilhe o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome que especificou anteriormente. Selecione o nome da conta de armazenamento.
 1. Selecione o azulejo dos **recipientes.**
 1. Selecione o recipiente **adfgetstarted.** Vê-se uma pasta chamada **hivescripts.**
 1. Abra a pasta e certifique-se de que contém o ficheiro de script da amostra, **partitionweblogs.hql**.
@@ -167,25 +167,25 @@ A [Azure Data Factory](../data-factory/introduction.md) orquestra e automatiza o
 
 Na Azure Data Factory, uma fábrica de dados pode ter um ou mais pipelines de dados. Um pipeline de dados tem uma ou mais atividades. Existem dois tipos de atividades:
 
-- [Atividades](../data-factory/copy-activity-overview.md) de Movimento de Dados - Utiliza atividades de movimento de dados para mover dados de uma loja de dados de origem para uma loja de dados de destino.
-- [Atividades de transformação de dados.](../data-factory/transform-data.md) Utiliza atividades de transformação de dados para transformar/processar dados. A Atividade da Hive HDInsight é uma das atividades de transformação suportadas pela Data Factory. Você usa a atividade de transformação da Colmeia neste tutorial.
+* [Atividades](../data-factory/copy-activity-overview.md)de Movimento de Dados . Utiliza atividades de movimento de dados para mover dados de uma loja de dados de origem para uma loja de dados de destino.
+* [Atividades de transformação de dados.](../data-factory/transform-data.md) Utiliza atividades de transformação de dados para transformar/processar dados. A Atividade da Hive HDInsight é uma das atividades de transformação suportadas pela Data Factory. Você usa a atividade de transformação da Colmeia neste tutorial.
 
 Neste artigo, configura a atividade da Colmeia para criar um cluster Hadoop HDInsight a pedido. Quando a atividade corre para processar dados, eis o que acontece:
 
-1. Um cluster Hadoop HDInsight é automaticamente criado para você apenas no tempo para processar a fatia. 
+1. Um cluster Hadoop HDInsight é automaticamente criado para você apenas no tempo para processar a fatia.
 
 2. Os dados de entrada são processados executando um script HiveQL no cluster. Neste tutorial, o script HiveQL associado à atividade da colmeia executa as seguintes ações:
 
-    - Utiliza a tabela existente *(colmeia)* para criar outra tabela **HiveSampleOut**.
-    - Povoa a tabela **HiveSampleOut** com apenas colunas específicas da *colmeia*original.
-    
+    * Utiliza a tabela existente *(colmeia)* para criar outra tabela **HiveSampleOut**.
+    * Povoa a tabela **HiveSampleOut** com apenas colunas específicas da *colmeia*original.
+
 3. O cluster Hadoop HDInsight é eliminado após o processamento estar concluído e o cluster está inativo durante a quantidade de tempo configurada (definição timeToLive). Se a próxima fatia de dados estiver disponível para processamento com este tempo de inatividade ToLive, o mesmo cluster é usado para processar a fatia.  
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Do menu esquerdo, navegue para **+ Crie um recurso** > **Analytics** > **Data Factory.**
+2. Do menu esquerdo, navegue para **+ Criar um recurso** > **Analytics** > **Data Factory**.
 
     ![Fábrica de Dados Azure no portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Fábrica de Dados Azure no portal")
 
@@ -194,13 +194,13 @@ Neste artigo, configura a atividade da Colmeia para criar um cluster Hadoop HDIn
     |Propriedade  |Valor  |
     |---------|---------|
     |Nome | Insira um nome para a fábrica de dados. Este nome tem de ser globalmente exclusivo.|
-    |Subscrição | Selecione a sua subscrição do Azure. |
-    |Grupo de recursos | Selecione **Use existente** e, em seguida, selecione o grupo de recursos que criou usando o script PowerShell. |
     |Versão | Saia na **V2.** |
+    |Subscrição | Selecione a sua subscrição do Azure. |
+    |Grupo de recursos | Selecione o grupo de recursos que criou utilizando o script PowerShell. |
     |Localização | A localização é automaticamente definida para o local que especificou ao criar o grupo de recursos mais cedo. Para este tutorial, a localização está definida para **os EUA Orientais.** |
     |Ativar GIT|Desmarcada esta caixa.|
 
-    ![Criar fábrica de dados Azure utilizando portal Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Criar fábrica de dados Azure utilizando portal Azure")
+    ![Criar fábrica de dados Azure utilizando portal Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/azure-portal-create-data-factory.png "Criar fábrica de dados Azure utilizando portal Azure")
 
 4. Selecione **Criar**. A criação de uma fábrica de dados pode demorar entre 2 a 4 minutos.
 
@@ -214,8 +214,8 @@ Neste artigo, configura a atividade da Colmeia para criar um cluster Hadoop HDIn
 
 Nesta secção, é autor de dois serviços ligados dentro da sua fábrica de dados.
 
-- Um **serviço ligado do Armazenamento do Azure** que liga uma conta de armazenamento do Azure à fábrica de dados. Este armazenamento é utilizado pelo cluster do HDInsight a pedido. Também contém o script da Colmeia que é executado no cluster.
-- Um **serviço ligado do HDInsight a pedido**. A Azure Data Factory cria automaticamente um cluster HDInsight e executa o script Hive. Em seguida, elimina o cluster do HDInsight depois de o cluster estar inativo durante um período de tempo pré-configurado.
+* Um **serviço ligado do Armazenamento do Azure** que liga uma conta de armazenamento do Azure à fábrica de dados. Este armazenamento é utilizado pelo cluster do HDInsight a pedido. Também contém o script da Colmeia que é executado no cluster.
+* Um **serviço ligado hDInsight**a pedido. A Azure Data Factory cria automaticamente um cluster HDInsight e executa o script Hive. Em seguida, elimina o cluster do HDInsight depois de o cluster estar inativo durante um período de tempo pré-configurado.
 
 ### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 
@@ -267,9 +267,9 @@ Nesta secção, é autor de dois serviços ligados dentro da sua fábrica de dad
     | Prefixo de nome do cluster | Forneça um valor que será pré-fixado a todos os tipos de cluster que são criados pela fábrica de dados. |
     |Subscrição |Selecione a sua subscrição na lista de lançamentos.|
     | Selecionar grupo de recursos | Selecione o grupo de recursos que criou como parte do script PowerShell que utilizou anteriormente.|
-    | Nome de utilizador do tipo OS/Cluster SSH | Introduza um nome de utilizador SSH, geralmente `sshuser`. |
+    | Nome de utilizador do tipo OS/Cluster SSH | Introduza um nome de utilizador `sshuser`SSH, normalmente . |
     | Tipo OS/Palavra-passe SSH cluster | Fornecer uma palavra-passe para o utilizador SSH |
-    | Nome de utilizador do tipo OS/Cluster | Introduza um nome de utilizador de cluster, comummente `admin`. |
+    | Nome de utilizador do tipo OS/Cluster | Introduza um nome de `admin`utilizador de cluster, geralmente . |
     | Tipo OS/Palavra-passe do cluster | Forneça uma senha para o utilizador do cluster. |
 
     Em seguida, selecione **Criar**.
@@ -278,31 +278,33 @@ Nesta secção, é autor de dois serviços ligados dentro da sua fábrica de dad
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-1. Selecione o botão **+** (mais) e, em seguida, selecione **Pipeline**.
+1. Selecione o **+** botão (mais) e, em seguida, selecione **Pipeline**.
 
     ![Criar um oleoduto na Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Criar um oleoduto na Azure Data Factory")
 
-2. Na caixa de **ferramentas De Atividades,** expanda o **HDInsight**e arraste a atividade da **Colmeia** para a superfície do designer de gasodutos. No separador **Geral,** forneça um nome para a atividade.
+1. Na caixa de **ferramentas De Atividades,** expanda o **HDInsight**e arraste a atividade da **Colmeia** para a superfície do designer de gasodutos. No separador **Geral,** forneça um nome para a atividade.
 
     ![Adicionar atividades ao pipeline data factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Adicionar atividades ao pipeline data factory")
 
-3. Certifique-se de que tem a atividade da Hive selecionada, selecione o separador **Cluster HDI** e a partir da lista de drop-down do **HDInsight Linked Service,** selecione o serviço linked que criou anteriormente, **HDInsightLinkedService,** para HDInsight.
+1. Certifique-se de que tem a atividade da Hive selecionada, selecione o separador **Cluster HDI** e a partir da lista de drop-down do **HDInsight Linked Service,** selecione o serviço linked que criou anteriormente, **HDInsightLinkedService,** para HDInsight.
 
     ![Fornecer detalhes do cluster HDInsight para o pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Fornecer detalhes do cluster HDInsight para o pipeline")
 
-4. Selecione o separador **Script** e complete os seguintes passos:
+1. Selecione o separador **Script** e complete os seguintes passos:
 
     1. Para **o Serviço Ligado ao Script,** selecione **HDIStorageLinkedService** da lista de lançamentos. Este valor é o serviço ligado ao armazenamento que criou anteriormente.
 
-    1. Para **o Caminho de Arquivo,** selecione **'Armazenamento de navegação'** e navegue até ao local onde está disponível o script da Colmeia. Se executou o script PowerShell mais cedo, este local deve ser `adfgetstarted/hivescripts/partitionweblogs.hql`.
+    1. Para **o Caminho de Arquivo,** selecione **'Armazenamento de navegação'** e navegue até ao local onde está disponível o script da Colmeia. Se executou o script PowerShell mais `adfgetstarted/hivescripts/partitionweblogs.hql`cedo, este local deve ser .
 
         ![Forneça detalhes do script da Hive para o oleoduto](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Forneça detalhes do script da Hive para o oleoduto")
 
-    1. Em **parâmetros**de > **avançados,** selecione **preenchimento automático do script**. Esta opção procura quaisquer parâmetros no script da Colmeia que requeiram valores em tempo de execução. O script que usa **(partitionweblogs.hql)** tem um parâmetro **de saída.** Forneça o **valor** no formato `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` para apontar para uma pasta existente no seu Armazenamento Azure. O caminho é sensível a maiúsculas e minúsculas. Este é o caminho onde a saída do script será armazenada. O `wasbs` esquema é necessário porque as contas de armazenamento têm agora transferência segura necessária por defeito.
-    
+    1. Em**parâmetros** **avançados,** > selecione **preenchimento automático do script**. Esta opção procura quaisquer parâmetros no script da Colmeia que requeiram valores em tempo de execução.
+
+    1. Na caixa de texto de **valor,** adicione `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/`a pasta existente no formato . O caminho é sensível a maiúsculas e minúsculas. Este é o caminho onde a saída do script será armazenada. O `wasbs` esquema é necessário porque as contas de armazenamento têm agora uma transferência segura necessária por defeito.
+
         ![Fornecer parâmetros para o script da Colmeia](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Fornecer parâmetros para o script da Colmeia")
 
-1. Selecione **Validar** para validar o gasoduto. Selecione o botão **>>** (seta para a direita) para fechar a janela de validação.
+1. Selecione **Validar** para validar o gasoduto. Selecione o **>>** botão (seta direita) para fechar a janela de validação.
 
     ![Validar o oleoduto Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-validate-all.png "Validar o oleoduto Azure Data Factory")
 
@@ -312,11 +314,11 @@ Nesta secção, é autor de dois serviços ligados dentro da sua fábrica de dad
 
 ## <a name="trigger-a-pipeline"></a>Acionar um pipeline
 
-1. A partir da barra de ferramentas na superfície do designer, **selecione Adicionar gatilho** > gatilho **agora**.
+1. A partir da barra de ferramentas na superfície do designer, selecione **Adicionar gatilho** > **agora**.
 
     ![Desencadear o oleoduto Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Desencadear o oleoduto Azure Data Factory")
 
-2. Selecione **Terminar** na barra lateral pop-up.
+2. Selecione **OK** na barra lateral pop-up.
 
 ## <a name="monitor-a-pipeline"></a>Monitorizar um pipeline
 
@@ -334,11 +336,11 @@ Nesta secção, é autor de dois serviços ligados dentro da sua fábrica de dad
 
 1. Para verificar a saída, no portal Azure navegue para a conta de armazenamento que utilizou para este tutorial. Deve ver as seguintes pastas ou contentores:
 
-    - Você vê uma **adfgerstart/pasta** de saída que contém a saída do script da Colmeia que foi executado como parte do pipeline.
+    * Você vê uma **adfgerstart/pasta** de saída que contém a saída do script da Colmeia que foi executado como parte do pipeline.
 
-    - Você vê um **adfhdidatafactory-\<de serviço ligado-nome>-\<timestamp>** recipiente. Este recipiente é a localização padrão de armazenamento do cluster HDInsight que foi criado como parte da execução do gasoduto.
+    * Você vê um **adfhdidatafactory-\<de nome\<de serviço>-timestamp>** recipiente. Este recipiente é a localização padrão de armazenamento do cluster HDInsight que foi criado como parte da execução do gasoduto.
 
-    - Você vê um recipiente de **adfjobs** que tem os registos de trabalho da Azure Data Factory.  
+    * Você vê um recipiente de **adfjobs** que tem os registos de trabalho da Azure Data Factory.  
 
         ![Verifique a saída do gasoduto Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "Verifique a saída do gasoduto Azure Data Factory")
 
@@ -361,7 +363,8 @@ Em alternativa, pode eliminar todo o grupo de recursos que criou para este tutor
 1. Introduza o nome do grupo de recursos para confirmar a eliminação e, em seguida, selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Neste artigo, aprendeu a usar a Azure Data Factory para criar um cluster HDInsight a pedido e executar empregos [apache hive.](https://hive.apache.org/) Avance para o próximo artigo para aprender a criar clusters HDInsight com configuração personalizada.
 
 > [!div class="nextstepaction"]
->[Crie clusters Azure HDInsight com configuração personalizada](hdinsight-hadoop-provision-linux-clusters.md)
+> [Crie clusters Azure HDInsight com configuração personalizada](hdinsight-hadoop-provision-linux-clusters.md)

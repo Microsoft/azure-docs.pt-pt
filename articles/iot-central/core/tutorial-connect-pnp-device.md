@@ -8,21 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e22a9ae2888187dc877876ee5d4d4ec4ecb7c6e5
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329447"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80064424"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Utilize um modelo de capacidade do dispositivo para criar um dispositivo IoT Plug and Play (pré-visualização) e conectá-lo à sua aplicação IoT Central
 
 Um modelo de capacidade de _dispositivo_ (DCM) descreve as capacidades de um dispositivo [IoT Plug and Play (pré-visualização).](../../iot-pnp/overview-iot-plug-and-play.md) A IoT Central pode usar um DCM para criar um modelo de dispositivo e visualizações para um dispositivo quando o dispositivo se conecta pela primeira vez.
 
 O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em pré-visualização e só é suportado em regiões selecionadas.
-
-> [!NOTE]
-> Contacte o suporte técnico para aceder à criação de uma aplicação de pré-visualização com suporte para dispositivos IoT Plug e Play.
 
 Neste tutorial, ficará a saber como:
 
@@ -33,16 +30,16 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) para criar uma aplicação IoT Central utilizando o modelo de **aplicação Personalizado > Custom.**
+Complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) rapidamente para criar uma aplicação IoT Central utilizando a aplicação Custom > modelo de **aplicação Personalizada.**
 
 Para completar este tutorial, é necessário instalar o seguinte software na sua máquina local:
 
-* [Construa ferramentas para estúdio visual](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com  **C++ ferramentas** de construção e cargas de trabalho componentes de gestor de **pacotes Nuget.** Ou se já tem [o Visual Studio (Comunidade, Profissional ou Empresa)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
-* [Git](https://git-scm.com/download/).
+* [Construa ferramentas para estúdio visual](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com ferramentas de **construção C++** e cargas de trabalho componentes de **gestor de pacotes Nuget.** Ou se já tem [o Visual Studio (Comunidade, Profissional ou Empresa)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
+* [Git.](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/) - quando instalar **cMake**, selecione a opção **Adicionar CMake ao sistema PATH**.
-* [Visual Studio Code](https://code.visualstudio.com/).
-* [Node.js](https://nodejs.org/)
-* A utilidade `dps-keygen`:
+* [Código de estúdio visual.](https://code.visualstudio.com/)
+* [Nó.js](https://nodejs.org/)
+* A `dps-keygen` utilidade:
 
     ```cmd/sh
     npm i -g dps-keygen
@@ -105,11 +102,11 @@ Para ligar um dispositivo a uma aplicação IoT Central, precisa de uma chave de
 
 Neste tutorial, utiliza o DCM público para um dispositivo MxChip IoT DevKit. Não é necessário um dispositivo DevKit real para executar o código, neste tutorial compila o código para executar no Windows.
 
-1. Crie uma pasta chamada `central_app` e abra-a no Código VS.
+1. Crie uma `central_app` pasta chamada e abra-a no Código VS.
 
 1. Utilize **ctrl+Shift+P** para abrir a paleta de comando, introduzir **plug e reproduzir IoT,** e selecione **Repositório de Modelo Aberto**. Selecione **repositório público**. O Código VS mostra uma lista dos DCMs no repositório de modelos públicos.
 
-1. Selecione o **DCM MXChip IoT DevKit** com id `urn:mxchip:mxchip_iot_devkit:1`. Em seguida, selecione **Download**. Tem agora uma cópia do DCM na pasta `central_app`.
+1. Selecione o **DCM MXChip IoT DevKit** com ID `urn:mxchip:mxchip_iot_devkit:1`. Em seguida, selecione **Download**. Tem agora uma cópia do DCM na `central_app` pasta.
 
 ![Repositório de modelos e DCM](./media/tutorial-connect-pnp-device/public-repository.png)
 
@@ -137,7 +134,7 @@ Agora tem o **DCM MXChip IoT DevKit** E as suas interfaces associadas, pode gera
 
 1. Escolha **via Vcpkg** como forma de incluir o SDK.
 
-1. O Código VS abre uma nova janela com ficheiros de código de dispositivo gerados na pasta `devkit_device`.
+1. O Código VS abre uma nova janela com ficheiros de código de dispositivo gerados na `devkit_device` pasta.
 
 ![Código de dispositivo gerado](./media/tutorial-connect-pnp-device/generated-code.png)
 
@@ -145,14 +142,14 @@ Agora tem o **DCM MXChip IoT DevKit** E as suas interfaces associadas, pode gera
 
 Utiliza o dispositivo SDK para construir o código de código do dispositivo gerado. A aplicação que constrói simula um dispositivo **MXChip IoT DevKit** e liga-se à sua aplicação IoT Central. A aplicação envia telemetria e propriedades, e recebe comandos.
 
-1. Num pedido de comando, crie um subdiretório `cmake` na pasta `devkit_device` e navegue para essa pasta:
+1. Num pedido de comando, crie `cmake` `devkit_device` um subdiretório na pasta e navegue para essa pasta:
 
     ```cmd
     mkdir cmake
     cd cmake
     ```
 
-1. Executar os seguintes comandos para construir o código gerado. Substitua o espaço reservado `<directory of your Vcpkg repo>` pelo caminho para a sua cópia do repositório **vcpkg:**
+1. Executar os seguintes comandos para construir o código gerado. Substitua `<directory of your Vcpkg repo>` o espaço reservado pelo caminho para a sua cópia do repositório **vcpkg:**
 
     ```cmd
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
@@ -169,13 +166,13 @@ Utiliza o dispositivo SDK para construir o código de código do dispositivo ger
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. Depois de a construção completar com sucesso, no mesmo comando executar a sua aplicação. Substitua `<scopeid>` e `<devicekey>` os valores que observou anteriormente:
+1. Depois de a construção completar com sucesso, no mesmo comando executar a sua aplicação. `<scopeid>` Substitua `<devicekey>` e com os valores que observou anteriormente:
 
     ```cmd
     .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
     ```
 
-1. A aplicação do dispositivo começa a enviar dados para o IoT Hub. Às vezes vemos o erro `Error registering device for DPS` primeira vez que dirigemos o comando anterior. Se vir este erro, tente novamente o comando.
+1. A aplicação do dispositivo começa a enviar dados para o IoT Hub. Às vezes `Error registering device for DPS` vemos o erro da primeira vez que executamos o comando anterior. Se vir este erro, tente novamente o comando.
 
 ## <a name="view-the-device"></a>Ver o dispositivo
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial-arquivar logs de diretório em uma conta de armazenamento | Microsoft Docs
-description: Saiba como configurar Diagnóstico do Azure para enviar por push Azure Active Directory logs para uma conta de armazenamento
+title: Tutorial - Arquivo de registos de diretórios para uma conta de armazenamento Microsoft Docs
+description: Aprenda a configurar o Azure Diagnostics para empurrar os registos de Diretórios Ativos do Azure para uma conta de armazenamento
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007850"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: arquivar logs do Azure AD em uma conta de armazenamento do Azure
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Arquivo Azure AD regista uma conta de armazenamento Azure
 
 Neste tutorial, vai aprender a configurar as definições de diagnóstico do Azure Monitor para encaminhar registos do Azure Active Directory (Azure AD) para uma conta de armazenamento do Azure.
 
@@ -38,9 +38,9 @@ Para utilizar esta funcionalidade, precisa de:
 
 ## <a name="archive-logs-to-an-azure-storage-account"></a>Arquivar os registos para uma conta de armazenamento do Azure
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
-2. Selecione **Azure Active Directory** > **Activity** > **Registos de auditoria**. 
+2. Selecione**registos**de auditoria de > **atividade** > de **diretório ativo azure**. 
 
 3. Selecione **Exportar Definições**. 
 
@@ -75,6 +75,6 @@ Para utilizar esta funcionalidade, precisa de:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Interpretar o esquema dos registos de auditoria no Azure Monitor)
+* [Interpretar esquemas de registos de auditoria no Monitor Azure](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Interpretar o esquema dos registos de início de sessão no Azure Monitor)
 * [Perguntas mais frequentes e problemas conhecidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

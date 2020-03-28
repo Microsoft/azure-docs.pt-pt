@@ -1,17 +1,17 @@
 ---
-title: Tutorial – dimensionar aplicativos no serviço Azure App usando o Ansible
-description: Saiba como escalar verticalmente um aplicativo no serviço Azure App
-keywords: Ansible, Azure, DevOps, Bash, manual, serviço de Azure App, aplicativo Web, escala, Java
+title: Tutorial - Aplicativos de escala no Serviço de Aplicações Azure usando Ansible
+description: Saiba como escalar uma app no Azure App Service
+keywords: ansible, azul, devops, bash, playbook, Azure App Service, Web App, escala, Java
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9eb50922361c817de8047dece4849a9b221677f0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155923"
 ---
-# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutorial: dimensionar aplicativos em Azure App serviço usando o Ansible
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutorial: Aplicativos de escala no Serviço de Aplicações Azure usando Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -21,26 +21,26 @@ ms.locfileid: "74155923"
 
 > [!div class="checklist"]
 >
-> * Obter fatos de um plano do serviço de aplicativo existente
-> * Escalar verticalmente o plano do serviço de aplicativo para S2 com três trabalhadores
+> * Obtenha factos de um plano de serviço de aplicações existente
+> * Aumentar o plano de Serviço de Aplicações para S2 com três trabalhadores
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Azure app aplicativo de serviço** – se você não tiver um aplicativo de serviço de Azure app, [Configure um aplicativo no serviço Azure App usando o Ansible](ansible-create-configure-azure-web-apps.md).
+- **Aplicação Azure App Service** - Se não tiver uma aplicação Azure App Service, [configure uma aplicação no Serviço de Aplicações Azure utilizando ansible](ansible-create-configure-azure-web-apps.md).
 
-## <a name="scale-up-an-app"></a>Escalar verticalmente um aplicativo
+## <a name="scale-up-an-app"></a>Escalar uma aplicação
 
-Há dois fluxos de trabalho para dimensionamento: *escalar verticalmente* e *escalar horizontalmente*.
+Existem dois fluxos de trabalho para a escala: *escala e* escala para *fora*.
 
-**Escalar verticalmente:** Para escalar verticalmente significa adquirir mais recursos. Esses recursos incluem CPU, memória, espaço em disco, VMs e muito mais. Você escala verticalmente um aplicativo alterando o tipo de preço do plano do serviço de aplicativo ao qual o aplicativo pertence. 
-**Escalar horizontalmente:** Para escalar horizontalmente significa aumentar o número de instâncias de VM que executam seu aplicativo. Dependendo do tipo de preço do plano do serviço de aplicativo, você pode escalar horizontalmente para até 20 instâncias. O [dimensionamento](/azure/azure-monitor/platform/autoscale-get-started) automático permite dimensionar automaticamente a contagem de instâncias com base em regras e agendamentos predefinidos.
+**Escala para cima:** Aumentar significa adquirir mais recursos. Estes recursos incluem CPU, memória, espaço em disco, VMs, e muito mais. Você escala uma app alterando o nível de preços do plano de Serviço de Aplicações a que a aplicação pertence. 
+**Escala para fora:** Para escalonar significa aumentar o número de casos vm que executam a sua aplicação. Dependendo do seu nível de preços do plano de app service, pode aumentar para 20 instâncias. [A automatização](/azure/azure-monitor/platform/autoscale-get-started) permite-lhe escalar a contagem de instâncias automaticamente com base em regras e horários pré-definidos.
 
-O código do guia estratégico nesta seção define a seguinte operação:
+O código de jogadas nesta secção define o seguinte funcionamento:
 
-* Obter fatos de um plano do serviço de aplicativo existente
-* Atualizar o plano do serviço de aplicativo para S2 com três trabalhadores
+* Obtenha factos de um plano de serviço de aplicações existente
+* Atualize o plano de serviço da App para S2 com três trabalhadores
 
 Guarde o manual de procedimentos seguinte como `webapp_scaleup.yml`:
 
@@ -80,13 +80,13 @@ Guarde o manual de procedimentos seguinte como `webapp_scaleup.yml`:
       var: facts.appserviceplans[0].sku
 ```
 
-Execute o guia estratégico usando o comando `ansible-playbook`:
+Executar o manual `ansible-playbook` usando o comando:
 
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
+Depois de executar o livro de jogadas, vê a saída semelhante aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 

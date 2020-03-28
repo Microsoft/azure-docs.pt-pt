@@ -1,5 +1,5 @@
 ---
-title: Tutorial – usar uma imagem de VM personalizada em um conjunto de dimensionamento com CLI do Azure
+title: Tutorial - Use uma imagem VM personalizada em um conjunto de escala com Azure CLI
 description: Saiba como utilizar a CLI do Azure para criar uma imagem de VM personalizada que pode utilizar para implementar um conjunto de dimensionamento de máquinas virtuais
 author: cynthn
 tags: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 95e22b40b56d3ac3129573958c77b8643c0e72dc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6d9f625bf425a33b690fd303a4f13d032bd59fa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276135"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80062724"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Criar e utilizar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser utilizada quando as instâncias de VM são implementadas. Para reduzir o número de tarefas após as instâncias de VM serem implementadas, pode utilizar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui instalações ou configurações de aplicações obrigatórias. Quaisquer instâncias de VM criadas no conjunto de dimensionamento utilizam a imagem de VM personalizada e estão prontas para apresentar o seu tráfego de aplicações. Neste tutorial, ficará a saber como:
@@ -24,11 +24,11 @@ Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser 
 > * Criar uma imagem de VM personalizada
 > * Implementar um conjunto de dimensionamento que utiliza a imagem de VM personalizada
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Criar e configurar uma VM de origem
@@ -51,7 +51,7 @@ az vm create \
 
 O endereço IP público da sua VM é apresentado na saída do comando [az vm create](/cli/azure/vm). Execute o SSH ao endereço IP público da VM, da seguinte forma:
 
-```azurecli-interactive
+```console
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -91,7 +91,7 @@ Poderão ser necessários alguns minutos para desalocar e generalizar a VM.
 
 Agora, crie uma imagem da VM com [az image create](/cli//azure/image). O exemplo seguinte cria uma imagem designada *myImage* a partir da sua VM:
 
-> ANOTAÇÕES Se o grupo de recursos e o local da máquina virtual forem diferentes, você poderá adicionar o parâmetro `--location` aos comandos abaixo para especificar o local da VM de origem usada para criar a imagem. 
+> [NOTA] Se a localização do Grupo de Recursos e `--location` da Máquina Virtual for diferente, pode adicionar o parâmetro aos comandos abaixo para especificar a localização da fonte VM utilizada para criar a imagem. 
 
 ```azurecli-interactive
 az image create \
@@ -117,7 +117,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para permitir que o tráfego alcance o conjunto de dimensionamento e verificar se o servidor Web funciona corretamente, crie um balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*, que permite tráfego na porta *TCP* *80*:
+Para permitir que o tráfego alcance o conjunto de dimensionamento e verificar se o servidor Web funciona corretamente, crie um balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*, que permite tráfego na porta *TCP**80*:
 
 ```azurecli-interactive
 az network lb rule create \

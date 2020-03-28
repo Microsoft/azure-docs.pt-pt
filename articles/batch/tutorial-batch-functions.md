@@ -1,6 +1,6 @@
 ---
-title: Disparar um trabalho em lotes usando Azure Functions
-description: Tutorial – aplicar OCR a documentos digitalizados conforme eles são adicionados a um blob de armazenamento
+title: Desencadear um trabalho de lote usando funções azure
+description: Tutorial - Aplique OCR em documentos digitalizados à medida que são adicionados a uma bolha de armazenamento
 author: LauraBrenner
 ms.service: batch
 ms.devlang: dotnet
@@ -9,20 +9,20 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
 ms.openlocfilehash: a967fdc14b85f294ee11cbcc57a8d2280dba38e8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77017195"
 ---
-# <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: disparar um trabalho em lotes usando Azure Functions
+# <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Desencadear um trabalho de lote usando funções azure
 
-Neste tutorial, você aprenderá a disparar um trabalho em lotes usando Azure Functions. Veremos um exemplo em que os documentos adicionados a um contêiner de blob do armazenamento do Azure têm OCR (reconhecimento óptico de caracteres) aplicado a eles por meio do lote do Azure. Para simplificar o processamento de OCR, configuraremos uma função do Azure que executa um trabalho de OCR em lote sempre que um arquivo é adicionado ao contêiner de BLOB.
+Neste tutorial, você aprenderá a desencadear um trabalho de Lote usando funções Azure. Vamos percorrer um exemplo em que os documentos adicionados a um recipiente de blob Azure Storage têm reconhecimento ótico de caracteres (OCR) aplicado saqueado através do Lote Azure. Para simplificar o processamento de OCR, configuraremos uma função Azure que executa um trabalho de OCR de lote cada vez que um ficheiro é adicionado ao recipiente de bolhas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Consulte [criar uma conta do lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e vincular contas.
+* Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Consulte [criar uma conta de Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e ligar contas.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/)
 * [Explorador do Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 
@@ -30,60 +30,60 @@ Neste tutorial, você aprenderá a disparar um trabalho em lotes usando Azure Fu
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-## <a name="create-a-batch-pool-and-batch-job-using-batch-explorer"></a>Criar um pool do lote e um trabalho do lote usando Batch Explorer
+## <a name="create-a-batch-pool-and-batch-job-using-batch-explorer"></a>Crie uma piscina de lote e trabalho de lote usando o Batch Explorer
 
-Nesta seção, você usará Batch Explorer para criar o pool do lote e o trabalho em lotes que executarão tarefas de OCR. 
+Nesta secção, você usará o Batch Explorer para criar a piscina de lote e o trabalho de Lote que executará tarefas OCR. 
 
 ### <a name="create-a-pool"></a>Criar um conjunto
 
-1. Entre no Batch Explorer usando suas credenciais do Azure.
-1. Crie um pool selecionando **pools** na barra lateral esquerda e, em seguida, o botão **Adicionar** acima do formulário de pesquisa. 
-    1. Escolha uma ID e um nome para exibição. Usaremos `ocr-pool` para este exemplo.
-    1. Defina o tipo de escala como **tamanho fixo**e defina a contagem de nós dedicados como 3.
-    1. Selecione **Ubuntu 18, 4-LTS** como o sistema operacional.
+1. Inscreva-se no Batch Explorer utilizando as suas credenciais Azure.
+1. Crie uma piscina selecionando **Pools** na barra lateral esquerda e, em seguida, o botão **Adicionar** acima do formulário de pesquisa. 
+    1. Escolha um nome de identificação e exibição. Usaremos `ocr-pool` para este exemplo.
+    1. Dete teo tipo de calcário para **o tamanho fixo,** e desloque a contagem de nódedicada para 3.
+    1. Selecione **Ubuntu 18.04-LTS** como sistema operativo.
     1. Escolha `Standard_f2s_v2` como o tamanho da máquina virtual.
-    1. Ative a tarefa inicial e adicione o comando `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Certifique-se de definir a identidade do usuário como **usuário padrão da tarefa (admin)** , que permite que as tarefas iniciais incluam comandos com `sudo`.
+    1. Ative a tarefa inicial `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`e adicione o comando . Certifique-se de definir a identidade do utilizador como **utilizador predefinido de tarefa (Admin),** que permite que as tarefas de início incluam comandos com `sudo`.
     1. Selecione **OK**.
 ### <a name="create-a-job"></a>Criar uma tarefa
 
-1. Crie um trabalho no pool selecionando **trabalhos** na barra lateral esquerda e, em seguida, o botão **Adicionar** acima do formulário de pesquisa. 
-    1. Escolha uma ID e um nome para exibição. Usaremos `ocr-job` para este exemplo.
-    1. Defina o pool como `ocr-pool`ou qualquer nome que você escolher para o pool.
+1. Crie um trabalho na piscina selecionando **Jobs** na barra lateral esquerda e, em seguida, o botão **Adicionar** acima do formulário de pesquisa. 
+    1. Escolha um nome de identificação e exibição. Usaremos `ocr-job` para este exemplo.
+    1. Detete `ocr-pool`a piscina para, ou qualquer nome que você escolheu para a sua piscina.
     1. Selecione **OK**.
 
 
-## <a name="create-blob-containers"></a>Criar contêineres de BLOB
+## <a name="create-blob-containers"></a>Criar recipientes de bolha
 
-Aqui, você criará contêineres de BLOB que armazenarão seus arquivos de entrada e saída para o trabalho em lotes de OCR.
+Aqui irá criar recipientes blob que armazenarão os seus ficheiros de entrada e saída para o trabalho do Lote OCR.
 
-1. Entre no Gerenciador de Armazenamento usando suas credenciais do Azure.
-1. Usando a conta de armazenamento vinculada à sua conta do lote, crie dois contêineres de BLOB (um para arquivos de entrada, um para arquivos de saída) seguindo as etapas em [criar um contêiner de blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
+1. Inscreva-se no Storage Explorer utilizando as suas credenciais Azure.
+1. Utilizando a conta de armazenamento ligada à sua conta Batch, crie dois recipientes blob (um para ficheiros de entrada, um para ficheiros de saída) seguindo os passos em [Criar um recipiente de bolha](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
 
-Neste exemplo, o contêiner de entrada é nomeado `input` e é onde todos os documentos sem OCR são carregados inicialmente para processamento. O contêiner de saída é nomeado `output` e é onde o trabalho do lote grava documentos processados com OCR.  
-    * Neste exemplo, vamos chamar nosso contêiner de entrada `input`e nosso contêiner de saída `output`.  
-    * O contêiner de entrada é onde todos os documentos sem OCR são carregados inicialmente.  
-    * O contêiner de saída é onde o trabalho em lotes grava documentos com OCR.  
+Neste exemplo, o recipiente de `input` entrada é nomeado e é onde todos os documentos sem OCR são inicialmente carregados para processamento. O recipiente de `output` saída está nomeado e é onde o trabalho do Lote escreve documentos processados com OCR.  
+    * Neste exemplo, chamaremos o nosso `input`recipiente de `output`entrada , e o nosso recipiente de saída .  
+    * O recipiente de entrada é onde todos os documentos sem OCR são inicialmente carregados.  
+    * O recipiente de saída é onde o trabalho do Lote escreve documentos com OCR.  
 
-Crie uma assinatura de acesso compartilhado para seu contêiner de saída no Gerenciador de Armazenamento. Faça isso clicando com o botão direito do mouse no contêiner de saída e selecionando **obter assinatura de acesso compartilhado...** . Em **permissões**, marque **gravar**. Nenhuma outra permissão é necessária.  
+Crie uma assinatura de acesso partilhada para o seu recipiente de saída no Storage Explorer. Faça-o clicando à direita no recipiente de saída e selecionando Obter Assinatura de **Acesso Partilhado...**. Sob **permissões,** verifique **Escrever**. Não são necessárias outras permissões.  
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 
-Nesta seção, você criará a função do Azure que dispara o trabalho do lote de OCR sempre que um arquivo é carregado em seu contêiner de entrada.
+Nesta secção, criará a Função Azure que aciona o trabalho do Lote OCR sempre que um ficheiro é enviado para o seu recipiente de entrada.
 
-1. Siga as etapas em [criar uma função disparada pelo armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) para criar uma função.
-    1. Quando uma conta de armazenamento for solicitada, use a mesma conta de armazenamento que você vinculou à sua conta do lote.
-    1. Para **pilha de tempo de execução**, escolha .net. Vamos escrever nossa função em C# para aproveitar o SDK do .net do lote.
-1. Depois que a função disparada por blob for criada, use o [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) e [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) do GitHub na função.
-    * `run.csx` é executado quando um novo BLOB é adicionado ao seu contêiner de blob de entrada.
-    * `function.proj` lista as bibliotecas externas em seu código de função, por exemplo, o SDK do .NET do lote.
-1. Altere os valores de espaço reservado das variáveis na função `Run()` do arquivo `run.csx` para refletir suas credenciais de armazenamento e lote. Você pode encontrar suas credenciais de conta de armazenamento e lote no portal do Azure na seção **chaves** da sua conta do lote.
-    * Recupere suas credenciais de conta de armazenamento e lote no portal do Azure na seção **chaves** da sua conta do lote. 
+1. Siga os passos em [Criar uma função desencadeada pelo armazenamento De Blob Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) para criar uma função.
+    1. Quando solicitado para uma conta de armazenamento, use a mesma conta de armazenamento que ligou à sua conta 'Lote'.
+    1. Para a pilha de **tempo de execução,** escolha .NET. Vamos escrever a nossa função em C# para alavancar o Lote .NET SDK.
+1. Uma vez criada a função desencadeada [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) por [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) bolhas, utilize a e a partir do GitHub na Função.
+    * `run.csx`é executado quando uma nova bolha é adicionada ao seu recipiente de entrada blob.
+    * `function.proj`lista as bibliotecas externas no seu código de função, por exemplo, o Lote .NET SDK.
+1. Altere os valores do espaço `Run()` reservado `run.csx` das variáveis na função do ficheiro para refletir as suas credenciais de Lote e armazenamento. Pode encontrar as suas credenciais de conta de Lote e armazenamento no portal Azure na secção **Chaves** da sua conta Batch.
+    * Recupere as credenciais da sua conta de Lote e armazenamento no portal Azure na secção **Chaves** da sua conta Batch. 
 
-## <a name="trigger-the-function-and-retrieve-results"></a>Disparar a função e recuperar os resultados
+## <a name="trigger-the-function-and-retrieve-results"></a>Desencadear a função e recuperar resultados
 
-Faça upload de todos ou todos os ficheiros digitalizados do diretório [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) no GitHub para o seu recipiente de entrada. Monitor Batch Explorer para confirmar que uma tarefa é adicionada ao `ocr-pool` para cada arquivo. Depois de alguns segundos, o arquivo com OCR aplicado é adicionado ao contêiner de saída. O arquivo é então visível e recuperável em Gerenciador de Armazenamento.
+Faça upload de todos ou todos [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) os ficheiros digitalizados do diretório do GitHub para o seu recipiente de entrada. Monitor Ize o Batch Explorer para `ocr-pool` confirmar que uma tarefa é adicionada para cada ficheiro. Após alguns segundos, o ficheiro com OCR aplicado é adicionado ao recipiente de saída. O ficheiro é então visível e recuperável no Storage Explorer.
 
-Além disso, você pode observar o arquivo de logs na parte inferior da janela do editor da Web Azure Functions, em que você verá mensagens como esta para cada arquivo que carregar para o contêiner de entrada:
+Além disso, pode ver o ficheiro de registos na parte inferior da janela do editor web do Azure Functions, onde verá mensagens como esta para cada ficheiro que enviar para o seu recipiente de entrada:
 
 ```
 2019-05-29T19:45:25.846 [Information] Creating job...
@@ -94,23 +94,23 @@ Além disso, você pode observar o arquivo de logs na parte inferior da janela d
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 
-Para baixar os arquivos de saída de Gerenciador de Armazenamento para seu computador local, primeiro selecione os arquivos desejados e, em seguida, selecione o **Download** na faixa de opções superior. 
+Para descarregar os ficheiros de saída do Storage Explorer para a sua máquina local, primeiro selecione os ficheiros que deseja e, em seguida, selecione o **Download** na fita superior. 
 
 > [!TIP]
-> Os arquivos baixados serão pesquisáveis se forem abertos em um leitor de PDF.
+> Os ficheiros descarregados são pesquisáveis se forem abertos num leitor pdf.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como: 
 
 > [!div class="checklist"]
-> * Usar Batch Explorer para criar pools e trabalhos
-> * Usar Gerenciador de Armazenamento para criar contêineres de BLOB e uma assinatura de acesso compartilhado (SAS)
-> * Criar uma função do Azure disparada por blob
+> * Use o Batch Explorer para criar piscinas e empregos
+> * Utilize o Storage Explorer para criar recipientes blob e uma assinatura de acesso partilhado (SAS)
+> * Criar uma função Azure desencadeada por bolhas
 > * Carregar ficheiros de entrada para o Armazenamento
 > * Monitorizar a execução de tarefas
 > * Obter ficheiros de saída
 
-* Para obter mais exemplos de como usar a API do .NET para agendar e processar cargas de trabalho do lote, consulte [os exemplos no GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
+* Para mais exemplos de utilização da API .NET para agendar e processar as cargas de trabalho do Lote, consulte [as amostras no GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Para ver mais Azure Functions gatilhos que você pode usar para executar cargas de trabalho do lote, consulte [a documentação do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).
+* Para ver mais funções Azure dispara que pode utilizar para executar cargas de trabalho do Lote, consulte [a documentação das Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings).

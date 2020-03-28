@@ -1,21 +1,21 @@
 ---
-title: 'PowerShell: dimensionar um aplicativo Web manualmente'
-description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como dimensionar um aplicativo manualmente.
+title: 'PowerShell: Escala uma aplicação web manualmente'
+description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como escalar uma aplicação manualmente.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 2ee88ef3d125ccc1ec9675437ea99ac11fe65dff
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cb0af65f938baf24b2af574b21e09e099b70ba85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684227"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060289"
 ---
-# <a name="scale-a-web-app-manually-using-powershell"></a>Dimensionar um aplicativo Web manualmente usando o PowerShell
+# <a name="scale-a-web-app-manually-using-powershell"></a>Escala uma aplicação web manualmente usando powerShell
 
 Neste cenário, vai aprender a criar um grupo de recursos, um plano de serviço de aplicações e aplicações web. Vai então dimensionar o Plano do Serviço de Aplicações a partir de uma única instância para várias instâncias.
 
@@ -42,8 +42,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
+| [Novo AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
+| [Novo AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de uma aplicação web. |
 
 ## <a name="next-steps"></a>Passos seguintes
