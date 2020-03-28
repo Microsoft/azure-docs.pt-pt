@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67183948"
 ---
-### <a name="open-the-publish-wizard"></a>Abrir o Assistente de publicação
+### <a name="open-the-publish-wizard"></a>Abra o assistente de publicação
 
-Na **Explorador de soluções**, clique com botão direito a **SharingService** do projeto e selecione **publicar**.
+No **Solution Explorer,** clique no projeto **SharingService** e selecione **Publicar**.
 
-Inicia o Assistente de publicação. Selecione **serviço de aplicações** > **publicar** para abrir o **criar serviço de aplicações** caixa de diálogo.
+Começa o Assistente editorial. Selecione **App Service** > **Publish** para abrir a caixa de diálogo Create **App Service.**
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Na **criar serviço de aplicações** caixa de diálogo, selecione **adicionar uma conta** e inicie sessão na sua subscrição do Azure. Se ainda tiver iniciado sessão, selecione a conta que pretende que o da lista pendente.
+Na caixa de diálogo **Create App Service,** selecione **Adicionar uma conta** e iniciar sessão na subscrição do Azure. Se já se inscreveu, selecione a conta que deseja da lista de entregas.
 
 > [!NOTE]
 > Se já tiver sessão iniciada, não selecione ainda **Criar**.
@@ -39,24 +39,24 @@ Atribua ao grupo de recursos o nome **myResourceGroup** e selecione **OK**.
 
 Junto a **Plano de Alojamento**, selecione **Novo**.
 
-Na **configurar o plano de alojamento** diálogo caixa, utilize estas definições:
+Na caixa de diálogo do Plano de **Hospedagem Configurar,** utilize estas definições:
 
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Plano do Serviço de Aplicações| MySharingServicePlan | Nome do plano de serviço de aplicações. |
-| Location | EUA Oeste | O centro de dados onde o a aplicação Web está alojada. |
-| Tamanho | Livre | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina que recursos de alojamento. |
+| Localização | E.U.A. Oeste | O centro de dados onde o a aplicação Web está alojada. |
+| Tamanho | Gratuito | O [nível de preços](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina as características de hospedagem. |
 
 Selecione **OK**.
 
 ### <a name="create-and-publish-the-web-app"></a>Criar e publicar a aplicação Web
 
-Na **nome da aplicação**, introduza um nome de aplicação exclusivo (carateres válidos são `a-z`, `0-9`, e `-`), ou aceite o nome exclusivo gerado automaticamente. O URL da aplicação Web é `https://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
+No Nome da **Aplicação,** introduza `a-z`um `0-9`nome `-`de aplicação único (caracteres válidos são, e , ou aceite o nome único gerado automaticamente. O URL da aplicação Web é `https://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
 
 Selecione **Criar** para começar a criar os recursos do Azure.
 
-Depois de concluído o assistente, publica a aplicação web do ASP.NET Core no Azure e, em seguida, abre-se a aplicação no seu browser predefinido.
+Depois de o assistente terminar, publica a ASP.NET aplicação web Core para o Azure e, em seguida, abre a aplicação no seu navegador predefinido.
 
 ![Aplicação Web ASP.NET publicada no Azure](./media/spatial-anchors-azure/web-app-running-live.png)
 
-O nome da aplicação utilizados nesta secção é utilizado como o prefixo de URL no formato `https://<app_name>.azurewebsites.net`. Tome nota deste URL, porque irá precisar das mesmas.
+O nome da aplicação que usou nesta secção é `https://<app_name>.azurewebsites.net`usado como prefixo URL no formato . Tome nota desta URL porque vai precisar.

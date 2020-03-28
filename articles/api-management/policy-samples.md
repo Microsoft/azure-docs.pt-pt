@@ -14,10 +14,10 @@ ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75940948"
 ---
 # <a name="api-management-policy-samples"></a>Exemplos de políticas de Gestão de API
@@ -33,7 +33,7 @@ As [políticas](api-management-howto-policies.md) são uma funcionalidade podero
 | [Autorizar o acesso com base em afirmações JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | Mostra como autorizar o acesso a métodos HTTP específicos numa API baseada em afirmações JWT.                                                                                                                                       |
 | [Autorizar pedidos com um autorizador externo](./policies/authorize-request-using-external-authorizer.md)                                                   | Mostra como utilizar um autorizador externo para proteger o acesso à API.                                                                                                                                                               |
 | [Autorizar o acesso com o token de OAuth do Google](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | Mostra como autorizar o acesso aos pontos finais ao utilizar o Google como um fornecedor de tokens de OAuth.                                                                                                                                    |
-| [Filtrar endereços IP ao usar um gateway de aplicativo](./policies/filter-ip-addresses-when-using-appgw.md) | Mostra como filtrar por IP em políticas quando a instância de gerenciamento de API é acessada por meio de um gateway de aplicativo
+| [Filtrar endereços IP ao utilizar um Gateway de aplicação](./policies/filter-ip-addresses-when-using-appgw.md) | Mostra como filtrar IP em políticas quando a instância de Gestão API é acedida através de um Gateway de Aplicação
 | [Gerar a Assinatura de Acesso Partilhado e reencaminhar o pedido para o armazenamento do Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | Mostra como gerar a [Assinatura de Acesso Partilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) através de expressões e reencaminhar o pedido para o armazenamento do Azure com a política rewrite-uri. |
 | [Obter o token de acesso de OAuth2 do AAD e reencaminhá-lo para o back-end](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | Fornece um exemplo de como utilizar o OAuth2 para autorização entre o gateway e um back-end. Mostra como obter um token de acesso do AAD e reencaminhá-lo para o back-end.                                                    |
 | [Obter o token X-CSRF do gateway SAP através da política de envio de pedidos](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | Mostra como implementar o padrão X-CSRF utilizado por muitas APIs. Este exemplo é específico do Gateway SAP.                                                                                                                           |

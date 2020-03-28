@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77615475"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Partilhe âncoras espaciais Azure em sessões e dispositivos
@@ -46,11 +46,11 @@ Vale a pena notar que, embora esteja a usar a Unidade e uma ASP.NET Core Web App
 
 ## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
-Open Visual Studio, e abra o projeto na pasta `Sharing\SharingServiceSample`.
+Open Visual Studio, e abra `Sharing\SharingServiceSample` o projeto na pasta.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
+## <a name="visual-studio-code"></a>[Código de estúdio visual](#tab/VSC)
 
 Terá de criar um grupo de recursos e um Plano de Serviço de Aplicações antes de implementar o serviço em Código VS.
 
@@ -58,7 +58,7 @@ Terá de criar um grupo de recursos e um Plano de Serviço de Aplicações antes
 
 Navegue para o <a href="https://portal.azure.com/" target="_blank">portal Azure</a> e inscreva-se na subscrição do Azure.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
@@ -82,7 +82,7 @@ Na caixa de diálogo do Plano de **Hospedagem Configurar,** utilize estas defini
 
 Selecione **OK**.
 
-Abra o Código do Estúdio Visual e abra o projeto na pasta `Sharing\SharingServiceSample`. Siga <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">este tutorial</a> para implementar o serviço de partilha através do Visual Studio Code. Pode seguir os passos a partir da secção 'Abra-o com Código de Estúdio Visual'. Não crie outro projeto de mvc, como explicado na etapa acima, já que já tem o projeto que precisa de ser implementado e publicado, o SharingServiceSample.
+Abra o Código do Estúdio Visual `Sharing\SharingServiceSample` e abra o projeto na pasta. Siga <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">este tutorial</a> para implementar o serviço de partilha através do Visual Studio Code. Pode seguir os passos a partir da secção 'Abra-o com Código de Estúdio Visual'. Não crie outro projeto de mvc, como explicado na etapa acima, já que já tem o projeto que precisa de ser implementado e publicado, o SharingServiceSample.
 
 ---
 

@@ -8,10 +8,10 @@ ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75768967"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
@@ -45,9 +45,9 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
+2. Clique em **Criar um recurso** no canto superior esquerdo do portal Azure.
 
-3. Clique em **IA + Machine Learning** > **Análise de Texto**. Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
+3. Clique em Análise de**Texto** **AI + Machine Learning** > . Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
 
     ![Página Criar recurso dos Serviços Cognitivos](media/functions-twitter-email/01-create-text-analytics.png)
 
@@ -55,7 +55,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusivo. |
     | **Localização** | E.U.A. Oeste | Utilize a localização mais próxima de si. |
-    | **Escalão de preço** | F0 | Comece com o escalão mais baixo. Se ficar sem chamadas, aumente para um escalão superior.|
+    | **Nível de preços** | F0 | Comece com o escalão mais baixo. Se ficar sem chamadas, aumente para um escalão superior.|
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
 4. Clique em **Criar** para criar o recurso. 
@@ -76,7 +76,7 @@ As Funções proporcionam uma excelente forma de descarregar tarefas de processa
 
 ## <a name="create-an-http-triggered-function"></a>Criar uma função acionada por HTTP  
 
-1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal**.
+1. Expanda a sua **+** aplicação de função e clique no botão ao lado das **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal**.
 
     ![Início rápido das funções no portal do Azure](media/functions-twitter-email/05-function-app-create-portal.png)
 
@@ -121,7 +121,7 @@ As Funções proporcionam uma excelente forma de descarregar tarefas de processa
     ```
     Este código de função devolve uma categoria de cor com base na classificação de sentimento recebida no pedido. 
 
-4. Para testar a função, clique em **testar** na extrema direita para expandir a guia teste. Digite um valor de `0.2` para o **corpo da solicitação**e clique em **executar**. É devolvido o valor **RED** no corpo da resposta. 
+4. Para testar a função, clique em **Testar** na extrema direita `0.2` para expandir o separador Teste. Digite um valor para o **corpo de Pedido,** e, em seguida, clique em **Executar**. É devolvido o valor **RED** no corpo da resposta. 
 
     ![Testar a função no portal do Azure](./media/functions-twitter-email/07-function-test.png)
 
@@ -129,9 +129,9 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
 
 ## <a name="create-a-logic-app"></a>Criar uma aplicação lógica   
 
-1. No portal do Azure, clique no botão **criar um recurso** localizado no canto superior esquerdo da portal do Azure.
+1. No portal Azure, clique no botão **Criar um botão de recurso** encontrado no canto superior esquerdo do portal Azure.
 
-2. Clique em **Web** > **Aplicação Lógica**.
+2. Clique na**aplicação** **Lógica Web** > .
  
 3. Em seguida, escreva um valor para **Nome**, como `TweetSentiment`, e utilize as definições conforme especificado na tabela.
 
@@ -191,7 +191,7 @@ Agora que a deteção de sentimentos está configurada, pode adicionar uma liga�
 
 ## <a name="connect-sentiment-output-to-your-function"></a>Ligar a saída do sentimento à função
 
-1. No Estruturador do Logic Apps, clique em **Novo passo** > **Adicionar uma ação**, filtre por **Funções do Azure** e clique em **Escolher uma função do Azure**.
+1. No Designer de Aplicações Lógicas, clique em **Novo passo** > **Adicione uma ação,** filtre nas **funções do Azure** e clique **Em Escolher uma função Azure**.
 
     ![Detetar Sentimento](media/functions-twitter-email/14-azure-functions.png)
   
@@ -213,7 +213,7 @@ Agora, a função é acionada quando é enviada uma classificação de sentiment
 
 A última parte do fluxo de trabalho é acionar um e-mail quando o sentimento é classificado como _RED_. Este tópico utiliza um conector do Outlook.com. Pode seguir passos semelhantes para utilizar um conector do Gmail ou do Outlook do Office 365.   
 
-1. No Estruturador de Aplicações Lógicas, clique em **Novo passo** > **Adicionar uma condição**. 
+1. No Designer de Aplicações Lógicas, clique em **Novo passo** > **Adicione uma condição**. 
 
     ![Adicione uma condição à aplicação lógica.](media/functions-twitter-email/18-add-condition.png)
 

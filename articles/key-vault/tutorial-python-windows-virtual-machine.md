@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 6e6c4bb03490d1a5d2c0ea5a3b892b8ddb8f0bf8
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: c0bb391348548ecca595fd1a6472bafcb22ed4ee
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79134447"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472661"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Tutorial: Use cofre de chave Azure com uma máquina virtual Windows em Python
 
@@ -35,7 +35,7 @@ Este tutorial mostra-lhe como:
 
 Antes de começar, leia [os conceitos básicos do Key Vault.](basic-concepts.md) 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +61,7 @@ Para iniciar sessão no Azure com a CLI do Azure, introduza:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -106,7 +106,7 @@ Pode criar uma máquina virtual utilizando um dos seguintes métodos:
 
 * [O Azure CLI](../virtual-machines/windows/quick-create-cli.md)
 * [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
-* [O portal do Azure](../virtual-machines/windows/quick-create-portal.md)
+* [O portal Azure](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
 Neste passo, cria-se uma identidade atribuída ao sistema para a máquina virtual, executando o seguinte comando no ClI Azure:
@@ -117,7 +117,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Note a identidade atribuída ao sistema que está exposta no seguinte código. A saída do comando anterior seria: 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -148,7 +148,7 @@ O código apresenta um processo em duas etapas:
   Fazê-lo também requer um símbolo da Azure AD.
 1. Passe o símbolo para o seu cofre e depois pegue o seu segredo. 
 
-```
+```python
     # importing the requests library 
     import requests 
 
@@ -170,7 +170,7 @@ O código apresenta um processo em duas etapas:
 
 Pode mostrar o valor secreto executando o seguinte código: 
 
-```
+```console
 python Sample.py
 ```
 

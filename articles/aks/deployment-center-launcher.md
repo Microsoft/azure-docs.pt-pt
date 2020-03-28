@@ -5,13 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-monikerRange: vsts
-ms.openlocfilehash: eecb4dba39ff847515a4a312b7cb74698867c693
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b0a9597e370648faab3787218c7d038798dbd455
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78247899"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048113"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de Implantação de Azure Kubernetes
 
@@ -27,7 +26,7 @@ Neste tutorial, irá:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Pode obter uma subscrição gratuita através do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Uma subscrição do Azure. Pode obter uma gratuita através do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 * Um cluster azure Kubernetes Service (AKS).
 
@@ -72,7 +71,7 @@ Neste tutorial, irá:
 
 1. O Centro de Implantação analisa o repositório e deteta o seu Dockerfile. Se quiser atualizar o Dockerfile, pode editar o número de porta identificado.
 
-    ![Definições de aplicação](media/deployment-center-launcher/application-settings.png)
+    ![Definições de Aplicação](media/deployment-center-launcher/application-settings.png)
 
     Se o repositório não contiver o Dockerfile, o sistema exibe uma mensagem para cometer uma.
 
@@ -104,11 +103,11 @@ O Centro de Implantação configura automaticamente o oleoduto CI/CD da organiza
 
 1. Selecione o nome do gasoduto de construção na parte superior do gasoduto.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, selecione **Save & queue,** e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, selecione **Guardar & fila**, e, em seguida, selecione **Guardar**.
 
 1. Sob o seu oleoduto de construção, selecione **History**. Este painel mostra um rasto de auditoria das suas recentes mudanças de construção. O Azure DevOps monitoriza quaisquer alterações feitas no pipeline de construção e permite comparar versões.
 
-1. Selecione **Acionadores**. Pode incluir ou excluir balcões do processo de CI.
+1. Selecione **Triggers**. Pode incluir ou excluir balcões do processo de CI.
 
 1. Selecione **Retenção**. Pode especificar políticas para manter ou remover uma série de construções, dependendo do seu cenário.
 
@@ -124,7 +123,7 @@ O Centro de Implantação cria e confunde automaticamente a relação entre a su
 
 1. Selecione o gatilho de **implantação Contínua** à direita da opção **Drop.** Este gasoduto de libertação tem um gatilho de CD ativado que executa uma implantação sempre que um novo artefacto de construção está disponível. Também pode desativar o gatilho para exigir a execução manual para as suas implementações.
 
-1. Para examinar todas as tarefas do seu pipeline, selecione **Tasks**. O lançamento define o ambiente de leme, configura o parâmetro `imagePullSecrets`, instala ferramentas Helm e implanta as tabelas Helm para o cluster Kubernetes.
+1. Para examinar todas as tarefas do seu pipeline, selecione **Tasks**. O lançamento define o ambiente de `imagePullSecrets` leme, configura o parâmetro, instala ferramentas Helm e implanta as tabelas Helm para o cluster Kubernetes.
 
 1. Para ver o histórico de lançamentos, selecione **ver lançamentos**.
 
@@ -132,7 +131,7 @@ O Centro de Implantação cria e confunde automaticamente a relação entre a su
 
 1. Selecione **Consolidações**. Esta visão mostra que o código se compromete com esta implantação. Compare os lançamentos para ver as diferenças de compromisso entre implementações.
 
-1. Selecione **Registos**. Os registos contêm informações úteis de implementação, que pode visualizar durante e após as implementações.
+1. Selecionar **Registos**. Os registos contêm informações úteis de implementação, que pode visualizar durante e após as implementações.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

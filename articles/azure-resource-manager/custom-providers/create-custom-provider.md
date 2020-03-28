@@ -1,37 +1,37 @@
 ---
-title: Criar provedor de recursos
-description: Descreve como criar um provedor de recursos e implantar seus tipos de recursos personalizados.
+title: Criar fornecedor de recursos
+description: Descreve como criar um fornecedor de recursos e implementar os seus tipos de recursos personalizados.
 author: MSEvanhi
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
 ms.openlocfilehash: 393993a44c860525b9bd9a540ed7afff78e5b93c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75649870"
 ---
-# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Início rápido: criar um provedor personalizado e implantar recursos personalizados
+# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Quickstart: Criar fornecedor personalizado e implementar recursos personalizados
 
-Neste guia de início rápido, você cria seu próprio provedor de recursos e implanta tipos de recursos personalizados para esse provedor de recursos. Para obter mais informações sobre provedores personalizados, consulte [visão geral de visualização de provedores personalizados do Azure](overview.md).
+Neste arranque rápido, cria o seu próprio fornecedor de recursos e implementa tipos de recursos personalizados para esse fornecedor de recursos. Para mais informações sobre fornecedores personalizados, consulte a visão geral da [Pré-visualização dos Fornecedores Personalizados do Azure](overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas neste guia de início rápido, você precisa chamar as operações REST. Há [diferentes maneiras de enviar solicitações REST](/rest/api/azure/). Se você ainda não tiver uma ferramenta para operações REST, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta de linha de comando de software livre que simplifica a invocação da API de Azure Resource Manager.
+Para completar os passos neste arranque rápido, precisa de ligar para as operações REST. Existem [diferentes formas de enviar pedidos de REST.](/rest/api/azure/) Se ainda não tiver uma ferramenta para operações REST, instale o [ARMClient.](https://github.com/projectkudu/ARMClient) É uma ferramenta de linha de comando de código aberto que simplifica a invocação da API do Gestor de Recursos Azure.
 
-## <a name="deploy-custom-provider"></a>Implantar provedor personalizado
+## <a name="deploy-custom-provider"></a>Implementar fornecedor personalizado
 
-Para configurar o provedor personalizado, implante um [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/custom-providers/customprovider.json) em sua assinatura do Azure.
+Para configurar o fornecedor personalizado, implemente um modelo de [exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/custom-providers/customprovider.json) para a sua subscrição Azure.
 
-Depois de implantar o modelo, sua assinatura tem os seguintes recursos:
+Depois de implementar o modelo, a sua subscrição tem os seguintes recursos:
 
-* Aplicativo de funções com as operações para os recursos e ações.
-* Conta de armazenamento para armazenar usuários criados por meio do provedor personalizado.
-* Provedor personalizado que define as ações e os tipos de recursos personalizados. Ele usa o ponto de extremidade do aplicativo de funções para enviar solicitações.
-* Recurso personalizado do provedor personalizado.
+* App de Funções com as operações para os recursos e ações.
+* Conta de Armazenamento para armazenar utilizadores que são criados através do fornecedor personalizado.
+* Fornecedor personalizado que define os tipos e ações de recursos personalizados. Utiliza o ponto final da aplicação de função para o envio de pedidos.
+* Recurso personalizado do fornecedor personalizado.
 
-Para implantar o provedor personalizado com o PowerShell, use:
+Para implementar o fornecedor personalizado com a PowerShell, utilize:
 
 ```azurepowershell-interactive
 $rgName = "<resource-group-name>"
@@ -43,19 +43,19 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName `
   -funcname $funcName
 ```
 
-Ou, você pode implantar a solução com o seguinte botão:
+Ou, pode implementar a solução com o seguinte botão:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json" target="_blank">
     <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
-## <a name="view-custom-provider-and-resource"></a>Exibir provedor personalizado e recurso
+## <a name="view-custom-provider-and-resource"></a>Ver fornecedor personalizado e recurso
 
-No portal, o provedor personalizado é um tipo de recurso oculto. Para confirmar que o provedor de recursos foi implantado, navegue até o grupo de recursos. Selecione a opção para **Mostrar tipos ocultos**.
+No portal, o fornecedor personalizado é um tipo de recurso oculto. Para confirmar que o fornecedor de recursos foi implantado, navegue para o grupo de recursos. Selecione a opção de **mostrar tipos ocultos**.
 
-![Mostrar tipos de recursos ocultos](./media/create-custom-provider/show-hidden.png)
+![Mostrar tipos de recursos escondidos](./media/create-custom-provider/show-hidden.png)
 
-Para ver o tipo de recurso personalizado que você implantou, use a operação GET no seu tipo de recurso.
+Para ver o tipo de recurso personalizado que implementou, utilize a operação GET no seu tipo de recurso.
 
 ```
 GET https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users?api-version=2018-09-01-preview
@@ -70,7 +70,7 @@ $requestURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/
 armclient GET $requestURI
 ```
 
-Você recebe a resposta:
+Recebe a resposta:
 
 ```json
 {
@@ -91,9 +91,9 @@ Você recebe a resposta:
 
 ## <a name="call-action"></a>Ação de chamada
 
-Seu provedor personalizado também tem uma ação chamada **ping**. O código que processa a solicitação é implementado no aplicativo de funções. A ação ping responde com uma saudação.
+O seu fornecedor personalizado também tem uma ação chamada **ping**. O código que processa o pedido é implementado na aplicação de funções. A ação do ping responde com uma saudação.
 
-Para enviar uma solicitação de ping, use a operação POST em seu provedor personalizado.
+Para enviar um pedido de ping, utilize a operação POST no seu fornecedor personalizado.
 
 ```
 POST https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/ping?api-version=2018-09-01-preview
@@ -107,7 +107,7 @@ $pingURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/$rg
 armclient POST $pingURI
 ```
 
-Você recebe a resposta:
+Recebe a resposta:
 
 ```json
 {
@@ -120,7 +120,7 @@ Você recebe a resposta:
 
 ## <a name="create-resource-type"></a>Criar tipo de recurso
 
-Para criar o tipo de recurso personalizado, você pode implantar o recurso em um modelo. Essa abordagem é mostrada no modelo implantado neste guia de início rápido. Você também pode enviar uma solicitação PUT para o tipo de recurso.
+Para criar o tipo de recurso personalizado, pode implantar o recurso num modelo. Esta abordagem é mostrada no modelo que implementou neste arranque rápido. Também pode enviar um pedido DE PUT para o tipo de recurso.
 
 ```
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview
@@ -137,7 +137,7 @@ $requestBody = "{'properties':{'FullName': 'Test User', 'Location': 'Earth'}}"
 armclient PUT $addURI $requestBody
 ```
 
-Você recebe a resposta:
+Recebe a resposta:
 
 ```json
 {
@@ -154,4 +154,4 @@ Você recebe a resposta:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma introdução aos provedores personalizados, consulte [visão geral de visualização de provedores personalizados do Azure](overview.md).
+Para uma introdução aos fornecedores personalizados, consulte a visão geral da [Pré-visualização dos fornecedores personalizados do Azure](overview.md).

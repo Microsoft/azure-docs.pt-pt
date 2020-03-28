@@ -5,17 +5,18 @@ description: Utilizar tokens SAS, encriptação e HTTPS para proteger os dados d
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: b027ed6b936761e35e835401f9ce8398fac33073
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 13a2a0bcc362a13b0c42650509d356f613527cfc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129633"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061317"
 ---
 # <a name="secure-access-to-application-data"></a>Acesso seguro aos dados da aplicação
 
@@ -28,11 +29,11 @@ Na terceira parte da série, ficará a saber como:
 > * Ativar a encriptação do lado do servidor
 > * Ativar o transporte apenas por HTTPS
 
-O [Armazenamento de blobs do Azure](../common/storage-introduction.md#blob-storage) proporciona um serviço robusto para armazenar os ficheiros para as aplicações. Este tutorial alarga [o tópico anterior][previous-tutorial] para mostrar como garantir o acesso à sua conta de armazenamento a partir de uma aplicação web. Quando tiver terminado, as imagens são encriptadas e a aplicação Web utiliza os tokens SAS protegidos para aceder às imagens em miniatura.
+O [Armazenamento de blobs do Azure](../common/storage-introduction.md#blob-storage) proporciona um serviço robusto para armazenar os ficheiros para as aplicações. Este tutorial expande [o tópico anterior][previous-tutorial] para mostrar como proteger o acesso à conta de armazenamento a partir de uma aplicação Web. Quando tiver terminado, as imagens são encriptadas e a aplicação Web utiliza os tokens SAS protegidos para aceder às imagens em miniatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este tutorial deve ter concluído o tutorial de armazenamento anterior: [Automatizar imagens carregadas utilizando][previous-tutorial]a Grelha de Eventos .
+Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [Automatizar o redimensionamento de imagens carregadas com o Event Grid][previous-tutorial].
 
 ## <a name="set-container-public-access"></a>Definir o acesso público ao contentor
 

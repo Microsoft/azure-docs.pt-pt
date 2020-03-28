@@ -4,10 +4,10 @@ description: Saiba como utilizar o Terratest para testar os seus módulos do Ter
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 687a793af2b9b75efe463b042d121c32f18974d6
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79370802"
 ---
 # <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Tutorial: Testar módulos terraformes em Azure usando terratest
@@ -44,7 +44,7 @@ Neste tutorial, você cria um módulo Terraform que disponibiliza uma página es
 > [!NOTE]
 > Crie todos os ficheiros descritos nesta secção sob a sua localização [GOPATH.](https://github.com/golang/go/wiki/SettingGOPATH)
 
-Em primeiro lugar, crie uma nova pasta chamada `staticwebpage` sob a pasta GoPath `src`. A estrutura global da pasta deste tutorial é mostrada no seguinte exemplo. Os ficheiros marcados com um asterisco `(*)` são o principal foco nesta secção.
+Primeiro, crie uma `staticwebpage` nova pasta `src` com o nome da pasta GoPath. A estrutura global da pasta deste tutorial é mostrada no seguinte exemplo. Os ficheiros marcados `(*)` com um asterisco são o foco principal nesta secção.
 
 ```
  📁 GoPath/src/staticwebpage
@@ -64,7 +64,7 @@ Em primeiro lugar, crie uma nova pasta chamada `staticwebpage` sob a pasta GoPat
    └ 📄 variables.tf (*)
 ```
 
-O módulo estático da página web aceita três inputs. As inputs são declaradas em `./variables.tf`:
+O módulo estático da página web aceita três inputs. As inputs são `./variables.tf`declaradas em:
 
 ```hcl
 variable "location" {
@@ -81,7 +81,7 @@ variable "html_path" {
 }
 ```
 
-Como mencionamos anteriormente no artigo, este módulo também produz um URL que é declarado em `./outputs.tf`:
+Como mencionamos anteriormente no artigo, este módulo também produz `./outputs.tf`um URL que é declarado em:
 
 ```hcl
 output "homepage_url" {
@@ -90,10 +90,10 @@ output "homepage_url" {
 ```
 
 A principal lógica do módulo disponibiliza quatro recursos:
-- **grupo**de recursos : O nome do grupo de recursos é a entrada `website_name` anexada por `-staging-rg`.
-- **conta de armazenamento**: O nome da conta de armazenamento é a entrada `website_name` anexada por `data001`. Para aderir às limitações de nome da conta de armazenamento, o módulo remove todos os caracteres especiais e utiliza letras minúsculas em todo o nome da conta de armazenamento.
-- **recipiente de nome fixo**: O recipiente tem o nome `wwwroot` e é criado na conta de armazenamento.
-- **ficheiro HTML único**: O ficheiro HTML é lido a partir da entrada `html_path` e enviado para `wwwroot/index.html`.
+- **grupo**de recursos : O nome `website_name` do grupo `-staging-rg`de recursos é a entrada anexada por .
+- **conta de armazenamento**: O nome `website_name` da conta `data001`de armazenamento é a entrada anexada por . Para aderir às limitações de nome da conta de armazenamento, o módulo remove todos os caracteres especiais e utiliza letras minúsculas em todo o nome da conta de armazenamento.
+- **recipiente de nome fixo** `wwwroot` : O recipiente tem o nome e é criado na conta de armazenamento.
+- **ficheiro HTML único**: O ficheiro `html_path` HTML é lido `wwwroot/index.html`a partir da entrada e enviado para .
 
 A lógica do módulo da página Web estática é implementado em `./main.tf`:
 
@@ -133,9 +133,9 @@ resource "azurerm_storage_blob" "homepage" {
 
 Terratest é projetado para testes de integração. Para o efeito, a Terratest disponibiliza recursos reais num ambiente real. Por vezes, os postos de trabalho em testes de integração podem tornar-se excepcionalmente grandes, especialmente quando se dispõe de um grande número de recursos para fornecer. A lógica que converte nomes de contas de armazenamento a que nos referimos na secção anterior é um bom exemplo. 
 
-Mas não precisamos de fornecer recursos. Só queremos ter a certeza de que a lógica de conversão de nomeação está correta. Graças à flexibilidade da Terratest, podemos usar testes unitários. Os testes unitários são casos locais de teste de execução (embora seja necessário o acesso à Internet). Os casos de teste da unidade executam `terraform init` e `terraform plan` comandos para analisar a saída de `terraform plan` e procurar os valores do atributo para comparar.
+Mas não precisamos de fornecer recursos. Só queremos ter a certeza de que a lógica de conversão de nomeação está correta. Graças à flexibilidade da Terratest, podemos usar testes unitários. Os testes unitários são casos locais de teste de execução (embora seja necessário o acesso à Internet). Os casos `terraform init` `terraform plan` de teste da unidade `terraform plan` executam e ordena molhar a saída e procurar os valores do atributo para comparar.
 
-O resto desta secção descreve como usamos a Terratest para implementar um teste de unidade para garantir que a lógica usada para converter nomes de conta de armazenamento está correta. Estamos interessados apenas nos ficheiros marcados com um asterisco `(*)`.
+O resto desta secção descreve como usamos a Terratest para implementar um teste de unidade para garantir que a lógica usada para converter nomes de conta de armazenamento está correta. Estamos interessados apenas nos ficheiros `(*)`marcados com um asterisco.
 
 ```
  📁 GoPath/src/staticwebpage
@@ -155,9 +155,9 @@ O resto desta secção descreve como usamos a Terratest para implementar um test
    └ 📄 variables.tf
 ```
 
-Primeiro, usamos um ficheiro HTML vazio chamado `./test/fixtures/storage-account-name/empty.html` como espaço reservado.
+Primeiro, usamos um ficheiro `./test/fixtures/storage-account-name/empty.html` HTML vazio chamado espaço reservado.
 
-O ficheiro `./test/fixtures/storage-account-name/main.tf` é a moldura do teste. Aceita uma entrada, `website_name`, que é também a entrada dos testes unitários. A lógica é mostrada aqui:
+O `./test/fixtures/storage-account-name/main.tf` ficheiro é a moldura do caso de teste. Aceita uma entrada, `website_name`que é também a entrada dos testes unitários. A lógica é mostrada aqui:
 
 ```hcl
 variable "website_name" {
@@ -172,17 +172,17 @@ module "staticwebpage" {
 }
 ```
 
-O principal componente é a implementação dos testes unitários em `./test/storage_account_name_unit_test.go`.
+O componente principal é a implementação dos testes unitários em `./test/storage_account_name_unit_test.go`.
 
-Os desenvolvedores de go provavelmente notarão que o teste da unidade corresponde à assinatura de uma função de teste clássica go aceitando um argumento de tipo `*testing.T`.
+Os desenvolvedores de go provavelmente notarão que o teste da unidade `*testing.T`corresponde à assinatura de uma função de teste clássica go aceitando um argumento de tipo .
 
-No corpo do teste unitário, temos um total de cinco casos que são definidos em `testCases` variável (`key` como entrada, e `value` como saída esperada). Para cada estojo de teste de unidade, executamos primeiro `terraform init` e visamos a pasta de fixação de ensaio (`./test/fixtures/storage-account-name/`). 
+No corpo do teste unitário, temos um total de `testCases` cinco`key` casos que `value` são definidos em variável (como entrada e como saída esperada). Para cada estojo de `terraform init` teste de unidade,`./test/fixtures/storage-account-name/`executamos primeiro e direcionamos a pasta de fixação de ensaios (). 
 
-Em seguida, um comando `terraform plan` que utiliza uma entrada específica de casos de teste (veja a definição `website_name` em `tfOptions`) guarda o resultado para `./test/fixtures/storage-account-name/terraform.tfplan` (não listado na estrutura global da pasta).
+Em seguida, `terraform plan` um comando que utiliza uma entrada `website_name` específica `tfOptions`de caso de `./test/fixtures/storage-account-name/terraform.tfplan` teste (veja a definição em ) guarda o resultado para (não listado na estrutura global da pasta).
 
 Este ficheiro de resultados é analisado para uma estrutura legível por código utilizando o analisador oficial do plano Terraform.
 
-Agora, procuramos os atributos que nos interessam (neste caso, o `name` do `azurerm_storage_account`) e comparamos os resultados com a saída esperada:
+Agora, procuramos os atributos que nos interessam `name` (neste caso, o `azurerm_storage_account`do) e comparamos os resultados com a saída esperada:
 
 ```go
 package test
@@ -267,7 +267,7 @@ O resultado tradicional do teste go regressa em cerca de um minuto.
 
 Em contraste com os testes unitários, os testes de integração devem fornecer recursos para um ambiente real para uma perspetiva de ponta a ponta. Terratest faz um bom trabalho com este tipo de tarefa. 
 
-As melhores práticas para os módulos Terraform incluem a instalação da pasta `examples`. A pasta `examples` contém algumas amostras de ponta a ponta. Para evitar trabalhar com dados reais, por que não testar essas amostras como testes de integração? Nesta secção, focamo-nos nos três ficheiros que são marcados com um asterisco `(*)` na estrutura da seguinte pasta:
+As melhores práticas para os `examples` módulos Terraform incluem a instalação da pasta. A `examples` pasta contém algumas amostras de ponta a ponta. Para evitar trabalhar com dados reais, por que não testar essas amostras como testes de integração? Nesta secção, focamo-nos nos três ficheiros que `(*)` são marcados com um asterisco na seguinte estrutura de pasta:
 
 ```
  📁 GoPath/src/staticwebpage
@@ -287,7 +287,7 @@ As melhores práticas para os módulos Terraform incluem a instalação da pasta
    └ 📄 variables.tf
 ```
 
-Vamos começar com as amostras. Uma nova pasta de amostra chamada `hello-world/` é criada na pasta `./examples/`. Aqui, fornecemos uma simples página HTML a ser carregada: `./examples/hello-world/index.html`.
+Vamos começar com as amostras. Uma nova pasta `hello-world/` de amostra `./examples/` soletra-se na pasta. Aqui, fornecemos uma simples página HTML `./examples/hello-world/index.html`a ser carregada: .
 
 ```html
 <!DOCTYPE html>
@@ -303,7 +303,7 @@ Vamos começar com as amostras. Uma nova pasta de amostra chamada `hello-world/`
 </html>
 ```
 
-A amostra Terraforme `./examples/hello-world/main.tf` é semelhante à mostrada no teste unitário. Há uma diferença significativa: a amostra também imprime o URL do HTML carregado como uma página web chamada `homepage`.
+A amostra `./examples/hello-world/main.tf` Terraforme é semelhante à mostrada no teste unitário. Há uma diferença significativa: a amostra também imprime o URL do HTML `homepage`carregado como uma página web chamada .
 
 ```hcl
 variable "website_name" {
@@ -322,11 +322,11 @@ output "homepage" {
 }
 ```
 
-Usamos funções de teste Terratest e Go clássicas novamente no arquivo de teste de integração `./test/hello_world_example_test.go`.
+Usamos funções de teste Terratest e Classic `./test/hello_world_example_test.go`Go novamente no arquivo de teste de integração.
 
-Ao contrário dos testes unitários, os testes de integração criam recursos reais em Azure. É por isso que tens de ter cuidado para evitar nomear conflitos. (Preste especial atenção a alguns nomes globalmente únicos, como nomes de contas de armazenamento.) Portanto, o primeiro passo da lógica de teste é gerar uma `websiteName` aleatória utilizando a função `UniqueId()` fornecida pela Terratest. Esta função gera um nome aleatório que tem letras minúsculas, letras maiúsculas ou números. `tfOptions` faz todos os comandos Terraform que visam a pasta `./examples/hello-world/`. Certifica-se igualmente de que `website_name` se fixe para a `websiteName`aleatória .
+Ao contrário dos testes unitários, os testes de integração criam recursos reais em Azure. É por isso que tens de ter cuidado para evitar nomear conflitos. (Preste especial atenção a alguns nomes globalmente únicos, como nomes de contas de armazenamento.) Portanto, o primeiro passo da lógica de teste `websiteName` é `UniqueId()` gerar um aleatório utilizando a função fornecida pela Terratest. Esta função gera um nome aleatório que tem letras minúsculas, letras maiúsculas ou números. `tfOptions`faz com que todos os `./examples/hello-world/` comandos Terraform que visam a pasta. Também garante que `website_name` está definido para `websiteName`o aleatório .
 
-Em seguida, são executados `terraform init`, `terraform apply` e `terraform output`, um a um. Utilizamos outra função de ajudante, `HttpGetWithCustomValidation()`, que é fornecida pela Terratest. Utilizamos a função de ajudante para garantir que o HTML é carregado para o URL `homepage` de saída que é devolvido por `terraform output`. Comparamos o código de estado HTTP GET com `200` e procuramos algumas palavras-chave no conteúdo HTML. Por fim, é “prometido” que se tira partido da funcionalidade `terraform destroy` do Go para executar `defer`.
+Em seguida, são executados `terraform init`, `terraform apply` e `terraform output`, um a um. Utilizamos outra função `HttpGetWithCustomValidation()`de ajudante, que é fornecida pela Terratest. Utilizamos a função de ajudante para garantir que `homepage` o HTML é `terraform output`carregado para o URL de saída que é devolvido por . Comparamos o código `200` de estado HTTP GET e procuramos algumas palavras-chave no conteúdo HTML. Por fim, é “prometido” que se tira partido da funcionalidade `defer` do Go para executar `terraform destroy`.
 
 ```go
 package test
@@ -397,7 +397,7 @@ Os testes de integração demoram muito mais tempo do que os testes unitários (
 ## <a name="use-mage-to-simplify-running-terratest-cases"></a>Utilizar mage para simplificar a execução de casos do Terratest 
 Executar casos de teste em Azure Cloud Shell requer a execução de diferentes comandos em vários diretórios. Para tornar este processo mais eficiente, introduzimos o sistema de construção no nosso projeto. Nesta secção, usamos um sistema de construção Go, mage, para o trabalho.
 
-A única coisa exigida por mage é `magefile.go` no diretório raiz do seu projeto (marcado com `(+)` no exemplo seguinte):
+A única coisa exigida pelo `magefile.go` mage está no diretório `(+)` raiz do seu projeto (marcado com o seguinte exemplo):
 
 ```
  📁 GoPath/src/staticwebpage
@@ -418,12 +418,12 @@ A única coisa exigida por mage é `magefile.go` no diretório raiz do seu proje
    └ 📄 variables.tf
 ```
 
-Aqui está um exemplo de `./magefile.go`. Neste roteiro de construção, escrito em Go, implementamos cinco passos de construção:
+Aqui está um `./magefile.go`exemplo de. Neste roteiro de construção, escrito em Go, implementamos cinco passos de construção:
 - `Clean`: O passo remove todos os ficheiros gerados e temporários que são gerados durante as execuções de teste.
-- `Format`: O passo passa `terraform fmt` e `go fmt` para formatar a sua base de código.
-- `Unit`: O passo executa todos os ensaios unitários (utilizando a convenção de nome de função `TestUT_*`) sob a pasta `./test/`.
-- `Integration`: O passo é semelhante ao `Unit`, mas em vez de testes unitários, executa testes de integração (`TestIT_*`).
-- `Full`: O passo corre `Clean`, `Format`, `Unit`e `Integration` em sequência.
+- `Format`: O `terraform fmt` passo `go fmt` corre e forme a sua base de código.
+- `Unit`: O passo executa todos os ensaios unitários (utilizando a convenção `TestUT_*`de nome de função) sob a `./test/` pasta.
+- `Integration`: O passo `Unit`é semelhante a, mas em vez`TestIT_*`de testes unitários, executa testes de integração ( ).
+- `Full`: O `Clean`passo `Format` `Unit`corre, `Integration` , e em sequência.
 
 ```go
 // +build mage
@@ -514,13 +514,13 @@ go fmt      # Only required when you change the magefile
 mage
 ```
 
-Pode substituir a última linha de comando por passos adicionais de mage. Por exemplo, pode utilizar `mage unit` ou `mage clean`. É uma boa ideia incorporar comandos `dep` e `az login` no magefile. Não mostramos o código aqui. 
+Pode substituir a última linha de comando por passos adicionais de mage. Por exemplo, pode `mage unit` `mage clean`usar ou . É uma boa ideia incorporar `dep` comandos `az login` e no magefile. Não mostramos o código aqui. 
 
 Com mage, você também pode partilhar os passos usando o sistema de pacotes Go. Nesse caso, pode simplificar os ficheiros magefiles em todos os seus módulos, referindo apenas uma implementação comum e declarando dependências (`mg.Deps()`).
 
 **Opcional: Definir variáveis ambientais principais do serviço para executar testes de aceitação**
  
-Em vez de executar `az login` antes dos testes, pode concluir a autenticação Azure definindo as variáveis ambientais principais do serviço. Terraform publica uma [lista de nomes variáveis ambientais.](https://www.terraform.io/docs/providers/azurerm/index.html#testing) (Apenas são necessárias as quatro primeiras variáveis ambientais.) A Terraform também publica instruções detalhadas que explicam como [obter o valor destas variáveis ambientais.](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html)
+Em vez `az login` de executar antes dos testes, pode concluir a autenticação Azure definindo as variáveis ambientais principais do serviço. Terraform publica uma [lista de nomes variáveis ambientais.](https://www.terraform.io/docs/providers/azurerm/index.html#testing) (Apenas são necessárias as quatro primeiras variáveis ambientais.) A Terraform também publica instruções detalhadas que explicam como [obter o valor destas variáveis ambientais.](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html)
 
 ## <a name="next-steps"></a>Passos seguintes
 

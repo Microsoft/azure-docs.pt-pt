@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Ligue uma aplicação genérica de clientes Node.js à Central Azure IoT  Microsoft Docs
+title: Tutorial - Ligue uma aplicação genérica de clientes Node.js à Central Azure IoT [ Microsoft Docs
 description: Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar um dispositivo que executa uma aplicação de cliente Node.js à sua aplicação Azure IoT Central. Cria um modelo de dispositivo importando um modelo de capacidade do dispositivo e adiciona ndo pontos de vista que lhe permitem interagir com um dispositivo conectado
 author: dominicbetts
 ms.author: dobett
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 1bcfc949eff0639dd1b4a063687e2c198f480ea3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77624544"
 ---
 # <a name="tutorial-create-and-connect-a-nodejs-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutorial: Crie e ligue uma aplicação de cliente Node.js à sua aplicação Central Azure IoT (Node.js)
@@ -34,17 +34,17 @@ Neste tutorial, ficará a saber como:
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
 * Uma aplicação Azure IoT Central criada com o modelo **Custom application **. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
-* Uma máquina de desenvolvimento com a versão [Nó.js](https://nodejs.org/) 10.0.0 ou posteriormente instalada. Pode executá`node --version` na linha de comando para verificar a sua versão. O Node.js está disponível para uma grande variedade de sistemas operativos. As instruções deste tutorial pressupõem que está a executar o comando do **nó** no pedido de comando do Windows. Você pode usar Node.js em uma variedade de sistemas operativos.
+* Uma máquina de desenvolvimento com a versão [Nó.js](https://nodejs.org/) 10.0.0 ou posteriormente instalada. Pode correr `node --version` na linha de comando para verificar a sua versão. O Node.js está disponível para uma grande variedade de sistemas operativos. As instruções deste tutorial pressupõem que está a executar o comando do **nó** no pedido de comando do Windows. Você pode usar Node.js em uma variedade de sistemas operativos.
 
 ## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
 
-Crie uma pasta chamada `environmental-sensor` na sua máquina local.
+Crie uma `environmental-sensor` pasta chamada na sua máquina local.
 
-Descarregue o ficheiro JSON da capacidade do [sensor ambiental](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) e guarde-o na pasta `environmental-sensor`.
+Descarregue o ficheiro JSON da capacidade `environmental-sensor` do sensor [ambiental](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) e guarde-o na pasta.
 
-Utilize um editor de texto para substituir as duas instâncias de `{YOUR_COMPANY_NAME_HERE}` pelo nome da sua empresa no ficheiro `EnvironmentalSensorInline.capabilitymodel.json` que descarregou.
+Utilize um editor de texto para `{YOUR_COMPANY_NAME_HERE}` substituir as duas `EnvironmentalSensorInline.capabilitymodel.json` instâncias do nome da sua empresa no ficheiro que descarregou.
 
-Na sua aplicação Azure IoT Central, crie um modelo de dispositivo chamado *sensor ambiental* importando o ficheiro do modelo de capacidade do dispositivo `EnvironmentalSensorInline.capabilitymodel.json`:
+Na sua aplicação Azure IoT Central, crie um `EnvironmentalSensorInline.capabilitymodel.json` modelo de dispositivo chamado sensor *ambiental* importando o ficheiro do modelo de capacidade do dispositivo:
 
 ![Modelo de dispositivo com modelo de capacidade de dispositivo importado](./media/tutorial-connect-device/device-template.png)
 
@@ -112,18 +112,18 @@ Clique no nome do dispositivo e, em seguida, selecione **Connect**. Tome nota da
 
 Os seguintes passos mostram-lhe como criar uma aplicação de cliente Node.js que implementa o dispositivo real que adicionou à aplicação. Esta aplicação Node.js simula o comportamento de um dispositivo real.
 
-1. No seu ambiente de linha de comando, navegue para a pasta `environmental-sensor` que criou anteriormente.
+1. No ambiente da linha de `environmental-sensor` comando, navegue para a pasta que criou anteriormente.
 
-1. Para inicializar o seu projeto Node.js e instalar as dependências necessárias, execute os seguintes comandos - aceite todas as opções predefinidas quando executar `npm init`:
+1. Para inicializar o seu projeto Node.js e instalar as dependências necessárias, execute `npm init`os seguintes comandos - aceite todas as opções predefinidas quando executar:
 
     ```cmd/sh
     npm init
     npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
-1. Crie um ficheiro chamado **environmentalSensor.js** na pasta `environmental-sensor`.
+1. Crie um ficheiro chamado **environmentalSensor.js** na `environmental-sensor` pasta.
 
-1. Adicione as seguintes declarações `require` no início do ficheiro **environmentalSensor.js:**
+1. Adicione as `require` seguintes declarações no início do ficheiro **environmentalSensor.js:**
 
     ```javascript
     "use strict";
@@ -151,7 +151,7 @@ Os seguintes passos mostram-lhe como criar uma aplicação de cliente Node.js qu
     var ledOn = true;
     ```
 
-    Atualize os espaços reservados `{your Scope ID}`, `{your Device ID}`e `{your Primary Key}` com os valores que fez anteriormente. Nesta amostra, ininicia-se `targetTemperature` a zero, pode utilizar a leitura atual do dispositivo ou um valor do dispositivo twin.
+    Atualize os `{your Scope ID}`espaços `{your Device ID}`reservados, e `{your Primary Key}` com os valores que fez anteriormente. Nesta amostra, inicie-se `targetTemperature` a zero, pode utilizar a leitura atual do dispositivo ou um valor do dispositivo twin.
 
 1. Para enviar telemetria para a sua aplicação Azure IoT Central, adicione a seguinte função ao ficheiro:
 
@@ -325,7 +325,7 @@ Os seguintes passos mostram-lhe como criar uma aplicação de cliente Node.js qu
     });
     ```
 
-## <a name="run-your-nodejs-application"></a>Executar a sua aplicação Node.js
+## <a name="run-your-nodejs-application"></a>Executar a aplicação Node.js
 
 Para iniciar a aplicação do cliente do dispositivo, execute o seguinte comando no ambiente da linha de comando:
 

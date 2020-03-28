@@ -5,29 +5,29 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76021295"
 ---
 1. Inicie sessão no [Portal do Azure][Azure portal].
-1. Selecione **criar um recurso**. Em seguida, selecione **Integração** > **Reencaminhamento**. Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito.
-1. Selecione **criar**e insira um nome de namespace no campo **nome** . Portal do Azure verifica se o nome está disponível.
-1. Escolha uma assinatura do Azure na qual criar o namespace.
-1. Para [grupo de recursos](../articles/azure-resource-manager/management/manage-resource-groups-portal.md), escolha um grupo de recursos existente no qual o namespace será colocado ou crie um novo.  
-1. Selecione o país ou região no qual o namespace deve ser hospedado.
+1. Selecione **Criar um recurso**. Em seguida, selecione**Retransmissão**de **Integração** > . Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito.
+1. Selecione **Criar**e introduza um nome de espaço de nome no campo **Nome.** O portal Azure verifica se o nome está disponível.
+1. Escolha uma subscrição Azure para criar o espaço de nome.
+1. Para [o grupo Recursos,](../articles/azure-resource-manager/management/manage-resource-groups-portal.md)escolha um grupo de recursos existente para colocar o espaço de nome, ou criar um novo.  
+1. Selecione o país ou região em que o seu espaço de nome deve ser hospedado.
 
     ![Create namespace][create-namespace]
 
-1. Selecione **Criar**. O portal do Azure cria o namespace e o habilita. Após alguns minutos, o sistema aprovisiona recursos para a sua conta.
+1. Selecione **Criar**. O portal Azure cria o seu espaço de nome e permite-o. Após alguns minutos, o sistema aprovisiona recursos para a sua conta.
 
 ### <a name="get-management-credentials"></a>Obter credenciais de gestão
 
-1. Selecione **todos os recursos**e, em seguida, escolha o nome do namespace recém-criado.
-1. Selecione **políticas de acesso compartilhado**.  
+1. **Selecione Todos os recursos**e, em seguida, escolha o nome de espaço de nome recém-criado.
+1. Selecione políticas de **acesso partilhado**.  
 1. Em **Políticas de acesso partilhado**, selecione **RootManageSharedAccessKey**.
-1. Em **política SAS: RootManageSharedAccessKey**, selecione o botão **copiar** ao lado da **cadeia de conexão primária**. Essa ação copia a cadeia de conexão para a área de transferência para uso posterior. Cole este valor no Bloco de Notas ou noutra localização temporária.
+1. Sob **a política SAS: RootManageSharedAccessKey,** selecione o botão **Copiar** ao lado da cadeia **de ligação primária**. Esta ação copia a cadeia de ligação à sua prancheta para posterior utilização. Cole este valor no Bloco de Notas ou noutra localização temporária.
 1. Repita o passo anterior para copiar e colar o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.  
 
     ![cadeia-ligação][connection-string]

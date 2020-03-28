@@ -1,22 +1,22 @@
 ---
-title: Criar um aplicativo de funções Python sem servidor-CLI do Azure
-description: Criar um aplicativo de funções de Python sem servidor usando o CLI do Azure
+title: Criar uma aplicação de função Python sem servidores - Azure CLI
+description: Crie uma aplicação de função Python sem servidor usando o Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.openlocfilehash: c55934c42db6bb7248db107b97fb8998163fae8b
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75922627"
 ---
-# <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Criar um aplicativo de funções de Python sem servidor usando CLI do Azure
+# <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Crie uma aplicação de função Python sem servidor usando o Azure CLI
 
 Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. 
 
 >[!NOTE]
->O aplicativo de funções criado é executado na versão 3,6 do Python. A versão 3,7 do Python também tem suporte pelo Azure Functions.
+>A aplicação de funções criada funciona na versão 3.6 da Python. A versão 3.7 da Python também é suportada pela Azure Functions.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,7 +26,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Esse script cria um aplicativo de funções do Azure usando o [plano de consumo](../functions-scale.md#consumption-plan).
+Este script cria uma aplicação Azure Function utilizando o [plano de consumo.](../functions-scale.md#consumption-plan)
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 

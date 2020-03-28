@@ -4,10 +4,10 @@ description: Este padrão de política azure fornece exemplos de como utilizar o
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 8e57efaea81848c6b2d0188dbf3f91e06ed74c67
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77172850"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Padrão de política azure: operadores lógicos

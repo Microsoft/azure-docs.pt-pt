@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com LockPath Keylight | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e LockPath Keylight.
+title: 'Tutorial: Integração do Diretório Ativo Azure com keylight LockPath [ LockPath Keylight ] Microsoft Docs'
+description: Saiba como configurar um único sinal entre o Azure Ative Directory e o LockPath Keylight.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,233 +17,233 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098781"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Active Directory do Azure com LockPath Keylight
+# <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração de Diretório Ativo Azure com keylight LockPath
 
-Neste tutorial, saiba como integrar LockPath Keylight com o Azure Active Directory (Azure AD).
-Integrar LockPath Keylight no Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar o LockPath Keylight com o Azure Ative Directory (Azure AD).
+Integrar o Keylight LockPath com o Azure AD proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao LockPath Keylight.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para LockPath Keylight (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar em Azure AD quem tem acesso ao LockPath Keylight.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no LockPath Keylight (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com LockPath Keylight, terá dos seguintes itens:
+Para configurar a integração da AD Azure com o Keylight LockPath, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* LockPath Keylight logon único habilitado subscrição
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura ativada por sinal de teclado LockPath
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Suporta LockPath Keylight **SP** iniciada SSO
-* Suporta LockPath Keylight **Just In Time** aprovisionamento de utilizadores
+* LockPath Keylight suporta **SP** iniciado SSO
+* LockPath Keylight suporta o fornecimento de utilizadores **justo no tempo**
 
-## <a name="adding-lockpath-keylight-from-the-gallery"></a>Adicionando LockPath Keylight da Galeria
+## <a name="adding-lockpath-keylight-from-the-gallery"></a>Adicionar luz de chave LockPath da galeria
 
-Para configurar a integração do LockPath Keylight com o Azure AD, terá de adicionar LockPath Keylight a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do LockPath Keylight em Azure AD, precisa de adicionar o LockPath Keylight da galeria à sua lista de aplicações SaaS geridas.
 
-**Para adicionar LockPath Keylight a partir da galeria, execute os seguintes passos:**
+**Para adicionar o Keylight LockPath da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **LockPath Keylight**, selecione **LockPath Keylight** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite o **teclado LockPath,** selecione **o teclado LockPath** do painel de resultados e, em seguida, clique em adicionar o botão **Adicionar** a aplicação.
 
-    ![LockPath Keylight na lista de resultados](common/search-new-app.png)
+    ![Luz-chave LockPath na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configure e teste do Azure AD início de sessão único com LockPath Keylight com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no LockPath Keylight deve ser estabelecido.
+Nesta secção, configura e testa um único sinal de Azure AD com o LockPath Keylight com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no LockPath Keylight.
 
-Para configurar e testar o Azure AD início de sessão único com LockPath Keylight, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o único sinal de Acesso Azure AD com o LockPath Keylight, é necessário completar os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar LockPath Keylight início de sessão único](#configure-lockpath-keylight-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste LockPath Keylight](#create-lockpath-keylight-test-user)**  - para ter um equivalente da Eduarda Almeida na LockPath Keylight que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. Configure o sinal único do **[lockPath keylight](#configure-lockpath-keylight-single-sign-on)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Create LockPath Keylight user](#create-lockpath-keylight-test-user)** - para ter uma contrapartida de Britta Simon no LockPath Keylight que está ligado à representação do utilizador da AD Azure.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o Azure AD início de sessão único com LockPath Keylight, execute os seguintes passos:
+Para configurar o único sinal de Azure AD com o LockPath Keylight, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **LockPath Keylight** página de integração de aplicações, selecione **início de sessão único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **LockPath Keylight,** selecione **single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
 
-    ![LockPath Keylight domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
+    ![LockPath Keylight Domain e URLs informações únicas de inscrição](common/sp-identifier-reply.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.keylightgrc.com/`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<company name>.keylightgrc.com/`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.keylightgrc.com`
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://<company name>.keylightgrc.com`
 
-    c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.keylightgrc.com/Login.aspx`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<company name>.keylightgrc.com/Login.aspx`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real no URL, o identificador e o URL de resposta. Contacte [equipa de suporte de cliente de Keylight LockPath](https://www.lockpath.com/contact/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL, Identifier e URL de Resposta real. Contacte a equipa de suporte do [Cliente LockPath Keylight](https://www.lockpath.com/contact/) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (bruto)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificateraw.png)
+    ![O link de descarregamento do Certificado](common/certificateraw.png)
 
-6. Sobre o **configurar LockPath Keylight** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na secção **'Luz de chave LockPath',** copie os URL(s) adequados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador Azure AD
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-lockpath-keylight-single-sign-on"></a>Configurar LockPath Keylight início de sessão único
+### <a name="configure-lockpath-keylight-single-sign-on"></a>Configure LockPath Keylight Single Sign-On
 
-1. Para ativar o SSO no LockPath Keylight, execute os seguintes passos:
+1. Para ativar o SSO no teclado LockPath, execute os seguintes passos:
 
-    a. Início de sessão na sua conta de LockPath Keylight como administrador.
+    a. Inscreva-se na sua conta LockPath Keylight como administrador.
 
-    b. No menu na parte superior, clique em **pessoa**e selecione **Keylight configuração**.
+    b. No menu em cima, clique em **Pessoa**, e selecione **Keylight Setup**.
 
-    ![Configurar o início de sessão único](./media/keylight-tutorial/401.png)
+    ![Configurar um único sinal](./media/keylight-tutorial/401.png)
 
-    c. Na vista de árvore à esquerda, clique em **SAML**.
+    c. Na vista da árvore à esquerda, clique em **SAML**.
 
-    ![Configurar o início de sessão único](./media/keylight-tutorial/402.png)
+    ![Configurar um único sinal](./media/keylight-tutorial/402.png)
 
-    d. Sobre o **definições de SAML** caixa de diálogo, clique em **editar**.
+    d. No diálogo de **definições SAML,** clique em **Editar**.
 
-    ![Configurar o início de sessão único](./media/keylight-tutorial/404.png)
+    ![Configurar um único sinal](./media/keylight-tutorial/404.png)
 
-1. Sobre o **editar definições de SAML** caixa de diálogo página, execute os seguintes passos:
+1. Na página de diálogo **de definições SAML de edição,** execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/keylight-tutorial/405.png)
+    ![Configurar um único sinal](./media/keylight-tutorial/405.png)
 
-    a. Definir **autenticação SAML** ao **Active Directory**.
+    a. Deteto a **autenticação SAML** para **Ativa**.
 
-    b. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, colar a **URL de início de sessão** valor que copiou do portal do Azure.
+    b. Na caixa de texto URL do Fornecedor de **Identidade,** colá o valor URL de **Login** que copiou do portal Azure.
 
-    c. Na **URL de fim de sessão do fornecedor de identidade** caixa de texto, colar a **URL de fim de sessão** valor que copiou do portal do Azure.
+    c. Na caixa de texto URL do Fornecedor de **Identidade,** colá o valor URL de **Logout** que copiou do portal Azure.
 
-    d. Clique em **Escolher ficheiro** para selecionar o seu certificado LockPath Keylight transferido e, em seguida, clique em **aberto** para carregar o certificado.
+    d. Clique **em Escolher Ficheiro** para selecionar o certificado de teclado LockPath descarregado e, em seguida, clique em **Abrir** para carregar o certificado.
 
-    e. Definir **localização de Id de utilizador de SAML** ao **NameIdentifier elemento da declaração de assunto**.
+    e. Detete a localização id do **utilizador SAML** para **o elemento identificador de nome da declaração do assunto**.
 
-    f. Forneça o **fornecedor de serviços de Keylight** usando o seguinte padrão: `https://<CompanyName>.keylightgrc.com`.
+    f. Forneça ao Fornecedor de **Serviços Keylight** utilizando o seguinte padrão: `https://<CompanyName>.keylightgrc.com`.
 
-    g. Definir **os utilizadores de aprovisionamento automático** ao **Active Directory**.
+    g. Defina **os utilizadores de fornecimento automático** para **Ative**.
 
-    h. Definir **tipo de conta de aprovisionamento automático** ao **utilizador completo**.
+    h. Defina **o tipo de conta de prestação automática** para O Utilizador **Completo**.
 
-    i. Definir **função de segurança de aprovisionamento automático**, selecione **usuário padrão com o SAML**.
+    i. Definir **função de segurança de fornecimento automático**, selecione Utilizador Standard com **SAML**.
 
-    j. Definir **configuração de segurança de aprovisionamento automático**, selecione **configuração de utilizador padrão**.
+    j. Defina o **config de segurança de fornecimento automático,** selecione **a configuração padrão do utilizador**.
 
-    k. Na **atributo de correio eletrónico** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. Na caixa de texto de `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` **atributo e-mail,** escreva .
 
-    l. Na **atributo de nome próprio** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. No **primeiro nome atributo** caixa `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`de texto, escreva .
 
-    m. Na **atributo de nome de último** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. No **último nome atributo** caixa `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`de texto, escreva .
 
     n. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No **User name** tipo `brittasimon@yourcompanydomain.extension`de campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para LockPath Keylight.
+Nesta secção, permite que britta Simon utilize um único sinal de Azure, concedendo acesso ao LockPath Keylight.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **LockPath Keylight**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **o Keylight LockPath**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **LockPath Keylight**.
 
-    ![A ligação de LockPath Keylight na lista de aplicações](common/all-applications.png)
+    ![O link de luz de chave LockPath na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-lockpath-keylight-test-user"></a>Criar utilizador de teste LockPath Keylight
+### <a name="create-lockpath-keylight-test-user"></a>Criar o utilizador de teste lockPath Keylight
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado na LockPath Keylight. LockPath Keylight suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no LockPath Keylight, é criado um novo após a autenticação. Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de cliente de Keylight LockPath](https://www.lockpath.com/contact/).
+Nesta secção, um utilizador chamado Britta Simon é criado em LockPath Keylight. O LockPath Keylight suporta o fornecimento de utilizadores just-in-time, que está ativado por predefinição. Não há nenhum item de ação para si nesta secção. Se um utilizador ainda não existir no LockPath Keylight, um novo é criado após a autenticação. Se precisar de criar um utilizador manualmente, tem de contactar a equipa de suporte ao [Cliente LockPath Keylight](https://www.lockpath.com/contact/).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico LockPath Keylight no painel de acesso, deve ser automaticamente sessão iniciada no LockPath Keylight para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo lockPath keylight no Painel de Acesso, deve ser automaticamente inscrito no teclado LockPath para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77172661"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Use powerShell para convidar utilizadores de colaboração Azure AD B2B
@@ -27,7 +27,7 @@ Se utilizar a colaboração B2B do Azure Active Directory (Azure AD) para trabal
 > * Executar um script do PowerShell para enviar convites
 > * Verificar se os utilizadores foram adicionados ao diretório
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,7 +75,7 @@ No Microsoft Excel, crie um ficheiro CSV com a lista dos nomes e endereços de e
 
 Por exemplo, crie uma folha de cálculo no seguinte formato:
 
-![Resultado do PowerShell a mostrar a aceitação pendente do utilizador](media/tutorial-bulk-invite/AddUsersExcel.png)
+![Resultado do PowerShell a mostrar a aceitação do utilizador pendente](media/tutorial-bulk-invite/AddUsersExcel.png)
 
 Guarde o ficheiro como **C:\BulkInvite\Invitations.csv**. 
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 O script envia um convite para os endereços de e-mail no ficheiro Invitations.csv. Deverá ver um resultado semelhante ao seguinte para cada utilizador:
 
-![Resultado do PowerShell a mostrar a aceitação pendente do utilizador](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Resultado do PowerShell a mostrar a aceitação do utilizador pendente](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Verificar se existem utilizadores no diretório
 
@@ -126,7 +126,7 @@ Para verificar se os utilizadores convidados foram adicionados ao Azure AD, exec
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Deve consultar os utilizadores que convidou listados, com o nome principal do utilizador (UPN) no endereço de *e-mail*do formato #EXT#\@*domínio*. Por exemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
+Deve consultar os utilizadores que convidou listados, com um nome principal do utilizador\@(UPN) no endereço de *e-mail*do formato #EXT#*domínio*. Por exemplo, *\@lstokes_fabrikam.com#EXT# contoso.onmicrosoft.com,* onde contoso.onmicrosoft.com é a organização de onde enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

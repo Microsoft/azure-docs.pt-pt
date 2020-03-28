@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: operações de ETL com consulta interativa – Azure HDInsight'
-description: Tutorial-saiba como extrair dados de um conjunto de um CSV bruto, transformá-lo usando a consulta interativa no HDInsight e, em seguida, carregar os dados transformados no banco de dado SQL do Azure usando o Apache Sqoop.
+title: 'Tutorial: Operações Da ETL com Consulta Interativa - Azure HDInsight'
+description: Tutorial - Aprenda a extrair dados de um conjunto de dados CSV cru, transforme-os usando consulta interativa no HDInsight e, em seguida, carregue os dados transformados em base de dados Azure SQL utilizando o Apache Sqoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,44 +9,44 @@ ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
 ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494152"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando a consulta interativa no Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando consulta interativa no Azure HDInsight
 
-Neste tutorial, você pega um arquivo de dados CSV bruto de dados de vôo publicamente disponíveis, importa-o para o armazenamento de cluster do HDInsight e, em seguida, transforma os dados usando a consulta interativa no Azure HDInsight. Depois que os dados são transformados, você os carrega em um banco de dados SQL do Azure usando o [Apache Sqoop](https://sqoop.apache.org/).
+Neste tutorial, você pega num ficheiro de dados CSV cru de dados de voo disponíveis publicamente, importa-os para armazenamento de cluster HDInsight e, em seguida, transforma os dados usando a Consulta Interativa no Azure HDInsight. Uma vez transformados os dados, você carrega esses dados numa base de dados Azure SQL usando [Apache Sqoop](https://sqoop.apache.org/).
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Transferir os dados de voos de exemplo
 > * Carregar os dados para um cluster do HDInsight
-> * Transformar os dados usando a consulta interativa
-> * Criar uma tabela em um banco de dados SQL do Azure
-> * Usar o Sqoop para exportar dados para um banco de dado SQL do Azure
+> * Transforme os dados usando consulta interativa
+> * Crie uma tabela numa base de dados Azure SQL
+> * Use sqoop para exportar dados para uma base de dados Azure SQL
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster de consulta interativa no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **consulta interativa** para **tipo de cluster**.
+* Um cluster de consulta interativa no HDInsight. Consulte os [clusters Create Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** para **tipo cluster**.
 
-* Um banco de dados SQL do Azure. Vai utilizar uma base de dados SQL do Azure como arquivo de dados de destino. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure no portal do Azure](/azure/sql-database/sql-database-single-database-get-started).
+* Uma base de dados Azure SQL. Vai utilizar uma base de dados SQL do Azure como arquivo de dados de destino. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure no portal do Azure](/azure/sql-database/sql-database-single-database-get-started).
 
-* Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Transferir os dados de voos
 
-1. Navegue até [pesquisa e administração inovadora de tecnologia, Bureau de estatísticas de transporte](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Navegue para [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time) (Administração de Investigação e Inovação Tecnológica, Instituto de Estatísticas de Transportes).
 
-2. Na página, desmarque todos os campos e, em seguida, selecione os seguintes valores:
+2. Na página, limpe todos os campos e, em seguida, selecione os seguintes valores:
 
    | Nome | Valor |
    | --- | --- |
    | Filtrar Ano |2019 |
    | Filtrar Período |Janeiro |
-   | Campos |Year, voo, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, originate, OriginCityName, Originfile, DestAirportID, dest, DestCityName, Deststate, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Campos |Ano, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestStateName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
 
 3. Selecione **Transferir**. Vai obter um ficheiro .zip com os campos de dados que selecionou.
 
@@ -54,21 +54,21 @@ Este tutorial abrange as seguintes tarefas:
 
 Existem muitas formas de carregar dados para o armazenamento associado a um cluster do HDInsight. Nesta secção, vai utilizar `scp` para carregar os dados. Para ver outras formas de carregar dados, veja [Upload data to HDInsight](../hdinsight-upload-data.md) (Carregar dados para o HDInsight).
 
-1. Carregue o arquivo. zip no nó principal do cluster HDInsight. Edite o comando a seguir, substituindo `FILENAME` pelo nome do arquivo. zip e `CLUSTERNAME` pelo nome do cluster HDInsight. Em seguida, abra um prompt de comando, defina seu diretório de trabalho para o local do arquivo e, em seguida, digite o comando.
+1. Faça upload do ficheiro .zip para o nó de cabeça de cluster HDInsight. Editar o comando abaixo `FILENAME` substituindo pelo nome do `CLUSTERNAME` ficheiro .zip e com o nome do cluster HDInsight. Em seguida, abra um pedido de comando, coloque o seu diretório de trabalho para o local do ficheiro e, em seguida, insira o comando.
 
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Se for solicitado que você insira sim ou não para continuar, digite Sim no prompt de comando e pressione Enter. O texto não é visível na janela conforme você digita.
+    Se lhe for pedido que introduza sim ou não para prosseguir, escreva sim no pedido de comando e pressione a entrada. O texto não é visível na janela como escreve.
 
-2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Edite o comando a seguir, substituindo `CLUSTERNAME` pelo nome do cluster HDInsight. Em seguida, introduza o seguinte comando:
+2. Depois de concluído o carregamento, utilize SSH para ligar ao cluster. Editar o comando abaixo `CLUSTERNAME` substituindo pelo nome do cluster HDInsight. Em seguida, introduza o seguinte comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Configure a variável de ambiente quando uma conexão SSH tiver sido estabelecida. Substitua `FILE_NAME`, `SQL_SERVERNAME`, `SQL_DATABASE`, `SQL_USER`e `SQL_PASWORD` pelos valores apropriados. Em seguida, digite o comando:
+3. Configurar a variável ambiental uma vez estabelecida uma ligação SSH. Substitua, `SQL_DATABASE` `FILE_NAME` `SQL_SERVERNAME` `SQL_USER`, `SQL_PASWORD` e com os valores apropriados. Em seguida, insira o comando:
 
     ```bash
     export FILENAME=FILE_NAME
@@ -78,13 +78,13 @@ Existem muitas formas de carregar dados para o armazenamento associado a um clus
     export SQLPASWORD='SQL_PASWORD'
     ```
 
-4. Descompacte o arquivo. zip digitando o comando a seguir:
+4. Desinserto o ficheiro .zip inserindo o comando abaixo:
 
     ```bash
     unzip $FILENAME.zip
     ```
 
-5. Crie um diretório no armazenamento do HDInsight e copie o arquivo. csv para o diretório digitando o comando a seguir:
+5. Crie um diretório no armazenamento HDInsight e, em seguida, copie o ficheiro .csv para o diretório introduzindo o comando abaixo:
 
     ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
@@ -93,11 +93,11 @@ Existem muitas formas de carregar dados para o armazenamento associado a um clus
 
 ## <a name="transform-data-using-a-hive-query"></a>Utilizar uma consulta do Hive para transformar os dados
 
-Existem muitas formas de executar um trabalho do Hive num cluster do HDInsight. Nesta seção, você usará [beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell) para executar um trabalho do hive. Para obter informações sobre outros métodos de execução de um trabalho do hive, consulte [usar o Apache Hive no HDInsight](../hadoop/hdinsight-use-hive.md).
+Existem muitas formas de executar um trabalho do Hive num cluster do HDInsight. Nesta secção, você usa [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell) para executar um trabalho de Colmeia. Para obter informações sobre outros métodos de execução de um trabalho de Colmeia, consulte [Use Apache Hive no HDInsight](../hadoop/hdinsight-use-hive.md).
 
 Como parte do trabalho do Hive, importe os dados do ficheiro .csv para uma tabela do Hive com o nome **Delays** (Atrasos).
 
-1. No prompt do SSH que você já tem para o cluster HDInsight, use o comando a seguir para criar e editar um novo arquivo chamado **flightdelays. HQL**:
+1. A partir da solicitação sSH que já tem para o cluster HDInsight, use o seguinte comando para criar, e editar um novo ficheiro chamado **flightdelays.hql**:
 
     ```bash
     nano flightdelays.hql
@@ -165,7 +165,7 @@ Como parte do trabalho do Hive, importe os dados do ficheiro .csv para uma tabel
     FROM delays_raw;
     ```
 
-3. Para salvar o arquivo, pressione **Ctrl + X**, então **y**e, em seguida, Enter.
+3. Para guardar o ficheiro, prima **Ctrl + X,** em seguida **y**, e depois introduza.
 
 4. Para iniciar o Hive e executar o ficheiro **flightdelays.hql**, utilize o seguinte comando:
 
@@ -199,7 +199,7 @@ Como parte do trabalho do Hive, importe os dados do ficheiro .csv para uma tabel
 
 Existem muitas formas de ligar à Base de Dados SQL e criar uma tabela. Os passos seguintes utilizam [FreeTDS](http://www.freetds.org/) do cluster do HDInsight.
 
-1. Para instalar o FreeTDS, use o seguinte comando da conexão SSH aberta para o cluster:
+1. Para instalar o FreeTDS, utilize o seguinte comando da ligação SSH aberta ao cluster:
 
     ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -232,7 +232,7 @@ Existem muitas formas de ligar à Base de Dados SQL e criar uma tabela. Os passo
     GO
     ```
 
-    Quando for introduza a declaração `GO`, as instruções anteriores são avaliadas. Essa instrução cria uma tabela chamada **atrasos**, com um índice clusterizado.
+    Quando for introduza a declaração `GO`, as instruções anteriores são avaliadas. Esta declaração cria uma tabela com o nome de **atrasos,** com um índice agrupado.
 
     Utilize a seguinte consulta para verificar se a tabela foi criada:
 
@@ -250,27 +250,27 @@ Existem muitas formas de ligar à Base de Dados SQL e criar uma tabela. Os passo
 
 4. Introduza `exit` na linha de comandos `1>` para sair do utilitário tsql.
 
-## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exportar dados para o banco de dado SQL usando o Apache Sqoop
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Dados de exportação para base de dados SQL usando Apache Sqoop
 
 Nas secções anteriores, copiou os dados transformados em `/tutorials/flightdelays/output`. Nesta secção, vai utilizar o Sqoop para exportar os dados de `/tutorials/flightdelays/output` para a tabela que criou na base de dados SQL do Azure.
 
-1. Verifique se o Sqoop pode ver o banco de dados SQL inserindo o comando a seguir:
+1. Verifique se o SQoop pode ver a sua base de dados SQL inserindo o comando abaixo:
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
-    Esse comando retorna uma lista de bancos de dados, incluindo o banco de dados no qual você criou a tabela de `delays` anteriormente.
+    Este comando devolve uma lista de bases de dados, incluindo a base de dados em que criou a `delays` tabela anteriormente.
 
-2. Exporte dados de `/tutorials/flightdelays/output` para a tabela `delays` inserindo o comando abaixo:
+2. Exportar dados `/tutorials/flightdelays/output` da `delays` tabela, entrando no comando abaixo:
 
     ```bash
     sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop conecta-se ao banco de dados que contém a tabela de `delays` e exporta o diretório `/tutorials/flightdelays/output` para a tabela `delays`.
+    O Sqoop liga-se à `delays` base de dados `/tutorials/flightdelays/output` que contém `delays` a tabela e exporta dados do diretório para a mesa.
 
-3. Depois que o comando sqoop for concluído, use o utilitário TSQL para se conectar ao banco de dados digitando o comando a seguir:
+3. Depois de terminar o comando sqoop, utilize o utilitário tsql para ligar à base de dados, inserindo o comando abaixo:
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
@@ -291,11 +291,11 @@ Nas secções anteriores, copiou os dados transformados em `/tutorials/flightdel
 
 Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
 
-Para excluir um cluster, consulte [excluir um cluster HDInsight usando seu navegador, o PowerShell ou o CLI do Azure](../hdinsight-delete-cluster.md).
+Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell ou o Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você tirou um arquivo de dados CSV bruto, importou-o para um armazenamento de cluster HDInsight e, em seguida, transformou os dados usando a consulta interativa no Azure HDInsight.  Avance para o próximo tutorial para saber mais sobre o conector do Apache Hive warehouse.
+Neste tutorial, pegou num ficheiro de dados CSV cru, importou-o para um armazenamento de cluster HDInsight e depois transformou os dados usando a Consulta Interativa no Azure HDInsight.  Avance para o próximo tutorial para saber sobre o Conector apache Hive Warehouse.
 
 > [!div class="nextstepaction"]
->[Integrar Apache Spark e Apache Hive com o conector do depósito do hive](./apache-hive-warehouse-connector.md)
+>[Integre a Apache Spark e a Apache Hive com o Conector de Armazém da Colmeia](./apache-hive-warehouse-connector.md)

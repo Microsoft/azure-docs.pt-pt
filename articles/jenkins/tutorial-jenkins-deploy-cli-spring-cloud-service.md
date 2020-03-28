@@ -1,98 +1,98 @@
 ---
-title: Implantar aplicativos no Azure Spring Cloud usando o Jenkins e o CLI do Azure
-description: Saiba como usar CLI do Azure em um pipeline de implantação e integração contínua para implantar os microserviços no serviço de nuvem Spring do Azure
+title: Implementar aplicações no Azure Spring Cloud através do Jenkins e da CLI do Azure
+description: Aprenda a utilizar o Azure CLI num oleoduto de integração e implantação contínuo para implantar microserviços para o serviço Azure Spring Cloud
 ms.topic: tutorial
 ms.date: 01/07/2020
 ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75734979"
 ---
-# <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Tutorial: implantar aplicativos no Azure Spring Cloud usando o Jenkins e o CLI do Azure
+# <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Tutorial: Implementar aplicativos para Azure Spring Cloud usando Jenkins e o Azure CLI
 
-O [Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-overview) é um desenvolvimento de microserviço totalmente gerenciado com descoberta de serviços e gerenciamento de configuração internos. O serviço facilita a implantação de aplicativos de microatendimento baseados em Spring boot no Azure. Este tutorial demonstra como você pode usar o CLI do Azure no Jenkins para automatizar a integração e a entrega contínuas (CI/CD) para o Azure Spring Cloud.
+[Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-overview) é um desenvolvimento de microserviço totalmente gerido com descoberta de serviço incorporado e gestão de configuração. O serviço facilita a implementação de aplicações de microserviço baseadas em Boot spring para o Azure. Este tutorial demonstra como pode utilizar o Azure CLI em Jenkins para automatizar a integração e entrega contínuas (CI/CD) para a Azure Spring Cloud.
 
-Neste tutorial, você concluirá estas tarefas:
+Neste tutorial, completará estas tarefas:
 
 > [!div class="checklist"]
-> * Provisionar uma instância de serviço e iniciar um aplicativo Spring Java
-> * Preparar o servidor Jenkins
-> * Usar o CLI do Azure em um pipeline Jenkins para compilar e implantar os aplicativos de microatendimento 
+> * Providenciar uma instância de serviço e lançar uma aplicação Java Spring
+> * Prepare o seu servidor Jenkins
+> * Use o Azure CLI num oleoduto Jenkins para construir e implementar as aplicações de microserviço 
 
-Este tutorial assume o conhecimento intermediário dos principais serviços do Azure, do Azure Spring Cloud, dos [pipelines](https://jenkins.io/doc/book/pipeline/) Jenkins e dos plug-ins e do github.
+Este tutorial assume conhecimento intermédio dos serviços core Azure, Azure Spring Cloud, [oleodutos](https://jenkins.io/doc/book/pipeline/) Jenkins e plug-ins, e GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 >[!Note]
-> Atualmente, o Azure Spring Cloud é oferecido como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Serviços e recursos de visualização pública não são destinados ao uso em produção.  Para obter mais informações sobre o suporte durante as visualizações, leia nossas [perguntas frequentes](https://azure.microsoft.com/support/faq/) ou registre um [solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para saber mais.
+> A Nuvem de primavera Azure é atualmente oferecida como uma pré-visualização pública. As ofertas de pré-visualização pública permitem aos clientes experimentar novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização pública não se destinam à utilização da produção.  Para mais informações sobre suporte durante as pré-visualizações, por favor reveja as nossas [FAQ](https://azure.microsoft.com/support/faq/) ou preencha um pedido de [Suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para saber mais.
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-* Uma conta do GitHub. Se você não tiver uma conta do GitHub, crie uma [conta gratuita](https://github.com/) antes de começar.
+* Uma conta do GitHub. Se não tiver uma conta GitHub, crie uma [conta gratuita](https://github.com/) antes de começar.
 
-* Um servidor mestre do Jenkins. Se você ainda não tiver um mestre do Jenkins, implante o [Jenkins](https://aka.ms/jenkins-on-azure) no Azure seguindo as etapas neste guia de [início rápido](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). Os itens a seguir são necessários no nó/agente do Jenkins (por exemplo, servidor de compilação):
+* Um servidor mestre do Jenkins. Se ainda não tem um mestre Jenkins, desloque [jenkins](https://aka.ms/jenkins-on-azure) no Azure seguindo os passos neste [arranque rápido.](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template) São necessários os seguintes no nó/agente Jenkins (por exemplo. construir servidor):
 
     * [Git](https://git-scm.com/)
     * [JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-    * [Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
-    * [CLI do Azure instalado](/cli/azure/install-azure-cli?view=azure-cli-latest), versão 2.0.67 ou superior
+    * [Maven 3.0 ou acima](https://maven.apache.org/download.cgi)
+    * [Azure CLI instalado](/cli/azure/install-azure-cli?view=azure-cli-latest), versão 2.0.67 ou superior
 
     >[!TIP]
-    > Ferramentas como git, JDK, AZ CLI e Azure plug-ius são incluídas por padrão no modelo de solução [Microsoft Jenkins](https://aka.ms/jenkins-on-azure) do Azure Marketplace.
+    > Ferramentas como Git, JDK, Az CLI e Azure plug-ius estão incluídas por padrão no modelo de solução Azure Marketplace [Microsoft Jenkins.](https://aka.ms/jenkins-on-azure) 
     
-* [Inscrever-se para uma assinatura do Azure](https://azure.microsoft.com/free/)
+* [Inscreva-se para uma subscrição do Azure](https://azure.microsoft.com/free/)
  
-## <a name="provision-a-service-instance-and-launch-a-java-spring-application"></a>Provisionar uma instância de serviço e iniciar um aplicativo Spring Java
+## <a name="provision-a-service-instance-and-launch-a-java-spring-application"></a>Providenciar uma instância de serviço e lançar uma aplicação Java Spring
 
-Usamos as [métricas de transportado](https://github.com/Azure-Samples/piggymetrics) como o aplicativo de serviço da Microsoft de exemplo e seguem as mesmas etapas no [início rápido: iniciar um aplicativo Spring Java usando o CLI do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) para provisionar a instância do serviço e configurar os aplicativos. Se você já passou pelo mesmo processo, pode pular para a próxima seção. Caso contrário, CLI do Azure estão incluídos nos comandos a seguir. Consulte [início rápido: iniciar um aplicativo Spring Java usando o CLI do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) para obter informações adicionais sobre o plano de fundo.
+Utilizamos a [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) como aplicação de serviço da Microsoft e seguimos os mesmos passos em [Quickstart: Lançar uma aplicação Java Spring utilizando o Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) para fornecer a instância de serviço e configurar as aplicações. Se já passou pelo mesmo processo, pode saltar para a secção seguinte. Caso contrário, incluídos nos comandos Azure CLI. Consulte [o Quickstart: Lance uma aplicação Java Spring utilizando o Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) para obter informações adicionais sobre o fundo.
 
-Seu computador local precisa atender ao mesmo pré-requisito que o servidor de Build Jenkins. Verifique se os itens a seguir estão instalados para compilar e implantar os aplicativos de microserviço:
+A sua máquina local precisa de cumprir o mesmo pré-requisito que o servidor de construção jenkins. Certifique-se de que os seguintes estão instalados para construir e implementar as aplicações de microserviço:
     * [Git](https://git-scm.com/)
     * [JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-    * [Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
-    * [CLI do Azure instalado](/cli/azure/install-azure-cli?view=azure-cli-latest), versão 2.0.67 ou superior
+    * [Maven 3.0 ou acima](https://maven.apache.org/download.cgi)
+    * [Azure CLI instalado](/cli/azure/install-azure-cli?view=azure-cli-latest), versão 2.0.67 ou superior
 
-1. Instale a extensão da nuvem Spring do Azure:
+1. Instale a extensão azure Spring Cloud:
 
     ```Azure CLI
         az extension add --name spring-cloud
     ```
 
-2. Crie um grupo de recursos para conter seu serviço de nuvem Spring do Azure:
+2. Crie um grupo de recursos para conter o seu serviço Azure Spring Cloud:
 
     ```Azure CLI
         az group create --location eastus --name <resource group name>
     ```
 
-3. Provisionar uma instância do Azure Spring Cloud:
+3. Provisão de uma instância de Nuvem de primavera Azure:
 
     ```Azure CLI
         az spring-cloud create -n <service name> -g <resource group name>
     ```
 
-4. Bifurcar o repositório de [métricas transportado](https://github.com/Azure-Samples/piggymetrics) para sua própria conta do github. No computador local, clone seu repositório em um diretório chamado `source-code`:
+4. Bifurque o [piggy Metrics](https://github.com/Azure-Samples/piggymetrics) repo para a sua própria conta GitHub. Na sua máquina local, clone o seu `source-code`repo num diretório chamado:
 
     ```bash
         mkdir source-code
         git clone https://github.com/<your GitHub id>/piggymetrics
     ```
 
-5. Configure o servidor de configuração. Certifique-se de substituir &lt;sua ID do GitHub&gt; com o valor correto.
+5. Configura risque o seu servidor de configuração. Certifique-se &lt;de que substitui&gt; o seu id GitHub pelo valor correto.
 
     ```Azure CLI
         az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/<your GitHub id>/piggymetrics --label config
     ```
 
-6. Compile o projeto:
+6. Construir o projeto:
 
     ```bash
         cd piggymetrics
         mvn clean package -D skipTests
     ```
 
-7. Crie os três microserviços: **Gateway**, **serviço de autenticação**e **serviço de conta**:
+7. Criar os três microserviços: **gateway,** **auth-service,** e **serviço de conta:**
 
     ```Azure CLI
         az spring-cloud app create --n gateway -s <service name> -g <resource group name>
@@ -100,7 +100,7 @@ Seu computador local precisa atender ao mesmo pré-requisito que o servidor de B
         az spring-cloud app create --n account-service -s <service name> -g <resource group name>
     ```
 
-8. Implantar os aplicativos: 
+8. Implementar as aplicações: 
 
     ```Azure CLI
         az spring-cloud app deploy -n gateway -s <service name> -g <resource group name> --jar-path ./gateway/target/gateway.jar
@@ -108,40 +108,40 @@ Seu computador local precisa atender ao mesmo pré-requisito que o servidor de B
         az spring-cloud app deploy -n auth-service -s <service name> -g <resource group name> --jar-path ./auth-service/target/auth-service.jar
     ```
 
-9. Atribuir ponto de extremidade público ao gateway:
+9. Atribuir ponto final público ao portal:
 
     ```Azure CLI
         az spring-cloud app update -n gateway -s <service name> -g <resource group name> --is-public true
     ```
 
-10. Consulte o aplicativo de gateway para obter a URL para que você possa verificar se o aplicativo está em execução.
+10. Consultar a aplicação de gateway para obter o url para que possa verificar se a aplicação está em execução.
 
     ```Azure CLI
     az spring-cloud app show --name gateway | grep url
     ```
     
-    Navegue até a URL fornecida pelo comando anterior para executar o aplicativo PiggyMetrics. 
+    Navegue para o URL fornecido pelo comando anterior para executar a aplicação PiggyMetrics. 
 
-## <a name="prepare-jenkins-server"></a>Preparar o servidor Jenkins
+## <a name="prepare-jenkins-server"></a>Preparar servidor Jenkins
 
-Nesta seção, você prepara o servidor Jenkins para executar uma compilação, o que é bom para teste. No entanto, devido à implicação de segurança, você deve usar um [agente de VM do Azure](https://plugins.jenkins.io/azure-vm-agents) ou [agente de contêiner do Azure](https://plugins.jenkins.io/azure-container-agents) para criar um agente no Azure para executar suas compilações. Para obter mais informações, veja o artigo do Jenkins sobre as [implicações em termos de segurança da compilação no servidor Mestre](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
+Nesta secção, prepara-se o servidor Jenkins para executar uma construção, o que é bom para testes. No entanto, devido a implicações de segurança, deve utilizar um [agente Azure VM](https://plugins.jenkins.io/azure-vm-agents) ou [um agente de contentores Azure](https://plugins.jenkins.io/azure-container-agents) para criar um agente em Azure para executar as suas construções. Para obter mais informações, veja o artigo do Jenkins sobre as [implicações em termos de segurança da compilação no servidor Mestre](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
 
 ### <a name="install-plug-ins"></a>Instalar plug-ins
 
-1. Entre no servidor do Jenkins. Escolha **gerenciar Jenkins > gerenciar plug-ins**.
-2. Na guia **disponível** , selecione os seguintes plug-ins:
-    * [Integração do GitHub](https://plugins.jenkins.io/github-pullrequest)
-    * [Credencial do Azure](https://plugins.jenkins.io/azure-credentials)
+1. Inscreva-se no seu servidor Jenkins. Escolha **gerir jenkins > gerir plugins**.
+2. No separador **Disponível,** selecione os seguintes plug-ins:
+    * [Integração GitHub](https://plugins.jenkins.io/github-pullrequest)
+    * [Credencial Azure](https://plugins.jenkins.io/azure-credentials)
 
-    Se esses plug-ins não aparecerem na lista, marque a guia **instalado** para ver se eles já estão instalados.
+    Se estes plug-ins não aparecerem na lista, verifique o separador **Instalado** para ver se já estão instalados.
 
-3. Para instalar os plug-ins, escolha **baixar agora e instalar após a reinicialização**.
+3. Para instalar os plug-ins, escolha **O download agora e instale-o após o reinício**.
 
-4. Reinicie o servidor Jenkins para concluir a instalação.
+4. Reinicie o seu servidor Jenkins para completar a instalação.
 
-### <a name="add-your-azure-service-principal-credential-in-jenkins-credential-store"></a>Adicionar suas credenciais de entidade de serviço do Azure no repositório de credenciais do Jenkins
+### <a name="add-your-azure-service-principal-credential-in-jenkins-credential-store"></a>Adicione a sua credencial principal de serviço Azure na loja de credenciais Jenkins
 
-1. Você precisa de uma entidade de serviço do Azure para implantar no Azure. Para obter mais informações, consulte a seção [Create Service principal](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) no tutorial Deploy to Azure app Service. A saída de `az ad sp create-for-rbac` é semelhante a esta:
+1. Precisa de um Diretor de Serviço Azure para implantar em Azure. Para mais informações, consulte a secção [principal](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) do serviço Create no tutorial do Serviço de Aplicações Azure. A saída `az ad sp create-for-rbac` é mais ou menos assim:
 
     ```
     {
@@ -153,44 +153,44 @@ Nesta seção, você prepara o servidor Jenkins para executar uma compilação, 
     }
     ```
 
-2. No dashboard do Jenkins, selecione **Credentials** > **System** (Credenciais > Sistema). Em seguida, selecione **Global credentials(unrestricted)** (Credenciais globais (sem restrições).
+2. No painel jenkins, selecione**Sistema** **de Credenciais** > . Em seguida, selecione **Global credentials(unrestricted)** (Credenciais globais (sem restrições).
 
-3. Selecione **Adicionar credenciais**. 
+3. **Selecione Adicionar Credenciais**. 
 
-4. Selecione **Microsoft Azure entidade de serviço** como tipo.
+4. Selecione O **Diretor de Serviço microsoft Azure** como amável.
 
-5. Forneça valores para: * ID da assinatura: Use sua ID de assinatura do Azure * ID do cliente: Use `appId` * segredo do cliente: Use `password` * ID do locatário: usar `tenant` ambiente do Azure: selecione um valor predefinido. Por exemplo, use o **Azure** para o Azure global * ID: definir como **azure_service_principal**. Usamos essa ID em uma etapa posterior neste artigo * Descrição: é um campo opcional. É recomendável fornecer um valor significativo aqui.
+5. Valores de fornecimento para: * ID de subscrição: `appId` use o `password` id de subscrição do Azure * ID do cliente: use * Segredo do Cliente: use * ID do inquilino: use `tenant` * Ambiente Azure: selecione um valor pré-definido. Por exemplo, utilize **o Azure** para o Azure Global * ID: definido como **azure_service_principal**. Usamos este ID num passo posterior neste artigo * Descrição: é um campo opcional. Recomendamos que forneça um valor significativo aqui.
 
-### <a name="install-maven-and-az-cli-spring-cloud-extension"></a>Instalar a extensão Maven e AZ CLI Spring-Cloud
+### <a name="install-maven-and-az-cli-spring-cloud-extension"></a>Instale extensão de nuvem de mola Maven e Az CLI
 
-O pipeline de exemplo usa o Maven para criar e AZ CLI para implantar na instância do serviço. Quando o Jenkins é instalado, ele cria uma conta de administrador denominada *Jenkins*. Verifique se o usuário *Jenkins* tem permissão para executar a extensão Spring-Cloud.
+O gasoduto de amostra utiliza a Maven para construir e o Az CLI para se deslocar para a instância de serviço. Quando o Jenkins é instalado, cria uma conta de administração chamada *Jenkins.* Certifique-se de que o utilizador *jenkins* tem permissão para executar a extensão da nuvem de mola.
 
-1. Conecte-se ao mestre do Jenkins via SSH. 
+1. Ligue-se ao mestre Jenkins via SSH. 
 
-2. Instalar o Maven
+2. Instalar Maven
 
     ```bash
         sudo apt-get install maven 
     ```
 
-3. Instale a CLI do Azure. Para obter mais informações, consulte [instalando o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). O CLI do Azure é instalado por padrão se você usar o [mestre do Jenkins no Azure](https://aka.ms/jenkins-on-azure).
+3. Instale a CLI do Azure. Para mais informações, consulte [Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). O Azure CLI é instalado por padrão se utilizar [o Jenkins Master no Azure](https://aka.ms/jenkins-on-azure).
 
-4. Alterne para o usuário do `jenkins`:
+4. Mude para `jenkins` o utilizador:
 
     ```bash
         sudo su jenkins
     ```
 
-5. Adicione a extensão **Spring-Cloud** :
+5. Adicione a extensão **da nuvem de mola:**
 
     ```bash
         az extension add --name spring-cloud
     ```
 
 ## <a name="create-a-jenkinsfile"></a>Criar um Jenkinsfile
-1. Em seu próprio repositório (https://github.com/&lt ; sua ID do GitHub&gt; /piggymetrics), crie um **Jenkinsfile** na raiz.
+1. No seu própriohttps://github.com/&ltrepo (o&gt;seu id /piggymetrics GitHub), crie um **Jenkinsfile** na raiz.
 
-2. Atualize o arquivo da seguinte maneira. Certifique-se de substituir os valores de **\<nome do grupo de recursos >** e **\<nome do serviço >** . Substitua **azure_service_principal** pela ID correta se você usar um valor diferente quando adicionou a credencial em Jenkins. 
+2. Atualize o ficheiro da seguinte forma. Certifique-se de que substitui os valores do nome do grupo de ** \<recursos>** e ** \<o nome **do serviço>. Substitua **azure_service_principal** com o ID certo se utilizar um valor diferente quando adicionar a credencial em Jenkins. 
 
 ```groovy
     node {
@@ -220,13 +220,13 @@ O pipeline de exemplo usa o Maven para criar e AZ CLI para implantar na instânc
     }
 ```
 
-3. Salve e confirme a alteração.
+3. Poupe e cometa a mudança.
 
 ## <a name="create-the-job"></a>Criar o trabalho
 
-1. No painel do Jenkins, clique em **novo item**.
+1. No painel jenkins, clique **em New Item**.
 
-2. Forneça um nome, *Deploy-PiggyMetrics* para o trabalho e selecione **pipeline**. Clique em OK.
+2. Forneça um nome, *Deploy-PiggyMetrics* para o trabalho e selecione **Pipeline**. Clique em OK.
 
 3. Em seguida, clique no separador **Pipeline**.
 
@@ -234,37 +234,37 @@ O pipeline de exemplo usa o Maven para criar e AZ CLI para implantar na instânc
 
 5. Em **SCM**, selecione **Git**.
 
-6. Insira a URL do GitHub para seu repositório bifurcado: **https://github.com/&lt ; sua ID do github&gt; /piggymetrics.git**
+6. Introduza o URL GitHub para o seu repo bifurcado: ** https://github.com/&lt.o seu&gt;id GitHub /piggymetrics.git**
 
-7. Verifique se o **especificador de ramificação (preto para ' qualquer ')** é * **/Azure**
+7. Certifique-se de que o **especificador de ramo (preto para 'qualquer')** é ***/Azure**
 
-8. Manter **caminho de script** como **Jenkinsfile**
+8. Mantenha **o caminho do Script** como **Jenkinsfile**
 
-7. Clicar em **Guardar**
+7. Clique em **Guardar**
 
 ## <a name="validate-and-run-the-job"></a>Validar e executar o trabalho
 
-Antes de executar o trabalho, vamos atualizar o texto na caixa de entrada de logon para **Inserir a ID de logon**.
+Antes de executar o trabalho, vamos atualizar o texto na caixa de entrada de login para introduzir o ID de **login**.
 
-1. Em seu próprio repositório, abra `index.html` no **/Gateway/src/main/resources/static/**
+1. No seu próprio repo, abra `index.html` em **/gateway/src/main/resources/static/**
 
-2. Pesquise "Insira seu logon" e atualize para "inserir ID de logon"
+2. Procure "insira o seu login" e atualize para "introduzir o ID de login"
 
     ```HTML
         <input class="frontforms" id="frontloginform" name="username" placeholder="enter login ID" type="text" autocomplete="off"/>
     ```
 
-3. Confirmar as alterações
+3. Comprometa as alterações
 
-4. Execute o trabalho no Jenkins manualmente. No painel do Jenkins, clique no trabalho *Deploy-PiggyMetrics* e, em seguida, **compile agora**.
+4. Executar o trabalho em Jenkins manualmente. No painel jenkins, clique no trabalho *Deploy-PiggyMetrics* e, em seguida, **Build Now**.
 
-Depois que o trabalho for concluído, navegue até o IP público do aplicativo de **Gateway** e verifique se seu aplicativo foi atualizado. 
+Depois de concluída a função, navegue para o IP público da aplicação **gateway** e verifique se a sua candidatura foi atualizada. 
 
-![Métricas de transportado atualizadas](media/tutorial-jenkins-deploy-cli-spring-cloud/piggymetrics.png)
+![Métricas de porquinho atualizados](media/tutorial-jenkins-deploy-cli-spring-cloud/piggymetrics.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua os recursos criados neste artigo:
+Quando já não for necessário, apague os recursos criados neste artigo:
 
 ```bash
 az group delete -y --no-wait -n <resource group name>
@@ -272,9 +272,9 @@ az group delete -y --no-wait -n <resource group name>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a usar o CLI do Azure no Jenkins para automatizar a integração e a entrega contínuas (CI/CD) para o Azure Spring Cloud.
+Neste artigo, aprendeu a usar o Azure CLI em Jenkins para automatizar a integração e entrega contínuas (CI/CD) para a Azure Spring Cloud.
 
-Para saber mais sobre o provedor de Jenkins do Azure, consulte o Jenkins no site do Azure.
+Para saber mais sobre o fornecedor Azure Jenkins, consulte o site do Jenkins no site azure.
 
 > [!div class="nextstepaction"]
-> [Jenkins no Azure](/azure/jenkins/)
+> [Jenkins em Azure](/azure/jenkins/)

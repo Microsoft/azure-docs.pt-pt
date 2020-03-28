@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: shreshar
 ms.openlocfilehash: fbc91b2610d97fe071e6585a58d7789dca873a9a
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72882295"
 ---
-Implante o aplicativo em seu dispositivo. Quando o aplicativo for iniciado, na caixa de diálogo **escolher uma demonstração** , use as setas para a esquerda ou para a direita para selecionar a opção **LocalShare** e toque em **go!** . Siga as instruções no aplicativo. Você pode selecionar **criar & âncora de compartilhamento** ou **Localizar âncora compartilhada**.
+Implemente a aplicação para o seu dispositivo. Assim que a aplicação começar, no diálogo **Choose A Demo,** utilize as setas esquerda ou direita para selecionar a opção **LocalShare** e toque em **Go!** Siga as instruções na aplicação. Pode selecionar **criar & Partilhar Âncora** ou localizar âncora **partilhada**.
 
-**Criar & âncora de compartilhamento** permite criar uma âncora e salvá-la em seu serviço de compartilhamento. Em retorno, você obterá um identificador para ele que pode ser usado para recuperá-lo do serviço de compartilhamento. Depois disso, você pode executar o segundo cenário, **Localizar âncora compartilhada**, de seu dispositivo ou de outro. **Localizar âncora compartilhada** permite que você localize âncoras compartilhadas anteriormente inserindo o identificador mencionado anteriormente. Depois de escolher seu cenário, o aplicativo guiará você com mais instruções sobre o que fazer. Por exemplo, você será solicitado a mover seu dispositivo para coletar informações de ambiente. Posteriormente, você colocará uma âncora no mundo, aguardará que ele seja salvo, iniciará uma nova sessão e, em seguida, o localizará.
+**Criar & Share Anchor** permite criar uma âncora e guardá-la para o seu serviço de partilha. Em troca, você receberá de volta um identificador que você pode usar para recuperá-lo do serviço de partilha. Depois disso, pode então executar o segundo cenário, **Localizar âncora partilhada,** a partir do seu dispositivo ou de outro. **Localizar** a Âncora Partilhada permite localizar âncoras previamente partilhadas, entrando no identificador mencionado anteriormente. Depois de escolher o seu cenário, a aplicação irá guiá-lo com mais instruções sobre o que fazer. Por exemplo, será-lhe pedido que mova o seu dispositivo para recolher informações ambientais. Mais tarde, colocará uma âncora no mundo, esperará que salve, comece uma nova sessão e depois localize-a.

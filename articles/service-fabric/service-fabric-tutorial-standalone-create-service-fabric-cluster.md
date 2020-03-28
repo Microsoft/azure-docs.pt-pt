@@ -1,5 +1,5 @@
 ---
-title: Instalar Service Fabric cliente autônomo
+title: Instalar cliente autónomo do Tecido de Serviço
 description: Neste tutorial irá aprender a instalar o cliente autónomo do Service Fabric no cluster que criou no artigo do tutorial anterior.
 author: dkkapur
 ms.topic: tutorial
@@ -7,15 +7,15 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613946"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar cluster do Service Fabric
 
-Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, você cria um cluster autônomo hospedado no AWS ou no Azure e instala um aplicativo nele.
+Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série tutorial, você cria um cluster autónomo hospedado em AWS ou Azure e instala uma aplicação nele.
 
 Este tutorial é a segunda parte de uma série. Este tutorial explica os passos para criar um cluster autónomo do Service Fabric.
 
@@ -28,9 +28,9 @@ Na segunda parte da série, saiba como:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Transfira o pacote do Service Fabric para o Windows Server
 
-O Service Fabric fornece um pacote de configuração para criar clusters autónomos do Service Fabric.  [Transfira o pacote de configuração](https://go.microsoft.com/fwlink/?LinkId=730690) para o seu computador local.  Depois de ter baixado com êxito, copie-o pela conexão RDP para sua VM e cole-o na área de trabalho.
+O Service Fabric fornece um pacote de configuração para criar clusters autónomos do Service Fabric.  [Transfira o pacote de configuração](https://go.microsoft.com/fwlink/?LinkId=730690) para o seu computador local.  Uma vez descarregado com sucesso, copie-o através da ligação RDP ao seu VM e cole-o no Ambiente de Trabalho.
 
-Selecione o ficheiro zip, abra o menu de contexto e selecione **Extrair Todos** > **Extrair**.  À medida que extrai os ficheiros, irá gerar uma pasta no ambiente de trabalho com o mesmo nome de ficheiro do zip.
+Selecione o ficheiro zip e abra o menu de contexto e selecione **Extrato De Todos os** > **Extratos**.  À medida que extrai os ficheiros, irá gerar uma pasta no ambiente de trabalho com o mesmo nome de ficheiro do zip.
 
 Se pretender obter mais detalhes sobre os [conteúdos do pacote de configuração](service-fabric-cluster-standalone-package-contents.md).
 
@@ -120,7 +120,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Apresentação do Service Fabric Explorer
 
-Agora você pode se conectar ao cluster com Service Fabric Explorer diretamente de um dos computadores com http:\//localhost:19080/Explorer/index.html ou remotamente com http:\//<*IPAddressofaMachine*>: 19080/Explorer/index. html.
+Agora pode ligar-se ao cluster com o Service Fabric Explorer diretamente de uma das máquinas com http:\//localhost:19080/Explorer/index.html ou remotamente com http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Adicionar e remover nós
 

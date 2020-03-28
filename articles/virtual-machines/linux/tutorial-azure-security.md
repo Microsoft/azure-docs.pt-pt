@@ -16,10 +16,10 @@ ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77605521"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Linux
@@ -50,7 +50,7 @@ Antes de poder obter visibilidade das configurações de segurança de VM, terá
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição. 
 2. Em **Recolha de Dados**, em **Aprovisionamento Automático** selecione **Ativado**.
-3. Em **Configuração de área de trabalho predefinida**, deixe como **Utilizar as áreas de trabalho criadas pelo Centro de Segurança (predefinição)** .
+3. Em **Configuração de área de trabalho predefinida**, deixe como **Utilizar as áreas de trabalho criadas pelo Centro de Segurança (predefinição)**.
 4. Em **Eventos de Segurança**, mantenha a opção predefinida **Comuns**.
 4. Clique em **Guardar** no início da página. 
 
@@ -110,7 +110,7 @@ A funcionalidade de alertas de segurança requer que o escalão de preço do Cen
 Para alterar o escalão de preço:  
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição.
-2. Selecione **Escalão de preço**.
+2. Selecione **o nível de preços**.
 3. Selecione **Standard** e, em seguida, clique em **Guardar** na parte superior do painel.
 
 

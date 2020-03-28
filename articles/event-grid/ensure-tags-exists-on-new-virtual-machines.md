@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: eamono
 ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65521431"
 ---
-# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integrar a Automatização do Azure com a Event Grid e o Microsoft Teams
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integrar a Automação Azure com a Grelha de Eventos e as Equipas da Microsoft
 
 Neste tutorial, ficará a saber como:
 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 > * Crie uma subscrição do Event Grid.
 > * Criar uma VM que acione o runbook.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 4. Selecione **Importar** e atribua o nome **Watch-VMWrite**.
 
 5. Após a importação, selecione **Editar** para ver a origem do runbook. 
-6. Atualizar a linha 74 no script para utilizar `Tag` em vez de `Tags`.
+6. Atualize a linha 74 `Tag` no `Tags`script para utilizar em vez de .
 
     ```powershell
     Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
@@ -70,7 +70,7 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 
 3. Introduza **AzureAutomationIntegration** para o nome e selecione **Criar**.
 
-4. Copie o URL do webhook para a área de transferência e guarde-o. O URL do webhook é utilizado para enviar informações para o Microsoft Teams.
+4. Copie o URL do webhook para a área de redação e guarde-o. O URL do webhook é utilizado para enviar informações para o Microsoft Teams.
 
 5. Selecione **Concluído** para guardar o webhook.
 
@@ -105,7 +105,7 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
     4. Na lista pendente **Tipos de Eventos Definidos**, desmarque todas as opções, exceto **Êxito da Escrita de Recurso**.
 
         > [!NOTE] 
-        > O Azure Resource Manager não atualmente distingue entre criar e a atualização, para que implementar este tutorial para todos os eventos de Microsoft.Resources.ResourceWriteSuccess na sua subscrição do Azure pode resultar num grande volume de chamadas.
+        > O Gestor de Recursos Azure não diferencia atualmente entre Criar e Atualizar, pelo que implementar este tutorial para todos os eventos Microsoft.ResourcesWriteSuccess na sua Subscrição Azure pode resultar num elevado volume de chamadas.
     1. No **Tipo de Ponto Final**, selecione **Webhook**.
     2. Clique em **Selecionar um ponto final**. Na página **Selecionar Webhook** que se abre, cole o url do webhook criado para o runbook Watch-VMWrite.
     3. Em **FILTROS**, introduza a subscrição e o grupo de recursos em que quer procurar as novas VMs criadas. Deve ter o seguinte aspeto: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
@@ -124,7 +124,7 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 
     ![Notificação do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou a integração entre o Event Grid e a Automatização. Aprendeu a:
 

@@ -1,5 +1,5 @@
 ---
-title: Criar infraestrutura para um cluster no AWS
+title: Criar infraestrutura para um cluster em AWS
 description: Neste tutorial, vai aprender a configurar a infraestrutura do AWS para executar um cluster do Service Fabric.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613980"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar a infraestrutura do AWS para alojar um cluster do Service Fabric
@@ -24,7 +24,7 @@ Na primeira parte da série, saiba como:
 > [!div class="checklist"]
 > * Criar um conjunto de instâncias do EC2
 > * Modificar o grupo de segurança
-> * Entre em uma das instâncias
+> * Inscreva-se numa das instâncias
 > * Preparar a instância do Service Fabric
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +33,7 @@ Para concluir este tutorial, precisa de uma conta do AWS.  Se ainda não tiver u
 
 ## <a name="create-ec2-instances"></a>Criar instâncias do EC2
 
-Entre no console do AWS > insira **EC2** na caixa de pesquisa > **servidores virtuais EC2 na nuvem**
+Inscreva-se na consola AWS > Enter **EC2** na caixa de pesquisa > **Servidores Virtuais EC2 na Nuvem**
 
 ![Pesquisa na consola do AWS][aws-console]
 
@@ -142,7 +142,7 @@ Na primeira parte da série, aprendeu a iniciar três instâncias do EC2 e a con
 > [!div class="checklist"]
 > * Criar um conjunto de instâncias do EC2
 > * Modificar o grupo de segurança
-> * Entre em uma das instâncias
+> * Inscreva-se numa das instâncias
 > * Preparar a instância do Service Fabric
 
 Avance para a segunda parte da série para configurar o Service Fabric no seu cluster.

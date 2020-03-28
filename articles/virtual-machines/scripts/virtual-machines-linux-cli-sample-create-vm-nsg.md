@@ -1,6 +1,6 @@
 ---
-title: 'Exemplo de CLI: criar duas VMs com um NSG interno e externo'
-description: Crie duas VMs com NSG internas e externas para proteger o tráfego de rede usando o CLI do Azure.
+title: 'Amostra CLI: Criar dois VMs com um NSG interno e externo'
+description: Crie dois VMs com NSG interno e externo para proteger o tráfego de rede utilizando o Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -17,13 +17,13 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 3e3d1fe3bf464892934198d06b602a5b8bcafb67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75458386"
 ---
-# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Proteger o tráfego de rede entre as máquinas virtuais usando um NSG
+# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Tráfego de rede seguro entre máquinas virtuais usando um NSG
 
 Este script cria duas máquinas virtuais e protege o tráfego de entrada de ambas. Uma máquina virtual está acessível na Internet e tem um grupo de segurança de rede (NSG) configurado para permitir tráfego nas portas 22 e 80. A segunda máquina virtual não está acessível na Internet e tem um NSG configurado para permitir apenas o tráfego da primeira máquina virtual.
 

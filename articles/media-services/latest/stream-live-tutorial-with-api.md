@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268181"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472021"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Stream live with Media Services
 
@@ -34,7 +34,7 @@ Este tutorial mostra-lhe como:
 > [!div class="checklist"]
 > * Descarregue a aplicação de amostra supor no tópico.
 > * Examine o código que executa o streaming ao vivo.
-> * Assista ao evento com [o Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) no https://ampdemo.azureedge.net.
+> * Assista ao evento com [o Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) em [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
 > * Limpe os recursos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -77,7 +77,7 @@ A amostra cria um sufixo único para cada recurso para que não tenha colisões 
 > Esta amostra utiliza um sufixo único para cada recurso. Se cancelar a depuração ou encerrar a aplicação sem a executar, acabará com vários Eventos Ao Vivo na sua conta. <br/>
 > Certifique-se de parar os eventos ao vivo. Caso contrário, será **cobrado!**
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
+### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar APIs dos Serviços de Multimédia com SDK do .NET
 
 Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials com base nas credenciais fornecidas no ficheiro de configuração local. 
 
@@ -167,13 +167,13 @@ Se já terminou os eventos de streaming e pretende limpar os recursos aprovision
 
 ## <a name="watch-the-event"></a>Ver o evento
 
-Para assistir ao evento, copie o URL de streaming que obteve quando executou o código descrito no Create a Streaming Locator. Podes usar um media player à tua escolha. [O Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) está disponível para testar o seu fluxo em https://ampdemo.azureedge.net.
+Para assistir ao evento, copie o URL de streaming que obteve quando executou o código descrito no Create a Streaming Locator. Podes usar um media player à tua escolha. [O Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) está https://ampdemo.azureedge.netdisponível para testar o seu fluxo em .
 
 Live Event converte automaticamente eventos em conteúdo sonoro quando parado. Mesmo depois de parar e apagar o evento, os utilizadores podem transmitir o seu conteúdo arquivado como um vídeo a pedido enquanto não apagar o ativo. Um ativo não pode ser apagado se for usado por um evento; o evento deve ser eliminado primeiro.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.
+Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 
 Executar o seguinte comando CLI:
 

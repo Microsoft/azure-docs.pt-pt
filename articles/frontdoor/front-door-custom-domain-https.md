@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configurar HTTPS num domínio personalizado para o Azure Front Door Service | Microsoft Docs
-description: Neste tutorial, vai aprender a ativar e desativar o HTTPS na sua configuração do Azure Front Door Service para um domínio personalizado.
+title: Tutorial - Configure HTTPS em um domínio personalizado para Porta frontal Azure [ Microsoft Docs
+description: Neste tutorial, aprende a ativar e desativar https na configuração da Porta Frontal Azure para um domínio personalizado.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fae4206e555c85fe0555ce1c4366cd57dd386f1e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512866"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471834"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
 Este tutorial mostra como ativar o protocolo HTTPS num domínio personalizado associado ao Front Door na secção de sistemas anfitrião de front-end. A utilização do protocolo HTTPS no seu domínio personalizado (por exemplo, https:\//www.contoso.com) garante que os seus dados confidenciais são entregues em segurança através de encriptação TLS/SSL quando são enviados pela Internet. Quando o browser está ligado a um site por HTTPS, valida o certificado de segurança do site e verifica que este é emitido por uma autoridade de certificação legítima. Este processo oferece segurança e protege as suas aplicações Web de ataques.
 
-O Azure Front Door Service suporta HTTPS num nome de anfitrião predefinido do Front Door, por predefinição. Por exemplo, se criar um Front Door (como, por exemplo, https:\//contoso.azurefd.net), o HTTPS é ativado automaticamente para pedidos feitos a https://contoso.azurefd.net. No entanto, assim que carregar o domínio personalizado "www.contoso.com", terá de ativar também o HTTPS neste sistema anfitrião de front-end.   
+A Porta Frontal Azure suporta HTTPS num nome de anfitrião predefinido da Porta Frontal, por padrão. Por exemplo, se criar um Front Door (como, por exemplo, https:\//contoso.azurefd.net), o HTTPS é ativado automaticamente para pedidos feitos a https://contoso.azurefd.net. No entanto, assim que carregar o domínio personalizado "www.contoso.com", terá de ativar também o HTTPS neste sistema anfitrião de front-end.   
 
 Alguns dos principais atributos da funcionalidade HTTPS personalizada são:
 
@@ -50,12 +50,12 @@ Para poder concluir os passos neste tutorial, tem primeiro de criar um Front Doo
 
 ## <a name="ssl-certificates"></a>Certificados SSL
 
-Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado do Front Door, tem de utilizar um certificado SSL. Pode optar por utilizar um certificado gerido pelo Azure Front Door Service ou utilizar o seu próprio certificado.
+Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado do Front Door, tem de utilizar um certificado SSL. Pode optar por utilizar um certificado que seja gerido pela Porta Frontal Azure ou utilizar o seu próprio certificado.
 
 
 ### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opção 1 (predefinição): utilizar um certificado gerido pelo Front Door
 
-Quando utiliza um certificado gerido pelo Azure Front Door Service, a funcionalidade HTTPS pode ser ativada com apenas alguns cliques. O Azure Front Door Service processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o sistema anfitrião de font-end predefinido do Front Door (`{hostname}.azurefd.net`), não é necessária mais nenhuma ação. O Front Door vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
+Quando utiliza um certificado gerido pela Porta Frontal Azure, a funcionalidade HTTPS pode ser ligada com apenas alguns cliques. A Porta Frontal Azure lida completamente com tarefas de gestão de certificados, como aquisição e renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o sistema anfitrião de font-end predefinido do Front Door (`{hostname}.azurefd.net`), não é necessária mais nenhuma ação. O Front Door vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
 
 Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
@@ -72,26 +72,26 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
 ### <a name="option-2-use-your-own-certificate"></a>Opção 2: utilizar o seu próprio certificado
 
-Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. O Azure Front Door Service utiliza este mecanismo seguro para obter o certificado e requer alguns passos adicionais. Ao criar o certificado SSL, tem de criá-lo com uma autoridade de certificação permitida (AC). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de ACs permitidas, veja [Autoridades de certificação permitidas para ativar o HTTPS personalizado no Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
+Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. A Porta Frontal Azure utiliza este mecanismo seguro para obter o seu certificado e requer alguns passos adicionais. Ao criar o certificado SSL, tem de criá-lo com uma autoridade de certificação permitida (AC). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de CA permitidos, consulte as autoridades de [certificados permitidas para ativar https personalizado na Porta da Frente Azure](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
 1. Azure Key Vault: tem de ter uma conta do Azure Key Vault em execução na mesma subscrição que o Front Door para o qual pretende ativar HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
 
 > [!WARNING]
-> O serviço de porta frontal do Azure atualmente dá suporte apenas a contas Key Vault na mesma assinatura que a configuração de porta frontal. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
+> A tualmente, a Porta Frontal Azure apenas suporta as contas Key Vault na mesma subscrição que a configuração da Porta Frontal. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
 
-2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na conta do Azure Key Vault ou pode criar um novo diretamente através do Azure Key Vault a partir de uma das CAs do parceiro com o qual o Azure Key Vault está integrado. Carregue seu certificado como um objeto de **certificado** , em vez de um **segredo**.
-
-> [!IMPORTANT]
-> Você deve carregar o certificado no formato PFX **sem** proteção por senha.
-
-#### <a name="register-azure-front-door-service"></a>Registar o Azure Front Door Service
-
-Registe o principal de serviço do Azure Front Door Service como uma aplicação no Azure Active Directory através do PowerShell.
+2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na conta do Azure Key Vault ou pode criar um novo diretamente através do Azure Key Vault a partir de uma das CAs do parceiro com o qual o Azure Key Vault está integrado. Faça upload do seu certificado como objeto de **certificado,** em vez de um **segredo.**
 
 > [!NOTE]
-> Essa ação requer permissões de administrador global e precisa ser executada apenas **uma vez** por locatário.
+> Para o seu próprio certificado SSL, a Porta Frontal não suporta certificados com algoritmos de criptografia CE.
+
+#### <a name="register-azure-front-door"></a>Registre porta da frente azure
+
+Registe o serviço principal da Azure Front Door como uma aplicação no seu Diretório Ativo Azure via PowerShell.
+
+> [!NOTE]
+> Esta ação requer permissões do Administrador Global, e precisa de ser executada apenas **uma vez** por inquilino.
 
 1. Caso seja necessário, instale o [Azure PowerShell](/powershell/azure/install-az-ps) no PowerShell no seu computador local.
 
@@ -99,23 +99,23 @@ Registe o principal de serviço do Azure Front Door Service como uma aplicação
 
      `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Conceder ao Azure Front Door Service acesso ao cofre de chaves
+#### <a name="grant-azure-front-door-access-to-your-key-vault"></a>Grant Azure Front Door acesso ao seu cofre chave
  
-Conceda permissão de serviço de porta frontal do Azure para acessar os certificados em sua conta de Azure Key Vault.
+Conceda a autorização da Porta Da Frente Azure para aceder aos certificados na sua conta Azure Key Vault.
 
 1. Na sua conta do cofre de chaves, em DEFINIÇÕES, selecione **Políticas de acesso** e **Adicionar nova** para criar uma nova política.
 
 2. Em **Selecionar principal**, procure **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e escolha **Microsoft.Azure.Frontdoor**. Clique em **Selecionar**.
 
-3. Em **permissões de segredo**, selecione **obter** para permitir que a porta frontal recupere o certificado.
+3. Em **permissões Secretas,** selecione **Get** para permitir que a Porta da Frente recupere o certificado.
 
-4. Em **permissões de certificado**, selecione **obter** para permitir que a porta frontal recupere o certificado.
+4. Nas **permissões de Certificado,** selecione **Get** para permitir que a Porta da Frente recupere o certificado.
 
 5. Selecione **OK**. 
 
-    O serviço de porta frontal do Azure agora pode acessar esse Key Vault e os certificados armazenados neste Key Vault.
+    A Porta Frontal Azure já pode aceder a este Cofre chave e aos certificados que estão armazenados neste Cofre chave.
  
-#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Selecione o certificado que vai ser implementado pelo Azure Front Door Service
+#### <a name="select-the-certificate-for-azure-front-door-to-deploy"></a>Selecione o certificado para a Porta Frontal Azure para implementar
  
 1. Volte ao seu Front Door no portal. 
 
@@ -125,9 +125,9 @@ Conceda permissão de serviço de porta frontal do Azure para acessar os certifi
 
 3. Em Tipo de gestão de certificado, selecione **Utilizar o meu próprio certificado**. 
 
-4. O Azure Front Door Service exige que a subscrição da conta do Key Vault seja a mesma subscrição do Front Door. Selecione um cofre de chaves, o certificado (segredo) e a versão do certificado.
+4. A Porta Frontal Azure requer que a subscrição da conta Key Vault seja a mesma que para a sua Porta Da Frente. Selecione um cofre de chaves, o certificado (segredo) e a versão do certificado.
 
-    O Azure Front Door Service lista as seguintes informações: 
+    A Porta da Frente Azure lista as seguintes informações: 
     - As contas do cofre de chaves do ID da sua subscrição. 
     - Os certificados (segredos) no cofre de chaves selecionado. 
     - As versões dos certificados disponíveis. 
@@ -153,7 +153,7 @@ O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu d
 
 Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido por um ano e será renovado antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
+Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido por um ano e será renovado automaticamente antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
 
 Normalmente, a validação automática demora alguns minutos. Se não vir o seu domínio validado ao fim de uma hora, abra um pedido de suporte.
 
@@ -176,7 +176,7 @@ webmaster@&lt;o-seu-nome-de-domínio.com&gt;
 hostmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
-Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se você estiver usando um filtro de spam, adicione admin@digicert.com à sua lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
+Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um admin@digicert.com filtro de spam, adicione à sua lista de autorizações. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
 
 Quando clica na ligação de aprovação, é direcionado para um formulário de aprovação online. Siga as instruções do formulário; tem duas opções de verificação:
 
@@ -184,7 +184,7 @@ Quando clica na ligação de aprovação, é direcionado para um formulário de 
 
 - Pode aprovar apenas o nome de anfitrião específico utilizado neste pedido. É necessária aprovação adicional para pedidos subsequentes.
 
-Após a aprovação, a DigiCert conclui a criação do certificado para o seu nome de domínio personalizado. O certificado é válido por um ano e será renovado antes de expirar.
+Após a aprovação, a DigiCert conclui a criação do certificado para o seu nome de domínio personalizado. O certificado é válido por um ano e será renovado automaticamente antes de expirar.
 
 ## <a name="wait-for-propagation"></a>Aguardar pela propagação
 
@@ -224,7 +224,7 @@ Nos passos anteriores, ativou o protocolo HTTPS no seu domínio personalizado. S
 
 ### <a name="disable-the-https-feature"></a>Desativar a funcionalidade HTTPS 
 
-1. No [portal do Azure](https://portal.azure.com), navegue até à configuração do **Azure Front Door Service**.
+1. No [portal Azure,](https://portal.azure.com)navegue até à configuração da **Porta Frontal Azure.**
 
 2. Na lista de sistemas anfitrião de front-end, clique no domínio personalizado no qual pretende desativar o HTTPS.
 
@@ -252,7 +252,7 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 
 2. *Utiliza TLS/SSL baseado em IP ou em SNI?*
 
-    O Azure Front Door Service utiliza SNI TLS/SSL.
+    A Porta Frontal Azure utiliza SNI TLS/SSL.
 
 3. *E se não receber o e-mail de verificação do domínio da DigiCert?*
 

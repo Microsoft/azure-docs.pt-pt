@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zscaler Dois para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Zscaler Dois para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizador para Zscaler 2.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 364b106e7c1f01269ac02b0c2851f8824ea0f58c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77062698"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutorial: Configure Zscaler Dois para fornecimento automático de utilizadores
@@ -50,7 +50,7 @@ No [portal Azure,](https://portal.azure.com)no painel esquerdo, selecione **Azur
 
 Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações:**
 
-![Aplicações empresariais](common/enterprise-applications.png)
+![Aplicações Empresariais](common/enterprise-applications.png)
 
 Para adicionar uma aplicação, selecione **Nova aplicação** na parte superior da janela:
 
@@ -79,9 +79,9 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 > [!TIP]
 > Também pode querer ativar um único sinal baseado em SAML para zscaler 2. Se o fizer, siga as instruções no [tutorial de inscrição único zscaler Dois](zscaler-two-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, mas as duas funcionalidades complementam-se mutuamente.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **aplicações da Enterprise** > Todas as **aplicações** > **Zscaler Two**:
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **aplicações** > Enterprise**Todas as aplicações** > **Zscaler 2**:
 
-    ![Aplicações empresariais](common/enterprise-applications.png)
+    ![Aplicações Empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione Zscaler Dois:**
 
@@ -97,7 +97,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 5. Na secção **de Credenciais de Administrador,** insira o **URL** do Inquilino e o **Token Secreto** da sua conta Zscaler Two, conforme descrito no passo seguinte.
 
-6. Para obter o **URL** do Inquilino e **Token Secreto,** vá à **Administração** > Definições de **autenticação** no portal Zscaler Two e selecione **SAML** sob o tipo de **autenticação:**
+6. Para obter o **URL** do Inquilino e **Token Secreto,** vá às Definições de**Autenticação** da **Administração** > no portal Zscaler Two e selecione **SAML** sob o tipo de **autenticação:**
 
     ![Zscaler Duas Definições de Autenticação](./media/zscaler-two-provisioning-tutorial/secret-token-1.png)
 
@@ -105,7 +105,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![Configurar a janela SAML](./media/zscaler-two-provisioning-tutorial/secret-token-2.png)
 
-    **Selecione ativar o fornecimento baseado no SCIM** e copie o **URL base** e **o token**do portador e, em seguida, guarde as definições. No portal Azure, colhe o **URL base** na caixa **URL** do Inquilino e o Token do Portador na caixa **Secreta Token.**
+    **Selecione ativar o fornecimento baseado no SCIM** e copie o **URL base** e **o token**do portador e, em seguida, guarde as definições. No portal Azure, colhe o **URL base** na caixa **URL** do Inquilino e o Token do Portador na caixa **Secreta Token.** **Bearer Token**
 
 7. Depois de introduzir os valores nas **caixas DEURL** do Inquilino e **secretas,** selecione **Test Connection** para se certificar de que o Azure AD pode ligar-se ao Zscaler 2. Se a ligação falhar, certifique-se de que a sua conta Zscaler 2 tem permissões de administração e tente novamente.
 
@@ -137,15 +137,15 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 15. Para ativar o serviço de provisionamento AD Azure para zscaler 2, altere o Estado de **Provisionamento** para **On** na secção **Definições:**
 
-    ![Estado de Aprovisionamento](./media/zscaler-two-provisioning-tutorial/provisioning-status.png)
+    ![Estado de provisionamento](./media/zscaler-two-provisioning-tutorial/provisioning-status.png)
 
 16. Defina os utilizadores e/ou grupos que pretende fornecer ao Zscaler Dois, escolhendo os valores que pretende no âmbito do **Âmbito** na secção **Definições:**
 
-    ![Valores de escopo](./media/zscaler-two-provisioning-tutorial/scoping.png)
+    ![Valores de âmbito](./media/zscaler-two-provisioning-tutorial/scoping.png)
 
 17. Quando estiver pronto para fornecer, selecione **Guardar:**
 
-    ![Selecione Guardar](./media/zscaler-two-provisioning-tutorial/save-provisioning.png)
+    ![Selecionar Guardar](./media/zscaler-two-provisioning-tutorial/save-provisioning.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e grupos definidos no âmbito do **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo do que as sincronizações subsequentes, que ocorrem a cada 40 minutos, desde que o serviço de provisionamento DaD Azure esteja em funcionamento. Pode monitorizar o progresso na secção Detalhes de **Sincronização.** Também pode seguir ligações a um relatório de atividade de provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento da AD Azure no Zscaler 2.
 

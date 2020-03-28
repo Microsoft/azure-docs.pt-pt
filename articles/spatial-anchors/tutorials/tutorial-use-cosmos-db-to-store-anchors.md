@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 71b3027d86400d6921895f86e257ddff2961f91f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77615159"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Partilhar âncoras espaciais azure em sessões e dispositivos com um back back end Azure Cosmos
@@ -29,17 +29,17 @@ Adicione uma Base de Dados Azure Cosmos ao grupo de recursos que criou anteriorm
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 
-Copie o `Connection String` porque vai precisar.
+Copie `Connection String` porque vai precisar.
 
 ## <a name="make-minor-changes-to-the-sharingservice-files"></a>Faça pequenas alterações nos ficheiros SharingService
 
-No **Solution Explorer,** abra `SharingService\Startup.cs`.
+No **Solution Explorer,** abra. `SharingService\Startup.cs`
 
-Localize `#define INMEMORY_DEMO` no topo do ficheiro e comente essa linha. Guarde o ficheiro.
+Localize `#define INMEMORY_DEMO` no topo do ficheiro e comente a linha. Guarde o ficheiro.
 
-No **Solution Explorer,** abra `SharingService\appsettings.json`.
+No **Solution Explorer,** abra. `SharingService\appsettings.json`
 
-Localize a `StorageConnectionString` imóvel e detetete o valor para ser o mesmo que o valor `Connection String` que copiou na base de [dados criar uma conta](#create-a-database-account)de base de dados . Guarde o ficheiro.
+Localize `StorageConnectionString` a propriedade e detetete `Connection String` o valor para ser o mesmo que o valor que copiou na base de [dados.](#create-a-database-account) Guarde o ficheiro.
 
 Pode publicar novamente o Serviço de Partilha e executar a aplicação de amostras.
 
@@ -56,4 +56,4 @@ Devido a alterações de rutura, a Unidade 2019.3 não é atualmente apoiada. Ut
 Neste tutorial, usaste o Azure Cosmos DB para partilhar identificadores de âncora em dispositivos. Para saber mais sobre como usar âncoras espaciais Azure numa nova app Unity HoloLens, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Iniciar uma nova app Unity HoloLens](./tutorial-new-unity-hololens-app.md)
+> [Iniciar uma nova aplicação do Unity HoloLens](./tutorial-new-unity-hololens-app.md)

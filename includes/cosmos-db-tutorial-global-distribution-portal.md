@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: cb9899712fd023aaec41f4b6bb34357b60ecb106
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75752297"
 ---
-## <a id="addregion"></a>Adicionar regiões de base de dados globais com o Portal do Azure
+## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Adicionar regiões de base de dados globais com o Portal do Azure
 O Azure Cosmos DB está disponível em todas as [regiões do Azure][azureregions] em todo o mundo. Depois de selecionar o nível de consistência predefinido para a sua conta de base de dados, pode associar uma ou mais regiões (dependendo da sua escolha do nível de consistência predefinido e das suas necessidades de distribuição global).
 
 1. No [Portal do Azure](https://portal.azure.com/), na barra esquerda, clique em **Azure Cosmos DB**.
@@ -35,7 +35,7 @@ Existem dois cenários comuns para configurar duas ou mais regiões:
 
 Para proporcionar latência baixa aos utilizadores finais, recomenda-se que implemente a aplicação e o Azure Cosmos DB nas regiões que correspondem àquelas onde os utilizadores da aplicação estão localizados.
 
-Para BCDR, é recomendável adicionar regiões com base nos pares de região descritos no artigo [continuidade de negócios e recuperação de desastre (BCDR): regiões emparelhadas do Azure][bcdr] .
+Para BCDR, recomenda-se que adicione regiões com base nos pares de região descritos no artigo [Continuidade empresarial e recuperação após desastre (BCDR): Regiões Emparelhadas do Azure][bcdr].
 
 <!--
 

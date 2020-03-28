@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 6b3375ea8c82ce916f3d6a5e0e29f2845400cc76
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d01d749300c6ad07e498c75c9487b554810e68cd
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117774"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79454079"
 ---
-# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas com o Event Grid
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar imagens carregadas usando a Grelha de Eventos
 
 O [Azure Event Grid](overview.md) é um serviço de eventos para a cloud. O Event Grid permite criar subscrições para eventos gerados pelos serviços do Azure ou recursos de terceiros.  
 
-Este tutorial é a segunda parte de uma série de tutoriais sobre Armazenamento. Estende o [tutorial de armazenamento anterior][previous-tutorial] para adicionar geração automática de miniaturas sem servidor usando funções Azure Event Grid e Azure. O Event Grid permite às [Funções do Azure](../azure-functions/functions-overview.md) responder a eventos do [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) e gerar miniaturas das imagens carregadas. É criada uma subscrição de evento relativamente ao evento de criação de armazenamento de Blobs. Quando é adicionado um blob a um contentor de armazenamento de Blobs específico, é chamado um ponto final de função. Os dados transmitidos ao enlace de função a partir do Event Grid são utilizados para aceder ao blob e gerar a imagem em miniatura.
+Este tutorial é a segunda parte de uma série de tutoriais sobre Armazenamento. Complementa o [tutorial de Armazenamento anterior][previous-tutorial] para adicionar a geração automática de miniaturas sem servidor com o Azure Event Grid e as Funções do Azure. O Event Grid permite às [Funções do Azure](../azure-functions/functions-overview.md) responder a eventos do [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) e gerar miniaturas das imagens carregadas. É criada uma subscrição de evento relativamente ao evento de criação de armazenamento de Blobs. Quando é adicionado um blob a um contentor de armazenamento de Blobs específico, é chamado um ponto final de função. Os dados transmitidos ao enlace de função a partir do Event Grid são utilizados para aceder ao blob e gerar a imagem em miniatura.
 
 Utilize a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a uma aplicação de carregamento de imagens existente.
 
@@ -50,21 +50,21 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-Deve ter concluído o tutorial de armazenamento blob anterior: [Carregue os dados de imagem na nuvem com o Armazenamento Azure][previous-tutorial].
+Tem de ter concluído o tutorial de armazenamento de Blobs anterior: [Carregar dados de imagem na cloud com o Armazenamento do Azure][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Se optar por instalar e usar a CLI localmente, este tutorial requer a execução da versão 2.0.14 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+
+Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o `az login`.
 
 Se não registou o fornecedor de recursos do Event Grid na sua subscrição anteriormente, confirme que está registado.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se optar por instalar e usar a CLI localmente, este tutorial requer a execução da versão 2.0.14 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o `az login`.
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -151,7 +151,7 @@ Agora, pode implementar um projeto de código de função nesta aplicação de f
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-A C# função de redimensionar a amostra está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este projeto de código na aplicação de funções utilizando o comando de origem config de fonte de implementação de [az functionapp.](/cli/azure/functionapp/deployment/source)
+A função de redimensionar a amostra C# está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este projeto de código na aplicação de funções utilizando o comando de origem config de fonte de implementação de [az functionapp.](/cli/azure/functionapp/deployment/source)
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName \
@@ -208,20 +208,20 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     | ------------ | ---------------- | -------------------------------------------------- |
     | **Nome** | imageresizersub | Nome que identifica a nova subscrição de evento. |
     | **Tipo de tópico** | Contas de armazenamento | Selecione o fornecedor de eventos da conta de Armazenamento. |
-    | **Subscrição** | A sua subscrição do Azure | Por predefinição, a subscrição do Azure atual está selecionada. |
+    | **Assinatura** | A sua subscrição do Azure | Por predefinição, a subscrição do Azure atual está selecionada. |
     | **Grupo de recursos** | myResourceGroup | Selecione **Utilizar existente** e selecione o grupo de recursos que tem utilizado neste tutorial. |
     | **Recurso** | A sua conta de armazenamento de Blobs | Selecione a conta de armazenamento de Blobs que criou. |
     | **Tipos de evento** | Criado pelo Blob | Desmarque todos os tipos diferentes de **Criado pelo Blob**. Apenas os tipos de evento de `Microsoft.Storage.BlobCreated` são transmitidos à função. |
     | **Tipo endpoint** | gerado automaticamente | Pré-definida como **Função Azure**. |
-    | **Ponto final** | gerado automaticamente | Utilize o URL de ponto final gerado. |
+    | **Ponto Final** | gerado automaticamente | Utilize o URL de ponto final gerado. |
 
 4. Mude para o separador Filtros e faça as **seguintes** ações:
     1. Selecione ativar a opção de filtragem do **assunto.**
-    2. Para **o Assunto começa com**, insira o seguinte valor : **/blobServices/default/containers/images/blobs/** .
+    2. Para **o Assunto começa com**, insira o seguinte valor : **/blobServices/default/containers/images/blobs/**.
 
         ![Especificar filtro para a subscrição do evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Selecione **Criar** para adicionar a subscrição do evento. Isto cria uma subscrição de evento que desencadeia a função `Thumbnail` quando uma bolha é adicionada ao recipiente `images`. A função redimensiona as imagens e adiciona-as ao recipiente `thumbnails`.
+5. Selecione **Criar** para adicionar a subscrição do evento. Isto cria uma subscrição `Thumbnail` de evento que desencadeia `images` a função quando uma bolha é adicionada ao recipiente. A função redimensiona as imagens e adiciona-as ao `thumbnails` recipiente.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento de imagens na aplicação Web de exemplo.
 

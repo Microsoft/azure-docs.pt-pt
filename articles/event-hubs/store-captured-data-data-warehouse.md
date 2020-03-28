@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 43668fe1f465a5db74e63b8b1c1ae6cb328d2092
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914131"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80130854"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrate capturou dados de Hubs de Eventos para um Armazém de Dados SQL usando a Grelha de Eventos e Funções Azure
 
@@ -26,7 +26,7 @@ A [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overv
 *   Em seguida, vai criar uma subscrição do Azure Event Grid com o espaço de nomes dos Hubs de Eventos como origem e o ponto final de Função do Azure como o seu destino.
 *   Sempre que um novo ficheiro Avro for entregue no blob de Armazenamento do Azure pela funcionalidade de Captura dos Hubs de Eventos, o Event Grid notifica a Função do Azure com o URI de blob. A Função, em seguida, migra dados do blob para um armazém de dados do SQL.
 
-Neste tutorial, vai realizar as seguintes ações: 
+Neste tutorial, irá realizar as seguintes ações: 
 
 > [!div class="checklist"]
 > * Implementar a infraestrutura
@@ -93,7 +93,7 @@ New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri ht
 
 
 ### <a name="create-a-table-in-sql-data-warehouse"></a>Criar uma tabela no SQL Data Warehouse 
-Crie uma tabela no seu armazém de dados SQL ao executar o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) com o [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), o [SQL Server Management Studio](../sql-data-warehouse/sql-data-warehouse-query-ssms.md) ou o Editor de Consulta no portal. 
+Crie uma tabela no seu armazém de dados SQL ao executar o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) com o [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), o [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) ou o Editor de Consulta no portal. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
@@ -131,7 +131,7 @@ Depois de publicar a função, está pronto para subscrever o evento de captura 
 
 ## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Criar uma subscrição do Event Grid a partir da aplicação de Funções
  
-1. Aceda ao [Portal do Azure](https://portal.azure.com/). Selecione o grupo de recursos e a aplicação de funções.
+1. Vá ao [portal Azure.](https://portal.azure.com/) Selecione o grupo de recursos e a aplicação de funções.
 
    ![Ver aplicação de funções](./media/store-captured-data-data-warehouse/view-function-app.png)
 
@@ -150,7 +150,7 @@ Depois de publicar a função, está pronto para subscrever o evento de captura 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo  
 Acabou de configurar o seu Hub de Eventos, o armazém de dados SQL, a Function App do Azure e a subscrição do Event Grid. Pode executar o WindTurbineDataGenerator.exe para gerar fluxos de dados para o Hub de Eventos depois de atualizar a cadeia de ligação e o nome do seu hub de eventos no código fonte. 
 
-1. No portal, selecione o seu espaço de nomes do hub de eventos. Selecione **Cadeias de Ligação**.
+1. No portal, selecione o seu espaço de nomes do hub de eventos. Selecione **Strings de Ligação**.
 
    ![Selecione cadeias de ligação](./media/store-captured-data-data-warehouse/event-hub-connection.png)
 

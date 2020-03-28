@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com a forma como fazemos | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a forma como fazemos.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Way We Do [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Diretório Ativo Azure e o Way We Do.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,176 +17,176 @@ ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faa23f61e5a213c492a7fb51bfc5b108e5c77946
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67310409"
 ---
-# <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Tutorial: Integrar a forma como Trabalhamos com o Azure Active Directory
+# <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Tutorial: Integrar a forma como fazemos com o Diretório Ativo Azure
 
-Neste tutorial, irá aprender como integrar a forma como fazemos com o Azure Active Directory (Azure AD). Quando integrar a forma como fazemos com o Azure AD, pode:
+Neste tutorial, você vai aprender a integrar Way We Do with Azure Ative Directory (Azure AD). Quando integrar o Way We Do with Azure AD, pode:
 
-* Controlar no Azure AD, quem tem acesso a forma como fazemos.
-* Permita que os utilizadores ser automaticamente sessão iniciada de forma podemos fazer com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controlo em Azure AD que tem acesso à Way We Do.
+* Permitir que os seus utilizadores sejam automaticamente inscritos na Way We Do com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Forma podemos início de sessão único (SSO) ativar a subscrição.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode ter um mês de experiência gratuita [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Way We Do single sign-on (SSO) enabled subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* Oferece suporte a forma como fazemos **SP** iniciada SSO
-* Oferece suporte a forma como fazemos **Just In Time** aprovisionamento de utilizadores
+* Way We Do apoia **SP** iniciado SSO
+* Way We Do suporta o fornecimento de utilizadores **justo no tempo**
 
-## <a name="adding-way-we-do-from-the-gallery"></a>Adicionando a forma como fazemos da Galeria
+## <a name="adding-way-we-do-from-the-gallery"></a>Adicionando maneira que fazemos da galeria
 
-Para configurar a integração de forma podemos fazer com o Azure AD, terá de adicionar a maneira que fazemos em partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Way We Do in Azure AD, você precisa adicionar Way We Do da galeria à sua lista de aplicações geridas saaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **forma fazemos** na caixa de pesquisa.
-1. Selecione **forma fazemos** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** escreva **Como Fazemos** na caixa de pesquisa.
+1. Selecione **Way We Do** from results panel and then add the app. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Configurar e testar o SSO do Azure AD com a forma como fazemos com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na forma como fazemos.
+Configure e teste Azure AD SSO com way we do usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na Way We Do.
 
-Para configurar e testar o SSO do Azure AD com a forma como fazemos, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com a Way We Do, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar a forma como podemos fazer SSO](#configure-way-we-do-sso)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar de forma podemos testar utilizador](#create-way-we-do-test-user)**  - para ter um equivalente da Eduarda Almeida na forma como fazemos isso está ligada à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure way We Do SSO](#configure-way-we-do-sso)** - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Create Way We Do test user](#create-way-we-do-test-user)** - para ter uma contrapartida de Britta Simon em Way We Do que está ligada à representação do utilizador da AD Azure.
+6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), no **forma fazemos** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Way We Do,** encontre a secção **Gerir** e selecione **single sign-on**.
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** página, introduza os valores para os seguintes campos:
+1. Na página **basic SAML Configuração,** introduza os valores para os seguintes campos:
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
+    a. No **Sign on URL** text box, digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.waywedo.com`
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.waywedo.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de forma podemos fazer cliente](mailto:support@waywedo.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real no URL e identificador. Contacte [a equipa de suporte](mailto:support@waywedo.com) do Cliente para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (bruto)** e selecione **transferir**para transferir o certificado e guarde-o no seu computador.
+1. Na configuração de um único sign-on com a página **SAML,** na secção certificado de **assinatura SAML,** encontre **certificado (Cru)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-   ![O link de download de certificado](common/certificateraw.png)
+   ![O link de descarregamento do Certificado](common/certificateraw.png)
 
-1. Sobre o **configurar a forma como fazemos** secção, copie o URL adequado com base nos seus requisitos.
+1. Na secção **Configurar A Forma de Fazer,** copie os URL(s) adequados com base no seu requisito.
 
    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="configure-way-we-do-sso"></a>Configurar a forma como Trabalhamos SSO
+### <a name="configure-way-we-do-sso"></a>Configure forma de fazer SSO
 
-1. Para automatizar a configuração na forma como fazemos, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
+1. Para automatizar a configuração dentro do Modo de Fazer, precisa de instalar a extensão de **navegador Secure-in das Minhas Aplicações** clicando em **instalar a extensão**.
 
-    ![Extensão My apps](common/install-myappssecure-extension.png)
+    ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-1. Depois de adicionar a extensão para o navegador, clique em **configuração forma fazemos** irá direcioná-lo para a aplicação de forma que fazemos. A partir daí, forneça as credenciais de administrador para iniciar sessão na forma como fazemos. A extensão do browser irá configurar o aplicativo para e automatizar passos 3 a 6 automaticamente.
+1. Depois de adicionar extensão ao navegador, clique na **Configuração Way We Do** irá direcioná-lo para a aplicação Way We Do. A partir daí, forneça as credenciais de administração para assinar na Way We Do. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
 
-    ![Configuração do programa de configuração](common/setup-sso.png)
+    ![Configuração de configuração de configuração](common/setup-sso.png)
 
-1. Se quiser configurar a forma como fazemos manualmente, abra uma nova janela de browser e inicie sessão no seu site de empresa de forma podemos fazer como administrador e execute os seguintes passos:
+1. Se quiser configurar o Way We Do manualmente, abra uma nova janela do navegador web e instique-se no site da empresa Way We Do como administrador e execute os seguintes passos:
 
-1. Clique nas **ícone de pessoa** no canto superior direito de qualquer página na forma como fazemos, em seguida, clique em **conta** no menu pendente.
+1. Clique no **ícone da pessoa** no canto superior direito de qualquer página da Maneira Que Fazemos e, em seguida, clique em **Conta** no menu dropdown.
 
-    ![Conta de fazemos forma](./media/waywedo-tutorial/tutorial_waywedo_account.png)
+    ![Maneira como fazemos conta](./media/waywedo-tutorial/tutorial_waywedo_account.png)
 
-1. Clique nas **ícone de menu** para abrir o menu de navegação de push e clique em **início de sessão único**.
+1. Clique no **ícone** do menu para abrir o menu de navegação push e clique **em sinal único .**
 
-    ![Forma como fazemos único](./media/waywedo-tutorial/tutorial_waywedo_single.png)
+    ![Maneira que fazemos solteiro](./media/waywedo-tutorial/tutorial_waywedo_single.png)
 
-1. Sobre o **configuração do início de sessão única** página, execute os seguintes passos:
+1. Na página de configuração de início de **sessão individual,** execute os seguintes passos:
 
-    ![Forma como fazemos guardar](./media/waywedo-tutorial/tutorial_waywedo_save.png)
+    ![Maneira que nós fazemos salvar](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Clique nas **ativar o início de sessão único** alternar para **Sim** para ativar o início de sessão único.
+    a. Clique **no alternância** de inscrição única para **Sim** para ativar o Single Sign-On.
 
-    b. Na **nome de início de sessão único** caixa de texto, introduza o seu nome.
+    b. Na caixa de texto de **nome de assinatura única,** introduza o seu nome.
 
-    c. Na **ID de entidade** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
+    c. Na caixa de texto **Id da Entidade,** colhe o valor do **Identificador Azure AD,** que copiou do portal Azure.
 
-    d. Na **URL de SSO SAML** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    d. Na caixa de texto **URL SAML SSO,** colá o valor do URL de **Login,** que copiou do portal Azure.
 
-    e. Carregue o certificado ao clicar o **selecionar** junto a **certificado**.
+    e. Faça upload do certificado clicando no botão **select** o lado do **Certificado**.
 
-    f. **Definições opcionais** -
+    f. **Definições Opcionais** -
     
-    * Permitir palavras-passe - quando esta opção está desativada, a palavra-passe regular funciona de forma podemos fazer para que os utilizadores só podem utilizar o início de sessão único.
+    * Ativar palavras-passe - Quando esta opção é desativada, a palavra-passe regular funciona para a forma como fazemos para que os utilizadores possam utilizar apenas um único sinal.
 
-    * Ativar aprovisionamento automático - quando esta opção estiver ativada, o endereço de e-mail utilizado para início de sessão será automaticamente comparado com a lista de utilizadores na forma como fazemos. Se o endereço de e-mail não corresponder a um utilizador ativo na forma como fazemos, ele adiciona automaticamente uma nova conta de utilizador da pessoa a iniciar sessão, solicitando todas as informações em falta.
+    * Ativar o fornecimento automático - Quando isto estiver ativado, o endereço de e-mail utilizado para iniciar sessão será automaticamente comparado com a lista de utilizadores da Way We Do. Se o endereço de e-mail não corresponder a um utilizador ativo na Forma como fazemos, adiciona automaticamente uma nova conta de utilizador para a pessoa que faz o instituto, solicitando qualquer informação em falta.
 
       > [!NOTE]
-      > Os utilizadores adicionados através do início de sessão único são adicionados como usuários gerais e não estão atribuídos uma função do sistema. Um administrador pode entrar e modificar a sua função de segurança como um editor ou administrador e também pode atribuir um ou vários organograma funções.
+      > Os utilizadores adicionados através de um único sign-on são adicionados como utilizadores gerais e não são atribuídos uma função no sistema. Um Administrador é capaz de entrar e modificar o seu papel de segurança como editor ou administrador e também pode atribuir uma ou várias funções de Org Chart.
 
-    g. Clique em **guardar** para manter as suas definições.
+    g. Clique em **Guardar** para persistir nas definições.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta secção, irá ativar B.Simon a utilizar do Azure-início de sessão único, conceder acesso à forma como fazemos.
+Nesta secção, você permitirá que B.Simon use o único sign-on Azure, concedendo acesso ao Way We Do.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **forma fazemos**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Way We Do**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-### <a name="create-way-we-do-test-user"></a>Criar utilizador de teste de forma podemos fazer
+### <a name="create-way-we-do-test-user"></a>Criar modo como fazemos o utilizador de teste
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado na forma como fazemos. Forma como fazemos suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir na forma como fazemos, é criado um novo após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado em Way We Do. A Forma como fazemos suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Way We Do, um novo é criado após a autenticação.
 
 > [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de forma podemos fazer cliente](mailto:support@waywedo.com).
+> Se precisar de criar um utilizador manualmente, contacte a equipa de suporte ao [Cliente Way We Do](mailto:support@waywedo.com)Client .
 
 ### <a name="test-sso"></a>Teste SSO
 
-Ao selecionar o mosaico de forma que fazemos no painel de acesso, deve ser automaticamente conectado para a forma como fazemos para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo Way We Do no Painel de Acesso, deve ser automaticamente inscrito na forma como fazemos para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

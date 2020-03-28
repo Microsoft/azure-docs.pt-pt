@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 0046b7fcad663187f660d6a65652eab5884eee23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184423"
 ---
 > [!NOTE]
-> Os planos de hospedagem do serviço de aplicativo gratuito e compartilhado (visualização) são camadas base que são executadas nas mesmas máquinas virtuais do Azure que outros aplicativos do serviço de aplicativo. Alguns aplicativos podem pertencer a outros clientes. Estas camadas destinam-se a ser utilizadas apenas para efeitos de desenvolvimento e teste.
+> Os planos de hospedagem gratuitos e partilhados (pré-visualização) são os planos de hospedagem de níveis base que funcionam nas mesmas máquinas virtuais Azure que outras aplicações do App Service. Algumas aplicações podem pertencer a outros clientes. Estas camadas destinam-se a ser utilizadas apenas para efeitos de desenvolvimento e teste.
 >

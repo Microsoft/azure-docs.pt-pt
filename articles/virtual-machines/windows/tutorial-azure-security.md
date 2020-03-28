@@ -1,5 +1,5 @@
 ---
-title: Tutorial-usar a central de segurança do Azure para VMs do Windows no Azure
+title: Tutorial - Use O Centro de Segurança Azure para VMs Windows em Azure
 description: Neste tutorial, vai aprender sobre as funcionalidades do Centro de Segurança do Azure para ajudar a proteger as suas máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 6b763d08dc898566bfe0d7a28bf6471d4edf4c59
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74064945"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Windows
@@ -50,7 +50,7 @@ Antes de poder obter visibilidade das configurações de segurança de VM, terá
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição. 
 2. Em **Recolha de Dados**, em **Aprovisionamento Automático** selecione **Ativado**.
-3. Em **Configuração de área de trabalho predefinida**, deixe como **Utilizar as áreas de trabalho criadas pelo Centro de Segurança (predefinição)** .
+3. Em **Configuração de área de trabalho predefinida**, deixe como **Utilizar as áreas de trabalho criadas pelo Centro de Segurança (predefinição)**.
 4. Em **Eventos de Segurança**, mantenha a opção predefinida **Comuns**.
 4. Clique em **Guardar** no início da página. 
 
@@ -64,7 +64,7 @@ Para configurar uma política de segurança para toda a subscrição:
 
 1. No dashboard Centro de Segurança, selecione **Política de Segurança** e, em seguida, selecione a sua subscrição.
 2. No painel **Política de Segurança**, selecione **Política de segurança**. 
-3. Na folha **política de segurança – política de segurança** , ative ou desative os itens de política que você deseja aplicar à assinatura.
+3. Sobre a política de segurança - Lâmina de política de **segurança,** ligue ou desligue itens de política que pretende aplicar à subscrição.
 4. Quando tiver terminado de selecionar as definições, selecione **Guardar** na parte superior do painel. 
 
 
@@ -104,14 +104,14 @@ Em muitos casos, o Centro de Segurança fornece passos acionáveis que pode segu
 
 ## <a name="view-detected-threats"></a>Ver as ameaças detetadas
 
-Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações detalhadas sobre os recursos de detecção de ameaças da central de segurança, consulte [como a central de segurança detecta ameaças?](../../security-center/security-center-alerts-overview.md#detect-threats).
+Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações aprofundadas sobre as capacidades de deteção de ameaças do Centro de Segurança, veja como é que o Centro de [Segurança deteta ameaças?](../../security-center/security-center-alerts-overview.md#detect-threats)
 
-A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** está disponível quando você passa para esse tipo de preço mais alto. 
+A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Um **teste gratuito** está disponível quando você se muda para este nível de preços mais alto. 
 
 Para alterar o escalão de preço:  
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição.
-2. Selecione **Escalão de preço**.
+2. Selecione **o nível de preços**.
 3. Selecione **Standard** e, em seguida, clique em **Guardar** na parte superior do painel.
 
 

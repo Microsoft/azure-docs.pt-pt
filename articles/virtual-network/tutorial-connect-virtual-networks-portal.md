@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77201303"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
@@ -32,7 +32,7 @@ Pode ligar redes virtuais entre si com o peering de rede virtual. Estas redes vi
 
 Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-connect-virtual-networks-cli.md) ou o [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -48,7 +48,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
-    |Região| Selecione **E.U.A. Leste**.|
+    |Região| Selecione **East US**.|
     |Nome|myVirtualNetwork1|
 
 4. No separador **endereços IP,** introduza 10.0.0.0.16 para o campo **'Espaço endereço'.** Clique no botão **adicionar subnet** abaixo e *introduza subnet1* para nome de **sub-rede** e 10.0.0.0/24 para a **gama de endereços subnet**.
@@ -62,7 +62,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Espaço de endereços|10.1.0.0/16|
     |Grupo de recursos| Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**.|
     |Nome da sub-rede | Subnet2|
-    |Intervalo de endereços da sub-rede|10.1.0.0/24|
+    |Intervalo de Endereços da Sub-rede|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Colocar redes virtuais em modo de peering
 
@@ -77,7 +77,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Nome do peering do myVirtualNetwork1 para rede virtual remota|myVirtualNetwork1-myVirtualNetwork2 - Quando a página for primeira a carregar, verá a frase "rede virtual remota" aqui. Depois de escolher a rede virtual remota, a expressão "rede virtual remota" será substituída pelo nome da rede virtual remota.|
     |Subscrição| Selecione a sua subscrição.|
-    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2,* selecione **a rede Virtual,** em seguida, selecione **myVirtualNetwork2 (myResourceGroup)** . Pode selecionar uma rede virtual na mesma região ou numa região diferente.|
+    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2,* selecione **a rede Virtual,** em seguida, selecione **myVirtualNetwork2 (myResourceGroup)**. Pode selecionar uma rede virtual na mesma região ou numa região diferente.|
     |Nome do peering do myVirtualNetwork2 para myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
     ![Definições de peering](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
@@ -102,7 +102,7 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
     |---|---|
     |Grupo de recursos| Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**.|
     |Nome|myVm1|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Localização| Selecione **East US**.|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
@@ -114,7 +114,7 @@ Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num p
     |Rede virtual| myVirtualNetwork1 - Se ainda não estiver selecionado, selecione **a rede Virtual** e, em seguida, selecione **myVirtualNetwork1**.|
     |Subrede| Subnet1 - Se ainda não estiver selecionado, selecione **Subnet** e, em seguida, selecione **Subnet1**.|
    
-6. Selecione **Networking**. Escolha **Permitir portas selecionadas** para a opção **de portas de entrada pública.** Escolha **RDP** para a opção **Selecione portas** de entrada abaixo desta. 
+6. Selecione **Rede**. Escolha **Permitir portas selecionadas** para a opção **de portas de entrada pública.** Escolha **RDP** para a opção **Selecione portas** de entrada abaixo desta. 
 
 7. Selecione o botão **Review + Criar** no canto inferior esquerdo para iniciar a implantação vm.
 
