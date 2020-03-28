@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: verificar a ortografia com a API REST e o PHP-Verificação Ortográfica do Bing'
+title: 'Quickstart: Verifique a ortografia com o REST API e PHP - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Este guia de início rápido mostra como um aplicativo PHP simples envia uma solicitação para a API de Verificação Ortográfica do Bing e retorna uma lista de correções sugeridas.
+description: Este quickstart mostra como uma simples aplicação PHP envia um pedido para a API bing spell check e devolve uma lista de correções sugeridas.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 816f2692a71d5d4281248405cc84102cfa881f66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382885"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Início rápido: verificar a ortografia com a API REST do Verificação Ortográfica do Bing e PHP
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e PHP
 
-Use este guia de início rápido para fazer sua primeira chamada para a API REST do Verificação Ortográfica do Bing. Esse aplicativo simples do PHP envia uma solicitação para a API e retorna uma lista de correções sugeridas. Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de Verificação de Feitiços de Bing. Este simples pedido php envia um pedido à API e devolve uma lista de correções sugeridas. Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 1. Crie um novo projeto PHP no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
-4. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+4. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 5. Execute o programa.
     
     ```php
@@ -94,11 +94,11 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo iniciando um servidor Web e navegando até o arquivo.
+Faça a sua aplicação iniciando um servidor web e navegando para o seu ficheiro.
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -140,7 +140,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
+> [Criar uma aplicação Web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
 - [Referência da API de Verificação de Ortografia do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

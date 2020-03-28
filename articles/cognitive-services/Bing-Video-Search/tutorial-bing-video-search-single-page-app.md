@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Compilar uma aplicação de página única da Pesquisa de Vídeos do Bing'
 titleSuffix: Azure Cognitive Services
-description: Este tutorial explica como usar o API de Pesquisa de Vídeo do Bing em um aplicativo Web de página única.
+description: Este tutorial explica como usar a API de pesquisa de vídeo bing numa aplicação web de uma página única.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988265"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicação de página única da Pesquisa de Vídeos
@@ -138,10 +138,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Por exemplo, o parâmetro `SafeSearch` numa chamada api real pode ser `strict`, ou `moderate`, sendo `moderate` o padrão.
+Por exemplo, `SafeSearch` o parâmetro numa chamada API `moderate`real `moderate` pode ser, `strict`ou, sendo o padrão.
 
 ## <a name="performing-the-request"></a>Fazer o pedido
-Tendo a consulta, a cadeia de opções e a chave de API, a função `BingWebSearch` utiliza um objeto `XMLHttpRequest` para fazer o pedido ao ponto final da Pesquisa do Bing. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+Tendo a consulta, a cadeia de opções e a chave de API, a função `BingWebSearch` utiliza um objeto `XMLHttpRequest` para fazer o pedido ao ponto final da Pesquisa do Bing. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -310,7 +310,7 @@ A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de r
 
 |Relação|Descrição|
 |-|-|
-|`pivotSuggestions`|Consultas que substituem uma palavra pivô na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
+|`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
 |`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
 |`relatedSearches`|Consultas que também foram introduzidas por outros utilizadores que introduziram a pesquisa original. Por exemplo, se procurar "Monte Rainier", uma consulta relacionada poderá ser "Monte de Santa Helena".|
 |`similarTerms`|Consultas cujo significado é semelhante ao da pesquisa original. Por exemplo, se pesquisar por “escolas”, um termo semelhante poderá ser “educação”.|
@@ -369,11 +369,11 @@ A função de compositor:
 > [!div class="checklist"]
 > * Cria uma tag de parágrafo, atribui-a à classe `images` e envia-a para a matriz html.
 > * Calcula o tamanho da miniatura de imagem (a largura é fixa, com 60 pixéis, e a altura é calculada proporcionalmente).
-> * Cria a tag `<img>` de HTML para apresentar a miniatura de imagem. 
+> * Cria a etiqueta HTML `<img>` para apresentar a miniatura da imagem. 
 > * Cria as tags `<a>` de HTML que ligam à imagem e à página que a contém.
 > * Cria a descrição que apresenta as informações sobre a imagem e o site no qual a imagem se encontra.
 
-O tamanho da miniatura é utilizado na tag `<img>` e nos campos `h` e `w` do respetivo URL. O Bing retornará uma [miniatura](../bing-web-search/resize-and-crop-thumbnails.md) exatamente desse tamanho.
+O tamanho da miniatura é utilizado na etiqueta `<img>` e nos campos `h` e `w` do respetivo URL. Bing devolverá uma [miniatura](../bing-web-search/resize-and-crop-thumbnails.md) exatamente desse tamanho.
 
 ## <a name="persisting-client-id"></a>ID de cliente persistente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se estiverem a ser utilizadas várias APIs de Pesquisa do Bing, deve ser utilizado o mesmo ID de cliente em todas as APIs, se possível.
@@ -389,7 +389,7 @@ As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e os torna disponíveis para o JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal `Access-Control-Expose-Headers` procuração tem um cabeçalho que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 

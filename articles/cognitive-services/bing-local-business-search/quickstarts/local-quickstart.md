@@ -1,7 +1,7 @@
 ---
-title: Início rápido – enviar uma consulta para a API C# no Bing pesquisa comercial local
+title: Quickstart - Envie uma consulta à API em C# - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para começar a enviar solicitações para a API de pesquisa de negócios local do Bing, que é um serviço de cognitiva do Azure.
+description: Use este quickstart para começar a enviar pedidos para a API local de pesquisa de negócios Bing, que é um Serviço Cognitivo Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,28 +11,28 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: 2265471001896652a4ce35dbf8bd84aca50000fb
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665684"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Início rápido: Enviar uma consulta para a API de pesquisa de negócios local do Bing noC#
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Quickstart: Envie uma consulta à API local de pesquisa de negócios bing em C #
 
-Use este guia de início rápido para começar a enviar solicitações para a API de pesquisa de negócios local do Bing, que é um serviço de cognitiva do Azure. Embora esse aplicativo simples seja escrito em C#, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer solicitações HTTP e analisar JSON.
+Use este quickstart para começar a enviar pedidos para a API local de pesquisa de negócios Bing, que é um Serviço Cognitivo Azure. Embora esta aplicação simples esteja escrita em C#, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer pedidos HTTP e analisar jSON.
 
-Este aplicativo de exemplo obtém dados de resposta locais da API para a consulta de pesquisa `hotel in Bellevue`.
+Esta aplicação de exemplo obtém dados de `hotel in Bellevue`resposta local da API para a consulta de pesquisa .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* Qualquer edição do [Visual Studio 2019.](https://www.visualstudio.com/downloads/)
 * Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido.  Consulte também [preço de serviços cognitivas – API de pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Você deve ter uma [conta De Serviços Cognitivos API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de pesquisa bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido.  Consulte também [preços de serviços cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="create-the-request"></a>Criar a solicitação 
+## <a name="create-the-request"></a>Criar o pedido 
 
-O código a seguir cria uma `WebRequest`, define o cabeçalho de chave de acesso e adiciona uma cadeia de caracteres de consulta para "restaurante em Bellevue".  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
+O seguinte código `WebRequest`cria um , define o cabeçalho da chave de acesso, e adiciona uma corda de consulta para "restaurante em Bellevue".  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -52,12 +52,12 @@ O código a seguir cria uma `WebRequest`, define o cabeçalho de chave de acesso
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
 ```
 
-## <a name="run-the-complete-application"></a>Executar o aplicativo completo
+## <a name="run-the-complete-application"></a>Executar a aplicação completa
 
-A API de pesquisa de negócios local do Bing retorna resultados de pesquisa localizados do mecanismo de pesquisa do Bing.
+O Bing Local Business Search API devolve os resultados de pesquisa localizados do motor de busca Bing.
 1. Crie uma nova solução de consola no Visual Studio (a Edição da Comunidade é suficiente).
 2. Substitua Program.cs pelo código fornecido abaixo.
-3. Substitua o valor de accessKey por uma chave de acesso válida para sua assinatura.
+3. Substitua o valor do accessKey por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```csharp
@@ -209,6 +209,6 @@ namespace localSearch
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início rápido do Java da pesquisa de negócios local](local-search-java-quickstart.md)
-- [Início rápido do nó de pesquisa comercial local](local-search-node-quickstart.md)
-- [Início rápido do Python de pesquisa comercial local](local-search-python-quickstart.md)
+- [Pesquisa de negócios locais Java quickstart](local-search-java-quickstart.md)
+- [Local Business Search Node quickstart](local-search-node-quickstart.md)
+- [Pesquisa de negócios local Python quickstart](local-search-python-quickstart.md)

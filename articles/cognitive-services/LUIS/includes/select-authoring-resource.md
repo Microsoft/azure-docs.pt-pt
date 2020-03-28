@@ -1,22 +1,17 @@
 ---
-title: Selecionar recurso de criação
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
+title: Selecione recurso de autoria
 ms.topic: include
-ms.date: 11/04/2019
-ms.author: diberry
-ms.openlocfilehash: 969ba0981ecb0a17f0a808e39c3ad15802418f78
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 03/25/2020
+ms.openlocfilehash: 33519f1723ec9e109fc41d5dfc2928427df14643
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580453"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287769"
 ---
-## <a name="select-subscription-and-authoring-resource"></a>Selecionar a assinatura e o recurso de criação
+## <a name="select-subscription-and-authoring-resource"></a>Selecione recurso de subscrição e autoria
 
-No portal do LUIS, para ver uma lista de aplicativos ou criar um aplicativo, selecione a assinatura e o recurso de criação. Os aplicativos são acessados pelo recurso de criação do LUIS. 
+No portal LUIS, para ver uma lista de apps ou para criar uma app, selecione o recurso de subscrição e autoria. As aplicações são acedidas pelo recurso de autoria da LUIS.
 
-![Selecionar a assinatura de criação e o recurso de criação](../media/select-authoring-resource/select-authoring-resource.png)
+> [!div class="mx-imgBorder"]
+> ![Selecione recursos de subscrição de autoria e autoria](../media/select-authoring-resource/select-authoring-resource.png)

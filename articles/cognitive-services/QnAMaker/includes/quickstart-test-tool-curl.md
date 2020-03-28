@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77495051"
 ---
 Este quickstart baseado em cURL leva-o através de obter uma resposta da sua base de conhecimento.
@@ -34,13 +34,13 @@ Este quickstart baseado em cURL leva-o através de obter uma resposta da sua bas
 Utilize a base de conhecimento do anterior rápido para consultar uma resposta baseada em metadados.
 
 1. A partir da página **Definições** da base de conhecimento, selecione o separador **CURL** para ver um comando cURL de exemplo usado para gerar uma resposta a partir da base de conhecimento.
-1. Copie o comando para um ambiente editável (como um ficheiro de texto) para que possa editar o comando. Editar o valor da pergunta da seguinte forma, de modo a que os metadados de `service:qna_maker` seja utilizado como filtro para os conjuntos QnA.
+1. Copie o comando para um ambiente editável (como um ficheiro de texto) para que possa editar o comando. Editar o valor da pergunta da seguinte `service:qna_maker` forma, de modo a que os metadados de são utilizados como filtro para os conjuntos QnA.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    A questão é apenas uma palavra, `size`, que pode devolver qualquer um dos dois conjuntos qnA. O conjunto de `strictFilters` diz a resposta para reduzir apenas para as respostas `qna_maker`.
+    A questão é apenas uma palavra, `size`que pode devolver qualquer um dos dois conjuntos qnA. A `strictFilters` matriz diz a resposta `qna_maker` para reduzir apenas para as respostas.
 
 1. A resposta inclui apenas a resposta que satisfaz os critérios do filtro. A seguinte resposta cURL foi formatada para a legibilidade:
 
@@ -77,11 +77,11 @@ Utilize a base de conhecimento do anterior rápido para consultar uma resposta b
     }
     ```
 
-    Se houver um conjunto de perguntas e respostas que não cumpra o prazo de pesquisa mas que tenha cumprido o filtro, não seria devolvido. Em vez disso, a resposta geral `No good match found in KB.` é devolvida.
+    Se houver um conjunto de perguntas e respostas que não cumpra o prazo de pesquisa mas que tenha cumprido o filtro, não seria devolvido. Em vez disso, a resposta `No good match found in KB.` geral é devolvida.
 
 ## <a name="use-debug-query-property"></a>Use propriedade de consulta de depuração
 
-A informação de depuração ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações sobre depuração, adicione a propriedade `debug`:
+A informação de depuração ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações sobre depuração, adicione a `debug` propriedade:
 
 ```json
 Debug: {Enable:true}
@@ -185,7 +185,7 @@ Debug: {Enable:true}
 
 ## <a name="use-test-knowledge-base"></a>Utilizar base de conhecimentos de teste
 
-Se quiser obter uma resposta da base de conhecimentos de teste, use a propriedade do corpo `isTest`.
+Se quiser obter uma resposta da base de `isTest` conhecimentos de teste, use a propriedade do corpo.
 
 A propriedade é um valor booleano.
 
@@ -206,7 +206,7 @@ A resposta jSON usa o mesmo esquema que a consulta de base de conhecimento publi
 
 ## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Use cURL para consultar uma resposta Chit-chat
 
-1. No terminal cURL, utilize uma declaração de fim de conversação bot do utilizador, como `Thank you` como a questão. Não há outras propriedades para definir.
+1. No terminal cURL ativado por cURL, utilize uma declaração `Thank you` de fim de conversação bot do utilizador, como a questão. Não há outras propriedades para definir.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
@@ -300,7 +300,7 @@ A resposta jSON usa o mesmo esquema que a consulta de base de conhecimento publi
 
 Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido, a resposta por defeito é devolvida.
 
-1. Utilize o seguinte comando cURL, substituindo pelo seu próprio nome de recurso, id base de conhecimento e chave de ponto final, para pedir uma resposta para `size` com um limiar de 80% ou melhor. A base de conhecimento não deve encontrar essa resposta porque a pontuação da pergunta é de 71%, e em vez disso devolve a resposta padrão que forneceu quando criou a base de conhecimento.
+1. Utilize o seguinte comando cURL, substituindo pelo seu próprio nome de recurso, id `size` base de conhecimento e chave de ponto final, para pedir uma resposta com um limiar de 80% ou melhor. A base de conhecimento não deve encontrar essa resposta porque a pontuação da pergunta é de 71%, e em vez disso devolve a resposta padrão que forneceu quando criou a base de conhecimento.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
@@ -325,7 +325,7 @@ Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido,
     }
     ```
 
-    QnA Maker devolveu uma pontuação de `0`, o que significa não confiança. Também devolveu a resposta padrão.
+    QnA Maker devolveu `0`uma pontuação de, o que significa não confiança. Também devolveu a resposta padrão.
 
     ```json
     {
@@ -413,7 +413,7 @@ Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido,
 
 Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido, a resposta por defeito é devolvida.
 
-1. Adicione a propriedade `threshold` para pedir uma resposta para `size` com um limiar de 80% ou melhor. A base de conhecimento não deve encontrar essa resposta porque a pontuação da pergunta é de 71%. O resultado devolve a resposta padrão que forneceu quando criou a base de conhecimentos.
+1. Adicione `threshold` a propriedade para pedir `size` uma resposta com um limiar de 80% ou melhor. A base de conhecimento não deve encontrar essa resposta porque a pontuação da pergunta é de 71%. O resultado devolve a resposta padrão que forneceu quando criou a base de conhecimentos.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
@@ -438,7 +438,7 @@ Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido,
     }
     ```
 
-    QnA Maker devolveu uma pontuação de `0`, o que significa não confiança. Também devolveu a resposta padrão.
+    QnA Maker devolveu `0`uma pontuação de, o que significa não confiança. Também devolveu a resposta padrão.
 
 1. Mude o valor limiar para 60% e solicite novamente a consulta:
 

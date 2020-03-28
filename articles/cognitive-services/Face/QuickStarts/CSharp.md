@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Detete rostos numa imagem com a API do REST Azure eC#'
+title: 'Quickstart: Detete rostos numa imagem com a API e C do REST Azure #'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, utilizará a API De C# REPOUSO Face Azure para detetar rostos numa imagem.
+description: Neste arranque rápido, utilizará a API De REPOUSO Face Azure com C# para detetar rostos numa imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d1349c096b6a6c9bffef38a8b8b3c7ea6bbd432
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 0be98ac60e11b3e21a864aa4ca18fcac2c7f014c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301816"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053393"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Quickstart: Detete rostos numa imagem usando a API Face REST eC#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Quickstart: Detete rostos numa imagem usando a Face REST API e C #
 
-Neste arranque rápido, você usará a API C# Face Face Azur com para detetar rostos humanos numa imagem.
+Neste arranque rápido, você usará a API Face Face Azur com C# para detetar rostos humanos numa imagem.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma chave de subscrição Face. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face e obter a sua chave.
-- Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
+- Qualquer edição do [Visual Studio 2015 ou 2017.](https://www.visualstudio.com/downloads/)
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 
@@ -52,7 +52,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Adicionar campos essenciais
 
-Adicione a classe **Programa** contendo os seguintes campos. Estes dados especificam como ligar ao serviço Face e onde obter os dados de entrada. Terá de atualizar o campo `subscriptionKey` com o valor da sua chave de subscrição, e poderá ter de alterar a cadeia `uriBase` para que contenha a corda final do seu recurso.
+Adicione a classe **Programa** contendo os seguintes campos. Estes dados especificam como ligar ao serviço Face e onde obter os dados de entrada. Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de `uriBase` subscrição, e poderá ter de alterar a cadeia de modo a conter a sua cadeia de pontofinal de recurso.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -77,11 +77,6 @@ Adicione o seguinte código ao método **principal** da classe **Programa.** Est
 ```csharp
         static void Main(string[] args)
         {
-
-            // Explicitly set TLS 1.2.
-            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
-                SecurityProtocolType.Tls12;
-
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
             Console.Write(
@@ -110,7 +105,7 @@ Adicione o seguinte código ao método **principal** da classe **Programa.** Est
 
 ### <a name="call-the-face-detection-rest-api"></a>Ligue para a deteção facial REST API
 
-Adicione o seguinte método à classe **Programa**. Constrói uma chamada REST para a API facial para detetar informações faciais na imagem remota (a cadeia `requestParameters` especifica quais os atributos faciais para recuperar). Em seguida, escreve os dados de saída para uma cadeia JSON.
+Adicione o seguinte método à classe **Programa**. Constrói uma chamada REST para a API facial para detetar `requestParameters` informações faciais na imagem remota (a cadeia especifica quais os atributos faciais para recuperar). Em seguida, escreve os dados de saída para uma cadeia JSON.
 
 Definirá os métodos de ajudante nos seguintes passos.
 

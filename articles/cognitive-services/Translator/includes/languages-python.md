@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906905"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -29,9 +29,9 @@ import os, requests, uuid, json
 
 O primeiro comentário indica ao interpretador Python para utilizar a codificação UTF-8. Em seguida, os módulos exigidos são importados para ler a chave de subscrição a partir de uma variável de ambiente, construir o pedido de http, criar um identificador exclusivo e processar a resposta JSON devolvida pela API de Texto do Microsoft Translator.
 
-## <a name="set-the-endpoint-and-path"></a>Definir o ponto de extremidade e o caminho
+## <a name="set-the-endpoint-and-path"></a>Definir o ponto final e o caminho
 
-Este exemplo tentará ler seu ponto de extremidade Tradução de Texto de uma variável de `TRANSLATOR_TEXT_ENDPOINT`ambiente:. Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
+Esta amostra tentará ler o seu ponto final `TRANSLATOR_TEXT_ENDPOINT`do texto tradutor a partir de uma variável ambiental: . Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
 
 ```python
 endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
@@ -40,10 +40,10 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-O ponto de extremidade global Tradução de Texto é definido `endpoint`como o. `path` define a rota `languages` e identifica que queremos utilizar a versão 3 da API.
+O ponto final global do `endpoint`Texto tradutor é definido como o . `path` define a rota `languages` e identifica que queremos utilizar a versão 3 da API.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 path = '/languages?api-version=3.0'
@@ -52,7 +52,7 @@ constructed_url = endpoint + path
 
 ## <a name="add-headers"></a>Adicionar cabeçalhos
 
-A solicitação para obter os idiomas com suporte não requer autenticação. `Content-type` Defina como `application/json` e Adicione`X-ClientTraceId` para identificar exclusivamente sua solicitação.
+O pedido para obter línguas apoiadas não requer autenticação. Desloque o `Content-type` as e `application/json` adicione `X-ClientTraceId` para identificar exclusivamente o seu pedido.
 
 Copie este código para o seu projeto:
 
@@ -63,7 +63,7 @@ headers = {
 }
 ```
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="create-a-request-to-get-a-list-of-supported-languages"></a>Criar um pedido para obter uma lista de idiomas suportados
 
@@ -95,7 +95,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Encontre a abreviatura país/região nesta [lista de línguas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)
 
 Este exemplo foi truncado para mostrar um fragmento do resultado:
 
@@ -189,7 +189,7 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

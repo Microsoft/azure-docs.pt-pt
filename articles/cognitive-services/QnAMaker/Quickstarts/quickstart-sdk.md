@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 01/13/2020
 zone_pivot_groups: programming-languages-set-six
 ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79241767"
 ---
 # <a name="quickstart-create-and-manage-knowledge-base"></a>Quickstart: Criar e gerir base de conhecimento
@@ -33,5 +33,5 @@ Começa com a biblioteca de clientes da QnA Maker. Siga estes passos para instal
 >[Tutorial: Teste a sua base de conhecimentos com um ficheiro de lote](./batch-testing.md)
 
 * [O que é a API do Fabricante de QnA?](../Overview/overview.md)
-* [Editar uma base de conhecimento](../how-to/edit-knowledge-base.md)
+* [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)
 * [Obtenha análises de uso](../how-to/get-analytics-knowledge-base.md)

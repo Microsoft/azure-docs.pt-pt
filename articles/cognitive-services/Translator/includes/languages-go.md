@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 05355ad37183d4c14cb8f6598141292ded0386d9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906992"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -17,7 +17,7 @@ ms.locfileid: "69906992"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto Go usando seu IDE ou editor favorito ou uma nova pasta na área de trabalho. Em seguida, copie esse trecho de código em seu projeto/pasta em `get-languages.go`um arquivo chamado.
+Crie um novo projeto Go utilizando o seu IDE favorito ou editor ou nova pasta no seu ambiente de trabalho. Em seguida, copie este fragmento de código `get-languages.go`no seu projeto/pasta num ficheiro chamado .
 
 ```go
 package main
@@ -34,9 +34,9 @@ import (
 
 ## <a name="create-the-main-function"></a>Criar a função principal
 
-Vamos criar a função main para nosso aplicativo. Você notará que é uma única linha de código. Isso porque estamos criando uma única função para obter e imprimir a lista de idiomas com suporte para Tradução de Texto.
+Vamos criar a função principal para a nossa aplicação. Vai notar que é uma única linha de código. Isso porque estamos a criar uma única função para obter e imprimir a lista de línguas suportadas para o Texto tradutor.
 
-Este exemplo tentará ler seu ponto de extremidade Tradução de Texto de uma variável de `TRANSLATOR_TEXT_ENDPOINT`ambiente:. Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
+Esta amostra tentará ler o seu ponto final `TRANSLATOR_TEXT_ENDPOINT`do texto tradutor a partir de uma variável ambiental: . Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
 
 Copie este código para o seu projeto:
 
@@ -51,9 +51,9 @@ func main() {
 }
 ```
 
-## <a name="create-a-function-to-get-a-list-of-supported-languages"></a>Criar uma função para obter uma lista de idiomas com suporte
+## <a name="create-a-function-to-get-a-list-of-supported-languages"></a>Criar uma função para obter uma lista de idiomas suportados
 
-Vamos criar uma função para obter uma lista de idiomas com suporte.
+Vamos criar uma função para obter uma lista de línguas apoiadas.
 
 ```go
 func getLanguages(uri string) {
@@ -64,9 +64,9 @@ func getLanguages(uri string) {
 }
 ```
 
-Em seguida, vamos construir a URL. A URL é criada usando os `Parse()` métodos `Query()` e.
+Em seguida, vamos construir a URL. O URL é `Parse()` construído `Query()` usando os e métodos.
 
-Copie esse código para a `getLanguages` função.
+Copie este `getLanguages` código na função.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
@@ -76,11 +76,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Agora que você codificou o corpo da solicitação como JSON, você pode criar sua solicitação POST e chamar o API de Tradução de Texto.
+Agora que codificou o órgão de pedido como JSON, pode construir o seu pedido de CORREIO e ligar para a API de Texto tradutor.
 
 ```go
 // Build the HTTP GET request
@@ -98,11 +98,11 @@ if err != nil {
 }
 ```
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
-## <a name="handle-and-print-the-response"></a>Manipular e imprimir a resposta
+## <a name="handle-and-print-the-response"></a>Manuseie e imprima a resposta
 
-Adicione esse código à `getLanguages` função para decodificar a resposta JSON e, em seguida, Formatar e imprimir o resultado.
+Adicione este código `getLanguages` à função para descodificar a resposta JSON e, em seguida, forte e imprima o resultado.
 
 ```go
 // Decode the JSON response
@@ -127,7 +127,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Encontre a abreviatura país/região nesta [lista de línguas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)
 
 É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
@@ -215,9 +215,9 @@ Localize a abreviação de país/região nesta [lista de idiomas](https://docs.m
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

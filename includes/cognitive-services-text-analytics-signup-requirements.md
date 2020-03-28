@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2018
 ms.openlocfilehash: 6d53d3d6e115742b7b91d9c7e5888ba2cc0478f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68697216"
 ---
-Uma chave e um ponto de extremidade para um recurso de Análise de Texto. Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para Análise de Texto usando o [portal do Azure](../articles/cognitive-services/cognitive-services-apis-create-account.md) ou [CLI do Azure](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) no computador local. Também pode:
+Uma chave e um ponto final para um recurso Text Analytics. Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para o Text Analytics utilizando o [portal Azure](../articles/cognitive-services/cognitive-services-apis-create-account.md) ou [o Azure CLI](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) na sua máquina local. Também pode:
 
-* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#lang) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+* Obtenha uma chave de [teste](https://azure.microsoft.com/try/cognitive-services/#lang) válida por sete dias de graça. Depois de se inscrever, estará disponível no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)
 
-* Exibir seu recurso no [portal do Azure](https://portal.azure.com/)
+* Veja o seu recurso no [portal Azure](https://portal.azure.com/)

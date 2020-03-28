@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Sintetizar o C# discurso em ficheiro áudio, (.NET) - Serviço de fala'
+title: 'Quickstart: Sinthesize discurso em ficheiro áudio, C# (.NET) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: 4ccc68b38d98c332435e252877d258c8591aab8a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924744"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -30,11 +30,11 @@ Antes de começar, certifique-se de:
 O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
 
 1. Lançar O Estúdio Visual 2019.
-2. Carregue o seu projeto e abra `Program.cs`.
+2. Carregue o seu `Program.cs`projeto e abra.
 
 ## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto. Tome nota de que criou um método de asincronização chamado `SynthesisToAudioFileAsync()`.
+Vamos adicionar um código que funciona como um esqueleto para o nosso projeto. Tome nota de que criou um `SynthesisToAudioFileAsync()`método de asincronização chamado .
 
 ````C#
 
@@ -61,7 +61,7 @@ namespace helloworld
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
 
-Antes de poder inicializar um `SpeechSynthesizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código no método `SynthesisToAudioFileAsync()`.
+Antes de poder `SpeechSynthesizer` inicializar um objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este `SynthesisToAudioFileAsync()` código no método.
 
 ````C#
 // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
@@ -71,7 +71,7 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 
 ## <a name="create-an-audio-configuration"></a>Criar uma configuração áudio
 
-Agora, tens de criar um objeto ````AudioConfig```` que aponte para o teu ficheiro áudio. Este objeto é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este código no método `SynthesisToAudioFileAsync()`, logo abaixo da configuração do Discurso.
+Agora, tens de ````AudioConfig```` criar um objeto que aponte para o teu ficheiro áudio. Este objeto é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este `SynthesisToAudioFileAsync()` código no método, logo abaixo da configuração do Discurso.
 
 ````C#
 var fileName = "helloworld.wav";
@@ -82,7 +82,7 @@ using (var fileOutput = AudioConfig.FromWavFileOutput(fileName))
 
 ## <a name="initialize-a-speechsynthesizer"></a>Inicializar um SpeechSynthesizer
 
-Agora, vamos criar o `SpeechSynthesizer` objeto usando os objetos `SpeechConfig` e `AudioConfig` criados anteriormente. Este objeto também é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este código no método `SynthesisToAudioFileAsync()`, dentro da declaração de utilização que envolve o seu objeto ````AudioConfig````.
+Agora, vamos criar `SpeechSynthesizer` o objeto `SpeechConfig` `AudioConfig` usando os e objetos criados mais cedo. Este objeto também é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este `SynthesisToAudioFileAsync()` código no método, dentro ````AudioConfig```` da declaração de utilização que envolve o objeto.
 
 ````C#
 using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
@@ -92,7 +92,7 @@ using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
 
 ## <a name="synthesize-text-using-speaktextasync"></a>Texto sintetizador usando SpeakTextAsync
 
-Pelo `SpeechSynthesizer` objeto, vai chamar o método `SpeakTextAsync()`. Este método envia o seu texto para o serviço da Fala que o converte em áudio. O `SpeechSynthesizer` usará a voz predefinida se `config.VoiceName` não for explicitamente especificado.
+Pelo `SpeechSynthesizer` objeto, vais chamar o `SpeakTextAsync()` método. Este método envia o seu texto para o serviço da Fala que o converte em áudio. A `SpeechSynthesizer` voz por defeito utilizará a voz predefinida se `config.VoiceName` não for explicitamente especificada.
 
 Dentro da declaração de utilização, adicione este código:
 ````C#
@@ -104,7 +104,7 @@ var result = await synthesizer.SpeakTextAsync(text);
 
 Quando o resultado da síntese for devolvido pelo serviço de Fala, deve verificar se o seu texto foi sintetizado com sucesso.
 
-Dentro da declaração de utilização, abaixo `SpeakTextAsync()`, adicione este código:
+Dentro da declaração `SpeakTextAsync()`de utilização, abaixo, adicione este código:
 ````C#
 if (result.Reason == ResultReason.SynthesizingAudioCompleted)
 {
@@ -186,8 +186,8 @@ namespace helloworld
 
 Agora está pronto para construir a sua app e testar a nossa síntese de discurso usando o serviço de Fala.
 
-1. **Compile o código** - A partir da barra de menu sécpor do Estúdio Visual, escolha **Build** > **Build Solution**.
-2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Começar dedepuração** ou prima **F5**.
+1. **Compile o código** - A partir da barra de menu do Estúdio Visual, escolha **Build** > **Build Solution**.
+2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Start Debugging** ou prima **F5**.
 3. **Iniciar a síntese** - O seu texto é convertido em fala e guardado nos dados áudio especificados.
 
    ```text

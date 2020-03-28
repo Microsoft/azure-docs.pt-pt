@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77650287"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>O que é a API de pesquisa web bing?
@@ -49,6 +49,6 @@ A API de Pesquisa na Web do Bing é fácil de chamar a partir de qualquer lingua
 ## <a name="next-steps"></a>Passos seguintes
 
 * Utilize o nosso [guia de introdução do Python](./quickstarts/client-libraries.md?pivots=programming-language-python) para efetuar a primeira chamada à API de Pesquisa na Web do Bing.  
-* [Crie uma aplicação Web de página única](tutorial-bing-web-search-single-page-app.md).
+* [Construa uma aplicação web de uma página única.](tutorial-bing-web-search-single-page-app.md)
 * Reveja a documentação sobre [API de Pesquisa na Web v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).  
 * Saiba mais sobre os [requisitos de utilização e apresentação](UseAndDisplayRequirements.md) da Pesquisa na Web do Bing.  

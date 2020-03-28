@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
 ms.openlocfilehash: e869a6581ac29ac234c075d258b59dbd45045ee2
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925239"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -76,9 +76,9 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia `YourServiceRegion` pela [região](../../../../regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](../../../../regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Guarde as alterações que fez para `quickstart.py`.
+1. Guarde as alterações `quickstart.py`que fez para.
 
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 

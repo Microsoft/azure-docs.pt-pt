@@ -1,37 +1,37 @@
 ---
-title: " Criar um aplicativo Web de página única-Pesquisa Visual do Bing"
+title: " Construa uma aplicação web de uma página única - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: Saiba como integrar o API da Pesquisa Visual do Bing a um aplicativo Web de página única.
+description: Saiba como integrar a API de pesquisa visual bing numa aplicação web de uma página única.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/27/2020
 ms.author: aahi
-ms.openlocfilehash: 02095a307e5227f477f51e857ee423d22a8edf8f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 83cdaecfb819fb1f4677b051f87e23e0e03daef2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689165"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370106"
 ---
-# <a name="create-a-visual-search-single-page-web-app"></a>Criar um aplicativo Web de página única Pesquisa Visual
+# <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Tutorial: Criar uma aplicação web de pesquisa visual de uma página
 
-O API da Pesquisa Visual do Bing retorna informações para uma imagem. Você pode carregar uma imagem ou fornecer uma URL para uma. As informações são imagens visualmente semelhantes, fontes de compras, páginas da Web que incluem a imagem e muito mais. As informações retornadas pelo API da Pesquisa Visual do Bing são semelhantes àquelas mostradas em Bing.com/images.
+A API de Pesquisa Visual Bing devolve insights para uma imagem. Pode fazer o upload de uma imagem ou fornecer um URL a uma. Insights são imagens visualmente semelhantes, fontes de compras, páginas web que incluem a imagem, e muito mais. Insights devolvidos pela API de Pesquisa Visual bing são semelhantes aos mostrados no Bing.com/images.
 
-Este tutorial explica como estender um aplicativo Web de página única para o API de Pesquisa de Imagem do Bing. Para exibir esse tutorial ou obter o código-fonte usado aqui, consulte [tutorial: criar um aplicativo de página única para o API de pesquisa de imagem do Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
+Este tutorial explica como estender uma aplicação web de uma página para a API de Pesquisa de Imagem Bing. Para visualizar esse tutorial ou obter o código fonte usado aqui, consulte [Tutorial: Crie uma aplicação de uma página única para a API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)de Pesquisa de Imagem Bing .
 
-O código-fonte completo para esse aplicativo (depois de estendê-lo para usar o API da Pesquisa Visual do Bing), está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
+O código fonte completo para esta aplicação (depois de o estender para utilizar a API de Pesquisa Visual Bing), está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Chamar o API da Pesquisa Visual do Bing e manipular a resposta
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Ligue para a API de Pesquisa Visual Bing e lide com a resposta
 
-Edite o tutorial de Pesquisa de Imagem do Bing e adicione o código a seguir ao final do elemento `<script>` (e antes da marca de `</script>` de fechamento). O código a seguir manipula uma resposta de pesquisa visual da API, itera os resultados e os exibe:
+Editar o tutorial bing Image Search e adicionar `<script>` o seguinte código `</script>` à extremidade do elemento (e antes da etiqueta de fecho). O código seguinte trata de uma resposta de pesquisa visual da API, iterates através dos resultados, e exibe-os:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,7 +63,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-O código a seguir envia uma solicitação de pesquisa para a API, usando um ouvinte de eventos para chamar `handleVisualSearchResponse()`:
+O seguinte código envia um pedido de pesquisa à API, utilizando um ouvinte de eventopara ligar: `handleVisualSearchResponse()`
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -101,7 +101,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>Recolha do token de informações
 
-Adicione o código a seguir ao objeto `searchItemsRenderer`. Este código adiciona uma ligação **encontrar semelhante** que chama a função `bingVisualSearch` ao clicar na ligação. A função recebe o `imageInsightsToken` como um argumento.
+Adicione o seguinte `searchItemsRenderer` código ao objeto. Este código adiciona uma ligação **encontrar semelhante** que chama a função `bingVisualSearch` ao clicar na ligação. A função `imageInsightsToken` recebe como argumento.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -109,7 +109,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 
 ## <a name="display-similar-images"></a>Apresentar imagens semelhantes
 
-Adicione o seguinte código HTML na linha 601. Esse código de marcação adiciona um elemento para exibir os resultados da chamada API da Pesquisa Visual do Bing:
+Adicione o seguinte código HTML na linha 601. Este código de marcação adiciona um elemento para exibir os resultados da chamada Bing Visual Search API:
 
 ``` html
 <div id="insights">
@@ -123,4 +123,4 @@ Com todo o novo código JavaScript e elementos HTML implementados, os resultados
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: cortar uma imagem com o SDK do Pesquisa Visual do Bing paraC#](tutorial-visual-search-crop-area-results.md)
+> [Tutorial: Corte uma imagem com o Bing Visual Search SDK para C #](tutorial-visual-search-crop-area-results.md)

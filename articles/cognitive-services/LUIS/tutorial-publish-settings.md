@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: configurações de publicação-LUIS'
+title: 'Tutorial: Publicar configurações - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, altere as configurações de publicação para melhorar as previsões.
+description: Neste tutorial, altere as definições de publicação para obter melhores previsões.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,41 +12,41 @@ ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: diberry
 ms.openlocfilehash: 2df32c20bebf4243f383a0cccd8f037721533602
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75890392"
 ---
-# <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Tutorial: Adicionar análise de sentimentos como uma configuração de publicação
+# <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Tutorial: Adicionar análise de sentimento como um cenário de publicação
 
-Neste tutorial, modifique as configurações de publicação para extrair a análise de sentimentos e, em seguida, consulte o ponto de extremidade LUIS para ver a opinião retornada de um usuário expressão.
+Neste tutorial, modifique as definições de publicação para extrair análise de sentimento e, em seguida, consultar o ponto final do LUIS para ver o sentimento devolvido de uma expressão do utilizador.
 
 **Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Adicionar análise de sentimentos como uma configuração de publicação
-> * Obtenha sentimentos de um expressão do ponto de extremidade publicado
+> * Adicione a análise de sentimento como uma definição de publicação
+> * Obtenha o sentimento de uma expressão do ponto final publicado
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="sentiment-analysis-is-a-publish-setting"></a>A análise de sentimentos é uma configuração de publicação
+## <a name="sentiment-analysis-is-a-publish-setting"></a>A análise do sentimento é um cenário de publicação
 
 As expressões seguintes mostram exemplos de sentimentos:
 
 |Sentimento|Classificação|Expressão|
 |:--|:--|:--|
-|negativo|0.01 |A pizza foi horrível.|
-|positiva|0,97 |A pizzaria do queijo foi maravilhosa.|
+|negativo|0.01 |A pizza estava horrível.|
+|positiva|0.97 |A pizza de queijo era maravilhosa.|
 
-A análise de sentimentos é uma definição de publicação que se aplica a cada expressão. Uma vez definido, seu aplicativo retorna a suexpressãoção de um renomeação sem que você precise rotular dados.
+A análise de sentimentos é uma definição de publicação que se aplica a cada expressão. Uma vez definida, a sua aplicação devolve o sentimento de uma expressão sem ter de rotular dados.
 
-Como é uma configuração de publicação, você não vê isso rotulado nas páginas intenções ou entidades. Pode vê-lo no painel [teste interativo](luis-interactive-test.md#view-sentiment-results) ou quando testar o URL de ponto final.
+Por se trata de uma definição de publicação, não se vê rotulado nas páginas de intenções ou entidades. Pode vê-lo no painel [teste interativo](luis-interactive-test.md#view-sentiment-results) ou quando testar o URL de ponto final.
 
-## <a name="import-example-json-to-begin-app"></a>Importar example. JSON para iniciar o aplicativo
+## <a name="import-example-json-to-begin-app"></a>Exemplo de importação .json para iniciar app
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Descarregue e guarde o [ficheiro JSON](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json)da aplicação .
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -56,22 +56,22 @@ Como é uma configuração de publicação, você não vê isso rotulado nas pá
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configurar a aplicação para incluir análise de sentimentos
 
-1. Selecione **publicar** no menu superior. A análise de sentimentos é uma configuração de publicação.
+1. **Selecione Publicar** a partir do menu superior. A análise do sentimento é um cenário editorial.
 
-1. Selecione **slot de produção** e, em seguida, selecione **alterar configurações**.
-1. Defina a configuração de Análise de Sentimento como **ativado**.
+1. Selecione **a ranhura de produção** e selecione as **definições de alteração**.
+1. Defina a definição de Análise de Sentimento para **On**.
 
-    ![Ativar análise de sentimentos como a configuração de publicação](./media/luis-quickstart-intent-and-sentiment-analysis/select-sentiment-publishing-setting.png)
+    ![Ligue a Análise de Sentimentos como definição de publicação](./media/luis-quickstart-intent-and-sentiment-analysis/select-sentiment-publishing-setting.png)
 
-## <a name="get-the-sentiment-of-an-utterance-from-the-endpoint"></a>Obter a opinião de um expressão do ponto de extremidade
+## <a name="get-the-sentiment-of-an-utterance-from-the-endpoint"></a>Obtenha o sentimento de uma expressão do ponto final
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá para o final da URL no endereço e insira o seguinte expressão:
+1. Vá até ao fim do URL no endereço e introduza a seguinte expressão:
 
     `Deliver 2 of the best cheese pizzas ever!!!`
 
-    O último parâmetro querystring é `query`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `OrderPizza` com a análise de sentimentos extraída.
+    O último parâmetro de `query`corda é, a **consulta**de expressão. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `OrderPizza` com a análise de sentimentos extraída.
 
     ```json
     {
@@ -120,7 +120,7 @@ Como é uma configuração de publicação, você não vê isso rotulado nas pá
     }
     ```
 
-    A análise de sentimentos é positiva com uma pontuação de 86%.
+    A análise de sentimento é positiva com uma pontuação de 86%.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -128,10 +128,10 @@ Como é uma configuração de publicação, você não vê isso rotulado nas pá
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* A análise de sentimentos é fornecida pelo [análise de texto](../Text-Analytics/index.yml)de serviço cognitiva. O recurso é restrito a Análise de Texto [idiomas com suporte](luis-language-support.md#languages-supported).
+* A análise de sentimento é fornecida pelo Cognitive Service [Text Analytics](../Text-Analytics/index.yml). A funcionalidade é restrita a [idiomas suportados](luis-language-support.md#languages-supported)por Text Analytics.
 * [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
-* [Como testar no portal do LUIS](luis-interactive-test.md)
+* [Como testar no portal LUIS](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
