@@ -1,6 +1,6 @@
 ---
-title: Tutorial – provisionar o dispositivo usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Este tutorial mostra como você pode provisionar seu dispositivo para um único Hub IoT usando o DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure
+title: Tutorial - Dispositivo de provisionamento utilizando o Serviço de Provisionamento de Dispositivos Hub Azure IoT
+description: Este tutorial mostra como pode fornecer o seu dispositivo a um único hub IoT utilizando o Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74975045"
 ---
-# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: provisionar o dispositivo para um hub IoT usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Fornecer o dispositivo a um hub IoT utilizando o Serviço de Provisionamento de Dispositivos Hub Azure IoT
 
-No tutorial anterior, aprendeu a configurar um dispositivo para se ligar ao Serviço Aprovisionamento de Dispositivos. Neste tutorial, vai aprender a utilizar este serviço para aprovisionar o seu dispositivo num hub IoT individual através de aprovisionamento automático e **_listas de inscrição_** . Este tutorial mostrar-lhe como:
+No tutorial anterior, aprendeu a configurar um dispositivo para se ligar ao Serviço Aprovisionamento de Dispositivos. Neste tutorial, vai aprender a utilizar este serviço para aprovisionar o seu dispositivo num hub IoT individual através de aprovisionamento automático e **_listas de inscrição_**. Este tutorial mostrar-lhe como:
 
 > [!div class="checklist"]
 > * Inscrever o dispositivo
@@ -42,21 +42,21 @@ Este passo envolve a adição dos artefactos de segurança exclusiva do disposit
       [![Informações de inscrição do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos baseados em X.509, precisa:
-    - Do [certificado emitido para o chip ou simulação de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para o registro individual, você precisa usar o *certificado assinado* por dispositivo para o sistema X. 509, enquanto para grupos de registro, você precisa usar o *certificado raiz*. 
+    - Do [certificado emitido para o chip ou simulação de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para a inscrição individual, é necessário utilizar o *certificado assinado* por dispositivo para o seu sistema X.509, enquanto para os grupos de inscrição, precisa de utilizar o *certificado raiz*. 
 
-      [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+      [![Adicione inscrições individuais para a atesta X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Existem duas formas de inscrever o dispositivo no Serviço Aprovisionamento de Dispositivos:
 
 - **Grupos de inscrição** Representam um grupo de dispositivos que partilham um mecanismo de atestado específico. Recomendamos a utilização de um grupo de inscrição para um grande número de dispositivos que partilhem uma configuração inicial pretendida ou para dispositivos que pertencerão todos ao mesmo inquilino. Para obter mais informações sobre o atestado de identidade para grupos de inscrição, veja [Segurança](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-    [![Adicionar inscrição de grupo para fins de atestado X.509 no portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
+    [![Adicione inscrições em grupo para a atesta X.509 no portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **Inscrições Individuais** representam uma entrada para um único dispositivo que pode ser registado com o Serviço Aprovisionamento de Dispositivos. As inscrições individuais podem utilizar certificados x509 ou tokens SAS (num TPM real ou virtual) como mecanismos de atestação. Recomendamos a utilização das inscrições individuais para os dispositivos que precisam de configurações iniciais exclusivas e para os dispositivos que só podem utilizar tokens SAS através de TPM ou de TPM virtual como o mecanismo de atestação. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.
 
 Agora, vai inscrever o dispositivo no Serviço Aprovisionamento de Dispositivos com os artefactos de segurança necessários com base no mecanismo de atestação daquele. 
 
-1. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o Serviço Aprovisionamento de Dispositivos.
+1. Inscreva-se no portal Azure, clique no botão **Todos os recursos** no menu à esquerda e abra o serviço de fornecimento de dispositivos.
 
 2. No painel de resumo do Serviço Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** ou o separador **Grupos de Inscrição** de acordo com a configuração do dispositivo. Clique no botão **+ Adicionar**, na parte superior. Selecione **TPM** ou **X.509** como o *Mecanismo* de atestação de identidade e introduza os artefactos de segurança adequados, conforme discutido anteriormente. Pode introduzir um **ID de dispositivo Hub IoT** novo. Quando tiver terminado, clique no botão **Guardar**. 
 
@@ -88,7 +88,7 @@ Após o arranque do dispositivo, devem ocorrer as ações seguintes:
 
     ![Ligação com êxito ao hub no portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Para obter mais informações, consulte o exemplo de cliente de provisionamento de dispositivo, [prov_dev_client_sample. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). O exemplo demonstra o provisionamento de um dispositivo simulado usando certificados de TPM, X. 509 e chaves simétricas. Consulte os guias de início rápido do [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X. 509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)e atestado de [chave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) para obter instruções passo a passo sobre como usar o exemplo.
+Para mais informações, consulte a amostra do cliente do dispositivo de provisionamento, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). A amostra demonstra o fornecimento de um dispositivo simulado utilizando certificados TPM, X.509 e chaves simétricas. Volte a ligar para o [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)e o atestado da [chave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) acelera para instruções passo a passo sobre a utilização da amostra.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, ficou a saber como:

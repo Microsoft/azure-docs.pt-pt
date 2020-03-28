@@ -1,5 +1,5 @@
 ---
-title: Usar o armazenamento de tabelas do Azure ou o Azure Cosmos DB API de Tabela do Java
+title: Utilize o armazenamento de mesa azure ou a Mesa Azure Cosmos DB API de Java
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,21 +9,21 @@ ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 33569730e565c68d66539feb4491b1925796b300
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76771152"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Visão geral
-Este artigo demonstra como realizar cenários comuns com o serviço Armazenamento de tabelas do Azure e o Azure Cosmos DB. Os exemplos são escritos em Java e usam o [SDK de armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem a **criação**, a **listagem** e a **eliminação** de tabelas, bem como a **inserção**, a **consulta**, a **modificação** e a **eliminação** de entidades numa tabela. Para obter mais informações sobre as tabelas, veja a secção [Passos seguintes](#next-steps).
+## <a name="overview"></a>Descrição geral
+Este artigo demonstra como realizar cenários comuns com o serviço Armazenamento de tabelas do Azure e o Azure Cosmos DB. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários abrangidos incluem a **criação**, a **listagem** e a **eliminação** de tabelas, bem como a **inserção**, a **consulta**, a **modificação** e a **eliminação** de entidades numa tabela. Para obter mais informações sobre as tabelas, veja a secção [Passos seguintes](#next-steps).
 
 > [!NOTE]
-> Está disponível um SDK para os programadores que utilizem o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte o [SDK do armazenamento do Azure para Android][Azure Storage SDK for Android].
+> Está disponível um SDK para os programadores que utilizem o Armazenamento do Azure em dispositivos Android. Para obter mais informações, veja o [SDK do Armazenamento do Azure para Android][Azure Storage SDK for Android].
 >
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
@@ -38,7 +38,7 @@ Este artigo demonstra como realizar cenários comuns com o serviço Armazenament
 ## <a name="create-a-java-application"></a>Criar uma aplicação Java
 Neste guia, vai utilizar funcionalidades de armazenamento que pode executar numa aplicação Java localmente ou em código que esteja a ser executado numa função da Web ou de trabalho no Azure.
 
-Para utilizar os exemplos deste artigo, instale o Java Development Kit (JDK) e crie uma conta de armazenamento do Azure ou do Azure Cosmos DB na sua subscrição do Azure. Depois de fazer isso, verifique se o sistema de desenvolvimento atende aos requisitos mínimos e às dependências listadas no repositório [SDK do armazenamento do Azure para Java][Azure Storage SDK for Java] no github. Se cumprir esses requisitos, pode seguir as instruções para transferir e instalar as Bibliotecas do Armazenamento do Azure para Java no seu sistema a partir daquele repositório. Depois de concluir essas tarefas, pode criar uma aplicação Java que utiliza os exemplos deste artigo.
+Para utilizar os exemplos deste artigo, instale o Java Development Kit (JDK) e crie uma conta de armazenamento do Azure ou do Azure Cosmos DB na sua subscrição do Azure. Quando o tiver feito, verifique se o seu sistema de desenvolvimento cumpre os requisitos mínimos e as dependências indicadas no repositório [Azure Storage SDK for Java][Azure Storage SDK for Java] do GitHub. Se cumprir esses requisitos, pode seguir as instruções para transferir e instalar as Bibliotecas do Armazenamento do Azure para Java no seu sistema a partir daquele repositório. Depois de concluir essas tarefas, pode criar uma aplicação Java que utiliza os exemplos deste artigo.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configurar a sua aplicação para aceder ao armazenamento de tabela
 Adicione as seguintes declarações de importação à parte superior do ficheiro Java em que pretende utilizar as APIs de armazenamento do Azure ou a API de Tabela do Azure Cosmos DB para aceder às tabelas:
@@ -454,7 +454,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Consultar um subconjunto de propriedades de entidade
-Uma consulta a uma tabela pode obter apenas algumas propriedades de uma entidade. Esta técnica, denominada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. A consulta no seguinte código utiliza o método **select** para devolver apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados numa coleção de propriedades **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo das entidades que o servidor devolveu. Pode saber mais sobre a projeção na [as tabelas do Azure: apresentação do Upsert e da projeção da consulta] [as tabelas do Azure: apresentação do Upsert e da projeção da consulta]. Tenha em atenção que a projeção não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela.
+Uma consulta a uma tabela pode obter apenas algumas propriedades de uma entidade. Esta técnica, denominada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. A consulta no seguinte código utiliza o método **select** para devolver apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados numa coleção de propriedades **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo das entidades que o servidor devolveu. Você pode aprender mais sobre projeção em [Tabelas Azure: Introdução upsert e Projeção De Consulta][Tabelas Azure: Introdução upsert e Projeção de Consulta]. Tenha em atenção que a projeção não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela.
 
 ```java
 try
@@ -496,7 +496,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Inserir ou Substituir uma entidade
-Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. A operação de inserção ou substituição permite-lhe fazer um único pedido que vai inserir a entidade, se a mesma não existir, ou substituir a existente, caso exista. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace**. Em seguida, chama **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge**. Tenha em atenção que a operação de inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela. Pode saber mais sobre inserir ou substituir e insert ou intercalação neste [as tabelas do Azure: apresentação do Upsert e da projeção da consulta] [as tabelas do Azure: apresentação do Upsert e da projeção da consulta].
+Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. A operação de inserção ou substituição permite-lhe fazer um único pedido que vai inserir a entidade, se a mesma não existir, ou substituir a existente, caso exista. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace**. Em seguida, chama **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge**. Tenha em atenção que a operação de inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela. Você pode aprender mais sobre inserir ou substituir e inserir ou fundir neste [Tabelas Azure: Introdução upsert e Query Projection][Tabelas Azure: Introdução de Upsert e Query Projection].
 
 ```java
 try
@@ -594,10 +594,10 @@ catch (Exception e)
 
 * [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started) (Introdução ao Serviço Tabela do Azure em Java)
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
-* [SDK do armazenamento do Azure para Java][Azure Storage SDK for Java]
+* [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java)
 * [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference] (Referência do SDK do Cliente do Armazenamento do Azure)
-* [API REST do armazenamento do Azure][Azure Storage REST API]
-* [Blogue da equipa de armazenamento do azure] [Blogue da equipa de armazenamento do azure]
+* [Azure Storage REST API][Azure Storage REST API] (API REST do Armazenamento do Azure)
+* [Blog da equipa de armazenamento azure] [Blog da equipa de armazenamento azure]
 
 Para obter mais informações, visite [Azure para programadores Java](/java/azure).
 

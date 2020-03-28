@@ -1,5 +1,5 @@
 ---
-title: Abrir porta do aplicativo no balanceador de carga no PowerShell
+title: Porta de aplicação aberta em equilibrador de carga em Powershell
 description: Exemplo de Script do Azure PowerShell - Abrir uma porta no balanceador de carga do Azure para uma aplicação do Service Fabric.
 services: service-fabric
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 05/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 3e5e1df77b8bc701bf330d98f264db26a01ea748
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614762"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Abrir uma porta de aplicação no balanceador de carga do Azure

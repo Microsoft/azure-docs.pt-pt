@@ -1,6 +1,6 @@
 ---
-title: Implantar aplicativo em um cluster no PowerShell
-description: Exemplo de script Azure PowerShell – implantar um aplicativo em um Cluster Service Fabric.
+title: Implementar aplicação para um cluster em Powershell
+description: Amostra de script Azure PowerShell - Implemente uma aplicação para um cluster de tecido de serviço.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -15,15 +15,15 @@ ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 207f2a4e8173aa1e5009435665532973045d9198
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75610306"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Implementar uma aplicação num cluster do Service Fabric
 
-Este script de exemplo copia um pacote de aplicativos para um repositório de imagens de cluster, registra o tipo de aplicativo no cluster, remove o pacote de aplicativos desnecessários e cria uma instância do aplicativo a partir do tipo de aplicativo.  Se algum serviço padrão tiver sido definido no manifesto do aplicativo do tipo de aplicativo de destino, esses serviços serão criados neste momento. Personalize os parâmetros conforme necessário. 
+Esta amostra copia um pacote de aplicação para uma loja de imagens de cluster, regista o tipo de aplicação no cluster, remove o pacote de aplicação desnecessário e cria uma instância de aplicação do tipo de aplicação.  Se quaisquer serviços predefinidos foram definidos no manifesto de aplicação do tipo de aplicação-alvo, então esses serviços são criados neste momento. Personalize os parâmetros conforme necessário. 
 
 Se necessário, instale o módulo PowerShell do Service Fabric com o [SDK do Service Fabric](../service-fabric-get-started.md). 
 
@@ -33,7 +33,7 @@ Se necessário, instale o módulo PowerShell do Service Fabric com o [SDK do Ser
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Após a execução do exemplo de script, o script em [remover um aplicativo](service-fabric-powershell-remove-application.md) pode ser usado para remover a instância do aplicativo, cancelar o registro do tipo de aplicativo e excluir o pacote de aplicativos do repositório de imagens.
+Depois de a amostra de script ter sido executada, o script em [Remover uma aplicação](service-fabric-powershell-remove-application.md) pode ser usado para remover a instância de aplicação, desregistar o tipo de aplicação e eliminar o pacote de aplicação da loja de imagens.
 
 ## <a name="script-explanation"></a>Explicação do script
 
@@ -41,14 +41,14 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Cria uma conexão com um Cluster Service Fabric. |
-|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia um pacote de aplicativos para o repositório de imagens do cluster.  |
-|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Registra um tipo de aplicativo e uma versão no cluster. |
-|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Cria um aplicativo a partir de um tipo de aplicativo registrado. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Remove um pacote de aplicativo Service Fabric do repositório de imagens.|
+|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Cria uma ligação a um cluster de Tecido de Serviço. |
+|[Pacote de aplicações de copy-servicefabricapplication](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia um pacote de aplicação para a loja de imagens do cluster.  |
+|[Tipo de aplicação de serviço de registo](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Regista um tipo de aplicação e versão no cluster. |
+|[Nova Aplicação de Fabricação de Serviços](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Cria uma aplicação a partir de um tipo de candidatura registada. |
+| [Pacote de aplicações de eliminação de serviços](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Remove um pacote de aplicação Service Fabric da loja de imagens.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo Service Fabric PowerShell, consulte [Azure PowerShell documentação](/powershell/azure/service-fabric/?view=azureservicefabricps).
+Para obter mais informações sobre o módulo PowerShell de tecido de serviço, consulte [a documentação Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
 Pode ver exemplos adicionais do Powershell para o Azure Service Fabric em [Exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).

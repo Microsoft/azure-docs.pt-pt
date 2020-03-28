@@ -1,6 +1,6 @@
 ---
-title: Exemplos de Azure PowerShell – anexar e usar discos de dados
-description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure e anexa e prepara discos de dados usando o PowerShell.
+title: Amostras Azure PowerShell - Anexar e utilizar discos de dados
+description: Este script cria um conjunto de escala de máquina virtual Azure e anexa e prepara discos de dados utilizando o PowerShell.
 author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: ea18b6d2271d56d9a2287b92678ef8bfcab891a5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76279134"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Anexe e utilize discos de dados com um conjunto de dimensionamento de máquinas virtuais com o PowerShell
@@ -40,8 +40,8 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 |---|---|
 | [New-AzVmss](/powershell/module/az.compute/new-azvmss) | Cria o conjunto de dimensionamento de máquinas virtuais e todos os recursos de suporte, incluindo a rede virtual, o balanceador de carga e as regras NAT. |
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Obtém informações sobre um conjunto de dimensionamento de máquinas virtuais. |
-| [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) | Adiciona uma extensão da VM para que o Script Personalizado instale uma aplicação Web básica. |
-| [Update-AzVmss](/powershell/module/az.compute/update-azvmss) | Atualiza o modelo do conjunto de dimensionamento de máquinas virtuais para aplicar a extensão da VM. |
+| [Extensão add-AzVmss](/powershell/module/az.compute/add-azvmssextension) | Adiciona uma extensão da VM para que o Script Personalizado instale uma aplicação Web básica. |
+| [Atualização-AzVmss](/powershell/module/az.compute/update-azvmss) | Atualiza o modelo do conjunto de dimensionamento de máquinas virtuais para aplicar a extensão da VM. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
 ## <a name="next-steps"></a>Passos seguintes

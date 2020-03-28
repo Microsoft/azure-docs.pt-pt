@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: bc31a4197b08cbeb1a99820d7ff490f20147c7bf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78191270"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
@@ -27,7 +27,7 @@ Em tutoriais adicionais, a aplicação Azure Vote é implantada para o cluster, 
 
 Nos tutoriais anteriores, foi criada e carregada uma imagem de contentor para uma instância do Azure Container Registry. Se ainda não fez estes passos, e gostaria de seguir em frente, comece no Tutorial 1 – Criar imagens de [contentores.][aks-tutorial-prepare-app]
 
-Este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
 
@@ -53,7 +53,7 @@ Após alguns minutos, a implementação completa e devolve informações formata
 
 ## <a name="install-the-kubernetes-cli"></a>Instalar a CLI do Kubernetes
 
-Para se ligar ao cluster Kubernetes a partir do seu computador local, utiliza [kubectl,][kubectl]o cliente da linha de comando Kubernetes.
+Para ligar ao cluster de Kubernetes a partir do computador local, utilize [kubectl][kubectl], o cliente de linha de comandos do Kubernetes.
 
 Se utilizar o Azure Cloud Shell, o `kubectl` já está instalado. Também pode instalá-lo a nível local com o comando [az aks install-cli][]:
 
@@ -63,7 +63,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Ligar ao cluster com o kubectl
 
-Para configurar `kubectl` para se ligar ao seu cluster Kubernetes, use o comando [az aks get-credentials.][] O exemplo que se segue obtém credenciais para o cluster AKS chamado *myAKSCluster* no *myResourceGroup*:
+Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][]. O exemplo que se segue obtém credenciais para o cluster AKS chamado *myAKSCluster* no *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -105,6 +105,6 @@ Prossiga para o próximo tutorial para saber como implementar uma aplicação no
 [az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
 [az aks create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-[az aks get-credentials.]: /cli/azure/aks#az-aks-get-credentials
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md

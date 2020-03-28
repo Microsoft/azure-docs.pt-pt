@@ -16,10 +16,10 @@ ms.date: 02/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e917265f4bf6f857a0eada2433f0a0e4e24d7c5
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77565592"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com NS1 SSO para Azure
@@ -75,7 +75,7 @@ Aqui estão os passos gerais para configurar e testar Azure AD SSO com NS1 SSO p
     a. **[Crie um NS1 SSO para](#create-an-ns1-sso-for-azure-test-user)** que o utilizador do teste Azure tenha uma contrapartida de B.Simon no NS1 SSO para o Azure. Esta contrapartida está ligada à representação da AD Azure do utilizador.
 1. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
@@ -87,24 +87,24 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Basic SAML Configuration,** se pretender configurar a aplicação no modo iniciado **idp,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **identificador,** escreva o seguinte URL: `https://api.nsone.net/saml/metadata`
+    a. Na caixa de texto **identificador,** escreva o seguinte URL:`https://api.nsone.net/saml/metadata`
 
-    b. Na caixa de texto **URL de resposta,** escreva um URL que utilize o seguinte padrão: `https://api.nsone.net/saml/sso/<ssoid>`
+    b. Na caixa de texto **URL de resposta,** digite um URL que utilize o seguinte padrão:`https://api.nsone.net/saml/sso/<ssoid>`
 
 1. Selecione **Definir URLs adicionais**e executar o seguinte passo se pretender configurar a aplicação no modo iniciado **por SP:**
 
-    Na caixa de texto **de URL sign-on,** escreva o seguinte URL: `https://my.nsone.net/#/login/sso`
+    Na caixa de texto **"Sign-on URL",** escreva o seguinte URL:`https://my.nsone.net/#/login/sso`
 
     > [!NOTE]
     > O valor url de resposta não é real. Atualizar valor URL resposta com o URL de resposta real. Contacte a equipa de suporte ao [Cliente NS1 para](mailto:techops@nsone.net) obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. A aplicação NS1 SSO para Azure espera as afirmações do SAML num formato específico. Configure as seguintes reclamações para esta aplicação. Pode gerir os valores destes atributos a partir da secção **Atributos e Reclamações** do Utilizador na página de integração da aplicação. Na configuração do single sign-on com a página **SAML,** selecione o ícone do lápis para abrir a caixa de diálogo **user Atributos.**
+1. A aplicação NS1 SSO para Azure espera as afirmações do SAML num formato específico. Configure as seguintes reclamações para esta aplicação. Pode gerir os valores destes atributos a partir da secção **Deatributos do Utilizador & Reclamações** na página de integração da aplicação. Na configuração do single sign-on com a página **SAML,** selecione o ícone do lápis para abrir a caixa de diálogo **user Atributos.**
 
-    ![Screenshot da secção de Atributos e Reclamações do Utilizador, com ícone de lápis em destaque](./media/ns1-sso-for-azure-tutorial/attribute-edit-option.png)
+    ![Screenshot dos atributos do utilizador & secção de reclamações, com ícone de lápis em destaque](./media/ns1-sso-for-azure-tutorial/attribute-edit-option.png)
 
 1. Selecione o nome do atributo para editar a reclamação.
 
-    ![Screenshot da secção de Atributos e Reclamações do Utilizador, com o nome do atributo destacado](./media/ns1-sso-for-azure-tutorial/attribute-claim-edit.png)
+    ![Screenshot dos atributos do utilizador & secção de reclamações, com o nome do atributo destacado](./media/ns1-sso-for-azure-tutorial/attribute-claim-edit.png)
 
 1. Selecione **A Transformação**.
 
@@ -126,24 +126,24 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
     ![Screenshot do Certificado de Assinatura SAML, com o botão de cópia realçado](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory** > **Utilizadores** > Todos **os utilizadores**.
+1. A partir do painel esquerdo no portal Azure,**Users** > selecione **Utilizadores de Diretório** > Ativo Azure**Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
 
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está mostrado no campo **Password.**
    1. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, permite que a B.Simon utilize um único sign-on Azure, concedendo acesso ao NS1 SSO para o Azure.
 
-1. No portal Azure, selecione **Aplicações Empresariais** > **Todas as aplicações.**
+1. No portal Azure, selecione **Aplicações Empresariais** > **Todas as aplicações**.
 1. Na lista de aplicações, selecione **NS1 SSO para Azure**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -177,7 +177,7 @@ Quando selecionar o NS1 SSO para azulejos Azure no Painel de Acesso, deve ser au
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente NS1 SSO para Azure com Azure AD](https://aad.portal.azure.com/)
 

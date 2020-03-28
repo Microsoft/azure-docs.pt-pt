@@ -1,6 +1,6 @@
 ---
-title: Obter o nome do host, portas, chaves-cache do Azure para Redis-CLI do Azure
-description: Este exemplo de código CLI do Azure mostra como obter o nome do host, as portas e as chaves para um cache do Azure para a instância Redis.
+title: Obtenha o nome de anfitrião, portas, chaves - Azure Cache para Redis - Azure CLI
+description: Esta amostra de código Azure CLI mostra como obter o nome de anfitrião, portas e chaves para um Azure Cache para redis.
 author: yegu-ms
 ms.author: yegu
 tags: azure-service-management
@@ -9,15 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.openlocfilehash: 199c5707e9ecd887af64e271184e151ce0966745
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75411307"
 ---
-# <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obter o nome de anfitrião, portas e as chaves para a Cache do Azure para Redis
+# <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obtenha o nome de anfitrião, portas e chaves para Azure Cache para Redis
 
-Neste cenário, irá aprender a obter o nome de anfitrião, portas e as chaves utilizadas para ligar a uma Cache do Azure para a instância de Redis.
+Neste cenário, você aprende como recuperar o nome de anfitrião, portas e chaves usadas para ligar a um Azure Cache para redis.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -28,16 +28,16 @@ Neste cenário, irá aprender a obter o nome de anfitrião, portas e as chaves u
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para obter o nome de anfitrião, as chaves e as portas de uma Cache do Azure para a instância de Redis. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para recuperar o nome de anfitrião, chaves e portas de um Azure Cache para a instância Redis. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [show do AZ redis](https://docs.microsoft.com/cli/azure/redis) | Obter os detalhes de uma Cache do Azure para a instância de Redis. |
-| [lista de redis de AZ-chaves](https://docs.microsoft.com/cli/azure/redis) | Obter chaves de acesso para uma Cache do Azure para a instância de Redis. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Recupere detalhes de um Cache Azure para o caso Redis. |
+| [az redis lista-chaves](https://docs.microsoft.com/cli/azure/redis) | Recupere as chaves de acesso para um Cache Azure para a instância Redis. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-A Cache do Azure adicionais para exemplos do script da CLI de Redis pode ser encontrada na [Cache do Azure para a documentação do Redis](../cli-samples.md).
+As amostras de script sinuosas do Redis CLI podem ser encontradas no [Azure Cache para documentação redis](../cli-samples.md).

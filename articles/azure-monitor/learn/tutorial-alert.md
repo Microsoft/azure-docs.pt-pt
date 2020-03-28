@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77656267"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitor e alerta sobre a saúde da aplicação com insights de aplicação Azure
@@ -32,7 +32,7 @@ Criar um recurso Deinsights de [Aplicação.](https://docs.microsoft.com/azure/a
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="create-availability-test"></a>Criar teste de disponibilidade
 

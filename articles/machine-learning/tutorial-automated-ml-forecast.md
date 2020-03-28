@@ -11,10 +11,10 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 01/27/2020
 ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77088243"
 ---
 # <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Tutorial: Previsão de partilha de bicicletas com machine learning automatizado
@@ -22,7 +22,7 @@ ms.locfileid: "77088243"
 
 Neste tutorial, você usa machine learning automatizado, ou ML automatizado, no estúdio Azure Machine Learning para criar um modelo de previsão de séries temporais para prever a procura de aluguer de um serviço de partilha de bicicletas.
 
-Neste tutorial, você aprenderá a executar as seguintes tarefas:
+Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar e carregar um conjunto de dados.
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Começar no estúdio Azure Machine Learning
 
-Para este tutorial, você cria a sua experiência automatizada ml executada no estúdio Azure Machine Learning, uma interface consolidada que inclui ferramentas de machine learning para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. Não há suporte para o estúdio em navegadores do Internet Explorer.
+Para este tutorial, você cria a sua experiência automatizada ml executada no estúdio Azure Machine Learning, uma interface consolidada que inclui ferramentas de machine learning para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. O estúdio não é suportado nos navegadores Do Internet Explorer.
 
 1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com)
 
@@ -60,25 +60,25 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
     
     1. Selecione **Seguinte** na parte inferior esquerda
 
-    1. No formulário de **datastore e seleção de ficheiros,** selecione a loja de dados predefinida que foi configurada automaticamente durante a sua criação do espaço de trabalho, **workspaceblobstore (Armazenamento Azure Blob)** . Este é o local de armazenamento onde irá fazer o upload do seu ficheiro de dados. 
+    1. No formulário de **datastore e seleção de ficheiros,** selecione a loja de dados predefinida que foi configurada automaticamente durante a sua criação do espaço de trabalho, **workspaceblobstore (Armazenamento Azure Blob)**. Este é o local de armazenamento onde irá fazer o upload do seu ficheiro de dados. 
 
     1. Selecione **Procurar**. 
     
     1. Escolha o ficheiro **bike-no.csv** no seu computador local. Este é o ficheiro que descarregou como [pré-requisito.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
-    1. Selecione **Seguinte**
+    1. Selecione **Next**
 
-       Quando o upload for concluído, as configurações e o formulário de visualização serão preenchidos previamente com base no tipo de arquivo. 
+       Quando o upload estiver concluído, o formulário Definições e pré-visualização é pré-povoado com base no tipo de ficheiro. 
        
     1. Verifique se o formulário **definições e pré-visualização** está povoado da seguinte forma e selecione **Next**.
         
-        Campo|Descrição| Valor do tutorial
+        Campo|Descrição| Valor para tutorial
         ---|---|---
-        Formato de ficheiro|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitados
-        Delimitador|Um ou mais caracteres para especificar a fronteira entre&nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Víris
-        Codificação|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
-        Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Utilize cabeçalhos do primeiro ficheiro
-        Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhuma
+        Formato de ficheiro|Define o layout e o tipo de dados armazenados num ficheiro.| Delimitado
+        Delimitador|Um ou mais caracteres para especificar&nbsp; a fronteira entre regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
+        Codificação|Identifica o pouco que a tabela de esquemas de caracteres usar para ler o seu conjunto de dados.| UTF-8
+        Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Utilize cabeçalhos do primeiro ficheiro
+        Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.| Nenhuma
 
     1. O formulário **Schema** permite uma maior configuração dos seus dados para esta experiência. 
     
@@ -86,40 +86,40 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
 
         1. Também para este exemplo, deixe as predefinições para as **Propriedades** e **Tipo**. 
         
-        1. Selecione **Seguinte**.
+        1. Selecione **Next**.
 
     1. No formulário **confirmar** detalhes, verifique as informações correspondem às anteriormente povoadas nas **informações** básicas e configurações e formulários de **pré-visualização.**
 
     1. Selecione **Criar** para completar a criação do seu conjunto de dados.
 
-    1. Selecione o conjunto de seus conjuntos de seus quando ele aparecer na lista.
+    1. Selecione o seu conjunto de dados assim que aparecer na lista.
 
-    1. Selecione **Seguinte**.
+    1. Selecione **Next**.
 
 ## <a name="configure-experiment-run"></a>Configure execução de experiência
 
 Depois de carregar e configurar os seus dados, configure o seu alvo de cálculo remoto e selecione qual a coluna dos seus dados que pretende prever.
 
 1. Povoar o formulário de **execução configure** da seguinte forma:
-    1. Introduza um nome de experiência: `automl-bikeshare`
+    1. Introduza um nome de experiência:`automl-bikeshare`
 
     1. Selecione **o CNT** como a coluna alvo, o que pretende prever. Esta coluna indica o número de alugueres totais de partilha de bicicletas.
 
     1. Selecione **Criar um novo cálculo** e configurar o seu alvo de cálculo. Ml automatizado apenas suporta a computação Azure Machine Learning. 
 
-        Campo | Descrição | Valor do tutorial
+        Campo | Descrição | Valor para tutorial
         ----|---|---
-        Nome da computação |Um nome exclusivo que identifica o contexto de computação.|bike-compute
-        Tamanho&nbsp;máquina de&nbsp;virtual| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
-        Nós mín./máx. (em configurações avançadas)| Para criar o perfil de dados, você deve especificar um ou mais nós.|Nós mínimos: 1<br>Máximo de nós: 6
+        Nome computacional |Um nome único que identifica o contexto da computação.|bike-compute
+        Tamanho&nbsp;&nbsp;da máquina virtual| Selecione o tamanho da máquina virtual para a sua computação.|Standard_DS12_V2
+        Nós min / Max (em Definições Avançadas)| Para perfilar os dados, deve especificar 1 ou mais nós.|Nósodes: 1<br>Nómáximo: 6
   
         1. Selecione **Criar** para obter o alvo da computação. 
 
             **Isto leva alguns minutos para ser concluído.** 
 
-        1. Após a criação, selecione o novo destino de computação na lista suspensa.
+        1. Após a criação, selecione o seu novo alvo computacional da lista de lançamentos.
 
-    1. Selecione **Seguinte**.
+    1. Selecione **Next**.
 
 ## <a name="select-task-type-and-settings"></a>Selecione o tipo de tarefa e as definições
 
@@ -129,23 +129,23 @@ Complete a configuração para a sua experiência ml automatizada especificando 
 
 1. Selecione **a data** como **coluna time** e deixe o Grupo **por coluna(s)** em branco. 
 
-    1. Selecione **Ver configurações adicionais** de configuração e povoar os campos da seguinte forma. Essas configurações são para controlar melhor o trabalho de treinamento. Caso contrário, os padrões serão aplicados com base na seleção de experimento e nos dados.
+    1. Selecione **Ver configurações adicionais** de configuração e povoar os campos da seguinte forma. Estas configurações são para controlar melhor o trabalho de treino. Caso contrário, as predefinições são aplicadas com base na seleção de experiências e dados.
 
   
-        Configurações adicionais de&nbsp;|Descrição|Valor&nbsp;para tutoriais&nbsp;
+        Configurações adicionais&nbsp;|Descrição|Valor&nbsp;&nbsp;para tutorial
         ------|---------|---
-        Métrica primária| Métrica de avaliação para a qual o algoritmo de aprendizado de máquina será medido.|Erro quadrado da raiz normalizada
-        Personalização automática| Habilita o pré-processamento. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.| Ativar
+        Métrica primária| Métrica de avaliação pela quais o algoritmo de aprendizagem automática será medido.|Erro quadrado da raiz normalizada
+        Caracterização automática| Permite o pré-processamento. Isto inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas.| Ativar
         Explique o melhor modelo (pré-visualização)| Mostra automaticamente a explicabilidade do melhor modelo criado por ML automatizado.| Ativar
-        Algoritmos bloqueados | Algoritmos que você deseja excluir do trabalho de treinamento| Árvores aleatórias extremas
-        Definições adicionais de previsão| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Horizonte**_ de previsão : duração do tempo para o futuro que quer prever <br> _**O objetivo da previsão fica atrasado:**_ até onde quer construir os lags de uma variável-alvo <br> _**Janela de rolamento**_ do alvo : especifica o tamanho da janela rolante sobre a qual serão geradas características, como o *máximo, o min* e o *montante.* |Horizonte de previsão: 14 <br> Previsão&nbsp;alvo&nbsp;desfasamentos: Nenhum <br> Alvo&nbsp;rolando&nbsp;janela&nbsp;tamanho: Nenhum
-        Critério de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Formação&nbsp;trabalho&nbsp;horário (horas): 3 <br> Pontuação de&nbsp;métrica&nbsp;limiar: Nenhum
-        Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>&nbsp;k-fold&nbsp;validação cruzada <br> <br> Número de validações: 5
-        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Iterações&nbsp;simultâneas&nbsp;: 6
+        Algoritmos bloqueados | Algoritmos que quer excluir do trabalho de formação| Árvores aleatórias extremas
+        Definições adicionais de previsão| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Horizonte**_ de previsão : duração do tempo para o futuro que quer prever <br> _**O objetivo da previsão fica atrasado:**_ até onde quer construir os lags de uma variável-alvo <br> _**Janela de rolamento**_ do alvo : especifica o tamanho da janela rolante sobre a qual serão geradas características, como o *máximo, o min* e o *montante.* |Horizonte de previsão: 14 <br> Previsão&nbsp;&nbsp;de intervalos de destino: Nenhum <br> Tamanho&nbsp;&nbsp;da&nbsp;janela de rolamento do alvo: Nenhum
+        Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo&nbsp;&nbsp;de trabalho de formação (horas): 3 <br> Limiar&nbsp;&nbsp;de pontuação métrica: Nenhum
+        Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-fold&nbsp;validação cruzada <br> <br> Número de validações: 5
+        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Iterações&nbsp;simultâneas:&nbsp;6
         
         Selecione **Guardar**.
 
-## <a name="run-experiment"></a>Execute experimentação
+## <a name="run-experiment"></a>Executar experiência
 
 Para executar a sua experiência, selecione **Finish**. O ecrã **de detalhes run** abre com o estado **executar** na parte superior ao lado do número de execução. Este estado atualiza à medida que a experiência progride.
 
@@ -154,9 +154,9 @@ Para executar a sua experiência, selecione **Finish**. O ecrã **de detalhes ru
 > Uma vez em execução, leva **2-3 minutos a mais para cada iteração**.  <br> <br>
 > Na produção, provavelmente sais um pouco, pois este processo leva tempo. Enquanto espera, sugerimos que comece a explorar os algoritmos testados no separador **Models** à medida que eles completam. 
 
-##  <a name="explore-models"></a>Explorar modelos
+##  <a name="explore-models"></a>Explore modelos
 
-Navegue para o separador **Models** para ver os algoritmos (modelos) testados. Por padrão, os modelos são ordenados pela pontuação da métrica à medida que são concluídos. Para este tutorial, o modelo que marca mais com base na métrica de erro quadrado da **raiz normalizada** escolhida está no topo da lista.
+Navegue para o separador **Models** para ver os algoritmos (modelos) testados. Por padrão, os modelos são encomendados por pontuação métrica à medida que completam. Para este tutorial, o modelo que marca mais com base na métrica de erro quadrado da **raiz normalizada** escolhida está no topo da lista.
 
 Enquanto espera que todos os modelos de experimentação terminem, selecione o **nome Algoritmo** de um modelo completo para explorar os seus detalhes de desempenho. 
 
@@ -166,13 +166,13 @@ O exemplo que se segue navega através dos detalhes do **Modelo** e dos separado
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
-O Machine Learning automatizado no Azure Machine Learning Studio permite que você implante o melhor modelo como um serviço Web em algumas etapas. A implantação é a integração do modelo para que ele possa prever novos dados e identificar possíveis áreas de oportunidade. 
+Machine learning automatizado no estúdio Azure Machine Learning permite-lhe implementar o melhor modelo como serviço web em poucos passos. A implantação é a integração do modelo para que possa prever novos dados e identificar potenciais áreas de oportunidade. 
 
 Para esta experiência, a implementação para um serviço web significa que a empresa de partilha de bicicletas tem agora uma solução web iterativa e escalável para a previsão da procura de aluguer de partilha de bicicletas. 
 
 Uma vez concluída a execução, navegue de volta para a página **de detalhes executar** e selecione o separador **Modelos.**
 
-Neste contexto de experiência, o **StackEnsemble** é considerado o melhor modelo, com base na métrica de erro quadrado da **raiz normalizada.**  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
+Neste contexto de experiência, o **StackEnsemble** é considerado o melhor modelo, com base na métrica de erro quadrado da **raiz normalizada.**  Implementamos este modelo, mas seja aconselhável, a implementação leva cerca de 20 minutos para ser concluída. O processo de implementação implica várias etapas, incluindo o registo do modelo, a geração de recursos e a configuração para o serviço web.
 
 1. Selecione o **botão de melhor modelo de implantação** no canto inferior esquerdo.
 
@@ -180,11 +180,11 @@ Neste contexto de experiência, o **StackEnsemble** é considerado o melhor mode
 
     Campo| Valor
     ----|----
-    Nome da implantação| bikeshare-deploy
+    Nome de implantação| bikeshare-deploy
     Descrição da implantação| implantação da procura de partilha de bicicletas
-    Tipo computacional | Selecionar instância de computação do Azure (ACI)
+    Tipo computacional | Selecione Azure Compute Instance (ACI)
     Ativar a autenticação| Desativar. 
-    Usar ativos de implantação personalizados| Desativar. A desativação permite que o ficheiro do controlador padrão (script de pontuação) e o ficheiro ambiente sejam autogerados. 
+    Use ativos de implementação personalizados| Desativar. A desativação permite que o ficheiro do controlador padrão (script de pontuação) e o ficheiro ambiente sejam autogerados. 
     
     Para este exemplo, utilizamos as predefinições fornecidas no menu *Avançado.* 
 
@@ -199,11 +199,11 @@ Proceda aos [**próximos passos**](#next-steps) para saber mais sobre como consu
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Os arquivos de implantação são maiores que os dados e os arquivos de teste, portanto, eles custam mais para serem armazenados. Exclua somente os arquivos de implantação para minimizar os custos em sua conta ou se você quiser manter o espaço de trabalho e os arquivos de teste. Caso contrário, exclua o grupo de recursos inteiro, se você não planeja usar nenhum dos arquivos.  
+Os ficheiros de implementação são maiores do que ficheiros de dados e experiências, por isso custam mais para armazenar. Elimine apenas os ficheiros de implementação para minimizar os custos da sua conta, ou se pretender manter o seu espaço de trabalho e ficheiros de experiências. Caso contrário, elimine todo o grupo de recursos, se não pretender utilizar nenhum dos ficheiros.  
 
-### <a name="delete-the-deployment-instance"></a>Excluir a instância de implantação
+### <a name="delete-the-deployment-instance"></a>Eliminar a instância de implantação
 
-Exclua apenas a instância de implantação do Azure Machine Learning Studio, se você quiser manter o grupo de recursos e o espaço de trabalho para outros tutoriais e explorações. 
+Elimine apenas a instância de implantação do estúdio Azure Machine Learning, se quiser manter o grupo de recursos e espaço de trabalho para outros tutoriais e exploração. 
 
 1. Vá ao [estúdio de Aprendizagem automática Azure.](https://ml.azure.com/) Navegue para o seu espaço de trabalho e à esquerda sob o painel **De Ativos,** selecione **Pontos Finais**. 
 
@@ -222,7 +222,7 @@ Neste tutorial, utilizou ml automatizado no estúdio Azure Machine Learning para
 Consulte este artigo para obter passos sobre como criar um esquema suportado pelo Power BI para facilitar o consumo do seu serviço web recentemente implantado:
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumir serviços Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 
 >[!NOTE]

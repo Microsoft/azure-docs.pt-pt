@@ -4,10 +4,10 @@ description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em exec
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78206627"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Back up Bases de dados SAP HANA em um Azure VM usando Azure CLI

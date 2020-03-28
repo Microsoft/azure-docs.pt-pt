@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Windows'
-description: Saiba como usar Azure PowerShell para criar e implantar um aplicativo altamente disponível em VMs do Windows usando um conjunto de dimensionamento de máquinas virtuais
+title: 'Tutorial: Criar um conjunto de escala de máquina virtual Windows'
+description: Saiba como usar o Azure PowerShell para criar e implementar uma aplicação altamente disponível em VMs do Windows utilizando um conjunto de escala de máquina virtual
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -17,14 +17,14 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: bf53b2777c5d1e4d774a9f5ee9df119a0deac9d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75464970"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implementar uma aplicação de elevada disponibilidade no Windows com o Azure PowerShell
-Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Você pode dimensionar manualmente o número de VMs no conjunto de dimensionamento. Você também pode definir regras para dimensionamento automático com base na utilização de recursos, como CPU, demanda de memória ou tráfego de rede. Neste tutorial, você implantará um conjunto de dimensionamento de máquinas virtuais no Azure e aprenderá a:
+Um conjunto de escala de máquina virtual permite-lhe implantar e gerir um conjunto de máquinas virtuais idênticas e autoscalcificadas. Pode escalar manualmente o número de VMs na balança definida manualmente. Também pode definir regras para a escala automática com base no uso de recursos, tais como CPU, procura de memória ou tráfego de rede. Neste tutorial, você implementa uma escala de máquina virtual em Azure e aprende como:
 
 > [!div class="checklist"]
 > * Utilizar a Extensão de Script Personalizado para definir um site do IIS para dimensionamento
@@ -37,10 +37,10 @@ Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenci
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="scale-set-overview"></a>Descrição geral de Conjunto de Dimensionamento
-Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas e de dimensionamento automático. As VMs num conjunto de dimensionamento estão distribuídas por domínios de atualização e de falha lógicos num ou mais *grupos de posicionamento*. Os grupos de posicionamento são grupos de VMs configuradas de forma semelhante, semelhantes aos [conjuntos de disponibilidade](tutorial-availability-sets.md).
+Um conjunto de escala de máquina virtual permite-lhe implantar e gerir um conjunto de máquinas virtuais idênticas e autoscalcificadas. As VMs num conjunto de dimensionamento estão distribuídas por domínios de atualização e de falha lógicos num ou mais *grupos de posicionamento*. Os grupos de colocação são grupos de VMs configurados similarmente, semelhantes aos conjuntos de [disponibilidade.](tutorial-availability-sets.md)
 
 As VMs são criadas conforme necessário num conjunto de dimensionamento. Pode definir regras de dimensionamento automático para controlar como e quando as VMs são adicionadas ou removidas do conjunto de dimensionamento. Estas regras podem ser acionadas com base em métricas, como a carga da CPU, a utilização da memória ou o tráfego de rede.
 
@@ -48,7 +48,7 @@ Os conjuntos de dimensionamento suportam até 1000 VMs quando utiliza uma imagem
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* que utiliza a imagem de plataforma do *Windows Server 2016 Datacenter*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o balanceador de carga são criados automaticamente. Quando solicitado, você pode definir suas próprias credenciais administrativas para as instâncias de VM no conjunto de dimensionamento:
+Crie um conjunto de máquinas virtuais com [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* que utiliza a imagem de plataforma do *Windows Server 2016 Datacenter*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o balanceador de carga são criados automaticamente. Quando solicitado, pode definir as suas próprias credenciais administrativas para as instâncias VM no conjunto de escala:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -99,7 +99,7 @@ Update-AzVmss `
 
 ## <a name="allow-traffic-to-application"></a>Permitir o tráfego para a aplicação
 
-Para permitir o acesso ao aplicativo Web básico, crie um grupo de segurança de rede com [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) e [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup). Para obter mais informações, consulte [rede para conjuntos de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+Para permitir o acesso à aplicação web básica, crie um grupo de segurança de rede com [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) e [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup). Para mais informações, consulte [o Networking para conjuntos](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)de escala de máquinas virtuais Azure .
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -148,7 +148,7 @@ Update-AzVmss `
 ```
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver seu conjunto de dimensionamento em ação, obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir exibe o endereço IP para *myPublicIP* criado como parte do conjunto de dimensionamento:
+Para ver a sua escala definida em ação, obtenha o endereço IP público do seu equilibrador de carga com [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). O exemplo seguinte exibe o endereço IP para *o myPublicIP* criado como parte do conjunto de escala:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -167,7 +167,7 @@ Para ver o conjunto de dimensionamento em ação, pode forçar a atualização d
 Ao longo do ciclo de vida do conjunto de dimensionamento, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. O Azure PowerShell fornece uma maneira rápida de realizar essas tarefas. Seguem-se algumas tarefas comuns.
 
 ### <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
-Para exibir uma lista de instâncias de VM em um conjunto de dimensionamento, use [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) da seguinte maneira:
+Para ver uma lista de instâncias VM num conjunto de escala, utilize [o Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) da seguinte forma:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -184,7 +184,7 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Para exibir informações adicionais sobre uma instância específica de VM, adicione o parâmetro `-InstanceId` para [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm). O seguinte exemplo mostra informações sobre a instância da VM *1*:
+Para ver informações adicionais sobre uma `-InstanceId` instância vm específica, adicione o parâmetro ao [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm). O seguinte exemplo mostra informações sobre a instância da VM *1*:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -195,7 +195,7 @@ Get-AzVmssVM `
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>Aumentar ou reduzir as instâncias de VM
-Para ver o número de instâncias que você tem atualmente em um conjunto de dimensionamento, use [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) e consulta em *SKU. Capacity*:
+Para ver o número de casos que tem atualmente num conjunto de escala, utilize [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) e consulta em *sku.capacitação:*
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
@@ -203,7 +203,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
   Select -ExpandProperty Sku
 ```
 
-Você pode aumentar ou diminuir manualmente o número de máquinas virtuais no conjunto de dimensionamento com [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). O exemplo seguinte define o número de VMs no seu conjunto de dimensionamento como *3*:
+Em seguida, pode aumentar manualmente ou diminuir manualmente o número de máquinas virtuais na escala definida com [AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). O exemplo seguinte define o número de VMs no seu conjunto de dimensionamento como *3*:
 
 ```azurepowershell-interactive
 # Get current scale set

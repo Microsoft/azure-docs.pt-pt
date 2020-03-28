@@ -1,6 +1,6 @@
 ---
-title: Exemplo de script CLI do Azure – integrar o serviço de aplicativo com o gateway de aplicativo | Microsoft Docs
-description: Exemplo de script CLI do Azure – integrar o serviço de aplicativo com o gateway de aplicativo
+title: Amostra de script Azure CLI - Integrar o Serviço de Aplicações com Gateway de Aplicações Microsoft Docs
+description: Amostra de script Azure CLI - Integrar o Serviço de Aplicações com Gateway de Aplicações
 services: appservice
 documentationcenter: appservice
 author: madsd
@@ -17,21 +17,21 @@ ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
 ms.openlocfilehash: ee5e50bdba0a798d335641dc8a0c7ae69832d8f6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74979855"
 ---
-# <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrar o serviço de aplicativo com o gateway de aplicativo usando a CLI
+# <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integrar o Serviço de Aplicações com Gateway de Aplicações utilizando o CLI
 
-Este script de exemplo cria um aplicativo Web de serviço Azure App, uma rede virtual do Azure e um gateway de aplicativo. Em seguida, ele restringe o tráfego para que o aplicativo Web só se origine da sub-rede do gateway de aplicativo.
+Este script de amostra cria uma aplicação web Azure App Service, uma Rede Virtual Azure e um Gateway de Aplicação. Em seguida, restringe o tráfego para a aplicação web apenas originar da subnet Application Gateway.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, precisará CLI do Azure versão 2.0.74 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, precisa da versão Azure CLI 2.0.74 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -41,20 +41,20 @@ Se você optar por instalar e usar a CLI localmente, precisará CLI do Azure ver
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos, um aplicativo do serviço de aplicativo, Cosmos DB e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, app App Service, Cosmos DB, e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az network vnet create`](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create) | Cria uma rede virtual. |
 | [`az network public-ip create`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) | Cria um endereço IP público. |
-| [`az network public-ip show`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | Mostrar detalhes de um endereço IP público. |
+| [`az network public-ip show`](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | Mostre detalhes de um endereço IP público. |
 | [`az appservice plan create`](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo Web do serviço de aplicativo. |
-| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Mostrar detalhes de um aplicativo Web do serviço de aplicativo. |
-| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Adiciona uma restrição de acesso ao aplicativo Web do serviço de aplicativo. |
-| [`az network application-gateway create`](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Cria um gateway de aplicativo. |
-| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Atualiza as configurações de HTTP do gateway de aplicativo. |
+| [`az webapp create`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação web do App Service. |
+| [`az webapp show`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | Mostre detalhes de uma aplicação web do App Service. |
+| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | Adiciona uma restrição de acesso à aplicação web do App Service. |
+| [`az network application-gateway create`](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Cria um Gateway de Aplicação. |
+| [`az network application-gateway http-settings update`](https://docs.microsoft.com/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Atualiza as definições do Gateway HTTP da aplicação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.openlocfilehash: 17acb7e351d5f1c009a6a8a14717e987fae3e895
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78379900"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutorial: Implemente um modelo de classificação de imagem pré-treinado para funções azure com pyTorch
@@ -31,8 +31,8 @@ Neste artigo, aprende-se a utilizar funções Python, PyTorch e Azure para carre
 
 ### <a name="prerequisite-check"></a>Verificação pré-requisito
 
-1. Numa janela de terminais ou comando, faça `func --version` para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
-1. Execute `python --version` (Linux/MacOS) ou `py --version` (Windows) para verificar os relatórios da versão Python 3.7.x.
+1. Numa janela de terminal `func --version` ou comando, corra para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
+1. Executar `python --version` (Linux/MacOS) `py --version` ou (Windows) para verificar os relatórios da versão Python 3.7.x.
 
 ## <a name="clone-the-tutorial-repository"></a>Clone o repositório tutorial
 
@@ -90,12 +90,12 @@ py -m venv .venv
 
 ---
 
-Executa todos os comandos subsequentes neste ambiente virtual ativado. (Para sair do ambiente virtual, corra `deactivate`.)
+Executa todos os comandos subsequentes neste ambiente virtual ativado. (Para sair do ambiente `deactivate`virtual, corra .)
 
 
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções locais
 
-Nas Funções Azure, um projeto de função é um recipiente para uma ou mais funções individuais que cada um responde a um gatilho específico. Todas as funções de um projeto partilham as mesmas configurações locais e de hospedagem. Nesta secção, cria-se um projeto de função que contém uma única função de placa de caldeira chamada `classify` que fornece um ponto final HTTP. Adicione código mais específico numa secção posterior.
+Nas Funções Azure, um projeto de função é um recipiente para uma ou mais funções individuais que cada um responde a um gatilho específico. Todas as funções de um projeto partilham as mesmas configurações locais e de hospedagem. Nesta secção, cria-se um projeto de função `classify` que contém uma única função de placa de caldeira chamada que fornece um ponto final HTTP. Adicione código mais específico numa secção posterior.
 
 1. Na pasta *inicial,* utilize as Ferramentas Core funções do Azure para inicializar uma aplicação de função Python:
 
@@ -108,13 +108,13 @@ Nas Funções Azure, um projeto de função é um recipiente para uma ou mais fu
     > [!TIP]
     > Como um projeto de função está ligado a um tempo de execução específico, todas as funções do projeto devem ser escritas com a mesma língua.
 
-1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o argumento `--name` é o nome único da sua função e o `--template` argumento especifica o gatilho da função. `func new` criar uma subpasta que contenha um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração chamado *função.json*.
+1. Adicione uma função ao seu projeto utilizando `--name` o seguinte comando, onde `--template` o argumento é o nome único da sua função e o argumento especifica o gatilho da função. `func new`criar uma subpasta que contenha um ficheiro de código adequado ao idioma escolhido do projeto e um ficheiro de configuração denominado *função.json*.
 
     ```
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica.* Nessa pasta encontram-se dois ficheiros: *\_\_inite\_\_.py*, que contém o código de função, e *função.json*, que descreve o gatilho da função e as suas encadernações de entrada e saída. Para obter informações sobre o conteúdo destes ficheiros, consulte [Examinar o conteúdo do ficheiro](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido da Python.
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica.* Nessa pasta encontram-se dois ficheiros: * \_ \_init.py\_\_*, que contém o código de função, e *função.json*, que descreve o gatilho da função e as suas encadernações de entrada e saída. Para obter informações sobre o conteúdo destes ficheiros, consulte [Examinar o conteúdo do ficheiro](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido da Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
@@ -125,14 +125,14 @@ Nas Funções Azure, um projeto de função é um recipiente para uma ou mais fu
     func start
     ```
 
-1. Assim que vir o ponto final `classify` aparecer na saída, navegue para o URL, ```http://localhost:7071/api/classify?name=Azure```. A mensagem "Olá Azure!" deve aparecer na saída.
+1. Assim que `classify` vir o ponto final aparecer na ```http://localhost:7071/api/classify?name=Azure```saída, navegue para o URL, . A mensagem "Olá Azure!" deve aparecer na saída.
 
-1. Utilize **o Ctrl**-**C** para parar o hospedeiro.
+1. Use **ctrl**-**C** para parar o hospedeiro.
 
 
 ## <a name="import-the-pytorch-model-and-add-helper-code"></a>Importar o modelo PyTorch e adicionar código de ajuda
 
-Para modificar a função `classify` para classificar uma imagem com base no seu conteúdo, utiliza um modelo [ResNet](https://arxiv.org/abs/1512.03385) pré-treinado. O modelo pré-treinado, que vem do [PyTorch,](https://pytorch.org/hub/pytorch_vision_resnet/)classifica uma imagem em 1 de 1000 [classes ImageNet](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). Em seguida, adicione um pouco de código de ajuda e dependências ao seu projeto.
+Para modificar `classify` a função para classificar uma imagem com base no seu conteúdo, utiliza um modelo [ResNet](https://arxiv.org/abs/1512.03385) pré-treinado. O modelo pré-treinado, que vem do [PyTorch,](https://pytorch.org/hub/pytorch_vision_resnet/)classifica uma imagem em 1 de 1000 [classes ImageNet](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a). Em seguida, adicione um pouco de código de ajuda e dependências ao seu projeto.
 
 1. Na pasta *inicial,* execute o seguinte comando para copiar o código de previsão e etiquetas na pasta *de classificação.*
 
@@ -185,26 +185,26 @@ Para modificar a função `classify` para classificar uma imagem com base no seu
 
 A instalação pode demorar alguns minutos, durante o qual pode proceder com a modificação da função na secção seguinte.
 > [!TIP]
-> >No Windows, pode encontrar o erro: "Não foi possível instalar pacotes devido a um EnvironmentError: [Errno 2] Nenhum ficheiro ou diretório:" seguido de um longo nome de caminho para um ficheiro como *sharded_mutable_dense_hashtable.cpython-37.pyc*. Normalmente, este erro acontece porque a profundidade do caminho da pasta torna-se demasiado longa. Neste caso, detete to da `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` da chave de registo para `1` para permitir longos caminhos. Alternadamente, verifique onde está instalado o seu intérprete Python. Se esse local tiver um longo caminho, tente reinstalar-se numa pasta com um caminho mais curto.
+> >No Windows, pode encontrar o erro: "Não foi possível instalar pacotes devido a um EnvironmentError: [Errno 2] Nenhum ficheiro ou diretório:" seguido de um longo nome de caminho para um ficheiro como *sharded_mutable_dense_hashtable.cpython-37.pyc*. Normalmente, este erro acontece porque a profundidade do caminho da pasta torna-se demasiado longa. Neste caso, detete `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` a `1` chave de registo para permitir longos caminhos. Alternadamente, verifique onde está instalado o seu intérprete Python. Se esse local tiver um longo caminho, tente reinstalar-se numa pasta com um caminho mais curto.
 
 ## <a name="update-the-function-to-run-predictions"></a>Atualizar a função para executar previsões
 
-1. Abram *a classificação/\_\_inite\_\_.py* num editor de texto e adicione as seguintes linhas após as declarações `import` existentes para importar a biblioteca padrão JSON e os ajudantes *previstos:*
+1. Abra *classificar/init\_\_\_\_.py* em um editor de texto `import` e adicionar as seguintes linhas após as declarações existentes para importar a biblioteca padrão JSON e os ajudantes *previstos:*
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="1-6" highlight="5-6":::
 
-1. Substitua todo o conteúdo da função `main` pelo seguinte código:
+1. Substitua todo o `main` conteúdo da função pelo seguinte código:
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="8-19":::
 
-    Esta função recebe um URL de imagem num parâmetro de corda de consulta chamado `img`. Em seguida, chama `predict_image_from_url` da biblioteca de ajudantes para descarregar e classificar a imagem usando o modelo PyTorch. A função devolve então uma resposta HTTP com os resultados.
+    Esta função recebe um URL de imagem `img`num parâmetro de corda de consulta chamado . Em seguida, liga `predict_image_from_url` da biblioteca de ajudantes para descarregar e classificar a imagem usando o modelo PyTorch. A função devolve então uma resposta HTTP com os resultados.
 
     > [!IMPORTANT]
-    > Como este ponto final http é chamado por uma página web hospedada em outro domínio, a resposta inclui um cabeçalho `Access-Control-Allow-Origin` para satisfazer os requisitos de Partilha de Recursos De Origem Cruzada (CORS) do navegador.
+    > Como este ponto final http é chamado por uma página web `Access-Control-Allow-Origin` hospedada em outro domínio, a resposta inclui um cabeçalho para satisfazer os requisitos de Partilha de Recursos De Origem Cruzada (CORS) do navegador.
     >
-    > Numa aplicação de produção, altere `*` a origem específica da página web para uma maior segurança.
+    > Numa aplicação de `*` produção, mude para a origem específica da página web para maior segurança.
 
-1. Guarde as suas alterações, assumindo então que as dependências terminaram de instalar, inicie novamente o hospedeiro de funções local com `func start`. Certifique-se de que executa o hospedeiro na *pasta* inicial com o ambiente virtual ativado. Caso contrário, o hospedeiro começará, mas verá erros ao invocar a função.
+1. Guarde as suas alterações, assumindo então que as `func start`dependências terminaram de instalar, inicie novamente o hospedeiro de funções local com . Certifique-se de que executa o hospedeiro na *pasta* inicial com o ambiente virtual ativado. Caso contrário, o hospedeiro começará, mas verá erros ao invocar a função.
 
     ```
     func start
@@ -246,7 +246,7 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
     py -m http.server
     ```
 
-1. Num browser, navegue para `localhost:8000`, em seguida, introduza uma das seguintes URLs fotográficas na caixa de texto, ou utilize o URL de qualquer imagem acessível ao público.
+1. Num browser, navegue para, `localhost:8000`em seguida, introduzir uma das seguintes URLs fotográficas na caixa de texto, ou utilizar o URL de qualquer imagem acessível ao público.
 
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/Bernese-Mountain-Dog-Temperament-long.jpg`
     - `https://github.com/Azure-Samples/functions-python-pytorch-tutorial/blob/master/resources/assets/bald-eagle.jpg?raw=true`
@@ -256,7 +256,7 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 
     ![Screenshot do projeto acabado](media/machine-learning-pytorch/screenshot.png)
 
-    Se o navegador reportar um erro ao submeter o URL de imagem, verifique o terminal em que está a executar a aplicação de funções. Se vir um erro como "Nenhum módulo encontrado 'PIL'", pode ter iniciado a aplicação de funções na *pasta* inicial sem antes ativar o ambiente virtual que criou anteriormente. Se ainda vir erros, volte a `pip install -r requirements.txt` com o ambiente virtual ativado e procure erros.
+    Se o navegador reportar um erro ao submeter o URL de imagem, verifique o terminal em que está a executar a aplicação de funções. Se vir um erro como "Nenhum módulo encontrado 'PIL'", pode ter iniciado a aplicação de funções na *pasta* inicial sem antes ativar o ambiente virtual que criou anteriormente. Se ainda vir erros, volte a correr `pip install -r requirements.txt` com o ambiente virtual ativado e procure erros.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

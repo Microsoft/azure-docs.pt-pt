@@ -9,37 +9,37 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75450838"
 ---
-1. Selecione **conectar sites VPN** para abrir a página **conectar sites** .
+1. Selecione **Ligar sites VPN** para abrir a página **connect sites.**
 
-    ![Connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "ligar")
+    ![ligar](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "ligar")
 
-   Preencha os seguintes campos:
+   Complete os seguintes campos:
 
-   * Insira uma chave pré-compartilhada. Se você não inserir uma chave, o Azure gerará uma para você.
-   * Selecione as configurações de protocolo e IPsec. Consulte [detalhes de IPSec padrão/personalizado] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
-   * Selecione a opção apropriada para **propagar a rota padrão**. A opção **habilitar** permite que o Hub virtual propague uma rota padrão aprendida para essa conexão. Esse sinalizador habilita a propagação de rota padrão para uma conexão somente se a rota padrão já for aprendida pelo hub de WAN virtual como resultado da implantação de um firewall no Hub ou se outro site conectado tiver o túnel forçado habilitado. A rota padrão não é originada no Hub WAN virtual.
+   * Introduza uma chave pré-partilhada. Se não introduzir uma chave, azure autogera uma para si.
+   * Selecione as definições protocole e IPsec. Consulte [detalhes IPSec padrão/personalizados] (detalhes do IPSec predefinido/personalizado] (detalhes do IPSec predefinido/personalizado] (detalhes do IPSechttps://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Selecione a opção adequada para **a Rota padrão de Propagação**. A opção **Enable** permite que o centro virtual propague uma rota padrão aprendida para esta ligação. Esta bandeira permite a propagação da rota padrão a uma ligação apenas se a rota padrão já for aprendida pelo centro Virtual WAN como resultado da implantação de uma firewall no centro, ou se outro local conectado tiver forçado o túnel ativado. A rota padrão não tem origem no centro virtual WAN.
 
 2. Selecione **Ligar**.
-3. Em alguns minutos, o site mostrará o status de conexão e conectividade.
+3. Em poucos minutos, o site mostrará o estado de ligação e conectividade.
 
    ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
-   **Status da conexão:** Esse é o status do recurso do Azure para a conexão que conecta o site VPN ao gateway de VPN do Hub do Azure. Quando essa operação do plano de controle for bem-sucedida, o gateway de VPN do Azure e o dispositivo VPN local continuarão a estabelecer a conectividade.
+   **Estado de ligação:** Este é o estado do recurso Azure para a ligação que liga o Site VPN ao gateway VPN do hub Azure. Uma vez que esta operação de plano de controlo seja bem sucedida, o gateway Azure VPN e o dispositivo VPN no local prosseguirão para estabelecer conectividade.
 
-   **Status de conectividade:** Esse é o status real de conectividade (caminho de dados) entre o gateway de VPN do Azure no Hub e o site de VPN. Ele pode mostrar qualquer um dos seguintes Estados:
+   **Estado da conectividade:** Este é o estado real de conectividade (data path) entre o gateway VPN do Azure no hub e o VpN Site. Pode mostrar qualquer um dos seguintes estados:
 
-    * **Desconhecido**: esse Estado normalmente é visto se os sistemas de back-end estiverem trabalhando para fazer a transição para outro status.
-    * **Conectando**: o gateway de VPN do Azure está tentando entrar em contato com o site VPN local real.
-    * **Conectado**: a conectividade é estabelecida entre o gateway de VPN do Azure e o site de VPN local.
-    * **Desconectado**: esse status é visto se, por qualquer motivo (local ou no Azure), a conexão foi desconectada.
-4. Em um site de VPN de Hub, você também pode fazer o seguinte: 
+    * **Desconhecido**: Este estado é tipicamente visto se os sistemas de backend estão a trabalhar para a transição para outro estado.
+    * **Ligação**: O portal Azure VPN está a tentar contactar o site VPN no local.
+    * **Conectado**: A conectividade está estabelecida entre o gateway Azure VPN e o site VPN no local.
+    * **Desligado**: Este estado é visto se, por qualquer motivo (no local ou em Azure), a ligação foi desligada.
+4. Dentro de um site de VPN hub, pode ainda fazer o seguinte: 
 
-   * Edite ou exclua a conexão VPN.
-   * Exclua o site no portal do Azure.
-   * Baixe uma configuração específica de ramificação para obter detalhes sobre o lado do Azure usando o menu de contexto (...) ao lado do site. Se você quiser baixar a configuração para todos os sites conectados em seu hub, selecione **baixar configuração de VPN** no menu superior.
+   * Editar ou eliminar a Ligação VPN.
+   * Elimine o site no portal Azure.
+   * Descarregue uma configuração específica de ramificação para mais detalhes sobre o lado Azure usando o menu de contexto (...) ao lado do site. Se pretender descarregar a configuração de todos os sites conectados no seu hub, selecione **Baixar VPN Config** no menu superior.

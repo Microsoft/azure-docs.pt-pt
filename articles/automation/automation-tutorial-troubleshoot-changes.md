@@ -8,10 +8,10 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75420647"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-* Uma subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Uma subscrição do Azure. Se ainda não tiver um, pode ativar os seus benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um [conta de Automatização](automation-offering-get-started.md) para reter os runbooks de observador e ação e a Tarefa de Observador.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para carregar.
 
@@ -47,7 +47,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 Primeiro, tem de ativar o Controlo de alterações e Inventário para a VM para este tutorial. Se ativou anteriormente outra solução de automatização para uma VM, este passo não é necessário.
 
 1. No menu da esquerda, selecione **Máquinas virtuais** e selecione uma VM da lista
-1. No menu da esquerda, na secção **OPERAÇÕES**, clique em **Inventário**. A página **Controlo de alterações** abre-se.
+1. No menu esquerdo, na secção **OPERAÇÕES,** clique em **Inventário**. A página **Controlo de alterações** abre-se.
 
 ![Ativar a mudança](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) O ecrã **Controlo de Alterações** abre-se. Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
@@ -58,14 +58,14 @@ Durante a inclusão, a VM está aprovisionada com o Microsoft Monitoring Agent (
 Este agente serve para comunicar com a VM e obter informações sobre o software instalado.
 
 A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser.
-Depois que a solução é habilitada, as informações sobre o software instalado e as alterações na VM fluem para os logs de Azure Monitor.
+Após a solução ser ativada, a informação sobre o software instalado e as alterações nos fluxos vm para os registos do Monitor Azure.
 Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Usando o controle de alterações em logs de Azure Monitor
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilização de rastreio de alteração nos registos do Monitor Azure
 
-O controle de alterações gera dados de log que são enviados aos logs de Azure Monitor.
+Alterar o rastreio gera dados de registo que são enviados para registos do Monitor Azure.
 Para pesquisar os registos através da execução de consultas, selecione **Log Analytics** na parte superior da janela **Controlo de alterações**.
 Os dados de Controlo de alterações são armazenados abaixo do tipo **ConfigurationChange**.
 O exemplo de consulta do Log Analytics que se segue devolve todos os Serviços do Windows que foram parados.
@@ -75,7 +75,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para saber mais sobre como executar e Pesquisar arquivos de log em logs de Azure Monitor, consulte [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre a execução e pesquisa de ficheiros de registo nos registos do Monitor Azure, consulte os [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurar o Controlo de alterações
 
@@ -119,7 +119,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 ### <a name="add-a-linux-file"></a>Adicionar um ficheiro do Linux
 
-1. No separador **Ficheiros do Linux**, selecione **Adicionar**. É aberta a janela **Adicionar Ficheiro do Linux para Controlo de Alterações** .
+1. No separador **Ficheiros do Linux**, selecione **Adicionar**. É aberta a janela **Adicionar Ficheiro do Linux para Controlo de Alterações **.
 
 1. Em **Adicionar Ficheiro do Linux para Controlo de Alterações**, introduza as informações do ficheiro ou diretório a controlar e clique em **Guardar**
 
@@ -175,11 +175,11 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 Para adicionar um alerta a um serviço parado, no portal do Azure, aceda a **Monitorizar**. E, em **Serviços Partilhados**, selecione **Alertas** e clique em **+Nova regra de alerta**
 
-Clique em **selecionar** para escolher um recurso. Na página **selecionar um recurso** , selecione **log Analytics** na lista suspensa **Filtrar por tipo de recurso** . Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
+Clique em **Selecionar** para escolher um recurso. Na página **Selecione uma** página de recursos, selecione **Log Analytics** do Filtro por drop-down do tipo **de recurso.** Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
 
 ![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Clique em **Adicionar condição**, na página **Configurar lógica de sinal** , na tabela, selecione **pesquisa de logs personalizada**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
+Clique em **Adicionar condição,** na página lógica de **sinal Configurar,** na tabela, selecione pesquisa de **registo personalizado**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -191,9 +191,9 @@ Em **Lógica de alerta**, para **Limiar**, introduza **0**. Quando tiver termina
 
 ![Configurar lógica de sinal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Em **grupos de ações**, selecione **criar novo**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
+Em **grupos de ação,** selecione **Criar Novo**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
 
-Em **detalhes do alerta**, insira um nome e uma descrição para o alerta. Defina a **Gravidade** para **Informativa (Grav 2)** , **Aviso (Grav 1)** ou **Crítica (Grav 0)** .
+Em **detalhes de Alerta,** insira um nome e descrição para o alerta. Defina a **Gravidade** para **Informativa (Grav 2)**, **Aviso (Grav 1)** ou **Crítica (Grav 0)**.
 
 Na caixa **Nome do grupo de ações**, introduza um nome para o alerta e um nome abreviado. O nome abreviado é utilizado em vez de um nome de grupo de ações completo quando as notificações são enviadas ao utilizar deste grupo.
 

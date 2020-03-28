@@ -1,5 +1,5 @@
 ---
-title: Exportar/copiar o VHD de um disco gerenciado para uma conta de armazenamento em uma região diferente – exemplo do PowerShell
+title: Exportar/Copiar o VHD de um disco gerido para uma conta de armazenamento em diferentes regiões - Amostra PowerShell
 description: Exemplo de script do Azure PowerShell - exportar/copiar o VHD de um disco gerido para uma conta de armazenamento na mesma região ou numa região diferente
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.openlocfilehash: 1e144b408de1271607b749d8e54289d0563d4b6e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75463792"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Exportar/copiar o VHD de um disco gerido para uma conta de armazenamento numa região diferente com o PowerShell

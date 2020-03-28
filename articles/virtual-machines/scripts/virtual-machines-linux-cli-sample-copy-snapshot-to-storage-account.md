@@ -1,6 +1,6 @@
 ---
-title: Copiar um instantâneo para uma conta de armazenamento em outra região – exemplo da CLI
-description: Azure CLI exemplo do Script - exportar/copiar o instantâneo como VHD para uma conta de armazenamento na região idêntica ou diferente.
+title: Copie um instantâneo para uma conta de armazenamento em outra região - amostra CLI
+description: Amostra de script Azure CLI - Exportação/Cópia snapshot como VHD para uma conta de armazenamento na mesma ou região diferente.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -17,13 +17,13 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
 ms.openlocfilehash: 01d3b17ab2623570e086b0edea17ff97c8fe8ae8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75458516"
 ---
-# <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exportar/copiar um instantâneo para uma conta de armazenamento numa região diferente com a CLI
+# <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exportar/Copiar um instantâneo para uma conta de armazenamento em diferentes regiões com CLI
 
 Este script exporta um instantâneo gerido para uma conta de armazenamento numa região diferente. Gera primeiro o URI de SAS do instantâneo e, em seguida, utiliza-o para o copiar para uma conta de armazenamento numa região diferente. Utilize este script para manter a cópia de segurança dos discos geridos numa região diferente para recuperação após desastre. 
 

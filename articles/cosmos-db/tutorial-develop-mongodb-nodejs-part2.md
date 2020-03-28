@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo node. js Express com a API do Azure Cosmos DB para MongoDB (parte 2)
+title: Crie a app Node.js Express com a API da Azure Cosmos DB para o MongoDB (Part2)
 description: Parte 2 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,15 +11,15 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75441134"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-criar um aplicativo node. js Express
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Crie uma app Angular com a API da Azure Cosmos DB para o MongoDB - Crie uma app Node.js Express
 
-Este tutorial de várias partes demonstra como criar um novo aplicativo escrito em node. js com o Express e o angular e, em seguida, conectá-lo à sua [conta do cosmos configurada com a API do cosmos DB para MongoDB](mongodb-introduction.md).
+Este tutorial em várias partes demonstra como criar uma nova app escrita no Node.js com Express e Angular e, em seguida, conectá-la à sua [conta Cosmos configurada com a API da Cosmos DB para MongoDB](mongodb-introduction.md).
 
 A Parte 2 do tutorial é a continuação da [introdução](tutorial-develop-mongodb-nodejs.md) e abrange as seguintes tarefas:
 
@@ -102,7 +102,7 @@ Este tutorial também requer:
     * Serve tudo o que está na pasta dist, que será o conteúdo estático
     * Serve a aplicação e index.html para os pedidos GET que não forem encontrados no servidor (para ligações avançadas)
     * Inicia o servidor com app.listen
-    * Usa uma função de seta para registrar que a porta está ativa
+    * Usa uma função de seta para registar que a porta está viva
     
    ```node
    const express = require('express');

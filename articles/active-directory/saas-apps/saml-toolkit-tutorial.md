@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração individual de inscrição (SSO) com o Kit de Ferramentas Azure AD SAML  Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração individual de inscrição (SSO) com o Kit de Ferramentas Azure AD SAML [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Azure AD AD Toolkit.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77047954"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com o Kit de Ferramentas Azure AD SAML
@@ -29,20 +29,20 @@ Neste tutorial, você vai aprender a integrar o Azure AD AD Toolkit com o Azure 
 
 * Controlo em Azure AD que tem acesso ao Kit de Ferramentas Azure AD SAML.
 * Ative que os seus utilizadores sejam automaticamente inscritos no Kit de Ferramentas Azure AD SAML com as suas contas Azure AD.
-* Gerencie suas contas em um local central-o portal do Azure.
+* Gerencie as suas contas num local central - o portal Azure.
 
 Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 * A assinatura ativada por um único sinal (SSO) do Azure AD Toolkit (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 * Kit de ferramentas Azure AD SAML suporta **SP** iniciado SSO
 * Assim que configurar o Kit de Ferramentas Azure AD SAML, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Controlo de Sessão estende-se a partir de Acesso Condicional. [Saiba como impor o controlo de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
@@ -51,12 +51,12 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do Kit de Ferramentas Azure AD SAML no Azure AD, é necessário adicionar o Kit de Ferramentas Azure AD SAML da galeria à sua lista de aplicações geridas saaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. No Add da secção **de galeria,** digite o Kit de **Ferramentas Azure AD SAML** na caixa de pesquisa.
-1. Selecione **Azure AD AD Toolkit** a partir do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Selecione **Azure AD AD Toolkit** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-azure-ad-saml-toolkit"></a>Configure e teste azure AD único sinal para Azure AD SAML Toolkit
 
@@ -71,45 +71,45 @@ Para configurar e testar o Azure AD SSO com o Kit de Ferramentas Azure AD SAML, 
     1. Crie o utilizador de teste de **[Toolkit Azure AD SAML](#create-azure-ad-saml-toolkit-test-user)** - para ter uma contrapartida de B.Simon no Kit de Ferramentas Azure AD SAML que está ligado à representação do utilizador da AD Azure.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)na página de integração de ferramentas **Azure AD SAML,** encontre a secção **Gerir** e selecione **um único sinal.**
 1. Na página **de método de inscrição, selecione** **SAML**.
 1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar configuração básica de SAML](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
 1. Na página **basic SAML Configuração,** introduza os valores para os seguintes campos:
 
-    a. No **Sign on URL** text box, escreva um URL: `https://samltoolkit.azurewebsites.net/`
+    a. No **Sign on URL** text box, digite um URL:`https://samltoolkit.azurewebsites.net/`
 
-    b. Na caixa de texto **identificador (Id** da entidade), escreva um URL: `https://samltoolkit.azurewebsites.net`
+    b. Na caixa de texto **identificador (Id da entidade),** digite um URL:`https://samltoolkit.azurewebsites.net`
 
-    c. Na caixa de texto **URL resposta,** escreva um URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    c. Na caixa de texto **URL resposta,** escreva um URL:`https://samltoolkit.azurewebsites.net/SAML/Consume`
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **certificado (Cru)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificateraw.png)
+    ![O link de descarregamento do Certificado](common/certificateraw.png)
 
 1. Na secção **de conjunto azure AD AD Toolkit,** copie os URL(s) adequados com base no seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
 1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, permitirá que a B.Simon utilize um único sign-on Azure, concedendo acesso ao Kit de Ferramentas Azure AD SAML.
 
@@ -117,11 +117,11 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on Azure, conced
 1. Na lista de aplicações, selecione **Azure AD SAML Toolkit**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
@@ -157,11 +157,11 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on Azure, conced
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Criar o utilizador de teste de toolkit Azure AD SAML
 
-Nesta secção, um utilizador chamado B.Simon é criado no Kit de Ferramentas Azure AD SAML. O Kit de Ferramentas Azure AD SAML suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para você nesta seção. Se um utilizador já não existir no Azure AD SAML Toolkit, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado B.Simon é criado no Kit de Ferramentas Azure AD SAML. O Kit de Ferramentas Azure AD SAML suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Azure AD SAML Toolkit, um novo é criado após a autenticação.
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
 Quando clicar no azulejo Azure AD SAML Toolkit no Painel de Acesso, deve ser automaticamente inscrito no Kit de Ferramentas Azure AD SAML para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
@@ -171,7 +171,7 @@ Quando clicar no azulejo Azure AD SAML Toolkit no Painel de Acesso, deve ser aut
 
 - [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Kit de Ferramentas Azure AD SAML com AD Azure](https://aad.portal.azure.com/)
 

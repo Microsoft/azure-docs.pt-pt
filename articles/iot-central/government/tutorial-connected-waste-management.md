@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77426365"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Criar uma aplicação de gestão de resíduos conectada na IoT Central
@@ -103,7 +103,7 @@ O tablier é composto por diferentes tipos de azulejos:
      ![Mapa do painel de instrumentos de gestão de resíduos conectado](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* *Fill, odor, gráfico de barras de **nível de peso:** pode visualizar dados de telemetria de um ou vários dispositivos num gráfico de barras. Também pode expandir o gráfico de barras.  
+* ***Preenchimento, odor, gráfico**de barras de nível de peso: pode visualizar dados de telemetria de um ou vários dispositivos num gráfico de barras. Também pode expandir o gráfico de barras.  
 
   ![Gráfico de barras de painel de gestão de resíduos conectado](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
@@ -116,7 +116,7 @@ O tablier é composto por diferentes tipos de azulejos:
 Como construtor, pode personalizar vistas no painel de instrumentos para operadores. Pode tentar:
 1. Clique em **Editar** para personalizar o painel de gestão de resíduos conectado ao **Mundo Inteiro.** Pode personalizar o dashboard clicando no menu **Editar.** Uma vez que o painel de instrumentos esteja em modo **de edição,** pode adicionar novos azulejos, ou pode configurar 
 
-    ![Editar dashboard](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
+    ![Editar Dashboard](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
 
 2. Também pode clicar em **+ Novo** para criar um novo dashboard e configurar de raiz. Pode ter vários dashboards e navegar entre os seus dashboards a partir do menu do painel de instrumentos. 
 
@@ -145,8 +145,8 @@ Para ver o modelo do dispositivo:
 
 Tente personalizar o seguinte:
 1. Navegar para **personalizar** a partir do menu de modelo de dispositivo
-2. Encontre o tipo de telemetria `Odor meter`
-3. Atualize o **nome** do `Odor meter` para `Odor level`
+2. Encontre `Odor meter` o tipo de telemetria
+3. Atualizar o nome `Odor meter` **display** de para`Odor level`
 4. Também pode experimentar a unidade de atualização de medição, ou definir *o valor de Min* e *o valor Max*
 5. **Guardar** quaisquer alterações 
 
@@ -185,7 +185,7 @@ A aplicação de gestão de **resíduos conectado** tem dois dispositivos simula
 
      ![Dispositivo 1](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
 
-3. Navegue para o separador **Cloud Properties** tente atualizar o valor `Bin full alert threshold` de `95` para `100`. 
+3. Navegue para o separador `Bin full alert threshold` Cloud `95` `100` **Properties** tente atualizar o valor de . 
 * Explore o separador Propriedades do Dispositivo e o **separador Do Painel** de Instrumentos do **Dispositivo.** 
 
 > [!NOTE]
@@ -210,9 +210,9 @@ A aplicação **connected waste management** tem quatro regras de amostra.
 
      ![Alerta completo do caixote do lixo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
 
- 3. O `Bin full alert` verifica quando a **condição** `Fill level is greater than or equal to Bin full alert threshold`.
+ 3. Os `Bin full alert` cheques quando **condição** `Fill level is greater than or equal to Bin full alert threshold`.
 
-    O `Bin full alert threshold` é uma *propriedade em nuvem* definida no modelo de dispositivo `Connected waste bin`. 
+    É `Bin full alert threshold` uma *propriedade em* `Connected waste bin` nuvem definida no modelo do dispositivo. 
 
 Agora vamos criar uma ação por e-mail.
 
@@ -254,7 +254,7 @@ Como construtor, pode alterar várias definições para personalizar a experiên
 
    ![Azure IoT Central personalize a sua aplicação](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
 
-6. Também pode alterar as imagens da aplicação indo para as definições de **'Administration > Application'** e **Selecione** um botão de imagem para escolher uma imagem para carregar como imagem da aplicação.
+6. Também pode alterar as imagens da aplicação indo para as definições de **Aplicação > administração** e selecionar o botão de **imagem para** escolher uma imagem para carregar como imagem de aplicação.
 7. Por fim, também pode alterar o **Tema** clicando em **Definições** no masthead da aplicação.
 
   

@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209431"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação ExpressRoute usando o Azure Virtual WAN
@@ -42,9 +42,9 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 * O circuito ExpressRoute deve ser um circuito Premium para ligar ao portal do hub.
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-## <a name="openvwan"></a>Criar um WAN virtual
+## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Criar uma WAN Virtual
 
 Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
@@ -62,19 +62,19 @@ Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e inicie
 4. Depois de terminar de preencher os campos, selecione **Review +Create**.
 5. Uma vez que a validação passe, selecione **Criar** para criar o WAN virtual.
 
-## <a name="hub"></a>Criar um hub virtual e gateway
+## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Criar um hub virtual e gateway
 
 Um hub virtual é uma rede virtual que é criada e usada pela Virtual WAN. Pode conter vários gateways, tais como VPN e ExpressRoute. Nesta secção, irá criar um portal ExpressRoute para o seu hub virtual. Pode criar o portal quando [criar um novo hub virtual,](#newhub)ou pode criar a porta de entrada num hub [existente](#existinghub) editando-o. 
 
 Os gateways ExpressRoute são provisionados em unidades de 2 Gbps. 1 unidade de escala = 2 Gbps com suporte até 10 unidades de escala = 20 Gbps. Leva cerca de 30 minutos para um centro virtual e porta de entrada para criar totalmente.
 
-### <a name="newhub"></a>Para criar um novo centro virtual e uma porta de entrada
+### <a name="to-create-a-new-virtual-hub-and-a-gateway"></a><a name="newhub"></a>Para criar um novo centro virtual e uma porta de entrada
 
 Criar um novo centro virtual. Uma vez criado um hub, será cobrado pelo hub, mesmo que não anexe nenhum sítio.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-### <a name="existinghub"></a>Para criar uma porta de entrada em um centro existente
+### <a name="to-create-a-gateway-in-an-existing-hub"></a><a name="existinghub"></a>Para criar uma porta de entrada em um centro existente
 
 Você também pode criar uma porta de entrada em um hub existente editando-o.
 
@@ -90,7 +90,7 @@ Uma vez criado um gateway ExpressRoute, pode ver detalhes do gateway. Navegue at
 
 ![Ver gateway](./media/virtual-wan-expressroute-portal/viewgw.png "ver porta de entrada")
 
-## <a name="connectvnet"></a>Ligue o seu VNet ao centro
+## <a name="connect-your-vnet-to-the-hub"></a><a name="connectvnet"></a>Ligue o seu VNet ao centro
 
 Nesta secção, cria-se a ligação de pares entre o seu hub e um VNet. Repita estes passos para cada VNet que queira ligar.
 
@@ -103,20 +103,20 @@ Nesta secção, cria-se a ligação de pares entre o seu hub e um VNet. Repita e
     * **Subscription** (Subscrição) - verifique a subscrição.
     * **Virtual network** (Rede virtual) - selecione a rede virtual que pretende ligar a este hub. A rede virtual não pode ter um portal de rede virtual já existente (nem VPN, nem ExpressRoute).
 
-## <a name="connectcircuit"></a>Ligue o seu circuito ao portal do hub
+## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Ligue o seu circuito ao portal do hub
 
 Assim que o portal for criado, pode ligar-lhe um [circuito ExpressRoute.](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Os circuitos ExpressRoute Premium que se encontram em locais suportados pelo ExpressRoute Global Reach podem ligar-se a um gateway Virtual WAN ExpressRoute.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Para ligar o circuito ao portal do hub
 
-No portal, vá ao **hub Virtual -> Conectividade -> página ExpressRoute.** Se tiver acesso na sua subscrição a um circuito ExpressRoute, verá o circuito que pretende utilizar na lista de circuitos. Se não vir circuitos, mas tiver sido fornecido com uma chave de autorização e circuito de pares URI, pode resgatar e ligar um circuito. Consulte [Para ligar redimindo uma chave](#authkey)de autorização .
+No portal, vá à página **de Conectividade -> Conectividade -> ExpressRoute.** Se tiver acesso na sua subscrição a um circuito ExpressRoute, verá o circuito que pretende utilizar na lista de circuitos. Se não vir circuitos, mas tiver sido fornecido com uma chave de autorização e circuito de pares URI, pode resgatar e ligar um circuito. Consulte [Para ligar redimindo uma chave](#authkey)de autorização .
 
 1. Selecione o circuito.
 2. Selecione Circuitos de **Ligação .**
 
    ![ligar circuitos](./media/virtual-wan-expressroute-portal/cktconnect.png "ligar circuitos")
 
-### <a name="authkey"></a>Para ligar redimindo uma chave de autorização
+### <a name="to-connect-by-redeeming-an-authorization-key"></a><a name="authkey"></a>Para ligar redimindo uma chave de autorização
 
 Utilize a chave de autorização e o circuito URI que lhe foi fornecido para se ligar.
 
@@ -145,7 +145,7 @@ Se quiser alterar o tamanho do seu gateway ExpressRoute, localize o gateway Expr
 
 Se quiser que o hub virtual Azure anuncie a rota padrão 0.0.0.0/0 para os seus pontos finais ExpressRoute, terá de ativar a 'Rota padrão propagate'.
 
-1. Selecione o seu **Circuito ->...-> Ligação editar**.
+1. Selecione a **ligação Circuit ->...-> Editar**.
 
    ![Editar ligação](./media/virtual-wan-expressroute-portal/defaultroute1.png "Editar ligação")
 

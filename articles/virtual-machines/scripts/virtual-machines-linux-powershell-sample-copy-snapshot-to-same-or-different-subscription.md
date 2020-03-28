@@ -1,6 +1,6 @@
 ---
-title: Copiar instantâneo de um disco gerenciado para uma assinatura-exemplo do PowerShell
-description: Exemplo de script Azure PowerShell – copiar (ou mover) o instantâneo de um disco gerenciado para a mesma assinatura ou outra
+title: Foto de foto de um disco gerido para uma subscrição - PowerShell Sample
+description: Amostra de script Azure PowerShell - Copiar (ou mover) instantâneo de um disco gerido para a mesma ou diferente subscrição
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
 ms.openlocfilehash: 65a3e39206864f10c41e79ba6b3e7a89da99dc6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75463768"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Copiar o instantâneo de um disco gerido na mesma subscrição ou numa subscrição diferente com a CLI
 
-Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Use este script para os seguintes cenários:
+Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Utilize este guião para os seguintes cenários:
 
-1. Migre um instantâneo no armazenamento Premium (Premium_LRS) para o armazenamento Standard (Standard_LRS ou Standard_ZRS) para reduzir seu custo.
-1. Migre um instantâneo do armazenamento com redundância local (Premium_LRS, Standard_LRS) para o armazenamento com redundância de zona (Standard_ZRS) para se beneficiar da maior confiabilidade do armazenamento ZRS.
-1. Mova um instantâneo para uma assinatura diferente na mesma região para maior retenção.
+1. Migrar uma foto no armazenamento Premium (Premium_LRS) para o armazenamento Standard (Standard_LRS ou Standard_ZRS) para reduzir o seu custo.
+1. Migrar um instantâneo do armazenamento localmente redundante (Premium_LRS, Standard_LRS) para armazenamento redundante de zona (Standard_ZRS) para beneficiar da maior fiabilidade do armazenamento zRS.
+1. Mova um instantâneo para uma subscrição diferente na mesma região para uma retenção mais longa.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -45,8 +45,8 @@ Este script utiliza os seguintes comandos para criar um instantâneo na subscri�
 
 | Comando | Notas |
 |---|---|
-| [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Cria a configuração de instantâneo que é utilizada para a criação do instantâneo. Inclui o Id de recurso do instantâneo principal e a localização que é a mesma que o instantâneo principal.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Cria um instantâneo com a configuração de instantâneo, o nome do instantâneo e o nome do grupo de recursos transmitidos como parâmetros. |
+| [Novo AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Cria a configuração de instantâneo que é utilizada para a criação do instantâneo. Inclui o Id de recurso do instantâneo principal e a localização que é a mesma que o instantâneo principal.  |
+| [Novo AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Cria um instantâneo com a configuração de instantâneo, o nome do instantâneo e o nome do grupo de recursos transmitidos como parâmetros. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

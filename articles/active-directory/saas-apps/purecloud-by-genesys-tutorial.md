@@ -17,10 +17,10 @@ ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78897771"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Azure Ative Directory integração single sign-on (SSO) com PureCloud by Genesys
@@ -73,7 +73,7 @@ Para configurar e testar o Azure AD SSO com PureCloud by Genesys, complete os se
     1. **[Crie um utilizador de teste PureCloud by Genesys](#create-purecloud-by-genesys-test-user)** para ter uma contrapartida de B.Simon em PureCloud por Genesys que está ligada à representação do utilizador da AD Azure.
 1. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Para permitir o Azure AD SSO no portal Azure, siga estes passos:
 
@@ -130,13 +130,13 @@ Para permitir o Azure AD SSO no portal Azure, siga estes passos:
 
 1. Na configuração de um único sinal com página **SAML,** na secção certificado de **assinatura SAML,** encontre **certificado (Base64)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de descarregamento do Certificado](common/certificatebase64.png)
 
 1. Na secção **Configurar PureCloud por Genesys,** copie o URL (ou URLs apropriado), com base nos seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste chamado B.Simon no portal Azure:
 
@@ -144,11 +144,11 @@ Nesta secção, você vai criar um utilizador de teste chamado B.Simon no portal
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de **nome do utilizador,** introduza o nome de utilizador no seguinte formato: username@companydomain.extension. Por exemplo: `B.Simon@contoso.com`.
+   1. No campo de **nome do utilizador,** introduza username@companydomain.extensiono nome do utilizador no seguinte formato: . Por exemplo: `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, tome nota do valor que está apresentado na caixa **password.**
    1. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, você vai configurar B.Simon para usar o único sign-on Azure, concedendo acesso ao PureCloud por Genesys.
 
@@ -156,7 +156,7 @@ Nesta secção, você vai configurar B.Simon para usar o único sign-on Azure, c
 1. Na lista de aplicações, selecione **PureCloud by Genesys**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Atribuição adicionar'.**
 
@@ -172,11 +172,11 @@ Nesta secção, você vai configurar B.Simon para usar o único sign-on Azure, c
 
 1. Selecione **Administrador** no topo e, em seguida, vá para **o Sign-on Single** em **Integrações**.
 
-    ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![Configurar um único sinal](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. Mude para o separador **ADFS/Azure AD (Premium)** e siga estes passos:
 
-    ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![Configurar um único sinal](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. **Selecione Navegar** para carregar o certificado codificado base-64 que descarregou do portal Azure para o **Certificado ADFS**.
 
@@ -186,7 +186,7 @@ Nesta secção, você vai configurar B.Simon para usar o único sign-on Azure, c
 
     d. Para o valor **do Identificador de Partes Dependentes,** vá ao portal Azure e, em seguida, na página de integração de aplicações **PureCloud by Genesys,** selecione o separador **Propriedades** e copie o valor de ID da **aplicação.** Cola-o na caixa de identificação do **Partido Dependente.**
 
-    ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![Configurar um único sinal](./media/purecloud-by-genesys-tutorial/configure06.png)
 
     e. Selecione **Guardar**.
 
@@ -198,17 +198,17 @@ Para permitir que os utilizadores de Anúncios Azure assinem no PureCloud por Ge
 
 1. Inicie sessão no PureCloud pela Genesys como administrador.
 
-1. Selecione **Administrador** no topo e vá a **Pessoas** sob **Pessoas e Permissões**.
+1. Selecione **Administrador** no topo e vá a **Pessoas** sob **People & Permissions**.
 
-    ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![Configurar um único sinal](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. Na página **Pessoas,** selecione **Adicionar Pessoa**.
 
-    ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![Configurar um único sinal](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. Na caixa de diálogo **Add People à Organização,** siga estes passos:
 
-    ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![Configurar um único sinal](./media/purecloud-by-genesys-tutorial/configure05.png)
 
     a. Na caixa **Nome Completo,** introduza o nome de um utilizador. Por exemplo: **B.simon**.
 

@@ -10,10 +10,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 056dac7977115f97892d8dbfde0710e00237804e
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78674350"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: Use o CLI Azure para configurar o encaminhamento de mensagens IoT Hub
@@ -26,14 +26,14 @@ ms.locfileid: "78674350"
 
 Para a segunda parte deste tutorial, você descarrega e executa uma aplicação do Estúdio Visual para enviar mensagens para o IoT Hub. Há uma pasta no download que contém o modelo de gestor de recursos azure e o ficheiro de parâmetros, bem como os scripts Azure CLI e PowerShell.
 
-Se quiser ver o script acabado, descarregue as [amostras Azure C# IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. O script Azure CLI está em /iot-hub/Tutoriais/Routing/SimuladoDispositivo/recursos/ como **iothub_routing_cli.azcli**.
+Se quiser ver o script acabado, descarregue as [amostras Azure IoT C# .](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) Desaperte o ficheiro master.zip. O script Azure CLI está em /iot-hub/Tutoriais/Routing/SimuladoDispositivo/recursos/ como **iothub_routing_cli.azcli**.
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Use o Azure CLI para criar os seus recursos
 
 Copie e cole o script abaixo na Cloud Shell e prima Enter. Corre o guião uma linha de cada vez. Esta primeira secção do script criará os recursos base para este tutorial, incluindo a conta de armazenamento, IoT Hub, Service Bus Namespace e service bus queue. Ao percorrer o resto do tutorial, copie cada bloco de script e cole-o na Cloud Shell para executá-lo.
 
 > [!TIP]
-> Uma dica sobre depuração: este script usa o símbolo de continuação (o backslash `\`) para tornar o guião mais legível. Se tiver algum problema em executar o script, certifique-se de que a sua sessão cloud Shell está a decorrer `bash` e que não há espaços depois de qualquer uma das pestanas.
+> Uma dica sobre depuração: este script usa `\`o símbolo de continuação (o backslash ) para tornar o script mais legível. Se tiver algum problema em executar o script, `bash` certifique-se de que a sua sessão cloud Shell está a decorrer e que não há espaços depois de qualquer uma das pestanas.
 > 
 
 Existem vários nomes de recursos que devem ser globalmente únicos, como o nome IoT Hub e o nome da conta de armazenamento. Para facilitar isto, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *RandomValue*. O RandomValue é gerado uma vez no topo do script e anexado aos nomes de recursos conforme necessário ao longo do script. Se não quiser que seja aleatório, pode defini-lo numa corda vazia ou num valor específico. 
@@ -163,19 +163,19 @@ Estas são as variáveis utilizadas pelo script que deve ser definida sessão cl
 
 id de **subscrição**de ponto final : Este campo está definido para o ID de subscrição Azure para o ponto final. 
 
-**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve ser fixado para `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para os seus propósitos aqui, coloque-o para `azurestoragecontainer`.
+**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve `azurestoragecontainer`ser `eventhub` `servicebusqueue`definido `servicebustopic`para, ou . Para os seus propósitos `azurestoragecontainer`aqui, coloque-o em .
 
 **iotHubName**: Este campo é o nome do hub que fará o encaminhamento.
 
 **nome**do recipiente : Este campo é o nome do recipiente na conta de armazenamento para onde serão escritos os dados.
 
-**codificação**: Este campo será `avro` ou `json`. Isto denota o formato dos dados armazenados.
+**codificação**: Este campo `avro` `json`será ou . Isto denota o formato dos dados armazenados.
 
 **nome**de rota : Este campo é o nome da rota que está a configurar. 
 
 **nome final**: Este campo é o nome que identifica o ponto final. 
 
-**ativado**: Este campo descorre para `true`, indicando que a rota da mensagem deve ser ativada após a criação.
+**ativado**: Este campo `true`descorre para, indicando que a rota da mensagem deve ser ativada após a criação.
 
 **condição**: Este campo é a consulta utilizada para filtrar as mensagens enviadas para este ponto final. A condição de consulta para as mensagens que estão a ser encaminhadas para o armazenamento é `level="storage"`.
 
@@ -227,7 +227,7 @@ az iot hub route create \
 
 ### <a name="route-to-a-service-bus-queue"></a>Rota para uma fila de ônibus de serviço
 
-Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de ligação para a fila do Ônibus de serviço, deve criar uma regra de autorização que tenha os direitos corretos definidos. O seguinte guião cria uma regra de autorização para a fila de ônibus de serviço chamada `sbauthrule`, e define os direitos de `Listen Manage Send`. Uma vez definida esta regra de autorização, pode usá-la para recuperar a corda de ligação para a fila.
+Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de ligação para a fila do Ônibus de serviço, deve criar uma regra de autorização que tenha os direitos corretos definidos. O seguinte guião cria uma regra `sbauthrule`de autorização para a `Listen Manage Send`fila de ônibus de serviço chamada , e define os direitos de . Uma vez definida esta regra de autorização, pode usá-la para recuperar a corda de ligação para a fila.
 
 ```azurecli
 # Create the authorization rule for the Service Bus queue.
@@ -261,11 +261,11 @@ Agora, instale o ponto final de encaminhamento e a rota de mensagem para a fila 
 
 **nome final**: Este campo é o nome que identifica o ponto final. 
 
-**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve ser fixado para `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para os seus propósitos aqui, coloque-o para `servicebusqueue`.
+**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve `azurestoragecontainer`ser `eventhub` `servicebusqueue`definido `servicebustopic`para, ou . Para os seus propósitos `servicebusqueue`aqui, coloque-o em .
 
 **nome**de rota : Este campo é o nome da rota que está a configurar. 
 
-**condição**: Este campo é a consulta utilizada para filtrar as mensagens enviadas para este ponto final. A condição de consulta para as mensagens que estão a ser encaminhadas para a fila do Autocarro de Serviço é `level="critical"`.
+**condição**: Este campo é a consulta utilizada para filtrar as mensagens enviadas para este ponto final. A condição de consulta para as mensagens que `level="critical"`estão a ser encaminhadas para a fila do Autocarro de Serviço é .
 
 Aqui está o Azure CLI para o ponto final de encaminhamento e a rota de mensagem para a fila de ônibus de serviço.
 

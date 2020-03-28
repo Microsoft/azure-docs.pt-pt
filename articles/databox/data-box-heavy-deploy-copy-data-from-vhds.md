@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77471334"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Use data box heavy para importar dados como discos geridos em Azure
@@ -42,16 +42,16 @@ Antes de começar, certifique-se de que:
 
 ## <a name="connect-to-data-box-heavy"></a>Ligar ao Data Box Heavy
 
-Com base nos grupos de recursos especificados, data box heavy cria uma parte para cada grupo de recursos associados por nó. Por exemplo, se `mydbmdrg1` e `mydbmdrg2` foram criados ao fazer a encomenda, são criadas as seguintes ações:
+Com base nos grupos de recursos especificados, data box heavy cria uma parte para cada grupo de recursos associados por nó. Por exemplo, `mydbmdrg1` `mydbmdrg2` se e foram criadas ao fazer a encomenda, são criadas as seguintes ações:
 
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
 Dentro de cada ação, são criadas as seguintes três pastas que correspondem a contentores na sua conta de armazenamento.
 
-- Premium SSD
-- HDD padrão
-- SSD padrão
+- SSD Premium
+- HDD Standard
+- SSD Standard
 
 A tabela que se segue mostra os caminhos do CNU para as ações na sua Caixa de Dados Pesada.
  
@@ -99,7 +99,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     C: \>
     ```
 
-4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
+4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
@@ -126,7 +126,7 @@ Se estiver a utilizar um computador de hospedante Linux, execute os seguintes pa
 
     `sudo mount <Data Box or Data Box Heavy IP>:/<NFS share on Data Box or Data Box Heavy device> <Path to the folder on local Linux computer>`
 
-    O exemplo seguinte mostra como ligar via NFS a uma data box ou data box heavy share. O IP do dispositivo pesado caixa de dados ou caixa de dados é `169.254.250.200`, a parte `mydbmdrg1_MDisk` é montada no ubuntuVM, sendo o ponto de montagem `/home/databoxubuntuhost/databox`.
+    O exemplo seguinte mostra como ligar via NFS a uma data box ou data box heavy share. A Caixa de Dados ou `169.254.250.200`Caixa de `mydbmdrg1_MDisk` Dados Dispositivo pesado é , a parte `/home/databoxubuntuhost/databox`é montada no ubuntuVM, sendo o ponto de montagem .
 
     `sudo mount -t nfs 169.254.250.200:/mydbmdrg1_MDisk /home/databoxubuntuhost/databox`
 
@@ -144,8 +144,8 @@ Reveja as seguintes considerações antes de iniciar a cópia de dados:
 
 Dependendo se está a ligar-se via SMB ou NFS, pode utilizar:
 
-- [Copiar dados via SMB](data-box-heavy-deploy-copy-data.md#copy-data-to-data-box-heavy)
-- [Copiar dados via NFS](data-box-heavy-deploy-copy-data-via-nfs.md#copy-data-to-data-box-heavy)
+- [Copiar dados através de SMB](data-box-heavy-deploy-copy-data.md#copy-data-to-data-box-heavy)
+- [Copiar dados através de NFS](data-box-heavy-deploy-copy-data-via-nfs.md#copy-data-to-data-box-heavy)
 
 Espere que os trabalhos de cópia terminem. Certifique-se de que os trabalhos de cópia terminaram sem erros antes de passar para o próximo passo.
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.openlocfilehash: 6ba5e433839d1f27c9522749fd7a8831c7243aae
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78201886"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Criar um cluster ativado por proxy Apache Kafka REST no HDInsight utilizando o Azure CLI
@@ -26,7 +26,7 @@ Neste tutorial, aprende-se:
 > * Pré-requisitos para procuração Kafka REST
 > * Crie um cluster Apache Kafka usando o Azure CLI
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,14 +52,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     |Variável | Descrição |
     |---|---|
     |resourceGroupName|Substitua o NOME DE GRUPO DE RECURSOS pelo nome do seu novo grupo de recursos.|
-    |localização|Substitua o LOCAL por uma região onde o cluster será criado. Para uma lista de locais válidos, utilize o comando `az account list-locations`|
+    |localização|Substitua o LOCAL por uma região onde o cluster será criado. Para uma lista de locais `az account list-locations` válidos, utilize o comando|
     |clusterName|Substitua o CLUSTERNAME por um nome globalmente único para o seu novo cluster.|
     |storageAccount|Substitua o STORAGEACCOUNTNAME por um nome para a sua nova conta de armazenamento.|
     |httpPassword|Substitua a PASSWORD por uma palavra-passe para o login do cluster, **administrador**.|
     |sshPassword|Substitua a PASSWORD por uma palavra-passe para o nome de utilizador da concha segura, **sshuser**.|
-    |securityGroupName|Substitua o NOME DE SEGURANÇA pelo nome do grupo de segurança AAD do cliente para Kafka Rest Proxy. A variável será passada para o parâmetro `--kafka-client-group-name` para `az-hdinsight-create`.|
-    |securityGroupID|Substitua o SECURITYGROUPID pelo ID do grupo de segurança AAD para kafka Rest Proxy. A variável será passada para o parâmetro `--kafka-client-group-id` para `az-hdinsight-create`.|
-    |storageContainer|Recipiente de armazenamento que o cluster utilizará, deixe como está para este tutorial. Esta variável será definida com o nome do cluster.|
+    |securityGroupName|Substitua o NOME DE SEGURANÇA pelo nome do grupo de segurança AAD do cliente para Kafka Rest Proxy. A variável será `--kafka-client-group-name` passada para `az-hdinsight-create`o parâmetro para .|
+    |securityGroupID|Substitua o SECURITYGROUPID pelo ID do grupo de segurança AAD para kafka Rest Proxy. A variável será `--kafka-client-group-id` passada para `az-hdinsight-create`o parâmetro para .|
+    |recipiente de armazenamento|Recipiente de armazenamento que o cluster utilizará, deixe como está para este tutorial. Esta variável será definida com o nome do cluster.|
     |workernodeCount|Número de nós operários no agrupamento, deixe como é para este tutorial. Para garantir uma elevada disponibilidade, Kafka requer um mínimo de 3 nós de trabalhador|
     |clusterType|Tipo de cluster HDInsight, deixe como está para este tutorial.|
     |clusterVersion|Versão de cluster HDInsight, deixe como está para este tutorial. Kafka Rest Proxy requer uma versão mínima de cluster de 4.0.|
@@ -142,9 +142,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         |-versão|A versão do cluster HDInsight deve ser de pelo menos 4.0. O valor é passado da **variável $clusterVersion.**|
         |--versão componente|A versão Kafka deve ser pelo menos 2.1. O valor é passado da **variável $componentVersion.**|
     
-        Se quiser criar o cluster sem procuração REST, elimine `--kafka-management-node-size`, `--kafka-client-group-id`e `--kafka-client-group-name` do comando `az hdinsight create`.
+        Se quiser criar o cluster sem `--kafka-management-node-size`procuração `--kafka-client-group-name` REST, `az hdinsight create` elimine , `--kafka-client-group-id`e a partir do comando.
 
-    1. Se tiver uma rede virtual existente, adicione os parâmetros `--vnet-name` e `--subnet`e os seus valores.
+    1. Se tiver uma rede virtual existente, `--vnet-name` adicione `--subnet`os parâmetros e os seus valores.
 
     Introduza o seguinte comando para criar o cluster:
 

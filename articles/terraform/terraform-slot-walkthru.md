@@ -5,10 +5,10 @@ keywords: faixas de implantação de terraforme slots azure devops
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: ddd4d84ee8bf4ab1e90dd68da185cdd9075fe1e0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78943492"
 ---
 # <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Tutorial: Infraestrutura de provisionamento com faixas de implantação azure utilizando terrafora
@@ -25,11 +25,11 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Criar e aplicar o plano do Terraform
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue pelo [portal Azure.](https://portal.azure.com)
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
 1. Mude para o diretório `clouddrive`.
 
@@ -37,13 +37,13 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `deploy`.
+1. Crie um diretório denominado `deploy`.
 
     ```bash
     mkdir deploy
     ```
 
-1. Crie um diretório com o nome `swap`.
+1. Crie um diretório denominado `swap`.
 
     ```bash
     mkdir swap
@@ -107,7 +107,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 1. Agora que já criou o ficheiro, verifique os seus conteúdos.
 
@@ -115,7 +115,7 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
     cat deploy.tf
     ```
 
-1. Inicialize o Terraform.
+1. Inicie o Terraform.
 
     ```bash
     terraform init
@@ -268,9 +268,9 @@ Para testar a troca das duas ranhuras de implantação, faça os seguintes passo
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
-1. Inicialize o Terraform.
+1. Inicie o Terraform.
 
     ```bash
     terraform init
@@ -302,7 +302,7 @@ terraform apply
 
 Após a aplicação alternar, verá a configuração original.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Saiba mais sobre a utilização da Terraform em Azure](/azure/terraform)

@@ -1,21 +1,21 @@
 ---
-title: Criar um aplicativo .NET em Service Fabric no Azure
+title: Crie uma aplicação .NET no Service Fabric in Azure
 description: Neste tutorial, irá aprender a criar uma aplicação com um front-end do ASP.NET Core e um back-end com monitorização de estado de Reliable Service, e como implementar a aplicação num cluster.
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75465466"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço front-end de API Web do ASP.NET Core e um serviço back-end com monitorização de estado
 
 Este tutorial é a primeira parte de uma série.  Ficará a saber como criar uma aplicação do Azure Service Fabric com um front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado para armazenar dados. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](#walkthrough_anchor).  Se preferir, também pode ver um [vídeo passo a passo](https://channel9.msdn.com/Events/Connect/2017/E100) deste tutorial.
 
-![AngularJS + ASP. NET API front-end, conectando-se a um serviço de back-end com estado no Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API Front End, conectando-se a um serviço de backend imponente em Tecido de Serviço](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Na primeira parte da série, saiba como:
 
@@ -35,17 +35,17 @@ Nesta série de tutoriais, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instale o Visual Studio 2019](https://www.visualstudio.com/) versão 15,5 ou posterior com as cargas de trabalho de desenvolvimento e **ASP.net e** desenvolvimento para a Web **do Azure** .
-* [Instale o SDK do Service Fabric](service-fabric-get-started.md)
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Instale o Visual Studio 2019](https://www.visualstudio.com/) na versão 15.5 ou mais tarde com o **desenvolvimento do Azure** e ASP.NET e trabalhos de **desenvolvimento web.**
+* [Instale o SDK de Tecido de Serviço](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web do ASP.NET como um Reliable Service
 
 Em primeiro lugar, crie o front-end Web da aplicação de voto com o ASP.NET Core. O ASP.NET Core é uma arquitetura de desenvolvimento Web simples para várias plataformas que pode utilizar para criar uma IU Web e APIs Web modernas. Para obter uma compreensão abrangente de como o ASP.NET Core se integra com o Service Fabric, recomendamos vivamente que leia o artigo [ASP.NET Core no Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Por agora, pode seguir este tutorial para começar a trabalhar rapidamente. Para saber mais sobre o ASP.NET Core, veja a [Documentação do ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
-1. Inicie o Visual Studio como **administrador**.
+1. Lançar o Estúdio Visual como **administrador.**
 
-2. Crie um projeto em **Ficheiro**->**Novo**->**Projeto**.
+2. Criar um projeto com **o Arquivo**->**Novo**->**Projeto.**
 
 3. Na caixa de diálogo **Novo Projeto**, escolha **Cloud > Aplicação do Service Fabric**.
 
@@ -335,7 +335,7 @@ O Service Fabric permite-lhe armazenar de forma consistente e fiável os seus da
 
 Neste tutorial, irá criar um serviço que armazena um valor de contador numa Reliable Collection.
 
-1. No Explorador de Soluções, clique com o botão direito do rato em **Serviços** no projeto da aplicação de Voto e escolha **Adicionar -> Novo Serviço do Service Fabric...** .
+1. No Explorador de Soluções, clique com o botão direito do rato em **Serviços** no projeto da aplicação de Voto e escolha **Adicionar -> Novo Serviço do Service Fabric...**.
     
 2. Na caixa de diálogo **Novo Serviço do Service Fabric**, escolha **ASP.NET Core com Monitorização de Estado** e dê ao serviço o nome **VotingData** e prima **OK**.
 
@@ -349,7 +349,7 @@ Neste tutorial, irá criar um serviço que armazena um valor de contador numa Re
 
 ### <a name="add-the-votedatacontrollercs-file"></a>Adicionar o ficheiro VoteDataController.cs
 
-No projeto **VotingData**, clique com o botão direito do rato na pasta **Controladores** e, em seguida, selecione **Adicionar->Novo item->Classe**. Dê ao ficheiro o nome **VoteDataController.cs** e clique em **Adicionar**. Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.
+No projeto **VotingData,** clique à direita na pasta **Controladores** e, em seguida, selecione **Add->Nova classe >de itens**. Nomeie o ficheiro **VoteDataController.cs** e clique em **Adicionar**. Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.
 
 ```csharp
 namespace VotingData.Controllers
@@ -441,7 +441,7 @@ Neste passo, irá ligar os dois serviços e preparar a aplicação Web do front-
 
 O Service Fabric garante flexibilidade total na como comunica com o Reliable Services. Dentro de uma única aplicação, poderá ter serviços acessíveis através de TCP. Outros serviços poderão ser acessíveis através de uma API REST HTTP e outros serviços ainda poderão ser acessíveis através de sockets Web. Para obter informações gerais sobre as opções disponíveis e sobre as desvantagens existentes, veja [Comunicar com os serviços](service-fabric-connect-and-communicate-with-services.md).
 
-Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e o [proxy inverso do Service Fabric](service-fabric-reverseproxy.md), para que o serviço Web de front-end VotingWeb possa comunicar com o serviço VotingData de back-end. O proxy inverso está configurado por predefinição para utilizar a porta 19081 e deve funcionar para este tutorial. A porta de proxy reverso é definida no modelo de Azure Resource Manager usado para configurar o cluster. Para encontrar a porta utilizada, procure no modelo de clusters, no recurso **Microsoft.ServiceFabric/clusters**: 
+Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e o [proxy inverso do Service Fabric](service-fabric-reverseproxy.md), para que o serviço Web de front-end VotingWeb possa comunicar com o serviço VotingData de back-end. O proxy inverso está configurado por predefinição para utilizar a porta 19081 e deve funcionar para este tutorial. A porta de procuração inversa está definida no modelo do Gestor de Recursos Azure utilizado para configurar o cluster. Para encontrar a porta utilizada, procure no modelo de clusters, no recurso **Microsoft.ServiceFabric/clusters**: 
 
 ```json
 "nodeTypes": [
@@ -454,9 +454,9 @@ Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-servic
           }
         ],
 ```
-Para localizar a porta de proxy reverso usada no seu cluster de desenvolvimento local, exiba o elemento **HttpApplicationGatewayEndpoint** no manifesto do Cluster Service Fabric local:
-1. Abra uma janela do navegador e navegue até http:\//localhost: 19080 para abrir a ferramenta Service Fabric Explorer.
-2. Selecione **cluster-> manifesto**.
+Para encontrar a porta de procuração inversa utilizada no seu cluster de desenvolvimento local, consulte o elemento **HttpApplicationGatewayEndpoint** no manifesto de cluster de tecido de serviço local:
+1. Abra uma janela do navegador\/e navegue para http: /localhost:19080 para abrir a ferramenta Service Fabric Explorer.
+2. Selecione **Cluster -> Manifesto**.
 3. Anote a porta do elemento HttpApplicationGatewayEndpoint. Por predefinição, esta deve ser 19081. Se não for 19081, terá de alterar a porta no método GetProxyAddress do código VotesController.cs seguinte.
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
@@ -601,9 +601,9 @@ Ao depurar a aplicação no Visual Studio, vai utilizar um cluster de desenvolvi
 
 Para ver o que acontece no código, conclua os passos seguintes:
 
-1. Abra o arquivo **VotingWeb\VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 72).
+1. Abra o ficheiro **VotingWeb\VotesController.cs** e delineie um ponto de rutura no método **Put** da Web API (linha 72).
 
-2. Abra o arquivo **VotingData\VoteDataController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 54).
+2. Abra o ficheiro **VoteData\VoteDataController.cs** e delineie um ponto de rutura neste método de **Colocação** da API (linha 54).
 
 3. Prima **F5** para iniciar a aplicação no modo de depuração.
 
@@ -614,18 +614,18 @@ Para ver o que acontece no código, conclua os passos seguintes:
 
       ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Primeiro, construa o URL para o ReverseProxy para o serviço de back-end **(1)** .
-   3. Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)** .
-   4. Por último, devolva a resposta do serviço de back-end ao cliente **(3)** .
+   2. Primeiro, construa o URL para o ReverseProxy para o serviço de back-end **(1)**.
+   3. Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)**.
+   4. Por último, devolva a resposta do serviço de back-end ao cliente **(3)**.
 
 5. Prima **F5** para continuar.
    1. Está agora no ponto de interrupção do serviço de back-end.
 
       ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-   2. Na primeira linha no método **(1)** , utilize o `StateManager` para obter ou adicionar um dicionário fiável chamado `counts`.
+   2. Na primeira linha no método **(1)**, utilize o `StateManager` para obter ou adicionar um dicionário fiável chamado `counts`.
    3. Todas as interações com os valores num dicionário fiável requer uma transação; a utilização da declaração **(2)** cria essa transação.
-   4. Na transação, atualize o valor da chave relevante para a opção de voto e consolide a operação **(3)** . Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
+   4. Na transação, atualize o valor da chave relevante para a opção de voto e consolide a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
 6. Prima **F5** para continuar.
 
 Para parar a sessão de depuração, prima **Shift + F5**.

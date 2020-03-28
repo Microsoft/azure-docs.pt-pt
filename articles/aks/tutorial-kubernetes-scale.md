@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
 ms.openlocfilehash: 7db80e9bf0bd864762a88680132d77a3c5d21f19
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77621100"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicações no Serviço Kubernetes do Azure (AKS)
@@ -27,11 +27,11 @@ Em tutoriais adicionais, a aplicação Azure Vote é atualizada para uma nova ve
 
 Em tutoriais anteriores, uma aplicação foi embalada numa imagem de contentor. Esta imagem foi enviada para o Registo de Contentores Azure, e você criou um cluster AKS. A aplicação foi então implantada para o cluster AKS. Se ainda não fez estes passos, e gostaria de seguir em frente, comece com [tutorial 1 – Criar imagens][aks-tutorial-prepare-app]de contentores .
 
-Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial requer que esteja a executar a versão Azure CLI 2.0.53 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Dimensionar pods manualmente
 
-Quando o front-end do Azure Vote e a instância de Redis foram implementados nos tutoriais anteriores, foi criada uma réplica única. Para ver o número e o estado das cápsulas no seu cluster, use o [kubectl obter][kubectl-get] o comando da seguinte forma:
+Quando o front-end do Azure Vote e a instância de Redis foram implementados nos tutoriais anteriores, foi criada uma réplica única. Para ver o número e o estado de pods no seu cluster, utilize o comando [kubectl get][kubectl-get] da seguinte forma:
 
 ```console
 kubectl get pods
@@ -45,7 +45,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Para alterar manualmente o número de cápsulas na implantação *frontal de voto azul,* utilize o comando à [escala kubectl.][kubectl-scale] O exemplo seguinte aumenta o número de pods de front-end para *5*:
+Para alterar manualmente o número de pods na implementação do *azure-vote-front* com o comando [kubectl scale][kubectl-scale]. O exemplo seguinte aumenta o número de pods de front-end para *5*:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -67,21 +67,21 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Dimensionar pods automaticamente
 
-O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods numa implementação, consoante a utilização da CPU ou de outras métricas selecionadas. O Servidor de [Métricas][metrics-server] é utilizado para fornecer utilização de recursos a Kubernetes, e é automaticamente implantado em versões de clusters AKS 1.10 ou superior. Para ver a versão do seu cluster AKS, use o comando [az aks show,][az-aks-show] como mostra o seguinte exemplo:
+O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods numa implementação, consoante a utilização da CPU ou de outras métricas selecionadas. O [Servidor de Métricas][metrics-server] é utilizado para fornecer a utilização de recursos ao Kubernetes e é implementado automaticamente em clusters do AKS da versão 1.10 e superior. Para ver a versão do cluster AKS, utilize o comando [az aks show][az-aks-show], conforme mostrado no exemplo seguinte:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
 > [!NOTE]
-> Se o seu cluster AKS for inferior a *1.10,* o Servidor de Métricas não está instalado automaticamente. Para instalar, clone o `metrics-server` o repo GitHub e instale as definições de recursos exemplo. Para ver o conteúdo destas definições de YAML, consulte [o Servidor de Métricas para Kuberenetes 1.8+][metrics-server-github].
+> Se o seu cluster AKS for inferior a *1.10,* o Servidor de Métricas não está instalado automaticamente. Para instalar, clone o repo GitHub `metrics-server` e instale as definições de recursos exemplo. Para ver os conteúdos destas definições de YAML, consulte [Servidor de Métricas para Kuberenetes 1.8+][metrics-server-github].
 > 
 > ```console
 > git clone https://github.com/kubernetes-incubator/metrics-server.git
 > kubectl create -f metrics-server/deploy/1.8+/
 > ```
 
-Para utilizar o autoscaler, todos os recipientes nas suas cápsulas e nas suas cápsulas devem ter pedidos e limites de CPU definidos. No `azure-vote-front` implantação, o recipiente frontal já solicita 0,25 CPU, com um limite de 0,5 CPU. Estes pedidos e limites de recursos são definidos como mostrado no seguinte exemplo:
+Para utilizar o autoscaler, todos os recipientes nas suas cápsulas e nas suas cápsulas devem ter pedidos e limites de CPU definidos. Na `azure-vote-front` implantação, o recipiente frontal já solicita 0,25 CPU, com um limite de 0,5 CPU. Estes pedidos e limites de recursos são definidos como mostrado no seguinte exemplo:
 
 ```yaml
 resources:
@@ -91,13 +91,13 @@ resources:
      cpu: 500m
 ```
 
-O exemplo seguinte utiliza o comando [de escala automática kubectl][kubectl-autoscale] para automaticamente o número de cápsulas na implantação *frontal de voto azul.* Se a utilização média do CPU em todas as cápsulas exceder 50% do seu uso solicitado, o autoscaler aumenta as cápsulas até um máximo de *10* instâncias. É então definido um mínimo de *3* instâncias para a implantação:
+O exemplo seguinte utiliza o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implementação *azure-vote-front*. Se a utilização média do CPU em todas as cápsulas exceder 50% do seu uso solicitado, o autoscaler aumenta as cápsulas até um máximo de *10* instâncias. É então definido um mínimo de *3* instâncias para a implantação:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Em alternativa, pode criar um ficheiro manifesto para definir o comportamento e os limites de recursos da escala automática. Segue-se um exemplo de um ficheiro manifesto chamado `azure-vote-hpa.yaml`.
+Em alternativa, pode criar um ficheiro manifesto para definir o comportamento e os limites de recursos da escala automática. Segue-se um exemplo de `azure-vote-hpa.yaml`um ficheiro manifesto chamado .
 
 ```yaml
 apiVersion: autoscaling/v1
@@ -128,7 +128,7 @@ spec:
   targetCPUUtilizationPercentage: 50 # target CPU utilization
 ```
 
-Utilize `kubectl apply` para aplicar o autoscaler definido no ficheiro manifesto `azure-vote-hpa.yaml`.
+Utilize `kubectl apply` para aplicar o autoscaler definido no `azure-vote-hpa.yaml` ficheiro manifesto.
 
 ```
 kubectl apply -f azure-vote-hpa.yaml

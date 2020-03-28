@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78249885"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configure o reencaminhamento da porta no Equilíbrio de Carga Azure utilizando o portal
@@ -36,15 +36,15 @@ Neste tutorial, você configura a porta reencaminhando-se num Equilíbrio de Car
 > * Criar regras de encaminhamento de porta de entrada na nat de equilíbrio de carga.
 > * Instale e configure o IIS nos VMs para ver o equilíbrio de carga e o encaminhamento da porta em ação.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-Para todos os passos deste tutorial, inscreva-se no portal Azure na [https://portal.azure.com](https://portal.azure.com).
+Para todos os passos deste tutorial, inscreva-se no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Criar um equilibrador de carga Standard
 
 Em primeiro lugar, crie um equilibrador de carga standard público que possa equilibrar a carga de tráfego sobre VMs. Um equilibrador de carga Standard suporta apenas um endereço IP público Standard. Quando cria um balanceor de carga Standard, também cria um novo endereço IP público Standard, que é configurado como a extremidade frontal do equilibrador de carga e denominado **LoadBalancerFrontEnd** por padrão. 
 
-1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
+1. No lado superior esquerdo do ecrã, clique em **Criar um equilíbrio** > de**carga**de**rede** > de recursos .
 2. No separador **Basics** da página **'Criar balanceor de carga',** introduzir ou selecionar as seguintes informações, aceitar as predefinições para as restantes definições e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
@@ -74,12 +74,12 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<nome de grupo de recursos>**  | myResourceGroupLB (Select grupo de recursos existentes) |
-| **\<nome de rede virtual>** | myVNet          |
-| **\<nome da região>**          | Europa Ocidental      |
-| **\<IPv4-address-space>**   | 10.3.0.0\16          |
-| **\<sub-nome>**          | myBackendSubnet        |
-| **\<sub-endereço-gama>** | 10.3.0.0\24          |
+| **\<>de nome de grupo de recursos**  | myResourceGroupLB (Select grupo de recursos existentes) |
+| **\<>de nome de rede virtual** | myVNet          |
+| **\<>de nome da região**          | Europa ocidental      |
+| **\<>espaço de endereçoI4**   | 10.3.0.0\16          |
+| **\<>de nome de subnet**          | myBackendSubnet        |
+| **\<>de endereços-endereço de subnet** | 10.3.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -88,7 +88,7 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Compute** > **Windows Server 2016 Datacenter**. 
    
 1. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
-   - **Grupo de** **recursos** > de assinatura : Desça e selecione **MyResourceGroupLB**.
+   - **Subscription** > **Grupo de recursos**de subscrição : Desça e selecione **MyResourceGroupLB**.
    - **Nome da máquina virtual**: Type *MyVM1*.
    - **Região**: Selecione **Europa Ocidental**. 
    - **Nome de utilizador**: Tipo *azureuser*.
@@ -97,7 +97,7 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
    
 1. Selecione o separador **de rede** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**. 
    
-   Certifique-se de que estão selecionadas as seguintes:
+   Certifique-se de que são selecionados os seguintes:
    - **Rede virtual**: **MyVNet**
    - **Subnet**: **MyBackendSubnet**
    
@@ -112,7 +112,7 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
    
 1. Adicione o VM a uma piscina de back-end de equilíbrio de carga que cria:
    
-   1. Sob **equilíbrio de carga** > Coloque esta máquina virtual **atrás de uma solução de equilíbrio**de carga existente? 
+   1. Sob **BALANCEAMENTO** > DE CARGA**Coloque esta máquina virtual atrás de uma solução de equilíbrio**de carga existente? **Yes** 
    1. Para **as opções de equilíbrio**de carga, desça e selecione o equilíbrio de carga **Azure**. 
    1. Para **selecionar um equilíbrio de carga,** desça e selecione **MyLoadBalancer**. 
    1. Em **selecione um pool de backend,** selecione **Criar novo,** em seguida, digite *MyBackendPool*, e selecione **Criar**. 
@@ -138,7 +138,7 @@ Crie uma regra do grupo de segurança de rede (NSG) para que os VMs permitam lig
 >[!NOTE]
 >Por predefinição, o NSG já tem uma regra que abre a porta 3389, a porta de ambiente de trabalho remoto (RDP).
 
-1. Selecione **Todos os recursos** no menu esquerdo. A partir da lista de recursos, selecione **MyNetworkSecurityGroup** no grupo de recursos **MyResourceGroupLB.**
+1. Selecione **Todos os recursos** no menu da esquerda. A partir da lista de recursos, selecione **MyNetworkSecurityGroup** no grupo de recursos **MyResourceGroupLB.**
    
 1. Em **Definições**, selecione **Regras de segurança de entrada** e, em seguida, selecione **Adicionar**.
    
@@ -169,7 +169,7 @@ Criou o seu pool de back-end de balanceadores de carga e adicionou-lhe VMs quand
 
 1. **Selecione todos os recursos** no menu esquerdo e, em seguida, selecione **MyLoadBalancer** na lista de recursos.
    
-1. Em **Definições**, selecione **Conjuntos de back-end**.
+1. Em **Definições,** selecione **piscinas backend**.
    
 1. Na página **backend pools,** expanda **myBackendPool** e certifique-se de que tanto **vM1** como **VM2** estão listados.
 
@@ -181,7 +181,7 @@ Você pode criar novas piscinas de back-end selecionando **Adicionar** na págin
 
 ### <a name="create-a-health-probe"></a>Criar uma sonda de estado de funcionamento
 
-Para permitir que o Balanceador de carga monitorizar o estado da VM, pode utilizar uma sonda de estado de funcionamento. A sonda de estado de funcionamento adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na respetiva resposta às verificações de estado de funcionamento. 
+Para permitir que o equilibrador de carga monitorize o estado vm, utilize uma sonda de saúde. A sonda de estado de funcionamento adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na respetiva resposta às verificações de estado de funcionamento. 
 
 1. **Selecione todos os recursos** no menu esquerdo e, em seguida, selecione **MyLoadBalancer** na lista de recursos.
    
@@ -192,17 +192,17 @@ Para permitir que o Balanceador de carga monitorizar o estado da VM, pode utiliz
    - **Nome**: *Digite MyHealthProbe*.
    - **Protocolo**: Desça e selecione **HTTP**. 
    - **Porta**: Tipo *80*. 
-   - **Caminho**: Aceite */* para o URI padrão. Pode substituir este valor com qualquer outro URI. 
-   - **Intervalo**: Tipo *15*. O intervalo é o número de segundos entre tentativas da sonda.
-   - **Limiar pouco saudável**: Tipo *2*. Este valor é o número de falhas consecutivas da sonda que ocorrem antes de uma VM é considerada em mau estado de funcionamento.
+   - **Caminho**: */* Aceite para o URI padrão. Pode substituir este valor por qualquer outro URI. 
+   - **Intervalo**: Tipo *15*. Intervalo é o número de segundos entre as tentativas de sonda.
+   - **Limiar pouco saudável**: Tipo *2*. Este valor é o número de falhas de sonda consecutivas que ocorrem antes de um VM ser considerado insalubre.
    
 1. Selecione **OK**.
    
-   ![Adicionar uma sonda](./media/tutorial-load-balancer-port-forwarding-portal/4-load-balancer-probes.png)
+   ![Adicione uma sonda](./media/tutorial-load-balancer-port-forwarding-portal/4-load-balancer-probes.png)
 
-### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-As regras de balanceador de carga definem a forma como o tráfego é distribuído pelas VMs. A regra define a configuração de IP Front-end para tráfego de entrada, o conjunto IP de back-end para receber o tráfego e as portas de origem e de destino necessárias. 
+As regras de balanceador de carga definem a forma como o tráfego é distribuído pelas VMs. A regra define a configuração IP frontal para o tráfego de entrada, o pool IP de back-end para receber o tráfego, e as portas de origem e destino necessários. 
 
 A regra do equilíbrio de carga denominada **MyLoadBalancerRule** ouve a porta 80 na extremidade frontal **LoadBalancerFrontEnd**. A regra envia tráfego de rede para a piscina de endereços back-end **MyBackendPool**, também no porto 80. 
 
@@ -221,7 +221,7 @@ A regra do equilíbrio de carga denominada **MyLoadBalancerRule** ouve a porta 8
    
 1. Selecione **OK**.
    
-   ![Adicionar uma regra de Balanceador de carga](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Adicionar uma regra de balanceador de carga](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Criar uma regra de encaminhamento portuário nana
 
@@ -248,9 +248,9 @@ Criar uma regra de tradução de endereçode rede de suporte de carga (NAT) para
 
 Nesta secção, irá instalar serviços de informação de Internet (IIS) nos servidores de back-end e personalizar á página web padrão para mostrar o nome da máquina. Em seguida, utilizará o endereço IP público do equilibrador de carga para testar o equilibrador de carga. 
 
-Cada VM de back-end funciona de uma versão diferente do que a página de web do IIS predefinida, para que possa ver o Balanceador de carga a distribuir os pedidos entre as duas VMs.
+Cada VM de back-end serve uma versão diferente da página web padrão IIS, para que possa ver o balancer de carga distribuir pedidos entre os dois VMs.
 
-### <a name="connect-to-the-vms-with-rdp"></a>Ligar as VMs com RDP
+### <a name="connect-to-the-vms-with-rdp"></a>Ligue-se aos VMs com RDP
 
 Ligue-se a cada VM com Desktop Remoto (RDP). 
 
@@ -266,7 +266,7 @@ Ligue-se a cada VM com Desktop Remoto (RDP).
    
 1. Responda **Sim** a qualquer pedido de certificado. 
    
-   A área de trabalho da VM abre-se numa nova janela. 
+   O ambiente de trabalho VM abre numa nova janela. 
 
 ### <a name="install-iis-and-replace-the-default-iis-web-page"></a>Instale o IIS e substitua a página web do IIS predefinido 
 
@@ -274,7 +274,7 @@ Utilize o PowerShell para instalar o IIS e substitua a página web do IIS por de
 
 1. No MyVM1 e no MyVM2, lança o **Windows PowerShell** a partir do menu **Iniciar.** 
 
-2. Execute os seguintes comandos para instalar o IIS e substitua a página de web do IIS predefinida:
+2. Executar os seguintes comandos para instalar o IIS e substituir a página web do IIS predefinido:
    
    ```powershell-interactive
     # Install IIS
@@ -296,11 +296,11 @@ Utilize o PowerShell para instalar o IIS e substitua a página web do IIS por de
    
 1. Colhe ou escreva o endereço IP público do equilibrador de carga *(40.67.218.235*) na barra de endereços do seu navegador de internet. 
    
-   A página de predefinição do servidor de web IIS personalizada é apresentada no browser. A mensagem **lê-se ou Hello World from MyVM1**, ou **Hello World from MyVM2**.
+   A página padrão do servidor web IIS personalizada aparece no navegador. A mensagem **lê-se ou Hello World from MyVM1**, ou **Hello World from MyVM2**.
    
-   ![Nova página de padrão do IIS](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
+   ![Nova página padrão do IIS](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
    
-1. Atualize o browser para ver o Balanceador de carga a distribuir tráfego pelas VMs. Por vezes aparece a página **MyVM1,** e outras vezes aparece a página **MyVM2,** uma vez que o equilibrador de carga distribui os pedidos por cada VM de back-end.
+1. Atualize o navegador para ver o equilibrador de carga distribuir tráfego através de VMs. Por vezes aparece a página **MyVM1,** e outras vezes aparece a página **MyVM2,** uma vez que o equilibrador de carga distribui os pedidos por cada VM de back-end.
    
    >[!NOTE]
    >Poderá ter de limpar o cache do seu navegador ou abrir uma nova janela de navegador entre tentativas.
@@ -335,7 +335,7 @@ Para eliminar o equilibrador de carga e todos os recursos relacionados quando j�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou um equilibrador de carga pública Standard. Criar e configurar recursos de rede, servidores de back-end, uma sonda de estado de funcionamento e regras de Balanceador de carga. Instalou o IIS nos VMs traseiros e utilizou o endereço IP público do equilibrador de carga para testar o equilíbrio de carga. Instalou e testou a encaminhamento da porta de uma porta especificada no equilibrante de carga para uma porta num VM de back-end. 
+Neste tutorial, criou um equilibrador de carga pública Standard. Criou e configurou recursos de rede, servidores back-end, uma sonda de saúde e regras para o equilibrador de carga. Instalou o IIS nos VMs traseiros e utilizou o endereço IP público do equilibrador de carga para testar o equilíbrio de carga. Instalou e testou a encaminhamento da porta de uma porta especificada no equilibrante de carga para uma porta num VM de back-end. 
 
 Para saber mais sobre o Azure Load Balancer, continue a carregar tutoriais de equilibradores.
 

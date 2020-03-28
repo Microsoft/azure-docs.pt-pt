@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76939104"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
 
-Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação web Azure e ter os seus utilizadores a aceder em www\.contoso.com ou contoso.com como um nome de domínio totalmente qualificado (FQDN).
+Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação web Azure e\.ter os seus utilizadores a aceder em www contoso.com ou contoso.com como um nome de domínio totalmente qualificado (FQDN).
 
 > [!NOTE]
 > Contoso.com é utilizado como um exemplo neste tutorial. Substitua o seu nome de domínio por contoso.com.
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 > * Testar os nomes de anfitrião personalizados
 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -173,7 +173,7 @@ set-AzWebApp `
 Abra um browser e navegue até `http://www.<your domainname>` e `http://<you domain name>`.
 
 > [!NOTE]
-> Certifique-se de que inclui o prefixo `http://`, caso contrário, o seu navegador poderá tentar prever um URL para si!
+> Certifique-se de `http://` que inclui o prefixo, caso contrário o seu navegador poderá tentar prever um URL para si!
 
 Deverá ver a mesma página para ambos os URLs. Por exemplo:
 
