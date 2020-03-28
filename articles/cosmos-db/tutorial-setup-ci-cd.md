@@ -8,10 +8,10 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77561907"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
@@ -39,7 +39,7 @@ Em seguida, selecione a organização em que pretende instalar a extensão.
 
 Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevOps e encontre o seu projeto no dashboard de projetos. Pode adicionar um [pipeline de compilação](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ao seu projeto ou modificar um pipeline de compilação existente. Se já tem um pipeline de compilação, pode avançar para [Adicionar a tarefa de compilação do Emulador à definição de compilação](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+New** (+Novo). \> **Novo oleoduto de construção**
+1. Para criar uma nova definição de compilação, navegue até ao separador **Compilações** no DevOps do Azure. Selecione **+New** (+Novo). \> **Novo pipeline de compilação**
 
    ![Criar um novo pipeline de compilação](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -50,7 +50,7 @@ Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevO
 3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. Agora você tem um pipeline de construção que você pode configurar para usar a tarefa de construção de emulador Azure Cosmos DB. 
 
 > [!NOTE]
-> O conjunto de agentes a selecionar para este CI deve ter o Docker para windows instalado a menos que a instalação seja feita manualmente numa tarefa anterior como parte do CI. Consulte o artigo dos [agentes hospedados da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para uma seleção de grupos de agentes; recomendamos começar com `Hosted VS2017`.
+> O conjunto de agentes a selecionar para este CI deve ter o Docker para windows instalado a menos que a instalação seja feita manualmente numa tarefa anterior como parte do CI. Consulte o artigo dos [agentes hospedados da Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) para uma seleção de grupos de agentes; recomendamos começar `Hosted VS2017`com .
 
 O emulador Azure Cosmos DB atualmente não suporta o grupo de agentes VS2019 hospedado. No entanto, o emulador já vem com VS2019 instalado e você usa-o iniciando o emulador com os seguintes cmdlets PowerShell. Se tiver algum problema ao utilizar o VS2019, contacte a equipa [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) para obter ajuda:
 
@@ -59,11 +59,11 @@ Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Az
 Start-CosmosDbEmulator
 ```
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Adicionar a tarefa a um pipeline de compilação
+## <a name="add-the-task-to-a-build-pipeline"></a><a name="addEmulatorBuildTaskToBuildDefinition"></a>Adicionar a tarefa a um pipeline de compilação
 
 1. Antes de adicionar uma tarefa ao pipeline de compilação, deve adicionar uma tarefa de agente. Navegue para o seu pipeline de compilação, selecione **...** e escolha **Adicionar uma tarefa de agente**.
 
-1. Em seguida, selecione o símbolo **+** junto à tarefa de agente para adicionar a tarefa de compilação do emulador. Procure **cosmos** na caixa de pesquisa, selecione **Emulador do Azure Cosmos DB** e adicione-o à tarefa do agente. A tarefa de compilação irá iniciar um contentor com uma instância do emulador do Cosmos DB já em execução no mesmo. A tarefa de Emulador do Azure Cosmos DB deve ser colocada antes de quaisquer outras tarefas que esperam que o emulador esteja em execução.
+1. Em seguida, selecione o **+** símbolo ao lado da função do agente para adicionar a tarefa de construção do emulador. Procure **cosmos** na caixa de pesquisa, selecione **Emulador do Azure Cosmos DB** e adicione-o à tarefa do agente. A tarefa de compilação irá iniciar um contentor com uma instância do emulador do Cosmos DB já em execução no mesmo. A tarefa de Emulador do Azure Cosmos DB deve ser colocada antes de quaisquer outras tarefas que esperam que o emulador esteja em execução.
 
    ![Adicionar a tarefa de compilação do Emulador à definição de compilação](./media/tutorial-setup-ci-cd/addExtension_3.png)
 

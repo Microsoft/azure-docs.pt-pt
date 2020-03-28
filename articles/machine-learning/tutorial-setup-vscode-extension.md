@@ -10,17 +10,17 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 02/24/2020
 ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77604853"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configurar a extensão do código do estúdio visual de aprendizagem automática Azure
 
 Aprenda a instalar e executar scripts utilizando a extensão do Código de Estúdio Visual de Aprendizagem automática Azure.
 
-Neste tutorial, aprende-se as seguintes tarefas:
+Neste tutorial, irá aprender as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Instale a extensão do Código do Estúdio Visual de Aprendizagem automática Azure
@@ -41,7 +41,7 @@ Neste tutorial, aprende-se as seguintes tarefas:
 1. Selecione **Instalar**.
 
     > [!div class="mx-imgBorder"]
-    > ![instalar](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG) de extensão de código VS de aprendizagem automática azure
+    > ![Instale extensão de código VS de aprendizagem automática azure](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG)
 
 > [!NOTE]
 > Em alternativa, pode instalar a extensão Azure Machine Learning através do Visual Studio [Marketplace, baixando diretamente o instalador](https://aka.ms/vscodetoolsforai). 
@@ -52,7 +52,7 @@ Os restantes passos deste tutorial foram testados com a **versão 0.6.8** da ext
 
 Para fornecer recursos e executar cargas de trabalho no Azure, tem de assinar com as credenciais da sua conta Azure. Para ajudar na gestão da conta, o Azure Machine Learning instala automaticamente a extensão da Conta Azure. Visite o seguinte site para [saber mais sobre a extensão da Conta Azure.](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-1. Abra a paleta de comando selecionando **View > Paleta** de Comando da barra de menus. 
+1. Abra a paleta de comando selecionando **a Paleta de comando > da** barra de menus. 
 1. Introduza o comando "Azure: Inscreva-se" na paleta de comando para iniciar o sinal em processo.
 
 ## <a name="run-a-machine-learning-model-training-script-in-azure"></a>Executar um roteiro de treinamento de modelo de aprendizagem automática em Azure
@@ -60,12 +60,12 @@ Para fornecer recursos e executar cargas de trabalho no Azure, tem de assinar co
 Agora que assinou no Azure com as credenciais da sua conta, use os passos nesta secção para aprender a usar a extensão para treinar um modelo de aprendizagem automática.
 
 1. Descarregue e desaperte as Ferramentas de Código VS para o [repositório](https://github.com/microsoft/vscode-tools-for-ai/archive/master.zip) de IA em qualquer lugar do seu computador.
-1. Abra o diretório `mnist-vscode-docs-sample` em Visual Studio Code.
+1. Abra `mnist-vscode-docs-sample` o diretório em Visual Studio Code.
 1. Selecione o ícone **Azure** na Barra de Atividades.
 1. Selecione o ícone **Run Experiment** no topo da Vista de Aprendizagem automática Azure.
 
     > [!div class="mx-imgBorder"]
-    > ![run experiment](./media/tutorial-setup-vscode-extension/run-experiment.PNG)
+    > ![Experiência de execução](./media/tutorial-setup-vscode-extension/run-experiment.PNG)
 
 1. Quando a paleta de comando se expandir, siga as instruções.
 
@@ -110,7 +110,7 @@ Agora que assinou no Azure com as credenciais da sua conta, use os passos nesta 
     Azure ML: Submit Experiment
     ```
 
-    Isto envia o ficheiro `train.py` e configuração para o seu espaço de trabalho De Aprendizagem automática Azure. O trabalho de formação é então iniciado com um recurso de computação em Azure.
+    Isto envia `train.py` o ficheiro e configuração para o seu espaço de trabalho De Aprendizagem automática Azure. O trabalho de formação é então iniciado com um recurso de computação em Azure.
 
 ### <a name="track-the-progress-of-the-training-script"></a>Acompanhe o progresso do roteiro de treino
 
@@ -118,11 +118,11 @@ Executar o seu guião pode levar vários minutos. Para acompanhar o seu progress
 
 1. Selecione o ícone **Azure** da barra de atividades.
 1. Expanda o seu nó de subscrição.
-1. Expanda o nó da experiência atual. Isto está localizado dentro do nó `{workspace}/Experiments/{experiment}` onde os valores para o seu espaço de trabalho e experiência são os mesmos que as propriedades definidas no ficheiro de configuração.
+1. Expanda o nó da experiência atual. Isto está localizado `{workspace}/Experiments/{experiment}` dentro do nó onde os valores para o seu espaço de trabalho e experiência são os mesmos que as propriedades definidas no ficheiro de configuração.
 1. Todas as corridas para a experiência estão listadas, bem como o seu estatuto. Para obter o estado mais recente, clique no ícone de atualização no topo da Vista de Aprendizagem automática Azure.
 
     > [!div class="mx-imgBorder"]
-    > ![track experiment progress](./media/tutorial-setup-vscode-extension/track-experiment-progress.PNG)
+    > ![Track Experiment Progress](./media/tutorial-setup-vscode-extension/track-experiment-progress.PNG)
 
 ### <a name="download-the-trained-model"></a>Descarregue o modelo treinado
 
@@ -131,11 +131,11 @@ Quando a execução da experiência está completa, a saída é um modelo treina
 1. Clique na execução mais recente e selecione **Download Outputs**.
 
     > [!div class="mx-imgBorder"]
-    > ![download de modelo treinado](./media/tutorial-setup-vscode-extension/download-trained-model.PNG)
+    > ![Modelo treinado para descarregar](./media/tutorial-setup-vscode-extension/download-trained-model.PNG)
 
 1. Selecione um local para onde guardar as saídas.
 1. Uma pasta com o nome da sua execução é descarregada localmente. Navegue até à mesma.
-1. Os ficheiros modelo estão dentro do diretório `outputs/outputs/model`.
+1. Os ficheiros modelo `outputs/outputs/model` estão dentro do diretório.
 
 ## <a name="next-steps"></a>Passos seguintes
 

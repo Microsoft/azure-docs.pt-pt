@@ -1,6 +1,6 @@
 ---
-title: Excluir um cache do Azure para Redis-CLI do Azure
-description: Este exemplo de código CLI do Azure mostra como excluir um cache do Azure para a instância Redis usando o comando AZ Redis Delete.
+title: Eliminar um Cache Azure para Redis - Azure CLI
+description: Esta amostra de código Azure CLI mostra como eliminar um Cache Azure para a instância Redis utilizando o comando az redis apagado.
 author: yegu-ms
 ms.author: yegu
 tags: azure-service-management
@@ -9,15 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.openlocfilehash: e5178ab4069cc5ffa8607c5feea6ffac86284a5b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75411083"
 ---
-# <a name="delete-an-azure-cache-for-redis"></a>Eliminar a Cache do Azure para Redis
+# <a name="delete-an-azure-cache-for-redis"></a>Eliminar um Cache Azure para Redis
 
-Neste cenário, irá aprender a eliminar uma Cache do Azure para Redis.
+Neste cenário, aprende-se a apagar um Azure Cache para Redis.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -29,15 +29,15 @@ Neste cenário, irá aprender a eliminar uma Cache do Azure para Redis.
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para eliminar uma Cache do Azure para a instância de Redis. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para eliminar um Cache Azure para a instância Redis. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az redis delete](https://docs.microsoft.com/cli/azure/redis) | Elimine Cache do Azure para a instância de Redis. |
+| [az redis apagar](https://docs.microsoft.com/cli/azure/redis) | Elimine o Cache Azure para a instância Redis. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-A Cache do Azure adicionais para exemplos do script da CLI de Redis pode ser encontrada na [Cache do Azure para a documentação do Redis](../cli-samples.md).
+As amostras de script sinuosas do Redis CLI podem ser encontradas no [Azure Cache para documentação redis](../cli-samples.md).

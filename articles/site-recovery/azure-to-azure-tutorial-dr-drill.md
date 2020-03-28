@@ -1,18 +1,18 @@
 ---
-title: Executar uma análise de recuperação de desastre de VM do Azure com Azure Site Recovery
-description: Saiba como executar uma análise de recuperação de desastre em uma região secundária para VMs do Azure usando o serviço de Azure Site Recovery.
+title: Faça um exercício de recuperação de desastres Azure VM com recuperação do site Azure
+description: Aprenda a executar um exercício de recuperação de desastres para uma região secundária para VMs Azure usando o serviço de recuperação de locais Azure.
 services: site-recovery
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.custom: mvc
 ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76166181"
 ---
-# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Executar uma análise de recuperação de desastre em uma região secundária para VMs do Azure
+# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Faça um exercício de recuperação de desastres para uma região secundária para VMs Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento e disponíveis durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
@@ -23,34 +23,34 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 > * Executar uma ativação pós-falha de teste para uma única VM
 
 > [!NOTE]
-> Este tutorial ajuda você a executar uma análise de recuperação de desastre com etapas mínimas. Para saber mais sobre as várias funções relacionadas à realização de uma análise de recuperação de desastres, consulte a documentação de [replicação](azure-to-azure-how-to-enable-replication.md), [rede](azure-to-azure-about-networking.md), [automação](azure-to-azure-powershell.md)ou [solução de problemas](azure-to-azure-troubleshoot-errors.md)de VMs do Azure.
+> Este tutorial ajuda-o a realizar um exercício de recuperação de desastres com passos mínimos. Para saber mais sobre as várias funções relacionadas com a realização de um exercício de recuperação de desastres, consulte a documentação para a [replicação](azure-to-azure-how-to-enable-replication.md)de VMs Azure, [networking,](azure-to-azure-about-networking.md) [automação](azure-to-azure-powershell.md)ou resolução de [problemas.](azure-to-azure-troubleshoot-errors.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique os seguintes itens antes de fazer este tutorial:
 
-- Antes de executar um failover de teste, recomendamos que você verifique as propriedades da VM para certificar-se de que ela esteja configurada para recuperação de desastre. Acesse as **Propriedades** da **VM** > **recuperação de desastre** > para exibir as propriedades de replicação e failover.
-- **Recomendamos que utilize uma rede de VMs do Azure na ativação pós-falha de teste**, e não a rede predefinida que foi configurada quando ativou a replicação.
-- Dependendo das configurações de rede de origem para cada NIC, você pode especificar a **sub-rede**, o **endereço IP privado**, o **IP público**, o **grupo de segurança de rede**ou o **balanceador de carga** para anexar a cada NIC em configurações de failover de teste em **computação e rede** antes de fazer uma análise de recuperação de desastre.
+- Antes de executar um teste failover, recomendamos que verifique as propriedades do VM para se certificar de que está configurado para a recuperação de desastres. Vá às**Propriedades** de**Recuperação** > de Desastres de **Operações** > da VM para ver as propriedades de replicação e failover.
+- **Recomendamos que utilize uma rede Azure VM separada para a falha do teste**, e não a rede predefinida que foi criada quando ativou a replicação.
+- Dependendo das configurações de rede de origem para cada NIC, pode especificar **Subnet**, **endereço IP privado,** **IP público,** grupo de segurança de **rede**ou **balanceador** de carga para anexar a cada NIC em configurações de falha de teste em **Compute e Network** antes de fazer um exercício de recuperação de desastres.
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
-Este exemplo mostra como usar um cofre de serviços de recuperação para fazer um failover de teste de VM.
+Este exemplo mostra como usar um cofre de Serviços de Recuperação para fazer um teste VM failover.
 
-1. Selecione um cofre e vá para **itens protegidos** > **itens replicados** e selecione uma VM.
-1. Em **failover de teste**, selecione um ponto de recuperação a ser usado para o failover:
-   - **Mais recente**: processa todos os dados em site Recovery e fornece o RTO mais baixo (objetivo de tempo de recuperação).
-   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. O carimbo de data/hora é apresentado. Com essa opção, nenhum tempo é gasto processando dados, portanto, ele fornece um RTO baixo.
+1. Selecione um cofre e vá a **itens protegidos** > **Itens replicados** e selecione um VM.
+1. No **Teste Failover,** selecione um ponto de recuperação para utilizar para a falha:
+   - **Mais recente**: Processa todos os dados na Recuperação do Site e fornece o RTO mais baixo (Objetivo do Tempo de Recuperação).
+   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é gasto tempo a processar dados, pelo que proporciona um RTO baixo.
    - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
-   - **Personalizado**: failover para um ponto de recuperação específico. O personalizado só está disponível quando você faz failover de uma única VM e não para failover com um plano de recuperação.
-1. Selecione a rede virtual do Azure de destino à qual as VMs do Azure na região secundária serão conectadas após o failover.
+   - **Personalizado**: Falhe no ponto de recuperação específico. O costume só está disponível quando falha num único VM, e não por falhas com um plano de recuperação.
+1. Selecione a rede virtual Azure-alvo a que os VMs Azure na região secundária se ligarão após a falha.
 
    > [!NOTE]
-   > Se as configurações de failover de teste forem pré-configuradas para o item replicado, o menu suspenso para selecionar uma rede virtual do Azure não será visível.
+   > Se as definições de failover do teste forem pré-configuradas para o item replicado, o menu de dropdown para selecionar uma rede virtual Azure não é visível.
 
-1. Para iniciar o failover, selecione **OK**. Para acompanhar o progresso do cofre, acesse **monitoramento** > **trabalhos de site Recovery** e selecione o trabalho de failover de **teste** .
-1. Depois que o failover for concluído, a VM do Azure de réplica aparecerá nas **máquinas virtuais**do portal do Azure. Certifique-se de que a VM está em execução, tem as dimensões adequadas e está ligada à rede devida.
-1. Para excluir as VMs que foram criadas durante o failover de teste, selecione **limpar failover de teste** no item replicado ou no plano de recuperação. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
+1. Para iniciar a falha, selecione **OK**. Para acompanhar o progresso do cofre, vá a trabalhos de **monitorização** > de**recuperação** do local e selecione o trabalho de Failover de **Teste.**
+1. Após o acabamento da falha, a réplica Azure VM aparece nas **Máquinas Virtuais**do portal Azure. Certifique-se de que a VM está em execução, tem as dimensões adequadas e está ligada à rede devida.
+1. Para eliminar os VMs que foram criados durante a falha do teste, **selecione falha** no teste de limpeza no item replicado ou no plano de recuperação. Em **Notas,** grave e guarde quaisquer observações associadas ao failover do teste.
 
 ## <a name="next-steps"></a>Passos seguintes
 

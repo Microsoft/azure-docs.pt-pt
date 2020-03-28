@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark  Microsoft Docs'
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark [ Spark] Microsoft Docs'
 description: Este tutorial mostra como executar consultas spark em um cluster De Cede Databricks para aceder a dados em uma conta de armazenamento de armazenamento de Lago De dados Azure Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: be5a2f76a99149fde378d29f2ef7748ebe60b038
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78303244"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
@@ -26,7 +26,7 @@ Neste tutorial, irá:
 > * Ingerir dados não estruturados numa conta de armazenamento
 > * Executar análises sobre os seus dados no armazenamento blob
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +65,7 @@ Este tutorial utiliza dados de voo do Bureau of Transportation Statistics para d
 
 Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
+1. No portal Azure, selecione **Criar um recurso** > **Analytics** > **Azure Databricks**.
 
     ![Tijolos de dados no portal Azure](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Tijolos de dados no portal Azure")
 
@@ -74,12 +74,12 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks.  |
-    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+    |**Assinatura**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).       |
-    |**Escalão de Preço**     |  Selecione **Standard**.     |
+    |**Nível de Preços**     |  Selecione **Standard**.     |
 
-    ![Criar um espaço de trabalho Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Criar um serviço Azure Databricks")
+    ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Criar um serviço Azure Databricks")
 
 3. A criação da conta demora alguns minutos. Para monitorizar o estado de funcionamento, veja a barra de progresso no topo.
 
@@ -125,11 +125,11 @@ Utilize o AzCopy para copiar dados do seu ficheiro *.csv* na sua conta Data Lake
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
-   * Substitua o valor do espaço reservado `<csv-folder-path>` pelo caminho para o ficheiro *.csv.*
+   * Substitua `<csv-folder-path>` o valor do espaço reservado pelo caminho para o ficheiro *.csv.*
 
-   * Substitua o valor `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
+   * Substitua `<storage-account-name>` o valor do espaço reservado pelo nome da sua conta de armazenamento.
 
-   * Substitua o espaço reservado `<container-name>` pelo nome de um recipiente na sua conta de armazenamento.
+   * Substitua `<container-name>` o espaço reservado pelo nome de um recipiente na sua conta de armazenamento.
 
 ## <a name="create-a-container-and-mount-it"></a>Criar um recipiente e montá-lo
 
@@ -161,7 +161,7 @@ Nesta secção, irá criar um recipiente e uma pasta na sua conta de armazenamen
     extra_configs = configs)
     ```
 
-18. Neste bloco de código, substitua os valores `appId`, `password`, `tenant`e `storage-account-name` espaço reservado neste bloco de código supor os valores recolhidos ao completar os pré-requisitos deste tutorial. Substitua o valor `container-name` espaço reservado pelo nome do recipiente.
+18. Neste bloco de código, `password` `tenant`substitua `storage-account-name` os `appId`valores de , , e espaço reservado neste bloco de código supor os valores que recolheu ao completar os pré-requisitos deste tutorial. Substitua `container-name` o valor do espaço reservado pelo nome do recipiente.
 
 19. Prima as teclas **SHIFT + ENTER** para executar o código neste bloco.
 
@@ -209,7 +209,7 @@ Em seguida, pode começar a consultar os dados que carregou para a sua conta de 
 
 Para criar quadros de dados para as suas fontes de dados, execute o seguinte script:
 
-* Substitua o valor do espaço reservado `<csv-folder-path>` pelo caminho para o ficheiro *.csv.*
+* Substitua `<csv-folder-path>` o valor do espaço reservado pelo caminho para o ficheiro *.csv.*
 
 ```python
 # Copy this into a Cmd cell in your notebook.

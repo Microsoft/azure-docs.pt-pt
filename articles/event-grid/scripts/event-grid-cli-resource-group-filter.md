@@ -1,5 +1,5 @@
 ---
-title: Azure CLI - subscreva o grupo de recursos e o filtro por recurso
+title: Azure CLI - subscreva o grupo de recursos & filtro por recurso
 description: Este artigo fornece uma amostra do script Azure CLI que mostra como subscrever eventos da Rede de Eventos para um recurso e filtrar para um recurso.
 services: event-grid
 documentationcenter: na
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 3dfe31a38d1bc1ba8662246a5dec3f10d0d1c948
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76720831"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Subscrever eventos de um grupo de recursos e filtrar um recurso com a CLI
@@ -45,7 +45,7 @@ Este script utiliza o seguinte comando para criar a subscrição de eventos. Cad
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Crie uma subscrição do Event Grid. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - versão de extensão | Crie uma subscrição do Event Grid. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a consulta de subscrições, veja [Consultar subscrições do Event Grid](../query-event-subscriptions.md).
 * Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

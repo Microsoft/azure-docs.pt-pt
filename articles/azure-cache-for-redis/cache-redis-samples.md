@@ -1,63 +1,63 @@
 ---
 title: Exemplos da Cache do Azure para Redis
-description: 'Saiba como usar o cache do Azure para Redis com estes exemplos de código: conectando a um cache, lendo e gravando dados em um cache, ASP.NET do cache do Azure para provedores de Redis.'
+description: 'Aprenda a utilizar o Azure Cache para Redis com estas amostras de código: conectar-se a um cache, ler e escrever dados numa cache, ASP.NET Azure Cache para os fornecedores redis.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: sample
 ms.date: 01/23/2017
 ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75433410"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exemplos da Cache do Azure para Redis
-Este tópico fornece uma lista de exemplos do cache do Azure para Redis, abrangendo cenários como conectar-se a um cache, ler e gravar dados de e para um cache e usar o cache do Azure ASP.NET para provedores de Redis. Alguns dos exemplos são projetos que podem ser baixados e alguns fornecem orientações passo a passo e incluem trechos de código, mas não são vinculados a um projeto que pode ser baixado.
+Este tópico fornece uma lista de Azure Cache para amostras Redis, abrangendo cenários como a ligação a um cache, dados de leitura e escrita de e para uma cache, e usando o ASP.NET Azure Cache para os fornecedores Redis. Algumas das amostras são projetos transferíveis, e algumas fornecem orientação passo a passo e incluem códigos, mas não se ligam a um projeto transferível.
 
-## <a name="hello-world-samples"></a>Exemplos do Hello World
-Os exemplos nesta seção mostram as noções básicas de como se conectar a um cache do Azure para a instância Redis e ler e gravar dados no cache usando uma variedade de linguagens e clientes Redis.
+## <a name="hello-world-samples"></a>Olá amostras do mundo
+As amostras desta secção mostram o básico de ligar-se a um Azure Cache para redis e ler e escrever dados à cache usando uma variedade de idiomas e clientes Redis.
 
-O exemplo [Olá, mundo](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) mostra como executar várias operações de cache usando o cliente .NET [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) .
+A amostra [do mundo Hello](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) mostra como realizar várias operações de cache usando o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .NET.
 
-Este exemplo mostra como:
+Esta amostra mostra como:
 
-* Usar várias opções de conexão
-* Ler e gravar objetos de e para o cache usando operações síncronas e assíncronas
-* Usar comandos Redis MGET/MSET para retornar valores de chaves especificadas
-* Executar operações transacionais Redis
-* Trabalhar com listas de Redis e conjuntos classificados
-* Armazenar objetos .NET usando serializadores JsonConvert
-* Usar conjuntos de Redis para implementar a marcação
-* Trabalhar com o cluster Redis
+* Utilize várias opções de ligação
+* Ler e escrever objetos de e para a cache usando operações sincronizadas e assíncronas
+* Utilize comandos Redis MGET/MSET para devolver valores de teclas especificadas
+* Realizar operações transacionais Redis
+* Trabalhar com listas Redis e conjuntos classificados
+* Armazenar objetos .NET utilizando serializadores JsonConvert
+* Use conjuntos Redis para implementar a marcação
+* Trabalhar com o Aglomerado Redis
 
-Para obter mais informações, consulte a documentação do [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) no GitHub e para obter mais cenários de uso, consulte os testes de unidade [stackexchange. Redis. Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) .
+Para mais informações, consulte a documentação [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) no GitHub e para mais cenários de utilização consulte os testes da unidade [StackExchange.Redis.Tests.](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests)
 
-[Como usar o cache do Azure para Redis com Python](cache-python-get-started.md) mostra como começar a usar o cache do Azure para Redis usando Python e o cliente [Redis-py](https://github.com/andymccurdy/redis-py) .
+[Como usar o Azure Cache para Redis com Python](cache-python-get-started.md) mostra como começar com o Azure Cache para redis usando Python e o cliente [redis-py.](https://github.com/andymccurdy/redis-py)
 
-[Trabalhar com objetos .net no cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) mostra uma maneira de serializar objetos .net para que você possa gravá-los e lê-los de um cache do Azure para instância Redis. 
+[Trabalhar com objetos .NET na cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) mostra-lhe uma maneira de serializar objetos .NET para que possa escrevê-los e lê-los a partir de um Cache Azure para redis. 
 
-## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Usar o cache do Azure para Redis como um backplane de expansão para o Signalr ASP.NET
-O exemplo de [uso do cache do Azure para Redis como um backplane de expansão para ASP.net signalr](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) demonstra como você pode usar o cache do Azure para Redis como um backplane do signalr. Para obter mais informações sobre o backplane, consulte [signaler ScaleOut com Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Use o Cache Azure para Redis como um backplane scale out para ASP.NET SignalR
+O [Depósito Azure para Redis como um backplane scale out para ASP.NET](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) a amostra SignalR demonstra como pode utilizar o Azure Cache para Redis como um backplane SignalR. Para mais informações sobre o backplane, consulte [SignalR Scaleout com Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
-## <a name="azure-cache-for-redis-customer-query-sample"></a>Cache do Azure para exemplo de consulta de cliente Redis
-Este exemplo demonstra como comparar o desempenho entre o acesso a dados de um cache e o acesso a dados do armazenamento de persistência. Este exemplo tem dois projetos.
+## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure Cache para amostra de consulta de cliente Redis
+Esta amostra demonstra que compara o desempenho entre o acesso a dados a partir de uma cache e o acesso a dados a partir do armazenamento de persistência. Esta amostra tem dois projetos.
 
-* [Demonstração de como o cache do Azure para Redis pode melhorar o desempenho armazenando dados em cache](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-* [Propagar o banco de dados e o cache para a demonstração](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+* [Demo como Azure Cache for Redis pode melhorar desempenho através de dados de Caching](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [Sementes a Base de Dados e Cache para a demonstração](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
-## <a name="aspnet-session-state-and-output-caching"></a>Estado de sessão ASP.NET e cache de saída
-O exemplo [usar o cache do Azure para Redis para armazenar o ASP.net SessionState e OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) demonstra como usar o cache do Azure para Redis para armazenar a sessão ASP.net e o cache de saída usando os provedores SessionState e OutputCache para Redis.
+## <a name="aspnet-session-state-and-output-caching"></a>ASP.NET Sessão Estado e Caching de Saída
+O [Depósito De Utilização Azure para redis para armazenar ASP.NET amostra SessionState e OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) demonstra como você usa O Cache Azure para Redis para armazenar ASP.NET Session e Output Cache utilizando os fornecedores SessionState e OutputCache para Redis.
 
-## <a name="manage-azure-cache-for-redis-with-maml"></a>Gerenciar o cache do Azure para Redis com MAML
-O exemplo [gerenciar o cache do Azure para Redis usando bibliotecas de gerenciamento do Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) demonstra como você pode usar as bibliotecas de gerenciamento do Azure para gerenciar (criar/atualizar/excluir) seu cache. 
+## <a name="manage-azure-cache-for-redis-with-maml"></a>Gerir o Azure Cache para Redis com MAML
+A cache [Manage Azure para Redis utilizando bibliotecas de gestão Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) mostra como pode utilizar bibliotecas de gestão Azure para gerir - (Criar/ Atualizar/ eliminar) a sua cache. 
 
-## <a name="custom-monitoring-sample"></a>Exemplo de monitoramento personalizado
-O exemplo de [dados de monitoramento do cache do Azure para Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) demonstra como você pode acessar dados de monitoramento para o cache do Azure para Redis fora do portal do Azure.
+## <a name="custom-monitoring-sample"></a>Amostra de monitorização personalizada
+A amostra de dados de Monitorização De [Acesso Azure Para Monitorização Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) demonstra como pode aceder a dados de monitorização do seu Azure Cache for Redis fora do Portal Azure.
 
-## <a name="a-twitter-style-clone-written-using-php-and-redis"></a>Um clone no estilo do Twitter escrito usando PHP e Redis
-O exemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) é o Redis Olá, mundo. É um clone de rede social mínimo no estilo do Twitter escrito usando Redis e PHP usando o cliente [Predis](https://github.com/nrk/predis) . O código-fonte foi projetado para ser muito simples e ao mesmo tempo para mostrar diferentes estruturas de dados Redis.
+## <a name="a-twitter-style-clone-written-using-php-and-redis"></a>Um clone ao estilo do Twitter escrito usando PHP e Redis
+A amostra [de Retwis](https://github.com/SyntaxC4-MSFT/retwis) é o Redis Hello World. É um clone de rede social ao estilo do Twitter escrito usando Redis e PHP usando o cliente [Predis.](https://github.com/nrk/predis) O código fonte foi concebido para ser muito simples e ao mesmo tempo para mostrar diferentes estruturas de dados redis.
 
 ## <a name="bandwidth-monitor"></a>Monitor de largura de banda
-O exemplo de [Monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite monitorar a largura de banda usada no cliente. Para medir a largura de banda, execute o exemplo no computador cliente de cache, faça chamadas para o cache e observe a largura de banda relatada pelo exemplo de monitor de largura de banda.
+A amostra de [monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite-lhe monitorizar a largura de banda utilizada no cliente. Para medir a largura de banda, faça a amostra na máquina do cliente cache, eprea chamadas para a cache e observe a largura de banda reportada pela amostra do monitor de largura de banda.

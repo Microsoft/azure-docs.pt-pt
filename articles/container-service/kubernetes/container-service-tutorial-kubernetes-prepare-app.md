@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Tutorial do serviço de contêiner do Azure – preparar o aplicativo
+title: (DEPRECIADO) Tutorial do Serviço de Contentores Azure - Prepare app
 description: Tutorial do Azure Container Service - Preparar Aplicação
 author: iainfoulds
 ms.service: container-service
@@ -8,16 +8,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76275431"
 ---
-# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>PRETERIDO Criar imagens de contêiner a serem usadas com o serviço de contêiner do Azure
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(DEPRECIADO) Criar imagens de contentores a utilizar com o Serviço de Contentores Azure
 
 > [!TIP]
-> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: preparar um aplicativo para o AKs (serviço kubernetes do Azure)](../../aks/tutorial-kubernetes-prepare-app.md).
+> Para a versão atualizada este tutorial que utiliza o Serviço Azure Kubernetes, consulte [Tutorial: Prepare uma aplicação para o Serviço Azure Kubernetes (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -36,7 +36,7 @@ Nos tutoriais subsequentes, a imagem do contentor é carregada para o Azure Cont
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentores e comandos simples do Docker. Se for necessário, veja [Get started with Docker]( https://docs.docker.com/get-started/) (Introdução ao Docker) para obter um manual sobre as noções básicas dos contentores. 
+Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentores e comandos simples do Docker. Se for necessário, veja a [Introdução ao Docker]( https://docs.docker.com/get-started/) para obter um manual sobre as noções básicas dos contentores. 
 
 Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -135,4 +135,4 @@ Neste tutorial, uma aplicação foi testada e imagens de contentor foram criadas
 Avance para o próximo tutorial para saber mais sobre o armazenamento das imagens de contentores em registos do Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push images to Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md) (Enviar imagens para o Azure Container Registry)
+> [Enviar imagens para o Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)

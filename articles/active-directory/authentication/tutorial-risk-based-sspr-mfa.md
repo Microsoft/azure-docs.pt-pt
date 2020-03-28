@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74846356"
 ---
-# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: usar as detecções de risco para disparar a autenticação multifator e as alterações de senha
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Utilize deteções de risco para desencadear a autenticação de vários fatores e alterações de palavra-passe
 
 Neste tutorial, vai ativar funcionalidades do Azure Active Directory (Azure AD) Identity Protection, uma funcionalidade do Azure AD Premium P2 que é mais do que apenas uma ferramenta de monitorização e relatórios. Para proteger as identidades da sua organização, pode configurar políticas baseadas em risco que respondam automaticamente aos comportamentos de risco. Estas políticas podem bloquear ou iniciar imediatamente a remediação, incluindo a exigência de alteração da palavra-passe e a imposição do Multi-Factor Authentication.
 
-Azure AD Identity Protection políticas podem ser usadas além das políticas de acesso condicional existentes como uma camada extra de proteção. Os utilizadores poderão nunca acionar um comportamento de risco que requeira uma destas políticas mas, como administrador, sabe que eles estão protegidos.
+As políticas de Proteção de Identidade Azure AD podem ser utilizadas para além das políticas de Acesso Condicional existentes como uma camada extra de proteção. Os utilizadores poderão nunca acionar um comportamento de risco que requeira uma destas políticas mas, como administrador, sabe que eles estão protegidos.
 
-Alguns itens que podem disparar uma detecção de risco incluem:
+Alguns itens que podem desencadear uma deteção de risco incluem:
 
 * Utilizadores com fuga de credenciais
 * Inícios de sessão de endereços IP anónimos
@@ -52,16 +52,16 @@ A ativação das políticas baseadas em risco é um processo simples. Os passos 
 
 ### <a name="enable-users-to-register-for-multi-factor-authentication"></a>Permitir aos utilizadores registarem-se no Multi-Factor Authentication
 
-Azure AD Identity Protection inclui uma política padrão que pode ajudá-lo a obter seus usuários registrados para autenticação multifator e identificar facilmente o status de registro atual. A ativação desta política não começa a pedir aos utilizadores para executarem o Multi-Factor Authentication, mas irá pedir-lhes que façam o pré-registo.
+A Proteção de Identidade Azure AD inclui uma política predefinida que pode ajudá-lo a registar os seus utilizadores para autenticação multi-factor e identificar facilmente o estado de registo atual. A ativação desta política não começa a pedir aos utilizadores para executarem o Multi-Factor Authentication, mas irá pedir-lhes que façam o pré-registo.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique em **Registo na MFA**.
 1. Defina Impor Política como **Ativado**.
    1. Definir esta política irá exigir que todos os utilizadores registem os métodos para preparar a utilização do Multi-Factor Authentication.
 1. Clique em **Guardar**.
 
-   ![Exigir que os usuários se registrem no MFA na entrada](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Exigir que os utilizadores se registem para mfa no início do sessão](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Permitir alterações de palavra-passe baseadas em risco
 
@@ -73,7 +73,7 @@ A Microsoft trabalha com investigadores, entidades responsáveis pela aplicaçã
 1. Em **Acesso**, escolha **Permitir acesso** e selecione **Exigir alteração da palavra-passe**.
 1. Clique em "Selecionar"
 1. Defina Impor Política como **Ativado**.
-1. Clicar em **Guardar**
+1. Clique em **Guardar**
 
 ### <a name="enable-risk-based-multi-factor-authentication"></a>Ativar a Multi-Factor Authentication baseada em risco
 
@@ -85,7 +85,7 @@ A maioria dos utilizadores tem um comportamento normal que pode ser controlado. 
 1. Em **Acesso**, escolha **Permitir acesso** e, em seguida, selecione **Exigir autenticação multifator**.
 1. Clique em "Selecionar"
 1. Defina Impor Política como **Ativado**.
-1. Clicar em **Guardar**
+1. Clique em **Guardar**
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -15,10 +15,10 @@ ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 34526c53757690353ff3756b12ad9f8a5250bb0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75442332"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>Exemplos do Azure PowerShell para Gestão de API
@@ -35,8 +35,8 @@ A tabela seguinte contém scripts de exemplo para utilizar o serviço Gestão de
 |[Configurar um domínio personalizado](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Configura um domínio personalizado no ponto final do portal e proxy do serviço de Gestão de API.|
 |**Definir a API**||
 |[Importar a API](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Importa uma API e adiciona a um produto APIM.|
-|**Proteger**||
+|**Seguro**||
 |[Proteger o back-end](./scripts/powershell-secure-backend-with-mutual-certificate-authentication.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Protege o back-end com autenticação de certificados mútuos.|
 |**Proteger**||
-|[Configurar a política de limite de velocidade](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Aplica um limite de velocidade à política ao nível do produto. |
+|[Configurar a política de limite de taxa](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Aplica um limite de velocidade à política ao nível do produto. |
 |||

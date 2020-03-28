@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
 ms.openlocfilehash: 5df6bbb95d4211cf678bda2ee0da6956430f6224
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67183949"
 ---
-Clone o [repositório de exemplos](https://github.com/Azure/azure-spatial-anchors-samples) executando o seguinte comando:
+Clone o [repositório](https://github.com/Azure/azure-spatial-anchors-samples) de amostras executando o seguinte comando:
 
 ```console
 git clone https://github.com/Azure/azure-spatial-anchors-samples.git

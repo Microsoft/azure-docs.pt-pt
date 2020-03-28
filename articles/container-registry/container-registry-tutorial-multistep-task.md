@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78402312"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Faça um fluxo de trabalho de contentores em várias etapas na nuvem quando cometer código fonte
@@ -31,7 +31,7 @@ Este tutorial parte do princípio de que já concluiu os passos no [tutorial ant
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se quiser utilizar o Azure CLI localmente, tem de ter a versão Azure CLI **2.0.62** ou posteriormente instalada e sessão com [login az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar o CLI, consulte [Instalar o Azure CLI][azure-cli].
+Se quiser utilizar o Azure CLI localmente, tem de ter a versão Azure CLI **2.0.62** ou posteriormente instalada e sessão com [login az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -41,7 +41,7 @@ Agora que completou os passos necessários para permitir que as Tarefas ACR leia
 
 ### <a name="yaml-file"></a>Ficheiro YAML
 
-Define os passos para uma tarefa em várias etapas num [ficheiro YAML](container-registry-tasks-reference-yaml.md). O primeiro exemplo de tarefa em várias etapas para este tutorial é definido no ficheiro `taskmulti.yaml`, que está na raiz do repo GitHub que clonou:
+Define os passos para uma tarefa em várias etapas num [ficheiro YAML](container-registry-tasks-reference-yaml.md). O primeiro exemplo de tarefa em várias `taskmulti.yaml`etapas para este tutorial está definido no ficheiro, que está na raiz do repo GitHub que clonou:
 
 ```yml
 version: v1.0.0
@@ -61,8 +61,8 @@ steps:
 
 Esta tarefa em várias etapas faz o seguinte:
 
-1. Corre um `build` passo para construir uma imagem do Dockerfile no diretório de trabalho. A imagem visa o `Run.Registry`, o registo onde a tarefa é executada, e é marcado com um ID único de Execução de Tarefas ACR. 
-1. Corre um passo `cmd` para executar a imagem num recipiente temporário. Este exemplo inicia um recipiente de longa duração em segundo plano e devolve o ID do recipiente e, em seguida, para o recipiente. Num cenário real, pode incluir passos para testar o recipiente de corrida para garantir que funciona corretamente.
+1. Corre `build` um passo para construir uma imagem do Dockerfile no diretório de trabalho. A imagem visa `Run.Registry`o , o registo onde a tarefa é executada, e é marcado com um ID único de executo De Tarefas ACR. 
+1. Corre `cmd` um passo para executar a imagem em um recipiente temporário. Este exemplo inicia um recipiente de longa duração em segundo plano e devolve o ID do recipiente e, em seguida, para o recipiente. Num cenário real, pode incluir passos para testar o recipiente de corrida para garantir que funciona corretamente.
 1. Num `push` passo, empurra a imagem que foi construída para o registo de execução.
 
 ### <a name="task-command"></a>Comando de tarefas
@@ -88,9 +88,9 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-Esta tarefa especifica que qualquer código de tempo é comprometido com o ramo *principal* no repositório especificado por `--context`, as Tarefas ACR executarão a tarefa em várias etapas a partir do código nesse ramo. O ficheiro YAML especificado por `--file` da raiz do repositório define os passos. 
+Esta tarefa especifica que qualquer código *master* de tempo está comprometido com o `--context`ramo principal no repositório especificado por , As Tarefas ACR executarão a tarefa em várias etapas a partir do código nesse ramo. O ficheiro YAML `--file` especificado pela raiz do repositório define os passos. 
 
-A saída de uma [tarefa az acr][az-acr-task-create] bem sucedida é semelhante ao seguinte:
+O resultado de um comando [az acr task create][az-acr-task-create] com êxito é semelhante ao seguinte:
 
 ```output
 {
@@ -217,7 +217,7 @@ Run ID: cf19 was successful after 18s
 
 Agora que testou a tarefa através de uma execução manual, acione-a automaticamente com uma alteração do código de origem.
 
-Primeiro, certifique-se de que está no diretório contendo o seu clone local do [repositório:][sample-repo]
+Em primeiro lugar, confirme que está no diretório que contém o clone local do [repositório][sample-repo]:
 
 ```console
 cd acr-build-helloworld-node
@@ -258,7 +258,7 @@ Run ID: cf1d was successful after 37s
 
 ## <a name="list-builds"></a>Listar as compilações
 
-Para ver uma lista da tarefa executada que as Tarefas ACR completaram para o seu registo, executar o comando de [execução da lista de tarefas az acr:][az-acr-task-list-runs]
+Para ver uma lista das execuções de tarefas que o ACR Tasks concluiu para o seu registo, execute o comando [az acr task list-runs][az-acr-task-list-runs]:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table
@@ -286,7 +286,7 @@ Para criar a tarefa, precisa do nome do servidor de login de registo, que é do 
 
 ### <a name="yaml-file"></a>Ficheiro YAML
 
-A segunda tarefa em várias etapas para este tutorial é definida no ficheiro `taskmulti-multiregistry.yaml`, que está na raiz do repo GitHub que clonou:
+A segunda tarefa em várias etapas para `taskmulti-multiregistry.yaml`este tutorial está definida no ficheiro, que está na raiz do repo GitHub que clonou:
 
 ```yml
 version: v1.0.0
@@ -308,11 +308,11 @@ steps:
 
 Esta tarefa em várias etapas faz o seguinte:
 
-1. Executa dois `build` passos para construir imagens do Dockerfile no diretório de trabalho:
-    * O primeiro visa o `Run.Registry`, o registo onde a tarefa é executada, e é marcado com o ID executa as Tarefas ACR. 
-    * O segundo visa o registo identificado pelo valor da `regDate`, que define quando cria a tarefa (ou fornece através de um ficheiro externo `values.yaml` passado para `az acr task create`). Esta imagem está marcada com a data de execução.
-1. Corre um passo `cmd` para executar um dos contentores construídos. Este exemplo inicia um recipiente de longa duração em segundo plano e devolve o ID do recipiente e, em seguida, para o recipiente. Num cenário real, poderá testar um recipiente de corrida para garantir que funciona corretamente.
-1. Num `push` passo, empurra as imagens que foram construídas, a primeira para o registo de execução, a segunda para o registo identificado por `regDate`.
+1. Corre `build` dois passos para construir imagens do Dockerfile no diretório de trabalho:
+    * O primeiro visa `Run.Registry`o , o registo onde a tarefa é executada, e é marcado com o ID executa as Tarefas ACR. 
+    * O segundo visa o registo identificado pelo `regDate`valor de , que define quando cria `values.yaml` a tarefa `az acr task create`(ou fornece através de um ficheiro externo passado para ). Esta imagem está marcada com a data de execução.
+1. Corre `cmd` um passo para executar um dos recipientes construídos. Este exemplo inicia um recipiente de longa duração em segundo plano e devolve o ID do recipiente e, em seguida, para o recipiente. Num cenário real, poderá testar um recipiente de corrida para garantir que funciona corretamente.
+1. Num `push` passo, empurra as imagens que foram construídas, a primeira para o registo `regDate`de execução, a segunda para o registo identificado por .
 
 ### <a name="task-command"></a>Comando de tarefas
 
@@ -330,11 +330,11 @@ az acr task create \
 
 ### <a name="add-task-credential"></a>Adicionar credencial de tarefa
 
-Para empurrar as imagens para o registo identificado pelo valor de `regDate`, utilize o comando de adição de tarefas [az acr][az-acr-task-credential-add] para adicionar credenciais de login para esse registo à tarefa.
+Para empurrar as imagens para o `regDate`registo identificado pelo valor de , use o comando de adição de [tarefas az acr][az-acr-task-credential-add] para adicionar credenciais de login para esse registo à tarefa.
 
 Para este exemplo, recomendamos que crie um diretor de [serviço](container-registry-auth-service-principal.md) com acesso ao registo com o papel *AcrPush.* Para criar o diretor de serviço, consulte este [script Azure CLI](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
-Passe o ID de aplicação principal do serviço e a palavra-passe no seguinte comando `az acr task credential add`:
+Passe o ID de aplicação `az acr task credential add` principal do serviço e a palavra-passe no seguinte comando:
 
 ```azurecli-interactive
 az acr task credential add --name example2 \

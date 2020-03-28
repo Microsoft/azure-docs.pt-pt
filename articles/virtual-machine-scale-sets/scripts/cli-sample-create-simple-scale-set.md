@@ -1,5 +1,5 @@
 ---
-title: Exemplos de CLI do Azure – criar um conjunto de dimensionamento de máquinas virtuais
+title: Amostras Azure CLI - Crie um conjunto de escala de máquina virtual
 description: Este script cria um conjunto de dimensionamento de máquinas virtuais do Azure com um sistema operativo Ubuntu e recursos de rede relacionados, incluindo um balanceador de carga.
 author: cynthn
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 95ea48b3fc19d58f37a5c727e8f4408643422757
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278820"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure

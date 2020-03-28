@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138097"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Conceder ao utilizador acesso aos recursos Azure utilizando o RBAC e o portal Azure
@@ -30,15 +30,15 @@ Neste tutorial, ficará a saber como:
 > * Conceder acesso a um utilizador num âmbito de grupo de recursos
 > * Remover o acesso
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-1. Na lista de navegação, clique em **grupos de recursos**.
+1. Na lista de navegação, clique em **Grupos de recursos**.
 
 1. Clique **em Adicionar** para abrir a lâmina do grupo **Recursos.**
 
@@ -62,13 +62,13 @@ No RBAC, para conceder acesso, crie uma atribuição de função.
 
 1. Na lista de **grupos**de Recursos, clique no novo grupo de recursos do **grupo rbac-resource.**
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
-1. Clique no separador de **atribuições de Role** para ver a lista atual de atribuições de papéis.
+1. Clique no separador **Atribuições de funções** para ver a lista de atribuições de funções atual.
 
    ![Painel Controlo de acesso (IAM) para grupo de recursos](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Clique em **Adicionar** > **Adicionar atribuição de funções** para abrir o painel de atribuição de funções Adicionar.
+1. Clique em **Adicionar** > **atribuição de função** para abrir o painel de atribuição de funções Adicionar.
 
    Se não tiver permissão para atribuir funções, a opção de atribuição de funções Add será desativada.
 
@@ -80,7 +80,7 @@ No RBAC, para conceder acesso, crie uma atribuição de função.
 
 1. Na lista **Selecionar**, selecione-se a si mesmo ou outro utilizador.
 
-1. Clique em **Guardar** para criar a atribuição de funções.
+1. Clique em **Guardar** para criar a atribuição de função.
 
    Após alguns momentos, o utilizador é atribuído ao fator Virtual Machine Contributor no âmbito do grupo de recursos do grupo de recursos rbac-resource.
 
@@ -100,7 +100,7 @@ No RBAC, para remover o acesso, remova uma atribuição de função.
 
 ## <a name="clean-up"></a>Limpeza
 
-1. Na lista de navegação, clique em **grupos de recursos**.
+1. Na lista de navegação, clique em **Grupos de recursos**.
 
 1. Clique no **grupo de recursos rbac-resource** para abrir o grupo de recursos.
 

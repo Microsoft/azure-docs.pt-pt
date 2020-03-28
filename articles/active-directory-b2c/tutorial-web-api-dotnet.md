@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 23531bd4c53dc2fc4851a1e4718fca0e9c3bfc1c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78187428"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API web ASP.NET utilizando o Diretório Ativo Azure B2C
@@ -40,29 +40,29 @@ Complete os passos e pré-requisitos no Tutorial: Ativar a [autenticação numa 
 
 Os recursos da Web API precisam de ser registados no seu inquilino antes de poderem aceitar e responder a pedidos de recursos protegidos por aplicações de clientes que apresentem um sinal de acesso.
 
-Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência atual de **Aplicações,** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência atual de **Aplicações,** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregintro)
 
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Selecione **Aplicações,** e, em seguida, **selecione Adicionar**.
-5. Insira um nome para a aplicação. Por exemplo, *webapi1*.
+5. Introduza um nome para a aplicação. Por exemplo, *webapi1*.
 6. Para **incluir web app/ web API,** selecione **Sim**.
-7. Para **o URL de resposta,** insira um ponto final onde o Azure AD B2C deve devolver quaisquer fichas que a sua aplicação solicite. Neste tutorial, a amostra corre localmente e ouve `https://localhost:44332`.
+7. Para **o URL de resposta,** insira um ponto final onde o Azure AD B2C deve devolver quaisquer fichas que a sua aplicação solicite. Neste tutorial, a amostra corre localmente e `https://localhost:44332`ouve.
 8. Para **o ID da aplicação URI,** introduza o identificador utilizado para a sua Web API. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
 9. Clique em **Criar**.
 10. Na página de propriedades, grave o ID da aplicação que utilizará quando configurar a aplicação web.
 
 #### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Selecione **registos de aplicativos (Pré-visualização)** e, em seguida, selecione **Nova inscrição**.
 1. Insira um **Nome** para a aplicação. Por exemplo, *webapi1*.
-1. Em **Redirecione o URI**, selecione **Web**e, em seguida, introduza um ponto final onde o Azure AD B2C deve devolver quaisquer fichas que a sua aplicação solicite. Neste tutorial, a amostra corre localmente e ouve `https://localhost:44332`.
+1. Em **Redirecione o URI**, selecione **Web**e, em seguida, introduza um ponto final onde o Azure AD B2C deve devolver quaisquer fichas que a sua aplicação solicite. Neste tutorial, a amostra corre localmente e `https://localhost:44332`ouve.
 1. Selecione **Registar**.
 1. Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.
 
@@ -70,7 +70,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a exp
 
 ## <a name="configure-scopes"></a>Configurar os âmbitos
 
-Os âmbitos fornecem uma forma de governar o acesso aos recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Neste tutorial, vai utilizar os âmbitos para definir as permissões de leitura e escrita para a API Web.
+Os âmbitos proporcionam uma forma de reger o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Neste tutorial, vai utilizar os âmbitos para definir as permissões de leitura e escrita para a API Web.
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
@@ -142,12 +142,12 @@ Existem dois projetos na solução de exemplo:
 
 Tem de executar os dois projetos, **TaskWebApp** e **TaskService**.
 
-1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...** .
+1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...**.
 1. Selecione **Vários projetos**de arranque.
 1. Altere a **Ação** em ambos os projetos para **Iniciar**.
 1. Clique **em OK** para salvar a configuração.
 1. Prima **F5** para executar as duas aplicações. Cada aplicação abre na sua própria janela de navegador.
-    * `https://localhost:44316/` é a aplicação web.
+    * `https://localhost:44316/`é a aplicação web.
     * `https://localhost:44332/` é a API Web.
 
 1. Na aplicação web, selecione **iniciar sessão/iniciar sessão** para iniciar sessão na aplicação web. Utilize a conta que criou anteriormente.

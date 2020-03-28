@@ -5,10 +5,10 @@ keywords: casca de nuvem terraforme azure devops
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: 3a9db1143ba07b549a271d53d610e0a4853467c6
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78945334"
 ---
 # <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Tutorial: Configure Azure Cloud Shell para Terraform
@@ -39,16 +39,16 @@ provider "azurerm" {
 }
 ```
 
-Cloud Shell passa valores necessários para o fornecedor `azurerm` através de variáveis ambientais quando você usa qualquer um dos comandos CLI `terraform`.
+Cloud Shell passa valores `azurerm` necessários para o fornecedor através `terraform` de variáveis ambientais quando você usa qualquer um dos comandos CLI.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Outras ferramentas de programação do Cloud Shell
 
 Os ficheiros e estados de shell são mantidos no Armazenamento do Azure entre sessões do Cloud Shell. Utilize o [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) para copiar e carregar ficheiros para cloud shell a partir do seu computador local.
 
-O Azure CLI está disponível na Cloud Shell e é uma excelente ferramenta para testar configurações e verificar o seu trabalho após `terraform apply` ou `terraform destroy` acabamentos.
+O Azure CLI está disponível na Cloud Shell e é uma `terraform apply` excelente `terraform destroy` ferramenta para testar configurações e verificar o seu trabalho depois ou acabamentos.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um pequeno cluster VM utilizando o Registo de Módulos](terraform-create-vm-cluster-module.md)

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77560225"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Utilize o serviço de cópia de dados para copiar dados em Caixa de Dados Do Azure Heavy (pré-visualização)
@@ -48,7 +48,7 @@ Depois de estar ligado ao dispositivo NAS, o próximo passo é copiar os seus da
 
 Para copiar dados utilizando o serviço de cópia de dados, precisa de criar um trabalho:
 
-1. Na web local UI do seu dispositivo Data Box Heavy, vá para **gerir** > **copiar dados**.
+1. Na web local UI do seu dispositivo Data Box Heavy, vá para **gerir** > **dados de Cópia**.
 2. Na página de **dados copy,** selecione **Criar**.
 
     ![Selecione Criar na página "Copiar dados"](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
@@ -57,14 +57,14 @@ Para copiar dados utilizando o serviço de cópia de dados, precisa de criar um 
     
     |Campo                          |Valor    |
     |-------------------------------|---------|
-    |**Nome de trabalho**                       |Um nome único menos de 230 caracteres para o trabalho. Estes personagens não são permitidos no nome de trabalho: \<, \>, \|, \?, \*, \\, \:, \/e \\\.         |
-    |**Localização da fonte**                |Forneça o caminho SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |**Nome de Utilizador**                       |Nome de utilizador em formato `\\<DomainName><UserName>` para aceder à fonte de dados. Se um administrador local estiver ligado, precisarão de permissões de segurança explícitas. Clique na pasta à direita, selecione **Propriedades** e, em seguida, selecione **Security**. Isto deve adicionar o administrador local no separador **Segurança.**       |
+    |**Nome da tarefa**                       |Um nome único menos de 230 caracteres para o trabalho. Estes personagens não são permitidos \< \>no \| \?nome \* \\do \: \/trabalho: , , , , , , , e\\\.         |
+    |**Localização da fonte**                |Fornecer o caminho SMB para a `\\<ServerIPAddress>\<ShareName>` fonte `\\<ServerName>\<ShareName>`de dados no formato: ou .        |
+    |**Nome de utilizador**                       |Nome de `\\<DomainName><UserName>` utilizador em formato de acesso à fonte de dados. Se um administrador local estiver ligado, precisarão de permissões de segurança explícitas. Clique na pasta à direita, selecione **Propriedades** e, em seguida, selecione **Security**. Isto deve adicionar o administrador local no separador **Segurança.**       |
     |**Palavra-passe**                       |Senha de acesso à fonte de dados.           |
     |**Conta de armazenamento de destino**    |Selecione a conta de armazenamento alvo para fazer o upload de dados para a partir da lista.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento de alvo da lista: **Block Blob,** **Page Blob**ou **Azure Files**.        |
-    |**Recipiente de destino/partilha**    |Insira o nome do recipiente ou partilhe que pretende fazer upload de dados na sua conta de armazenamento de destino. O nome pode ser um nome de partilha ou um nome de contentor. Por exemplo, utilize `myshare` ou `mycontainer`. Também pode introduzir o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name`.        |
-    |**Copiar ficheiros correspondentes padrão**    | Pode introduzir o padrão de correspondência de nome de ficheiro nas seguintes duas formas:<ul><li>**Utilize expressões wildcard:** Apenas `*` e `?` são apoiados em expressões wildcard. Por exemplo, a expressão `*.vhd` corresponde a todos os ficheiros que têm a extensão `.vhd`. Da mesma forma, `*.dl?` corresponde a todos os ficheiros com a extensão `.dl` ou que começam com `.dl`, como `.dll`. Da mesma forma, `*foo` corresponde a todos os ficheiros cujos nomes terminam com `foo`.<br>Pode entrar diretamente na expressão wildcard no campo. Por padrão, o valor que entra no campo é tratado como uma expressão wildcard.</li><li>**Utilize expressões regulares:** Expressões regulares baseadas em POSIX são suportadas. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os ficheiros que tenham a extensão `.vhd`. Para expressões regulares, forneça o `<pattern>` diretamente `regex(<pattern>)`. Para mais informações sobre expressões regulares, vá à linguagem de [expressão regular - uma referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Recipiente de destino/partilha**    |Insira o nome do recipiente ou partilhe que pretende fazer upload de dados na sua conta de armazenamento de destino. O nome pode ser um nome de partilha ou um nome de contentor. Por exemplo, utilize `myshare` ou `mycontainer`. Também pode introduzir o nome `sharename\directory_name` `containername\virtual_directory_name`no formato ou .        |
+    |**Copiar ficheiros correspondentes padrão**    | Pode introduzir o padrão de correspondência de nome de ficheiro nas seguintes duas formas:<ul><li>**Utilize expressões wildcard:** `*` Apenas `?` e são apoiados em expressões wildcard. Por exemplo, `*.vhd` a expressão corresponde a `.vhd` todos os ficheiros que têm a extensão. Da mesma `*.dl?` forma, corresponde a `.dl` todos os `.dl`ficheiros `.dll`com a extensão ou com que começam com , como . Da mesma `*foo` forma, corresponde a `foo`todos os ficheiros cujos nomes terminam com .<br>Pode entrar diretamente na expressão wildcard no campo. Por padrão, o valor que entra no campo é tratado como uma expressão wildcard.</li><li>**Utilize expressões regulares:** Expressões regulares baseadas em POSIX são suportadas. Por exemplo, a `.*\.vhd` expressão regular corresponderá `.vhd` a todos os ficheiros que tenham a extensão. Para expressões regulares, forneça o `<pattern>` diretamente como `regex(<pattern>)`. Para mais informações sobre expressões regulares, vá à linguagem de [expressão regular - uma referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Otimização de ficheiros**              |Quando esta funcionalidade está ativada, os ficheiros com menos de 1 MB são embalados durante a ingestão. Esta embalagem acelera a cópia de dados para pequenos ficheiros. Também poupa uma quantidade significativa de tempo quando o número de ficheiros excede em muito o número de diretórios.        |
  
 4. Selecione **Iniciar**. As inputs são validadas, e se a validação for bem sucedida, então o trabalho começa. Pode levar alguns minutos para o trabalho começar.
@@ -112,12 +112,12 @@ Para copiar dados utilizando o serviço de cópia de dados, precisa de criar um 
 6. Enquanto o trabalho está em andamento, na página de **dados copy:**
 
     - Na coluna **Status,** pode ver o estado do trabalho de cópia. O estado pode ser:
-        - **Correndo**
+        - **A executar**
         - **Falhou**
-        - **Sucedido**
-        - **Pausa**
-        - **Pausa**
-        - **Cancelamento**
+        - **Bem-sucedido**
+        - **A Colocar em Pausa**
+        - **Em pausa**
+        - **A Cancelar**
         - **Cancelado**
         - **Concluído com erros**
     - Na coluna **Ficheiros,** pode ver o número e o tamanho total dos ficheiros a serem copiados.

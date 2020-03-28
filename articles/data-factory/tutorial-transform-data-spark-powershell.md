@@ -1,5 +1,5 @@
 ---
-title: 'Transformar dados usando o Spark no Azure Data Factory '
+title: 'Transforme dados usando faísca na Fábrica de Dados Azure '
 description: Este tutorial fornece instruções passo a passo para transformar dados através da Atividade do Spark no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: e70a59a75531cb7c3a7e5c5573f9e50cc574ab09
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439152"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através da atividade do Spark no Azure Data Factory
@@ -27,14 +27,14 @@ Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline do Data F
 > * Iniciar uma execução de pipeline.
 > * Monitorizar a execução do pipeline.
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Conta de Armazenamento do Azure**. Tem de criar um script Python e um ficheiro de entrada, e carregá-los para o armazenamento do Azure. A saída do programa Spark é armazenada nesta conta de armazenamento. O cluster do Spark a pedido utiliza a mesma conta de armazenamento como o respetivo armazenamento primário.  
-* **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
+* **Conta de Armazenamento Azure.** Tem de criar um script Python e um ficheiro de entrada, e carregá-los para o armazenamento do Azure. A saída do programa Spark é armazenada nesta conta de armazenamento. O cluster do Spark a pedido utiliza a mesma conta de armazenamento como o respetivo armazenamento primário.  
+* **Azure PowerShell.** Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Carregar o script Python para a conta de Armazenamento de Blobs
@@ -63,7 +63,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     if __name__ == "__main__":
         main()
     ```
-2. Substitua **&lt;storageAccountName&gt;** pelo nome da sua conta de Armazenamento do Azure. Em seguida, guarde o ficheiro. 
+2. Substitua ** &lt;&gt; ** o Nome do Depósito de Depósitos com o nome da sua conta de Armazenamento Azure. Em seguida, guarde o ficheiro. 
 3. No Armazenamento de Blobs do Azure, crie um contentor com o nome **adftutorial**, caso ainda não exista. 
 4. Crie uma pasta com o nome **spark**.
 5. Crie uma subpasta com o nome **script** na pasta **spark**. 
@@ -132,8 +132,8 @@ Crie um ficheiro JSON com o seu editor preferencial, copie a seguinte definiçã
 Atualize os valores para as seguintes propriedades na definição de serviço ligado: 
 
 - **hostSubscriptionId**. Substitua &lt;subscriptionID&gt; pelo ID da sua subscrição do Azure. O cluster do HDInsight a pedido é criado nesta subscrição. 
-- **tenant**. Substitua &lt;tenantID&gt; pelo ID do inquilino do Azure. 
-- **servicePrincipalId**, **servicePrincipalKey**. Substitua &lt;servicePrincipalID&gt; e &lt;servicePrincipalKey&gt; pelo ID e chave do seu principal de serviço no Azure Active Directory. Este principal de serviço tem de ser membro da função de Contribuinte da subscrição ou do Grupo de recursos no qual o cluster é criado. Veja [Criar uma aplicação e um principal de serviço do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md) para obter mais detalhes. A **ID da entidade de serviço** é equivalente à *ID do aplicativo* e uma chave de entidade de **serviço** é equivalente ao valor de um *segredo do cliente*.
+- **inquilino.** Substitua &lt;tenantID&gt; pelo ID do inquilino do Azure. 
+- **servicePrincipalId**, **servicePrincipalKey**. Substitua &lt;servicePrincipalID&gt; e &lt;servicePrincipalKey&gt; pelo ID e chave do seu principal de serviço no Azure Active Directory. Este principal de serviço tem de ser membro da função de Contribuinte da subscrição ou do Grupo de recursos no qual o cluster é criado. Veja [Criar uma aplicação e um principal de serviço do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md) para obter mais detalhes. O **id principal** do Serviço é equivalente ao ID de *aplicação* e uma **chave principal** de serviço é equivalente ao valor para um segredo *cliente*.
 - **clusterResourceGroup**. Substitua &lt;resourceGroupOfHDICluster&gt; pelo nome do grupo de recursos no qual o cluster do HDInsight tem de ser criado. 
 
 > [!NOTE]
@@ -183,12 +183,12 @@ Criou definições de serviço ligado e de pipeline em ficheiros JSON. Agora, va
 
 1. Defina as variáveis uma a uma.
 
-    **Nome do Grupo de Recursos**
+    **Nome do grupo de recursos**
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup" 
     ```
 
-    **Nome do Data Factory. Deve ser globalmente exclusivo** 
+    **Nome da fábrica de dados. Deve ser globalmente único** 
     ```powershell
     $dataFactoryName = "MyDataFactory09102017"
     ```
@@ -197,7 +197,7 @@ Criou definições de serviço ligado e de pipeline em ficheiros JSON. Agora, va
     ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. Inicie o **Azure PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+2. Lançamento **PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
     Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
         
@@ -209,7 +209,7 @@ Criou definições de serviço ligado e de pipeline em ficheiros JSON. Agora, va
     ```powershell
     Get-AzSubscription
     ```
-    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **SubscriptionId** pelo ID da sua subscrição do Azure:
+    Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua o **SubscriptionId** pelo ID da sua subscrição Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    

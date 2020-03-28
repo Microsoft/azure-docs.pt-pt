@@ -1,5 +1,5 @@
 ---
-title: Tutorial-instalar aplicativos em um conjunto de dimensionamento com CLI do Azure
+title: Tutorial - Instale aplicações num conjunto de escala com o Azure CLI
 description: Saiba como utilizar a CLI do Azure para instalar aplicações nos conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b1f26444a2ab5407d3e98996f6826443b107e76a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76271398"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
@@ -23,11 +23,11 @@ Para executar aplicações em instâncias de máquina virtual (VM) num conjunto 
 > * Utilizar a Extensão de Script Personalizado do Azure
 > * Atualizar uma aplicação em execução num conjunto de dimensionamento
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>O que é a Extensão de Script Personalizado do Azure?
@@ -38,7 +38,7 @@ A extensão de Script Personalizado é integrada em modelos do Azure Resource Ma
 Para utilizar a Extensão de Script Personalizado com a CLI do Azure, crie um ficheiro JSON que defina que ficheiros obter e comandos executar. Estas definições de JSON podem ser reutilizadas em implementações de conjuntos de dimensionamento para aplicar instalações de aplicações consistentes.
 
 
-## <a name="create-custom-script-extension-definition"></a>Criar definição da Extensão de Script Personalizado
+## <a name="create-custom-script-extension-definition"></a>Criar a definição da Extensão de Script Personalizado
 Para ver a Extensão de Script Personalizado em ação, vamos criar um conjunto de dimensionamento que instala o servidor Web NGINX e dá como resultado o nome de anfitrião da instância de VM do conjunto de dimensionamento. A seguinte definição da Extensão de Script Personalizado transfere um script de exemplo do GitHub, instala os pacotes necessários e escreve o nome de anfitrião da instância de VM numa página HTML simples.
 
 Na shell atual, crie um ficheiro com o nome *customConfig.json* e cole a seguinte configuração. Por exemplo, crie o ficheiro no Cloud Shell, não no seu computador local. Pode utilizar qualquer editor que desejar. Introduza `sensible-editor customConfig.json` no Cloud Shell para criar o ficheiro e ver uma lista dos editores disponíveis.
@@ -52,7 +52,7 @@ Na shell atual, crie um ficheiro com o nome *customConfig.json* e cole a seguint
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -122,7 +122,7 @@ Deixe o seu browser aberto para que possa ver uma versão atualizada no próximo
 
 
 ## <a name="update-app-deployment"></a>Atualizar a implementação da aplicação
-Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de dimensionamento foi criado num passo anterior, o `--upgrade-policy-mode` foi definido como *automático*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
+Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de escala foi `--upgrade-policy-mode` criado num passo anterior, o foi definido para *automático*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
 
 Na shell atual, crie um ficheiro com o nome *customConfigv2.json* e cole a seguinte configuração. Esta definição executa uma versão *v2* atualizada do script de instalação da aplicação:
 

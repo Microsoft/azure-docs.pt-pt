@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 4212277dbdf29705152832f3830692b43b8d1297
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78402806"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(DEPRECIADO) Tutorial do Serviço de Contentores Azure - Gerir DC/OS

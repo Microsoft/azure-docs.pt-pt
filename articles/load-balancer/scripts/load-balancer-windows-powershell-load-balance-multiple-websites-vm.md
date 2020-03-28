@@ -1,5 +1,5 @@
 ---
-title: Balancear a carga de vários sites-Azure PowerShell-Azure Load Balancer
+title: Balanço de carga vários websites - Azure PowerShell - Azure Load Balancer
 description: Este exemplo de script do Azure PowerShell mostra como fazer o balanceamento de carga de múltiplos sites para a mesma máquina virtual
 documentationcenter: load-balancer
 author: asudbring
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: b7beb5186bd039d7098883915663e8a3286fb99d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274608"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Exemplo de script do Azure PowerShell: balanceamento de carga de múltiplos sites
@@ -45,9 +45,9 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Cria um conjunto de disponibilidade do Azure para fornecer elevada disponibilidade. |
+| [Conjunto de novas disponibilidades](/powershell/module/az.compute/new-azavailabilityset) | Cria um conjunto de disponibilidade do Azure para fornecer elevada disponibilidade. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público. |
 | [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | Cria uma configuração do IP de front-end para um balanceador de carga. |
 | [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | Cria uma configuração do conjunto de endereços de back-end para um balanceador de carga. |

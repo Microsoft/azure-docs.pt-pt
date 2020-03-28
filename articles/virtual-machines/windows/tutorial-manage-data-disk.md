@@ -17,10 +17,10 @@ ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
 ms.openlocfilehash: b288091172c71be82e70d90eb8817b2130f2cbef
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277315"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
@@ -38,13 +38,13 @@ As máquinas virtuais do Azure utilizam discos para armazenar o sistema operativ
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="default-azure-disks"></a>Discos do Azure predefinidos
 
 Quando uma máquina virtual do Azure é criada, dois discos são automaticamente expostos à máquina virtual. 
 
-**Disco do sistema operativo** - os discos do sistema operativo podem ter o tamanho máximo de 4 terabytes e alojam o sistema operativo das VMs. Se você criar uma nova VM (máquina virtual) de uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/) , normalmente 127 GB (mas algumas imagens têm tamanhos de disco de sistema operacional menores). O disco do SO é atribuído a uma letra de unidade de *C:* por predefinição. A configuração da colocação em cache do disco do SO está otimizada para desempenho do SO. O disco do SO **não deve** alojar aplicações ou dados. Para aplicações e dados, utilize um disco de dados, que se encontra detalhado posteriormente neste artigo.
+**Disco do sistema operativo** - os discos do sistema operativo podem ter o tamanho máximo de 4 terabytes e alojam o sistema operativo das VMs. Se criar uma nova máquina virtual (VM) a partir de uma imagem do [Azure Marketplace,](https://azure.microsoft.com/marketplace/) o normalmente 127 GB (mas algumas imagens têm tamanhos de disco osso mais pequenos). O disco do SO é atribuído a uma letra de unidade de *C:* por predefinição. A configuração da colocação em cache do disco do SO está otimizada para desempenho do SO. O disco do SO **não deve** alojar aplicações ou dados. Para aplicações e dados, utilize um disco de dados, que se encontra detalhado posteriormente neste artigo.
 
 **Disco temporário** - os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião da VM do Azure. Os discos temporários são de elevado desempenho e servem para operações como o processamento de dados temporários. No entanto, se a VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo [tamanho da VM](sizes.md). Os discos temporários estão atribuídos a uma letra de unidade de *D:* por predefinição.
 
@@ -95,7 +95,7 @@ $diskConfig = New-AzDiskConfig `
     -DiskSizeGB 128
 ```
 
-Crie o disco de dados com o comando [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk) .
+Crie o disco de dados com o comando [New-AzDisk.](https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk)
 
 ```azurepowershell-interactive
 $dataDisk = New-AzDisk `
@@ -104,13 +104,13 @@ $dataDisk = New-AzDisk `
     -Disk $diskConfig
 ```
 
-Obtenha a máquina virtual à qual você deseja adicionar o disco de dados com o comando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) .
+Obtenha a máquina virtual a que pretende adicionar o disco de dados com o comando [Get-AzVM.](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)
 
 ```azurepowershell-interactive
 $vm = Get-AzVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
 ```
 
-Adicione o disco de dados à configuração da máquina virtual com o comando [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) .
+Adicione o disco de dados à configuração da máquina virtual com o comando [Add-AzVMDataDisk.](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk)
 
 ```azurepowershell-interactive
 $vm = Add-AzVMDataDisk `
@@ -121,7 +121,7 @@ $vm = Add-AzVMDataDisk `
     -Lun 1
 ```
 
-Atualize a máquina virtual com o comando [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) .
+Atualize a máquina virtual com o comando [Update-AzVM.](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk)
 
 ```azurepowershell-interactive
 Update-AzVM -ResourceGroupName "myResourceGroupDisk" -VM $vm

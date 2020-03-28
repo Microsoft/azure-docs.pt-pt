@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar um servidor-CLI do Azure-banco de dados do Azure para MySQL'
+title: 'Tutorial: Design a server - Azure CLI - Base de Dados Azure para MySQL'
 description: Este tutorial explica como criar e gerir o servidor da Base de Dados do Azure para MySQL e a base de dados através da CLI do Azure a partir da linha de comandos.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: 00beae5a65e61f814d3498dbb41af02aaf0287fb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771218"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados do Azure para MySQL com a CLI do Azure
@@ -22,8 +22,8 @@ A Base de Dados do Azure para MySQL é um serviço de base de dados relacional n
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para MySQL
 > * Configurar a firewall do servidor
-> * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Use [a ferramenta de linha de comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
@@ -34,7 +34,7 @@ Pode utilizar o Azure Cloud Shell no browser ou [instalar a CLI do Azure]( /cli/
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
 
 Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado. Selecione um ID de subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
@@ -53,13 +53,13 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL
 Crie uma Base de Dados do Azure para o servidor MySQL com o comando az mysql server create. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um usuário administrador chamado `myadmin`. É um servidor Uso Geral, Gen 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
+O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um `myadmin`utilizador administrador chamado . É um Propósito Geral, servidor Gen 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen5_2` mapeia para Basic, Gen 5 e 2 vCores.
++ `--sku-name B_Gen5_2`mapas para Basic, Gen 5 e 2 vCores.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -201,8 +201,8 @@ Neste tutorial, aprendeu a:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor MySQL
 > * Configurar a firewall do servidor
-> * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Use [a ferramenta de linha de comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados

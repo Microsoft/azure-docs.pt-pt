@@ -11,10 +11,10 @@ author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252846"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configure senhas proibidas personalizadas para proteção de senhas de diretório ativo Azure
@@ -93,7 +93,7 @@ Para ver a lista de senhas proibida si proibida em ação, tente alterar a palav
 > [!NOTE]
 > Antes de um utilizador poder redefinir a sua palavra-passe no portal baseado na Web, o inquilino da AD Azure deve ser [configurado para redefinir a palavra-passe de autosserviço](tutorial-enable-sspr.md).
 
-1. Vá à página **my apps** no [https://myapps.microsoft.com. ](https://myapps.microsoft.com)
+1. Vá à página my [https://myapps.microsoft.com](https://myapps.microsoft.com) **apps** em .
 1. No canto superior direito, selecione o seu nome e, em seguida, escolha **o Perfil** a partir do menu suspenso.
 
     ![Selecionar perfil](media/tutorial-configure-custom-password-protection/myapps-profile.png)
@@ -108,7 +108,7 @@ Para ver a lista de senhas proibida si proibida em ação, tente alterar a palav
 
 Se já não quiser utilizar a lista de palavras-passe proibida personalizada que configuracomo parte deste tutorial, complete os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory,** em seguida, escolha **segurança** do menu do lado esquerdo.
 1. No cabeçalho do menu **Gerir,** selecione métodos de **autenticação,** em **seguida, proteção de palavra-passe**.
 1. Detete a opção para impor a **lista personalizada** para *No*.
@@ -124,4 +124,4 @@ Neste tutorial, ativou e configurou listas de proteção de senhapersonalizadas 
 > * Teste alterações de senha com senha proibida
 
 > [!div class="nextstepaction"]
-> [Ativar a autenticação azure multi-factor baseada no risco](tutorial-mfa-applications.md)
+> [Ativar o Multi-Factor Authentication baseado no risco](tutorial-mfa-applications.md)

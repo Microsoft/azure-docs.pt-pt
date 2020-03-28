@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
 ms.openlocfilehash: 6673008ad44a530c0895a4c72a00aaad2d27cabf
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75527302"
 ---
-**Aplica-se a:** ![não](media/aml-applies-to-skus/no.png)Basic Edition ![Sim](media/aml-applies-to-skus/yes.png)Enterprise edition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([atualizar para o Enterprise](../articles/machine-learning/how-to-manage-workspace.md#upgrade))
+**APLICA-se a:** ![](media/aml-applies-to-skus/no.png) ![nenhuma](media/aml-applies-to-skus/yes.png)edição básica sim edição &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;enterprise[(Upgrade para empresa)](../articles/machine-learning/how-to-manage-workspace.md#upgrade)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 574122d3683f3de483950e2d098e890ab33dcb25
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77615482"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -17,7 +17,7 @@ Para concluir este tutorial, confirme que tem:
 
 * Leia através da visão geral das [Âncoras Espaciais Azure](../articles/spatial-anchors/overview.md).
 * Completou um dos [Quickstarts de 5 minutos.](../articles/spatial-anchors/index.yml)
-* Conhecimento básico C# e unidade.
+* Conhecimento básico sobre C# e Unidade.
 * Conhecimentos básicos sobre <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> se quiser utilizar o Android, ou <a href="https://developer.apple.com/arkit/" target="_blank">ARKit,</a> caso pretenda utilizar o iOS.
 * Um computador Windows no qual o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> ou mais tarde é instalado com a **carga de trabalho de ASP.NET e desenvolvimento web.**
 * O [núcleo .NET 2.2 SDK](https://dotnet.microsoft.com/download).
@@ -28,6 +28,6 @@ Para concluir este tutorial, confirme que tem:
   * Se estiver a usar o iOS, tem de ter:
     * Um computador macOS no qual estão instalados <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> ou mais tarde, <a href="https://cocoapods.org" target="_blank">CocoaPods</a>e <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou 2019.2.</a>
     * Um dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com ARKit</a> compatível com um desenvolvedor.
-    * Git instalado via Homebrew. Introduza o seguinte comando numa única linha no Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` Em seguida, corra `brew install git`.
+    * Git instalado via Homebrew. Introduza o seguinte comando numa única `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` linha `brew install git`no Terminal: Em seguida, executar .
 
 

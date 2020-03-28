@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração de inscrição única (SSO) com Greenlight Compliant Access Management  Greene Ative Diretório) integração com Greenlight Compliant Access Management  Greene Ative Diretório) integração com Greenlight Compliant Access Management  Greene Ative Diretório) integração com Greenlight Compliant Access Management  Greene Ative Direct Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração de inscrição única (SSO) com Greenlight Compliant Access Management [ Greene Ative Diretório) integração com Greenlight Compliant Access Management [ Greene Ative Diretório) integração com Greenlight Compliant Access Management [ Greene Ative Diretório) integração com Greenlight Compliant Access Management [ Greene Ative Direct Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Greenlight Compliant Access Management.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85fb972027170871cad62133965c7dc43d6374a3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78968429"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-greenlight-compliant-access-management"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com Greenlight Compliant Access Management
@@ -50,7 +50,7 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 Para configurar a integração da Greenlight Compliant Access Management em Azure AD, você precisa adicionar Greenlight Compliant Access Management da galeria à sua lista de aplicações geridas saaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
 1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -70,7 +70,7 @@ Para configurar e testar o Azure AD SSO com a Greenlight Compliant Access Manage
     * **[Create Greenlight Compliant Access Management user](#create-greenlight-compliant-access-management-test-user)** - para ter uma contrapartida de B.Simon na Greenlight Compliant Access Management que está ligada à representação da AD Azure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
@@ -82,26 +82,26 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
 1. Na secção **Basic SAML Configuration,** caso deseje configurar a aplicação no modo iniciado do **IDP,** introduza os valores para os seguintes campos:
 
-    a. Na caixa de texto **identificador,** digite um URL utilizando o seguinte padrão: `https://<CUSTOMER>.greenlightcorp.com/ebcpresq/checkLoginSAML.do`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER>.greenlightcorp.com/ebcpresq/checkLoginSAML.do`
 
-    b. Na caixa de texto **URL de resposta,** escreva um URL utilizando o seguinte padrão: `https://<CUSTOMER>.greenlightcorp.com/ebcpresq/checkLoginSAML.do`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<CUSTOMER>.greenlightcorp.com/ebcpresq/checkLoginSAML.do`
 
 1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão: `https://<CUSTOMER>.greenlightcorp.com/ebcpresq/checkLoginSAML.do`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://<CUSTOMER>.greenlightcorp.com/ebcpresq/checkLoginSAML.do`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação, resposta real e URL de sinalização. Contacte a equipa de suporte do Cliente de Gestão de Acesso compatível com [greenlight](mailto:support@greenlightcorp.com) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
 1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
 1. Na secção **'Gestão de Acesso Compatível',** copie os URL(s) adequados com base na sua exigência.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
@@ -109,11 +109,11 @@ Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **de nome do utilizador,** introduza o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 Nesta secção, permitirá à B.Simon utilizar o leton único Azure, concedendo acesso à Greenlight Compliant Access Management.
 
@@ -121,7 +121,7 @@ Nesta secção, permitirá à B.Simon utilizar o leton único Azure, concedendo 
 1. Na lista de aplicações, selecione **Greenlight Compliant Access Management**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
@@ -133,15 +133,15 @@ Nesta secção, permitirá à B.Simon utilizar o leton único Azure, concedendo 
 
 ## <a name="configure-greenlight-compliant-access-management-sso"></a>Configure Greenlight Compliant Access Management SSO
 
-Para configurar um único sign-on no lado da **Greenlight Compliant Access Management,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para [greenlight Compliant Access Management equipe](mailto:support@greenlightcorp.com)de suporte . Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sign-on no lado da **Greenlight Compliant Access Management,** você precisa enviar os metadados da **Federação XML** descarregados e URLs copiados apropriados do portal Azure para [greenlight Compliant Access Management equipe](mailto:support@greenlightcorp.com)de suporte . Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
 ### <a name="create-greenlight-compliant-access-management-test-user"></a>Criar o utilizador de teste de gestão de acesso compatível com luz verde
 
-Nesta secção, cria-se um utilizador chamado B.Simon na Greenlight Compliant Access Management. Trabalhe com a equipa de [suporte greenlight Compliant Access Management](mailto:support@greenlightcorp.com) para adicionar os utilizadores na plataforma Greenlight Compliant Access Management. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, cria-se um utilizador chamado B.Simon na Greenlight Compliant Access Management. Trabalhe com a equipa de [suporte greenlight Compliant Access Management](mailto:support@greenlightcorp.com) para adicionar os utilizadores na plataforma Greenlight Compliant Access Management. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
 Quando clicar no azulejo Greenlight Compliant Access Management no Painel de Acesso, deverá ser automaticamente inscrito na Greenlight Compliant Access Management para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
@@ -151,7 +151,7 @@ Quando clicar no azulejo Greenlight Compliant Access Management no Painel de Ace
 
 - [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o acesso condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente greenlight Compliant Access Management com Azure AD](https://aad.portal.azure.com/)
 

@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
 ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78399528"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Troubleshoot uma app de serviço de aplicações com monitor Azure
@@ -18,7 +18,7 @@ ms.locfileid: "78399528"
 > A integração do Monitor Azure com o Serviço de Aplicações está em [pré-visualização.](https://aka.ms/appsvcblog-azmon)
 >
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. [O Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximiza a disponibilidade e desempenho das suas aplicações e serviços, fornecendo uma solução abrangente para recolher, analisar e atuar em telemetria a partir da sua nuvem e ambientes no local.
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. [O Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximiza a disponibilidade e desempenho das suas aplicações e serviços, fornecendo uma solução abrangente para recolher, analisar e atuar em telemetria a partir da sua nuvem e ambientes no local.
 
 Este tutorial mostra como resolver problemas com uma aplicação usando [o Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/overview) A aplicação de amostra inclui código destinado a esgotar a memória e causar erros HTTP 500, para que possa diagnosticar e corrigir o problema usando o Monitor Azure.
 
@@ -40,7 +40,7 @@ Pode seguir os passos neste tutorial em macOS, Linux e Windows.
 Para completar este tutorial, você precisará:
 
 - [Subscrição do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure
@@ -77,10 +77,10 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 As definições de diagnóstico podem ser utilizadas para recolher métricas para determinados serviços Azure em Registos do Monitor Azure para análise com outros dados de monitorização utilizando consultas de registo. Para este tutorial, ativa o servidor web e os registos de saída/erro padrão. Consulte os tipos de [registo suportados](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) para obter uma lista completa de tipos de registo e descrições.
 
-Executa os seguintes comandos para criar definições de diagnóstico para AppServiceConsoleLogs (saída/erro padrão) e AppServiceHTTPLogs (registos de servidores web). Substitua _\<nome de aplicativo>_ e _\<workspace-name>_ com os seus valores. 
+Executa os seguintes comandos para criar definições de diagnóstico para AppServiceConsoleLogs (saída/erro padrão) e AppServiceHTTPLogs (registos de servidores web). Substitua _ \<_>de>e _ \<nome de espaço de trabalho_ com nome de aplicação e nome de espaço de trabalho com os seus valores. 
 
 > [!NOTE]
-> Os dois primeiros comandos, `resourceID` e `workspaceID`, são variáveis a serem usadas no comando `az monitor diagnostic-settings create`. Consulte As definições de [diagnóstico Do Uso do Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) para obter mais informações sobre este comando.
+> Os dois primeiros `resourceID` `workspaceID`comandos, e, são `az monitor diagnostic-settings create` variáveis a serem usadas no comando. Consulte As definições de [diagnóstico Do Uso do Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) para obter mais informações sobre este comando.
 >
 
 ```bash
@@ -101,15 +101,15 @@ az monitor diagnostic-settings create --resource $resourceID \
 
 Navegue para `http://<app-name>.azurewebsites.net`.
 
-A aplicação de amostra, ImageConverter, converte imagens de `JPG` a `PNG`. Um inseto foi deliberadamente colocado no código para este tutorial. Se selecionar imagens suficientes, a aplicação produz um erro HTTP 500 durante a conversão da imagem. Imagine que este cenário não foi considerado durante a fase de desenvolvimento. Vais usar o Monitor Azure para resolver o erro.
+A aplicação de amostra, ImageConverter, `JPG` `PNG`converte imagens de . Um inseto foi deliberadamente colocado no código para este tutorial. Se selecionar imagens suficientes, a aplicação produz um erro HTTP 500 durante a conversão da imagem. Imagine que este cenário não foi considerado durante a fase de desenvolvimento. Vais usar o Monitor Azure para resolver o erro.
 
 ### <a name="verify-the-app-is-works"></a>Verifique se a aplicação está em funcionamento
 
-Para converter imagens, clique em `Tools` e selecione `Convert to PNG`.
+Para converter imagens, clique `Tools` e selecione `Convert to PNG`.
 
 ![Clique em 'Ferramentas' e selecione 'Converter para PNG'](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-Selecione as duas primeiras imagens e clique em `convert`. Isto converter-se-á com sucesso.
+Selecione as duas `convert`primeiras imagens e clique em . Isto converter-se-á com sucesso.
 
 ![Selecione as duas primeiras imagens](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
@@ -119,7 +119,7 @@ Agora que verificou a aplicação convertendo duas imagens com sucesso, tentarem
 
 ![Converter as primeiras cinco imagens](./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png)
 
-Esta ação falha e produz um erro `HTTP 500` que não foi testado durante o desenvolvimento.
+Esta ação falha e `HTTP 500` produz um erro que não foi testado durante o desenvolvimento.
 
 ![O convertido resultará num erro HTTP 500](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
@@ -137,13 +137,13 @@ As consultas de registo ajudam-no a alavancar totalmente o valor dos dados recol
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Ver AppServiceHTTPLogs com consulta de registo
 
-Agora que acedemos à aplicação, vamos ver os dados associados aos pedidos http, encontrados no `AppServiceHTTPLogs`.
+Agora que acedemos à aplicação, vamos ver os dados associados aos `AppServiceHTTPLogs`pedidos http, encontrados na .
 
-1. Clique `Logs` da navegação à esquerda.
+1. Clique `Logs` na navegação à esquerda.
 
 ![Log Anlytics Worksace Logs](./media/tutorial-azure-monitor/log-analytics-workspace-logs.png)
 
-2. Procure `appservice` e clique duplo `AppServiceHTTPLogs`.
+2. Procure `appservice` e clique `AppServiceHTTPLogs`duas vezes .
 
 ![Tabelas de espaço de trabalho de análise de log analytics](./media/tutorial-azure-monitor/log-analytics-workspace-app-service-tables.png)
 
@@ -151,7 +151,7 @@ Agora que acedemos à aplicação, vamos ver os dados associados aos pedidos htt
 
 ![Log Analytics Workspace App Service HTTP Logs](./media/tutorial-azure-monitor/log-analytics-workspace-app-service-http-logs.png)
 
-A consulta `AppServiceHTTPLogs` devolve todos os pedidos nas últimas 24 horas. A coluna `ScStatus` contém o estado HTTP. Para diagnosticar os erros `HTTP 500`, limite a `ScStatus` a 500 e execute a consulta, como mostrado abaixo:
+A `AppServiceHTTPLogs` consulta devolve todos os pedidos nas últimas 24 horas. A `ScStatus` coluna contém o estado HTTP. Para diagnosticar `HTTP 500` os erros, limite o `ScStatus` a 500 e execute a consulta, como mostrado abaixo:
 
 ```kusto
 AppServiceHTTPLogs
@@ -162,18 +162,18 @@ AppServiceHTTPLogs
 
 Agora que confirmou o HTTP 500s, vamos dar uma olhada na saída/erros padrão da aplicação. Estes registos encontram-se em 'AppServiceConsoleLogs'.
 
-(1) Clique `+` para criar uma nova consulta. 
+(1) `+` Clique para criar uma nova consulta. 
 
-(2) Clique duas vezes na tabela `AppServiceConsoleLogs` e clique `Run`. 
+(2) Clique duas `AppServiceConsoleLogs` vezes `Run`na tabela e clique em . 
 
-Uma vez que a conversão de cinco imagens resulta em erros do servidor, pode ver se a aplicação também está a escrever erros filtrando `ResultDescription` erros, como mostra abaixo:
+Uma vez que a conversão de cinco imagens resulta em erros `ResultDescription` do servidor, pode ver se a aplicação também está a escrever erros filtrando erros, como mostra abaixo:
 
 ```kusto
 AppServiceConsoleLogs |
 where ResultDescription  contains "error" 
 ```
 
-Na coluna `ResultDescription`, verá o seguinte erro:
+Na `ResultDescription` coluna, verá o seguinte erro:
 
 ```
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
@@ -183,14 +183,14 @@ referer: http://<app-name>.azurewebsites.net/
 
 ### <a name="join-appservicehttplogs-and-appserviceconsolelogs"></a>Junte-se a AppServiceHTTPLogs e AppServiceConsoleLogs
 
-Agora que identificou os erros http 500 e os erros padrão, precisa confirmar se há uma correlação entre estas mensagens. Em seguida, junte-se às mesas com base no carimbo de tempo, `TimeGenerated`.
+Agora que identificou os erros http 500 e os erros padrão, precisa confirmar se há uma correlação entre estas mensagens. Em seguida, junte-se às mesas `TimeGenerated`com base no carimbo do tempo, .
 
 > [!NOTE]
 > Foi preparada uma consulta para si que faz o seguinte:
 >
 > - Filtros HTTPLogs para 500 erros
 > - Consultas de registos de consolas
-> - Junta-se às mesas no `TimeGenerated`
+> - Junta as mesas`TimeGenerated`
 >
 
 Execute a seguinte consulta:
@@ -203,7 +203,7 @@ let myConsole = AppServiceConsoleLogs | project TimeGen=substring(TimeGenerated,
 myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, ResultDescription;
 ```
 
-Na coluna `ResultDescription`, verá o seguinte erro ao mesmo tempo que erros do servidor web:
+Na `ResultDescription` coluna, verá o seguinte erro ao mesmo tempo que erros do servidor web:
 
 ```
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
@@ -211,23 +211,23 @@ PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted
 referer: http://<app-name>.azurewebsites.net/
 ```
 
-A mensagem indica que a memória foi esgotada na linha 20 de `process.php`. Confirmou agora que a aplicação produziu um erro durante o erro HTTP 500. Vamos ver o código para identificar o problema.
+A mensagem afirma que a memória `process.php`foi esgotada na linha 20 de . Confirmou agora que a aplicação produziu um erro durante o erro HTTP 500. Vamos ver o código para identificar o problema.
 
-## <a name="identify-the-error"></a>Identifique o erro
+## <a name="identify-the-error"></a>Identificar o erro
 
-No diretório local, abra o `process.php` e olhe para a linha 20. 
+No diretório local, `process.php` abra a linha 20. 
 
 ```php
 imagepng($imgArray[$x], $filename);
 ```
 
-O primeiro argumento, `$imgArray[$x]`, é uma variável que mantém todos os JPGs (em memória) que precisam de conversão. No entanto, `imagepng` só precisa que a imagem seja convertida e não todas as imagens. As imagens de pré-carregamento não são necessárias e podem estar a causar a exaustão da memória, levando a HTTP 500s. Vamos atualizar o código para carregar imagens a pedido para ver se resolve o problema. Em seguida, melhorará o código para resolver o problema da memória.
+O primeiro `$imgArray[$x]`argumento, é uma variável que mantém todos os JPGs (em memória) que precisam de conversão. No `imagepng` entanto, só precisa que a imagem seja convertida e não todas as imagens. As imagens de pré-carregamento não são necessárias e podem estar a causar a exaustão da memória, levando a HTTP 500s. Vamos atualizar o código para carregar imagens a pedido para ver se resolve o problema. Em seguida, melhorará o código para resolver o problema da memória.
 
 ## <a name="fix-the-app"></a>Corrigir a aplicação
 
 ### <a name="update-locally-and-redeploy-the-code"></a>Atualizar localmente e reimplementar o código
 
-Faça as seguintes alterações na `process.php` para lidar com a exaustão da memória:
+Efaz as seguintes alterações para `process.php` lidar com a exaustão da memória:
 
 ```php
 <?php
@@ -272,7 +272,7 @@ O que aprendeu:
 > * Registos enviados para Log Analytics
 > * Consultas de registo usadas para identificar e resolver problemas na aplicação web
 
-## <a name="nextsteps"></a> Passos seguintes
+## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
 * [Registos de consulta com monitor Azure](../../azure-monitor/log-query/log-query-overview.md)
 * [Troubleshooting Azure App Service em Estúdio Visual](../troubleshoot-dotnet-visual-studio.md)
 * [Analisar registos de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

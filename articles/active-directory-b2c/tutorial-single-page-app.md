@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 435800d9c6bfd9131d50681a9808f9836104fac0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78183351"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: Permitir a autenticação numa aplicação de uma só página utilizando o Diretório Ativo Azure B2C (Azure AD B2C)
@@ -43,32 +43,32 @@ Além disso, precisa do seguinte no seu ambiente de desenvolvimento local:
 
 * Editor de código, por exemplo [Visual Studio Code](https://code.visualstudio.com/) ou Visual Studio [2019](https://www.visualstudio.com/downloads/)
 * [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) ou posterior
-* [Node.js](https://nodejs.org/en/download/)
+* [Nó.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Atualizar a aplicação
 
 No segundo tutorial que completou como parte dos pré-requisitos, registou uma aplicação web no Azure AD B2C. Para permitir a comunicação com a amostra no tutorial, é necessário adicionar um URI redirecionado à aplicação em Azure AD B2C.
 
-Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização)** para atualizar a aplicação. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização)** para atualizar a aplicação. [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregintro)
 
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 1. Selecione **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Selecione **Aplicações**e, em seguida, selecione a aplicação *webapp1.*
-1. No URL **de resposta,** adicione `http://localhost:6420`.
+1. Under **Answer URL,** add `http://localhost:6420`.
 1. Selecione **Guardar**.
 1. Na página de propriedades, grave o ID da **Aplicação**. Utiliza o ID da aplicação num passo posterior quando atualiza o código na aplicação web de uma página única.
 
 #### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione registos de **aplicações (Pré-visualização)** - selecione o separador **de aplicações Owned** e, em seguida, selecione a aplicação *webapp1.*
+1. Selecione registos de **aplicações (Pré-visualização)**- selecione o separador **de aplicações Owned** e, em seguida, selecione a aplicação *webapp1.*
 1. **Selecione Autenticação**e, em seguida, selecione **Experimente a nova experiência** (se mostrada).
-1. No **Web,** selecione a ligação **Adicionar URI,** introduza `http://localhost:6420`e, em seguida, selecione **Guardar**.
+1. Na **Web,** selecione a `http://localhost:6420`ligação Adicionar **URI,** introduza e, em seguida, selecione **Guardar**.
 1. Selecione **Descrição geral**.
 1. Grave o ID da **Aplicação (cliente)** para utilização num passo posterior quando atualizar o código na aplicação web de página única.
 
@@ -88,8 +88,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Agora que obteve a amostra, atualize o código com o nome do seu inquilino Azure AD B2C e o ID de aplicação que gravou num passo anterior.
 
-1. Abra o ficheiro `index.html` na raiz do diretório da amostra.
-1. Na definição `msalConfig`, modifique o valor **do clienteId** com o ID de aplicação que registou num passo anterior. Em seguida, atualize o valor URI da **autoridade** com o seu nome de inquilino Azure AD B2C. Atualize também o URI com o nome do fluxo de utilizador de inscrição/inscrição que criou num dos pré-requisitos (por exemplo, *B2C_1_signupsignin1*).
+1. Abra `index.html` o ficheiro na raiz do diretório da amostra.
+1. Na `msalConfig` definição, modifique o valor **do clienteId** com o ID de aplicação que registou num passo anterior. Em seguida, atualize o valor URI da **autoridade** com o seu nome de inquilino Azure AD B2C. Atualize também o URI com o nome do fluxo de utilizador de inscrição/inscrição que criou num dos pré-requisitos (por exemplo, *B2C_1_signupsignin1*).
 
     ```javascript
     var msalConfig = {
@@ -105,7 +105,7 @@ Agora que obteve a amostra, atualize o código com o nome do seu inquilino Azure
     };
     ```
 
-    O nome do fluxo de utilizador utilizado neste tutorial é **B2C_1_signupsignin1**. Se estiver a utilizar um nome de fluxo de utilizador diferente, especifique esse nome no valor `authority`.
+    O nome do fluxo de utilizador utilizado neste tutorial é **B2C_1_signupsignin1**. Se estiver a utilizar um nome de fluxo `authority` de utilizador diferente, especifique esse nome no valor.
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
@@ -127,7 +127,7 @@ Agora que obteve a amostra, atualize o código com o nome do seu inquilino Azure
     Listening on port 6420...
     ```
 
-1. Vá a `http://localhost:6420` no seu navegador para ver a aplicação.
+1. Vá `http://localhost:6420` ao seu navegador para ver a aplicação.
 
 A amostra suporta o início de inscrição, inscrição, edição de perfil e reset de palavra-passe. Este tutorial destaca como um utilizador se inscreve usando um endereço de e-mail.
 

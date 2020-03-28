@@ -1,6 +1,6 @@
 ---
 title: Exemplo do Script da CLI do Azure - Adicionar uma Aplicação no Batch
-description: Este script de exemplo demonstra como adicionar um aplicativo para uso com um pool do lote do Azure ou uma tarefa.
+description: Este script de amostra demonstra como adicionar uma aplicação para uso com um pool De Lote Azure ou uma tarefa.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.openlocfilehash: b19f5dbe27ba0ecabdca6557e4e8e1996fbef78a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77017127"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Exemplo da CLI: Adicionar uma aplicação a uma conta do Azure Batch
@@ -27,7 +27,7 @@ Este script demonstra como adicionar uma aplicação para utilizar com um conjun
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Script de exemplo
 

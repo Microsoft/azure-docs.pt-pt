@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementar o padrão de captura de data lake para atualizar uma tabela Delta de Tijolos de Dados Azure  Microsoft Docs'
+title: 'Tutorial: Implementar o padrão de captura de data lake para atualizar uma tabela Delta de Tijolos de Dados Azure [ Microsoft Docs'
 description: Este tutorial mostra-lhe como usar uma subscrição da Rede de Eventos, uma Função Azure e um trabalho de Azure Databricks para inserir linhas de dados numa tabela que é armazenada no Azure DataLake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 85fad873b6c176d2278ea48709d2892ab515a025
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78303312"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementar o padrão de captura de dados do lago para atualizar uma tabela Delta databricks
@@ -32,9 +32,9 @@ Construiremos esta solução em ordem inversa, começando pelo espaço de trabal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Crie uma conta de armazenamento que tenha um espaço de nome hierárquico (Azure Data Lake Storage Gen2). Este tutorial usa uma conta de armazenamento chamada `contosoorders`. Certifique-se de que a sua conta de utilizador tem a função de Colaborador de [Dados blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) de armazenamento atribuída à sua.
+* Crie uma conta de armazenamento que tenha um espaço de nome hierárquico (Azure Data Lake Storage Gen2). Este tutorial usa uma `contosoorders`conta de armazenamento chamada . Certifique-se de que a sua conta de utilizador tem a função de Colaborador de [Dados blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) de armazenamento atribuída à sua.
 
   Consulte Criar uma conta De armazenamento de [lagos De dados Azure](data-lake-storage-quickstart-create-account.md).
 
@@ -86,13 +86,13 @@ Nesta secção, executará estas tarefas:
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
+1. No portal Azure, selecione **Criar um recurso** > **Analytics** > **Azure Databricks**.
 
     ![Tijolos de dados no portal Azure](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Tijolos de dados no portal Azure")
 
 2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
-    ![Criar um espaço de trabalho Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar uma área de trabalho do Azure Databricks")
+    ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar uma área de trabalho do Azure Databricks")
 
     A criação da área de trabalho demora alguns minutos. Para monitorizar o estado de funcionamento, veja a barra de progresso no topo.
 
@@ -100,7 +100,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 1. No [portal Azure,](https://portal.azure.com)vá ao espaço de trabalho Azure Databricks que criou e, em seguida, selecione **Launch Workspace**.
 
-2. Será redirecionado para o portal do Azure Databricks. No portal, selecione **Novo** > **Cluster**.
+2. Será redirecionado para o portal do Azure Databricks. A partir do portal, selecione **New** > **Cluster**.
 
     ![Tijolos de dados em Azure](./media/data-lake-storage-events/databricks-on-azure.png "Tijolos de dados em Azure")
 
@@ -117,7 +117,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-### <a name="create-a-notebook"></a>Criar um caderno
+### <a name="create-a-notebook"></a>Criar um bloco de notas
 
 1. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
@@ -133,7 +133,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 1. No caderno que criou, copia e cola o seguinte bloco de código na primeira célula, mas ainda não executa este código.  
 
-   Substitua os valores `appId`, `password`, `tenant` espaço reservado neste bloco de código sintetizando os valores recolhidos ao completar os pré-requisitos deste tutorial.
+   Substitua `appId` `password`os `tenant` valores do espaço reservado neste bloco de código sintetizando os valores recolhidos ao completar os pré-requisitos deste tutorial.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -152,7 +152,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
     Este código cria um widget chamado **source_file**. Mais tarde, criará uma Função Azure que chama este código e passa um caminho de ficheiro para esse widget.  Este código também autentica o seu principal de serviço com a conta de armazenamento, e cria algumas variáveis que você vai usar em outras células.
 
     > [!NOTE]
-    > Num ambiente de produção, considere armazenar a sua chave de autenticação em Tijolos de Dados Azure. Em seguida, adicione uma chave de procura para o seu bloco de código em vez da chave de autenticação. <br><br>Por exemplo, em vez de utilizar esta linha de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, utilizaria a seguinte linha de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>Depois de ter concluído este tutorial, consulte o artigo [do Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no Site azure Databricks para ver exemplos desta abordagem.
+    > Num ambiente de produção, considere armazenar a sua chave de autenticação em Tijolos de Dados Azure. Em seguida, adicione uma chave de procura para o seu bloco de código em vez da chave de autenticação. <br><br>Por exemplo, em vez de `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`utilizar esta linha de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`utilizaria a seguinte linha de código: . <br><br>Depois de ter concluído este tutorial, consulte o artigo [do Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no Site azure Databricks para ver exemplos desta abordagem.
 
 2. Prima as teclas **SHIFT + ENTER** para executar o código neste bloco.
 
@@ -241,7 +241,7 @@ Crie um Trabalho que gere o caderno que criou anteriormente. Mais tarde, criará
 
 2. Na página **Jobs,** clique em **Criar Emprego**.
 
-3. Dê um nome ao trabalho e, em seguida, escolha o `upsert-order-data` livro.
+3. Dê um nome ao trabalho `upsert-order-data` e escolha o livro.
 
    ![Criar um emprego](./media/data-lake-storage-events/create-spark-job.png "Criar uma tarefa")
 
@@ -263,11 +263,11 @@ Crie uma Função Azure que gere o Trabalho.
 
 4. Na página **Criar** da App função, certifique-se de selecionar **.NET Core** para a pilha de tempo de execução e certifique-se de configurar uma instância de Insights de Aplicação.
 
-   ![Configure a aplicação de função](./media/data-lake-storage-events/new-function-app.png "Configurar a aplicação de funções")
+   ![Configurar a aplicação de funções](./media/data-lake-storage-events/new-function-app.png "Configurar a aplicação de funções")
 
 5. Na página **'Visão Geral** da App função', clique na **Configuração**.
 
-   ![Configure a aplicação de função](./media/data-lake-storage-events/configure-function-app.png "Configurar a aplicação de funções")
+   ![Configurar a aplicação de funções](./media/data-lake-storage-events/configure-function-app.png "Configurar a aplicação de funções")
 
 6. Na página Definições de **Aplicação,** escolha o botão de **definição de nova aplicação** para adicionar cada definição.
 
@@ -279,7 +279,7 @@ Crie uma Função Azure que gere o Trabalho.
    |----|----|
    |**DBX_INSTANCE**| A região do seu espaço de trabalho de databricks. Por exemplo: `westus2.azuredatabricks.net`|
    |**DBX_PAT**| O sinal de acesso pessoal que gerou anteriormente. |
-   |**DBX_JOB_ID**|O identificador do trabalho de corrida. No nosso caso, este valor é `1`.|
+   |**DBX_JOB_ID**|O identificador do trabalho de corrida. No nosso caso, `1`este valor é.|
 7. Na página geral da aplicação de funções, clique no botão **de função New.**
 
    ![Nova função](./media/data-lake-storage-events/new-function.png "Nova função")
@@ -354,7 +354,7 @@ Nesta secção, irá criar uma subscrição da Rede de Eventos que liga para a F
 
 ## <a name="test-the-event-grid-subscription"></a>Teste a subscrição da Grelha de Eventos
 
-1. Crie um ficheiro chamado `customer-order.csv`, repasse as seguintes informações nesse ficheiro e guarde-a para o seu computador local.
+1. Crie um `customer-order.csv`ficheiro chamado, repasse as seguintes informações nesse ficheiro e guarde-a para o seu computador local.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
@@ -385,18 +385,18 @@ Nesta secção, irá criar uma subscrição da Rede de Eventos que liga para a F
 
    ![O último registo aparece na tabela](./media/data-lake-storage-events/final_query.png "O último registo aparece na tabela")
 
-6. Para atualizar este registo, crie um ficheiro chamado `customer-order-update.csv`, repasse as seguintes informações nesse ficheiro e guarde-a para o seu computador local.
+6. Para atualizar este registo, `customer-order-update.csv`crie um ficheiro chamado , repasse as seguintes informações nesse ficheiro e guarde-a para o seu computador local.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
    536371,99999,EverGlow Single,22,1/1/2018 9:01,33.85,20993,Sierra Leone
    ```
 
-   Este ficheiro csv é quase idêntico ao anterior, exceto que a quantidade da encomenda é alterada de `228` para `22`.
+   Este ficheiro csv é quase idêntico ao anterior, exceto que `228` `22`a quantidade da encomenda é alterada de .
 
 7. No Storage Explorer, faça o upload deste ficheiro para a pasta de **entrada** da sua conta de armazenamento.
 
-8. Execute a `select` consulta novamente para ver a tabela delta atualizada.
+8. Execute `select` a consulta novamente para ver a tabela delta atualizada.
 
    ```
    %sql select * from customer_data

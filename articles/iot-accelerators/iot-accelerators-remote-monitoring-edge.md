@@ -1,6 +1,6 @@
 ---
-title: Detetar anomalias na periferia um tutorial de solução – Azure | Documentos da Microsoft
-description: Neste tutorial irá aprender a monitorizar os seus dispositivos IoT Edge com o acelerador de solução de monitorização remota.
+title: Detetar anomalias na borda num tutorial de solução - Azure / Microsoft Docs
+description: Neste tutorial aprende-se a monitorizar os seus dispositivos IoT Edge utilizando o acelerador de soluções de monitorização remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,109 +10,109 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66117606"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detetar anomalias na periferia com o acelerador de solução de monitorização remota
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detetar anomalias na borda com o acelerador de solução de monitorização remota
 
-Neste tutorial, vai configurar a solução de monitorização remota para responder a anomalias detetadas por um dispositivo IoT Edge. Dispositivos IoT Edge permitem-lhe processar a telemetria na periferia para reduzir o volume de telemetria enviada para a solução e ativar as respostas mais rápidas para eventos em dispositivos. Para saber mais sobre os benefícios do processamento do edge, veja [o que é o Azure IoT Edge](../iot-edge/about-iot-edge.md).
+Neste tutorial, configura a solução de Monitorização Remota para responder às anomalias detetadas por um dispositivo IoT Edge. Os dispositivos IoT Edge permitem processar a telemetria na borda para reduzir o volume de telemetria enviado para a solução e permitir respostas mais rápidas aos eventos nos dispositivos. Para saber mais sobre os benefícios do processamento de bordas, consulte [o que é Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
-Para apresentar o limite de processamento com a monitorização remota, este tutorial utiliza um dispositivo de jack de bombeamento de petróleo simulado. Este jack de bombeamento de petróleo é gerida por uma organização chamada Contoso e está ligado para o acelerador de solução de monitorização remota. Sensores na jack de bomba petróleo medem a temperatura e a pressão. Operadores da Contoso sabem que um aumento anormal da temperatura pode causar o jack de bombeamento de petróleo abrandamento. Operadores da Contoso não precisam de monitorizar a temperatura do dispositivo quando está dentro do respetivo intervalo normal.
+Para introduzir o processamento de bordas com monitorização remota, este tutorial utiliza um dispositivo simulado de tomada de bomba de óleo. Este macaco da bomba de óleo é gerido por uma organização chamada Contoso e está ligado ao acelerador de solução de monitorização remota. Os sensores na tomada da bomba de óleo medem a temperatura e a pressão. Os operadores da Contoso sabem que um aumento anormal da temperatura pode fazer com que o macaco da bomba de óleo abrande. Os operadores da Contoso não precisam de monitorizar a temperatura do dispositivo quando está dentro do seu alcance normal.
 
-Contoso quer implementar um módulo de um edge inteligente para o jack de bombeamento de petróleo Deteta anomalias de temperatura. Outro módulo edge envia alertas para a solução de monitorização remota. Quando é recebido um alerta, um operador de Contoso pode expedir um técnico de manutenção. Contoso também pode configurar uma ação automática, tal como enviar uma mensagem de e-mail, para ser executada quando a solução recebe um alerta.
+Contoso quer implantar um módulo de borda inteligente para a tomada da bomba de óleo que deteta anomalias de temperatura. Outro módulo de borda envia alertas para a solução de Monitorização Remota. Quando um alerta é recebido, um operador de Contoso pode enviar um técnico de manutenção. Contoso também poderia configurar uma ação automatizada, como o envio de um e-mail, para executar quando a solução recebe um alerta.
 
-O diagrama seguinte mostra os principais componentes no cenário de introdução:
+O diagrama a seguir mostra os componentes-chave no cenário tutorial:
 
 ![Descrição geral](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Neste tutorial:
 
 >[!div class="checklist"]
-> * Adicionar um dispositivo IoT Edge para a solução
-> * Criar um manifesto do Edge
+> * Adicione um dispositivo IoT Edge à solução
+> * Criar um manifesto Edge
 > * Importar o manifesto como um pacote que define os módulos para executar no dispositivo
-> * Implementar o pacote no seu dispositivo IoT Edge
+> * Desloque o pacote para o seu dispositivo IoT Edge
 > * Ver alertas do dispositivo
 
 No dispositivo IoT Edge:
 
-* O tempo de execução recebe o pacote e instala os módulos.
-* O módulo do stream analytics Deteta anomalias de temperatura a bomba e envia comandos de resolver o problema.
-* O módulo de análise de fluxo reencaminha dados filtrados para o solution accelerator.
+* O tempo de funcionação recebe a embalagem e instala os módulos.
+* O módulo de análise de fluxo deteta anomalias de temperatura na bomba e envia comandos para resolver o problema.
+* O módulo de análise de fluxo encaminha os dados filtrados para o acelerador da solução.
 
-Este tutorial utiliza uma máquina virtual Linux como um dispositivo IoT Edge. Também instalar um módulo de borda para simular o dispositivo de jack de bombeamento de petróleo.
+Este tutorial usa uma máquina virtual Linux como um dispositivo IoT Edge. Também instala um módulo de borda para simular o dispositivo de tomada da bomba de óleo.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="add-an-iot-edge-device"></a>Adicionar um dispositivo do IoT Edge
+## <a name="add-an-iot-edge-device"></a>Adicionar um dispositivo IoT Edge
 
-Há duas etapas para adicionar um dispositivo IoT Edge para seu acelerador de solução de monitorização remota. Esta secção mostra-lhe como utilizar:
+Existem dois passos para adicionar um dispositivo IoT Edge ao seu acelerador de solução de monitorização remota. Esta secção mostra-lhe como usar:
 
-* Adicionar um dispositivo IoT Edge no **Device Explorer** página na monitorização remota da IU da web.
-* Instale o runtime do IoT Edge numa máquina virtual (VM) do Linux.
+* Adicione um dispositivo IoT Edge na página **do Device Explorer** na UI web de monitorização remota.
+* Instale o tempo de execução do IoT Edge numa máquina virtual Linux (VM).
 
-### <a name="add-an-iot-edge-device-to-your-solution"></a>Adicionar um dispositivo IoT Edge à sua solução
+### <a name="add-an-iot-edge-device-to-your-solution"></a>Adicione um dispositivo IoT Edge à sua solução
 
-Para adicionar um dispositivo IoT Edge para o acelerador de solução de monitorização remota, navegue para o **Device Explorer** página na IU da web e clique em **+ novo dispositivo**.
+Para adicionar um dispositivo IoT Edge ao acelerador de solução de monitorização remota, navegue na página do **Device Explorer** na Web UI e clique + **novo dispositivo**.
 
-Na **novo dispositivo** painel, escolha **dispositivo IoT Edge** e introduza **bomba de petróleo** como o ID de dispositivo. Pode deixar os valores predefinidos para as outras definições. Em seguida, clique em **Aplicar**:
+No painel **do novo dispositivo,** escolha o **dispositivo IoT Edge** e **introduza** a bomba de óleo como id do dispositivo. Pode deixar os valores predefinidos para as outras definições. Em seguida, clique em **Aplicar**:
 
-[![Adicionar dispositivo IoT Edge](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
+[![Adicione o dispositivo IoT Edge](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
 
-Anote a cadeia de ligação do dispositivo, terá na secção seguinte deste tutorial.
+Tome nota da cadeia de ligação do dispositivo, precisa dela na secção seguinte deste tutorial.
 
-Quando registar um dispositivo com o hub IoT no acelerador de solução de monitorização remota, é apresentada no **Device Explorer** página na IU da web:
+Ao registar um dispositivo com o hub IoT no acelerador de soluções de monitorização remota, está listado na página do **Device Explorer** na UI web:
 
 [![Novo dispositivo IoT Edge](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
-Para tornar mais fácil de gerir os dispositivos do IoT Edge na solução, crie um grupo de dispositivos e adicionar o dispositivo do IoT Edge:
+Para facilitar a gestão dos dispositivos IoT Edge na solução, crie um grupo de dispositivos e adicione o dispositivo IoT Edge:
 
-1. Selecione o **bomba de petróleo** dispositivo na lista de **Device Explorer** página e, em seguida, clique em **tarefas**.
+1. Selecione o dispositivo **de bomba de óleo** na lista na página do Device **Explorer** e, em seguida, clique em **Jobs**.
 
-1. Criar uma tarefa para adicionar o **IsEdge** marca o dispositivo com as seguintes definições:
-
-    | Definição | Value |
-    | ------- | ----- |
-    | Tarefa     | Tags  |
-    | Nome da tarefa | AddEdgeTag |
-    | Chave     | IsOilPump |
-    | Value   | S     |
-    | Type    | Text  |
-
-    [![Adicionar etiqueta](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
-
-1. Clique em **aplicam-se**, em seguida, **fechar**.
-
-1. Sobre o **Device Explorer** página, clique em **gerir grupos de dispositivos**.
-
-1. Clique em **criar novo grupo de dispositivos**. Crie um novo grupo de dispositivos com as seguintes definições:
+1. Criar um trabalho para adicionar a etiqueta **IsEdge** ao dispositivo utilizando as seguintes definições:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Name    | OilPumps |
+    | Tarefa     | Etiquetas  |
+    | Nome da Tarefa | AddedgeTag |
+    | Chave     | IsOilPump |
+    | Valor   | S     |
+    | Tipo    | Texto  |
+
+    [![Adicionar etiqueta](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
+
+1. Clique **em Aplicar** **e,** em seguida, fechar .
+
+1. Na página do Explorer do **Dispositivo,** clique em **Gerir grupos de dispositivos**.
+
+1. Clique **em Criar um novo grupo de dispositivos**. Criar um novo grupo de dispositivos com as seguintes definições:
+
+    | Definição | Valor |
+    | ------- | ----- |
+    | Nome    | Bombas de Óleo |
     | Campo   | Tags.IsOilPump |
-    | Operador | = Igual a |
-    | Value    | S |
-    | Type     | Text |
+    | Operador | = Iguais |
+    | Valor    | S |
+    | Tipo     | Texto |
 
     [![Criar grupo de dispositivos](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
 1. Clique em **Guardar**.
 
-Dispositivo IoT Edge está agora no **OilPumps** grupo.
+O dispositivo IoT Edge está agora no grupo **OilPumps.**
 
-### <a name="install-the-edge-runtime"></a>Instalar o runtime do Edge
+### <a name="install-the-edge-runtime"></a>Instale o tempo de execução edge
 
-Um dispositivo do Edge requer o runtime do Edge para ser instalado. Neste tutorial, instale o runtime do Edge numa VM do Linux do Azure para testar o cenário. Os passos seguintes utilizam o Azure cloud shell na instalação e configurar a VM:
+Um dispositivo Edge requer a instalação do tempo de execução edge. Neste tutorial, instala o tempo de execução edge num VM Azure Linux para testar o cenário. Os seguintes passos utilizam a casca de nuvem Azure na instalação e configuram o VM:
 
-1. Para criar uma VM do Linux no Azure, execute os seguintes comandos. Pode utilizar uma localização perto de onde estiver:
+1. Para criar um VM Linux em Azure, execute os seguintes comandos. Pode utilizar um local próximo do local onde se encontram:
 
     ```azurecli-interactive
     az group create \
@@ -127,7 +127,7 @@ Um dispositivo do Edge requer o runtime do Edge para ser instalado. Neste tutori
       --size Standard_B1ms
     ```
 
-1. Para configurar o runtime do Edge com a cadeia de ligação do dispositivo, execute o comando seguinte com a cadeia de ligação do dispositivo que anotou anteriormente:
+1. Para configurar o tempo de execução do Edge com a cadeia de ligação do dispositivo, execute o seguinte comando utilizando a cadeia de ligação do dispositivo que tomou uma nota anteriormente:
 
     ```azurecli-interactive
     az vm run-command invoke \
@@ -137,43 +137,43 @@ Um dispositivo do Edge requer o runtime do Edge para ser instalado. Neste tutori
       --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-    Certifique-se de que incluem a cadeia de ligação dentro de aspas.
+    Certifique-se de incluir a sua corda de ligação dentro de marcas de dupla aspas.
 
-Agora instalado e configurado o runtime do IoT Edge num dispositivo Linux. Mais tarde neste tutorial, vai utilizar a solução de monitorização remota para implementar módulos do IoT Edge deste dispositivo.
+Já instalou e configurou o tempo de execução do IoT Edge num dispositivo Linux. Mais tarde neste tutorial, utiliza a solução de Monitorização Remota para implantar módulos IoT Edge neste dispositivo.
 
-## <a name="create-an-edge-manifest"></a>Criar um manifesto do Edge
+## <a name="create-an-edge-manifest"></a>Criar um manifesto Edge
 
-Para simular o dispositivo de bombeamento de jack de petróleo, terá de adicionar os seguintes módulos para o seu dispositivo Edge:
+Para simular o dispositivo de bomba de tomada de óleo, é necessário adicionar os seguintes módulos ao seu dispositivo Edge:
 
 * Módulo de simulação de temperatura.
-* Deteção de anomalias do Azure Stream Analytics.
+* Deteção de anomalias azure Stream Analytics.
 
-Os passos seguintes mostram como criar um manifesto de implantação do Edge que inclui estes módulos. Mais tarde neste tutorial importará esse manifesto como um pacote do solution Accelerator monitorização remota.
+Os seguintes passos mostram-lhe como criar um manifesto de implantação edge que inclui estes módulos. Mais tarde neste tutorial importa este manifesto como um pacote no acelerador de solução de monitorização remota.
 
-### <a name="create-the-azure-stream-analytics-job"></a>Criar tarefa do Azure Stream Analytics
+### <a name="create-the-azure-stream-analytics-job"></a>Criar o trabalho de Analytics Azure Stream
 
-Definir a tarefa do Stream Analytics no portal do antes de empacotá-lo como um módulo de borda.
+Define o trabalho stream analytics no portal antes de o embalar como módulo Edge.
 
-1. No portal do Azure, criar uma conta de armazenamento do Azure com as opções predefinidas no **IoTEdgeDevices** grupo de recursos. Anote o nome que escolheu.
+1. No portal Azure, crie uma conta de armazenamento Azure utilizando as opções predefinidas no grupo de recursos **IoTEdgeDevices.** Tome nota do nome que escolheu.
 
-1. No portal do Azure, crie uma **tarefa do Stream Analytics** no **IoTEdgeDevices** grupo de recursos. Utilizar valores de configuração a seguir:
+1. No portal Azure, crie um **Trabalho stream analytics** no grupo de recursos **IoTEdgeDevices.** Utilize os seguintes valores de configuração:
 
-    | Opção | Value |
+    | Opção | Valor |
     | ------ | ----- |
     | Nome da tarefa | EdgeDeviceJob |
     | Subscrição | A sua subscrição do Azure |
-    | Grupo de recursos | IoTEdgeDevices |
-    | Location | EUA Leste |
-    | Ambiente de Alojamento | Microsoft Edge |
+    | Grupo de recursos | Dispositivos IoTEdge |
+    | Localização | E.U.A. Leste |
+    | Ambiente de alojamento | Microsoft Edge |
     | Unidades de transmissão em fluxo | 1 |
 
-1. Abra o **EdgeDeviceJob** Stream Analytics da tarefa no portal, clique em entradas e adicionar um **Hub do Edge** transmitir entrada chamada **telemetria**.
+1. Abra o trabalho **edgeDeviceJob** Stream Analytics no portal, clique em Inputs e adicione uma entrada de fluxo **Edge Hub** chamada **telemetria**.
 
-1. Na **EdgeDeviceJob** tarefa do Stream Analytics no portal, clique em **saídas** e adicione um **Hub do Edge** saída chamada **saída**.
+1. No trabalho **edgeDeviceJob** Stream Analytics no portal, clique em **Saídas** e adicione uma saída **edge hub** chamada **saída**.
 
-1. Na **EdgeDeviceJob** tarefa do Stream Analytics no portal, clique em **saídas** e adicione um segundo **Hub do Edge** saída chamada **alerta**.
+1. No trabalho **edgeDeviceJob** Stream Analytics no portal, clique em **Saídas** e adicione uma segunda saída **edge hub** chamada **alerta**.
 
-1. Na **EdgeDeviceJob** tarefa do Stream Analytics no portal, clique em **consulta** e adicione as seguintes **selecionar** instrução:
+1. No trabalho **edgeDeviceJob** Stream Analytics no portal, clique em **Consulta** e adicione a seguinte declaração **selecionada:**
 
     ```sql
     SELECT  
@@ -189,35 +189,35 @@ Definir a tarefa do Stream Analytics no portal do antes de empacotá-lo como um 
     HAVING avg(machine.temperature) > 400
     ```
 
-1. Na **EdgeDeviceJob** tarefa do Stream Analytics no portal, clique em **definições de conta de armazenamento**. Adicione a conta de armazenamento adicionado para o **IoTEdgeDevices** grupo de recursos como o início desta secção. Criar um novo recipiente chamado **edgeconfig**.
+1. No trabalho **edgeDeviceJob** Stream Analytics no portal, clique em **definições**de conta de armazenamento . Adicione a conta de armazenamento adicionada ao grupo de recursos **IoTEdgeDevices** como o início desta secção. Crie um novo recipiente chamado **edgeconfig.**
 
-Captura de ecrã seguinte mostra a tarefa de Stream Analytics guardada:
+A imagem que se segue mostra o trabalho guardado de Stream Analytics:
 
-[![Tarefa do Stream Analytics](./media/iot-accelerators-remote-monitoring-edge/streamjob-inline.png)](./media/iot-accelerators-remote-monitoring-edge/streamjob-expanded.png#lightbox)
+[![Trabalho de Análise de Fluxo](./media/iot-accelerators-remote-monitoring-edge/streamjob-inline.png)](./media/iot-accelerators-remote-monitoring-edge/streamjob-expanded.png#lightbox)
 
-Agora que definiu uma tarefa de Stream Analytics para executar no seu dispositivo do edge. A tarefa calcula a temperatura média numa janela de 5 segundos. A tarefa também envia um alerta caso a temperatura média numa janela de 3 segundos mais 400.
+Definiu agora um trabalho de Stream Analytics para executar no seu dispositivo de borda. O trabalho calcula a temperatura média sobre uma janela de 5 segundos. O trabalho também envia um alerta se a temperatura média numa janela de 3 segundos for superior a 400.
 
-### <a name="create-the-iot-edge-deployment"></a>Criar a implementação de IoT Edge
+### <a name="create-the-iot-edge-deployment"></a>Criar a implantação ioT Edge
 
-Em seguida, vai criar um manifesto de implantação do IoT Edge que define os módulos para ser executado no seu dispositivo Edge. Na secção seguinte, é possível importar este manifesto como um pacote da solução de monitorização remota.
+Em seguida, cria um manifesto de implantação IoT Edge que define os módulos para executar no seu dispositivo Edge. Na secção seguinte, importa este manifesto como um pacote na solução de Monitorização Remota.
 
-1. No portal do Azure, navegue para o hub IoT na sua solução de monitorização remota. Pode encontrar o hub IoT no grupo de recursos que tem o mesmo nome que a sua solução de monitorização remota.
+1. No portal Azure, navegue até ao centro IoT na sua solução de Monitorização Remota. Pode encontrar o hub IoT no grupo de recursos que tem o mesmo nome que a sua solução de Monitorização Remota.
 
-1. No IoT hub, clique em **IoT Edge** no **gestão de dispositivos automático** secção. Clique em **adicionar uma implementação de IoT Edge**.
+1. No centro IoT, clique em **IoT Edge** na secção De **Gestão automática de Dispositivos.** Clique **em Adicionar uma implementação IoT Edge**.
 
-1. Sobre o **criar implementação > nome e a etiqueta** página, introduza o nome **petróleo-bomba-device**. Clique em **Seguinte**.
+1. Na página **Create Implantação > Nome e Etiqueta,** introduza o nome de **dispositivo de bomba de óleo**. Clique em **Seguinte**.
 
-1. Sobre o **criar implementação > Adicionar módulos** página, clique em **+ adicionar**. Escolher **módulo do IoT Edge**.
+1. Na página **Criar > adicionar módulos,** clique **+ adicionar**. Escolha módulo **IoT Edge**.
 
-1. Na **módulos do IoT Edge personalizada** painel, introduza **sensor de temperatura** como o nome, e **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64** como o URI da imagem. Clique em **Guardar**.
+1. No painel **Módulos Personalizados IoT Edge,** introduza a **temperaturaSensor** como o nome, e **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64** como a imagem URI. Clique em **Guardar**.
 
-1. Sobre o **criar implementação > Adicionar módulos** página, clique em **+ adicionar** para adicionar um módulo de segundo. Escolher **módulo do Azure Stream Analytics**.
+1. Na página **Create Deployment > Adicionar Módulos,** clique + **adicione** para adicionar um segundo módulo. Escolha **o Módulo de Análise de Fluxo Azure**.
 
-1. Na **implementação de borda** painel, selecione a sua subscrição e o **EdgeDeviceJob** que criou na secção anterior. Clique em **Guardar**.
+1. No painel de **implementação Edge,** selecione a sua subscrição e o **EdgeDeviceJob** que criou na secção anterior. Clique em **Guardar**.
 
-1. Sobre o **criar implementação > Adicionar módulos** página, clique em **próxima**.
+1. Na página **Criar > adicionar módulos,** clique em **Seguinte**.
 
-1. Sobre o **criar implementação > especificar rotas** página, adicione o seguinte código:
+1. Na página **Create Deployment > Especificar Rotas,** adicione o seguinte código:
 
     ```sql
     {
@@ -229,113 +229,113 @@ Em seguida, vai criar um manifesto de implantação do IoT Edge que define os m�
     }
     ```
 
-    Esse código encaminha a saída do módulo do Stream Analytics para locais corretos.
+    Este código direciona a saída do módulo Stream Analytics para os locais corretos.
 
     Clique em **Seguinte**.
 
-1. Sobre o **criar implementação > especificar métricas** página, clique em **seguinte**.
+1. Na página **Criar > especificar Métricas,** clique em **Seguinte**.
 
-1. Sobre o **criar implementação > dispositivos de destino** página, introduza 10 como a prioridade. Clique em **Seguinte**.
+1. Na página **Create Deployment > Target Devices,** insira 10 como prioridade. Clique em **Seguinte**.
 
-1. Na **criar implementação > implementação de revisão** página, clique em **submeter**:
+1. Na página **de implementação de implementação de > de implementação** de implementação de implementação de implementação de implementação, clique em **Submeter:**
 
-    [![Implementação de revisão](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
+    [![Revisão da implantação](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
-1. No principal **IoT Edge** página, clique em **implementações do IoT Edge**. Pode ver **petróleo-bomba-device** na lista de implementações.
+1. Na página **ioT edge** principal, clique em **implementações IoT Edge**. Pode ver o **dispositivo de bomba de óleo** na lista de implantações.
 
-1. Clique nas **petróleo-bomba-device** implementação e clique em **manifesto de transferir o IoT Edge**. Guarde o ficheiro como **petróleo-bomba-device.json** para um local adequado no seu computador local. Precisa de ter este ficheiro na secção seguinte deste tutorial.
+1. Clique na implementação do **dispositivo de bomba de óleo** e, em seguida, clique em descarregar o manifesto **Descarregamento IoT Edge**. Guarde o ficheiro como **dispositivo de bomba de óleo.json** para um local adequado na sua máquina local. Precisa deste ficheiro na próxima secção deste tutorial.
 
-Acabou de criar um manifesto do IoT Edge para importar para a solução de monitorização remota como um pacote. Normalmente, um desenvolvedor cria o IoT Edge, módulos e o arquivo de manifesto.
+Criou agora um manifesto IoT Edge para importar para a solução de Monitorização Remota como pacote. Tipicamente, um desenvolvedor cria os módulos IoT Edge e o ficheiro manifesto.
 
 ## <a name="import-a-package"></a>Importar um pacote
 
-Nesta secção, é possível importar o manifesto do Edge como um pacote da solução de monitorização remota.
+Nesta secção, importa o manifesto Edge como um pacote na solução de Monitorização Remota.
 
-1. Na monitorização remota da IU da web, navegue para o **pacotes** página e clique em **+ novo pacote**:
+1. Na UI web de monitorização remota, navegue para a página **Pacotes** e clique **em + Novo Pacote:**
 
     [![Novo pacote](./media/iot-accelerators-remote-monitoring-edge/newpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newpackage-expanded.png#lightbox)
 
-1. No **novo pacote** painel, escolha **Edge manifesto** como o tipo de pacote, clique em **procurar** para encontrar o **petróleo-bomba-device.json** de ficheiros no seu computador local e clique em **carregar**:
+1. No painel **New Package,** escolha **Edge Manifest** como o tipo de pacote, clique em **Navegar** para encontrar o ficheiro **oil-pump-device.json** na sua máquina local e clique em **Carregar:**
 
-    [![Carregar o pacote](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
+    [![Pacote de upload](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
 
-    A lista de pacotes agora inclui a **petróleo-bomba-device.json** pacote.
+    A lista de pacotes inclui agora o pacote **oil-pump-device.json.**
 
-Na secção seguinte, cria uma implementação que aplica-se o pacote para o seu dispositivo do Edge.
+Na secção seguinte, cria-se uma implementação que aplica o pacote ao seu dispositivo Edge.
 
 ## <a name="deploy-a-package"></a>Implementar um pacote
 
-Agora está pronto para implementar o pacote para o seu dispositivo.
+Agora está pronto para enviar o pacote para o seu dispositivo.
 
-1. Na monitorização remota da IU da web, navegue para o **implementações** página e clique em **+ nova implementação**:
+1. Na UI web de monitorização remota, navegue para a página **de Implementações** e clique **+ Nova implementação:**
 
-    [![Nova implementação](./media/iot-accelerators-remote-monitoring-edge/newdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newdeployment-expanded.png#lightbox)
+    [![Nova implantação](./media/iot-accelerators-remote-monitoring-edge/newdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newdeployment-expanded.png#lightbox)
 
-1. Na **nova implementação** painel, pode criar uma implementação com as seguintes definições:
+1. No novo painel de **implantação,** crie uma implementação com as seguintes definições:
 
     | Opção | Valor |
     | ------ | ----- |
-    | Name   | OilPumpDevices |
-    | Tipo de pacote | Manifesto do Edge |
+    | Nome   | Dispositivos de Bombas de Óleo |
+    | Tipo de pacote | Manifesto de borda |
     | Pacote | oil-pump-device.json |
-    | Grupo de dispositivos | OilPumps |
+    | Grupo de Dispositivos | Bombas de Óleo |
     | Prioridade | 10 |
 
     [![Criar implementação](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
     Clique em **Aplicar**.
 
-Terá de aguardar alguns minutos para o pacote para implementar no seu dispositivo e para a telemetria para começarem a fluir do dispositivo.
+Tem de esperar vários minutos para que a embalagem seja implantada no seu dispositivo e para que a telemetria comece a fluir a partir do dispositivo.
 
-[![Implementação do Active Directory](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-inline.png)](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-expanded.png#lightbox)
+[![Implantação ativa](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-inline.png)](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-expanded.png#lightbox)
 
-O **implementações** página mostra as métricas seguintes:
+A página **de Implementações** mostra as seguintes métricas:
 
-* **Direcionada** mostra o número de dispositivos no grupo de dispositivos.
-* **Aplicado** mostra o número de dispositivos que tenha tido a conteúdo de implementação aplicada.
-* **Foi efetuada com êxito** mostra o número de dispositivos de ponta na implementação do relatório de sucesso do tempo de execução de cliente do IoT Edge.
-* **Falha ao** mostra o número de dispositivos de ponta na implementação de relatórios de falha de tempo de execução do cliente do IoT Edge.
+* **O alvo** mostra o número de dispositivos no grupo do dispositivo.
+* **A aplicação** mostra o número de dispositivos que tiveram o conteúdo de implantação aplicado.
+* **O sucesso** mostra o número de dispositivos Edge no sucesso de relatórios de implementação do tempo de execução do cliente IoT Edge.
+* **Falha mostra** o número de dispositivos Edge na falha de reporte de implementação do tempo de execução do cliente IoT Edge.
 
-## <a name="monitor-the-device"></a>Monitorizar o dispositivo
+## <a name="monitor-the-device"></a>Monitorize o dispositivo
 
-Pode ver a telemetria de temperatura do seu dispositivo de bombeamento de petróleo em monitorização remota da IU da web:
+Pode visualizar a telemetria de temperatura do seu dispositivo de bomba de óleo na UI web de monitorização remota:
 
-1. Navegue para o **Device Explorer** página e selecione o seu dispositivo de bombeamento de petróleo.
-1. Na **telemetria** secção a **detalhes do dispositivo** painel, clique em **temperatura**:
+1. Navegue na página **Do Explorador** do Dispositivo e selecione o seu dispositivo de bomba de óleo.
+1. Na secção **telemetria** do painel de detalhes do **Dispositivo,** clique em **Temperatura:**
 
-    [![Ver a telemetria](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)
+    [![Ver telemetria](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)
 
-Pode ver como a temperatura sobe até atingir um limiar. O módulo Edge do Stream Analytics Deteta quando a temperatura atinge este limite e envia um comando ao dispositivo para reduzir a temperatura imediatamente. Todo esse processamento ocorre no dispositivo sem comunicar com a cloud.
+Pode ver como a temperatura sobe até atingir um limiar. O módulo Stream Analytics Edge deteta quando a temperatura atinge este limiar e envia um comando para o dispositivo para reduzir imediatamente a temperatura. Todo este processamento acontece no dispositivo sem comunicar com a nuvem.
 
-Se pretender notificar operadores quando foi atingido o limiar, pode criar uma regra de monitorização remota da IU da web:
+Se pretender notificar os operadores quando o limiar foi atingido, pode criar uma regra na UI web de monitorização remota:
 
-1. Navegue para o **regras** página e clique em **+ nova regra**.
-1. Crie uma nova regra com as seguintes definições:
+1. Navegue para a página **Regras** e clique **+ Nova regra**.
+1. Criar uma nova regra com as seguintes definições:
 
-    | Opção | Value |
+    | Opção | Valor |
     | ------ | ----- |
-    | Nome da regra | Temperatura de bombeamento de petróleo |
-    | Descrição | Temperatura de bombeamento de petróleo excedido 300 |
-    | Grupo de dispositivos | OilPumps |
+    | Nome da regra | Temperatura da bomba de óleo |
+    | Descrição | Temperatura da bomba de óleo ultrapassou os 300 |
+    | Grupo de dispositivos | Bombas de Óleo |
     | Cálculo | Instantâneo |
     | Campo | temperatura |
     | Operador | > |
-    | Value | 300 |
+    | Valor | 300 |
     | Nível de gravidade | Informações |
 
     [![Criar regra](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 
     Clique em **Aplicar**.
 
-1. Navegue para o **Dashboard** página. Um alerta mostra o **alertas** painel quando a temperatura no **bomba de petróleo** dispositivo for superior a 300.
+1. Navegue para a página **do Dashboard.** Um alerta mostra no painel **alertas** quando a temperatura no dispositivo **de bomba de óleo** ultrapassa os 300.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este tutorial mostrou como adicionar e configurar um dispositivo IoT Edge no acelerador de solução de monitorização remota. Para saber mais sobre como trabalhar com pacotes do IoT Edge da solução de monitorização remota, consulte o guia de procedimentos seguinte:
+Este tutorial mostrou-lhe como adicionar e configurar um dispositivo IoT Edge no acelerador de solução de monitorização remota. Para saber mais sobre o trabalho com os pacotes IoT Edge na solução de Monitorização Remota, consulte o seguinte guia:
 
 > [!div class="nextstepaction"]
-> [Importar um pacote do IoT Edge para o seu acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-import-edge-package.md)
+> [Importe um pacote IoT Edge para o seu acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-import-edge-package.md)
 
-Para saber mais sobre como instalar o runtime do IoT Edge, veja [instalar o runtime do Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
+Para saber mais sobre a instalação do tempo de execução do IoT Edge, consulte Instale o tempo de execução do [Edge Azure IoT no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
 
-Para saber mais sobre o Azure Stream Analytics em dispositivos periféricos, veja [implementar o Azure Stream Analytics como um módulo do IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md).
+Para saber mais sobre o Azure Stream Analytics em dispositivos Edge, consulte [o Deploy Azure Stream Analytics como um módulo IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md).

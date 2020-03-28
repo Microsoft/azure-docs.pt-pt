@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78402841"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizaa imagem de contentor constrói-se na nuvem quando comete código fonte
@@ -32,7 +32,7 @@ Este tutorial parte do princípio de que já concluiu os passos no [tutorial ant
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se quiser utilizar o Azure CLI localmente, deve ter a versão Azure CLI **2.0.46** ou posteriormente instalada e iniciada com [login az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar o CLI, consulte [Instalar o Azure CLI][azure-cli].
+Se desejar utilizar a CLI do Azure localmente, tem de ter a versão **2.0.46** ou posterior da CLI do Azure instalada e de ter sessão iniciada com [az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -63,11 +63,11 @@ az acr task create \
 ```
 
 > [!IMPORTANT]
-> Se criou tarefas anteriormente durante a pré-visualização com o comando `az acr build-task`, essas tarefas precisam de ser recriadas utilizando o comando de [tarefa az acr.][az-acr-task]
+> Se anteriormente tiver criado tarefas durante a pré-visualização com o comando `az acr build-task`, essas tarefas têm de ser recriadas com o [az acr task][az-acr-task].
 
-Esta tarefa especifica que sempre que um código é consolidado no ramo *principal* do repositório especificado por `--context`, o ACR Tasks compilará a imagem do contentor do código nesse ramo. O Dockerfile especificado por `--file` a partir da raiz do repositório é usado para construir a imagem. O argumento `--image` especifica um valor com parâmetros de `{{.Run.ID}}` para a parte da versão da etiqueta da imagem, o que garante que a imagem compilada está correlacionada com uma compilação específica e é etiquetada de forma exclusiva.
+Esta tarefa especifica que sempre que um código é consolidado no ramo *principal* do repositório especificado por `--context`, o ACR Tasks compilará a imagem do contentor do código nesse ramo. O Dockerfile especificado pela `--file` raiz do repositório é usado para construir a imagem. O argumento `--image` especifica um valor com parâmetros de `{{.Run.ID}}` para a parte da versão da etiqueta da imagem, o que garante que a imagem compilada está correlacionada com uma compilação específica e é etiquetada de forma exclusiva.
 
-A saída de uma [tarefa az acr][az-acr-task-create] bem sucedida é semelhante ao seguinte:
+O resultado de um comando [az acr task create][az-acr-task-create] com êxito é semelhante ao seguinte:
 
 ```output
 {
@@ -128,7 +128,7 @@ A saída de uma [tarefa az acr][az-acr-task-create] bem sucedida é semelhante a
 
 ## <a name="test-the-build-task"></a>Testar a tarefa de compilação
 
-Tem agora uma tarefa que define a sua compilação. Para testar o gasoduto de construção, desencadeie uma construção manualatravés da execução do comando de execução de [tarefas az acr:][az-acr-task-run]
+Tem agora uma tarefa que define a sua compilação. Para testar o pipeline da compilação, acione manualmente uma compilação ao executar o comando[az acr build-task run][az-acr-task-run]:
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -206,7 +206,7 @@ Run ID: da2 was successful after 27s
 
 Agora que testou a tarefa através de uma execução manual, acione-a automaticamente com uma alteração do código de origem.
 
-Primeiro, certifique-se de que está no diretório contendo o seu clone local do [repositório:][sample-repo]
+Em primeiro lugar, confirme que está no diretório que contém o clone local do [repositório][sample-repo]:
 
 ```console
 cd acr-build-helloworld-node
@@ -247,7 +247,7 @@ Run ID: da4 was successful after 38s
 
 ## <a name="list-builds"></a>Listar as compilações
 
-Para ver uma lista da tarefa executada que as Tarefas ACR completaram para o seu registo, executar o comando de [execução da lista de tarefas az acr:][az-acr-task-list-runs]
+Para ver uma lista das execuções de tarefas que o ACR Tasks concluiu para o seu registo, execute o comando [az acr task list-runs][az-acr-task-list-runs]:
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table

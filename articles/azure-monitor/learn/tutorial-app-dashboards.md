@@ -8,10 +8,10 @@ ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
 ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77661639"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
@@ -34,7 +34,7 @@ Para concluir este tutorial:
 - Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../../azure-monitor/app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="create-a-new-dashboard"></a>Criar um novo dashboard
 Um único dashboard pode conter recursos de várias aplicações, grupos de recursos e subscrições.  Comece o tutorial ao criar um novo dashboard para a sua aplicação.  
@@ -57,7 +57,7 @@ Um dashboard com texto estático não é muito interessante, por isso adicione a
 
 
 1. Selecione o seu recurso **Application Insights** no ecrã principal.
-2. No painel **de visão geral,** clique no ícone do pino ![ícone do pino](media/tutorial-app-dashboards/pushpin.png) para adicionar o azulejo ao último painel de instrumentos que estava a ver.  
+2. No painel **de visão geral,** ![clique](media/tutorial-app-dashboards/pushpin.png) no ícone do pino do pino para adicionar o azulejo ao último painel de instrumentos que estava a ver.  
  
 3. Na parte superior direita, aparecerá uma notificação de que o seu azulejo estava preso no seu painel de instrumentos. Clique **em Pinned para dashboard** na notificação para voltar ao seu painel de instrumentos ou utilizar o painel do painel de instrumentos.
 4. O azulejo é agora adicionado ao seu painel. Selecione **Editar** para alterar o posicionamento do azulejo. Clique e arraste-o para a posição e, em seguida, clique em **Fazer personalizar**. O dashboard tem agora um mosaico algumas informações úteis.
@@ -101,7 +101,7 @@ Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separa
     ```
 
 4. Clique em **Executar** para validar os resultados da consulta.
-5. Clique no ícone do pino ![ícone pin](media/tutorial-app-dashboards/pushpin.png) e selecione o nome do seu painel de instrumentos. A razão pela qual esta opção tem seleciona um dashboard diferente dos passos anteriores onde o último dashboard foi utilizado é porque a consola Logs (Analytics) é um serviço separado e precisa selecionar de todos os dashboards partilhados disponíveis.
+5. Clique no ícone do pino ![Ícone de afixar](media/tutorial-app-dashboards/pushpin.png) e selecione o nome do seu painel de instrumentos. A razão pela qual esta opção tem seleciona um dashboard diferente dos passos anteriores onde o último dashboard foi utilizado é porque a consola Logs (Analytics) é um serviço separado e precisa selecionar de todos os dashboards partilhados disponíveis.
 
 5. Antes de voltar ao painel de instrumentos, adicione outra consulta, mas desta vez torna-a como um gráfico para que veja as diferentes formas de visualizar uma consulta de logs num painel de instrumentos. Comece com a consulta seguinte que resume as 10 principais operações com a maioria das exceções.
 
@@ -116,7 +116,7 @@ Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separa
 
     ![Gráfico de logs (Analytics)](media/tutorial-app-dashboards/11querychart.png)
 
-6. Clique no ícone do pino ![ícone pin](media/tutorial-app-dashboards/pushpin.png) na parte superior direita para fixar o gráfico no seu painel de instrumentos e desta vez selecione o link para voltar ao seu painel de instrumentos.
+6. Clique no ícone do pino ![Ícone de afixar](media/tutorial-app-dashboards/pushpin.png) na parte superior direita para fixar o gráfico no seu painel de instrumentos e desta vez selecione o link para voltar ao seu painel de instrumentos.
 4. Os resultados das consultas estão agora adicionados ao dashboard no formato que selecionou.  Clique e arraste cada um para a posição e, em seguida, clique em **Fazer personalizar**.
 5. Selecione o ícone do lápis ![Ícone de lápis](media/tutorial-app-dashboards/pencil.png) em cada título para dar-lhes um título descritivo.
 

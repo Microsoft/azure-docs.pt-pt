@@ -1,5 +1,5 @@
 ---
-title: Balancear a carga de vários sites-CLI do Azure-Azure Load Balancer
+title: Balanço de carga vários websites - Azure CLI - Azure Load Balancer
 description: Este exemplo de script de CLI do Azure mostra como fazer o balanceamento de carga de múltiplos sites para a mesma máquina virtual
 documentationcenter: load-balancer
 author: asudbring
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: 80ec18ca722b9833307fc270c710abd93c6fb6f9
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274626"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Exemplo de script de CLI do Azure: balanceamento de carga de múltiplos sites
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create) | Cria um conjunto de endereços de back-end. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az-network-nic-create) | Cria a placa da rede virtual e liga-a à rede virtual e à sub-rede. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#az-network-lb-rule-create) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
-| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) | Cria uma configuração de IP. Tem de ter a funcionalidade Microsoft.Network/AllowMultipleIpConfigurationsPerNic ativada na sua subscrição. Apenas uma configuração pode ser designada como a configuração de IP principal por NIC ao utilizar o sinalizador make-primary. |
+| [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create) | Cria uma configuração IP. Tem de ter a funcionalidade Microsoft.Network/AllowMultipleIpConfigurationsPerNic ativada na sua subscrição. Apenas uma configuração pode ser designada como a configuração de IP principal por NIC ao utilizar o sinalizador make-primary. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az-vm-availability-set-create) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 

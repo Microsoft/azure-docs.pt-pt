@@ -1,19 +1,19 @@
 ---
-title: Exemplo de script Azure PowerShell – implantar um aplicativo gerenciado
-description: Fornece Azure PowerShell exemplo de script de exemplo que implanta uma definição de aplicativo gerenciado para a assinatura.
+title: Amostra de script Azure PowerShell - Implementar uma aplicação gerida
+description: Fornece a amostra de script da amostra Azure PowerShell que implementa uma definição de aplicação gerida para a subscrição.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: e076128a5be453028635b1657bf3f90980863148
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75650171"
 ---
-# <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Implantar um aplicativo gerenciado para um catálogo de serviços com o PowerShell
+# <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Implementar uma aplicação gerida para um catálogo de serviços com a PowerShell
 
 Este script implementa uma definição da aplicação gerida a partir do catálogo de serviço.
 
@@ -33,7 +33,7 @@ Este script utiliza o seguinte comando para implementar a aplicação gerida. Ca
 
 | Comando | Notas |
 |---|---|
-| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Criar uma aplicação gerida. Dê o ID de definição e os parâmetros para o modelo. |
+| [Aplicação Nova-AzManaged](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Criar uma aplicação gerida. Dê o ID de definição e os parâmetros para o modelo. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

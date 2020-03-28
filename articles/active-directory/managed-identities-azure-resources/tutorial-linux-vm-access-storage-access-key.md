@@ -1,6 +1,6 @@
 ---
-title: Tutorial`:` Utilize uma identidade gerida para aceder ao Armazenamento Azure através da chave de acesso - Linux - Azure AD
-description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Linux, para aceder ao Armazenamento do Azure.
+title: Tutorial`:` Use uma identidade gerida para aceder ao Armazenamento Azure através da chave de acesso - Linux - Azure AD
+description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Linux, para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,10 +16,10 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273827"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure
@@ -36,13 +36,13 @@ Este tutorial mostra-lhe como utilizar uma identidade atribuída pelo sistema de
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage 
 
 Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também pode ignorar este passo e conceder à identidade gerida atribuída pelo sistema da VM acesso às chaves de uma conta de armazenamento existente. 
 
 1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
 2. Clique em **Armazenamento**, em seguida, em **Conta de Armazenamento**, e um novo painel "Criar a conta de armazenamento" será apresentado.
-3. Introduza um **Nome** para a conta de armazenamento, que irá utilizar mais tarde.  
+3. Insira um **Nome** para a conta de armazenamento, que utilizará mais tarde.  
 4. O **Modelo de implementação** e o **Tipo de conta** devem ser definidos como "Gestor de recursos" e "Fins gerais", respetivamente. 
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
 6. Clique em **Criar**.
@@ -55,7 +55,7 @@ Mais tarde, iremos carregar e transferir um ficheiro para a nova conta de armaze
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Contentores** à esquerda, em "Serviço Blob".
-3. Clique em **+ Contentor**, na parte superior da página e surge um painel "Novo contentor".
+3. Clique em **+ Contentor**, na parte superior da página, e surge um painel "Novo contentor".
 4. Dê um nome ao contentor, selecione um nível de acesso e clique em **OK**. O nome que especificou será utilizado mais tarde no tutorial. 
 
     ![Criar contentor de armazenamento](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
@@ -69,7 +69,7 @@ Neste passo, pode conceder à identidade gerida atribuída pelo sistema da VM ac
 3. Clique + Adicione a atribuição de **funções** em cima da página para adicionar uma nova atribuição de funções para o seu VM
 4. Defina a **Função** como “Função do Serviço de Operador de Chave da Conta de Armazenamento”, no lado direito da página. 
 5. Na lista pendente seguinte, defina **Atribuir acesso a** ao recurso "Máquina Virtual".  
-6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** como "Todos os grupos de recursos".  
+6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para "Todos os grupos de recursos".  
 7. Por fim, em **Selecionar**, selecione a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**. 
 
     ![Texto alternativo da imagem](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)

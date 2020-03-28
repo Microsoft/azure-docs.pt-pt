@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
 ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76718298"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Exemplos de Node.js para gerir dados em Azure Cosmos DB
@@ -22,15 +22,15 @@ ms.locfileid: "76718298"
 > * [Exemplos de Java](sql-api-java-samples.md)
 > * [Exemplos de Async Java](sql-api-async-java-samples.md)
 > * [Exemplos de Node.js](sql-api-nodejs-samples.md)
-> * [Exemplos de Python](sql-api-python-samples.md)
-> * [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
+> * [Exemplos python](sql-api-python-samples.md)
+> * [Galeria de Exemplo de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
 
 Estão incluídas soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB no repositório do GitHub [azure-cosmos-js](https://github.com/Azure/azure-cosmos-js/tree/master/samples). Este artigo fornece:
 
 * Ligações para as tarefas em cada um dos ficheiros do projeto de exemplo do Node.js.
-* Ligações para o conteúdo relacionado de referência da API.
+* Ligações para o conteúdo de referência da API relacionada.
 
 **Pré-requisitos**
 
@@ -55,7 +55,7 @@ O ficheiro [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/blob/ma
 | --- | --- |
 | [Criar uma base de dados se não existir](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts#L12-L14) |[Databases.createIfNotExists](/javascript/api/@azure/cosmos/databases?view=azure-node-latest#createifnotexists-databaserequest--requestoptions-) |
 | [Listar bases de dados para uma conta](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts#L16-L18) |[Databases.readAll](/javascript/api/@azure/cosmos/databases?view=azure-node-latest#readall-feedoptions-) |
-| [Ler uma base de dados por ID](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts#L20-L29) |[Database.read](/javascript/api/@azure/cosmos/database?view=azure-node-latest#read-requestoptions-) |
+| [Leia uma base de dados por ID](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts#L20-L29) |[Database.read](/javascript/api/@azure/cosmos/database?view=azure-node-latest#read-requestoptions-) |
 | [Eliminar uma base de dados](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts#L31-L32) |[Database.delete](/javascript/api/@azure/cosmos/database?view=azure-node-latest#delete-requestoptions-) |
 
 ## <a name="container-examples"></a>Exemplos de contentor

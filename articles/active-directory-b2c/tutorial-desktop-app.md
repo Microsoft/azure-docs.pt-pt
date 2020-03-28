@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78186204"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Tutorial: Autenticar utilizadores num cliente nativo de desktop usando o Diretório Ativo Azure B2C
@@ -52,8 +52,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 Para atualizar a aplicação para trabalhar com o seu inquilino Azure AD B2C e invocar os seus fluxos de utilizador em vez dos do inquilino de demonstração padrão:
 
-1. Abra a solução **active-directy-b2c-wpf** (`active-directory-b2c-wpf.sln`) no Visual Studio.
-2. No projeto **active-directy-b2c-wpf,** abra o ficheiro *App.xaml.cs* e encontre as seguintes definições variáveis. Substitua `{your-tenant-name}` pelo nome do seu inquilino Azure AD B2C e `{application-ID}` com o ID de aplicação que gravou anteriormente.
+1. Abra a solução **active-directy-b2c-wpf** ()`active-directory-b2c-wpf.sln`no Estúdio Visual.
+2. No projeto **active-directy-b2c-wpf,** abra o ficheiro *App.xaml.cs* e encontre as seguintes definições variáveis. Substitua `{your-tenant-name}` pelo nome do seu inquilino `{application-ID}` Azure AD B2C e pelo ID de inscrição que gravou anteriormente.
 
     ```csharp
     private static readonly string Tenant = "{your-tenant-name}.onmicrosoft.com";
@@ -89,7 +89,7 @@ O utilizador pode agora utilizar o seu endereço de e-mail para iniciar sessão 
 
 ![Detalhes simbólicos mostrados no painel inferior da aplicação do ambiente de trabalho wPF](./media/tutorial-desktop-app/desktop-app-01-post-signin.png)
 
-Se selecionar o botão **Call API,** é apresentada uma **mensagem de erro.** Encontra-se o erro porque, no seu estado atual, a aplicação está a tentar aceder a uma API protegida pelo inquilino da demonstração, `fabrikamb2c.onmicrosoft.com`. Uma vez que o seu token de acesso é válido apenas para o seu inquilino Azure AD B2C, a chamada da API não é, portanto, autorizada.
+Se selecionar o botão **Call API,** é apresentada uma **mensagem de erro.** Encontra-se o erro porque, no seu estado atual, a aplicação está a `fabrikamb2c.onmicrosoft.com`tentar aceder a uma API protegida pelo inquilino da demonstração, . Uma vez que o seu token de acesso é válido apenas para o seu inquilino Azure AD B2C, a chamada da API não é, portanto, autorizada.
 
 Continue até ao próximo tutorial para registar uma API web protegida no seu próprio inquilino e ativar a funcionalidade **Call API.**
 
@@ -105,4 +105,4 @@ Neste tutorial, ficou a saber como:
 Em seguida, para ativar a funcionalidade do botão **Call API,** conceda à aplicação de desktop WPF acesso a uma API web registada no seu próprio inquilino Azure AD AD B2C:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso a um API web Node.js a partir de uma aplicação de desktop >](tutorial-desktop-app-webapi.md)
+> [Tutorial: Conceder acesso a uma API web Node.js a partir de uma aplicação de desktop >](tutorial-desktop-app-webapi.md)
