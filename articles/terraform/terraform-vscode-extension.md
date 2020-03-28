@@ -4,10 +4,10 @@ description: Saiba como instalar e utilizar a extensão do Azure Terraform no Vi
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: fcb47024fd26f061ca4475b01d00f1ae13303b61
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472286"
 ---
 # <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Tutorial: Configure a extensão do Código do Estúdio Visual Terraform Azure
@@ -159,7 +159,7 @@ Neste exercício, irá criar e executar um ficheiro de configuração básico do
 
 1. Pode sair do Cloud Shell
 
-1. Na barra de menus, selecione **View** (Ver) > **Command Palette**(Paleta de Comandos) > **Azure Terraform: init**.
+1. A partir da barra de menus, selecione **Ver** > **Paleta** > de Comando**Azure Terraform: inite**.
 
     ![O Terraform foi inicializado com êxito](media/terraform-vscode-extension/tf-terraform-has-been-successfully-initialized.png)
 
@@ -178,7 +178,7 @@ O comando *plan* do Terraform utiliza-se para ver se o plano de execução para 
 >[!NOTE]
 >O *plan* não faz mudanças aos seus recursos reais do Azure. Para fazer realmente as alterações contidas no seu plano, usamos o comando *apply* do Terraform.
 
-- Na barra de menus, selecione **View** (Ver) > **Command Palette** (Paleta de Comandos) > **Azure Terraform: plan**.
+- A partir da barra de menus, selecione **Ver** > **Paleta** > de Comando**Azure Terraform: plano**.
 
     ![Comando plan do Terraform](media/terraform-vscode-extension/tf-terraform-plan.png)
 
@@ -186,7 +186,7 @@ O comando *plan* do Terraform utiliza-se para ver se o plano de execução para 
 
 Quando estiver satisfeito com os resultados do *plan* do Terraform, pode executar o comando *apply* do Terraform.
 
-1. Na barra de menus, selecione **View** (Ver) > **Command Palette** (Paleta de Comandos) > **Azure Terraform: apply**.
+1. A partir da barra de menus, selecione **Ver** > **Paleta** > de Comando**Azule Terraform: aplicar**.
 
     ![Comando apply do Terraform](media/terraform-vscode-extension/tf-terraform-apply.png)
 
@@ -211,7 +211,7 @@ O novo grupo de recursos deve estar listado na coluna **NAME**.
 
 ### <a name="run-terraform-destroy-command"></a>Execute o comando *destroy* do Terraform
 
-1. Na barra de menus, selecione **View** (Ver) > **Command Palette** (Paleta de Comandos) > **Azure Terraform: destroy**.
+1. A partir da barra de menus, selecione **Ver** > **Paleta** > de Comando**Azure Terraform: destrua**.
 
     ![Comando destroy do Terraform](media/terraform-vscode-extension/tf-terraform-destroy.png)
 

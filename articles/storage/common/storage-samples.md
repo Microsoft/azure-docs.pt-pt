@@ -1,69 +1,84 @@
 ---
-title: Exemplos de código do armazenamento do Azure | Microsoft Docs
-description: Exiba, baixe e execute o código de exemplo e os aplicativos para o armazenamento do Azure. Descubra exemplos de introdução para BLOBs, filas, tabelas e arquivos usando as bibliotecas .NET, Java, Python, Node. js e C++ Storage Client.
+title: Amostras de código de armazenamento Azure / Microsoft Docs
+description: Ver, descarregar e executar código de amostra e aplicações para armazenamento Azure. Descubra a obtenção de amostras para blobs, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento .NET, Java, Python, Node.js, Azure CLI e C++.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: e2816d8e6fdd900473cceebb20c96794f3f9f0f9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f4d8eabdba32eaa0a2c04e6b330fbd4c8d3a563e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350873"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061142"
 ---
-# <a name="azure-storage-samples"></a>Exemplos de Armazenamento do Azure
+# <a name="azure-storage-samples"></a>Amostras de armazenamento azure
 
-Use os links abaixo para exibir e baixar o código e os aplicativos de exemplo do armazenamento do Azure.
+Utilize os links abaixo para visualizar e baixar o código de amostra de Armazenamento Azure e aplicações.
 
-## <a name="azure-code-samples-library"></a>Biblioteca de exemplos de código do Azure
-A biblioteca de [exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage) inclui exemplos para o armazenamento do Azure que você pode baixar e executar localmente. A biblioteca de exemplo de código fornece código de exemplo no formato. zip. Como alternativa, você pode procurar e clonar o repositório GitHub para cada exemplo.
+## <a name="azure-code-samples-library"></a>Biblioteca de amostras de código azul
+
+A biblioteca De Amostras de [Código Azure](https://azure.microsoft.com/documentation/samples/?service=storage) inclui amostras para o Armazenamento Azure que pode descarregar e executar localmente. A Biblioteca de Amostras de Código fornece código de amostra em formato .zip. Em alternativa, pode navegar e clonar o repositório GitHub para cada amostra.
 
 ## <a name="net-samples"></a>Amostras de .NET
-Para explorar os exemplos do .NET, baixe a [biblioteca do cliente de armazenamento do .net](https://www.nuget.org/packages/WindowsAzure.Storage/) do NuGet. A biblioteca de cliente de armazenamento do .NET também está disponível no [SDK do Azure para .net](https://azure.microsoft.com/downloads/).
+
+Para explorar as amostras .NET, descarregue a Biblioteca de [Clientes de Armazenamento .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) da NuGet. A biblioteca de clientes de armazenamento .NET também está disponível no [Azure SDK para .NET](https://azure.microsoft.com/downloads/).
 
 * [Exemplos de Armazenamento do Microsoft Azure com o .NET](storage-samples-dotnet.md)
 
 ## <a name="java-samples"></a>Exemplos do Java
-Para explorar os exemplos de Java, baixe a [biblioteca de cliente de armazenamento Java](https://github.com/azure/azure-storage-java).
+
+Para explorar as amostras java, descarregue a Biblioteca do Cliente de [Armazenamento de Java.](https://github.com/azure/azure-storage-java)
 
 * [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
 
 ## <a name="python-samples"></a>Amostras de Python
-Para explorar os exemplos do Python, baixe a [biblioteca de cliente de armazenamento do Python](https://github.com/azure/azure-storage-python).
 
-* [Exemplos de armazenamento do Azure usando Python](storage-samples-python.md)
+Para explorar as amostras python, descarregue a Biblioteca de Clientes de [Armazenamento Python.](https://github.com/azure/azure-storage-python)
 
+* [Amostras de armazenamento azure usando Python](storage-samples-python.md)
 
 ## <a name="nodejs-samples"></a>Amostras de Node.js
-Para explorar os exemplos de Node. js, baixe a [biblioteca de cliente de armazenamento do node. js](https://github.com/Azure/azure-storage-node).
 
-* [Exemplos de armazenamento do Azure usando JavaScript/node. js](storage-samples-javascript.md)
+Para explorar as amostras do Node.js, descarregue a Biblioteca de Clientes de [Armazenamento nonóio.](https://github.com/Azure/azure-storage-node)
 
-## <a name="c-samples"></a>C++amostras
-Para explorar os C++ exemplos, baixe a [ C++ biblioteca de cliente de armazenamento](https://www.nuget.org/packages/wastorage/) do NuGet.
+* [Amostras de armazenamento azure usando JavaScript/Node.js](storage-samples-javascript.md)
 
-* [Introdução aos BLOBs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
-* [Introdução às tabelas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
+## <a name="c-samples"></a>Amostras C++
+
+Para explorar as amostras C+++, descarregue a Biblioteca de Clientes de [Armazenamento C++](https://www.nuget.org/packages/wastorage/) da NuGet.
+
+* [Começar com bolhas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
+* [Começar com mesas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Introdução às filas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## <a name="api-reference-and-source-code"></a>Referência de API e código-fonte
+## <a name="azure-cli"></a>CLI do Azure
 
-| Idioma | Referência da API | Código fonte |
+Para explorar as amostras Azure CLI, primeiro [instale o Azure CLI](/cli/azure/install-azure-cli).
+
+* [Começar com o Azure CLI](/cli/azure/get-started-with-azure-cli)
+* [Amostras de armazenamento azure utilizando o Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Artigos populares sobre a utilização do Azure CLI com armazenamento Azure](/cli/azure/popular-articles-using-the-azure-cli#storage)
+
+## <a name="api-reference-and-source-code"></a>Referência API e código fonte
+
+| Idioma | Referência da API | Código de origem |
 |----------|---------------|-------------|
-| .NET | [Referência da biblioteca de cliente .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Código-fonte para a biblioteca de cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net) |
-| Java | [Referência da biblioteca de cliente Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código-fonte para a biblioteca de cliente de armazenamento Java](https://github.com/azure/azure-storage-java) |
-| Python | [Referência da biblioteca de cliente do Python](https://azure-storage.readthedocs.io/) | [Código-fonte para a biblioteca de cliente de armazenamento do Python](https://github.com/Azure/azure-storage-p[ython]) |
-| Node.js | [Referência da biblioteca do cliente Node. js](https://azure.github.io/azure-storage-node) | [Código-fonte para a biblioteca do cliente de armazenamento do node. js](https://github.com/Azure/azure-storage-node) |
-| C++ | [C++Referência da biblioteca de cliente](https://azure.github.io/azure-storage-cpp/) | [Código-fonte para C++ a biblioteca de cliente de armazenamento](https://github.com/Azure/azure-storage-cpp)|
+| .NET | [Referência da Biblioteca cliente .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Código fonte para a biblioteca de clientes de armazenamento .NET](https://github.com/Azure/azure-storage-net) |
+| Java | [Referência da Biblioteca do Cliente de Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código fonte para a biblioteca de clientes de armazenamento java](https://github.com/azure/azure-storage-java) |
+| Python | [Referência da Biblioteca cliente Python](https://azure-storage.readthedocs.io/) | [Código fonte para a biblioteca de clientes de armazenamento Python](https://github.com/Azure/azure-storage-p[ython]) |
+| Node.js | [Referência da Biblioteca de Clientes no Nó.js](https://azure.github.io/azure-storage-node) | [Código fonte para a biblioteca de clientes de armazenamento Node.js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Referência da Biblioteca do Cliente C++](https://azure.github.io/azure-storage-cpp/) | [Código fonte para a biblioteca de clientes de armazenamento C++](https://github.com/Azure/azure-storage-cpp)|
+| CLI do Azure | [Referência da Biblioteca Azure CLI](/cli/azure/storage) | [Código fonte para a biblioteca de clientes de armazenamento Azure CLI](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os artigos a seguir indexam cada um dos exemplos por serviço (BLOB, arquivo, fila, tabela).
+Os seguintes artigos indexam cada uma das amostras por serviço (blob, file, fila, tabela).
 
 * [Exemplos de Armazenamento do Microsoft Azure com o .NET](storage-samples-dotnet.md)
 * [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
-* [Exemplos de armazenamento do Azure usando JavaScript](storage-samples-javascript.md)
-* [Exemplos de armazenamento do Azure usando Python](storage-samples-python.md)
+* [Amostras de armazenamento azure usando JavaScript](storage-samples-javascript.md)
+* [Amostras de armazenamento azure usando Python](storage-samples-python.md)
+* [Amostras de armazenamento azure utilizando o Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)

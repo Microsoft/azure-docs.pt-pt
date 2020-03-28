@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a Plataforma de Patentes IamIP  Microsoft Docs'
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a Plataforma de Patentes IamIP [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a IamIP Patent Platform.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7d487aaf7ba4aaf666962cf91ca86d46115055b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78190743"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Tutorial: Azure Ative Directory integração de um único sign-on (SSO) com a Plataforma de Patentes IamIP
@@ -74,7 +74,7 @@ Para configurar e testar o Azure AD SSO com a Plataforma de Patentes IamIP, voc�
 
 1. **[Teste sSO](#test-sso)** para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para permitir o Azure AD SSO no portal Azure:
 
@@ -113,7 +113,7 @@ Siga estes passos para permitir o Azure AD SSO no portal Azure:
 
     ![URLs de configuração de cópia](common/idp-intiated.png))
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
 Nesta secção, você vai criar um utilizador de teste chamado B.Simon no portal Azure.
 
@@ -121,7 +121,7 @@ Nesta secção, você vai criar um utilizador de teste chamado B.Simon no portal
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** preencha estes passos:
    1. Na caixa **de nomes,** insira **B.Simon.**  
-   1. Na caixa de **nome do Utilizador,** introduza \<username>@\<companydomain>.\<extensão>. Por exemplo, `B.Simon@contoso.com`.
+   1. Na caixa de **nome do utilizador,** introduza \<o nome de utilizador>@\<domínio da empresa>. \<extensão>. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione **Mostrar palavra-passe**e, em seguida, anote o valor que está apresentado na caixa **password.**
    1. Selecione **Criar**.
 
@@ -133,7 +133,7 @@ Nesta secção, permitirá que a B.Simon utilize um único sign-on do Azure, con
 1. Na lista de aplicações, selecione **IamIP Patent Platform**.
 1. Na página geral da aplicação, na secção **Gerir,** selecione **Utilizadores e grupos:**
 
-   ![Selecione Utilizadores e grupos](common/users-groups-blade.png)
+   ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
 1. Selecione **Adicionar utilizador**, e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **de atribuição de adicionar:**
 
@@ -149,7 +149,7 @@ Para configurar um único sinal no lado da Plataforma de Patentes IamIP, você p
 
 ### <a name="create-iamip-patent-platform-test-user"></a>Criar o utilizador de teste da Plataforma de Patentes IamIP
 
-Trabalhe com a equipa de suporte da Plataforma de [Patentes IamIP](mailto:info@iamip.com) para adicionar um utilizador chamado B.Simon na Plataforma de Patentes IamIP. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Trabalhe com a equipa de suporte da Plataforma de [Patentes IamIP](mailto:info@iamip.com) para adicionar um utilizador chamado B.Simon na Plataforma de Patentes IamIP. Os utilizadores devem ser criados e ativados antes de utilizar um único sinal.
 
 ## <a name="test-sso"></a>Teste SSO
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: criar um banco de dados do Azure para MySQL-modelo de Azure Resource Manager'
-description: Este tutorial explica como provisionar e automatizar implantações do servidor de banco de dados do Azure para MySQL usando Azure Resource Manager modelo.
+title: 'Tutorial: Criar base de dados azure para o mySQL - modelo de Gestor de Recursos Azure'
+description: Este tutorial explica como fornecer e automatizar a Base de Dados Azure para implementações de servidores MySQL usando o modelo de Gestor de Recursos Azure.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -9,32 +9,32 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771105"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: provisionar um banco de dados do Azure para servidor MySQL usando Azure Resource Manager modelo
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Fornecer uma base de dados Azure para servidor MySQL usando o modelo de Gestor de Recursos Azure
 
-A [API REST do banco de dados do Azure para MySQL](https://docs.microsoft.com/rest/api/mysql/) permite que os engenheiros de DevOps automatizem e integrem provisionamento, configuração e operações de servidores e bancos de dados MySQL gerenciados no Azure.  A API permite a criação, a enumeração, o gerenciamento e a exclusão de servidores MySQL e bancos de dados no serviço do Azure para MySQL.
+A Base de [Dados Azure para MySQL REST API](https://docs.microsoft.com/rest/api/mysql/) permite aos engenheiros da DevOps automatizar e integrar o fornecimento, configuração e operações de servidores e bases de dados mysqL geridos em Azure.  A API permite a criação, enumeração, gestão e eliminação de servidores MySQL e bases de dados na Base de Dados Azure para o serviço MySQL.
 
-Azure Resource Manager aproveitar a API REST subjacente para declarar e programar os recursos do Azure necessários para implantações em escala, alinhando-se com a infraestrutura como um conceito de código. O modelo parametriza o nome do recurso do Azure, a SKU, a rede, a configuração do firewall e as configurações, permitindo que ele seja criado uma vez e usado várias vezes.  Azure Resource Manager modelos podem ser facilmente criados usando [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Eles habilitam o empacotamento de aplicativos, a padronização e a automação da implantação, que podem ser integrados ao pipeline de CI/CD do DevOps.  Por exemplo, se você estiver procurando implantar rapidamente um aplicativo Web com o back-end do banco de dados do Azure para MySQL, você pode executar a implantação de ponta a ponta usando este [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) na galeria do github.
+O Gestor de Recursos Azure aproveita a API subjacente ao REST para declarar e programar os recursos Azure necessários para implementações em escala, alinhando-se com a infraestrutura como um conceito de código. O modelo parametia o nome de recurso Azure, SKU, rede, configuração de firewall e configurações, permitindo que seja criado uma vez e usado várias vezes.  Os modelos do Gestor de Recursos Azure podem ser facilmente criados usando o [portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou [o Código do Estúdio Visual](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Permitem a embalagem de aplicações, a normalização e a automatização de implantação, que podem ser integradas no pipeline CI/CD da DevOps.  Por exemplo, se procura implementar rapidamente uma Aplicação Web com base de dados Azure para o backend MySQL, pode realizar a implementação de ponta a ponta utilizando este [modelo QuickStart](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) a partir da galeria GitHub.
 
-Neste tutorial, você usa Azure Resource Manager modelo e outros utilitários para aprender a:
+Neste tutorial, você usa o modelo do Gestor de Recursos Azure e outros utilitários para aprender a:
 
 > [!div class="checklist"]
-> * Criar um servidor de banco de dados do Azure para MySQL com o ponto de extremidade de serviço VNet usando Azure Resource Manager modelo
-> * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Crie uma base de dados Azure para servidor MySQL com endpoint de serviço VNet usando o modelo de Gestor de Recursos Azure
+> * Use [a ferramenta de linha de comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Criar um servidor de banco de dados do Azure para MySQL com o ponto de extremidade de serviço VNet usando Azure Resource Manager modelo
+## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Crie uma base de dados Azure para servidor MySQL com endpoint de serviço VNet usando o modelo de Gestor de Recursos Azure
 
-Para obter a referência de modelo JSON para um servidor de banco de dados do Azure para MySQL, vá para [Microsoft. DBforMySQL servidores](/azure/templates/microsoft.dbformysql/servers) de referência de modelo. Veja abaixo o modelo JSON de exemplo que pode ser usado para criar um novo servidor que executa o banco de dados do Azure para MySQL com o ponto de extremidade do serviço VNet.
+Para obter a referência do modelo JSON para uma Base de Dados Azure para servidor MySQL, vá à referência do modelo de [servidores Microsoft.DBforMySQL.](/azure/templates/microsoft.dbformysql/servers) Abaixo está o modelo JSON da amostra que pode ser usado para criar um novo servidor executando base de dados Azure para MySQL com VNet Service Endpoint.
 ```json
 {
   "apiVersion": "2017-12-01",
@@ -75,31 +75,31 @@ Para obter a referência de modelo JSON para um servidor de banco de dados do Az
   ]
 }
 ```
-Nessa solicitação, os valores que precisam ser personalizados são:
-+   `name`-especifique o nome do seu servidor MySQL (sem nome de domínio).
-+   `location`-especifique uma região de data center do Azure válida para o servidor MySQL. Por exemplo, westus2.
-+   `properties/version`-especifique a versão do MySQL Server a ser implantada. Por exemplo, 5,6 ou 5,7.
-+   `properties/administratorLogin`-especifique o logon de administrador do MySQL para o servidor. O nome de entrada do administrador não pode ser azure_superuser, administrador, administrador, raiz, convidado ou público.
-+   `properties/administratorLoginPassword`-especifique a senha para o usuário administrador do MySQL especificado acima.
-+   `properties/sslEnforcement`-especifique habilitado/desabilitado para habilitar/desabilitar sslEnforcement.
-+   `storageProfile/storageMB`-especifique o tamanho máximo de armazenamento provisionado necessário para o servidor em megabytes. Por exemplo, 5120.
-+   `storageProfile/backupRetentionDays`-especifique o período de retenção de backup desejado em dias. Por exemplo, 7. 
-+   `storageProfile/geoRedundantBackup`-especifique habilitado/desabilitado dependendo dos requisitos de DR-Rd.
-+   `sku/tier`-especifique a camada básica, GeneralPurpose ou MemoryOptimized para implantação.
-+   `sku/capacity`-especifique a capacidade vCore. Os valores possíveis incluem 2, 4, 8, 16, 32 ou 64.
-+   `sku/family`-especifique Gen5 para escolher a geração de hardware para a implantação do servidor.
-+   `sku/name`-especifique TierPrefix_family_capacity. Por exemplo B_Gen5_1, GP_Gen5_16 MO_Gen5_32. Consulte a documentação [tipos de preço](./concepts-pricing-tiers.md) para entender os valores válidos por região e por camada.
-+   `resources/properties/virtualNetworkSubnetId`-especifique o identificador do Azure da sub-rede na VNet em que o servidor MySQL do Azure deve ser colocado. 
-+   `tags(optional)`-especificar marcas opcionais são pares chave-valor que você usaria para categorizar os recursos de cobrança, etc.
+Neste pedido, os valores que precisam de ser personalizados são:
++   `name`- Especifique o nome do seu Servidor MySQL (sem nome de domínio).
++   `location`- Especifique uma região de centro de dados Azure válida para o seu Servidor MySQL. Por exemplo, westus2.
++   `properties/version`- Especificar a versão do servidor MySQL para implementar. Por exemplo, 5.6 ou 5.7.
++   `properties/administratorLogin`- Especifique o login de administrador mySQL para o servidor. O nome de início de sessão de administrador não pode ser azure_superuser, admin, administrator, root, guest ou public.
++   `properties/administratorLoginPassword`- Especificar a palavra-passe para o utilizador administrativo MySQL acima especificado.
++   `properties/sslEnforcement`- Especificar ativado/desativado para ativar/desativar o sslEnforcement.
++   `storageProfile/storageMB`- Especifique o tamanho máximo de armazenamento necessário para o servidor em megabytes. Por exemplo, 5120.
++   `storageProfile/backupRetentionDays`- Especifique o período de retenção de reserva desejado em dias. Por exemplo, 7. 
++   `storageProfile/geoRedundantBackup`- Especificar Ativado/Incapacitado em função dos requisitos de Geo-DR.
++   `sku/tier`- Especificar O nível Basic, GeneralPurpose ou MemoryOptimized para implementação.
++   `sku/capacity`- Especificar a capacidade vCore. Os valores possíveis incluem 2, 4, 8, 16, 32 ou 64.
++   `sku/family`- Especifique a Gen5 para escolher a geração de hardware para a implementação do servidor.
++   `sku/name`- Especifique TierPrefix_family_capacity. Por exemplo, B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Consulte a documentação dos níveis de preços para compreender os [valores válidos](./concepts-pricing-tiers.md) por região e por nível.
++   `resources/properties/virtualNetworkSubnetId`- Especifique o identificador Azure da subnet na VNet onde deve ser colocado o servidor Azure MySQL. 
++   `tags(optional)`- Especificar etiquetas opcionais são pares de valor-chave que utilizaria para categorizar os recursos para faturação, etc.
 
-Se você pretende criar um modelo de Azure Resource Manager para automatizar as implantações do banco de dados do Azure para MySQL para sua organização, a recomendação seria iniciar do [modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de exemplo na galeria do Azure QuickStart GitHub primeiro e se basear nele. 
+Se procura construir um modelo de Gestor de Recursos Azure para automatizar a Base de Dados Azure para implementações MySQL para a sua organização, a recomendação seria começar a partir do modelo de gestor de [recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) na Galeria Azure Quickstart GitHub primeiro e construir em cima dela. 
 
-Se você for novo no Azure Resource Manager modelos e quiser experimentá-lo, poderá começar seguindo estas etapas:
-+   Clone ou baixe o [modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de exemplo da Galeria de início rápido do Azure.  
-+   Modifique o azuredeploy. Parameters. JSON para atualizar os valores de parâmetro com base em sua preferência e salve o arquivo. 
-+   Use CLI do Azure para criar o servidor MySQL do Azure usando os seguintes comandos
+Se você é novo em modelos de Gestor de Recursos Azure e gostaria de experimentá-lo, você pode começar seguindo estes passos:
++   Clone ou baixe o modelo sample [Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) da galeria Azure Quickstart.  
++   Modifique o azuredeploy.parâmetros.json para atualizar os valores do parâmetro com base na sua preferência e guardar o ficheiro. 
++   Utilize o Azure CLI para criar o servidor Azure MySQL utilizando os seguintes comandos
 
-Você pode usar o Azure Cloud Shell no navegador ou instalar CLI do Azure em seu próprio computador para executar os blocos de código neste tutorial.
+Pode utilizar o Azure Cloud Shell no browser ou instalar a CLI do Azure no computador para executar os blocos de código deste tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -202,9 +202,9 @@ SELECT * FROM inventory;
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a:
 > [!div class="checklist"]
-> * Criar um servidor de banco de dados do Azure para MySQL com o ponto de extremidade de serviço VNet usando Azure Resource Manager modelo
-> * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar dados de exemplo
+> * Crie uma base de dados Azure para servidor MySQL com endpoint de serviço VNet usando o modelo de Gestor de Recursos Azure
+> * Use [a ferramenta de linha de comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
+> * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > 

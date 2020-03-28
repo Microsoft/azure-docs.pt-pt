@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Tutorial: Azure Active Directory integração de SSO (logon único) com o pronovo Analytics | Microsoft Docs'
-description: Saiba como configurar o logon único entre Azure Active Directory e a análise de pronovo.
+title: 'Tutorial: Tutorial: Azure Ative Diretório integração individual (SSO) com proNovos Analytics [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o ProNovos Analytics.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,134 +17,134 @@ ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 03dcc0c62781b6bec0369b7e642976e6d6f9c2f5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026630"
 ---
-# <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutorial: Tutorial: Azure Active Directory integração de SSO (logon único) com o pronovo Analytics
+# <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutorial: Tutorial: Azure Ative Directory integração single sign-on (SSO) com proNovos Analytics
 
-Neste tutorial, você aprenderá a integrar o pronovo Analytics ao Azure Active Directory (Azure AD). Ao integrar o pronovo Analytics ao Azure AD, você pode:
+Neste tutorial, você vai aprender a integrar o ProNovos Analytics com o Azure Ative Directory (Azure AD). Quando integrar o ProNovos Analytics com o Azure AD, pode:
 
-* Controle no Azure AD quem tem acesso à análise de pronovo.
-* Habilite seus usuários a serem conectados automaticamente ao pronovo Analytics com suas contas do Azure AD.
-* Gerencie suas contas em um local central-o portal do Azure.
+* Controlo em Azure AD que tem acesso ao ProNovos Analytics.
+* Ative que os seus utilizadores sejam automaticamente inscritos no ProNovos Analytics com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do pronovo Analytics.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* ProNovos Analytics de assinatura única ativada por assinatura.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* O pronovo Analytics é compatível com o SSO iniciado por **SP e IDP**
-* A análise de provisionamento dá suporte ao provisionamento **de usuário just-in-time**
+* ProNovos Analytics suporta **SP e IDP** iniciadoS SSO
+* ProNovos Analytics suporta o fornecimento de utilizadores **justo no tempo**
 
-## <a name="adding-pronovos-analytics-from-the-gallery"></a>Adicionando o pronovo Analytics da Galeria
+## <a name="adding-pronovos-analytics-from-the-gallery"></a>Adicionar ProNovos Analytics da galeria
 
-Para configurar a integração do pronovo Analytics ao Azure AD, você precisa adicionar o proconfigure Analytics da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do ProNovos Analytics em Azure AD, é necessário adicionar proNovos Analytics da galeria à sua lista de aplicações geridas do SaaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite análise de **pronovo** na caixa de pesquisa.
-1. Selecione **análise de pronovo** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No **Add da** secção galeria, digite **ProNovos Analytics** na caixa de pesquisa.
+1. Selecione **ProNovos Analytics** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-pronovos-analytics"></a>Configurar e testar o SSO do Azure AD para o pronovo Analytics
+## <a name="configure-and-test-azure-ad-sso-for-pronovos-analytics"></a>Configure e teste Azure AD SSO para ProNovos Analytics
 
-Configure e teste o SSO do Azure AD com a análise do pronovo usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado na análise do pronovo.
+Configure e teste Azure AD SSO com ProNovos Analytics utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no ProNovos Analytics.
 
-Para configurar e testar o SSO do Azure AD com o probuilds Analytics, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com o ProNovos Analytics, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-2. **[Configurar o SSO de análise de pronovo](#configure-pronovos-analytics-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste](#create-pronovos-analytics-test-user)** do proalters Analytics – para ter um equivalente de B. Simon na análise de subcriações que está vinculada à representação do usuário no Azure AD.
-3. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+2. **[Configure ProNovos Analytics SSO](#configure-pronovos-analytics-sso)** - para configurar as definições de início de sessão individuais no lado da aplicação.
+    1. **[Crie o utilizador](#create-pronovos-analytics-test-user)** de teste ProNovos Analytics - para ter uma contrapartida de B.Simon no ProNovos Analytics que esteja ligada à representação do utilizador da AD Azure.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **pronovo Analytics** , localize a seção **gerenciar** e selecione **logon único**.
-1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **ProNovos Analytics,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **Select a Single sign-on,** selecione **SAML**.
+1. Na configuração do Single Sign-On com a página **SAML,** clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar configuração básica de SAML](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na secção **de Configuração Básica saml,** a aplicação está pré-configurada no modo iniciado **idp** e os URLs necessários já estão pré-povoados com o Azure. O utilizador precisa de guardar a configuração clicando no botão **Guardar.**
 
-1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
+1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    Na caixa de texto **URL de logon** , digite uma url: `https://analytics.pronovos.com/Pronovos/servlet/mstrWeb`
+    Na caixa de texto **de URL sign-on,** escreva um URL:`https://analytics.pronovos.com/Pronovos/servlet/mstrWeb`
 
-4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+4. Na configuração de um único sign-on com a página **SAML,** na secção certificado de **assinatura SAML,** encontre **certificado (Cru)** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/certificateraw.png)
+    ![O link de descarregamento do Certificado](common/certificateraw.png)
 
-6. Na seção **Configurar a análise de pronovo** , copie as URLs apropriadas com base em seu requisito.
+6. Na secção **Configurar ProNovos Analytics,** copie os URL(s) adequados com base no seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso à análise do pronovo.
+Nesta secção, permitirá que a B.Simon utilize um único sign-on azure, concedendo acesso ao ProNovos Analytics.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **análise de pronovo**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **ProNovos Analytics**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-pronovos-analytics-sso"></a>Configurar SSO de análise de pronovo
+## <a name="configure-pronovos-analytics-sso"></a>Configure ProNovos Analytics SSO
 
-Para configurar o logon único no lado do **Pronovo Analytics** , você precisa enviar o **certificado (bruto)** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte](mailto:support@pronovos.com)do proversos. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sign-on no lado **proNovos Analytics,** você precisa enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para a equipa de [suporte ProNovos Analytics](mailto:support@pronovos.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-pronovos-analytics-test-user"></a>Criar um usuário de teste do pronovo Analytics
+### <a name="create-pronovos-analytics-test-user"></a>Criar o utilizador de teste ProNovos Analytics
 
-Nesta seção, um usuário chamado B. Simon é criado na análise do pronovo. A análise de provisionamento dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir na análise de novas análises, um novo será criado após a autenticação.
+Nesta secção, um utilizador chamado B.Simon é criado no ProNovos Analytics. O ProNovos Analytics suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no ProNovos Analytics, um novo é criado após a autenticação.
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do proconfigure Analytics no painel de acesso, você deverá ser conectado automaticamente à análise de pronovo para a qual você configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo ProNovos Analytics no Painel de Acesso, deverá ser automaticamente inscrito no ProNovos Analytics para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

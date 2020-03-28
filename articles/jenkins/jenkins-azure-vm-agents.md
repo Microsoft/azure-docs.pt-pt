@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, virtual machine, agents
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158529"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar as suas implementações do Jenkins para satisfazer a procura com agentes de VM do Azure

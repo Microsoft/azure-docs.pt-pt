@@ -1,21 +1,21 @@
 ---
 title: Criar modelos automatizados de classificação ML
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar e implementar modelos de classificação com a interface automatizada de machine learning (ML) automatizada do Azure Machine Learning.
+description: Aprenda a formar & implementar modelos de classificação com a interface automatizada de machine learning (ML) automatizada do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
-ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.date: 03/04/2020
+ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129691"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366519"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de Máquinas Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,16 +27,16 @@ Com machine learning automatizado, pode automatizar tarefas intensivas de tempo.
 Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Crie uma área de trabalho do Azure Machine Learning.
-> * Execute uma experiência automatizada de aprendizagem automática de máquinas.
+> * Criar um espaço de trabalho azure machine learning.
+> * Executar uma experimentação de machine learning automatizado.
 > * Ver detalhes da experiência.
-> * Implemente o modelo.
+> * Implementar o modelo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://aka.ms/AMLFree)
 
-* Faça o download do ficheiro de dados [**bankmarketing_train.csv.** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) A coluna **y** indica se um cliente subscreveu um depósito a prazo fixo, que é mais tarde identificado como a coluna alvo para previsões neste tutorial. 
+* Faça o download do ficheiro de dados [**bankmarketing_train.csv.**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) A coluna **y** indica se um cliente subscreveu um depósito a prazo fixo, que é mais tarde identificado como a coluna alvo para previsões neste tutorial. 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -51,9 +51,9 @@ Cria um espaço de trabalho através do portal Azure, uma consola baseada na web
 
 ## <a name="create-and-run-the-experiment"></a>Criar e executar a experiência
 
-Completa as seguintes etapas de experimentação através da aprendizagem de máquinas Azure em https://ml.azure.com, uma interface web consolidada que inclui ferramentas de machine learning para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. Esta interface não é suportada nos navegadores do Internet Explorer.
+Você completa os seguintes passos de experimentação https://ml.azure.comatravés da aprendizagem da Máquina Azure em , uma interface web consolidada que inclui ferramentas de machine learning para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. Esta interface não é suportada nos navegadores do Internet Explorer.
 
-1. Inscreva-se na Azure Machine Learning em https://ml.azure.com.
+1. Inscreva-se na [Aprendizagem automática azure.](https://ml.azure.com)
 
 1. Selecione a sua subscrição e o espaço de trabalho que criou.
 
@@ -73,7 +73,7 @@ Completa as seguintes etapas de experimentação através da aprendizagem de má
 
     1. Selecione **Seguinte** na parte inferior esquerda
 
-    1. No formulário de **datastore e seleção de ficheiros,** selecione a loja de dados predefinida que foi configurada automaticamente durante a sua criação do espaço de trabalho, **workspaceblobstore (Armazenamento Azure Blob)** . É aqui que irá fazer o upload do seu ficheiro de dados para o disponibilizar ao seu espaço de trabalho.
+    1. No formulário de **datastore e seleção de ficheiros,** selecione a loja de dados predefinida que foi configurada automaticamente durante a sua criação do espaço de trabalho, **workspaceblobstore (Armazenamento Azure Blob)**. É aqui que irá fazer o upload do seu ficheiro de dados para o disponibilizar ao seu espaço de trabalho.
 
     1. Selecione **Procurar**.
     
@@ -90,12 +90,12 @@ Completa as seguintes etapas de experimentação através da aprendizagem de má
         Campo|Descrição| Valor para tutorial
         ---|---|---
         Formato de ficheiro|Define o layout e o tipo de dados armazenados num ficheiro.| Delimitado
-        Delimitador|Um ou mais caracteres para especificar a fronteira entre&nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Víris
+        Delimitador|Um ou mais caracteres para especificar&nbsp; a fronteira entre regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
         Codificação|Identifica o pouco que a tabela de esquemas de caracteres usar para ler o seu conjunto de dados.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os ficheiros têm os mesmos cabeçalhos
-        Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.| Nenhum
+        Linhas de salto | Indica quantas, se houver, são ignoradas linhas no conjunto de dados.| Nenhuma
 
-    1. O formulário **Schema** permite uma maior configuração dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternância para a **funcionalidade day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Seguinte**.
+    1. O formulário **Schema** permite uma maior configuração dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternância para a **funcionalidade day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Next**.
 
         ![Configuração do separador de pré-visualização](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -104,10 +104,10 @@ Completa as seguintes etapas de experimentação através da aprendizagem de má
     1. Selecione o seu conjunto de dados assim que aparecer na lista.
     1. Reveja a **pré-visualização de Dados** para garantir que não incluiu **day_of_week** então, selecione **OK**.
 
-    1. Selecione **Seguinte**.
+    1. Selecione **Next**.
 
 1. Povoar o formulário **Configure Run** da seguinte forma:
-    1. Introduza este nome da experiência: `my-1st-automl-experiment`
+    1. Introduza este nome da experiência:`my-1st-automl-experiment`
 
     1. Selecione **y** como a coluna do alvo, o que pretende prever. Esta coluna indica se o cliente subscreveu ou não um depósito a prazo.
     1. Selecione **Criar um novo cálculo** e configurar o seu alvo de cálculo. Um alvo computacional é um ambiente de recursos local ou baseado na nuvem usado para executar o seu script de treino ou hospedar a sua implementação de serviço. Para esta experiência, usamos um cálculo baseado em nuvem. 
@@ -115,7 +115,7 @@ Completa as seguintes etapas de experimentação através da aprendizagem de má
         Campo | Descrição | Valor para tutorial
         ----|---|---
         Nome computacional |Um nome único que identifica o contexto da computação.|automl-compute
-        Tamanho&nbsp;máquina de&nbsp;virtual| Selecione o tamanho da máquina virtual para a sua computação.|Standard_DS12_V2
+        Tamanho&nbsp;&nbsp;da máquina virtual| Selecione o tamanho da máquina virtual para a sua computação.|Standard_DS12_V2
         Nós min / Max (em Definições Avançadas)| Para perfilar os dados, deve especificar 1 ou mais nós.|Nósodes: 1<br>Nómáximo: 6
   
         1. Selecione **Criar** para obter o alvo da computação. 
@@ -124,7 +124,7 @@ Completa as seguintes etapas de experimentação através da aprendizagem de má
 
         1. Após a criação, selecione o seu novo alvo computacional da lista de lançamentos.
 
-    1. Selecione **Seguinte**.
+    1. Selecione **Next**.
 
 1. No formulário de **tipo de tarefa e configurações,** selecione **Classificação** como o tipo de tarefa de aprendizagem automática.
 
@@ -133,14 +133,14 @@ Completa as seguintes etapas de experimentação através da aprendizagem de má
         >[!NOTE]
         > Neste tutorial, você não vai definir uma pontuação métrica ou núcleos máximos por limiar de iterações. Nem vai bloquear algoritmos de serem testados.
    
-        Configurações adicionais de&nbsp;|Descrição|Valor&nbsp;para tutoriais&nbsp;
+        Configurações adicionais&nbsp;|Descrição|Valor&nbsp;&nbsp;para tutorial
         ------|---------|---
         Métrica primária| Métrica de avaliação pela quais o algoritmo de aprendizagem automática será medido.|AUC_weighted
         Caracterização automática| Permite o pré-processamento. Isto inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas.| Ativar
-        Algoritmos bloqueados | Algoritmos que quer excluir do trabalho de formação| Nenhum
-        Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Formação&nbsp;trabalho&nbsp;horário (horas): 1 <br> Pontuação de&nbsp;métrica&nbsp;limiar: Nenhum
+        Algoritmos bloqueados | Algoritmos que quer excluir do trabalho de formação| Nenhuma
+        Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo&nbsp;&nbsp;de trabalho de formação (horas): 1 <br> Limiar&nbsp;&nbsp;de pontuação métrica: Nenhum
         Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-fold&nbsp;validação cruzada <br> <br> Número de validações: 2
-        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Iterações&nbsp;simultâneas&nbsp;: 5
+        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Iterações&nbsp;simultâneas:&nbsp;5
         
         Selecione **Guardar**.
 
@@ -201,9 +201,9 @@ Os ficheiros de implementação são maiores do que ficheiros de dados e experi�
 
 ### <a name="delete-the-deployment-instance"></a>Eliminar a instância de implantação
 
-Elimine apenas a instância de implantação do Azure Machine Learning em https://ml.azure.com/, se quiser manter o grupo de recursos e espaço de trabalho para outros tutoriais e exploração. 
+Elimine apenas a instância de implantação do Azure Machine Learning em https:\//ml.azure.com/, se quiser manter o grupo de recursos e espaço de trabalho para outros tutoriais e exploração. 
 
-1. Vá ao Azure Machine Learning em https://ml.azure.com/. Navegue para o seu espaço de trabalho e à esquerda sob o painel **De Ativos,** selecione **Pontos Finais**. 
+1. Ir ao [Azure Machine Learning.](https://ml.azure.com/) Navegue para o seu espaço de trabalho e à esquerda sob o painel **De Ativos,** selecione **Pontos Finais**. 
 
 1. Selecione a implementação que pretende eliminar e selecionar **Eliminar**. 
 
@@ -218,7 +218,7 @@ Elimine apenas a instância de implantação do Azure Machine Learning em https:
 Neste tutorial automatizado de machine learning, utilizou a interface ML automatizada do Azure Machine Learning para criar e implementar um modelo de classificação. Consulte estes artigos para obter mais informações e próximos passos:
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consumir serviços Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
 + Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo de [resultados automatizados](how-to-understand-automated-ml.md#classification) de machine learning.+ Saiba mais sobre [a caracterização](how-to-use-automated-ml-for-ml-models.md#featurization).
@@ -227,4 +227,4 @@ Neste tutorial automatizado de machine learning, utilizou a interface ML automat
 
 >[!NOTE]
 > Este conjunto de dados de Marketing Bancário é disponibilizado ao abrigo da [Licença Creative Commons (CCO: Domínio Público).](https://creativecommons.org/publicdomain/zero/1.0/) Quaisquer direitos em conteúdo individual da base de dados são licenciados na Licença de [Conteúdo da Base](https://creativecommons.org/publicdomain/zero/1.0/) de Dados e disponíveis em [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Este conjunto de dados estava originalmente disponível na Base de Dados de [Aprendizagem automática da UCI.](https://archive.ics.uci.edu/ml/datasets/bank+marketing)<br><br>
-> [Moro et al., 2014] S. Moro, P. Cortez e P. Rita. Uma abordagem baseada em dados para prever o sucesso do Telemarketing Bancário. Sistemas de Apoio à Decisão, Elsevier, 62:22-31, junho de 2014.
+> [Moro et al., 2014] S. Moro, P. Cortez e P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Sistemas de Apoio à Decisão, Elsevier, 62:22-31, junho de 2014.

@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para criar uma tabela no Azure Cosmos DB API de Tabela
-description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência de um banco de dados ou de um contêiner no Azure Cosmos DB API de Tabela
+title: PowerShell script para criar uma mesa na Mesa DD D DDP Azure Cosmos
+description: Saiba como usar um script PowerShell para atualizar a entrada de uma base de dados ou de um contentor em API de Mesa DB Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 12/05/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: b99d4ed9043e0411216b953829a40eb2ee71fc30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9ea03996c793c3d53e4a3657c537f9354892c647
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441308"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365595"
 ---
-# <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Criar uma tabela para Azure Cosmos DB-API de Tabela
+# <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Crie uma tabela para Azure Cosmos DB - Tabela API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Recursos Azure**| |
+| [Novo AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Cria ou atualiza uma tabela API tabela Cosmos DB. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

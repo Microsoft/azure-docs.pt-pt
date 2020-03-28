@@ -1,6 +1,6 @@
 ---
-title: Copiar discos gerenciados para uma assinatura-exemplo do PowerShell
-description: Exemplo de script Azure PowerShell – copiar ou mover discos gerenciados para a mesma assinatura ou para outra
+title: Copiar discos geridos para uma subscrição - PowerShell Sample
+description: Amostra de script Azure PowerShell - Copiar ou mover discos geridos para a mesma ou uma subscrição diferente
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
 ms.openlocfilehash: 8d0f14c0223667773af4e723acaf503460290194
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75368917"
 ---
-# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copiar discos gerenciados na mesma assinatura ou em uma assinatura diferente com o PowerShell
+# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copiar discos geridos na mesma subscrição ou subscrição diferente com powerShell
 
-Esse script cria uma cópia de um disco gerenciado existente na mesma assinatura ou em uma assinatura diferente. O novo disco é criado na mesma região que o disco gerenciado pai.   
+Este script cria uma cópia de um disco gerido existente na mesma subscrição ou subscrição diferente. O novo disco é criado na mesma região que o disco gerido pelo progenitor.   
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos para criar um novo disco gerido na sub
 
 | Comando | Notas |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Cria a configuração de disco que é utilizada para a criação do disco. Ele inclui a ID de recurso do disco pai e o local que é o mesmo que o local do disco pai.  |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Cria a configuração de disco que é utilizada para a criação do disco. Inclui o recurso Id do disco-mãe e localização que é o mesmo que a localização do disco principal.  |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Cria um disco com a configuração de disco, o nome do disco e o nome do grupo de recursos transmitidos como parâmetros. |
 
 

@@ -16,10 +16,10 @@ ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238721"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
@@ -42,7 +42,7 @@ Neste tutorial, ficará a saber como:
 > - Utilizar um certificado gerido pela CDN 
 > - Utilize o seu próprio certificado
 > - Validar o domínio
-> - Desativar o protocolo HTTPS no domínio personalizado.
+> - Desativar o protocolo HTTPS no domínio personalizado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -194,7 +194,7 @@ A validação automática normalmente demora algumas horas. Se não vir o seu do
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>O domínio personalizado não está mapeado para o ponto final da CDN
 
 >[!NOTE]
->Se estiver a utilizar **o Azure CDN da Akamai,** deve ser criado o seguinte CNAME para permitir a validação automatizada do domínio. "_acme-desafio.&lt;nome de anfitrião de domínio personalizado&gt; -> CNAME -> &lt;nome de anfitrião de domínio personalizado&gt;.ak-acme-challenge.azureedge.net"
+>Se estiver a utilizar **o Azure CDN da Akamai,** deve ser criado o seguinte CNAME para permitir a validação automatizada do domínio. "_acme-desafio. &lt;nome de&gt; anfitrião de domínio &lt;personalizado -> Nome de anfitrião de domínio personalizado >&gt;.ak-acme-challenge.azureedge.net
 
 Se a entrada de registo CNAME contiver o subdomínio cdncheck, siga o resto das instruções neste passo.
 
@@ -206,7 +206,7 @@ webmaster@&lt;o-seu-nome-de-domínio.com&gt;
 hostmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
-Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione verification@digicert.com à sua lista de autorizações. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
+Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um verification@digicert.com filtro de spam, adicione à sua lista de autorizações. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
     
 ![E-mail de validação do domínio](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -331,7 +331,7 @@ Neste tutorial, ficou a saber como:
 > - Utilizar um certificado gerido pela CDN 
 > - Utilize o seu próprio certificado
 > - Valide o domínio
-> - Desativar o protocolo HTTPS no domínio personalizado.
+> - Desativar o protocolo HTTPS no domínio personalizado
 
 Avance para o próximo tutorial para saber como configurar a colocação em cache no seu ponto final da CDN.
 

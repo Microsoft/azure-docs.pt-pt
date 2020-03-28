@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
 ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78269199"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recolher e analisar registos de recursos de um recurso Azure
@@ -31,7 +31,7 @@ Para completar este tutorial é necessário um recurso Azure para monitorizar. P
 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
@@ -89,7 +89,7 @@ Os dados são recuperados a partir de um espaço de trabalho de Log Analytics us
 4. O serviço mostrado no exemplo escreve registos de recursos para a tabela **AzureDiagnostics,** mas outros serviços podem escrever para outras tabelas. Consulte [serviços suportados, schemas e categorias para Registos](../platform/diagnostic-logs-schema.md) de Recursos Azure para tabelas utilizadas por diferentes serviços Azure.
 
     > [!NOTE]
-    > Vários serviços escrevem registos de recursos para a tabela AzureDiagnostics. Se iniciar o Log Analytics a partir do menu Do Monitor Azure, terá de adicionar uma declaração `where` com a coluna `ResourceProvider` para especificar o seu serviço específico. Quando iniciar o Log Analytics a partir do menu de um recurso, então o âmbito é definido apenas para registos a partir deste recurso para que esta coluna não seja necessária. Consulte a documentação do serviço para consultas de amostra.
+    > Vários serviços escrevem registos de recursos para a tabela AzureDiagnostics. Se iniciar o Log Analytics a partir do menu Do `where` Monitor `ResourceProvider` Azure, terá de adicionar uma declaração à coluna para especificar o seu serviço específico. Quando iniciar o Log Analytics a partir do menu de um recurso, então o âmbito é definido apenas para registos a partir deste recurso para que esta coluna não seja necessária. Consulte a documentação do serviço para consultas de amostra.
 
 
 5. Digite uma consulta e clique **em Executar** para inspecionar os resultados. 

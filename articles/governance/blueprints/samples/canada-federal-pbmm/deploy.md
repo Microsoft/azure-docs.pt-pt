@@ -1,123 +1,123 @@
 ---
-title: Exemplo de implantação do Canadá Federal PBMM Blueprint
-description: Implante as etapas para o exemplo do Canadá Federal PBMM Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
+title: Implementar a amostra de planta federal do PBMM do Canadá
+description: Desloque os passos para a amostra de planta PBMM Federal do Canadá, incluindo detalhes do parâmetro de artefacto de plantas.
 ms.date: 09/05/2019
 ms.topic: sample
 ms.openlocfilehash: 087112df7ab18cd71bde80f22b13c9c7800c05e9
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74544591"
 ---
-# <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar os exemplos do Canadá Federal PBMM Blueprint
+# <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementar as amostras de plantas pBMM federais do Canadá
 
-Para implantar os exemplos do Canadá Federal PBMM Blueprint, as etapas a seguir devem ser executadas:
+Para implantar as amostras de plantas pBMM federais do Canadá, devem ser tomadas as seguintes medidas:
 
 > [!div class="checklist"]
-> - Criar um novo plano gráfico por meio do exemplo
-> - Marque sua cópia do exemplo como **publicado**
-> - Atribuir sua cópia do plano gráfico a uma assinatura existente
+> - Criar uma nova planta a partir da amostra
+> - Marque a sua cópia da amostra como **Publicado**
+> - Atribuir a sua cópia da planta a uma subscrição existente
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-## <a name="create-blueprint-from-sample"></a>Criar plano gráfico por meio de exemplo
+## <a name="create-blueprint-from-sample"></a>Criar a planta a partir da amostra
 
-Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
+Em primeiro lugar, implemente a amostra de planta criando uma nova planta no seu ambiente usando a amostra como entrada.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **Todos os serviços** e procure e selecione **Política** no painel esquerdo. Na página **Política,** selecione **Plantas**.
 
-1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
+1. A partir da página **iniciar** à esquerda, selecione o botão **Criar** _uma planta_.
 
-1. Encontre a amostra do **Canadá Federal PBMM** Blueprint em _outros exemplos_ e selecione **usar este exemplo**.
+1. Encontre a amostra de planta **PBMM Federal** do Canadá em _outras amostras_ e selecione **Utilize esta amostra**.
 
-1. Insira os _conceitos básicos_ do exemplo Blueprint:
+1. Introduza os _Fundamentos_ da amostra de plantas:
 
-   - **Nome do plano gráfico**: forneça um nome para a sua cópia do exemplo Blueprint.
-   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
+   - **Nome**da planta : Forneça um nome para a sua cópia da amostra de plantas.
+   - **Localização da definição**: Utilize a elipse e selecione o grupo de gestão para guardar a sua cópia da amostra para.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
+1. Selecione o separador _Artefactos_ na parte superior da página ou **Seguinte: Artefactos** na parte inferior da página.
 
-1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
+1. Reveja a lista de artefactos que compõem a amostra da planta. Muitos dos artefactos têm parâmetros que definiremos mais tarde. Selecione **Guardar Rascunho** quando terminar de rever a amostra de plantas.
 
-## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
+## <a name="publish-the-sample-copy"></a>Publicar a cópia da amostra
 
-Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo Blueprint pode ser personalizada para seu ambiente e necessidades, mas essa modificação pode movê-la para fora do padrão.
+A sua cópia da amostra de plantas foi agora criada no seu ambiente. É criado em modo **Draft** e deve ser **publicado** antes de ser atribuído e implantado. A cópia da amostra de plantas pode ser personalizada para o seu ambiente e necessidades, mas essa modificação pode afastá-la do padrão.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **Todos os serviços** e procure e selecione **Política** no painel esquerdo. Na página **Política,** selecione **Plantas**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
 
-1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada do exemplo do Canadá Federal PBMM Blueprint." Em seguida, selecione **publicar** na parte inferior da página.
+1. Selecione **Publicar a planta** no topo da página. Na nova página à direita, forneça uma **Versão** para a sua cópia da amostra de plantas. Esta propriedade é útil para se fizer uma modificação mais tarde. Forneça notas de **mudança** como "Primeira versão publicada a partir da amostra de planta pBMM federal do Canadá." Em seguida, **selecione Publicar** na parte inferior da página.
 
-## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
+## <a name="assign-the-sample-copy"></a>Atribuir a cópia da amostra
 
-Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
+Uma vez que a cópia da amostra de plantas tenha sido **publicada**com sucesso, pode ser atribuída a uma subscrição dentro do grupo de gestão a que foi guardada. Este passo é onde são fornecidos parâmetros para tornar cada implantação da cópia da amostra de plantas única.
 
-1. Selecione **todos os serviços** e procure e selecione **política** no painel esquerdo. Na página **política** , selecione **plantas**.
+1. Selecione **Todos os serviços** e procure e selecione **Política** no painel esquerdo. Na página **Política,** selecione **Plantas**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Selecione a página de **definições** de Blueprint à esquerda. Utilize os filtros para encontrar a sua cópia da amostra de plantas e, em seguida, selecione-a.
 
-1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
+1. Selecione **a planta de atribuição** na parte superior da página de definição de planta.
 
-1. Forneça os valores de parâmetro para a atribuição Blueprint:
+1. Fornecer os valores do parâmetro para a atribuição do projeto:
 
    - Noções básicas
 
-     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
-       Altere conforme necessário ou deixe como está.
-     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+     - **Assinaturas**: Selecione uma ou mais das subscrições que estão no grupo de gestão para a qual guardou a sua cópia da amostra de projeto. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada utilização dos parâmetros introduzidos.
+     - **Nome de atribuição**: O nome é pré-povoado para si com base no nome da planta.
+       Mude conforme necessário ou saia como está.
+     - **Localização**: Selecione uma região para a identidade gerida a criar. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, consulte [identidades geridas para os recursos do Azure.](../../../../active-directory/managed-identities-azure-resources/overview.md)
+     - Versão de **definição**de planta : Escolha uma versão **publicada** da sua cópia da amostra de plantas.
 
    - Atribuição de bloqueio
 
-     Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+     Selecione a definição de bloqueio da planta para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Deixe a opção de identidade gerenciada _atribuída pelo sistema_ padrão.
+     Deixe o sistema predefinido _atribuído_ à opção de identidade gerida.
 
-   - Parâmetros de artefato
+   - Parâmetros de artefacto
 
-     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
+     Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual é definido. Estes parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) uma vez que são definidos durante a atribuição da planta. Para obter uma lista completa ou parâmetros de artefactos e suas descrições, consulte a [tabela de parâmetros do Artefacto](#artifact-parameters-table).
 
-1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página. A atribuição Blueprint é criada e a implantação do artefato começa. A implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição Blueprint.
+1. Uma vez introduzidos todos os parâmetros, **selecione Atribuir** na parte inferior da página. A atribuição da planta é criada e a implantação de artefactos começa. O destacamento demora cerca de uma hora. Para verificar o estado da implantação, abra a atribuição da planta.
 
 > [!WARNING]
-> O serviço de plantas do Azure e os exemplos de plantas internas são **gratuitos**. Os recursos do Azure são [cobrados por produto](https://azure.microsoft.com/pricing/). Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por este exemplo de Blueprint.
+> O serviço Azure Blueprints e as amostras de plantas incorporadas estão **isentos de custos.** Os recursos azure são [avaliados pelo produto.](https://azure.microsoft.com/pricing/) Utilize a [calculadora](https://azure.microsoft.com/pricing/calculator/) de preços para estimar o custo dos recursos de funcionamento implantados por esta amostra de plantas.
 
-## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
+## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefactos
 
-A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
+A tabela seguinte fornece uma lista dos parâmetros do artefacto da planta:
 
-Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux |Atribuição de política |Espaço de trabalho Log Analytics para VMs Linux |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
-|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows |Atribuição de política |Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo |Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: `[]` |
-|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows |Atribuição de política |Espaço de trabalho Log Analytics para VMs do Windows |Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |ID do espaço de trabalho Log Analytics a qual as VMs devem ser configuradas |Essa é a ID (GUID) do espaço de trabalho Log Analytics para a qual as VMs devem ser configuradas. |
-|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de tipos de recursos que devem ter logs de diagnóstico habilitados |Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
-|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Grupo de administradores |Group. Exemplo: `Administrator; myUser1; myUser2` |
-|\[\]de visualização: auditar controles PBMM federais do Canadá e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria |Atribuição de política |Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows |Uma lista de membros separados por ponto e vírgula que deve ser incluída no grupo local Administradores. Exemplo: `Administrator; myUser1; myUser2` |
-|Implantar a proteção avançada contra ameaças em contas de armazenamento |Atribuição de política |Efeito |As informações sobre os efeitos da política podem ser encontradas em [entender Azure Policy efeitos](../../../policy/concepts/effects.md). |
-|Implantar a auditoria em servidores SQL |Atribuição de política |O valor em dias do período de retenção (0 indica retenção ilimitada) |Dias de retenção (opcional, _180_ dias se não especificado) |
-|Implantar a auditoria em servidores SQL |Atribuição de política |Nome do grupo de recursos para a conta de armazenamento para auditoria do SQL Server |A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento é criada em cada região em que um SQL Server é criado, que é compartilhado por todos os servidores nessa região). Importante-para uma operação adequada de auditoria, não exclua ou renomeie o grupo de recursos ou as contas de armazenamento. |
-|Implantar configurações de diagnóstico para grupos de segurança de rede |Atribuição de política |Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede |Esse prefixo é combinado com o local do grupo de segurança de rede para formar o nome da conta de armazenamento criada. |
-|Implantar configurações de diagnóstico para grupos de segurança de rede |Atribuição de política |Nome do grupo de recursos para a conta de armazenamento para diagnóstico do grupo de segurança de rede (deve existir) |O grupo de recursos no qual a conta de armazenamento é criada. Este grupo de recursos já deve existir. |
+|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux |Atribuição de política |Log Analytics espaço de trabalho para VMs Linux |Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização\]: Implementar o Agente de Análise de Registo para VMs Linux |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Sistema Linux OS para adicionar ao âmbito |Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:`[]` |
+|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows |Atribuição de política |Opcional: Lista de imagens VM que têm suportado o Windows OS para adicionar ao âmbito |Uma matriz vazia pode ser utilizada para indicar que não há parâmetros opcionais:`[]` |
+|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows |Atribuição de política |Log Analytics espaço de trabalho para VMs do Windows |Para mais informações, consulte Criar um espaço de [trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização\]: Audite os controlos federais do PBMM do Canadá e implemente extensões vm específicas para apoiar os requisitos de auditoria |Atribuição de política |Log Analytics workspace ID para que os VMs devem ser configurados para |Este é o ID (GUID) do espaço de trabalho Log Analytics para o que os VMs devem ser configurados. |
+|\[Pré-visualização\]: Audite os controlos federais do PBMM do Canadá e implemente extensões vm específicas para apoiar os requisitos de auditoria |Atribuição de política |Lista de tipos de recursos que devem ter registos de diagnóstico ativados |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Valores aceitáveis podem ser encontrados em [registos de diagnóstico do Monitor Azure.](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type) |
+|\[Pré-visualização\]: Audite os controlos federais do PBMM do Canadá e implemente extensões vm específicas para apoiar os requisitos de auditoria |Atribuição de política |Grupo de administradores |Grupo, grupo. Exemplo: `Administrator; myUser1; myUser2` |
+|\[Pré-visualização\]: Audite os controlos federais do PBMM do Canadá e implemente extensões vm específicas para apoiar os requisitos de auditoria |Atribuição de política |Lista de utilizadores que devem ser incluídos no grupo de Administradores VM do Windows |Uma lista separada do ponto-e-vírgula dos membros que deve ser incluída no grupo local administradores. Exemplo: `Administrator; myUser1; myUser2` |
+|Implementar proteção avançada de ameaças em contas de armazenamento |Atribuição de política |Efeito |Informações sobre os efeitos políticos podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
+|Implementar auditoria sql |Atribuição de política |O valor nos dias do período de retenção (0 indica retenção ilimitada) |Dias de retenção (opcional, _180_ dias se não especificados) |
+|Implementar auditoria sql |Atribuição de política |Nome do grupo de recursos para conta de armazenamento para auditoria de servidor SQL |A auditoria escreve eventos de base de dados para um registo de auditoria na sua conta de Armazenamento Azure (é criada uma conta de armazenamento em cada região onde é criado um Servidor SQL que é partilhado por todos os servidores dessa região). Importante - para o bom funcionamento da Auditoria não apague ou mude o nome do grupo de recursos ou das contas de armazenamento. |
+|Implementar definições de diagnóstico para grupos de segurança da rede |Atribuição de política |Prefixo de conta de armazenamento para diagnósticos de grupo de segurança de rede |Este prefixo é combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada. |
+|Implementar definições de diagnóstico para grupos de segurança da rede |Atribuição de política |Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupo de segurança de rede (deve existir) |O grupo de recursos em que a conta de armazenamento é criada. Este grupo de recursos já deve existir. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou as etapas para implantar o exemplo de PBMM Federal do Canadá, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
+Agora que reviu os passos para implementar a amostra federal de PBMM do Canadá, visite os seguintes artigos para saber sobre a visão geral e o mapeamento de controlo:
 
 > [!div class="nextstepaction"]
-> [Governo Federal do Canadá PBMM-visão geral](./index.md)
-> [Planejamento Federal de PBMM do Canadá – mapeamento de controle](./control-mapping.md)
+> [Plantas federais do Canadá - Visão geral](./index.md)
+> [do Canadá Plantas Federais PBMM - Mapeamento de controlo](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 
-- Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../../concepts/resource-locking.md).

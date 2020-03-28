@@ -1,79 +1,79 @@
 ---
-title: Executar manualmente um Azure Functions disparado por HTTP
-description: Usar uma solicitação HTTP para executar um Azure Functions disparado não HTTP
+title: Executar manualmente uma função Azure não ativada por HTTP
+description: Utilize um pedido http para executar uma função azure não-HTTP desencadeada
 author: craigshoemaker
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
 ms.openlocfilehash: 4ce7b8590e4718585fe841921466e049dc204928
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75769137"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
-Este artigo demonstra como executar manualmente uma função não disparada por HTTP por meio da solicitação HTTP especialmente formatada.
+Este artigo demonstra como executar manualmente uma função não ativada por HTTP através de um pedido http especialmente formatado.
 
-Em alguns contextos, talvez seja necessário executar "sob demanda" uma função do Azure que é disparada indiretamente.  Exemplos de gatilhos indiretos incluem [funções em uma agenda](./functions-create-scheduled-function.md) ou funções que são executadas como resultado da [ação de outro recurso](./functions-create-storage-blob-triggered-function.md). 
+Em alguns contextos, poderá ser necessário executar uma Função Azure "on-demand" que é indiretamente desencadeada.  Exemplos de gatilhos indiretos incluem [funções num horário](./functions-create-scheduled-function.md) ou funções que funcionam como resultado da ação de [outro recurso](./functions-create-storage-blob-triggered-function.md). 
 
-O [postmaster](https://www.getpostman.com/) é usado no exemplo a seguir, mas você pode usar a [ondulação](https://curl.haxx.se/), o [Fiddler](https://www.telerik.com/fiddler) ou qualquer outra ferramenta semelhante para enviar solicitações HTTP.
+[O carteiro](https://www.getpostman.com/) é utilizado no seguinte exemplo, mas pode utilizar [cURL,](https://curl.haxx.se/) [Fiddler](https://www.telerik.com/fiddler) ou qualquer outra ferramenta similar para enviar pedidos HTTP.
 
-## <a name="define-the-request-location"></a>Definir o local da solicitação
+## <a name="define-the-request-location"></a>Definir a localização do pedido
 
-Para executar uma função não disparada por HTTP, você precisa de uma maneira de enviar uma solicitação ao Azure para executar a função. A URL usada para fazer essa solicitação usa um formulário específico.
+Para executar uma função não ativada pelo HTTP, precisa de uma forma de enviar um pedido ao Azure para executar a função. O URL usado para fazer este pedido assume um formulário específico.
 
-![Definir o local da solicitação: nome do host + caminho da pasta + nome da função](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
+![Defina o local do pedido: nome do anfitrião + caminho da pasta + nome de função](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
-- **Nome do host:** A localização pública do aplicativo de funções que é composta do nome do aplicativo de funções, mais *azurewebsites.net* ou seu domínio personalizado.
-- **Caminho da pasta:** Para acessar funções não disparadas por HTTP por meio de uma solicitação HTTP, você precisa enviar a solicitação por meio das pastas *admin/Functions*.
-- **Nome da função:** O nome da função que você deseja executar.
+- **Nome do anfitrião:** A localização pública da aplicação de funções que é composta pelo nome da aplicação de funções mais *azurewebsites.net* ou o seu domínio personalizado.
+- **Caminho da pasta:** Para aceder a funções não ativadas pelo HTTP através de um pedido HTTP, tem de enviar o pedido através das pastas *de administração/funções*.
+- **Nome da função:** O nome da função que quer executar.
 
-Use esse local de solicitação no postmaster junto com a chave mestra da função na solicitação ao Azure para executar a função.
+Você usa este local de pedido no Carteiro juntamente com a chave principal da função no pedido ao Azure para executar a função.
 
 > [!NOTE]
-> Ao executar localmente, a chave mestra da função não é necessária. Você pode [chamar diretamente a função](#call-the-function) que omite o cabeçalho `x-functions-key`.
+> Quando se corre localmente, a chave principal da função não é necessária. Pode ligar diretamente para a `x-functions-key` [função](#call-the-function) omitindo o cabeçalho.
 
-## <a name="get-the-functions-master-key"></a>Obter a chave mestra da função
+## <a name="get-the-functions-master-key"></a>Obtenha a chave principal da função
 
-Navegue até sua função na portal do Azure e clique na seção **gerenciar** e localize as **chaves de host** . Clique no botão **copiar** na linha *_master* para copiar a chave mestra para a área de transferência.
+Navegue para a sua função no portal Azure e clique em **Gerir** e encontrar a secção Chaves do **Anfitrião.** Clique no botão **Copiar** na linha *_master* para copiar a chave principal para a sua área de redação.
 
-![Copiar chave mestra da tela de gerenciamento de função](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+![Chave principal de cópia do ecrã de Gestão de Funções](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-Depois de copiar a chave mestra, clique no nome da função para retornar à janela do arquivo de código. Em seguida, clique na guia **logs** . Você verá mensagens da função registradas aqui ao executar manualmente a função do postmaster.
+Depois de copiar a chave principal, clique no nome da função para voltar à janela de ficheiros de código. Em seguida, clique no separador **Logs.** Verá mensagens da função registada aqui quando executar manualmente a função do Carteiro.
 
 > [!CAUTION]  
-> Devido às permissões elevadas em seu aplicativo de funções concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros ou distribuí-la em um aplicativo.
+> Devido às permissões elevadas na sua aplicação de funções concedidas pela chave principal, não deve partilhar esta chave com terceiros ou distribuí-la numa aplicação.
 
-## <a name="call-the-function"></a>Chamar a função
+## <a name="call-the-function"></a>Ligue para a função
 
-Abra o postmaster e siga estas etapas:
+Abra o Carteiro e siga estes passos:
 
-1. Insira o **local da solicitação na caixa de texto URL**.
-2. Verifique se o método HTTP está definido como **post**.
-3. **Clique** na guia **cabeçalhos** .
-4. Insira **x-Functions-Key** como a primeira **chave** e cole a chave mestra (da área de transferência) na caixa **valor** .
-5. Insira **Content-Type** como a segunda **chave** e insira **Application/JSON** como o **valor**.
+1. Insira o local de **pedido na caixa de texto URL**.
+2. Certifique-se de que o método HTTP está definido para **POST**.
+3. **Clique** no separador **Cabeçalhos.**
+4. Introduza a **chave x-funções** como a primeira **chave** e colhe a chave principal (a partir da área de reparação) na caixa de **valor.**
+5. Introduza o **Tipo de Conteúdo** como segunda **chave** e introduza **a** **aplicação/json** como valor .
 
-    ![Configurações de cabeçalhos do postmaster](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    ![Definições de cabeçalhos do carteiro](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-6. **Clique** na guia **corpo** .
-7. Insira **{"Input": "Test"}** como o corpo da solicitação.
+6. **Clique** no separador **Body.**
+7. Introduza **{"entrada": "teste" }** como o corpo para o pedido.
 
-    ![Configurações do corpo do postmaster](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    ![Definições do corpo do carteiro](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-8. Clique em **enviar**.
+8. Clique em **Enviar**.
 
-    ![Enviando uma solicitação com o postmaster](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    ![Envio de um pedido com carteiro](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 
-Em seguida, o postmaster relata um status de **202 aceito**.
+O carteiro reporta então um estatuto de **202 Aceite.**
 
-Em seguida, retorne à sua função na portal do Azure. Localize a janela de *logs* e você verá mensagens provenientes da chamada manual para a função.
+Em seguida, volte à sua função no portal Azure. Localize a janela *Registos* e verá mensagens provenientes da chamada manual para a função.
 
-![Resultados do log de funções da chamada manual](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+![Resultados do registo de funções da chamada manual](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Estratégias para testar o seu código nas Funções do Azure](./functions-test-a-function.md)
-- [Função do Azure Event Grid acionador Local depuração](./functions-debug-event-grid-trigger-local.md)
+- [Rede de eventos de função azure gatilho depuração local](./functions-debug-event-grid-trigger-local.md)

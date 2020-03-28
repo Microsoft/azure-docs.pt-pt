@@ -1,6 +1,6 @@
 ---
-title: Criar um cache do Azure Premium para Redis com clustering-CLI do Azure
-description: Este exemplo de código CLI do Azure mostra como criar um cache do Azure da camada Premium de 6 GB para Redis com clustering habilitado e dois fragmentos.
+title: Crie um Cache Azure Premium para Redis com clustering - Azure CLI
+description: Esta amostra de código Azure CLI mostra como criar um Azure Cache de 6 GB premium para Redis com clustering habilitado e dois fragmentos.
 author: yegu-ms
 ms.author: yegu
 tags: azure-service-management
@@ -9,15 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.openlocfilehash: 68203fe2e054f32ce5764fe4f1b07013b0806104
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75411150"
 ---
-# <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Criar uma Cache do Azure Premium para Redis com clustering
+# <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Crie um Cache Azure Premium para Redis com clustering
 
-Neste cenário, saiba como criar um Cache do Azure o escalão Premium 6 GB para Redis com o clustering ativado e partições horizontais de duas.
+Neste cenário, aprende-se a criar um Azure Cache de 6 GB premium para Redis com clustering habilitado e dois fragmentos.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -29,16 +29,16 @@ Neste cenário, saiba como criar um Cache do Azure o escalão Premium 6 GB para 
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos e ativar um escalão Premium a Cache de Redis do Azure com o clustering. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos e um Azure Cache de nível Premium para Redis com suporte de agrupamento. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Criar AZ redis](https://docs.microsoft.com/cli/azure/redis) | Crie a Cache do Azure para a instância de Redis. |
+| [az redis criar](https://docs.microsoft.com/cli/azure/redis) | Crie cache azure para a instância Redis. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-A Cache do Azure adicionais para exemplos do script da CLI de Redis pode ser encontrada na [Cache do Azure para a documentação do Redis](../cli-samples.md).
+As amostras de script sinuosas do Redis CLI podem ser encontradas no [Azure Cache para documentação redis](../cli-samples.md).

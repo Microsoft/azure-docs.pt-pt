@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
 ms.openlocfilehash: a4d23f34553881b6425514572f9122edf693a57a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75862226"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o PowerShell
@@ -136,7 +136,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
  
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você não precisar mais dos recursos que criou, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para excluir o grupo de recursos. Isto elimina os grupos de recurso e todos os recursos que contêm.
+Quando já não precisar dos recursos que criou, utilize o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para eliminar o grupo de recursos. Isto elimina os grupos de recurso e todos os recursos que contêm.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name TestRG1
@@ -156,7 +156,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtém os detalhes da configuração de sub-rede de rede virtual. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Cria uma nova configuração de ip de gateway. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Cria um gateway de VPN. |

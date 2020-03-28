@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o LucidChart | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o LucidChart.
+title: 'Tutorial: Integração do Diretório Ativo Azure com a Lucidchart Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Lucidchart.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,172 +16,172 @@ ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3eace60445dc9d52f9690da74360282efbb4cbe5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76291216"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lucidchart"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o LucidChart
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lucidchart"></a>Tutorial: Azure Ative Directory integração individual (SSO) com lucidchart
 
-Neste tutorial, você aprenderá a integrar o LucidChart com o Azure Active Directory (Azure AD). Ao integrar o LucidChart ao Azure AD, você pode:
+Neste tutorial, você vai aprender a integrar lucidchart com o Azure Ative Directory (Azure AD). Quando integrar a Lucidchart com o Azure AD, pode:
 
-* Controle no Azure AD quem tem acesso ao LucidChart.
-* Habilite seus usuários a serem conectados automaticamente ao LucidChart com suas contas do Azure AD.
-* Gerencie suas contas em um local central-o portal do Azure.
+* Controlo em Azure AD que tem acesso a Lucidchart.
+* Permita que os seus utilizadores sejam automaticamente inscritos na Lucidchart com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, você precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do LucidChart.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A subscrição ativada pela Lucidchart single (SSO) permitiu a subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
-* O LucidChart dá suporte ao SSO iniciado por **SP**
-* O LucidChart dá suporte ao provisionamento **de usuário just in time**
-* Depois de configurar o LucidChart, você pode impor controles de sessão, que protegem vazamento e pós-infiltração dos dados confidenciais de sua organização em tempo real. Os controles de sessão se estendem do acesso condicional. [Saiba como impor o controle de sessão com Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Lucidchart apoia **SP** iniciado SSO
+* Lucidchart suporta o fornecimento de utilizadores **Just In Time**
+* Assim que configurar o Lucidchart, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se a partir do Acesso Condicional. [Saiba como impor o controlo de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-lucidchart-from-the-gallery"></a>Adicionando o LucidChart da Galeria
+## <a name="adding-lucidchart-from-the-gallery"></a>Adicionando Lucidchart da galeria
 
-Para configurar a integração do LucidChart ao Azure AD, você precisará adicionar o LucidChart da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração da Lucidchart em Azure AD, você precisa adicionar Lucidchart da galeria à sua lista de aplicações saaS geridas.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **LucidChart** na caixa de pesquisa.
-1. Selecione **LucidChart** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **da galeria,** **digite Lucidchart** na caixa de pesquisa.
+1. Selecione **Lucidchart** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-lucidchart"></a>Configurar e testar o logon único do Azure AD para o LucidChart
+## <a name="configure-and-test-azure-ad-single-sign-on-for-lucidchart"></a>Configure e teste Azure AD single sign-on para Lucidchart
 
-Configure e teste o SSO do Azure AD com o LucidChart usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no LucidChart.
+Configure e teste Azure AD SSO com Lucidchart utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na Lucidchart.
 
-Para configurar e testar o SSO do Azure AD com o LucidChart, conclua os seguintes blocos de construção:
+Para configurar e testar o Azure AD SSO com a Lucidchart, complete os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO do LucidChart](#configure-lucidchart-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do LucidChart](#create-lucidchart-test-user)** – para ter um equivalente de B. Simon em LucidChart que esteja vinculado à representação do usuário no Azure AD.
-1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    * Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure lucidchart SSO](#configure-lucidchart-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    * **[Crie um utilizador](#create-lucidchart-test-user)** de teste Lucidchart - para ter uma contrapartida de B.Simon em Lucidchart que esteja ligada à representação da AD Azure do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **LucidChart** , localize a seção **gerenciar** e selecione **logon único**.
-1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Lucidchart,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Editar configuração básica de SAML](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
+1. Na secção **Basic SAML Configuration,** introduza os valores para os seguintes campos:
 
-   Na caixa de texto **URL de logon** , digite uma URL como: `https://chart2.office.lucidchart.com/saml/sso/azure`
+   Na caixa de texto **de URL sign-on,** escreva um URL como:`https://chart2.office.lucidchart.com/saml/sso/azure`
 
-5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
+5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de descarregamento do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar LucidChart** , copie as URLs apropriadas de acordo com seu requisito.
+6. Na secção **Configurar lucidchart,** copie os URL(s) adequados de acordo com o seu requisito.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de Inicio de Sessão
 
-    b. Identificador do Azure AD
+    b. Identificador de anúncio sinuoso
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao LucidChart.
+Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo acesso à Lucidchart.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **LucidChart**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Lucidchart**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-lucidchart-sso"></a>Configurar o SSO do LucidChart
+## <a name="configure-lucidchart-sso"></a>Configure Lucidchart SSO
 
-1. Em uma janela diferente do navegador da Web, faça logon em seu site de empresa do LucidChart como administrador.
+1. Numa janela diferente do navegador web, inicie sessão no site da sua empresa Lucidchart como administrador.
 
-2. No menu na parte superior, clique em **equipe**.
+2. No menu em cima, clique em **Team**.
 
-    ![Time](./media/lucidchart-tutorial/ic791190.png "Equipa")
+    ![Equipa](./media/lucidchart-tutorial/ic791190.png "Equipa")
 
-3. Clique em **aplicativos \> gerenciar SAML**.
+3. Clique em **Aplicações \> Gerir O SAML**.
 
-    ![Gerenciar SAML](./media/lucidchart-tutorial/ic791191.png "Gerenciar SAML")
+    ![Gerir o SAML](./media/lucidchart-tutorial/ic791191.png "Gerir o SAML")
 
-4. Na página de diálogo **configurações de autenticação do SAML** , execute as seguintes etapas:
+4. Na página de diálogo **SAML Authentication Settings,** execute os seguintes passos:
 
-    a. Selecione **habilitar autenticação SAML**e, em seguida, clique em **opcional**.
+    a. **Selecione ativar a autenticação SAML**e, em seguida, clique **opcional**.
 
-    ![Configurações de autenticação do SAML](./media/lucidchart-tutorial/ic791192.png "Configurações de autenticação do SAML")
+    ![Definições de autenticação SAML](./media/lucidchart-tutorial/ic791192.png "Definições de autenticação SAML")
 
-    b. Na caixa de texto **domínio** , digite seu domínio e clique em **alterar certificado**.
+    b. Na caixa de texto **domínio,** escreva o seu domínio e clique no **Certificado de Alteração**.
 
-    ![Alterar certificado](./media/lucidchart-tutorial/ic791193.png "Alterar certificado")
+    ![Certificado de alteração](./media/lucidchart-tutorial/ic791193.png "Certificado de alteração")
 
-    c. Abra o arquivo de metadados baixado, copie o conteúdo e cole-o na caixa de texto **carregar metadados** .
+    c. Abra o ficheiro de metadados descarregados, copie o conteúdo e colá-lo na caixa de texto **de Metadados de Upload.**
 
-    ![Carregar metadados](./media/lucidchart-tutorial/ic791194.png "Carregar metadados")
+    ![Enviar Metadados](./media/lucidchart-tutorial/ic791194.png "Enviar Metadados")
 
-    d. Selecione **Adicionar novos usuários automaticamente à equipe**e, em seguida, clique em **salvar alterações**.
+    d. Selecione **Automaticamente Adicione novos utilizadores à equipa**e, em seguida, clique em Guardar **alterações**.
 
     ![Salvar alterações](./media/lucidchart-tutorial/ic791195.png "Salvar alterações")
 
-### <a name="create-lucidchart-test-user"></a>Criar usuário de teste do LucidChart
+### <a name="create-lucidchart-test-user"></a>Criar utilizador de teste Lucidchart
 
-Não há nenhum item de ação para você configurar o provisionamento de usuário para LucidChart.  Quando um usuário atribuído tenta fazer logon no LucidChart usando o painel de acesso, o LucidChart verifica se o usuário existe.  
+Não existe nenhum item de ação para configurar o fornecimento de utilizadores à Lucidchart.  Quando um utilizador designado tenta entrar na Lucidchart utilizando o painel de acesso, a Lucidchart verifica se o utilizador existe.  
 
-Se ainda não houver nenhuma conta de usuário disponível, ela será criada automaticamente pelo LucidChart.
+Se ainda não existe uma conta de utilizador disponível, é automaticamente criada pela Lucidchart.
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do LucidChart no painel de acesso, você deverá ser conectado automaticamente ao LucidChart para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Lucidchart no Painel de Acesso, deve ser automaticamente inscrito no Lucidchart para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o LucidChart com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente Lucidchart com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o LucidChart com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger lucidchart com visibilidade avançada e controlos](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

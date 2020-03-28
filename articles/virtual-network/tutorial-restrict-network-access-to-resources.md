@@ -1,5 +1,5 @@
 ---
-title: Restringir o acesso aos recursos de PaaS-tutorial-portal do Azure
+title: Restringir o acesso aos recursos paaS - tutorial - Portal Azure
 description: Neste tutorial, vai aprender a limitar e restringir o acesso de rede a recursos do Azure, como o Armazenamento do Azure e a Base de Dados SQL do Azure, com pontos finais de serviço de rede virtual através do portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74186361"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso de rede para recursos de PaaS com pontos finais de serviço de rede virtual através do portal do Azure
@@ -37,7 +37,7 @@ Os pontos finais de serviço de rede virtual permitem-lhe limitar o acesso de re
 
 Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-restrict-network-access-to-resources-cli.md) ou o [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -55,7 +55,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
    |Espaço de endereços| 10.0.0.0/16|
    |Subscrição| Selecione a sua subscrição|
    |Grupo de recursos | Selecione **Criar novo** e introduza *myResourceGroup*.|
-   |Localização| Selecione **E.U.A. Leste** |
+   |Localização| Selecione **E.U.A. Leste**. |
    |Nome da Sub-rede| Público|
    |Intervalo de Endereços da Sub-rede| 10.0.0.0/24|
    |Proteção contra DDoS| Básico|
@@ -69,7 +69,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 Os pontos finais de serviço são ativados por serviço, por sub-rede. Crie uma sub-rede e ative um ponto final de serviço para a sub-rede.
 
 1. Na caixa **Procurar recursos, serviços e documentos**, na parte superior do portal, introduzar *myVirtualNetwork.* Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-a.
-2. Adicione uma sub-rede à rede virtual. Em **DEFINIÇÕES**, selecione **Sub-redes** e selecione **+ Sub-rede**, conforme mostrado na imagem seguinte:
+2. Adicione uma sub-rede à rede virtual. Em **DEFINIÇÕES,** selecione **Sub-redes**e, em seguida, selecione **+ Subnet,** como mostrado na seguinte imagem:
 
     ![Adicionar sub-rede](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
 
@@ -97,7 +97,7 @@ Por predefinição, todas as VMs numa sub-rede podem comunicar com todos os recu
     |Nome| myNsgPrivate |
     |Subscrição| Selecione a sua subscrição|
     |Grupo de recursos | Selecione **Utilizar existente** e selecione *myResourceGroup*.|
-    |Localização| Selecione **E.U.A. Leste** |
+    |Localização| Selecione **E.U.A. Leste**. |
 
 4. Depois de criar o grupo de segurança de rede, introduza *myNsgPrivate*, na caixa **Procurar recursos, serviços e documentos**, na parte superior do portal. Quando **myNsgPrivate** aparecer nos resultados da pesquisa, selecione-os.
 5. Em **DEFINIÇÕES**, selecione **regras de segurança de saída**.
@@ -109,7 +109,7 @@ Por predefinição, todas as VMs numa sub-rede podem comunicar com todos os recu
     |Origem| Selecione **VirtualNetwork** |
     |Intervalo de portas de origem| * |
     |Destino | Selecione **Etiqueta do Serviço**|
-    |Etiqueta do serviço de destino | Selecione **Armazenamento**.|
+    |Etiqueta do serviço de destino | Selecione **Armazenamento**|
     |Intervalos de portas de destino| * |
     |Protocolo|Qualquer|
     |Ação|Permitir|
@@ -154,7 +154,7 @@ Por predefinição, todas as VMs numa sub-rede podem comunicar com todos os recu
 
 Os passos necessários para restringir o acesso de rede a recursos criados através de serviços do Azure ativados para pontos finais de serviço varia de serviço para serviço. Veja a documentação relativa aos serviços individuais para obter os passos específicos dos mesmos. O resto deste tutorial inclui passos para restringir o acesso de rede a uma conta de Armazenamento do Azure, como um exemplo.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
 2. Selecione **Armazenamento** e selecione **Conta de Armazenamento - blob, ficheiro, tabela, fila**.
@@ -164,7 +164,7 @@ Os passos necessários para restringir o acesso de rede a recursos criados atrav
     |----|----|
     |Nome| Introduza um nome que seja exclusivo em todas as localizações do Azure, entre 3 e 24 carateres de comprimento, com números e letras minúsculas apenas.|
     |Tipo de conta|StorageV2 (fins gerais v2)|
-    |Localização| Selecione **E.U.A. Leste** |
+    |Localização| Selecione **E.U.A. Leste**. |
     |Replicação| Armazenamento localmente redundante (LRS)|
     |Subscrição| Selecione a sua subscrição|
     |Grupo de recursos | Selecione **Utilizar existente** e selecione *myResourceGroup*.|
@@ -186,7 +186,7 @@ Por predefinição, as contas de armazenamento aceitam ligações de rede de cli
 
 1. Nas **DEFINIÇÕES** da conta de Armazenamento, selecione **Firewalls e redes virtuais**.
 2. Selecione **Redes selecionadas**.
-3. Selecione **+ Adicionar rede virtual existente**.
+3. Selecione **+Adicionar rede virtual existente**.
 4. Em **Adicionar redes**, selecione os seguintes valores e selecione **Adicionar**:
 
     |Definição|Valor|
@@ -211,9 +211,9 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
 
 ### <a name="create-the-first-virtual-machine"></a>Criar a primeira máquina virtual
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
+1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
-3. Introduza ou selecione as seguintes informações e selecione **OK**:
+3. Introduza, ou selecione, as seguintes informações e, em seguida, selecione **OK:**
 
    |Definição|Valor|
    |----|----|
@@ -222,7 +222,7 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Subscrição| Selecione a sua subscrição.|
    |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
-   |Localização| Selecione **E.U.A. Leste**.|
+   |Localização| Selecione **East US**.|
 
    ![Introduzir informações básicas de uma máquina virtual](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Escolha um tamanho para a máquina virtual e selecione **Selecionar**.

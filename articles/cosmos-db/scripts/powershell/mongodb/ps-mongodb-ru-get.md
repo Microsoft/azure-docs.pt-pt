@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para obter a taxa de transferência (RU/s) para a API do Azure Cosmos DB para MongoDB
-description: Azure PowerShell script-Azure Cosmos DB obter taxa de transferência (RU/s) para a API do MongoDB
+title: PowerShell script para obter a produção (RU/s) para a API da Azure Cosmos DB para MongoDB
+description: Script Azure PowerShell - Azure Cosmos DB Get Throughput (RU/s) para MongoDB API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: d7cd068722a1dcc99b909020fa5bae34ae4a4768
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25ed59b73f3b508fd29a964bb6b981049957143f
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441395"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365653"
 ---
-# <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Obter taxa de transferência (RU/s) para um banco de dados ou uma coleção para a API Azure Cosmos DB-MongoDB
+# <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Obtenha APi (RU/s) para uma base de dados ou recolha para a Azure Cosmos DB - MongoDB API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,10 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBMongoDBDatabasePutput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Obtém o valor de entrada da base de dados aPI de MongoDB especificada. |
+| [Get-AzCosmosDBMongoDBCollectionPutput](hhttps://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Obtém o valor de entrada da especificada Coleção MongoDB API. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

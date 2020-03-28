@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para atualizar RU/s para a API de Azure Cosmos DB SQL (Core)
-description: Atualizar a taxa de transferência para um contêiner ou banco de dados Cosmos do Azure usando uma API de SQL (núcleo) de script do PowerShell
+title: Script PowerShell para atualizar a produção (RU/s) para uma Base de Dados ou Contentor da API Do Cosmos Azure Cosmos
+description: Script PowerShell para atualizar a produção (RU/s) para uma Base de Dados ou Contentor da API Do Cosmos Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 70dd5810d3549f19075b437044ce0dd332c45c49
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 950a76c2caaffe6eef578d5614e9469c5942e08c
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444962"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365981"
 ---
-# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Atualizar RU/s para um banco de dados ou contêiner para a API Azure Cosmos DB-SQL (Core)
+# <a name="update-throughput-rus-for-an-azure-cosmos-db-sql-api-database-or-container"></a>Atualização de entrada (RU/s) para uma Base de Dados ou Recipiente Azure Cosmos DB SQL
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75444962"
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-update.ps1 "Update throughput on a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-update.ps1 "Update throughput (RU/s) for an Azure Cosmos DB SQL API Database or Container")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
@@ -38,9 +38,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
-|**Grupos de recursos do Azure**| |
+|**Azure Cosmos DB**| |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Cria uma nova ou atualiza uma base de dados Cosmos DB SQL existente. |
+| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Recebe um contentor Cosmos DB SQL. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Cria um novo ou atualiza um recipiente Cosmos DB SQL existente. |
+|**Grupos de Recursos Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

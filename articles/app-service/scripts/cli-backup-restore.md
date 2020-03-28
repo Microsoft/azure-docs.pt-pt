@@ -1,6 +1,6 @@
 ---
-title: 'CLI: restaurar um aplicativo de um backup'
-description: Saiba como usar o CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do serviço de aplicativo. Este exemplo mostra como restaurar um aplicativo de um backup.
+title: 'CLI: Restaurar uma aplicação a partir de uma cópia de segurança'
+description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como restaurar uma aplicação a partir de uma cópia de segurança.
 author: msangapu-msft
 tags: azure-service-management
 ms.devlang: azurecli
@@ -8,15 +8,15 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 3c73831d2c094fba62aaea611a0a2b43de89fb12
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 8c3c0f4f57d21e5c07867a2c43ce3c3114f79a9b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688502"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058861"
 ---
-# <a name="restore-a-web-app-from-a-backup-using-cli"></a>Restaurar um aplicativo Web de um backup usando a CLI
+# <a name="restore-a-web-app-from-a-backup-using-cli"></a>Restaurar uma aplicação web a partir de uma cópia de segurança usando cli
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
 
@@ -24,7 +24,7 @@ Para executar este script, precisa de uma cópia de segurança existente para um
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 

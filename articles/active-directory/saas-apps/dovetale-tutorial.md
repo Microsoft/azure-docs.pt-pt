@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Dovetale | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Dovetale.
+title: 'Tutorial: Azure Ative Diretório integração individual (SSO) com a Dovetale [ Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Dovetale.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,157 +17,157 @@ ms.date: 10/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a2c96c6ddd015285b7780c70741ddb704866aa60
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76260672"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dovetale"></a>Tutorial: Azure Active Directory single sign-on (SSO) integration with Dovetale
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dovetale"></a>Tutorial: Azure Ative Diretório integração individual (SSO) com a Dovetale
 
-In this tutorial, you'll learn how to integrate Dovetale with Azure Active Directory (Azure AD). When you integrate Dovetale with Azure AD, you can:
+Neste tutorial, você vai aprender a integrar Avetale com o Azure Ative Directory (Azure AD). Quando integrar a Dovetale com o Azure AD, pode:
 
-* Control in Azure AD who has access to Dovetale.
-* Enable your users to be automatically signed-in to Dovetale with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Controlo em Azure AD que tem acesso a Dovetale.
+* Ative que os seus utilizadores sejam automaticamente inscritos na Dovetale com as suas contas Azure AD.
+* Gerencie as suas contas num local central - o portal Azure.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-To get started, you need the following items:
+Para começar, precisa dos seguintes itens:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Dovetale single sign-on (SSO) enabled subscription.
+* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* A assinatura ativada por assinatura sotale single sign-on (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
 
 
 
-* Dovetale supports **SP and IDP** initiated SSO
-* Dovetale supports **Just In Time** user provisioning
+* Dovetale suporta **SP e IDP** iniciadoS SSO
+* Dovetale suporta o fornecimento de utilizadores **Just In Time**
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> O identificador desta aplicação é um valor fixo de cadeia, pelo que apenas uma instância pode ser configurada num inquilino.
 
 
-## <a name="adding-dovetale-from-the-gallery"></a>Adding Dovetale from the gallery
+## <a name="adding-dovetale-from-the-gallery"></a>Adicionando Dovetale da galeria
 
-To configure the integration of Dovetale into Azure AD, you need to add Dovetale from the gallery to your list of managed SaaS apps.
+Para configurar a integração da Dovetale em Azure AD, precisa de adicionar dovetale da galeria à sua lista de aplicações geridas do SaaS.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Dovetale** in the search box.
-1. Select **Dovetale** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
+1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. No Add da secção **galeria,** digite **Dovetale** na caixa de pesquisa.
+1. Selecione **Dovetale** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-dovetale"></a>Configure and test Azure AD single sign-on for Dovetale
+## <a name="configure-and-test-azure-ad-single-sign-on-for-dovetale"></a>Configure e teste Azure AD único sign-on para Dovetale
 
-Configure and test Azure AD SSO with Dovetale using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Dovetale.
+Configure e teste Azure AD SSO com Dovetale utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado em Dovetale.
 
-To configure and test Azure AD SSO with Dovetale, complete the following building blocks:
+Para configurar e testar o Azure AD SSO com a Dovetale, complete os seguintes blocos de construção:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Dovetale SSO](#configure-dovetale-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Dovetale test user](#create-dovetale-test-user)** - to have a counterpart of B.Simon in Dovetale that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
+    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
+1. **[Configure Dovetale SSO](#configure-dovetale-sso)** - para configurar as definições de inscrição únicas no lado da aplicação.
+    1. **[Create Dovetale test user](#create-dovetale-test-user)** - para ter uma contrapartida de B.Simon em Dovetale que esteja ligada à representação da AD Azure do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-## <a name="configure-azure-ad-sso"></a>Configure Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Siga estes passos para permitir o Azure AD SSO no portal Azure.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Dovetale** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **do Dovetale,** encontre a secção **Gerir** e selecione **um único sinal.**
+1. Na página **de método de inscrição, selecione** **SAML**.
+1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. Na secção de  **Configuração Básica saml,** a aplicação está pré-configurada no modo iniciado **idp** e os URLs necessários já estão pré-povoados com o Azure. O utilizador precisa de guardar a configuração clicando no botão **Guardar.** 
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Clique em **Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação no modo iniciado **por SP:**
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:  `<COMPANYNAME>.dovetale.com`
+    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`<COMPANYNAME>.dovetale.com`
 
     > [!NOTE]
-    > The value is not real. Update the value with the actual Sign-on URL. Contact [Dovetale Client support team](mailto:support@dovetale.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > O valor não é real. Atualize o valor com o URL de sign-on real. Contacte a equipa de suporte do [Cliente Davetale](mailto:support@dovetale.com) para obter o valor. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
 
-1. O aplicativo Dovetale espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. A aplicação Dovetale espera as afirmações do SAML num formato específico, o que requer que adicione mapeamentos personalizados de atributos à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
-1. Além de acima, o aplicativo Dovetale espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
+1. Além de acima, a aplicação Dovetale espera que poucos atributos sejam retransmitidos na resposta SAML que são mostradas abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Nome | Atributo de origem|
+    | Nome | Atributo fonte|
     | ---------------| --------------- |
-    | e-mail | user.mail |
+    | e-mail | utilizador.mail |
     | first_name | user.givenname |
     | nome | user.userprincipalname |
-    | last_name | User. sobrenome |
+    | last_name | utilizador.sobrenome |
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
+1. No **set single sign-on com** a página SAML, na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/copy-metadataurl.png)
+    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
+Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Nas propriedades do **usuário** , siga estas etapas:
+1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Dovetale.
+Nesta secção, permitirá que b.Simon use o único sign-on Azure, concedendo acesso à Dovetale.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Dovetale**.
-1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Dovetale**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
 
-    ![O link Adicionar usuário](common/add-assign-user.png)
+    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
 
-1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
 
-## <a name="configure-dovetale-sso"></a>Configurar o SSO do Dovetale
+## <a name="configure-dovetale-sso"></a>Configure Dovetale SSO
 
-Para configurar o logon único no lado do **Dovetale** , é necessário enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do [Dovetale](mailto:support@dovetale.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar um único sinal no lado **do Dovetale,** precisa enviar o Url de **Metadados da Federação de Aplicações** para a equipa de [suporte do Dovetale](mailto:support@dovetale.com). Eles definiram esta definição para ter a ligação SAML SSO corretamente definida em ambos os lados.
 
-### <a name="create-dovetale-test-user"></a>Criar usuário de teste do Dovetale
+### <a name="create-dovetale-test-user"></a>Criar o utilizador de teste Dovetale
 
-Nesta seção, um usuário chamado Brenda Simon é criado em Dovetale. O Dovetale dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no Dovetale, um novo será criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado em Dovetale. A Dovetale suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Dovetale, um novo é criado após a autenticação.
 
 > [!Note]
-> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Dovetale](mailto:support@dovetale.com).
+> Se precisar de criar um utilizador manualmente, contacte a equipa de [suporte do Dovetale](mailto:support@dovetale.com).
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Ao clicar no bloco do Dovetale no painel de acesso, você deverá ser conectado automaticamente ao Dovetale para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Dovetale no Painel de Acesso, deve ser automaticamente inscrito no Dovetale para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o Dovetale com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente Dovetale com Azure AD](https://aad.portal.azure.com/)
 

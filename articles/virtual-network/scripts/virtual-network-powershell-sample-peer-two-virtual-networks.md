@@ -1,5 +1,5 @@
 ---
-title: Emparelhar duas redes virtuais – exemplo de script de Azure PowerShell
+title: Peer duas redes virtuais - Amostra de script Azure PowerShell
 description: Exemplo de script do Azure PowerShell - Peering de redes virtuais
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.openlocfilehash: 4061997aa2efbae250b30fc58cef06b1249c2b8f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74091290"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Exemplo de script de peering de duas redes virtuais
 
 Este exemplo de script cria e liga duas redes virtuais na mesma região através da rede do Azure. Depois de executar o script, irá criar um peering entre duas redes virtuais.
 
-Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/powershell) ou a partir de uma instalação local do PowerShell. Se você usar o PowerShell localmente, esse script exigirá o módulo AZ PowerShell versão 5.4.1 ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/powershell) ou a partir de uma instalação local do PowerShell. Se utilizar o PowerShell localmente, este script requer a versão 5.4.1 do módulo Az PowerShell ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,7 +48,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)| Cria uma rede e sub-rede virtual do Azure. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork)| Cria uma rede e sub-rede virtual do Azure. |
 | [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) | Cria um peering entre duas redes virtuais.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
