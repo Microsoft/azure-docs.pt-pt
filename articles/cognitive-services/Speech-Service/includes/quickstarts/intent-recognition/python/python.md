@@ -7,10 +7,10 @@ ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 724f52317ce2afda023ae0514a330da0032e8710
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925242"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -26,7 +26,7 @@ Antes de começar:
 ## <a name="open-your-project"></a>Abra o seu projeto
 
 1. Abra o seu IDE preferido.
-2. Crie um novo projeto e crie um ficheiro chamado `quickstart.py`, em seguida, abra-o.
+2. Crie um novo projeto `quickstart.py`e crie ficheiros chamados, e depois abra-o.
 
 ## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
 
@@ -36,33 +36,33 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
 
-Antes de poder inicializar um `IntentRecognizer` objeto, precisa de criar uma configuração que utilize a chave e localização para o seu recurso de previsão LUIS.
+Antes de poder `IntentRecognizer` inicializar um objeto, precisa de criar uma configuração que utilize a chave e localização para o seu recurso de previsão LUIS.
 
-Insira este código em `quickstart.py`. Certifique-se de atualizar estes valores:
+Insira `quickstart.py`este código em . Certifique-se de atualizar estes valores:
 
-* Substitua `"YourLanguageUnderstandingSubscriptionKey"` com a sua chave de previsão LUIS.
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pela sua localização LUIS. Identificador da **região** de utilização da [região](https://aka.ms/speech/sdkregion)
+* Substitua-a `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão LUIS.
+* Substitua-a `"YourLanguageUnderstandingServiceRegion"` pela sua localização LUIS. Identificador da **região** de utilização da [região](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
 > Se precisar de ajuda para encontrar estes valores, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-Esta amostra constrói o objeto `SpeechConfig` utilizando a chave LUIS e a região. Para obter uma lista completa dos métodos disponíveis, consulte a [Aula de SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+Esta amostra constrói `SpeechConfig` o objeto utilizando a chave LUIS e a região. Para obter uma lista completa dos métodos disponíveis, consulte a [Aula de SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
 O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
 ## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntençãoReconhecedor
 
-Agora, vamos criar uma `IntentRecognizer`. Insira este código logo abaixo da configuração do Discurso.
+Agora, vamos criar `IntentRecognizer`um. Insira este código logo abaixo da configuração do Discurso.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um Modelo e Intenções LanguageUnderstanding
 
-Precisa associar um `LanguageUnderstandingModel` ao reconhecimento de intenções e adicionar as intenções que quer que seja reconhecida. Vamos usar as intenções do domínio pré-construído para a domótica.
+Precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenções e adicionar as intenções que quer que seja reconhecida. Vamos usar as intenções do domínio pré-construído para a domótica.
 
-Insira este código abaixo do seu `IntentRecognizer`. Certifique-se de que substitui `"YourLanguageUnderstandingAppId"` com o seu ID de aplicação LUIS. 
+Insira este `IntentRecognizer`código abaixo do seu . Certifique-se de `"YourLanguageUnderstandingAppId"` que substitui o seu ID da aplicação LUIS. 
 
 >[!TIP]
 > Se precisar de ajuda para encontrar este valor, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
@@ -71,7 +71,7 @@ Insira este código abaixo do seu `IntentRecognizer`. Certifique-se de que subst
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-Pelo `IntentRecognizer` objeto, vai chamar o método `recognize_once()`. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
+Pelo `IntentRecognizer` objeto, vais chamar o `recognize_once()` método. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
 
 Insira este código abaixo do seu modelo.
 
@@ -81,7 +81,7 @@ Insira este código abaixo do seu modelo.
 
 Quando o resultado do reconhecimento for devolvido pelo serviço de Discurso, vai querer fazer algo com ele. Vamos mantê-lo simples e imprimir o resultado para consolar.
 
-Abaixo da sua chamada para `recognize_once()`, adicione este código.
+Abaixo da `recognize_once()`sua chamada para, adicione este código.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 

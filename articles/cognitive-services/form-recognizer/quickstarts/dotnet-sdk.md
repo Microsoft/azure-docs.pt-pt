@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118359"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Quickstart: Biblioteca de clientes do Reconhecimento de Formulários para .NET
@@ -28,7 +28,7 @@ Utilize a biblioteca cliente Do Reconhecimento de Formulários para .NET para:
 * [Obtenha uma lista de modelos personalizados](#get-a-list-of-custom-models)
 * [Eliminar um modelo personalizado](#delete-a-custom-model)
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [código de origem da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | Pacote [(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Pacote de código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | da biblioteca[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,11 +42,11 @@ Utilize a biblioteca cliente Do Reconhecimento de Formulários para .NET para:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Depois de obter uma chave da sua subscrição ou recurso experimental, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e ponto final, nomeada`FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`, respectivamente.
+Depois de obter uma chave da sua subscrição ou recurso experimental, `FORM_RECOGNIZER_KEY` [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e ponto final, nomeadoe, `FORM_RECOGNIZER_ENDPOINT`respectivamente.
 
-### <a name="create-a-new-c-application"></a>Criar uma C# nova aplicação
+### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o comando `dotnet new` para criar uma nova aplicação de consola com o nome `formrecognizer-quickstart`. Este comando cria um simples C# projeto "Hello World" com um único ficheiro fonte: _Program.cs_. 
+Numa janela de consola (como cmd, PowerShell `dotnet new` ou Bash), utilize o comando `formrecognizer-quickstart`para criar uma nova aplicação de consola com o nome . Este comando cria um simples projeto C# "Hello World" com um único ficheiro fonte: _Program.cs_. 
 
 ```console
 dotnet new console -n formrecognizer-quickstart
@@ -119,14 +119,14 @@ Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a bi
 
 Antes de definir quaisquer métodos, adicione as seguintes definições variáveis ao topo da sua classe **Program.** Você mesmo precisa preencher algumas das variáveis. 
 
-* Para recuperar o URL SAS para os seus dados de treino, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Para recuperar o URL SAS para os seus dados de treino, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`forma: .
 * Se precisar de um formulário de amostra para analisar, pode utilizar um dos ficheiros sob a pasta **de Teste** do conjunto de dados da [amostra](https://go.microsoft.com/fwlink/?linkid=2090451). Este guia utiliza apenas formulários PDF.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Abaixo do método `Main`, defina a tarefa referenciada em `Main`. Aqui, irá autenticar o objeto cliente utilizando as variáveis de subscrição que definiu acima. Definirá os outros métodos mais tarde.
+Abaixo `Main` do método, defina a `Main`tarefa que é referenciada em . Aqui, irá autenticar o objeto cliente utilizando as variáveis de subscrição que definiu acima. Definirá os outros métodos mais tarde.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
@@ -173,7 +173,7 @@ Se pretender eliminar o modelo personalizado da sua conta, utilize o seguinte m�
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a aplicação ligando para o comando `dotnet run` do seu diretório de aplicações.
+Execute a aplicação ligando para o `dotnet run` comando do seu diretório de aplicações.
 
 ```console
 dotnet run
@@ -184,7 +184,7 @@ dotnet run
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Além disso, se treinou um modelo personalizado que pretende eliminar da sua conta, execute o método em [Eliminar um modelo personalizado](#delete-a-custom-model).
 
@@ -193,7 +193,7 @@ Além disso, se treinou um modelo personalizado que pretende eliminar da sua con
 Neste arranque rápido, usou a biblioteca de clientes Form Recogniser .NET para formar um modelo personalizado e analisar formulários. Em seguida, aprenda dicas para criar um melhor conjunto de dados de treino e produzir modelos mais precisos.
 
 > [!div class="nextstepaction"]
->[Construir um conjunto de dados de formação](../build-training-data-set.md)
+>[Criar um conjunto de dados de preparação](../build-training-data-set.md)
 
-* [O que é Reconhecimento de Formulários?](../overview.md)
+* [O que é o Reconhecedor de Formato?](../overview.md)
 * O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

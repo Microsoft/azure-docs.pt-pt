@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: ffb12af93e249b0b9bb510d3507a30e67d6cd19f
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169136"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Início Rápido: Criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Python
 
-Este artigo mostra como começar a usar o SDK do Visão Personalizada com Python para criar um modelo de classificação de imagem. Depois de criado, você pode adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
+Este artigo mostra-lhe como começar a usar o Custom Vision SDK com Python para construir um modelo de classificação de imagem. Depois de criado, pode adicionar tags, carregar imagens, treinar o projeto, obter o URL final de previsão publicado do projeto, e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,9 +45,9 @@ Crie um novo ficheiro chamado *sample.py* no seu diretório de projetos preferid
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
-Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha a URL do ponto de extremidade na página Configurações do site Visão Personalizada.
+Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
-Consulte o método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) para especificar outras opções ao criar seu projeto (explicado no guia [criar um](getting-started-build-a-classifier.md) portal da Web do classificador).  
+Consulte o método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) para especificar outras opções quando criar o seu projeto (explicado no Guia do portal Web [Build).](getting-started-build-a-classifier.md)  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -79,12 +79,12 @@ hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-### <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
+### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
-Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Você pode carregar até 64 imagens em um único lote.
+Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Pode fazer o upload até 64 imagens num único lote.
 
 > [!NOTE]
-> Você precisará alterar o caminho para as imagens com base em onde baixou o repositório de exemplos do SDK do Python dos serviços cognitivas anteriormente.
+> Terá de alterar o caminho para as imagens com base no local onde descarregou o repo de Amostras SDK dos Serviços Cognitivos Python SDK mais cedo.
 
 ```Python
 base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
@@ -111,9 +111,9 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
+### <a name="train-the-classifier-and-publish"></a>Treine o classificador e publique
 
-Esse código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
+Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final da previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até ser publicada.
 
 ```Python
 import time
@@ -130,7 +130,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtenha e use a iteração publicada no ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -171,7 +171,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-Em seguida, você pode verificar se a imagem de teste (encontrada em **< base_image_url > imagens/teste/** ) está marcada adequadamente. Também pode regressar ao [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto criado recentemente.
+Pode então verificar se a imagem de teste (encontrada em **<base_image_url>imagens/Teste/Teste/**) está devidamente marcada. Também pode regressar ao [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto criado recentemente.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

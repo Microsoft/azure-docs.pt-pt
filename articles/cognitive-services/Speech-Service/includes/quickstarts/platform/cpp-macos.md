@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: instalação C++ da plataforma do SDK de fala (MacOS)-serviço de fala'
+title: 'Quickstart: Speech SDK C++ (macOS) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para C++ o MacOS com o SDK do serviço de fala.
+description: Utilize este guia para configurar a sua plataforma para C++ no macOS com o serviço de fala SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
 ms.openlocfilehash: d0f9bc44145f75d7c3b503fffe43042c650025f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75466689"
 ---
-Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para C++ no MacOS 10,13 e superior.
+Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para C++ no macOS 10.13 ou superior.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="system-requirements"></a>Requisitos de sistema
 
-macOS 10,13 e superior
+macOS 10.13 ou superior
 
 ## <a name="install-speech-sdk"></a>Instalar o SDK de Voz
 
@@ -39,7 +39,7 @@ macOS 10,13 e superior
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Baixe e extraia o arquivo de `.zip` que contém a estrutura do SDK de fala:
+1. Descarregue `.zip` e extraio o arquivo que contém a estrutura SDK da fala:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -52,9 +52,9 @@ macOS 10,13 e superior
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   A listagem de diretório deve conter os arquivos de aviso e licença de terceiros, bem como um diretório `MicrosoftCognitiveServicesSpeech.framework`.
+   A listagem de diretóriodeve conter o aviso de terceiros e os ficheiros de licença, bem como um `MicrosoftCognitiveServicesSpeech.framework` diretório.
 
-Agora você pode passar para [as próximas etapas](#next-steps) abaixo.
+Agora pode passar para [os próximos passos](#next-steps) abaixo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

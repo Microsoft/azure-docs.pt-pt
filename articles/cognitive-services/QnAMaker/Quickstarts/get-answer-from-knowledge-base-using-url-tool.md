@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 09337ce599b0044ab38bb0ad0b0383ee90bfcbd8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109640"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base"></a>Quickstart: Obtenha uma resposta da base de conhecimento

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Speech SDK for .NET Framework (Windows) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para configurar a sua plataforma para C# o under .NET Framework for Windows with the Speech service SDK.
+description: Utilize este guia para configurar a sua plataforma para C# em .NET Framework for Windows with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
 ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925736"
 ---
-Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Fala para .NET Framework (Windows). Se você só quer que o nome do pacote seja iniciado por conta própria, faça `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
+Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Fala para .NET Framework (Windows). Se você só quer que o nome do `Install-Package Microsoft.CognitiveServices.Speech` pacote seja iniciado por conta própria, corra na consola NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -25,7 +25,7 @@ Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-serv
 
 Este início rápido requer:
 
-* [Estúdio Visual 2019](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Crie um projeto de Estúdio Visual e instale o Speech SDK
 
@@ -55,9 +55,9 @@ Terá de instalar o [pacote NuGet Do Discurso SDK](https://aka.ms/csspeech/nuget
 
 1. No Solution Explorer, clique no projeto **Helloworld** e, em seguida, selecione **Gerir pacotes NuGet** para mostrar o NuGet Package Manager.
 
-   ![Gestor de pacotes NuGet](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![Gestor de Pacotes NuGet](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
-1. No canto superior direito, encontre a caixa de entrega da Fonte de **Embalagem** e certifique-se de que **`nuget.org`** é selecionada.
+1. No canto superior direito, encontre a caixa de entrega **`nuget.org`** da Fonte de **Embalagem** e certifique-se de que é selecionada.
 
 1. No canto superior esquerdo, **selecione Browse**.
 

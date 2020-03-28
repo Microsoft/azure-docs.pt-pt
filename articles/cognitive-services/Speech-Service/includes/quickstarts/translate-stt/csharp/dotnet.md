@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir o discurso-a-texto, C# (.NET Framework Windows) - Serviço de fala'
+title: 'Quickstart: Traduzir discurso-texto, C# (.NET Framework Windows) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: 242d8bea68199abec73931c9627b300475b872d4
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925661"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -103,15 +103,15 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Na barra de menus, escolha **File** > **Save All**.
+1. A partir da barra de menus, escolha **File** > **Save All**.
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-1. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **debug** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação **helloworld.**
+1. Escolha **Debug** > **Start Debugging** (ou prima **F5)** para iniciar a aplicação **Helloworld.**
 
 1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para alemão). O serviço de Fala envia então o texto de volta para a aplicação para exibição.
 

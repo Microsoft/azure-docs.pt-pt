@@ -10,14 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: bf0710ebef21226d8d8582a920d64027bb015d34
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622725"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052080"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 O Azure Personalizer é um serviço de API baseado na nuvem que ajuda a aplicação do seu cliente a escolher o melhor item de _conteúdo_ único para mostrar a cada utilizador. O serviço seleciona o melhor item, a partir de itens de conteúdo, com base em informações coletivas em tempo real que fornece sobre conteúdo e contexto.
 
@@ -43,11 +45,11 @@ A __ação__ mostrada ao utilizador é escolhida com modelos de machine learning
 
 Vários exemplos são:
 
-|Tipo de conteúdo|**Ações (com características)**|**Características do contexto**|Id de ação de recompensa devolvida<br>(exibir este conteúdo)|
+|Tipo do conteúdo|**Ações (com características)**|**Características do contexto**|Id de ação de recompensa devolvida<br>(exibir este conteúdo)|
 |--|--|--|--|
-|Lista de notícias|a. `The president...` (nacional, política, [texto])<br>b. `Premier League ...` (global, desporto, [texto, imagem, vídeo])<br> c. `Hurricane in the ...` (regional, clima, [texto,imagem]|As notícias do dispositivo são lidas a partir de<br>Mês, ou temporada<br>|um `The president...`|
-|Lista de filmes|1. `Star Wars` (1977, [ação, aventura, fantasia], George Lucas)<br>2. `Hoop Dreams` (1994, [documentário, desporto], Steve James<br>3. `Casablanca` (1942, [romance, drama, guerra], Michael Curtiz)|Filme de dispositivo é assistido a partir de<br>tamanho do ecrã<br>Tipo de utilizador<br>|3. `Casablanca`|
-|Lista de produtos|i. `Product A` (3 kg, $$$$$, entregar em 24 horas)<br>ii. `Product B` (20 kg, $$, 2 semanas de envio com alfândega)<br>iii. `Product C` (3 kg, $$$, entrega em 48 horas)|As compras de dispositivos são lidas a partir de<br>Nível de utilização<br>Mês, ou temporada|ii. `Product B`|
+|Lista de notícias|a. `The president...`(nacional, política, [texto])<br>b. `Premier League ...`(global, desporto, [texto, imagem, vídeo])<br> c. `Hurricane in the ...`(regional, clima, [texto,imagem]|As notícias do dispositivo são lidas a partir de<br>Mês, ou temporada<br>|um`The president...`|
+|Lista de filmes|1. `Star Wars` (1977, [ação, aventura, fantasia], George Lucas)<br>2. `Hoop Dreams` (1994, [documentário, desporto], Steve James<br>3. `Casablanca` (1942, [romance, drama, guerra], Michael Curtiz)|Filme de dispositivo é assistido a partir de<br>tamanho do ecrã<br>Tipo de utilizador<br>|3.`Casablanca`|
+|Lista de produtos|i. `Product A`(3 kg, $$$$$$, entrega em 24 horas)<br>ii. `Product B`(20 kg, $$, 2 semanas de envio com alfândega)<br>iii. `Product C`(3 kg, $$$$, entrega em 48 horas)|As compras de dispositivos são lidas a partir de<br>Nível de utilização<br>Mês, ou temporada|ii. `Product B`|
 
 O personalizer usou a aprendizagem de reforço para selecionar a melhor ação, conhecida como ID de ação de _recompensa,_ com base numa combinação de:
 * Modelo treinado - informação passada que o serviço Personalizer recebeu
@@ -85,7 +87,7 @@ Uma vez que a Personalizer utiliza informação coletiva em quase tempo real par
         |--|--|
         |Utilizador selecionado melhor, único item de _conteúdo_ (ID de ação de recompensa)|**1**|
         |Utilizador selecionado outros conteúdos|**0**|
-        |O utilizador fez uma pausa, percorrendo indecisamente, antes de selecionar o melhor item de _conteúdo_ único (Id de ação de recompensa)|**0.5**|
+        |O utilizador fez uma pausa, percorrendo indecisamente, antes de selecionar o melhor item de _conteúdo_ único (Id de ação de recompensa)|**0,5**|
 
     1. Adicione uma chamada **de recompensa** enviando uma pontuação de recompensa entre 0 e 1
         * Imediatamente após mostrar o seu conteúdo
@@ -95,10 +97,10 @@ Uma vez que a Personalizer utiliza informação coletiva em quase tempo real par
 ## <a name="next-steps"></a>Passos seguintes
 
 
-* [Como funciona o Personalizer](how-personalizer-works.md)
+* [Como funciona o Personalizador](how-personalizer-works.md)
 * [O que é a Aprendizagem de Reforço?](concepts-reinforcement-learning.md)
 * [Conheça as funcionalidades e ações para o pedido de Rank](concepts-features.md)
 * [Saiba determinar a pontuação para o pedido de Recompensa](concept-rewards.md)
-* [Inícios rápidos](sdk-learning-loop.md)
+* [Arranques rápidos](sdk-learning-loop.md)
 * [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Use a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

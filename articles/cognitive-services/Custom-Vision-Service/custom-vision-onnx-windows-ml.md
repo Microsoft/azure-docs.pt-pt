@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 3b56cd12aec21cffd98a0143f5cf3f083ec55e94
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74960558"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Utilizar um modelo ONNX da Visão Personalizada com o Windows ML (pré-visualização)
@@ -33,7 +33,7 @@ As informações neste documento mostram como utilizar um ficheiro ONNX exportad
 
 * Windows 10 versão 1809 ou superior
 
-* SDK do Windows para Build 17763 ou superior
+* Windows SDK para construção 17763 ou superior
 
 * O Visual Studio 2017 versão 15.7 ou posterior com a carga de trabalho de __programação da Plataforma Universal do Windows__ ativada.
 
@@ -45,7 +45,7 @@ A aplicação é uma aplicação UWP do Windows genérica. Permite-lhe seleciona
 
 ## <a name="get-the-example-code"></a>Obter o código de exemplo
 
-A aplicação de exemplo está disponível em [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample).
+A aplicação de [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample)exemplo está disponível em .
 
 ## <a name="run-the-example"></a>Executar o exemplo
 
@@ -57,9 +57,9 @@ A aplicação de exemplo está disponível em [https://github.com/Azure-Samples/
 
 Para utilizar o seu próprio modelo, execute os seguintes passos:
 
-1. [Criar e preparar](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) um classificador com o Serviço de Visão Personalizada. Para exportar o modelo, selecione um domínio __compacto__, como **Geral (compacto)** . Para exportar um classificador existente, converta o domínio a compactar ao selecionar o ícone de engrenagem na parte superior direita. Em __Definições__, escolha um modelo compacto, guarde e prepare o seu projeto.  
+1. [Criar e preparar](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) um classificador com o Serviço de Visão Personalizada. Para exportar o modelo, selecione um domínio __compacto__, como **Geral (compacto)**. Para exportar um classificador existente, converta o domínio a compactar ao selecionar o ícone de engrenagem na parte superior direita. Em __Definições__, escolha um modelo compacto, guarde e prepare o seu projeto.  
 
-1. [Exporte seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) acessando a guia desempenho. Selecione uma iteração treinada com um domínio compacto, um botão "exportar" será exibido. Selecione *Exportar*, *ONNX*e *Exportar*. Assim que o ficheiro estiver pronto, selecione o botão *Transferir*.
+1. [Exportar o seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) indo para o separador Performance. Selecione uma iteração treinada com um domínio compacto, aparecerá um botão "Export". Selecione *Exportação,* *ONNX*e, em seguida, *Exportar*. Assim que o ficheiro estiver pronto, selecione o botão *Transferir*.
 
 1. Coloque o ficheiro ONNX na pasta __Assets__ (Recursos) do projeto. 
 
@@ -67,8 +67,8 @@ Para utilizar o seu próprio modelo, execute os seguintes passos:
 
 1. No Explorador de Soluções, selecione o ficheiro ONNX na pasta Assets (Recursos). Altere as propriedades seguintes do ficheiro:
 
-    * __Ação de Compilação__ -> __Conteúdo__
-    * __Copiar para Diretório de Saída__ -> __Copiar se for mais recente__
+    * __Construir__ -> __Conteúdo de__ Ação
+    * __Copiar para Cópia de Diretório__ -> de Saída__se mais recente__
 
 1. Altere a variável `_onnxFileNames` para o nome do ficheiro ONNX. Modifique também `ClassLabel` para o número de etiquetas que o modelo contém.
 

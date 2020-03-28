@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78402658"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias utilizando a deteção de lotes e o Power BI
@@ -29,10 +29,10 @@ Neste tutorial, ficará a saber como:
 > * Visualize anomalias encontradas dentro dos seus dados, incluindo valores esperados e vistos, e limites de deteção de anomalias.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma [subscrição do Azure](https://azure.microsoft.com/free/)
+* Uma [subscrição azure](https://azure.microsoft.com/free/)
 * [Microsoft Power BI Desktop,](https://powerbi.microsoft.com/get-started/)disponível gratuitamente.
 * Um ficheiro excel (.xlsx) contendo pontos de dados da série de tempo. Os dados de exemplo para este quickstart podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* Assim que tiver a sua assinatura Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Criar <span class="docon docon-navigate-external x-hidden-focus"></span> um recurso De Análise de Texto"  target="_blank">criar um recurso De SMAnalytics</a> no portal Azure para obter a sua chave e ponto final. 
+* Assim que tiver a <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="sua subscrição"  target="_blank">Azure, crie um recurso Text Analytics criar um recurso <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Text Analytics no portal Azure para obter a sua chave e ponto final. 
     * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API textanalytics. Vais fazer isto mais tarde, no início.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
@@ -52,13 +52,13 @@ Depois de aparecer o diálogo, navegue para a pasta onde descarregou o ficheiro 
 
 ![Uma imagem do ecrã "Navigator" de origem de dados no Power BI](../media/tutorials/navigator-dialog-box.png)
 
-O Power BI converterá os selos temporais na primeira coluna para um tipo de dados `Date/Time`. Estes carimbos temporais devem ser convertidos em texto para serem enviados para a API do Detetor de Anomalias. Se o editor da Power Query não abrir automaticamente, clique em **Editar Consultas** no separador inicial. 
+O Power BI converterá os selos `Date/Time` temporais na primeira coluna para um tipo de dados. Estes carimbos temporais devem ser convertidos em texto para serem enviados para a API do Detetor de Anomalias. Se o editor da Power Query não abrir automaticamente, clique em **Editar Consultas** no separador inicial. 
 
 Clique na fita **Transform** no Editor de Consulta de Poder. No grupo **Qualquer Coluna,** abra o Tipo de **Dados:** menu suspenso e selecione **Texto**.
 
 ![Uma imagem do ecrã "Navigator" de origem de dados no Power BI](../media/tutorials/data-type-drop-down.png)
 
-Quando tiver um aviso sobre a alteração do tipo de coluna, clique em **Substituir**Current . Depois, clique em **Fechar e Aplicar** ou **Aplicar** na fita **Home.** 
+Quando tiver um aviso sobre a alteração do tipo de coluna, clique em **Substituir**Current . Depois, clique em **Fechar & Aplicar** ou **Aplicar** na fita **Home.** 
 
 ## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Criar uma função para enviar os dados e formato da resposta
 
@@ -68,7 +68,7 @@ Certifique-se de que a sua nova consulta é selecionada e, em seguida, clique em
 
 ![Uma imagem do botão "Editor Avançado" no Power BI](../media/tutorials/advanced-editor-screen.png)
 
-Dentro do Editor Avançado, utilize o seguinte corte de Power Query M para extrair as colunas da mesa e enviá-la para a API. Em seguida, a consulta criará uma tabela a partir da resposta JSON, e devolvê-la-á. Substitua a variável `apiKey` pela sua chave API válida do Detetor de Anomalias e `endpoint` pelo seu ponto final. Depois de ter entrado na consulta no Editor Avançado, clique em **Done**.
+Dentro do Editor Avançado, utilize o seguinte corte de Power Query M para extrair as colunas da mesa e enviá-la para a API. Em seguida, a consulta criará uma tabela a partir da resposta JSON, e devolvê-la-á. Substitua `apiKey` a variável pela sua chave `endpoint` API do Detetor de Anomalias válida e pelo seu ponto final. Depois de ter entrado na consulta no Editor Avançado, clique em **Done**.
 
 ```M
 (table as table) => let
@@ -112,7 +112,7 @@ Dentro do Editor Avançado, utilize o seguinte corte de Power Query M para extra
  in results
 ```
 
-Invoque a consulta na sua ficha de dados selecionando `Sheet1` abaixo do **Parâmetro de Entrada,** clique **em Invocar**. 
+Invoque a consulta na sua `Sheet1` ficha de dados selecionando abaixo **o Parâmetro de Entrada,** clique em **Invocar**. 
 
 ![Uma imagem do botão "Editor Avançado"](../media/tutorials/invoke-function-screenshot.png)
 
@@ -133,7 +133,7 @@ Além disso, pode receber uma mensagem a pedir-lhe para especificar como pretend
 
 Para corrigir isto, clique em **editar credenciais** na mensagem. Depois da caixa de diálogo aparecer, selecione **Anonymous** para ligar à API anonimamente. Em seguida, clique em **Connect** (Ligar). 
 
-Depois, clique em **Fechar e Aplicar** na fita **Home** para aplicar as alterações.
+Depois, clique em **Fechar & Aplicar** na fita **Home** para aplicar as alterações.
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Visualizar a resposta aAPI do Detetor de Anomalias
 
@@ -144,8 +144,8 @@ No ecrã principal do Power BI, comece a utilizar as consultas acima criadas par
 Adicione os seguintes campos da **Função Invocada** ao campo **Valores** da Tabela. Use a imagem abaixo para ajudar a construir o seu gráfico.
 
     * Valor
-    * UpperMargins
-    * LowerMargins
+    * Margens Superiores
+    * Margens Mais Baixas
     * Valores Esperados
 
 ![Uma imagem do novo ecrã de medida rápida](../media/tutorials/chart-settings.png)
@@ -160,11 +160,11 @@ No lado direito da janela Power BI, abaixo do painel **FIELDS,** clique à direi
 
 ![Uma imagem do novo ecrã de medida rápida](../media/tutorials/new-quick-measure.png)
 
-No ecrã que aparece, selecione **o valor filtrado** como cálculo. Definir **valor base** para `Sum of Value`. Em seguida, arraste `IsAnomaly` dos campos **de função invocada** para **filtrar**. Selecione `True` do menu de entrega do **Filtro.**
+No ecrã que aparece, selecione **o valor filtrado** como cálculo. Definir **valor** `Sum of Value`base para . Em `IsAnomaly` seguida, arraste dos campos **de função invocada** para **filtrar**. Selecione `True` no menu de entrega do **Filtro.**
 
 ![Uma imagem do novo ecrã de medida rápida](../media/tutorials/new-quick-measure-2.png)
 
-Depois de clicar em **Ok,** terá um campo `Value for True`, na parte inferior da lista dos seus campos. Clique na direita e mude o nome para **Anomaly**. Adicione-o aos **Valores**do gráfico . Em seguida, selecione a ferramenta **Formato** e desloque o tipo de eixo X para **Categorical**.
+Depois de clicar em **Ok,** terá um `Value for True` campo, na parte inferior da lista dos seus campos. Clique na direita e mude o nome para **Anomaly**. Adicione-o aos **Valores**do gráfico . Em seguida, selecione a ferramenta **Formato** e desloque o tipo de eixo X para **Categorical**.
 
 ![Uma imagem do novo ecrã de medida rápida](../media/tutorials/format-x-axis.png)
 

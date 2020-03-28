@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 070de0f65e890c38acd5075286b349e95cd19f3b
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371639"
 ---
 Utilize a biblioteca de clientes autoras (LUIS) autorada do nome.js para:
@@ -25,12 +25,12 @@ Utilize a biblioteca de clientes autoras (LUIS) autorada do nome.js para:
 * Treine e publique uma aplicação.
 * Excluir app
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [código fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | Pacote de Autor [(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), Pacote de Prazo de [Execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Biblioteca Código de autor](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [autorepacote (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), Amostras do Pacote de Prazo de [Execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Recurso de autor de compreensão linguística: [Criar um no portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-* [Node.js](https://nodejs.org)
+* [Nó.js](https://nodejs.org)
 
 ## <a name="setting-up"></a>Configuração
 
@@ -42,12 +42,12 @@ Obtenha a sua [chave de arranque](../luis-how-to-azure-subscription.md#starter-k
 
 Utilizando a sua chave, e a região para a chave, crie duas variáveis ambientais para autenticação:
 
-* `LUIS_AUTHORING_KEY` - A chave de recursos para autenticar os seus pedidos.
-* `LUIS_AUTHORING_ENDPOINT` - O ponto final associado à sua chave.
+* `LUIS_AUTHORING_KEY`- A chave de recursos para autenticar os seus pedidos.
+* `LUIS_AUTHORING_ENDPOINT`- O ponto final associado à sua chave.
 
 Utilize as instruções para o seu sistema operativo.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
@@ -56,7 +56,7 @@ setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
 
 Depois de adicionar a variável ambiente, reinicie a janela da consola.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -65,9 +65,9 @@ export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
 
 Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela da consola para que as alterações entrem em vigor.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
-Edite o seu `.bash_profile`e adicione a variável ambiental:
+Edite `.bash_profile`a sua , e adicione a variável ambiental:
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -107,15 +107,15 @@ Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca d
 * [Criar uma aplicação](#create-a-luis-app)
 * [Adicionar entidades](#create-entities-for-the-app)
 * [Adicionar intenções](#create-intent-for-the-app)
-* [Adicione expressões de exemplo](#add-example-utterance-to-intent)
+* [Adicionar expressões de exemplo](#add-example-utterance-to-intent)
 * [Treine a app](#train-the-app)
-* [Publicar a app](#publish-a-language-understanding-app)
+* [Publicar a aplicação](#publish-a-language-understanding-app)
 * [Eliminar a aplicação](#delete-a-language-understanding-app)
 * [Lista de aplicativos](#list-language-understanding-apps)
 
 ## <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Crie um novo ficheiro de texto no seu editor preferido ou IDE nomeado `luis_authoring_quickstart.js`. Em seguida, adicione as seguintes dependências.
+Crie um novo ficheiro de texto `luis_authoring_quickstart.js`no seu editor preferido ou IDE nomeado . Em seguida, adicione as seguintes dependências.
 
 [!code-javascript[Create a new application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=Dependencies)]
 
@@ -149,7 +149,7 @@ Utilize o [método modelo.add_intent](https://docs.microsoft.com/javascript/api/
 
 Embora as entidades não sejam necessárias, encontram-se na maioria das aplicações. A entidade extrai informação da expressão do utilizador, necessária para plenar a intenção do utilizador. Existem vários tipos de entidades [pré-construídas](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addcustomprebuiltentity-string--string--prebuiltdomainmodelcreateobject--msrest-requestoptionsbase-) e personalizadas, cada uma com os seus próprios modelos de objeto de transformação de dados (DTO).  Entidades pré-construídas comuns para adicionar à sua aplicação incluem [número](../luis-reference-prebuilt-number.md), [dataV2](../luis-reference-prebuilt-datetimev2.md), [geografiaV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
 
-Este método **add_entities** criou uma entidade `Location` simples com duas funções, uma entidade `Class` simples, uma entidade `Flight` composta e acrescenta várias entidades pré-construídas.
+Este **método** add_entities `Location` criou uma entidade `Class` simples com `Flight` duas funções, uma entidade simples, uma entidade composta e acrescenta várias entidades pré-construídas.
 
 É importante saber que as entidades não estão marcadas com uma intenção. Podem e geralmente aplicam-se a muitas intenções. Apenas as expressões dos utilizadores exemplo estão marcadas para uma intenção específica e única.
 
@@ -201,7 +201,7 @@ Obtenha uma lista de aplicações associadas à chave de compreensão da Linguag
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Faça o pedido com o comando `node luis_authoring_quickstart.js` no seu ficheiro de arranque rápido.
+Execute o `node luis_authoring_quickstart.js` pedido com o comando no seu ficheiro de arranque rápido.
 
 ```console
 node luis_authoring_quickstart.js

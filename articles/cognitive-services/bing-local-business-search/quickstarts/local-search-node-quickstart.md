@@ -1,7 +1,7 @@
 ---
-title: Início rápido – enviar uma consulta para a API usando o Node. js-pesquisa local de negócios do Bing
+title: Quickstart - Envie uma consulta à API usando Node.js - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para começar a enviar solicitações para a API de pesquisa de negócios local do Bing, que é um serviço de cognitiva do Azure.
+description: Use este quickstart para começar a enviar pedidos para a API local de pesquisa de negócios Bing, que é um Serviço Cognitivo Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,34 +11,34 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: beab594126ce292ea1fc47e399a12274dbb31aa3
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665700"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Início rápido: Enviar uma consulta para a API de pesquisa de negócios local do Bing usando o Node. js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Quickstart: Envie uma consulta à API de Pesquisa de Negócios Local Bing usando node.js
 
-Use este guia de início rápido para começar a enviar solicitações para a API de pesquisa de negócios local do Bing, que é um serviço de cognitiva do Azure. Embora esse aplicativo simples seja escrito em node. js, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer solicitações HTTP e analisar JSON.
+Use este quickstart para começar a enviar pedidos para a API local de pesquisa de negócios Bing, que é um Serviço Cognitivo Azure. Embora esta aplicação simples esteja escrita no Node.js, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer pedidos HTTP e analisar a JSON.
 
-Este aplicativo de exemplo obtém dados de resposta locais da API para a consulta de pesquisa `hotel in Bellevue`.
+Esta aplicação de exemplo obtém dados de `hotel in Bellevue`resposta local da API para a consulta de pesquisa .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-* A [biblioteca de solicitações do JavaScript](https://github.com/request/request)
+* A [Biblioteca de Pedidos JavaScript](https://github.com/request/request)
 
-Você deve ter uma [conta de API de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. Use a chave de acesso fornecida pela avaliação gratuita.  Consulte também [preço de serviços cognitivas – API de pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Deve ter uma conta de API de [Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Utilize a chave de acesso fornecida pelo teste gratuito.  Consulte também [preços de serviços cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="code-scenario"></a>Cenário de código
 
-O código a seguir obtém e envia a solicitação. É implementado nos passos seguintes:
+O código seguinte define e envia o pedido. É implementado nos passos seguintes:
 
 1. Declare variáveis para especificar o ponto final por anfitrião e por caminho.
 2. Especifique a consulta e adicione o parâmetro de consulta.
 3. Crie uma função de processador para a resposta.
-4. Defina a função de pesquisa que cria a solicitação e adiciona o cabeçalho OCP-APIM-Subscription-Key.
+4. Defina a função Pesquisa que cria o pedido e adiciona o cabeçalho Ocp-Apim-Subscription-Key.
 5. Execute a função Pesquisa.
 
 Segue-se o código completo para esta demonstração:
@@ -94,6 +94,6 @@ Search();
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Início rápido de pesquisa comercial local](local-quickstart.md)
-* [Início rápido do Java da pesquisa de negócios local](local-search-java-quickstart.md)
-* [Início rápido do Python de pesquisa comercial local](local-search-python-quickstart.md)
+* [Pesquisa de negócios locais quickstart](local-quickstart.md)
+* [Pesquisa de negócios locais Java quickstart](local-search-java-quickstart.md)
+* [Pesquisa de negócios local Python quickstart](local-search-python-quickstart.md)

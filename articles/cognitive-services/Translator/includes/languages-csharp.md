@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906953"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -17,24 +17,24 @@ ms.locfileid: "69906953"
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 
-Abra uma nova linha de comandos (ou sessão de terminal) e execute estes comandos:
+Abra um novo pedido de comando (ou sessão terminal) e execute estes comandos:
 
 ```console
 dotnet new console -o languages-sample
 cd languages-sample
 ```
 
-O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET e cria um diretório chamado `languages-sample`. O segundo comando altera-se para o diretório para o seu projeto.
+O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `languages-sample`. O segundo comando muda para o diretório para o seu projeto.
 
-Em seguida, você precisará instalar o Json.Net. No diretório do seu projeto, execute:
+Em seguida, terá de instalar Json.Net. A partir do diretório do seu projeto, corra:
 
 ```console
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="add-required-namespaces-to-your-project"></a>Adicionar espaços de nomes necessários ao seu projeto
+## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome sinuosos necessários ao seu projeto
 
-O `dotnet new console` comando que executou anteriormente criado um projeto, incluindo `Program.cs`. Este ficheiro é onde vai pôr o código da aplicação. Abra `Program.cs`e substitua as instruções de utilização existentes. Essas instruções Certifique-se de que tem acesso a todos os tipos necessários para criar e executar a aplicação de exemplo.
+O `dotnet new console` comando que dirigiu anteriormente `Program.cs`criou um projeto, incluindo. Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs`e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
 
 ```csharp
 using System;
@@ -43,9 +43,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="get-endpoint-information-from-an-environment-variable"></a>Obter informações de ponto de extremidade de uma variável de ambiente
+## <a name="get-endpoint-information-from-an-environment-variable"></a>Obtenha informações sobre ponto final de uma variável ambiental
 
-Adicione as linhas a seguir à `Program` classe. Essas linhas lêem a chave de assinatura e o ponto de extremidade de variáveis de ambiente e geram um erro se você encontrar problemas.
+Adicione as seguintes `Program` linhas à aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
 
 ```csharp
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
@@ -62,7 +62,7 @@ static Program()
 
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Criar uma função para obter uma lista de idiomas
 
-Na classe, crie uma função chamada `GetLanguages`. `Program` Essa classe encapsula o código usado para chamar o recurso de idiomas e imprime o resultado no console do.
+Na `Program` aula, crie `GetLanguages`uma função chamada . Esta classe encapsula o código usado para chamar o recurso Idiomas e imprime o resultado para consolar.
 
 ```csharp
 static void GetLanguages()
@@ -76,15 +76,15 @@ static void GetLanguages()
 
 ## <a name="set-the-route"></a>Definir a rota
 
-Adicione essas linhas à `GetLanguages` função.
+Adicione estas linhas `GetLanguages` à função.
 
 ```csharp
 string route = "/languages?api-version=3.0";
 ```
 
-## <a name="instantiate-the-client-and-make-a-request"></a>Instanciar o cliente e fazer uma solicitação
+## <a name="instantiate-the-client-and-make-a-request"></a>Instantie o cliente e faça um pedido
 
-Essas linhas instanciam `HttpClient` o e `HttpRequestMessage`o:
+Estas linhas instantaneamente `HttpClient` `HttpRequestMessage`o e o:
 
 ```csharp
 using (var client = new HttpClient())
@@ -94,17 +94,17 @@ using (var request = new HttpRequestMessage())
 }
 ```
 
-## <a name="construct-the-request-and-print-the-response"></a>Construir a solicitação e imprimir a resposta
+## <a name="construct-the-request-and-print-the-response"></a>Construir o pedido e imprimir a resposta
 
-Dentro do `HttpRequestMessage` , você vai:
+Dentro `HttpRequestMessage` do seu vai:
 
 * Declarar o método HTTP
-* Construir o URI de solicitação
-* Adicionar cabeçalhos necessários
-* Fazer uma solicitação assíncrona
+* Construa o pedido URI
+* Adicione cabeçalhos necessários
+* Faça um pedido assíncrono
 * Imprimir a resposta
 
-Adicione este código ao `HttpRequestMessage`:
+Adicione este código `HttpRequestMessage`ao :
 
 ```csharp
 // Set the method to GET
@@ -119,9 +119,9 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
-Para imprimir a resposta com "boa impressão" (formatação para a resposta), adicione essa função à sua classe de programa:
+Para imprimir a resposta com "Pretty Print" (formatação para a resposta), adicione esta função à sua classe Program:
 
 ```csharp
 static string PrettyPrint(string s)
@@ -132,7 +132,7 @@ static string PrettyPrint(string s)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-A última etapa é chamar `GetLanguages()` a `Main` função. Localize `static void Main(string[] args)` e adicione estas linhas:
+O último passo `GetLanguages()` é `Main` chamar a função. Localize `static void Main(string[] args)` e adicione estas linhas:
 
 ```csharp
 GetLanguages();
@@ -141,7 +141,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-É isso, você está pronto para executar seu aplicativo de exemplo. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:
+Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao seu diretório de projeto e corra:
 
 ```console
 dotnet run
@@ -149,7 +149,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Encontre a abreviatura país/região nesta [lista de línguas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)
 
 ```json
 {
@@ -237,11 +237,11 @@ Localize a abreviação de país/região nesta [lista de idiomas](https://docs.m
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não se esqueça de remover quaisquer informações confidenciais do código-fonte da sua aplicação de exemplo, como chaves de subscrição.
+Certifique-se de remover quaisquer informações confidenciais do código fonte da sua aplicação de amostra, como as chaves de subscrição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

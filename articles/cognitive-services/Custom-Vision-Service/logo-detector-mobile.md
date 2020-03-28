@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 51fa6d4859eb4b7f059b499ba73d84d9fc65e6f6
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78398982"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
@@ -28,7 +28,7 @@ Este tutorial irá mostrar-lhe como:
 > - Ligue a sua aplicação à Azure Computer Vision e à Custom Vision.
 > - Crie uma conta principal de serviço Azure para implementar serviços Azure a partir da app.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 - Um emulador iOS ou Android para Estúdio Visual
 - O [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
 
-## <a name="get-the-source-code"></a>Obtenha o código fonte
+## <a name="get-the-source-code"></a>Obter o código-fonte
 
 Se pretender utilizar a aplicação web fornecida, clonar ou descarregar o código fonte da aplicação a partir do repositório [de Fornecimento Visual AI](https://github.com/Microsoft/AIVisualProvision) no GitHub. Abra o ficheiro *Source/VisualProvision.sln* no Estúdio Visual. Mais tarde, vai editar alguns dos ficheiros do projeto para que possa executar a aplicação.
 
@@ -47,7 +47,7 @@ Inscreva-se no site da [Visão Personalizada](https://customvision.ai/) e crie u
 
 ![Janela de novo projeto no site da Custom Vision no navegador Chrome](media/azure-logo-tutorial/new-project.png)
 
-## <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
+## <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
 Em seguida, treine o algoritmo de deteção de logotipos carregando imagens de logotipos de serviço Azure e marcando-os manualmente. O repositório AIVisualProvision inclui um conjunto de imagens de treino que pode utilizar. No site, selecione o botão **Adicionar imagens** no separador **Imagens de Treino.** Em seguida, vá para a pasta **Documentos/Imagens/Training_DataSet** do repositório. Terá de marcar manualmente os logótipos em cada imagem, por isso, se estiver apenas a testar este projeto, poderá querer fazer o upload apenas de um subconjunto das imagens. Faça upload de pelo menos 15 instâncias de cada etiqueta que pretende utilizar.
 
@@ -97,7 +97,7 @@ Subscreva o serviço Computer Vision para obter um URL chave e ponto final. Para
 
 ![O serviço Computer Vision no portal Azure, com o menu Quickstart selecionado. Um link para teclas é delineado, assim como o URL final do ponto final da API](media/azure-logo-tutorial/comvis-keys.png)
 
-Em seguida, abra o ficheiro *Source\VisualProvision\AppSettings.cs* e povoe as variáveis `ComputerVisionEndpoint` e `ComputerVisionKey` com os valores corretos.
+Em seguida, abra o ficheiro *Source\VisualProvision\AppSettings.cs* e povoe as `ComputerVisionEndpoint` `ComputerVisionKey` e variáveis com os valores corretos.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
@@ -131,7 +131,7 @@ Após a conclusão bem sucedida, deverá ver a seguinte saída JSON, incluindo a
 }
 ```
 
-Tome nota dos valores `clientId` e `tenantId`. Adicione-os aos campos apropriados no ficheiro *Source\VisualProvision\AppSettings.cs.*
+Tome nota `clientId` `tenantId` dos valores. Adicione-os aos campos apropriados no ficheiro *Source\VisualProvision\AppSettings.cs.*
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -153,7 +153,7 @@ Siga estes passos para executar a aplicação:
 1. No primeiro ecrã, introduza o seu serviço principal de identificação do cliente, identificação do inquilino e senha. Selecione o botão **Iniciar sessão.**
 
     > [!NOTE]
-    > Em alguns emuladores, o botão **login** pode não ser ativado neste passo. Se isso acontecer, pare a aplicação, abra o ficheiro *Source/VisualProvision/Pages/LoginPage.xaml,* encontre o `Button` elemento com o **BOTÃO LOGIN,** remova a linha seguinte e, em seguida, executar novamente a aplicação.
+    > Em alguns emuladores, o botão **login** pode não ser ativado neste passo. Se isso acontecer, pare a aplicação, abra o ficheiro *Source/VisualProvision/Pages/LoginPage.xaml,* encontre o `Button` **botão LOGIN**do elemento rotulado, remova a seguinte linha e, em seguida, executar novamente a aplicação.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```

@@ -5,24 +5,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/09/2018
 ms.openlocfilehash: c5f736f00c7c048de73b7f4696e29a699107c9cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75382514"
 ---
-## <a name="create-an-azure-resource"></a>Criar um recurso do Azure
+## <a name="create-an-azure-resource"></a>Criar um recurso Azure
 
-Comece a usar o API de Pesquisa de Vídeo do Bing criando um dos recursos do Azure abaixo.
+Comece a utilizar a API bing video search criando um dos recursos Azure abaixo.
 
-* [Criar um recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
-    * Nenhuma assinatura do Azure é necessária.
-    * Válido por sete dias, gratuitamente. Depois de se inscrever, uma chave de avaliação e um ponto de extremidade estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+* [Criar um recurso experimental:](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
+    * Não é necessária nenhuma subscrição azure.
+    * Válido por sete dias, de graça. Após a inscrição, uma chave de ensaio e ponto final estará disponível no site do [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)
 
-* [Criar um recurso de pesquisa do Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
-    * Disponível por meio do portal do Azure até que você exclua o recurso.
-    * Use o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para uma camada paga para produção.
+* [Criar um recurso Bing Search v7:](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)
+    * Disponível através do portal Azure até eliminar o recurso.
+    * Utilize o nível de preços gratuitos para experimentar o serviço e atualize mais tarde para um nível pago para produção.
 
-* [Criar um recurso de vários serviços](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Disponível por meio do portal do Azure até que você exclua o recurso.  
-    * Use a mesma chave e ponto de extremidade para seus aplicativos em vários serviços cognitivas.
+* [Criar um recurso multi-serviço:](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
+    * Disponível através do portal Azure até eliminar o recurso.  
+    * Use a mesma chave e ponto final para as suas aplicações, através de vários Serviços Cognitivos.

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: usar Java para chamar a API REST do Análise de Texto'
+title: 'Quickstart: Use Java para ligar para a API REST DE Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Este guia de início rápido mostra como obter informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
+description: Este quickstart mostra como obter amostras de informação e código para ajudá-lo rapidamente a começar a usar a API de Análise de Texto em Serviços Cognitivos Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,16 +12,16 @@ ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
 ms.openlocfilehash: 0541438659f25780be0c7bc1c87670cab6d7ca08
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446315"
 ---
-# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Início rápido: usar Java para chamar o serviço cognitiva do Azure Análise de Texto
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Quickstart: Use Java para ligar para o Serviço Cognitivo de Análise de Texto Azure
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com Java.
+Este artigo mostra-lhe como [detetar linguagem,](#Detect) [analisar o sentimento,](#SentimentAnalysis) [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades ligadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de Análise de Texto com Java.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -35,13 +35,13 @@ Também tem de ter a [chave de ponto final e acesso](../../cognitive-services-ap
 
 ## <a name="detect-language"></a>Detetar idioma
 
-A API de Detecção de Idioma detecta o idioma de um documento de texto, usando o [método detectar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
+A API de deteção de idiomas deteta a linguagem de um documento de texto, utilizando o [método Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe chamada `DetectLanguage.java`.
-1. Adicione o código fornecido abaixo à sua classe.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código. 
-1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
-1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
+1. Crie um novo projeto Java no seu IDE favorito (ou nova pasta no seu ambiente de trabalho). Criar uma `DetectLanguage.java`classe chamada.
+1. Adicione o código abaixo fornecido à sua classe.
+1. Copie a sua tecla Text Analytics e endpoint no código. 
+1. Certifique-se de que tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Executar o programa no iDE ou utilizar a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;
@@ -156,7 +156,7 @@ public class DetectLanguage {
 }
 ```
 
-### <a name="language-detection-response"></a>Resposta de detecção de idioma
+### <a name="language-detection-response"></a>Resposta de deteção de idioma
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -206,11 +206,11 @@ public class DetectLanguage {
 
 A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
 
-1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe nela chamada `GetSentiment.java`.
-1. Adicione o código fornecido abaixo à sua classe.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código.
-1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
-1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
+1. Crie um novo projeto Java no seu IDE favorito (ou nova pasta no seu ambiente de trabalho). Crie uma classe `GetSentiment.java`chamada.
+1. Adicione o código abaixo fornecido à sua classe.
+1. Copie a sua tecla Text Analytics e endpoint no código.
+1. Certifique-se de que tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Executar o programa no iDE ou utilizar a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;
@@ -325,9 +325,9 @@ public class GetSentiment {
 }
 ```
 
-### <a name="sentiment-analysis-response"></a>Resposta da análise de sentimentos
+### <a name="sentiment-analysis-response"></a>Resposta de análise de sentimentos
 
-O resultado será medido como positivo se for mais próximo de 1,0 e negativo se for mais próximo de 0,0.
+O resultado é medido como positivo se tiver pontuado mais perto de 1.0 e negativo se tiver pontuado perto de 0,0.
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
@@ -352,11 +352,11 @@ O resultado será medido como positivo se for mais próximo de 1,0 e negativo se
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai Expressões-chave para o documento em inglês e o documento em espanhol.
 
-1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe na chamada `GetKeyPhrases.java`.
-1. Adicione o código fornecido abaixo à sua classe.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código. 
-1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
-1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
+1. Crie um novo projeto Java no seu IDE favorito (ou nova pasta no seu ambiente de trabalho). Crie uma aula `GetKeyPhrases.java`chamada.
+1. Adicione o código abaixo fornecido à sua classe.
+1. Copie a sua tecla Text Analytics e endpoint no código. 
+1. Certifique-se de que tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Executar o programa no iDE ou utilizar a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;
@@ -472,7 +472,7 @@ public class GetKeyPhrases {
 }
 ```
 
-### <a name="key-phrase-extraction-response"></a>Resposta de extração de frases-chave
+### <a name="key-phrase-extraction-response"></a>Resposta de extração de expressões-chave
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
@@ -515,13 +515,13 @@ public class GetKeyPhrases {
 
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras do texto, como "Estados Unidos", e, em seguida, fornecem o link do tipo e/ou da Wikipédia para esta palavra (s). O tipo de "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [As entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras de texto, como "Estados Unidos", dando-lhe o tipo e/ou ligação wikipédia para esta palavra ou). O tipo de "Estados Unidos" é `location` `https://en.wikipedia.org/wiki/United_States`, enquanto a ligação à Wikipédia é .  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
-1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe nela chamada `GetEntities.java`.
-1. Adicione o código fornecido abaixo à sua classe.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código. 
-1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
-1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
+1. Crie um novo projeto Java no seu IDE favorito (ou nova pasta no seu ambiente de trabalho). Crie uma classe `GetEntities.java`chamada.
+1. Adicione o código abaixo fornecido à sua classe.
+1. Copie a sua tecla Text Analytics e endpoint no código. 
+1. Certifique-se de que tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Executar o programa no iDE ou utilizar a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;
@@ -689,7 +689,7 @@ public class GetEntities {
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
  [Descrição Geral da Análise de Texto](../overview.md)  
- [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
+ [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

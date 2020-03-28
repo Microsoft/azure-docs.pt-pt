@@ -6,19 +6,19 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: dapine
 ms.openlocfilehash: d59a55a9b6d57d90ac6ae893b05e1064c11eb58b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900585"
 ---
-Neste guia de início rápido, você usará o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) e o serviço de reconhecimento vocal (Luis) para reconhecer tentativas de dados de áudio capturados de um microfone. Especificamente, você usará o SDK de fala para capturar fala e um domínio predefinido do LUIS para identificar tentativas de automação doméstica, como ligar e desligar uma luz. 
+Neste arranque rápido, utilizará o serviço [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) e o Language Understanding (LUIS) para reconhecer as intenções a partir de dados áudio captados a partir de um microfone. Especificamente, você usará o SDK de discurso para capturar o discurso, e um domínio pré-construído do LUIS para identificar intençãos de automação doméstica, como ligar e apagar uma luz. 
 
-Depois de atender a alguns pré-requisitos, reconhecer a fala e identificar tentativas de um microfone leva apenas algumas etapas:
+Depois de satisfazer alguns pré-requisitos, reconhecer a fala e identificar as intenções de um microfone dá apenas alguns passos:
 
 > [!div class="checklist"]
 >
-> * Crie um objeto de `SpeechConfig` de sua chave de assinatura e região.
-> * Crie um objeto `IntentRecognizer` utilizando o objeto `SpeechConfig` de cima.
-> * Utilizando o objeto `IntentRecognizer`, inicie o processo de reconhecimento para uma única expressão.
-> * Inspecione o `IntentRecognitionResult` devolvido.
+> * Crie `SpeechConfig` um objeto a partir da sua chave de subscrição e região.
+> * Crie `IntentRecognizer` um `SpeechConfig` objeto utilizando o objeto de cima.
+> * Utilizando `IntentRecognizer` o objeto, inicie o processo de reconhecimento para uma única expressão.
+> * Inspecione `IntentRecognitionResult` os devolvidos.

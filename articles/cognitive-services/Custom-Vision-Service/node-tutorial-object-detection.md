@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar um projeto de detecção de objeto com o SDK do Visão Personalizada para node. js'
+title: 'Quickstart: Crie um projeto de deteção de objetos com o Custom Vision SDK para Node.js'
 titleSuffix: Azure Cognitive Services
-description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e detecte objetos usando o SDK do node. js.
+description: Crie um projeto, adicione tags, carregue imagens, treine o seu projeto e detete objetos usando o Node.js SDK.
 services: cognitive-services
 author: areddish
 manager: daauld
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: 94013b735f70358d0c49512e6d90cd1d03e78d5f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705722"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: criar um projeto de detecção de objeto com o Visão Personalizada SDK do node. js
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Quickstart: Crie um projeto de deteção de objetos com o Custom Vision Node.js SDK
 
-Este artigo mostra como começar a usar o SDK do Visão Personalizada com node. js para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo node. js.
+Este artigo mostra-lhe como começar a usar o Custom Vision SDK com Node.js para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão publicado do projeto, e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação Node.js.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Node. js 8](https://www.nodejs.org/en/download/) ou posterior instalado.
-- [NPM](https://www.npmjs.com/) instalado.
+- [Nójs 8](https://www.nodejs.org/en/download/) ou posteriormente instalado.
+- [npm](https://www.npmjs.com/) instalado.
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
@@ -34,7 +34,7 @@ Este artigo mostra como começar a usar o SDK do Visão Personalizada com node. 
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
-Para instalar os SDKs de serviço Visão Personalizada para node. js em seu projeto, execute os seguintes comandos:
+Para instalar os SDKs do serviço Custom Vision para Node.js no seu projeto, execute os seguintes comandos:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -43,11 +43,11 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 ## <a name="add-the-code"></a>Adicionar o código
 
-Crie um novo arquivo chamado *Sample. js* em seu diretório de projeto preferencial.
+Crie um novo ficheiro chamado *sample.js* no seu diretório de projeto preferido.
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
-Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira suas chaves de assinatura nas definições apropriadas e defina o valor do caminho sampleDataRoot para o caminho da pasta de imagem. Verifique se o valor do ponto de extremidade corresponde aos pontos de extremidades de treinamento e previsão que você criou em [Customvision.ai](https://www.customvision.ai/). Observe que a diferença entre criar um projeto de detecção de objetos e classificação de imagem é o domínio especificado na chamada **CreateProject** .
+Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as suas chaves de subscrição nas definições apropriadas e detete a amostraDataRoot para o caminho da pasta de imagem. Certifique-se de que o valor finalDo Ponto corresponde ao treino e aos pontos finais de previsão que criou em [Customvision.ai](https://www.customvision.ai/). Note que a diferença entre criar um projeto de deteção de objetos e classificação de imagem é o domínio especificado na chamada **createProject.**
 
 ```javascript
 const fs = require('fs');
@@ -86,21 +86,21 @@ async function asyncForEach (array, callback) {
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar marcas de classificação para seu projeto, adicione o seguinte código ao final do *exemplo. js*:
+Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao fim da *amostra.js:*
 
 ```javascript
     const forkTag = await trainer.createTag(sampleProject.id, "Fork");
     const scissorsTag = await trainer.createTag(sampleProject.id, "Scissors");
 ```
 
-### <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
+### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
-Ao etiquetar imagens em projetos de deteção de objeto, tem de especificar a região de cada objeto etiquetado com coordenadas normalizadas. 
+Quando marca imagens em projetos de deteção de objetos, é necessário especificar a região de cada objeto marcado utilizando coordenadas normalizadas. 
 
 > [!NOTE]
-> Se você não tiver um utilitário de clique e arrastar para marcar as coordenadas das regiões, poderá usar a interface do usuário da Web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já foram fornecidas.
+> Se não tiver um utilitário de clique e arrastar para marcar as coordenadas das regiões, pode utilizar a UI web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já estão fornecidas.
 
-Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Tenha em atenção que, para este tutorial, as regiões estão codificadas inline. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura. Você pode carregar até 64 imagens em um único lote.
+Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Tenha em atenção que, para este tutorial, as regiões estão codificadas inline. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura. Pode fazer o upload até 64 imagens num único lote.
 
 ```javascript
 const forkImageRegions = {
@@ -179,9 +179,9 @@ await asyncForEach(scissorsFiles, async (file) => {
 await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
+### <a name="train-the-project-and-publish"></a>Treine o projeto e publique
 
-Esse código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
+Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final da previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até ser publicada.
 
 ```javascript
 console.log("Training...");
@@ -201,7 +201,7 @@ console.log("Training status: " + trainingIteration.status);
 await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtenha e use a iteração publicada no ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -221,7 +221,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o *exemplo. js*.
+Executar *sample.js*.
 
 ```shell
 node sample.js

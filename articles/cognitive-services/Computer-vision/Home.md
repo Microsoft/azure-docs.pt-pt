@@ -11,14 +11,16 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241795"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80131757"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 O serviço De Visão Computacional da Azure fornece aos desenvolvedores acesso a algoritmos avançados que processam imagens e devolvem informações, dependendo das funcionalidades visuais em que está interessado. Por exemplo, a Visão computacional pode determinar se uma imagem contém conteúdo adulto, ou pode encontrar todos os rostos humanos numa imagem.
 
@@ -28,7 +30,7 @@ Pode utilizar a Visão computacional na sua aplicação através de um SDK nativ
 
 A Computer Vision pode alimentar muitos cenários de gestão de ativos digitais (DAM). O DAM é o processo de negócio de organização, armazenamento e recuperação de ativos de mídia ricos e gestão de direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logótipos visíveis, rostos, objetos, cores, e assim por diante. Ou, é melhor gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que sejam pesquisáveis. Para uma solução de DAM tudo-em-um utilizando Serviços Cognitivos, Pesquisa Cognitiva Azure e relatórios inteligentes, consulte o Guia acelerador de [soluções de mineração](https://github.com/Azure-Samples/azure-search-knowledge-mining) de conhecimento no GitHub. Para outros exemplos da DAM, consulte o repositório de modelos de solução de [visão computacional.](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates)
 
-## <a name="analyze-images-for-insight"></a>Analisar imagens para introspeção
+## <a name="analyze-images-for-insight"></a>Analisar imagens para obter informações
 
 Pode analisar imagens para detetar e fornecer insights sobre as suas características visuais e características. Todas as funcionalidades na tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)
 
@@ -52,7 +54,7 @@ Pode utilizar a Computer Vision [Read](concept-recognizing-text.md#read-api) API
 
 Também pode utilizar a API de reconhecimento ótico de [caracteres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extrair texto impresso em várias línguas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR suporta 25 línguas e deteta automaticamente a linguagem do texto reconhecido.
 
-## <a name="moderate-content-in-images"></a>Conteúdo moderado em imagens
+## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 
 Pode usar a Computer Vision para [detetar conteúdo adulto](concept-detecting-adult-content.md) numa imagem e devolver pontuações de confiança para diferentes classificações. O limiar para o sinalizamento do conteúdo pode ser definido numa escala deslizante para acomodar as suas preferências.
 
@@ -77,6 +79,6 @@ Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que util
 
 Comece com a Visão computacional seguindo um guia de arranque rápido:
 
-- [Quickstart: Computer Vision .NET SDK](quickstarts-sdk/csharp-sdk.md)
-- [Quickstart: Computer Vision Python SDK](quickstarts-sdk/python-sdk.md)
-- [Quickstart: Computer Vision Java SDK](quickstarts-sdk/java-sdk.md)
+- [Quickstart: Computer Vision .NET biblioteca de clientes](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [Quickstart: Computer Vision Python biblioteca de clientes](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
+- [Quickstart: Computer Vision Java biblioteca de clientes](./quickstarts-sdk/client-library.md?pivots=programming-language-java)

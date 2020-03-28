@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906960"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
@@ -29,9 +29,9 @@ const uuidv4 = require('uuid/v4');
 
 Estes módulos são obrigatórios para construir o pedido HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
 
-## <a name="set-the-endpoint"></a>Definir o ponto de extremidade
+## <a name="set-the-endpoint"></a>Definir o ponto final
 
-Este exemplo tentará ler seu ponto de extremidade Tradução de Texto de uma variável de `TRANSLATOR_TEXT_ENDPOINT`ambiente:. Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
+Esta amostra tentará ler o seu ponto final `TRANSLATOR_TEXT_ENDPOINT`do texto tradutor a partir de uma variável ambiental: . Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
 
 ```javascript
 lorum ipsum
@@ -42,7 +42,7 @@ lorum ipsum
 O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```javascript
 let options = {
@@ -60,7 +60,7 @@ let options = {
 };
 ```
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="make-the-request-and-print-the-response"></a>Fazer o pedido e imprimir a resposta
 
@@ -87,7 +87,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Encontre a abreviatura país/região nesta [lista de línguas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)
 
 Este exemplo foi truncado para mostrar um fragmento do resultado:
 
@@ -179,9 +179,9 @@ Este exemplo foi truncado para mostrar um fragmento do resultado:
 
 Se codificou a chave de subscrição no seu programa, certifique-se de que remove a chave de subscrição quando tiver terminado este início rápido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

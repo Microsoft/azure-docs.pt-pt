@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: executar uma pesquisa de notícias com PHP e a API REST do Pesquisa de Notícias do Bing'
+title: 'Quickstart: Realizar uma pesquisa de notícias com php e a Bing News Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando PHP e receber uma resposta JSON.
+description: Use este quickstart para enviar um pedido para a API de pesquisa de notícias bing news usando PHP, e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,35 +12,35 @@ ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 79f00e4138d0fecdc7320235dd9c496033693d2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383099"
 ---
-# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Início rápido: executar uma pesquisa de notícias usando PHP e a API REST do Pesquisa de Notícias do Bing
+# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando PHP e a Bing News Search REST API
 
 Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação JavaScript simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
 
-Embora esse aplicativo seja escrito em PHP, a API é uma maioria das linguagens de programação compatíveis com o serviço Web RESTful.
+Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* PHP 5,6 ou posterior
+* PHP 5.6 ou mais tarde
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Consulte também [preços de serviços cognitivos - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devolve resultados de notícias do motor de busca do Bing.
+A API de Pesquisa de [Notícias Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devolve os resultados do motor de busca Bing.
 
 1. Certifique-se de que o suporte HTTP seguro está ativado em `php.ini`, conforme descrito no comentário de código.
 2. Crie um novo projeto PHP no seu IDE ou editor preferido.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
-5. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+5. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 5. Execute o programa.
 
 ```php
@@ -105,7 +105,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **Resposta**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -201,4 +201,4 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)
+> [Criar uma aplicação web de página única](tutorial-bing-news-search-single-page-app.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: analisar uma imagem remota com a API REST e o Java'
+title: 'Quickstart: Analise uma imagem remota com a REST API e Java'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá analisar uma imagem através da API de Imagem Digitalizada com o Java.
 services: cognitive-services
@@ -12,28 +12,28 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 526cc8ca002b3b6c2821eb842b0c6a7794f2cd33
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74968991"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Início rápido: analisar uma imagem remota usando a API REST do Pesquisa Visual Computacional e o Java
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Analise uma imagem remota usando a API e Java de Visão Computacional
 
-Neste guia de início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando Java e a API REST do Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
+Neste arranque rápido, irá analisar uma imagem armazenada remotamente para extrair funcionalidades visuais utilizando a Java e a API DE DESCANSO da Visão Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter a plataforma [Java&trade;, Standard Edition Development Kit 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) instalada.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Crie um novo projeto de Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
+1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
    - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -53,7 +53,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
    import org.json.JSONObject;
    ```
 
-1. Substitua a classe pública `Main` pelo código a seguir.
+1. Substitua `Main` a classe pública pelo seguinte código.
 1. Opcionalmente, substitua o valor de `imageToAnalyze` pelo URL de uma imagem diferente que pretende analisar.
 
 ```java
@@ -117,18 +117,18 @@ public class Main {
 
 ## <a name="compile-and-run-the-program"></a>Compilar e executar o programa
 
-1. Guarde e, em seguida, compile o projeto Java.
+1. Guarde e, em seguida, crie o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`.
 
-Como alternativa, se você estiver executando o programa em uma janela de linha de comando, execute os comandos a seguir. Esses comandos presumem que suas bibliotecas estão em uma pasta chamada `libs` que está na mesma pasta que `Main.java`; caso contrário, será necessário substituir `libs` pelo caminho para as bibliotecas.
+Alternadamente, se estiver a executar o programa a partir de uma janela de linha de comando, execute os seguintes comandos. Estes comandos presumem que as `libs` suas bibliotecas estão numa pasta chamada que está na mesma pasta que; `Main.java` se não, terá de `libs` substituir pelo caminho para as suas bibliotecas.
 
-1. Compile o arquivo `Main.java`.
+1. Compile o `Main.java`ficheiro.
 
     ```bash
     javac -cp ".;libs/*" Main.java
     ```
 
-1. Execute o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela de linha de comando.
+1. Execute o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da linha de comando.
 
     ```bash
     java -cp ".;libs/*" Main
@@ -136,7 +136,7 @@ Como alternativa, se você estiver executando o programa em uma janela de linha 
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
 ```json
 REST Response:

@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 19/14/2020
 ms.author: dapine
 ms.openlocfilehash: 58f2b3693b924197dda1e396ae71192776ca276e
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78926033"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -28,8 +28,8 @@ Antes de começar, certifique-se de:
 ## <a name="support-and-updates"></a>Suporte e atualizações
 
 As atualizações do pacote Speech SDK Python são distribuídas via PyPI e anunciadas nas notas de [lançamento.](~/articles/cognitive-services/Speech-Service/releasenotes.md)
-Se uma nova versão estiver disponível, pode atualizá-la com o comando `pip install --upgrade azure-cognitiveservices-speech`.
-Verifique qual a versão atualmente instalada inspecionando a variável `azure.cognitiveservices.speech.__version__`.
+Se uma nova versão estiver disponível, pode `pip install --upgrade azure-cognitiveservices-speech`atualizá-la com o comando .
+Verifique qual a versão atualmente instalada `azure.cognitiveservices.speech.__version__` inspecionando a variável.
 
 Se tiver algum problema, ou se estiver a perder uma funcionalidade, consulte [opções](~/articles/cognitive-services/Speech-Service/support.md)de Suporte e Ajuda .
 
@@ -37,7 +37,7 @@ Se tiver algum problema, ou se estiver a perder uma funcionalidade, consulte [op
 
 ### <a name="run-the-sample"></a>Executar o exemplo
 
-Pode copiar o código da [amostra](#sample-code) a partir deste quickstart para um ficheiro fonte `quickstart.py` e executá-lo no iDE ou na consola:
+Pode copiar o código da [amostra](#sample-code) a `quickstart.py` partir deste quickstart para um ficheiro fonte e executá-lo no iDE ou na consola:
 
 ```sh
 python quickstart.py
@@ -53,7 +53,7 @@ Ou pode descarregar este tutorial de início rápido como um caderno [Jupyter](h
 
 1. Descarregue e instale uma versão de 64 bits de [Python](https://www.python.org/downloads/), 3.5 a 3.8, no seu computador.
 1. Descarregue e instale o Código do [Estúdio Visual.](https://code.visualstudio.com/Download)
-1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File** > **Preferências** > **Extensões** do menu. Pesquisa por **Python.**
+1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione**extensões** de**preferências** > de **ficheiro** > sacar do menu. Pesquisa por **Python.**
 
    ![Instale a extensão Python](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 
@@ -62,7 +62,7 @@ Ou pode descarregar este tutorial de início rápido como um caderno [Jupyter](h
 
    ![Abra uma pasta](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-open-folder.png)
 
-1. Crie um novo ficheiro de origem Python, `speechsdk.py`, selecionando o novo ícone de ficheiro.
+1. Crie um novo `speechsdk.py`ficheiro de origem Python, selecionando o novo ícone de ficheiro.
 
    ![Criar um ficheiro](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
@@ -72,7 +72,7 @@ Ou pode descarregar este tutorial de início rápido como um caderno [Jupyter](h
    Caso contrário, enumere uma lista de intérpretes python disponíveis. Abra a paleta de comando (Ctrl+Shift+P) e **introduza Python: Select Interpreter**. Escolha um apropriado.
 1. Pode instalar o pacote Speech SDK Python a partir do Código do Estúdio Visual. Faça isso se ainda não estiver instalado para o intérprete Python que selecionou.
    Para instalar o pacote Speech SDK, abra um terminal. Volte a levantar a paleta de comando (Ctrl+Shift+P) e introduza o **Terminal: Criar novo terminal integrado**.
-   No terminal que se abre, introduza o comando `python -m pip install azure-cognitiveservices-speech` ou o comando adequado para o seu sistema.
+   No terminal que se abre, `python -m pip install azure-cognitiveservices-speech` introduza o comando ou o comando apropriado para o seu sistema.
 1. Para executar o código da amostra, clique em algum lugar dentro do editor. Selecione **Executar ficheiro Python no terminal**.
    Escreva uma mensagem quando for solicitada. O áudio sintetizado é reproduzido pouco depois.
 

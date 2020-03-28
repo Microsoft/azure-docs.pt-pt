@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
 ms.openlocfilehash: 82318df08ffc9ec47b1ed40171f79163bbdd600f
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78207639"
 ---
 # <a name="whats-new-in-custom-vision"></a>O que há de novo na Visão Personalizada

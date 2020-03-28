@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: d99aa2d2827716b2b04d059e47d9768eef8cd690
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77485102"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Quickstart: Obtenha insights de imagem usando o Bing Visual Search SDK para Node.js
@@ -22,7 +22,7 @@ ms.locfileid: "77485102"
 Use este quickstart para começar a obter insights de imagem do serviço bing visual search, usando o Node.js SDK. Embora o Bing Visual Search tenha um Rest API compatível com a maioria dos idiomas de programação, o SDK fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Node.js](https://www.nodejs.org/)
+* [Nó.js](https://www.nodejs.org/)
 * O Bing Visual Search SDK para Node.js
     * Para configurar uma aplicação de consola utilizando o Bing Visual Search SDK, execute os seguintes comandos:
         1. `npm install ms-rest-azure`
@@ -57,7 +57,7 @@ Use este quickstart para começar a obter insights de imagem do serviço bing vi
 
 ## <a name="search-for-images"></a>Pesquisar imagens
 
-1. Utilize `fs.createReadStream()` para ler no seu ficheiro de imagem e crie variáveis para o seu pedido de pesquisa e resultados. Em seguida, use o cliente para pesquisar imagens.
+1. Use `fs.createReadStream()` para ler no seu ficheiro de imagem e crie variáveis para o seu pedido de pesquisa e resultados. Em seguida, use o cliente para pesquisar imagens.
 
     ```javascript
     let fileStream = fs.createReadStream(filePath);
@@ -107,7 +107,7 @@ Use este quickstart para começar a obter insights de imagem do serviço bing vi
     
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Construa uma aplicação web de uma página única](tutorial-bing-visual-search-single-page-app.md)
+> [Criar uma aplicação web de página única](tutorial-bing-visual-search-single-page-app.md)

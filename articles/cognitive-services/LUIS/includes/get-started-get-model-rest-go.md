@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
 ms.openlocfilehash: 8d180eeffdbc41db6fa0e636daf7702faad47fcc
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77368423"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
-* O ID da aplicação LUIS para a app TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
-* A versão ID dentro da aplicação que recebe as palavras. O ID predefinido é "0.1".
+* O ID da aplicação LUIS para a aplicação TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
+* O ID da versão na aplicação que recebe as expressões. O ID predefinido é "0.1".
 * Linguagem de programação [Go](https://golang.org/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Código de estúdio visual](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
 
@@ -136,7 +136,7 @@ ms.locfileid: "77368423"
     }
     ```
 
-1. Substitua os valores a partir de `YOUR-` pelos seus próprios valores.
+1. Substitua os valores a começar pelos `YOUR-` seus próprios valores.
 
     |Informações|Objetivo|
     |--|--|

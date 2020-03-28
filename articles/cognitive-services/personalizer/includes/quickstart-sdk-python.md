@@ -11,37 +11,37 @@ ms.custom: include file
 ms.date: 01/15/2020
 ms.author: diberry
 ms.openlocfilehash: fe800280a7a652b5d9a397a21a5b0a66b40af4dc
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122923"
 ---
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) |  | [(PyPI)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer)
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | Pacote[de código fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | da biblioteca[(pipi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* [Python 3. x](https://www.python.org/)
+* Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* [Python 3.x](https://www.python.org/)
 
-## <a name="using-this-quickstart"></a>Usando este guia de início rápido
+## <a name="using-this-quickstart"></a>Usando este arranque rápido
 
 
-Há várias etapas para usar este guia de início rápido:
+Há vários passos para usar este arranque rápido:
 
-* No portal do Azure, criar um recurso personalizador
-* Na portal do Azure, para o recurso personalizador, na página **configuração** , altere a frequência de atualização do modelo para um intervalo muito curto
-* Em um editor de código, crie um arquivo de código e edite o arquivo de código
-* Na linha de comando ou terminal, instale o SDK da linha de comando
-* Na linha de comando ou no terminal, execute o arquivo de código
+* No portal Azure, crie um recurso Personalizer
+* No portal Azure, para o recurso Personalizer, na página **de Configuração,** altere a frequência de atualização do modelo para um intervalo muito curto
+* Num editor de código, crie um ficheiro de código e edite o ficheiro de código
+* Na linha de comando ou terminal, instale o SDK a partir da linha de comando
+* Na linha de comando ou terminal, executar o ficheiro de código
 
 [!INCLUDE [Create Azure resource for Personalizer](create-personalizer-resource.md)]
 
 [!INCLUDE [!Change model frequency](change-model-frequency.md)]
 
-## <a name="install-the-python-library-for-personalizer"></a>Instalar a biblioteca do Python para personalizador
+## <a name="install-the-python-library-for-personalizer"></a>Instale a biblioteca Python para Personalizar
 
-Instale a biblioteca de cliente do personalizador para Python com o seguinte comando:
+Instale a biblioteca cliente Personalizer para Python com o seguinte comando:
 
 ```console
 pip install azure-cognitiveservices-personalizer
@@ -49,49 +49,49 @@ pip install azure-cognitiveservices-personalizer
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente do personalizador é um objeto [PersonalizerClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclient?view=azure-python) que se autentica no Azure usando Microsoft. REST. createclientcredentials, que contém sua chave.
+O cliente Personalizer é um objeto [PersonalizerClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclient?view=azure-python) que autentica o Azure usando o Microsoft.Rest.ServiceClientCredentials, que contém a sua chave.
 
-Para solicitar o melhor item do conteúdo, crie um [RankRequest](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest?view=azure-python)e, em seguida, passe-o para o cliente. Método de classificação. O método Rank retorna um RankResponse.
+Para pedir o melhor item do conteúdo, crie um [RankRequest,](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest?view=azure-python)em seguida, passe-o para o cliente. Método de classificação. O método Rank devolve uma RankResponse.
 
-Para enviar uma pontuação de recompensa para o personalizador, defina a ID do evento e a pontuação de recompensa (valor) para enviar para o método de [recompensa](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations?view=azure-python#reward-event-id--value--custom-headers-none--raw-false----operation-config-) na classe EventOperations.
+Para enviar uma pontuação de recompensa ao Personalizer, detete o ID do evento e a pontuação de recompensa (valor) para enviar para o método [Reward](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations?view=azure-python#reward-event-id--value--custom-headers-none--raw-false----operation-config-) na classe EventOperations.
 
-A determinação da recompensa, neste guia de início rápido, é trivial. Em um sistema de produção, a determinação do que afeta a [Pontuação de recompensa](../concept-rewards.md) e o quanto pode ser um processo complexo, que você pode decidir alterar ao longo do tempo. Essa deve ser uma das principais decisões de design na arquitetura do personalizador.
+Determinar a recompensa, neste arranque rápido é trivial. Num sistema produtivo, a determinação do que impacta a [pontuação](../concept-rewards.md) da recompensa e pelo quanto pode ser um processo complexo, que pode decidir mudar ao longo do tempo. Esta deve ser uma das principais decisões de design na sua arquitetura Personalizer.
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Esses trechos de código mostram como fazer o seguinte com a biblioteca de cliente do personalizador para Python:
+Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca de clientes Personalizer para Python:
 
-* [Criar um cliente personalizado](#create-a-personalizer-client)
-* [API de classificação](#request-the-best-action)
-* [A API de recompensa](#send-a-reward)
+* [Criar um cliente Personalizer](#create-a-personalizer-client)
+* [Classificação API](#request-the-best-action)
+* [API recompensa](#send-a-reward)
 
-## <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
+## <a name="create-a-new-python-application"></a>Criar uma nova aplicação python
 
-Crie um novo aplicativo Python em seu editor preferencial ou IDE chamado `sample.py`.
+Crie uma nova aplicação Python no `sample.py`seu editor preferido ou IDE nomeado.
 
-## <a name="add-the-dependencies"></a>Adicionar as dependências
+## <a name="add-the-dependencies"></a>Adicione as dependências
 
-No diretório do projeto, abra o arquivo **Sample.py** no seu editor ou IDE preferido. Adicione o seguinte:
+A partir do diretório do projeto, abra o ficheiro **sample.py** no seu editor ou IDE preferido. Adicione o seguinte:
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
-## <a name="add-personalizer-resource-information"></a>Adicionar informações de recursos do personalizador
+## <a name="add-personalizer-resource-information"></a>Adicionar informações de recursos personalizantes
 
-Crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das variáveis de ambiente, chamadas `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
+Crie variáveis para a chave Azure do seu recurso e `PERSONALIZER_RESOURCE_KEY` ponto `PERSONALIZER_RESOURCE_ENDPOINT`final retirado das variáveis ambientais, nomeadas e . Se criou as variáveis ambientais após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde neste arranque rápido.
 
-O nome do recurso faz parte da URL do ponto de extremidade: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
+O nome do recurso faz parte `https://<your-resource-name>.api.cognitive.microsoft.com/`do URL do ponto final: .
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
-## <a name="create-a-personalizer-client"></a>Criar um cliente personalizado
+## <a name="create-a-personalizer-client"></a>Criar um cliente Personalizer
 
-Em seguida, crie um método para retornar um cliente personalizado. O parâmetro para o método é o `PERSONALIZER_RESOURCE_ENDPOINT` e o ApiKey é o `PERSONALIZER_RESOURCE_KEY`.
+Em seguida, crie um método para devolver um cliente Personalizer. O parâmetro para o `PERSONALIZER_RESOURCE_ENDPOINT` método é o e `PERSONALIZER_RESOURCE_KEY`o ApiKey é o .
 
 [!code-python[Create the Personalizer client](~/samples-personalizer/quickstarts/python/sample.py?name=Client)]
 
-## <a name="get-content-choices-represented-as-actions"></a>Obter opções de conteúdo representadas como ações
+## <a name="get-content-choices-represented-as-actions"></a>Obtenha escolhas de conteúdo representadas como ações
 
-Ações representam as opções de conteúdo das quais você deseja que o personalizado selecione o melhor item de conteúdo. Adicione os métodos a seguir à classe Program para representar o conjunto de ações e seus recursos.
+As ações representam as escolhas de conteúdo a partir das quais pretende que o Personalizer selecione o melhor item de conteúdo. Adicione os seguintes métodos à classe Programa para representar o conjunto de ações e suas funcionalidades.
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -99,44 +99,44 @@ Ações representam as opções de conteúdo das quais você deseja que o person
 
 [!code-python[Present food taste preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTastePreference)]
 
-## <a name="create-the-learning-loop"></a>Criar o loop de aprendizagem
+## <a name="create-the-learning-loop"></a>Criar o ciclo de aprendizagem
 
-O loop de aprendizagem personalizador é um ciclo de chamadas de [classificação](#request-the-best-action) e [recompensa](#send-a-reward) . Neste guia de início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao personalizado o quão bem o serviço foi executado.
+O ciclo de aprendizagem personalizer é um ciclo de chamadas [De Rank](#request-the-best-action) e [Reward.](#send-a-reward) Neste arranque rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para dizer ao Personalizer o quão bem o serviço foi executado.
 
-O código a seguir percorre um ciclo de solicitar ao usuário suas preferências na linha de comando, enviando essas informações ao personalizador para selecionar a melhor ação, apresentar a seleção ao cliente para escolher entre a lista e, em seguida, enviar um prêmio para Personalizar a sinalização do quão bem o serviço fez em sua seleção.
+O código seguinte passa por um ciclo de pedir ao utilizador as suas preferências na linha de comando, enviando essa informação ao Personalizer para selecionar a melhor ação, apresentando a seleção ao cliente para escolher entre a lista, enviando depois uma recompensa para Personalizer sinalizando como o serviço se saiu bem na sua seleção.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 
-Adicione os seguintes métodos, que [obtêm as opções de conteúdo](#get-content-choices-represented-as-actions), antes de executar o arquivo de código:
+Adicione os seguintes métodos, que [obtêm as escolhas de conteúdo,](#get-content-choices-represented-as-actions)antes de executar o ficheiro de código:
 
 * `get_user_preference`
 * `get_user_timeofday`
 * `get_actions`
 
-## <a name="request-the-best-action"></a>Solicitar a melhor ação
+## <a name="request-the-best-action"></a>Solicite a melhor ação
 
 
-Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar uma `currentContent` das opções de conteúdo. O processo pode criar conteúdo para excluir das ações, mostradas como `excludeActions`. A solicitação de classificação precisa das ações e seus recursos, recursos de currentContext, excludeActions e uma ID de evento exclusiva, para receber a resposta.
+Para completar o pedido de Rank, o programa pede `currentContent` às preferências do utilizador para criar uma das escolhas de conteúdo. O processo pode criar conteúdo para excluir `excludeActions`das ações, mostradas como . O pedido de Rank necessita das ações e suas funcionalidades, funcionalidades atuais Contexto, exclusão DeAções e um ID de evento único, para receber a resposta.
 
-Este guia de início rápido tem recursos de contexto simples de hora do dia e preferência de alimentos do usuário. Em sistemas de produção, determinar e [avaliar](../concept-feature-evaluation.md) [ações e recursos](../concepts-features.md) pode ser uma questão não trivial.
+Este quickstart tem características de contexto simples de hora do dia e preferência alimentar do utilizador. Nos sistemas de produção, determinar e [avaliar](../concept-feature-evaluation.md) [ações e funcionalidades](../concepts-features.md) pode ser uma questão não trivial.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=rank)]
 
 ## <a name="send-a-reward"></a>Enviar uma recompensa
 
 
-Para obter a pontuação de recompensa a ser enviada na solicitação de recompensa, o programa obtém a seleção do usuário na linha de comando, atribui um valor numérico à seleção e, em seguida, envia a ID de evento exclusiva e a pontuação de recompensa como o valor numérico para a API de recompensa.
+Para obter a pontuação de recompensa para enviar o pedido de Recompensa, o programa obtém a seleção do utilizador da linha de comando, atribui um valor numérico à seleção, em seguida, envia o ID de evento único e a pontuação de recompensa como o valor numérico para a API recompensa.
 
-Este início rápido atribui um número simples como uma pontuação de recompensa, um zero ou um 1. Em sistemas de produção, determinar quando e o que enviar para a chamada de [recompensa](../concept-rewards.md) pode ser uma questão não trivial, dependendo de suas necessidades específicas.
+Este quickstart atribui um número simples como uma pontuação de recompensa, um zero ou um 1. Nos sistemas de produção, determinar quando e o que enviar para a chamada [Reward](../concept-rewards.md) pode ser uma questão não trivial, dependendo das suas necessidades específicas.
 
 [!code-python[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/python/sample.py?name=reward&highlight=9)]
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Execute o aplicativo com o Python no diretório do aplicativo.
+Execute a aplicação com a pitão do seu diretório de candidaturas.
 
 ```console
 python sample.py
 ```
 
-![O programa de início rápido faz algumas perguntas para reunir as preferências do usuário, conhecidas como recursos, e fornece a ação principal.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+![O programa quickstart faz algumas perguntas para reunir as preferências dos utilizadores, conhecidas como funcionalidades, e depois fornece a ação de topo.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)

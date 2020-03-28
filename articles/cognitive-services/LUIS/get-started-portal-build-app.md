@@ -1,173 +1,170 @@
 ---
-title: 'Início rápido: criar um novo aplicativo no portal do LUIS'
-titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você cria as partes básicas de um aplicativo, intenções e entidades, bem como um teste com expressão de exemplo no portal do LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+title: 'Quickstart: Criar uma nova app no portal LUIS'
+description: Neste arranque rápido, cria-se as partes básicas de uma app, intenções e entidades, bem como testar com a expressão da amostra no portal LUIS.
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381992"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244619"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: criar um novo aplicativo no portal do LUIS
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Quickstart: Criar uma nova app no portal LUIS
 
-Neste guia de início rápido, você cria um novo aplicativo no portal do LUIS. Primeiro, você cria as partes básicas de um aplicativo, **intenções**e **entidades**. Em seguida, você testa o aplicativo fornecendo um expressão de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
-
-A criação de um aplicativo é gratuita e não requer uma assinatura do Azure. Quando estiver pronto para implantar seu aplicativo, consulte o guia de [início rápido para implantar um aplicativo](get-started-portal-deploy-app.md). Ele mostra como criar um recurso de serviço do Azure cognitiva e atribuí-lo ao aplicativo.
+Neste arranque rápido, você constrói uma nova app no portal LUIS. Em primeiro lugar, criar as partes básicas de uma app, **intenções,** e **entidades.** Em seguida, teste a aplicação fornecendo uma expressão do utilizador da amostra no painel de teste interativo para obter a intenção prevista.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Criar uma aplicação
 
-1. Selecione **+ criar** na barra de ferramentas de contexto.
+1. Selecione **+ Nova aplicação para conversação** a partir da barra de ferramentas de contexto e, em seguida, selecione **Nova aplicação para conversação**.
 
-   [![criar um novo aplicativo no portal do LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Criar nova app no portal LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
-1. Na janela pop-up, configure o aplicativo com as seguintes configurações e, em seguida, selecione **concluído**.
+1. Na janela pop-up, configure a aplicação com as seguintes definições e, em seguida, selecione **Done**.
 
-   |Nome da definição| Valor | Finalidade|
+   |Nome da definição| Valor | Objetivo|
    |--|--|--|
-   |Nome|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>required|
-   |Cultura|**Inglês**|Idioma do declarações dos usuários, **en-US**<br>required|
-   |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
-   |Recurso de previsão (opcional) |-  |Não selecione. O LUIS fornece uma chave inicial para ser usada gratuitamente para solicitações de criação e de ponto de extremidade de previsão 1.000. |
+   |Nome|`myEnglishApp`|Nome único da aplicação LUIS<br>necessário|
+   |Cultura|**Inglês**|Linguagem das expressões dos utilizadores, **en-us**<br>necessário|
+   |Descrição (Opcional)|`App made with LUIS Portal`|Descrição da app<br>opcional|
+   |Recurso de previsão (Opcional) |-  |Não selecione. O LUIS dá-lhe uma chave Starter para usar gratuitamente para autoria e 1.000 pedidos de ponto final de previsão. |
 
-   ![Inserir novas configurações de aplicativo](./media/get-started-portal-build-app/create-new-app-settings.png)
+   ![Introduza novas definições de aplicativos](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 ## <a name="create-intents"></a>Criar intenções
 
-Depois que o aplicativo LUIS for criado, você precisará criar tentativas. As intenções são uma maneira de categorizar o texto dos usuários. Por exemplo, um aplicativo de recursos humanos pode ter duas funções. Para ajudar as pessoas:
+Depois da aplicação LUIS ser criada, é necessário criar intenções. As intenções são uma forma de categorizar o texto dos utilizadores. Por exemplo, uma aplicação de recursos humanos pode ter duas funções. Para ajudar as pessoas:
 
- 1. Localizar e aplicar para trabalhos
- 1. Localizar formulários a serem aplicados para trabalhos
+ 1. Encontrar e candidatar-se a empregos
+ 1. Encontrar formulários para se candidatar a empregos
 
-As duas _intenções_ diferentes do aplicativo se alinham com as seguintes tentativas:
+As duas _intenções_ diferentes da aplicação alinham-se às seguintes intenções:
 
-|Intenção|Texto de exemplo do usuário<br>conhecido como um _expressão_|
+|Intenção|Texto de exemplo do utilizador<br>conhecido como uma _expressão_|
 |--|--|
-|ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
-|FindForm|`Where is the job transfer form hrf-123456?`|
+|Candidatura a Emprego|`I want to apply for the new software engineering position in Cairo.`|
+|Formulário findform|`Where is the job transfer form hrf-123456?`|
 
-Para criar tentativas, conclua as seguintes etapas:
+Para criar intenções, complete os seguintes passos:
 
-1. Depois que o aplicativo for criado, você estará na página de **tentativas** da seção de **compilação** . Selecione **Criar**.
+1. Depois de a aplicação ser criada, está na página **De Intenções** da secção **Build.** Selecione **Criar**.
 
-   [![selecione criar para criar nova tentativa](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Selecione Criar para criar novas intenções](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Insira o nome da intenção, `FindForm`e, em seguida, selecione **concluído**.
+1. Introduza o `FindForm`nome da intenção e, em seguida, selecione **Done**.
 
-## <a name="add-an-example-utterance"></a>Adicionar uma expressão de exemplo
+## <a name="add-an-example-utterance"></a>Adicione um exemplo de expressão
 
-Você adiciona o exemplo declarações depois de criar tentativas. O exemplo declarações é um texto que um usuário insere em um bot de chat ou outro aplicativo cliente. Eles mapeiam a intenção do texto do usuário para uma intenção LUIS.
+Acrescenta-se exemplos depois de criar intenções. Exemplo de expressões são texto que um utilizador introduz num chat bot ou outra aplicação de cliente. Mapeiam a intenção do texto do utilizador para uma intenção LUIS.
 
-Para a intenção de `FindForm` do aplicativo de exemplo, o exemplo declarações incluirá o número do formulário. O aplicativo cliente precisa do número do formulário para atender à solicitação do usuário, portanto, é importante incluí-lo no expressão.
+Para este exemplo `FindForm` a intenção da aplicação, as declarações de exemplo incluirão o número do formulário. A aplicação do cliente precisa do número de formulário para satisfazer o pedido do utilizador, pelo que é importante incluí-lo na expressão.
 
-[![Insira o exemplo declarações para a intenção FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Introduza pronunciações de exemplo para a intenção FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
-Adicione os 15 exemplos de declarações a seguir à tentativa de `FindForm`.
+Adicione as seguintes 15 declarações de exemplo à `FindForm` intenção.
 
 |#|Expressões de exemplo|
 |--|--|
-|1|Procurando HRF-123456|
-|2|Onde está o formulário de recursos humanos HRF-234591?|
-|3|HRF-345623, onde está|
-|4|É possível enviar-me HRF-345794|
-|5|É necessário que o HRF-234695 seja aplicado a um trabalho interno?|
-|6|Meu gerente precisa saber que estou aplicando um trabalho com HRF-234091|
-|7|Onde posso enviar HRF-234918? Recebo uma resposta por email que foi recebida?|
-|8|HRF-234555|
-|9|Quando o HRF-234987 foi atualizado?|
-|10|Eu uso o formulário HRF-876345 para ser aplicado para posições de engenharia|
-|11|Foi uma nova versão do HRF-765234 enviada para o meu req aberto?|
-|12|Eu uso o HRF-234234 para trabalhos internacionais?|
-|13|erro de ortografia de HRF-234598|
-|14|o HRF-234567 será editado para novos requisitos|
-|15|HRF-123456, HRF-123123, HRF-234567|
+|1|À procura de hrf-123456|
+|2|Onde estão os recursos humanos formados hrf-234591?|
+|3|hrf-345623, onde está|
+|4|É possível enviar-me hrf-345794|
+|5|Preciso do HRF-234695 para me candidatar a um emprego interno?|
+|6|O meu empresário precisa de saber que me vou candidatar a um emprego na HRF-234091|
+|7|Para onde envio hrf-234918? Recebo uma resposta por e-mail que foi recebida?|
+|8|hrf-234555|
+|9|Quando é que o HRF-234987 foi atualizado?|
+|10|Uso o formulário hrf-876345 para me candidatar a cargos de engenharia|
+|11|Foi submetida uma nova versão do HRF-765234 para o meu req aberto?|
+|12|Uso hrf-234234 para empregos internacionais?|
+|13|hrf-234598 erro ortográfico|
+|14|será editado hrf-234567 para novos requisitos|
+|15|hrf-123456, hrf-123123, hrf-234567|
 
-Por design, esses declarações de exemplo variam das seguintes maneiras:
+Por design, estas expressões de exemplo variam das seguintes formas:
 
 * comprimento de expressão
-* Pontuação
-* opção de palavra
-* o verbo conjugação (is, was, será)
+* pontuação
+* escolha de palavras
+* verbo tenso (é, foi, será)
 * ordem de palavras
 
 
 
 ## <a name="create-a-regular-expression-entity"></a>Criar uma entidade de expressão regular
 
-Para retornar o número do formulário na resposta de previsão de tempo de execução, o formulário deve ser marcado como uma entidade. Como o texto do número do formulário é altamente estruturado, você pode marcá-lo usando uma entidade de expressão regular. Crie a entidade com as seguintes etapas:
+Para devolver o número de formulário na resposta de previsão de tempo de execução, o formulário deve ser marcado como uma entidade. Como o texto do número de formulário é altamente estruturado, pode marcá-lo usando uma entidade de expressão regular. Criar a entidade com os seguintes passos:
 
-1. Selecione **entidades** no menu à esquerda.
+1. Selecione **Entidades** do menu à esquerda.
 
-1. Selecione **criar** na página **entidades** .
+1. Selecione **Criar** na página **Entidades.**
 
-1. Insira o nome `Human Resources Form Number`, selecione o tipo de entidade **Regex** e, em seguida, selecione **Avançar**.
+1. Introduza `Human Resources Form Number`o nome, selecione o tipo de entidade **Regex** e, em seguida, selecione **Next**.
 
    ![Criar entidade de expressão regular](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. Insira a expressão de expressão regular (**Regex**) `hrf-[0-9]{6}`. Essa entrada corresponde aos caracteres literais, `hrf-`e permite exatamente 6 dígitos e, em seguida, selecione **criar**.
+1. Introduza a expressão regular **(RegEx)** expressão, `hrf-[0-9]{6}`. Esta entrada corresponde aos `hrf-`caracteres literais, e permite exatamente 6 dígitos, em seguida, selecione **Criar**.
 
-   ![Inserir expressão regular para entidade](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+   ![Insira expressão regular para entidade](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar declarações de exemplo à intenção None
+## <a name="add-example-utterances-to-the-none-intent"></a>Adicione declarações exemplo à intenção de Nenhum
 
-A tentativa **None** é a tentativa de fallback e não deve ser deixada em branco. Essa intenção deve conter um expressão para cada 10 exemplos de declarações que você adicionou para as outras intenções do aplicativo.
+A intenção **de "Nenhum"** é a intenção de recuo e não deve ser deixada vazia. Esta intenção deve conter uma expressão por cada 10 exemplos que adicionou para as outras intenções da app.
 
-O exemplo de declarações da intenção de **nenhum** deve estar fora do domínio do aplicativo cliente.
+As declarações de exemplo da **Nenhuma** intenção devem estar fora do domínio da aplicação do seu cliente.
 
-1. Selecione **tentativas** no menu à esquerda e, em seguida, selecione **nenhum** na lista de tentativas.
+1. Selecione **Intenções** a partir do menu esquerdo e, em seguida, selecione **Nenhuma** da lista de intenções.
 
-1. Adicione o seguinte exemplo declarações à intenção:
+1. Adicione as seguintes declarações de exemplo à intenção:
 
-   |Exemplo de intenção de nenhum declarações|
+   |Nenhuma intenção exemplo pronunciamentos|
    |--|
    |Cães que ladram são irritantes|
    |Encomendar uma piza para mim|
    |Pinguins no oceano|
 
-   Para este aplicativo, esses declarações de exemplo estão fora do domínio. Se o seu domínio incluir animais, comida ou oceano, você deverá usar um exemplo diferente de declarações para a intenção de **nenhum** .
+   Para esta aplicação, estas expressões de exemplo estão fora do domínio. Se o seu domínio inclui animais, alimentos ou o oceano, então deve usar diferentes pronunciações de exemplo para a intenção **de Ninguém.**
 
 ## <a name="train-the-app"></a>Preparar a aplicação
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Examine a entidade expressão regular no exemplo declarações
+## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Olhe para a entidade de expressão regular nas declarações de exemplo
 
-1. Verifique se a entidade foi encontrada na **FindForm** intenção selecionando **tentativas** no menu à esquerda. Em seguida, selecione **FindForm** intenção.
+1. Verifique se a entidade está encontrada na intenção **FindForm** selecionando **Intenções** do menu esquerdo. Em seguida, selecione a intenção **FindForm.**
 
-   A entidade é marcada onde aparece no exemplo declarações. Se você quiser ver o texto original em vez do nome da entidade, alterne a **exibição de entidades** na barra de ferramentas.
+   A entidade é marcada onde aparece nas declarações de exemplo. Se quiser ver o texto original em vez do nome da entidade, alternar **entidades Ver** a partir da barra de ferramentas.
 
-   [![todos os declarações de exemplo marcados com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![Todos os exemplos marcados com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
-## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testar seu novo aplicativo com o painel de teste interativo
+## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Teste a sua nova app com o painel de teste interativo
 
-Use o painel de **teste** interativo no portal do Luis para validar que a entidade foi extraída do novo declarações o aplicativo ainda não foi visto.
+Utilize o painel de **teste** interativo no portal LUIS para validar que a entidade é extraída de novas expressões que a app ainda não viu.
 
-1. Selecione **teste** no menu superior direito.
+1. Selecione **Teste** a partir do menu superior direito.
 
-1. Adicione um novo expressão e pressione ENTER:
+1. Adicione uma nova expressão e, em seguida, prima Enter:
 
    ```Is there a form named hrf-234098```
 
-   ![Testar novo expressão no painel de teste](./media/get-started-portal-build-app/test-new-utterance.png)
+    **Selecione Inspecionar** para ver as previsões da entidade.
 
-   A principal intenção prevista está **FindForm** corretamente com mais de 90% de confiança (0,977). A entidade **número do formulário de recursos humanos** é extraída com um valor de hrf-234098.
+   > [!div class="mx-imgBorder"]
+   > ![Teste nova expressão no painel de teste](./media/get-started-portal-build-app/test-new-utterance.png)
+
+   A principal intenção prevista é corretamente **FindForm** com mais de 90% de confiança (0,977). A entidade número de formulário de **recursos humanos** é extraída com um valor de hrf-234098.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você terminar este início rápido e não estiver passando para o próximo início rápido, selecione **meus aplicativos** no menu de navegação superior. Em seguida, marque a caixa de seleção da esquerda do aplicativo na lista e selecione **excluir** na barra de ferramentas de contexto acima da lista.
+Quando terminar com este quickstart e não estiver a avançar para o próximo quickstart, selecione **Minhas aplicações** a partir do menu de navegação de topo. Em seguida, selecione a caixa de verificação esquerda da aplicação da lista e selecione **Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [2. implantar um aplicativo](get-started-portal-deploy-app.md)
+> [2. Implementar uma aplicação](get-started-portal-deploy-app.md)

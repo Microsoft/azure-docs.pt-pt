@@ -11,24 +11,24 @@ ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: areddish
 ms.openlocfilehash: 78db95240974d1c9ca07546f8237eca2b564ecb2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77616330"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Java
 
-Este artigo mostra-lhe como começar a usar o Custom Vision SDK com Java para construir um modelo de deteção de objetos. Depois de criado, poderá adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
+Este artigo mostra-lhe como começar a usar o Custom Vision SDK com Java para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão padrão do projeto, e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um IDE Java à sua escolha
-- [JDK 7 ou 8](https://aka.ms/azure-jdks) instalado.
+- [JDK 7 ou 8](https://aka.ms/azure-jdks) instalados.
 - [Maven](https://maven.apache.org/) instalado
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e o exemplo de código
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obtenha o SDK de Visão Personalizada e o código da amostra
 
 Para escrever uma aplicação de Java que utilize a Visão Personalizada, precisa dos pacotes maven da Visão Personalizada. Estes pacotes estão incluídos no projeto de amostra que você vai descarregar, mas você pode acessá-los individualmente aqui.
 
@@ -36,7 +36,7 @@ Você pode encontrar o Custom Vision SDK no repositório central maven:
 - [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [SDK de Predição](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-Clone ou transfira o projeto [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) (Exemplos do SDK dos Serviços Cognitivos para Java). Navegue para a pasta **Vision/CustomVision/** .
+Clone ou transfira o projeto [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) (Exemplos do SDK dos Serviços Cognitivos para Java). Navegue para a pasta **Vision/CustomVision/**.
 
 Este projeto de Java cria um projeto novo de deteção de objetos da Visão Personalizada denominado __Sample Java OD Project__, que pode ser acedido a partir do [site da Visão Personalizada](https://customvision.ai/). Em seguida, a aplicação carrega imagens para preparar e testar um classificador. Neste projeto, o classificador destina-se a determinar se um objeto é um **garfo** ou **uma tesoura.**
 
@@ -54,9 +54,9 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-Carregue o projeto `Vision/CustomVision` no IDE Java e abra o ficheiro _CustomVisionSamples.java_. Encontre o método **runSample** e comente a chamada **ImageClassification_Sample** método&mdash;este método executa o cenário de classificação da imagem, que não está coberto por este guia. O método **ObjectDetection_Sample** implementa a funcionalidade principal deste início rápido; navegue para a respetiva definição e inspecione o código. 
+Carregue o projeto `Vision/CustomVision` no IDE Java e abra o ficheiro _CustomVisionSamples.java_. Encontre o método **runSample** e comente o método **ImageClassification_Sample** chamada&mdash;este método executa o cenário de classificação da imagem, que não está coberto por este guia. O método **ObjectDetection_Sample** implementa a funcionalidade principal deste início rápido; navegue para a respetiva definição e inspecione o código. 
 
-### <a name="create-a-new-custom-vision-service-project"></a>Criar um novo projeto do Serviço de Visão Personalizada
+### <a name="create-a-new-custom-vision-service-project"></a>Criar um novo projeto de Serviço de Visão Personalizada
 
 Vá para o bloco de código que cria um cliente de preparação e um projeto de deteção de objetos. O projeto criado aparece no [site da Visão Personalizada](https://customvision.ai/) ao qual acedeu anteriormente. Consulte o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) sobrecarrega-se para especificar outras opções quando criar o seu projeto (explicado no guia do portal do [detetor).](get-started-build-detector.md)
 
@@ -66,9 +66,9 @@ Vá para o bloco de código que cria um cliente de preparação e um projeto de 
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_tags_od)]
 
-### <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
+### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
-Ao etiquetar imagens em projetos de deteção de objeto, tem de especificar a região de cada objeto etiquetado com coordenadas normalizadas. Vá para a definição do Mapa `regionMap`. Este código associa cada uma das imagens de exemplo à sua região marcada.
+Quando marca imagens em projetos de deteção de objetos, é necessário especificar a região de cada objeto marcado utilizando coordenadas normalizadas. Vá para a definição do Mapa `regionMap`. Este código associa cada uma das imagens de exemplo à sua região marcada.
 
 > [!NOTE]
 > Se não tiver um utilitário de clique e arrastar para marcar as coordenadas das regiões, pode utilizar a UI web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já estão fornecidas.
@@ -89,7 +89,7 @@ Este código cria a primeira iteração do modelo de previsão e, em seguida, pu
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train_od)]
 
-### <a name="use-the-prediction-endpoint"></a>Utilizar o ponto final de predição
+### <a name="use-the-prediction-endpoint"></a>Use o ponto final da previsão
 
 O ponto final de predição, representado pelo objeto `predictor` aqui, é a referência que vai servir para submeter uma imagem para o modelo atual e obter uma predição de classificação. Neste exemplo, `predictor` é definido noutro sítio através da utilização da variável de ambiente da chave de predição.
 

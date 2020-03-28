@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: executar uma pesquisa de notícias com o Node. js – API REST do Pesquisa de Notícias do Bing'
+title: 'Quickstart: Realizar uma pesquisa de notícias com Node.js - Bing News Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando o Node. js e receber uma resposta JSON.
+description: Use este quickstart para enviar um pedido para a API de pesquisa de notícias bing news usando Node.js, e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 42ac6cac972374dbd1db42b75742212046d2ce3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383137"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início rápido: executar uma pesquisa de notícias usando o Node. js e a API REST do Pesquisa de Notícias do Bing
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando node.js e a Bing News Search REST API
 
 Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação JavaScript simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
 
 Embora esta aplicação esteja escrita em JavaScript e seja executada em Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
+O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-* A [biblioteca de solicitações do JavaScript](https://github.com/request/request)
+* A [Biblioteca de Pedidos JavaScript](https://github.com/request/request)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -43,7 +43,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
     let https = require('https');
     ```
 
-2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API de imagens, a sua chave de subscrição e o termo de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. 
+2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API de imagens, a sua chave de subscrição e o termo de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. 
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -70,7 +70,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
         });
         ```
 
-    3. Quando um sinalizador de **fim** é sinalizado, o JSON e os cabeçalhos podem ser exibidos.
+    3. Quando uma bandeira **final** é sinalizada, o JSON e os cabeçalhos podem ser vistos.
 
         ```javascript
         response.on('end', function () {
@@ -87,7 +87,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 ## <a name="json-response"></a>Resposta JSON
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -183,4 +183,4 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)
+> [Criar uma aplicação web de página única](tutorial-bing-news-search-single-page-app.md)

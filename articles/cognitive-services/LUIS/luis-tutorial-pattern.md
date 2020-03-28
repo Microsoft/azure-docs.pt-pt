@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: padrões-LUIS'
+title: 'Tutorial: Padrões - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Use padrões para aumentar a previsão de intenção e entidade e, ao mesmo tempo, fornecer menos declarações de exemplo neste tutorial. O padrão é fornecido como um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável.
+description: Use padrões para aumentar a intenção e a previsão da entidade, ao mesmo tempo que fornece menos declarações de exemplo neste tutorial. O padrão é fornecido como um exemplo de expressão de modelo, que inclui sintaxe para identificar entidades e texto ignorável.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
 ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979772"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: adicionar formatos comuns de modelo de padrão expressão para melhorar previsões
+# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos de expressão de modelo comum para melhorar as previsões
 
-Neste tutorial, use padrões para aumentar a previsão de intenção e entidade, que permite fornecer menos declarações de exemplo. O padrão é o modelo expressão atribuído a uma intenção, contendo a sintaxe para identificar entidades e texto ignorável.
+Neste tutorial, use padrões para aumentar a intenção e a previsão da entidade, o que lhe permite fornecer menos declarações de exemplo. O padrão é a expressão do modelo atribuída a uma intenção, contendo sintaxe para identificar entidades e texto ignorável.
 
 **Neste tutorial, vai aprender a:**
 
@@ -32,38 +32,38 @@ Neste tutorial, use padrões para aumentar a previsão de intenção e entidade,
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="utterances-in-intent-and-pattern"></a>Declarações de tentativa e padrão
+## <a name="utterances-in-intent-and-pattern"></a>Expressões em intenção e padrão
 
-Há dois tipos de declarações armazenados no aplicativo LUIS:
+Existem dois tipos de expressões armazenadas na app LUIS:
 
-* Exemplo de declarações na intenção
-* Modelo declarações no padrão
+* Declarações exemplo na Intenção
+* Declarações de modelo no Padrão
 
-Adicionar declarações de modelo como um padrão permite que você forneça menos declarações de exemplo para uma intenção.
+Adicionar expressões de modelo como padrão permite-lhe fornecer menos declarações de exemplo em geral a uma intenção.
 
-Um padrão é aplicado como uma combinação de correspondência de expressão e de aprendizado de máquina.  O modelo expressão, junto com o declarações de exemplo, fornece LUIS uma melhor compreensão do que declarações se ajusta à intenção.
+Um padrão é aplicado como uma combinação de correspondência de expressão e aprendizagem automática.  A expressão do modelo, juntamente com as declarações de exemplo, dão a LUIS uma melhor compreensão do que as expressões se encaixam na intenção.
 
-## <a name="import-example-app-and-clone-to-new-version"></a>Importar aplicativo de exemplo e clonar para a nova versão
+## <a name="import-example-app-and-clone-to-new-version"></a>App de exemplo de importação e clone para nova versão
 
 Utilize os passos seguintes:
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Descarregue e guarde o [ficheiro JSON](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true)da aplicação .
 
-1. Importe o JSON em um novo aplicativo para o [portal do Luis de visualização](https://preview.luis.ai).
+1. Importe o JSON numa nova aplicação para o [portal DE PRÉ-visualização LUIS.](https://preview.luis.ai)
 
 1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `patterns`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Criar novas intenções e as respetivas expressões
 
-1. Selecione **Compilar** na barra de navegação.
+1. Selecione **Construir** a partir da barra de navegação.
 
-1. Na página **tentativas** , selecione **+ criar** para criar uma nova tentativa.
+1. Na página **Intenções,** selecione **+ Crie** para criar uma nova intenção.
 
 1. Introduza `OrgChart-Manager` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
 
     ![Janela de pop-up para criar nova mensagem](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-1. Adicione expressões de exemplo à intenção. Esses declarações não são _exatamente_ semelhantes, mas têm um padrão que pode ser extraído.
+1. Adicione expressões de exemplo à intenção. Estas declarações não são _exatamente_ iguais, mas têm um padrão que pode ser extraído.
 
     |Expressões de exemplo|
     |--|
@@ -77,7 +77,7 @@ Utilize os passos seguintes:
 
 1. Selecione **Intenções** no painel de navegação esquerdo.
 
-1. Selecione **+ criar** para criar uma nova tentativa. Introduza `OrgChart-Reports` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
+1. Selecione **+ Criar** para criar uma nova intenção. Introduza `OrgChart-Reports` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
 
 1. Adicione expressões de exemplo à intenção.
 
@@ -93,11 +93,11 @@ Utilize os passos seguintes:
 
 [!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-### <a name="train-the-app-before-testing-or-publishing"></a>Treinar o aplicativo antes de testar ou publicar
+### <a name="train-the-app-before-testing-or-publishing"></a>Treine a app antes de testar ou publicar
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-### <a name="publish-the-app-to-query-from-the-endpoint"></a>Publicar o aplicativo para consulta do ponto de extremidade
+### <a name="publish-the-app-to-query-from-the-endpoint"></a>Publique a app para consultar a partir do ponto final
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
@@ -105,7 +105,7 @@ Utilize os passos seguintes:
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá para o final do URL no endereço e introduza `Who is the boss of Jill Jones?`. O último parâmetro QueryString é o `query`expressão.
+1. Vá para o final do URL no endereço e introduza `Who is the boss of Jill Jones?`. O último parâmetro de corda de `query`consulta é a expressão.
 
     ```json
     {
@@ -195,7 +195,7 @@ Utilize os passos seguintes:
     }
     ```
 
-Esta consulta foi bem-sucedida? Para este ciclo de preparação, foi bem-sucedida. As pontuações das duas principais intenções estão próximas, mas a intenção mais alta não é significativamente alta (mais de 60%) e não é muito suficiente acima da pontuação da próxima tentativa.
+Esta consulta foi bem-sucedida? Para este ciclo de preparação, foi bem-sucedida. As pontuações das duas principais intenções são próximas, mas a maior intenção não é significativamente alta (mais de 60%) e não está longe o suficiente acima da pontuação da próxima intenção.
 
 Uma vez que a preparação do LUIS não é sempre exatamente a mesma, existe alguma variação, estas duas classificações podem inverter-se no próximo ciclo de preparação. O resultado é a possibilidade de ser devolvida a intenção errada.
 
@@ -217,18 +217,18 @@ Alguns exemplos de expressões de modelo para esta intenção incluem:
 
 |Exemplos de expressões de modelo|significado da sintaxe|
 |--|--|
-|`Who does {Employee} report to[?]`|`{Employee}` intercambiáveis<br>ignorar `[?]`|
-|`Who reports to {Employee}[?]`|`{Employee}` intercambiáveis<br>ignorar `[?]`|
+|`Who does {Employee} report to[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
+|`Who reports to {Employee}[?]`|intercambiável`{Employee}`<br>ignorar`[?]`|
 
-A sintaxe `{Employee}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe opcional, `[?]`, marca as palavras ou a pontuação que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
+A sintaxe `{Employee}` marca a localização da entidade na expressão de modelo, bem como de que entidade se trata. A sintaxe `[?]`opcional, marca palavras ou pontuação que é opcional. O LUIS faz corresponder a expressão, ignorando o texto opcional dentro dos parênteses retos.
 
-Embora a sintaxe seja parecida com uma expressão regular, ela não é uma expressão regular. Apenas é suportada a sintaxe das chavetas, `{}`, e dos parênteses retos, `[]`. Podem ser aninhadas até dois níveis.
+Embora a sintaxe pareça uma expressão regular, não é uma expressão regular. Apenas é suportada a sintaxe das chavetas, `{}`, e dos parênteses retos, `[]`. Podem ser aninhadas até dois níveis.
 
-Para que seja feita a correspondência de um padrão com uma expressão, as entidades na expressão têm de corresponder primeiro às entidades da expressão do modelo. Isso significa que as entidades precisam ter exemplos suficientes no exemplo declarações com um alto grau de previsão antes que os padrões com entidades sejam bem-sucedidos. No entanto, o modelo não ajuda a prever as entidades, apenas as intenções.
+Para que seja feita a correspondência de um padrão com uma expressão, as entidades na expressão têm de corresponder primeiro às entidades da expressão do modelo. Isto significa que as entidades têm de ter exemplos suficientes, por exemplo, expressões com um elevado grau de previsão antes de os padrões com entidades serem bem sucedidos. No entanto, o modelo não ajuda a prever as entidades, apenas as intenções.
 
 **Embora os padrões permitam que forneça menos expressões de exemplo, se as entidades não forem detetadas, o padrão não corresponde.**
 
-### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicionar os padrões para a intenção do gerente de organograma
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Adicione os padrões para a intenção orgchart-manager
 
 1. Selecione **Build** (Criar) no menu superior.
 
@@ -245,7 +245,7 @@ Para que seja feita a correspondência de um padrão com uma expressão, as enti
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
-1. Enquanto ainda estiver na página padrões, selecione a intenção do **Organograma-relatórios** e insira o seguinte modelo declarações:
+1. Enquanto ainda está na página Padrões, selecione a intenção **OrgChart-Reports** e, em seguida, introduza as seguintes expressões do modelo:
 
     |Expressões de modelo|
     |:--|
@@ -258,13 +258,13 @@ Para que seja feita a correspondência de um padrão com uma expressão, as enti
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Ponto final de consulta quando são utilizados padrões
 
-Agora que os padrões são adicionados ao aplicativo, treine, publique e consulte o aplicativo no ponto de extremidade de tempo de execução de previsão.
+Agora que os padrões são adicionados à app, treinam, publicam e consultam a app no ponto final da previsão.
 
-1. Selecione **treinar**. Após a conclusão do treinamento, selecione **publicar** e selecione o slot de **produção** e, em seguida, selecione **concluído**.
+1. Selecione **Comboio**. Depois de concluído o treino, **selecione Publicar** e selecione a ranhura **de Produção** e, em seguida, selecione **Done**.
 
-1. Após a conclusão da publicação, alterne as guias do navegador de volta para a guia URL do ponto de extremidade.
+1. Depois de a publicação estar concluída, mude os separadores do navegador de volta para o separador URL do ponto final.
 
-1. Vá para o fim do URL no endereço e introduza `Who is the boss of Jill Jones?` como a expressão. O último parâmetro QueryString é o `query`.
+1. Vá para o fim do URL no endereço e introduza `Who is the boss of Jill Jones?` como a expressão. O último parâmetro de corda `query`de consulta é o .
 
     ```json
     {
@@ -354,11 +354,11 @@ Agora que os padrões são adicionados ao aplicativo, treine, publique e consult
     }
     ```
 
-A previsão da intenção agora é significativamente mais confiável e a pontuação da próxima intenção mais alta é significativamente menor. Essas duas tentativas não mudarão de flip-flop durante o treinamento.
+A previsão das intenções é agora significativamente mais confiante e a pontuação da próxima maior intenção é significativamente menor. Estas duas intenções não vão virar-se quando treinam.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabalhar com texto opcional e entidades pré-criadas
 
-As expressões de modelo de padrão anteriores neste tutorial tinham alguns exemplos de texto opcional, como a utilização da letra s, `'s` e do ponto de interrogação, `?`. Suponha que você precise permitir as datas atuais e futuras no texto expressão.
+As expressões de modelo de padrão anteriores neste tutorial tinham alguns exemplos de texto opcional, como a utilização da letra s, `'s` e do ponto de interrogação, `?`. Suponha que precisa permitir datas atuais e futuras no texto de expressão.
 
 As expressões de exemplo são:
 
@@ -369,9 +369,9 @@ As expressões de exemplo são:
 |OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
 
-Cada um destes exemplos utiliza um tempo verbal, `was`, `is`, `will be`, bem como uma data, `March 3`, `now` e `in a month`, que o LUIS precisa de prever corretamente. Observe que os dois últimos exemplos na tabela usam quase o mesmo texto, exceto `in` e `on`.
+Cada um destes exemplos utiliza um tempo verbal, `was`, `is`, `will be`, bem como uma data, `March 3`, `now` e `in a month`, que o LUIS precisa de prever corretamente. Note que os dois últimos exemplos da `in` tabela `on`utilizam quase o mesmo texto, exceto para e .
 
-Exemplo de modelo declarações que permitem essas informações opcionais:
+Declarações de modelo de exemplo que permitem esta informação opcional:
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |:--|:--|
@@ -382,19 +382,19 @@ Exemplo de modelo declarações que permitem essas informações opcionais:
 A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este texto opcional seja fácil de adicionar à expressão de modelo e possa ser aninhado até ao segundo nível, `[[]]`, e incluir entidades ou texto.
 
 
-**Pergunta: por que todas as letras de `w`, a primeira letra de cada modelo expressão, minúsculas? Eles não devem ser, opcionalmente, maiúsculos ou minúsculos?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
+**Pergunta: Por que `w` todas as letras, a primeira letra em cada expressão de modelo, minúscula? Não deveriam ser opcionalmente superiores ou inferiores?** A expressão submetida para o ponto final de consulta, pela aplicação cliente, é convertida em minúsculas. A expressão do modelo pode estar em maiúsculas ou minúsculas e a expressão do ponto final também. A comparação é feita sempre após a conversão em minúsculas.
 
 **Pergunta: Porque é que o número pré-criado não faz parte da expressão do modelo se 3 de março é previsto como número `3` e como data `March 3`?** A expressão do modelo está a utilizar contextualmente uma data, quer literalmente como em `March 3` ou de forma abstrata como `in a month`. Uma data pode conter um número, mas um número pode não ser necessariamente visto como uma data. Utilize sempre a entidade que melhor representa o tipo que quer que seja devolvido nos resultados JSON da predição.
 
-**Pergunta: E as expressões mal formuladas, como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Você pode [Agrupar e ou](#use-the-or-operator-and-groups) o verbo-dezenases para combinar esses declarações.
+**Pergunta: E as expressões mal formuladas, como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticamente diferentes como estes, em que o `will` e o `be` estão separados, têm de ser uma nova expressão de modelo. A expressão de modelo existente não vai fazer a correspondência. Embora a intenção da expressão não tenha sido alterada, o posicionamento das palavras na expressão foi alterada. Esta alteração afeta a predição no LUIS. Você pode [agrupar e ou](#use-the-or-operator-and-groups) os verbo-tenses para combinar estas expressões.
 
 **Lembre-se: as entidades são encontradas em primeiro lugar e, em seguida, é feita a correspondência do padrão.**
 
 ### <a name="edit-the-existing-pattern-template-utterance"></a>Editar a expressão de modelo do padrão existente
 
-1. No portal do LUIS de visualização, selecione **criar** no menu superior e selecione **padrões** no menu à esquerda.
+1. No portal DE pré-visualização LUIS, **selecione Construir** no menu superior e, em seguida, selecione **Padrões** no menu esquerdo.
 
-1. Procure o modelo existente expressão, `Who is {Employee}['s] manager[?]`e selecione as reticências (***...***) à direita e, em seguida, selecione **Editar** no menu pop-up.
+1. Procure a expressão do modelo `Who is {Employee}['s] manager[?]`existente, e selecione a elipse ***(...)*** à direita e, em seguida, selecione **Editar** a partir do menu pop-up.
 
 1. Altere a expressão de modelo para: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
@@ -408,13 +408,13 @@ A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-2. Selecione **treinar** na barra de navegação para treinar o aplicativo.
+2. Selecione **Treinar** na barra de navegação para treinar a aplicação.
 
-3. Após a conclusão do treinamento, selecione **teste** na parte superior do painel para abrir o painel de teste.
+3. Depois de concluído o treino, selecione **Teste** na parte superior do painel para abrir o painel de testes.
 
 4. Introduza várias expressões de teste para verificar se o padrão é correspondido e a classificação da intenção é significativamente alta.
 
-    Depois de introduzir a primeira expressão, selecione **Inspect** (Inspecionar) sob o resultado, para que possa ver todos os resultados da predição. Cada expressão deve ter a intenção de **gerente de organograma** e deve extrair os valores para as entidades de Employee e datetimeV2.
+    Depois de introduzir a primeira expressão, selecione **Inspect** (Inspecionar) sob o resultado, para que possa ver todos os resultados da predição. Cada expressão deve ter a intenção **orgChart-Manager** e extrair os valores para as entidades de Empregado e dataV2.
 
     |Expressão|
     |--|
@@ -425,45 +425,45 @@ A utilização da sintaxe opcional dos parênteses retos, `[]`, faz com que este
     |`Who will be Jill Jones manager next Month`|
     |`Who will be Jill Jones manager in a month?`|
 
-Todas estas expressões encontraram as entidades dentro. Por isso, correspondem ao mesmo padrão e têm uma classificação de predição alta. Você adicionou alguns padrões que corresponderão a muitas variações de declarações. Você não precisa adicionar nenhum declarações de exemplo na intenção de que o modelo expressão funcione no padrão.
+Todas estas expressões encontraram as entidades dentro. Por isso, correspondem ao mesmo padrão e têm uma classificação de predição alta. Adicionou alguns padrões que combinarão com muitas variações de expressões. Não precisava de adicionar nenhum exemplo na intenção de ter o modelo a funcionar no padrão.
 
-Esse uso de padrões fornecidos:
+Esta utilização de padrões fornecidos:
 * pontuações de previsão mais altas
-* com o mesmo exemplo de declarações na intenção
-* com apenas alguns declarações de modelo bem construídos no padrão
+* com as mesmas declarações exemplo na intenção
+* com apenas algumas proclamações de modelo bem-construído no padrão
 
-### <a name="use-the-or-operator-and-groups"></a>Usar o operador OR e grupos
+### <a name="use-the-or-operator-and-groups"></a>Utilize o operador e grupos de OR
 
-Várias das declarações de modelo anteriores são muito próximas. Use o `()` de **grupo** e **ou** a sintaxe `|` para reduzir o modelo declarações.
+Várias das proclamações anteriores do modelo são muito próximas. Utilize a sintaxe do **grupo** `()` e **do OR** `|` para reduzir as expressões do modelo.
 
-Os dois padrões a seguir podem ser combinados em um único padrão usando a `()` de grupo e ou a sintaxe de `|`.
+Os seguintes 2 padrões podem combinar-se num único padrão usando o grupo `()` e a sintaxe DE. `|`
 
 |Intenção|Expressões de exemplo com texto opcional e entidades pré-criadas|
 |--|--|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-O novo modelo expressão será:
+A nova expressão do modelo será:
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-Isso usa um **grupo** em volta do verbo necessário conjugação e o `in` opcional e `on` com um pipe **ou** entre eles.
+Isto usa um **grupo** em torno do `in` verbo necessário e opcional e `on` com um **ou** tubo entre eles.
 
-1. Na página **padrões** , selecione o filtro do **gerente de organograma** . Restrinja a lista procurando `manager`.
+1. Na página **Padrões,** selecione o filtro **OrgChart-Manager.** Reduza a lista `manager`procurando por.
 
-1. Mantenha uma versão do modelo expressão (para editar na próxima etapa) e exclua as outras variações.
+1. Mantenha uma versão da expressão do modelo (para editar no próximo passo) e elimine as outras variações.
 
-1. Altere o modelo expressão para:
+1. Altere a expressão de modelo para: 
 
     `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
 
-2. Selecione **treinar** na barra de navegação para treinar o aplicativo.
+2. Selecione **Treinar** na barra de navegação para treinar a aplicação.
 
-3. Após a conclusão do treinamento, selecione **teste** na parte superior do painel para abrir o painel de teste.
+3. Depois de concluído o treino, selecione **Teste** na parte superior do painel para abrir o painel de testes.
 
-    Use o painel de teste para testar as versões do expressão:
+    Utilize o painel de teste para testar versões da expressão:
 
-    |Declarações para entrar no painel de teste|
+    |Expressões para entrar no painel de teste|
     |--|
     |`Who is Jill Jones manager this month`|
     |`Who is Jill Jones manager on July 5th`|
@@ -472,13 +472,13 @@ Isso usa um **grupo** em volta do verbo necessário conjugação e o `in` opcion
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-Usando mais sintaxe de padrão, você pode reduzir o número de declarações de modelo que precisa manter em seu aplicativo, enquanto ainda tem uma pontuação de previsão alta.
+Ao utilizar mais sintaxe de padrão, pode reduzir o número de expressões de modelo que tem de manter na sua aplicação, enquanto ainda tem uma pontuação de previsão elevada.
 
-### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Usar as âncoras inicial e final do expressão
+### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Use as âncoras de início e final de expressão
 
-A sintaxe de padrão fornece a sintaxe de âncora expressão inicial e final de um cursor, `^`. As âncoras expressão inicial e final podem ser usadas juntas para direcionar expressão muito específicos e, possivelmente, literais, ou usadas separadamente para as intenções de destino.
+A sintaxe padrão fornece sintaxe de âncora de `^`início e fim de um cuidador, . As âncoras de expressão inicial e final podem ser usadas em conjunto para visar uma expressão muito específica e possivelmente literal ou usadas separadamente para visar as intenções.
 
-## <a name="using-patternany-entity"></a>Usando o padrão. qualquer entidade
+## <a name="using-patternany-entity"></a>Usando O Padrão.qualquer entidade
 
 A entidade pattern.any permite localizar dados de forma livre em que o texto da entidade dificulta distinguir o final da entidade do resto da expressão.
 
@@ -508,7 +508,7 @@ O comprimento variado inclui palavras que podem confundir o LUIS sobre onde term
 |Quem é o autor de {FormName}[?]|
 |{FormName} está publicado em francês[?]|
 
-### <a name="add-example-utterances-with-patternany"></a>Adicione o exemplo declarações com padrão. any
+### <a name="add-example-utterances-with-patternany"></a>Adicione pronunciações de exemplo com Padrão.qualquer
 
 1. Selecione **Compilar** no painel de navegação superior e, em seguida, selecione **Intenções** no painel de navegação esquerdo.
 
@@ -516,21 +516,21 @@ O comprimento variado inclui palavras que podem confundir o LUIS sobre onde term
 
 1. Adicione algumas expressões de exemplo:
 
-    |Expressão de exemplo|Nome do formulário|
+    |Expressão de exemplo|Nome de formulário|
     |--|--|
-    |Onde está o formulário **O que fazer quando um incêndio deflagra no laboratório** e quem precisa de iniciar sessão depois de eu o ler?|O que fazer quando um incêndio é interrompido no laboratório
-    |Onde está **Pedir transferência do colaborador que é novo na empresa** no servidor?|Realocação de solicitação do funcionário novo para a empresa|
-    |Quem é o autor de “**Pedidos relacionados com saúde e bem-estar no campus principal**” e qual é a versão mais atual?|Solicitações de integridade e bem-estar no campus principal|
-    |Estou à procura do formulário com o nome “**Pedidos de mudança de escritório, incluindo os recursos físicos**”. |Solicitação de movimentação do Office, incluindo ativos físicos|
+    |Onde está o formulário **O que fazer quando um incêndio deflagra no laboratório** e quem precisa de iniciar sessão depois de eu o ler?|O que fazer quando um incêndio deflagra no Laboratório
+    |Onde está **Pedir transferência do colaborador que é novo na empresa** no servidor?|Pedido de deslocalização de empregado novo para a empresa|
+    |Quem é o autor de “**Pedidos relacionados com saúde e bem-estar no campus principal**” e qual é a versão mais atual?|Pedidos de saúde e bem-estar no campus principal|
+    |Estou à procura do formulário com o nome “**Pedidos de mudança de escritório, incluindo os recursos físicos**”. |Pedido de movimentação de escritório, incluindo bens físicos|
 
     Sem uma entidade Pattern.any, o LUIS teria dificuldade em compreender onde termina o título do formulário, devido a muitas variações de nomes do formulário.
 
 ### <a name="create-a-patternany-entity"></a>Criar uma entidade Pattern.any
-A entidade Pattern.any extrai entidades de comprimento variável. Ele funciona apenas em um padrão porque o padrão marca o início e o final da entidade com sintaxe.
+A entidade Pattern.any extrai entidades de comprimento variável. Só funciona num padrão porque o padrão marca o início e o fim da entidade com sintaxe.
 
 1. Selecione **Entidades** no painel de navegação esquerdo.
 
-1. Selecione **+ criar**, insira o nome `FormName`e selecione **padrão. qualquer** como o tipo. Selecione **Criar**.
+1. Selecione **+ Criar,** introduza o nome, `FormName`e selecione **Pattern.qualquer como** o tipo. Selecione **Criar**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Adicionar um padrão que utiliza o Pattern.any
 
@@ -566,9 +566,9 @@ A entidade Pattern.any extrai entidades de comprimento variável. Ele funciona a
 
 Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](reference-pattern-syntax.md#explicit-lists) para corrigir este problema.
 
-## <a name="what-did-this-tutorial-accomplish"></a>O que este tutorial obteve?
+## <a name="what-did-this-tutorial-accomplish"></a>O que este tutorial conseguiu?
 
-Este tutorial adicionou padrões para ajudar a LUIS a prever a intenção com uma pontuação significativamente mais alta sem a necessidade de adicionar mais declarações de exemplo. A marcação de entidades e de texto ignorável permitiu que o LUIS aplicasse o padrão a uma maior variedade de expressões.
+Este tutorial acrescentou padrões para ajudar luis a prever a intenção com uma pontuação significativamente mais alta sem ter que adicionar mais declarações de exemplo. A marcação de entidades e de texto ignorável permitiu que o LUIS aplicasse o padrão a uma maior variedade de expressões.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

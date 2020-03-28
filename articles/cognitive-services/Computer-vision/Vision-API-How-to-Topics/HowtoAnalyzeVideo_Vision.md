@@ -1,7 +1,7 @@
 ---
-title: Analise vídeos quase em tempo real Pesquisa Visual Computacional
+title: Analisar vídeos em tempo quase real - Visão computacional
 titleSuffix: Azure Cognitive Services
-description: Saiba como executar uma análise quase em tempo real em quadros que são tirados de um fluxo de vídeo ao vivo usando o API da Pesquisa Visual Computacional.
+description: Aprenda a realizar análises quase em tempo real em quadros que são retirados de um fluxo de vídeo ao vivo utilizando a API computer Vision.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,30 +12,30 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76166835"
 ---
-# <a name="analyze-videos-in-near-real-time"></a>Analise vídeos quase em tempo real
+# <a name="analyze-videos-in-near-real-time"></a>Analisar vídeos em tempo quase real
 
-Este artigo demonstra como executar uma análise quase em tempo real em quadros que são tirados de um fluxo de vídeo ao vivo usando o API da Pesquisa Visual Computacional. Os elementos básicos de tal análise são:
+Este artigo demonstra como realizar análises quase em tempo real em quadros que são retirados de um fluxo de vídeo ao vivo usando a API computer Vision. Os elementos básicos de tal análise são:
 
 - Adquirindo quadros de uma fonte de vídeo.
-- Selecionando os quadros a serem analisados.
-- Enviando esses quadros para a API.
-- Consumir cada resultado de análise que é retornado da chamada à API.
+- Selecionando quais quadros analisar.
+- Submeter estes quadros à API.
+- Consumir cada resultado de análise que é devolvido da chamada da API.
 
-Os exemplos neste artigo são escritos em C#. Para acessar o código, vá para a página de [exemplo de análise de quadros de vídeo](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) no github.
+As amostras deste artigo estão escritas em C#. Para aceder ao código, aceda à página de amostras de análise de [imagens](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) de vídeo no GitHub.
 
-## <a name="approaches-to-running-near-real-time-analysis"></a>Abordagens para executar análise quase em tempo real
+## <a name="approaches-to-running-near-real-time-analysis"></a>Abordagens para correr perto da análise em tempo real
 
-Você pode resolver o problema de executar uma análise quase em tempo real em fluxos de vídeo usando uma variedade de abordagens. Este artigo descreve três deles, em níveis crescentes de sofisticação.
+Você pode resolver o problema de correr perto de análiseem em tempo real em streams de vídeo usando uma variedade de abordagens. Este artigo descreve três deles, em níveis crescentes de sofisticação.
 
-### <a name="design-an-infinite-loop"></a>Criar um loop infinito
+### <a name="design-an-infinite-loop"></a>Desenhe um laço infinito
 
-O design mais simples para análise quase em tempo real é um loop infinito. Em cada iteração desse loop, você pega um quadro, analisa-o e, em seguida, consome o resultado:
+O design mais simples para análise quase em tempo real é um loop infinito. Em cada iteração deste loop, você pega uma moldura, analisa-a e, em seguida, consome o resultado:
 
 ```csharp
 while (true)
@@ -49,11 +49,11 @@ while (true)
 }
 ```
 
-Se sua análise fosse consistir em um algoritmo leve do lado do cliente, essa abordagem seria adequada. No entanto, quando a análise ocorre na nuvem, a latência resultante significa que uma chamada à API pode levar vários segundos. Durante esse tempo, você não está capturando imagens, e seu thread, essencialmente, não faz nada. A taxa máxima de quadros é limitada pela latência das chamadas à API.
+Se a sua análise consistisse num algoritmo leve e do lado do cliente, esta abordagem seria adequada. No entanto, quando a análise ocorre na nuvem, a latência resultante significa que uma chamada de API pode demorar alguns segundos. Durante este tempo, não estás a captar imagens, e o teu fio não está essencialmente a fazer nada. A sua taxa de fotogramas máxima é limitada pela latência das chamadas API.
 
-### <a name="allow-the-api-calls-to-run-in-parallel"></a>Permitir que as chamadas à API sejam executadas em paralelo
+### <a name="allow-the-api-calls-to-run-in-parallel"></a>Permitir que as chamadas da API corram paralelamente
 
-Embora um loop simples, de thread único faça sentido para um algoritmo leve do lado do cliente, ele não se ajusta bem à latência de uma chamada à API de nuvem. A solução para esse problema é permitir que a chamada de API de longa execução seja executada em paralelo com a captura de quadros. No C#, você pode fazer isso usando paralelismo baseado em tarefa. Por exemplo, você pode executar o seguinte código:
+Embora um loop simples e de roscar-se faça sentido para um algoritmo leve e do lado do cliente, não se encaixa bem com a latência de uma chamada de API em nuvem. A solução para este problema é permitir que a chamada a API de longa duração seja executada em paralelo com o que agarra o quadro. Em C#, você poderia fazê-lo usando o paralelismo baseado em tarefas. Por exemplo, pode executar o seguinte código:
 
 ```csharp
 while (true)
@@ -70,14 +70,14 @@ while (true)
 }
 ```
 
-Com essa abordagem, você inicia cada análise em uma tarefa separada. A tarefa pode ser executada em segundo plano enquanto você continua a captar novos quadros. A abordagem evita o bloqueio do thread principal à medida que você aguarda uma chamada à API retornar. No entanto, a abordagem pode apresentar determinadas desvantagens:
-* Ele custa a você algumas das garantias que a versão simples fornecida. Ou seja, várias chamadas à API podem ocorrer em paralelo, e os resultados podem ser retornados na ordem errada. 
-* Ele também pode fazer com que vários threads insiram a função ConsumeResult () simultaneamente, o que pode ser perigoso se a função não for thread-safe. 
-* Por fim, esse código simples não mantém o controle das tarefas que são criadas, portanto, as exceções desaparecem silenciosamente. Portanto, você precisa adicionar um thread de "consumidor" que acompanha as tarefas de análise, gera exceções, elimina tarefas de execução longa e garante que os resultados sejam consumidos na ordem correta, um de cada vez.
+Com esta abordagem, lança-se cada análise numa tarefa separada. A tarefa pode ser executada em segundo plano enquanto continua a agarrar novos quadros. A abordagem evita bloquear o fio principal enquanto espera que uma chamada da API regresse. No entanto, a abordagem pode apresentar certas desvantagens:
+* Custa-lhe algumas das garantias que a versão simples forneceu. Ou seja, várias chamadas aPi podem ocorrer em paralelo, e os resultados podem ser devolvidos na ordem errada. 
+* Também pode fazer com que vários fios entrem simultaneamente na função ConsumeResult, o que pode ser perigoso se a função não for segura em fios. 
+* Finalmente, este código simples não acompanha as tarefas que são criadas, por isso as exceções desaparecem silenciosamente. Assim, é necessário adicionar um fio "consumidor" que rastreie as tarefas de análise, levante exceções, mate tarefas de longa duração e garanta que os resultados são consumidos na ordem correta, uma de cada vez.
 
-### <a name="design-a-producer-consumer-system"></a>Criar um sistema produtor-consumidor
+### <a name="design-a-producer-consumer-system"></a>Conceber um sistema produtor-consumidor
 
-Para sua abordagem final, criando um sistema de "produtor-consumidor", você cria um thread de produtor parecido com o loop infinito mencionado anteriormente. No entanto, em vez de consumir os resultados da análise assim que estiverem disponíveis, o produtor simplesmente coloca as tarefas em uma fila para manter o controle delas.
+Para a sua abordagem final, projetando um sistema de "produtor-consumidor", você constrói um fio de produtor que se parece com o seu loop infinito anteriormente mencionado. No entanto, em vez de consumir os resultados da análise assim que estão disponíveis, o produtor simplesmente coloca as tarefas numa fila para acompanhar os resultados.
 
 ```csharp
 // Queue that will contain the API call tasks.
@@ -114,7 +114,7 @@ while (true)
 }
 ```
 
-Você também cria um thread de consumidor, que retira as tarefas da fila, aguarda que elas sejam concluídas e exibe o resultado ou gera a exceção que foi lançada. Usando a fila, você pode garantir que os resultados sejam consumidos um de cada vez, na ordem correta, sem limitar a taxa máxima de quadros do sistema.
+Também cria um fio de consumo, que tira as tarefas da fila, espera que terminem, e ou exibe o resultado ou levanta a exceção que foi lançada. Ao utilizar a fila, pode garantir que os resultados são consumidos um de cada vez, na ordem correta, sem limitar a taxa máxima de fotogramas do sistema.
 
 ```csharp
 // Consumer thread.
@@ -140,15 +140,15 @@ while (true)
 
 ## <a name="implement-the-solution"></a>Implementar a solução
 
-### <a name="get-started-quickly"></a>Início rápido
+### <a name="get-started-quickly"></a>Começar rapidamente
 
-Para ajudar a colocar seu aplicativo em funcionamento o mais rápido possível, implementamos o sistema descrito na seção anterior. Ele se destina a ser flexível o suficiente para acomodar muitos cenários, embora seja fácil de usar. Para acessar o código, vá para a página de [exemplo de análise de quadros de vídeo](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) no github.
+Para ajudar a pôr a sua aplicação a funcionar o mais rapidamente possível, implementamos o sistema descrito na secção anterior. Pretende-se ser flexível o suficiente para acomodar muitos cenários, ao mesmo tempo que é fácil de usar. Para aceder ao código, aceda à página de amostras de análise de [imagens](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) de vídeo no GitHub.
 
-A biblioteca contém a classe `FrameGrabber`, que implementa o sistema do consumidor produtor discutido anteriormente para processar quadros de vídeo de uma webcam. Os usuários podem especificar a forma exata da chamada à API, e a classe usa eventos para permitir que o código de chamada saiba quando um novo quadro é adquirido ou quando um novo resultado de análise está disponível.
+A biblioteca `FrameGrabber` contém a classe, que implementa o sistema de produção-consumidor previamente discutido para processar quadros de vídeo a partir de uma webcam. Os utilizadores podem especificar a forma exata da chamada API, e a classe utiliza eventos para informar o código de chamada quando um novo quadro é adquirido, ou quando um novo resultado de análise está disponível.
 
-Para ilustrar algumas das possibilidades, fornecemos dois aplicativos de exemplo que usam a biblioteca. 
+Para ilustrar algumas das possibilidades, fornecemos duas aplicações de amostra que usam a biblioteca. 
 
-O primeiro aplicativo de exemplo é um aplicativo de console simples que captura quadros da webcam padrão e os envia para o serviço de face para detecção facial. Uma versão simplificada do aplicativo é reproduzida no código a seguir:
+A primeira aplicação de amostra é uma simples aplicação de consola que agarra os quadros da webcam padrão e depois os submete ao serviço Face para deteção facial. Uma versão simplificada da aplicação é reproduzida no seguinte código:
 
 ```csharp
 using System;
@@ -218,34 +218,34 @@ namespace BasicConsoleSample
 }
 ```
 
-O segundo aplicativo de exemplo é um pouco mais interessante. Ele permite que você escolha qual API deve ser chamada nos quadros de vídeo. No lado esquerdo, o aplicativo mostra uma visualização do vídeo ao vivo. À direita, ele sobrepõe o resultado da API mais recente no quadro correspondente.
+A segunda aplicação de amostras é um pouco mais interessante. Permite-lhe escolher qual a API a ligar nos quadros de vídeo. Do lado esquerdo, a aplicação mostra uma pré-visualização do vídeo ao vivo. À direita, sobrepõe-se ao resultado mais recente da API no quadro correspondente.
 
-Na maioria dos modos, há um atraso visível entre o vídeo ao vivo à esquerda e a análise visualizada à direita. Esse atraso é o tempo necessário para fazer a chamada à API. Uma exceção está no modo "EmotionsWithClientFaceDetect", que executa a detecção facial localmente no computador cliente usando OpenCV antes de enviar qualquer imagem para os serviços cognitivas do Azure. 
+Na maioria dos modos, há um atraso visível entre o vídeo ao vivo à esquerda e a análise visualizada à direita. Este atraso é o tempo que leva para fazer a chamada da API. Uma exceção está no modo "EmotionsWithClientFaceDetect", que realiza a deteção facial localmente no computador cliente, utilizando o OpenCV antes de submeter quaisquer imagens aos Serviços Cognitivos Azure. 
 
-Usando essa abordagem, você pode visualizar a face detectada imediatamente. Em seguida, você pode atualizar as emoções mais tarde, depois que a chamada à API retorna. Isso demonstra a possibilidade de uma abordagem "híbrida". Ou seja, um processamento simples pode ser executado no cliente e, em seguida, API de Serviços Cognitivos pode ser usado para aumentar esse processamento com uma análise mais avançada quando necessário.
+Ao utilizar esta abordagem, pode visualizar imediatamente o rosto detetado. Em seguida, pode atualizar as emoções mais tarde, após o retorno da chamada da API. Isto demonstra a possibilidade de uma abordagem "híbrida". Ou seja, alguns processamentos simples podem ser realizados no cliente, e então as APIs de Serviços Cognitivos podem ser usadas para aumentar este processamento com análises mais avançadas quando necessário.
 
-![O aplicativo LiveCameraSample exibindo uma imagem com marcas](../../Video/Images/FramebyFrame.jpg)
+![A aplicação LiveCameraSample que exibe uma imagem com tags](../../Video/Images/FramebyFrame.jpg)
 
-### <a name="integrate-the-samples-into-your-codebase"></a>Integre os exemplos à sua base de código
+### <a name="integrate-the-samples-into-your-codebase"></a>Integre as amostras na sua base de códigos
 
-Para começar a usar este exemplo, faça o seguinte:
+Para começar com esta amostra, faça o seguinte:
 
-1. Obtenha as chaves de API para as APIs de Visão a partir de [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Para a análise de quadros de vídeo, os serviços aplicáveis são:
-    - [Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. Clone o repositório GitHub [cognitiva-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) .
+1. Obtenha as chaves de API para as APIs de Visão a partir de [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Para análise de quadros de vídeo, os serviços aplicáveis são:
+    - [Visão Computorizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+    - [Rostos](https://docs.microsoft.com/azure/cognitive-services/face/overview)
+2. Clone o repo [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
 
-3. Abra o exemplo no Visual Studio 2015 ou posterior e, em seguida, compile e execute os aplicativos de exemplo:
-    - Para BasicConsoleSample, a chave de face é embutida em código diretamente em [BasicConsoleSample/Program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
-    - Para LiveCameraSample, insira as chaves no painel **configurações** do aplicativo. As chaves são mantidas entre as sessões como dados do usuário.
+3. Abra a amostra no Visual Studio 2015 ou mais tarde, e depois construa e execute as aplicações da amostra:
+    - Para BasicConsoleSample, a tecla Face está codificada diretamente em [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Para o LiveCameraSample, introduza as teclas no painel **definições** da aplicação. As chaves são perspertes em sessões como dados do utilizador.
 
-Quando estiver pronto para integrar os exemplos, faça referência à biblioteca VideoFrameAnalyzer de seus próprios projetos.
+Quando estiver pronto para integrar as amostras, faça referência à biblioteca VideoFrameAnalyzer dos seus próprios projetos.
 
-Os recursos de imagem, voz, vídeo e texto-entendendo do VideoFrameAnalyzer usam os serviços cognitivas do Azure. A Microsoft recebe imagens, áudio, vídeo e outros dados que você carrega (por meio deste aplicativo) e pode usá-los para fins de aprimoramento de serviço. Pedimos a sua ajuda para proteger as pessoas cujos dados são enviados para os Serviços Cognitivos do Azure através da sua aplicação.
+As capacidades de imagem, voz, vídeo e compreensão de texto do VideoFrameAnalyzer utilizam serviços cognitivos Azure. A Microsoft recebe as imagens, áudio, vídeo e outros dados que envia (através desta aplicação) e pode utilizá-las para fins de melhoria de serviços. Pedimos a sua ajuda para proteger as pessoas cujos dados são enviados para os Serviços Cognitivos do Azure através da sua aplicação.
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, você aprendeu como executar uma análise quase em tempo real em fluxos de vídeo ao vivo usando os serviços de face e Pesquisa Visual Computacional. Você também aprendeu como é possível usar nosso código de exemplo para começar. Para começar a criar seu aplicativo usando as chaves de API gratuitas, vá para a [página de inscrição dos serviços cognitivas do Azure](https://azure.microsoft.com/try/cognitive-services/).
+Neste artigo, aprendeu a executar perto de análises em tempo real em streams de vídeo ao vivo utilizando os serviços Face e Computer Vision. Também aprendeste como podes usar o nosso código de amostra para começar. Para começar a construir a sua aplicação utilizando chaves API gratuitas, vá à página de inscrição do [Serviço Cognitivo Azure](https://azure.microsoft.com/try/cognitive-services/).
 
-Sinta-se à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Para fornecer comentários mais amplos sobre a API, acesse nosso [site UserVoice](https://cognitive.uservoice.com/).
+Sinta-se livre para fornecer feedback e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Para fornecer feedback API mais amplo, vá ao nosso [site UserVoice](https://cognitive.uservoice.com/).
 

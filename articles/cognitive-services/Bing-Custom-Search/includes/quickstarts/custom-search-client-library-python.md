@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
 ms.openlocfilehash: ec0ffdcf86e67a7126a3100c1e20b6e5c3474e35
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78252885"
 ---
 Começa com a biblioteca de clientes bing Custom Search para python. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada Bing permite-lhe criar experiências de pesquisa personalizadas e sem anúncios para tópicos com os seus interesses. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py).
@@ -20,7 +20,7 @@ Começa com a biblioteca de clientes bing Custom Search para python. Siga estes 
 Utilize a biblioteca de clientes Bing Custom Search para Python para:
 * Encontre os resultados da pesquisa na web, a partir da sua instância de Pesquisa Personalizada Bing.
 
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python) | [código fonte | ](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) Pacote [(PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python) | [Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) | [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,13 +58,13 @@ from msrest.authentication import CognitiveServicesCredentials
     endpoint = 'your-endpoint'
     ```
 
-2. Crie uma instância de `CustomSearchClient`, utilizando um objeto `CognitiveServicesCredentials` com a chave de subscrição. 
+2. Crie uma `CustomSearchClient`instância `CognitiveServicesCredentials` de , usando um objeto com a chave de subscrição. 
 
     ```python
     client = CustomSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
-3. Envie um pedido de pesquisa com `client.custom_instance.search()`. Acomode o seu termo de pesquisa ao parâmetro `query` e defina `custom_config` para o seu ID de Configuração Personalizada para utilizar a sua instância de pesquisa. Pode obter o seu ID no [portal bing Custom Search,](https://www.customsearch.ai/)clicando no separador **Produção.**
+3. Envie um pedido `client.custom_instance.search()`de pesquisa com . Acomode o seu `query` termo de `custom_config` pesquisa ao parâmetro e reserve para o seu ID de Configuração Personalizada para utilizar a sua instância de pesquisa. Pode obter o seu ID no [portal bing Custom Search,](https://www.customsearch.ai/)clicando no separador **Produção.**
 
     ```python
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")

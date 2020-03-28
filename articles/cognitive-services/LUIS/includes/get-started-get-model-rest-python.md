@@ -1,5 +1,5 @@
 ---
-title: Obtenha modelo com chamada RESTC#
+title: 'Obtenha modelo com chamada REST em C #'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: diberry
 ms.openlocfilehash: 4d8da7d2bc51c4fc4ebc8d71f230f24f20b3aa24
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77368448"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
-* O ID da aplicação LUIS para a app TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
-* A versão ID dentro da aplicação que recebe as palavras. O ID predefinido é "0.1".
-* [Python 3.6](https://www.python.org/downloads/) ou posterior.
-* [Visual Studio Code](https://code.visualstudio.com/)
+* O ID da aplicação LUIS para a aplicação TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
+* O ID da versão na aplicação que recebe as expressões. O ID predefinido é "0.1".
+* [Python 3.6](https://www.python.org/downloads/) ou mais tarde.
+* [Código de estúdio visual](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
 
@@ -34,7 +34,7 @@ ms.locfileid: "77368448"
 
     [!code-python[Add example utterances to Language Understanding in python](~/samples-luis/documentation-samples/quickstarts/change-model/python/3.x/add-utterances-3-6.py)]
 
-1. Substitua os valores a partir de `YOUR-` pelos seus próprios valores.
+1. Substitua os valores a começar pelos `YOUR-` seus próprios valores.
 
     |Informações|Objetivo|
     |--|--|

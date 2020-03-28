@@ -10,14 +10,16 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 91a63e87e937eab4c02d2b86026aa09472cb15ef
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2863a086343b0a5d3bc69ae319dbe93d557bcb4a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561103"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052933"
 ---
 # <a name="what-is-the-qna-maker-service"></a>O que é o serviço QnA Maker?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../../includes/cognitive-services-tls-announcement.md)]
 
 QnA Maker é um serviço de processamento de linguagem natural baseado na nuvem (NLP) que cria facilmente uma camada de conversação natural sobre os seus dados. Pode ser usado para encontrar a resposta mais adequada para qualquer entrada de linguagem natural, a partir da sua base de conhecimento personalizada (KB) de informação.
 
@@ -79,7 +81,7 @@ Depois de a base de conhecimento receber perguntas dos utilizadores no ponto fin
 A QnA Maker fornece autoria, formação e publicação, juntamente com permissões de colaboração para integrar em todo o ciclo de vida de desenvolvimento.
 
 > [!div class="mx-imgBorder"]
-> ![imagem conceptual do ciclo de desenvolvimento](../media/qnamaker-overview-learnabout/development-cycle.png)
+> ![Imagem conceptual do ciclo de desenvolvimento](../media/qnamaker-overview-learnabout/development-cycle.png)
 
 
 ## <a name="how-do-i-start"></a>Como posso começar?

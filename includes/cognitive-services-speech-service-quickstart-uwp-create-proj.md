@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: 6804834dab81b0774dd29b1ede836492d0dfea4b
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78384004"
 ---
 Para criar um projeto de Estúdio Visual para o desenvolvimento da Universal Windows Platform (UWP), é necessário configurar opções de desenvolvimento do Estúdio Visual, criar o projeto, selecionar a arquitetura-alvo, configurar a captura de áudio e instalar o Speech SDK.
@@ -37,17 +37,17 @@ Para começar, certifique-se de que está configurado corretamente no Estúdio V
 
 Em seguida, crie o seu projeto:
 
-1. Na barra de menus do Estúdio Visual, escolha **file** > **New** > **Project** para exibir a janela criar uma nova janela de **projeto.**
+1. Na barra de menus do Estúdio Visual, escolha **o File** > **New** > **Project** para exibir a janela criar uma nova janela de **projeto.**
 
    ![Criar um novo projeto - Estúdio Visual](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
-1. Encontre e selecione **App Em Branco (Universal Windows)** . Certifique-se de C# que seleciona a versão deste tipo de projeto (em oposição ao Visual Basic).
+1. Encontre e selecione **App Em Branco (Universal Windows)**. Certifique-se de que seleciona a versão C# deste tipo de projeto (em oposição ao Visual Basic).
 
 1. Selecione **Next** para exibir o seu novo ecrã de **projeto.**
 
    ![Configure o seu novo projeto - Estúdio Visual](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
-1. Em **nome do Projeto,** insira `helloworld`.
+1. No nome do `helloworld` **Projeto,** insira .
 
 1. No **Local,** navegue e selecione ou crie a pasta para guardar o seu projeto.
 
@@ -55,7 +55,7 @@ Em seguida, crie o seu projeto:
 
    ![Nova caixa de diálogo universal windows platform project - Estúdio Visual](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
-1. Na **versão Mínima** (segunda caixa de drop-down), escolha a Atualização dos Criadores de outono do Windows **10 (10.0; Construir 16299)** , que é o requisito mínimo para o SDK do discurso.
+1. Na **versão Mínima** (segunda caixa de drop-down), escolha a Atualização dos Criadores de outono do Windows **10 (10.0; Construir 16299)**, que é o requisito mínimo para o SDK do discurso.
 
 1. Na **versão Target** (a primeira caixa de entrega), escolha um valor idêntico ou posterior ao valor na versão **Mínima**.
 
@@ -63,7 +63,7 @@ Em seguida, crie o seu projeto:
 
    ![Projeto Helloworld - Estúdio Visual](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
 
-Agora selecione a arquitetura da plataforma alvo. Na barra de ferramentas do Estúdio Visual, encontre a caixa de drop-down das **Plataformas Solutions.** (Se não o vir, escolha **ver** > barras de **ferramentas** > **Standard** para exibir a barra de ferramentas que contém plataformas de **soluções**.) Se estiver a executar o Windows de 64 bits, escolha **x64** na caixa de lançamento. O Windows de 64 bits também pode executar aplicações de 32 bits, pelo que pode escolher **x86,** se preferir.
+Agora selecione a arquitetura da plataforma alvo. Na barra de ferramentas do Estúdio Visual, encontre a caixa de drop-down das **Plataformas Solutions.** (Se não o vir, escolha **'Ver** > **Toolbars** > **Standard'** para exibir a barra de ferramentas que contém plataformas de **soluções**.) Se estiver a executar o Windows de 64 bits, escolha **x64** na caixa de lançamento. O Windows de 64 bits também pode executar aplicações de 32 bits, pelo que pode escolher **x86,** se preferir.
 
 > [!NOTE]
 > O SDK de Fala apenas suporta processadores compatíveis com a Intel. Atualmente, os processadores ARM não são suportados.
@@ -74,7 +74,7 @@ Em seguida, permitir que o projeto capture a entrada de áudio:
 
 1. No **Solution Explorer,** clique duas vezes **em Pacote.appxmanifest** para abrir o manifesto de aplicação do pacote.
 
-1. Selecione o separador **Capacidades.**
+1. Selecione o separador **Capabilities** (Funcionalidades).
 
    ![Separador de capacidades, manifesto de aplicação de pacote - Estúdio Visual](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-07-capabilities.png)
 
@@ -94,7 +94,7 @@ Por fim, instale o [pacote NuGet Speech SDK](https://aka.ms/csspeech/nuget)e fa�
 
 1. Na **fonte do pacote,** escolha **nuget.org**.
 
-1. Na caixa **de pesquisa,** introduza `Microsoft.CognitiveServices.Speech`, e depois escolha esse pacote depois de aparecer nos resultados da pesquisa.
+1. Na caixa de `Microsoft.CognitiveServices.Speech` **pesquisa,** introduza , e depois escolha esse pacote depois de aparecer nos resultados da pesquisa.
 
    ![Captura de ecrã da caixa de diálogo Gerir Pacotes para Solução](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
 

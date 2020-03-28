@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924873"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Node.js. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
@@ -20,7 +20,7 @@ A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Sea
 Quer ver o código imediatamente? As amostras para as [bibliotecas de clientes Bing Search para JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) estão disponíveis no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Aqui estão algumas coisas de que precisará antes de executar este início rápido:
+Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [Node.js 6](https://nodejs.org/en/download/) ou posterior
 * Uma chave de subscrição  
@@ -102,7 +102,7 @@ Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de re
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Exemplos do SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [Amostras de Node.js SDK de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
 ## <a name="see-also"></a>Consulte também
 

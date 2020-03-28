@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943916"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
@@ -45,7 +45,7 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
   
 2. Navegue para o [portal](https://customsearch.ai) da pesquisa personalizada.  
   
-3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver um MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que usa o portal, pedirá permissões para aceder aos seus dados. Clique em **Sim**.  
+3. Inicie sessão no portal com uma conta Microsoft (MSA). Se não tiver um MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que usa o portal, pedirá permissões para aceder aos seus dados. Clique **sim**.  
   
 4. Depois de iniciar sessão, clique em **Nova pesquisa personalizada**. Na **janela Criar uma nova janela** de instância de pesquisa personalizada, insira um nome significativo e descreva o tipo de conteúdo que a pesquisa retorna. Pode alterar o nome em qualquer altura.  
   
@@ -209,7 +209,7 @@ Efetuar uma pesquisa compõe resultados como os seguintes:
 
 ![Captura de ecrã de resultados de pesquisa personalizada](./media/custom-search-webapp-results.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Chamar o ponto final de Pesquisa Personalizada do Bing (C#)](../call-endpoint-csharp.md)

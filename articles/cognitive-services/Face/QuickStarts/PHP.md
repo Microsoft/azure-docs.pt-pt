@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: detetar rostos numa imagem com a API REST e PHP'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você detecta rostos de uma imagem usando a API REST de face com PHP.
+description: Neste arranque rápido, deteta rostos de uma imagem utilizando a API Face REST com PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 0f76ec4ce1072b247be7f46610d37190cd282a22
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169743"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: detetar rostos numa imagem com a API REST e PHP
 
-Neste guia de início rápido, você usará a API REST do Azure face com PHP para detectar faces humanas em uma imagem.
+Neste arranque rápido, você usará a API Face Face Azur com PHP para detetar rostos humanos numa imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura facial. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de face e obter sua chave.
-- Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download).
-- O pacote de [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) do php.
-- Um navegador da Web habilitado para PHP. Se você não tiver configurado isso, poderá fazer isso instalando e Configurando o [XAMPP](https://www.apachefriends.org/) em seu computador.
+- Uma chave de subscrição Face. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face e obter a sua chave.
+- Um editor de código como [Visual Studio Code.](https://code.visualstudio.com/download)
+- O pacote [de HTTP_Request2](https://pear.php.net/package/HTTP_Request2) PHP.
+- Um navegador web ativado por PHP. Se não tiver configurado isto, pode fazê-lo instalando e configurando [o XAMPP](https://www.apachefriends.org/) na sua máquina.
 
-## <a name="initialize-the-html-file"></a>Inicializar o arquivo HTML
+## <a name="initialize-the-html-file"></a>Inicializar o ficheiro HTML
 
-Crie um novo arquivo HTML, *detectFaces. html*, e adicione o código a seguir.
+Crie um novo ficheiro HTML, *detecteFaces.html,* e adicione o seguinte código.
 
 ```html
 <html>
@@ -41,9 +41,9 @@ Crie um novo arquivo HTML, *detectFaces. html*, e adicione o código a seguir.
 </html>
 ```
 
-## <a name="write-the-php-script"></a>Gravar o script PHP
+## <a name="write-the-php-script"></a>Escreva o script PHP
 
-Adicione o seguinte código dentro do elemento `body` do documento. Esse código configura uma interface do usuário básica com um campo de URL, um botão **analisar face** , um painel de resposta e um painel de exibição de imagem.
+Adicione o seguinte `body` código dentro do elemento do documento. Este código configura uma interface básica do utilizador com um campo URL, um botão **de rosto De Análise,** um painel de resposta e um painel de visualização de imagem.
 
 ```php
 <?php
@@ -99,13 +99,13 @@ catch (HttpException $ex)
 ?>
 ```
 
-Você precisará atualizar o campo `subscriptionKey` com o valor de sua chave de assinatura, e precisará alterar a cadeia de caracteres de `uriBase` para que ela contenha a cadeia de caracteres de ponto de extremidade correta. O campo `returnFaceAttributes` especifica quais atributos de face recuperar; Talvez você queira alterar essa cadeia de caracteres dependendo do uso pretendido.
+Terá de atualizar o `subscriptionKey` campo com o valor da sua chave `uriBase` de subscrição e terá de alterar a cadeia de modo a conter a cadeia de ponto final correto. O `returnFaceAttributes` campo especifica quais os atributos faciais a recuperar; pode querer alterar esta cadeia dependendo da sua utilização pretendida.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>Executar o script
 
-Abra o arquivo em um navegador da Web habilitado para PHP. Você deve obter uma cadeia de caracteres JSON de dados de face, como o seguinte.
+Abra o ficheiro num navegador web ativado por PHP. Deve obter uma série de dados do Rosto da JSON, como os seguintes.
 
 ```json
 [
@@ -288,7 +288,7 @@ Abra o arquivo em um navegador da Web habilitado para PHP. Você deve obter uma 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as API de Detecção Facial usadas para detectar faces humanas em uma imagem, demarcar as faces com retângulos e retornar atributos como idade e sexo.
+Explore a API facial usada para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos como a idade e o género.
 
 > [!div class="nextstepaction"]
 > [APIs Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

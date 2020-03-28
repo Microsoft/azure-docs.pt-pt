@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Utilizar o Go para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
+description: Obtenha informações e amostras de código para ajudá-lo a começar rapidamente a usar a API de Análise de Texto em Serviços Cognitivos Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378772"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o Go para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com o go.
+Este artigo mostra-lhe como [detetar linguagem,](#Detect) [analisar o sentimento,](#SentimentAnalysis) [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades ligadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de Análise de Texto com Go.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -39,9 +39,9 @@ A API Deteção de Idioma deteta o idioma de um documento de texto através do [
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
-1. Copie sua chave de API de Análise de Texto e o ponto de extremidade no código.
+1. Copie a sua tecla API de Análise de Texto e ponto final no código.
 1. Guarde o ficheiro com uma extensão ".go".
-1. Abra um prompt de comando em um computador com o go instalado de sua pasta raiz.
+1. Abra um pedido de comando num computador com o Go instalado a partir da sua pasta raiz.
 1. Crie o ficheiro, por exemplo: `go build detect.go`.
 1. Execute o ficheiro, por exemplo: `go run detect.go`.
 
@@ -121,7 +121,7 @@ func main() {
 
 ## <a name="detect-language-response"></a>Resposta da deteção de idioma
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 
@@ -172,9 +172,9 @@ A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos 
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código.
+1. Copie a sua tecla Text Analytics e endpoint no código.
 1. Guarde o ficheiro com uma extensão ".go".
-1. Abra um prompt de comando em um computador com o go instalado de sua pasta raiz.
+1. Abra um pedido de comando num computador com o Go instalado a partir da sua pasta raiz.
 1. Crie o ficheiro, por exemplo: `go build sentiment.go`.
 1. Execute o ficheiro, por exemplo: `go run sentiment.go`.
 
@@ -253,8 +253,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Analisar a resposta do sentimento
 
-O resultado será medido como positivo se for mais próximo de 1,0 e negativo se for mais próximo de 0,0.
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+O resultado é medido como positivo se tiver pontuado mais perto de 1.0 e negativo se tiver pontuado perto de 0,0.
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -280,7 +280,7 @@ A API de Extração de Expressões-Chave extrai expressões-chave de um document
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código.
+1. Copie a sua tecla Text Analytics e endpoint no código.
 1. Guarde o ficheiro com uma extensão ".go".
 1. Abra uma linha de comandos num computador com o Go instalado.
 1. Crie o ficheiro, por exemplo: `go build key-phrases.go`.
@@ -362,7 +362,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>Resposta da extração de expressões-chave
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -404,7 +404,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras do texto, como "Estados Unidos", e, em seguida, fornecem o link do tipo e/ou da Wikipédia para esta palavra (s). O tipo de "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [As entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras de texto, como "Estados Unidos", dando-lhe o tipo e/ou ligação wikipédia para esta palavra ou). O tipo de "Estados Unidos" é `location` `https://en.wikipedia.org/wiki/United_States`, enquanto a ligação à Wikipédia é .  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -488,7 +488,7 @@ func main() {
 
 ## <a name="entity-extraction-response"></a>Resposta de extração de entidades
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {  
@@ -540,7 +540,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
  [Descrição Geral da Análise de Texto](../overview.md)  
- [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
+ [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

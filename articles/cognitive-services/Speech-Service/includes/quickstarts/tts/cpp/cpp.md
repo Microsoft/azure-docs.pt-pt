@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: sintetizar fala C++ ,-serviço de fala'
+title: 'Quickstart: Discurso sintetizador, C++ - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: afbebdb77c59c8e525c5e92af1179541727035ab
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74818366"
 ---
-**Escolha seu ambiente de destino**
+**Escolha o seu ambiente alvo**
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 [!INCLUDE [linux](./linux.md)]
-#### <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+#### <a name="windows"></a>[Windows](#tab/Windows)
 [!INCLUDE [windows](./windows.md)]
 
 * * *

@@ -11,22 +11,22 @@ ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
 ms.openlocfilehash: 355fe134939b26c51d6e03368f782845628a6b96
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184567"
 ---
-A aplicação cliente tem de saber se uma expressão não é significativo ou adequado para a aplicação. O **None** intenção é adicionada a cada aplicação como parte do processo de criação para determinar se uma expressão não pode ser respondida pela aplicação de cliente.
+A aplicação do cliente precisa de saber se uma expressão não é significativa ou adequada para a aplicação. A intenção **None** é adicionada a cada aplicação como parte do processo de criação para determinar se uma expressão não pode ser respondida pela aplicação do cliente.
 
-Se o LUIS devolve os **None** intenção para uma expressão, a aplicação cliente pode perguntar se o usuário deseja terminar a conversa ou dar mais instruções para continuar a conversa. 
+Se o LUIS devolver a intenção **de nenhuma** intenção de uma expressão, a sua aplicação de cliente pode perguntar se o utilizador quer terminar a conversa ou dar mais instruções para continuar a conversação. 
 
 > [!CAUTION] 
-> Não deixe a **None** intenção vazia. 
+> Não deixe a intenção **de Ninguém** vazia. 
 
 1. Selecione **Intents** (Intenções) no painel esquerdo.
 
-2. Selecione a intenção **None** (Nenhuma). Adicione três expressões com que o usuário poderá introduzir mas não são relevante para a sua aplicação de recursos humanos:
+2. Selecione a intenção **None** (Nenhuma). Adicione três declarações que o seu utilizador pode introduzir, mas não são relevantes para a sua aplicação de Recursos Humanos:
 
     | Expressões de exemplo|
     |--|

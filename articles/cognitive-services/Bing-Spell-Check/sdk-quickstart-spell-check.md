@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Verifique a ortografia com o Bing Spell Check SDK paraC#'
+title: 'Quickstart: Verifique a ortografia com o Bing Spell Check SDK para C #'
 titleSuffix: Azure Cognitive Services
 description: Começar a usar a API bing spell check REST para verificar a ortografia e a gramática.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 1cda7032d5bfe58e9f8bcbdb8b18dd597a691441
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78273536"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Quickstart: Verifique a ortografia com o Bing Spell Check SDK paraC#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Quickstart: Verifique a ortografia com o Bing Spell Check SDK para C #
 
-Utilize este arranque rápido para começar a verificar o C#feitiço com o Bing Spell Check SDK para . Embora o Bing Spell Check tenha uma API REST compatível com a maioria dos idiomas de programação, o SDK fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
+Utilize este quickstart para começar a verificar o feitiço com o Bing Spell Check SDK para C#. Embora o Bing Spell Check tenha uma API REST compatível com a maioria dos idiomas de programação, o SDK fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
 
@@ -36,7 +36,7 @@ Para adicionar o Bing Spell Check SDK ao seu projeto, selecione **Manage NuGet P
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie C# uma nova solução de consola no Estúdio Visual. Em seguida, adicione a seguinte declaração `using`.
+1. Crie uma nova solução de consola C# no Estúdio Visual. Em seguida, `using` adicione a seguinte declaração.
     
     ```csharp
     using System;
@@ -46,9 +46,9 @@ Para adicionar o Bing Spell Check SDK ao seu projeto, selecione **Manage NuGet P
     using Microsoft.Azure.CognitiveServices.Language.SpellCheck.Models;
     ```
 
-2. Criar uma nova classe. Em seguida, crie uma função assíncrona chamada `SpellCheckCorrection()` que pega numa chave de subscrição e envia o pedido de verificação ortográfica.
+2. Criar uma nova classe. Em seguida, crie uma função assíncrona chamada `SpellCheckCorrection()` que pega numa chave de subscrição e envia o pedido de verificação de feitiços.
 
-3. Instantie o cliente criando um novo objeto `ApiKeyServiceClientCredentials`. 
+3. Instantie o cliente `ApiKeyServiceClientCredentials` criando um novo objeto. 
 
     ```csharp
     public static class SpellCheckSample{
@@ -61,7 +61,7 @@ Para adicionar o Bing Spell Check SDK ao seu projeto, selecione **Manage NuGet P
 
 ## <a name="send-the-request-and-read-the-response"></a>Envie o pedido e leia a resposta
 
-1. Na função acima criada, execute os seguintes passos. Envie o pedido de verificação de feitiços com o cliente. Adicione o texto a ser verificado no parâmetro `text` e ajuste o modo para `proof`.  
+1. Na função acima criada, execute os seguintes passos. Envie o pedido de verificação de feitiços com o cliente. Adicione o texto a ser `text` verificado no parâmetro e `proof`ajuste o modo para .  
     
     ```csharp
     var result = await client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof");
@@ -101,7 +101,7 @@ Construa e gereno seu projeto. Se estiver a usar o Visual Studio, prima **F5** p
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma única página web-app](tutorials/spellcheck.md)
+> [Criar uma aplicação Web de página única](tutorials/spellcheck.md)
 
-- [O que é a API de Bing Spell Check?](overview.md)
-- [Guia de C# referência sdk de bing spell check](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [O que é a API de Verificação Ortográfica do Bing?](overview.md)
+- [Guia de referência bing spell check C# SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

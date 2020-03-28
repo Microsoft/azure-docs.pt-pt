@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar um projeto de classificação de imagem com o SDK do Visão Personalizada para go'
+title: 'Quickstart: Criar um projeto de classificação de imagem com o Custom Vision SDK for Go'
 titleSuffix: Azure Cognitive Services
-description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e faça uma previsão usando o SDK do go.
+description: Crie um projeto, adicione tags, carregue imagens, treine o seu projeto e faça uma previsão usando o Go SDK.
 services: cognitive-services
 author: areddish
 manager: daauld
@@ -11,30 +11,30 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: f8391818ebf13afb3b07eead55133aadde6158f0
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76170106"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Início rápido: criar um projeto de classificação de imagem com o SDK do Visão Personalizada go
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Quickstart: Criar um projeto de classificação de imagem com o Custom Vision Go SDK
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com o Go para criar um modelo de classificação de imagem. Depois de criado, você pode adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo go. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
+Este artigo fornece informações e código de amostra para ajudá-lo a começar a usar o Custom Vision SDK com Go para construir um modelo de classificação de imagem. Depois de criado, pode adicionar tags, carregar imagens, treinar o projeto, obter o URL final de previsão publicado do projeto, e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação Go. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Ir para 1,8 +](https://golang.org/doc/install)
+- [Ir 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
-Para instalar o SDK do serviço de Visão Personalizada para o go, execute o seguinte comando no PowerShell:
+Para instalar o serviço De Visão Personalizada SDK para Ir, execute o seguinte comando no PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-ou, se você usar `dep`, em seu repositório, execute:
+ou se `dep`utilizar, dentro da sua corrida de repo:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -45,13 +45,13 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 ## <a name="add-the-code"></a>Adicionar o código
 
-Crie um novo arquivo chamado *Sample. vá* em seu diretório de projeto preferencial.
+Crie um novo ficheiro chamado *sample.go* no seu diretório de projeto preferido.
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
-Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha a URL do ponto de extremidade na página Configurações do site Visão Personalizada.
+Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
-Consulte o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções ao criar seu projeto (explicado no guia [criar um](getting-started-build-a-classifier.md) portal da Web do classificador).
+Consulte o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções quando criar o seu projeto (explicado no guia do portal Build [a classifier](getting-started-build-a-classifier.md) web).
 
 ```go
 import(
@@ -91,7 +91,7 @@ func main() {
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar marcas de classificação para seu projeto, adicione o seguinte código ao final do *exemplo. go*:
+Para criar etiquetas de classificação para o seu projeto, adicione o seguinte código ao fim da *amostra.go:*
 
 ```go
 // Make two tags in the new project
@@ -99,12 +99,12 @@ hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree ta
 cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
 
-### <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
+### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
-Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Você pode carregar até 64 imagens em um único lote.
+Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Pode fazer o upload até 64 imagens num único lote.
 
 > [!NOTE]
-> Você precisará alterar o caminho para as imagens, de acordo com o local em que você baixou o projeto de exemplos do SDK de serviços cognitivas go anteriormente.
+> Terá de alterar o caminho para as imagens com base no local onde descarregou o projeto DeServiços Cognitivos Go SDK Samples mais cedo.
 
 ```go
 fmt.Println("Adding images...")
@@ -132,9 +132,9 @@ for _, file := range japaneseCherryImages {
 }
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Treinar o classificador e publicar
+### <a name="train-the-classifier-and-publish"></a>Treine o classificador e publique
 
-Esse código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
+Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final da previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até ser publicada.
 
 ```go
 fmt.Println("Training...")
@@ -152,7 +152,7 @@ fmt.Println("Training status: " + *iteration.Status)
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtenha e use a iteração publicada no ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -172,7 +172,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o *exemplo. go*.
+Executar *amostra.go*.
 
 ```shell
 go run sample.go
@@ -193,7 +193,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-Depois, pode confirmar que a imagem de teste (disponível em **<base_image_url>/Images/Test/** ) é etiquetada adequadamente. Também pode regressar ao [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto criado recentemente.
+Depois, pode confirmar que a imagem de teste (disponível em **<base_image_url>/Images/Test/**) é etiquetada adequadamente. Também pode regressar ao [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto criado recentemente.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

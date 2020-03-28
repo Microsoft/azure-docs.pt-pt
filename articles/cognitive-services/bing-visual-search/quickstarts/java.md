@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: obter informações de imagem usando a API REST e Java-Pesquisa Visual do Bing'
+title: 'Quickstart: Obtenha insights de imagem usando a REST API e Java - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Saiba como carregar uma imagem no API da Pesquisa Visual do Bing e obter informações sobre ela.
+description: Aprenda a enviar uma imagem para a API de Pesquisa Visual bing e obtenha informações sobre isso.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446620"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Início rápido: obter informações de imagem usando a API REST do Pesquisa Visual do Bing e o Java
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Quickstart: Obtenha insights de imagem usando a API e Java de Pesquisa Visual Bing
 
-Use este guia de início rápido para fazer sua primeira chamada para a API da Pesquisa Visual do Bing e exibir os resultados. Esse aplicativo Java carrega uma imagem na API e exibe as informações que ele retorna. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing e veja os resultados. Esta aplicação Java envia uma imagem para a API e exibe a informação que devolve. Embora esta aplicação esteja escrita em Java, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Java Development Kit (JDK) 7 ou 8](https://aka.ms/azure-jdks)
+* O Kit de [Desenvolvimento java (JDK) 7 ou 8](https://aka.ms/azure-jdks)
 * A [biblioteca Gson Java](https://github.com/google/gson)
 * [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
 
@@ -31,7 +31,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API da P
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo projeto Java em seu IDE ou editor favorito e importe as seguintes bibliotecas:
+1. Crie um novo projeto Java no seu IDE ou editor favorito, e importe as seguintes bibliotecas:
 
     ```java
     import java.util.*;
@@ -52,7 +52,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API da P
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Crie variáveis para seu ponto de extremidade de API, chave de assinatura e o caminho para a imagem. `endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso:
+2. Crie variáveis para o seu ponto final de API, chave de subscrição e o caminho para a sua imagem. `endpoint`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso:
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -61,7 +61,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API da P
     ```
 
     
-    Quando você carrega uma imagem local, os dados do formulário devem incluir o cabeçalho `Content-Disposition`. Você deve definir seu parâmetro `name` como "Image" e pode definir o parâmetro `filename` como qualquer cadeia de caracteres. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo da imagem que você pode carregar é 1 MB.
+    Ao fazer o upload de uma imagem `Content-Disposition` local, os dados do formulário devem incluir o cabeçalho. Deve definir `name` o parâmetro para "imagem", e `filename` pode definir o parâmetro em qualquer corda. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo de imagem que pode carregar é de 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -72,9 +72,9 @@ Use este guia de início rápido para fazer sua primeira chamada para a API da P
     --boundary_1234-abcd--
     ```
 
-## <a name="create-the-json-parser"></a>Criar o analisador JSON
+## <a name="create-the-json-parser"></a>Crie o parser JSON
 
-Crie um método para tornar a resposta JSON da API mais legível usando `JsonParser`:
+Criar um método para tornar a resposta JSON `JsonParser`da API mais legível utilizando:
 
 ```java
 public static String prettify(String json_text) {
@@ -87,13 +87,13 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-the-search-request-and-query"></a>Criar a consulta e o pedido de pesquisa
 
-1. No método principal de seu aplicativo, crie um cliente HTTP usando `HttpClientBuilder.create().build();`:
+1. No método principal da sua aplicação, `HttpClientBuilder.create().build();`crie um cliente HTTP utilizando:
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. Crie um objeto `HttpEntity` para carregar a imagem na API:
+2. Crie `HttpEntity` um objeto para fazer o upload da sua imagem para a API:
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -102,7 +102,7 @@ public static String prettify(String json_text) {
         .build();
     ```
 
-3. Crie um objeto `httpPost` com seu ponto de extremidade e defina o cabeçalho para usar sua chave de assinatura:
+3. Crie `httpPost` um objeto com o seu ponto final e detetete teo cabeçalho para utilizar a sua chave de subscrição:
 
     ```java
     HttpPost httpPost = new HttpPost(endpoint);
@@ -112,14 +112,14 @@ public static String prettify(String json_text) {
 
 ## <a name="receive-and-process-the-json-response"></a>Receber e processar a resposta JSON
 
-1. Use o método `HttpClient.execute()` para enviar uma solicitação para a API e armazenar a resposta em um objeto `InputStream`:
+1. Utilize `HttpClient.execute()` o método para enviar um pedido à API `InputStream` e guarde a resposta num objeto:
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
     InputStream stream = response.getEntity().getContent();
     ```
 
-2. Armazene a cadeia de caracteres JSON e imprima a resposta:
+2. Guarde a corda JSON e imprima a resposta:
 
     ```java
     String json = new Scanner(stream).useDelimiter("\\A").next();
@@ -130,4 +130,4 @@ public static String prettify(String json_text) {
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um Pesquisa Visual aplicativo Web de página única](../tutorial-bing-visual-search-single-page-app.md)
+> [Construa uma aplicação web de pesquisa visual de uma página](../tutorial-bing-visual-search-single-page-app.md)

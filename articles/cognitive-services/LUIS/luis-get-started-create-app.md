@@ -1,22 +1,14 @@
 ---
 title: 'Quickstart: criar app - LUIS'
-titleSuffix: Azure Cognitive Services
-description: Este quickstart mostra como criar uma aplicação LUIS que utiliza o domínio pré-construído `HomeAutomation` para ligar e desligar as luzes e os aparelhos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+description: Este quickstart mostra como criar uma aplicação `HomeAutomation` LUIS que utiliza o domínio pré-construído para ligar e desligar luzes e aparelhos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/24/2020
+ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241753"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287803"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: utilizar a aplicação Home Automation pré-concebida
 
@@ -29,11 +21,11 @@ Neste início rápido, crie uma aplicação LUIS que utiliza o domínio pré-con
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações).
 
-1. No portal LUIS, na lista das minhas apps, selecione **+ Criar**.
+1. Na lista das minhas aplicações, selecione **+ Nova aplicação para conversação.**
 
-    ![No portal LUIS, na lista das minhas apps, selecione '+ Criar.](./media/create-app-in-portal.png)
+1. Na caixa de diálogo, `Home Automation`nomeie a sua aplicação. Selecione **inglês** como a cultura. A descrição é opcional e não é usada para autoria ou previsão. O recurso de previsão também é opcional na criação de uma app LUIS. Selecione **Done** (Concluído).
 
-1. Na caixa de diálogo, nomeie a sua aplicação `Home Automation` depois selecione **Done**. LUIS cria a app. A descrição é opcional e não é usada para autoria ou previsão. O recurso de previsão também é opcional na criação de uma app LUIS. Ao publicar a sua aplicação para produção, deve atribuir um recurso de previsão para que a sua aplicação possa lidar com muitos pedidos.
+    LUIS cria a app. Ao publicar a sua aplicação para produção, deve atribuir um recurso de previsão para que a sua aplicação possa lidar com muitos pedidos.
 
     ![Na caixa de diálogo, nomeie a sua aplicação 'Home Automation'](./media/create-new-app-details.png)
 
@@ -59,30 +51,32 @@ Selecione **Intenções** para rever as intenções de domínio HomeAutomation. 
 
 Selecione a intenção **HomeAutomation.TurnOff**. Pode ver que a intenção contém uma lista de expressões que têm etiquetas de entidades.
 
-[![Screenshot de HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Screenshot de HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+[![Captura de ecrã da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de ecrã da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Testar a aplicação
-Assim que preparar a sua aplicação, pode testá-la. Selecione **Teste**. Digite uma expressão de teste como `Turn off the lights` no painel de teste interativo e prima Enter.
+Assim que preparar a sua aplicação, pode testá-la.
 
-```
-Turn off the lights
-```
+1. Selecione **Teste** a partir da navegação superior direita. 1. Digite uma expressão `Turn off the lights` de teste como no painel de teste interativo e prima Enter.
 
-Verifique se a intenção com a melhor classificação corresponde à intenção esperada para cada expressão de teste.
+    ```
+    Turn off the lights
+    ```
 
-Neste exemplo, `Turn off the lights` é corretamente identificada como a principal intenção de pontuação do **HomeAutomation.TurnOff**.
+    Verifique se a intenção com a melhor classificação corresponde à intenção esperada para cada expressão de teste.
 
-![Screenshot do painel de teste com expressão realçada](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+    Neste exemplo, `Turn off the lights` é corretamente identificada como a principal intenção de pontuação do **HomeAutomation.TurnOff**.
 
-**Selecione Inspecionar** para rever mais informações sobre a previsão.
+    ![Captura de ecrã do painel Test (Testar) com expressão realçada](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-![Screenshot do painel de teste com informações de inspeção](media/luis-quickstart-new-app/test.png)
+1. **Selecione Inspecionar** para rever mais informações sobre a previsão.
 
-Selecione **Test** (Testar) novamente para fechar o painel de teste.
+    ![Screenshot do painel de teste com informações de inspeção](media/luis-quickstart-new-app/test.png)
+
+1. Feche o painel de teste.
 
 <a name="publish-your-app"></a>
 
@@ -96,14 +90,14 @@ Selecione **Test** (Testar) novamente para fechar o painel de teste.
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-1. Na barra de endereços do navegador, para a cadeia de consulta, certifique-se de que o seguinte nome e barras de valor estão no URL. Se não estiverem na corda de consulta, adicione-as:
+2. Na barra de endereços do navegador, para a cadeia de consulta, certifique-se de que o seguinte nome e barras de valor estão no URL. Se não estiverem na corda de consulta, adicione-as:
 
     |Nome/par de valor|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-1. Na barra de endereços do navegador, vá até ao final do URL e introduza `turn off the living room light` para o valor da _consulta_ e, em seguida, prima Enter.
+3. Na barra de endereços do navegador, vá `turn off the living room light` até ao fim do URL e introduza para o valor de _consulta_ e, em seguida, prima Enter.
 
     ```json
     {

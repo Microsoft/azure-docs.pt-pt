@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
 ms.openlocfilehash: 73a4477547c562a9960fe72b352e906676eadae5
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925507"
 ---
 > [!NOTE]
@@ -33,18 +33,18 @@ Antes de começar, certifique-se de:
 Adicionamos um UI mínimo à nossa cena que consiste num campo de entrada para introduzir o texto para síntese, um botão para desencadear a síntese da fala e um campo de texto para exibir o resultado.
 
 * Na [janela da Hierarquia](https://docs.unity3d.com/Manual/Hierarchy.html) (por defeito à esquerda), mostra-se uma cena de amostra que a Unidade criou com o novo projeto.
-* Selecione o botão **Criar** na parte superior da janela **da Hierarquia** e selecione **UI** > Campo de **Entrada**.
+* Selecione o botão **Criar** na parte superior da janela **da Hierarquia** e selecione **UI** > **Input Field**.
 * Esta opção cria três objetos de jogo que podes ver na janela **da Hierarquia:** um objeto de Campo de **Entrada** aninhado dentro de um objeto **de Lona** e um objeto **EventSystem.**
 * [Navegue na vista cena para](https://docs.unity3d.com/Manual/SceneViewNavigation.html) que tenha uma boa vista da tela e do campo de entrada na vista [Cena](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Selecione o objeto **de Campo** de Entrada na janela **da Hierarquia** para exibir as suas definições na janela [do Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por defeito à direita).
 * Desloque as propriedades **pos X** e **Pos Y** para **0** de modo que o campo de entrada esteja centrado no meio da tela.
-* Selecione novamente o botão **Criar** na parte superior da janela **da Hierarquia.** Selecione **UI** > **Botão** para criar um botão.
+* Selecione novamente o botão **Criar** na parte superior da janela **da Hierarquia.** Selecione**botão** **UI** > para criar um botão.
 * Selecione o objeto **botão** na janela **da Hierarquia** para exibir as suas definições na janela [do Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por defeito à direita).
 * Desloque as propriedades **pos X** e **Pos Y** para **0** e **-48**. Defina as propriedades **width** e **altura** para **160** e **30** para garantir que o botão e o campo de entrada não se sobreponham.
-* Selecione novamente o botão **Criar** na parte superior da janela **da Hierarquia.** Selecione **UI** > **Texto** para criar um campo de texto.
+* Selecione novamente o botão **Criar** na parte superior da janela **da Hierarquia.** Selecione**Texto** **UI** > para criar um campo de texto.
 * Selecione o objeto **texto** na janela **da Hierarquia** para exibir as suas definições na [janela do Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por defeito à direita).
 * Desloque as propriedades **Pos X** e **Pos Y** para **0** e **80**. Defina as propriedades **width** e **altura** para **320** e **80** para garantir que o campo de texto e o campo de entrada não se sobreponham.
-* Selecione novamente o botão **Criar** na parte superior da janela **da Hierarquia.** Selecione **Audio** > **Audio Audio Source** para criar uma fonte de áudio.
+* Selecione novamente o botão **Criar** na parte superior da janela **da Hierarquia.** Selecione **Audio Audio** > **Source** para criar uma fonte de áudio.
 
 Quando terminar, a UI deve parecer semelhante a esta imagem:
 
@@ -52,28 +52,28 @@ Quando terminar, a UI deve parecer semelhante a esta imagem:
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
-1. Na [janela Do Projeto](https://docs.unity3d.com/Manual/ProjectView.html) (por predefinição na parte inferior esquerda), selecione o botão **Criar** e, em seguida, selecione  **C# script**. Diga o nome do guião `HelloWorld`.
+1. Na [janela Do Projeto](https://docs.unity3d.com/Manual/ProjectView.html) (por predefinição na parte inferior esquerda), selecione o botão **Criar** e, em seguida, selecione o **script C#**. Diga o `HelloWorld`nome do guião.
 
 1. Editar o script clicando duas vezes.
 
    > [!NOTE]
-   > Pode configurar qual o editor de código lançado **selecionando** > **Preferências**. Para mais informações, consulte o Manual do [Utilizador da Unidade](https://docs.unity3d.com/Manual/Preferences.html).
+   > Pode configurar qual o editor de código lançado selecionando**Preferências**de **Edição** > . Para mais informações, consulte o Manual do [Utilizador da Unidade](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Substitua todo o código pelo seguinte:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Localize e substitua a `YourSubscriptionKey` de cadeia seleções com a chave de subscrição do serviço Speech.
+1. Localize e `YourSubscriptionKey` substitua a cadeia pela chave de subscrição do serviço Speech.
 
-1. Encontre e substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição. Por exemplo, a região é `westus` se você usar o teste gratuito.
+1. Encontre e substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição. Por exemplo, a `westus` região é se você usar o teste gratuito.
 
 1. Guarde as alterações no guião.
 
 1. De volta ao Editor de Unidade, adicione o script como um componente a um dos seus objetos de jogo.
 
    * Selecione o objeto **de lona** na janela **da Hierarquia** para abrir a definição na janela [do Inspetor](https://docs.unity3d.com/Manual/UsingTheInspector.html) (por defeito à direita).
-   * Selecione o botão **Adicionar Componente** na janela **do Inspetor.** Em seguida, procure o `HelloWorld` script que criamos anteriormente e adicione-o.
-   * O componente HelloWorld tem quatro propriedades não inicializadas, **Texto de Saída,** Campo de **Entrada,** **Botão de Fala** e Fonte de **Áudio,** que combinam com as propriedades públicas da classe `HelloWorld`.
+   * Selecione o botão **Adicionar Componente** na janela **do Inspetor.** Em seguida, `HelloWorld` procure o script que criamos anteriormente e adicione-o.
+   * O componente HelloWorld tem quatro propriedades não inicializadas, **Texto de Saída,** Campo de **Entrada,** **Botão de Fala** e Fonte de **Áudio,** que combinam com as propriedades públicas da `HelloWorld` classe.
      Para os ligar, selecione o Object Picker (o ícone do pequeno círculo à direita da propriedade). Selecione o texto e os objetos de botão que criou anteriormente.
 
      > [!NOTE]

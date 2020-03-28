@@ -1,7 +1,7 @@
 ---
-title: Tutorial de design não real de projetos acústicos
+title: Tutorial de Design Irreal do Projeto Acoustics
 titlesuffix: Azure Cognitive Services
-description: Este tutorial descreve o fluxo de trabalho de design para acústicas do projeto em inreal e WWise.
+description: Este tutorial descreve o fluxo de trabalho de design para o Projeto Acústica em Unreal e Wwise.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,135 +12,135 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 817a11171c5b4b4ef205e5fbb04f9b6d6d85b248
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854250"
 ---
-# <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de design do projeto acústica inreal/WWise
-Este tutorial descreve a configuração de design e o fluxo de trabalho para acústicas do projeto em inreal e WWise.
+# <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de Design Acústico Irreal/Wwise
+Este tutorial descreve a configuração do design e fluxo de trabalho para o Projeto Acústica em Unreal e Wwise.
 
 Pré-requisitos de software:
-* Um projeto inreal com o projeto acústica WWise e plugins inreais
+* Um projeto irreal com o Projeto Acoustics Wwise e plugins irreais
 
-Para obter um projeto inreal com acústicas do projeto, você pode:
-* Siga o [projeto acústica](unreal-integration.md) as instruções de integração inreal para adicionar acústicas de projeto ao seu projeto inreal
-* Ou use o [projeto de exemplo acústica do projeto](unreal-quickstart.md).
+Para obter um projeto irreal com o Projeto Acústica, você pode:
+* Siga as instruções de [integração irreal](unreal-integration.md) do Projeto Acústica para adicionar O Projeto Acústica ao seu projeto Irreal
+* Ou, use o projeto de amostra do [Projeto Acústica.](unreal-quickstart.md)
 
-## <a name="setup-project-wide-wwise-properties"></a>Configurar propriedades de WWise de todo o projeto
-WWise tem uma obstrução global e curvas oclusão que afetam o modo como o plug-in acústico do projeto orienta o DSP de áudio WWise.
+## <a name="setup-project-wide-wwise-properties"></a>Configurar propriedades Wwise em todo o projeto
+Wwise tem curvas globais de obstrução e oclusão que afetam a forma como o plugin Project Acoustics conduz o DSP áudio Wwise.
 
-### <a name="design-wwise-occlusion-curves"></a>Design WWise curvas oclusão
-Quando o projeto acústica está ativo, ele responde às curvas de volume oclusão, filtro baixo de passagem (LPF) e filtro de passagem alta (HPF) que você define em WWise. É recomendável definir o tipo de curva de volume como linear com um valor de-100 dB para um valor de oclusão de 100.
+### <a name="design-wwise-occlusion-curves"></a>Curvas de oclusão Wwise de design
+Quando o Project Acoustics está ativo, responde ao volume de oclusão, filtro de baixo passe (LPF) e curvas de filtro de alta passagem (HPF) que definiu em Wwise. Recomendamos que o seu tipo de curva de volume seja linear com um valor de -100 dB para um valor de oclusão de 100.
 
-Com essa configuração, se a simulação de acústica do projeto computa um oclusão de-18 dB, ela será inserida na curva abaixo em X = 18, e o valor Y correspondente será a atenuação aplicada. Para fazer metade de oclusão, defina o ponto de extremidade para-50 dB em vez de-100 dB ou para-200 dB para exagerar oclusão. Você pode personalizar e ajustar qualquer curva que funcione melhor para seu jogo.
+Com esta definição, se a simulação do Projeto Acústica calcular uma oclusão de -18 dB, irá inserir para a curva abaixo em X=18, e o valor Y correspondente é a atenuação aplicada. Para fazer metade da oclusão, derpõe o ponto final para -50 dB em vez de -100 dB, ou para -200 dB para exagerar a oclusão. Podes adaptar e afinar qualquer curva que funcione melhor para o teu jogo.
  
-![Captura de tela do editor de curva WWise oclusão](media/wwise-occlusion-curve.png)
+![Screenshot do editor da curva de oclusão de Wwise](media/wwise-occlusion-curve.png)
 
-### <a name="disable-wwise-obstruction-curves"></a>Desabilitar curvas de obstrução de WWise
-As curvas de obstrução de WWise afetam o nível seco no isolamento, mas os acústicos do projeto usam os controles de design e a simulação para impor proporções úmida/secantes. Recomendamos desabilitar a curva de volume de obstrução. Para criar o umidade, use o controle de ajuste umidade descrito posteriormente.
+### <a name="disable-wwise-obstruction-curves"></a>Desativar as curvas de obstrução wwise
+As curvas de obstrução Wwise afetam o nível seco isoladamente, mas o Project Acoustics utiliza controlos de design e simulação para impor rácios molhados/secos. Recomendamos que desabote a curva do volume de obstrução. Para conceber a molhada, utilize o controlo Wetness Adjust descrito posteriormente.
  
-Se você estiver usando as curvas LPF/HPF de obstrução para outras finalidades, certifique-se de defini-las como Y = 0 em X = 0 (ou seja, não há LPF ou HPF quando não houver obstrução).
+Se estiver a utilizar curvas LPF/HPF de obstrução para outros fins, certifique-se de que as definiu para Y=0 em X=0 (isto é, não existe LPF ou HPF quando não há obstrução).
 
-![Captura de tela do editor de curva de obstrução de WWise](media/wwise-obstruction-curve.png)
+![Screenshot do editor de curva de obstrução wwise](media/wwise-obstruction-curve.png)
 
-### <a name="design-project-acoustics-mixer-parameters"></a>Criar parâmetros do mixer do projeto acústicos
-Você pode controlar as propriedades de reverberação globais visitando a guia plug-in do mixer do barramento acústico do projeto. Clique duas vezes em "mixer acústicos do projeto (personalizado)" para abrir o painel de configurações do plug-in do mixer.
+### <a name="design-project-acoustics-mixer-parameters"></a>Parâmetros de misturador de mixer de projeto de design
+Você pode controlar propriedades de reverberação global visitando o separador plugin mixer do Project Acoustics Bus. Clique duas vezes em "Project Acoustics Mixer (Custom)" para abrir o painel de definições do plugin mixer.
 
-Você também pode ver que o plug-in do mixer tem uma opção "executar a espacial". Se você preferir usar a espacial interna do projeto acústico, marque a caixa de seleção "executar a espacial" e escolha entre HRTF ou panorâmica. Certifique-se de desabilitar os barramentos auxiliares secas que você configurou, caso contrário, você ouvirá o caminho direto duas vezes. Use o "umidade ajuste" e o "fator de escala de tempo de reverberação" para exercitar o controle global na combinação de reverberação. Observação Você deve reiniciar inreal e, em seguida, regenerar soundbanks antes de pressionar reproduzir para obter as alterações de configuração do plug-in do mixer, como a caixa de seleção "executar a espacial".
+Também pode ver que o plugin misturador tem uma opção "Executar a Espacialização". Se preferir utilizar a espacialização incorporada do Project Acoustic, verifique a caixa de verificação "Execute a Spatialization" e escolha entre hrTF ou Panning. Certifique-se de desativar quaisquer autocarros Dry Aux que tenha montado, caso contrário ouvirá o caminho direto duas vezes. Utilize o "Wetness Adjust" e o "Reverb Time Scale Fator" para exercer o controlo global da mistura reverb. Note que tem de reiniciar O Unreal e depois regenerar os bancos de som antes de tocar para apanhar alterações de config de plugin misturadora, como a caixa de verificação 'Perform Spatialization'.
 
-![Captura de tela de opções do plugin do mixer WWise do projeto acústicos](media/mixer-plugin-global-settings.png)
+![Screenshot das opções de plugin mixer Project Acoustics Wwise](media/mixer-plugin-global-settings.png)
 
-## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Definir controles de design acústicos do projeto na hierarquia de WWise ator-mixer
-Para controlar os parâmetros de um mixer de ator individual, clique duas vezes no mixer de ator e, em seguida, clique na guia de plug-in do mixer. Aqui você poderá alterar todos os parâmetros no nível por som. Esses valores se combinam com aqueles definidos do lado não real (descrito abaixo). Por exemplo, se o projeto acústica o plugin não real define o ajuste de importabilidade em um objeto como 0,5 e WWise o define como-0,25, o ajuste de importabilidade resultante aplicado a esse som é 0,25.
+## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Definir os controlos de design de acústica do projeto na hierarquia wwise actor-mixer
+Para controlar os parâmetros de um actor-mixer individual, clique duas vezes no Actor-Mixer e, em seguida, clique no seu separador Mixer Plug-in. Aqui poderá alterar quaisquer parâmetros ao nível por som. Estes valores combinam com os definidos do lado irreal (descrito abaixo). Por exemplo, se o plugin Unreal project Acoustics Unreal definir O ajuste de outdooridade num objeto a 0,5, e wwise o definir para -0,25, o ajuste de outdooridade resultante aplicado a esse som é 0.25.
 
-![Captura de tela das configurações do mixer de som no WWise ator – hierarquia do mixer](media/per-sound-mixer-settings.png)
+![Screenshot de definições de misturador de som na hierarquia wwise actor-mixer](media/per-sound-mixer-settings.png)
 
-### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Verifique se o barramento auxiliar tem envio seco e se o barramento de saída tem envio molhado
-Lembre-se de que a configuração de ator-mixer necessária troca o roteamento comum seco e úmida em WWise. Ele produz um sinal de reverberação no barramento de saída de ator-mixer (definido para o barramento acústico do projeto) e um sinal seco ao longo do barramento auxiliar definido pelo usuário. Esse roteamento é necessário devido aos recursos da API de plug-in do mixer do WWise que o projeto acústica o plug-in WWise usa.
+### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Certifique-se de que o autocarro aux tem envio seco, e o ônibus de saída tem envio molhado
+Lembre-se que a configuração de actor-mixer necessária troca o habitual encaminhamento seco e húmido em Wwise. Produz sinal reverbo no autocarro de saída do actor-misturador (definido para Project Acoustics Bus) e sinal seco ao longo do autocarro aux definido pelo utilizador. Este encaminhamento é necessário devido às características da API da misturadora Wwise que o plugin Project Acoustics Wwise utiliza.
 
-![Captura de tela do editor WWise mostrando as diretrizes de design de voz para acústicas do projeto](media/voice-design-guidelines.png)
+![Screenshot do editor da Wwise mostrando diretrizes de design de voz para Project Acoustics](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Configurar curvas de atenuação de distância
-Verifique se qualquer curva de atenuação usada por ator-mixers usando acústicas de projeto tem o envio de aux definido pelo usuário definido como "volume de barramento de saída". O WWise faz isso por padrão para curvas de atenuação recém-criadas. Se você estiver migrando um projeto existente, verifique as configurações de curva.
+Certifique-se de que qualquer curva de atenuação utilizada por actor-mixers que utilizem o Project Acoustics tenha o conjunto de envio seleto definido pelo utilizador para "volume de autocarro de saída". Wwise fá-lo por padrão para curvas de atenuação recém-criadas. Se está a migrar um projeto existente, verifique as definições da curva.
 
-Por padrão, a simulação acústica do projeto tem um raio de 45 metros em volta do local do jogador. Geralmente, é recomendável definir sua curva de atenuação para-200 dB em volta dessa distância. Essa distância não é uma restrição rígida. Para alguns sons como armas, talvez você queira um raio maior. Nesses casos, a advertência é que apenas a geometria dentro de 45 m do local do jogador participará. Se o jogador estiver em uma sala e uma fonte de som estiver fora da sala e for 100 ms de distância, ela será obstruído corretamente. Se a fonte estiver em uma sala e o jogador estiver fora e 100 m de distância, ele não será obstruído corretamente.
+Por padrão, a simulação do Projeto Acústica tem um raio de 45 metros em torno da localização do jogador. Geralmente recomendamos que a sua curva de atenuação seja de -200 dB em torno dessa distância. Esta distância não é uma restrição difícil. Para alguns soa como armas, pode querer um raio maior. Nesses casos, a ressalva é que apenas a geometria dentro de 45 m da localização do jogador irá participar. Se o leitor estiver numa sala e uma fonte de som estiver fora da sala e a 100 m de distância, será devidamente obstruído. Se a fonte estiver numa sala e o jogador estiver lá fora e a 100 metros de distância, não será devidamente obstruído.
 
-![Captura de tela das curvas de atenuação de WWise](media/atten-curve.png)
+![Screenshot das curvas de atenuação de Wwise](media/atten-curve.png)
 
-### <a name="post-mixer-equalization"></a>Equalização do mixer de postagem ###
- Uma outra coisa que você pode querer fazer é adicionar um equalizador post. Você pode tratar o barramento acústico do projeto como um barramento de reverberação típico (no modo de reverberação padrão) e colocar um filtro nele para fazer a equalização. Você pode ver um exemplo disso no projeto de exemplo WWise acústicas do projeto.
+### <a name="post-mixer-equalization"></a>Igualdade pós-misturadora ###
+ Outra coisa que talvez queira fazer é adicionar um equalizador pós-misturador. Pode tratar o autocarro Project Acoustics como um autocarro típico de reverberação (em modo reverbo padrão) e colocar um filtro nele para fazer a igualdade. Pode ver uma amostra deste sinuoso projeto de amostra wwise.
 
-![Captura de tela do WWise pós-mixer EQ](media/wwise-post-mixer-eq.png)
+![Screenshot do QE pós-misturador Wwise](media/wwise-post-mixer-eq.png)
 
-Por exemplo, um filtro de alta passagem pode ajudar a lidar com o baixo de gravações de campo que geram um reverberação incorrido e não real. Você também pode obter mais controle após o sobreposição ajustando o EQ por meio de RTPCs, permitindo que você altere a cor do verbo de reverberação em tempo de jogo.
+Por exemplo, um filtro de passe elevado pode ajudar a lidar com o baixo a partir de gravações próximas do campo que produzem reverberação boomy e irrealista. Também pode obter mais controlo pós-cozedura ajustando o QE através de RTPCs, permitindo-lhe alterar a cor do reverbo no momento do jogo.
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Configurar propriedades acústicas do projeto em toda a cena
 
-O ator do espaço acústicos expõe muitos controles que modificam o comportamento do sistema e são úteis na depuração.
+O ator do Espaço Acústico expõe muitos controlos que modificam o comportamento do sistema e são úteis na depuração.
 
-![Captura de tela de controles de espaço acústicos inreais](media/acoustics-space-controls.png)
+![Screenshot dos controlos espaciais da acústica irreal](media/acoustics-space-controls.png)
 
-* **Dados acústicos:** Esse campo deve ser atribuído a um ativo de inclusas acústicos do diretório de conteúdo/acústicos. O plug-in acústica do projeto adicionará automaticamente o conteúdo/diretório acústicos aos diretórios empacotados do projeto.
-* **Tamanho do bloco:** As extensões da região em volta do ouvinte que você deseja que os dados acústicos sejam carregados na RAM. Desde que as investigações de ouvinte imediatamente em todo o jogador sejam carregadas no, os resultados são os mesmos que o carregamento de dados acústicos para todas as investigações. Blocos maiores usam mais RAM, mas reduzem e/s de disco
-* **Fluxo automático:** Quando habilitado, o é carregado automaticamente em novos blocos enquanto o ouvinte atinge a borda de uma região carregada. Quando desabilitado, você precisará carregar novos blocos manualmente por meio de código ou plantas
-* **Escala de cache:** controla o tamanho do cache usado para consultas acústicas. Um cache menor usa menos RAM, mas pode aumentar o uso da CPU para cada consulta.
-* **Acústicos habilitados:** Um controle de depuração para habilitar a alternância rápida/B da simulação acústica. Esse controle é ignorado nas configurações de envio. O controle é útil para localizar se um determinado bug de áudio se origina nos cálculos acústicos ou algum outro problema no projeto WWise.
-* **Atualizar distâncias:** Use esta opção se você quiser usar as informações acústicas inclusas para consultas de distância. Essas consultas são semelhantes a Ray casts, mas foram previamente computadas, portanto, levam muito menos CPU. Um exemplo de uso é para reflexões discretas da superfície mais próxima ao ouvinte. Para aproveitar ao máximo isso, você precisará usar código ou plantas para consultar distâncias.
-* **Estatísticas de desenho:** Embora a UE `stat Acoustics` possa fornecer informações de CPU, essa exibição de status mostrará o arquivo Ace carregado atualmente, o uso de RAM e outras informações de status no canto superior esquerdo da tela.
-* **Desenhar voxels:** Sobreposição voxels perto do ouvinte mostrando a grade VOXEL usada durante a interpolação do tempo de execução. Se um emissor estiver dentro de um VOXEL de tempo de execução, ele falhará nas consultas acústicas.
-* **Desenhar investigações:** Mostrar todas as investigações para esta cena. Elas serão cores diferentes, dependendo do estado de carregamento.
-* **Distâncias de desenho:** Se as distâncias de atualização estiverem habilitadas, isso mostrará uma caixa na superfície mais próxima ao ouvinte em direções quantificadas ao ouvinte.
+* **Dados da Acústica:** Este campo deve ser atribuído a um ativo de acústica assado do diretório Conteúdo/Acústica. O plugin Project Acoustics adicionará automaticamente o diretório Conteúdo/Acústica aos diretórios embalados do seu projeto.
+* **Tamanho do azulejo:** As extensões da região em torno do ouvinte que você quer dados de acústica carregados em RAM. Enquanto as sondas ouvintes forem carregadas imediatamente em torno do leitor, os resultados são os mesmos que carregar dados acústicos para todas as sondas. Azulejos maiores usam mais RAM, mas reduzem o disco I/O
+* **Fluxo Automático:** Quando ativado, carrega automaticamente em azulejos novos à medida que o ouvinte atinge a borda de uma região carregada. Quando desativado, terá de carregar novos azulejos manualmente através de código ou plantas
+* **Escala cache:** controla o tamanho da cache utilizada para consultas acústicas. Uma cache menor usa menos RAM, mas pode aumentar o uso de CPU para cada consulta.
+* **Acústica Ativada:** Um controlo de depuração para permitir um rápido desvio de A/B da simulação acústica. Este controlo é ignorado nas configurações de envio. O controlo é útil para descobrir se um determinado bug áudio origina-se nos cálculos da acústica ou em qualquer outro problema no projeto Wwise.
+* **Distâncias de atualização:** Utilize esta opção se quiser utilizar as informações de acústica pré-assadas para consultas à distância. Estas consultas são semelhantes aos moldes de raios, mas foram pré-calculadas, por isso, tomem muito menos CPU. Um exemplo de utilização é para reflexos discretos fora da superfície mais próxima do ouvinte. Para alavancar totalmente isto, terá de usar código ou plantas para consultar distâncias.
+* **Desenhar estatísticas:** Embora `stat Acoustics` a UE possa fornecer-lhe informações sobre cpu, este ecrã de estado mostrará o ficheiro ACE atualmente carregado, uso de RAM e outras informações de estado na parte superior esquerda do ecrã.
+* **Desenhe Voxels:** Sobreponha voxels perto do ouvinte mostrando a grelha voxel usada durante a interpolação do tempo de funcionação. Se um emissor estiver dentro de um voxel de tempo de funcionação, falhará as consultas acústicas.
+* **Desenhar sondas:** Mostre todas as sondas para esta cena. Serão cores diferentes dependendo do seu estado de carga.
+* **Distâncias de sorteio:** Se as Distâncias de Atualização estiverem ativadas, isto mostrará uma caixa na superfície mais próxima do ouvinte em direções quantificadas em torno do ouvinte.
 
-## <a name="actor-specific-acoustics-design-controls"></a>Controles de design acústicos específicos de ator
-Esses controles de design são incluídos no escopo de um componente de áudio individual em um não real.
+## <a name="actor-specific-acoustics-design-controls"></a>Controlos de design de acústica específicos para atores
+Estes controlos de design são remetos a um componente de áudio individual em Unreal.
 
-![Captura de tela de controles de componente de áudio não reais](media/audio-component-controls.png)
+![Screenshot dos controlos de componentes de áudio irreais](media/audio-component-controls.png)
 
-* **Multiplicador de oclusão:** Controla o efeito de oclusão. Os valores > 1 aumentarão o oclusão. Os valores < 1 o minimizarão.
-* **Ajuste de umidade:** BD de reverberação adicional
-* **Multiplicador de tempo de decaimento:** Controla o RT60 multiplicatively, com base na saída da simulação acústica
-* **Ajuste de portabilidade:** Controla como o reverberation está no ar da casa. Os valores mais próximos de 0 são mais inportantes, mais próximos de 1 estão mais no fim de casa. Esse ajuste é aditivo, portanto, configurá-lo como-1 impedirá inportações, definindo-o como + 1 será aplicado em áreas externas.
-* **BD de transmissão:** Rendere um som adicional através da parede com essa intensidade combinada à atenuação de distância baseada na linha de visão.
-* **Detorção de distância da taxa úmida:** Ajusta as características de reverberation na origem como se estivesse mais perto/distante, sem afetar o caminho direto.
-* **Jogue no início:** Alterne para especificar se o som deve ser tocado automaticamente no início da cena. Habilitado por padrão.
-* **Mostrar parâmetros acústicos:** Exibir informações de depuração diretamente sobre o componente no jogo. (somente para configurações de não envio)
+* **Multiplicador de oclusão:** Controla o efeito de oclusão. Os valores > 1 amplificarão a oclusão. Os valores <1 irão minimizá-lo.
+* **Ajuste da molhada:** Reverberação adicional dB
+* **Multiplicador** de tempo de decadência: Controla o RT60 multiplicativamente, com base na saída da simulação acústica
+* **Regulação da outdooridade:** Controla como é a reverberação ao ar livre. Os valores mais próximos de 0 são mais interiores, mais perto de 1 são mais ao ar livre. Este ajuste é aditivo, por isso, defini-lo para -1 irá impor dentro de casa, definindo-o como +1 irá impor ao ar livre.
+* **Transmissão Db:** Render um som adicional através da parede com este ruído combinado com atenuação da distância baseada na linha de visão.
+* **Dobra da distância da relação húmida:** Ajusta as características de reverberação na fonte como se estivesse mais perto/mais longe, sem afetar o caminho direto.
+* **Jogar no Início:** Alternar para especificar se o som deve reproduzir-se automaticamente no início da cena. Ativado por predefinição.
+* **Mostrar parâmetros acústicos:** Exiba informações sobre bug diretamente em cima do componente no jogo. (apenas para configurações não-expediis)
 
-## <a name="blueprint-functionality"></a>Funcionalidade de Blueprint
-O ator do espaço acústicos é acessível por meio do plano gráfico, fornecendo funcionalidades como carregar um mapa ou modificar configurações por meio de scripts de nível. Fornecemos dois exemplos aqui.
+## <a name="blueprint-functionality"></a>Funcionalidade de planta
+O ator do Espaço Acústico está acessível através de uma planta, fornecendo funcionalidades como carregar um mapa ou modificar configurações através de scripts de nível. Damos dois exemplos aqui.
 
-### <a name="add-finer-grained-control-over-streaming-load"></a>Adicionar controle mais refinado sobre carga de streaming
-Para gerenciar o streaming de dados acústico por conta própria, em vez de transmitir automaticamente com base na posição do jogador, você pode usar a função de plantas de bloco de carga forçada:
+### <a name="add-finer-grained-control-over-streaming-load"></a>Adicione um controlo mais fino sobre a carga de streaming
+Para gerir os dados acústicos que se transmitem em vez de transmitir automaticamente com base na posição do jogador, pode utilizar a função de planta de aço de carga de força:
 
-![Captura de tela das opções de streaming de plantas em não real](media/blueprint-streaming.png)
+![Screenshot das opções de streaming de plantas em Unreal](media/blueprint-streaming.png)
 
-* **Alvo** O ator AcousticsSpace
-* **Posição do centro:** O centro da região que precisa de dados carregados
-* **Descarregar investigações fora do bloco:** Se marcada, todas as investigações que não estão na nova região serão descarregadas da RAM. Se desmarcada, a nova região será carregada na memória, deixando as investigações existentes também carregadas na memória
-* **Bloquear ao concluir:** Faz com que o bloco carregue uma operação síncrona
+* **Alvo:** O ator da AcousticsSpace
+* **Posição central:** O centro da região que precisa de dados carregados
+* **Descarregar sondas fora de azulejos:** Se forem verificados, todas as sondas que não estejam na nova região serão descarregadas da RAM. Se não for controlada, a nova região é carregada na memória, deixando as sondas existentes também carregadas na memória
+* **Bloco em Conclusão:** Faz com que o azulejo carregue uma operação sincronizada
 
-O tamanho do bloco já deve ser definido antes de chamar o bloco de carregamento forçado. Por exemplo, você pode fazer algo assim para carregar um arquivo ACE, definir o tamanho do bloco e transmitir em uma região:
+O tamanho do azulejo já deve ser definido antes de chamar o Azulejo de Carga Forçada. Por exemplo, você poderia fazer algo assim para carregar um ficheiro ACE, definir o seu tamanho de azulejo, e fluir em uma região:
 
-![Captura de tela das opções de configuração de streaming em não real](media/streaming-setup.png)
+![Screenshot das opções de configuração de streaming em Unreal](media/streaming-setup.png)
 
-A função de plano gráfico de dados acústicas de carga usada neste exemplo tem os seguintes parâmetros:
+A função de planta de dados de acústica de carga utilizada neste exemplo tem os seguintes parâmetros:
 
-* **Alvo** O ator AcousticsSpace.
-* **Novo distorta:** O ativo de dados acústicos a ser carregado. Deixar esse valor em branco/defini-lo como nulo descarregará o dicalado atual sem carregar um novo.
+* **Alvo:** O ator da AcousticsSpace.
+* **Novo Bolo:** O ativo de dados da acústica a ser carregado. Deixando este vazio/defini-lo nulo descarregará a cozedura atual sem carregar uma nova.
 
-### <a name="optionally-query-for-surface-proximity"></a>Opcionalmente, consulte a proximidade da superfície
-Se você quiser ver como as superfícies próximas estão em uma direção específica em relação ao ouvinte, você pode usar a função de distância de consulta. Essa função pode ser útil para a condução de reflexos de atraso direcional ou para outra lógica de jogo controlada pela proximidade da superfície. A consulta é menos cara do que uma Ray-Cast porque os resultados são extraídos da tabela de pesquisa acústica.
+### <a name="optionally-query-for-surface-proximity"></a>Consulta opcional para proximidade de superfície
+Se quiser ver quão próximas as superfícies estão numa determinada direção em torno do ouvinte, pode utilizar a função Query Distance. Esta função pode ser útil para impulsionar reflexos atrasados direcionais, ou para outra lógica do jogo impulsionada pela proximidade da superfície. A consulta é mais barata do que um ray-cast porque os resultados são retirados da mesa de procura acústica.
 
-![Captura de tela de exemplo de consulta de distância do Blueprint](media/distance-query.png)
+![Screenshot de exemplo Consulta de distância blueprint](media/distance-query.png)
 
-* **Alvo** O ator AcousticsSpace
-* **Procurar direção:** A direção da consulta, centralizada no ouvinte
-* **Alcance** Se a consulta for realizada com sucesso, a distância para a superfície mais próxima
-* **Valor de retorno:** Booliano-true se a consulta tiver êxito; caso contrário, false
+* **Alvo:** O ator da AcousticsSpace
+* **Direção do olhar:** A direção para consultar, centrado no ouvinte
+* **Distância:** Se a consulta for bem sucedida, a distância até à superfície mais próxima
+* **Valor de Devolução:** Boolean - verdadeiro se a consulta foi bem sucedida, caso contrário falsa
 
-## <a name="next-steps"></a>Passos Seguintes
-* Explore os conceitos por trás do [processo de design](design-process.md)
-* [Criar uma conta do Azure](create-azure-account.md) para distortar sua própria cena
+## <a name="next-steps"></a>Passos seguintes
+* Explore os conceitos por trás do processo de [design](design-process.md)
+* [Crie uma conta Azure](create-azure-account.md) para assar a sua própria cena
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: extrair texto impresso-REST, ondulação'
+title: 'Quickstart: Extrair texto impresso - REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o cURL.
 services: cognitive-services
@@ -12,22 +12,22 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: af0fe8f7c264796dc32138b30507b26ea6baf63f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976949"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Início rápido: extrair texto impresso (OCR) usando a API REST Pesquisa Visual Computacional e a ondulação
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API e cURL de visão computacional
 
-Neste guia de início rápido, você extrairá o texto impresso com reconhecimento óptico de caracteres (OCR) de uma imagem usando a API REST do Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
+Neste arranque rápido, irá extrair texto impresso com reconhecimento ótico de caracteres (OCR) de uma imagem utilizando a API DE VISÃO Computacional. Com o método [OCR,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pode detetar texto impresso numa imagem e extrair caracteres reconhecidos num fluxo de caracteres utilizável por máquinas.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [cURL](https://curl.haxx.se/windows).
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave.
 
 ## <a name="create-and-run-the-sample-command"></a>Criar e executar o comando de exemplo
 
@@ -36,7 +36,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 1. Copie o comando seguinte para um editor de texto.
 1. Faça as alterações seguintes ao comando, se for necessário:
     1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
-    1. Substitua a primeira parte da URL da solicitação (`westcentralus`) pelo texto em sua URL de ponto de extremidade.
+    1. Substitua a primeira parte`westcentralus`do URL de pedido com o texto no seu URL final.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Opcionalmente, altere o URL da imagem no corpo do pedido (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) pelo URL de uma imagem diferente a ser analisada.
 1. Abra uma janela da linha de comandos.
@@ -48,7 +48,7 @@ curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: applica
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {

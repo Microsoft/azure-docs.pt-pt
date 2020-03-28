@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/13/2020
 ms.author: pafarley
 ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79203583"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Quickstart: Experimente o Moderador de Conteúdo na web
@@ -43,16 +43,16 @@ Em seguida, criar uma equipa de revisão. Num cenário de trabalho, este será o
 Se optar por encriptar dados utilizando uma chave gerida pelo cliente (CMK), será solicitado o ID de **recurso** para o seu recurso Moderador de Conteúdo no nível de preços E0. O recurso que fornece deve ser novo. 
 
 > [!div class="mx-imgBorder"]
-> ![Convidar membro da equipa com](images/create-team-cmk.png) CMK
+> ![Convidar membro da equipa com cmk](images/create-team-cmk.png)
 
 Se tentar reutilizar um recurso moderador de conteúdo, verá este aviso: 
 
 > [!div class="mx-imgBorder"]
-> ![falha da CMK](images/create-team-cmk-fail.png)
+> ![Falha cmk](images/create-team-cmk-fail.png)
 
 ## <a name="upload-sample-content"></a>Carregar conteúdo da amostra
 
-Agora está pronto para fazer o upload do conteúdo da amostra. Selecione **Try > Imagem,** **Tente > Texto,** ou **Tente > Vídeo**.
+Agora está pronto para fazer o upload do conteúdo da amostra. Selecione **Tente > Imagem,** **tente > texto,** ou **tente > vídeo**.
 
 ![Experimente a moderação de imagem ou texto](images/tryimagesortext.png)
 
@@ -84,4 +84,4 @@ Ou, continue com os próximos passos para começar a usar as APIs de moderação
 Aprenda a usar as APIs de moderação na sua aplicação.
 - Implementar a moderação da imagem. Utilize a [consola API](try-image-api.md) ou siga o [quickstart .NET SDK](dotnet-sdk-quickstart.md) para digitalizar imagens e detetar potenciais conteúdos adultos e picantes utilizando tags, pontuações de confiança e outras informações extraídas.
 - Implementar moderação de texto. Utilize a [consola API](try-text-api.md) ou utilize o [quickstart .NET SDK](dotnet-sdk-quickstart.md) para digitalizar conteúdo de texto para potencial profanação, classificação de texto indesejado assistido por máquina (pré-visualização) e dados pessoais.
-- Implementar a moderação do vídeo. Siga o guia de [moderação C# do vídeo para](video-moderation-api.md) digitalizar vídeos e detetar potenciais conteúdos adultos e picantes. 
+- Implementar a moderação do vídeo. Siga o [vídeo de moderação como guiar para C#](video-moderation-api.md) digitalizar vídeos e detetar potenciais conteúdos adultos e picantes. 

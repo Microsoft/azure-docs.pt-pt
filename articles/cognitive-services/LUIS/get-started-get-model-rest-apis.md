@@ -13,10 +13,10 @@ ms.date: 02/14/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 58f164f1522975faa2e7a7e7d7ed08145a6c5889
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77524653"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Alterar modelo com APIs REST

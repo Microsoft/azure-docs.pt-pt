@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118078"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Treine um modelo de reconhecimento de formulário e extrai dados de formulário utilizando a API REST com Python
 
 Neste arranque rápido, você usará a API REST Rest Com Python para treinar e marcar formas para extrair pares e tabelas de valor-chave.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,10 +41,10 @@ Primeiro, vai precisar de um conjunto de dados de treino num recipiente de blob 
 
 Para treinar um modelo 'Reconhecimento de Formulários' com os documentos no seu recipiente de blob Azure, ligue para o **[Modelo Personalizado do Comboio](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API executando o seguinte código python. Antes de executar o código, faça estas alterações:
 
-1. Substitua `<SAS URL>` com o URL de assinatura de acesso partilhado (SAS) do recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Substitua `<subscription key>` com a chave de subscrição que copiou do passo anterior.
-1. Substitua `<endpoint>` com o URL final para o seu recurso Reconhecimento de Formulários.
-1. Substitua `<Blob folder name>` pelo caminho para a pasta no armazenamento de bolhas onde os seus formulários estão localizados. Se os seus formulários estiverem na raiz do seu recipiente, deixe esta corda vazia.
+1. Substitua-a `<SAS URL>` com o URL de assinatura de acesso partilhado (SAS) do recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`forma: .
+1. Substitua-a `<subscription key>` pela chave de subscrição que copiou do passo anterior.
+1. Substitua-a `<endpoint>` com o URL de ponto final para o seu recurso Reconhecimento de Formulários.
+1. Substitua-o `<Blob folder name>` pelo caminho para a pasta no armazenamento de bolhas onde os seus formulários estão localizados. Se os seus formulários estiverem na raiz do seu recipiente, deixe esta corda vazia.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
@@ -124,7 +124,7 @@ while n_try < n_tries:
 print("Train operation did not complete within the allocated time.")
 ```
 
-Quando o processo de treino estiver concluído, receberá uma resposta `201 (Success)` com conteúdo jSON como o seguinte:
+Quando o processo de treino estiver concluído, receberá uma `201 (Success)` resposta com conteúdo jSON como o seguinte:
 
 ```json
 { 
@@ -192,11 +192,11 @@ Quando o processo de treino estiver concluído, receberá uma resposta `201 (Suc
 }
 ```
 
-Copie o valor `"modelId"` para utilização nos seguintes passos.
+Copie `"modelId"` o valor para utilização nos seguintes passos.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-Quando o processo estiver concluído, receberá uma resposta `200 (Success)` com conteúdo JSON no seguinte formato. A resposta foi encurtada para a simplicidade. As principais associações e tabelas de pares chave/valor estão no nó `"pageResults"`. Se também especificou a extração de texto simples através do parâmetro *URL do TextDetails,* então o nó `"readResults"` mostrará o conteúdo e as posições de todo o texto no documento.
+Quando o processo estiver concluído, receberá `200 (Success)` uma resposta com conteúdo JSON no seguinte formato. A resposta foi encurtada para a simplicidade. As principais associações e tabelas `"pageResults"` de pares chave/valor estão no nó. Se também especificou a extração de texto simples `"readResults"` através do parâmetro URL do *TextDetails,* então o nó mostrará o conteúdo e as posições de todo o texto no documento.
 
 ```bash
 {

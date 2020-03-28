@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 03/09/2020
 ms.author: aahi
 ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79203462"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar o sentimento utilizando a API de Análise de Texto
@@ -40,7 +40,7 @@ O Text Analytics API oferece duas versões de Análise de Sentimentos - v2 e v3.
 
 > [!NOTE]
 > * O formato de pedido de análise de sentimento v3 e [os limites de dados](../overview.md#data-limits) são os mesmos que a versão anterior.
-> * A Análise de Sentimento sondo v3 está disponível nas seguintes regiões: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`e `West US 2`.
+> * A Análise de Sentimento si v3 `Central US`está `East Asia` `East US`disponível nas seguintes `West US 2`regiões: `Australia East` `Central Canada`. `South Central US` `UK South` `West Europe` `East US 2` `North Europe`, , , `Southeast Asia`, , , , , , e .
 
 | Funcionalidade                                   | Análise de Sentimento v2 | Análise de Sentimento v3 |
 |-------------------------------------------|-----------------------|-----------------------|
@@ -58,25 +58,25 @@ A Análise de Sentimento supor o texto com rótulos de sentimento (descrito abai
 
 ### <a name="sentiment-labeling"></a>Rotulagem de sentimentos
 
-A Análise de Sentimento st23 pode devolver pontuações e etiquetas a nível de frase e documento. As pontuações e etiquetas são `positive`, `negative`e `neutral`. A nível de documentos, o rótulo de sentimento `mixed` também pode ser devolvido sem pontuação. O sentimento do documento é determinado abaixo:
+A Análise de Sentimento st23 pode devolver pontuações e etiquetas a nível de frase e documento. As pontuações e `positive` `negative`etiquetas `neutral`são, e . A nível de `mixed` documento, o rótulo de sentimento também pode ser devolvido sem pontuação. O sentimento do documento é determinado abaixo:
 
 | Sentimento de sentença                                                                            | Etiqueta de documento devolvido |
 |-----------------------------------------------------------------------------------------------|-------------------------|
-| Pelo menos uma `positive` sentença está no documento. O resto das frases são `neutral`. | `positive`              |
-| Pelo menos uma `negative` sentença está no documento. O resto das frases são `neutral`. | `negative`              |
-| Pelo menos uma `negative` sentença e pelo menos uma `positive` sentença estão no documento.    | `mixed`                 |
-| Todas as frases do documento são `neutral`.                                                  | `neutral`               |
+| Pelo menos `positive` uma frase está no documento. O resto das frases são. `neutral` | `positive`              |
+| Pelo menos `negative` uma frase está no documento. O resto das frases são. `neutral` | `negative`              |
+| Pelo menos `negative` uma frase `positive` e pelo menos uma sentença estão no documento.    | `mixed`                 |
+| Todas as frases `neutral`no documento são.                                                  | `neutral`               |
 
 ### <a name="model-versioning"></a>Versão do modelo
 
 > [!NOTE]
-> A versão do modelo para análise de sentimentos está disponível a partir da versão `v3.0-preview.1`.
+> A versão do modelo para análise `v3.0-preview.1`de sentimentos está disponível a partir da versão .
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-### <a name="example-c-code"></a>Código C# de exemplo
+### <a name="example-c-code"></a>Código Exemplo C#
 
-Pode encontrar uma C# aplicação de exemplo que chama esta versão de Análise de Sentimento [sondar no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
+Pode encontrar uma aplicação de exemplo C# que chama esta versão da Análise de Sentimentos no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
 
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
@@ -99,7 +99,7 @@ O tamanho do documento deve ser inferior a 5.120 caracteres por documento. Pode 
 
 ## <a name="structure-the-request"></a>Estruturar o pedido
 
-Crie um pedido post. Pode [utilizar](text-analytics-how-to-call-api.md) o Carteiro ou a consola de **teste API** nos seguintes links de referência para estruturar e enviar uma. 
+Crie um pedido POST. Pode [utilizar](text-analytics-how-to-call-api.md) o Carteiro ou a consola de **teste API** nos seguintes links de referência para estruturar e enviar uma. 
 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
@@ -166,7 +166,7 @@ O resultado é devolvido imediatamente. Pode transmitir os resultados para uma a
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Resposta exemplo de análise de sentimento v3
 
-As respostas da Sentiment Analysis v3 contêm etiquetas de sentimento e pontuações para cada frase e documento analisados. `documentScores` não é devolvido se o rótulo de sentimento do documento for `mixed`.
+As respostas da Sentiment Analysis v3 contêm etiquetas de sentimento e pontuações para cada frase e documento analisados. `documentScores`não é devolvido se o `mixed`rótulo de sentimento do documento for .
 
 ```json
 {
@@ -265,7 +265,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para análise de sentimento
 
 + A Análise de Sentimentos está disponível para idiomas selecionados em duas versões.
 + Os documentos da JSON no organismo de pedido incluem um código de identificação, texto e idioma.
-+ O pedido do POST é para um ponto final `/sentiment` utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
++ O pedido do `/sentiment` POST é para um ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que é válido para a sua subscrição.
 + A saída de resposta, que consiste numa pontuação de sentimento para cada id de documento, pode ser transmitida para qualquer aplicação que aceite a JSON. Por exemplo, Excel e Power BI.
 
 ## <a name="see-also"></a>Consulte também

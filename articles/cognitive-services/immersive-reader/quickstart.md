@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar um aplicativo Web que inicia o leitor de imersão comC#'
+title: 'Quickstart: Criar uma aplicação web que lança o Leitor Imersivo com C #'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você cria um aplicativo Web do zero e adiciona a funcionalidade da API do leitor de imersão.
+description: Neste arranque rápido, você constrói uma aplicação web de raiz e adiciona a funcionalidade API imersiva do leitor.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -11,40 +11,40 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 8dd8459922caa9f765d59bc28fbf050b86834b46
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845237"
 ---
-# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Início rápido: criar um aplicativo Web que inicia o leitor deC#imersão ()
+# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Quickstart: Criar uma aplicação web que lança o Leitor Imersivo (C#)
 
-O [leitor de imersão](https://www.onenote.com/learningtools) é uma ferramenta projetada de inclusivamente que implementa técnicas comprovadas para melhorar a compreensão da leitura.
+O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente projetada que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-Neste guia de início rápido, você cria um aplicativo Web do zero e integra o leitor de imersão usando o SDK do leitor de imersão. Um exemplo funcional completo deste guia de início rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
+Neste arranque rápido, você constrói uma aplicação web de raiz e integra o Leitor Imersivo utilizando o SDK de leitor imersivo. Uma amostra completa deste arranque rápido está disponível [aqui.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
-* Um recurso de leitor de imersão configurado para Azure Active Directory autenticação. Siga [estas instruções](./how-to-create-immersive-reader.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de exemplo. Salve a saída da sessão em um arquivo de texto para referência futura.
+* Um recurso Imersivo do Leitor configurado para autenticação de Diretório Ativo Azure. Siga [estas instruções](./how-to-create-immersive-reader.md) para ser configurado. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de amostra. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
 
-## <a name="create-a-web-app-project"></a>Criar um projeto de aplicativo Web
+## <a name="create-a-web-app-project"></a>Criar um projeto de aplicação web
 
-Crie um novo projeto no Visual Studio, usando o modelo de aplicativo Web ASP.NET Core com o Model-View-Controller interno e ASP.NET Core 2,1. Nomeie o projeto "QuickstartSampleWebApp".
+Crie um novo projeto no Visual Studio, utilizando o modelo de aplicação web ASP.NET Core com model-view-controller incorporado e ASP.NET Core 2.1. Nomeie o projeto "QuickstartSampleWebApp".
 
 ![Novo Projeto](./media/quickstart-csharp/1-createproject.png)
 
 ![Configurar novo projeto](./media/quickstart-csharp/2-configureproject.png)
 
-![Novo ASP.NET Core aplicativo Web](./media/quickstart-csharp/3-createmvc.png)
+![Nova aplicação web do núcleo ASP.NET](./media/quickstart-csharp/3-createmvc.png)
 
 ## <a name="set-up-authentication"></a>Configurar autenticação
 
 ### <a name="configure-authentication-values"></a>Configurar valores de autenticação
 
-Clique com o botão direito do mouse no projeto no _Gerenciador de soluções_ e escolha **gerenciar segredos do usuário**. Isso abrirá um arquivo chamado _segredos. JSON_. Esse arquivo não é verificado no controle do código-fonte. Sabia mais [aqui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Substitua o conteúdo de _Secrets. JSON_ pelo seguinte, fornecendo os valores fornecidos quando você criou o recurso de leitura de imersão.
+Clique no direito do projeto no Explorador de _Soluções_ e escolha **Gerir segredos**de utilizador . Isto abrirá um ficheiro chamado _Secrets.json._ Este ficheiro não está verificado no controlo de origem. Sabia mais [aqui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Substitua o conteúdo do _secrets.json_ pelo seguinte, fornecendo os valores dados quando criou o seu recurso Imersivo leitor.
 
 ```json
 {
@@ -55,25 +55,25 @@ Clique com o botão direito do mouse no projeto no _Gerenciador de soluções_ e
 }
 ```
 
-### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Adicione o pacote NuGet Microsoft. IdentityModel. clients. ActiveDirectory
+### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Adicione o pacote Microsoft.IdentityModel.Clients.ActiveDirectory NuGet
 
-O código a seguir usa objetos do pacote NuGet **Microsoft. IdentityModel. clients. ActiveDirectory** para que você precise adicionar uma referência a esse pacote em seu projeto.
+O código seguinte utiliza objetos do pacote **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet para que tenha de adicionar uma referência a esse pacote no seu projeto.
 
-Abra o console do Gerenciador de pacotes NuGet em **ferramentas – > Gerenciador de pacotes NuGet-> console do Gerenciador de pacotes** e execute o seguinte comando:
+Abra a consola nuGet Package Manager a partir de **ferramentas -> NuGet Package Manager - > Consola de Gestor** de Pacotes e executar o seguinte comando:
 
 ```powershell
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.2.0
 ```
 
-### <a name="update-the-controller-to-acquire-the-token"></a>Atualizar o controlador para adquirir o token 
+### <a name="update-the-controller-to-acquire-the-token"></a>Atualizar o controlador para adquirir o símbolo 
 
-Abra _Controllers\HomeController.cs_e adicione o código a seguir após as instruções _using_ na parte superior do arquivo.
+Controladores _abertos\HomeController.cs_, e adicione o seguinte código após as declarações _de utilização_ na parte superior do ficheiro.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Agora, configuraremos o controlador para obter os valores do Azure AD de _segredos. JSON_. Na parte superior da classe _HomeController_ , depois de ```public class HomeController : Controller {```, adicione o código a seguir.
+Agora, vamos configurar o controlador para obter os valores da AD Azure a partir de _secrets.json_. No topo da classe _HomeController,_ depois, ```public class HomeController : Controller {```adicione o seguinte código.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -143,14 +143,14 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 }
 ```
 
-## <a name="add-sample-content"></a>Adicionar conteúdo de exemplo
-Primeiro, abra _Views\Shared\Layout.cshtml_. Antes da linha ```</head>```, adicione o seguinte código:
+## <a name="add-sample-content"></a>Adicionar conteúdo da amostra
+Primeiro, _vistas abertas\Shared\Layout.cshtml_. Antes da ```</head>```linha, adicione o seguinte código:
 
 ```html
 @RenderSection("Styles", required: false)
 ```
 
-Agora, adicionaremos conteúdo de exemplo a este aplicativo Web. Abra _Views\Home\Index.cshtml_ e substitua todo o código gerado automaticamente por este exemplo:
+Agora, vamos adicionar conteúdo de amostra a esta aplicação web. Open _Views\Home\Index.cshtml_ e substitua todo o código gerado automaticamente por esta amostra:
 
 ```html
 @{
@@ -216,13 +216,13 @@ Agora, adicionaremos conteúdo de exemplo a este aplicativo Web. Abra _Views\Hom
 </div>
 ```
 
-Observe que todo o texto tem um atributo **Lang** , que descreve os idiomas do texto. Esse atributo ajuda o leitor de imersão a fornecer recursos relevantes de idioma e gramática.
+Note que todo o texto tem um atributo **de lang,** que descreve as línguas do texto. Este atributo ajuda o Leitor Imersivo a fornecer características linguísticas e gramaticais relevantes.
 
-## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Adicionar JavaScript para tratar do início do leitor de imersão
+## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Adicione javaScript para lidar com o lançamento do Leitor Imersivo
 
-A biblioteca de leitura de imersão fornece funcionalidade como iniciar o leitor de imersão e renderizar botões de leitura de imersão. Sabia mais [aqui](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+A biblioteca Imersiva reader fornece funcionalidades como o lançamento do Leitor Imersivo e a renderização dos botões Imersivos do Leitor. Sabia mais [aqui](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 
-Na parte inferior do _Views\Home\Index.cshtml_, adicione o seguinte código:
+Na parte inferior de _Views\Home\Index.cshtml,_ adicione o seguinte código:
 
 ```html
 @section Scripts
@@ -294,21 +294,21 @@ Na parte inferior do _Views\Home\Index.cshtml_, adicione o seguinte código:
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Na barra de menus, selecione **depurar > iniciar depuração**ou pressione **F5** para iniciar o aplicativo.
+A partir da barra de menus, selecione **Debug > Iniciar depuração,** ou prima **F5** para iniciar a aplicação.
 
-No navegador, você deve ver:
+No seu navegador, deve ver:
 
-![Aplicativo de exemplo](./media/quickstart-csharp/4-buildapp.png)
+![App de amostras](./media/quickstart-csharp/4-buildapp.png)
 
-## <a name="launch-the-immersive-reader"></a>Iniciar o leitor de imersão
+## <a name="launch-the-immersive-reader"></a>Lançar o Leitor Imersivo
 
-Ao clicar no botão "leitor de imersão", você verá o leitor de imersão iniciado com o conteúdo na página.
+Quando clicar no botão "Leitor Imersivo", verá o Leitor Imersivo lançado com o conteúdo na página.
 
 ![Leitura Avançada](./media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Veja o guia de [início rápido do node. js](./quickstart-nodejs.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando node. js
-* Veja o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Python
-* Veja o [tutorial do IOS](./tutorial-ios-picture-immersive-reader.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Swift
-* Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
+* Veja o [Node.js quickstart](./quickstart-nodejs.md) para ver o que mais pode fazer com o SDK de Leitor Imersivo usando Node.js
+* Veja o [tutorial](./tutorial-python.md) python para ver o que mais pode fazer com o SDK de Leitor Imersivo usando Python
+* Veja o [tutorial do iOS](./tutorial-ios-picture-immersive-reader.md) para ver o que mais pode fazer com o SDK de Leitor Imersivo usando Swift
+* Explore o [SDK imersivo do leitor](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)

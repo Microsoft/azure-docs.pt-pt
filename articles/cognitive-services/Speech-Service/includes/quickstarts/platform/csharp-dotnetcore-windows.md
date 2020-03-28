@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Speech SDK for C# .NET Core platform setup - Speech service'
+title: 'Quickstart: Speech SDK for C# .NET Core configuração da plataforma - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para configurar a sua plataforma para C# menos de .NET Core no Windows ou macOS com o serviço de Fala SDK.
+description: Utilize este guia para configurar a sua plataforma para C# em .NET Core no Windows ou macOS com o serviço de Fala SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
 ms.openlocfilehash: 2387e0879ac73ae79858b110eaa88dcb8fe0eb78
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924987"
 ---
-Este guia mostra como instalar o C# [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Fala para .NET Core. Se você só quer que o nome do pacote seja iniciado por conta própria, faça `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
+Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Fala para C# .NET Core. Se você só quer que o nome do `Install-Package Microsoft.CognitiveServices.Speech` pacote seja iniciado por conta própria, corra na consola NuGet.
 
 > [!NOTE]
 > O .NET Core é uma plataforma .NET de código-fonte aberto para várias plataformas, que implementa a especificação [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).

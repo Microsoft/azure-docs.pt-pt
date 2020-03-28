@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
 ms.openlocfilehash: 02e0e1494a897b31cb6ef28083677fa48f854c91
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925658"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -26,7 +26,7 @@ Antes de começar, certifique-se de:
 O primeiro passo é garantir que tem o seu projeto aberto no Eclipse.
 
 1. Inicie o Eclipse
-2. Carregue o seu projeto e abra `Main.java`.
+2. Carregue o seu `Main.java`projeto e abra.
 
 ## <a name="add-a-reference-to-gson"></a>Adicione uma referência a Gson
 Vamos usar um serializador/desserializador externo da JSON neste arranque rápido. Para Java escolhemos [Gson.](https://github.com/google/gson)
@@ -48,15 +48,15 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 À medida que os pedidos da API rest's tomam em formato JSON e também devolvem resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
 Para facilitar a gestão dos pedidos e respostas, declararemos algumas classes para serializar/desserializar o JSON.
 
-Vá em frente e ponha as suas declarações antes `Main`.
+Vá em frente e `Main`coloque as suas declarações antes.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=15-93)]
 
 ## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
 A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
-Insira este código na [!code-java`Main` [](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
+Insira `Main` este código em[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
 ## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
-Em seguida, vamos gerar o pedido de transcrição. Adicione este código a `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
+Em seguida, vamos gerar o pedido de transcrição. Adicione este `Main` código a[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envie o pedido e verifique o seu estado
 Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.

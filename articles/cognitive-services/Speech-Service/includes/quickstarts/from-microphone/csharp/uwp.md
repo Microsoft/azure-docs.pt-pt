@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Reconheça o discurso C# de um microfone, (UWP) - Serviço de fala'
+title: 'Quickstart: Reconhecer discurso a partir de um microfone, C# (UWP) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
 ms.openlocfilehash: 93a5a29c225912a48cf99ba6126690c298dfef9d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78926098"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,13 +35,13 @@ O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
 
 Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
-1. No **Solution Explorer,** abra `MainPage.xaml`.
+1. No **Solution Explorer,** abra. `MainPage.xaml`
 
-2. Na vista XAML do designer, insira o seguinte corte XAML na etiqueta **Grid** (entre `<Grid>` e `</Grid>`):
+2. Na vista XAML do designer, insira o seguinte corte XAML `</Grid>`na etiqueta **Grid** (entre `<Grid>` e):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml#StackPanel)]
 
-3. No **Solution Explorer,** abra o ficheiro fonte por trás do código `MainPage.xaml.cs`. (Está agrupado sob `MainPage.xaml`.)
+3. No **Solution Explorer,** abra o `MainPage.xaml.cs`ficheiro código por trás da fonte . (Está agrupado sob `MainPage.xaml`.)
 
 4. Substitua o código pelo seguinte código base:
 
@@ -49,19 +49,19 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
 
-Antes de poder inicializar um `SpeechRecognizer` objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este código no método `RecognizeSpeechAsync()`.
+Antes de poder `SpeechRecognizer` inicializar um objeto, precisa de criar uma configuração que utilize a sua chave de subscrição e região de subscrição. Insira este `RecognizeSpeechAsync()` código no método.
 
 > [!NOTE]
-> Esta amostra utiliza o método `FromSubscription()` para construir a `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte [A Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
+> Esta amostra `FromSubscription()` utiliza o `SpeechConfig`método para construir o . Para obter uma lista completa dos métodos disponíveis, consulte [A Aula de SpeechConfig](https://docs.microsoft.com/dotnet/api/)[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
 
 ## <a name="initialize-a-speechrecognizer"></a>Inicializar um Reconhecedor de Discursos
 
-Agora, vamos criar um `SpeechRecognizer`. Este objeto é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este código no método `RecognizeSpeechAsync()`, logo abaixo da configuração do Discurso.
+Agora, vamos criar `SpeechRecognizer`um. Este objeto é criado dentro de uma declaração de utilização para garantir a libertação adequada de recursos não geridos. Insira este `RecognizeSpeechAsync()` código no método, logo abaixo da configuração do Discurso.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
 ## <a name="recognize-a-phrase"></a>Reconhecer uma frase
 
-Pelo `SpeechRecognizer` objeto, vai chamar o método `RecognizeOnceAsync()`. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
+Pelo `SpeechRecognizer` objeto, vais chamar o `RecognizeOnceAsync()` método. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
 
 Dentro da declaração de utilização, adicione este código.
 
@@ -77,11 +77,11 @@ Quando o resultado do reconhecimento for devolvido pelo serviço de Discurso, va
 
 Agora está pronto para construir e testar a sua aplicação.
 
-1. A partir da barra de menus, escolha **construir** > **Construir Solução** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, escolha **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **depurar** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação. A janela do **Helloworld** aparece.
+1. Escolha **Depurar** > **Depuração** (ou prima **F5)** para iniciar a aplicação. A janela do **Helloworld** aparece.
 
-   ![Amostra UWP aplicação C# de reconhecimento de voz em - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-helloworld-window.png)
+   ![Amostra UWP aplicação de reconhecimento de voz em C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-helloworld-window.png)
 
 1. Selecione **Ativar o microfone**e quando o pedido de autorização de acesso aparecer, selecione **Sim**.
 

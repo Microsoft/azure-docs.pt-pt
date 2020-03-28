@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: dapine
 ms.openlocfilehash: 58122066e65fbcb02b6b4333985785b219d3dbbd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900603"
 ---
-Para concluir o início rápido do reconhecimento de intenção, você precisará criar uma conta do LUIS e um projeto usando o portal de visualização do LUIS. Este início rápido requer apenas uma assinatura LUIS. Não *é* necessária uma subscrição do serviço de fala.
+Para completar o reconhecimento rápido da intenção, terá de criar uma conta LUIS e um projeto utilizando o portal de pré-visualização LUIS. Este arranque rápido requer apenas uma assinatura LUIS. Não *é* necessária uma subscrição do serviço de fala.
 
-A primeira coisa que você precisará fazer é criar uma conta e um aplicativo do LUIS usando o portal de visualização do LUIS. O aplicativo LUIS que você cria usará um domínio predefinido para a automação inicial, que fornece intenções, entidades e exemplos de declarações. Quando tiver terminado, você terá um ponto de extremidade LUIS em execução na nuvem que você pode chamar usando o SDK de fala. 
+A primeira coisa que terá de fazer é criar uma conta E app LUIS utilizando o portal de pré-visualização LUIS. A app LUIS que criar utilizará um domínio pré-construído para a automação domiciliária, que fornece intenções, entidades e declarações de exemplo. Quando terminar, terá um ponto final luis correndo na nuvem a que pode chamar usando o Speech SDK. 
 
-Siga estas instruções para criar seu aplicativo LUIS:
+Siga estas instruções para criar a sua aplicação LUIS:
 
 * <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Quickstart: Construir app de domínio pré-construído<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
@@ -27,24 +27,24 @@ Quando terminar, vai precisar de quatro coisas:
 * A sua **localização** LUIS
 * O seu ID de **aplicativo** LUIS
 
-Aqui está onde você pode encontrar essas informações no [portal de visualização do Luis](https://preview.luis.ai/):
+Aqui é onde você pode encontrar esta informação no portal de [pré-visualização LUIS:](https://preview.luis.ai/)
 
 1. A partir do portal de pré-visualização LUIS, selecione a sua aplicação e, em seguida, selecione o botão **Publicar.**
 
-2. Selecione a ranhura **de Produção,** se estiver a utilizar `en-US` alternar a opção de **preparação do Discurso** para a posição **On.** Em seguida, selecione o botão **Publicar.**
+2. Selecione a ranhura **de Produção,** se estiver a utilizar `en-US` a opção de **preparação** do Discurso para a posição **On.** Em seguida, selecione o botão **Publicar.**
 
     > [!IMPORTANT]
     > **A preparação da fala** é altamente recomendada, uma vez que melhorará a precisão do reconhecimento da fala.
 
     > [!div class="mx-imgBorder"]
-    > ![Publicar LUIS para](../../../media/luis/publish-app-popup.png) final
+    > ![Publicar LUIS ao ponto final](../../../media/luis/publish-app-popup.png)
 
-3. No portal de visualização do LUIS, selecione **gerenciar**e, em seguida, selecione **recursos do Azure**. Nessa página, você encontrará sua chave LUIS e o local (às vezes chamado de _região_).
-
-   > [!div class="mx-imgBorder"]
-   > ![chave LUIS e](../../../media/luis/luis-key-region.png) de localização
-
-4. Depois de obter a chave e o local, você precisará da ID do aplicativo. Selecione **configurações do aplicativo** – a ID do aplicativo está disponível nesta página.
+3. A partir do portal de pré-visualização LUIS, selecione **Gerir,** em seguida, selecione **Recursos Azure**. Nesta página, encontrará a sua chave e localização LUIS (por vezes referida como _região)._
 
    > [!div class="mx-imgBorder"]
-   > ![app](../../../media/luis/luis-app-id.png)
+   > ![Chave e localização LUIS](../../../media/luis/luis-key-region.png)
+
+4. Depois de ter a sua chave e localização, vai precisar da identificação da aplicação. Selecione Definições de **Aplicação** -- o ID da aplicação está disponível nesta página.
+
+   > [!div class="mx-imgBorder"]
+   > ![ID da aplicação LUIS](../../../media/luis/luis-app-id.png)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 9c7385d3457f3f5dbed2633c20445bb9ef0b1638
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906810"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -29,9 +29,9 @@ import os, requests, uuid, json
 
 O primeiro comentário indica ao interpretador Python para utilizar a codificação UTF-8. Em seguida, os módulos exigidos são importados para ler a chave de subscrição a partir de uma variável de ambiente, construir o pedido de http, criar um identificador exclusivo e processar a resposta JSON devolvida pela API de Texto do Microsoft Translator.
 
-## <a name="set-the-subscription-key-endpoint-and-path"></a>Definir a chave de assinatura, o ponto de extremidade e o caminho
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Desdefinir a chave de subscrição, ponto final e caminho
 
-Este exemplo tentará ler sua chave de assinatura tradução de texto e o ponto de extremidade das variáveis `TRANSLATOR_TEXT_KEY` de `TRANSLATOR_TEXT_ENDPOINT`ambiente: e. Se você não estiver familiarizado com as variáveis de ambiente, poderá `subscription_key` definir `endpoint` e como cadeias de caracteres e comentar as instruções condicionais.
+Esta amostra tentará ler a chave de subscrição de `TRANSLATOR_TEXT_KEY` texto `TRANSLATOR_TEXT_ENDPOINT`tradutor e ponto final das variáveis ambientais: e . Se não está familiarizado com variáveis ambientais, pode definir `subscription_key` e `endpoint` como cordas e comentar as declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-O ponto de extremidade global Tradução de Texto é definido `endpoint`como o. `path` define a rota `breaksentence` e identifica que queremos utilizar a versão 3 da API.
+O ponto final global do `endpoint`Texto tradutor é definido como o . `path` define a rota `breaksentence` e identifica que queremos utilizar a versão 3 da API.
 
 Os `params` neste exemplo são utilizados para definir o idioma do texto fornecido. Os `params` não são necessários para a rota `breaksentence`. Se forem deixados de fora do pedido, a API irá tentar detetar o idioma do texto fornecido e fornecer estas informações juntamente com uma pontuação de confiança na resposta.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 path = '/breaksentence?api-version=3.0'
@@ -74,7 +74,7 @@ headers = {
 }
 ```
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="create-a-request-to-determine-sentence-length"></a>Criar um pedido para determinar o comprimento da frase
 
@@ -131,9 +131,9 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 Se codificou a chave de subscrição no seu programa, certifique-se de que remove a chave de subscrição quando tiver terminado este início rápido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

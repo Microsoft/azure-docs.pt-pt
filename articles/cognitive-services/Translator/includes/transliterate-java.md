@@ -5,36 +5,36 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: ad5c51b3d373947e8a09762b0cb27afff990e6da
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906442"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
 [!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
-## <a name="initialize-a-project-with-gradle"></a>Inicializar um projeto com gradle
+## <a name="initialize-a-project-with-gradle"></a>Inicializar um projeto com Gradle
 
-Vamos começar criando um diretório de trabalho para este projeto. Na linha de comando (ou terminal), execute este comando:
+Vamos começar por criar um diretório de trabalho para este projeto. A partir da linha de comando (ou terminal), executar este comando:
 
 ```console
 mkdir transliterate-sample
 cd transliterate-sample
 ```
 
-Em seguida, você vai inicializar um projeto gradle. Esse comando criará arquivos de Build essenciais para gradle, o mais importante `build.gradle.kts`, o, que é usado em tempo de execução para criar e configurar seu aplicativo. Execute este comando em seu diretório de trabalho:
+A seguir, vais rubricar um projeto Gradle. Este comando criará ficheiros de construção essenciais para gradle, o mais importante, o `build.gradle.kts`, que é usado no tempo de execução para criar e configurar a sua aplicação. Execute este comando a partir do seu diretório de trabalho:
 
 ```console
 gradle init --type basic
 ```
 
-Quando for solicitado a escolher uma **DSL**, selecione **Kotlin**.
+Quando for solicitado a escolher um **DSL,** selecione **Kotlin**.
 
-## <a name="configure-the-build-file"></a>Configurar o arquivo de compilação
+## <a name="configure-the-build-file"></a>Configure o ficheiro de construção
 
-Localize `build.gradle.kts` -o e abra-o com seu IDE ou editor de texto favorito. Em seguida, copie nesta configuração de compilação:
+Localize-o `build.gradle.kts` e abra-o com o seu IDE favorito ou editor de texto. Em seguida, copiar nesta configuração de construção:
 
 ```
 plugins {
@@ -53,21 +53,21 @@ dependencies {
 }
 ```
 
-Observe que esse exemplo tem dependências de OkHttp para solicitações HTTP e Gson para manipular e analisar JSON. Se você quiser saber mais sobre as configurações de compilação, consulte [criando novas compilações do gradle](https://guides.gradle.org/creating-new-gradle-builds/).
+Tome nota que esta amostra tem dependências de OkHttp para pedidos HTTP, e Gson para lidar e analisar JSON. Se quiser saber mais sobre configurações de construção, consulte [Creating New Gradle Builds](https://guides.gradle.org/creating-new-gradle-builds/).
 
-## <a name="create-a-java-file"></a>Crie um ficheiro de Java
+## <a name="create-a-java-file"></a>Criar um ficheiro Java
 
-Vamos criar uma pasta para seu aplicativo de exemplo. Em seu diretório de trabalho, execute:
+Vamos criar uma pasta para a sua aplicação de amostras. Do seu diretório de trabalho, corra:
 
 ```console
 mkdir -p src\main\java
 ```
 
-Em seguida, nesta pasta, crie um arquivo chamado `Transliterate.java`.
+Em seguida, nesta pasta, `Transliterate.java`crie um ficheiro chamado .
 
-## <a name="import-required-libraries"></a>Importar bibliotecas necessárias
+## <a name="import-required-libraries"></a>Importação de bibliotecas necessárias
 
-Abra `Transliterate.java` e adicione estas instruções de importação:
+Abra `Transliterate.java` e adicione estas declarações de importação:
 
 ```java
 import java.io.*;
@@ -80,7 +80,7 @@ import com.squareup.okhttp.*;
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Primeiro, você precisará criar uma classe pública para seu projeto:
+Primeiro, terá de criar uma classe pública para o seu projeto:
 
 ```java
 public class Transliterate {
@@ -88,25 +88,25 @@ public class Transliterate {
 }
 ```
 
-Adicione essas linhas à `Transliterate` classe. Primeiro, a chave de assinatura e o ponto de extremidade estão sendo lidos de variáveis de ambiente. Em seguida, você observará que, junto `api-version`com o, dois parâmetros adicionais foram anexados `url`ao. Esses parâmetros são usados para definir o idioma de entrada e os scripts para transliteração. Neste exemplo, ele é definido como japonês (`jpan`) e Latin (`latn`). 
+Adicione estas linhas `Transliterate` à classe. Em primeiro lugar, a chave de subscrição e o ponto final estão a ser lidos a partir de variáveis ambientais. Em seguida, você vai notar `api-version`que, juntamente com os `url`dois parâmetros adicionais foram anexados ao . Estes parâmetros são usados para definir a linguagem de entrada, e os scripts para transliteração. Nesta amostra, está definido para`jpan`japonês (`latn`) e latim ( ). 
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
 private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
-## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e criar uma solicitação
+## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e construir um pedido
 
-Adicione essa linha à `Transliterate` classe para instanciar o: `OkHttpClient`
+Adicione esta linha `Transliterate` à classe `OkHttpClient`para instantaneamente:
 
 ```java
 // Instantiates the OkHttpClient.
 OkHttpClient client = new OkHttpClient();
 ```
 
-Em seguida, vamos criar a solicitação POST. Sinta-se à vontade para alterar o texto para transliteração.
+Em seguida, vamos construir o pedido do POST. Sinta-se livre para mudar o texto para a transliteração.
 
 ```java
 // This function performs a POST request.
@@ -125,7 +125,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Criar uma função para analisar a resposta
 
-Essa função simples analisa e prettifies a resposta JSON do serviço Tradução de Texto.
+Esta função simples analisa e prettifica a resposta JSON do serviço De Texto tradutor.
 
 ```java
 // This function prettifies the json response.
@@ -139,7 +139,7 @@ public static String prettify(String json_text) {
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-A última etapa é fazer uma solicitação e obter uma resposta. Adicione estas linhas ao seu projeto:
+O último passo é fazer um pedido e obter uma resposta. Adicione estas linhas ao seu projeto:
 
 ```java
 public static void main(String[] args) {
@@ -155,13 +155,13 @@ public static void main(String[] args) {
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-É isso, você está pronto para executar seu aplicativo de exemplo. Na linha de comando (ou sessão de terminal), navegue até a raiz do seu diretório de trabalho e execute:
+Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até à raiz do seu diretório de trabalho e corra:
 
 ```console
 gradle build
 ```
 
-Quando a compilação for concluída, execute:
+Quando a construção estiver concluída, corra:
 
 ```console
 gradle run
@@ -178,9 +178,9 @@ gradle run
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

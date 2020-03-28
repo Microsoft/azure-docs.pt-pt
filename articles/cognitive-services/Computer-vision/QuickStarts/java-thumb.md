@@ -12,28 +12,28 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 01dd03eb0ed17fc43e62c8f749dfa2de78e38f69
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974585"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Início rápido: gerar uma miniatura usando a API REST do Pesquisa Visual Computacional e o Java
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Gere uma miniatura utilizando a API e Java de Visão Computacional
 
-Neste guia de início rápido, você gerará uma miniatura de uma imagem usando a API REST do Pesquisa Visual Computacional. Especifica a altura e a largura, que podem ser diferentes da proporção da imagem de entrada. Pesquisa Visual Computacional usa o corte inteligente para identificar de forma inteligente a área de interesse e gerar coordenadas de corte com base nessa região.
+Neste arranque rápido, você gerará uma miniatura a partir de uma imagem usando a API DE DESCANSO DE Visão Computacional. Especifica a altura e a largura, que podem ser diferentes da proporção da imagem de entrada. A Computer Vision utiliza uma cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de cultura baseadas nessa região.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter a plataforma [Java&trade;, Standard Edition Development Kit 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) instalada.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Crie um novo projeto de Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
+1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
    - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -58,9 +58,9 @@ Para criar e executar o exemplo, siga os seguintes passos:
    import org.json.JSONObject;
    ```
 
-1. Substitua a classe pública `Main` pelo código a seguir.
+1. Substitua `Main` a classe pública pelo seguinte código.
 1. Opcionalmente, substitua o valor de `imageToAnalyze` pelo URL de uma imagem diferente para a qual pretende gerar uma miniatura.
-1. Guarde e, em seguida, compile o projeto Java.
+1. Guarde e, em seguida, crie o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java

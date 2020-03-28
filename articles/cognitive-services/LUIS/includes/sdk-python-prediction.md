@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: ff4c33aea3d3ce604f44c38e6e3856242388b0e9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77372354"
 ---
 Utilize a biblioteca de clientes de previsão de linguagem (LUIS) para python para:
@@ -22,7 +22,7 @@ Utilize a biblioteca de clientes de previsão de linguagem (LUIS) para python pa
 * Obtenha previsão por ranhura
 * Obtenha previsão por versão
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [código de origem da Biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | Pacote de prazo de previsão [(PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Biblioteca Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | fonte Previsão Do[pacote de tempo de execução (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/)  |  [ Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ Obtenha a sua chave de tempo de [execução](../luis-how-to-azure-subscription.m
 
 ### <a name="create-a-new-python-file"></a>Criar um novo ficheiro python
 
-Crie um novo ficheiro python no seu editor preferido ou IDE, chamado `prediction_quickstart.py`.
+Crie um novo ficheiro python no seu `prediction_quickstart.py`editor preferido ou IDE, nomeado .
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
@@ -66,7 +66,7 @@ Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca d
 
 ## <a name="add-the-dependencies"></a>Adicione as dependências
 
-A partir do diretório do projeto, abra o ficheiro `prediction_quickstart.py` no seu editor ou IDE preferido. Adicione as seguintes dependências:
+A partir do diretório `prediction_quickstart.py` do projeto, abra o ficheiro no seu editor preferido ou IDE. Adicione as seguintes dependências:
 
 [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
 
@@ -74,18 +74,18 @@ A partir do diretório do projeto, abra o ficheiro `prediction_quickstart.py` no
 
 1. Crie variáveis para a sua própria informação necessária do LUIS:
 
-    Adicione variáveis para gerir a sua chave de previsão retirada de uma variável ambiental chamada `LUIS_RUNTIME_KEY`. Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
+    Adicione variáveis para gerir a sua chave `LUIS_RUNTIME_KEY`de previsão retirada de uma variável ambiental chamada . Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
 
-    Crie uma variável para manter o seu nome de recurso `LUIS_RUNTIME_ENDPOINT`.
+    Crie uma variável `LUIS_RUNTIME_ENDPOINT`para manter o seu nome de recurso.
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=AuthorizationVariables)]
 
-1. Crie uma variável para o ID da aplicação como uma variável ambiental chamada `LUIS_APP_ID`. Desloque a variável ambiental para a aplicação ioT pública, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir a ranhura publicada `production`.
+1. Crie uma variável para o `LUIS_APP_ID`ID da aplicação como uma variável ambiental chamada . Desloque a variável ambiental **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** para a aplicação ioT pública, . Crie uma variável para definir a `production` ranhura publicada.
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=OtherVariables)]
 
 
-1. Crie um objeto de credenciais com a sua chave e use-o com o seu ponto final para criar um objeto https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() [LUISRuntimeClientConfiguration].
+1. Crie um objeto de credenciais com a sua chave e use-ohttps://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() com o seu ponto final para criar um objeto [LUISRuntimeClientConfiguration].
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
 
@@ -108,7 +108,7 @@ predict(luisAppID, luisSlotName)
 ```
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a aplicação com o comando `python prediction_quickstart.py` do seu diretório de aplicações.
+Execute a `python prediction_quickstart.py` aplicação com o comando do seu diretório de candidatura.
 
 ```console
 python prediction_quickstart.py

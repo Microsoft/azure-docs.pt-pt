@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
 ms.openlocfilehash: 20dfc49acdaa30bea6f0652640e007c16f08c572
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924823"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -25,7 +25,7 @@ Antes de começar, certifique-se de:
 O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
 
 1. Lançar O Estúdio Visual 2019.
-2. Carregue o seu projeto e abra `helloworld.cpp`.
+2. Carregue o seu `helloworld.cpp`projeto e abra.
 
 ## <a name="add-a-references"></a>Adicione uma referência
 
@@ -53,17 +53,17 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 À medida que os pedidos da API rest's tomam em formato JSON e também devolvem resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
 Para facilitar a gestão dos pedidos e respostas, declararemos algumas classes para serializar/desserializar o JSON e alguns métodos para ajudar a nlohmann/json.
 
-Vá em frente e ponha as suas declarações antes `recognizeSpeech`.
+Vá em frente e `recognizeSpeech` coloque as suas declarações antes.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=33-185)]
 
 ## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
 A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
-Insira este código em `recognizeSpeech`
+Insira este código em`recognizeSpeech`
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
 
 ## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
-Em seguida, vamos gerar o pedido de transcrição. Adicione este código a `recognizeSpeech`
+Em seguida, vamos gerar o pedido de transcrição. Adicione este código a`recognizeSpeech`
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 

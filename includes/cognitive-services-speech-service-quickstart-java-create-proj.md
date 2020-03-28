@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: a542e02c51bf2ce9b3b13bc50a39584ce079ec72
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78330838"
 ---
 1. Inicie o Eclipse.
@@ -19,7 +19,7 @@ ms.locfileid: "78330838"
 
 1. Dentro de momentos, é apresentada a janela principal do IDE do Eclipse. Feche o ecrã **welcome** se estiver presente.
 
-1. Na barra de menus do Eclipse, crie um novo projeto, ao escolher **Ficheiro** > **Novo** > **Projeto**.
+1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File** > **New** > **Project**.
 
 1. Aparece a caixa de diálogo **Novo Projeto**. Selecione **Projeto Java** e selecione **Seguinte**.
 
@@ -31,7 +31,7 @@ ms.locfileid: "78330838"
 
 1. Se a janela **Abrir Perspetiva Associada?** for apresentada, selecione **Abrir Perspetiva**.
 
-1. Na **Explorador de pacotes**, clique com o botão direito do rato no projeto **início rápido**. Escolha **Configurar** > **Converter em Projeto Maven** no menu de contexto.
+1. Na **Explorador de pacotes**, clique com o botão direito do rato no projeto **início rápido**. Escolha **Configure** > **Converter para Maven Project** a partir do menu de contexto.
 
    ![Captura de ecrã do Explorador de pacotes](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "78330838"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Adicione também um elemento `dependencies`, com a versão 1.10.0 do Speech SDK como dependência:
+   * Adicione também `dependencies` um elemento, com a versão 1.10.0 do Speech SDK como dependência:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

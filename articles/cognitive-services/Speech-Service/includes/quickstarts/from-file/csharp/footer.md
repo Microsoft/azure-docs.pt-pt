@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: reconhecer a fala de um arquivo C# de áudio,-serviço de fala'
+title: 'Quickstart: Reconhecer o discurso de um ficheiro áudio, C# - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: dapine
 ms.openlocfilehash: b5fafa5bdaabc165ca4e2e20a59a9cb296011aca
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76037616"
 ---
 > [!div class="nextstepaction"]
-> [Explorar C# exemplos no github](https://aka.ms/speech/github-csharp)
+> [Explore as amostras de C# no GitHub](https://aka.ms/speech/github-csharp)

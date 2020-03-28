@@ -1,5 +1,5 @@
 ---
-title: Como obter o ponto de extremidade de previsão v3
+title: Como obter ponto final de previsão V3
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: bc6e43faca47e360daa8214e6b9f6e9df4a2f130
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23e7f88b23ac7af7470183877eeb1be89e79779c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495241"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287752"
 ---
-1. No portal do LUIS, na seção Gerenciar (menu superior direito), na página chaves e pontos de extremidade (menu à esquerda), selecione a URL do ponto de extremidade na parte inferior da página.
+1. No portal LUIS, na secção **Gerir** (menu superior direito), na página **Dos Recursos Azure** (menu à esquerda), no separador Recursos de **Previsão,** copie o **exemplo Consulta** na parte inferior da página.
 
-    Essa ação abre a guia navegador com a URL do ponto de extremidade na barra de endereços.
+    Colá-lo num novo separador de navegador.
 
-    A URL tem a ID do aplicativo, a chave e o nome do slot. A URL do ponto de extremidade de previsão v3 é semelhante a:
+    O URL tem o seu id de aplicação, chave e nome de slot. O URL final de ponto final de previsão V3 parece:
 
-    `https://REGION.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=UTTERANCE-TEXT.`
+    `https://REGION.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=YOUR_QUERY_HERE`
 

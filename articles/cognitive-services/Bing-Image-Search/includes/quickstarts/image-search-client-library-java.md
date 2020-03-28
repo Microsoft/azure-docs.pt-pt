@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: 4656d8116ddd2e618adad97aeea576e88bc8785f
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78899581"
 ---
 Use este quickstart para fazer a sua primeira pesquisa de imagem usando a biblioteca de clientes Bing Image Search, que é um invólucro para a API e contém as mesmas funcionalidades. Esta aplicação Java simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 
-O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) com processamento de erros e anotações de código adicionais.
+O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) com processamento de erros e anotações de código adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: conteúdo específico do domínio – REST, Python'
+title: 'Quickstart: Conteúdo específico do domínio - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, vai utilizar modelos de domínio para identificar celebridades e marcos numa imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8e5ff917e7283457e7ff1d4c5fd0cbd91a1b0ace
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9fa9d414b89c7229b0577faad778f6cc8b87fa99
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973752"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244823"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Guia de Início Rápido: Utilizar um modelo de domínio com a API REST e o Python na Imagem Digitalizada
 
-Neste guia de início rápido, você usará um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST do Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Reconhecer Conteúdo Específico do Domínio), pode aplicar um modelo específico do domínio para reconhecer conteúdo dentro de uma imagem.
+Neste arranque rápido, você usará um modelo de domínio para identificar marcos ou, opcionalmente, celebridades numa imagem armazenada remotamente usando a API de Visão Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Reconhecer Conteúdo Específico do Domínio), pode aplicar um modelo específico do domínio para reconhecer conteúdo dentro de uma imagem.
 
 Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![Aglutinante](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Criar e executar o exemplo de marcos
 
@@ -39,11 +39,13 @@ Para criar e executar o exemplo de marcos, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
 1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente na qual pretende detetar marcos.
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-landmarks.py`.
+1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `get-landmarks.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-landmarks.py`.
 
 ```python
+import os
+import sys
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 # %matplotlib inline
@@ -90,7 +92,7 @@ _ = plt.title(landmark_name, size="x-large", y=-0.1)
 
 ## <a name="examine-the-response-for-the-landmarks-sample"></a>Examinar a resposta para o exemplo de marcos
 
-Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -120,7 +122,7 @@ Para criar e executar o exemplo de marcos, siga os seguintes passos:
     1. Substitua o valor de `subscription_key` pela chave de subscrição.
     1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
     1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente na qual pretende detetar celebridades.
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-celebrities.py`.
+1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `get-celebrities.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-celebrities.py`.
 
@@ -167,7 +169,7 @@ _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 
 ## <a name="examine-the-response-for-the-celebrities-sample"></a>Examinar a resposta para o exemplo de celebridades
 
-Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 
 ```json

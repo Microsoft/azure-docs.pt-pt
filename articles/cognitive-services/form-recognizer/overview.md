@@ -9,14 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241739"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052437"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 O Azure Form Recogniser é um serviço cognitivo que utiliza tecnologia de machine learning para identificar e extrair texto, pares chave/valor e dados de tabela saem de documentos de formulário. Ingere texto a partir de formulários e saídas de dados estruturados que incluem as relações no ficheiro original. Obtém rapidamente resultados precisos que são adaptados ao seu conteúdo específico sem uma intervenção manual pesada ou uma vasta experiência em ciência de dados. O Reconhecimento de Formulários é composto por modelos personalizados, o modelo de recibo pré-construído e a API de layout. Pode chamar os modelos 'Reconhecimento de Formulários', utilizando uma API REST para reduzir a complexidade e integrá-la no seu fluxo de trabalho ou aplicação.
 
@@ -45,11 +47,11 @@ O Reconhecimento de Formulários utiliza a [API de layout](#layout-api) para apr
 
 ## <a name="prebuilt-receipt-model"></a>Modelo de recibo pré-construído
 
-O Form Recogniser também inclui um modelo de leitura dos recibos de vendas ingleses dos Estados Unidos&mdash;o tipo utilizado por restaurantes, postos de gasolina, retalho, e assim por diante (recibo de[amostra).](./media/contoso-receipt-small.png) Este modelo extrai informações-chave como a hora e a data da transação, informação dos comerciantes, montantes de impostos e totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo.
+O Form Recogniser também inclui um modelo de&mdash;leitura de recibos de vendas ingleses dos Estados Unidos do tipo utilizado por restaurantes, postos de gasolina, retalho, e assim por diante (recibo de[amostra).](./media/contoso-receipt-small.png) Este modelo extrai informações-chave como a hora e a data da transação, informação dos comerciantes, montantes de impostos e totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo.
 
 ## <a name="layout-api"></a>Layout API
 
-O Reconhecimento de Formulários também pode extrair texto e estrutura de tabela (os números de linha e coluna associados ao texto) utilizando o reconhecimento ótico de caracteres de alta definição (OCR). 
+O Reconhecimento de Formulários também pode extrair texto e estrutura de tabela (os números de linha e coluna associados ao texto) utilizando o reconhecimento ótico de caracteres de alta definição (OCR).
 
 ## <a name="get-started"></a>Introdução
 
@@ -59,9 +61,9 @@ Siga um início rápido para começar a extrair dados dos seus formulários. Rec
   * Treme sem rótulos
     * [Quickstart: Treine um modelo de reconhecimento de formulário e extrai dados de formulário utilizando a API REST com cURL](quickstarts/curl-train-extract.md)
     * [Quickstart: Treine um modelo de reconhecimento de formulário e extrai dados de formulário utilizando a API REST com Python](quickstarts/python-train-extract.md)
-  * Trem com rótulos 
+  * Trem com rótulos
     * [Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra](quickstarts/label-tool.md)
-    * [Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python](quickstarts/python-labeled-data.md) 
+    * [Treine um modelo de reconhecimento de formulário com etiquetas usando REST API e Python](quickstarts/python-labeled-data.md)
 * Recibos pré-construídos - extrair dados dos recibos de vendas dos EUA
   * [Quickstart: Extrair dados de recibo utilizando cURL](quickstarts/curl-receipts.md)
   * [Quickstart: Extrair dados de recibo usando Python](quickstarts/python-receipts.md)
@@ -74,7 +76,7 @@ Utilizará as seguintes APIs para treinar modelos e extrair dados estruturados a
 
 |Nome |Descrição |
 |---|---|
-| **Modelo personalizado de comboio**| Treine um novo modelo para analisar os seus formulários utilizando cinco formas do mesmo tipo. Defina o parâmetro _useLabelFile_ para `true` para treinar com dados manualmente rotulados. |
+| **Modelo personalizado de comboio**| Treine um novo modelo para analisar os seus formulários utilizando cinco formas do mesmo tipo. Defina o parâmetro _useLabelFile_ para `true` treinar com dados manualmente rotulados. |
 | **Analisar formulário** |Analise um único documento transmitido como um fluxo para extrair texto, pares chave/valor e tabelas do formulário com o seu modelo personalizado.  |
 | **Analisar recibo** |Analise um único documento de recibo para extrair informações-chave e outro texto de recibo.|
 | **Analisar layout** |Analise o layout de um formulário para extrair texto e estrutura de mesa.|
@@ -92,7 +94,7 @@ Os requisitos de entrada para o modelo de recibo são ligeiramente diferentes.
 
 * O formato deve ser JPEG, PNG, BMP, PDF (texto ou digitalizado) ou TIFF.
 * O tamanho do ficheiro deve ser inferior a 20 MB.
-* As dimensões de imagem devem estar entre 50 x 50 pixels e 10000 x 10000 pixels. 
+* As dimensões de imagem devem estar entre 50 x 50 pixels e 10000 x 10000 pixels.
 * As dimensões pdf devem ser no máximo 17 x 17 polegadas, correspondentes aos tamanhos legais ou a3 e menores.
 * Para PDF e TIFF, apenas as primeiras 200 páginas são processadas (com uma subscrição de nível livre, apenas as duas primeiras páginas são processadas).
 

@@ -12,21 +12,21 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 1d07bc12f33df7253a849b605fdaff1f2f0123dd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974551"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Início rápido: gerar uma miniatura usando a API REST do Pesquisa Visual Computacional e o JavaScript
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Gere uma miniatura utilizando a API e javaScript de Visão Computacional
 
-Neste guia de início rápido, você gerará uma miniatura de uma imagem usando a API REST do Pesquisa Visual Computacional. Você especifica a altura e a largura, que pode diferir na taxa de proporção da imagem de entrada. Pesquisa Visual Computacional usa o corte inteligente para identificar de forma inteligente a área de interesse e gerar coordenadas de corte com base nessa região.
+Neste arranque rápido, você gerará uma miniatura a partir de uma imagem usando a API DE DESCANSO DE Visão Computacional. Especifica a altura e a largura, que podem diferir na relação de aspeto da imagem de entrada. A Computer Vision utiliza uma cultura inteligente para identificar inteligentemente a área de interesse e gerar coordenadas de cultura baseadas nessa região.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -34,7 +34,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
 1. Opcionalmente, substitua o valor do atributo `value` pelo controlo `inputImage` com o URL de uma imagem diferente que pretende analisar.
-1. Guarde o código como um ficheiro com uma extensão `.html`. Por exemplo, `get-thumbnail.html`.
+1. Guarde o código como um ficheiro com a extensão `.html`. Por exemplo, `get-thumbnail.html`.
 1. Abra uma janela do browser.
 1. No browser, arraste e largue o ficheiro na janela do browser.
 1. Quando a página Web for apresentada no browser, selecione o botão **Generate thumbnail** (Gerar miniatura).
@@ -156,7 +156,7 @@ Image for thumbnail:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do JavaScript que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore uma aplicação do JavaScript que utiliza a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript de API de Imagem Digitalizada](../Tutorials/javascript-tutorial.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Obter os Resultados da Verificação Ortográfica com a API de Verificação de Ortografia do Bing'
+title: 'Tutorial: Introdução os resultados da Verificação de Ortografia com a API de Verificação de Ortografia do Bing'
 titleSuffix: Azure Cognitive Services
 description: Use este tutorial para construir uma página web que envia consultas para a API bing spell check, e exibe os resultados.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943097"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilar um cliente de Verificação Ortográfica de página Web
@@ -29,7 +29,7 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Verificação de Ortografia do Bing. Se não tiver um, [crie um recurso bing spell check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) no portal Azure. também pode usar uma chave de [ensaio.](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)
+Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Verificação de Ortografia do Bing. Se não tiver um, [crie um recurso bing spell check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) no portal Azure. Também pode usar uma chave de [ensaio.](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)
 
 ## <a name="create-a-new-web-page"></a>Criar uma nova página Web
 
@@ -319,7 +319,7 @@ Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Requisitos de utilização e de apresentação](../UseAndDisplayRequirements.md)
+> [Requisitos de utilização e exibição](../UseAndDisplayRequirements.md)

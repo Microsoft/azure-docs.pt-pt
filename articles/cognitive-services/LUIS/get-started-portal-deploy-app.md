@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79241781"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
@@ -73,10 +73,10 @@ Sempre que cria um novo recurso para o LUIS, tem de atribuir o recurso à aplica
 
 1. Complete os mesmos passos para adicionar a chave de autor à sua aplicação.
 
-1. Encontre a nova linha na tabela para o novo recurso de previsão e copie o URL do ponto final. É corretamente construído para fazer um pedido de `HTTP GET` à API para uma previsão.
+1. Encontre a nova linha na tabela para o novo recurso de previsão e copie o URL do ponto final. É corretamente construído para fazer `HTTP GET` um pedido ao ponto final da API LUIS para uma previsão.
 
 > [!TIP]
-> Se pretender utilizar o Ative learning para melhorar a sua aplicação LUIS, selecione **parâmetros** de consulta de alteração e selecione **Registos Save**. Esta ação altera o URL de exemplo adicionando o parâmetro de `log=true` consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
+> Se pretender utilizar o Ative learning para melhorar a sua aplicação LUIS, selecione **parâmetros** de consulta de alteração e selecione **Registos Save**. Esta ação altera o URL `log=true` de exemplo adicionando o parâmetro de corda de consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
 
 ## <a name="train-the-app"></a>Preparar a aplicação
 
@@ -88,7 +88,7 @@ Sempre que cria um novo recurso para o LUIS, tem de atribuir o recurso à aplica
 
 ## <a name="prediction-endpoint-request"></a>Pedido de ponto final de previsão
 
-No portal de pré-visualização, `query=` no final do URL é onde a expressão do utilizador está anexada ao pedido GET. Depois do `query=`, introduza a mesma expressão de utilizador utilizada no final do quickstart anterior:
+No portal de `query=` pré-visualização, no final do URL é onde a expressão do utilizador está anexada ao pedido GET. Depois `query=`da , introduza a mesma expressão de utilizador utilizada no final do quickstart anterior:
 
 ```Is there a form named hrf-234098```
 
@@ -138,13 +138,13 @@ O navegador mostra a resposta:
 
 Para ver este mesmo nível de informação no painel de teste, tem de publicar a aplicação. Depois da aplicação ser publicada, selecione **Compare com publicado** no painel de teste. Use **a visão JSON** do show no painel de teste publicado para ver o mesmo JSON que o passo anterior. Desta forma, pode comparar alterações à aplicação atual em que está a trabalhar com uma aplicação que é publicada no ponto final.
 
-[![Comparar atualmente a edição versus versão publicada da app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Compare atualmente a edição versus versão publicada da app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar com este quickstart, selecione **Minhas aplicações** no menu de navegação superior. Selecione a caixa de verificação da aplicação da lista e, em seguida, selecione **Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Identificar intenções e entidades comuns](luis-tutorial-prebuilt-intents-entities.md)

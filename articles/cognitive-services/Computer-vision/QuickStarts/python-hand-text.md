@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2f0b8cac2cc26b2fab7255a7e7587985a5425485
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: fafc5234da3e6dfecdae2c8b2e2ba80cbed20b5c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566204"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244806"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-python"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a Visão computacional 2.0 e 2.1 REST API e Python
 
@@ -32,25 +32,25 @@ Em comparação com a Visão Computacional 2.0 e 2.1, a Visualização Pública 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 #### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 ---
 
 Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
-[![O botão de lançamento do Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![O botão de lançamento Do Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de pontofinal de chave e serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -59,12 +59,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
-1. Opcionalmente, substitua o valor da `image_url` pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-text.py`.
+1. Opcionalmente, substitua `image_url` o valor de uma imagem diferente a partir da qual pretende extrair texto.
+1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `get-text.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-text.py`.
 
 ```python
+import os
+import sys
 import requests
 import time
 # If you are using a Jupyter notebook, uncomment the following line.
@@ -139,8 +141,8 @@ for polygon in polygons:
 Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
-1. Opcionalmente, substitua o valor da `image_url` pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-text.py`.
+1. Opcionalmente, substitua `image_url` o valor de uma imagem diferente a partir da qual pretende extrair texto.
+1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `get-text.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-text.py`.
 
@@ -236,7 +238,7 @@ plt.show()
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 

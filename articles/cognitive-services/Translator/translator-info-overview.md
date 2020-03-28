@@ -1,5 +1,5 @@
 ---
-title: O que é a API de Texto do Microsoft Translator? -API de texto do translator
+title: O que é a API de Texto do Microsoft Translator? - API de Texto tradutor
 titlesuffix: Azure Cognitive Services
 description: Integre a API de Texto do Microsoft Translator nas suas aplicações, sites, ferramentas e outras soluções para oferecer experiências de utilizador de vários idiomas.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78331047"
 ---
 # <a name="what-is-the-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
@@ -28,7 +28,7 @@ A API de Texto do Microsoft Translator faz parte da coleção de [APIs dos Servi
 
 O Microsoft Translator é um serviço de tradução automática com base na cloud. No serviço de núcleo está a API de Texto do Microsoft Translator, que potencializa vários produtos e serviços da Microsoft, e é utilizada por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, o que permite que o conteúdo alcance o público global.
 
-A tradução de voz, com tecnologia da API de Texto do Microsoft Translator, também está disponível através do [Serviço de Voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina a funcionalidade da API do Discurso tradutor e do Serviço de Discurso Personalizado num serviço unificado e totalmente personalizável. O Serviço de Discurso está a substituir a API do Discurso tradutor, que será desativada no dia 15 de outubro de 2019.
+A tradução de voz, com tecnologia da API de Texto do Microsoft Translator, também está disponível através do [Serviço de Voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina a funcionalidade da API do Discurso tradutor e do Serviço de Discurso Personalizado num serviço unificado e totalmente personalizável.O Serviço de Voz está a substituir a API de Voz do Microsoft Translator, que será desativada a 15 de Outubro de 2019.
 
 ## <a name="language-support"></a>Suporte de idiomas
 

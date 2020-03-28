@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925486"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
@@ -21,7 +21,7 @@ Quer ver o código imediatamente? As amostras para as [bibliotecas de clientes b
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão algumas coisas de que precisará antes de executar este início rápido:
+Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [JDK 7 ou 8](https://aka.ms/azure-jdks)
 * O [Apache Maven](https://maven.apache.org/download.cgi) ou a sua ferramenta de automatização de compilação favorita

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: traduzir a fala em texto, C++ (Windows)-serviço de fala'
+title: 'Quickstart: Traduzir o discurso-a-texto, C++ (Windows) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: d1473f552b24feb194dd0a51e66e731ad79253e4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75469894"
 ---
 > [!div class="nextstepaction"]
-> [Explorar C++ exemplos no github](https://aka.ms/speech/github-cpp)
+> [Explore as amostras De C++ no GitHub](https://aka.ms/speech/github-cpp)

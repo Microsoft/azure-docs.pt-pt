@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774275"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Publicações e comandos moderados do Facebook com Moderador de Conteúdo Azure
@@ -28,7 +28,7 @@ Este tutorial mostrar-lhe como:
 > * Criar Funções do Azure que escutam eventos HTTP do Content Moderator e do Facebook.
 > * Ligue uma página do Facebook ao Moderador de Conteúdo usando uma aplicação do Facebook.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Este diagrama ilustra cada componente deste cenário:
 
@@ -39,12 +39,12 @@ Este diagrama ilustra cada componente deste cenário:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A chave de uma subscrição do Content Moderator. Siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Content moderator e obter sua chave.
+- A chave de uma subscrição do Content Moderator. Siga as instruções na [conta Create a Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço moderador de conteúdo e obter a sua chave.
 - Uma [conta no Facebook.](https://www.facebook.com/)
 
 ## <a name="create-a-review-team"></a>Criar uma equipa de revisão
 
-Consulte o guia de início rápido do [Content moderator na Web](quick-start.md) para obter instruções sobre como se inscrever na [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipe de revisão. Anote o valor da **ID da equipe** na página **credenciais** .
+Consulte o Moderador de [Conteúdo experimente na web](quick-start.md) quickstart para obter instruções sobre como se inscrever na ferramenta De revisão de moderador de [conteúdo](https://contentmoderator.cognitive.microsoft.com/) e criar uma equipa de revisão. Tome nota do valor de ID da **equipa** na página **credenciais.**
 
 ## <a name="configure-image-moderation-workflow"></a>Configure fluxo de trabalho de moderação de imagem
 
@@ -81,7 +81,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/) e siga estes passos:
 
     Clique no botão **Guardar** na parte superior da página.
 
-1. Volte ao separador de recursos da **Plataforma.** Utilize o botão **+** no painel esquerdo para levantar o painel de **funções New.** A função que está prestes a criar receberá eventos do Facebook.
+1. Volte para o separador de **+** recursos da **Plataforma.** Utilize o botão no painel esquerdo para levantar o painel de **funções New.** A função que está prestes a criar receberá eventos do Facebook.
 
     ![As funções azure painel com o botão Função Adicionar realçado.](images/new-function.png)
 
@@ -108,7 +108,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/) e siga estes passos:
     1. Clique em **My Apps** (As minhas Aplicações).
     1. Adicione uma Nova Aplicação.
     1. nomeá-lo algo
-    1. Selecione **Webhooks -> Configurar**
+    1. Selecione **Webhooks -> Configuração**
     1. Selecione **Página** no menu dropdown e selecione **Subscrever este objeto**
     1. Forneça o **FBListener Url** como o URL de chamada de retorno e o **Token de Verificação** que configurou em **Definições da Aplicação de Funções**
     1. Depois de subscrito, desloque o ecrã para baixo até ao feed e selecione **subscribe** (subscrever).

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Enviar uma solicitação de pesquisa para a API REST usando Python-Pesquisa de Entidade do Bing'
+title: 'Quickstart: Envie um pedido de pesquisa para o REST API usando Python - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Entidade do Bing usando o Python e receba uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido para a API de Pesquisa de Entidades Bing usando Python, e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: 07b563308e80055d699d1cefeb3b2db71ffa4cd7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448619"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usando o Python
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Quickstart: Envie um pedido de pesquisa para a API de pesquisa da entidade bing usando Python
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Esse aplicativo simples do Python envia uma consulta de pesquisa de notícias para a API e exibe a resposta. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Entidades Bing e veja a resposta JSON. Esta simples aplicação Python envia uma consulta de pesquisa de notícias para a API, e exibe a resposta. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
 Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python](https://www.python.org/downloads/) 2. x ou 3. x
+* [Pitão](https://www.python.org/downloads/) 2.x ou 3.x
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione as importações a seguir. Crie variáveis para sua chave de assinatura, ponto de extremidade, mercado e uma consulta de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+1. Crie um novo ficheiro Python no seu IDE ou editor favorito e adicione as seguintes importações. Crie variáveis para a sua chave de subscrição, ponto final, mercado e uma consulta de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```python
     import http.client, urllib.parse
@@ -44,18 +44,18 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
     query = 'italian restaurants near me'
     ```
 
-2. Crie uma URL de solicitação acrescentando sua variável de mercado ao parâmetro `?mkt=`. Codifique a URL da sua consulta e anexe-a ao parâmetro `&q=`. 
+2. Crie um url de pedido, `?mkt=` afuniando a sua variável de mercado ao parâmetro. Codificar a sua consulta e acessá-la ao `&q=` parâmetro. 
     
     ```python
     params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
     ```
 
-## <a name="send-a-request-and-get-a-response"></a>Enviar uma solicitação e obter uma resposta
+## <a name="send-a-request-and-get-a-response"></a>Envie um pedido e obtenha uma resposta
 
-1. Crie uma função chamada `get_suggestions()`. Em seguida, execute as etapas a seguir.
-   1. Adicione sua chave de assinatura a um dicionário com `Ocp-Apim-Subscription-Key` como uma chave.
-   2. Use `http.client.HTTPSConnection()` para criar um objeto de cliente HTTPS. Envie uma solicitação de `GET` usando `request()` com o caminho e os parâmetros e informações de cabeçalho.
-   3. Armazene a resposta com `getresponse()`e retorne `response.read()`.
+1. Criar uma `get_suggestions()`função chamada . Em seguida, execute os seguintes passos.
+   1. Adicione a sua chave de `Ocp-Apim-Subscription-Key` subscrição a um dicionário com como chave.
+   2. Utilize `http.client.HTTPSConnection()` para criar um objeto de cliente HTTPS. Envie `GET` um `request()` pedido utilizando o seu caminho e parâmetros e informações sobre cabeçalho.
+   3. Guarde a `getresponse()`resposta `response.read()`com e devolva.
 
       ```python
       def get_suggestions ():
@@ -66,14 +66,14 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
        return response.read()
       ```
 
-2. Chame `get_suggestions()`e imprima a resposta JSON.
+2. Ligue `get_suggestions()`e imprima a resposta da JSON.
 
     ```python
     result = get_suggestions ()
     print (json.dumps(json.loads(result), indent=4))
     ```
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -141,7 +141,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
+> [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é o API de Pesquisa de Entidade do Bing](../search-the-web.md)
-* [Referência de API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [O que é a API de Pesquisa de Entidadebing](../search-the-web.md)
+* [Referência da API da Entidade Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

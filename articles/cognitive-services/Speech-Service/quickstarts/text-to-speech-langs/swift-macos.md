@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: sintetizar fala, serviço de fala Swift'
+title: 'Quickstart: Discurso sintetizador, Swift - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como sintetizar a fala em Swift no macOS usando o SDK de fala
+description: Saiba como sintetizar o discurso em Swift sobre o macOS usando o SDK de Fala
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,80 +11,80 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: ea0f61ddd2c60d2806af0f6dcf97c7d2388335d0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975878"
 ---
-# <a name="quickstart-synthesize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início rápido: sintetizar a fala em Swift no macOS usando o SDK de fala
+# <a name="quickstart-synthesize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Quickstart: Discurso sintetizador em Swift sobre macOS usando o SDK de Fala
 
-Neste artigo, você aprende a criar um aplicativo macOS em Swift usando o SDK de fala de serviços cognitivas para sintetizar a fala a partir do texto e reproduzi-lo com a saída de áudio padrão.
+Neste artigo, aprende-se a criar uma aplicação macOS em Swift utilizando o Cognitive Services Speech SDK para sintetizar o discurso a partir de texto e reproduzi-lo com a saída de áudio padrão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, eis uma lista de pré-requisitos:
+Antes de começar, aqui está uma lista de pré-requisitos:
 
-* Uma [chave de assinatura](~/articles/cognitive-services/Speech-Service/get-started.md) para o serviço de fala.
-* Uma máquina macOS com o [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior e o [CocoaPods](https://cocoapods.org/) instalado.
+* Uma [chave de subscrição](~/articles/cognitive-services/Speech-Service/get-started.md) para o serviço De Fala.
+* Uma máquina macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou mais tarde e [CocoaPods instalados.](https://cocoapods.org/)
 
-## <a name="get-the-speech-sdk-for-macos"></a>Obtenha o SDK de fala para macOS
+## <a name="get-the-speech-sdk-for-macos"></a>Obtenha o SDK de Fala para macOS
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-O SDK de fala dos serviços cognitivas para macOS é distribuído como um pacote de estrutura.
-Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/)ou baixado de https://aka.ms/csspeech/macosbinary e vinculado manualmente. Este guia usa um CocoaPod.
+O SDK de Discurso dos Serviços Cognitivos para macOS é distribuído como um pacote-quadro.
+Pode ser usado em projetos Xcode como um https://aka.ms/csspeech/macosbinary [CocoaPod,](https://cocoapods.org/)ou descarregado de e ligado manualmente. Este guia utiliza um CocoaPod.
 
 > [!NOTE] 
-> Este tutorial não funcionará com versões do SDK anteriores a 1.7.0.
+> Este tutorial não funcionará com versões do SDK antes de 1.7.0.
 
-## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode
+## <a name="create-an-xcode-project"></a>Criar um projeto Xcode
 
-Inicie o Xcode e um novo projeto ao clicar em **File (Ficheiro)**  > **New (Novo)**  > **Project (Projeto)** .
-Na caixa de diálogo seleção de modelo, escolha o modelo "aplicativo Cocoa".
+Inicie o Xcode e inicie um novo projeto clicando em **File** > **New** > **Project**.
+No diálogo de seleção do modelo, escolha o modelo "App de Cacau".
 
 Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 
 1. Caixa de Diálogo Project Options (Opções do Projeto)
     1. Introduza um nome para a aplicação de início rápido, por exemplo `helloworld`.
-    1. Insira um nome de organização apropriado e um identificador de organização, se você já tiver uma conta de desenvolvedor da Apple. Para fins de teste, pode escolher qualquer nome, como `testorg`. Para assinar o aplicativo, você precisa de um perfil de provisionamento adequado. Consulte o [site do desenvolvedor da Apple](https://developer.apple.com/) para obter detalhes.
-    1. Verifique se o Swift é escolhido como o idioma do projeto.
-    1. Desabilite as caixas de seleção para usar storyboards e criar um aplicativo baseado em documento. A interface do usuário simples para o aplicativo de exemplo será criada programaticamente.
+    1. Introduza um nome de organização apropriado e um identificador de organização, se já tiver uma conta de desenvolvimento da Apple. Para fins de teste, pode escolher qualquer nome, como `testorg`. Para assinar a aplicação, precisa de um perfil de provisionamento adequado. Consulte o site de desenvolvimento da [Apple](https://developer.apple.com/) para mais detalhes.
+    1. Certifique-se de que Swift é escolhido como o idioma para o projeto.
+    1. Desative as caixas de verificação para utilizar storyboards e criar uma aplicação baseada em documentos. A simples UI para a aplicação de amostras será criada programáticamente.
     1. Desative todas as caixas de verificação para testes e dados principais.
 1. Selecionar o diretório do projeto
-    1. Escolha um diretório no qual colocar o projeto. Isso cria um diretório `helloworld` no diretório escolhido que contém todos os arquivos do projeto Xcode.
+    1. Escolha um diretório para colocar o projeto. Isto cria `helloworld` um diretório no diretório escolhido que contém todos os ficheiros para o projeto Xcode.
     1. Desative a criação de um repositório Git para este projeto de exemplo.
-1. Feche o projeto Xcode. Você usará uma instância diferente dela posteriormente depois de configurar o CocoaPods.
+1. Feche o projeto Xcode. Utilizará uma instância diferente depois de configurar os CocoaPods.
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
-1. Coloque um novo arquivo de cabeçalho com o nome `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` no diretório `helloworld` dentro do projeto HelloWorld e cole o seguinte código nele:
+1. Coloque um novo ficheiro `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` de `helloworld` cabeçalho com o nome no diretório dentro do projeto Helloworld e colhe o seguinte código nele:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift/macos/text-to-speech/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
-1. Adicione o caminho relativo `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` ao cabeçalho de ponte para as configurações de projeto Swift para o destino HelloWorld no campo de *cabeçalho de ponte Objective-C* ![Propriedades do cabeçalho](~/articles/cognitive-services/Speech-Service/media/sdk/qs-swift-macos-bridging-header.png)
+1. Adicione o `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` caminho relativo ao cabeçalho de ponte para as definições do projeto ![Swift para o alvo helloworld nas propriedades do cabeçalho de *ponte Objetivo-C*](~/articles/cognitive-services/Speech-Service/media/sdk/qs-swift-macos-bridging-header.png)
 1. Substitua o conteúdo do ficheiro `AppDelegate.swift` gerado automaticamente por:
 
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift/macos/text-to-speech/helloworld/helloworld/AppDelegate.swift#code)]
-1. Em `AppDelegate.swift`, substitua a cadeia de caracteres `YourSubscriptionKey` pela sua chave de assinatura.
-1. Substitua a cadeia de caracteres `YourServiceRegion` pela região associada à sua assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+1. Em `AppDelegate.swift`, substitua a corda `YourSubscriptionKey` com a sua chave de subscrição.
+1. Substitua a cadeia de carateres `YourServiceRegion` pela região associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-## <a name="install-the-sdk-as-a-cocoapod"></a>Instalar o SDK como um CocoaPod
+## <a name="install-the-sdk-as-a-cocoapod"></a>Instale o SDK como um CocoaPod
 
-1. Instale o Gerenciador de dependência do CocoaPod conforme descrito em suas [instruções de instalação](https://guides.cocoapods.org/using/getting-started.html).
-1. Navegue até o diretório do aplicativo de exemplo (`helloworld`). Coloque um arquivo de texto com o nome `Podfile` e o seguinte conteúdo nesse diretório:
+1. Instale o gestor de dependência do CocoaPod conforme descrito nas suas instruções de [instalação](https://guides.cocoapods.org/using/getting-started.html).
+1. Navegue para o diretório`helloworld`da sua aplicação de amostras ( ). Coloque um ficheiro de `Podfile` texto com o nome e o seguinte conteúdo nesse diretório:
 
    [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift/macos/text-to-speech/helloworld/Podfile)]
-1. Navegue até o diretório `helloworld` em um terminal e execute o comando `pod install`. Isso irá gerar um espaço de trabalho `helloworld.xcworkspace` Xcode contendo o aplicativo de exemplo e o SDK de fala como uma dependência. Este espaço de trabalho será usado no seguinte.
+1. Navegue `helloworld` para o diretório num `pod install`terminal e dirija o comando. Isto gerará `helloworld.xcworkspace` um espaço de trabalho Xcode contendo tanto a aplicação da amostra como o SDK de Fala como uma dependência. Este espaço de trabalho será utilizado no seguinte.
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar o exemplo
 
-1. Abra o espaço de trabalho `helloworld.xcworkspace` no Xcode.
-1. Torne a saída de depuração visível (**View (Ver)**  > **Debug Area (Área de Depuração)**  > **Activate Console (Ativar Consola)** ).
-1. Crie e execute o código de exemplo selecionando **produto** > **executar** no menu ou clicando no botão **reproduzir** .
-1. Depois de inserir algum texto e clicar no botão no aplicativo, você deverá ouvir o áudio sintetizado reproduzido.
+1. Abra `helloworld.xcworkspace` o espaço de trabalho em Xcode.
+1. Tornar visível a saída de depuração **(Ver** > **debug Area** > **Activate Console**).
+1. Construa e execute o código de exemplo selecionando o **Produto** > **Executar** a partir do menu ou clicando no botão **Reproduzir.**
+1. Depois de inserir algum texto e clicar no botão da aplicação, deve ouvir o áudio sintetizado reproduzido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Explore nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explore as nossas amostras no GitHub](https://aka.ms/csspeech/samples)
 

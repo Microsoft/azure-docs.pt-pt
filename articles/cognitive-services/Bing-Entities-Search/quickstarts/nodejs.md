@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Enviar uma solicitação de pesquisa para a API REST usando node. js-Pesquisa de Entidade do Bing'
+title: 'Quickstart: Envie um pedido de pesquisa para a Rest API usando node.js - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API C#REST do pesquisa de entidade do Bing usando e receber uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido para a API de Pesquisa de Entidades Bing usando C#, e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448639"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usando o Node. js
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Quickstart: Envie um pedido de pesquisa para a API de pesquisa de entidadebing usando node.js
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Entidade do Bing e exibir a resposta JSON. Esse aplicativo JavaScript simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Entidades Bing e veja a resposta JSON. Esta simples aplicação JavaScript envia uma consulta de pesquisa de notícias para a API e exibe a resposta. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
-Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-* A [biblioteca de solicitações do JavaScript](https://github.com/request/request)
+* A [Biblioteca de Pedidos JavaScript](https://github.com/request/request)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
@@ -40,7 +40,7 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
     let https = require ('https');
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, sua chave de assinatura e consulta de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie variáveis para o ponto final da API, a sua chave de subscrição e consulta de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -51,14 +51,14 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
     let q = 'italian restaurant near me';
     ```
 
-3. Acrescente os parâmetros de consulta e de mercado a uma cadeia de caracteres chamada `query`. Certifique-se de codificar por URL sua consulta com `encodeURI()`.
+3. Acomode o seu mercado e parâmetros de consulta a uma corda chamada `query`. Certifique-se de que codifica a `encodeURI()`sua consulta com .
     ```javascript 
     let query = '?mkt=' + mkt + '&q=' + encodeURI(q);
     ```
 
 ## <a name="handle-and-parse-the-response"></a>Processar e analisar a resposta
 
-1. Defina uma função chamada `response_handler` que usa uma chamada HTTP, `response`, como um parâmetro. Nessa função, execute as seguintes etapas:
+1. Defina uma `response_handler` função chamada `response`que requer uma chamada HTTP, como parâmetro. Dentro desta função, execute os seguintes passos:
 
     1. Defina uma variável para incluir o corpo da resposta JSON.  
         ```javascript
@@ -74,7 +74,7 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
         });
         ```
 
-    3. Quando um sinalizador de **fim** é sinalizado, analise o JSON e imprima-o.
+    3. Quando uma bandeira **final** for sinalizada, analise o JSON e imprima-a.
 
         ```javascript
         response.on ('end', function () {
@@ -85,10 +85,10 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
 
 ## <a name="send-a-request"></a>Enviar um pedido
 
-1. Crie uma função chamada `Search` para enviar uma solicitação de pesquisa. Nele, execute as etapas a seguir.
+1. Crie uma `Search` função chamada para enviar um pedido de pesquisa. Nele, execute os seguintes passos.
 
-   1. Crie um objeto JSON contendo seus parâmetros de solicitação: Use `Get` para o método e adicione suas informações de host e caminho. Adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`. 
-   2. Use `https.request()` para enviar a solicitação com o manipulador de resposta criado anteriormente e os parâmetros de pesquisa.
+   1. Crie um objeto JSON contendo `Get` os parâmetros do seu pedido: use para o método e adicione as informações do anfitrião e do caminho. Adicione a sua `Ocp-Apim-Subscription-Key` chave de subscrição ao cabeçalho. 
+   2. Utilize `https.request()` para enviar o pedido com o manipulador de resposta criado anteriormente, e os seus parâmetros de pesquisa.
     
       ```javascript
       let Search = function () {
@@ -106,9 +106,9 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
       }
       ```
 
-2. Chame a função `Search()`.
+2. Ligue `Search()` para a função.
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -176,7 +176,7 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
+> [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência de API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [O que é a API de Pesquisa de Entidades Bing?](../overview.md )
+* [Referência da API da Entidade Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

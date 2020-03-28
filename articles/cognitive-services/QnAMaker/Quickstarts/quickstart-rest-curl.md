@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Use cURL e REST para gerir base de conhecimento - QnA Maker'
+title: 'Quickstart: Use cURL & REST para gerir base de conhecimento - QnA Maker'
 description: Este quickstart mostra-lhe como criar, publicar e consultar a sua base de conhecimentos usando as APIs REST.
 ms.date: 02/27/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
 ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78851205"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Quickstart: Use cURL e REST para gerir base de conhecimento
@@ -26,7 +26,7 @@ Este quickstart leva-o através da criação, publicação e consulta da sua bas
     `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
-> Os seguintes exemplos bash usam o caráter de continuação da linha `\`. Se consolar ou terminal utilizar um personagem de continuação de linha diferente, use este personagem.
+> Os seguintes exemplos `\` bash usam o caráter de continuação da linha. Se consolar ou terminal utilizar um personagem de continuação de linha diferente, use este personagem.
 
 ## <a name="create-a-knowledge-base"></a>Criar uma base de dados de conhecimento
 
@@ -35,9 +35,9 @@ Para criar uma base de conhecimento com as APIs e cURL rest, precisa de ter as s
 |Informações|configuração cURL|Objetivo|
 |--|--|--|
 |Nome de recurso qna maker|do IdP|usado para construir URL|
-|Chave de recursos qnA Maker|`-h` para o cabeçalho do `Ocp-Apim-Subscription-Key`|Serviço Authenticate to QnA Maker|
-|JSON descrevendo base de conhecimento|`-d` param|[Exemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) de JSON|
-|Tamanho do JSON em bytes|`-h` para o cabeçalho do `Content-Size`||
+|Chave de recursos qnA Maker|`-h`param `Ocp-Apim-Subscription-Key` para cabeçalho|Serviço Authenticate to QnA Maker|
+|JSON descrevendo base de conhecimento|`-d`param|[Exemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) de JSON|
+|Tamanho do JSON em bytes|`-h`param `Content-Size` para cabeçalho||
 
 O comando cURL é executado a partir de uma concha BASH. Edite este comando com o seu próprio nome de recurso, chave de recursos e valores JSON e tamanho da JSON.
 
@@ -50,7 +50,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
 ```
 
-A resposta cURL da Fabricante QnA inclui o `operationId` , que é necessário para [obter o estado da operação](#get-status-of-operation).
+A resposta cURL da Fabricante `operationId` QnA inclui o , que é necessário para [obter o estado da operação](#get-status-of-operation).
 
 ```json
 {
@@ -70,7 +70,7 @@ Quando se cria uma base de conhecimento, porque a operação é asincronizada, a
 |--|--|--|
 |Nome de recurso qna maker|do IdP|usado para construir URL|
 |Operação Id|Rota do URL|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|Chave de recursos qnA Maker|`-h` para o cabeçalho do `Ocp-Apim-Subscription-Key`|Serviço Authenticate to QnA Maker|
+|Chave de recursos qnA Maker|`-h`param `Ocp-Apim-Subscription-Key` para cabeçalho|Serviço Authenticate to QnA Maker|
 
 O comando cURL é executado a partir de uma concha BASH. Edite este comando com o seu próprio nome de recurso, chave de recursos e ID de operação.
 
@@ -80,7 +80,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
 
-A resposta cURL inclui o estado. Se o estado de operação for bem sucedido, então o `resourceLocation` inclui a identificação da base de conhecimento.
+A resposta cURL inclui o estado. Se o estado de operação `resourceLocation` for bem sucedido, então o inclua a identificação da base de conhecimento.
 
 ```json
 {
@@ -104,7 +104,7 @@ Esta tarefa publica a base de conhecimento. Obter a chave final do ponto final d
 |Informações|configuração cURL|Objetivo|
 |--|--|--|
 |Nome de recurso qna maker|do IdP|usado para construir URL|
-|Chave de recursos qnA Maker|`-h` para o cabeçalho do `Ocp-Apim-Subscription-Key`|Serviço Authenticate to QnA Maker|
+|Chave de recursos qnA Maker|`-h`param `Ocp-Apim-Subscription-Key` para cabeçalho|Serviço Authenticate to QnA Maker|
 |Id base de conhecimento|Rota do URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 O comando cURL é executado a partir de uma concha BASH. Edite este comando com o seu próprio nome de recurso, chave de recursos e ID da base de conhecimento.
@@ -117,7 +117,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 --data-raw ''
 ```
 
-O estado de resposta é 204 sem resultados. Utilize o parâmetro de linha de comando `-v` para verboso para o comando cURL. Isto incluirá o estatuto HTTP.
+O estado de resposta é 204 sem resultados. Utilize `-v` o parâmetro da linha de comando para verboso para o comando cURL. Isto incluirá o estatuto HTTP.
 
 ## <a name="get-published-knowledge-bases-runtime-endpoint-key"></a>Obtenha a chave final do ponto final da base de conhecimento publicada
 
@@ -132,7 +132,7 @@ A chave final do ponto de execução é a mesma chave para todas as bases de con
 |Informações|configuração cURL|Objetivo|
 |--|--|--|
 |Nome de recurso qna maker|do IdP|usado para construir URL|
-|Chave de recursos qnA Maker|`-h` para o cabeçalho do `Ocp-Apim-Subscription-Key`|Serviço Authenticate to QnA Maker|
+|Chave de recursos qnA Maker|`-h`param `Ocp-Apim-Subscription-Key` para cabeçalho|Serviço Authenticate to QnA Maker|
 
 O comando cURL é executado a partir de uma concha BASH. Edite este comando com o seu próprio nome de recurso, chave de recursos.
 
@@ -161,10 +161,10 @@ Obter uma resposta do conhecimento é feito a partir de um tempo de execução s
 |Informações|configuração cURL|Objetivo|
 |--|--|--|
 |Nome de recurso qna maker|do IdP|usado para construir URL|
-|QnA Maker chave de tempo de execução|`-h` para o cabeçalho do `Authorization`|A chave faz parte de uma corda que inclui a palavra `Endpointkey `. Serviço Authenticate to QnA Maker|
+|QnA Maker chave de tempo de execução|`-h`param `Authorization` para cabeçalho|A chave faz parte de uma `Endpointkey `corda que inclui a palavra . Serviço Authenticate to QnA Maker|
 |Id base de conhecimento|Rota do URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON descrevendo consulta|`-d` param|[Solicitar parâmetros corporais](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) e [exemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) de JSON|
-|Tamanho do JSON em bytes|`-h` para o cabeçalho do `Content-Size`||
+|JSON descrevendo consulta|`-d`param|[Solicitar parâmetros corporais](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) e [exemplos](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) de JSON|
+|Tamanho do JSON em bytes|`-h`param `Content-Size` para cabeçalho||
 
 O comando cURL é executado a partir de uma concha BASH. Edite este comando com o seu próprio nome de recurso, chave de recursos e ID da base de conhecimento.
 
@@ -186,7 +186,7 @@ Quando terminar com a base de conhecimento, apague-a.
 |Informações|configuração cURL|Objetivo|
 |--|--|--|
 |Nome de recurso qna maker|do IdP|usado para construir URL|
-|Chave de recursos qnA Maker|`-h` para o cabeçalho do `Ocp-Apim-Subscription-Key`|Serviço Authenticate to QnA Maker|
+|Chave de recursos qnA Maker|`-h`param `Ocp-Apim-Subscription-Key` para cabeçalho|Serviço Authenticate to QnA Maker|
 |Id base de conhecimento|Rota do URL|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 O comando cURL é executado a partir de uma concha BASH. Edite este comando com o seu próprio nome de recurso, chave de recursos e ID da base de conhecimento.
@@ -198,7 +198,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
 
-O estado de resposta é 204 sem resultados. Utilize o parâmetro de linha de comando `-v` para verboso para o comando cURL. Isto incluirá o estatuto HTTP.
+O estado de resposta é 204 sem resultados. Utilize `-v` o parâmetro da linha de comando para verboso para o comando cURL. Isto incluirá o estatuto HTTP.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -209,4 +209,4 @@ O estado de resposta é 204 sem resultados. Utilize o parâmetro de linha de com
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

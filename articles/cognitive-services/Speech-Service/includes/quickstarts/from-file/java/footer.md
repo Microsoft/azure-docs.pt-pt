@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: reconhecer a fala de um arquivo de áudio, serviço de fala Java'
+title: 'Quickstart: Reconheça o discurso de um ficheiro áudio, Java - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
 ms.openlocfilehash: 4ad05a843b80f1ebd7e67ad1d296b4994ec6bf55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75469548"
 ---
 > [!div class="nextstepaction"]
-> [Explorar exemplos de Java no GitHub](https://aka.ms/speech/github-java)
+> [Explore as amostras de Java no GitHub](https://aka.ms/speech/github-java)

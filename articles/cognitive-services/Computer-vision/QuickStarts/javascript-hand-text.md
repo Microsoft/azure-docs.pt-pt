@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8c3f5dae62aef6c8e8ec1eeaeb712ebff67397c9
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77566187"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-javascript"></a>Início rápido: Extrair texto impresso e manuscrito utilizando a Visão do Computador 2.0 e 2.1 REST API e JavaScript
@@ -32,20 +32,20 @@ Em comparação com a Visão Computacional 2.0 e 2.1, a Visualização Pública 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 #### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 ---
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
-Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de pontofinal de chave e serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -54,8 +54,8 @@ Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter um
 Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
-1. Opcionalmente, substitua o valor do atributo `value` para o controlo `inputImage` pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
-1. Guarde o código como um ficheiro com uma extensão `.html`. Por exemplo, `get-text.html`.
+1. Opcionalmente, substitua o `value` valor do `inputImage` atributo para o controlo pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
+1. Guarde o código como um ficheiro com a extensão `.html`. Por exemplo, `get-text.html`.
 1. Abra uma janela do browser.
 1. No browser, arraste e largue o ficheiro na janela do browser.
 1. Quando a página Web for apresentada no browser, selecione o botão **Read image** (Ler imagem).
@@ -198,8 +198,8 @@ Image to read:
 Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
-1. Opcionalmente, substitua o valor do atributo `value` para o controlo `inputImage` pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
-1. Guarde o código como um ficheiro com uma extensão `.html`. Por exemplo, `get-text.html`.
+1. Opcionalmente, substitua o `value` valor do `inputImage` atributo para o controlo pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
+1. Guarde o código como um ficheiro com a extensão `.html`. Por exemplo, `get-text.html`.
 1. Abra uma janela do browser.
 1. Quando a página web for exibida no navegador, preencha os parâmetros necessários e escolha o botão **de imagem Ler.**
 
@@ -359,7 +359,7 @@ Image to read:
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela do browser, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela do browser, semelhante ao seguinte exemplo:
 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
@@ -778,7 +778,7 @@ Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do JavaScript que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore uma aplicação do JavaScript que utiliza a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial de JavaScript de API de Imagem Digitalizada](../Tutorials/javascript-tutorial.md)

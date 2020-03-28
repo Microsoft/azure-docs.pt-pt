@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/14/2019
 ms.author: aahi
 ms.openlocfilehash: 8887a68b0e1170f98e740c4c813b2c2662f950af
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77912649"
 ---
 > [!IMPORTANT]

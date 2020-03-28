@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: ad074ca2cc9cd335d6697a2383998246468907ad
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205832"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052452"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
 Neste arranque rápido, utilizará a API do Reconhecimento de Formulários REST com a ferramenta de rotulagem de amostras para treinar um modelo personalizado com dados manualmente rotulados. Consulte o Comboio com a secção de [etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre esta funcionalidade.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,11 @@ Para completar este arranque rápido, deve ter:
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem da amostra
 
-Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Siga estes passos para montar o recipiente Docker. Para um primer sobre o Docker e o básico do contentor, consulte a visão geral do [Docker.](https://docs.docker.com/engine/docker-overview/)
+Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Siga estes passos para montar o recipiente Docker. Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
+
+> [!TIP]
+> A Ferramenta de Rotulagem de Formulários OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web construída com react + Redux, e está escrita no TypeScript. Para saber mais ou contribuir, consulte a Ferramenta de Rotulagem de [Formulários OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
 1. Primeiro, instale o Docker num computador de acolhimento. Este guia irá mostrar-lhe como usar o computador local como hospedeiro. Se quiser utilizar um serviço de hospedagem DoEs tacada em Azure, consulte a [ferramenta de rotulagem](../deploy-label-tool.md) de amostra como orientar. 
 
    O computador anfitrião deve satisfazer os seguintes requisitos de hardware:
@@ -48,16 +52,16 @@ Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Si
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux.](https://docs.docker.com/install/)
 
-1. Obtenha o recipiente de ferramentas de rotulagem da amostra com o comando `docker pull`.
+1. Obtenha o recipiente da ferramenta `docker pull` de rotulagem da amostra com o comando.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-1. Agora está pronto para correr o contentor com `docker run`.
+1. Agora estápronto para correr o `docker run`contentor com.
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Vá para [http://localhost:3000](http://localhost:3000).
+   Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Vai [http://localhost:3000](http://localhost:3000)para.
 
 > [!NOTE]
 > Também pode rotular documentos e modelos de comboio utilizando a API REST Do Reconhecimento de Formulários. Para treinar e analisar com a REST API, consulte [O Comboio com etiquetas utilizando a REST API e python](./python-labeled-data.md).
@@ -71,13 +75,13 @@ Primeiro, certifique-se de que todos os documentos de treino são do mesmo forma
 Ative o CORS na sua conta de armazenamento. Selecione a sua conta de armazenamento no portal Azure e clique no separador **CORS** no painel esquerdo. Na linha de fundo, preencha os seguintes valores. Em seguida, clique em **Guardar** na parte superior.
 
 * Origens permitidas = * 
-* Métodos permitidos = \[selecionar todos os\]
+* Métodos \[permitidos = selecionar todos\]
 * Cabeçalhos permitidos = *
 * Cabeçalhos expostos = * 
 * Idade máxima = 200
 
 > [!div class="mx-imgBorder"]
-> ![a instalação cors no portal Azure](../media/label-tool/cors-setup.png)
+> ![Conjunto CORS no portal Azure](../media/label-tool/cors-setup.png)
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Ligue-se à ferramenta de rotulagem da amostra
 
@@ -91,7 +95,7 @@ Preencha os campos com os seguintes valores:
 
 * Nome do **mostrador** - O nome do display de ligação.
 * **Descrição** - Descrição do seu projeto.
-* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Detete o tempo de validade para algum tempo depois de ter usado o serviço. Certifique-se de que as permissões **de Leitura,** **Escrita,** **Apagar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a forma: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique no seu recipiente e selecione Obter assinatura de **acesso partilhado**. Detete o tempo de validade para algum tempo depois de ter usado o serviço. Certifique-se de que as permissões **de Leitura,** **Escrita,** **Apagar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter a `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`forma: .
 
 ![Definições de ligação da ferramenta de rotulagem da amostra](../media/label-tool/connections.png)
 
@@ -137,7 +141,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
     > * Cada etiqueta só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes na mesma forma, crie etiquetas diferentes para cada instância. Por exemplo: "fatura nº 1", "fatura# 2" e assim por diante.
     > * As etiquetas não podem estender-se por páginas.
     > * Valores de etiqueta à medida que aparecem no formulário; não tente dividir um valor em duas partes com duas etiquetas diferentes. Por exemplo, um campo de endereços deve ser rotulado com uma única etiqueta, mesmo que se estem por várias linhas.
-    > * Não inclua chaves nos seus campos marcados&mdash;apenas os valores.
+    > * Não inclua chaves nos seus&mdash;campos marcados apenas os valores.
     > * Os dados da tabela devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com um rótulo diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
 
 
@@ -185,11 +189,12 @@ Vá à página de definições do seu projeto (ícone deslizante) e tome nota do
 Quando pretende retomar o seu projeto, primeiro é necessário criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Repita os passos acima para fazer isto. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo símbolo de segurança e copie o seu nome simbólico e a chave do passo anterior. Em seguida, clique em Guardar Definições. 
 
 ### <a name="resume-a-project"></a>Retomar um projeto
+
 Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento blob e selecione o ficheiro *.vott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o símbolo de segurança.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a utilizar a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' para treinar um modelo com dados rotulados manualmente. Se quiser integrar a ferramenta de rotulagem na sua própria aplicação, utilize as APIs REST que lidam com a formação de dados etiquetada.
+Neste arranque rápido, aprendeu a usar a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' para treinar um modelo com dados manualmente rotulados. Se quiser integrar a ferramenta de rotulagem na sua própria aplicação, utilize as APIs REST que lidam com a formação de dados etiquetada.
 
 > [!div class="nextstepaction"]
 > [Treine com rótulos usando Python](./python-labeled-data.md)

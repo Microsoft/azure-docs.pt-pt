@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: gerar metadados para imagens do Azure'
+title: 'Tutorial: Gerar metadados para imagens do Azure'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens.
+description: Neste tutorial, você vai aprender a integrar o serviço Azure Computer Vision numa aplicação web para gerar metadados para imagens.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,77 +11,77 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 7c83350dbecaf20e9b35f159b2c01824777bc665
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973718"
 ---
-# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: usar Pesquisa Visual Computacional para gerar metadados de imagem no armazenamento do Azure
+# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Visão computacional para gerar metadados de imagem no Armazenamento Azure
 
-Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens carregadas. Isso é útil para cenários de [Dam (gerenciamento de ativos digitais)](../Home.md#computer-vision-for-digital-asset-management) , como se uma empresa quiser gerar rapidamente legendas descritivas ou palavras-chave pesquisáveis para todas as suas imagens.
+Neste tutorial, você vai aprender a integrar o serviço Azure Computer Vision numa aplicação web para gerar metadados para imagens carregadas. Isto é útil para cenários de gestão de [ativos digitais (DAM),](../Home.md#computer-vision-for-digital-asset-management) como se uma empresa queira gerar rapidamente legendas descritivas ou palavras-chave pesquisáveis para todas as suas imagens.
 
-Um guia de aplicativo completo pode ser encontrado no [laboratório de armazenamento do Azure e serviços cognitivas](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub, e este tutorial aborda, essencialmente, o exercício 5 do laboratório. Talvez você queira criar o aplicativo completo seguindo cada etapa, mas se quiser apenas saber como integrar Pesquisa Visual Computacional a um aplicativo Web existente, leia aqui.
+Um guia completo de aplicativos pode ser encontrado no [Azure Storage and Cognitive Services Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub, e este tutorial cobre essencialmente o Exercício 5 do laboratório. Pode querer criar a aplicação completa seguindo cada passo, mas se quiser aprender a integrar a Computer Vision numa aplicação web existente, leia aqui.
 
 Este tutorial mostrar-lhe como:
 
 > [!div class="checklist"]
-> * Criar um recurso de Pesquisa Visual Computacional no Azure
-> * Executar análise de imagem em imagens de armazenamento do Azure
-> * Anexar metadados a imagens de armazenamento do Azure
-> * Verificar metadados de imagem usando Gerenciador de Armazenamento do Azure
+> * Criar um recurso de Visão Computacional em Azure
+> * Realizar análise de imagem em imagens de Armazenamento Azure
+> * Anexar metadados às imagens de Armazenamento Azure
+> * Verifique os metadados de imagem usando o Azure Storage Explorer
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ou superior, com as cargas de trabalho "desenvolvimento do ASP.net e da Web" e "Azure Development" instaladas.
-- Uma conta de armazenamento do Azure com um contêiner de blob configurada para o armazenamento de imagem (siga [os exercícios 1 do laboratório de armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) se precisar de ajuda com esta etapa).
-- A ferramenta de Gerenciador de Armazenamento do Azure (siga [o exercício 2 do laboratório de armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) se precisar de ajuda com esta etapa).
-- Um aplicativo Web ASP.NET com acesso ao armazenamento do Azure (siga [o exercício 3 do laboratório de armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) para criar um aplicativo desse tipo rapidamente).
+- [Edição comunitária visual 2017](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ou superior, com as cargas de trabalho "ASP.NET e desenvolvimento web" e "Desenvolvimento Azure" instaladas.
+- Uma conta de Armazenamento Azure com um recipiente de blob configurado para armazenamento de imagem (siga [os exercícios 1 do Laboratório](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) de Armazenamento Azure se precisar de ajuda com este passo).
+- A ferramenta Azure Storage Explorer (siga o Exercício 2 do Laboratório de [Armazenamento Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) se precisar de ajuda com este passo).
+- Uma ASP.NET aplicação web com acesso ao Armazenamento Azure (siga [o Exercício 3 do Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) para criar uma aplicação deste tipo rapidamente).
 
-## <a name="create-a-computer-vision-resource"></a>Criar um recurso de Pesquisa Visual Computacional
+## <a name="create-a-computer-vision-resource"></a>Criar um recurso de Visão Computacional
 
-Você precisará criar um recurso de Pesquisa Visual Computacional para sua conta do Azure; Esse recurso gerencia o acesso ao serviço de Pesquisa Visual Computacional do Azure. 
+Terá de criar um recurso Computer Vision para a sua conta Azure; este recurso gere o seu acesso ao serviço de Visão Computacional do Azure. 
 
-1. Siga as instruções em [criar um recurso de serviços cognitivas do Azure](../../cognitive-services-apis-create-account.md) para criar um recurso de pesquisa Visual computacional.
+1. Siga as instruções em [Criar um recurso azure Cognitive Services](../../cognitive-services-apis-create-account.md) para criar um recurso de Visão Computacional.
 
-1. Em seguida, vá para o menu do seu grupo de recursos e clique na assinatura API da Pesquisa Visual Computacional que você acabou de criar. Copie a URL no **ponto de extremidade** para algum lugar para poder recuperá-la com facilidade em um momento. Em seguida, clique em **Mostrar chaves de acesso**.
+1. Em seguida, vá ao menu para o seu grupo de recursos e clique na subscrição da Computer Vision API que acabou de criar. Copie o URL em **Endpoint** para um lugar onde possa recuperá-lo facilmente num momento. Em seguida, clique em **mostrar teclas**de acesso .
 
-    ![portal do Azure página com a URL do ponto de extremidade e o link de chaves de acesso descritos](../Images/copy-vision-endpoint.png)
+    ![Página do portal Azure com o URL final e link de chaves de acesso delineadas](../Images/copy-vision-endpoint.png)
     
     [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 
-1. Na próxima janela, copie o valor da **chave 1** para a área de transferência.
+1. Na janela seguinte, copie o valor da **CHAVE 1** para a pasta.
 
-    ![Caixa de diálogo gerenciar chaves, com o botão de cópia descrito](../Images/copy-vision-key.png)
+    ![Gerir o diálogo das teclas, com o botão de cópia delineado](../Images/copy-vision-key.png)
 
-## <a name="add-computer-vision-credentials"></a>Adicionar credenciais de Pesquisa Visual Computacional
+## <a name="add-computer-vision-credentials"></a>Adicionar credenciais de Visão Computacional
 
-Em seguida, você adicionará as credenciais necessárias ao seu aplicativo para que ele possa acessar Pesquisa Visual Computacional recursos
+Em seguida, você adicionará as credenciais necessárias à sua app para que possa aceder aos recursos da Visão Computacional
 
-Abra seu aplicativo Web ASP.NET no Visual Studio e navegue até o arquivo **Web. config** na raiz do projeto. Adicione as instruções a seguir à seção `<appSettings>` do arquivo, substituindo `VISION_KEY` pela chave que você copiou na etapa anterior e `VISION_ENDPOINT` pela URL que você salvou na etapa anterior.
+Abra a sua ASP.NET aplicação web no Visual Studio e navegue para o ficheiro **Web.config** na raiz do projeto. Adicione as seguintes `<appSettings>` declarações à secção `VISION_KEY` do ficheiro, substituindo a chave `VISION_ENDPOINT` que copiou no passo anterior e com o URL que guardou no passo anterior.
 
 ```xml
 <add key="SubscriptionKey" value="VISION_KEY" />
 <add key="VisionEndpoint" value="VISION_ENDPOINT" />
 ```
 
-Em seguida, na Gerenciador de Soluções, clique com o botão direito do mouse no projeto e use o comando **gerenciar pacotes NuGet** para instalar o pacote **Microsoft. Azure. cognitivaservices. Vision. ComputerVision**. Esse pacote contém os tipos necessários para chamar o API da Pesquisa Visual Computacional.
+Em seguida, no Solution Explorer, clique no projeto e use o comando **Manage NuGet Packages** para instalar o pacote **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. Este pacote contém os tipos necessários para chamar a API da Visão Computacional.
 
 ## <a name="add-metadata-generation-code"></a>Adicionar código de geração de metadados
 
-Em seguida, você adicionará o código que realmente aproveita o serviço de Pesquisa Visual Computacional para criar metadados para imagens. Essas etapas serão aplicadas ao aplicativo ASP.NET no laboratório, mas você poderá adaptá-las ao seu próprio aplicativo. O que é importante é que, neste ponto, você tem um aplicativo Web ASP.NET que pode carregar imagens para um contêiner de armazenamento do Azure, ler imagens dele e exibi-las na exibição. Se você não tiver certeza sobre essa etapa, é melhor seguir [o exercício 3 do laboratório de armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
+Em seguida, você irá adicionar o código que realmente aproveita o serviço Computer Vision para criar metadados para imagens. Estes passos aplicar-se-ão à aplicação ASP.NET em laboratório, mas pode adaptá-las à sua própria app. O importante é que neste momento tenha uma aplicação web ASP.NET que possa enviar imagens para um contentor de Armazenamento Azure, ler imagens a partir dele e exibi-las na vista. Se não tem a certeza sobre este passo, o melhor é seguir o Exercício 3 do Laboratório de [Armazenamento Azure.](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) 
 
-1. Abra o arquivo *HomeController.cs* na pasta **controladores** do projeto e adicione as seguintes instruções de `using` na parte superior do arquivo:
+1. Abra o ficheiro *HomeController.cs* na pasta **controladora** do `using` projeto e adicione as seguintes declarações na parte superior do ficheiro:
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
     ```
 
-1. Em seguida, vá para o método **upload** ; Esse método converte e carrega imagens no armazenamento de BLOBs. Adicione o código a seguir imediatamente após o bloco que começa com `// Generate a thumbnail` (ou no final do seu processo de criação de blob de imagem). Esse código usa o blob que contém a imagem (`photo`) e usa Pesquisa Visual Computacional para gerar uma descrição para essa imagem. O API da Pesquisa Visual Computacional também gera uma lista de palavras-chave que se aplicam à imagem. A descrição e as palavras-chave geradas são armazenadas nos metadados do blob para que possam ser recuperadas posteriormente.
+1. Em seguida, vá ao método **upload;** este método converte e envia imagens para armazenamento de bolhas. Adicione o seguinte código imediatamente após `// Generate a thumbnail` o bloco que começa com (ou no final do seu processo de criação de imagens blob). Este código pega na bolha`photo`que contém a imagem e utiliza a Visão computacional para gerar uma descrição para essa imagem. A API computer Vision também gera uma lista de palavras-chave que se aplicam à imagem. A descrição gerada e as palavras-chave são armazenadas nos metadados da bolha para que possam ser recuperadas mais tarde.
 
     ```csharp
     // Submit the image to Azure's Computer Vision API
@@ -105,7 +105,7 @@ Em seguida, você adicionará o código que realmente aproveita o serviço de Pe
     await photo.SetMetadataAsync();
     ```
 
-1. Em seguida, vá para o método **index** no mesmo arquivo. Esse método enumera os blobs de imagem armazenados no contêiner de blob de destino (como instâncias de **IListBlobItem** ) e os passa para a exibição do aplicativo. Substitua o bloco de `foreach` nesse método pelo código a seguir. Esse código chama **CloudBlockBlob. fetchattributes** para obter os metadados anexados de cada blob. Ele extrai a descrição gerada pelo computador (`caption`) dos metadados e a adiciona ao objeto **BlobInfo** , que é passado para a exibição.
+1. Em seguida, vá ao método **Index** no mesmo ficheiro. Este método enumera as bolhas de imagem armazenadas no recipiente de blob direcionado (como o **IListBlobItem** instâncias) e passa-as para a vista de aplicação. Substitua `foreach` o bloco neste método pelo seguinte código. Este código chama **CloudBlockBlob.FetchAttributes** para obter os metadados anexados de cada blob. Extrai a descrição gerada`caption`por computador () dos metadados e adiciona-a ao objeto **BlobInfo,** que é passado para a vista.
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
@@ -129,23 +129,23 @@ Em seguida, você adicionará o código que realmente aproveita o serviço de Pe
 
 ## <a name="test-the-app"></a>Testar a aplicação
 
-Salve suas alterações no Visual Studio e pressione **Ctrl + F5** para iniciar o aplicativo em seu navegador. Use o aplicativo para carregar algumas imagens, seja da pasta "fotos" nos recursos do laboratório ou de sua própria pasta. Quando você passa o cursor sobre uma das imagens na exibição, uma janela de dica de ferramenta deve aparecer e exibir a legenda gerada pelo computador para a imagem.
+Guarde as suas alterações no Visual Studio e prima **Ctrl+F5** para lançar a aplicação no seu navegador. Utilize a aplicação para fazer upload de algumas imagens, quer a partir da pasta "fotos" nos recursos do laboratório, quer da sua própria pasta. Quando pairar sobre uma das imagens na vista, deve aparecer uma janela de ponta de ferramenta e exibir a legenda gerada pelo computador para a imagem.
 
-![A legenda gerada pelo computador](../Images/thumbnail-with-tooltip.png)
+![A legenda gerada por computador](../Images/thumbnail-with-tooltip.png)
 
-Para exibir todos os metadados anexados, use o Gerenciador de Armazenamento do Azure para exibir o contêiner de armazenamento que você está usando para imagens. Clique com o botão direito do mouse em qualquer um dos BLOBs no contêiner e selecione **Propriedades**. Na caixa de diálogo, você verá uma lista de pares chave-valor. A descrição da imagem gerada pelo computador é armazenada no item "legenda" e as palavras-chave de pesquisa são armazenadas em "Tag0", "da tag1" e assim por diante. Quando tiver terminado, clique em **Cancelar** para fechar a caixa de diálogo.
+Para ver todos os metadados anexados, utilize o Azure Storage Explorer para visualizar o recipiente de armazenamento que está a utilizar para imagens. Clique à direita em qualquer uma das bolhas no recipiente e selecione **Propriedades**. No diálogo, verá uma lista de pares de valor-chave. A descrição da imagem gerada por computador é armazenada no item "Legenda", e as palavras-chave de pesquisa são armazenadas em "Tag0", "Tag1", e assim por diante. Quando terminar, clique **em Cancelar** para fechar o diálogo.
 
-![Janela de diálogo Propriedades da imagem, com marcações de metadados listadas](../Images/blob-metadata.png)
+![Propriedades de imagem marcam janela, com etiquetas de metadados listadas](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você quiser continuar trabalhando em seu aplicativo Web, consulte a seção [próximas etapas](#next-steps) . Se você não planeja continuar usando este aplicativo, exclua todos os recursos específicos do aplicativo. Para excluir recursos, você pode excluir o grupo de recursos que contém sua assinatura do armazenamento do Azure e Pesquisa Visual Computacional recurso. Isso removerá a conta de armazenamento, os BLOBs carregados nela e o recurso do serviço de aplicativo necessário para se conectar ao aplicativo Web ASP.NET. 
+Se quiser continuar a trabalhar na sua aplicação web, consulte a secção [Next steps.](#next-steps) Se não pretende continuar a utilizar esta aplicação, deverá eliminar todos os recursos específicos da aplicação. Para eliminar recursos, pode eliminar o grupo de recursos que contém a subscrição de Armazenamento Azure e o recurso Computer Vision. Isto removerá a conta de armazenamento, as bolhas que lhe foram enviadas e o recurso do Serviço de Aplicações necessário para se ligar à ASP.NET aplicação web. 
 
-Para excluir o grupo de recursos, abra a guia **grupos de recursos** no portal, navegue até o grupo de recursos usado para este projeto e clique em **excluir grupo de recursos** na parte superior da exibição. Você será solicitado a digitar o nome do grupo de recursos para confirmar que deseja excluí-lo, pois, uma vez excluído, um grupo de recursos não poderá ser recuperado.
+Para eliminar o grupo de recursos, abra o separador de **grupos de recursos** no portal, navegue para o grupo de recursos utilizado para este projeto e clique em Eliminar o grupo de **recursos** no topo da vista. Será-lhe pedido que digite o nome do grupo de recursos para confirmar que quer apagá-lo, porque uma vez eliminado, um grupo de recursos não pode ser recuperado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você configura o serviço de Pesquisa Visual Computacional do Azure em um aplicativo Web existente para gerar automaticamente legendas e palavras-chave para imagens de blob conforme elas são carregadas. Em seguida, consulte o laboratório de armazenamento do Azure, exercício 6, para saber como adicionar a funcionalidade de pesquisa ao seu aplicativo Web. Isso aproveita as palavras-chave de pesquisa que o serviço Pesquisa Visual Computacional gera.
+Neste tutorial, configura o serviço De Visão computacional do Azure numa aplicação web existente para gerar automaticamente legendas e palavras-chave para imagens blob à medida que são carregadas. Em seguida, consulte o Azure Storage Lab, Exercise 6, para aprender a adicionar funcionalidade de pesquisa à sua aplicação web. Isto tira partido das palavras-chave de pesquisa que o serviço Computer Vision gera.
 
 > [!div class="nextstepaction"]
-> [Adicionar pesquisa ao seu aplicativo](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)
+> [Adicione pesquisa à sua aplicação](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)

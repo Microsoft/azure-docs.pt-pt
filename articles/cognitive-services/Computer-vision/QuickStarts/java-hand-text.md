@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 15c84b0c4cd4311300b951c3bf86b2bd62d48bfd
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77566136"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-java"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a Visão computacional 2.0 e 2.1 REST API e Java
@@ -32,21 +32,21 @@ Em comparação com a Visão Computacional 2.0 e 2.1, a Visualização Pública 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 #### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 ---
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 - Tem de ter a plataforma [Java&trade;, Standard Edition Development Kit 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) instalada.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de pontofinal de chave e serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
@@ -54,7 +54,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Crie um novo projeto de Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
+1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
    - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -76,9 +76,9 @@ Para criar e executar o exemplo, siga os seguintes passos:
    import org.json.JSONObject;
    ```
 
-1. Substitua a `Main` classe pública pelo seguinte código.
-1. Opcionalmente, substitua o valor da `imageToAnalyze` pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
-1. Guarde e, em seguida, compile o projeto Java.
+1. Substitua `Main` a classe pública pelo seguinte código.
+1. Opcionalmente, substitua `imageToAnalyze` o valor de uma imagem diferente a partir da qual pretende extrair texto.
+1. Guarde e, em seguida, crie o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java
@@ -196,7 +196,7 @@ public class Main {
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Crie um novo projeto de Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
+1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
    - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -218,10 +218,10 @@ Para criar e executar o exemplo, siga os seguintes passos:
     import org.json.JSONObject;
     ```
 
-1. Substitua a `Main` classe pública pelo seguinte código.
-1. Opcionalmente, substitua o valor da `language` pela linguagem que pretende reconhecer. Os valores aceites são "en" para inglês e "es" para o espanhol.
-1. Opcionalmente, substitua o valor da `imageToAnalyze` pelo URL de uma imagem diferente a partir da qual pretende extrair texto.
-1. Guarde e, em seguida, compile o projeto Java.
+1. Substitua `Main` a classe pública pelo seguinte código.
+1. Opcionalmente, substitua `language` o valor da linguagem que pretende reconhecer. Os valores aceites são "en" para inglês e "es" para o espanhol.
+1. Opcionalmente, substitua `imageToAnalyze` o valor de uma imagem diferente a partir da qual pretende extrair texto.
+1. Guarde e, em seguida, crie o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java
@@ -348,7 +348,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
@@ -767,7 +767,7 @@ Text recognition result response:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o projeto de Java, incluindo a classe compilada e as bibliotecas importadas.
+Quando já não for necessário, elimine o projeto Java, incluindo a classe compilada e as bibliotecas importadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Obtenha modelo com chamada RESTC#
+title: 'Obtenha modelo com chamada REST em C #'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -8,21 +8,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: e4f995e888d261e1a1a7cb1e63d0d222c165060f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 96129b9141b4759fd61b539fa08354f02af3af7b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368480"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80151130"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Compreensão da língua azure - chave de caracteres de recursos 32 e url de ponto final de autor. Criar com o [portal Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importar a aplicação [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório gitHub compreensivo cognitivo-serviços.
-* O ID da aplicação LUIS para a app TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
-* A versão ID dentro da aplicação que recebe as palavras. O ID predefinido é "0.1".
-* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* O ID da aplicação LUIS para a aplicação TravelAgent importada. O ID da aplicação é apresentado no dashboard de aplicações.
+* O ID da versão na aplicação que recebe as expressões. O ID predefinido é "0.1".
+* [.NET Core 3.1](https://dotnet.microsoft.com/download)
+* [Código de estúdio visual](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
 
@@ -30,7 +30,7 @@ ms.locfileid: "77368480"
 
 ## <a name="change-model-programmatically"></a>Alterar modelo programáticamente
 
-1. Crie uma nova aplicação de consola direcionada ao C# idioma, com um nome de projeto e pasta de `model-with-rest`.
+1. Crie uma nova aplicação de consola direcionada para o `model-with-rest`idioma C#, com um nome de projeto e pasta de .
 
     ```console
     dotnet new console -lang C# -n model-with-rest
@@ -164,7 +164,7 @@ ms.locfileid: "77368480"
     }
     ```
 
-1. Substitua os valores a partir de `YOUR-` pelos seus próprios valores.
+1. Substitua os valores a começar pelos `YOUR-` seus próprios valores.
 
     |Informações|Objetivo|
     |--|--|

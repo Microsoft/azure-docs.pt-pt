@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
 ms.openlocfilehash: c6291a714083df8954d5162ad38d31b2e3caee76
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925481"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -199,19 +199,19 @@ Antes de começar, certifique-se de:
     }
     ```
 
-1. No mesmo ficheiro, substitua a cadeia `YourSubscriptionKey` com a chave de subscrição da Fala Cognitiva.
+1. No mesmo ficheiro, substitua a cadeia `YourSubscriptionKey` pela chave de subscrição da Fala Cognitiva.
 
-1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Na barra de menus, escolha **File** > **Save All**.
+1. A partir da barra de menus, escolha **File** > **Save All**.
 
 ## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Construir e executar a aplicação para criar uma nova conversa
 
-1. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **debug** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação **helloworld.**
+1. Escolha **Debug** > **Start Debugging** (ou prima **F5)** para iniciar a aplicação **Helloworld.**
 
-1. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Verá que as transcrições aparecem enquanto fala.
+1. Assim que `Started transcribing` vires a mensagem aparecer, podes começar a falar. Verá que as transcrições aparecem enquanto fala.
     - Se partilhares o código de conversação com os outros e eles se juntarem à conversa, também verás as transcrições deles.
 
 1. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.
@@ -294,7 +294,7 @@ Antes de começar, certifique-se de:
     }
     ```
 
-2. Substitua `CreateConversationAsync();` na sua função `public static async Task Main(string[] args)` com:
+2. Substitua `CreateConversationAsync();` `public static async Task Main(string[] args)` na sua função:
 
     ```csharp
     // Set this to the conversation you want to join
@@ -303,13 +303,13 @@ Antes de começar, certifique-se de:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-4. Volte para o Visual Studio e substitua a `YourConversationId` de cordas com o ID de conversação que criou no passo anterior.
+4. Volte para o Estúdio Visual `YourConversationId` e substitua a cadeia pelo ID de conversação que criou no passo anterior.
 
-5. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+5. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-6. Escolha **debug** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação **helloworld.**
+6. Escolha **Debug** > **Start Debugging** (ou prima **F5)** para iniciar a aplicação **Helloworld.**
 
-7. Assim que vir a mensagem `Started transcribing` aparecer, pode começar a falar. Verá que as transcrições aparecem enquanto fala.
+7. Assim que `Started transcribing` vires a mensagem aparecer, podes começar a falar. Verá que as transcrições aparecem enquanto fala.
     - Se voltar ao seu navegador, deve ver que as suas transcrições aparecem lá enquanto fala.
 
 8. Uma vez terminada a conversa, pressione <kbd>Ctrl+C</kbd> para parar a captura de áudio e terminar a conversa.

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Moderar vídeos e transcrições no .NET – Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: Este tutorial ajuda você a entender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e criação de análise humana-in-the-loop.
+description: Este tutorial ajuda-o a entender como construir uma solução completa de moderação de vídeo e transcrição com moderação assistida por máquinas e criação de revisão humana no loop.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976983"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
-Neste tutorial, você aprenderá a criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e integração de análise humana.
+Neste tutorial, você aprenderá a construir uma solução completa de moderação de vídeo e transcrição com moderação assistida por máquinas e integração de revisão humana.
 
 Este tutorial mostrar-lhe como:
 
@@ -34,15 +34,15 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Inscreva-se no site da [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/) e crie marcas personalizadas. Consulte [usar marcas](Review-Tool-User-Guide/tags.md) se precisar de ajuda com esta etapa.
+- Inscreva-se no web site da [ferramenta Content Moderator Review](https://contentmoderator.cognitive.microsoft.com/) e crie etiquetas personalizadas. Consulte [as etiquetas use](Review-Tool-User-Guide/tags.md) se precisar de ajuda com este passo.
 
-    ![captura de tela de marcas personalizadas de moderação de vídeo](images/video-tutorial-custom-tags.png)
-- Para executar o aplicativo de exemplo, você precisa de uma conta do Azure, um recurso dos serviços de mídia do Azure, um recurso de Content Moderator do Azure e credenciais de Azure Active Directory. Para obter instruções sobre como obter esses recursos, consulte o guia da [API de moderação de vídeo](video-moderation-api.md) .
-- Baixe o [aplicativo de console de revisão de vídeo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) do github.
+    ![screenshot de etiquetas personalizadas de moderação de vídeo](images/video-tutorial-custom-tags.png)
+- Para executar a aplicação da amostra, precisa de uma conta Azure, um recurso Azure Media Services, um recurso Azure Content Moderador e credenciais de Diretório Ativo Azure. Para obter instruções sobre como obter estes recursos, consulte o guia [da API](video-moderation-api.md) de Moderação de Vídeo.
+- Descarregue a [aplicação](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) de consola de revisão de vídeo do GitHub.
 
 ## <a name="enter-credentials"></a>Introduzir credenciais
 
-Edite o arquivo `App.config` e adicione o nome do locatário Active Directory, os pontos de extremidade de serviço e as chaves de assinatura indicados pelo `#####`. Precisará das seguintes informações:
+Editar `App.config` o ficheiro e adicionar o nome do inquilino do Diretório Ativo, pontos finais de serviço e chaves de subscrição indicados por `#####`. Precisará das seguintes informações:
 
 |Chave|Descrição|
 |-|-|
@@ -58,7 +58,7 @@ Edite o arquivo `App.config` e adicione o nome do locatário Active Directory, o
 
 A classe `Program` em `Program.cs` é o principal ponto de entrada da aplicação de moderação de vídeos.
 
-### <a name="methods-of-program-class"></a>Métodos de classe de programa
+### <a name="methods-of-program-class"></a>Métodos de classe programa
 
 |Método|Descrição|
 |-|-|
@@ -82,7 +82,7 @@ A classe `Program` em `Program.cs` é o principal ponto de entrada da aplicaçã
 Se não estiver presente nenhum argumento de linha de comandos, `Main()` chamará `GetUserInputs()`. Este método pede ao utilizador para introduzir o caminho para um único ficheiro de vídeo e para especificar se deve ser gerada uma transcrição de texto.
 
 > [!NOTE]
-> O aplicativo de console usa a [API Azure Media indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> A aplicação de consola utiliza a [API do Indexer Azure Media](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições a partir da faixa de áudio do vídeo carregado. Os resultados são fornecidos em formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Métodos Initialize e ProcessVideo
 
@@ -110,7 +110,7 @@ O método `ProcessVideo()` é relativamente simples. Permite realizar as seguint
 
 As seguintes secções abordam mais detalhadamente alguns dos processos individuais invocados por `ProcessVideo()`. 
 
-## <a name="compress-the-video"></a>Compactar o vídeo
+## <a name="compress-the-video"></a>Comprima o vídeo
 
 Para minimizar o tráfego de rede, a aplicação converte os ficheiros de vídeo no formato H.264 (MPEG-4 AVC) e dimensiona-os até estes ficarem com uma largura máxima de 640 píxeis. O codec H.264 é recomendado devido à sua elevada eficiência (taxa de compressão). A compressão é realizada com recurso à ferramenta de linha de comandos `ffmpeg` gratuita que está incluída na pasta `Lib` da solução Visual Studio. O formato dos ficheiros de entrada pode ser qualquer formato suportado por `ffmpeg`, incluindo os codecs e formatos de ficheiros de vídeo mais comuns.
 
@@ -135,7 +135,7 @@ O código realiza os seguintes passos:
 
 O método devolve o nome de ficheiro do ficheiro de saída comprimido.
 
-## <a name="upload-and-moderate-the-video"></a>Carregar e moderar o vídeo
+## <a name="upload-and-moderate-the-video"></a>Faça upload e moderar o vídeo
 
 É necessário armazenar o vídeo nos Serviços de Multimédia do Azure antes de o serviço do Content Moderator o processar. A classe `Program` em `Program.cs` dispõe de um método `CreateVideoStreamingRequest()` curto que devolve um objeto que representa o pedido de transmissão em fluxo para carregar o vídeo.
 
@@ -151,7 +151,7 @@ Estas linhas realizam as seguintes tarefas:
 - Definir o sinalizador `GenerateVTT` do pedido se o utilizador tiver pedido uma transcrição de texto
 - Chamar `CreateAzureMediaServicesJobToModerateVideo()` para realizar o carregamento e receber o resultado
 
-## <a name="examine-video-moderation-code"></a>Examinar o código de moderação do vídeo
+## <a name="examine-video-moderation-code"></a>Examine o código de moderação de vídeo
 
 O método `CreateAzureMediaServicesJobToModerateVideo()` está em `VideoModerator.cs`, que contém a maior parte do código que interage com os Serviços de Multimédia do Azure. O código fonte do método é apresentado no seguinte excerto.
 
@@ -164,7 +164,7 @@ Este código realiza as seguintes tarefas:
 - Submete a tarefa ao carregar o ficheiro e iniciar o processamento
 - Obtém os resultados da moderação, a transcrição de texto (se for pedida) e outras informações
 
-## <a name="sample-video-moderation-output"></a>Exemplo de saída de moderação de vídeo
+## <a name="sample-video-moderation-output"></a>Saída de moderação de vídeo de amostra
 
 O resultado da tarefa de moderação de vídeos (veja [o guia de início rápido da moderação de vídeos](video-moderation-api.md)) é uma estrutura de dados JSON que contém os resultados de moderação. Estes resultados incluem uma discriminação dos fragmentos (imagens) que compõem o vídeo, cada um dos quais com eventos (clipes) que têm fotogramas chave que foram sinalizados para revisão. Cada fotograma chave é classificado em função da probabilidade de conter conteúdos inadequados ou para adultos. O seguinte exemplo mostra uma resposta JSON:
 
@@ -223,7 +223,7 @@ O resultado da tarefa de moderação de vídeos (veja [o guia de início rápido
 Também é produzida uma transcrição de áudio a partir do vídeo quando o sinalizador `GenerateVTT` é definido.
 
 > [!NOTE]
-> O aplicativo de console usa a [API Azure Media indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> A aplicação de consola utiliza a [API do Indexer Azure Media](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições a partir da faixa de áudio do vídeo carregado. Os resultados são fornecidos em formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ## <a name="create-a-human-review"></a>Criar uma revisão humana
 
@@ -234,9 +234,9 @@ O processo de moderação devolve uma lista de fotogramas chave do vídeo, junta
 `CreateVideoReviewInContentModerator()` chama vários outros métodos para realizar as seguintes tarefas:
 
 > [!NOTE]
-> A aplicação de consola utiliza a biblioteca [FFmpeg](https://ffmpeg.org/) para gerar miniaturas. Essas miniaturas (imagens) correspondem aos carimbos de data/hora do quadro na saída de moderação do vídeo.
+> A aplicação de consola utiliza a biblioteca [FFmpeg](https://ffmpeg.org/) para gerar miniaturas. Estas miniaturas (imagens) correspondem aos carimbos de data/hora dos fotogramas na saída de moderação de vídeos.
 
-|Tarefa|Métodos|Ficheiros|
+|Tarefa|Métodos|Ficheiro|
 |-|-|-|
 |Extrair os fotogramas chave do vídeo e criar imagens em miniatura dos mesmos|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
 |Analisar a transcrição de texto (se esta estiver disponível) para localizar áudio inadequado ou para adultos|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
@@ -252,7 +252,7 @@ Até agora, o código apresentado neste tutorial incidiu nos conteúdos visuais.
 
 A aplicação realiza as seguintes tarefas:
 
-|Tarefa|Métodos|Ficheiros|
+|Tarefa|Métodos|Ficheiro|
 |-|-|-|
 |Determinar se serão geradas transcrições de texto|`Main()`<br>`GetUserInputs()`|`Program.cs`|
 |Se forem, submeter uma tarefa de transcrição como parte da moderação|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
@@ -279,7 +279,7 @@ A transcrição é publicada sob a forma de elemento dos Serviços de Multimédi
 
 Após alguma configuração necessária dos Serviços de Multimédia do Azure, a transferência efetiva é realizada ao chamar `DownloadAssetToLocal()`, uma função genérica que copia um elemento dos AMS para um ficheiro local.
 
-## <a name="moderate-the-transcript"></a>Moderação da transcrição
+## <a name="moderate-the-transcript"></a>Moderar a transcrição
 
 Com a transcrição à disposição, esta é analisada e utilizada na revisão. Criar a revisão é da competência de `CreateVideoReviewInContentModerator()`, que chama `GenerateTextScreenProfanity()` para realizar a tarefa. Este método, por sua vez, chama `TextScreen()`, que contém a maior parte da funcionalidade.
 
@@ -314,7 +314,7 @@ Em seguida, é necessário analisar as legendas de texto analisadas com recurso 
 
 [!code-csharp[TextScreen3](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=568-653)]
 
-### <a name="text-moderation-breakdown"></a>Divisão de moderação de texto
+### <a name="text-moderation-breakdown"></a>Desagregação da moderação do texto
 
 `TextScreen()` é um método substancial, por isso vamos analisá-lo por partes.
 
@@ -359,7 +359,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você configura um aplicativo que modera o conteúdo de vídeo&mdash;incluindo conteúdo de transcrição&mdash;e cria revisões na ferramenta de revisão. Em seguida, saiba mais sobre os detalhes da moderação de vídeo.
+Neste tutorial, configura uma aplicação que&mdash;modera o&mdash;conteúdo de vídeo, incluindo conteúdo de transcrição e cria comentários na ferramenta Review. Em seguida, saiba mais sobre os detalhes da moderação do vídeo.
 
 > [!div class="nextstepaction"]
 > [Moderação de vídeo](./video-moderation-human-review.md)

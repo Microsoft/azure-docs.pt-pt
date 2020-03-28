@@ -11,58 +11,58 @@ ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
 ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446660"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>O que é a API de Pesquisa Visual do Bing?
 
-O API da Pesquisa Visual do Bing retorna informações para uma imagem. Você pode carregar uma imagem ou fornecer uma URL para uma. As informações são imagens visualmente semelhantes, fontes de compras, páginas da Web que incluem a imagem e muito mais. As informações retornadas pelo API da Pesquisa Visual do Bing são semelhantes àquelas mostradas em Bing.com/images. 
+A API de Pesquisa Visual Bing devolve insights para uma imagem. Pode fazer o upload de uma imagem ou fornecer um URL a uma. Insights são imagens visualmente semelhantes, fontes de compras, páginas web que incluem a imagem, e muito mais. Insights devolvidos pela API de Pesquisa Visual bing são semelhantes aos mostrados no Bing.com/images. 
 
-Se você usar o [API de pesquisa de imagem do Bing](../bing-image-search/overview.md), poderá usar tokens de insight dos resultados da pesquisa da API para sua pesquisa visual do Bing em vez de carregar uma imagem.
+Se utilizar a API de Pesquisa de [Imagem Bing,](../bing-image-search/overview.md)pode utilizar fichas de insights a partir dos resultados de pesquisa da API para a sua Pesquisa Visual Bing em vez de enviar uma imagem.
 
 > [!IMPORTANT]
-> Se você receber informações de imagem usando o API de Pesquisa de Imagem do Bing, considere alternar para o API da Pesquisa Visual do Bing, que fornece informações mais abrangentes.
+> Se obtém insights de imagem utilizando a API de Pesquisa de Imagem Bing, considere mudar para a API de Pesquisa Visual Bing, que fornece insights mais abrangentes.
 
-## <a name="insights"></a>Insights
+## <a name="insights"></a>Informações
 
-Você pode descobrir as seguintes informações usando Pesquisa Visual do Bing:
+Pode descobrir as seguintes informações utilizando bing Visual Search:
 
 | Informações                              | Descrição |
 |--------------------------------------|-------------|
 | Imagens visualmente semelhantes              | Uma lista de imagens que são visualmente semelhantes à imagem de entrada. |
-| Produtos visualmente semelhantes            | Produtos que são visualmente semelhantes ao produto mostrado.            |
-| Fontes de compras                     | Locais onde você pode comprar o item mostrado na imagem de entrada.            |
-| Pesquisas relacionadas                     | Pesquisas relacionadas feitas por outras pessoas ou que se baseiam no conteúdo da imagem.            |
-| Páginas da Web que incluem a imagem     | Páginas da Web que incluem a imagem de entrada.            |
-| Receitas                              | Páginas da Web que incluem receitas para fazer o Dish mostrado na imagem de entrada.            |
-| Entidades                             | Pessoas, lugares e coisas conhecidos. |
+| Produtos visualmente similares            | Produtos visualmente semelhantes ao produto mostrado.            |
+| Fontes de compras                     | Locais onde pode comprar o item mostrado na imagem de entrada.            |
+| Pesquisas relacionadas                     | Pesquisas relacionadas feitas por outros ou que são baseadas no conteúdo da imagem.            |
+| Páginas web que incluem a imagem     | Páginas web que incluem a imagem de entrada.            |
+| Receitas                              | Páginas web que incluem receitas para fazer o prato mostrado na imagem de entrada.            |
+| Entidades                             | Pessoas conhecidas, lugares e coisas. |
 
-Além de informações, Pesquisa Visual do Bing retorna uma variedade de termos (ou seja, marcas) derivados da imagem de entrada. As marcas permitem que os usuários explorem os conceitos encontrados na imagem. Por exemplo, se a imagem de entrada for de um famoso atletas, uma das marcas poderá ser o nome do atletas, outra marca poderá ser esportiva. Ou, se a imagem de entrada for de uma pizza da Apple, as marcas poderão ser pizza da Apple, tortas e sobremesas.
+Além de insights, bing Visual Search retorna uma variedade de termos (isto é, tags) derivados da imagem de entrada. As tags permitem que os utilizadores explorem conceitos encontrados na imagem. Por exemplo, se a imagem de entrada for de um atleta famoso, uma das etiquetas pode ser o nome do atleta, outra etiqueta pode ser o Sports. Ou, se a imagem de entrada for de uma torta de maçã, as etiquetas podem ser Tortas de Maçã, Tortas e Sobremesas.
 
-Pesquisa Visual do Bing resultados também incluem caixas delimitadoras para regiões de interesse na imagem. Por exemplo, se a imagem contiver vários celebridades, os resultados poderão incluir caixas delimitadoras para cada um dos celebridades reconhecidos. Ou, se o Bing reconhecer um produto ou roupas na imagem, o resultado poderá incluir uma caixa delimitadora para o item reconhecido.
+Os resultados da Bing Visual Search também incluem caixas de delimitação para regiões de interesse na imagem. Por exemplo, se a imagem contiver várias celebridades, os resultados podem incluir caixas de delimitação para cada uma das celebridades reconhecidas. Ou, se bing reconhecer um produto ou roupa na imagem, o resultado pode incluir uma caixa de delimitação para o item reconhecido.
 
-## <a name="workflow"></a>Fluxo de Trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 
-O API da Pesquisa Visual do Bing é um serviço Web RESTful, facilitando a chamada de qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON. Você pode usar a API REST ou o SDK para o serviço.
+O Bing Visual Search API é um serviço web RESTful, facilitando a chamada de qualquer linguagem de programação que possa fazer pedidos HTTP e analisar a JSON. Pode utilizar a API REST ou o SDK para o serviço.
 
-1. Crie uma [conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para acessar o APIs de pesquisa do Bing. Se você não tiver uma assinatura do Azure, poderá [criar uma conta gratuitamente](https://azure.microsoft.com/free/). Você pode obter sua chave de assinatura do [portal do Azure](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de criar sua conta ou [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) depois de ativar uma avaliação gratuita.
-2. Envie uma solicitação para a API com uma consulta de pesquisa válida.
+1. Crie uma [conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para aceder às APIs de Pesquisa bing. Se não tiver uma subscrição Azure, pode [criar uma conta gratuitamente.](https://azure.microsoft.com/free/) Pode obter a sua chave de subscrição no [portal Azure](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de criar a sua conta, ou [o site Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) depois de ativar um teste gratuito.
+2. Envie um pedido à API com uma consulta de pesquisa válida.
 3. Processe a resposta da API ao analisar a mensagem JSON devolvida.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/)API da pesquisa visual do Bing.
-A demonstração mostra como você pode personalizar rapidamente uma consulta de pesquisa e pesquisar a Web para imagens.
+Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/)Bing Visual Search API.
+A demonstração mostra como pode personalizar rapidamente uma consulta de pesquisa e vasculhar a web para obter imagens.
 
-Para começar a trabalhar rapidamente com o seu primeiro pedido, veja os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para começar rapidamente com o seu primeiro pedido, veja os quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-* A referência de [pesquisa visual de imagens](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) descreve as definições e informações sobre os pontos de extremidade, os cabeçalhos de solicitação, as respostas e os parâmetros de consulta que você pode usar para solicitar resultados de pesquisa baseados em imagem.
+* A referência [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) descreve definições e informações sobre os pontos finais, cabeçalhos de pedido, respostas e parâmetros de consulta que pode utilizar para solicitar resultados de pesquisa baseados em imagem.
 
-* O [pesquisa do Bing uso da API e os requisitos de exibição](../bing-web-search/use-display-requirements.md) especificam usos aceitáveis do conteúdo e das informações obtidas por meio das APIs de pesquisa do Bing.
+* Os requisitos de [utilização e exibição](../bing-web-search/use-display-requirements.md) de API de pesquisa bing e exespecifiquem utilizações aceitáveis do conteúdo e informações obtidas através das APIs de pesquisa bing.
 
-* Visite a [página do hub de API pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+* Visite a página do centro da [Bing Search API](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.

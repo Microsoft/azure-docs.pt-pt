@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
 ms.openlocfilehash: 9252fbbf0895bf821c119272ac37d3af1c91fc89
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987802"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Linguagem de programação [Node.js](https://nodejs.org/)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* ID da aplicação pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* [Código de estúdio visual](https://code.visualstudio.com/)
+* ID da aplicação pública:`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="create-luis-runtime-key-for-predictions"></a>Criar a chave de tempo de execução do LUIS para previsões
 
@@ -32,17 +32,17 @@ ms.locfileid: "76987802"
     |Nome|Nome desejado (2-64 caracteres)|
     |Subscrição|Selecione subscrição apropriada|
     |Localização|Selecione qualquer local próximo e disponível|
-    |Escalão de Preço|`F0` - o nível de preços mínimos|
+    |Escalão de Preço|`F0`- o nível de preços mínimos|
     |Grupo de Recursos|Selecione um grupo de recursos disponíveis|
 
 1. Clique em **Criar** e aguarde a criação do recurso. Depois de criado, navegue para a página de recursos.
-1. Colete `endpoint` configurado e um `key`.
+1. Colete configurado `endpoint` `key`e a .
 
 ## <a name="get-intent-programmatically"></a>Obter a intenção através de programação
 
 Use nonó.js para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) da previsão e obter um resultado de previsão.
 
-1. Copie o seguinte código de corte para um ficheiro chamado `predict.js`:
+1. Copie o seguinte código de `predict.js`corte para um ficheiro chamado:
 
     ```javascript
     var request = require('request');
@@ -89,14 +89,14 @@ Use nonó.js para consultar o [ponto final](https://aka.ms/luis-apim-v3-predicti
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Substitua os valores `YOUR-KEY` e `YOUR-ENDPOINT` pela sua própria chave de previsão **Runtime** e ponto final.
+1. Substitua `YOUR-KEY` `YOUR-ENDPOINT` os valores e valores com a sua própria chave de previsão **Runtime** e ponto final.
 
-    |Proteção das|Finalidade|
+    |Informações|Objetivo|
     |--|--|
     |`YOUR-KEY`|A tua **chave** de previsão de 32 caracteres.|
     |`YOUR-ENDPOINT`| O seu ponto final de URL de previsão. Por exemplo, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
-1. Instale as dependências `request`, `request-promise`e `querystring` com este comando:
+1. Instale `request` `request-promise`as `querystring` dependências com este comando:
 
     ```console
     npm install request request-promise querystring
@@ -159,7 +159,7 @@ Use nonó.js para consultar o [ponto final](https://aka.ms/luis-apim-v3-predicti
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos.
+Quando terminar este arranque rápido, elimine o ficheiro do sistema de ficheiros.
 
 ## <a name="next-steps"></a>Passos seguintes
 

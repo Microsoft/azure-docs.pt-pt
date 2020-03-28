@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: integrar vários recursos de leitor de imersão'
+title: 'Tutorial: Integrar múltiplos recursos imersivos do leitor'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você criará um aplicativo node. js que inicia o leitor de imersão usando vários recursos de leitura de imersão.
+description: Neste tutorial, você vai criar uma aplicação Node.js que lança o Leitor Imersivo usando vários recursos imersivos do Leitor.
 author: skamal
 manager: nitinme
 ms.service: cognitive-services
@@ -10,31 +10,31 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
 ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76046276"
 ---
-# <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: integrar vários recursos de leitor de imersão
+# <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integrar múltiplos recursos imersivos do leitor
 
-Na [visão geral](./overview.md), você aprendeu sobre o que é o leitor de imersão e como ele implementa técnicas comprovadas para melhorar a compreensão da leitura para aprendizes de idioma, leitores emergentes e estudantes com diferenças de aprendizado. No guia de [início rápido do node. js](./quickstart-nodejs.md), você aprendeu a usar o leitor de imersão com um único recurso. Este tutorial aborda como integrar vários recursos de leitor de imersão no mesmo aplicativo. Neste tutorial, ficará a saber como:
+Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e como implementa técnicas comprovadas para melhorar a compreensão da leitura para os alunos de línguas, leitores emergentes e alunos com diferenças de aprendizagem. No início rápido do [Node.js,](./quickstart-nodejs.md)aprendeu a usar o Leitor Imersivo com um único recurso. Este tutorial abrange como integrar vários recursos imersivos do Leitor na mesma aplicação. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar vários recursos de leitor de imersão em um grupo de recursos existente
-> * Iniciar o leitor de imersão usando vários recursos
+> * Criar múltiplos recursos imersivos do Leitor sob um grupo de recursos existente
+> * Lançar o Leitor Imersivo usando vários recursos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga o guia de [início rápido](./quickstart-nodejs.md) para criar um aplicativo Web que inicia o leitor de imersão com NodeJS. Nesse início rápido, você configura um único recurso de leitor de imersão. Nós vamos criar sobre isso neste tutorial.
+* Siga o [quickstart](./quickstart-nodejs.md) para criar uma aplicação web que lança o Leitor Imersivo com NodeJS. Nesse arranque rápido, configura um único recurso Imersivo do Leitor. Vamos construir em cima disso neste tutorial.
 
-## <a name="create-the-immersive-reader-resources"></a>Criar os recursos do leitor de imersão
+## <a name="create-the-immersive-reader-resources"></a>Criar os recursos imersivos do leitor
 
-Siga [estas instruções](./how-to-create-immersive-reader.md) para criar cada recurso de leitor de imersão. O script **Create-ImmersiveReaderResource** tem `ResourceName`, `ResourceSubdomain`e `ResourceLocation` como parâmetros. Eles devem ser exclusivos para cada recurso que está sendo criado. Os parâmetros restantes devem ser iguais aos que você usou ao configurar seu primeiro recurso de leitor de imersão. Dessa forma, cada recurso pode ser vinculado ao mesmo grupo de recursos do Azure e ao aplicativo do Azure AD.
+Siga [estas instruções](./how-to-create-immersive-reader.md) para criar cada recurso imersivo do Leitor. O script **Create-ImmersiveReaderResource** tem `ResourceName`, `ResourceSubdomain`e `ResourceLocation` como parâmetros. Estes devem ser únicos para cada recurso que está a ser criado. Os parâmetros restantes devem ser os mesmos que usou na configuração do seu primeiro recurso Imersivo leitor. Desta forma, cada recurso pode ser ligado ao mesmo grupo de recursos Azure e à aplicação Azure AD.
 
-O exemplo a seguir mostra como criar dois recursos, um na Westus e outro no Lesteus. Observe os valores exclusivos para `ResourceName`, `ResourceSubdomain`e `ResourceLocation`.
+O exemplo abaixo mostra como criar dois recursos, um no WestUS, e outro no EastUS. Reparenos valores `ResourceName` `ResourceSubdomain`únicos `ResourceLocation`para, e .
 
 ```azurepowershell-interactive
 Create-ImmersiveReaderResource
@@ -62,11 +62,11 @@ Create-ImmersiveReaderResource
   -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
 ```
 
-## <a name="add-resources-to-environment-configuration"></a>Adicionar recursos à configuração de ambiente
+## <a name="add-resources-to-environment-configuration"></a>Adicionar recursos à configuração do ambiente
 
-No guia de início rápido, você criou um arquivo de configuração de ambiente que contém os parâmetros `TenantId`, `ClientId`, `ClientSecret`e `Subdomain`. Como todos os seus recursos usam o mesmo aplicativo do Azure AD, podemos usar os mesmos valores para o `TenantId`, `ClientId`e `ClientSecret`. A única alteração que precisa ser feita é listar cada subdomínio para cada recurso.
+No arranque rápido, criou-se um ficheiro `TenantId` `ClientId`de `ClientSecret`configuração ambiental que contém os parâmetros e `Subdomain` parâmetros. Uma vez que todos os seus recursos utilizam a mesma aplicação `TenantId` `ClientId`Azure `ClientSecret`AD, podemos usar os mesmos valores para o , e . A única mudança que precisa de ser feita é listar cada subdomínio para cada recurso.
 
-O novo arquivo __. env__ agora deve ser semelhante ao seguinte:
+O seu novo ficheiro __.env__ deve agora parecer algo como o seguinte:
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -76,11 +76,11 @@ SUBDOMAIN_WUS={YOUR_WESTUS_SUBDOMAIN}
 SUBDOMAIN_EUS={YOUR_EASTUS_SUBDOMAIN}
 ```
 
-Certifique-se de não confirmar esse arquivo no controle do código-fonte, pois ele contém segredos que não devem ser tornados públicos.
+Certifique-se de não comprometer este ficheiro no controlo de fontes, uma vez que contém segredos que não devem ser tornados públicos.
 
-Em seguida, vamos modificar o arquivo _routes\index.js_ que criamos para dar suporte a nossos vários recursos. Substitua seu conteúdo pelo código a seguir.
+Em seguida, vamos modificar o ficheiro _routes\index.js_ que criamos para apoiar os nossos múltiplos recursos. Substitua o seu conteúdo pelo seguinte código.
 
-Como antes, esse código cria um ponto de extremidade de API que adquire um token de autenticação do Azure AD usando sua senha de entidade de serviço. Desta vez, ele permite que o usuário especifique um local de recurso e o passe como um parâmetro de consulta. Em seguida, ele retorna um objeto que contém o token e o subdomínio correspondente.
+Como antes, este código cria um ponto final da API que adquire um símbolo de autenticação Azure AD utilizando a sua senha principal de serviço. Desta vez, permite ao utilizador especificar uma localização de recursos e passá-la como parâmetro de consulta. Em seguida, devolve um objeto que contém o símbolo e o subdomínio correspondente.
 
 ```javascript
 var express = require('express');
@@ -143,11 +143,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser protegido por parte de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que usuários não autorizados obtenham tokens para uso no seu serviço de leitor de imersão e cobrança; Esse trabalho está além do escopo deste tutorial.
+Os **pontos finais getimmersivereaderlaunchparams** API devem ser protegidos por detrás de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que utilizadores não autorizados obtenham fichas para usar contra o seu serviço de Leitor Imersivo e faturação; que o trabalho está fora do âmbito deste tutorial.
 
-## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar o leitor de imersão com conteúdo de exemplo
+## <a name="launch-the-immersive-reader-with-sample-content"></a>Lançar o Leitor Imersivo com conteúdo de amostra
 
-1. Abra _views\index.Pug_e substitua seu conteúdo pelo código a seguir. Esse código popula a página com algum conteúdo de exemplo e adiciona dois botões que iniciam o leitor de imersão. Um para iniciar o leitor de imersão para o recurso Lesteus e outro para o recurso Westus.
+1. Abra _views\index.pug,_ e substitua o seu conteúdo pelo seguinte código. Este código povoa a página com algum conteúdo de amostra, e adiciona dois botões que lançam o Leitor Imersivo. Um para o lançamento do Leitor Imersivo para o recurso EastUS, e outro para o recurso WestUS.
 
     ```pug
     doctype html
@@ -252,15 +252,15 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
         }
     ```
 
-3. Nosso aplicativo Web agora está pronto. Inicie o aplicativo executando:
+3. A nossa aplicação está pronta. Inicie a aplicação executando:
 
     ```bash
     npm start
     ```
 
-4. Abra o navegador e navegue até [http://localhost:3000](http://localhost:3000). Você deve ver o conteúdo acima na página. Clique no botão **leitor de imersão do lesteus** ou no botão **leitor de imersão do oesteus** para iniciar o leitor de imersão usando esses recursos respectivos.
+4. Abra o seu [http://localhost:3000](http://localhost:3000)navegador e navegue para . Deve ver o conteúdo acima na página. Clique no botão **EastUS Immersive Reader** ou no botão **WestUS Immersive Reader** para lançar o Leitor Imersivo utilizando esses respetivos recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
-* Exibir exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
+* Explore o [SDK imersivo do leitor](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)
+* Ver amostras de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

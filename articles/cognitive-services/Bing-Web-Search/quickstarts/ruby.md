@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: executar uma pesquisa na Web com o Ruby-API de Pesquisa na Web do Bing'
+title: 'Quickstart: Realizar uma pesquisa na Web com Ruby - Bing Web Search API'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando o Ruby e receber uma resposta JSON
+description: Use este quickstart para enviar pedidos para a API de pesquisa web bing web usando Ruby, e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169544"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Ruby para chamar a API de Pesquisa na Web do Bing  
 
-Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo Ruby envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing e receber a resposta JSON. Esta aplicação Ruby envia um pedido de pesquisa para a API, e mostra a resposta. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ require 'json'
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Tem de definir algumas variáveis para que possamos continuar. `uri` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que `uri` e `path` são válidos e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `term`.
+Tem de definir algumas variáveis para que possamos continuar. `uri`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Confirme que `uri` e `path` são válidos e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"

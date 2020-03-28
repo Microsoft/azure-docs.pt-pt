@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118765"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair dados de recibo utilizando o Formulário Recogniser REST API com Python
 
 Neste arranque rápido, utilizará a API REST API do Reconhecimento de Formulários Azure com a Python para extrair e identificar informações relevantes nos recibos de vendas dos EUA.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,9 +36,9 @@ Para completar este arranque rápido, deve ter:
 
 Para começar a analisar um recibo, ligue para a **[API de Recibo de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** utilizando o script Python abaixo. Antes de executar o script, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto final que obteve com a subscrição do Reconhecimento de Formulários.
+1. Substitua-o `<Endpoint>` pelo ponto final que obteve com a subscrição do Reconhecimento de Formulários.
 1. Substitua `<your receipt URL>` pelo endereço URL de uma imagem de recibo.
-1. Substitua `<subscription key>` com a chave de subscrição que copiou do passo anterior.
+1. Substitua-a `<subscription key>` pela chave de subscrição que copiou do passo anterior.
 
     ```python
     ########### Python Form Recognizer Async Layout #############
@@ -82,7 +82,7 @@ Para começar a analisar um recibo, ligue para a **[API de Recibo de Análise](h
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognizer-receipts.py`.
 
-Receberá uma resposta `202 (Success)` que inclui um cabeçalho **De Localização de Operação,** que o script irá imprimir para a consola. Este cabeçalho contém um ID de operação que pode usar para consultar o estado da operação assíncrona e obter os resultados. No seguinte valor de exemplo, a cadeia após `operations/` é o ID de funcionamento.
+Receberá uma `202 (Success)` resposta que inclui um cabeçalho **Operação-Localização,** que o script irá imprimir para a consola. Este cabeçalho contém um ID de operação que pode usar para consultar o estado da operação assíncrona e obter os resultados. No seguinte valor exemplo, `operations/` a cadeia seguinte é o ID de funcionamento.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -120,17 +120,17 @@ while n_try < n_tries:
 ```
 
 1. Guarde o guião.
-1. Use novamente o comando `python` para executar a amostra. Por exemplo, `python form-recognizer-receipts.py`.
+1. Use novamente o `python` comando para executar a amostra. Por exemplo, `python form-recognizer-receipts.py`.
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-O script irá imprimir respostas à consola até que a operação **De receção** de análise sabote. Em seguida, irá imprimir os dados de texto extraídos no formato JSON. O campo `"recognitionResults"` contém todas as linhas de texto extraídas do recibo, e o campo `"understandingResults"` contém informações chave/valor para as partes mais relevantes do recibo.
+O script irá imprimir respostas à consola até que a operação **De receção** de análise sabote. Em seguida, irá imprimir os dados de texto extraídos no formato JSON. O `"recognitionResults"` campo contém todas as linhas de texto extraídas do recibo, e o `"understandingResults"` campo contém informações chave/valor para as partes mais relevantes do recibo.
 
 Consulte a seguinte imagem de recibo e a sua saída JSON correspondente. A saída foi encurtada para a legibilidade.
 
 ![Um recibo da loja Contoso](../media/contoso-allinone.jpg)
 
-O nó `"recognitionResults"` contém todo o texto reconhecido. O texto é organizado por página, depois por linha, e depois por palavras individuais. O nó `"understandingResults"` contém os valores específicos do recibo que o modelo descobriu. É aqui que encontrará pardes úteis como o imposto, total, endereço de comerciante, e assim por diante.
+O `"recognitionResults"` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, e depois por palavras individuais. O `"understandingResults"` nó contém os valores específicos do recibo que o modelo descobriu. É aqui que encontrará pardes úteis como o imposto, total, endereço de comerciante, e assim por diante.
 
 ```json
 { 

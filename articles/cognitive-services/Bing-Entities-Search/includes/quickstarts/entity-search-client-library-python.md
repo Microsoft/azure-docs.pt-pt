@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
 ms.openlocfilehash: 0c0a124773eab8166806312dc47ded24e1cd841f
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79136761"
 ---
 Use este quickstart para começar a procurar entidades com a biblioteca de clientes Bing Entity Search para Python. Embora a Bing Entity Search tenha uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
@@ -48,7 +48,7 @@ python -m pip install azure-cognitiveservices-search-entitysearch
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Crie uma variável para a sua chave de subscrição e ponto final. Instantifique o cliente criando um novo objeto de `CognitiveServicesCredentials` com a sua chave.
+2. Crie uma variável para a sua chave de subscrição e ponto final. Instantifique o cliente `CognitiveServicesCredentials` criando um novo objeto com a sua chave.
     
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
@@ -58,13 +58,13 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 
 ## <a name="send-a-search-request-and-receive-a-response"></a>Envie um pedido de pesquisa e receba uma resposta
 
-1. Envie um pedido de pesquisa para a Bing Entity Search com `client.entities.search()` e uma consulta de pesquisa. 
+1. Envie um pedido de pesquisa `client.entities.search()` para a Pesquisa de Entidades Bing e uma consulta de pesquisa. 
     
     ```python
     entity_data = client.entities.search(query="Gibralter")
     ```
 
-2. Se as entidades forem devolvidas, converta `entity_data.entities.value` para uma lista e imprima o primeiro resultado.
+2. Se as entidades `entity_data.entities.value` foram devolvidas, converta-se numa lista e imprima o primeiro resultado.
     ```python
     if entity_data.entities.value:
     
@@ -78,6 +78,6 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web de página única](../../tutorial-bing-entities-search-single-page-app.md)
+> [Criar uma aplicação web de página única](../../tutorial-bing-entities-search-single-page-app.md)
 
 * [O que é a API de Pesquisa de Entidades Bing?](../../overview.md )

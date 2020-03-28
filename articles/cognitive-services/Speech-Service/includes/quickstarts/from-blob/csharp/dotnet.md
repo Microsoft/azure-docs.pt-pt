@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dapine
 ms.openlocfilehash: 230a2328a2d03d2167cb1312eb2f02d4b2cedd64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79296325"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -25,12 +25,12 @@ Antes de começar, certifique-se de:
 O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
 
 1. Lançar O Estúdio Visual 2019.
-2. Carregue o seu projeto e abra `Program.cs`.
+2. Carregue o seu `Program.cs`projeto e abra.
 
 ## <a name="add-a-reference-to-newtonsoftjson"></a>Adicione uma referência a Newtonsoft.Json
 
 1. No Solution Explorer, clique no projeto **Helloworld** e, em seguida, selecione **Gerir pacotes NuGet** para mostrar o NuGet Package Manager.
-1. No canto superior direito, encontre a caixa de entrega da Fonte de **Embalagem** e certifique-se de que **`nuget.org`** é selecionada.
+1. No canto superior direito, encontre a caixa de entrega **`nuget.org`** da Fonte de **Embalagem** e certifique-se de que é selecionada.
 1. No canto superior esquerdo, **selecione Browse**.
 1. Na caixa de pesquisa, digite *newtonsoft.json* e selecione **Enter**.
 1. A partir dos resultados da pesquisa, selecione o pacote [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json) e, em seguida, selecione **Instalar** para instalar a versão mais recente estável.
@@ -84,7 +84,7 @@ class Program
 À medida que os pedidos da API rest's tomam em formato JSON e também devolvem resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
 Para facilitar a gestão dos pedidos e respostas, declararemos algumas classes para serializar/desserializar o JSON.
 
-Vá em frente e coloque as suas declarações depois de `TranscribeAsync`.
+Vá em frente e `TranscribeAsync`coloque as suas declarações depois.
 
 ```csharp
 public class ModelIdentity
@@ -187,7 +187,7 @@ public class TranscriptionDefinition
 
 ## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
 A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
-Insira este código em `TranscribeAsync`.
+Insira `TranscribeAsync`este código em .
 
 ```csharp
 var client = new HttpClient
@@ -202,7 +202,7 @@ var client = new HttpClient
 ```
 
 ## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
-Em seguida, vamos gerar o pedido de transcrição. Adicione este código para `TranscribeAsync`.
+Em seguida, vamos gerar o pedido de transcrição. Adicione este `TranscribeAsync`código a .
 
 ```csharp
 var transcriptionDefinition =
@@ -294,7 +294,7 @@ Console.ReadKey();
 
 ## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
 Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado. Aqui fazemos um pedido para baixar esses resultados em um arquivo temporário antes de lê-los e desserializá-los.
-Uma vez carregados os resultados, podemos imprimi-los à consola. Adicione o seguinte código à etiqueta `case "Succeeded":`.
+Uma vez carregados os resultados, podemos imprimi-los à consola. Adicione o seguinte `case "Succeeded":` código à etiqueta.
 
 ```csharp
 completed = true;
@@ -551,10 +551,10 @@ namespace BatchClient
 
 Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
 
-1. **Compile o código** - A partir da barra de menu sécpor do Estúdio Visual, escolha **Build** > **Build Solution**.
-2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Começar dedepuração** ou prima **F5**.
+1. **Compile o código** - A partir da barra de menu do Estúdio Visual, escolha **Build** > **Build Solution**.
+2. **Inicie a sua aplicação** - A partir da barra de menus, escolha **Debug** > **Start Debugging** ou prima **F5**.
 3. **Comece a reconhecer** - Vai instá-lo a falar uma frase em inglês. O seu discurso é enviado para o serviço da Fala, transcrito como texto, e renderizado na consola.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

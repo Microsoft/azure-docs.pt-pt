@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Speech SDK C++ (Linux) platform setup - Speech service'
+title: 'Quickstart: Speech SDK C++ (Linux) configuração da plataforma - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para configurar a sua plataforma C++ no Linux com o serviço de fala SDK.
+description: Utilize este guia para configurar a sua plataforma para C++ no Linux com o serviço de fala SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 4f211e4b90dcc8bffa2fbba6fa4783caf846f50c
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78383844"
 ---
 Este guia mostra como instalar o [SDK de Discurso](~/articles/cognitive-services/speech-service/speech-sdk.md) para Linux
@@ -29,11 +29,11 @@ Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
 
 Para completar este arranque rápido, vai precisar:
 
-* [Estúdio Visual 2019](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
-* As plataformas Linux suportadas exigirão certas bibliotecas instaladas (`libssl` para suporte de camada de tomadas seguras e `libasound2` para suporte sonoro). Consulte a sua distribuição abaixo para os comandos necessários para instalar as versões corretas destas bibliotecas.
+* As plataformas Linux suportadas exigirão`libssl` certas bibliotecas instaladas `libasound2` (para suporte de camada de tomadas seguras e para suporte sonoro). Consulte a sua distribuição abaixo para os comandos necessários para instalar as versões corretas destas bibliotecas.
 
-   * em Ubuntu:
+   * Em Ubuntu:
 
      ```sh
      sudo apt-get update
@@ -60,7 +60,7 @@ Para completar este arranque rápido, vai precisar:
 
 ## <a name="install-speech-sdk"></a>Instalar o SDK de Voz
 
-O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e ficheiros de cabeçalho sandados podem ser descarregados como ficheiro de alcatrão a partir de https://aka.ms/csspeech/linuxbinary.
+O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas e ficheiros de cabeçalho sandados podem ser descarregados como um ficheiro de alcatrão a partir de https://aka.ms/csspeech/linuxbinary.
 
 Transfira e instale o SDK da seguinte forma:
 

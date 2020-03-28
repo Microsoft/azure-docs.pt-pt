@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77372286"
 ---
 Utilize a biblioteca de clientes em tempo de execução (LUIS) para:
@@ -22,12 +22,12 @@ Utilize a biblioteca de clientes em tempo de execução (LUIS) para:
 * Previsão por ranhura
 * Previsão por Versão
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [código fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | Pacote de Prazo de [Execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Biblioteca Código de origem](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Prazo de execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Recurso de tempo de execução da compreensão linguística: [Criar um no portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-* [Node.js](https://nodejs.org)
+* [Nó.js](https://nodejs.org)
 
 ## <a name="setting-up"></a>Configuração
 
@@ -39,7 +39,7 @@ Obtenha a sua chave de tempo de [execução](../luis-how-to-azure-subscription.m
 
 ### <a name="create-a-new-javascript-nodejs-file"></a>Crie um novo ficheiro javascript (Node.js)
 
-Crie um novo ficheiro javascript no seu editor preferido ou IDE, chamado `luis_prediction.js`.
+Crie um novo ficheiro javascript no seu `luis_prediction.js`editor preferido ou IDE, nomeado .
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Instale a biblioteca NPM para o tempo de execução do LUIS
 
@@ -55,7 +55,7 @@ O cliente autor de Linguagem (LUIS) é um objeto [LUISAuthoringClient](https://d
 
 Assim que o cliente for criado, utilize este cliente para aceder à funcionalidade, incluindo:
 
-* [Previsão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) por `staging` ou `production` slot
+* [Previsão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) `staging` por `production` ou ranhura
 * [Previsão por versão](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getversionprediction-string--string--predictionrequest--models-predictiongetversionpredictionoptionalparams-)
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -66,7 +66,7 @@ Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca d
 
 ## <a name="add-the-dependencies"></a>Adicione as dependências
 
-A partir do diretório do projeto, abra o ficheiro `luis_prediction.js` no seu editor ou IDE preferido. Adicione as seguintes dependências:
+A partir do diretório `luis_prediction.js` do projeto, abra o ficheiro no seu editor preferido ou IDE. Adicione as seguintes dependências:
 
 [!code-javascript [Dependencies](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Dependencies)]
 
@@ -74,13 +74,13 @@ A partir do diretório do projeto, abra o ficheiro `luis_prediction.js` no seu e
 
 1. Crie variáveis para a sua própria informação necessária do LUIS:
 
-    Adicione variáveis para gerir a sua chave de previsão retirada de uma variável ambiental chamada `LUIS_RUNTIME_KEY`. Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
+    Adicione variáveis para gerir a sua chave `LUIS_RUNTIME_KEY`de previsão retirada de uma variável ambiental chamada . Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
 
-    Crie uma variável para manter o seu nome de recurso `LUIS_RUNTIME_ENDPOINT`.
+    Crie uma variável `LUIS_RUNTIME_ENDPOINT`para manter o seu nome de recurso.
 
     [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Variables)]
 
-1. Crie uma variável para o ID da aplicação como uma variável ambiental chamada `LUIS_APP_ID`. Desloque a variável ambiental para a aplicação ioT pública, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir a ranhura publicada `production`.
+1. Crie uma variável para o `LUIS_APP_ID`ID da aplicação como uma variável ambiental chamada . Desloque a variável ambiental **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** para a aplicação ioT pública, . Crie uma variável para definir a `production` ranhura publicada.
 
     [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=OtherVariables)]
 
@@ -107,7 +107,7 @@ Utilize o seguinte método principal para ligar as variáveis e métodos para ob
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a aplicação com o comando `node luis_prediction.js` do seu diretório de aplicações.
+Execute a `node luis_prediction.js` aplicação com o comando do seu diretório de candidatura.
 
 ```console
 node luis_prediction.js

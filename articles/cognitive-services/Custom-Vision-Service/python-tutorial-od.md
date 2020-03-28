@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: 68d63fbc71ea2dcd07522c6ba42808f88966cd7b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76166599"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Início Rápido: criar um projeto de deteção de objeto com o SDK de Python de Visão Personalizada
 
-Este artigo mostra como começar a usar o SDK do Visão Personalizada com Python para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python.
+Este artigo mostra-lhe como começar a usar o Custom Vision SDK com Python para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão publicado do projeto, e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,9 +47,9 @@ Crie um novo ficheiro chamado *sample.py* no seu diretório de projetos preferid
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
-Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha a URL do ponto de extremidade na página Configurações do site Visão Personalizada.
+Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
-Consulte o método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) para especificar outras opções ao criar seu projeto (explicado no guia [criar um](get-started-build-detector.md) portal da Web do detector).  
+Consulte o método [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [Build a detetor).](get-started-build-detector.md)  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -76,7 +76,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar marcas de objeto em seu projeto, adicione o seguinte código ao final de *Sample.py*:
+Para criar etiquetas de objetos no seu projeto, adicione o seguinte código ao final da *sample.py:*
 
 ```Python
 # Make two tags in the new project
@@ -84,15 +84,15 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-### <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
+### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
-Ao etiquetar imagens em projetos de deteção de objeto, tem de especificar a região de cada objeto etiquetado com coordenadas normalizadas.
+Quando marca imagens em projetos de deteção de objetos, é necessário especificar a região de cada objeto marcado utilizando coordenadas normalizadas.
 
 > [!NOTE]
-> Se você não tiver um utilitário de clique e arrastar para marcar as coordenadas das regiões, poderá usar a interface do usuário da Web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já foram fornecidas.
+> Se não tiver um utilitário de clique e arrastar para marcar as coordenadas das regiões, pode utilizar a UI web em [Customvision.ai](https://www.customvision.ai/). Neste exemplo, as coordenadas já estão fornecidas.
 
 
-Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Para este tutorial, as regiões são codificadas embutidas com o código. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura.
+Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Para este tutorial, as regiões estão codificadas de acordo com o código. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura.
 
 ```Python
 fork_image_regions = {
@@ -142,10 +142,10 @@ scissors_image_regions = {
 }
 ```
 
-Em seguida, use esse mapa de associações para carregar cada imagem de exemplo com suas coordenadas de região (você pode carregar até 64 imagens em um único lote). Adicione o seguinte código.
+Em seguida, use este mapa de associações para carregar cada imagem de amostra com as suas coordenadas de região (pode carregar até 64 imagens num único lote). Adicione o seguinte código.
 
 > [!NOTE]
-> Você precisará alterar o caminho para as imagens com base em onde baixou o repositório de exemplos do SDK do Python dos serviços cognitivas anteriormente.
+> Terá de alterar o caminho para as imagens com base no local onde descarregou o repo de Amostras SDK dos Serviços Cognitivos Python SDK mais cedo.
 
 ```Python
 # Update this with the path to where you downloaded the images.
@@ -177,9 +177,9 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
+### <a name="train-the-project-and-publish"></a>Treine o projeto e publique
 
-Esse código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
+Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final da previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até ser publicada.
 
 ```Python
 import time
@@ -196,7 +196,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtenha e use a iteração publicada no ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 

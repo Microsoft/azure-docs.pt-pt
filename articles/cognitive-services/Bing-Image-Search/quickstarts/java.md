@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: usar Java para chamar a API REST do Pesquisa de Imagem do Bing'
+title: 'Quickstart: Use Java para ligar para a API de Pesquisa de Imagem Bing'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações de pesquisa de imagem para a API REST do Pesquisa de Imagem do Bing usando Java e receber respostas JSON.
+description: Utilize este quickstart para enviar pedidos de pesquisa de imagem para a API de Pesquisa de Imagem Bing usando Java e receber respostas JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -13,21 +13,21 @@ ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: c1e339643613db188819e7eb8853cad8a48ea47f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928145"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Início rápido: Pesquisar imagens com o API de Pesquisa de Imagem do Bing, um serviço de cognitiva do Azure 
+# <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Quickstart: Procure imagens com a API de Pesquisa de Imagem Bing, um serviço cognitivo Azure 
 
-Use este guia de início rápido para enviar solicitações de pesquisa para o API de Pesquisa de Imagem do Bing nos serviços cognitivas do Azure. Esse aplicativo Java envia uma consulta de pesquisa para a API e exibe a URL da primeira imagem nos resultados. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Utilize este quickstart para enviar pedidos de pesquisa para a API de Pesquisa de Imagem Bing em Serviços Cognitivos Azure. Esta aplicação Java envia uma consulta de pesquisa à API e exibe o URL da primeira imagem nos resultados. Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria dos idiomas de programação.
 
-O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) com processamento de erros e anotações de código adicionais.
+O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) com processamento de erros e anotações de código adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Java Development Kit (JDK)](https://aka.ms/azure-jdks)
+* O Kit de [Desenvolvimento de Java (JDK)](https://aka.ms/azure-jdks)
 
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
@@ -48,7 +48,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
     import com.google.gson.JsonParser;
     ```
 
-2. Crie variáveis para o ponto final de API, a sua chave de subscrição e o termo de pesquisa. `host` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie variáveis para o ponto final de API, a sua chave de subscrição e o termo de pesquisa. `host`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -59,7 +59,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 ## <a name="construct-the-search-request-and-query"></a>Criar a consulta e o pedido de pesquisa
 
-1. Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido da API. O termo de pesquisa deve ser codificado por URL antes de ser anexado à solicitação.
+1. Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido da API. O termo de pesquisa deve ser codificado por URL antes de ser anexado ao pedido.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -105,7 +105,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Esta resposta de amostra foi truncada para mostrar um único resultado.
 
@@ -158,11 +158,11 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) para o APIs de pesquisa do Bing. 
+* [Detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) para as APIs de Pesquisa bing. 
 * [Obter uma chave de acesso aos Serviços Cognitivos gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

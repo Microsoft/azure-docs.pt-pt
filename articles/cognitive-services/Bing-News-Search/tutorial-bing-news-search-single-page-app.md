@@ -12,15 +12,15 @@ ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943123"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de uma página única
 
-A API de Pesquisa de Notícias do Bing permite-lhe pesquisar na Web e obter resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa de Notícias do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
+A API de Pesquisa de Notícias do Bing permite-lhe pesquisar na Web e obter resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa de Notícias do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript. O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -114,7 +114,7 @@ O formulário HTML inclui elementos com os nomes abaixo:
 | `category` | Caixas de verificação para promover tipos específicos de resultados. Por exemplo, promover a Saúde aumenta a classificação de notícias sobre saúde. |
 | `when` | Menu pendente para limitar, opcionalmente, a pesquisa ao dia, semana ou mês mais recente. |
 | `safe` | Uma caixa de verificação que indica se deve ser utilizada a funcionalidade SafeSearch do Bing para filtrar resultados de conteúdos para adultos. |
-| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
+| `count` | Campo oculto. O número de resultados de pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
 | `offset`|  Campo oculto. O desfasamento do primeiro resultado da pesquisa no pedido, utilizado para paginação. É reposto para `0` nos pedidos novos. |
 
 > [!NOTE]
@@ -275,13 +275,13 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > Um pedido HTTP bem-sucedido *não* significa necessariamente que a pesquisa em si foi concluída com êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Além disso, se o pedido tiver uma limitação de frequência, a API devolve uma resposta vazia.
 
-Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Poderão ocorrer erros nas seguintes fases:
+A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
 
 |Fase|Potenciais erros|Resolvido por|
 |-|-|-|
 |Criar o objeto de pedido JavaScript|URL inválido|bloco `try`/`catch`|
 |Fazer o pedido|Erros de rede, ligações abortadas|Processadores de eventos `error` e `abort`|
-|Fazer a pesquisa|Pedido inválido, JSON inválido, limites de velocidade|testes no processador de eventos `load`|
+|Fazer a pesquisa|Pedido inválido, JSON inválido, limites de frequência|testes no processador de eventos `load`|
 
 Os erros são processados mediante a chamada de `renderErrorMessage()` com todos os detalhes dos mesmos conhecidos. Se a resposta passar todos os testes de erros, chamamos `renderSearchResults()` para apresentar os resultados da pesquisa na página.
 
@@ -323,7 +323,7 @@ A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de r
 
 |Relação|Descrição|
 |-|-|
-|`pivotSuggestions`|Consultas que substituem uma palavra pivô na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
+|`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
 |`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
 |`relatedSearches`|Consultas que também foram introduzidas por outros utilizadores que introduziram a pesquisa original. Por exemplo, se procurar "Monte Rainier", uma consulta relacionada poderá ser "Monte de Santa Helena".|
 |`similarTerms`|Consultas cujo significado é semelhante ao da pesquisa original. Por exemplo, se pesquisar por “escolas”, um termo semelhante poderá ser “educação”.|
@@ -383,27 +383,27 @@ A função de compositor de notícias:
 > [!div class="checklist"]
 > * Cria uma tag de parágrafo, atribui-a à classe `news` e envia-a para a matriz html.
 > * Calcula o tamanho da miniatura de imagem (a largura é fixa, com 60 pixéis, e a altura é calculada proporcionalmente).
-> * Cria a tag `<img>` de HTML para apresentar a miniatura de imagem. 
+> * Cria a etiqueta HTML `<img>` para apresentar a miniatura da imagem. 
 > * Cria as tags `<a>` de HTML que ligam à imagem e à página que a contém.
 > * Cria a descrição que apresenta as informações sobre a imagem e o site no qual a imagem se encontra.
 
-O tamanho da miniatura é utilizado na tag `<img>` e nos campos `h` e `w` do respetivo URL. Depois, o [serviço de miniaturas do Bing](../bing-web-search/resize-and-crop-thumbnails.md) entrega uma miniatura com exatamente esse tamanho.
+O tamanho da miniatura é utilizado na etiqueta `<img>` e nos campos `h` e `w` do respetivo URL. Depois, o [serviço de miniaturas do Bing](../bing-web-search/resize-and-crop-thumbnails.md) entrega uma miniatura com exatamente esse tamanho.
 
 ## <a name="persisting-client-id"></a>ID de cliente persistente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se estiverem a ser utilizadas várias APIs de Pesquisa do Bing, deve ser utilizado o mesmo ID de cliente em todas as APIs, se possível.
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite às APIs do Bing associarem todas as pesquisas de um determinado utilizador, o que tem duas importantes vantagens.
 
-Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela.
+Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela.
 
-Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem novas funcionalidades antes de serem disponibilizadas para o público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que veem uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
+Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que veem uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
+As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
 
 > [!NOTE]
-> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
+> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal procuração tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal `Access-Control-Expose-Headers` procuração tem um cabeçalho que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
@@ -419,6 +419,6 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa de Notícias do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Computer Vision 2.0 e 2.1 - Extrair texto impresso e manuscrito - REST,C#'
+title: 'Quickstart: Computer Vision 2.0 e 2.1 - Extrair texto impresso e manuscrito - REST, C #'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, extrai texto impresso e manuscrito de uma imagem C#utilizando a API da Visão Computacional com .
+description: Neste arranque rápido, extrai texto impresso e manuscrito de uma imagem utilizando a API da Visão Computacional com C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: b47c0a87f2b7e4f3fea2d5ed088372cabce2a994
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77566102"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Início rápido: Extrair texto impresso e manuscrito utilizando a Visão computacional 2.0 e 2.1 REST API eC#
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Início rápido: Extrair texto impresso e manuscrito utilizando a Visão computacional 2.0 e 2.1 REST API e C #
 
 Neste arranque rápido, irá extrair texto impresso e/ou manuscrito de uma imagem utilizando a API DE DESCANSO DA Visão Computacional. Com os métodos [de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) e leitura do resultado da [operação,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legível por máquina. A API determinará qual o modelo de reconhecimento a utilizar para cada linha de texto, de modo a suportar imagens com texto impresso e manuscrito.
 
@@ -32,22 +32,22 @@ Em comparação com a Visão Computacional 2.0 e 2.1, a Visualização Pública 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 #### <a name="version-3-public-preview"></a>[Versão 3 (Pré-visualização pública)](#tab/version-3)
 
 > [!IMPORTANT]
-> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura do lote devolve um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
+> O método [De leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) do lote é executado assincronicamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De leitura `Operation-Location` do lote devolve um URI no valor do campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a API resultado da [operação de leitura,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método de Leitura do Lote.
 
 ---
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 - Deve ter [o Visual Studio 2015 ou mais tarde.](https://visualstudio.microsoft.com/downloads/)
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de pontofinal de chave e serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de teste gratuita da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão Computacional e obter a sua chave. Em seguida, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para `COMPUTER_VISION_SUBSCRIPTION_KEY` a `COMPUTER_VISION_ENDPOINT`chave e corda final de serviço, nomeada e, respectivamente.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
@@ -451,7 +451,7 @@ namespace CSHttpClientSample
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
@@ -636,4 +636,4 @@ Quando já não for necessário, elimine a solução do Visual Studio. Para tal,
 Explore uma aplicação básica do Windows que utiliza a Visão computacional para realizar o reconhecimento ótico de caracteres (OCR). Criar miniaturas de corte inteligente; além de detetar, categorizar, etiquetar e descrever características visuais, incluindo rostos, numa imagem.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial api da visão computacional](../Tutorials/CSharpTutorial.md)
+> [Tutorial api API C# da Visão Computacional](../Tutorials/CSharpTutorial.md)

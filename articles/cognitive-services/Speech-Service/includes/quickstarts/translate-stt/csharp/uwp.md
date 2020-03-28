@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir discurso a C# texto, (UWP) - Serviço de fala'
+title: 'Quickstart: Traduzir discurso a texto, C# (UWP) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.date: 12/09/2019
 ms.author: erhopf
 ms.topic: include
 ms.openlocfilehash: e84c7423e0f061004a827ac45c211d7db9c556df
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924774"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -27,33 +27,33 @@ Antes de começar, certifique-se de:
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-Adicione agora o código XAML que define a interface C# do utilizador da aplicação e adicione a implementação por detrás de código.
+Adicione agora o código XAML que define a interface de utilizador da aplicação e adicione a implementação de código C# por trás.
 
-1. No **Solution Explorer,** abra `MainPage.xaml`.
+1. No **Solution Explorer,** abra. `MainPage.xaml`
 
-1. Na vista XAML do designer, insira o seguinte corte XAML na etiqueta **Grid** (entre `<Grid>` e `</Grid>`):
+1. Na vista XAML do designer, insira o seguinte corte XAML `</Grid>`na etiqueta **Grid** (entre `<Grid>` e):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/translate-speech-to-text/helloworld/MainPage.xaml#StackPanel)]
 
-1. No **Solution Explorer,** abra o ficheiro fonte por trás do código `MainPage.xaml.cs`. (Está agrupado sob `MainPage.xaml`.)
+1. No **Solution Explorer,** abra o `MainPage.xaml.cs`ficheiro código por trás da fonte . (Está agrupado sob `MainPage.xaml`.)
 
 1. Substitua todo o código nele pelo seguinte corte:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/translate-speech-to-text/helloworld/MainPage.xaml.cs#code)]
 
-1. No manipulador `SpeechTranslationFromMicrophone_ButtonClicked` neste ficheiro, encontre o `YourSubscriptionKey`de cadeias e substitua-o pela sua chave de subscrição.
+1. No `SpeechTranslationFromMicrophone_ButtonClicked` manipulador deste ficheiro, encontre `YourSubscriptionKey`a corda e substitua-a pela chave de subscrição.
 
-1. No manipulador de `SpeechTranslationFromMicrophone_ButtonClicked`, encontre a cadeia `YourServiceRegion`, e substitua-a pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição. (Por exemplo, utilize `westus` para a subscrição de teste gratuito.)
+1. No `SpeechTranslationFromMicrophone_ButtonClicked` manipulador, encontre `YourServiceRegion`a corda e substitua-a pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição. (Por exemplo, `westus` utilização para a subscrição de teste gratuito.)
 
-1. A partir da barra de menus, escolha **File** > **Save All** para guardar as suas alterações.
+1. A partir da barra de menus, escolha **Guardar Ficheiros** > **para** guardar as suas alterações.
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
 Agora está pronto para construir e testar a sua aplicação.
 
-1. A partir da barra de menus, selecione **Build** > **Build Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, selecione **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **depurar** > **Iniciar depuração** (ou prima **F5)** para iniciar a aplicação. A janela do **Helloworld** aparece.
+1. Escolha **Depurar** > **Depuração** (ou prima **F5)** para iniciar a aplicação. A janela do **Helloworld** aparece.
 
    ![Amostra UWP aplicação de tradução em C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 

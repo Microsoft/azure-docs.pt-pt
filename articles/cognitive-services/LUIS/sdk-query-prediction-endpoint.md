@@ -12,10 +12,10 @@ ms.date: 01/17/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-diberry-3core
 ms.openlocfilehash: 42335c3d2ac5efb8ae1ede0a2076260ac9537eb5
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77524432"
 ---
 # <a name="quickstart-query-v3-prediction-endpoint-with-sdk"></a>Quickstart: Ponto final de previsão de Consulta V3 com SDK

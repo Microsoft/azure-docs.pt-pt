@@ -11,17 +11,17 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 3bb0b9fb8b268c3e036ffb365eb8d5b80a241269
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371680"
 ---
 Utilize a biblioteca de clientes de previsão de compreensão linguística (LUIS) para.NET para:
 
 * Obtenha previsão por ranhura
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [código fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | Pacote de prazo de previsão [(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [ C# Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Biblioteca Código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | fonte[Pacote de tempo de execução (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [C# Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,12 +38,12 @@ Utilize a biblioteca de clientes de previsão de compreensão linguística (LUIS
 
 Utilizando a sua chave, e o nome do seu recurso, crie duas variáveis ambientais para autenticação:
 
-* `LUIS_PREDICTION_KEY` - A chave de recursos para autenticar os seus pedidos.
-* `LUIS_ENDPOINT_NAME` - O nome de recurso associado à sua chave.
+* `LUIS_PREDICTION_KEY`- A chave de recursos para autenticar os seus pedidos.
+* `LUIS_ENDPOINT_NAME`- O nome de recurso associado à sua chave.
 
 Utilize as instruções para o seu sistema operativo.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
@@ -52,7 +52,7 @@ setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
 
 Depois de adicionar a variável ambiente, reinicie a janela da consola.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
@@ -61,9 +61,9 @@ export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
 
 Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela da consola para que as alterações entrem em vigor.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
-Edite o seu `.bash_profile`e adicione a variável ambiental:
+Edite `.bash_profile`a sua , e adicione a variável ambiental:
 
 ```bash
 export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
@@ -74,11 +74,11 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 ---
 
-### <a name="create-a-new-c-application"></a>Criar uma C# nova aplicação
+### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
 Crie uma nova aplicação .NET Core no seu editor ou IDE preferido.
 
-1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o comando dotnet `new` para criar uma nova aplicação de consola com o nome `language-understanding-quickstart`. Este comando cria um simples C# projeto "Hello World" com um único ficheiro fonte: `Program.cs`.
+1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o comando dotnet `new` para criar uma nova aplicação de consola com o nome `language-understanding-quickstart`. Este comando cria um simples projeto C# "Hello `Program.cs`World" com um único ficheiro de origem: .
 
     ```dotnetcli
     dotnet new console -n language-understanding-quickstart
@@ -130,7 +130,7 @@ Estes fragmentos de código mostram-lhe como fazer o seguinte com a biblioteca d
 
 ## <a name="add-the-dependencies"></a>Adicione as dependências
 
-A partir do diretório do projeto, abra o ficheiro *Program.cs* no seu editor ou IDE preferido. Substitua o código `using` existente pelas seguintes diretivas `using`:
+A partir do diretório do projeto, abra o ficheiro *Program.cs* no seu editor ou IDE preferido. Substitua o `using` código existente `using` pelas seguintes diretivas:
 
 [!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_using)]
 
@@ -138,11 +138,11 @@ A partir do diretório do projeto, abra o ficheiro *Program.cs* no seu editor ou
 
 1. Criar variáveis para a chave, nome e id da aplicação:
 
-    Uma variável para gerir a sua chave de previsão retirada de uma variável ambiental chamada `LUIS_PREDICTION_KEY`. Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
+    Uma variável para gerir a sua chave `LUIS_PREDICTION_KEY`de previsão retirada de uma variável ambiental chamada . Se criou a variável ambiental após o lançamento da aplicação, o editor, IDE ou shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
 
-    Crie uma variável para manter o seu nome de recurso `LUIS_ENDPOINT_NAME`.
+    Crie uma variável `LUIS_ENDPOINT_NAME`para manter o seu nome de recurso.
 
-    Crie uma variável para o ID da aplicação como uma variável ambiental chamada `LUIS_APP_ID`. Desloque a variável ambiental para a aplicação ioT pública:
+    Crie uma variável para o `LUIS_APP_ID`ID da aplicação como uma variável ambiental chamada . Desloque a variável ambiental para a aplicação ioT pública:
 
     **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
 
@@ -170,7 +170,7 @@ Utilize o seguinte método principal para ligar as variáveis e métodos para ob
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute a aplicação com o comando `dotnet run` do seu diretório de aplicações.
+Execute a `dotnet run` aplicação com o comando do seu diretório de candidatura.
 
 ```dotnetcli
 dotnet run

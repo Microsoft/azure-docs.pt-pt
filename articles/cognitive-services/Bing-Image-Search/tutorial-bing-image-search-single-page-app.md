@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943895"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa de Imagens do Bing
@@ -126,7 +126,7 @@ A API de Pesquisa de Imagens do Bing oferece vários [parâmetros de consulta de
 | `color`      |                                                                                                                                                                                    |
 | `when`       | Menu pendente para limitar, opcionalmente, a pesquisa ao dia, semana ou mês mais recente.                                                                                          |
 | `safe`       | Uma caixa de verificação que indica se deve ser utilizada a funcionalidade SafeSearch do Bing para filtrar resultados de conteúdos para adultos.                                                                                      |
-| `count`      | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página.                                                            |
+| `count`      | Campo oculto. O número de resultados de pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página.                                                            |
 | `offset`     | Campo oculto. O desfasamento do primeiro resultado da pesquisa no pedido, utilizado para paginação. É reposto para `0` nos pedidos novos.                                                           |
 | `nextoffset` | Campo oculto. Ao receber um resultado de pesquisa, este campo é definido para o valor de `nextOffset` na resposta. Com este campo evita resultados sobrepostos em páginas sucessivas. |
 | `stack`      | Campo oculto. Uma lista com codificação JSON dos desvios das páginas anteriores de resultados de pesquisa, para navegar novamente para as páginas anteriores.                                                      |
@@ -318,7 +318,7 @@ A API de Pesquisa de Imagens do Bing pode devolver quatro tipos de sugestões de
 
 | Sugestão         | Descrição                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pivotSuggestions` | Consultas que substituem uma palavra pivô na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas". |
+| `pivotSuggestions` | Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas". |
 | `queryExpansions`  | Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".                                   |
 | `relatedSearches`  | Consultas que também foram introduzidas por outros utilizadores que introduziram a pesquisa original. Por exemplo, se procurar "Monte Rainier", uma consulta relacionada poderá ser "Monte de Santa Helena".                       |
 | `similarTerms`     | Consultas cujo significado é semelhante ao da pesquisa original. Por exemplo, se procurar "gatinhos", um termo semelhante poderá ser "fofos".                                                                   |
@@ -347,7 +347,7 @@ Estas funções de compositor podem aceitar os seguintes parâmetros:
 Os parâmetros `index` e `count` são utilizados para numerar os resultados, gerar HTML para coleções e organizar o conteúdo. Mais concretamente:
 
 * Calcula o tamanho da miniatura da imagem (a largura varia, com um mínimo de 120 píxeis e a altura está fixa em 90 píxeis).
-* Cria a tag `<img>` de HTML para apresentar a miniatura de imagem.
+* Cria a etiqueta HTML `<img>` para apresentar a miniatura da imagem.
 * Cria as tags `<a>` de HTML que ligam à imagem e à página que a contém.
 * Cria a descrição que apresenta as informações sobre a imagem e o site no qual a imagem se encontra.
 
@@ -377,16 +377,16 @@ As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem todas as pesquisas de um utilizador, o que é útil porque:
 
-Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela.
+Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela.
 
-Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem novas funcionalidades antes de serem disponibilizadas para o público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
+Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
+As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
 
 > [!NOTE]
-> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a chave da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
+> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal procuração tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal `Access-Control-Expose-Headers` procuração tem um cabeçalho que permite cabeçalhos de resposta e os coloca à disposição do JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
@@ -402,7 +402,7 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Extrair os detalhes da Imagem com a API de Pesquisa de Imagens do Bing](tutorial-image-post.md)

@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
 ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482281"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair informações de texto e layout utilizando a API REST Com Python
 
 Neste arranque rápido, utilizará a API DO RECONHECIMENTO de FormulárioS Azure com python para extrair informações de layout de texto e dados de tabela saem de documentos de formulário.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,9 +36,9 @@ Para completar este arranque rápido, deve ter:
 
 Para começar a analisar o layout, você chama a **[API de Layout de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** usando o script Python abaixo. Antes de executar o script, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto final que obteve com a subscrição do Reconhecimento de Formulários.
-1. Substitua `<path to your form>` pelo caminho para o seu formulário local.
-1. Substitua `<subscription key>` com a chave de subscrição que copiou do passo anterior.
+1. Substitua-o `<Endpoint>` pelo ponto final que obteve com a subscrição do Reconhecimento de Formulários.
+1. Substitua-o `<path to your form>` pelo caminho para o seu formulário local.
+1. Substitua-a `<subscription key>` pela chave de subscrição que copiou do passo anterior.
 
     ```python
     ########### Python Form Recognizer Async Layout #############
@@ -77,7 +77,7 @@ Para começar a analisar o layout, você chama a **[API de Layout de Análise](h
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognizer-layout.py`.
 
-Receberá uma resposta `202 (Success)` que inclui um cabeçalho **De Localização de Operação,** que o script irá imprimir para a consola. Este cabeçalho contém um ID de operação que pode usar para consultar o estado da operação assíncrona e obter os resultados. No seguinte valor de exemplo, a cadeia após `operations/` é o ID de funcionamento.
+Receberá uma `202 (Success)` resposta que inclui um cabeçalho **Operação-Localização,** que o script irá imprimir para a consola. Este cabeçalho contém um ID de operação que pode usar para consultar o estado da operação assíncrona e obter os resultados. No seguinte valor exemplo, `operations/` a cadeia seguinte é o ID de funcionamento.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -115,16 +115,16 @@ while n_try < n_tries:
 ```
 
 1. Guarde o guião.
-1. Use novamente o comando `python` para executar a amostra. Por exemplo, `python form-recognizer-layout.py`.
+1. Use novamente o `python` comando para executar a amostra. Por exemplo, `python form-recognizer-layout.py`.
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-O script irá imprimir respostas à consola até que a operação **De layout de análise** esteja concluída. Em seguida, irá imprimir os dados extraídos no formato JSON. O nó `"readResults"` contém todas as linhas de texto com a respetiva colocação da caixa de limitador na página. O campo `"pageResults"` mostra cada pedaço de texto dentro das tabelas, cada um com a sua coordenada de coluna de linha.
+O script irá imprimir respostas à consola até que a operação **De layout de análise** esteja concluída. Em seguida, irá imprimir os dados extraídos no formato JSON. O `"readResults"` nó contém todas as linhas de texto com a respetiva colocação da caixa de limitador na página. O `"pageResults"` campo mostra cada pedaço de texto dentro das tabelas, cada um com a sua coordenada de coluna de linha.
 
 Consulte a seguinte imagem de fatura e a sua saída JSON correspondente. A saída foi encurtada para a simplicidade.
 
 > [!div class="mx-imgBorder"]
-> ![documento de fatura de Contoso com um](../media/contoso-invoice.png) de mesa
+> ![Documento de fatura de Contoso com uma tabela](../media/contoso-invoice.png)
 
 ```json
 { 
@@ -273,7 +273,7 @@ Consulte a seguinte imagem de fatura e a sua saída JSON correspondente. A saíd
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, utilizou o Formulário Reconhecimento REST API com Python para extrair o layout de texto de uma fatura. Em seguida, consulte a documentação de referência para explorar a API do Reconhecimento de Formulários com mais profundidade.
 

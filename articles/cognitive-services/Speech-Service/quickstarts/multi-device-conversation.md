@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: conversa com vários dispositivos – serviço de fala'
+title: 'Quickstart: Conversação multi-dispositivo - Serviço de Discurso'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você aprenderá a criar e a ingressar clientes em uma conversa com vários dispositivos usando o SDK de fala.
+description: Neste arranque rápido, aprenderá a criar e juntar clientes a uma conversa multi-dispositivo, utilizando o Speech SDK.
 services: cognitive-services
 author: ralphe
 manager: cpoulain
@@ -12,13 +12,13 @@ ms.date: 01/16/2020
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
 ms.openlocfilehash: 7276b790b3fdb56308c6af9a047a7c290c01b253
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264579"
 ---
-# <a name="quickstart-multi-device-conversation"></a>Início rápido: conversa de vários dispositivos
+# <a name="quickstart-multi-device-conversation"></a>Quickstart: Conversa ção multi-dispositivo
 
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/header.md)]
 

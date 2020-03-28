@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78402666"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming usando tijolos de dados do Azure
@@ -61,7 +61,7 @@ Consulte o Azure Event Hubs [para](../../../event-hubs/event-hubs-create.md) obt
 
 Nesta secção, cria-se um espaço de trabalho Azure Databricks utilizando o [portal Azure](https://portal.azure.com/).
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
+1. No portal Azure, selecione **Criar um recurso** > **Analytics** > **Azure Databricks**.
 
     ![Tijolos de dados no portal Azure](../media/tutorials/azure-databricks-on-portal.png "Tijolos de dados no portal Azure")
 
@@ -71,10 +71,10 @@ Nesta secção, cria-se um espaço de trabalho Azure Databricks utilizando o [po
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
-    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+    |**Assinatura**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **East US 2** ou uma das outras regiões disponíveis. Consulte [os serviços Azure disponíveis por região](https://azure.microsoft.com/regions/services/) para disponibilidade da região.        |
-    |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. NÃO escolha **O Julgamento**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Nível de Preços**     |  Escolha entre **Standard** ou **Premium**. NÃO escolha **O Julgamento**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Selecione **Criar**.
 
@@ -96,7 +96,7 @@ Nesta secção, cria-se um espaço de trabalho Azure Databricks utilizando o [po
 
    * Introduza um nome para o cluster.
    * Para este artigo, crie um cluster com **5.2** tempo de execução. NÃO selecione **5.3** tempo de execução.
-   * Certifique-se de que o Terminate após \_\_ minutos de caixa **de verificação de inatividade** é selecionado. Forneça uma duração (em minutos) para terminar o cluster, se o cluster não estiver a ser utilizado.
+   * Certifique-se de que o **Terminate após \_ \_ minutos de caixa de verificação de inatividade** é selecionado. Forneça uma duração (em minutos) para terminar o cluster, se o cluster não estiver a ser utilizado.
 
      Selecione **Criar cluster**. 
 4. A criação do cluster leva vários minutos. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
@@ -123,7 +123,7 @@ Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores
 
 Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs de Eventos. Também pode utilizar o [Conector de Hubs de eventos do Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e escrever dados em Hubs de Eventos do Azure. Para utilizar estas APIs como parte do cluster, adicione-as como bibliotecas ao Azure Databricks e, em seguida, associe-as ao cluster do Spark. As seguintes instruções mostram como adicionar as bibliotecas à pasta **Partilhada** no seu espaço de trabalho.
 
-1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. No menu de contexto, selecione **Criar** > **Biblioteca**.
+1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. A partir do menu de contexto, selecione **Create** > **Library**.
 
    ![Adicione a caixa de diálogo da biblioteca](../media/tutorials/databricks-add-library-option.png "Adicione a caixa de diálogo da biblioteca")
 
@@ -151,11 +151,11 @@ Na página da biblioteca, selecione o cluster onde pretende utilizar a bibliotec
 
 Neste tutorial, você usa as APIs do Detetor de [Anomalias de Serviços Cognitivos Azure](../overview.md) para executar a deteção de anomalias num fluxo de tweets em tempo quase real. Antes de utilizar as APIs, deve criar um recurso do Detetor de Anomalias no Azure e recuperar uma chave de acesso para utilizar as APIs do Detetor de Anomalias.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione **+ Criar um recurso**.
 
-3. No Azure Marketplace, selecione **AI + Machine Learning** > **Ver todos os** > **Serviços Cognitivos - Mais** > Detetor de **Anomalias**. Ou pode utilizar [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente à caixa de diálogo **Create.**
+3. No Azure Marketplace, selecione **IA + Machine Learning** > **Ver todos os** > **serviços cognitivos - Mais** > **Detetor de Anomalias**. Ou pode utilizar [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente à caixa de diálogo **Create.**
 
     ![Criar recurso detetor de anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Criar recurso detetor de anomalias")
 
@@ -542,7 +542,7 @@ display(msgStream)
 A saída agora se assemelha à seguinte imagem. Note que a sua data na tabela pode ser diferente da data neste tutorial, uma vez que os dados são em tempo real.
 ![Dados de carga do centro do evento](../media/tutorials/load-data-from-eventhub.png "Dados de carga do centro de eventos")
 
-Agora transmitiu os dados dos Hubs de eventos do Azure para o Azure Databricks em tempo real com o conector de Hubs de eventos para o Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Já transmitiu dados dos Hubs de Eventos Azure para os Tecidos De dados do Azure em tempo quase real, utilizando o conector De Eventos Hubs para A Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 
 
@@ -680,7 +680,7 @@ Depois de executar o tutorial, pode terminar o cluster. Para isso, no espaço de
 
 ![Parar um cluster de Databricks](../media/tutorials/terminate-databricks-cluster.png "Parar um cluster de Databricks")
 
-Se não terminar manualmente o cluster, para automaticamente, desde que selecione o **Terminate após \_\_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se não terminar manualmente o cluster, para automaticamente, desde que selecione o **Terminate após \_ \_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

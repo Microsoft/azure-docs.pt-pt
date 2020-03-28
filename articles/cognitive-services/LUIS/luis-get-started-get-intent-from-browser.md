@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: obter a intenção com o navegador-LUIS'
+title: 'Quickstart: Obtenha intenção com o navegador - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, use um aplicativo LUIS público disponível para determinar a intenção de um usuário de um texto de conversação em um navegador.
+description: Neste arranque rápido, utilize uma aplicação LIVRE pública disponível para determinar a intenção de um utilizador a partir de texto de conversação num browser.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,40 +12,40 @@ ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987959"
 ---
-# <a name="quickstart-get-intent-with-a-browser"></a>Início rápido: obter a intenção com um navegador
+# <a name="quickstart-get-intent-with-a-browser"></a>Quickstart: Obtenha intenção com um navegador
 
 Para compreender o que devolve um ponto final de predição do LUIS, veja um resultado de predição num browser.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para consultar um aplicativo público, você precisa de:
+Para consultar uma aplicação pública, precisa de:
 
-* Sua própria Reconhecimento vocal (LUIS) a criação ou a chave de previsão que pode ser obtida no [portal do Luis (versão prévia)](https://preview.luis.ai/). Se você ainda não tiver uma assinatura para criar uma chave, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/).
-* A ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
+* A sua própria chave de compreensão linguística (LUIS) de autoria ou previsão que pode ser obtida a partir do [Portal LUIS (Pré-visualização)](https://preview.luis.ai/). Se ainda não tiver uma subscrição para criar uma chave, pode inscrever-se para uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Id da aplicação `df67dcdb-c37d-46af-88e1-8b97951ca1c2`pública: .
 
 ## <a name="use-the-browser-to-see-predictions"></a>Use o navegador para ver previsões
 
 1. Abra um browser.
-1. Use as URLs completas abaixo, substituindo `YOUR-KEY` pela sua própria LUIS de criação ou chave de previsão. As solicitações são solicitações GET e incluem a autorização, com a LUIS de criação ou a chave de previsão, como um parâmetro de cadeia de caracteres de consulta.
+1. Utilize os URLs completos `YOUR-KEY` abaixo, substituindo pela sua própria chave DE AUTOR E Previsão LUIS. Os pedidos são pedidos GET e incluem a autorização, com a sua chave DE Autor ou Previsão LUIS, como parâmetro de corda de consulta.
 
-    #### <a name="v3-prediction-requesttabv3-1-1"></a>[Solicitação de previsão v3](#tab/V3-1-1)
+    #### <a name="v3-prediction-request"></a>[Pedido de previsão V3](#tab/V3-1-1)
 
 
-    O formato da URL V3 para uma solicitação **obter** ponto de extremidade (por slots) é:
+    O formato do URL V3 para **um** pedido de ponto final GET (por ranhuras) é:
 
     `
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
-    #### <a name="v2-prediction-requesttabv2-1-2"></a>[V2 solicitação de previsão](#tab/V2-1-2)
+    #### <a name="v2-prediction-request"></a>[Pedido de previsão V2](#tab/V2-1-2)
 
-    O formato da URL v2 para uma solicitação **obter** ponto de extremidade é:
+    O formato do URL V2 para **um** pedido de ponto final get é:
 
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
@@ -53,7 +53,7 @@ Para consultar um aplicativo público, você precisa de:
 
 1. Cole o URL numa janela do browser e prima Enter. O browser apresenta um resultado JSON que indica que o LUIS deteta a intenção `HomeAutomation.TurnOn` como intenção principal e a entidade `HomeAutomation.Operation` com o valor `on`.
 
-    #### <a name="v3-prediction-responsetabv3-2-1"></a>[Resposta de previsão v3](#tab/V3-2-1)
+    #### <a name="v3-prediction-response"></a>[Resposta de previsão V3](#tab/V3-2-1)
 
     ```JSON
     {
@@ -74,7 +74,7 @@ Para consultar um aplicativo público, você precisa de:
     }
     ```
 
-    #### <a name="v2-prediction-responsetabv2-2-2"></a>[V2 de resposta de previsão](#tab/V2-2-2)
+    #### <a name="v2-prediction-response"></a>[Resposta de previsão V2](#tab/V2-2-2)
 
     ```json
     {
@@ -97,11 +97,11 @@ Para consultar um aplicativo público, você precisa de:
 
     * * *
 
-1. Para ver todas as intenções, adicione o parâmetro de cadeia de caracteres de consulta apropriado.
+1. Para ver todas as intenções, adicione o parâmetro de corda de consulta apropriado.
 
-    #### <a name="v3-prediction-endpointtabv3-3-1"></a>[Ponto de extremidade de previsão v3](#tab/V3-3-1)
+    #### <a name="v3-prediction-endpoint"></a>[Ponto final de previsão V3](#tab/V3-3-1)
 
-    Adicione `show-all-intents=true` ao final da QueryString para **Mostrar todas as intenções**:
+    Adicione `show-all-intents=true` ao fim do fio de consulta para **mostrar todas as intenções:**
 
     `
     https://westus.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY&show-all-intents=true
@@ -132,9 +132,9 @@ Para consultar um aplicativo público, você precisa de:
     }
     ```
 
-    #### <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão v2](#tab/V2)
+    #### <a name="v2-prediction-endpoint"></a>[Ponto final da previsão V2](#tab/V2)
 
-    Adicione `verbose=true` ao final da QueryString para **Mostrar todas as intenções**:
+    Adicione `verbose=true` ao fim do fio de consulta para **mostrar todas as intenções:**
 
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
@@ -178,7 +178,7 @@ Para consultar um aplicativo público, você precisa de:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo no portal do LUIS](get-started-portal-build-app.md)
+> [Criar uma app no portal LUIS](get-started-portal-build-app.md)

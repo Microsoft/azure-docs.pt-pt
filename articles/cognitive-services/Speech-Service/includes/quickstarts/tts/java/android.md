@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
 ms.openlocfilehash: 230b4abb9a740e830392a92369477c7dc44f60ee
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925762"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -29,13 +29,13 @@ Antes de começar, certifique-se de:
 
 Vamos criar uma interface de utilizador básica para a aplicação. Edite o esquema da atividade principal, `activity_main.xml`. Inicialmente, o layout inclui uma barra de título com o nome da sua aplicação, e um TextView contendo o texto "Hello World!".
 
-1. Clique no elemento TextView. Mude o seu atributo de ID no canto superior direito para `outputMessage`e arraste-o para o ecrã inferior. Apagar o seu texto.
+1. Clique no elemento TextView. Mude o seu atributo de ID `outputMessage`no canto superior direito para , e arraste-o para o ecrã inferior. Apagar o seu texto.
 
 1. Na paleta no canto superior esquerdo da janela `activity_main.xml`, arraste um botão para o espaço vazio acima do texto.
 
 1. Nos atributos do botão à direita, no valor para o atributo `onClick`, introduza `onSpeechButtonClicked`. Vamos escrever um método com este nome para processar o evento do botão.  Altere o atributo ID no canto superior direito para `button`.
 
-1. Arraste um Texto Simples para o espaço acima do botão; alterar o seu atributo de identificação para `speakText`, e alterar o atributo de texto para `Hi there!`.
+1. Arraste um Texto Simples para o espaço acima do botão; alterar o seu `speakText`atributo de IDENTIFICAção `Hi there!`para , e alterar o atributo de texto para .
 
 1. Utilize o ícone de varinha mágica na parte superior do designer para inferir restrições de esquema.
 
@@ -58,21 +58,21 @@ O texto e a representação gráfica da sua UI devem agora ser assim:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua também a cadeia de carateres `YourServiceRegion`pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua também a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 1. Ligue o seu dispositivo Android ao PC de desenvolvimento. Certifique-se de que ativou o [modo de desenvolvimento e depuração USB](https://developer.android.com/studio/debug/dev-options) no dispositivo. Alternativamente, crie um [emulador Android.](https://developer.android.com/studio/run/emulator)
 
-1. Para criar a aplicação, prima Ctrl+F9 ou escolha **Build** (Criar)  > **Make Project** (Criar Projeto) na barra de menus.
+1. Para construir a aplicação, prima Ctrl+F9 ou escolha **Build** > **Make Project** a partir da barra de menus.
 
-1. Para iniciar a aplicação, prima Shift+F10 ou escolha **Run** (Executar)  > **Run 'app'** (Executar 'app').
+1. Para lançar a aplicação, prima Shift+F10 ou escolha > **'App'** **Run**Run .
 
 1. Na janela-alvo de implementação que aparece, escolha o seu dispositivo Android ou emulador.
 
    ![Captura de ecrã da janela de seleção de destino de implementação](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Introduza um texto e pressione o botão na aplicação para iniciar uma secção de síntese de fala. Ouvirá o áudio sintetizado do altifalante predefinido e verá a informação `speech synthesis succeeded` no ecrã.
+Introduza um texto e pressione o botão na aplicação para iniciar uma secção de síntese de fala. Ouvirá o áudio sintetizado do altifalante `speech synthesis succeeded` predefinido e verá a informação no ecrã.
 
 ![Captura de ecrã da aplicação Android](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-2-gui-on-device-tts.png)
 

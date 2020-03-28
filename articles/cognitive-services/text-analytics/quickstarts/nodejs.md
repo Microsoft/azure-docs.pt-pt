@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: usar o Node. js para chamar a API REST do Análise de Texto'
+title: 'Quickstart: Use Node.js para chamar a API REST De Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Este guia de início rápido mostra como obter informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
+description: Este quickstart mostra como obter amostras de informação e código para ajudá-lo rapidamente a começar a usar a API de Análise de Texto em Serviços Cognitivos Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,16 +12,16 @@ ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
 ms.openlocfilehash: c111937dbbea5e588e82bc9753a71d1d597ca767
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378794"
 ---
-# <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início rápido: usar o Node. js para chamar o serviço de Análise de Texto cognitiva  
+# <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Use Node.js para ligar para o Serviço Cognitivo de Análise de Texto  
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com o Node. js.
+Este artigo mostra-lhe como [detetar linguagem,](#Detect) [analisar o sentimento,](#SentimentAnalysis) [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades ligadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de Análise de Texto com o Nó.JS.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -35,10 +35,10 @@ Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#Se
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Crie um novo projeto Node. JS em seu IDE favorito ou em uma pasta na área de trabalho.
-1. Adicione o código fornecido abaixo a um novo arquivo de `.js`.
-1. Copie a chave e o ponto de extremidade no código. 
-1. Execute o programa do IDE ou da linha de comando, por exemplo `npm start` ou `node detect.js`.
+1. Crie um novo projeto Node.JS no seu IDE favorito ou uma pasta no seu ambiente de trabalho.
+1. Adicione o código abaixo `.js` para um novo ficheiro.
+1. Copie a sua chave e ponto final no código. 
+1. Executar o programa a partir do seu `npm start` `node detect.js`IDE ou linha de comando, por exemplo ou .
 
 ```javascript
 'use strict';
@@ -94,7 +94,7 @@ get_language(documents);
 
 **Resposta de deteção de idioma**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 
@@ -142,12 +142,12 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). A análise de sentimentos pode ser usada para descobrir o que os clientes acham de sua marca ou tópico analisando o texto bruto para obter pistas sobre sentimentos positivos ou negativos. O exemplo a seguir fornece pontuações para dois documentos, um em inglês e outro em espanhol.
+A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). A análise de sentimentos pode ser usada para descobrir o que os clientes pensam da sua marca ou tópico, analisando texto cru para pistas sobre sentimentos positivos ou negativos. O exemplo seguinte fornece pontuações para dois documentos, um em inglês e outro em espanhol.
 
-1. Crie um novo projeto Node. JS em seu IDE favorito ou em uma pasta na área de trabalho.
-1. Adicione o código fornecido abaixo a um novo arquivo de `.js`.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código. 
-1. Execute o programa do IDE ou da linha de comando, por exemplo `npm start` ou `node sentiment.js`.
+1. Crie um novo projeto Node.JS no seu IDE favorito ou uma pasta no seu ambiente de trabalho.
+1. Adicione o código abaixo `.js` para um novo ficheiro.
+1. Copie a sua tecla Text Analytics e endpoint no código. 
+1. Executar o programa a partir do seu `npm start` `node sentiment.js`IDE ou linha de comando, por exemplo ou .
 
 ```javascript
 'use strict';
@@ -203,8 +203,8 @@ get_sentiments(documents);
 
 **Resposta de análise de sentimentos**
 
-O resultado será medido como positivo se for mais próximo de 1,0 e negativo se for mais próximo de 0,0.
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+O resultado é medido como positivo se tiver pontuado mais perto de 1.0 e negativo se tiver pontuado perto de 0,0.
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -228,10 +228,10 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). A extração de frases-chave é usada para identificar rapidamente os principais pontos de um documento ou texto. O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
-1. Crie um novo projeto Node. JS em seu IDE favorito ou em uma pasta na área de trabalho.
-1. Adicione o código fornecido abaixo a um novo arquivo de `.js`.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código. 
-1. Execute o programa do IDE ou da linha de comando, por exemplo `npm start` ou `node key-phrases.js`.
+1. Crie um novo projeto Node.JS no seu IDE favorito ou uma pasta no seu ambiente de trabalho.
+1. Adicione o código abaixo `.js` para um novo ficheiro.
+1. Copie a sua tecla Text Analytics e endpoint no código. 
+1. Executar o programa a partir do seu `npm start` `node key-phrases.js`IDE ou linha de comando, por exemplo ou .
 
 ```javascript
 'use strict';
@@ -288,7 +288,7 @@ get_key_phrases(documents);
 
 **Resposta de extração de expressões-chave**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -330,12 +330,12 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ## <a name="identify-linked-entities"></a>Identificar as entidades ligadas
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras do texto, como "Estados Unidos", e, em seguida, fornecem o link do tipo e/ou da Wikipédia para esta palavra (s). O tipo de "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [As entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras de texto, como "Estados Unidos", dando-lhe o tipo e/ou ligação wikipédia para esta palavra ou). O tipo de "Estados Unidos" é `location` `https://en.wikipedia.org/wiki/United_States`, enquanto a ligação à Wikipédia é .  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
-1. Crie um novo projeto Node. JS em seu IDE favorito ou em uma pasta na área de trabalho.
-1. Adicione o código fornecido abaixo a um novo arquivo de `.js`.
-1. Copie a chave de análise de texto e o ponto de extremidade no código
-1. Execute o programa do IDE ou da linha de comando, por exemplo `npm start` ou `node entities.js`.
+1. Crie um novo projeto Node.JS no seu IDE favorito ou uma pasta no seu ambiente de trabalho.
+1. Adicione o código abaixo `.js` para um novo ficheiro.
+1. Copie a sua chave de análise de texto e ponto final no código
+1. Executar o programa a partir do seu `npm start` `node entities.js`IDE ou linha de comando, por exemplo ou .
 
 ```javascript
 'use strict';
@@ -390,7 +390,7 @@ get_entities(documents);
 
 **Resposta de extração de entidades**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {  
@@ -444,7 +444,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Consulte também 
 
  [Descrição Geral da Análise de Texto](../overview.md)  
- [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
+ [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

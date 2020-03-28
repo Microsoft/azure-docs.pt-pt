@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: dapine
 ms.openlocfilehash: 8890cb515d39d47a5f5cfa4e4309d0191477acdd
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79082324"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -29,9 +29,9 @@ Antes de começar, certifique-se de:
 
 1. Neste novo ficheiro, substitua a cadeia `YourSubscriptionKey` pela sua chave de subscrição do serviço de Voz.
 
-1. Substitua a `YourServiceRegion` de cadeia sou da **região** associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito). [](https://aka.ms/speech/sdkregion)
+1. Substitua `YourServiceRegion` a cadeia com o **identificador** [região](https://aka.ms/speech/sdkregion) associado `westus` à sua subscrição (por exemplo, para a subscrição de teste gratuito).
 
-1. Substitua a cadeia `whatstheweatherlike.wav` pelo seu próprio nome de ficheiro.
+1. Substitua `whatstheweatherlike.wav` a cadeia pelo seu próprio nome de ficheiro.
 
 > [!NOTE]
 > O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.

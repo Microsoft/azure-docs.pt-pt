@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Reconheça o discurso C++ de um microfone, (Linux) - Serviço de fala'
+title: 'Quickstart: Reconheça o discurso a partir de um microfone, C++ (Linux) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: wolfma61
@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
 ms.openlocfilehash: 1ba1f2a61a293880e81dde0ce1f93460a555fa62
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925015"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +33,7 @@ Antes de começar:
 
 1. Neste novo ficheiro, substitua a cadeia `YourSubscriptionKey` pela sua chave de subscrição do serviço de Voz.
 
-1. Substitua a `YourServiceRegion` de cadeia sou da **região** associada à sua subscrição (por exemplo, `westus` para a subscrição de teste gratuito). [](https://aka.ms/speech/sdkregion)
+1. Substitua `YourServiceRegion` a cadeia com o **identificador** [região](https://aka.ms/speech/sdkregion) associado `westus` à sua subscrição (por exemplo, para a subscrição de teste gratuito).
 
 > [!NOTE]
 > O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.

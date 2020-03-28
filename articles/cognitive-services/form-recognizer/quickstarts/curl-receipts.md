@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118486"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Quickstart: Extrair dados de recibo utilizando o Formulário Recogniser REST API com cURL
 
 Neste arranque rápido, utilizará a API REST API do Reconhecimento de Formulários Azure com cURL para extrair e identificar informações relevantes nos recibos de vendas dos EUA.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,15 +36,15 @@ Para completar este arranque rápido, deve ter:
 
 Para começar a analisar um recibo, ligue para a **[API de Recibo de Análise](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** utilizando o comando cURL abaixo. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto final que obteve com a subscrição do Reconhecimento de Formulários.
+1. Substitua-o `<Endpoint>` pelo ponto final que obteve com a subscrição do Reconhecimento de Formulários.
 1. Substitua `<your receipt URL>` pelo endereço URL de uma imagem de recibo.
-1. Substitua `<subscription key>` com a chave de subscrição que copiou do passo anterior.
+1. Substitua-a `<subscription key>` pela chave de subscrição que copiou do passo anterior.
 
 ```bash
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
-Receberá uma resposta `202 (Success)` que inclui o cabeçalho da **Operação-Localização.** O valor deste cabeçalho contém um ID de operação que pode utilizar para consultar o estado da operação assíncrona e obter os resultados. No exemplo seguinte, a cadeia após `operations/` é o ID de funcionamento.
+Receberá uma `202 (Success)` resposta que inclui o cabeçalho da **Operação-Localização.** O valor deste cabeçalho contém um ID de operação que pode utilizar para consultar o estado da operação assíncrona e obter os resultados. No exemplo seguinte, a `operations/` cadeia seguinte é o ID de funcionamento.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -54,8 +54,8 @@ https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations
 
 Depois de ter chamado a API **do Recibo de Análise,** ligue para a **[API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** do Resultado do Recibo de Análise para obter o estado da operação e os dados extraídos. Antes de executar o comando, faça estas alterações:
 
-1. Substitua `<Endpoint>` pelo ponto final que obteve com a chave de subscrição do Reconhecimento de Formulários. Pode encontrá-lo no separador de **visão geral** do recurso 'Reconhecimento de Formulários'.
-1. Substitua `<operationId>` com o ID de funcionamento do passo anterior.
+1. Substitua-o `<Endpoint>` pelo ponto final que obteve com a chave de subscrição do Reconhecimento de Formulários. Pode encontrá-lo no separador de **visão geral** do recurso 'Reconhecimento de Formulários'.
+1. Substitua-a `<operationId>` com o ID de funcionamento do passo anterior.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
 ```bash
@@ -64,13 +64,13 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/ana
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-Receberá uma resposta `200 (Success)` com a saída da JSON. O primeiro campo, `"status"`, indica o estado da operação. Se a operação estiver concluída, o campo `"recognitionResults"` contém todas as linhas de texto extraídas do recibo, e o campo `"understandingResults"` contém informações chave/valor para as partes mais relevantes do recibo. Se a operação não estiver concluída, o valor da `"status"` será `"running"` ou `"notStarted"`, e deverá voltar a ligar para a API manualmente ou através de um script. Recomendamos um intervalo de um segundo ou mais entre chamadas.
+Receberá uma `200 (Success)` resposta com a saída da JSON. O primeiro `"status"`campo indica o estado da operação. Se a operação estiver `"recognitionResults"` concluída, o campo contém todas as linhas `"understandingResults"` de texto extraídas do recibo, e o campo contém informações chave/valor para as partes mais relevantes do recibo. Se a operação não estiver `"status"` concluída, `"running"` `"notStarted"`o valor será ou, e deverá voltar a ligar para a API, manualmente ou através de um script. Recomendamos um intervalo de um segundo ou mais entre chamadas.
 
 Consulte a seguinte imagem de recibo e a sua saída JSON correspondente. A saída foi encurtada para a legibilidade.
 
 ![Um recibo da loja Contoso](../media/contoso-allinone.jpg)
 
-O nó `"recognitionResults"` contém todo o texto reconhecido. O texto é organizado por página, depois por linha, e depois por palavras individuais. O nó `"understandingResults"` contém os valores específicos do recibo que o modelo descobriu. É aqui que encontrará pardes úteis como o imposto, total, endereço de comerciante, e assim por diante.
+O `"recognitionResults"` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, e depois por palavras individuais. O `"understandingResults"` nó contém os valores específicos do recibo que o modelo descobriu. É aqui que encontrará pardes úteis como o imposto, total, endereço de comerciante, e assim por diante.
 
 ```json
 { 

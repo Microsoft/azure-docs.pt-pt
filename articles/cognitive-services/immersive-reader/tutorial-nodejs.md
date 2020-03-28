@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: iniciar o leitor de imersão usando o Node. js'
+title: 'Tutorial: Lance o Leitor Imersivo usando node.js'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você criará um aplicativo node. js que inicia o leitor de imersão.
+description: Neste tutorial, você vai criar uma aplicação Node.js que lança o Leitor Imersivo.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -11,35 +11,35 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 139dd2ebdabbc91a6de3b0a1eb921b110d47c3f3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842032"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: iniciar o leitor de imersão (Node. js)
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Lance o Leitor Imersivo (Node.js)
 
-Na [visão geral](./overview.md), você aprendeu sobre o que é o leitor de imersão e como ele implementa técnicas comprovadas para melhorar a compreensão da leitura para aprendizes de idioma, leitores emergentes e estudantes com diferenças de aprendizado. Este tutorial aborda como criar um aplicativo Web node. js que inicia o leitor de imersão. Neste tutorial, ficará a saber como:
+Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e como implementa técnicas comprovadas para melhorar a compreensão da leitura para os alunos de línguas, leitores emergentes e alunos com diferenças de aprendizagem. Este tutorial cobre como criar uma aplicação web Node.js que lança o Leitor Imersivo. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um aplicativo Web node. js com o Express
+> * Crie uma aplicação web Node.js com express
 > * Adquirir um token de acesso
-> * Iniciar o leitor de imersão com conteúdo de exemplo
-> * Especifique o idioma do seu conteúdo
-> * Especifique o idioma da interface do leitor de imersão
-> * Iniciar o leitor de imersão com conteúdo matemático
+> * Lançar o Leitor Imersivo com conteúdo de amostra
+> * Especifique a linguagem do seu conteúdo
+> * Especifique a linguagem da interface imersiva do leitor
+> * Lançar o Leitor Imersivo com conteúdo matemático
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um recurso de leitor de imersão configurado para Azure Active Directory autenticação. Siga [estas instruções](./how-to-create-immersive-reader.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
-* [Node. js](https://nodejs.org/) e [yarn](https://yarnpkg.com)
-* Um IDE, como [Visual Studio Code](https://code.visualstudio.com/)
+* Um recurso Imersivo do Leitor configurado para autenticação de Diretório Ativo Azure. Siga [estas instruções](./how-to-create-immersive-reader.md) para ser configurado. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
+* [Nó.js](https://nodejs.org/) e [Fios](https://yarnpkg.com)
+* Um IDE como [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Criar um aplicativo Web node. js com o Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Crie uma aplicação web Node.js com express
 
-Crie um aplicativo Web node. js com a ferramenta `express-generator`.
+Crie uma aplicação web Node.js com a `express-generator` ferramenta.
 
 ```bash
 npm install express-generator -g
@@ -47,7 +47,7 @@ express --view=pug myapp
 cd myapp
 ```
 
-Instale as dependências do yarn e adicione dependências `request` e `dotenv`, que serão usadas posteriormente no tutorial.
+Instale dependências de fios, `request` `dotenv`adicione dependências e, que serão usados mais tarde no tutorial.
 
 ```bash
 yarn
@@ -55,11 +55,11 @@ yarn add request
 yarn add dotenv
 ```
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação do Azure AD
+## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um símbolo de autenticação Azure AD
 
-Em seguida, escreva uma API de back-end para recuperar um token de autenticação do Azure AD.
+Em seguida, escreva uma API de backend para recuperar um símbolo de autenticação Azure AD.
 
-Você precisa de alguns valores da etapa de pré-requisito da configuração de autenticação do Azure AD acima para esta parte. Consulte novamente o arquivo de texto que você salvou dessa sessão.
+Você precisa de alguns valores da configuração auth AUth Azure para esta parte. Volte a consultar o ficheiro de texto que guardou dessa sessão.
 
 ````text
 TenantId     => Azure subscription TenantId
@@ -68,7 +68,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Quando você tiver esses valores, crie um novo arquivo chamado _. env_e cole o código a seguir nele, fornecendo os valores de propriedade personalizada acima. Não inclua aspas ou os caracteres "{" e "}".
+Assim que tiver estes valores, crie um novo ficheiro chamado _.env_, e colhe o seguinte código nele, fornecendo os valores de propriedade personalizados de cima. Não inclua aspas ou os caracteres "{" e "}".
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -77,17 +77,17 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Certifique-se de não confirmar esse arquivo no controle do código-fonte, pois ele contém segredos que não devem ser tornados públicos.
+Certifique-se de não comprometer este ficheiro no controlo de fontes, uma vez que contém segredos que não devem ser tornados públicos.
 
-Em seguida, abra _app. js_ e adicione o seguinte à parte superior do arquivo. Isso carrega as propriedades definidas no arquivo. env como variáveis de ambiente no nó.
+Em seguida, abra _app.js_ e adicione o seguinte ao topo do ficheiro. Isto carrega as propriedades definidas no ficheiro .env como variáveis ambientais em Nó.
 
 ```javascript
 require('dotenv').config();
 ```
 
-Abra o arquivo _routes\index.js_ e substitua seu conteúdo pelo código a seguir.
+Abra o ficheiro _routes\index.js_ e substitua o seu conteúdo pelo seguinte código.
 
-Esse código cria um ponto de extremidade de API que adquire um token de autenticação do Azure AD usando sua senha de entidade de serviço. Ele também recupera o subdomínio. Em seguida, ele retorna um objeto que contém o token e o subdomínio.
+Este código cria um ponto final da API que adquire um símbolo de autenticação Azure AD utilizando a sua senha principal de serviço. Também recupera o subdomínio. Em seguida, devolve um objeto contendo o símbolo e o subdomínio.
 
 ```javascript
 var request = require('request');
@@ -128,18 +128,18 @@ module.exports = router;
 
 ```
 
-O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser protegido por parte de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que usuários não autorizados obtenham tokens para uso no seu serviço de leitor de imersão e cobrança; Esse trabalho está além do escopo deste tutorial.
+Os **pontos finais getimmersivereaderlaunchparams** API devem ser protegidos por detrás de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que utilizadores não autorizados obtenham fichas para usar contra o seu serviço de Leitor Imersivo e faturação; que o trabalho está fora do âmbito deste tutorial.
 
-## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar o leitor de imersão com conteúdo de exemplo
+## <a name="launch-the-immersive-reader-with-sample-content"></a>Lançar o Leitor Imersivo com conteúdo de amostra
 
-1. Abra _views\layout.Pug_e adicione o código a seguir sob a marca de `head`, antes da marca de `body`. Essas `script` marcas carregam o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e o jQuery.
+1. Vista _aberta\layout.pug,_ e adicione o `head` seguinte código `body` sob a etiqueta, antes da etiqueta. Estas `script` etiquetas carregam o SDK e o jQuery do [Leitor Imersivo.](https://github.com/microsoft/immersive-reader-sdk)
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Abra _views\index.Pug_e substitua seu conteúdo pelo código a seguir. Esse código popula a página com algum conteúdo de exemplo e adiciona um botão que inicia o leitor de imersão.
+2. Abra _views\index.pug,_ e substitua o seu conteúdo pelo seguinte código. Este código povoa a página com algum conteúdo de amostra, e adiciona um botão que lança o Leitor Imersivo.
 
     ```pug
     extends layout
@@ -183,25 +183,25 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
             }
     ```
 
-3. Nosso aplicativo Web agora está pronto. Inicie o aplicativo executando:
+3. A nossa aplicação está pronta. Inicie a aplicação executando:
 
     ```bash
     npm start
     ```
 
-4. Abra o navegador e navegue até _http://localhost:3000_ . Você deve ver o conteúdo acima na página. Clique no botão **leitor de imersão** para iniciar o leitor de imersão com seu conteúdo.
+4. Abra o seu _http://localhost:3000_navegador e navegue para . Deve ver o conteúdo acima na página. Clique no botão **Leitor Imersivo** para lançar o Leitor Imersivo com o seu conteúdo.
 
-## <a name="specify-the-language-of-your-content"></a>Especifique o idioma do seu conteúdo
+## <a name="specify-the-language-of-your-content"></a>Especifique a linguagem do seu conteúdo
 
-O leitor de imersão tem suporte para vários idiomas diferentes. Você pode especificar o idioma do seu conteúdo seguindo as etapas abaixo.
+O Leitor Imersivo tem suporte para muitas línguas diferentes. Pode especificar a linguagem do seu conteúdo seguindo os passos abaixo.
 
-1. Abra _views\index.Pug_ e adicione o código a seguir abaixo da marca `p(id=content)` que você adicionou na etapa anterior. Esse código adiciona conteúdo em espanhol à sua página.
+1. Abra _views\index.pug_ e adicione o `p(id=content)` seguinte código abaixo da etiqueta que adicionou no passo anterior. Este código adiciona alguns conteúdos espanhóis à sua página.
 
     ```pug
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
     ```
 
-2. No código JavaScript, adicione o seguinte acima da chamada para `ImmersiveReader.launchAsync`. Esse código passa o conteúdo em espanhol para o leitor de imersão.
+2. No código JavaScript, adicione o seguinte `ImmersiveReader.launchAsync`acima da chamada para . Este código transmite o conteúdo espanhol para o Leitor Imersivo.
 
     ```pug
     content.chunks.push({
@@ -210,13 +210,13 @@ O leitor de imersão tem suporte para vários idiomas diferentes. Você pode esp
     });
     ```
 
-3. Navegue até _http://localhost:3000_ novamente. Você deve ver o texto em espanhol na página e, ao clicar no **leitor de imersão**, ele aparecerá no leitor de imersão também.
+3. Navegue _http://localhost:3000_ de novo. Você deve ver o texto espanhol na página, e quando clicar no **Leitor Imersivo,** ele também aparecerá no Leitor Imersivo.
 
-## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Especifique o idioma da interface do leitor de imersão
+## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Especifique a linguagem da interface imersiva do leitor
 
-Por padrão, o idioma da interface do leitor de imersão corresponde às configurações de idioma do navegador. Você também pode especificar o idioma da interface do leitor de imersão com o código a seguir.
+Por padrão, o idioma da interface Imersiva do Leitor corresponde às definições de idioma do navegador. Também pode especificar o idioma da interface Imersiva do Leitor com o seguinte código.
 
-1. No _views\index.Pug_, substitua a chamada para `ImmersiveReader.launchAsync(token, subdomain, content)` com o código abaixo.
+1. Em _views\index.pug,_ substitua `ImmersiveReader.launchAsync(token, subdomain, content)` a chamada com o código abaixo.
 
     ```javascript
     const options = {
@@ -225,13 +225,13 @@ Por padrão, o idioma da interface do leitor de imersão corresponde às configu
     ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
-2. Navegue para _http://localhost:3000._ Quando você iniciar o leitor de imersão, a interface será mostrada em francês.
+2. Navegar _http://localhost:3000_para. Quando lançar o Leitor Imersivo, a interface será mostrada em francês.
 
-## <a name="launch-the-immersive-reader-with-math-content"></a>Iniciar o leitor de imersão com conteúdo matemático
+## <a name="launch-the-immersive-reader-with-math-content"></a>Lançar o Leitor Imersivo com conteúdo matemático
 
-Você pode incluir conteúdo matemático no leitor de imersão usando o [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML).
+Pode incluir conteúdo matemático no Leitor Imersivo utilizando [mathML](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
-1. Modifique _views\index.Pug_ para incluir o seguinte código acima da chamada para `ImmersiveReader.launchAsync`:
+1. Modificar pontos de _vista\index.pug_ para `ImmersiveReader.launchAsync`incluir o seguinte código acima da chamada para:
 
     ```javascript
     const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
@@ -256,9 +256,9 @@ Você pode incluir conteúdo matemático no leitor de imersão usando o [MathML]
     });
     ```
 
-2. Navegue para _http://localhost:3000._ Ao iniciar o leitor de imersão e rolar até a parte inferior, você verá a fórmula matemática.
+2. Navegar _http://localhost:3000_para. Quando lançar o Leitor Imersivo e rolar para o fundo, verá a fórmula de matemática.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
-* Exibir exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
+* Explore o [SDK imersivo do leitor](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)
+* Ver amostras de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)

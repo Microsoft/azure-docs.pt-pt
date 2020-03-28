@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: 03e8b658f7edf4640d738e5ea3af84953185d0f5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986840"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Use personalizer em Caderno Azure
@@ -29,16 +29,16 @@ O caderno, simulando a interação do utilizador com um website, seleciona um ut
 
 |Clientes - características de contexto|Horários do dia|Tipos de clima|
 |--|--|--|
-|Alice<br>BOB<br>Cathy<br>Rio Dave|Manhã<br>Tarde<br>Início da noite|Ensolarado<br>Chuvosa<br>Neve|
+|Alice<br>Bob<br>Cathy<br>Rio Dave|Manhã<br>Tarde<br>Início da noite|Ensolarado<br>Chuvosa<br>Neve|
 
 Para ajudar o Personalizer a aprender, com o tempo, o _sistema_ também conhece detalhes sobre a seleção do café para cada pessoa.
 
 |Café - características de ação|Tipos de temperatura|Locais de origem|Tipos de assado|Orgânico|
 |--|--|--|--|--|
-|Cappacino|Acesso Frequente|Quénia|Escuro|Orgânico|
-|Cerveja fria|Frio|Brasil|Claro|Orgânico|
-|Mocha gelado|Frio|Etiópia|Claro|Não orgânico|
-|Latte|Acesso Frequente|Brasil|Escuro|Não orgânico|
+|Cappacino|Acesso Frequente|Quénia|Dark|Orgânico|
+|Cerveja fria|Cold|Brasil|Light|Orgânico|
+|Mocha gelado|Cold|Etiópia|Light|Não orgânico|
+|Latte|Acesso Frequente|Brasil|Dark|Não orgânico|
 
 O **objetivo** do loop Personalizer é encontrar a melhor combinação entre os utilizadores e o café o máximo de tempo possível.
 
@@ -85,7 +85,7 @@ No portal Azure, configure o seu [recurso Personalizer](https://ms.portal.azure.
 |Definição|Valor|
 |--|--|
 |atualizar frequência de modelo|15 segundos|
-|Tempo de espera de recompensa|15 segundos|
+|tempo de espera recompensa|15 segundos|
 
 Estes valores têm uma duração muito curta para mostrar alterações neste tutorial. Estes valores não devem ser utilizados num cenário de produção sem validar que atinjam o seu objetivo com o seu loop Personalizer.
 
@@ -96,7 +96,7 @@ Estes valores têm uma duração muito curta para mostrar alterações neste tut
 
 ## <a name="run-notebook-cells"></a>Executar células caderno
 
-Execute cada célula executável e espere que volte. Sabe que é feito quando os suportes ao lado da célula apresentam um número em vez de um `*`. As seguintes secções explicam o que cada célula faz programáticamente e o que esperar para a saída.
+Execute cada célula executável e espere que volte. Sabe que é feito quando os suportes ao lado `*`da célula apresentam um número em vez de um . As seguintes secções explicam o que cada célula faz programáticamente e o que esperar para a saída.
 
 ### <a name="include-the-python-modules"></a>Incluir os módulos python
 
@@ -113,7 +113,7 @@ import uuid
 
 ### <a name="set-personalizer-resource-key-and-name"></a>Definir chave de recursos personalizador e nome
 
-A partir do portal Azure, encontre a sua chave e ponto final na página **Quickstart** do seu recurso Personalizer. Altere o valor do `<your-resource-name>` para o nome do seu recurso Personalizer. Altere o valor da `<your-resource-key>` para a sua tecla Personalizer.
+A partir do portal Azure, encontre a sua chave e ponto final na página **Quickstart** do seu recurso Personalizer. Altere o `<your-resource-name>` valor do nome do seu recurso Personalizer. Altere o `<your-resource-key>` valor da sua tecla Personalizer.
 
 ```python
 # Replace 'personalization_base_url' and 'resource_key' with your valid endpoint values.
@@ -135,7 +135,7 @@ def currentDateTime():
 
 ### <a name="get-the-last-model-update-time"></a>Obtenha o último tempo de atualização do modelo
 
-Quando a função, `get_last_updated`, é chamada, a função imprime a última data e hora modificadas que o modelo foi atualizado.
+Quando a `get_last_updated`função, é chamada, a função imprime a última data e hora modificadas que o modelo foi atualizado.
 
 Estas células não têm saída. A função produz a última data de treino do modelo quando chamada.
 
@@ -197,10 +197,10 @@ Esta célula
 * define o cabeçalho de segurança usando a chave de recursos Personalizer
 * define a semente aleatória para o Id do evento Rank
 * lê-se nos ficheiros de dados da JSON
-* chama `get_last_updated` método - a política de aprendizagem foi removida, por exemplo, a produção
-* chamadas `get_service_settings` método
+* método `get_last_updated` de chamadas - política de aprendizagem foi removido, por exemplo, produção
+* método `get_service_settings` de chamadas
 
-A célula tem saída da chamada para `get_last_updated` e `get_service_settings` funções.
+A célula tem saída `get_last_updated` da `get_service_settings` chamada para e funciona.
 
 ```python
 # build URLs
@@ -244,7 +244,7 @@ print(f'User count {len(userpref)}')
 print(f'Coffee count {len(actionfeaturesobj)}')
 ```
 
-Verifique se os `rewardWaitTime` e `modelExportFrequency` da saída estão ambos definidos para 15 segundos.
+Verifique se a `rewardWaitTime` saída `modelExportFrequency` é e ambos estão definidos para 15 segundos.
 
 ```console
 -----checking model
@@ -262,7 +262,7 @@ Coffee count 4
 
 ### <a name="troubleshooting-the-first-rest-call"></a>Resolução de problemas na primeira chamada do REST
 
-Esta célula anterior é a primeira célula que chama o Personalizer. Certifique-se de que o código de estado DOREST na saída está `<Response [200]>`. Se tiver um erro, como o 404, mas tem a certeza de que a sua chave de recursos e o seu nome estão corretos, recarregue o caderno.
+Esta célula anterior é a primeira célula que chama o Personalizer. Certifique-se de que o `<Response [200]>`código de estado DOREST na saída é . Se tiver um erro, como o 404, mas tem a certeza de que a sua chave de recursos e o seu nome estão corretos, recarregue o caderno.
 
 Certifique-se de que a contagem de café e utilizadores é de 4. Se tiver um erro, verifique se fez o upload dos 3 ficheiros JSON.
 
@@ -348,7 +348,7 @@ def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, r
 
 Esta função adiciona toda a lista de café ao objeto JSON para enviar ao pedido de Rank.
 
-A célula não tem saída. A função muda o `rankjsonobj` quando chamado.
+A célula não tem saída. A função `rankjsonobj` muda a quando chamada.
 
 
 O exemplo das características de um único café é:
@@ -389,9 +389,9 @@ def get_reward_from_simulated_data(name, weather, timeofday, prediction):
 
 A próxima célula é o _principal_ trabalho do Caderno, obtendo um utilizador aleatório, recebendo a lista de café, enviando ambos para a API rank. Comparando a previsão com as preferências conhecidas do utilizador, enviando a recompensa de volta para o serviço Personalizer.
 
-O loop corre para `num_requests` vezes. O Personalizer precisa de alguns milhares de chamadas para rank and Reward para criar um modelo.
+O loop `num_requests` corre para os tempos. O Personalizer precisa de alguns milhares de chamadas para rank and Reward para criar um modelo.
 
-Segue-se um exemplo da JSON enviada para a API de grau. A lista de café não está completa, para a brevidade. Pode ver todo o JSON para café em `coffee.json`.
+Segue-se um exemplo da JSON enviada para a API de grau. A lista de café não está completa, para a brevidade. Pode ver todo o JSON `coffee.json`para café em .
 
 JSON enviado para a API rank:
 
@@ -548,7 +548,7 @@ jsonTemplate = rankactionsjsonobj
 
 ## <a name="chart-results-to-see-improvement"></a>Resultados do gráfico para ver melhoria
 
-Crie um gráfico a partir do `count` e `rewards`.
+Crie um `count` gráfico `rewards`a partir do e .
 
 ```python
 def createChart(x, y):
@@ -560,7 +560,7 @@ def createChart(x, y):
 
 ## <a name="run-chart-for-10000-rank-requests"></a>Gráfico de execução para 10.000 pedidos de classificação
 
-Executar a função `createChart`.
+Executar `createChart` a função.
 
 ```python
 createChart(count,rewards)
@@ -607,7 +607,7 @@ Saiba mais sobre o tempo de [espera de recompensa](concept-rewards.md#reward-wai
 get_service_settings()
 ```
 
-Verifique se os `rewardWaitTime` e `modelExportFrequency` da saída estão ambos definidos para 5 minutos.
+Verifique se a `rewardWaitTime` saída `modelExportFrequency` é e ambos estão definidos para 5 minutos.
 ```console
 -----checking model
 <Response [200]>
@@ -641,7 +641,7 @@ jsonTemplate2 = rankactionsjsonobj
 
 ## <a name="run-chart-for-2000-rank-requests"></a>Gráfico de execução para 2.000 pedidos de classificação
 
-Executar a função `createChart`.
+Executar `createChart` a função.
 
 ```python
 createChart(count2,rewards2)

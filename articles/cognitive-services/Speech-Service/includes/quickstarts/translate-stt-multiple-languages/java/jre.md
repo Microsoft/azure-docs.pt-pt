@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: f729c8638f18e5745f76acc1f2fad51077149642
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925006"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -27,7 +27,7 @@ Antes de começar, certifique-se de:
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **Ficheiro** > **Novo** > **Classe**.
+1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File** > **New** > **Class**.
 
 1. Na janela **Nova Classe Java**, introduza **speechsdk.quickstart** no campo **Pacote**, e **Principal** no campo **Nome**.
 
@@ -127,13 +127,13 @@ Antes de começar, certifique-se de:
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 1. Guarde as alterações ao projeto.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Prima F11 ou selecione **Executar** > **Depurar**.
+Prima F11 ou selecione **Executar** > **Debug**.
 
 1. Diga uma expressão ou uma frase em inglês. A aplicação transmite o seu discurso ao serviço da Fala, que se traduz e transcreve para texto (neste caso, para francês e alemão). O serviço de Fala envia então o texto de volta para a aplicação para exibição.
 

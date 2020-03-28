@@ -6,24 +6,24 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: ce67062f83ad10703dfb1f0ee1f3741e698fb450
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70130108"
 ---
-No mínimo, recomendamos que você use pelo menos 30 imagens por marca no conjunto de treinamento inicial. Você também desejará coletar algumas imagens adicionais para testar seu modelo quando ele for treinado.
+No mínimo, recomendamos que utilize pelo menos 30 imagens por etiqueta no conjunto de treino inicial. Também vai querer recolher algumas imagens extra para testar o seu modelo uma vez treinado.
 
-Para treinar seu modelo com eficiência, use imagens com a variedade Visual. Selecione as imagens que variam de acordo com:
-* ângulo da câmera
-* ilumina
-* seguindo
+Para treinar eficazmente o seu modelo, utilize imagens com variedade visual. Selecione imagens que variam por:
+* ângulo da câmara
+* iluminação
+* fundo
 * estilo visual
-* entidade (ões) individual/agrupado (s)
+* sujeito s individuais/agrupados
 * size
-* type
+* tipo
 
-Além disso, verifique se todas as suas imagens de treinamento atendem aos seguintes critérios:
-* formato. jpg,. png,. bmp ou. gif
-* sem mais de 6 MB de tamanho (4MB para imagens de previsão)
-* Não há menos de 256 pixels na borda mais curta; qualquer imagem menor que isso será automaticamente dimensionada pelo Serviço de Visão Personalizada
+Além disso, certifique-se de que todas as suas imagens de treino cumprem os seguintes critérios:
+* .jpg, .png, .bmp ou .gif formato
+* não superior a 6MB de tamanho (4MB para imagens de previsão)
+* pelo menos 256 pixels na borda mais curta; quaisquer imagens mais curtas do que esta serão automaticamente dimensionadas pelo Serviço de Visão Personalizada

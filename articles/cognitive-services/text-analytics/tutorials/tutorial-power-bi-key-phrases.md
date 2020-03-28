@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Integrar o Power BI com o Serviço Cognitivo de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar o API de Análise de Texto para extrair frases-chave de texto armazenado em Power BI.
+description: Aprenda a utilizar a API de Análise de Texto para extrair frases-chave de texto armazenado no Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378539"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o Serviço Cognitivo de Análise de Texto
@@ -94,7 +94,7 @@ A [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/ser
 | | |
 | - | - |
 | `id`  | Um identificador exclusivo para este documento dentro do pedido. A resposta também contém este campo. Desta forma, se processar mais do que um documento, poderá associar facilmente as expressões-chave extraídas ao documento do qual provêm. Neste tutorial, uma vez que está a processar apenas um documento por pedido, pode codificar o valor de `id` para ser o mesmo para cada pedido.|
-| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. A API de frases-chave exige que esses dados não tenham mais de cerca de 5.120 caracteres.|
+| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. As frases-chave API exigem que estes dados não sejam mais do que cerca de 5.120 caracteres.|
 | `language` | O código para o idioma natural em que o documento está escrito. Todas as mensagens nos dados de exemplo estão em inglês, pelo que pode codificar o valor `en` para este campo.|
 
 ## <a name="create-a-custom-function"></a>Criar uma função personalizada
@@ -114,7 +114,7 @@ Agora, no friso **Base** no grupo **Nova Consulta**, abra o menu pendente **Nova
 Agora, no friso **Base**, no grupo **Consulta**, clique em **Editor Avançado** para abrir a janela deste editor. Elimine o código que já aparece na janela e cole o código seguinte. 
 
 > [!NOTE]
-> Substitua o ponto de extremidade de exemplo abaixo (contendo `<your-custom-subdomain>`) pelo ponto de extremidade gerado para o recurso de Análise de Texto. Você pode encontrar esse ponto de extremidade entrando no [portal do Azure](https://azure.microsoft.com/features/azure-portal/), selecionando sua assinatura do análise de texto e selecionando `Quick start`.
+> Substitua o ponto final `<your-custom-subdomain>`do exemplo abaixo (contendo) pelo ponto final gerado para o seu recurso Text Analytics. Pode encontrar este ponto final ao iniciar sessão no [portal Azure,](https://azure.microsoft.com/features/azure-portal/) `Quick start`selecionando a subscrição de Text Analytics e selecionando .
 
 
 ```fsharp
@@ -145,7 +145,7 @@ No Power BI Desktop, na janela do Editor de Consultas, mude novamente para a con
 
 É apresentada a caixa de diálogo Invocar Função Personalizada. Em **Nome da nova coluna**, introduza `keyphrases`. Em **Consulta de função**, selecione a função personalizada que criou, `KeyPhrases`.
 
-Um novo campo é apresentado na caixa de diálogo, **text (optional)** (texto [opcional]). Este campo está a pedir a coluna que queremos utilizar para indicar valores para o parâmetro `text` da API de Expressões-Chave. (Lembre-se de que você já embutiva em código os valores para os parâmetros `language` e `id`.) Selecione `Merged` (a coluna que você criou [anteriormente](#PreparingData) mesclando os campos assunto e mensagem) no menu suspenso.
+Um novo campo é apresentado na caixa de diálogo, **text (optional)** (texto [opcional]). Este campo está a pedir a coluna que queremos utilizar para indicar valores para o parâmetro `text` da API de Expressões-Chave. (Lembre-se que já codificaos duramente os valores dos `language` e `id` parâmetros.) Selecione `Merged` (a coluna que criou [anteriormente,](#PreparingData) fundindo o assunto e os campos de mensagens) a partir do menu suspenso.
 
 ![[Invocar uma função personalizada]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -166,15 +166,15 @@ Clique em **Editar Credenciais**, garantindo que `Anonymous` está selecionado n
 > Selecione `Anonymous` dado que o serviço de Análise de Texto efetua a sua autenticação quando utilizar a sua chave de acesso, dessa forma, o Power BI não tem de proporcionar credenciais para o pedido de HTTP em si.
 
 > [!div class="mx-imgBorder"]
-> ![[definindo a autenticação como anônima]](../media/tutorials/power-bi/access-web-content.png)
+> ![[definir a autenticação como anónima]](../media/tutorials/power-bi/access-web-content.png)
 
-Se você vir a faixa editar credenciais mesmo depois de escolher o acesso anônimo, você pode ter esquecido de colar sua chave de acesso Análise de Texto no código na [função personalizada](#CreateCustomFunction)`KeyPhrases`.
+Caso veja a faixa Editar Credenciais mesmo depois de escolher o acesso anónimo, pode ter-se esquecido de colar a chave de acesso da Análise de Texto no código da `KeyPhrases` [função personalizada](#CreateCustomFunction).
 
 De seguida, poderá aparecer uma faixa que pede que indique informações sobre a privacidade das origens de dados. 
 
 ![[faixa de privacidade]](../media/tutorials/power-bi/privacy-banner.png)
 
-Clique em **Continuar** e escolha `Public` para cada uma das origens de dados na caixa de diálogo. Em seguida, clique em **Save** (Guardar).
+Clique em **Continuar** e escolha `Public` para cada uma das origens de dados na caixa de diálogo. Em seguida, clique em **Guardar.**
 
 ![[definir a privacidade da origem de dados]](../media/tutorials/power-bi/privacy-dialog.png)
 
@@ -190,7 +190,7 @@ Agora, irá utilizar esta coluna para gerar uma nuvem de palavras. Para começar
 > [!NOTE]
 > Porquê utilizar expressões-chave extraídas para gerar um balão de palavras em vez do texto completo de todos os comentários? As expressões-chave dão-nos as palavras *importantes* dos comentários dos clientes, não apenas as palavras *mais comuns*. Além disso, o dimensionamento das palavras no balão resultante não é distorcido pela utilização frequente de uma determinada palavra num número relativamente pequeno de comentários.
 
-Se ainda não tiver o elemento visual Word Cloud instado, instale-o. No painel Visualizations, no lado direito da área de trabalho, clique nas reticências ( **...** ) e escolha **Import From Store** (Importar do Arquivo). Em seguida, procure “cloud” e clique no botão **Add** (Adicionar), junto ao elemento visual Word Cloud. O Power BI instala o elemento visual Word Cloud (Nuvem de Palavras) e indica-lhe que foi instalado com êxito.
+Se ainda não tiver o elemento visual Word Cloud instado, instale-o. No painel Visualizations, no lado direito da área de trabalho, clique nas reticências (**...**) e escolha **Import From Store** (Importar do Arquivo). Em seguida, procure “cloud” e clique no botão **Add** (Adicionar), junto ao elemento visual Word Cloud. O Power BI instala o elemento visual Word Cloud (Nuvem de Palavras) e indica-lhe que foi instalado com êxito.
 
 ![[adicionar um elemento visual]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -217,7 +217,7 @@ Clique na ferramenta Modo de Detalhe para ver melhor o balão de palavras. A fer
 
 O serviço Análise de Texto, um dos Serviços Cognitivos que o Microsoft Azure oferece, também disponibiliza análise de sentimentos e deteção de idioma. A deteção de idioma em particular é útil se os comentários do seu cliente não estão todos em inglês.
 
-Estas duas outras APIs são semelhantes à API de Expressões-Chave. Isto significa que pode integrá-las com o Power BI Desktop através de funções personalizadas que são quase idênticas às que criou neste tutorial. Basta criar uma consulta em branco e colar o código adequado abaixo, no Advanced Editor (Editor Avançado), como fez anteriormente. (Não se esqueça da sua chave de acesso!) Em seguida, como antes, use a função para adicionar uma nova coluna à tabela.
+Estas duas outras APIs são semelhantes à API de Expressões-Chave. Isto significa que pode integrá-las com o Power BI Desktop através de funções personalizadas que são quase idênticas às que criou neste tutorial. Basta criar uma consulta em branco e colar o código adequado abaixo, no Advanced Editor (Editor Avançado), como fez anteriormente. (Não se esqueça da chave de acesso!) Em seguida, como antes, use a função para adicionar uma nova coluna à mesa.
 
 A função Sentiment Analysis, abaixo, devolve uma classificação que indica até que ponto é positivo o sentimento expresso no texto.
 
@@ -296,7 +296,7 @@ Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula M no Powe
 > [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) (Referência à API de Análise de Texto)
 
 > [!div class="nextstepaction"]
-> [Power Query M reference](https://docs.microsoft.com/powerquery-m/power-query-m-reference) (Referência à linguagem M do Power Query)
+> [Referência de Consulta de Poder M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentação do Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

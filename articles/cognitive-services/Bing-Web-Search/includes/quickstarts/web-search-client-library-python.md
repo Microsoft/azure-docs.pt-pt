@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 019abc79091527b105238ef83bfca1913fae600b
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925008"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Python. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
@@ -83,7 +83,7 @@ Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impres
 
 1. Crie um novo projeto do Python através do seu editor ou IDE favorito.
 
-1. Copie este código de amostra no seu projeto. `endpoint` pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.:  
+1. Copie este código de amostra no seu projeto. `endpoint`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.:  
 
     ```python
     # Import required modules.
@@ -167,7 +167,7 @@ Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impres
 
 1. Substitua `SUBSCRIPTION_KEY` por uma chave de subscrição válida.
 
-1. Substitua `YOUR_ENDPOINT` com o seu url de ponto final no portal.
+1. Substitua-a `YOUR_ENDPOINT` com o seu url de ponto final no portal.
 
 1. Execute o programa. Por exemplo: `python your_program.py`.
 
@@ -177,7 +177,7 @@ Agora que fez a sua primeira chamada para a API de pesquisa web bing, vamos ver 
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitar o número de resultados devolvidos pelo Bing
 
-Este exemplo utiliza os parâmetros `count` e `offset` para limitar o número de resultados devolvidos através do método [`search` do SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). O `name` e `url` para o primeiro resultado são impressos.
+Esta amostra `count` utiliza `offset` os e parâmetros para limitar o número de resultados devolvidos utilizando o [ `search` método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)do SDK . O `name` e `url` para o primeiro resultado são impressos.
 
 1. Adicione este código ao seu projeto Python:
 
@@ -216,7 +216,7 @@ Este exemplo utiliza os parâmetros `count` e `offset` para limitar o número de
 
 ### <a name="filter-for-news-and-freshness"></a>Filtrar por notícias e atualização
 
-Este exemplo recorre aos parâmetros `response_filter` e `freshness` para filtrar os resultados da pesquisa com base no método [`search` do SDK](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations). Os resultados da pesquisa devolvidos estão limitados a artigos de notícias e páginas que o Bing descobriu nas últimas 24 horas. O `name` e `url` para o primeiro resultado são impressos.
+Esta amostra `response_filter` utiliza `freshness` os e parâmetros para filtrar os resultados de pesquisa utilizando o [ `search` método](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations)do SDK . Os resultados da pesquisa devolvidos estão limitados a artigos de notícias e páginas que o Bing descobriu nas últimas 24 horas. O `name` e `url` para o primeiro resultado são impressos.
 
 1. Adicione este código ao seu projeto Python:
 
@@ -266,7 +266,7 @@ Este exemplo recorre aos parâmetros `response_filter` e `freshness` para filtra
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Utilizar a pesquisa segura, a contagem de respostas e o filtro de promover
 
-Este exemplo recorre aos parâmetros `answer_count`, `promote` e `safe_search` para filtrar os resultados da pesquisa com base no método [`search` do SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). O `name` e `url` para o primeiro resultado são apresentados.
+Esta amostra `answer_count`utiliza `promote`os `safe_search` , e os parâmetros para filtrar os resultados de pesquisa utilizando o [ `search` método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python)do SDK . O `name` e `url` para o primeiro resultado são apresentados.
 
 1. Adicione este código ao seu projeto Python:
 
@@ -316,7 +316,7 @@ Quando tiver terminado este projeto, certifique-se de que remove a sua chave de 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) (Exemplos de SDK do Python nos Serviços Cognitivos)
+> [Exemplos de SDK do Python nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## <a name="see-also"></a>Consulte também
 

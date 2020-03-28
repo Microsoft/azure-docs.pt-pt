@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78395715"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
@@ -68,7 +68,7 @@ Pode começar a utilizar a API textanalytics nos seus processos, mesmo que não 
     * [Utilize o API de Análise de Texto e MS Flow para identificar o sentimento de comentários num grupo Yammer](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Integrar o Power BI com a API de Análise de Texto para analisar o feedback do cliente](tutorials/tutorial-power-bi-key-phrases.md)
 * Experiência de programação recomendada:
-    * [Análise de sentimento sobre dados de streaming usando Tijolos de Dados Azure](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Construa uma aplicação do Flask para traduzir texto, analisar o sentimento e sintetizar o discurso](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
 
 
@@ -86,7 +86,7 @@ Todos os pontos finais da API de Análise de Texto aceitam dados de texto não p
 
 | Limite | Valor |
 |------------------------|---------------|
-| Tamanho máximo de um documento único | 5\.120 caracteres medidos por [`StringInfo.LengthInTextElements`. ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) |
+| Tamanho máximo de um documento único | 5.120 caracteres medidos por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo do pedido completo | 1 MB |
 | Número máximo de documentos num pedido | 1000 documentos |
 
@@ -117,4 +117,4 @@ A API de Análise de Texto utiliza a codificação Unicode para representação 
 
 + Investigue um pouco mais fundo com este tutorial de análise de [sentimentousando](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) Os Tijolos de Dados Azure.
 
-+ Confira a nossa lista de posts de blog e mais vídeos sobre como usar a API text analytics com outras ferramentas e tecnologias na nossa página de [Conteúdo Externo e Comunitário.](text-analytics-resource-external-community.md)
++ Confira a nossa lista de posts de blog e mais vídeos sobre como usar a API text analytics com outras ferramentas e tecnologias na nossa página de [Conteúdo Comunitário de & Externa.](text-analytics-resource-external-community.md)

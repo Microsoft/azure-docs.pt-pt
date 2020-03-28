@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Discurso sintetizador, C++ (Linux) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a sintetizar o discurso C++ em Linux usando o SDK do Discurso
+description: Aprenda a sintetizar o discurso em C++ no Linux usando o Speech SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
 ms.openlocfilehash: 40befc98c2280418a443ff80e4d246b6e2957e56
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925828"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +33,7 @@ Antes de começar, certifique-se de:
 
 1. Neste novo ficheiro, substitua a cadeia `YourSubscriptionKey` pela sua chave de subscrição do serviço de Voz.
 
-1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 ## <a name="build-the-app"></a>Criar a aplicação
 

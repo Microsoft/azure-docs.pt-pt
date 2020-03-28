@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77469022"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
@@ -37,11 +37,11 @@ Neste tutorial, ficará a saber como:
 
 Antes de poder implementar o seu modelo de inquilino, precisa de estar inscrito no serviço Modelo de Inquilino. As inscrições estão concluídas no centro de administração da Microsoft 365 e só podem ser feitas pelo seu administrador Microsoft 365.
 
-1. Inscreva-se no centro de administração da [Microsoft 365](https://admin.microsoft.com).
+1. Inicie sessão no [centro de administração do Microsoft 365](https://admin.microsoft.com).
 
 1. No painel esquerdo, selecione **Definições**, e, em seguida, selecione **Definições** do menu aninhado e, em seguida, selecione Serviços de **Discurso Azure** a partir da janela principal.
 
-   ![O painel "Serviços e add-ins"](media/tenant-language-model/tenant-language-model-enrollment.png)
+   ![O painel "Serviços & add-ins"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
 1. Selecione a caixa de verificação **do modelo de idioma em toda a organização** e, em seguida, selecione Guardar **alterações**.
 
@@ -59,7 +59,7 @@ Para utilizar o seu modelo de inquilino com o Speech SDK, precisa de um recurso 
 1. Selecione **Criar um recurso**.
 1. Na caixa **de pesquisa,** escreva **Discurso**.
 1. Na lista de resultados, selecione **'Falar'** e, em seguida, selecione **Criar**.
-1. Siga as instruções no ecrã para criar o seu recurso. Certifique-se de que:
+1. Siga as instruções no ecrã para criar o seu recurso. Confirme que:
    * **A localização** está definida para **leste** ou **oeste.**
    * **O nível de preços** está definido para **S0**.
 1. Selecione **Criar**.
@@ -79,7 +79,7 @@ Depois de o seu administrador ter ativado o Modelo de Inquilino para a sua organ
 
    > [!NOTE]
    > O Office 365 clientes empresariais na América do Norte são elegíveis para criar um modelo de inquilino (inglês). Se é um Customer Lockbox, Chave de Cliente ou cliente do Office 365 Government, esta funcionalidade não está disponível. Para determinar se é um lockbox de cliente ou cliente chave do cliente, consulte:
-   > * [Caixa de bloqueio do cliente](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Sistema de Proteção de Dados do Cliente](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Chave do cliente](/microsoft-365/compliance/customer-key-overview)
    > * [Gabinete 365 Governo](https://www.microsoft.com/microsoft-365/government)
 
@@ -104,7 +104,7 @@ Quando a instância modelo do seu inquilino estiver pronta, desdobre-a fazendo o
 
 Agora que implementou o seu modelo, pode usá-lo com o SDK da Fala. Nesta secção, utiliza o código da amostra para chamar o Serviço de Fala utilizando a autenticação azure Ative Directory (Azure AD).
 
-Vamos ver o código que vai usar para chamar o C#SDK do discurso em . Neste exemplo, realiza o reconhecimento da fala utilizando o seu modelo de inquilino. Este guia presume que a sua plataforma já está montada. Se precisar de ajuda para a configuração, consulte [Quickstart: C# Recognise speech, (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Vamos ver o código que vai usar para chamar o SDK da Fala em C#. Neste exemplo, realiza o reconhecimento da fala utilizando o seu modelo de inquilino. Este guia presume que a sua plataforma já está montada. Se precisar de ajuda para a configuração, consulte [Quickstart: Recognise speech, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copie este código para o seu projeto:
 
@@ -289,9 +289,9 @@ namespace PrincetonSROnly.FrontEnd.Samples
 
 Em seguida, você precisa reconstruir e executar o projeto a partir da linha de comando. Antes de executar o comando, atualize alguns parâmetros fazendo o seguinte:
 
-1. Substitua `<Username>` e `<Password>` os valores para um utilizador inquilino válido.
-1. Substitua `<Subscription-Key>` com a chave de subscrição do seu recurso Speech. Este valor está disponível na secção **Visão Geral** para o seu recurso Speech no [portal Azure](https://aka.ms/azureportal).
-1. Substitua `<Endpoint-Uri>` pelo seguinte ponto final. Certifique-se de que substitui `{your region}` pela região onde foi criado o seu recurso Speech. Estas regiões são apoiadas: `westus`, `westus2`e `eastus`. A informação da sua região está disponível na secção **de visão geral** do seu recurso Speech no portal [Azure](https://aka.ms/azureportal).
+1. `<Username>` Substitua `<Password>` e com os valores para um utilizador inquilino válido.
+1. Substitua-a `<Subscription-Key>` com a chave de subscrição do seu recurso Speech. Este valor está disponível na secção **Visão Geral** para o seu recurso Speech no [portal Azure](https://aka.ms/azureportal).
+1. Substitua-a `<Endpoint-Uri>` com o seguinte ponto final. Certifique-se de `{your region}` que substitui a região onde foi criado o seu recurso Speech. Estas regiões são `westus`apoiadas: , `westus2`e `eastus`. A informação da sua região está disponível na secção **de visão geral** do seu recurso Speech no portal [Azure](https://aka.ms/azureportal).
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
@@ -303,7 +303,7 @@ Em seguida, você precisa reconstruir e executar o projeto a partir da linha de 
 
 Neste tutorial, aprendeu a usar os dados do Office 365 para criar um modelo personalizado de reconhecimento de voz, implantá-lo e usá-lo com o SDK da fala.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Estúdio de Discurso](https://speech.microsoft.com/)
-* [SDK de Voz](speech-sdk.md)
+* [API de Voz](speech-sdk.md)

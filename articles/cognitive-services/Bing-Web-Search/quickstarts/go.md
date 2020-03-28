@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: executar uma pesquisa na Web com a API REST do Go-Pesquisa na Web do Bing'
+title: 'Quickstart: Realizar uma pesquisa na web com Go - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando Go e receber uma resposta JSON
+description: Use este quickstart para enviar pedidos para o Bing Web Search REST API usando Go, e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,15 +13,15 @@ ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
 ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978803"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Início rápido: pesquise a Web usando a API REST do Pesquisa na Web do Bing e vá
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Quickstart: Procure na web usando a API e Go
 
-Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo go envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esse aplicativo seja escrito em go, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing e receber a resposta JSON. Esta aplicação Go envia um pedido de pesquisa para a API, e mostra a resposta. Embora esta aplicação esteja escrita em Go, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
@@ -111,7 +111,7 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declarar a função principal e definir variáveis  
 
-Este código declara a função principal e define as variáveis que são precisas. `endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`.
+Este código declara a função principal e define as variáveis que são precisas. `endpoint`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -307,7 +307,7 @@ func main() {
 
 ## <a name="sample-response"></a>Resposta de amostra  
 
-As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de exemplo foi formatada usando o `BingAnswer` struct e mostra o `result.Name` e `result.URL`.
+As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta da amostra foi `BingAnswer` formatada utilizando `result.Name` `result.URL`a estrutura e mostra o e .
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services

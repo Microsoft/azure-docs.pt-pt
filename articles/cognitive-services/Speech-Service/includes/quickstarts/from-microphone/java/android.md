@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
 ms.openlocfilehash: 6348d09351cf627624340083e2c419def38dfc01
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77446781"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Agora vamos criar uma interface básica de utilizador para a aplicação. Edite 
 
 * Selecione o elemento TextView. Altere o atributo ID no canto superior direito para `hello`.
 
-* A partir da paleta na parte superior esquerda da janela `activity_main.xml`, arraste um botão para o espaço vazio acima do texto.
+* A partir da paleta na `activity_main.xml` parte superior esquerda da janela, arraste um botão para o espaço vazio acima do texto.
 
 * Nos atributos do botão à direita, no valor para o atributo `onClick`, introduza `onSpeechButtonClicked`. Vamos escrever um método com este nome para processar o evento do botão. Altere o atributo ID no canto superior direito para `button`.
 
@@ -58,7 +58,7 @@ O texto e a representação gráfica da sua UI devem agora ser assim:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua também a cadeia `YourServiceRegion` com o **identificador** [região](https://aka.ms/speech/sdkregion) associado à sua subscrição. Por exemplo, utilize `westus` para a subscrição de teste gratuito.
+1. Substitua também `YourServiceRegion` a cadeia com o **identificador região** da [região](https://aka.ms/speech/sdkregion) associada à sua subscrição. Por exemplo, `westus` utilize para a subscrição de teste gratuito.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
@@ -66,7 +66,7 @@ O texto e a representação gráfica da sua UI devem agora ser assim:
 
 1. Para construir a aplicação, selecione Ctrl+F9 ou selecione **Build** > **Make Project** a partir da barra de menus.
 
-1. Para lançar a aplicação, selecione Shift+F10 ou selecione **Executar** > **executar 'app'** .
+1. Para lançar a aplicação, selecione Shift+F10 ou selecione **Run** > **Run 'app'.**
 
 1. Na janela-alvo de implementação que aparece, selecione o seu dispositivo Android.
 

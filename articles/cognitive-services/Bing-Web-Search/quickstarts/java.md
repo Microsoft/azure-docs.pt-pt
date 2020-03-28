@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: usar Java para chamar a API REST do Pesquisa na Web do Bing'
+title: 'Quickstart: Use Java para ligar para a API de pesquisa web bing'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando Java e receber uma resposta JSON
+description: Use este quickstart para enviar pedidos para a API de pesquisa web bing web usando Java, e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 1fdeffb5ee5b1e2d66fbf5586d307cd8d8b78858
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76166735"
 ---
-# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Início rápido: usar o Java para pesquisar na Web com a API REST do Pesquisa na Web do Bing, um serviço de cognitiva do Azure
+# <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Quickstart: Use Java para pesquisar a web com a API de Pesquisa Web Bing, um serviço cognitivo Azure
 
-Neste guia de início rápido, você usará um aplicativo Java para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo Java envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Neste arranque rápido, você usará uma aplicação Java para fazer a sua primeira chamada para a API de Pesquisa Web Bing e receber a resposta JSON. Este pedido java envia um pedido de pesquisa para a API, e mostra a resposta. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -73,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Este código define `subscriptionKey`, `host`, `path` e `searchTerm`. `host` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Substitua o valor `subscriptionKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar esse código à classe `BingWebSearch`, conforme observado acima.
+Este código define `subscriptionKey`, `host`, `path` e `searchTerm`. `host`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Substitua o valor `subscriptionKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar `BingWebSearch` este código à classe como referido acima.
 
 ```java
 // Enter a valid subscription key.

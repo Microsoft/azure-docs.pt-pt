@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Utilizar o Ruby para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Este guia de início rápido mostra como obter informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
+description: Este quickstart mostra como obter amostras de informação e código para ajudá-lo rapidamente a começar a usar a API de Análise de Texto em Serviços Cognitivos Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 0e43d6c3565ea8ae019ab624cbc85965678ea3b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378471"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o Ruby para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com o Ruby.
+Este artigo mostra-lhe como [detetar linguagem,](#Detect) [analisar o sentimento,](#SentimentAnalysis) [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades ligadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de Análise de Texto com ruby.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -36,7 +36,7 @@ A API Deteção de Idioma deteta o idioma de um documento de texto através do [
 
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código. 
+1. Copie a sua tecla Text Analytics e endpoint no código. 
 1. Execute o programa.
 
 ```ruby
@@ -75,7 +75,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Resposta de deteção de idioma**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 
@@ -127,7 +127,7 @@ A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos 
 
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código. 
+1. Copie a sua tecla Text Analytics e endpoint no código. 
 1. Execute o programa.
 
 ```ruby
@@ -165,7 +165,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Resposta de análise de sentimentos**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -191,7 +191,7 @@ A API de Extração de Expressões-Chave extrai expressões-chave de um document
 
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código.
+1. Copie a sua tecla Text Analytics e endpoint no código.
 1. Execute o programa.
 
 
@@ -231,7 +231,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Resposta de extração de expressões-chave**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -276,7 +276,7 @@ A API de Entidades extrai entidades num documento de texto através do [método 
 
 1. Crie um novo projeto Ruby no seu IDE favorito.
 1. Adicione o código indicado abaixo.
-1. Copie sua chave de Análise de Texto e o ponto de extremidade no código.
+1. Copie a sua tecla Text Analytics e endpoint no código.
 1. Execute o programa.
 
 ```ruby
@@ -313,7 +313,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Resposta de extração de entidades**
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {  
@@ -365,7 +365,7 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Consulte também 
 
  [Descrição Geral da Análise de Texto](../overview.md)  
- [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
+ [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

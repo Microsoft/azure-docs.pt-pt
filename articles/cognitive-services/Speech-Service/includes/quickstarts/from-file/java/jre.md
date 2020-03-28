@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: dapine
 ms.openlocfilehash: 4e0959155b3f3e0821ffece9de0faba92486d503
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79082435"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -21,7 +21,7 @@ ms.locfileid: "79082435"
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **Ficheiro** > **Novo** > **Classe**.
+1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File** > **New** > **Class**.
 
 1. Na janela **Nova Classe Java**, introduza **speechsdk.quickstart** no campo **Pacote**, e **Principal** no campo **Nome**.
 
@@ -109,9 +109,9 @@ ms.locfileid: "79082435"
 
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua a cadeia de carateres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-1. Substitua a cadeia `whatstheweatherlike.wav` pelo seu próprio nome de ficheiro.
+1. Substitua `whatstheweatherlike.wav` a cadeia pelo seu próprio nome de ficheiro.
 
 1. Guarde as alterações ao projeto.
 
@@ -120,7 +120,7 @@ ms.locfileid: "79082435"
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Prima F11 ou selecione **Executar** > **Depurar**.
+Prima F11 ou selecione **Executar** > **Debug**.
 Os primeiros 15 segundos de entrada de fala do seu ficheiro áudio serão reconhecidos e registados na janela da consola.
 
    ```text

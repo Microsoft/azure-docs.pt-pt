@@ -11,17 +11,17 @@ ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77112280"
 ---
 Este quickstart baseado em Carteiro leva-o através de obter uma resposta da sua base de conhecimento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Último [**Carteiro.** ](https://www.getpostman.com/)
+* Último [**Carteiro.**](https://www.getpostman.com/)
 * Deve ter.
     * Um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
     * Uma base de conhecimento treinada e publicada [com perguntas e respostas construídas](../Quickstarts/add-question-metadata-portal.md) a partir do quickstart é configurada com metadados e chat Chit.
@@ -51,7 +51,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
 
 Num início rápido anterior, os metadados foram adicionados a dois conjuntos de QnA para distinguir entre duas questões diferentes. Adicione os metadados à consulta para restringir o filtro apenas ao conjunto QnA relevante.
 
-1. No Carteiro, altere apenas a consulta JSON adicionando a propriedade `strictFilters` com o nome/par de valor de `service:qna_maker`. O corpo JSON deve ser:
+1. No Carteiro, altere apenas a consulta `strictFilters` JSON adicionando a `service:qna_maker`propriedade com o nome/par de valor de . O corpo JSON deve ser:
 
     ```json
     {
@@ -64,7 +64,7 @@ Num início rápido anterior, os metadados foram adicionados a dois conjuntos de
     }
     ```
 
-    A questão é apenas uma palavra, `size`, que pode devolver qualquer um dos dois conjuntos de perguntas e respostas. O conjunto de `strictFilters` diz a resposta para reduzir apenas para as respostas `qna_maker`.
+    A questão é apenas uma palavra, `size`que pode devolver qualquer um dos dois conjuntos de perguntas e respostas. A `strictFilters` matriz diz a resposta `qna_maker` para reduzir apenas para as respostas.
 
 1. A resposta inclui apenas a resposta que satisfaz os critérios do filtro.
 
@@ -103,13 +103,13 @@ Num início rápido anterior, os metadados foram adicionados a dois conjuntos de
     }
     ```
 
-    Se houver um conjunto de perguntas e respostas que não cumpra o prazo de pesquisa mas que tenha cumprido o filtro, não seria devolvido. Em vez disso, a resposta geral `No good match found in KB.` é devolvida.
+    Se houver um conjunto de perguntas e respostas que não cumpra o prazo de pesquisa mas que tenha cumprido o filtro, não seria devolvido. Em vez disso, a resposta `No good match found in KB.` geral é devolvida.
 
 ## <a name="use-debug-query-property"></a>Use propriedade de consulta de depuração
 
-A informação de depuração ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações sobre depuração, adicione a propriedade `debug`:
+A informação de depuração ajuda-o a entender como a resposta devolvida foi determinada. Embora seja útil, não é necessário. Para gerar uma resposta com informações sobre depuração, adicione a `debug` propriedade:
 
-1. No Carteiro, mude apenas o corpo JSON adicionando a propriedade `debug`. O JSON deve ser:
+1. No Carteiro, mude apenas o corpo `debug` JSON adicionando a propriedade. O JSON deve ser:
 
     ```json
     {
@@ -213,9 +213,9 @@ A informação de depuração ajuda-o a entender como a resposta devolvida foi d
 
 ## <a name="use-test-knowledge-base"></a>Utilizar base de conhecimentos de teste
 
-Se quiser obter uma resposta da base de conhecimentos de teste, use a propriedade do corpo `isTest`.
+Se quiser obter uma resposta da base de `isTest` conhecimentos de teste, use a propriedade do corpo.
 
-No Carteiro, mude apenas o corpo JSON adicionando a propriedade `isTest`. O JSON deve ser:
+No Carteiro, mude apenas o corpo `isTest` JSON adicionando a propriedade. O JSON deve ser:
 
 ```json
 {
@@ -357,7 +357,7 @@ Pode solicitar um limiar mínimo para a resposta. Se o limiar não for cumprido,
     }
     ```
 
-    QnA Maker devolveu uma pontuação de `0`, o que significa não confiança. Também devolveu a resposta padrão.
+    QnA Maker devolveu `0`uma pontuação de, o que significa não confiança. Também devolveu a resposta padrão.
 
 1. Mude o valor limiar para 60% e solicite novamente a consulta:
 

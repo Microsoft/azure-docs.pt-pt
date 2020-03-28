@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
 ms.openlocfilehash: e175d77ec4684053070e817f8a6ec7e9455668b1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78252899"
 ---
 Começa com a biblioteca de clientes bing Custom Search para Java. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada Bing permite-lhe criar experiências de pesquisa personalizadas e sem anúncios para tópicos com os seus interesses. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingCustomSearch)
@@ -21,7 +21,7 @@ Utilize a biblioteca de clientes Bing Custom Search para Java para:
 
 * Encontre os resultados da pesquisa na web, a partir da sua instância de Pesquisa Personalizada Bing. 
 
-[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [código-fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | Artefacto [(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Artefacto (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Amostras](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Utilize a biblioteca de clientes Bing Custom Search para Java para:
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-Depois de obter uma chave da sua subscrição ou recurso experimental, [crie uma variável ambiental](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, chamada `AZURE_BING_CUSTOM_SEARCH_API_KEY`.
+Depois de obter uma chave da sua subscrição ou recurso `AZURE_BING_CUSTOM_SEARCH_API_KEY`experimental, [crie uma variável ambiental](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, chamada .
 
 ### <a name="create-a-new-gradle-project"></a>Criar um novo projeto Gradle
 
@@ -45,7 +45,7 @@ Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório p
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `gradle init` do seu diretório de trabalho. Este comando cria ficheiros essenciais para a gradle, incluindo um ficheiro *build.gradle.kts* que é usado no tempo de execução para configurar a sua aplicação.
+Mande `gradle init` o comando do seu diretório de trabalho. Este comando cria ficheiros essenciais para a gradle, incluindo um ficheiro *build.gradle.kts* que é usado no tempo de execução para configurar a sua aplicação.
 
 ```console
 gradle init --type basic
@@ -55,7 +55,7 @@ Quando for solicitado a escolher um **DSL,** selecione **Kotlin**.
 
 ## <a name="install-the-client-library"></a>Instale a biblioteca do cliente 
 
-Localize *build.gradle.kts* e abra-o com o seu IDE preferido ou editor de texto. Em seguida, copiar nesta configuração de construção. Certifique-se de incluir a biblioteca de clientes em `dependencies`:
+Localize *build.gradle.kts* e abra-o com o seu IDE preferido ou editor de texto. Em seguida, copiar nesta configuração de construção. Certifique-se de incluir `dependencies`a biblioteca de clientes em:
 
 ```kotlin
 plugins {
@@ -80,19 +80,19 @@ Crie uma pasta para a sua aplicação de amostras. A partir do seu diretório de
 mkdir src/main/java
 ```
 
-Navegue para a nova pasta e crie um ficheiro chamado *BingCustomSearchSample.java*. Abra-o e adicione as seguintes declarações `import`:
+Navegue para a nova pasta e crie um ficheiro chamado *BingCustomSearchSample.java*. Abra-o e `import` adicione as seguintes declarações:
 
 
 [!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=imports)]
 
-Criar uma classe chamada `BingCustomSearchSample`
+Criar uma classe chamada`BingCustomSearchSample`
 
 ```java
 public class BingCustomSearchSample {
 }
 ```
 
-Na aula, crie um método `main` e uma variável para a chave do seu recurso. Se criou a variável ambiental depois de lançar a aplicação, feche e reabra o editor, IDE, ou shell executá-lo para aceder à variável. Definirá os métodos mais tarde.
+Na aula, crie um `main` método e uma variável para a chave do seu recurso. Se criou a variável ambiental depois de lançar a aplicação, feche e reabra o editor, IDE, ou shell executá-lo para aceder à variável. Definirá os métodos mais tarde.
 
 [!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=main)]
 
@@ -111,7 +111,7 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-O seu método principal deve incluir um objeto [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) que leva a sua chave e chama a sua `authenticate()`.
+O seu método principal deve incluir um objeto [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) que pegue a sua chave e a chame `authenticate()`de .
 
 ```java
 BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKey);
@@ -119,7 +119,7 @@ BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKe
 
 ## <a name="get-search-results-from-your-custom-search-instance"></a>Obtenha resultados de pesquisa a partir da sua instância de pesquisa personalizada
 
-Utilize a função [BingCustomInstances.search()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) do cliente para enviar uma consulta de pesquisa para a sua instância personalizada. Detete o `withCustomConfig` para o seu ID de configuração personalizado ou predefinido para `1`. Depois de obter uma resposta da API, verifique se foram encontrados resultados de pesquisa. Em caso afirmativo, obtenha o primeiro resultado de pesquisa, ligando para a função `webPages().value().get()` da resposta e imprima o nome do resultado e URL. 
+Utilize a função [BingCustomInstances.search()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) do cliente para enviar uma consulta de pesquisa para a sua instância personalizada. Detete o ID de `withCustomConfig` configuração personalizado ou predefinido para `1`. Depois de obter uma resposta da API, verifique se foram encontrados resultados de pesquisa. Em caso afirmativo, obtenha o primeiro resultado `webPages().value().get()` de pesquisa, ligando para a função da resposta e imprima o nome do resultado e URL. 
 
 [!code-java[call the custom search API](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=runSample)]
 
@@ -131,7 +131,7 @@ Construa a app com o seguinte comando do diretório principal do seu projeto:
 gradle build
 ```
 
-Executar a aplicação com o objetivo `run`:
+Executar a aplicação com o `run` objetivo:
 
 ```console
 gradle run
@@ -142,7 +142,7 @@ gradle run
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos associados ao mesmo.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passos seguintes
 

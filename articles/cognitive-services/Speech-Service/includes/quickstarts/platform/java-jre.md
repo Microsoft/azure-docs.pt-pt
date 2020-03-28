@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
 ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924727"
 ---
-Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Discurso para Java 8 JRE de 64 bits. Se você só quer que o nome do pacote seja iniciado por conta própria, o Java SDK não está disponível no repositório central de Maven. Quer esteja a usar gradle ou um ficheiro de dependência `pom.xml`, precisa adicionar um repositório personalizado apontando para `https://csspeechstorage.blob.core.windows.net/maven/` (ver abaixo para o nome do pacote).
+Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Discurso para Java 8 JRE de 64 bits. Se você só quer que o nome do pacote seja iniciado por conta própria, o Java SDK não está disponível no repositório central de Maven. Quer esteja a usar gradle `pom.xml` ou um ficheiro de dependência, precisa adicionar `https://csspeechstorage.blob.core.windows.net/maven/` um repositório personalizado que aponta (ver abaixo para o nome do pacote).
 
 > [!NOTE]
 > Para o SDK de Dispositivos de Voz e o dispositivo Roobo, veja [SDK de Dispositivos de Voz](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).
@@ -36,7 +36,7 @@ Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-serv
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/) (requer Java já instalado)
-- As plataformas Linux suportadas exigirão certas bibliotecas instaladas (`libssl` para suporte de camada de tomadas seguras e `libasound2` para suporte sonoro). Consulte a sua distribuição abaixo para os comandos necessários para instalar as versões corretas destas bibliotecas.
+- As plataformas Linux suportadas exigirão`libssl` certas bibliotecas instaladas `libasound2` (para suporte de camada de tomadas seguras e para suporte sonoro). Consulte a sua distribuição abaixo para os comandos necessários para instalar as versões corretas destas bibliotecas.
 
   - Em Ubuntu, execute os seguintes comandos para instalar as embalagens necessárias:
 
@@ -62,7 +62,7 @@ Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-serv
 > [!NOTE]
 > No RHEL/CentOS 8, siga as instruções sobre como configurar o [OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-- No Windows, é necessário o [Microsoft Visual C++ Redistribuable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Note que a instalação desta esta sede pela primeira vez poderá exigir que reinicie o Windows antes de continuar com este guia.
+- No Windows, é necessário o [Microsoft Visual C++ Redistribuável para o Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Note que a instalação desta esta sede pela primeira vez poderá exigir que reinicie o Windows antes de continuar com este guia.
 
 ## <a name="create-an-eclipse-project-and-install-the-speech-sdk"></a>Crie um projeto Eclipse e instale o Speech SDK
 

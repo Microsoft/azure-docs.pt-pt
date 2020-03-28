@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: detectar faces em uma imagem com a API REST do Azure e o Python'
+title: 'Quickstart: Detete rostos numa imagem com a API e Python do REST Azure'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará a API REST do Azure face com Python para detectar rostos em uma imagem.
+description: Neste arranque rápido, utilizará a API Azure Face REST com Python para detetar rostos numa imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,41 +11,41 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74977918"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início rápido: detectar faces em uma imagem usando a API REST de face e o Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Quickstart: Detete rostos numa imagem usando a Face REST API e Python
 
-Neste guia de início rápido, você usará a API REST do Azure face com Python para detectar faces humanas em uma imagem. O script desenhará quadros em volta das faces e sobreimporá as informações de gênero e idade na imagem.
+Neste arranque rápido, você usará a API Face Face Azur com Python para detetar rostos humanos numa imagem. O guião desenhará quadros em torno dos rostos e sobreporá a informação sobre género e idade na imagem.
 
-![Um homem e uma mulher, cada um com um retângulo desenhado em volta de suas faces e idade e sexo exibidos na imagem](../images/labelled-faces-python.png)
+![Um homem e uma mulher, cada um com um retângulo desenhado em torno do rosto e idade e sexo exibidos na imagem](../images/labelled-faces-python.png)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
+- Uma chave de subscrição Face API. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face API e obter a sua chave.
 
-## <a name="run-the-jupyter-notebook"></a>Executar o notebook Jupyter
+## <a name="run-the-jupyter-notebook"></a>Executar o caderno Jupyter
 
-Pode executar este guia de início rápido sob a forma de um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o fichário, selecione o botão abaixo. Em seguida, siga as instruções no bloco de anotações.
+Pode executar este guia de início rápido sob a forma de um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para lançar o Binder, selecione o botão abaixo. Em seguida, siga as instruções no caderno.
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
+[![Aglutinante](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Como alternativa, você pode executar este guia de início rápido na linha de comando com as seguintes etapas:
+Alternadamente, pode executar este quickstart a partir da linha de comando com os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
 1. Faça as alterações seguintes ao código, onde for necessário:
     1. Substitua o valor de `subscription_key` pela chave de subscrição.
-    1. Edite o valor de `face_api_url` para incluir a URL do ponto de extremidade para o recurso de API de Detecção Facial.
+    1. Editar o `face_api_url` valor de incluir o URL de ponto final para o seu recurso Face API.
     1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente que pretende analisar.
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `detect-face.py`.
+1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `detect-face.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python detect-face.py`.
 
@@ -77,7 +77,7 @@ print(json.dumps(response.json()))
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON.
+O JSON devolve uma resposta de êxito.
 
 ```json
 [
@@ -260,7 +260,7 @@ Uma resposta bem-sucedida é devolvida no JSON.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais sobre os cenários com suporte.
+Em seguida, explore a documentação de referência da API face para saber mais sobre os cenários suportados.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

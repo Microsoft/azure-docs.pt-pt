@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: sintetizando o serviço de fala-fala'
+title: 'Quickstart: Discurso sintetizador - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: 44566172000eab16a0463e009e07fb53d52a3162
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75467047"
 ---
-Exiba ou baixe todas as <a href="https://aka.ms/speech/github">amostras do SDK de fala</a> no github.
+Ver ou baixar todas as <a href="https://aka.ms/speech/github">amostras do Speech SDK</a> no GitHub.

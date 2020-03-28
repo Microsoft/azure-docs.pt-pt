@@ -1,7 +1,7 @@
 ---
 title: 'Guia de Início Rápido: Executar uma pesquisa com o PHP – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando PHP e receber uma resposta JSON
+description: Use este quickstart para enviar pedidos para a API de pesquisa web bing web usando PHP, e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,21 +12,21 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169732"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing  
 
-Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo node. js envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing e receber a resposta JSON. Este pedido node.js envia um pedido de pesquisa para a API, e mostra a resposta. Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
-* [PHP 5.6.x](https://php.net/downloads.php) ou posterior
+* [PHP 5.6.x](https://php.net/downloads.php) ou mais tarde
 * Uma chave de subscrição  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -43,7 +43,7 @@ Antes de começar, encontre `php.ini` e anule os comentários desta linha:
 
 Crie um novo projeto PHP no seu IDE ou editor preferido. Não se esqueça de adicionar etiquetas de abertura e fecho, `<?php` e `?>`.
 
-Tem de definir algumas variáveis para que possamos continuar. `$endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `$term`.
+Tem de definir algumas variáveis para que possamos continuar. `$endpoint`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Confirme que `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `$term`.
 
 ```php
 $accessKey = 'enter key here';

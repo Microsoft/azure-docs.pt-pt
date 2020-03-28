@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar um aplicativo Web que inicia o leitor de imersão com node. js'
+title: 'Quickstart: Criar uma aplicação web que lança o Leitor Imersivo com Node.js'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você cria um aplicativo Web do zero e adiciona a funcionalidade da API do leitor de imersão.
+description: Neste arranque rápido, você constrói uma aplicação web de raiz e adiciona a funcionalidade API imersiva do leitor.
 author: pasta
 manager: nitinme
 ms.service: cognitive-services
@@ -10,29 +10,29 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: pasta
 ms.openlocfilehash: 749e75fed409632c613713a49154e4cd8dc265b3
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75946328"
 ---
-# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-nodejs"></a>Início rápido: criar um aplicativo Web que inicia o leitor de imersão (Node. js)
+# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-nodejs"></a>Quickstart: Criar uma aplicação web que lança o Leitor Imersivo (Node.js)
 
-O [leitor de imersão](https://www.onenote.com/learningtools) é uma ferramenta projetada de inclusivamente que implementa técnicas comprovadas para melhorar a compreensão da leitura.
+O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente projetada que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-Neste guia de início rápido, você cria um aplicativo Web do zero e integra o leitor de imersão usando o SDK do leitor de imersão. Um exemplo funcional completo deste guia de início rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
+Neste arranque rápido, você constrói uma aplicação web de raiz e integra o Leitor Imersivo utilizando o SDK de leitor imersivo. Uma amostra completa deste arranque rápido está disponível [aqui.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um recurso de leitor de imersão configurado para Azure Active Directory autenticação. Siga [estas instruções](./how-to-create-immersive-reader.md) para configurar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
-* [Node. js](https://nodejs.org/) e [yarn](https://yarnpkg.com)
-* Um IDE, como [Visual Studio Code](https://code.visualstudio.com/)
+* Um recurso Imersivo do Leitor configurado para autenticação de Diretório Ativo Azure. Siga [estas instruções](./how-to-create-immersive-reader.md) para ser configurado. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
+* [Nó.js](https://nodejs.org/) e [Fios](https://yarnpkg.com)
+* Um IDE como [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Criar um aplicativo Web node. js com o Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Crie uma aplicação web Node.js com express
 
-Crie um aplicativo Web node. js com a ferramenta `express-generator`.
+Crie uma aplicação web Node.js com a `express-generator` ferramenta.
 
 ```bash
 npm install express-generator -g
@@ -40,7 +40,7 @@ express --view=pug quickstart-nodejs
 cd quickstart-nodejs
 ```
 
-Instale as dependências do yarn e adicione dependências `request` e `dotenv`, que serão usadas posteriormente no guia de início rápido.
+Instale dependências de fios, `request` `dotenv`adicione dependências e, que serão usados mais tarde no arranque rápido.
 
 ```bash
 yarn
@@ -52,7 +52,7 @@ yarn add dotenv
 
 ### <a name="configure-authentication-values"></a>Configurar valores de autenticação
 
-Crie um novo arquivo chamado _. env_ na raiz do seu projeto. Cole o código a seguir nele, fornecendo os valores fornecidos quando você criou o recurso de leitura de imersão.
+Crie um novo ficheiro chamado _.env_ na raiz do seu projeto. Colhe o seguinte código nele, fornecendo os valores dados quando criou o seu recurso Imersivo leitor.
 Não inclua aspas ou os caracteres "{" e "}".
 
 ```text
@@ -62,18 +62,18 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Certifique-se de não confirmar esse arquivo no controle do código-fonte, pois ele contém segredos que não devem ser tornados públicos.
+Certifique-se de não comprometer este ficheiro no controlo de fontes, uma vez que contém segredos que não devem ser tornados públicos.
 
-Em seguida, abra _app. js_ e adicione o seguinte à parte superior do arquivo. Isso carrega as propriedades definidas no arquivo. env como variáveis de ambiente no nó.
+Em seguida, abra _app.js_ e adicione o seguinte ao topo do ficheiro. Isto carrega as propriedades definidas no ficheiro .env como variáveis ambientais em Nó.
 
 ```javascript
 require('dotenv').config();
 ```
 
-### <a name="update-the-router-to-acquire-the-token"></a>Atualizar o roteador para adquirir o token
-Abra o arquivo _routes\index.js_ e substitua o código gerado automaticamente pelo código a seguir.
+### <a name="update-the-router-to-acquire-the-token"></a>Atualize o router para adquirir o símbolo
+Abra o ficheiro _routes\index.js_ e substitua o código gerado automaticamente pelo seguinte código.
 
-Esse código cria um ponto de extremidade de API que adquire um token de autenticação do Azure AD usando sua senha de entidade de serviço. Ele também recupera o subdomínio. Em seguida, ele retorna um objeto que contém o token e o subdomínio.
+Este código cria um ponto final da API que adquire um símbolo de autenticação Azure AD utilizando a sua senha principal de serviço. Também recupera o subdomínio. Em seguida, devolve um objeto contendo o símbolo e o subdomínio.
 
 ```javascript
 var express = require('express');
@@ -125,11 +125,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-O ponto de extremidade da API do **GetTokenAndSubdomain** deve ser protegido por parte de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que usuários não autorizados obtenham tokens para uso no seu serviço de leitor de imersão e cobrança; Esse trabalho está além do escopo deste guia de início rápido.
+O ponto final da API **GetTokenAndSubdomain** deve ser protegido por detrás de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que utilizadores não autorizados obtenham fichas para usar contra o seu serviço de leitor imersivo e faturação; que o trabalho está fora do âmbito deste arranque rápido.
 
-## <a name="add-sample-content"></a>Adicionar conteúdo de exemplo
+## <a name="add-sample-content"></a>Adicionar conteúdo da amostra
 
-Agora, adicionaremos conteúdo de exemplo a este aplicativo Web. Abra _views\index.Pug_ e substitua o código gerado automaticamente por este exemplo:
+Agora, vamos adicionar conteúdo de amostra a esta aplicação web. Abra _vistas\index.pug_ e substitua o código gerado automaticamente por esta amostra:
 
 ```pug
 doctype html
@@ -235,26 +235,26 @@ script(type="text/javascript").
 ```
 
 
-Observe que todo o texto tem um atributo **Lang** , que descreve os idiomas do texto. Esse atributo ajuda o leitor de imersão a fornecer recursos relevantes de idioma e gramática.
+Note que todo o texto tem um atributo **de lang,** que descreve as línguas do texto. Este atributo ajuda o Leitor Imersivo a fornecer características linguísticas e gramaticais relevantes.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Nosso aplicativo Web agora está pronto. Inicie o aplicativo executando:
+A nossa aplicação está pronta. Inicie a aplicação executando:
 
 ```bash
 npm start
 ```
 
-Abra o navegador e navegue até _http://localhost:3000_ . Deverá ver o seguinte:
+Abra o seu _http://localhost:3000_navegador e navegue para . Deverá ver o seguinte:
 
-![Aplicativo de exemplo](./media/quickstart-nodejs/1-buildapp.png)
+![App de amostras](./media/quickstart-nodejs/1-buildapp.png)
 
-## <a name="launch-the-immersive-reader"></a>Iniciar o leitor de imersão
+## <a name="launch-the-immersive-reader"></a>Lançar o Leitor Imersivo
 
-Ao clicar no botão "leitor de imersão", você verá o leitor de imersão iniciado com o conteúdo na página.
+Quando clicar no botão "Leitor Imersivo", verá o Leitor Imersivo lançado com o conteúdo na página.
 
 ![Leitura Avançada](./media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Explore o [SDK do leitor de imersão](https://github.com/microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
+* Explore o [SDK imersivo do leitor](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)

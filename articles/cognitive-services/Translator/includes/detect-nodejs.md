@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: c180a5d751b44346760706b1bd3d1e8acb70099d
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71837542"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
@@ -29,9 +29,9 @@ const uuidv4 = require('uuid/v4');
 
 Estes módulos são obrigatórios para construir o pedido HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
 
-## <a name="set-the-subscription-key-and-endpoint"></a>Definir a chave de assinatura e o ponto de extremidade
+## <a name="set-the-subscription-key-and-endpoint"></a>Desdefinir a chave de subscrição e o ponto final
 
-Este exemplo tentará ler sua chave de assinatura Tradução de Texto e o ponto de extremidade dessas variáveis de ambiente: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se você não estiver familiarizado com as variáveis de ambiente, poderá definir `subscriptionKey` e `endpoint` como cadeias de caracteres e comentar as instruções condicionais.
+Esta amostra tentará ler a chave de subscrição de `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` texto `TRANSLATOR_TEXT_ENDPOINT`tradutor e ponto final destas variáveis ambientais: e . Se não está familiarizado com variáveis ambientais, pode definir `subscriptionKey` e `endpoint` como cordas e comentar as declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -73,7 +73,7 @@ let options = {
 ```
 A forma mais fácil de autenticar um pedido é transmitir a sua chave de subscrição como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que vamos utilizar neste exemplo. Como alternativa, pode trocar a chave de subscrição por um token de acesso e transmiti-lo como um cabeçalho `Authorization` para validar o pedido.
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus cabeçalhos de solicitação.
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os cabeçalhos do seu pedido.
 
 Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
@@ -100,10 +100,10 @@ node detect.js
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Depois de executar o exemplo, você deverá ver o seguinte impresso no terminal:
+Depois de executar a amostra, deve ver o seguinte impresso no terminal:
 
 > [!NOTE]
-> Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+> Encontre a abreviatura país/região nesta [lista de línguas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)
 
 ```json
 [
@@ -136,7 +136,7 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

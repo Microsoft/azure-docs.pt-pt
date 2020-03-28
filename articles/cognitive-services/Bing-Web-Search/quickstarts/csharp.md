@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: executar uma pesquisa na C# Web com a API REST-pesquisa na Web do Bing'
+title: 'Quickstart: Realizar uma pesquisa na Web com C# - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações para a API C#REST do pesquisa na Web do Bing usando e receber uma resposta JSON.
+description: Utilize este quickstart para enviar pedidos para a API de Pesquisa Web bing usando C#, e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,21 +12,21 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: cf12b279cf7bcb20aa655646ce34fb9df2bda016
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76167675"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Início rápido: pesquise a Web usando a API REST do Pesquisa na Web do Bing eC#
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Quickstart: Pesquisar na web usando o Bing Web Search REST API e C #
 
-Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse C# aplicativo envia uma solicitação de pesquisa para a API e mostra a resposta. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este quickstart para fazer a sua primeira chamada para a API de pesquisa web bing e receber a resposta JSON. Esta aplicação C# envia um pedido de pesquisa à API, e mostra a resposta. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
-* Windows: [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
+* Windows: [Estúdio Visual 2017 ou mais tarde](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Uma chave de subscrição
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Tem de definir algumas variáveis para que possamos continuar.  `uriBase` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar esse código à classe `Program`, conforme observado acima.
+Tem de definir algumas variáveis para que possamos continuar.  `uriBase`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar `Program` este código à classe como referido acima.
 
 ```csharp
 // Enter a valid subscription key.
@@ -78,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Declarar o método Principal
 
-O método `Main()` é necessário e é o primeiro método invocado quando o programa é iniciado. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
+O `Main()` método é necessário e é o primeiro método invocado quando o programa é iniciado. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
 
 Tenha em atenção que `main()` é dependente nos métodos que são criados nas próximas seções.
 
@@ -109,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Criar uma estrutura para os resultados de pesquisa
 
-Esta estrutura devolve os resultados de pesquisa com cabeçalhos relevantes. Ele é chamado ao fazer uma solicitação para o API de Pesquisa na Web do Bing para criar um objeto de resultado.
+Esta estrutura devolve os resultados de pesquisa com cabeçalhos relevantes. É chamado ao fazer um pedido para a API de pesquisa web bing para criar um objeto de resultado.
 
 ```csharp
 // Returns search results with headers.

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: converter a fala em fala, C# (.NET Framework Windows)-serviço de fala'
+title: 'Quickstart: Traduzir discurso-a-discurso, C# (.NET Framework Windows) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: 4919ab7a8f95ddf251e184be846ccb95d0dfc661
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75467424"
 ---
 > [!div class="nextstepaction"]
-> [Explorar C# exemplos no github](https://aka.ms/speech/github-csharp)
+> [Explore as amostras de C# no GitHub](https://aka.ms/speech/github-csharp)

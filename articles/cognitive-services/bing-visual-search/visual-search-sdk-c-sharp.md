@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: obter informações de imagem usando o SDK para C# -pesquisa visual do Bing'
+title: 'Quickstart: Obtenha insights de imagem usando o SDK para C# - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Saiba como carregar uma imagem usando o SDK do Pesquisa Visual do Bing e obtenha informações sobre ele com este guia de início rápido.
+description: Aprenda a carregar uma imagem usando o Bing Visual Search SDK e obtenha informações sobre isso com este arranque rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: b1f5274bcae1f6e59f6dea94beee810a4613d739
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446615"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Início rápido: obter informações de imagem usando o SDK do Pesquisa Visual do Bing paraC#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Quickstart: Obtenha insights de imagem usando o Bing Visual Search SDK para C #
 
-Use este guia de início rápido para começar a obter informações de imagem do serviço de Pesquisa Visual do Bing C# , usando o SDK. Embora Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
+Use este quickstart para começar a obter insights de imagem do serviço bing visual search, usando o C# SDK. Embora o Bing Visual Search tenha um Rest API compatível com a maioria dos idiomas de programação, o SDK fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* [Estúdio Visual 2019.](https://visualstudio.microsoft.com/downloads/)
 * Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
-* O pacote de Pesquisa Visual do NuGet. 
+* O pacote de pesquisa visual NuGet. 
     - No Explorador de Soluções do Visual Studio, clique com o botão direito do rato no seu projeto e selecione `Manage NuGet Packages` no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.VisualSearch`. A instalação dos pacotes NuGet também instala o seguinte:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
@@ -38,22 +38,22 @@ Use este guia de início rápido para começar a obter informações de imagem d
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. No Visual Studio, crie um novo projeto. Em seguida, adicione as seguintes diretivas.
+1. No Estúdio Visual, crie um novo projeto. Em seguida, adicione as seguintes diretivas.
     
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
     using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
     ```
 
-2. Crie uma instância do cliente com sua chave de assinatura.
+2. Instanteo o cliente com a sua chave de subscrição.
     
     ```csharp
     var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
     
-## <a name="send-a-search-request"></a>Enviar uma solicitação de pesquisa 
+## <a name="send-a-search-request"></a>Enviar um pedido de pesquisa 
 
-1. Crie uma `FileStream` às suas imagens (neste caso, `TestImages/image.jpg`). Em seguida, use o cliente para enviar uma solicitação de pesquisa usando `client.Images.VisualSearchMethodAsync()`. 
+1. Crie `FileStream` um para as `TestImages/image.jpg`suas imagens (neste caso). Em seguida, use o cliente `client.Images.VisualSearchMethodAsync()`para enviar um pedido de pesquisa usando . 
     
     ```csharp
      System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open);
@@ -97,4 +97,4 @@ Use este guia de início rápido para começar a obter informações de imagem d
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](tutorial-bing-visual-search-single-page-app.md)
+> [Criar uma aplicação web de página única](tutorial-bing-visual-search-single-page-app.md)

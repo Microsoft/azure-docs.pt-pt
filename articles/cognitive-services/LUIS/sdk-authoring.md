@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
 ms.openlocfilehash: 614d40bb3e5bc8b83a2307b89cd517fdf7913dbe
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77524449"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Quickstart: Language Understanding (LUIS) autor de biblioteca de clientes
@@ -33,6 +33,6 @@ Inicie-se com a biblioteca de clientes do Language Understanding (LUIS). Siga es
 >[Use o SDK para consultar o ponto final da previsão](sdk-query-prediction-endpoint.md)
 
 * [O que é a API de Compreensão linguística (LUIS) ?](what-is-luis.md)
-* [Novidades](whats-new.md)
+* [O que há de novo?](whats-new.md)
 * [Intenções,](luis-concept-intent.md) [entidades,](luis-concept-entity-types.md)e [declarações de exemplo,](luis-concept-utterance.md)e [entidades pré-construídas](luis-reference-prebuilt-entities.md)
 * O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).

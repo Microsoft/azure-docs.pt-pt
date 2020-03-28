@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 3d92d3f959e2ad44daa82d6b609b9357cee969c9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906877"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -17,26 +17,26 @@ ms.locfileid: "69906877"
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 
-Abra uma nova linha de comandos (ou sessão de terminal) e execute estes comandos:
+Abra um novo pedido de comando (ou sessão terminal) e execute estes comandos:
 
 ```console
 dotnet new console -o sentences-sample
 cd sentences-sample
 ```
 
-O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET e cria um diretório chamado `sentences-sample`. O segundo comando altera-se para o diretório para o seu projeto.
+O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET, e cria um diretório chamado `sentences-sample`. O segundo comando muda para o diretório para o seu projeto.
 
-Em seguida, você precisará instalar o Json.Net. No diretório do seu projeto, execute:
+Em seguida, terá de instalar Json.Net. A partir do diretório do seu projeto, corra:
 
 ```console
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="select-the-c-language-version"></a>Selecione o C# versão de idioma
+## <a name="select-the-c-language-version"></a>Selecione a versão em língua C#
 
-Este início rápido requer C# 7.1 ou posterior. Existem algumas formas de alterar o C# versão para o seu projeto. Neste guia, vamos mostrar-lhe como ajustar o `sentences-sample.csproj` ficheiro. Para todas as opções disponíveis, como alterar o idioma no Visual Studio, consulte [selecione o C# versão de idioma](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+Este quickstart requer C# 7.1 ou mais tarde. Existem algumas formas de alterar a versão C# para o seu projeto. Neste guia, vamos mostrar-lhe como `sentences-sample.csproj` ajustar o ficheiro. Para todas as opções disponíveis, tais como alterar o idioma no Estúdio Visual, consulte [Selecione a versão em língua C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Abra o projeto, em seguida, abra `sentences-sample.csproj`. Certifique-se de que `LangVersion` está definido para o 7.1 ou posterior. Se não existir um grupo de propriedades para a versão de idioma, adicione estas linhas:
+Abra o seu `sentences-sample.csproj`projeto e abra. Certifique-se `LangVersion` de que está definido para 7.1 ou mais tarde. Se não houver um grupo imobiliário para a versão linguística, adicione estas linhas:
 
 ```xml
 <PropertyGroup>
@@ -44,9 +44,9 @@ Abra o projeto, em seguida, abra `sentences-sample.csproj`. Certifique-se de que
 </PropertyGroup>
 ```
 
-## <a name="add-required-namespaces-to-your-project"></a>Adicionar espaços de nomes necessários ao seu projeto
+## <a name="add-required-namespaces-to-your-project"></a>Adicione espaços de nome sinuosos necessários ao seu projeto
 
-O `dotnet new console` comando que executou anteriormente criado um projeto, incluindo `Program.cs`. Este ficheiro é onde vai pôr o código da aplicação. Abra `Program.cs`e substitua as instruções de utilização existentes. Essas instruções Certifique-se de que tem acesso a todos os tipos necessários para criar e executar a aplicação de exemplo.
+O `dotnet new console` comando que dirigiu anteriormente `Program.cs`criou um projeto, incluindo. Este ficheiro é onde vai colocar o seu código de inscrição. Abra `Program.cs`e substitua os existentes usando declarações. Estas declarações garantem que tem acesso a todos os tipos necessários para construir e executar a aplicação de amostras.
 
 ```csharp
 using System;
@@ -57,9 +57,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 ```
 
-## <a name="create-classes-for-the-json-response"></a>Criar classes para a resposta JSON
+## <a name="create-classes-for-the-json-response"></a>Criar aulas para a resposta json
 
-Em seguida, vamos criar uma classe que é usada ao desserializar a resposta JSON retornada pelo API de Tradução de Texto.
+Em seguida, vamos criar uma classe que é usada ao desserializar a resposta JSON devolvida pela API de Texto tradutor.
 
 ```csharp
 /// <summary>
@@ -78,9 +78,9 @@ public class DetectedLanguage
 }
 ```
 
-## <a name="get-subscription-information-from-environment-variables"></a>Obter informações de assinatura de variáveis de ambiente
+## <a name="get-subscription-information-from-environment-variables"></a>Obtenha informações de subscrição de variáveis ambientais
 
-Adicione as linhas a seguir à `Program` classe. Essas linhas lêem a chave de assinatura e o ponto de extremidade de variáveis de ambiente e geram um erro se você encontrar problemas.
+Adicione as seguintes `Program` linhas à aula. Estas linhas lêem a sua chave de subscrição e ponto final a partir de variáveis ambientais, e lança um erro se você encontrar algum problema.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -103,9 +103,9 @@ static Program()
 // The code in the next section goes here.
 ```
 
-## <a name="create-a-function-to-determine-sentence-length"></a>Criar uma função para determinar o tamanho da sentença
+## <a name="create-a-function-to-determine-sentence-length"></a>Criar uma função para determinar o comprimento da frase
 
-Na classe, crie uma nova função chamada `BreakSentenceRequest()`. `Program` Essa função usa quatro argumentos: `subscriptionKey` `route`, `endpoint`, e `inputText`.
+Na `Program` aula, crie uma `BreakSentenceRequest()`nova função chamada . Esta função requer `subscriptionKey`quatro `endpoint` `route`argumentos: `inputText`, , e .
 
 ```csharp
 static public async Task BreakSentenceRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -117,18 +117,18 @@ static public async Task BreakSentenceRequest(string subscriptionKey, string end
 }
 ```
 
-## <a name="serialize-the-break-sentence-request"></a>Serializar a solicitação de quebra de frase
+## <a name="serialize-the-break-sentence-request"></a>Serialize o pedido de frase de rutura
 
-Em seguida, você precisa criar e serializar o objeto JSON que inclui o texto. Tenha em mente que você pode passar mais de um objeto na `body` matriz.
+Em seguida, é necessário criar e serializar o objeto JSON que inclui o texto. Lembre-se, pode passar mais do `body` que um objeto na matriz.
 
 ```csharp
 object[] body = new object[] { new { Text = inputText } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
-## <a name="instantiate-the-client-and-make-a-request"></a>Instanciar o cliente e fazer uma solicitação
+## <a name="instantiate-the-client-and-make-a-request"></a>Instantie o cliente e faça um pedido
 
-Essas linhas instanciam `HttpClient` o e `HttpRequestMessage`o:
+Estas linhas instantaneamente `HttpClient` `HttpRequestMessage`o e o:
 
 ```csharp
 using (var client = new HttpClient())
@@ -138,18 +138,18 @@ using (var request = new HttpRequestMessage())
 }
 ```
 
-## <a name="construct-the-request-and-print-the-response"></a>Construir a solicitação e imprimir a resposta
+## <a name="construct-the-request-and-print-the-response"></a>Construir o pedido e imprimir a resposta
 
-Dentro do `HttpRequestMessage` , você vai:
+Dentro `HttpRequestMessage` do seu vai:
 
 * Declarar o método HTTP
-* Construir o URI de solicitação
-* Inserir o corpo da solicitação (objeto JSON serializado)
-* Adicionar cabeçalhos necessários
-* Fazer uma solicitação assíncrona
+* Construa o pedido URI
+* Insira o corpo de pedido (objeto JSON serializado)
+* Adicione cabeçalhos necessários
+* Faça um pedido assíncrono
 * Imprimir a resposta
 
-Adicione este código ao `HttpRequestMessage`:
+Adicione este código `HttpRequestMessage`ao :
 
 ```csharp
 // Build the request.
@@ -173,11 +173,11 @@ foreach (BreakSentenceResult o in deserializedOutput)
 }
 ```
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-A última etapa é chamar `BreakSentenceRequest()` a `Main` função. Localize `static void Main(string[] args)` e substitua-o por este código:
+O último passo `BreakSentenceRequest()` é `Main` chamar a função. Localize-o `static void Main(string[] args)` e substitua-o por este código:
 
 ```csharp
 static async Task Main(string[] args)
@@ -194,11 +194,11 @@ static async Task Main(string[] args)
 }
 ```
 
-Você observará que, `Main`em, você está `subscriptionKey`declarando, `endpoint`, `route`e o texto `breakSentenceText`a ser avaliado.
+Vais reparar nisso, `Main`estás a `subscriptionKey` `endpoint`declarar, `route`e no `breakSentenceText`texto para avaliar.
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-É isso, você está pronto para executar seu aplicativo de exemplo. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:
+Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao seu diretório de projeto e corra:
 
 ```console
 dotnet run
@@ -206,14 +206,14 @@ dotnet run
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Depois de executar o exemplo, você deverá ver o seguinte impresso no terminal:
+Depois de executar a amostra, deve ver o seguinte impresso no terminal:
 
 ```bash
 The detected language is \'en\'. Confidence is: 1.
 The first sentence length is: 25
 ```
 
-Essa mensagem é criada a partir do JSON bruto, que terá a seguinte aparência:
+Esta mensagem é construída a partir do JSON cru, que será assim:
 
 ```json
 [
@@ -230,11 +230,11 @@ Essa mensagem é criada a partir do JSON bruto, que terá a seguinte aparência:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não se esqueça de remover quaisquer informações confidenciais do código-fonte da sua aplicação de exemplo, como chaves de subscrição.
+Certifique-se de remover quaisquer informações confidenciais do código fonte da sua aplicação de amostra, como as chaves de subscrição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

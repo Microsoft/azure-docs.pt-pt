@@ -4,17 +4,17 @@ description: Obtenha dados que correspondam a uma lista de itens predefinida. Ca
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79297412"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obtenha dados exatos de texto de uma expressão com entidade da lista
 
 Neste tutorial, entenda como obter dados que correspondam exatamente a uma lista predefinida de itens.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -45,7 +45,7 @@ Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. A aplicação importada tem uma intenção `OrderPizza`. Selecione essa intenção e adicione algumas expressões com novos tipos de crosta:
+1. A aplicação importada tem uma `OrderPizza` intenção. Selecione essa intenção e adicione algumas expressões com novos tipos de crosta:
 
     |Novas proclamações|
     |--|--|
@@ -64,7 +64,7 @@ Exemplos do nome primário e sinónimos são:
 |Nome canónico|Sinónimos|
 |--|--|
 |Prato profundo|profundo<br>crosta de prato profundo<br>grosso<br>crosta grossa|
-|Pan|Regular<br>Original<br>normal<br>crosta regular<br>crosta original<br>crosta normal|
+|Pan|regular<br>Original<br>normal<br>crosta regular<br>crosta original<br>crosta normal|
 |Recheado|crosta recheada|
 |Dinâmico|crosta fina<br>magro<br>crosta magra|
 
@@ -72,10 +72,10 @@ Exemplos do nome primário e sinónimos são:
 
 1. Selecione **+ Criar**.
 
-1. Na caixa de diálogo pop-up de entidade, introduza `CrustList` para o nome da entidade e **Lista** para o tipo de entidade. Selecione **Seguinte**.
+1. Na caixa de diálogo pop-up de entidade, introduza `CrustList` para o nome da entidade e **Lista** para o tipo de entidade. Selecione **Next**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot de criar nova entidade de diálogo pop-up](media/luis-quickstart-intent-and-list-entity/create-pizza-crust-list-entity.png)
+    > ![Captura de ecrã da caixa de diálogo criação da nova entidade](media/luis-quickstart-intent-and-list-entity/create-pizza-crust-list-entity.png)
 
 1. Na página **Criar uma lista,** introduza os nomes canónicos e sinónimos para cada nome canónico e, em seguida, selecione **Criar**.
 
@@ -100,7 +100,7 @@ Exemplos do nome primário e sinónimos são:
 
     `Deliver 2 deep dish hawaiian pizzas and a thin pepperoni`
 
-    O último parâmetro querystring é `query`, a expressão **query**.
+    O último parâmetro de `query`corda é, a **consulta**de expressão.
 
 
     ```json
@@ -192,7 +192,7 @@ Exemplos do nome primário e sinónimos são:
 * [Referência jSON de entidade de expressão regular](reference-entity-regular-expression.md?tabs=V3)
 * [Como adicionar entidades para extrair dados](luis-how-to-add-entities.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este tutorial acrescentou declarações de exemplo, então criou uma entidade da lista para extrair correspondências de texto exatas das expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
 > [!div class="nextstepaction"]

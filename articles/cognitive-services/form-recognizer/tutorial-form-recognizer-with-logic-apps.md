@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: nitinme
 ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118265"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Use reconhecimento de formulário com aplicações lógicas azure para analisar faturas
@@ -40,7 +40,7 @@ Aqui está o que este tutorial cobre:
 O conjunto de dados da amostra que utilizará para treinar e testar o modelo está disponível como um ficheiro .zip do [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Descarregue e extraio o ficheiro .zip e abra um ficheiro PDF de fatura sob a pasta **/Train.** Note que tem uma tabela com o número da fatura, data da fatura, e assim por diante. 
 
 > [!div class="mx-imgBorder"]
-> ![](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png) de fatura da amostra
+> ![Fatura da amostra](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
 Neste tutorial, você vai aprender a usar um fluxo de trabalho de Aplicações Azure Logic para extrair a informação de tabelas como estas em formato JSON.
 
@@ -49,16 +49,16 @@ Neste tutorial, você vai aprender a usar um fluxo de trabalho de Aplicações A
 Utiliza este recipiente para carregar dados da amostra que são necessários para treinar o modelo.
 
 1. Siga as instruções em [Criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md) para criar uma conta de armazenamento. Utilize **o formrecostorage** como nome da conta de armazenamento.
-1. Siga as instruções em [Criar um recipiente de blob Azure](../../storage/blobs/storage-quickstart-blobs-portal.md) para criar um recipiente dentro da conta de Armazenamento Azure. Utilize **o formrecocontainer** como nome do recipiente. Certifique-se de que define o nível de acesso público ao **Contentor (acesso de leitura anónimo para contentores e bolhas)** .
+1. Siga as instruções em [Criar um recipiente de blob Azure](../../storage/blobs/storage-quickstart-blobs-portal.md) para criar um recipiente dentro da conta de Armazenamento Azure. Utilize **o formrecocontainer** como nome do recipiente. Certifique-se de que define o nível de acesso público ao **Contentor (acesso de leitura anónimo para contentores e bolhas)**.
 
     > [!div class="mx-imgBorder"]
-    > ![Criar](media/tutorial-form-recognizer-with-logic-apps/create-blob-container.png) de recipiente de bolha
+    > ![Criar contentor de blobs](media/tutorial-form-recognizer-with-logic-apps/create-blob-container.png)
 
 ## <a name="upload-sample-data-to-the-azure-blob-container"></a>Enviar dados da amostra para o recipiente de blob Azure
 
 Faça o download dos dados da amostra disponíveis no [GitHub.](https://go.microsoft.com/fwlink/?linkid=2090451) Extraios os dados para uma pasta local e faça upload do conteúdo da pasta **/Train** para o **formrecocontainer** que criou anteriormente. Siga as instruções no [Upload de uma bolha](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) de bloco para fazer o upload dos dados para um recipiente.
 
-Copie o URL do recipiente. Vai precisar desta URL mais tarde no tutorial. Se criou a conta de armazenamento e o recipiente com os mesmos nomes indicados neste tutorial, o URL será *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
+Copie o URL do recipiente. Vai precisar desta URL mais tarde no tutorial. Se criou a conta de armazenamento e o recipiente com os mesmos nomes indicados neste tutorial, o URL será *\/https: /formrecostorage.blob.core.windows.net/formrecocontainer/*.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 
@@ -73,25 +73,25 @@ Pode utilizar aplicativos azure logic para automatizar e orquestrar tarefas e fl
 
 Siga estes passos para configurar o seu fluxo de trabalho.
 
-1. A partir do menu principal do Azure, selecione **Criar um recurso** > **Integração** > **Lógica App.**
+1. A partir do menu principal do Azure, selecione Criar uma**Aplicação Lógica**de**Integração** > de **Recursos.** > 
 
 1. Em **Criar aplicação lógica**, forneça detalhes sobre a sua aplicação lógica, conforme aqui apresentado. Depois de terminar, selecione **Criar**.
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | < *> de nome lógica-app* | O nome da sua aplicação lógica, que pode conter apenas letras, números, hífenes (`-`), sublinha (`_`), parênteses (`(`, `)`) e períodos (`.`). Este exemplo usa "My-First-Logic-App". |
-   | **Subscrição** | <*Azure-subscription-name*> | O seu nome de subscrição Azure |
-   | **Grupo de recursos** | <> de nome de *grupo azure-recursos* | O nome do grupo de [recursos Azure](./../../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
-   | **Localização** | <> *da região de Azure* | A região onde armazenar informações de aplicações lógicas. Este exemplo usa "West US". |
+   | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que pode`-`conter apenas letras, números, hífenes ,`_`sublinha ( ), parênteses (`(`), `)`e períodos (`.`). Este exemplo usa "My-First-Logic-App". |
+   | **Assinatura** | <*Nome de assinatura Azure*> | O seu nome de subscrição Azure |
+   | **Grupo de recursos** | <*Nome do grupo azure-recursos*> | O nome do grupo de [recursos Azure](./../../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
+   | **Localização** | <*Região azul*> | A região onde armazenar informações de aplicações lógicas. Este exemplo usa "West US". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
-1. Depois de o Azure implementar a sua aplicação, na barra de ferramentas Azure, selecione **Notificações** > **vá recorrer para** a sua aplicação lógica implementada. Ou, pode encontrar e selecionar a sua aplicação lógica digitando o nome na caixa de pesquisa.
+1. Depois de o Azure implementar a sua aplicação, na barra de ferramentas Azure, selecione **Notificações** > **Para recorrer para** a sua aplicação lógica implementada. Ou, pode encontrar e selecionar a sua aplicação lógica digitando o nome na caixa de pesquisa.
 
    O Estruturador da Aplicação Lógica é aberto e mostra uma página com um vídeo de introdução e os acionadores habitualmente utilizados. Em **Modelos**, selecione **Aplicação Lógica em Branco**.
 
    > [!div class="mx-imgBorder"]
-   > ![Selecione modelo em branco para](./../../logic-apps/media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png) de aplicação lógica
+   > ![Selecione modelo em branco para aplicação lógica](./../../logic-apps/media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 ### <a name="configure-the-logic-app-to-trigger-the-workflow-when-an-email-arrives"></a>Configure a aplicação lógica para desencadear o fluxo de trabalho quando um e-mail chegar
 
@@ -109,7 +109,7 @@ Neste tutorial, você despoleta o fluxo de trabalho quando um e-mail é recebido
     1. Para **incluir anexos,** selecione **Sim**. Isto garante que o conteúdo do acessório é utilizado no processamento a jusante.
 
         > [!div class="mx-imgBorder"]
-        > ![configurar o gatilho do e-mail da aplicação lógica](media/tutorial-form-recognizer-with-logic-apps/logic-app-specify-email-folder.png)
+        > ![Configure o gatilho de e-mail da aplicação lógica](media/tutorial-form-recognizer-with-logic-apps/logic-app-specify-email-folder.png)
 
 1. Clique em **Guardar** a partir da barra de ferramentas na parte superior.
 
@@ -120,19 +120,19 @@ Antes de poder utilizar o serviço 'Reconhecimento de Formulários' para analisa
 1. Selecione **Novo passo**, e sob **o comando Escolha uma ação,** procure um Reconhecimento de **Formulários**. A partir dos resultados que aparecem, selecione Reconhecimento de **Formulários,** e depois sob as ações disponíveis para Reconhecimento de Formulários, selecione **Modelo de Comboio**.
 
     > [!div class="mx-imgBorder"]
-    > ![treinar um modelo de reconhecimento de formulário](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-train-model.png)
+    > ![Treine um modelo de reconhecimento de formulário](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-train-model.png)
 
 1. Na caixa de diálogo 'Reconhecimento de Formulários', forneça um nome para a ligação e introduza o URL do ponto final e a chave que recuperou para o recurso 'Reconhecimento de Formulários'.
 
     > [!div class="mx-imgBorder"]
-    > ![nome de ligação para](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-create-connection.png) de reconhecimento de formulário
+    > ![Nome de ligação para Reconhecimento de Formulários](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-create-connection.png)
 
     Clique em **Criar**.
 
 1. Na caixa de diálogo **Modelo do Comboio,** para **Fonte,** introduza o URL para o recipiente onde carregou os dados da amostra.
 
     > [!div class="mx-imgBorder"]
-    > ![recipiente de armazenamento para faturas de amostra](media/tutorial-form-recognizer-with-logic-apps/source-for-train-model.png)
+    > ![Recipiente de armazenamento para faturas de amostra](media/tutorial-form-recognizer-with-logic-apps/source-for-train-model.png)
 
 1. Clique em **Guardar** a partir da barra de ferramentas na parte superior.
 
@@ -143,14 +143,14 @@ Nesta secção, adicione a operação **'Forma de Análise'** ao fluxo de trabal
 1. Selecione **Novo passo**, e sob **o comando Escolha uma ação,** procure um Reconhecimento de **Formulários**. A partir dos resultados que aparecem, selecione Reconhecimento de **Formulários,** e depois sob as ações disponíveis para Reconhecimento de Formulários, selecione **Formulário de Análise**.
 
     > [!div class="mx-imgBorder"]
-    > ![analisar um modelo de reconhecimento de formulário](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
+    > ![Analisar um modelo de reconhecimento de formulário](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
 
 1. Na caixa de diálogo **'Formulário de Análise',** faça os seguintes passos:
 
     1. Clique na caixa de texto **Model ID** e na caixa de diálogo que se abre, sob o separador **Conteúdo Dinâmico,** selecione **modelId**. Ao fazê-lo, fornece a aplicação de fluxo com o modelo ID do modelo que treinou na última secção.
 
         > [!div class="mx-imgBorder"]
-        > ![Utilize o ModelID para](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png) de reconhecimento de formulários
+        > ![Utilize o ModelID para Reconhecimento de Formulários](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
     2. Clique na caixa de texto **'Documento'** e na caixa de diálogo que se abre, sob o separador **Conteúdo Dinâmico,** selecione Conteúdo de **Anexos**. Isto confunde o fluxo para utilizar o ficheiro de fatura da amostra que está anexado no e-mail que desencadeia o fluxo de trabalho.
 
@@ -182,12 +182,12 @@ Para testar a aplicação lógica, utilize as faturas da amostra na pasta **/Tes
 1. Assim que o e-mail é entregue na pasta, o Logic Apps Designer mostra um ecrã com o progresso de cada etapa. Na imagem abaixo, você vê que um e-mail com anexo é recebido e o fluxo de trabalho está em andamento.
 
     > [!div class="mx-imgBorder"]
-    > ![Iniciar o fluxo de trabalho enviando um](media/tutorial-form-recognizer-with-logic-apps/logic-apps-email-arrived-progress.png) de e-mail
+    > ![Inicie o fluxo de trabalho enviando um e-mail](media/tutorial-form-recognizer-with-logic-apps/logic-apps-email-arrived-progress.png)
 
 1. Depois de todas as fases do fluxo de trabalho terem terminado de funcionar, o Logic Apps Designer mostra uma caixa de verificação verde contra todas as etapas. Na janela do designer, selecione **Para cada 2**, e, em seguida, selecione **Compor**.
 
     > [!div class="mx-imgBorder"]
-    > ![Workflow concluída](media/tutorial-form-recognizer-with-logic-apps/logic-apps-verify-output.png)
+    > ![Fluxo de trabalho concluído](media/tutorial-form-recognizer-with-logic-apps/logic-apps-verify-output.png)
 
     A partir da caixa **OUTPUTS,** copie a saída e cole-a a qualquer editor de texto.
 
@@ -384,4 +384,4 @@ Para testar a aplicação lógica, utilize as faturas da amostra na pasta **/Tes
 Neste tutorial, você configura um fluxo de trabalho de Aplicações Lógicas Azure para usar o Reconhecimento de Formulário para treinar um modelo e extrair o conteúdo de uma fatura. Em seguida, aprenda a construir um conjunto de dados de treino para que possa criar um cenário semelhante com as suas próprias formas.
 
 > [!div class="nextstepaction"]
-> [Construir um conjunto de dados de formação](build-training-data-set.md)
+> [Criar um conjunto de dados de preparação](build-training-data-set.md)

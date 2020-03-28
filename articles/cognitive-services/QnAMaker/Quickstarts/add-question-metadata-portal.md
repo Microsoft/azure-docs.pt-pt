@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109926"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Quickstart: Adicione perguntas e responda com o portal QnA Maker
@@ -49,7 +49,7 @@ A atual base de conhecimento tem o QnA Maker a resolver problemas em conjuntos q
 
 Quando este URL foi importado, apenas uma pergunta com uma resposta foi criada. Neste procedimento, adicione questões adicionais.
 
-1. Na página **Editar,** utilize a caixa de texto de pesquisa acima dos conjuntos de perguntas e respostas, para encontrar a pergunta `How large a knowledge base can I create?`
+1. A partir da página **Editar,** use a caixa de texto de pesquisa acima dos conjuntos de perguntas e respostas, para encontrar a pergunta`How large a knowledge base can I create?`
 
 1. Na coluna **pergunta,** selecione **+ Adicione frases alternativas** e adicione cada nova frase, fornecida na tabela seguinte.
 
@@ -82,11 +82,11 @@ Adicionar metadados a um conjunto de perguntas e respostas permite ao seu client
 
 1. Selecione **as opções de visualização**e, em seguida, selecione **Mostrar metadados**.
 
-1. Para o conjunto QnA acabou de adicionar, selecione Adicionar etiquetas de **metadados,** em seguida, adicionar o nome de `service` e o valor de `search`. É assim: `service:search`.
+1. Para o conjunto QnA acabou de adicionar, selecione Adicionar `service` etiquetas `search`de **metadados,** em seguida, adicionar o nome e o valor de . É assim: `service:search`.
 
-1. Adicione outra etiqueta de metadados com o nome de `link_in_answer` e valor de `false`. É assim: `link_in_answer:false`.
+1. Adicione outra etiqueta de `link_in_answer` metadados `false`com o nome e o valor de . É assim: `link_in_answer:false`.
 
-1. Procure a primeira resposta na tabela, `How large a knowledge base can I create?`.
+1. Procure a primeira resposta na `How large a knowledge base can I create?`mesa.
 
 1. Adicione pares de metadados para as mesmas duas etiquetas de metadados:
 
@@ -112,4 +112,4 @@ Se não continuar para o próximo arranque rápido, elimine os recursos-quadro d
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Obtenha resposta com Carteiro ou cURL](get-answer-from-knowledge-base-using-url-tool.md)
+> [Obter respostas com o Postman ou cURL](get-answer-from-knowledge-base-using-url-tool.md)

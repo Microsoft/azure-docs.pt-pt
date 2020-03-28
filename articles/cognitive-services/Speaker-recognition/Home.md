@@ -1,7 +1,7 @@
 ---
 title: O que é a API de Reconhecimento de Orador?
 titleSuffix: Azure Cognitive Services
-description: Verificação de palestrante e identificação do orador com o API de Reconhecimento do Locutor em serviços cognitivas.
+description: Verificação de altifalantes e identificação de altifalantes com a API de Reconhecimento de Altifalantes em Serviços Cognitivos.
 services: cognitive-services
 author: dwlin
 manager: nitinme
@@ -12,58 +12,58 @@ ms.date: 10/01/2018
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: f354793e3779f4d9f7be9bae8a21545a15ed1c4c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73464911"
 ---
-# <a name="speaker-recognition-api---preview"></a>API de Reconhecimento do Locutor-visualização
+# <a name="speaker-recognition-api---preview"></a>Reconhecimento de Altifalantes API - Pré-visualização
 
-As APIs de Reconhecimento do Locutor são APIs baseadas em nuvem que fornecem os algoritmos de ia avançados para verificação de palestrante e identificação do orador. Reconhecimento do Locutor é dividido em duas categorias: verificação do alto-falante e identificação do orador.
+As APIs de Reconhecimento de Altifalantes são APIs baseados na nuvem que fornecem os algoritmos avançados de IA para verificação de altifalantes e identificação de colunas. O reconhecimento do orador é dividido em duas categorias: verificação de altifalantes e identificação de altifalantes.
 
 ## <a name="speaker-verification"></a>Verificação de Orador
 
-A voz tem características exclusivas que podem ser associadas a um indivíduo.  Os aplicativos podem usar voz como um fator adicional para verificação, em cenários como call centers e serviços Web.
+A voz tem características únicas que podem ser associadas a um indivíduo.  As aplicações podem usar a voz como um fator adicional para a verificação, em cenários como call centers e serviços web.
 
-Verificação do Locutor APIs funcionam como uma ferramenta inteligente para ajudar a verificar os usuários que usam suas senhas de voz e fala.
+As APIs de Verificação de Altifalantes servem como uma ferramenta inteligente para ajudar a verificar os utilizadores usando as suas frases de voz e de fala.
 
 ### <a name="enrollment"></a>Inscrição
 
-O registro para verificação do orador é dependente de texto, o que significa que os alto-falantes precisam escolher uma frase secreta específica para usar durante as fases de registro e de verificação.
+A inscrição para verificação de altifalantes é dependente de texto, o que significa que os falantes precisam escolher uma palavra-passe específica para usar durante as fases de inscrição e verificação.
 
-Na fase de registro do palestrante, a voz do orador é registrada dizendo uma frase específica. Os recursos de voz são extraídos para formar uma assinatura de voz exclusiva, enquanto a frase escolhida é reconhecida. Juntos, esses dados de registro do orador seriam usados para verificar o palestrante. Os dados de registro do orador são armazenados em um sistema protegido. O cliente controla por quanto tempo ele deve ser retido. Os clientes podem criar, atualizar e remover dados de registro para palestrantes individuais por meio de chamadas à API.  Quando a assinatura for excluída, todos os dados de registro do orador associados à assinatura também serão excluídos.
+Na fase de inscrição do orador, a voz do orador é gravada dizendo uma frase específica. As características de voz são extraídas para formar uma assinatura de voz única enquanto a frase escolhida é reconhecida. Em conjunto, estes dados de inscrição do orador seriam utilizados para verificar o altifalante. Os dados de inscrição dos altifalantes são armazenados num sistema seguro. O Cliente controla quanto tempo deve ser mantido. Os clientes podem criar, atualizar e remover dados de inscrição para colunas individuais através de chamadas API.  Quando a subscrição for eliminada, todos os dados de inscrição do orador associados à subscrição também serão eliminados.
 
-Os clientes devem garantir que receberam as permissões apropriadas dos usuários para verificação do palestrante.
+Os clientes devem certificar-se de que receberam as permissões adequadas dos utilizadores para a verificação do altifalante.
 
 ### <a name="verification"></a>Verificação
 
-Na fase de verificação, o cliente deve chamar a API de verificação do viva-voz com a ID associada à pessoa a ser verificada.  O serviço extrai recursos de voz e a frase secreta da gravação de fala de entrada. Em seguida, ele compara os recursos com os elementos correspondentes dos dados de registro do orador para o alto-falante que o cliente está procurando verificar e determina qualquer correspondência.  A resposta retorna "Accept" ou "Reject" com diferentes níveis de confiança.  Em seguida, o cliente determina como usar os resultados para ajudar a decidir se essa pessoa é o palestrante registrado.
+Na fase de verificação, o Cliente deve ligar para a API de verificação do altifalante com o ID associado ao indivíduo a verificar.  O serviço extrai as características de voz e a frase-passe da gravação do discurso de entrada. Em seguida, compara as funcionalidades com os elementos correspondentes dos dados de inscrição do altifalante para o altifalante que o Cliente procura verificar e determina qualquer correspondência.  A resposta devolve "aceitar" ou "rejeitar" com diferentes níveis de confiança.  Em seguida, o Cliente determina como utilizar os resultados para ajudar a decidir se esta pessoa é o orador inscrito.
 
-O nível de confiança limite deve ser definido com base no cenário e em outros fatores de verificação que estão sendo usados. Recomendamos que você experimente o nível de confiança e considere a configuração apropriada para cada aplicativo. As APIs não se destinam a determinar se o áudio é de uma pessoa em tempo real ou de um imitação ou de uma gravação de um palestrante registrado.
+O nível de confiança limiar deve ser fixado com base no cenário e noutros fatores de verificação que estão a ser utilizados. Recomendamos que experimente com o nível de confiança e considere a definição adequada para cada aplicação. As APIs não se destinam a determinar se o áudio é de uma pessoa viva ou de uma imitação ou de uma gravação de um altifalante matriculado.
 
-O serviço não retém a gravação de fala ou os recursos de voz extraídos que são enviados para o serviço durante a fase de verificação.
+O serviço não retém a gravação da fala nem as características de voz extraídas que são enviadas ao serviço durante a fase de verificação.
 
 Para obter mais detalhes sobre a verificação de orador, consulte a API [Orador - Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Identificação de Orador
 
-Os aplicativos podem usar a voz para identificar "quem está falando", dado um grupo de alto-falantes registrados. Identificação do Locutor APIs podem ser usadas em cenários como a produtividade da reunião, a personalização e a transcrição do Call Center.
+As aplicações podem usar a voz para identificar "quem está a falar" dado um grupo de oradores inscritos. As APIs de identificação de colunas podem ser usadas em cenários como o cumprimento da produtividade, personalização e transcrição de call center.
 
 ### <a name="enrollment"></a>Inscrição
 
-A inscrição na identificação de orador é independente de texto, o que significa que não existem restrições ao que o orador diz no áudio. Nenhuma frase secreta é necessária.
+A inscrição na identificação de orador é independente de texto, o que significa que não existem restrições ao que o orador diz no áudio. Não é necessária nenhuma palavra-passe.
 
-Na fase de registro, a voz do orador é registrada e os recursos de voz são extraídos para formar uma assinatura de voz exclusiva. Os recursos e áudio de fala extraídos são armazenados em um sistema protegido. O cliente controla por quanto tempo ele é retido. Os clientes podem criar, atualizar e remover esses dados de registro do orador para palestrantes individuais por meio de chamadas à API. Quando a assinatura for excluída, todos os dados de registro do orador associados à assinatura também serão excluídos.
+Na fase de inscrição, a voz do orador é gravada e as características de voz são extraídas para formar uma assinatura de voz única. O áudio da fala e as características extraídas são armazenadas num sistema seguro. O Cliente controla o tempo que é retido. Os clientes podem criar, atualizar e remover estes dados de inscrição de colunas para altifalantes individuais através de chamadas API. Quando a subscrição for eliminada, todos os dados de inscrição do orador associados à subscrição também serão eliminados.
 
-Os clientes devem garantir que receberam as permissões apropriadas dos usuários para a identificação do palestrante.
+Os clientes devem certificar-se de que receberam as permissões adequadas dos utilizadores para identificação de colunas.
 
-### <a name="identification"></a>ID
+### <a name="identification"></a>Identificação
 
-Na fase de identificação, o serviço de identificação do orador extrai recursos de voz da gravação de fala de entrada. Em seguida, ele compara os recursos com os dados de registro da lista de alto-falantes especificada. Quando uma correspondência é encontrada com um orador registrado, a resposta retorna a ID do palestrante com um nível de confiança.  Caso contrário, a resposta retornará "rejeitar" quando nenhum orador for uma correspondência com um palestrante registrado.
+Na fase de identificação, o serviço de identificação do altifalante extrai características de voz da gravação da fala de entrada. Em seguida, compara as funcionalidades com os dados de inscrição da lista especificada de oradores. Quando um fósforo é encontrado com um altifalante inscrito, a resposta devolve a identificação do altifalante com um nível de confiança.  Caso contrário, a resposta retorna "rejeitada" quando nenhum orador é compatível com um altifalante inscrito.
 
-O nível de confiança limite deve ser definido com base no cenário. Recomendamos que você experimente o nível de confiança e considere a configuração apropriada para cada aplicativo. As APIs não se destinam a determinar se o áudio é de uma pessoa em tempo real ou de um imitação ou de uma gravação de um palestrante registrado.
+O nível de confiança limiar deve ser fixado com base no cenário. Recomendamos que experimente com o nível de confiança e considere a definição adequada para cada aplicação. As APIs não se destinam a determinar se o áudio é de uma pessoa viva ou de uma imitação ou de uma gravação de um altifalante matriculado.
 
-O serviço não retém a gravação de fala ou os recursos de voz extraídos que são enviados para o serviço para a fase de identificação.
+O serviço não retém a gravação da fala nem as características de voz extraídas que são enviadas ao serviço para a fase de identificação.
 
-Para obter mais detalhes sobre a identificação do orador, consulte a [identificação do orador](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e)da API.
+Para mais detalhes sobre a identificação do altifalante, consulte o Altifalante da API [- Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

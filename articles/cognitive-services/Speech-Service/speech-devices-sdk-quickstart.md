@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: dapine
 zone_pivot_groups: platforms-set-of-three
 ms.openlocfilehash: 598a40e0a76606a0fec8f8a029ac08c0d6e9696e
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77563228"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Quickstart: Executar a aplicação de amostras SDK dispositivos de fala no Windows, Linux ou Android

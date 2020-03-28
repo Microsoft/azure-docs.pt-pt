@@ -12,10 +12,10 @@ ms.date: 03/13/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 6e1b366ee23f472489eeaa6c08df99bdfc892f00
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79372831"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>Conheça os fundamentos do reconhecimento da fala

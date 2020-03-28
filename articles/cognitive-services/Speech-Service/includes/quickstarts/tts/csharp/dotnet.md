@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Sinthesize C# speech, (Windows) - Serviço de fala'
+title: 'Quickstart: Discurso sintetizador, C# (Windows) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Utilize este guia para criar uma aplicação de consola de texto para falar utilizando a estrutura .NET para Windows e o Speech SDK. Quando terminar, pode sintetizar o discurso a partir do texto e ouvir o discurso no seu orador em tempo real.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 08/27/2019
 ms.author: yinhew
 ms.openlocfilehash: b615ba8085650e9aa686fb4a229d9752c4f6e2ce
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925845"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,17 +31,17 @@ Antes de começar, certifique-se de:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/text-to-speech/helloworld/Program.cs#code)]
 
-1. Encontre o string `YourSubscriptionKey`e substitua-o pela chave de subscrição do serviço Speech.
+1. Encontre a `YourSubscriptionKey`corda e substitua-a pela chave de subscrição do serviço Speech.
 
-1. Encontre a cadeia `YourServiceRegion`e substitua-a pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição. Por exemplo, se estiver a usar a subscrição de teste gratuito, a região é `westus`.
+1. Encontre a `YourServiceRegion`corda e substitua-a pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua subscrição. Por exemplo, se estiver a usar a subscrição de teste gratuito, a região é `westus`.
 
-1. Na barra de menus, escolha **File** > **Save All**.
+1. A partir da barra de menus, escolha **File** > **Save All**.
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-1. A partir da barra de menus, escolha **construir** > **Construir Solução** para construir a aplicação. Agora o código deverá ser compilado sem erros.
+1. A partir da barra de menus, escolha **Build Build** > **Solution** para construir a aplicação. Agora o código deverá ser compilado sem erros.
 
-1. Escolha **debug** > **Iniciar Debugging** (ou selecione **F5)** para iniciar a aplicação **helloworld.**
+1. Escolha **Debug** > **Start Debugging** (ou selecione **F5)** para iniciar a aplicação **Helloworld.**
 
 1. Introduza uma frase ou frase em inglês. A aplicação transmite o seu texto ao serviço da Fala, que envia um discurso sintetizado para a aplicação para reproduzir no seu altifalante.
 

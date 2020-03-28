@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: obter informações de imagem usando a API REST e node. js-Pesquisa Visual do Bing'
+title: 'Quickstart: Obtenha insights de imagem usando o REST API e Node.js - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Saiba como carregar uma imagem no API da Pesquisa Visual do Bing e obter informações sobre ela.
+description: Aprenda a enviar uma imagem para a API de Pesquisa Visual bing e obtenha informações sobre isso.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 373d6fa5402ba703cbebe88ad562974ba97f3391
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75379713"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Início rápido: obter informações de imagem usando a API REST do Pesquisa Visual do Bing e o Node. js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Obtenha insights de imagem usando a API e node.js de pesquisa visual bing
 
-Use este guia de início rápido para fazer sua primeira chamada para a API da Pesquisa Visual do Bing e exibir os resultados da pesquisa. Esse aplicativo JavaScript simples carrega uma imagem na API e exibe as informações retornadas sobre ela. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing e veja os resultados da pesquisa. Esta simples aplicação JavaScript envia uma imagem para a API e exibe as informações devolvidas sobre a mesmo. Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Node.js](https://nodejs.org/en/download/)
-* O módulo de solicitação para JavaScript. Você pode usar `npm install request` comando para instalar o módulo.
-* O módulo de dados de formulário. Você pode usar o comando `npm install form-data` para instalar o módulo. 
+* [Nó.js](https://nodejs.org/en/download/)
+* O módulo Request para JavaScript. Pode utilizar `npm install request` o comando para instalar o módulo.
+* O módulo de dados de formulários. Pode utilizar `npm install form-data` o comando para instalar o módulo. 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Inicializar o aplicativo
+## <a name="initialize-the-application"></a>Inicializar a aplicação
 
-1. Crie um arquivo JavaScript em seu IDE ou editor favorito e defina os seguintes requisitos:
+1. Crie um ficheiro JavaScript no seu IDE ou editor favorito e detete os seguintes requisitos:
 
     ```javascript
     var request = require('request');
@@ -39,7 +39,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API da P
     var fs = require('fs');
     ```
 
-2. Crie variáveis para seu ponto de extremidade de API, chave de assinatura e o caminho para a imagem. `baseUri` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso:
+2. Crie variáveis para o seu ponto final de API, chave de subscrição e o caminho para a sua imagem. `baseUri`pode ser o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso:
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -47,7 +47,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API da P
     var imagePath = "path-to-your-image";
     ```
 
-3. Crie uma função chamada `requestCallback()` para imprimir a resposta da API:
+3. Criar uma `requestCallback()` função nomeada para imprimir a resposta da API:
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -55,9 +55,9 @@ Use este guia de início rápido para fazer sua primeira chamada para a API da P
     }
     ```
 
-## <a name="construct-and-send-the-search-request"></a>Construir e enviar a solicitação de pesquisa
+## <a name="construct-and-send-the-search-request"></a>Construir e enviar o pedido de pesquisa
 
-Ao carregar uma imagem local, os dados do formulário devem incluir o cabeçalho `Content-Disposition`. Você deve definir seu parâmetro `name` como "Image" e o parâmetro `filename` pode ser definido como qualquer cadeia de caracteres. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo de imagem que pode carregar é 1 MB.
+Ao carregar uma imagem local, os `Content-Disposition` dados do formulário devem incluir o cabeçalho. Deve definir `name` o parâmetro para "imagem", e o `filename` parâmetro pode ser definido em qualquer corda. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo de imagem que pode carregar é 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -68,14 +68,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-1. Crie um novo objeto **FormData** usando `FormData()`e anexe o caminho da imagem a ele, usando `fs.createReadStream()`:
+1. Crie um novo `FormData()`objeto **FormData** utilizando , e `fs.createReadStream()`apreenda o seu caminho de imagem, utilizando:
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Use a biblioteca de solicitações para carregar a imagem e chame `requestCallback()` para imprimir a resposta. Certifique-se de adicionar sua chave de assinatura ao cabeçalho de solicitação:
+2. Utilize a biblioteca de pedidos para `requestCallback()` fazer upload da imagem e ligue para imprimir a resposta. Certifique-se de adicionar a sua chave de subscrição ao cabeçalho de pedido:
 
     ```javascript
     form.getLength(function(err, length){
@@ -91,4 +91,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um Pesquisa Visual aplicativo Web de página única](../tutorial-bing-visual-search-single-page-app.md)
+> [Construa uma aplicação web de pesquisa visual de uma página](../tutorial-bing-visual-search-single-page-app.md)

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
 ms.openlocfilehash: 81c77b2f6ae0c4f8497716c168a937657ceb57dd
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78384071"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Linux para construir um produto ativado pela fala ou usá-lo como um dispositivo de Transcrição de [Conversas.](../conversation-transcription-service.md) Atualmente, apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado.
@@ -35,7 +35,7 @@ Este início rápido requer:
 
 Certifique-se de que estas dependências estão instaladas antes de iniciar o Eclipse.
 
-* em Ubuntu:
+* Em Ubuntu:
 
   ```sh
   sudo apt-get update
@@ -61,7 +61,7 @@ No RHEL/CentOS 8:
 
 A tualmente, a Transcrição de Conversas só está disponível para "en-US" e "zh-CN", nas regiões "central" e "eastasia". Deve ter uma chave de discurso numa dessas regiões para usar a Transcrição de Conversações.
 
-Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço de [Compreensão de Línguas (LUIS).](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) Para saber mais sobre LUIS e reconhecimento de intenções, consulte [Reconhecer as intenções de fala com C#LUIS, ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Está disponível uma amostra do [modelo LUIS](https://aka.ms/sdsdk-luis) para esta aplicação.
+Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço de [Compreensão de Línguas (LUIS).](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) Para saber mais sobre LUIS e reconhecimento de intenções, consulte [Reconhecer as intenções de fala com LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Está disponível uma amostra do [modelo LUIS](https://aka.ms/sdsdk-luis) para esta aplicação.
 
 ## <a name="create-and-configure-the-project"></a>Criar e configurar o projeto
 
@@ -73,19 +73,19 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
 
 1. Dentro de momentos, é apresentada a janela principal do IDE do Eclipse. Feche o ecrã de Boas-Vindas, se existir.
 
-1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File** > **New** > **Java Project.** Se não estiver disponível escolha **Projeto** e, em seguida, **Projeto Java**.
+1. A partir da barra de menueclipse, crie um novo projeto escolhendo **File** > **New** > **Java Project**. Se não estiver disponível escolha **Projeto** e, em seguida, **Projeto Java**.
 
 1. O feiticeiro do **Projeto New Java** começa. **Procure** a localização do projeto da amostra. Selecione **Concluir**.
 
    ![Captura de ecrã do assistente Novo Projeto Java](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
-1. No **explorador**de pacotes, clique no seu projeto. Escolha **Configurar** > **Converter em Projeto Maven** no menu de contexto. Selecione **Concluir**.
+1. No **explorador**de pacotes, clique no seu projeto. Escolha **Configure** > **Converter para Maven Project** a partir do menu de contexto. Selecione **Concluir**.
 
    ![Captura de ecrã do Explorador de pacotes](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
 1. Abra o ficheiro pom.xml e edite-o.
 
-    No final do ficheiro, antes da etiqueta de fecho `</project>`, crie elementos `repositories` e `dependencies`, como mostrado aqui, e certifique-se de que o `version` corresponde à sua versão atual:
+    No final do ficheiro, antes `</project>`da `repositories` etiqueta `dependencies` de fecho, crie e `version` elementos, como mostrado aqui, e certifique-se de que a versão atual corresponde:
     ```xml    
     <repositories>
          <repository>
@@ -104,7 +104,7 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
     </dependencies>
    ```
 
-1. No **explorador**de pacotes, clique no seu projeto. Escolha **propriedades**, em **seguida, executar/depurar definições** > **Novo...**** > Aplicação Java.** 
+1. No **explorador**de pacotes, clique no seu projeto. Escolha **propriedades,** em **seguida, executar/depurar definições** > **Novas...** > **Aplicação Java**. 
 
 1. Aparece a janela **de Configuração de Edição.** No campo **Nome** introduza **Main**, e use **Search** for the **Main Class** para encontrar e selecionar **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
 
@@ -114,14 +114,14 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
 
 1. Também a partir da janela **de configuração editar** selecione a página **Ambiente** e **Nova**. A janela **New Environment Variable** aparece. No campo **Nome** introduza **LD_LIBRARY_PATH** e no campo de **valor** introduza a pasta que contém os ficheiros *.so, por **exemplo/home/wcaltest/JRE-Sample-Release**
 
-1. Copiar `kws.table` e `participants.properties` no **alvo/classes** da pasta do projeto
+1. Copiar `kws.table` `participants.properties` e entrar no **alvo/classes** da pasta do projeto
 
 
 ## <a name="configure-the-sample-application"></a>Configurar o exemplo de aplicação
 
 1. Adicione a chave de subscrição do seu discurso ao código fonte. Se quiser experimentar o reconhecimento de intenções, adicione também a chave de subscrição do [serviço De compreensão](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) de idiomas e o ID da aplicação.
 
-   Para a fala e para o LUIS, a sua informação vai para `FunctionsList.java`:
+   Para a fala e para `FunctionsList.java`o LUIS, a sua informação vai para:
 
    ```java
     // Subscription
@@ -132,7 +132,7 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Se estiver a usar a transcrição da conversação, a sua chave de fala e informações da região também são necessárias em `Cts.java`:
+    Se estiver a utilizar a transcrição da conversação, `Cts.java`a sua chave de fala e informações da região também são necessárias em:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -144,11 +144,11 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
    > [!TIP]
    > Também pode [criar uma palavra-chave personalizada.](../speech-devices-sdk-create-kws.md)
 
-    Para utilizar uma nova palavra-chave, atualize a seguinte linha em `FunctionsList.java`e copie a palavra-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave "Máquina" do pacote de palavras-chave `machine.zip`:
+    Para utilizar uma nova palavra-chave, `FunctionsList.java`atualize a seguinte linha e copie a palavra-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' `machine.zip`do pacote de palavras-chave:
 
-   * Copie o ficheiro `kws.table` do pacote zip para o **alvo/classes**da pasta do projeto .
+   * Copie `kws.table` o ficheiro do pacote zip para o **alvo/classes**da pasta do projeto .
 
-   * Atualize o `FunctionsList.java` com o nome da palavra-chave:
+   * Atualize `FunctionsList.java` o com o nome da palavra-chave:
 
      ```java
      private static final String Keyword = "Machine";
@@ -156,13 +156,13 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Executar a aplicação da amostra a partir do Eclipse
 
-1. A partir da barra de menu Eclipse, **Run** > **Run** 
+1. Da barra de menu Eclipse, **Run** > **Run** 
 
-1. O aplicativo de exemplo do SDK de dispositivos de fala é iniciado e exibe as seguintes opções:
+1. A aplicação exemplo sDK dispositivos de fala começa e apresenta as seguintes opções:
 
-   ![Exemplo de aplicativo de exemplo de SDK de dispositivos de voz e opções](../media/speech-devices-sdk/java-sample-app-linux.png)
+   ![Aplicação e opções de exemplo sdk dispositivos de fala de amostra](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Experimente a nova demonstração de Transcrição de **Conversas.** Comece a transcrever com **a Sessão** > **Iniciar**. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas em `participants.properties` no **alvo/classes**da pasta do projeto . Para gerar a assinatura de voz, veja as [conversas do Transcribe (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Experimente a nova demonstração de Transcrição de **Conversas.** Comece a transcrever com o**Início**de **Sessão** > . Por defeito, todos são convidados. No entanto, se tiver as assinaturas `participants.properties` de voz dos participantes, podem ser colocadas no **alvo/classes**da pasta do projeto . Para gerar a assinatura de voz, veja as [conversas do Transcribe (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Aplicação de transcrição de conversação de demonstração](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
@@ -177,7 +177,7 @@ Se planeia utilizar as intenções, necessitará de uma subscrição do Serviço
  
    ![Screenshot da exportação de ficheiros JAR Runnable](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
-1. Por favor, coloque `kws.table` e `participants.properties` na pasta de destino escolhida acima, uma vez que estes ficheiros são necessários pela aplicação.
+1. Por `kws.table` favor, coloque e `participants.properties` na pasta de destino escolhida acima, uma vez que estes ficheiros são necessários pela aplicação.
 
 1. Desloque a LD_LIBRARY_LIB para a pasta que contém os ficheiros *.so
 

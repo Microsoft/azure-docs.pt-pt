@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: d7126acebae02a60e5c485b74716aaa84b99f781
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906838"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
@@ -29,9 +29,9 @@ const uuidv4 = require('uuid/v4');
 
 Estes módulos são obrigatórios para construir o pedido HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
 
-## <a name="set-the-subscription-key-and-endpoint"></a>Definir a chave de assinatura e o ponto de extremidade
+## <a name="set-the-subscription-key-and-endpoint"></a>Desdefinir a chave de subscrição e o ponto final
 
-Este exemplo tentará ler sua chave de assinatura tradução de texto e o ponto de extremidade dessas variáveis `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` de `TRANSLATOR_TEXT_ENDPOINT`ambiente: e. Se você não estiver familiarizado com as variáveis de ambiente, poderá `subscriptionKey` definir `endpoint` e como cadeias de caracteres e comentar as instruções condicionais.
+Esta amostra tentará ler a chave de subscrição de `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` texto `TRANSLATOR_TEXT_ENDPOINT`tradutor e ponto final destas variáveis ambientais: e . Se não está familiarizado com variáveis ambientais, pode definir `subscriptionKey` e `endpoint` como cordas e comentar as declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -53,7 +53,7 @@ var endpoint = process.env[endpoint_var];
 O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: Quebrar frase](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [O Texto tradutor API 3.0: Quebrar a frase](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {
@@ -77,7 +77,7 @@ let options = {
 
 A forma mais fácil de autenticar um pedido é transmitir a sua chave de subscrição como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que vamos utilizar neste exemplo. Como alternativa, pode trocar a chave de subscrição por um token de acesso e transmiti-lo como um cabeçalho `Authorization` para validar o pedido.
 
-Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus cabeçalhos de solicitação.
+Se estiver a utilizar uma subscrição multi-serviço `Ocp-Apim-Subscription-Region` de Serviços Cognitivos, também deve incluir os cabeçalhos do seu pedido.
 
 Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
@@ -122,9 +122,9 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 Se codificou a chave de subscrição no seu programa, certifique-se de que remove a chave de subscrição quando tiver terminado este início rápido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
+Veja a referência da API para entender tudo o que pode fazer com a API de Texto tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Sinthesize C# speech, (.NET Core) - Serviço de fala'
+title: 'Quickstart: Discurso sintetizador, C# (.NET Core) - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a sintetizar o discurso em C# baixo do Núcleo .NET no Windows usando o SDK de Fala
+description: Saiba como sintetizar o discurso em C# em .NET Core no Windows usando o Speech SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
 ms.openlocfilehash: ba6a373f678f8d34b34a669b3fbb3b570c90ed0d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925688"
 ---
 > [!NOTE]
@@ -36,19 +36,19 @@ Antes de começar, certifique-se de:
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua também a cadeia de carateres `YourServiceRegion`pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua também a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 1. Guarde as alterações ao projeto.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-1. Compile a aplicação. Na barra de menus, escolha **Compilar** > **Compilar solução**. O código deve ser compilado sem erros.
+1. Compile a aplicação. A partir da barra de menus, escolha **Build Build** > **Solution**. O código deve ser compilado sem erros.
 
-    ![Screenshot da aplicação Visual Studio, com a opção Build Solution em destaque](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Construção bem sucedida")
+    ![Captura de ecrã da aplicação Visual Studio, com a opção Compilar Solução realçada](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Construção bem sucedida")
 
-1. Inicie a aplicação. Na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou prima **F5**.
+1. Inicie a aplicação. A partir da barra de menus, escolha **Debug** > **Start Debugging,** ou prima **F5**.
 
-    ![Screenshot da aplicação Visual Studio, com a opção Start Debugging em destaque](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Inicie a aplicação em depuração")
+    ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Inicie a aplicação em depuração")
 
 1. Aparece uma janela de consola, levando-o a escrever algum texto. Escreva algumas palavras ou uma frase. O texto que escreveu é transmitido ao serviço da Fala e sintetizado para a fala, que reproduz no seu altifalante.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: executar uma pesquisa na Web com o Java-Pesquisa na Web do Bing API REST'
+title: 'Quickstart: Realizar uma pesquisa na Web com Java - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando Java e receba uma resposta JSON.
+description: Use este quickstart para enviar um pedido para a Bing News Search REST API usando Java, e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,19 +12,19 @@ ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383617"
 ---
-# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Início rápido: executar uma pesquisa de notícias usando Java e a API REST do Pesquisa de Notícias do Bing
+# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando Java e a Bing News Search REST API
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Notícias do Bing e exibir a resposta JSON. Esse aplicativo Java simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta.
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing e veja a resposta JSON. Esta simples aplicação Java envia uma consulta de pesquisa de notícias à API, e exibe a resposta.
 
 Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-O código-fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
+O código fonte para esta amostra está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
     import com.google.gson.JsonParser;
     ```
 
-2. Crie uma nova classe, com variáveis para o ponto de extremidade da API, sua chave de assinatura e termo de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie uma nova classe, com variáveis para o ponto final da API, a sua chave de subscrição e termo de pesquisa. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -62,7 +62,7 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
     }
     ```
 
-## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construir a solicitação de pesquisa e receber uma resposta JSON
+## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construa o pedido de pesquisa e receba uma resposta JSON
 
 1. Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido da API. Tenha em atenção que o seu termo de pesquisa tem de ter codificação URL antes de ser anexado ao pedido.
 
@@ -75,7 +75,7 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
     }
     ```
 
-2. Receba a resposta JSON da API de Pesquisa de Notícias do Bing e construa o objeto de resultado.
+2. Receba a resposta da JSON da API de Pesquisa de Notícias bing, e construa o objeto de resultados.
 
     ```java
     // receive JSON body
@@ -85,9 +85,9 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
 
-## <a name="process-the-json-response"></a>Processar a resposta JSON
+## <a name="process-the-json-response"></a>Processar a resposta da JSON
 
-1. Separe os cabeçalhos HTTP relacionados ao Bing do corpo JSON, feche o fluxo e retorne a resposta da API.
+1. Separe os cabeçalhos HTTP relacionados com bing do corpo JSON, em seguida, feche o fluxo e devolva a resposta API.
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -101,7 +101,7 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
     return results;
     ```
 
-2. Criar um método para analisar e reserializar JSON
+2. Criar um método para analisar e reserializar a JSON
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -112,7 +112,7 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
     }
     ```
 
-3. No método principal do seu aplicativo, chame o método Search e exiba os resultados.
+3. No método principal da sua aplicação, ligue para o método de pesquisa e exiba os resultados.
     ```csharp
    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
@@ -128,7 +128,7 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="json-response"></a>Resposta JSON
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -225,4 +225,4 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)
+> [Criar uma aplicação web de página única](tutorial-bing-news-search-single-page-app.md)
